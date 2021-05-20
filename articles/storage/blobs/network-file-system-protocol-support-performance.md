@@ -9,12 +9,12 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 16c2927aef83dfa1a3a69298e865c5684f40b7b9
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 86031eb10dc96be8caac721ba4d9f66595b94aef
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144580"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633120"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Considérations relatives au niveau de performance du système de gestion de fichiers en réseau (NFS, Network File System) 3.0 dans le Stockage Blob Azure (préversion)
 
@@ -49,6 +49,10 @@ Chaque barre du graphe ci-dessous montre la différence entre la bande passante 
 ## <a name="avoid-frequent-overwrites-on-data"></a>Éviter les remplacements fréquents sur les données
 
 Il faut plus de temps pour effectuer une opération de remplacement qu’une nouvelle opération d’écriture. En effet, une opération de remplacement NFS, en particulier une modification de fichier partielle sur place, est une combinaison de plusieurs opérations Blob sous-jacentes : une opération de lecture, une opération de modification et une opération d’écriture. Par conséquent, une application qui exige des modifications fréquentes sur place n’est pas adaptée aux comptes de Stockage Blob avec NFS. 
+
+## <a name="deploy-azure-hpc-cache-for-latency-senstive-applications"></a>Déployer Azure HPC Cache pour les applications sensibles à la latence
+
+Certaines applications peuvent nécessiter une faible latence en plus d’un débit élevé. Vous pouvez déployer [Azure HPC Cache](../../hpc-cache/nfs-blob-considerations.md) pour améliorer considérablement la latence. En savoir plus sur la [latence dans le stockage Blob](storage-blobs-latency.md). 
 
 ## <a name="other-best-practice-recommendations"></a>Autres recommandations 
 

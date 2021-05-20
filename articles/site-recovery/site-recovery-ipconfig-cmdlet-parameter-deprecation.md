@@ -8,18 +8,20 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/30/2021
 ms.author: rishjai
-ms.openlocfilehash: 569687a6efca34e631b096b448d988c18b21a6c9
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 5c952f496a52da70f10e1de4d8a9e9164c8a9706
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326914"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759002"
 ---
 # <a name="deprecation-of-ip-config-parameters-for-the-cmdlet-new-azrecoveryservicesasrvmnicconfig"></a>Dépréciation des paramètres IP Config pour la cmdlet New-AzRecoveryServicesAsrVMNicConfig
 
 Cet article décrit la dépréciation, les implications correspondantes et les options alternatives disponibles pour les clients dans le scénario suivant :
 
-Configuration des paramètres « Primary IP Config » pour le basculement ou le test de basculement. Cette cmdlet a un impact sur tous les clients du scénario Azure vers Récupération d’urgence Azure utilisant la cmdlet New-AzRecoveryServicesAsrVMNicConfig.
+Configuration des paramètres « Primary IP Config » pour le basculement ou le test de basculement. 
+
+Cette cmdlet a un impact sur tous les clients du scénario Reprise d’activité Azure sur Azure utilisant la cmdlet New-AzRecoveryServicesAsrVMNicConfig dans la version _Az Powershell 5.9.0 et ultérieure_.
 
 > [!IMPORTANT]
 > Les clients sont invités à prendre les mesures correctives au plus tôt pour éviter toute interruption dans leur environnement. 

@@ -6,13 +6,13 @@ ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 12/01/2020
-ms.openlocfilehash: aaca73d71731ee18eb8f12468ec26ece746f1b8f
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.date: 05/08/2021
+ms.openlocfilehash: 3ead96a49e2bacca526cd9ee3b8c8e00abbba426
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288361"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656287"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Inscrire et analyser une instance Azure SQL Database Managed Instance
 
@@ -109,9 +109,9 @@ Il est nécessaire d’obtenir l’ID d’application et le secret du principal 
 
 1. Accédez à votre compte Purview.
 
-1. Sélectionnez **Sources** dans le volet de navigation de gauche.
+1. Sélectionnez **Sources** dans la barre de navigation à gauche.
 
-1. Sélectionnez **Inscrire**.
+1. Sélectionnez **Inscription**.
 
 1. Sélectionnez **Azure SQL Database Managed Instance** puis **Continuer**.
 
@@ -119,7 +119,7 @@ Il est nécessaire d’obtenir l’ID d’application et le secret du principal 
 
 1. Sélectionnez **À partir de l’abonnement Azure**, puis sélectionnez l’abonnement approprié dans la zone de liste déroulante **Abonnement Azure** et le serveur approprié dans la zone de liste déroulante **Nom du serveur**.
 
-1. Spécifiez le **nom de domaine complet du point de terminaison public** et le **numéro de port**. Ensuite, sélectionnez **Terminer** pour inscrire la source de données.
+1. Spécifiez le **nom de domaine complet du point de terminaison public** et le **numéro de port**. Ensuite, sélectionnez **Inscrire** pour inscrire la source de données.
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/add-azure-sql-database-managed-instance.png" alt-text="Ajouter Azure SQL Database Managed Instance":::
 

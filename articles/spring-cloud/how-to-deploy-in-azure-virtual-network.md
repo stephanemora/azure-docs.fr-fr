@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
-ms.openlocfilehash: 2ff56857eca112ebd808a96f3aaa097ab4be5c18
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: ebf8070a6f5fae97d1cee3720ffee2ee2399735c
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291529"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634416"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Déployer Azure Spring Cloud dans un réseau virtuel
 
@@ -88,9 +88,9 @@ Sélectionnez le réseau virtuel **azure-spring-cloud-vnet** que vous avez cré�
 
     ![Capture d’écran de la fenêtre Contrôle d’accès](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. Affectez le rôle [azure-spring-cloud-data-reader](../role-based-access-control/built-in-roles.md#azure-spring-cloud-data-reader) à [utilisateur | groupe | principal-de-service | identité-managée] pour l’étendue [groupe-de-gestion | abonnement | groupe-de-ressources | ressources].
+1. Attribuez le rôle [Propriétaire](../role-based-access-control/built-in-roles.md#owner) à l’entité [utilisateur | groupe | principal-de-service | identité-managée] pour l’étendue [groupe-de-gestion | abonnement | groupe-de-ressources | ressources].
 
-    Pour connaître la procédure détaillée, consultez [Attribution de rôles Azure à l’aide du Portail Azure](../role-based-access-control/role-assignments-portal.md).
+    Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 Vous pouvez également effectuer cette étape en exécutant la commande Azure CLI suivante :
 

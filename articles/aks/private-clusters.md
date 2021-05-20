@@ -4,12 +4,12 @@ description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 3/31/2021
-ms.openlocfilehash: 20adab9a42cabc0f3fc62378427d2c7bdb669806
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 2a897c9b3b104193e9ad2395c3f502a242001a48
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072384"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764114"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service privé
 
@@ -71,6 +71,7 @@ Où `--enable-private-cluster` est un indicateur obligatoire pour un cluster pri
 Les paramètres suivants peuvent être utilisés pour configurer une zone de DNS privé.
 
 - « System » correspond à la valeur par défaut. Si l’argument --private-dns-zone est omis, AKS crée une zone de DNS privé dans le groupe de ressources du nœud.
+- Si la zone DNS privé se trouve dans un autre abonnement que le cluster AKS, vous devez inscrire Microsoft.ContainerServices dans les deux abonnements.
 - « None » signifie qu’AKS ne crée pas de zone de DNS privé.  Cela requiert l’apport de votre propre serveur DNS et la configuration de la résolution DNS pour le nom de domaine complet privé.  Si vous ne configurez pas la résolution DNS, le DNS ne peut être résolu qu’au sein des nœuds de l’agent et provoquera des problèmes de cluster après le déploiement. 
 - « CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID » vous oblige à créer une zone DNS privée au format suivant pour le cloud global Azure : `privatelink.<region>.azmk8s.io`. À partir de maintenant, vous allez avoir besoin de l’ID de ressource de la zone DNS privée.  De plus, vous aurez besoin d’une identité affectée par l’utilisateur ou d’un principal de service disposant au minimum des rôles `private dns zone contributor` et `vnet contributor`.
 - « fqdn-subdomain » peut être utilisé avec « CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID » uniquement pour fournir des fonctionnalités de sous-domaine à `privatelink.<region>.azmk8s.io`

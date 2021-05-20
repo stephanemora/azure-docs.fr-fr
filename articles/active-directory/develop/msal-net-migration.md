@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 0e7dc3540dc54e0563a5ea416510bddb9a41fb65
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 3d877641948635a47dd69ddb03b98acc2ddf3eaf
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861694"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633138"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migration d’applications vers MSAL.NET
 
@@ -49,13 +49,15 @@ Si vous êtes déjà familiarisé avec le point de terminaison Azure AD pour d�
 
 En revanche, vous devez quand même utiliser ADAL.NET si votre application a besoin de connecter les utilisateurs avec des versions antérieures des [services de fédération Active Directory (AD FS)](/windows-server/identity/active-directory-federation-services). Pour plus d'informations, consultez le [support ADFS](https://aka.ms/msal-net-adfs-support).
 
-L'image suivante résume certaines des différences entre le ![code côte à côte](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png) ADAL.NET et MSAL.NET d'une application cliente publique
+L’illustration suivante résume quelques-unes des différences entre ADAL.NET et MSAL.NET pour une application cliente publique. [![ Capture d’écran montrant quelques-unes des différences entre ADAL.NET et MSAL.NET pour une application cliente publique.](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png#lightbox)
+
+L’illustration suivante résume quelques-unes des différences entre ADAL.NET et MSAL.NET pour une application cliente confidentielle. [![ Capture d’écran montrant quelques-unes des différences entre ADAL.NET et MSAL.NET pour une application cliente confidentielle.](./media/msal-net-migration/confidential-client-application.png)](./media/msal-net-migration/confidential-client-application.png#lightbox)
 
 ### <a name="nuget-packages-and-namespaces"></a>Espaces de noms et packages NuGet
 
 ADAL.NET se consomme à partir du package NuGet [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory). L’espace de noms à utiliser est `Microsoft.IdentityModel.Clients.ActiveDirectory`.
 
-Pour utiliser MSAL.NET, vous devez ajouter le package NuGet [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) et utiliser l’espace de noms `Microsoft.Identity.Client`.
+Pour utiliser MSAL.NET, vous devez ajouter le package NuGet [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) et utiliser l’espace de noms `Microsoft.Identity.Client`. Si vous générez une application cliente confidentielle, vous pouvez également consulter [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web).
 
 ### <a name="scopes-not-resources"></a>Étendues au lieu de ressources
 
@@ -147,7 +149,7 @@ Application web | Code d’authentification | [Acquisition des jetons avec des 
 
 ADAL.NET vous permet d’étendre la classe `TokenCache` pour implémenter la fonctionnalité de persistance souhaitée sur les plateformes sans stockage sécurisé (.NET Framework et .NET Core) en utilisant les méthodes `BeforeAccess` et `BeforeWrite`. Pour plus d’informations, consultez [Sérialisation du cache de jetons dans ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization).
 
-MSAL.NET transforme le cache de jetons en classe sealed, en supprimant la possibilité de l’étendre. Ainsi, votre implémentation de la persistance du cache de jetons doit prendre la forme d’une classe d’assistance qui interagit avec le cache de jetons sealed. Cette interaction est décrite dans [Sérialisation du cache de jetons dans MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization).
+MSAL.NET transforme le cache de jetons en classe sealed, en supprimant la possibilité de l’étendre. Ainsi, votre implémentation de la persistance du cache de jetons doit prendre la forme d’une classe d’assistance qui interagit avec le cache de jetons sealed. Cette interaction est décrite dans [Sérialisation du cache de jetons dans MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization). La sérialisation sera différente pour une application cliente publique (voir [Cache de jetons pour une application cliente publique](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-public-client-application)) et pour une application cliente confidentielle (voir [Cache de jetons pour une application web ou une API web](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-public-client-application)).
 
 ## <a name="signification-of-the-common-authority"></a>Signification de l’autorité commune
 

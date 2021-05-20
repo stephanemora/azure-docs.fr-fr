@@ -3,12 +3,12 @@ title: Mettre à jour une délégation
 description: Découvrez comment mettre à jour une délégation pour un client précédemment intégré à Azure Lighthouse.
 ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: f0ed5222cdbac3d0e4d193941c2a6f233d15938c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f93dcda5eead60c22457d4e8be30f352ad8a8c81
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555760"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785976"
 ---
 # <a name="update-a-delegation"></a>Mettre à jour une délégation
 
@@ -69,3 +69,4 @@ Si vous souhaitez modifier le locataire gestionnaire, vous devez [créer et publ
 
 - [Affichez et gérez les clients](view-manage-customers.md) en accédant à **Mes clients** sur le portail Azure.
 - Découvrez comment [supprimer l’accès à une délégation](remove-delegation.md) qui a été intégrée.
+- Apprenez-en davantage sur l’[architecture d’Azure Lighthouse](../concepts/architecture.md).

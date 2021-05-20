@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 58e37cb1cffadf841e6d9450f1ce908cf6f22c69
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 1118e44e822068566579fdc516479afeda294cf6
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108296381"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789494"
 ---
 # <a name="azure-digital-twins-query-language-reference-select-clause"></a>Informations de référence sur le langage de requête Azure Digital Twins : clause SELECT
 
@@ -70,11 +70,11 @@ Si une propriété incluse dans la projection n’est pas présente pour une lig
 #### <a name="example-scenario"></a>Exemple de scénario
 
 Pour les exemples suivants, envisagez un graphique de jumeaux contenant les éléments de données suivants :
-* Un jumeau de fabrique appelé `FactoryA`
+* Un jumeau de fabrique appelé FactoryA
     - Contient une propriété appelée `name` avec la valeur `FactoryA`
-* Un jumeau de consommateur appelé `Contoso`
+* Un jumeau de consommateur appelé Contoso
     - Contient une propriété appelée `name` avec la valeur `Contoso`
-* Une relation consumerRelationship de `FactoryA` à `Contoso` , appelée `FactoryA-consumerRelationship-Contoso`
+* Une relation consumerRelationship de FactoryA à Contoso, appelée `FactoryA-consumerRelationship-Contoso`
     - Contient une propriété appelée `managedBy` avec la valeur `Jeff`
 
 Le diagramme suivant illustre ce scénario :

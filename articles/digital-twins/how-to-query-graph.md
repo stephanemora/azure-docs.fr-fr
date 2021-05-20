@@ -8,18 +8,18 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 52adba94650c09f731cfb6142852b28a0e3f3906
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 67d09eb3420143c362914a7903b181a419d7a388
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288637"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786876"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Interroger le graphe de jumeaux Azure Digital Twins
 
 Cet article fournit des exemples de requête et des instructions sur l’utilisation du **langage de requête Azure Digital Twins** pour interroger votre [graphe de jumeaux](concepts-twins-graph.md) afin d’obtenir des informations. (Pour une présentation du langage de requête, consultez [Concepts : langage de requête](concepts-query-language.md).)
 
-Il contient des exemples de requête qui illustrent la structure du langage de requête et les opérations de requête courantes pour des jumeaux numériques. Il décrit également comment exécuter vos requêtes une fois que vous les avez écrites, avec l’[API de requête](/rest/api/digital-twins/dataplane/query) ou un [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) Azure Digital Twins.
+Il contient des exemples de requête qui illustrent la structure du langage de requête et les opérations de requête courantes pour des jumeaux numériques. Il décrit également comment exécuter vos requêtes une fois que vous les avez écrites, avec l’[API de requête](/rest/api/digital-twins/dataplane/query) ou un [SDK](concepts-apis-sdks.md#overview-data-plane-apis) Azure Digital Twins.
 
 > [!NOTE]
 > Si vous exécutez les exemples de requête ci-dessous avec un appel d’API ou de SDK, vous devez condenser le texte de la requête sur une seule ligne.
@@ -116,11 +116,11 @@ Voici un exemple de requête basée sur les relations. Cet extrait de code séle
 
 Vous pouvez utiliser la structure de requête de relation pour identifier un jumeau numérique qui est la source ou la cible d’une relation.
 
-Par exemple, vous pouvez commencer avec un jumeau source et suivre ses relations pour trouver les jumeaux cibles des relations. Voici un exemple de requête qui recherche les jumeaux cibles des relations de *flux* provenant du *jumeau source* du jumeau.
+Par exemple, vous pouvez commencer avec un jumeau source et suivre ses relations pour trouver les jumeaux cibles des relations. Voici un exemple de requête qui recherche les jumeaux cibles des relations de *flux* provenant du jumeau source du jumeau.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationshipSource":::
 
-Vous pouvez également commencer avec la cible de la relation et effectuer le suivi de la relation pour retrouver le jumeau source. Voici un exemple de requête qui permet de trouver le jumeau source d’une relation de *flux* avec le *jumeau cible* du jumeau.
+Vous pouvez également commencer avec la cible de la relation et effectuer le suivi de la relation pour retrouver le jumeau source. Voici un exemple de requête qui permet de trouver le jumeau source d’une relation de *flux* avec le jumeau cible du jumeau.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationshipTarget":::
 
@@ -172,15 +172,15 @@ En utilisant des projections dans l’instruction `SELECT`, vous pouvez choisir 
 >[!NOTE]
 >À ce stade, les propriétés complexes ne sont pas prises en charge. Pour vous assurer que les propriétés de projection sont valides, combinez les projections avec un contrôle `IS_PRIMITIVE`.
 
-Voici un exemple de requête qui utilise la projection pour retourner les jumeaux et les relations. La requête ci-dessous projette *Consumer*, *Factory* et *Edge* dans un scénario où une *Factory* avec l’ID *ABC* est liée au *Consumer* via une relation *Factory.customer*, et cette relation est présentée en tant que *Edge*.
+Voici un exemple de requête qui utilise la projection pour retourner les jumeaux et les relations. La requête ci-dessous projette Consumer, Factory et Edge dans un scénario où une Factory avec l’ID *ABC* est liée au Consumer via une relation *Factory.customer*, et cette relation est présentée en tant que *Edge*.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections1":::
 
-Vous pouvez également utiliser la projection pour retourner une propriété d’un jumeau. La requête suivante projette la propriété *Name* des *Consumers* associés à la *Factory* avec l’ID *ABC* via une relation de *Factory.customer*.
+Vous pouvez également utiliser la projection pour retourner une propriété d’un jumeau. La requête suivante projette la propriété *Name* des Consumers associés à la Factory avec l’ID *ABC* via une relation de *Factory.customer*.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections2":::
 
-Vous pouvez également utiliser la projection pour retourner une propriété d’une relation. Comme dans l’exemple précédent, la requête suivante projette la propriété *Name* des *Consumers* associés à la *Factory* avec un ID *ABC* via une relation de *Factory.customer*. Elle retourne maintenant également deux propriétés de cette relation : *Prop1* et *Prop2*. Pour ce faire, elle nomme la relation *Edge* et collecte ses propriétés.  
+Vous pouvez également utiliser la projection pour retourner une propriété d’une relation. Comme dans l’exemple précédent, la requête suivante projette la propriété *Name* des Consumers associés à la Factory avec un ID *ABC* via une relation de *Factory.customer*. Elle retourne maintenant également deux propriétés de cette relation : *Prop1* et *Prop2*. Pour ce faire, elle nomme la relation *Edge* et collecte ses propriétés.  
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections3":::
 
@@ -190,7 +190,7 @@ La requête suivante effectue les mêmes opérations que l’exemple précédent
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections4":::
 
-Voici une requête similaire qui interroge le même jeu que ci-dessus, mais projette uniquement la propriété *Consumer.name* en tant que `consumerName` et projette le *Factory* complet en tant que jumeau.
+Voici une requête similaire qui interroge le même jeu que ci-dessus, mais projette uniquement la propriété *Consumer.name* en tant que `consumerName` et projette le Factory complet en tant que jumeau.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections5":::
 
@@ -198,13 +198,13 @@ Voici une requête similaire qui interroge le même jeu que ci-dessus, mais proj
 
 Vous pouvez réduire considérablement le nombre de requêtes dont vous avez besoin en générant un tableau de jumeaux et en l’interrogeant à l’aide de l’opérateur `IN`. 
 
-Par exemple, imaginons un scénario dans lequel des *immeubles* comprennent des *étages*, et ces *étages* comprennent des *pièces*. Pour rechercher des salles chauffées dans un immeuble, vous pouvez suivre ces étapes.
+Par exemple, imaginons un scénario dans lequel des immeubles comprennent des étages, et ces étages comprennent des pièces. Pour rechercher des salles chauffées dans un immeuble, vous pouvez suivre ces étapes.
 
 1. Recherchez les étages de l’immeuble en fonction de la relation `contains`.
 
     :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="INOperatorWithout":::
 
-2. Pour trouver des pièces, au lieu de prendre les étages un par un et d’exécuter une requête `JOIN` afin de rechercher les pièces de chacun d’eux, vous pouvez interroger une collection d’étages de l’immeuble (nommée *Floor* dans la requête ci-dessous).
+2. Pour trouver des pièces, au lieu de prendre les étages un par un et d’exécuter une requête `JOIN` afin de rechercher les pièces de chacun d’eux, vous pouvez interroger une collection d’étages de l’immeuble (nommée Floor dans la requête ci-dessous).
 
     Dans l’application cliente :
     
@@ -220,18 +220,18 @@ Par exemple, imaginons un scénario dans lequel des *immeubles* comprennent des 
 
 Vous pouvez **combiner** un des types de requête ci-dessus avec des opérateurs de combinaison pour inclure plus de détails dans une seule requête. Voici quelques exemples supplémentaires de requêtes composées qui interrogent plusieurs types de descripteur de jumeau à la fois.
 
-* Parmi les appareils qui équipent *Room 123* (la salle 123), retournez les appareils MxChip qui remplissent le rôle d’Operator (opérateur)
+* Parmi les appareils qui équipent Room 123 (la salle 123), retournez les appareils MxChip qui remplissent le rôle d’Operator (opérateur)
     :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="OtherExamples1":::
 * Récupérez les jumeaux qui présentent une relation nommée *Contains* (Contient) avec un autre jumeau dont l’ID est *id1*
     :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="OtherExamples2":::
-* Récupérez toutes les salles de ce modèle de salle qui sont contenues dans *floor11* (l’étage11)
+* Récupérez toutes les salles de ce modèle de salle qui sont contenues dans floor11 (l’étage11)
     :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="OtherExamples3":::
 
 ## <a name="run-queries-with-the-api"></a>Exécuter des requêtes avec l’API
 
 Une fois que vous avez choisi une chaîne de requête, exécutez-la en appelant l’[API de requête](/rest/api/digital-twins/dataplane/query).
 
-Vous pouvez appeler l’API directement ou utiliser l’un des [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) disponibles pour Azure Digital Twins.
+Vous pouvez appeler l’API directement ou utiliser l’un des [SDK](concepts-apis-sdks.md#overview-data-plane-apis) disponibles pour Azure Digital Twins.
 
 L’extrait de code suivant illustre l’appel au [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) à partir de l’application cliente :
 
@@ -250,4 +250,4 @@ Les appels de requête prennent en charge la pagination. Voici un exemple comple
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les [API et SDK Azure Digital Twins](how-to-use-apis-sdks.md), y compris l’API de requête qui est utilisée pour exécuter les requêtes de cet article.
+Découvrez les [API et SDK Azure Digital Twins](concepts-apis-sdks.md), y compris l’API de requête qui est utilisée pour exécuter les requêtes de cet article.

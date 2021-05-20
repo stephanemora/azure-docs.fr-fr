@@ -4,12 +4,12 @@ description: Dans ce didacticiel, vous allez découvrir comment supprimer un clu
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 083c6047a8b5279b9f03db5ba5196c9a109f2d25
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: c6187d2bd5b8f2101c21b3eb35362e443854e8a4
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075948"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734759"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Didacticiel : Supprimer un cluster Service Fabric dans Azure
 
@@ -108,5 +108,5 @@ Dans ce didacticiel, vous avez appris à :
 
 Maintenant que vous avez terminé ce didacticiel, essayez ce qui suit :
 * Découvrez comment inspecter et gérer un cluster Service Fabric à l’aide de [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-* Découvrez comment [appliquer des correctifs au système d’exploitation Windows](service-fabric-patch-orchestration-application.md) du cluster.
+* Découvrez comment [corriger les nœuds de cluster s’exécutant sur Windows](how-to-patch-cluster-nodes-windows.md).
 * Découvrez comment agréger et collecter des événements pour les [clusters Windows](service-fabric-diagnostics-event-aggregation-wad.md) et [configurer Log Analytics](service-fabric-diagnostics-oms-setup.md) pour superviser les événements de cluster.

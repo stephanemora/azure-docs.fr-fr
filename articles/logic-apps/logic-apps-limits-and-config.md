@@ -1,79 +1,99 @@
 ---
 title: Limites et configuration
-description: Limites de service, telles que la durée, le débit et la capacité, ainsi que valeurs de configuration, telles que des adresses IP à autoriser, pour Azure Logic Apps
+description: Guide de référence sur les limites et informations de configuration relatives à Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
-ms.topic: article
-ms.date: 04/16/2021
-ms.openlocfilehash: 286da1412e8a74ffbf34e4abb493241914d4f925
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.reviewer: rohithah, logicappspm
+ms.topic: conceptual
+ms.date: 05/05/2021
+ms.openlocfilehash: a074009b29c5414b356022f08afe81210fc0f60c
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764870"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634686"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
-Cet article décrit les limites et les détails de configuration liés à la création et à l’exécution de workflows automatisés avec Azure Logic Apps. Pour Power Automate, consultez [Limites et configuration dans Power Automate](/flow/limits-and-config).
+> Pour Power Automate, consultez [Limites et configuration dans Power Automate](/flow/limits-and-config).
+
+Cet article décrit les limites et informations de configuration relatives à Azure Logic Apps et aux ressources associées. De nombreuses limites s'appliquent à la fois au service Logic Apps multilocataire et au service Logic Apps monolocataire (préversion). Lorsque des différences existent, celles-ci sont signalées.
+
+Le tableau suivant fournit des informations supplémentaires sur les termes *multilocataire*, *monolocataire* et *environnement de service d'intégration* qui apparaissent dans cet article :
+
+| Environnement | Partage et utilisation des ressources | [Modèle de tarification](logic-apps-pricing.md) | Notes |
+|-------------|----------------------------|----------------------------------------|-------|
+| Azure Logic Apps <br>(Multilocataire) | Les workflows des applications logiques *réparties sur plusieurs locataires* partagent le même traitement (calcul), le même stockage, le même réseau, et ainsi de suite. | Consommation | Azure Logic Apps gère les valeurs par défaut de ces limites, mais vous pouvez modifier certaines de ces valeurs, si cette option est disponible pour la limite en question. |
+| Azure Logic Apps <br>(Monolocataire (préversion)) | Les workflows qui se trouvent *dans la même application logique et qui sont monolocataires* partagent le même traitement (calcul), le même stockage, le même réseau, et ainsi de suite. | Préversion : [plan d'hébergement Premium](../azure-functions/functions-scale.md) ou [plan d'hébergement App Service](../azure-functions/functions-scale.md) avec [niveau tarifaire](../app-service/overview-hosting-plans.md) spécifique <p><p>Si vous disposez de workflows *avec état*, qui utilisent un [stockage externe](../azure-functions/storage-considerations.md#storage-account-requirements), le runtime Azure Logic Apps effectue des transactions de stockage basées sur la [tarification du service Stockage Azure](https://azure.microsoft.com/pricing/details/storage/). | Vous pouvez modifier les valeurs par défaut de nombreuses limites, en fonction des besoins de votre scénario. <p><p>**Important** : certaines limites sont assorties de valeurs maximales supérieures. Dans Visual Studio Code, les modifications que vous apportez aux limites par défaut dans les fichiers de configuration de votre projet d'application logique n'apparaissent pas dans l'expérience du concepteur. <p><p>Pour plus d'informations, consultez [Créer des workflows pour les instances monolocataires d'Azure Logic Apps à l'aide de Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Environnement de service d’intégration (ISE) | Les workflows qui se trouvent *dans le même environnement* partagent le même traitement (calcul), le même stockage, le même réseau, et ainsi de suite. | Fixe | Azure Logic Apps gère les valeurs par défaut de ces limites, mais vous pouvez modifier certaines de ces valeurs, si cette option est disponible pour la limite en question. |
+|||||
+
+> [!TIP]
+> Pour les scénarios qui requièrent des limites différentes, [contactez l'équipe Logic Apps](mailto://logicappspm@microsoft.com) afin de discuter de vos besoins.
 
 <a name="definition-limits"></a>
 
-## <a name="logic-app-definition-limits"></a>Limites de la définition d’application logique
+## <a name="workflow-definition-limits"></a>Limites relatives aux définitions de workflow
 
-Les limites pour la définition d’une application logique sont les suivantes :
+Les tableaux suivants répertorient les valeurs possibles pour une définition de workflow unique :
 
 | Nom | Limite | Notes |
 | ---- | ----- | ----- |
-| Actions par flux de travail | 500 | Pour étendre cette limite, vous pouvez au besoin ajouter des workflows imbriqués. |
-| Niveaux d’imbrication d’actions autorisés | 8 | Pour étendre cette limite, vous pouvez au besoin ajouter des workflows imbriqués. |
-| Flux de travail par région et par abonnement | 1 000 | |
-| Déclencheurs par flux de travail | 10 | Lors de l’utilisation du mode Code, et non du concepteur |
-| Limite de cas de basculement d’étendue | 25 | |
-| Variables par workflow | 250 | |
-| Nom pour `action` ou `trigger` | 80 caractères | |
-| Caractères par expression | 8 192 | |
-| Longueur de `description` | 256 caractères | |
-| Nombre maximal de `parameters` | 50 | |
-| Nombre maximal de `outputs` | 10 | |
-| Taille maximale de `trackedProperties` | 16 000 caractères |
-| Action de code inclus : nombre maximal de caractères de code | 1 024 caractères | Pour étendre cette limite à 100 000 caractères, créez vos applications logiques à l’aide du type de ressource **Application logique (préversion)** , [en utilisant le portail Azure](create-stateful-stateless-workflows-azure-portal.md) ou [en utilisant Visual Studio Code et l’extension **Azure Logic Apps (préversion)**](create-stateful-stateless-workflows-visual-studio-code.md). |
-| Action de code inline – Durée maximale d’exécution de code | 5 secondes | Pour étendre cette limite à 15 secondes, créez vos applications logiques à l’aide du type de ressource **Application logique (préversion)** , [en utilisant le portail Azure](create-stateful-stateless-workflows-azure-portal.md) ou [en utilisant Visual Studio Code et l’extension **Azure Logic Apps (préversion)**](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Flux de travail par région et par abonnement | 1 000 workflows | |
+| Déclencheurs par flux de travail | 10 déclencheurs | Cette limite s'applique uniquement lorsque vous travaillez sur la définition de workflow JSON, que ce soit en mode Code ou dans un modèle Azure Resource Manager (ARM), et non sur le concepteur. |
+| Actions par flux de travail | 500 actions | Pour étendre cette limite, vous pouvez au besoin utiliser des workflows imbriqués. |
+| Profondeur d'imbrication des actions | 8 actions | Pour étendre cette limite, vous pouvez au besoin utiliser des workflows imbriqués. |
+| Déclencheur ou action - Longueur maximale du nom | 80 caractères | |
+| Déclencheur ou action - Taille maximale des entrées ou des sorties | 104 857 600 octets <br>(105 Mo) |
+| Action - Taille maximale des entrées et sorties combinées | 209 715 200 octets <br>(210 Mo) |
+| Limite de caractères de l'expression | 8 192 caractères | |
+| `description` - Longueur maximale | 256 caractères | |
+| `parameters` - Nombre maximal d'éléments | 50 paramètres | |
+| `outputs` - Nombre maximal d'éléments | 10 sorties | |
+| `trackedProperties` - Taille maximale | 16 000 caractères |
 ||||
 
 <a name="run-duration-retention-limits"></a>
 
 ## <a name="run-duration-and-retention-history-limits"></a>Durée d’exécution et limites de conservation de l’historique
 
-Les limites pour l’exécution d’une application logique sont les suivantes :
+Le tableau suivant répertorie les valeurs possibles pour une exécution de workflow unique :
 
-| Nom | Limite multilocataire | Limite d’environnement de service d’intégration | Notes |
-|------|--------------------|---------------------------------------|-------|
-| Durée d’exécution | 90 jours | 366 jours | La durée d’exécution est calculée à l’aide de l’heure de début d’une exécution et de la limite spécifiée par le paramètre de workflow, [**Conservation de l’historique des exécutions en jours**](#change-duration) à l’heure de début. <p><p>Pour modifier la limite par défaut, consultez [Modifier la durée d’exécution et la conservation de l’historique dans le stockage](#change-duration). |
-| Conservation de l’historique des exécutions dans le stockage | 90 jours | 366 jours | Si la durée d’une exécution dépasse la limite de conservation actuelle, l’exécution est supprimée de l’historique des exécutions dans le stockage. Que l’exécution se termine ou expire, la rétention de l’historique des exécutions est toujours calculée en utilisant l’heure de début de l’exécution et la limite actuelle spécifiée dans le paramètre du workflow, [**Conservation de l’historique des exécutions en jours**](#change-retention). Quelle que soit la limite précédente, la limite actuelle est toujours utilisée pour le calcul de la rétention. <p><p>Pour modifier la limite par défaut et pour plus d’informations, consultez [Modifier l’exécution et la conservation de l’historique des exécutions dans le stockage](#change-retention). Pour augmenter la limite maximale, [contactez l’équipe Logic Apps](mailto://logicappspm@microsoft.com) pour qu’elle réponde à vos besoins. |
-| Intervalle de périodicité minimal | 1 seconde | 1 seconde ||
-| Intervalle de périodicité maximal | 500 jours | 500 jours ||
-|||||
+| Nom | Multi-locataire | Monolocataire (préversion) | Environnement de service d’intégration (ISE) | Notes |
+|------|--------------|-------------------------|---------------------------------|-------|
+| Conservation de l’historique des exécutions dans le stockage | 90 jours | 90 jours | 366 jours | Durée de conservation de l'historique des exécutions du workflow dans le stockage après le démarrage d'une exécution. Si la durée de l'exécution dépasse la limite de conservation actuelle, l'exécution est supprimée de l’historique des exécutions dans le stockage. <p>Que l’exécution se termine ou expire, la rétention de l’historique des exécutions est toujours calculée en utilisant l’heure de début de l’exécution et la limite actuelle spécifiée dans le paramètre du workflow, [**Conservation de l’historique des exécutions en jours**](#change-retention). Quelle que soit la limite précédente, la limite actuelle est toujours utilisée pour le calcul de la rétention. <p><p>Pour plus d'informations, consultez [Modifier la durée et la conservation de l'historique des exécutions dans le stockage](#change-retention). <p><p>**Conseil** : pour les scénarios qui requièrent des limites différentes, [contactez l'équipe Logic Apps](mailto://logicappspm@microsoft.com) afin de discuter de vos besoins. |
+| Durée d’exécution | 90 jours | - Workflow avec état : 90 jours <p><p>- Workflow sans état : 5 minutes | 366 jours | Durée pendant laquelle un workflow peut continuer à s'exécuter avant de forcer un délai d'expiration. <p>La durée d'exécution est calculée à l'aide de l'heure de début d'une exécution et de la limite spécifiée par le paramètre de workflow, [**Conservation de l'historique des exécutions en jours**](#change-duration) à l'heure de début. <p>**Important** : veillez à ce que la valeur de la durée d'exécution soit toujours inférieure ou égale à la valeur de conservation de l'historique des exécutions dans le stockage. Sinon, les historiques des exécutions peuvent être supprimés avant la fin des travaux associés. <p><p>Pour plus d'informations, consultez [Modifier la durée et la conservation de l'historique des exécutions dans le stockage](#change-duration). <p><p>**Conseil** : pour les scénarios qui requièrent des limites différentes, [contactez l'équipe Logic Apps](mailto://logicappspm@microsoft.com) afin de discuter de vos besoins. |
+| Intervalle de récurrence | - Min : 1 seconde <p><p>- Max : 500 jours | - Min : 1 seconde <p><p>- Max : 500 jours  | - Min : 1 seconde <p><p>- Max : 500 jours ||
+||||||
 
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
 ### <a name="change-run-duration-and-history-retention-in-storage"></a>Modifier la durée d’exécution et la conservation de l’historique dans le stockage
 
-Le même paramètre contrôle le nombre maximal de jours pendant lesquels un workflow peut s’exécuter, ainsi que la conservation de l’historique des exécutions dans le stockage. Pour modifier la limite par défaut ou actuelle de ces propriétés, procédez comme suit.
+Dans le concepteur, le même paramètre contrôle le nombre maximal de jours pendant lesquels un workflow peut s'exécuter, ainsi que la conservation de l'historique des exécutions dans le stockage.
 
-* Pour les applications logiques dans Azure multilocataire, la limite par défaut de 90 jours est identique à la limite maximale. Vous pouvez uniquement réduire cette valeur.
+* Pour le service multilocataire, la limite par défaut de 90 jours est identique à la limite maximale. Vous pouvez uniquement réduire cette valeur.
 
-* Pour les applications logiques dans un environnement de service d’intégration, vous pouvez réduire ou augmenter la limite par défaut de 90 jours.
+* Pour le service monolocataire (préversion), vous pouvez réduire ou augmenter la limite par défaut de 90 jours. Pour plus d'informations, consultez [Créer des workflows pour les instances monolocataires d'Azure Logic Apps à l'aide de Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md).
+
+* Pour un environnement de service d'intégration, vous pouvez réduire ou augmenter la limite par défaut de 90 jours.
+
+> [!TIP]
+> Pour les scénarios qui requièrent des limites différentes, [contactez l'équipe Logic Apps](mailto://logicappspm@microsoft.com) afin de discuter de vos besoins.
 
 Par exemple, supposons que vous réduisiez la limite de conservation de 90 à 30 jours. Une exécution datant de 60 jours est supprimée de l’historique des exécutions. Si vous augmentez la période de conservation de 30 à 60 jours, une exécution datant de 20 jours reste dans l’historique des exécutions pendant 40 jours supplémentaires.
 
 > [!IMPORTANT]
-> Si la durée d’une exécution dépasse la limite de conservation actuelle, l’exécution est supprimée de l’historique des exécutions dans le stockage. Pour éviter de perdre l’historique des exécutions, assurez-vous que la limite de conservation est *toujours* plus que la durée la plus longue de l’exécution.
+> Si la durée de l'exécution dépasse la limite de conservation actuelle, l'exécution est supprimée de l’historique des exécutions dans le stockage. Pour éviter de perdre l’historique des exécutions, assurez-vous que la limite de conservation est *toujours* plus que la durée la plus longue de l’exécution.
+
+Pour modifier la valeur par défaut ou la limite actuelle de ces propriétés, procédez comme suit :
+
+#### <a name="portal-multi-tenant-service"></a>[Portail (service multilocataire)](#tab/azure-portal)
 
 1. Dans la zone de recherche du [portail Azure](https://portal.azure.com), recherchez et sélectionnez **Logic Apps**.
 
-1. Recherchez et sélectionnez votre application logique. Ouvrez votre application logique dans le Concepteur d’applications logiques.
+1. Accédez à votre application logique et ouvrez-la dans le Concepteur d'applications logiques.
 
 1. Dans le menu de l’application logique, sélectionnez **Paramètres de flux de travail**.
 
@@ -83,7 +103,9 @@ Par exemple, supposons que vous réduisiez la limite de conservation de 90 à 30
 
 1. Lorsque vous avez terminé, dans la barre d’outils **Paramètres du workflow**, sélectionnez **Enregistrer**.
 
-Si vous générez un modèle de Azure Resource Manager pour votre application logique, ce paramètre apparaît en tant que propriété dans la définition de ressource de votre workflow, qui est décrite dans la [référence du modèle de workflow Microsoft. Logic](/azure/templates/microsoft.logic/workflows) :
+#### <a name="resource-manager-template"></a>[modèle Azure Resource Manager](#tab/azure-resource-manager)
+
+Si vous utilisez un modèle Azure Resource Manager, ce paramètre apparaît sous forme de propriété dans la définition de ressource de votre workflow, comme décrit dans [Informations de référence sur le modèle de workflow Microsoft.Logic](/azure/templates/microsoft.logic/workflows) :
 
 ```json
 {
@@ -103,63 +125,82 @@ Si vous générez un modèle de Azure Resource Manager pour votre application lo
    }
 }
 ```
+---
 
+<a name="concurrency-looping-and-debatching-limits"></a>
 <a name="looping-debatching-limits"></a>
 
-## <a name="concurrency-looping-and-debatching-limits"></a>Limites de simultanéité, de bouclage et de décomposition
+## <a name="looping-concurrency-and-debatching-limits"></a>Limites de bouclage, de simultanéité et de décomposition
 
-Les limites pour l’exécution d’une application logique sont les suivantes :
+Le tableau suivant répertorie les valeurs possibles pour une exécution de workflow unique :
 
-### <a name="loops"></a>Boucles
+### <a name="loop-actions"></a>Actions de bouclage
 
-| Nom | Limite | Notes |
-| ---- | ----- | ----- |
-| Éléments du tableau Foreach | 100 000 | Cette limite décrit le nombre maximal d’éléments de table qu’une boucle « for each » peut traiter. <p><p>Pour filtrer des tables plus grandes, vous pouvez utiliser l’[action de requête](logic-apps-perform-data-operations.md#filter-array-action). |
-| Accès concurrentiel Foreach | Avec la concurrence désactivée : 20 <p><p>Avec la concurrence activée : <p><p>- Par défaut : 20 <br>- Min : 1 <br>- Max : 50 | Cette limite indique le nombre maximal d’itérations de boucles « for each » qui peuvent s’exécuter simultanément ou en parallèle. <p><p>Pour changer cette limite, consultez [Changer la limite de concurrence « for each »](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| Itérations Until | - Par défaut : 60 <br>- Min : 1 <br>- Max : 5 000 | Nombre maximal de cycles qu’une boucle « Until » peut avoir pendant l’exécution d’une application logique. <p><p>Pour modifier cette limite, dans la forme de la boucle « Until », sélectionnez **Modifier les limites**, puis spécifiez la valeur de la propriété **Count**. |
-| Délai d’expiration d’Until | - Par défaut : PT1H (1 heure) | La durée la plus longue d’exécution de la boucle « Until » avant qu’elle ne se termine, spécifiée au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). La valeur du délai d’attente est évaluée pour chaque cycle de boucle. Si une action dans la boucle dure plus longtemps que la limite de délai d’attente, le cycle actuel ne s’arrête pas. Toutefois, le cycle suivant ne démarre pas, car la condition de limite n’est pas remplie. <p><p>Pour modifier cette limite, dans la forme de la boucle « Until », sélectionnez **Modifier les limites**, puis spécifiez la valeur de la propriété **Timeout**. |
-||||
+#### <a name="for-each-loop"></a>Boucle For Each
+
+Le tableau suivant répertorie les valeurs possibles pour une boucle **For each** :
+
+| Nom | Multi-locataire | Monolocataire (préversion) | Environnement de service d’intégration (ISE) | Notes |
+|------|--------------|-------------------------|---------------------------------|-------|
+| Éléments de tableau | 100 000 éléments | - Workflow avec état : 100 000 éléments <p><p>- Workflow sans état : 100 éléments | 100 000 éléments | Nombre d'éléments de tableau qu'une boucle **For each** peut traiter. <p><p>Pour filtrer des tables plus grandes, vous pouvez utiliser l’[action de requête](logic-apps-perform-data-operations.md#filter-array-action). |
+| Itérations simultanées | Simultanéité désactivée : 20 <p><p>Simultanéité activée : <p>- Par défaut : 20 <br>- Min : 1 <br>- Max : 50 | Simultanéité désactivée : 20 <p><p>Simultanéité activée : <p><p>- Par défaut : 20 <br>- Min : 1 <br>- Max : 50 | Simultanéité désactivée : 20 <p><p>Simultanéité activée : <p>- Par défaut : 20 <br>- Min : 1 <br>- Max : 50 | Nombre d'itérations de boucles **For each** qui peuvent s'exécuter simultanément ou en parallèle. <p><p>Pour modifier cette valeur dans le service multilocataire, consultez [Modifier la limite de simultanéité **For each**](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Exécuter des boucles **For each** de manière séquentielle](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
+||||||
+
+#### <a name="until-loop"></a>Boucle Until
+
+Le tableau suivant répertorie les valeurs possibles pour une boucle **Until** :
+
+| Nom | Multi-locataire | Monolocataire (préversion) | Environnement de service d’intégration (ISE) | Notes |
+|------|--------------|-------------------------|---------------------------------|-------|
+| Itérations | - Par défaut : 60 <br>- Min : 1 <br>- Max : 5 000 | Workflow avec état : <p><p>- Par défaut : 60 <br>- Min : 1 <br>- Max : 5 000 <p><p>Workflow sans état : <p><p>- Par défaut : 60 <br>- Min : 1 <br>- Max : 100 | - Par défaut : 60 <br>- Min : 1 <br>- Max : 5 000 | Nombre de cycles que peut comporter une boucle **Until** pendant l'exécution d'un workflow. <p><p>Pour modifier cette valeur, dans la forme de la boucle **Until**, sélectionnez **Modifier les limites**, puis spécifiez la valeur de la propriété **Count**. |
+| Délai d'expiration | Par défaut : PT1H (1 heure) | Workflow avec état : PT1H (1 heure) <p><p>Workflow sans état : PT5M (5 minutes) | Par défaut : PT1H (1 heure) | Durée d'exécution de la boucle **Until** avant qu'elle ne se termine, spécifiée au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). La valeur du délai d’attente est évaluée pour chaque cycle de boucle. Si une action dans la boucle dure plus longtemps que la limite de délai d’attente, le cycle actuel ne s’arrête pas. Toutefois, le cycle suivant ne démarre pas, car la condition de limite n’est pas remplie. <p><p>Pour modifier cette valeur, dans la forme de la boucle **Until**, sélectionnez **Modifier les limites**, puis spécifiez la valeur de la propriété **Timeout**. |
+||||||
 
 <a name="concurrency-debatching"></a>
 
 ### <a name="concurrency-and-debatching"></a>Accès concurrentiel et décomposition
 
-| Nom | Limite | Notes |
-| ---- | ----- | ----- |
-| Déclencheur simultané | Avec la concurrence désactivée : Illimité <p><p>Avec la concurrence activée, ce que vous ne pouvez pas faire après l’activation : <p><p>- Par défaut : 25 <br>- Min : 1 <br>- Max : 100 | Cette limite est le nombre maximal d’instances d’application logique pouvant être exécutées simultanément ou en parallèle. <p><p>**Remarque** : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments pour la [décomposition des tableaux](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Pour modifier cette limite, consultez [Modifier la limite de concurrence du déclencheur](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
-| Exécutions en attente maximale | Avec la concurrence désactivée : <p><p>- Min : 1 <br>- Max : 50 <p><p>Avec la concurrence activée : <p><p>- Min : 10, plus le nombre d’exécutions simultanées (déclencher la concurrence) <br>- Max : 100 | Cette limite est le nombre maximal d’instances d’application logique pouvant attendre de s’exécuter quand votre application logique exécute déjà le nombre maximal d’instances simultanées. <p><p>Pour changer cette limite, consultez [Changer la limite d’exécutions en attente](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
-| Éléments SplitOn | Avec la concurrence désactivée : 100 000 <p><p>Avec la concurrence activée : 100 | Pour les déclencheurs qui retournent un tableau, vous pouvez spécifier une expression utilisant une propriété « SplitOn » qui [fractionne ou dégroupe des éléments de tableau en plusieurs instances de workflows](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) à des fins de traitement, au lieu d’utiliser une boucle « for each ». Cette expression fait référence au tableau à utiliser pour la création et l’exécution d’une instance de workflow pour chaque élément du tableau. <p><p>**Remarque** : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments. |
-||||
+| Nom | Multi-locataire | Monolocataire (préversion) | Environnement de service d’intégration (ISE) | Notes |
+|------|--------------|-------------------------|---------------------------------|-------|
+| Déclencheur - exécutions simultanées | Simultanéité désactivée : llimité <p><p>Simultanéité activée (irréversible) : <p><p>- Par défaut : 25 <br>- Min : 1 <br>- Max : 100 | Simultanéité désactivée : llimité <p><p>Simultanéité activée (irréversible) : <p><p>- Par défaut : 25 <br>- Min : 1 <br>- Max : 100 | Simultanéité désactivée : illimitée <p><p>Simultanéité activée (irréversible) : <p><p>- Par défaut : 25 <br>- Min : 1 <br>- Max : 100 | Nombre d'exécutions simultanées qu'un déclencheur peut lancer en même temps ou en parallèle. <p><p>**Remarque** : lorsque la simultanéité est activée, la limite **SplitOn** est réduite à 100 éléments pour la [décomposition des tableaux](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Pour modifier cette valeur dans le service multilocataire, consultez [Modifier la limite de simultanéité du déclencheur](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances de manière séquentielle](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Exécutions en attente maximale | Simultanéité désactivée : <p><p>- Min : 1 exécution <p>- Max : 50 exécutions <p><p>Simultanéité activée : <p><p>- Min : 10 exécutions, plus le nombre d'exécutions simultanées <p>- Max : 100 exécutions | Simultanéité désactivée : <p><p>- Min : 1 exécution <p>- Max : 50 exécutions <p><p>Simultanéité activée : <p><p>- Min : 10 exécutions, plus le nombre d'exécutions simultanées <p>- Max : 100 exécutions | Simultanéité désactivée : <p><p>- Min : 1 exécution <p>- Max : 50 exécutions <p><p>Simultanéité activée : <p><p>- Min : 10 exécutions, plus le nombre d'exécutions simultanées <p>- Max : 100 exécutions | Nombre d'instances de workflow dont l'exécution peut attendre lorsque votre instance de workflow actuelle exécute déjà le nombre maximal d'instances simultanées. <p><p>Pour modifier cette valeur dans le service multilocataire, consultez [Modifier la limite d'exécutions en attente](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
+| Éléments **SplitOn** | Simultanéité désactivée : 100 000 éléments <p><p>Simultanéité activée : 100 éléments | Simultanéité désactivée : 100 000 éléments <p><p>Simultanéité activée : 100 éléments | Simultanéité désactivée : 100 000 éléments <p><p>Simultanéité activée : 100 éléments | Pour les déclencheurs qui renvoient un tableau, vous pouvez spécifier une expression utilisant une propriété **SplitOn** qui [fractionne ou décompose des éléments de tableau en plusieurs instances de workflow](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) à des fins de traitement, au lieu d'utiliser une boucle **For each**. Cette expression fait référence au tableau à utiliser pour la création et l’exécution d’une instance de workflow pour chaque élément du tableau. <p><p>**Remarque** : lorsque la simultanéité est activée, la limite **SplitOn** est réduite à 100 éléments. |
+||||||
 
 <a name="throughput-limits"></a>
 
 ## <a name="throughput-limits"></a>Limites de débit
 
-Les limites pour la définition d’une application logique sont les suivantes :
+Le tableau suivant répertorie les valeurs possibles pour une définition de workflow unique :
 
-### <a name="multi-tenant-logic-apps-service"></a>Service Logic Apps multilocataire
+### <a name="multi-tenant--single-tenant-preview"></a>Multilocataire et monolocataire (préversion)
 
 | Nom | Limite | Notes |
 | ---- | ----- | ----- |
-| Action : exécutions par intervalle de roulement de 5 minutes | - 100 000 exécutions (par défaut) <p><p>- 300 000 exécutions (maximum en mode de débit élevé)  | Pour porter la limite par défaut à la limite maximale pour votre application logique, consultez [Exécuter en mode de débit élevé](#run-high-throughput-mode), en préversion. Vous pouvez [répartir la charge de travail entre plusieurs applications logiques](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) si nécessaire. |
-| Action : Appels sortants simultanés | ~2,500 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. |
-| Point de terminaison du runtime : Appels entrants simultanés | ~1,000 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. |
-| Point de terminaison du runtime : appels de lecture toutes les cinq minutes  | 60 000 | Cette limite s’applique aux appels qui obtiennent les entrées et sorties brutes à partir de l’historique des exécutions d’une application logique. Vous pouvez répartir la charge de travail entre plusieurs applications si nécessaire. |
-| Point de terminaison du runtime : appels d’invocation toutes les cinq minutes | 45,000 | Vous pouvez répartir une charge de travail entre plusieurs applications si nécessaire. |
-| Débit de contenu par tranche de 5 minutes | 600 Mo | Vous pouvez répartir une charge de travail entre plusieurs applications si nécessaire. |
+| Action - Exécutions par intervalle de roulement de 5 minutes | - Par défaut : 100 000 exécutions <p><p>- Mode de débit élevé : 300 000 exécutions  | Pour définir la valeur par défaut sur la valeur maximale de votre workflow, consultez [Exécuter en mode de débit élevé](#run-high-throughput-mode), actuellement disponible en préversion. Ou, si nécessaire, vous pouvez [répartir la charge de travail entre plusieurs workflows](handle-throttling-problems-429-errors.md#logic-app-throttling). |
+| Action - Appels sortants simultanés | Environ 2 500 appels | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. |
+| Limitation des connecteurs managés | - Multilocataire : le seuil de limitation varie en fonction du connecteur <p><p>- Monolocataire : 50 requêtes à la minute par connexion | Pour le service multilocataire, consultez la [page de référence technique de chaque connecteur managé](/connectors/connector-reference/connector-reference-logicapps-connectors). <p><p>Pour plus d'informations sur la gestion de la limitation des connecteurs, consultez [Gérer les problèmes de limitation (erreurs « 429 - Trop de requêtes »)](handle-throttling-problems-429-errors.md#connector-throttling). |
+| Point de terminaison du runtime - Appels entrants simultanés | Environ 1 000 appels | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. |
+| Point de terminaison du runtime - Appels de lecture par tranche de 5 minutes  | 60 000 appels de lecture | Cette limite s'applique aux appels qui obtiennent les entrées et sorties brutes à partir de l'historique des exécutions d'un workflow. Si nécessaire, vous pouvez répartir la charge de travail entre plusieurs workflows. |
+| Point de terminaison du runtime - Appels d'invocation par tranche de 5 minutes | 45 000 appels d'invocation | Si nécessaire, vous pouvez répartir la charge de travail entre plusieurs workflows. |
+| Débit de contenu par tranche de 5 minutes | 600 Mo | Si nécessaire, vous pouvez répartir la charge de travail entre plusieurs workflows. |
 ||||
 
 <a name="run-high-throughput-mode"></a>
 
-#### <a name="run-in-high-throughput-mode"></a>Exécuter en mode de débit élevé
+### <a name="run-in-high-throughput-mode"></a>Exécuter en mode de débit élevé
 
-Pour une définition d’application logique unique, le nombre d’actions qui s’exécutent toutes les cinq minutes présente une [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Pour porter la limite par défaut à la [limite maximale](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) pour votre application logique, qui équivaut à trois fois la limite par défaut, vous pouvez activer le mode de débit élevé en préversion. Vous pouvez [répartir la charge de travail entre plusieurs applications logiques](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) si nécessaire.
+Pour une définition de workflow unique, le nombre d'actions qui s'exécutent toutes les 5 minutes présente une [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Pour définir la valeur par défaut sur la [valeur maximale](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) de votre workflow, qui équivaut à trois fois la valeur par défaut, vous pouvez activer le mode de débit élevé actuellement disponible en préversion. Ou, si nécessaire, vous pouvez [répartir la charge de travail entre plusieurs workflows](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling).
 
-1. Dans le portail Azure, dans le menu de votre application logique, sous **Paramètres**, sélectionnez **Paramètres de workflow**.
+#### <a name="portal-multi-tenant-service"></a>[Portail (service multilocataire)](#tab/azure-portal)
+
+1. Sur le portail Azure, dans le menu de votre application logique, sélectionnez **Paramètres**, puis **Paramètres de workflow**.
 
 1. Sous **Options d’exécution** > **Débit élevé**, **activez** le paramètre.
 
    ![Capture d’écran montrant le menu d’application logique dans le portail Azure avec les options « Paramètres de workflow » et « Débit élevé » activées.](./media/logic-apps-limits-and-config/run-high-throughput-mode.png)
+
+#### <a name="resource-manager-template"></a>[Modèle Resource Manager](#tab/azure-resource-manager)
 
 Pour activer ce paramètre dans un modèle ARM pour le déploiement de votre application logique, dans l’objet `properties` de la définition de ressource de votre application logique, ajoutez l’objet `runtimeConfiguration` avec la propriété `operationOptions` définie sur `OptimizedForHighThroughput` :
 
@@ -193,6 +234,8 @@ Pour activer ce paramètre dans un modèle ARM pour le déploiement de votre app
 
 Pour plus d’informations sur la définition de ressource de votre application logique, consultez [Vue d’ensemble : Automatiser le déploiement pour le service Azure Logic Apps à l’aide de modèles Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition).
 
+---
+
 ### <a name="integration-service-environment-ise"></a>Environnement de service d’intégration (ISE)
 
 * [Référence SKU de l’ISE Développeur](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) : fournit jusqu’à 500 exécutions par minute, mais notez les considérations suivantes :
@@ -206,45 +249,60 @@ Pour plus d’informations sur la définition de ressource de votre application 
   | Nom | Limite | Notes |
   |------|-------|-------|
   | Limite d’exécution de l’unité de base | Limitation du système quand la capacité de l’infrastructure atteint 80 % | Assure environ 4 000 exécutions d’action par minute, ce qui représente environ 160 millions d’exécutions d’action par mois |
-  | Limite d’exécution de l’unité d’échelle | Limitation du système quand la capacité de l’infrastructure atteint 80 % | Chaque unité d’échelle peut assurer environ 2 000 exécutions d’action supplémentaires par minute, ce qui représente environ 80 millions d’exécutions d’action supplémentaires par mois |
-  | Nombre maximum d’unités d’échelle que vous pouvez ajouter | 10 | |
+  | Limite d’exécution de l’unité d’échelle | Limitation du système quand la capacité de l’infrastructure atteint 80 % | Chaque unité d'échelle peut assurer environ 2 000 exécutions d'action supplémentaires par minute, ce qui représente environ 80 millions d'exécutions d'action supplémentaires par mois |
+  | Nombre maximum d’unités d’échelle que vous pouvez ajouter | 10 unités d'échelle | |
   ||||
 
 <a name="gateway-limits"></a>
 
-## <a name="gateway-limits"></a>Limites de la passerelle
+## <a name="data-gateway-limits"></a>Limites relatives à la passerelle de données
 
-Azure Logic Apps prend en charge les opérations d’écriture, notamment les insertions et les mises à jour, par le biais de la passerelle. Toutefois, ces opérations ont des [limites quant à la taille de leur charge utile](/data-integration/gateway/service-gateway-onprem#considerations).
+Azure Logic Apps prend en charge les opérations d'écriture, notamment les insertions et les mises à jour, par le biais de la passerelle de données locale. Toutefois, ces opérations ont des [limites quant à la taille de leur charge utile](/data-integration/gateway/service-gateway-onprem#considerations).
+
+<a name="variables-action-limits"></a>
+
+## <a name="variables-action-limits"></a>Limites d'actions des variables
+
+Le tableau suivant répertorie les valeurs possibles pour une définition de workflow unique :
+
+| Nom | Multi-locataire | Monolocataire (préversion) | Environnement de service d’intégration (ISE) | Notes |
+|------|--------------|-------------------------|---------------------------------|-------|
+| Variables par workflow | 250 variables | 250 variables | 250 variables ||
+| Variable - Taille maximale du contenu | 104 857 600 caractères | Workflow avec état : 104 857 600 caractères <p><p>Workflow sans état : 1 024 caractères | 104 857 600 caractères ||
+| Variable (type tableau) - Nombre maximal d'éléments de tableau | 100 000 éléments | 100 000 éléments | Référence SKU Premium : 100 000 éléments <p><p>Référence SKU Développeur : 5 000 éléments ||
+||||||
 
 <a name="http-limits"></a>
 
-## <a name="http-limits"></a>Limites HTTP
+## <a name="http-request-limits"></a>Limites de requête HTTP
 
-Voici les limites d’un seul appel entrant ou sortant :
+Les tableaux suivants répertorient les valeurs possibles pour un appel entrant ou sortant unique :
 
 <a name="http-timeout-limits"></a>
 
-#### <a name="timeout-duration"></a>Durée du délai d’expiration
+### <a name="timeout-duration"></a>Durée du délai d’expiration
 
-Comme certaines opérations de connecteur effectuent des appels asynchrones ou écoutent les demandes de webhook, le délai d’expiration pour ces opérations peut dépasser ces limites. Pour plus d’informations, consultez les détails techniques pour le connecteur spécifique et aussi [Actions et déclencheurs de workflow](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
+Par défaut, l'action HTTP et les actions APIConnection suivent le [modèle d'opération asynchrone standard](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply), alors que l'action Response suit le *modèle d'opération synchrone*. Comme certaines opérations de connecteur managé passent des appels asynchrones ou écoutent des requêtes de webhook, le délai d'expiration de ces opérations peut dépasser les limites suivantes. Pour plus d'informations, consultez la [page de référence technique de chaque connecteur](/connectors/connector-reference/connector-reference-logicapps-connectors), ainsi que la documentation consacrée aux [Déclencheurs et actions de workflow](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Nom | Logic Apps (multilocataire) | Logic Apps (préversion) | Environnement de service d’intégration (ISE) | Notes |
-|------|---------------------------|----------------------|---------------------------------|-------|
-| Requête sortante | 120 secondes <br>(2 minutes) | 230 secondes <br>(3,9 minutes) | 240 secondes <br>(4 minutes) | Les appels effectués par l’action ou le déclencheur HTTP sont des exemples de demandes sortantes. Pour plus d’informations sur la préversion, consultez [Préversion d’Azure Logic Apps](logic-apps-overview-preview.md). <p><p>**Conseil** : Pour les opérations en cours d’exécution plus longues, utilisez un [modèle d’interrogation asynchrone](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou une [boucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Pour contourner les limites de délai d’attente lorsque vous appelez une autre application logique qui a un [point de terminaison appelable](logic-apps-http-endpoint.md), vous pouvez utiliser l’action Azure Logic Apps intégrée à la place, que vous pouvez trouver dans le sélecteur de connecteur sous **Élément intégré**. |
-| Requête entrante | 120 secondes <br>(2 minutes) | 230 secondes <br>(3,9 minutes) | 240 secondes <br>(4 minutes) | Les appels reçus par le déclencheur de requête, le déclencheur Webhook HTTP et l’action Webhook HTTP sont des exemples de demandes entrantes. Pour plus d’informations sur la préversion, consultez [Préversion d’Azure Logic Apps](logic-apps-overview-preview.md). <p><p>**Remarque** : Pour que l’appelant d’origine obtienne la réponse, toutes les étapes de la réponse doivent être terminées avant la limite, sauf si vous appelez une autre application logique en tant que workflow imbriqué. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md). |
+| Nom | Multi-locataire | Monolocataire (préversion) | Environnement de service d’intégration (ISE) | Notes |
+|------|--------------|-------------------------|---------------------------------|-------|
+| Requête sortante | 120 secondes <br>(2 minutes) | 230 secondes <br>(3,9 minutes) | 240 secondes <br>(4 minutes) | Les appels effectués par l’action ou le déclencheur HTTP sont des exemples de demandes sortantes. <p><p>**Conseil** : pour les opérations à plus long terme, utilisez un [modèle d'interrogation asynchrone](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou une [boucle « Until »](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Pour contourner les limites liées au délai d'attente lorsque vous appelez un autre workflow qui dispose d'un [point de terminaison appelable](logic-apps-http-endpoint.md), utilisez plutôt l'action Azure Logic Apps intégrée, que vous trouverez dans le sélecteur d'opérations du concepteur, sous **Élément intégré**. |
+| Requête entrante | 120 secondes <br>(2 minutes) | 230 secondes <br>(3,9 minutes) | 240 secondes <br>(4 minutes) | Les appels reçus par le déclencheur de requête, le déclencheur Webhook HTTP et l’action Webhook HTTP sont des exemples de demandes entrantes. <p><p>**Remarque** : pour que l'appelant d'origine obtienne la réponse, toutes les étapes de la réponse doivent se terminer dans la limite, sauf si vous appelez un autre workflow imbriqué. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md). |
 ||||||
 
 <a name="message-size-limits"></a>
 
-#### <a name="message-size"></a>Taille des messages
+### <a name="messages"></a>Messages
 
-| Nom | Limite multilocataire | Limite d’environnement de service d’intégration | Notes |
-|------|--------------------|---------------------------------------|-------|
-| Taille des messages | 100 Mo | 200 Mo | Pour contourner cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. <p><p>- Les connecteurs tels que AS2, X12 et EDIFACT ont leur propre [limites de messages B2B](#b2b-protocol-limits). <br>- Les connecteurs ISE utilisent la limite ISE, et non les limites de leurs connecteurs non-ISE. |
-| Taille des messages avec segmentation | 1 Go | 5 Go | Cette limite s’applique aux actions qui prennent en charge la segmentation en mode natif ou vous permettent d’activer la segmentation dans la configuration de leur runtime. <p><p>Si vous utilisez un ISE, le moteur Logic Apps prend en charge cette limite, mais les connecteurs ont leurs propres limites de segmentation jusqu’à la limite du moteur. Pour un exemple, consultez les [Informations de référence sur l’API du connecteur Stockage Blob Azure](/connectors/azureblob/). Pour plus d’informations sur la segmentation, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). |
-|||||
+| Nom | Segmentation activée | Multi-locataire | Monolocataire (préversion) | Environnement de service d’intégration (ISE) | Notes |
+|------|------------------|--------------|-------------------------|---------------------------------|-------|
+| Téléchargement de contenu - Nombre maximal de requêtes | Oui | 1 000 requêtes | 1 000 requêtes | 1 000 requêtes ||
+| Taille des messages | Non | 100 Mo | 100 Mo | 200 Mo | Pour contourner cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API ne prennent pas en charge la segmentation ou même la limite par défaut. <p><p>- Les connecteurs tels que AS2, X12 et EDIFACT ont leur propre [limites de messages B2B](#b2b-protocol-limits). <p>- Les connecteurs ISE utilisent la limite ISE, et non les limites de connecteurs non ISE. |
+| Taille des messages | Oui | 1 Go | 1 073 741 824 octets <br>(1 Go) | 5 Go | Cette limite s’applique aux actions qui prennent en charge la segmentation en mode natif ou vous permettent d’activer la segmentation dans la configuration de leur runtime. <p><p>Si vous utilisez un ISE, le moteur Logic Apps prend en charge cette limite, mais les connecteurs ont leurs propres limites de segmentation jusqu’à la limite du moteur. Pour un exemple, consultez les [Informations de référence sur l’API du connecteur Stockage Blob Azure](/connectors/azureblob/). Pour plus d’informations sur la segmentation, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). |
+| Taille du bloc de contenu | Oui | Varie selon le connecteur | 52 428 800 octets (52 Mo) | Varie selon le connecteur | Cette limite s’applique aux actions qui prennent en charge la segmentation en mode natif ou vous permettent d’activer la segmentation dans la configuration de leur runtime. |
+|||||||
 
-#### <a name="character-limits"></a>Limites de caractères
+### <a name="character-limits"></a>Limites de caractères
 
 | Nom | Limite | Notes |
 |------|-------|-------|
@@ -254,49 +312,83 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 
 <a name="retry-policy-limits"></a>
 
-#### <a name="retry-policy"></a>Stratégie de nouvelle tentative
+### <a name="retry-policy"></a>Stratégie de nouvelle tentative
 
 | Nom | Limite | Notes |
 | ---- | ----- | ----- |
-| Nouvelles tentatives | 90 | Valeur par défaut : 4. Pour modifier la valeur par défaut, utilisez le [paramètre de stratégie de nouvelles tentatives](../logic-apps/logic-apps-workflow-actions-triggers.md). |
-| Délai maximal avant nouvelle tentative | 1 jour | Pour modifier la valeur par défaut, utilisez le [paramètre de stratégie de nouvelles tentatives](../logic-apps/logic-apps-workflow-actions-triggers.md). |
-| Délai minimal avant nouvelle tentative | 5 secondes | Pour modifier la valeur par défaut, utilisez le [paramètre de stratégie de nouvelles tentatives](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Nouvelles tentatives | - Par défaut : 4 tentatives <br> - Max : 90 tentatives | Pour modifier la valeur par défaut, utilisez le [paramètre de stratégie de nouvelles tentatives](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Délai maximal avant nouvelle tentative | - Par défaut : 1 jour | Pour modifier la valeur par défaut, utilisez le [paramètre de stratégie de nouvelles tentatives](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Délai minimal avant nouvelle tentative | - Par défaut : 5 secondes | Pour modifier la valeur par défaut, utilisez le [paramètre de stratégie de nouvelles tentatives](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 ||||
 
 <a name="authentication-limits"></a>
 
 ### <a name="authentication-limits"></a>Limites d’authentification
 
-Voici les limites d’une application logique qui démarre avec un déclencheur de requête et active [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) pour autoriser les appels entrants vers le déclencheur de requête :
+Le tableau suivant répertorie les valeurs possibles pour un workflow qui démarre avec un déclencheur de requête et active [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) pour autoriser les appels entrants vers le déclencheur de requête :
 
 | Nom | Limite | Notes |
 | ---- | ----- | ----- |
-| Stratégies d’autorisation Azure AD | 5 | |
-| Demandes par stratégie d’autorisation | 10 | |
-| Valeur de revendication – Nombre maximal de caractères | 150 |
+| Stratégies d’autorisation Azure AD | 5 stratégies | |
+| Demandes par stratégie d’autorisation | 10 revendications | |
+| Valeur de revendication – Nombre maximal de caractères | 150 caractères |
 ||||
+
+<a name="switch-action-limits"></a>
+
+## <a name="switch-action-limits"></a>Limites d'actions de commutateur
+
+Le tableau suivant répertorie les valeurs possibles pour une définition de workflow unique :
+
+| Nom | Limite | Notes |
+| ---- | ----- | ----- |
+| Nombre maximal de cas par action | 25 ||
+||||
+
+<a name="inline-code-action-limits"></a>
+
+## <a name="inline-code-action-limits"></a>Limites d'actions du code incorporé
+
+Le tableau suivant répertorie les valeurs possibles pour une définition de workflow unique :
+
+| Nom | Multi-locataire | Monolocataire (préversion) | Environnement de service d’intégration (ISE) | Notes |
+|------|--------------|-------------------------|---------------------------------|-------|
+| Nombre maximal de caractères de code | 1 024 caractères | 100 000 caractères | 1 024 caractères | Pour utiliser la limite supérieure, créez une ressource **Logic App (préversion)** , qui s'exécute dans des instances monolocataires (préversion) de Logic Apps, [à l'aide du portail Azure](create-stateful-stateless-workflows-azure-portal.md), ou [de Visual Studio Code et de l'extension **Azure Logic Apps (préversion).** ](create-stateful-stateless-workflows-visual-studio-code.md) |
+| Durée maximale d'exécution du code | 5 secondes | 15 secondes | 1 024 caractères | Pour utiliser la limite supérieure, créez une ressource **Logic App (préversion)** , qui s'exécute dans des instances monolocataires (préversion) de Logic Apps, [à l'aide du portail Azure](create-stateful-stateless-workflows-azure-portal.md), ou [de Visual Studio Code et de l'extension **Azure Logic Apps (préversion).** ](create-stateful-stateless-workflows-visual-studio-code.md) |
+||||||
 
 <a name="custom-connector-limits"></a>
 
 ## <a name="custom-connector-limits"></a>Limites des connecteurs personnalisés
 
-Les limites pour les connecteurs personnalisés qu’il est possible de créer à partir d’API web sont les suivantes.
+Pour le service multilocataire et l'environnement de service d'intégration uniquement, vous pouvez créer et utiliser des [connecteurs managés personnalisés](/connectors/custom-connectors), qui sont des wrappers entourant une API REST ou une API SOAP existante. Pour le service monolocataire (préversion), vous pouvez créer et utiliser des [connecteurs intégrés personnalisés](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
-| Nom | Limite multilocataire | Limite d’environnement de service d’intégration | Notes |
-|------|--------------------|---------------------------------------|-------|
-| Nombre de connecteurs personnalisés | 1 000 par abonnement Azure | 1 000 par abonnement Azure ||
-| Nombre de demandes par minute pour un connecteur personnalisé | 500 demandes par minute par connexion | 2 000 demandes par minute par *connecteur personnalisé* ||
-|||
+Le tableau suivant répertorie les valeurs possibles pour les connecteurs personnalisés :
+
+| Nom | Multi-locataire | Monolocataire (préversion) | Environnement de service d’intégration (ISE) | Notes |
+|------|--------------|-------------------------|---------------------------------|-------|
+| Connecteurs personnalisés | 1 000 par abonnement Azure | Illimité | 1 000 par abonnement Azure ||
+| Requêtes par minute pour un connecteur personnalisé | 500 demandes par minute par connexion | En fonction de votre implémentation | 2 000 demandes par minute par *connecteur personnalisé* ||
+| Délai de connexion | 2 minutes | Connexions inactives : <br>4 minutes <p><p>Connexion active : <br>10 min | 2 minutes ||
+||||||
+
+Pour plus d’informations, consultez la documentation suivante :
+
+* [Vue d'ensemble des connecteurs managés personnalisés](/connectors/custom-connectors)
+* [Activer la création de connecteurs intégrés - Visual Studio Code avec Azure Logic Apps (préversion)](create-stateful-stateless-workflows-visual-studio-code.md#enable-built-in-connector-authoring)
 
 <a name="managed-identity"></a>
 
-## <a name="managed-identities"></a>Identités managées
+## <a name="managed-identity-limits"></a>Limites d’identité gérée
 
 | Nom | Limite |
 |------|-------|
 | Identités gérées par application logique | Identité affectée par le système ou identité affectée par 1 utilisateur |
 | Nombre d’applications logiques qui ont une identité managée dans un abonnement Azure par région | 1 000 |
 |||
+
+> [!NOTE] 
+> Par défaut, l’identité managée assignée par le système d’une ressource Application logique (préversion) est automatiquement activée pour authentifier les connexions au moment de l’exécution. Cette identité diffère des informations d’identification d’authentification ou de la chaîne de connexion que vous utilisez lors de la création d’une connexion. Si vous désactivez cette identité, les connexions ne fonctionneront pas au moment de l’exécution. Pour afficher ce paramètre, dans le menu de votre application logique, sous **Paramètres**, sélectionnez **Identité**.
 
 <a name="integration-account-limits"></a>
 
@@ -308,12 +400,12 @@ Chaque abonnement Azure a les limites de compte d’intégration suivantes :
 
 * 1 000 comptes d’intégration au total, notamment des comptes d’intégration dans des [environnements de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) sur les [références SKU Développeur et Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
-* Chaque environnement de service d’intégration, qu’il s’agisse de [Developer ou Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), peut utiliser un seul compte d’intégration sans coût supplémentaire, bien que le type de compte inclus varie selon la référence SKU de l’environnement de service d’intégration. Vous pouvez créer davantage de comptes d’intégration pour votre environnement de service d’intégration jusqu’à la limite totale d’un [coût supplémentaire](logic-apps-pricing.md#fixed-pricing) :
+* Chaque environnement de service d'intégration (ISE), qu'il s'agisse de [Développeur ou Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), peut utiliser un compte d'intégration unique sans coût supplémentaire, bien que le type de compte inclus varie selon la référence SKU de l'environnement ISE. Vous pouvez créer d'autres comptes d'intégration pour votre environnement ISE, jusqu'à la limite totale, moyennant un [coût supplémentaire](logic-apps-pricing.md#fixed-pricing).
 
   | Référence (SKU) de l’environnement de service d’intégration | Limites du compte d’intégration |
   |---------|----------------------------|
   | **Premium** | 20 comptes au total, y compris un compte Standard sans coût supplémentaire. Avec cette référence SKU, vous ne pouvez avoir que des comptes [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts). Aucun compte Gratuit ou De base n’est autorisé. |
-  | **Développeur** | 20 comptes au total, y compris un compte [Gratuit](../logic-apps/logic-apps-pricing.md#integration-accounts) (limité à 1). Avec cette référence SKU, vous pouvez avoir l’une des combinaisons suivantes : <p>- Un compte Gratuit et jusqu’à 19 comptes [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts). <br>- Aucun compte Gratuit et jusqu’à 20 comptes Standard. <p>Aucun compte Gratuit supplémentaire ou De base n’est autorisé. <p><p>**Important !** Utilisez la [référence SKU du développeur](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) à des fins d’expérimentation, de développement et de test, mais pas pour la production ou les tests de performances. |
+  | **Développeur** | 20 comptes au total, y compris un compte [Gratuit](../logic-apps/logic-apps-pricing.md#integration-accounts) (limité à 1). Avec cette référence SKU, vous pouvez avoir l’une des combinaisons suivantes : <p>- Un compte Gratuit et jusqu’à 19 comptes [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts). <br>- Aucun compte Gratuit et jusqu’à 20 comptes Standard. <p>Aucun compte De base ou autre compte gratuit n'est autorisé. <p><p>**Important !** Utilisez la [référence SKU du développeur](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) à des fins d’expérimentation, de développement et de test, mais pas pour la production ou les tests de performances. |
   |||
 
 Pour plus d’informations sur la tarification et la facturation des environnements de service d’intégration, consultez le [modèle de tarif pour Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pour connaître la tarification, consultez [Tarification Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -322,19 +414,19 @@ Pour plus d’informations sur la tarification et la facturation des environneme
 
 ### <a name="artifact-limits-per-integration-account"></a>Limites du nombre d’artefacts par compte d’intégration
 
-Les limites du nombre d’artefacts pour chaque niveau de compte d’intégration sont les suivantes. Pour connaître la tarification, consultez [Tarification Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). Pour plus d’informations sur la tarification et la facturation des comptes d’intégration, consultez [Modèle de tarification Logic apps](../logic-apps/logic-apps-pricing.md#integration-accounts).
+Les tableaux suivants répertorient les valeurs possibles en termes de nombre d'artefacts limités à chaque niveau de compte d'intégration. Pour connaître la tarification, consultez [Tarification Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). Pour plus d’informations sur la tarification et la facturation des comptes d’intégration, consultez [Modèle de tarification Logic apps](../logic-apps/logic-apps-pricing.md#integration-accounts).
 
 > [!NOTE]
 > Utilisez le niveau gratuit uniquement pour les scénarios exploratoires, pas pour les scénarios de production. Ce niveau limite le débit et l’utilisation et n’inclut aucun contrat de niveau de service (SLA).
 
 | Artefact | Gratuit | De base | standard |
 |----------|------|-------|----------|
-| Contrats commerciaux EDI | 10 | 1 | 1 000 |
-| Partenaires commerciaux EDI | 25 | 2 | 1 000 |
-| Cartes | 25 | 500 | 1 000 |
-| Schémas | 25 | 500 | 1 000 |
-| Assemblys | 10 | 25 | 1 000 |
-| Certificats | 25 | 2 | 1 000 |
+| Contrats commerciaux EDI | 10 | 1 | 1 000 |
+| Partenaires commerciaux EDI | 25 | 2 | 1 000 |
+| Cartes | 25 | 500 | 1 000 |
+| Schémas | 25 | 500 | 1 000 |
+| Assemblys | 10 | 25 | 1 000 |
+| Certificats | 25 | 2 | 1 000 |
 | Configurations par lots | 5 | 1 | 50 |
 ||||
 
@@ -355,9 +447,9 @@ Les limites du nombre d’artefacts pour chaque niveau de compte d’intégratio
 
 | Point de terminaison du runtime | Gratuit | De base | standard | Notes |
 |------------------|------|-------|----------|-------|
-| appels de lecture toutes les cinq minutes | 3 000 | 30,000 | 60 000 | Cette limite s’applique aux appels qui obtiennent les entrées et sorties brutes à partir de l’historique des exécutions d’une application logique. Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
-| appels d’invocation toutes les cinq minutes | 3 000 | 30,000 | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
-| appels de suivi toutes les cinq minutes | 3 000 | 30,000 | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
+| Appels de lecture par tranche de 5 minutes | 3 000 | 30,000 | 60 000 | Cette limite s’applique aux appels qui obtiennent les entrées et sorties brutes à partir de l’historique des exécutions d’une application logique. Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
+| Appels d'invocation par tranche de 5 minutes | 3 000 | 30,000 | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
+| Appels de suivi par tranche de 5 minutes | 3 000 | 30,000 | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
 | appels simultanés de blocage | ~1,000 | ~1,000 | ~1,000 | Identique pour toutes les références (SKU). Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. |
 ||||
 
@@ -365,33 +457,25 @@ Les limites du nombre d’artefacts pour chaque niveau de compte d’intégratio
 
 ### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>Taille des messages de protocole B2B (AS2, X12, EDIFACT)
 
-Les limites de taille des messages qui s’appliquent aux protocoles B2B sont les suivantes :
+Le tableau suivant répertorie les limites de taille de message qui s'appliquent aux protocoles B2B :
 
-| Nom | Limite multilocataire | Limite d’environnement de service d’intégration | Notes |
-|------|--------------------|---------------------------------------|-------|
-| AS2 | v2 - 100 Mo<br>v1 - 25 Mo | v2 - 200 Mo <br>v1 - 25 Mo | S’applique au décodage et à l’encodage. |
-| X 12 | 50 Mo | 50 Mo | S’applique au décodage et à l’encodage. |
-| EDIFACT | 50 Mo | 50 Mo | S’applique au décodage et à l’encodage. |
+| Nom | Multi-locataire | Monolocataire | Environnement de service d’intégration (ISE) | Notes |
+|------|--------------|---------------|---------------------------------|-------|
+| AS2 | v2 - 100 Mo<br>v1 - 25 Mo | Non disponible | v2 - 200 Mo <br>v1 - 25 Mo | S’applique au décodage et à l’encodage. |
+| X 12 | 50 Mo | Non disponible | 50 Mo | S’applique au décodage et à l’encodage. |
+| EDIFACT | 50 Mo | Non disponible | 50 Mo | S’applique au décodage et à l’encodage. |
 ||||
-
-<a name="disable-delete"></a>
-
-## <a name="disabling-or-deleting-logic-apps"></a>Désactivation ou suppression des applications logiques
-
-Lorsque vous désactivez une application logique, aucune nouvelle exécution n’est instanciée. Toutes les exécutions en cours et en attente continuent jusqu’à ce qu’elles soient terminées, ce qui peut prendre du temps.
-
-Lorsque vous supprimez une application logique, aucune nouvelle exécution n’est instanciée. Toutes les exécutions en cours et en attente sont annulées. Si vous avez des milliers d’exécutions, l’annulation peut prendre beaucoup de temps.
 
 <a name="configuration"></a>
 <a name="firewall-ip-configuration"></a>
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Configuration du pare-feu : Adresses IP et balises de service
 
-Quand votre application logique doit communiquer via un pare-feu qui limite le trafic vers des adresses IP spécifiques, ce pare-feu doit autoriser l’accès *à la fois* aux adresses IP [entrantes](#inbound) et [sortantes](#outbound) utilisées par le service ou le runtime Logic Apps dans la région Azure où se trouve votre application logique. *Toutes* les applications logiques qui se trouvent dans une même région utilisent les mêmes plages d’adresses IP.
+Lorsque votre workflow doit communiquer via un pare-feu qui limite le trafic à destination d'adresses IP spécifiques, ce pare-feu doit *à la fois* autoriser l'accès aux adresses IP [entrantes](#inbound) et [sortantes](#outbound) utilisées par le service ou le runtime Logic Apps dans la région Azure où se trouve votre ressource d'application logique. *Toutes* les applications logiques qui se trouvent dans une même région utilisent les mêmes plages d’adresses IP.
 
 Par exemple, pour prendre en charge les appels que les applications logiques envoient ou reçoivent dans la région USA Ouest via des déclencheurs et actions intégrés, tels que le [déclencheur ou l’action HTTP](../connectors/connectors-native-http.md), votre pare-feu doit autoriser l’accès pour *toutes* les adresses IP entrantes du service Logic Apps *et* les adresses IP sortantes qui existent dans la région USA Ouest.
 
-Si votre application logique utilise également des [connecteurs managés](../connectors/managed.md), comme le connecteur Office 365 Outlook ou le connecteur SQL, ou qu’elle utilise des [connecteurs personnalisés](/connectors/custom-connectors/), le pare-feu doit également autoriser l’accès pour *toutes* les [adresses IP sortantes de connecteur managé](#outbound) dans la région Azure de votre application logique. En outre, si vous utilisez des connecteurs personnalisés qui accèdent à des ressources locales via la [ressource de passerelle de données locale dans Azure](logic-apps-gateway-connection.md), vous devez configurer l’installation de la passerelle pour autoriser l’accès aux *adresses IP sortantes [ de connecteurs managés](#outbound)* .
+Si votre workflow utilise également des [connecteurs managés](../connectors/managed.md), comme le connecteur Office 365 Outlook ou le connecteur SQL, ou qu'il utilise des [connecteurs personnalisés](/connectors/custom-connectors/), le pare-feu doit également autoriser l'accès pour *toutes* les [adresses IP sortantes de connecteur managé](#outbound) dans la région Azure de votre application logique. En outre, si vous utilisez des connecteurs personnalisés qui accèdent à des ressources locales via la [ressource de passerelle de données locale dans Azure](logic-apps-gateway-connection.md), vous devez configurer l’installation de la passerelle pour autoriser l’accès aux *adresses IP sortantes [ de connecteurs managés](#outbound)* .
 
 Pour plus d’informations sur la configuration des paramètres de communication sur la passerelle, consultez les rubriques suivantes :
 

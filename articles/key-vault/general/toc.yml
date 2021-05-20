@@ -49,8 +49,6 @@
       items:
         - name: Fonctionnalités de sécurité
           href: security-features.md
-        - name: Concepts de base de l’authentification Key Vault
-          href: authentication.md
         - name: Authentification Key Vault
           href: authentication.md
         - name: Domaines et zones géographiques de sécurité

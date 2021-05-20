@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 45269c964c2114c31ca6bfeeb6a48cb0c1329937
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 0b45c23bc7d8679ce1fa2135efc2a99fc443e57d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203538"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788869"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>Tutoriel : Créer un graphe Azure Digital Twins à l’aide d’Azure CLI
 
 [!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-Dans ce tutoriel, vous allez créer un graphe dans Azure Digital Twins à l’aide de modèles, de jumeaux et de relations. L’outil pour ce tutoriel est le [jeu de commandes Azure Digital Twins pour Azure CLI](how-to-use-cli.md). 
+Dans ce tutoriel, vous allez créer un graphe dans Azure Digital Twins à l’aide de modèles, de jumeaux et de relations. L’outil pour ce tutoriel est le [jeu de commandes Azure Digital Twins pour Azure CLI](concepts-cli.md). 
 
 Vous pouvez utiliser les commandes CLI pour effectuer des actions Azure Digital Twins essentielles, telles que le chargement de modèles, la création et la modification de jumeaux et la création de relations. Vous pouvez également consulter la [documentation de référence sur le jeu de commandes az dt](/cli/azure/dt) pour voir l’ensemble complet de commandes CLI.
 
@@ -33,7 +33,7 @@ Ce tutoriel présente les procédures suivantes :
 
 Pour effectuer les étapes de ce tutoriel, vous devez d’abord satisfaire les prérequis suivants.
 
-Si vous ne disposez pas d’abonnement Azure, **créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** avant de commencer.
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ### <a name="download-the-sample-models"></a>Télécharger les exemples de modèle
 
@@ -61,7 +61,7 @@ Une fois que vous avez configuré votre instance Azure Digital Twins, notez les 
 Vous pouvez obtenir ces deux valeurs pour votre instance dans la sortie de la commande Azure CLI suivante : 
 
 ```azurecli-interactive
-az dt show -n <ADT_instance_name>
+az dt show --dt-name <ADT_instance_name>
 ```
 
 :::image type="content" source="media/tutorial-command-line/cli/instance-details.png" alt-text="Capture d’écran d’une fenêtre de navigateur Cloud Shell montrant la sortie de la commande az dt show. Le champ hostName et l’ID d’abonnement (qui fait partie du champ id) sont mis en évidence.":::
@@ -91,11 +91,11 @@ Après avoir conçu les modèles, vous devez les charger sur votre instance Azur
     
     Accédez au fichier *Room.json* sur votre machine et sélectionnez « Ouvrir ». Ensuite, répétez cette étape pour *Floor.json*.
 
-1. Ensuite, utilisez la commande [az dt model create](/cli/azure/dt/model#az_dt_model_create) comme indiqué ci-dessous pour charger votre modèle *Room* mis à jour sur votre instance Azure Digital Twins. La deuxième commande charge un autre modèle, *Floor*, que vous utiliserez également dans la section suivante pour créer différents types de jumeaux.
+1. Ensuite, utilisez la commande [az dt model create](/cli/azure/dt/model#az_dt_model_create) comme indiqué ci-dessous pour charger votre modèle Room mis à jour sur votre instance Azure Digital Twins. La deuxième commande charge un autre modèle, Floor, que vous utiliserez également dans la section suivante pour créer différents types de jumeaux.
 
     ```azurecli-interactive
-    az dt model create -n <ADT_instance_name> --models Room.json
-    az dt model create -n <ADT_instance_name> --models Floor.json
+    az dt model create --dt-name <ADT_instance_name> --models Room.json
+    az dt model create --dt-name <ADT_instance_name> --models Floor.json
     ```
     
     La sortie de chaque commande affiche des informations sur le modèle chargé avec succès.
@@ -106,10 +106,10 @@ Après avoir conçu les modèles, vous devez les charger sur votre instance Azur
 1. Vérifiez que les modèles ont été créés avec la commande [az dt model list](/cli/azure/dt/model#az_dt_model_list) comme indiqué ci-dessous. Cette commande imprime une liste de tous les modèles qui ont été chargés sur l’instance Azure Digital Twins, avec leurs informations complètes. 
 
     ```azurecli-interactive
-    az dt model list -n <ADT_instance_name> --definition
+    az dt model list --dt-name <ADT_instance_name> --definition
     ```
     
-    Recherchez le modèle *Room* modifié dans les résultats :
+    Recherchez le modèle Room modifié dans les résultats :
     
     :::image type="content" source="media/tutorial-command-line/cli/output-get-models.png" alt-text="Capture d’écran de Cloud Shell montrant le résultat de la commande model list, qui comprend le modèle Room mis à jour." lightbox="media/tutorial-command-line/cli/output-get-models.png":::
 
@@ -120,7 +120,7 @@ L’interface CLI gère également les erreurs du service.
 Réexécutez la commande `az dt model create` pour essayer de recharger l’un des modèles que vous venez de charger :
 
 ```azurecli-interactive
-az dt model create -n <ADT_instance_name> --models Room.json
+az dt model create --dt-name <ADT_instance_name> --models Room.json
 ```
 
 Comme les modèles ne peuvent pas être remplacés, un code d’erreur `ModelIdAlreadyExists` est désormais retourné.
@@ -131,21 +131,21 @@ Maintenant que certains modèles ont été chargés sur votre instance Azure Dig
 
 Pour créer un jumeau numérique, utilisez la commande [az dt twin create](/cli/azure/dt/twin#az_dt_twin_create). Vous devez référencer le modèle sur lequel le jumeau est basé, et vous pouvez éventuellement définir des valeurs initiales pour les propriétés du modèle. Vous n’avez pas besoin de transmettre d’informations de relation à ce stade.
 
-1. Exécutez ce code dans Cloud Shell pour créer plusieurs jumeaux, basés sur le modèle *Room* que vous avez mis à jour et sur un autre modèle, *Floor*. Rappelez-vous que *Room* a trois propriétés ; vous pouvez donc fournir des arguments avec les valeurs initiales de ces propriétés. (L’initialisation des valeurs de propriétés est facultative en général, mais elle est nécessaire pour ce tutoriel.)
+1. Exécutez ce code dans Cloud Shell pour créer plusieurs jumeaux, basés sur le modèle Room que vous avez mis à jour et sur un autre modèle, Floor. Rappelez-vous que Room a trois propriétés ; vous pouvez donc fournir des arguments avec les valeurs initiales de ces propriétés. (L’initialisation des valeurs de propriétés est facultative en général, mais elle est nécessaire pour ce tutoriel.)
 
     ```azurecli-interactive
-    az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{"RoomName":"Room0", "Temperature":70, "HumidityLevel":30}'
-    az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{"RoomName":"Room1", "Temperature":"80", "HumidityLevel":"60"}'
-    az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Floor;1" --twin-id floor0
-    az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Floor;1" --twin-id floor1
+    az dt twin create --dt-name <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{"RoomName":"Room0", "Temperature":70, "HumidityLevel":30}'
+    az dt twin create --dt-name <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{"RoomName":"Room1", "Temperature":"80", "HumidityLevel":"60"}'
+    az dt twin create --dt-name <ADT_instance_name> --dtmi "dtmi:example:Floor;1" --twin-id floor0
+    az dt twin create --dt-name <ADT_instance_name> --dtmi "dtmi:example:Floor;1" --twin-id floor1
     ```
 
     >[!NOTE]
     > Si vous utilisez Cloud Shell dans l’environnement PowerShell, vous devrez peut-être placer les guillemets dans une séquence d’échappement afin que la valeur JSON `--properties` soit correctement analysée. Avec cette modification, les commandes permettant de créer les jumeaux de pièce se présentent comme suit :
     >
     > ```azurecli-interactive
-    > az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{\"RoomName\":\"Room0\", \"Temperature\":70, \"HumidityLevel\":30}'
-    > az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{\"RoomName\":\"Room1\", \"Temperature\":80, \"HumidityLevel\":60}'
+    > az dt twin create --dt-name <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{\"RoomName\":\"Room0\", \"Temperature\":70, \"HumidityLevel\":30}'
+    > az dt twin create --dt-name <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{\"RoomName\":\"Room1\", \"Temperature\":80, \"HumidityLevel\":60}'
     > ```
     > Ceci est reflété dans la capture d’écran ci-dessous.
     
@@ -154,10 +154,10 @@ Pour créer un jumeau numérique, utilisez la commande [az dt twin create](/cli/
 1. Vous pouvez vérifier que les jumeaux ont été créés avec la commande [az dt twin query](/cli/azure/dt/twin#az_dt_twin_query), comme indiqué ci-dessous. La requête affichée recherche tous les jumeaux numériques dans votre instance Azure Digital Twins.
     
     ```azurecli-interactive
-    az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS"
+    az dt twin query --dt-name <ADT_instance_name> --query-command "SELECT * FROM DIGITALTWINS"
     ```
     
-    Recherchez les jumeaux *room0*, *room1*, *floor0* et *floor1* dans les résultats. Voici un extrait qui présente une partie du résultat de cette requête.
+    Recherchez les jumeaux room0, room1, floor0 et floor1 dans les résultats. Voici un extrait qui présente une partie du résultat de cette requête.
     
     :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Capture d’écran de Cloud Shell montrant le résultat partiel de la requête de jumeau, notamment room0 et Room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
@@ -168,14 +168,14 @@ Vous pouvez également modifier les propriétés d’un jumeau que vous avez cr�
 1. Exécutez cette commande [az dt twin update](/cli/azure/dt/twin#az_dt_twin_update) pour changer le RoomName de *room0* de *Room0* en *PresidentialSuite* :
 
     ```azurecli-interactive
-    az dt twin update -n <ADT_instance_name> --twin-id room0 --json-patch '{"op":"add", "path":"/RoomName", "value": "PresidentialSuite"}'
+    az dt twin update --dt-name <ADT_instance_name> --twin-id room0 --json-patch '{"op":"add", "path":"/RoomName", "value": "PresidentialSuite"}'
     ```
     
     >[!NOTE]
     > Si vous utilisez Cloud Shell dans l’environnement PowerShell, vous devrez peut-être placer les guillemets dans une séquence d’échappement afin que la valeur JSON `--json-patch` soit correctement analysée. Avec cette modification, la commande permettant de mettre à jour le jumeau ressemble à ceci :
     >
     > ```azurecli-interactive
-    > az dt twin update -n <ADT_instance_name> --twin-id room0 --json-patch '{\"op\":\"add\", \"path\":\"/RoomName\", \"value\": \"PresidentialSuite\"}'
+    > az dt twin update --dt-name <ADT_instance_name> --twin-id room0 --json-patch '{\"op\":\"add\", \"path\":\"/RoomName\", \"value\": \"PresidentialSuite\"}'
     > ```
     > Ceci est reflété dans la capture d’écran ci-dessous.
     
@@ -183,10 +183,10 @@ Vous pouvez également modifier les propriétés d’un jumeau que vous avez cr�
 
     :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Capture d’écran de Cloud Shell montrant le résultat de la commande update, qui mentionne PresidentialSuite comme RoomName." lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
 
-1. Vous pouvez vérifier que la mise à jour a réussi en exécutant la commande [az dt twin show](/cli/azure/dt/twin#az_dt_twin_show) pour voir les informations de *room0* :
+1. Vous pouvez vérifier que la mise à jour a réussi en exécutant la commande [az dt twin show](/cli/azure/dt/twin#az_dt_twin_show) pour voir les informations de room0 :
 
     ```azurecli-interactive
-    az dt twin show -n <ADT_instance_name> --twin-id room0
+    az dt twin show --dt-name <ADT_instance_name> --twin-id room0
     ```
     
     La sortie doit refléter le nom mis à jour.
@@ -195,15 +195,15 @@ Vous pouvez également modifier les propriétés d’un jumeau que vous avez cr�
 
 Ensuite, vous pouvez créer des **relations** entre ces jumeaux, afin de les raccorder sur un [graphe de jumeaux](concepts-twins-graph.md). Les graphes de jumeaux servent à représenter un environnement entier. 
 
-Les types de relations que vous pouvez créer d’un jumeau à un autre sont définis dans les [modèles](#model-a-physical-environment-with-dtdl) que vous avez chargés. La [définition de modèle pour Floor](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) spécifie que les étages peuvent avoir un type de relation nommé *contains*. Cela permet de créer une relation de type *contains* entre chaque jumeau *Floor* et la pièce correspondante qu’il contient.
+Les types de relations que vous pouvez créer d’un jumeau à un autre sont définis dans les [modèles](#model-a-physical-environment-with-dtdl) que vous avez chargés. La [définition de modèle pour Floor](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) spécifie que les étages peuvent avoir un type de relation nommé *contains*. Cela permet de créer une relation de type *contains* entre chaque jumeau Floor et la pièce correspondante qu’il contient.
 
 Pour ajouter une relation, utilisez la commande [az dt twin relationship create](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_create). Spécifiez le jumeau d’où provient la relation, le type de relation, et le jumeau avec lequel la relation établit une connexion. Pour finir, attribuez un ID unique à la relation. Si une relation a été définie avec des propriétés, vous pouvez également initialiser les propriétés de relation dans cette commande.
 
-1. Exécutez le code suivant pour ajouter une relation de type *contains* entre chaque jumeau *Floor* que vous avez créé et le jumeau *Room* correspondant. Les relations sont nommées *relationship0* et *relationship1*.
+1. Exécutez le code suivant pour ajouter une relation de type *contains* entre chaque jumeau Floor que vous avez créé et le jumeau Room correspondant. Les relations sont nommées relationship0 et relationship1.
 
     ```azurecli-interactive
-    az dt twin relationship create -n <ADT_instance_name> --relationship-id relationship0 --relationship contains --twin-id floor0 --target room0
-    az dt twin relationship create -n <ADT_instance_name> --relationship-id relationship1 --relationship contains --twin-id floor1 --target room1
+    az dt twin relationship create --dt-name <ADT_instance_name> --relationship-id relationship0 --relationship contains --twin-id floor0 --target room0
+    az dt twin relationship create --dt-name <ADT_instance_name> --relationship-id relationship1 --relationship contains --twin-id floor1 --target room1
     ```
     
     >[!TIP]
@@ -220,18 +220,18 @@ Pour ajouter une relation, utilisez la commande [az dt twin relationship create]
 1. Vous pouvez vérifier les relations avec l’une des commandes suivantes, qui interrogent les relations dans votre instance Azure Digital Twins.
     * Pour voir toutes les relations partant de chaque étage (affichage des relations d’un côté) :
         ```azurecli-interactive
-        az dt twin relationship list -n <ADT_instance_name> --twin-id floor0
-        az dt twin relationship list -n <ADT_instance_name> --twin-id floor1
+        az dt twin relationship list --dt-name <ADT_instance_name> --twin-id floor0
+        az dt twin relationship list --dt-name <ADT_instance_name> --twin-id floor1
         ```
     * Pour voir toutes les relations arrivant à chaque pièce (affichage de la relation de l’« autre » côté) :
         ```azurecli-interactive
-        az dt twin relationship list -n <ADT_instance_name> --twin-id room0 --incoming
-        az dt twin relationship list -n <ADT_instance_name> --twin-id room1 --incoming
+        az dt twin relationship list --dt-name <ADT_instance_name> --twin-id room0 --incoming
+        az dt twin relationship list --dt-name <ADT_instance_name> --twin-id room1 --incoming
         ```
     * Pour rechercher ces relations individuellement, par ID :
         ```azurecli-interactive
-        az dt twin relationship show -n <ADT_instance_name> --twin-id floor0 --relationship-id relationship0
-        az dt twin relationship show -n <ADT_instance_name> --twin-id floor1 --relationship-id relationship1
+        az dt twin relationship show --dt-name <ADT_instance_name> --twin-id floor0 --relationship-id relationship0
+        az dt twin relationship show --dt-name <ADT_instance_name> --twin-id floor1 --relationship-id relationship1
         ```
 
 Les jumeaux et les relations que vous avez configurés dans ce tutoriel forment le graphe conceptuel suivant :
@@ -247,10 +247,10 @@ Exécutez les requêtes suivantes dans Cloud Shell pour répondre à certaines q
 1. **Quelles sont les entités de mon environnement représentées dans Azure Digital Twins ?** (interroger tout)
 
     ```azurecli-interactive
-    az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS"
+    az dt twin query --dt-name <ADT_instance_name> --query-command "SELECT * FROM DIGITALTWINS"
     ```
 
-    Cela vous permet d’examiner votre environnement en un coup d’œil, et de vous assurer que tout est représenté comme vous le souhaitez dans Azure Digital Twins. Le résultat est une sortie contenant chaque jumeau numérique avec ses détails. Voici un extrait :
+    Cela vous permet d’évaluer votre environnement en un coup d’œil et de vérifier que tout est représenté comme vous le souhaitez dans Azure Digital Twins. Le résultat est une sortie contenant chaque jumeau numérique avec ses détails. Voici un extrait :
 
     :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Capture d’écran de Cloud Shell montrant le résultat partiel de la requête de jumeau, notamment room0 et Room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
@@ -260,45 +260,45 @@ Exécutez les requêtes suivantes dans Cloud Shell pour répondre à certaines q
 1. **Quelles sont les pièces dans mon environnement ?** (requête par modèle)
 
     ```azurecli-interactive
-    az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')"
+    az dt twin query --dt-name <ADT_instance_name> --query-command "SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')"
     ```
 
-    Vous pouvez limiter votre requête aux jumeaux d’un certain type, afin d’obtenir des informations plus spécifiques sur ce qui est représenté. Le résultat montre *room0* et *room1*, mais ne montre **pas** *floor0* ni *floor1* (car il s’agit d’étages, et non de salles).
+    Vous pouvez limiter votre requête aux jumeaux d’un certain type, afin d’obtenir des informations plus spécifiques sur ce qui est représenté. Le résultat montre room0 et room1, mais ne montre **pas** floor0 ni floor1 (car il s’agit d’étages, et non de pièces).
     
     :::image type="content" source="media/tutorial-command-line/cli/output-query-model.png" alt-text="Capture d’écran de Cloud Shell montrant le résultat d’une requête de modèle, qui comprend uniquement room0 et room1." lightbox="media/tutorial-command-line/cli/output-query-model.png":::
 
-1. **Quelles sont les pièces de *floor0* ?** (requête par relation)
+1. **Quelles sont les pièces de floor0 ?** (requête par relation)
 
     ```azurecli-interactive
-    az dt twin query -n <ADT_instance_name> -q "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.`$dtId = 'floor0'"
+    az dt twin query --dt-name <ADT_instance_name> --query-command "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.`$dtId = 'floor0'"
     ```
 
-    Vous pouvez interroger en fonction des relations de votre graphe, afin d’obtenir des informations sur la façon dont les jumeaux sont raccordés ou de limiter votre requête à une certaine zone. Seule *room0* se trouve à l’étage *floor0* ; il s’agit donc de la seule pièce dans le résultat.
+    Vous pouvez interroger en fonction des relations de votre graphe, afin d’obtenir des informations sur la façon dont les jumeaux sont raccordés ou de limiter votre requête à une certaine zone. Seule room0 se trouve à l’étage floor0 ; il s’agit donc de la seule pièce dans le résultat.
 
     :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="Capture d’écran de Cloud Shell montrant le résultat de la requête de relation, qui comprend room0." lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
 
     > [!NOTE]
-    > Notez que l’ID d’un jumeau (comme *floor0* dans la requête ci-dessus) est interrogé à l’aide du champ de métadonnées `$dtId`. 
+    > Notez que l’ID d’un jumeau (comme floor0 dans la requête ci-dessus) est interrogé à l’aide du champ de métadonnées `$dtId`. 
     >
     >Lors de l’utilisation de Cloud Shell pour exécuter une requête avec des champs de métadonnées comme celui-ci qui commencent par `$`, vous devez échapper le `$` avec un backtick (apostrophe inversée) pour signaler à Cloud Shell qu’il ne s’agit pas d’une variable et qu’il doit être consommé comme littéral dans le texte de la requête. Ceci est reflété dans la capture d’écran ci-dessus.
 
 1. **Quels sont les jumeaux dans mon environnement dont la température est supérieure à 75 ?** (requête par propriété)
 
     ```azurecli-interactive
-    az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DigitalTwins T WHERE T.Temperature > 75"
+    az dt twin query --dt-name <ADT_instance_name> --query-command "SELECT * FROM DigitalTwins T WHERE T.Temperature > 75"
     ```
 
-    Vous pouvez interroger le graphe en fonction de propriétés afin de répondre à diverses questions, notamment pour rechercher les anomalies dans votre environnement qui peuvent nécessiter votre attention. D’autres opérateurs de comparaison ( *<* , *>* , *=* ou *!=* ) sont également pris en charge. *room1* apparaît ici dans les résultats, car elle a une température de 80.
+    Vous pouvez interroger le graphe en fonction de propriétés afin de répondre à diverses questions, notamment pour rechercher les anomalies dans votre environnement qui peuvent nécessiter votre attention. D’autres opérateurs de comparaison ( *<* , *>* , *=* ou *!=* ) sont également pris en charge. room1 apparaît ici dans les résultats, car elle a une température de 80.
 
     :::image type="content" source="media/tutorial-command-line/cli/output-query-property.png" alt-text="Capture d’écran de Cloud Shell montrant le résultat d’une requête de propriété, qui comprend uniquement room1." lightbox="media/tutorial-command-line/cli/output-query-property.png":::
 
 1. **Quelles sont les pièces de l’étage *floor0* dont la température est supérieure à 75 ?** (requête composée)
 
     ```azurecli-interactive
-    az dt twin query -n <ADT_instance_name> -q "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.`$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75"
+    az dt twin query --dt-name <ADT_instance_name> --query-command "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.`$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75"
     ```
 
-    Vous pouvez également combiner les requêtes précédentes comme vous le feriez dans SQL, à l’aide d’opérateurs de combinaison tels que `AND`, `OR` et `NOT`. Cette requête utilise `AND` pour rendre plus spécifique la requête précédente sur les températures des jumeaux. Le résultat contient désormais uniquement les pièces dont la température est supérieure à 75 et qui se trouvent à l’étage *floor0* (en l’occurrence, aucune). Le jeu de résultat est vide.
+    Vous pouvez également combiner les requêtes précédentes comme vous le feriez dans SQL, à l’aide d’opérateurs de combinaison tels que `AND`, `OR` et `NOT`. Cette requête utilise `AND` pour rendre plus spécifique la requête précédente sur les températures des jumeaux. Le résultat contient désormais uniquement les pièces dont la température est supérieure à 75 et qui se trouvent à l’étage floor0 (en l’occurrence, aucune). Le jeu de résultat est vide.
 
     :::image type="content" source="media/tutorial-command-line/cli/output-query-compound.png" alt-text="Capture d’écran de Cloud Shell montrant le résultat d’une requête composée, qui ne comprend aucun élément." lightbox="media/tutorial-command-line/cli/output-query-compound.png":::
 
@@ -308,7 +308,7 @@ Exécutez les requêtes suivantes dans Cloud Shell pour répondre à certaines q
 
 * **Si vous envisagez de passer au tutoriel suivant**, vous pouvez conserver les ressources que vous avez configurées ici et réutiliser l’instance Azure Digital Twins sans effacer quoi que ce soit.
 
-* **Si vous souhaitez continuer à utiliser l’instance Azure Digital Twins, mais effacer tous ses modèles, jumeaux et relations**, vous pouvez utiliser les commandes [az dt twin relationship delete](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_delete), [az dt twin delete](/cli/azure/dt/twin#az_dt_twin_delete) et [az dt model delete](/cli/azure/dt/model#az_dt_model_delete) pour effacer respectivement les relations, jumeaux et modèles de votre instance.
+* **Si vous souhaitez continuer à utiliser l’instance d’Azure Digital Twins tout en effaçant complètement ses modèles, jumeaux et relations**, vous pouvez utiliser les commandes [az dt twin relationship delete](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_delete), [az dt twin delete](/cli/azure/dt/twin#az_dt_twin_delete) et [az dt model delete](/cli/azure/dt/model#az_dt_model_delete) pour effacer respectivement les relations, jumeaux et modèles de votre instance.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 

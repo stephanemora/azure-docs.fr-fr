@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: 2164b8ac6e62b8826d5879da07384769c503bfb5
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: e912cabd27bac52792ffb2d71027170f4e53f310
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107598599"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784518"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Intégrer votre propre Machine Learning (BYO-ML) dans Azure Sentinel
 
 Le Machine Learning (ML ou apprentissage automatique) est l’un des fondements majeurs d’Azure Sentinel, et l’un des principaux attributs qui le distinguent. Azure Sentinel offre l’apprentissage automatique au travers de diverses expériences : intégré au moteur de corrélation [Fusion](fusion.md) et aux blocs-notes Jupyter, ainsi qu’à la nouvelle plateforme BYO ML (Construire votre propre ML). 
 
-Les modèles de détection de ML peuvent s’adapter à des environnements individuels ainsi qu’à des modifications du comportement des utilisateurs, afin de réduire le nombre de faux positifs et d’identifier des menaces qu’une approche traditionnelle ne permettrait pas de détecter. Si bon nombre d’organisations de sécurité comprennent la valeur de l’apprentissage automatique pour la sécurité, la plupart d’entre elles n’ont pas les moyens de s’entourer de professionnels disposant d’une expertise tant en matière de sécurité qu’en matière d’apprentissage automatique. Nous avons conçu l’infrastructure présentée ici afin de permettre aux organisations et aux professionnels de la sécurité de se développer avec nous en lien avec l’apprentissage automatique. Les organisations qui découvrent l’apprentissage automatique ou qui ne disposent pas de l’expertise nécessaire peuvent trouver une protection significative dans les fonctionnalités intégrées d’apprentissage automatique d’Azure Sentinel.
+Les modèles de détection de ML peuvent s’adapter à des environnements individuels ainsi qu’à des modifications du comportement des utilisateurs afin de réduire le nombre de [faux positifs](false-positives.md) et d’identifier des menaces qu’une approche traditionnelle ne permettrait pas de détecter. Si bon nombre d’organisations de sécurité comprennent la valeur de l’apprentissage automatique pour la sécurité, la plupart d’entre elles n’ont pas les moyens de s’entourer de professionnels disposant d’une expertise tant en matière de sécurité qu’en matière d’apprentissage automatique. Nous avons conçu l’infrastructure présentée ici afin de permettre aux organisations et aux professionnels de la sécurité de se développer avec nous en lien avec l’apprentissage automatique. Les organisations qui découvrent l’apprentissage automatique ou qui ne disposent pas de l’expertise nécessaire peuvent trouver une protection significative dans les fonctionnalités intégrées d’apprentissage automatique d’Azure Sentinel.
 
 :::image type="content" source="./media/bring-your-own-ml/machine-learning-framework.png" alt-text="Infrastructure d’apprentissage automatique":::
 

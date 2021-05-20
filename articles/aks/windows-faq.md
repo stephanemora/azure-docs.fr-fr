@@ -5,12 +5,12 @@ description: Consultez la foire aux questions lorsque vous exécutez des pools d
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: cc5a5ec2bbfb64a1e787277bf67579bad0543cd6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e9b2072ddcb688cd320700d47bb5f5f3670e6543
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739574"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790070"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Foire aux questions relative aux pools de nœuds Windows Server dans AKS
 
@@ -82,6 +82,24 @@ Pour résoudre ce problème :
 Les pools de nœuds Windows ne prennent pas en charge la rotation du principal de service. Pour mettre à jour le principal du service, créez un pool de nœuds Windows, puis migrez vos pods de l’ancien pool vers le nouveau. Une fois cette opération terminée, supprimez l’ancien pool de nœuds.
 
 Utilisez plutôt des identités managées, qui sont essentiellement des wrappers autour des principaux de service. Pour plus d’informations, voir [Utiliser les identités managées dans Azure Kubernetes Service][managed-identity].
+
+## <a name="how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster"></a>Comment modifier le mot de passe d’administrateur pour les nœuds Windows Server sur mon cluster ?
+
+Lorsque vous créez votre cluster AKS, vous spécifiez les paramètres `--windows-admin-password` et `--windows-admin-username` afin de définir les informations d’identification d’administrateur pour tous les nœuds Windows Server du cluster. Si vous n’avez pas spécifié d’informations d’identification d’administrateur, par exemple lors de la création d’un cluster à l’aide du portail Azure ou lors de la définition et de `--vm-set-type VirtualMachineScaleSets` et `--network-plugin azure` à l’aide d’Azure CLI, le nom d’utilisateur est défini par défaut sur *azureuser* et un mot de passe aléatoire.
+
+Pour modifier le mot de passe d’administrateur, utilisez la commande `az aks update` suivante :
+
+```azurecli
+az aks update \
+    --resource-group $RESOURCE_GROUP \
+    --name $CLUSTER_NAME \
+    --windows-admin-password $NEW_PW
+```
+
+> [!IMPORTANT]
+> Cette opération met à niveau tous les pools de nœuds Windows Server. Les pools de nœuds Linux ne sont pas affectés.
+> 
+> Lorsque vous modifiez `--windows-admin-password`, le nouveau mot de passe doit comporter au moins 14 caractères et répondre aux [exigences de mot de passe de Windows Server][windows-server-password].
 
 ## <a name="how-many-node-pools-can-i-create"></a>Combien de pools de nœuds puis-je créer ?
 
@@ -200,3 +218,4 @@ Pour vous lancer avec des conteneurs Windows Server dans AKS, [créez un pool de
 [hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
 [resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip
+[windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference

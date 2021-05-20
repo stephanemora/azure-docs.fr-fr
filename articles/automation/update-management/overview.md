@@ -3,14 +3,14 @@ title: Présentation d’Update Management Azure Automation
 description: Cet article présente la fonctionnalité Update Management qui implémente les mises à jour de vos machines Windows et Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 04/01/2021
+ms.date: 05/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 62ae2eab33063416fdd6265b14dd8c30da55e174
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: f04334b4b9704d1048d03ed82aaef400806b219f
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166698"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787021"
 ---
 # <a name="update-management-overview"></a>Vue d’ensemble de Update Management
 
@@ -42,7 +42,7 @@ Le schéma suivant illustre la façon dont Update Management évalue les mises �
 
 ![Workflow Update Management](./media/overview/update-mgmt-updateworkflow.png)
 
-Update Management peut être utilisé pour effectuer un déploiement en mode natif sur des machines de plusieurs abonnements dans le même locataire, ou parmi plusieurs locataires à l’aide de la [gestion des ressources déléguée Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
+Update Management peut être utilisé pour effectuer un déploiement en mode natif sur des machines de plusieurs abonnements dans le même locataire ou parmi plusieurs locataires en utilisant [Azure Lighthouse](../../lighthouse/overview.md).
 
 Après la publication d’un package, comptez un délai de deux à trois heures avant l’affichage du correctif pour l’évaluation sur des machines Linux. Sur les machines Windows, ce délai est de 12 à 15 heures. Après qu’une machine a terminé l’analyse de conformité de la mise à jour, l’agent transfère les informations en bloc aux journaux Azure Monitor. Sur une machine Windows, l’analyse de conformité est effectuée toutes les 12 heures par défaut. Sur une machine Linux, l’analyse de conformité est effectuée toutes les heures par défaut. Si l’agent Log Analytics est redémarré, une analyse de conformité est démarrée dans les 15 minutes.
 
@@ -64,6 +64,10 @@ Les mises à jour sont installées par des Runbooks dans Azure Automation. Vou
 À la date et l’heure spécifiées dans le déploiement de mises à jour, les machines cibles exécutent le déploiement en parallèle. Avant l’installation, une analyse est lancée pour vérifier que les mises à jour sont encore requises. Pour les machines clientes WSUS, si les mises à jour ne sont pas approuvées dans WSUS, leur déploiement échoue.
 
 L’inscription d’une machine auprès du service Update Management dans plusieurs espaces de travail Log Analytics (également appelé multihébergement) n’est pas prise en charge.
+
+## <a name="limits"></a>Limites
+
+Pour les limites qui s’appliquent à Update Management, consultez [Limites du service Azure Automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#update-management).
 
 ## <a name="clients"></a>Clients
 

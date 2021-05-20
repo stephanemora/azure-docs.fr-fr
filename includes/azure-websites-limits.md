@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/17/2020
 ms.author: msangapu
-ms.openlocfilehash: dad7799cb5a7579b28847e3968b6b38f1f98298a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e2f75c6305fb3a9879f1e801ad59cd8581dd2fd4
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327095"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109644995"
 ---
 | Ressource | Gratuit | Partagé | De base | standard | Premium (v1 à v3) | Isolé </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -20,7 +20,7 @@ ms.locfileid: "107327095"
 | Stockage<sup>5</sup> |1 Go<sup>5</sup> |1 Go<sup>5</sup> |10 Go<sup>5</sup> |50 Go<sup>5</sup> |250 GO<sup>5</sup> |1 TO<sup>5</sup> <br/><br/> Le quota de stockage disponible est de 999 Go. |
 | Temps processeur (5 minutes)<sup>6</sup> |3 minutes |3 minutes |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a>|
 | Temps processeur (jour)<sup>6</sup> |60 minutes |240 minutes |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |
-| Mémoire (1 heure) |1 024 Mo par plan App Service |1 024 Mo par application |N/A |N/A |N/A |N/A |
+| Mémoire (1 heure) |1 024 Mo par plan App Service |1 024 Mo par application |N/A |NON APPLICABLE |NON APPLICABLE |N/A |
 | Bande passante |165 Mo |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |
 | Architecture de l'application |32 bits |32 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |
 | Web Sockets par instance<sup>7</sup> |5 |35 |350 |Illimité |Illimité |Illimité |
@@ -29,7 +29,7 @@ ms.locfileid: "107327095"
 | Certificats App Service par abonnement<sup>9</sup>| Non pris en charge | Non pris en charge |10 |10 |10 |10 |
 | Domaines personnalisés par application</a> |0 (sous-domaine azurewebsites.net uniquement)|500 |500 |500 |500 |500 |
 | domaines personnalisés [Prise en charge SSL](../articles/app-service/configure-ssl-certificate.md) |Non pris en charge, certificat avec caractères génériques pour \*.azurewebsites.net disponible par défaut|Non pris en charge, certificat avec caractères génériques pour \*.azurewebsites.net disponible par défaut|Nombre illimité de connexions SNI SSL |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses | Connexions SSL SNI illimitées et 1 connexion IP SSL incluses|
-| Connexions hybrides | | | 5 par plan | 25 par plan | 200 par application | 200 par application |
+| [Connexions hybrides](../articles/app-service/app-service-hybrid-connections.md) | | | 5 par plan | 25 par plan | 220 par application | 220 par application |
 | [Intégration du réseau virtuel](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | [Points de terminaison privés](../articles/app-service/networking/private-endpoint.md) | | |   |   |  100 par application  |    |
 | Équilibreur de charge intégré | |X |X |X |X |X<sup>10</sup> |

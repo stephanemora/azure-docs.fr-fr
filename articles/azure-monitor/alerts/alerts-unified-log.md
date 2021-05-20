@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 367dd261e9147c2dc14f1085af553222b621d91e
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: a72d27584441e853c6eeeb732df2691fd347857e
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279781"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664525"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
 
@@ -26,7 +26,7 @@ Les alertes de journal sont l’un des types d’alerte pris en charge dans [Ale
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les alertes de journal exécutent des requêtes sur les données Log Analytics. Vous devez d'abord [collecter les données de journal](../essentials/resource-logs.md), puis les interroger pour détecter les problèmes. Vous pouvez utiliser la [rubrique d'exemples de requêtes d'alerte](../logs/example-queries.md) de Log Analytics pour en savoir plus sur ce que vous pouvez découvrir ou [commencer à écrire votre propre requête](../logs/log-analytics-tutorial.md).
+Les alertes de journal exécutent des requêtes sur les données Log Analytics. Vous devez d'abord [collecter les données de journal](../essentials/resource-logs.md), puis les interroger pour détecter les problèmes. Vous pouvez utiliser l’[article d’exemples de requêtes d’alerte](../logs/example-queries.md) dans Log Analytics pour en savoir plus sur ce que vous pouvez découvrir ou pour [commencer à écrire votre propre requête](../logs/log-analytics-tutorial.md).
 
 [Contributeur de surveillance Azure](../roles-permissions-security.md) est un rôle courant qui est nécessaire pour créer, modifier et mettre à jour les alertes de journal. Des droits d'accès et d'exécution de requêtes sont également nécessaires pour les journaux de ressources. Un accès partiel aux journaux de ressources peut faire échouer des requêtes ou renvoyer des résultats partiels. [Découvrez-en plus sur la configuration des alertes de journal dans Azure](./alerts-log.md).
 
@@ -120,7 +120,7 @@ Dans les espaces de travail et Application Insights, il est uniquement pris en c
 
 Fractionnez les alertes par colonnes numériques ou de chaînes en alertes distinctes en les regroupant en combinaisons uniques. Lors de la création d'alertes centrées sur les ressources à grande échelle (étendue d'abonnement ou de groupe de ressources), vous pouvez fractionner par colonne d'ID de ressource Azure. Le fractionnement sur la colonne d'ID de ressource Azure remplacera la cible de l'alerte par la ressource spécifiée.
 
-La répartition par colonne d’ID de ressource Azure est recommandée lorsque vous souhaitez surveiller la même condition sur plusieurs ressources Azure. Par exemple, la surveillance de toutes les machines virtuelles pour l’utilisation du processeur sur 80 %. Vous pouvez également décider de ne pas fractionner lorsque vous souhaitez une condition sur plusieurs ressources dans l’étendue, par exemple la surveillance qu’au moins cinq machines de l’étendue du groupe de ressources ont une utilisation du processeur supérieure à 80 %.
+La répartition par colonne d’ID de ressource Azure est recommandée lorsque vous souhaitez surveiller la même condition sur plusieurs ressources Azure. Par exemple, la surveillance de toutes les machines virtuelles pour l’utilisation du processeur sur 80 %. Vous pouvez également décider de ne pas fractionner lorsque vous voulez une condition sur plusieurs ressources dans l’étendue. Par exemple, surveiller qu’au moins 5 machines dans l’étendue du groupe de ressources ont une utilisation de l’UC supérieure à 80 %.
 
 Dans les espaces de travail et Application Insights, il est uniquement pris en charge dans le type de mesure **Mesure métrique**. Le champ s'appelle **Agréger sur**. Il est limité à trois colonnes. La présence de plus de trois groupes par colonnes dans la requête peut donner des résultats inattendus. Dans tous les autres types de ressources, il est configuré dans la section **Fractionner par dimensions** de la condition (limitée à six fractionnements).
 
@@ -166,13 +166,11 @@ Les résultats de la requête sont transformés en valeur numérique qui est com
 ### <a name="frequency"></a>Fréquence
 
 > [!NOTE]
-> Il n’y a actuellement pas de frais supplémentaires pour les alertes de journal d’une fréquence d’une minute. La tarification des fonctionnalités en préversion sera annoncée à l’avenir et un avis sera fourni avant le début de la facturation. Si vous choisissez de continuer à utiliser les alertes de journal d’une fréquence d’une minute après la période de préavis, vous serez facturé au tarif en vigueur.
+> Il n’y a actuellement pas de frais supplémentaires pour la préversion des alertes de journal d’une fréquence d’une minute. La tarification des fonctionnalités en préversion sera annoncée à l’avenir et un avis sera fourni avant le début de la facturation. Si vous choisissez de continuer à utiliser les alertes de journal d’une fréquence d’une minute après la période de préavis, vous serez facturé au tarif en vigueur.
 
 Intervalle dans lequel la requête est exécutée. La valeur peut être comprise entre une minute et un jour. Elle doit être inférieure ou égale à l'[intervalle de temps de requête](#query-time-range) pour ne pas manquer les enregistrements de journal.
 
 Par exemple, si vous définissez la période sur 30 minutes et la fréquence sur 1 heure :  Si la requête est exécutée à 00h00, les enregistrements compris entre 23h30 et 00h00 sont renvoyés. La requête s'exécute ensuite à 01h00, pour renvoyer les enregistrements compris entre 00h30 et 01h00. Les enregistrements créés entre 00h00 et 00h30 ne sont jamais évalués.
-
-Pour utiliser des alertes d’une fréquence d’une minute, vous devez définir une propriété par le biais de l’API. Lorsque vous créez ou mettez à jour des règles d’alerte de journal dans la version d’API `2020-05-01-preview`, à la section `properties`, ajoutez `evaluationFrequency` avec la valeur `PT1M` de type `String`. Lorsque vous créez ou mettez à jour des règles d’alerte de journal dans la version d’API `2018-04-16`, à la section `schedule`, ajoutez `frequencyInMinutes` avec la valeur `1` de type `Int`. 
 
 ### <a name="number-of-violations-to-trigger-alert"></a>Nombre de violations à partir duquel déclencher l'alerte
 
@@ -182,7 +180,7 @@ Par exemple, si votre règle [**Précision d'agrégation**](#aggregation-granula
 
 ## <a name="state-and-resolving-alerts"></a>État et résolution des alertes
 
-Les alertes de journal peuvent être avec ou sans état (actuellement en préversion lors de l’utilisation de l’API). 
+Les alertes de journal peuvent être avec ou sans état (actuellement en préversion lors de l’utilisation de l’API).
 
 Les alertes sans état se déclenchent à chaque fois que la condition est remplie, même si elles ont déjà été déclenchées. Vous pouvez [marquer l’alerte comme fermée](../alerts/alerts-managing-alert-states.md) une fois l’instance d’alerte résolue. Vous pouvez également désactiver des actions pour les empêcher de se déclencher pendant un certain temps après le déclenchement d'une règle d'alerte. Dans Application Insights et les espaces de travail Log Analytics, on parle de **Supprimer les alertes**. Dans tous les autres types de ressources, il s'agit de **Mettre les actions en sourdine**. 
 
@@ -196,6 +194,12 @@ Consultez cet exemple d'évaluation d'alerte :
 | 00:20 | false | L'alerte ne se déclenche pas. Aucune action n’est appelée. L'état d'alerte précédent reste ACTIF.
 
 Les alertes avec état se déclenchent une fois par incident et se résolvent. Lorsque vous créez ou mettez à jour des règles d’alerte de journal, ajoutez l’indicateur `autoMitigate` avec une valeur `true` de type `Boolean`, sous la section `properties`. Vous pouvez utiliser cette fonctionnalité dans les versions d’API suivantes : `2018-04-16` et `2020-05-01-preview`.
+
+## <a name="location-selection-in-log-alerts"></a>Sélection de l’emplacement dans les alertes de journal
+
+Les alertes de journal vous permettent de définir un emplacement pour les règles d’alerte. Dans les espaces de travail Log Analytics, l’emplacement de la règle doit correspondre à l’emplacement de l’espace de travail. Dans toutes les autres ressources, vous pouvez sélectionner l’un des emplacements pris en charge, qui concordent avec la [liste des régions prises en charge par Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor).
+
+L’emplacement détermine la région dans laquelle la règle d’alerte est évaluée. Les requêtes sont exécutées sur les données de journal dans la région sélectionnée. Cela dit, le service d’alerte de bout en bout est mondial. Cela signifie que la définition de la règle d’alerte, les alertes déclenchées, les notifications et les actions ne sont pas liées à l’emplacement de la règle d’alerte. Les données sont transférées à partir de la région définie, puisque le service d’alertes Azure Monitor est un [service non régional](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=non-regional).
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Tarification et facturation des alertes de journal
 

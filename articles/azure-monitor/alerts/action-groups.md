@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: dukek
-ms.openlocfilehash: 1486415c5d225163dd2b2c7e79cd008ad0a76588
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: ae170fc500f8682a6c090b654fdfd0325b8eb49e
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107514867"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795399"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. 
@@ -154,6 +154,8 @@ Lors de la configuration du *rôle ARM d’e-mail*, vous devez vous assurer que 
 2. L’assignation doit être effectuée au niveau de l'**abonnement**.
 3. L’utilisateur doit disposer d’un e-mail configuré dans son **profil AAD**. 
 
+> [!NOTE]
+> Il faut compter jusqu’à **24 heures** pour que le client commence à recevoir des notifications après avoir ajouté un nouveau rôle ARM à son abonnement.
 
 ### <a name="function"></a>Fonction
 Appelle un point de terminaison de déclencheur HTTP existant dans [Azure Functions](../../azure-functions/functions-get-started.md). Pour gérer une demande, votre point de terminaison doit gérer le verbe HTTP POST.

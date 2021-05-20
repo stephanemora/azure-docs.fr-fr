@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 05/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: 4871f23577213430e530270d23b070e35d831bc4
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 4e6b30e6b6df02bac366e2907f33fd2bda13716f
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165350"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789800"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Recherche sémantique dans la Recherche cognitive Azure
 
@@ -23,18 +23,19 @@ ms.locfileid: "108165350"
 
 La recherche sémantique est une collection de fonctionnalités de requête qui ajoutent une pertinence sémantique et une compréhension linguistique aux résultats de recherche. Cet article est une présentation générale de la recherche sémantique dans son ensemble, avec des descriptions de chaque fonctionnalité et de la manière dont elles fonctionnent collectivement. La vidéo intégrée décrit la technologie, et la section à la fin couvre la disponibilité et la tarification.
 
-Nous vous recommandons de lire cet article pour vous familiariser avec le sujet, mais si vous préférez commencer tout de suite, procédez comme suit :
+La recherche sémantique est une fonctionnalité Premium. Nous vous recommandons cet article pour vous familiariser avec le sujet, mais si vous préférez commencer sans plus attendre, procédez comme suit :
 
-1. [Inscrivez-vous à la préversion](https://aka.ms/SemanticSearchPreviewSignup), en supposant que vous disposez d’un service répondant aux [exigences relatives à la région et au niveau](#availability-and-pricing).
-1. Créez des requêtes ou modifiez celles existantes pour renvoyer [des légendes et des surlignages sémantiques](semantic-how-to-query-request.md).
-1. Ajoutez quelques propriétés supplémentaires pour renvoyer également des [réponses sémantiques](semantic-answers.md).
-1. Si vous le souhaitez, incluez une propriété de requête de [vérification orthographique](speller-how-to-add.md) pour maximiser la précision et le rappel.
+1. [Vérifiez les exigences régionales et de niveau de service](#availability-and-pricing).
+1. [Inscrivez-vous au programme en préversion](https://aka.ms/SemanticSearchPreviewSignup).
+1. Une fois accepté, créez ou modifiez des requêtes pour renvoyer [des légendes et des surlignages sémantiques](semantic-how-to-query-request.md).
+1. Ajoutez quelques propriétés de requête supplémentaires pour renvoyer également des [réponses sémantiques](semantic-answers.md).
+1. Vous pouvez également inclure une propriété de [vérification orthographique](speller-how-to-add.md) pour optimiser la précision et le rappel.
 
 ## <a name="what-is-semantic-search"></a>Qu’est-ce que la recherche sémantique ?
 
-La recherche sémantique est une couche facultative d’intelligence artificielle relative à la recherche qui complète le pipeline traditionnel d’exécution des requêtes par un modèle de classement sémantique et renvoie des propriétés supplémentaires qui améliorent l’expérience utilisateur.
+La recherche sémantique est une couche facultative d’IA liée aux requêtes. Lorsqu’elle est activée sur votre service de recherche, elle étend le pipeline d’exécution de requête classique de deux manières. Tout d’abord, elle ajoute un modèle facultatif de classement sémantique. Puis, elle renvoie des légendes et des réponses dans la réponse.
 
-Le *classement sémantique* recherche le contexte et la relation entre les termes, en élevant les correspondances plus significatives en fonction de la requête. La compréhension du langage recherche des *légendes* et des *réponses* dans votre contenu, qui résument le document correspondant ou répondent à une question, qui peut ensuite être rendu sur une page de résultats de recherche pour une expérience de recherche plus productive.
+Le *classement sémantique* recherche le contexte et la relation entre les termes, en élevant les correspondances plus significatives en fonction de la requête. La compréhension du langage recherche des résumés ou des *légendes* et des *réponses* dans votre contenu et les inclut dans la réponse, qui peut ensuite être affichée sur une page de résultats de recherche pour une expérience de recherche plus productive.
 
 Des modèles préformés de pointe sont utilisés pour la récapitulation et le classement. Pour maintenir les performances rapides que les utilisateurs attendent de la recherche, la synthèse sémantique et le classement sont appliqués uniquement aux 50 premiers résultats, comme indiqué par l’[algorithme de notation de similarité par défaut](index-similarity-and-scoring.md#similarity-ranking-algorithms). À l’aide de ces résultats en tant que corpus de documents, le classement sémantique réévalue ces résultats en fonction de la force sémantique de la correspondance.
 
@@ -44,7 +45,7 @@ La vidéo suivante fournit une vue des fonctionnalités.
 
 > [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
 
-## <a name="components-and-workflow"></a>Composants et flux de travail
+## <a name="feature-description-and-workflow"></a>Description de la fonctionnalité et workflow
 
 La recherche sémantique améliore la précision et le rappel avec l’ajout des fonctionnalités suivantes :
 
@@ -73,11 +74,18 @@ Pour utiliser les fonctionnalités sémantiques dans des requêtes, vous devez a
 
 ## <a name="availability-and-pricing"></a>Disponibilité et tarification
 
-Les fonctionnalités sémantiques sont disponibles par le biais de l’[enregistrement d’inscription](https://aka.ms/SemanticSearchPreviewSignup), auprès des services de recherche créés au niveau Standard (S1, S2, S3) et situés dans l’une des régions suivantes : USA Centre Nord, USA Ouest, USA Ouest 2, USA Est 2, Europe Nord, Europe Ouest. 
+La recherche sémantique est disponible via [l’enregistrement d’inscription](https://aka.ms/SemanticSearchPreviewSignup). Dans le cadre du lancement de la préversion, du 2 mars à début juin, des fonctionnalités sémantiques sont proposées gratuitement.
 
-La correction orthographique est disponible dans les mêmes régions, mais ne présente aucune restriction de niveau. Si vous avez un service existant qui répond aux critères de niveau et de région, seule l’inscription est requise.
+| Fonctionnalité | Niveau | Région | Inscription | Tarification projetée |
+|---------|------|--------|---------------------|-------------------|
+| Recherche sémantique (légendes, surlignages, réponses) | Niveau Standard (S1, S2, S3) | USA Centre Nord, USA Ouest, USA Ouest 2, USA Est 2, Europe Nord, Europe Ouest | Obligatoire | À compter du 1er juin, la tarification prévue est de 500 USD par mois pour les 250 000 premières requêtes et de 2 USD par tranche de 1 000 requêtes supplémentaires.  |
+| Vérification orthographique | Quelconque | USA Centre Nord, USA Ouest, USA Ouest 2, USA Est 2, Europe Nord, Europe Ouest | Obligatoire | Aucun (gratuit) |
 
-Dans le cadre du lancement de la préversion, du 2 mars au 1er avril, la correction orthographique et le classement sémantique sont proposés gratuitement. Après le 1er avril, les coûts de calcul liés à l’exécution de cette fonctionnalité seront facturés. Le coût attendu est d’environ 500 dollars US par mois pour 250 000 requêtes. Vous trouverez des informations détaillées sur les coûts, présentées à la [page des tarifs de la Recherche cognitive](https://azure.microsoft.com/pricing/details/search/) et dans [Estimer et gérer les coûts](search-sku-manage-costs.md).
+Il existe un [enregistrement d’inscription](https://aka.ms/SemanticSearchPreviewSignup) pour les fonctionnalités sémantiques et la vérification orthographique. 
+
+Vous pouvez utiliser la vérification orthographique sans la recherche sémantique et ce, gratuitement. Des frais de recherche sémantique sont prélevés lorsque les demandes de requête incluent `queryType=semantic` et que la chaîne de recherche n’est pas vide (par exemple, `search=pet friendly hotels in new york`). La recherche vide (requêtes où `search=*`) n’est pas facturée.
+
+Vous trouverez des informations de tarification détaillées sur la [page de tarification de la Recherche cognitive](https://azure.microsoft.com/pricing/details/search/) et dans [Estimer et gérer les coûts](search-sku-manage-costs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

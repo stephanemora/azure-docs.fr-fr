@@ -3,12 +3,12 @@ title: Quotas et limites d’abonnement Azure
 description: Fournit une liste des abonnements Azure et des limites, quotas et contraintes de service habituels. Cet article inclut des informations sur la façon d’augmenter les limites ainsi que les valeurs maximales.
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: 8aad2f885c39d6f5ecd237a6167363b0efe8cef4
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: cb39dc5312c729659993d9a9e754bef711137b4d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290382"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790117"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 
@@ -70,8 +70,6 @@ Les limites suivantes s'appliquent lorsque vous utilisez Azure Resource Manager 
 
 ## <a name="app-service-limits"></a>Limites App Service
 
-Les limites App Service suivantes incluent celles de Web Apps, Mobile Apps et API Apps.
-
 [!INCLUDE [azure-websites-limits](../../../includes/azure-websites-limits.md)]
 
 ## <a name="automation-limits"></a>Limites du service Automation
@@ -81,6 +79,10 @@ Les limites App Service suivantes incluent celles de Web Apps, Mobile Apps et AP
 ## <a name="azure-app-configuration"></a>Azure App Configuration
 
 [!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
+
+## <a name="azure-api-for-fhir-service-limits"></a>Limites du service API Azure pour FHIR
+
+[!INCLUDE [functions-limits](../../../includes/azure-api-for-fhir-limits.md)]
 
 ## <a name="azure-cache-for-redis-limits"></a>Limites du Cache Azure pour Redis
 

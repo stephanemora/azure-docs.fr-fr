@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 713a829ee8c7a3d036bc82f6f509e5c79dfb71aa
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ad6d006157424c995ea94e89163d69a0db242ce1
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205770"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789679"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendre les modèles de jumeau dans Azure Digital Twins
 
@@ -77,7 +77,7 @@ La **télémétrie** est souvent utilisée avec les appareils IoT, car de nombre
 
 Par conséquent, lors de la conception d’un modèle dans Azure Digital Twins, vous utiliserez probablement des **propriétés** dans la plupart des cas pour modéliser vos jumeaux. Cela vous permet de disposer du stockage de sauvegarde et de lire et d’interroger les champs de données.
 
-La télémétrie et les propriétés collaborent souvent pour traiter l’entrée de données provenant des appareils. Comme toute entrée dans Azure Digital Twins se fait via des [API](how-to-use-apis-sdks.md), vous utiliserez généralement votre fonction d’entrée pour lire les événements de télémétrie ou de propriété des appareils, et vous définirez une propriété dans Azure Digital Twins en réponse. 
+La télémétrie et les propriétés collaborent souvent pour traiter l’entrée de données provenant des appareils. Comme toute entrée dans Azure Digital Twins se fait via des [API](concepts-apis-sdks.md), vous utiliserez généralement votre fonction d’entrée pour lire les événements de télémétrie ou de propriété des appareils, et vous définirez une propriété dans Azure Digital Twins en réponse. 
 
 Vous pouvez également publier un événement de télémétrie à partir de l’API Azure Digital Twins. Comme pour toute autre télémétrie, il s’agit d’un événement de courte durée qui nécessite un écouteur pour le traiter.
 
@@ -87,13 +87,13 @@ DTDL permet également aux **relations** d’avoir leurs propres propriétés. L
 
 ## <a name="model-inheritance"></a>Héritage de modèle
 
-Il est parfois nécessaire de spécialiser un modèle. Par exemple, il peut être utile de disposer d’un modèle générique, *Room*, et de variantes spécialisées, *ConferenceRoom* et *Gym*. Pour exprimer la spécialisation, le langage DTDL prend en charge l’héritage : des interfaces peuvent hériter d’une ou plusieurs autres interfaces. 
+Il est parfois nécessaire de spécialiser un modèle. Par exemple, il peut être utile de disposer d’un modèle générique, Room, et de variantes spécialisées, ConferenceRoom et Gym. Pour exprimer la spécialisation, le langage DTDL prend en charge l’héritage : des interfaces peuvent hériter d’une ou plusieurs autres interfaces. 
 
-L’exemple suivant revisite le modèle *Planet* de l’exemple de DTDL précédent en tant que sous-type d’un modèle *CelestialBody* plus grand. Une fois le modèle « parent » défini, il est utilisé pour élaborer le modèle « enfant » à l’aide du champ `extends`.
+L’exemple suivant revisite le modèle Planet de l’exemple de DTDL précédent en tant que sous-type d’un modèle CelestialBody plus grand. Une fois le modèle « parent » défini, il est utilisé pour élaborer le modèle « enfant » à l’aide du champ `extends`.
 
 :::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
 
-Dans cet exemple, le modèle *CelestialBody* fournit un nom, une masse et une température au modèle *Planet*. La section `extends` est un nom d’interface ou un tableau de noms d’interface (permettant, le cas échéant, à l’interface d’extension d’hériter de plusieurs modèles parents).
+Dans cet exemple, le modèle CelestialBody fournit un nom, une masse et une température au modèle Planet. La section `extends` est un nom d’interface ou un tableau de noms d’interface (permettant, le cas échéant, à l’interface d’extension d’hériter de plusieurs modèles parents).
 
 Une fois l’héritage appliqué, l’interface d’extension expose toutes les propriétés de la chaîne d’héritage entière.
 
@@ -101,7 +101,7 @@ L’interface d’extension ne peut pas modifier les définitions des interfaces
 
 ## <a name="model-code"></a>Code du modèle
 
-Des modèles de type de jumeau peuvent être écrits dans n’importe quel éditeur de texte. Le langage DTDL suivant la syntaxe JSON, vous devez donc stocker les modèles avec l’extension *.json*. L’utilisation de l’extension JSON permet à de nombreux éditeurs de texte de programmation de fournir une vérification et une mise en évidence de syntaxe de base pour vos documents DTDL. Il existe également une [extension DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible pour [Visual Studio Code](https://code.visualstudio.com/).
+Des modèles de type de jumeau peuvent être écrits dans n’importe quel éditeur de texte. Le langage DTDL suivant la syntaxe JSON, vous devez donc stocker les modèles avec l’extension .json. L’utilisation de l’extension JSON permet à de nombreux éditeurs de texte de programmation de fournir une vérification et une mise en évidence de syntaxe de base pour vos documents DTDL. Il existe également une [extension DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible pour [Visual Studio Code](https://code.visualstudio.com/).
 
 ### <a name="possible-schemas"></a>Schémas possibles
 
@@ -118,7 +118,7 @@ Les champs *Telemetry* prennent également en charge `Array`.
 
 Cette section contient un exemple de modèle classique, écrit sous la forme d’une interface DTDL. Le modèle décrit des **planètes**, chacune avec un nom, une masse et une température.
  
-Sachez que les planètes peuvent également interagir avec des **lunes** qui sont leurs satellites et qu’elles peuvent contenir des **cratères**. Dans l’exemple ci-dessous, le modèle de `Planet` exprime les connexions à ces autres entités en référençant deux modèles externes, `Moon` et `Crater`. Ces modèles sont également définis dans l’exemple de code ci-dessous, mais ils sont très simples pour ne pas porter atteinte à l’exemple de `Planet` principal.
+Sachez que les planètes peuvent également interagir avec des **lunes** qui sont leurs satellites et qu’elles peuvent contenir des **cratères**. Dans l’exemple ci-dessous, le modèle Planète exprime les connexions à ces autres entités en référençant deux modèles externes, Lune et Cratère. Ces modèles sont également définis dans l’exemple de code ci-dessous, mais ils sont très simples pour ne pas porter atteinte à l’exemple de planète principal.
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Planet-Crater-Moon.json":::
 
@@ -133,7 +133,7 @@ Les champs du modèle sont les suivants :
 | `contents` | Toutes les données d’interface restantes sont placées ici, sous la forme d’un tableau de définitions d’attributs. Chaque attribut doit fournir un `@type` (*Property*, *Telemetry*, *Command*, *Relationship* ou *Component*) pour identifier le type d’informations d’interface qu’il décrit, puis un ensemble de propriétés qui définissent l’attribut réel (par exemple, `name` et `schema` pour définir une *Propriété*). |
 
 > [!NOTE]
-> Notez que l’interface de composant (*Crater* dans cet exemple) est définie dans le même tableau que l’interface qui l’utilise (*Planet*). Les composants doivent être définis de cette façon dans les appels d’API, afin que l’interface soit trouvée.
+> Notez que l’interface de composant (Crater dans cet exemple) est définie dans le même tableau que l’interface qui l’utilise (Planet). Les composants doivent être définis de cette façon dans les appels d’API, afin que l’interface soit trouvée.
 
 ## <a name="best-practices-for-designing-models"></a>Bonnes pratiques en matière de conception de modèles
 
@@ -153,9 +153,9 @@ Cette section décrit plus en détail l’ensemble actuel d’échantillons.
 
 _**Pour le chargement de modèles vers Azure Digital Twins**_
 
-Une fois que vous avez fini de créer, d’étendre ou de sélectionner vos modèles, vous pouvez les charger vers votre instance d’Azure Digital Twins pour les rendre accessibles dans votre solution. Pour ce faire, utilisez les [API Azure Digital Twins](how-to-use-apis-sdks.md), comme indiqué dans le [Guide pratique pour Gérer les modèles DTDL](how-to-manage-model.md#upload-models).
+Une fois que vous avez fini de créer, d’étendre ou de sélectionner vos modèles, vous pouvez les charger vers votre instance d’Azure Digital Twins pour les rendre accessibles dans votre solution. Pour ce faire, utilisez les [API Azure Digital Twins](concepts-apis-sdks.md), comme indiqué dans le [Guide pratique pour Gérer les modèles DTDL](how-to-manage-model.md#upload-models).
 
-Toutefois, si vous avez de nombreux modèles à charger, ou s’ils ont de nombreuses interdépendances qui compliquent le tri des chargements individuels, vous pouvez utiliser cet exemple pour charger plusieurs modèles à la fois : [Chargeur de modèles Azure Digital Twins](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Suivez les instructions fournies avec l’exemple pour configurer et utiliser ce projet afin de charger des modèles vers votre propre instance.
+Toutefois, si vous avez de nombreux modèles à charger, ou s’ils ont de nombreuses interdépendances qui compliquent le tri des chargements individuels, vous pouvez utiliser [cet exemple de chargeur de modèles Azure Digital Twins](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader) pour charger de nombreux modèles à la fois . Suivez les instructions fournies avec l’exemple pour configurer et utiliser ce projet afin de charger des modèles vers votre propre instance.
 
 ### <a name="model-visualizer"></a>Visualiseur de modèles 
 

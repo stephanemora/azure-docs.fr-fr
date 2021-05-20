@@ -6,12 +6,12 @@ ms.author: bagol
 ms.service: security
 ms.topic: reference
 ms.date: 04/29/2021
-ms.openlocfilehash: 6cead1e9dfb8cf1d12ef09079e97779c08523e36
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: d545d406bc914eaf634ff2c47698df7c1206a5cb
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290575"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109655513"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>Disponibilité des fonctionnalités cloud pour les clients du secteur public américain
 
@@ -62,7 +62,8 @@ Les tableaux suivants indiquent la disponibilité actuelle des fonctionnalités 
 |- [BYO-ML (Bring Your Own ML)](/azure/sentinel/bring-your-own-ml) | Version préliminaire publique | Version préliminaire publique |
 | - [Vue des incidents inter-clients/inter-espaces de travail](/azure/sentinel/multiple-workspace-view) |Version préliminaire publique | Version préliminaire publique |
 | - [Entity Insights](/azure/sentinel/enable-entity-behavior-analytics) | Version préliminaire publique | Non disponible |
-| - [Fusion](/azure/sentinel/fusion)<br>Détection avancée des attaques en plusieurs étapes <sup>[1](#footnote1)</sup> | GA | Non disponible |
+| - [Fusion](/azure/sentinel/fusion)<br>Détection avancée des attaques en plusieurs étapes <sup>[1](#footnote1)</sup> | GA | GA |
+| - [Chasse](/azure/sentinel/hunting) | GA | GA |
 |- [Notebooks](/azure/sentinel/notebooks) | GA | GA |
 |- [Métriques d'audit des incidents SOC](/azure/sentinel/manage-soc-with-incident-metrics) | GA | GA |
 |- [Watchlists](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-watchlist-is-now-in-public-preview/ba-p/1765887) | Version préliminaire publique | Non disponible |
@@ -223,7 +224,7 @@ Office 365 GCC est associé à Azure Active Directory (Azure AD) dans Azure. Of
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez le modèle de [responsabilité partagée](https://docs.microsoft.com/azure/security/fundamentals/shared-responsibility) et apprenez à distinguer les tâches de sécurité qui dépendent du fournisseur de cloud de celles qui vous incombent.
-- Découvrez les fonctionnalités [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) ainsi que la conception et la sécurité sans faille utilisées pour prendre en charge la conformité applicable aux organisations gouvernementales fédérales, d'état et locales et à leurs partenaires.
-- Découvrez le [plan Office 365 Government](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/office-365-us-government#about-office-365-government-environments).
+- Découvrez le modèle de [responsabilité partagée](shared-responsibility.md) et apprenez à distinguer les tâches de sécurité qui dépendent du fournisseur de cloud de celles qui vous incombent.
+- Découvrez les fonctionnalités [Azure Government Cloud](/azure/azure-government/documentation-government-welcome) ainsi que la conception et la sécurité sans faille utilisées pour prendre en charge la conformité applicable aux organisations gouvernementales fédérales, d'état et locales et à leurs partenaires.
+- Découvrez le [plan Office 365 Government](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/office-365-us-government#about-office-365-government-environments).
 - Découvrez la [conformité Azure](/azure/compliance/) pour les normes légales et réglementaires.

@@ -14,19 +14,19 @@ ms.workload: identity
 ms.date: 10/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2d30571b68ba7e38e9960d1e434cf7844f6be852
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 35170cb047ae7b4cfd376f86a76a36c88bbbaaa2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780098"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787488"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>Répertorier les attributions de rôle Azure à l’aide d’Azure CLI
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] Cet article explique comment lister les attributions de rôles à l’aide d’Azure CLI.
 
 > [!NOTE]
-> Si votre organisation possède des fonctions de gestion externalisées pour un fournisseur de services qui utilise la [gestion des ressources déléguées Azure](../lighthouse/concepts/azure-delegated-resource-management.md), les attributions de rôles autorisées par ce fournisseur de services ne seront pas affichées ici.
+> Si votre organisation possède des fonctions de gestion externalisées à un fournisseur de services qui utilise[Azure Lighthouse](../lighthouse/overview.md), les attributions de rôles autorisées par ce fournisseur de services ne s’afficheront pas ici.
 
 ## <a name="prerequisites"></a>Prérequis
 

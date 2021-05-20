@@ -1,6 +1,6 @@
 ---
-title: Installer l’agent de provisionnement cloud Azure AD Connect à l’aide de PowerShell
-description: Découvrez comment installer l’agent de provisionnement cloud Azure AD Connect à l’aide des applets de commande PowerShell.
+title: Installer l’agent de provisionnement cloud Azure AD Connect à l’aide d’une interface de ligne de commande (CLI) et de PowerShell
+description: Découvrez comment installer l’agent de provisionnement cloud Azure AD Connect à l’aide des applets de commande PowerShell.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,16 +11,18 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c20cfb96b5cd6e1d05e332fa7157fe6e0cde8656
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5f560321b13e4c7a47aed262a1d312093e9be56
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98612507"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758822"
 ---
-# <a name="install-the-azure-ad-connect-provisioning-agent-using-powershell-cmdlets"></a>Installer l’agent de provisionnement Azure AD Connect à l’aide des applets de commande PowerShell 
+# <a name="install-the-azure-ad-connect-provisioning-agent-using-a-command-line-interface-cli-and-powershell"></a>Installer l’agent de provisionnement Azure AD Connect à l’aide d’une interface de ligne de commande (CLI) et de PowerShell
 Le document suivant vous montrera comment installer l’agent de provisionnement Azure AD Connect à l’aide des applets de commande PowerShell.
  
+>[!NOTE]
+>Ce document explique l’installation de l’agent de provisionnement à l’aide de l’interface de ligne de commande (CLI).  Pour obtenir des informations sur l’installation de l’agent de provisionnement Azure AD Connect à l’aide de l’Assistant, consultez [Installer l’agent de provisionnement Azure AD Connect](how-to-install.md).
 
 ## <a name="prerequisite"></a>Condition préalable : 
 
@@ -28,11 +30,11 @@ Le document suivant vous montrera comment installer l’agent de provisionnement
 >[!IMPORTANT]
 >Les instructions d’installation suivantes supposent que tous les [prérequis](how-to-prerequisites.md) ont été réunis.
 >
-> Le protocole TLS 1.2 doit être activé sur le serveur Windows avant d’installer l’agent de provisionnement Azure AD Connect à l’aide des applets de commande PowerShell. Pour activer TLS 1.2, vous pouvez utiliser les étapes présentées [ici](how-to-prerequisites.md#tls-requirements).
+> Le protocole TLS 1.2 doit être activé sur le serveur Windows avant d’installer l’agent de provisionnement Azure AD Connect à l’aide des applets de commande PowerShell. Pour activer TLS 1.2, vous pouvez utiliser les étapes présentées [ici](how-to-prerequisites.md#tls-requirements).
 
  
 
-## <a name="install-the-azure-ad-connect-provisioning-agent-using-powershell-cmdlets"></a>Installer l’agent de provisionnement Azure AD Connect à l’aide des applets de commande PowerShell 
+## <a name="install-the-azure-ad-connect-provisioning-agent-using-powershell-cmdlets"></a>Installer l’agent de provisionnement Azure AD Connect à l’aide des applets de commande PowerShell 
 
 
  1. Connectez-vous au portail Azure, puis accédez à **Azure Active Directory**.
@@ -51,7 +53,7 @@ Le document suivant vous montrera comment installer l’agent de provisionnement
  7. Importez le module PS de l’agent de provisionnement. 
 
    ```
-   Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Microsoft.CloudSync.Powershell.dll" 
+   Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Microsoft.CloudSync.PowerShell.dll" 
    ```
  8. Connectez-vous à AzureAD à l’aide des informations d’identification d’administrateur général. Vous pouvez personnaliser cette section pour extraire le mot de passe d’un stockage sécurisé. 
 

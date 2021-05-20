@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 03/18/2021
 ms.author: alkohli
-ms.openlocfilehash: 8b154dabd6f672c6fdaf77c5f8d48f80fb40d5d8
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 8bf73374545fa10c1b26ccbc9b932962fcabb6b3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060106"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759866"
 ---
 # <a name="tutorial-install-azure-stack-edge-mini-r"></a>Tutoriel : Installer Azure Stack Edge Mini R
 
@@ -82,7 +82,10 @@ Avant de commencer à câbler votre appareil, vous avez besoin des éléments su
 - Votre appareil physique Azure Stack Edge Mini R sur le site d’installation.
 - Un câble d’alimentation.
 - Au moins un câble réseau 1-GbE RJ-45 à brancher à l’interface de gestion. Il existe deux interfaces de réseau 1-GbE, une interface de gestion, et une interface de données, sur l’appareil.
-- Un câble en cuivre 10-GbE SFP+ pour chaque interface réseau de données à configurer. Au moins une interface réseau de données entre le PORT 3 et le PORT 4 a besoin d’être connectée à Internet (avec connectivité à Azure).  
+- Un câble 10-GbE SFP+ pour chaque interface réseau de données à configurer. Au moins une interface réseau de données depuis le PORT 3 ou le PORT 4 doit être connectée à Internet (avec connectivité à Azure).
+
+  L’utilisation du transmetteur SFP+ (10 Gbits/s) cuivre le plus performant est fortement recommandée. Des transmetteurs à fibre optique compatibles peuvent être utilisés mais n’ont pas été testés. Pour plus d’informations, consultez [Spécifications des transmetteurs et des câbles](azure-stack-edge-mini-r-technical-specifications-compliance.md#transceivers-cables) pour Azure Stack Edge Mini R.
+   
 - Accès à une seule unité de distribution d’alimentation (recommandé).
 
 > [!NOTE]
@@ -97,10 +100,10 @@ Sur votre appareil Azure Stack Edge :
     - L’appareil a 1 disque SSD dans l’emplacement. 
     - L’appareil dispose aussi d’une carte CFx qui sert de stockage pour le disque du système d’exploitation.
     
-- Le panneau avant a des interfaces réseau et accès au Wi-Fi.
+- Le panneau avant a des interfaces réseau et accès au Wi-Fi. 
 
-    - 2 interfaces réseau 1 GbE RJ 45. Il s’agit de PORT 1 et PORT 2 sur l’interface utilisateur locale de l’appareil.
-    - 2 interfaces réseau 10 GbE SFP+. Il s’agit de PORT 3 et PORT 4 sur l’interface utilisateur locale de l’appareil. 
+    - 2 interfaces réseau 1 GbE RJ 45 (PORT 1 et PORT 2 sur l’interface utilisateur locale de l’appareil)
+    - 2 interfaces réseau 10 GbE SFP+ (PORT 3 et PORT 4 sur l’interface utilisateur locale de l’appareil) 
     - Un seul port Wi-Fi avec un transmetteur Wi-Fi branché.
 
 - Le panneau avant comporte aussi un bouton d’alimentation. 

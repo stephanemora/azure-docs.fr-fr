@@ -3,12 +3,12 @@ title: Optimiser les charges de travail Azure à l’aide d’Advisor Score
 description: Utilisez Advisor Score pour tirer le meilleur parti d’Azure.
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: 11b20bc3b4d604d3a7ff4608cd1c21f129c1cb6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e439e5283f2d311d9efb3b30fe157750d589664e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97630120"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787920"
 ---
 # <a name="optimize-azure-workloads-by-using-advisor-score"></a>Optimiser les charges de travail Azure à l’aide d’Advisor Score
 
@@ -98,7 +98,7 @@ Si vous ignorez une recommandation d’Advisor, elle est omise du calcul de votr
 
 ### <a name="why-did-my-score-change"></a>Pourquoi mon score a-t-il changé ?
 
-Votre score peut changer si vous corrigez des ressources affectées en adoptant les bonnes pratiques recommandées par Advisor. Si vous ou toute personne disposant d’autorisations sur votre abonnement a modifié ou créé de nouvelles ressources, vous pouvez également voir des fluctuations de votre score. Votre score est basé sur un rapport des ressources ayant un impact sur le coût par rapport au coût total de toutes les ressources.
+Votre score peut changer si vous corrigez des ressources impactées en adoptant les bonnes pratiques recommandées par Advisor. Si vous ou toute personne disposant d’autorisations sur votre abonnement a modifié ou créé de nouvelles ressources, vous pouvez également voir des fluctuations de votre score. Votre score est basé sur un rapport des ressources ayant un impact sur le coût par rapport au coût total de toutes les ressources.
 
 ### <a name="how-does-advisor-calculate-the-retail-cost-of-resources-on-a-subscription"></a>Comment Advisor calcule-t-il le coût à l’achat des ressources sur un abonnement ?
 

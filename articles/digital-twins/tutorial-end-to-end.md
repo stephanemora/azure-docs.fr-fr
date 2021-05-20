@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: a0584bea6fab1d49c552785d093e7e2df823b11b
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 33860e35785e65396851bcd9f8cf9d9577a9d0a5
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205824"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790898"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutoriel : Créer une solution de bout en bout
 
@@ -72,7 +72,7 @@ Une fenêtre de console s’ouvre, exécute l’authentification et attend une c
 SetupBuildingScenario
 ```
 
-Cette commande génère une série de messages confirmant la création et la connexion de trois [jumeaux numériques](concepts-twins-graph.md) dans votre instance Azure Digital Twins : un étage nommé *floor1*, une pièce nommée *Room21* et un capteur de température nommé *thermostat67*. Ces jumeaux numériques représentent les entités qui existeraient dans un environnement réel.
+Cette commande génère une série de messages confirmant la création et la connexion de trois [jumeaux numériques](concepts-twins-graph.md) dans votre instance d’Azure Digital Twins : un étage nommé floor1, une pièce nommée room21 et un capteur de température nommé thermostat67. Ces jumeaux numériques représentent les entités qui existeraient dans un environnement réel.
 
 Elles sont connectées par le biais de relations dans le [graphe de jumeaux](concepts-twins-graph.md). Le graphe de jumeaux représente l’environnement dans son ensemble, y compris les interactions et les liens entre les entités.
 
@@ -85,7 +85,7 @@ Query
 ```
 
 >[!TIP]
-> Cette méthode simplifiée est fournie dans le cadre du projet _**AdtE2ESample**_. En dehors du contexte de cet exemple de code, vous pouvez à tout moment interroger tous les jumeaux dans votre instance à l’aide des [API de requête](/rest/api/digital-twins/dataplane/query) ou des [commandes CLI](how-to-use-cli.md).
+> Cette méthode simplifiée est fournie dans le cadre du projet _**AdtE2ESample**_. En dehors du contexte de cet exemple de code, vous pouvez à tout moment interroger tous les jumeaux dans votre instance à l’aide des [API de requête](/rest/api/digital-twins/dataplane/query) ou des [commandes CLI](concepts-cli.md).
 >
 > Voici le corps complet de la requête pour obtenir tous les jumeaux numériques dans votre instance :
 > 
@@ -111,7 +111,7 @@ Dans le volet *Explorateur de solutions*, développez _**SampleFunctionsApp** >
 
 :::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio : Gérer les packages NuGet pour le projet SampleFunctionsApp" border="false":::
 
-Cette action a pour effet d’ouvrir le Gestionnaire de package NuGet. Sélectionnez l’onglet *Mises à jour* et, s’il y a des packages à mettre à jour, activez la case à cocher *Sélectionner tous les packages*. Ensuite, appuyez sur *Mettre à jour*.
+Cette action a pour effet d’ouvrir le Gestionnaire de package NuGet. Sélectionnez l’onglet *Mises à jour* et, s’il y a des packages à mettre à jour, activez la case à cocher *Sélectionner tous les packages*. Sélectionnez ensuite *Mettre à jour*.
 
 :::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Visual Studio : Sélection de la mise à jour de tous les packages dans le Gestionnaire de package NuGet":::
 
@@ -141,7 +141,7 @@ Le premier paramètre donne à l’application de fonction le rôle de **Propri�
     > Si le résultat est vide au lieu d’afficher les détails d’une identité, créez une autre identité managée par le système pour la fonction à l’aide de cette commande :
     > 
     >```azurecli-interactive    
-    >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>  
+    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>    
     >```
     >
     > La sortie affiche alors les détails de l’identité, notamment la valeur **principalId** nécessaire pour la prochaine étape. 
@@ -161,7 +161,7 @@ Le deuxième paramètre crée une **variable d’environnement** pour la fonctio
 Exécutez la commande ci-dessous, en remplissant les espaces réservés avec les détails de vos ressources.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```
 
 La sortie est la liste des paramètres de la fonction Azure, qui doit maintenant contenir une entrée appelée **ADT_SERVICE_URL**.
@@ -191,7 +191,7 @@ Azure Digital Twins est conçu pour fonctionner avec [IoT Hub](../iot-hub/about-
 Dans Azure Cloud Shell, utilisez cette commande pour créer un hub IoT :
 
 ```azurecli-interactive
-az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku S1
+az iot hub create --name <name-for-your-IoT-hub> --resource-group <your-resource-group> --sku S1
 ```
 
 Les informations générées par cette commande décrivent le hub IoT qui a été créé.
@@ -217,20 +217,20 @@ Renseignez les champs comme suit (les champs remplis par défaut ne sont pas men
 * *DÉTAILS DE LA RUBRIQUE* > **Nom de la rubrique système** : spécifiez un nom à utiliser pour la rubrique système. 
 * *TYPES D’ÉVÉNEMENTS* > **Filtrer les types d’événements** : Sélectionnez *Télémétrie d’appareil* dans les options de menu.
 * *DÉTAILS DU POINT DE TERMINAISON* > **Type de point de terminaison** : Sélectionnez *Fonction Azure* dans les options de menu.
-* *DÉTAILS DU POINT DE TERMINAISON* > **Point de terminaison** : Cliquez sur le lien *Sélectionner un point de terminaison*. Une fenêtre *Sélectionner une fonction Azure* s’ouvre : :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Abonnement aux événements dans le portail Azure : sélectionner une fonction Azure" border="false":::
+* *DÉTAILS DU POINT DE TERMINAISON* > **Point de terminaison** : sélectionnez le lien *Sélectionner un point de terminaison*. Une fenêtre *Sélectionner une fonction Azure* s’ouvre : :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Abonnement aux événements dans le portail Azure : sélectionner une fonction Azure" border="false":::
     - Renseignez vos **Abonnement**, **Groupe de ressources**, **Application de fonction** et **Fonction** (*ProcessHubToDTEvents*). Il est possible que certaines de ces informations soient automatiquement renseignées une fois que vous avez sélectionné l’abonnement.
-    - Cliquez sur **Confirmer la sélection**.
+    - Sélectionnez **Confirmer la sélection**.
 
-Dans la page *Créer un abonnement aux événements*, cliquez sur **Créer**.
+Dans la page *Créer un abonnement aux événements*, sélectionnez **Créer**.
 
 ### <a name="register-the-simulated-device-with-iot-hub"></a>Inscrire l’appareil simulé auprès d’IoT Hub 
 
-Dans cette section, vous allez créer une représentation d’appareil dans IoT Hub avec l’ID *thermostat67*. L’appareil simulé se connectera à cette dernière, ce qui permettra aux événements de télémétrie émis par l’appareil d’atteindre IoT Hub, où la fonction Azure souscrite à l’étape précédente est à l’écoute, prête à récupérer les événements et à continuer le traitement.
+Dans cette section, vous allez créer une représentation d’appareil dans IoT Hub avec l’ID thermostat67. L’appareil simulé se connectera à cette dernière, ce qui permettra aux événements de télémétrie émis par l’appareil d’atteindre IoT Hub, où la fonction Azure souscrite à l’étape précédente est à l’écoute, prête à récupérer les événements et à continuer le traitement.
 
 Dans Azure Cloud Shell, créez un appareil dans IoT Hub à l’aide de la commande suivante :
 
 ```azurecli-interactive
-az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-hub-name> -g <your-resource-group>
+az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-hub-name> --resource-group <your-resource-group>
 ```
 
 Les informations générées décrivent l’appareil qui a été créé.
@@ -242,7 +242,7 @@ Ensuite, configurez le simulateur d’appareil pour envoyer des données à votr
 Commencez par obtenir la *chaîne de connexion IoT Hub* à l’aide de cette commande :
 
 ```azurecli-interactive
-az iot hub connection-string show -n <your-IoT-hub-name>
+az iot hub connection-string show --hub-name <your-IoT-hub-name>
 ```
 
 Ensuite, récupérez la *chaîne de connexion de l’appareil* à l’aide de la commande suivante :
@@ -279,11 +279,11 @@ Vous n’avez rien d’autre à faire dans cette console, mais laissez-la s’ex
 
 ### <a name="see-the-results-in-azure-digital-twins"></a>Voir les résultats dans Azure Digital Twins
 
-La fonction *ProcessHubToDTEvents* que vous avez publiée écoute les données IoT Hub et appelle une API Azure Digital Twins pour mettre à jour la propriété *Température* sur le jumeau *thermostat67*.
+La fonction *ProcessHubToDTEvents* que vous avez publiée écoute les données IoT Hub et appelle une API Azure Digital Twins pour mettre à jour la propriété *Température* sur le jumeau thermostat67.
 
 Pour voir les données du côté d’Azure Digital Twins, accédez à la fenêtre Visual Studio dans laquelle le projet _**AdtE2ESample**_ est ouvert et exécutez-le.
 
-Dans la fenêtre de console du projet qui s’ouvre, exécutez la commande suivante pour récupérer les températures signalées par le jumeau numérique *thermostat67* :
+Dans la fenêtre de console du projet qui s’ouvre, exécutez la commande suivante pour récupérer les températures signalées par le jumeau numérique thermostat67 :
 
 ```cmd
 ObserveProperties thermostat67 Temperature
@@ -302,7 +302,7 @@ Une fois que vous avez vérifié que la journalisation fonctionne correctement, 
 
 Jusqu’à ce stade du tutoriel, vous avez vu comment Azure Digital Twins peut être mis à jour à partir de données d’appareil externes. Vous allez à présent voir comment les modifications apportées à un seul jumeau numérique peuvent se propager dans le graphe Azure Digital Twins, en d’autres termes, comment mettre à jour les jumeaux à partir de données internes au service.
 
-Pour ce faire, vous allez utiliser la fonction Azure *ProcessDTRoutedData* afin de mettre à jour un jumeau *Room* quand le jumeau *Thermostat* connecté est mis à jour. Ce processus se produit dans cette partie du scénario de bout en bout (**flèche C**) :
+Pour ce faire, vous allez utiliser la fonction Azure *ProcessDTRoutedData* afin de mettre à jour un jumeau Room quand le jumeau Thermostat connecté est mis à jour. Ce processus se produit dans cette partie du scénario de bout en bout (**flèche C**) :
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Partie du graphique du scénario de bâtiment complet mettant en évidence la flèche C ainsi que les éléments situés après Azure Digital Twins : Event Grid et la seconde fonction Azure":::
 
@@ -321,13 +321,13 @@ Dans cette section, vous allez créer une rubrique Event Grid, puis créer un po
 Dans Azure Cloud Shell, exécutez la commande suivante pour créer une rubrique Event Grid :
 
 ```azurecli-interactive
-az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-grid-topic> -l <region>
+az eventgrid topic create --resource-group <your-resource-group> --name <name-for-your-event-grid-topic> --location <region>
 ```
 
 > [!TIP]
 > Pour obtenir la liste des noms de régions Azure qui peuvent être transmis à des commandes dans Azure CLI, exécutez la commande suivante :
 > ```azurecli-interactive
-> az account list-locations -o table
+> az account list-locations --output table
 > ```
 
 Les informations générées par cette commande décrivent la rubrique Event Grid que vous avez créée.
@@ -367,7 +367,7 @@ Les informations générées par cette commande décrivent la route que vous ave
 
 #### <a name="connect-the-function-to-event-grid"></a>Connecter la fonction à Event Grid
 
-Vous allez à présent abonner la fonction Azure *ProcessDTRoutedData* à la rubrique Event Grid que vous avez créée, afin que les données de télémétrie puissent aller du jumeau *thermostat67*, via la rubrique Event Grid, à la fonction, qui, une fois dans Azure Digital Twins, met à jour le jumeau *Room21*.
+Vous allez à présent abonner la fonction Azure *ProcessDTRoutedData* à la rubrique Event Grid que vous avez créée, afin que les données de télémétrie puissent aller du jumeau thermostat67, via la rubrique Event Grid, à la fonction, qui, une fois dans Azure Digital Twins, met à jour le jumeau Room21.
 
 Pour ce faire, vous allez créer un **abonnement Event Grid** qui envoie des données à partir de la **rubrique Event Grid** créée précédemment à votre fonction Azure *ProcessDTRoutedData*.
 
@@ -380,17 +380,17 @@ Les étapes de création de cet abonnement aux événements sont similaires à c
 Dans la page *Créer un abonnement aux événements*, renseignez les champs comme suit (les champs remplis par défaut ne sont pas mentionnés) :
 * *DÉTAILS DE L’ABONNEMENT AUX ÉVÉNEMENTS* > **Nom** : Donnez un nom à votre abonnement aux événements.
 * *DÉTAILS DU POINT DE TERMINAISON* > **Type de point de terminaison** : Sélectionnez *Fonction Azure* dans les options de menu.
-* *DÉTAILS DU POINT DE TERMINAISON* > **Point de terminaison** : Cliquez sur le lien *Sélectionner un point de terminaison*. Une fenêtre *Sélectionner une fonction Azure* s’ouvre :
+* *DÉTAILS DU POINT DE TERMINAISON* > **Point de terminaison** : sélectionnez le lien *Sélectionner un point de terminaison*. Une fenêtre *Sélectionner une fonction Azure* s’ouvre :
     - Renseignez vos **Abonnement**, **Groupe de ressources**, **Application de fonction** et **Fonction** (*ProcessDTRoutedData*). Il est possible que certaines de ces informations soient automatiquement renseignées une fois que vous avez sélectionné l’abonnement.
-    - Cliquez sur **Confirmer la sélection**.
+    - Sélectionnez **Confirmer la sélection**.
 
-Dans la page *Créer un abonnement aux événements*, cliquez sur **Créer**.
+Dans la page *Créer un abonnement aux événements*, sélectionnez **Créer**.
 
 ### <a name="run-the-simulation-and-see-the-results"></a>Exécuter la simulation et afficher les résultats
 
 Vous pouvez maintenant exécuter le simulateur d’appareil pour lancer le nouveau flux d’événements que vous avez configuré. Accédez à la fenêtre Visual Studio dans laquelle le projet _**DeviceSimulator**_ est ouvert, puis exécutez le projet.
 
-Comme quand vous avez exécuté le simulateur d’appareil plus haut, une fenêtre de console s’ouvre, affichant les messages de télémétrie de température simulée. Ces événements empruntent le flux que vous avez configuré plus haut pour mettre à jour le jumeau *thermostat67*, puis le flux que vous avez configuré récemment pour mettre à jour le jumeau *Room21* en conséquence.
+Comme quand vous avez exécuté le simulateur d’appareil plus haut, une fenêtre de console s’ouvre, affichant les messages de télémétrie de température simulée. Ces événements empruntent le flux que vous avez configuré plus haut pour mettre à jour le jumeau thermostat67, puis le flux que vous avez configuré récemment pour mettre à jour le jumeau Room21 en conséquence.
 
 :::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Sortie de la console du simulateur d’appareil montrant les données de télémétrie de température envoyées":::
 
@@ -398,13 +398,13 @@ Vous n’avez rien d’autre à faire dans cette console, mais laissez-la s’ex
 
 Pour voir les données du côté d’Azure Digital Twins, accédez à la fenêtre Visual Studio dans laquelle le projet _**AdtE2ESample**_ est ouvert et exécutez-le.
 
-Dans la fenêtre de console du projet qui s’ouvre, exécutez la commande suivante pour récupérer les températures signalées **à la fois** par le jumeau numérique *thermostat67* et par le jumeau numérique *room21*.
+Dans la fenêtre de console du projet qui s’ouvre, exécutez la commande suivante pour récupérer les températures signalées **à la fois** par le jumeau numérique thermostat67 et par le jumeau numérique room21.
 
 ```cmd
 ObserveProperties thermostat67 Temperature room21 Temperature
 ```
 
-Les températures mises à jour réelles *issues de votre instance Azure Digital Twins* doivent normalement être journalisées dans la console toutes les deux secondes. Notez que la température de *Room21* est mise à jour pour correspondre aux mises à jour apportées à *thermostat67*.
+Les températures mises à jour réelles *issues de votre instance Azure Digital Twins* doivent normalement être journalisées dans la console toutes les deux secondes. Notez que la température de Room21 est mise à jour pour correspondre aux mises à jour apportées à thermostat67.
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Sortie de la console montrant le journal des messages de température entre un thermostat et une pièce":::
 
@@ -415,8 +415,8 @@ Une fois que vous avez vérifié que la journalisation fonctionne correctement, 
 Voici une révision du scénario que vous avez créé au cours de ce tutoriel.
 
 1. Une instance Azure Digital Twins représente numériquement un étage, une pièce et un thermostat (représentés par la **section A** du diagramme ci-dessous)
-2. La télémétrie des appareils simulés est envoyée à IoT Hub, où la fonction Azure *ProcessHubToDTEvents* écoute les événements de télémétrie. La fonction Azure *ProcessHubToDTEvents* utilise les informations contenues dans ces événements pour définir la propriété *Temperature* sur *thermostat67* (**flèche B** du diagramme).
-3. Les événements de modification de propriété dans Azure Digital Twins sont routés vers une rubrique Event Grid, où la fonction Azure *ProcessDTRoutedData* écoute les événements. La fonction Azure *ProcessDTRoutedData* utilise les informations contenues dans ces événements pour définir la propriété *Temperature* sur *room21* (**flèche C** du diagramme).
+2. La télémétrie des appareils simulés est envoyée à IoT Hub, où la fonction Azure *ProcessHubToDTEvents* écoute les événements de télémétrie. La fonction Azure *ProcessHubToDTEvents* utilise les informations contenues dans ces événements pour définir la propriété *Temperature* sur thermostat67 (**flèche B** du diagramme).
+3. Les événements de modification de propriété dans Azure Digital Twins sont routés vers une rubrique Event Grid, où la fonction Azure *ProcessDTRoutedData* écoute les événements. La fonction Azure *ProcessDTRoutedData* utilise les informations contenues dans ces événements pour définir la propriété *Temperature* sur room21 (**flèche C** du diagramme).
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Graphique du scénario de bâtiment complet. Décrit le flux de données depuis un appareil vers successivement IoT Hub, une fonction Azure (flèche B), une instance Azure Digital Twins (section A), Event Grid et une autre fonction Azure en vue du traitement (flèche C)":::
 
@@ -426,7 +426,7 @@ Voici une révision du scénario que vous avez créé au cours de ce tutoriel.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-* **Si vous souhaitez continuer à utiliser l’instance Azure Digital Twins que vous avez configurée dans cet article, tout en effaçant tout ou partie de ses modèles, jumeaux et relations**, vous pouvez utiliser les commandes CLI [az dt](/cli/azure/dt) dans une fenêtre [Azure Cloud Shell](https://shell.azure.com) pour supprimer les éléments que vous souhaitez enlever.
+* **Si vous souhaitez continuer à utiliser l’instance d’Azure Digital Twins que vous avez configurée dans cet article, tout en effaçant complètement ou partiellement ses modèles, jumeaux et relations**, vous pouvez utiliser les commandes CLI [az dt](/cli/azure/dt) dans une fenêtre [Azure Cloud Shell](https://shell.azure.com) pour supprimer les éléments à enlever.
 
     Cette option ne supprime pas les autres ressources Azure créées dans ce tutoriel (hub IoT, application Azure Functions, etc.). Vous pouvez les supprimer individuellement à l’aide des [ commande dt](/cli/azure/reference-index) appropriées pour chaque type de ressource.
 

@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 02ea87bba8c28f0217479ffc65ccc65903fc0442
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 19e679b3bc899053ddcf75ff058ec19165b785cc
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903035"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790466"
 ---
 # <a name="manage-digital-twins"></a>Gérer des jumeaux numériques
 
-Les entités de votre environnement sont représentées par des [jumeaux numériques](concepts-twins-graph.md). La gestion de vos jumeaux numériques peut inclure la création, la modification et la suppression. Pour effectuer ces opérations, vous pouvez utiliser les [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins), le [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) ou la [CLI Azure Digital Twins](how-to-use-cli.md).
+Les entités de votre environnement sont représentées par des [jumeaux numériques](concepts-twins-graph.md). La gestion de vos jumeaux numériques peut inclure la création, la modification et la suppression.
 
-Cet article se concentre sur la gestion des jumeaux numériques. Pour utiliser des relations et le [graphe des jumeaux](concepts-twins-graph.md) dans leur ensemble, consultez [*Procédure : Gérer le graphe de jumeaux avec des relations*](how-to-manage-graph.md).
+Cet article se concentre sur la gestion des jumeaux numériques. Pour utiliser des relations et le [graphe des jumeaux](concepts-twins-graph.md) dans leur ensemble, consultez [Procédure : Gérer le graphe des jumeaux avec des relations](how-to-manage-graph.md).
 
 > [!TIP]
 > Toutes les fonctions du Kit de développement logiciel (SDK) sont disponibles en versions synchrone et asynchrone.
@@ -27,9 +27,7 @@ Cet article se concentre sur la gestion des jumeaux numériques. Pour utiliser d
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## <a name="ways-to-manage-twins"></a>Modes de gestion des jumeaux
-
-[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
 ## <a name="create-a-digital-twin"></a>Créer un jumeau numérique
 
@@ -55,7 +53,7 @@ Le modèle et les éventuelles valeurs des propriétés initiales sont fournis p
 
 Vous pouvez initialiser les propriétés d’un jumeau au moment de sa création. 
 
-L’API de création de jumeau accepte un objet qui est sérialisé dans une description JSON valide des propriétés du jumeau. Voir [*Concepts : Jumeaux numériques et graphe des jumeaux*](concepts-twins-graph.md) pour obtenir une description du format JSON pour un jumeau. 
+L’API de création de jumeau accepte un objet qui est sérialisé dans une description JSON valide des propriétés du jumeau. Voir [Concepts : Jumeaux numériques et le graphe des jumeaux](concepts-twins-graph.md) pour obtenir une description du format JSON pour un jumeau. 
 
 Tout d’abord, vous pouvez créer un objet de données pour représenter le jumeau et ses données de propriété. Vous pouvez créer un objet de paramètre manuellement ou à l’aide d’une classe d’assistance fournie. Voici un exemple de chaque méthode.
 
@@ -93,13 +91,13 @@ Seules les propriétés qui ont été définies au moins une fois sont retourné
 >[!TIP]
 >La `displayName` pour un jumeau est une partie de ses métadonnées de modèle, donc elle ne s’affichera pas lors de l’obtention de données pour l’instance jumelle. Pour afficher cette valeur, vous pouvez [la récupérer à partir du modèle](how-to-manage-model.md#retrieve-models).
 
-Pour récupérer plusieurs jumeaux à l’aide d’un seul appel d’API, consultez les exemples d’API de requête dans [*Procédure : Interroger le graphique de jumeaux*](how-to-query-graph.md).
+Pour récupérer plusieurs jumeaux à l’aide d’un seul appel d’API, consultez les exemples d’API de requête dans [Procédure : Interroger le graphe des jumeaux](how-to-query-graph.md).
 
-Prenez pour exemple le modèle suivant (écrit en [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) qui définit une *Lune* :
+Prenez pour exemple le modèle suivant (écrit en [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) qui définit une Lune :
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Moon.json":::
 
-Le résultat de l’appel de `object result = await client.GetDigitalTwinAsync("my-moon");` sur un jumeau de type *Lune* peut se présenter comme suit :
+Le résultat de l’appel de `object result = await client.GetDigitalTwinAsync("my-moon");` sur un jumeau de type Lune peut se présenter comme suit :
 
 ```json
 {
@@ -135,11 +133,11 @@ Les propriétés définies du jumeau numérique sont retournées en tant que pro
   - État de synchronisation de chaque propriété accessible en écriture. Cela est très utile pour les appareils, où il est possible que le service et l’appareil aient des états différents (par exemple, lorsqu’un appareil est hors connexion). Actuellement, cette propriété s’applique uniquement aux appareils physiques connectés à IoT Hub. Avec les données dans la section des métadonnées, il est possible de comprendre l’état complet d’une propriété, ainsi que les horodatages des dernières modifications. Pour plus d’informations sur l’état de la synchronisation, consultez [ce tutoriel IoT Hub](../iot-hub/tutorial-device-twins.md) sur la synchronisation de l’état de l’appareil.
   - Les métadonnées spécifiques au service, par exemple à partir d’IoT Hub ou d’Azure Digital Twins. 
 
-Pour plus d’informations sur les classes d’assistance de sérialisation telles que `BasicDigitalTwin`, consultez [*Procédure : Utiliser les kits SDK et les API Azure Digital Twins*](how-to-use-apis-sdks.md).
+Pour plus d’informations sur les classes d’assistance de sérialisation telles que `BasicDigitalTwin`, consultez [Concepts : API et SDK Azure Digital Twins](concepts-apis-sdks.md).
 
 ## <a name="view-all-digital-twins"></a>Supprimer tous les jumeaux numériques
 
-Pour afficher tous les représentations numériques présents dans votre instance, utilisez une [requête](how-to-query-graph.md). Vous pouvez exécuter une requête avec les [API de requête](/rest/api/digital-twins/dataplane/query) ou les [commandes CLI](how-to-use-cli.md).
+Pour afficher tous les représentations numériques présents dans votre instance, utilisez une [requête](how-to-query-graph.md). Vous pouvez exécuter une requête avec les [API de requête](/rest/api/digital-twins/dataplane/query) ou les [commandes CLI](concepts-cli.md).
 
 Voici le corps de la requête de base qui retourne la liste de tous les jumeaux numériques dans l’instance :
 
@@ -183,8 +181,8 @@ Par exemple, examinez le document de correctif JSON suivant qui remplace le cham
 Cette opération réussit uniquement si le jumeau numérique modifié par le correctif est conforme au nouveau modèle. 
 
 Prenons l’exemple suivant :
-1. Imaginez un jumeau numérique avec un modèle *foo_old*. *foo_old* définit une propriété obligatoire : *masse*.
-2. Le nouveau modèle *foo_new* définit une propriété de masse et ajoute une nouvelle propriété obligatoire : *température*.
+1. Imaginez un jumeau numérique avec un modèle foo_old. foo_old définit une propriété obligatoire : *masse*.
+2. Le nouveau modèle foo_new définit une propriété de masse et ajoute une nouvelle propriété obligatoire : *température*.
 3. Après le correctif, le jumeau numérique doit avoir une propriété de masse et de température. 
 
 Le correctif pour cette situation doit mettre à jour le modèle et la propriété de température du jumeau, comme suit :
@@ -198,11 +196,11 @@ Azure Digital Twins garantit que toutes les requêtes entrantes sont traitées l
 Ce comportement se fait par jumeau. 
 
 Par exemple, imaginez un scénario dans lequel ces trois appels arrivent en même temps : 
-*   Écrire la propriété A sur *Twin1*
-*   Écrire la propriété B sur *Twin1*
-*   Écrire la propriété A sur *Twin2*
+*   Écrire la propriété A sur Twin1
+*   Écrire la propriété B sur Twin1
+*   Écrire la propriété A sur Twin2
 
-Les deux appels qui modifient *Twin1* sont exécutés l’un après l’autre, et les messages de modification sont générés pour chaque modification. L’appel à modifier *Twin2* peut être exécuté simultanément sans conflit, dès qu’il arrive.
+Les deux appels qui modifient Twin1 sont exécutés l’un après l’autre, et les messages de modification sont générés pour chaque modification. L’appel à modifier Twin2 peut être exécuté simultanément sans conflit, dès qu’il arrive.
 
 ## <a name="delete-a-digital-twin"></a>Supprimer un jumeau numérique
 
@@ -214,20 +212,28 @@ Voici un exemple de code permettant de supprimer des jumeaux et leurs relations.
 
 ### <a name="delete-all-digital-twins"></a>Supprimer tous les jumeaux numériques
 
-Pour obtenir un exemple de suppression simultanée de tous les jumeaux numériques, téléchargez l’exemple d’application utilisé dans le [*Tutoriel : Explorer les bases avec un exemple d’application cliente*](tutorial-command-line-app.md). Le fichier *CommandLoop.cs* le fait dans une fonction `CommandDeleteAllTwins()`.
+Pour obtenir un exemple de suppression simultanée de tous les jumeaux numériques, téléchargez l’exemple d’application utilisé dans le [Tutoriel : Explorer les bases avec un exemple d’application cliente](tutorial-command-line-app.md). Le fichier *CommandLoop.cs* le fait dans une fonction `CommandDeleteAllTwins()`.
 
 ## <a name="runnable-digital-twin-code-sample"></a>Exemple de code de jumeau numérique exécutable
 
 Vous pouvez utiliser l’exemple de code exécutable ci-dessous pour créer un jumeau, mettre à jour ses détails et supprimer le jumeau. 
 
-### <a name="set-up-the-runnable-sample"></a>Configurer l’exemple exécutable
+### <a name="set-up-sample-project-files"></a>Configurer des exemples de fichiers de projet
 
-L’extrait de code utilise la définition de modèle [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) du [*Didacticiel : Explorer Azure Digital Twins avec un exemple d’application cliente*](tutorial-command-line-app.md). Vous pouvez utiliser ce lien pour accéder directement au fichier ou le télécharger dans le cadre de l’exemple de projet de bout en bout complet [ici](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
+L’extrait de code utilise l’exemple de définition de modèle [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Room.json). Pour **télécharger le fichier de modèle** afin de l’utiliser dans votre code, utilisez ce lien pour accéder directement au fichier dans GitHub. Ensuite, cliquez avec le bouton droit n’importe où sur l’écran, sélectionnez **Enregistrer sous** dans le menu contextuel du navigateur, puis utilisez la fenêtre Enregistrer sous pour enregistrer le fichier sous le nom **Room.json**.
 
-Avant d’exécuter l’exemple, effectuez les étapes suivantes :
-1. Téléchargez le fichier de modèle, placez-le dans votre projet et remplacez l’espace réservé `<path-to>` dans le code ci-dessous pour indiquer à votre programme où le trouver.
-2. Remplacez l’espace réservé `<your-instance-hostname>` par le nom d’hôte de votre instance Azure Digital Twins.
-3. Ajoutez deux dépendances à votre projet. Elles seront nécessaires pour travailler avec Azure Digital Twins. La première est le package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client), tandis que la seconde fournit des outils facilitant l’authentification auprès d’Azure.
+Ensuite, créez un **projet d’application console** dans Visual Studio ou l’éditeur de votre choix.
+
+Puis, **copiez le code suivant** de l’exemple exécutable dans votre projet :
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs":::
+
+### <a name="configure-project"></a>Configurer un projet
+
+Ensuite, effectuez les étapes ci-après pour configurer votre code de projet :
+1. Ajoutez le fichier **Room.json** que vous avez téléchargé précédemment à votre projet et remplacez l’espace réservé `<path-to>` dans le code pour indiquer à votre programme où le trouver.
+2. Remplacez l’espace réservé `<your-instance-hostname>` par le nom d’hôte de votre instance Azure Digital Twins.
+3. Ajoutez deux dépendances à votre projet. Elles seront nécessaires pour travailler avec Azure Digital Twins. La première est le package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client), et la seconde fournit des outils facilitant l’authentification auprès d’Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
@@ -239,9 +245,7 @@ Vous devez également configurer des informations d’identification locales si 
 
 ### <a name="run-the-sample"></a>Exécution de l'exemple
 
-Une fois les étapes ci-dessus terminées, vous pouvez exécuter directement l’exemple de code suivant.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs":::
+Vous avez terminé la configuration. Vous pouvez à présent exécuter l’exemple de projet de code.
 
 Voici la sortie de la console du programme ci-dessus : 
 
@@ -250,4 +254,4 @@ Voici la sortie de la console du programme ci-dessus :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment créer et gérer des relations entre vos jumeaux numériques :
-* [*Guide pratique : Gérer le graphe de jumeaux avec des relations*](how-to-manage-graph.md)
+* [Guide pratique pour Gérer le graphe des jumeaux avec des relations](how-to-manage-graph.md)

@@ -9,12 +9,12 @@ author: minxia
 ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 4d440742e9cfe9aadb63ed31c113879c4478dc82
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: a8e1c85bf2284eb2dd5a2bc87c2a60b89478e928
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888761"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760604"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualiser des exécutions d’expériences et des métriques avec TensorBoard et le service Azure Machine Learning
 
@@ -36,7 +36,7 @@ La façon dont vous lancez TensorBoard avec des expériences Azure Machine Learn
 * Pour lancer TensorBoard et afficher les historiques des exécutions de vos expériences, la journalisation doit avoir été activée pour celles-ci afin d’effectuer le suivi des métriques et performances.  
 * Le code de ce document peut être exécuté dans l’un des environnements suivants : 
     * Instance de calcul Azure Machine Learning : pas de téléchargement ni d’installation nécessaire
-        * Suivre le [Tutoriel : Configurer l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur de notebook dédié préchargé avec le kit SDK et l’exemple de dépôt.
+        * Suivez le guide de démarrage rapide [Prise en main d’Azure Machine Learning](quickstart-create-resources.md) pour créer un serveur de notebook dédié sur lequel sont préchargés le SDK et l’exemple de dépôt.
         * Dans le dossier des exemples du serveur de notebooks, recherchez deux notebooks terminés et développés en accédant à ces répertoires :
             * **how-to-use-azureml > track-and-monitor-experiments > tensorboard > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb**
             * **how-to-use-azureml > track-and-monitor-experiments > tensorboard > tensorboard > tensorboard.ipynb**

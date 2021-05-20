@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 11/18/2020
+ms.date: 05/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 64d110243a8be5756e7de635b55e229078251a3c
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: fc04655db898902a93c4e404f51d15393db3d92e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897340"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785256"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière un Pare-feu pour Azure Machine Learning
 
@@ -131,10 +131,6 @@ Les hôtes de cette section sont détenus par Microsoft et fournissent les servi
 | ----- | ----- | ----- | ----- |
 | Azure Machine Learning Studio | ml.azure.com | ml.azure.us | studio.ml.azure.cn |
 | API |\*.azureml.ms | \*.ml.azure.us | \*.ml.azure.cn |
-| Expérimentation, historique, Hyperdrive, étiquetage | \*.experiments.azureml.net | \*.ml.azure.us | \*.ml.azure.cn |
-| La gestion des modèles | \*.modelmanagement.azureml.net | \*.ml.azure.us | \*.ml.azure.cn |
-| Pipeline | \*.aether.ms | \*.ml.azure.us | \*.ml.azure.cn |
-| Designer (studio service) | \*.studioservice.azureml.com | \*.ml.azure.us | \*.ml.azure.cn |
 | Notebook intégré | \*.notebooks.azure.net | \*.notebooks.usgovcloudapi.net |\*.notebooks.chinacloudapi.cn |
 | Notebook intégré | \*.file.core.windows.net | \*.file.core.usgovcloudapi.net | \*.file.core.chinacloudapi.cn |
 | Notebook intégré | \*.dfs.core.windows.net | \*.dfs.core.usgovcloudapi.net | \*.dfs.core.chinacloudapi.cn |
@@ -150,6 +146,9 @@ Les hôtes de cette section sont détenus par Microsoft et fournissent les servi
 | Cluster/instance de calcul | graph.windows.net | graph.windows.net | graph.chinacloudapi.cn |
 | Instance de calcul | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
 | Instance de calcul | \*.instances.azureml.ms |  |  |
+
+> [!IMPORTANT]
+> Votre pare-feu doit autoriser la communication avec \*.instances.azureml.ms sur le port __TCP__ __18881__.
 
 **Ressources associées utilisées par Azure Machine Learning**
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 5f1421da10c4748dd78e4c6790568285fa646979
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5e84f59253c85495bfccb289b3c40229304c0f49
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047109"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790160"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Journaux Azure Monitor pour les fournisseurs de services
 
@@ -35,11 +35,11 @@ Dans cette architecture, un espace de travail est déployé dans le locataire du
 Il existe deux façons pour les administrateurs de fournisseurs de services d’accéder à un espace de travail Log Analytics dans un locataire client :
 
 - Un client peut ajouter des utilisateurs individuels à partir du fournisseur de services en tant qu’[utilisateurs invités (B2B) Azure Active Directory](../../active-directory/external-identities/what-is-b2b.md). Pour accéder à ces espaces de travail, l’administrateur du fournisseur de services doit se connecter à l’annuaire de chaque client, dans le Portail Microsoft Azure. Cela requiert également que les clients gèrent un accès individuel pour chaque administrateur de fournisseur de services.
-- Pour une plus grande extensibilité et flexibilité, les fournisseurs de services peuvent utiliser la fonctionnalité de [gestion déléguée des ressources Azure](../../lighthouse/concepts/azure-delegated-resource-management.md) d’[Azure Lighthouse](../../lighthouse/overview.md) pour accéder au locataire du client. Avec cette méthode, les administrateurs de fournisseurs de services sont inclus dans un groupe d’utilisateurs Azure AD dans le locataire du fournisseur de services, et ce groupe se voit accorder un accès pendant le processus d’intégration pour chaque client. Ces administrateurs peuvent ensuite accéder aux espaces de travail de chaque client à partir de leur propre locataire du fournisseur de services, au lieu de se connecter individuellement au locataire de chaque client. Accéder de cette manière aux ressources des espaces de travail Log Analytics des clients réduit le travail requis côté client et peut faciliter la collecte et l’analyse des données sur plusieurs clients gérés par le même fournisseur de services via des outils tels que les [classeurs Azure Monitor](../visualize/workbooks-overview.md). Pour plus d’informations, consultez [Surveiller les ressources client à l’échelle](../../lighthouse/how-to/monitor-at-scale.md).
+- Pour une plus grande scalabilité et flexibilité, les fournisseurs de services peuvent utiliser [Azure Lighthouse](../../lighthouse/overview.md) pour accéder au locataire du client. Avec cette méthode, les administrateurs de fournisseurs de services sont inclus dans un groupe d’utilisateurs Azure AD dans le locataire du fournisseur de services, et ce groupe se voit accorder un accès pendant le processus d’intégration pour chaque client. Ces administrateurs peuvent ensuite accéder aux espaces de travail de chaque client à partir de leur propre locataire du fournisseur de services, au lieu de se connecter individuellement au locataire de chaque client. Accéder de cette manière aux ressources des espaces de travail Log Analytics des clients réduit le travail requis côté client et peut faciliter la collecte et l’analyse des données sur plusieurs clients gérés par le même fournisseur de services via des outils tels que les [classeurs Azure Monitor](../visualize/workbooks-overview.md). Pour plus d’informations, consultez [Surveiller les ressources client à l’échelle](../../lighthouse/how-to/monitor-at-scale.md).
 
 Les avantages de l’architecture distribuée sont les suivants :
 
-* Le client peut confirmer des niveaux spécifiques d’autorisations via la [gestion déléguée des ressources Azure](../../lighthouse/concepts/azure-delegated-resource-management.md) ou peut gérer l’accès aux journaux à l’aide de son propre [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md).
+* Le client peut confirmer des niveaux spécifiques d’autorisations via la [gestion déléguée des ressources Azure](../../lighthouse/concepts/architecture.md) ou peut gérer l’accès aux journaux à l’aide de son propre [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 * Les journaux peuvent être collectés à partir de tous les types de ressources, et non uniquement des données de machines virtuelles basées sur agent. Par exemple, les journaux d’activité d’audit Azure.
 * Chaque client peut avoir des paramètres différents pour son espace de travail, par exemple, pour la rétention ou la limitation des données.
 * Elle permet l’isolation entre les clients pour répondre aux exigences réglementaires et de conformité.

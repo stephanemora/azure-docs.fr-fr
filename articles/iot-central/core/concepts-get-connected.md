@@ -12,16 +12,14 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: c365f367a090f1697b71c51f24679b9ea09561d0
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 54bee74fcab02a487b9e950d0ea8f8a45a38601a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490010"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760897"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Se connecter à Azure IoT Central
-
-*Cet article s’applique aux opérateurs et aux développeurs d’appareils.*
 
 Cet article explique comment les appareils se connectent à une application Azure IoT Central. Pour échanger des données avec IoT Central, un appareil doit :
 
@@ -213,7 +211,16 @@ Quand un appareil réel se connecte à votre application IoT Central, son état 
     - Un ensemble d’appareils est ajouté en utilisant **Importer** sur la page **Appareils**, sans spécifier le modèle d’appareil.
     - Un appareil a été inscrit manuellement sur la page **Appareils** sans spécifier le modèle d’appareil. L’appareil est alors connecté avec des informations d’identification valides.  
 
-    L'opérateur peut associer un appareil à un modèle d’appareil sur la page **Appareils** en utilisant le bouton **Migrer**.
+    Un opérateur peut associer un appareil à un modèle d’appareil sur la page **Appareils** en utilisant le bouton **Migrer**.
+
+## <a name="device-connection-status"></a>État de la connexion d’appareil
+Quand un appareil ou un périphérique de périmètre se connecte à l’aide du protocole MQTT, les événements _connecté_ et _déconnecté_ sont affichés pour l’appareil. Ces événements ne sont pas envoyés par l’appareil, ils sont générés en interne par IoT Central.
+
+Le diagramme suivant montre comment, lorsqu’un appareil se connecte, la connexion est inscrite à la fin d’une fenêtre de temps. Si plusieurs événements de connexion et de déconnexion se produisent, IoT Central inscrit celui qui est le plus proche de la fin de la fenêtre de temps. Par exemple, si un appareil se déconnecte et se reconnecte dans la fenêtre de temps, IoT Central inscrit l’événement de connexion. Actuellement, la fenêtre de temps est d’environ une minute.
+
+:::image type="content" source="media/concepts-get-connected/device-connectivity-diagram.png" alt-text="Diagramme montrant la fenêtre d’événements pour les événements connecté et déconnecté." border="false":::
+
+Vous pouvez inclure des événements de connexion et de déconnexion dans les [exportations à partir d’IoT Central](howto-export-data.md#set-up-data-export). Pour plus d’informations, consultez [Réagir aux événements IoT Hub > Limitations pour les événements d’état de la connexion et de la déconnexion d’appareils](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 
 ## <a name="sdk-support"></a>Prise en charge des Kits de développement logiciel (SDK)
 
@@ -261,7 +268,7 @@ Toutes les données échangées entre les appareils et votre application Azure I
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous êtes un développeur d’appareils, nous vous suggérons les étapes suivantes :
+Voici quelques suggestions pour continuer :
 
 - Passez en revue les [meilleures pratiques](concepts-best-practices.md) pour le développement d’appareils.
 - Consultez un exemple de code montrant comment utiliser les jetons SAS dans [Tutoriel : Créer et connecter une application cliente à votre application Azure IoT Central](tutorial-connect-device.md)

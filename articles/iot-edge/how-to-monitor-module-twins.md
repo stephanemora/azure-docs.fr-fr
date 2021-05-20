@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a5a31e15c88cef588c93f44c8fe5303d930b5b2c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 6a0d8bcce8e036cf7fc0efc1fe3956006f276f9e
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479370"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633894"
 ---
 # <a name="monitor-module-twins"></a>Superviser les jumeaux de module
 
@@ -220,6 +220,19 @@ La structure [az iot hub module-twin](/cli/azure/iot/hub/module-twin) fournit le
 * **az iot hub module-twin show** : afficher une définition de jumeau de module.
 * **az iot hub module-twin update** : mettre à jour une définition de jumeau de module.
 * **az iot hub module-twin replace** : remplacer une définition de jumeau de module par un JSON cible.
+
+>[!TIP]
+>Pour cibler les modules runtime avec des commandes CLI, vous devrez peut-être échapper le caractère `$` dans l’ID de module. Par exemple :
+>
+>```azurecli
+>az iot hub module-twin show -m '$edgeAgent' -n <hub name> -d <device name>
+>```
+>
+>Ou :
+>
+>```azurecli
+>az iot hub module-twin show -m \$edgeAgent -n <hub name> -d <device name>
+>```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

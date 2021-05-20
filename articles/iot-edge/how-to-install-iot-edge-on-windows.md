@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 2799e25dbd84ff07b375c6fa1b103789aae82b49
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c44f3cb4ee8d25a0197888b498f07b40ed2072c6
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538418"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790196"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Installer et approvisionner Azure IoT Edge pour Linux sur un appareil Windows (version préliminaire)
 
@@ -45,7 +45,7 @@ Cet article répertorie les étapes à suivre pour configurer IoT Edge sur un ap
   * Mémoire disponible minimale : 1 Go
   * Espace disque disponible minimal : 10 Go
   * Si vous créez un déploiement à l’aide de Windows 10, veillez à activer Hyper-V. Pour plus d’informations, découvrez comment [Installer Hyper-V sur Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
-  * Si vous créez un nouveau déploiement à l’aide de Windows Server, veillez à installer le rôle Hyper-V. Pour plus d’informations, découvrez comment [Installer le rôle Hyper-V sur Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+  * Si vous créez un nouveau déploiement à l’aide de Windows Server, veillez à installer le rôle Hyper-V et à disposer d’un commutateur réseau. Pour plus d’informations, consultez [Virtualisation imbriquée pour Azure IoT Edge pour Linux sur Windows](nested-virtualization.md).
   * Si vous créez un déploiement à l’aide d’une machine virtuelle, veillez à configurer correctement la virtualisation imbriquée. Pour plus d’informations, consultez le guide sur la [virtualisation imbriquée](nested-virtualization.md).
 
 * Accès à Windows Admin Center avec l’extension Azure IoT Edge pour Windows Admin Center installée :
@@ -177,7 +177,7 @@ Si vous ne l’avez pas déjà fait, installez IoT Edge pour Linux sur Windows s
    ```
 
    > [!NOTE]
-   > Vous pouvez exécuter cette commande sans paramètres ou éventuellement personnaliser le déploiement avec des paramètres. Pour voir les significations des paramètres et les valeurs par défaut, consultez les [informations de référence sur le script PowerShell IoT Edge pour Linux sur Windows](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow).
+   > Vous pouvez exécuter cette commande sans paramètres ou éventuellement personnaliser le déploiement avec des paramètres. Pour voir les significations des paramètres et les valeurs par défaut, consultez les [informations de référence sur le script PowerShell IoT Edge pour Linux sur Windows](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
 
 1. Entrez « Y » pour accepter les termes du contrat de licence.
 

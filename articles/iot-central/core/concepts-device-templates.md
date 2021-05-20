@@ -8,16 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 2396768d87b93c4df16b6de78d03faf1d8d1cc2b
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: ecd99a21c4d92eeddaa84661424980f6d40d1ae2
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491999"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760874"
 ---
 # <a name="what-are-device-templates"></a>Que sont les modèles d’appareils ?
-
-_Cet article s’applique aux développeurs d’appareils et aux créateurs de solutions._
 
 Un modèle d’appareil dans Azure IoT Central est un blueprint qui définit les caractéristiques et comportements d’un type d’appareil se connectant à votre application. Par exemple, le modèle d’appareil définit la télémétrie qu’un appareil envoie afin qu’IoT Central puisse créer des visualisations qui utilisent les unités et types de données appropriés.
 
@@ -341,6 +339,4 @@ La télémétrie, les propriétés et les commandes que vous pouvez ajouter à u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En tant que développeur d’appareils, maintenant que vous avez découvert les modèles d’appareils, une prochaine étape suggérée consiste à lire [Charges utiles de télémétrie, de propriété et de commande](./concepts-telemetry-properties-commands.md) pour en savoir plus sur les données qu’un appareil échange avec IoT Central.
-
-En tant que développeur de solutions, nous vous suggérons de lire [Définir un nouveau type d’appareil IoT dans votre application Azure IoT Central](./howto-set-up-template.md) pour en savoir plus sur la création d’un modèle d’appareil.
+Maintenant que vous avez découvert les modèles d’appareils, nous vous suggérons de lire [Charges utiles de télémétrie, de propriété et de commande](./concepts-telemetry-properties-commands.md) pour en savoir plus sur les données qu’un appareil échange avec IoT Central.

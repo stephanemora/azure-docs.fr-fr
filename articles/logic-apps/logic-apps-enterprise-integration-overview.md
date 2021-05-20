@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, logicappspm
 ms.topic: overview
-ms.date: 03/24/2021
-ms.openlocfilehash: 09d253aae4c054db5efdc252f62986044e1d366b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/11/2021
+ms.openlocfilehash: 08de00415229b410e7b88bc4cae26754c466baef
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771854"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789080"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>Solutions d’intégration d’entreprise B2B avec Azure Logic Apps et Enterprise Integration Pack
 
@@ -22,7 +22,7 @@ Pour les solutions B2B (Business-to-Business) et une communication fluide entre 
 * Échange de données informatisé (EDI)
 * Intégration des applications de l’entreprise (EAI)
 
-Si vous connaissez Microsoft BizTalk Server ou Azure BizTalk Services, EIP suit des concepts similaires, ce qui rend les fonctionnalités faciles à utiliser. Toutefois, une différence majeure réside dans le fait qu’EIP repose du point de vue architectural sur les « comptes d’intégration » pour simplifier le stockage et la gestion des artefacts utilisés dans les communications B2B. Ces comptes sont des conteneurs basés sur le cloud qui stockent tous vos artefacts, tels que les schémas, les partenaires, les certificats, les mappages et les contrats. 
+Si vous connaissez Microsoft BizTalk Server ou Azure BizTalk Services, EIP suit des concepts similaires, ce qui rend les fonctionnalités faciles à utiliser. Toutefois, une différence majeure réside dans le fait qu’EIP repose du point de vue architectural sur les « comptes d’intégration » pour simplifier le stockage et la gestion des artefacts utilisés dans les communications B2B. Ces comptes sont des conteneurs basés sur le cloud qui stockent tous vos artefacts, tels que les schémas, les partenaires, les certificats, les mappages et les contrats.
 
 ## <a name="why-use-the-enterprise-integration-pack"></a>Pourquoi utiliser Enterprise Integration Pack ?
 
@@ -40,17 +40,26 @@ Avant de pouvoir commencer à générer des workflows d’application logique B2
 
 * Un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) avec les artefacts que vous souhaitez utiliser
 
-* Pour créer des mappages et des schémas, vous pouvez utiliser [Microsoft Azure Logic Apps Enterprise Integration Tools pour Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) et Visual Studio 2015.
+* Pour créer des mappages et des schémas, vous pouvez utiliser l’[extension Microsoft Azure Logic Apps Enterprise Integration Tools ](https://aka.ms/vsenterpriseintegrationtools) et Visual Studio 2019. 
+
+   > [!IMPORTANT]
+   > N’installez pas cette extension de concert avec l’extension BizTalk Server. Ces deux extensions installées côte à côte risquent d’entraîner un comportement inattendu. Vérifiez que seule l’une de ces extensions est installée.
+
+   > [!NOTE]
+   > Sur les moniteurs à haute résolution, vous risquez de rencontrer un [problème d’affichage avec le concepteur de mappages](/visualstudio/designers/disable-dpi-awareness) dans Visual Studio. Pour résoudre ce problème d’affichage, [redémarrez Visual Studio en mode sans prise en charge DPI](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process) ou ajoutez la [valeur de Registre DPIUNAWARE](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
+
+
+* Si vous utilisez Visual Studio 2015, vous pouvez utiliser l’[extension Microsoft Azure Logic Apps Enterprise Integration Tools pour Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas).
 
 Après avoir créé un compte d’intégration et ajouté vos artefacts, vous pouvez commencer à générer des workflows B2B avec ces artefacts en créant une application logique dans le portail Azure. Si vous débutez avec les applications logiques, essayez de [créer une application logique de base](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour utiliser ces artefacts, veillez à lier d’abord votre compte d’intégration à votre application logique. Ainsi, votre application logique peut accéder à votre compte d’intégration. Vous pouvez également créer, gérer et déployer des applications logiques à l’aide de Visual Studio ou de [PowerShell](/powershell/module/az.logicapp).
 
 Voici les étapes élémentaires pour commencer à générer des applications logiques B2B :
 
-![Prérequis à la création d’applications logiques B2B](./media/logic-apps-enterprise-integration-overview/overview.png)  
+![Prérequis à la création d’applications logiques B2B](./media/logic-apps-enterprise-integration-overview/overview.png)
 
 ## <a name="try-now"></a>Essayer dès maintenant
 
-[Déployer un exemple d’application logique entièrement opérationnelle qui envoie et reçoit des messages AS2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive)
+[Déployer un exemple d’application logique entièrement opérationnelle qui envoie et reçoit des messages AS2](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-as2-send-receive)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,15 +6,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 02/25/2021
+ms.date: 05/11/2021
 ms.author: alkohli
 ms.custom: references_regions
-ms.openlocfilehash: a692aeba312b6fcad580eac901f4b7bc65f059fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 819a67cd049f5aed9eb66e65613d7e86be5db0c4
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730573"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786714"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box : Forum Aux Questions (FAQ)
 
@@ -26,7 +26,7 @@ Les questions/réponses sont classées dans les catégories suivantes :
 - Commander un appareil
 - Configuration et connexion 
 - Suivi de l'état
-- Copier des données 
+- Migration des données 
 - Expédier un appareil
 - Vérification et chargement de données 
 - Prise en charge de la chaîne de responsabilité
@@ -259,16 +259,16 @@ R.  Au cours du transit, les fonctionnalités suivantes de l’aide Data Box pro
  - L’appareil est verrouillé et nécessite un mot de passe de déverrouillage pour saisir des données et y accéder.
 Pour plus d’informations, consultez [Fonctionnalités de sécurité Data Box](data-box-security.md).  
 
-### <a name="q-i-have-finished-prepare-to-ship-for-my-import-order-and-shut-down-the-device-can-i-still-add-more-data-to-the-data-box"></a>Q. J’ai terminé la préparation de la livraison pour ma commande d’importation et j’ai arrêté l’appareil. Puis-je quand même ajouter des données à l’appareil Data Box ?
+### <a name="q-i-finished-prepare-to-ship-for-my-import-order-and-shut-down-the-device-can-i-still-add-more-data-to-the-data-box"></a>Q. J’ai terminé la préparation de l’expédition pour ma commande d’importation et j’ai arrêté l’appareil. Puis-je quand même ajouter des données à l’appareil Data Box ?
 R. Oui. Vous pouvez allumer l’appareil et ajouter d’autres données. Vous devrez relancer **Préparer l’expédition**, une fois la copie des données terminée.
 
-### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>Q. J’ai reçu mon appareil mais il ne démarre pas. Comment le réexpédier ?
+### <a name="q-i-received-my-device-and-its-not-booting-up-how-do-i-ship-the-device-back"></a>Q. J’ai reçu mon appareil mais il ne démarre pas. Comment le réexpédier ?
 R. Si votre appareil ne démarre pas, accédez à votre commande dans le portail Azure. Téléchargez une étiquette d’expédition et attachez-la à l’appareil. Pour plus d’informations, consultez [Télécharger une étiquette d’expédition](data-box-portal-admin.md#download-shipping-label).
 
 ## <a name="verify-and-upload"></a>Vérification et chargement
 
 ### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-data-box-back"></a>Q. Après combien de temps puis-je accéder à mes données dans Azure une fois que j’ai renvoyé la Data Box ? 
-R.  Dès que l’état de la commande pour la **copie des données** s’affiche comme **complet**, vous devriez pouvoir accéder à vos données.
+R.  Dès que l’état de la commande pour la **copie des données** s’affiche comme **complet**, vous pouvez accéder à vos données.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>Q. Où se trouvent mes données dans Azure après leur téléchargement ?
 R.  Quand vous copiez les données sur Data Box, selon qu’il s’agit d’objets blob de blocs, d’objets blob de pages ou de fichiers Azure, elles sont chargées sur l’un des chemins suivants dans votre compte Stockage Azure :
@@ -281,6 +281,13 @@ R.  Quand vous copiez les données sur Data Box, selon qu’il s’agit d’obje
 R.  Si les noms des conteneurs contiennent des lettres majuscules, ils sont automatiquement convertis en minuscules. Si les noms ne sont pas conformes d’une autre manière (caractères spéciaux, autres langues, etc.), le chargement échouera. Pour plus d’informations sur l’affectation de noms aux partages, conteneurs et fichiers, consultez :
 - [Affectation de noms et de références aux partages](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Conventions d’objets blob de blocs et d’objets blob de pages](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+
+
+### <a name="q-i-was-notified-of-copy-errors-during-a-data-upload-from-my-data-box-what-should-i-do"></a>Q. J’ai reçu une notification m’informant que des erreurs de copie se sont produites durant le chargement de données à partir de ma Data Box. Que dois-je faire ?
+R.  Si des erreurs de copie de données sans possibilité de nouvelle tentative empêchent le chargement des fichiers de votre commande d’importation sur Azure, les erreurs sont consignées dans le journal de copie des données et vous recevez une notification. Vous ne pouvez pas corriger les erreurs. Le chargement s’est terminé avec des erreurs. Une notification est envoyée pour vous avertir que les fichiers n’ont pas été chargés et vous permettre de corriger les erreurs de configuration avant de réessayer. Quand vous confirmez que vous êtes prêt à continuer, les données sont effacées de manière sécurisée de l’appareil. Si vous ne répondez pas, la commande est exécutée automatiquement après 14 jours.
+
+Pour obtenir des informations sur l’erreur et les étapes à suivre pour traiter votre commande, consultez [Passer en revue les erreurs de copie dans les chargements à partir d’appareils Azure Data Box et Azure Data Box Heavy](data-box-troubleshoot-data-upload.md).  
+
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-data-box"></a>Q. Comment faire pour vérifier les données que j’ai copiées sur Data Box ?
 R.  Une fois la copie des données terminée, lorsque vous exécutez **Préparer l’expédition**, vos données sont validées. Data Box génère une liste de fichiers et de sommes de contrôle pour les données pendant le processus de validation. Vous pouvez télécharger cette liste de fichiers et la comparer aux fichiers de la source de données. Pour plus d’informations, consultez [Préparer l’expédition](data-box-deploy-picked-up.md#prepare-to-ship).

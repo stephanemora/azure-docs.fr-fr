@@ -10,16 +10,14 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: ebd2759d4dfb8ee79130f9b4876eba8d45226d04
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 7cb52dba88d94ed52baa8272c7f20fed4bcde0fd
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718788"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787542"
 ---
 # <a name="iot-central-device-development-guide"></a>Guide de développement d’appareils IoT Central
-
-*Cet article s’applique aux développeurs d’appareils.*
 
 Une application IoT Central vous permet de surveiller et de gérer des millions d’appareils tout au long de leur cycle de vie. Ce guide s’adresse aux développeurs d’appareils implémentant du code qui va s’exécuter sur des appareils connectés à IoT Central.
 
@@ -35,27 +33,25 @@ Un générateur de solutions est responsable de la configuration des tableaux de
 
 Les sections suivantes décrivent les principaux types d’appareils que vous pouvez connecter à une application IoT Central :
 
-### <a name="standalone-device"></a>Appareil autonome
+### <a name="iot-device"></a>Appareil IoT
 
-Un appareil autonome se connecte directement à IoT Central. Un appareil autonome envoie généralement des données de télémétrie à partir de ses capteurs intégrés ou connectés à votre application IoT Central. Les appareils autonomes peuvent également transmettre des valeurs de propriété, recevoir des valeurs de propriété accessibles en écriture, et répondre à des commandes.
+Un appareil IoT est un appareil autonome qui se connecte directement à IoT Central. Un appareil IoT envoie généralement des données de télémétrie à partir de ses capteurs intégrés ou connectés à votre application IoT Central. Les appareils autonomes peuvent également transmettre des valeurs de propriété, recevoir des valeurs de propriété accessibles en écriture, et répondre à des commandes.
 
-### <a name="gateway-device"></a>Appareil de passerelle
+### <a name="iot-edge-device"></a>Appareil IoT Edge
 
-Un appareil de passerelle gère un ou plusieurs appareils en aval qui se connectent à votre application IoT Central. Vous utilisez IoT Central pour configurer les relations entre les appareils en aval et l’appareil de passerelle. Pour en savoir plus, voir [Définir un nouveau type d’appareil de passerelle IoT dans votre application Azure IoT Central](./tutorial-define-gateway-device-type.md).
+Un appareil IoT Edge se connecte directement à IoT Central. Un appareil IoT Edge peut envoyer ses propres données de télémétrie, transmettre ses propriétés et répondre à des commandes et des mises à jour de propriétés accessibles en écriture. Les modules IoT Edge peuvent traiter des données localement sur l’appareil IoT Edge. Un appareil IoT Edge peut aussi servir d’intermédiaire pour d’autres appareils appelés nœuds terminaux. Les scénarios suivants utilisent des appareils IoT Edge sont les suivants :
 
-### <a name="edge-device"></a>Appareil de périphérie
-
-Un appareil de périphérie se connecte directement à IoT Central, mais agit en tant qu’intermédiaire pour d’autres appareils appelés _appareils de nœud terminal_. Un appareil de périphérie est généralement situé près des appareils de nœud terminal pour lesquels il joue le rôle d’intermédiaire. Les scénarios suivants utilisent des appareils de périphérie :
-
-- Activer les appareils qui ne peuvent pas se connecter directement à IoT Central pour se connecter via l’appareil de périphérie. Par exemple, un appareil de nœud terminal peut utiliser Bluetooth pour se connecter à l’appareil de périphérie, qui se connecte ensuite via Internet à IoT Central.
-- Agréger les données de télémétrie avant leur envoi à IoT Central. Cette approche peut aider à réduire les coûts liés à l’envoi de données à IoT Central.
+- Agréger ou filtrer des données de télémétrie avant leur envoi à IoT Central. Cette approche peut aider à réduire les coûts liés à l’envoi de données à IoT Central.
+- Activer des appareils qui ne peuvent pas se connecter directement à IoT Central pour qu’ils se connectent par le biais de l’appareil IoT Edge. Par exemple, un nœud terminal peut utiliser la technologie Bluetooth pour se connecter à l’appareil IoT Edge, qui se connecte ensuite par Internet à IoT Central.
 - Contrôler localement des appareils de nœud terminal pour éviter la latence associée à la connexion à IoT Central via Internet.
 
-Un appareil de périphérie peut également envoyer ses propres données de télémétrie, transmettre ses propriétés, et répondre à des commandes et des mises à jour de propriétés accessibles en écriture.
-
-IoT Central ne voit que l’appareil de périphérie et pas les appareils de nœud terminal qui y sont connectés.
+IoT Central ne voit que l’appareil IoT Edge et pas les nœuds terminaux qui y sont connectés.
 
 Pour en savoir plus, voir [Ajouter un appareil Azure IoT Edge à votre application Azure IoT Central](./tutorial-add-edge-as-leaf-device.md).
+
+### <a name="gateways"></a>Passerelles
+
+Un appareil de passerelle gère un ou plusieurs appareils en aval qui se connectent à votre application IoT Central. Vous utilisez IoT Central pour configurer les relations entre les appareils en aval et l’appareil de passerelle. Les appareils IoT et IoT Edge peuvent servir de passerelles. Pour en savoir plus, voir [Définir un nouveau type d’appareil de passerelle IoT dans votre application Azure IoT Central](./tutorial-define-gateway-device-type.md).
 
 ## <a name="connect-a-device"></a>Connexion d'un appareil
 

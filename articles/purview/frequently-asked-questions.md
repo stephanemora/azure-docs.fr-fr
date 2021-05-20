@@ -6,13 +6,13 @@ ms.author: suvirdi
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 10/20/2020
-ms.openlocfilehash: 94b765cbcbdd81505b08052845207ee1d93a28d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: eb835fad0f051098b1689ed6d165dc712a73f908
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667804"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109655261"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-purview"></a>Forum Aux Questions (FAQ) sur Azure Purview
 
@@ -141,3 +141,13 @@ Non, actuellement, pour analyser la source de données d'un autre locataire, vou
 ### <a name="does-azure-purview-support-column-level-lineage"></a>Azure Purview prend-il en charge la traçabilité au niveau des colonnes ?
 
 Oui, Azure Purview prend en charge la traçabilité au niveau des colonnes.
+
+### <a name="does-azure-purview-support-soft-delete"></a>Azure Purview prend-il en charge la suppression réversible ?
+
+Oui, Azure Purview prend en charge la suppression réversible du point de vue de la gestion des états des abonnements Azure. Purview peut lire l’état des abonnements (désactivé/averti, etc.) et mettre le compte en état de suppression réversible jusqu’à ce que le compte soit restauré ou supprimé. Tous les appels d’API du plan de données sont bloqués lorsque le compte est en état de suppression réversible et seuls les appels d’API du plan de contrôle GET/DELETE sont autorisés. Vous trouverez des informations supplémentaires dans la page [États d’abonnement Azure](../cost-management-billing/manage/subscription-states.md).
+
+### <a name="does-azure-purview-currently-support-data-loss-prevention-capabilities"></a>Azure Purview prend-il actuellement en charge les capacités de protection contre la perte de données ?
+
+Non, Azure Purview ne fournit pas de capacités de protection contre la perte de données à ce stade. 
+
+Consultez la section [Protection contre la perte de données dans Microsoft Information Protection](https://docs.microsoft.com/microsoft-365/compliance/information-protection?view=o365-worldwide#prevent-data-loss) si vous êtes intéressé par les fonctionnalités de protection contre la perte de données dans Microsoft 365.

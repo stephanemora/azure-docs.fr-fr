@@ -7,26 +7,26 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
+ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: pim
-ms.date: 01/10/2020
+ms.date: 04/20/2021
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45144f64789a19390984c3f9f6a660e3c3300215
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd211c284ef5240e3f658d90c5d801018a02b9bf
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96002491"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790178"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Affichez l’activité et l’historique d’audit des rôles de ressources Azure dans Privileged Identity Management
 
-Avec Azure Active Directory (Azure AD) Privileged Identity Management (PIM), vous pouvez voir l’activité, les activations et l’historique d’audit des rôles de ressources Azure au sein de votre organisation. Cela inclut les abonnements, les groupes de ressources et même les machines virtuelles. Toutes les ressources du Portail Azure qui utilisent la fonctionnalité de contrôle d’accès en fonction du rôle d’Azure peuvent tirer parti des capacités de gestion de la sécurité et des cycles de vie proposées par Privileged Identity Management.
+Avec Azure Active Directory (Azure AD) Privileged Identity Management (PIM), vous pouvez voir l’activité, les activations et l’historique d’audit des rôles de ressources Azure au sein de votre organisation. Cela inclut les abonnements, les groupes de ressources et même les machines virtuelles. Toutes les ressources du Portail Azure qui utilisent la fonctionnalité de contrôle d’accès en fonction du rôle d’Azure peuvent tirer parti des capacités de gestion de la sécurité et des cycles de vie proposées par Privileged Identity Management. Si vous souhaitez conserver les données d’audit plus longtemps que la période de conservation par défaut, utilisez Azure Monitor pour les transférer vers un compte de stockage Azure. Pour plus d’informations, consultez [Archiver des journaux d’activité Azure AD sur un compte de stockage Azure](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 > [!NOTE]
-> Si votre organisation possède des fonctions de gestion externalisées pour un fournisseur de services qui utilise la [gestion des ressources déléguées Azure](../../lighthouse/concepts/azure-delegated-resource-management.md), les attributions de rôles autorisées par ce fournisseur de services ne seront pas affichées ici.
+> Si votre organisation externalise des fonctions de gestion à un fournisseur de services qui utilise[Azure Lighthouse](../../lighthouse/overview.md), les attributions de rôles autorisées par ce fournisseur de services ne s’afficheront pas ici.
 
 ## <a name="view-activity-and-activations"></a>Afficher l’activité et les activations
 
@@ -70,7 +70,7 @@ Vous pouvez avoir une exigence de conformité selon laquelle vous devez fournir 
 
     ![Attributions de rôle exportées dans le fichier CSV comme affiché dans Excel](media/azure-pim-resource-rbac/export-csv.png)
 
-## <a name="view-resource-audit-history"></a>Afficher l’historique d’audit des ressources
+## <a name="view-resource-audit-history&quot;></a>Afficher l’historique d’audit des ressources
 
 L’audit des ressources vous donne une vue d’ensemble de l’activité des rôles d’une ressource.
 
@@ -84,7 +84,7 @@ L’audit des ressources vous donne une vue d’ensemble de l’activité des r�
 
 1. Filtrez l’historique en choisissant une date prédéfinie ou une plage personnalisée.
 
-    [![Liste des audits de ressources avec filtres](media/azure-pim-resource-rbac/rbac-resource-audit.png "Liste des audits de ressources avec filtres")](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    [![Liste des audits de ressources avec filtres](media/azure-pim-resource-rbac/rbac-resource-audit.png &quot;Liste des audits de ressources avec filtres")](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 1. Pour **Type d’audit**, sélectionnez **Activer (Attribué + Activé)**.
 
@@ -94,7 +94,7 @@ L’audit des ressources vous donne une vue d’ensemble de l’activité des r�
 
     ![Détails de l’activité utilisateur pour une action particulière](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
-## <a name="view-my-audit"></a>Afficher mon audit
+## <a name="view-my-audit&quot;></a>Afficher mon audit
 
 Mon audit vous permet d’afficher votre activité personnelle de rôle.
 
@@ -108,7 +108,7 @@ Mon audit vous permet d’afficher votre activité personnelle de rôle.
 
 1. Filtrez l’historique en choisissant une date prédéfinie ou une plage personnalisée.
 
-    [![Liste d’audits pour l’utilisateur actuel](media/azure-pim-resource-rbac/my-audit-time.png "Liste d’audits pour l’utilisateur actuel")](media/azure-pim-resource-rbac/my-audit-time.png)
+    [![Liste d’audits pour l’utilisateur actuel](media/azure-pim-resource-rbac/my-audit-time.png &quot;Liste d’audits pour l’utilisateur actuel")](media/azure-pim-resource-rbac/my-audit-time.png)
 
 > [!NOTE]
 > Pour accéder à l’historique d’audit, vous devez avoir un rôle Administrateur général ou Administrateur de rôle privilégié.

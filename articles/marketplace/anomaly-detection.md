@@ -4,15 +4,15 @@ description: Découvrez comment la détection d’anomalie automatique pour la f
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 2/18/2021
+ms.date: 5/03/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 1ff6262a75261c575082f3fc48d588c868ad0b51
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd0f86af30c88a7c7e1d1eb9cec9a5f31505496a
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092524"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795597"
 ---
 # <a name="manage-metered-billing-anomalies-in-partner-center"></a>Gérer les anomalies de facturation mesurée dans l’Espace partenaires
 
@@ -32,12 +32,12 @@ Pour vous assurer que vos clients sont facturés correctement, utilisez la fonct
 1. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Analyser**.
 1. Sélectionnez l’onglet **Anomalies liées à l’utilisation facturée à l’usage**.
 
-    [![Illustre l’onglet Anomalies liées à l’utilisation facturée à l’usage sur la page Utilisation.](./media/anomaly-detection/metered-usage-anomalies.png)](./media/anomaly-detection/metered-usage-anomalies.png#lightbox)
+    [![Illustre l’onglet Anomalies liées à l’utilisation facturée à l’usage sur la page Utilisation.](./media/anomaly-detection/metered-usage-anomalies.png)](./media/anomaly-detection/metered-usage-anomalies.png#lightbox)<br>
     ***Figure 1 : Onglet Anomalies liées à l’utilisation facturée à l’usage***
 
 1. Pour toute anomalie d’utilisation détectée par rapport à la facturation à l’usage, en tant qu’éditeur, vous êtes invité à examiner et à confirmer s’il s’agit ou non d’une anomalie. Sélectionnez **Marquer comme anomalie** pour confirmer le diagnostic.
 
-     [![Illustre la boîte de dialogue Marquer comme anomalie.](./media/anomaly-detection/mark-as-anomaly.png)](./media/anomaly-detection/mark-as-anomaly.png#lightbox)
+     [![Illustre la boîte de dialogue Marquer comme anomalie.](./media/anomaly-detection/mark-as-anomaly.png)](./media/anomaly-detection/mark-as-anomaly.png#lightbox)<br>
     ***Figure 2 : Boîte de dialogue Marquer comme anomalie***
 
 1. Si vous pensez que l’anomalie liée au dépassement de l’utilisation que nous avons détectée n’est pas avérée, vous pouvez le faire savoir en sélectionnant **Pas d’anomalie** au niveau de l’anomalie signalée par l’Espace partenaires pour le dépassement d’utilisation spécifique.
@@ -47,18 +47,22 @@ Pour vous assurer que vos clients sont facturés correctement, utilisez la fonct
 
 1. Vous pouvez faire défiler la page pour afficher une liste des anomalies non confirmées. La liste dresse un inventaire des anomalies que vous n’avez pas confirmées. Vous pouvez choisir de marquer les anomalies signalées par l’Espace partenaires comme étant avérées ou non.
 
-   [![Illustre la liste des anomalies signalées par l’Espace partenaires encore non confirmées sur la page Utilisation.](./media/anomaly-detection/unacknowledged-anomalies.png)](./media/anomaly-detection/unacknowledged-anomalies.png#lightbox)
+   [![Illustre la liste des anomalies signalées par l’Espace partenaires encore non confirmées sur la page Utilisation.](./media/anomaly-detection/unacknowledged-anomalies.png)](./media/anomaly-detection/unacknowledged-anomalies.png#lightbox)<br>
     ***Figure 4 : Liste des anomalies signalées par l’Espace partenaires encore non confirmées***
+
+    Par défaut, les anomalies signalées qui ont un impact financier estimé supérieur à 100 USD sont affichées dans l’Espace partenaires. Toutefois, vous pouvez sélectionner **Tout** dans la liste **Impact financier estimé des anomalies** pour voir toutes les anomalies signalées.
+
+    :::image type="content" source="./media/anomaly-detection/all-anomalies.png" alt-text="Capture d’écran de toutes les anomalies d’utilisation limitées pour l’offre sélectionnée.":::
 
 1. Vous pouvez également consulter un journal d’actions liées aux anomalies qui reprend les actions que vous avez effectuées concernant les dépassements d’utilisation. Dans le journal des actions, vous pourrez voir quels événements de dépassement d’utilisation ont été marqués comme étant avérés ou non.
 
-   [![Illustre le journal des actions liées aux anomalies sur la page Utilisation.](./media/anomaly-detection/anomaly-action-log.png)](./media/anomaly-detection/anomaly-action-log.png#lightbox)
-   ***Figure 5 : Journal d’actions liées aux anomalies***
+   [![Illustre le journal des actions liées aux anomalies sur la page Utilisation.](./media/anomaly-detection/anomaly-action-log.png)](./media/anomaly-detection/anomaly-action-log.png#lightbox)<br>
+   ***Figure 5 : Journal des actions liées aux anomalies***
 
 1. L’analyse de l’Espace partenaires ne prend pas en charge la reformulation des événements de dépassement d’utilisation dans les rapports d’exportation. L’Espace partenaires vous permet d’entrer la correction du dépassement d’utilisation pour une anomalie et les détails sont transmis aux équipes Microsoft pour investigation. En fonction de l’investigation, Microsoft émet des remboursements de crédit au client surfacturé, le cas échéant. Lorsque vous sélectionnez l’une des anomalies marquées, vous pouvez sélectionner **Marquer comme anomalie** pour marquer l’anomalie de dépassement d’utilisation comme avérée.
 
-   [![Illustre la boîte de dialogue Marquer comme anomalie.](./media/anomaly-detection/new-reported-usage.png)](./media/anomaly-detection/new-reported-usage.png#lightbox)
-   ***Figure : 6 : Boîte de dialogue Marquer comme anomalie***
+   [![Illustre la boîte de dialogue Marquer comme anomalie.](./media/anomaly-detection/new-reported-usage.png)](./media/anomaly-detection/new-reported-usage.png#lightbox)<br>
+   ***Figure 6 : Boîte de dialogue Marquer comme anomalie***
 
 La première fois qu’un dépassement d’utilisation est marqué comme anormal dans l’Espace partenaires, vous avez un délai de 30 jours à partir de cette instance pour marquer l’anomalie comme avérée ou fausse. Après la période de 30 jours, en tant qu’éditeur, vous ne pouvez plus réagir aux anomalies.
 

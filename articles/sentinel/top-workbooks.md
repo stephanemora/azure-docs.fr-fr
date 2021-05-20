@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 03/07/2021
 ms.author: bagol
-ms.openlocfilehash: a37501498a9222025860702a7f29dccc9abfc8f7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b096bcc59465bae0a37013c148880b6beb9eecb0
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102450047"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795651"
 ---
 # <a name="commonly-used-azure-sentinel-workbooks"></a>Classeurs Azure Sentinel courants
 
@@ -48,6 +48,6 @@ Accédez aux classeurs dans Azure Sentinel sous **Gestion des menaces** > **Clas
 |**alertes de sécurité**     |  Fournit un tableau de bord des alertes de sécurité de l’environnement Azure Sentinel. <br><br>Pour plus d’informations, consultez [Créer automatiquement des incidents à partir d’alertes de sécurité Microsoft](create-incidents-from-alerts.md).      |
 |**Efficacité des opérations de sécurité**     |  Permet aux responsables de centre des opérations de sécurité (SOC) de voir des métriques et des mesures d’efficacité globales concernant le niveau de performance de leur équipe. <br><br>Pour plus d’informations, consultez [Meilleure gestion du centre SOC avec les métriques relatives aux incidents](manage-soc-with-incident-metrics.md).  |
 |**Renseignement sur les menaces**     | Fournit des insights sur les indicateurs de menace, notamment le type et la gravité des menaces, l’activité des menaces dans le temps et la corrélation avec d’autres sources de données, notamment Office 365 et les pare-feu.  <br><br>Pour plus d’informations, consultez [Importation du renseignement sur les menaces dans Azure Sentinel](import-threat-intelligence.md).      |
-|**Audit de l’espace de travail**     |  Fournit un rapport d’audit de l’espace de travail qui permet de comprendre les exécutions de requêtes dans l’espace de travail.   <br><br>Pour plus d’informations, consultez [Audit des requêtes et des activités Azure Sentinel](audit-sentinel-data.md).  |
-|     |         |
+|**Confiance Zéro (TIC 3.0)**     |  Fournit une visualisation automatisée des principes de Confiance Zéro, transmise à l'[infrastructure des connexions Internet de confiance (TIC)](https://www.cisa.gov/trusted-internet-connections).   <br><br>Pour plus d’informations, consultez le [blog de l'annonce du classeur Confiance Zéro (TIC 3.0)](https://techcommunity.microsoft.com/t5/public-sector-blog/announcing-the-azure-sentinel-zero-trust-tic3-0-workbook/ba-p/2313761).  |
+
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: ed4047b7ac4187138f29bc3f53b5bc5995132296
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: ae5aacf48fdc038e485226476509e14c551bfbfa
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107898132"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785202"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 
@@ -286,7 +286,7 @@ Les opérations d’agrégation prises en charge pour les valeurs des colonnes c
 ### <a name="enable-deep-learning"></a>Activez le Deep Learning
 
 > [!NOTE]
-> Le support DNN pour les prévisions dans le Machine Learning automatisé est en **préversion** et n’est pas pris en charge pour les exécutions locales.
+> DNN est en **préversion** pour les prévisions dans le Machine Learning automatisé et n’est pas pris en charge pour les exécutions locales ou initiées dans Databricks.
 
 Vous pouvez également appliquer le Deep Learning avec des réseaux neuronaux profonds, DNN, pour améliorer les scores de votre modèle. Le Deep Learning du ML automatisé permet de prévoir des données de série chronologique univariées et multivariées.
 

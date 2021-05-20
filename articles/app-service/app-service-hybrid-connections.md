@@ -4,15 +4,15 @@ description: Découvrez comment créer et utiliser des connexions hybrides dans 
 author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 02/05/2020
+ms.date: 05/05/2021
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 1b3fc4a254c1157f2c2336e6360ba7621f31364d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8425ef0e8d2bdf5caf64bfb2e0c977c63b5a6e1
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99594229"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109628418"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connexions hybrides d’Azure App Service
 
@@ -21,9 +21,9 @@ Les connexions hybrides sont un service dans Azure et une fonctionnalité dans A
 Dans App Service, les connexions hybrides peuvent être utilisées pour accéder aux ressources d’application dans les réseaux qui peuvent effectuer des appels sortants vers Azure via le port 443. Les connexions hybrides permettent l’accès entre votre application et un point de terminaison TCP, et ne permettent pas d’accéder autrement à votre application. Utilisée dans App Service, chaque connexion hybride correspond à une combinaison d’hôte et de port TCP unique. Cela permet aux applications d’accéder à des ressources sur n’importe quel système d’exploitation, à condition qu’il s’agisse d’un point de terminaison TCP. La fonctionnalité Connexions hybrides ne détectent pas et ne prennent pas en compte le protocole d’application ou les ressources auxquels vous accédez. Elle fournit simplement un accès réseau.  
 
 ## <a name="how-it-works"></a>Fonctionnement ##
-Les connexions hybrides nécessitent qu’un agent de relais soit déployé à un emplacement d’où il pourra accéder à la fois au point de terminaison souhaité et à Azure. L’agent de relais, Hybrid Connection Manager (HCM), appelle Azure Relay sur le port 443. À partir du site de l’application web, l’infrastructure App Service se connecte également à Azure Relay au nom de votre application. Grâce aux connexions jointes, l’application accède au point de terminaison souhaité. La connexion utilise TLS 1.2 pour la sécurité et des clés de signature d’accès partagé (SAP) pour l’authentification et l’autorisation.    
+Les connexions hybrides nécessitent qu’un agent de relais soit déployé à un emplacement d’où il pourra accéder à la fois au point de terminaison souhaité et à Azure. L’agent de relais, Hybrid Connection Manager (HCM), appelle Azure Relay sur le port 443. À partir du site de l’application web, l’infrastructure App Service se connecte également à Azure Relay au nom de votre application. Grâce aux connexions jointes, l’application accède au point de terminaison souhaité. La connexion utilise TLS 1.2 pour la sécurité et des clés de signature d’accès partagé (SAP) pour l’authentification et l’autorisation.
 
-![Diagramme du flux de haut niveau de la connexion hybride][1]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-connectiondiagram.png" alt-text="Diagramme du flux de haut niveau de la connexion hybride":::
 
 Lorsque votre application effectue une requête DNS qui correspond à un point de terminaison de connexion hybride configuré, le trafic TCP sortant est redirigé via la connexion hybride.  
 
@@ -58,11 +58,11 @@ Ce que vous ne pouvez pas faire avec les connexions hybrides, notamment :
 
 Pour créer une connexion hybride, accédez au [portail Azure][portal] et sélectionnez votre application. Sélectionnez **Mise en réseau** > **Configurer vos points de terminaison de connexion hybride**. Vous pouvez alors voir les connexions hybrides configurées pour votre application.  
 
-![Capture d’écran de la liste des connexions hybrides][2]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-portal.png" alt-text="Capture d’écran de la liste des connexions hybrides":::
 
-Pour ajouter une nouvelle connexion hybride, sélectionnez **[+] Ajouter une connexion hybride**.  La liste des connexions hybrides que vous avez déjà créées apparaît. Pour en ajouter une ou plusieurs à votre application, sélectionnez celles de votre choix, puis **Ajouter la connexion hybride sélectionnée**.  
+Pour ajouter une nouvelle connexion hybride, sélectionnez **[+] Ajouter une connexion hybride**.  La liste des connexions hybrides que vous avez déjà créées apparaît. Pour en ajouter une ou plusieurs à votre application, sélectionnez celles de votre choix, puis **Ajouter la connexion hybride sélectionnée**.
 
-![Capture d’écran du portail des connexions hybrides][3]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-addhc.png" alt-text="Capture d’écran du portail des connexions hybrides":::
 
 Si vous souhaitez créer une nouvelle connexion hybride, sélectionnez **Créer une connexion hybride**. Spécifiez les éléments suivants : 
 
@@ -71,7 +71,7 @@ Si vous souhaitez créer une nouvelle connexion hybride, sélectionnez **Créer 
 - Port du point de terminaison.
 - Espace de noms Service Bus que vous voulez utiliser.
 
-![Capture d’écran de la boîte de dialogue de création d’une connexion hybride][4]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-createhc.png" alt-text="Capture d’écran de la boîte de dialogue de création d’une connexion hybride":::
 
 Chaque connexion hybride est liée à un espace de noms Service Bus et chaque espace de noms Service Bus se trouve dans une région Azure. Il est important d’essayer d’utiliser un espace de noms Service Bus dans la même région que votre application pour éviter une latence du réseau.
 
@@ -79,7 +79,7 @@ Si vous souhaitez supprimer votre connexion hybride de votre application, clique
 
 Lorsqu’une connexion hybride est ajoutée à votre application, vous pouvez afficher ses détails simplement en la sélectionnant. 
 
-![Capture d’écran des détails des connexions hybrides][5]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-properties.png" alt-text="Capture d’écran des détails des connexions hybrides":::
 
 ### <a name="create-a-hybrid-connection-in-the-azure-relay-portal"></a>Créer une connexion hybride dans le portail Azure Relay ###
 
@@ -96,12 +96,12 @@ Les connexions hybrides App Service sont uniquement disponibles dans les référ
 |----|----|
 | De base | 5 par plan |
 | Standard | 25 par plan |
-| PremiumV2 | 200 par application |
-| Isolé | 200 par application |
+| Premium (v1 à v3) | 220 par application |
+| Isolé (v1 à v2) | 220 par application |
 
-L’IU du plan App Service vous indique combien de connexions hybrides sont utilisées et par quelles applications.  
+L’IU du plan App Service vous indique combien de connexions hybrides sont utilisées et par quelles applications.
 
-![Capture d’écran des propriétés du plan App Service][6]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-aspproperties.png" alt-text="Capture d’écran des propriétés du plan App Service":::
 
 Sélectionnez la connexion hybride pour voir les détails. Vous pouvez voir toutes les informations que vous avez vues dans la vue de l’application. Vous pouvez également voir combien d’autres applications utilisent cette connexion hybride dans le même plan.
 
@@ -117,28 +117,28 @@ La fonctionnalité Connexions hybrides exige un agent de relais dans le réseau 
 
 Cet outil s’exécute sur Windows Server 2012 et version ultérieure. Le HCM s’exécute en tant que service et connecte le trafic sortant à Azure Relay sur le port 443.  
 
-Après avoir installé HCM, vous pouvez exécuter HybridConnectionManagerUi.exe pour utiliser l’interface utilisateur de l’outil. Ce fichier se trouve dans le répertoire d’installation de Hybrid Connection Manager. Dans Windows 10, vous pouvez aussi simplement rechercher *Hybrid Connection Manager UI* dans votre zone de recherche.  
+Après avoir installé HCM, vous pouvez exécuter HybridConnectionManagerUi.exe pour utiliser l’interface utilisateur de l’outil. Ce fichier se trouve dans le répertoire d’installation de Hybrid Connection Manager. Dans Windows 10, vous pouvez aussi simplement rechercher *Hybrid Connection Manager UI* dans votre zone de recherche.
 
-![Capture d’écran de Hybrid Connection Manager][7]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcm.png" alt-text="Capture d’écran de Hybrid Connection Manager":::
 
 Quand vous démarrez l’interface utilisateur HCM, vous voyez tout d’abord un tableau qui répertorie toutes les connexions hybrides configurées avec cette instance de HCM. Pour apporter des modifications, commencez par vous authentifier auprès d’Azure. 
 
 Pour ajouter une ou plusieurs connexions hybrides à votre GCH :
 
 1. Démarrez l’interface utilisateur de HCM.
-2. Sélectionnez **Configurer une autre connexion hybride**.
-![Capture d’écran de la configuration de nouvelles connexions hybrides][8]
+2. Sélectionnez **Ajouter une nouvelle connexion hybride**.
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcmadd.png" alt-text="Capture d’écran de la configuration de nouvelles connexions hybrides":::
 
 1. Connectez-vous à votre compte Azure pour obtenir les connexions hybrides disponibles avec vos abonnements. Le HCM ne continue pas d’utiliser votre compte Azure au-delà de cela. 
 1. Choisissez un abonnement.
 1. Sélectionnez les connexions hybrides à faire relayer par HCM.
-![Capture d’écran des connexions hybrides][9]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcmadded.png" alt-text="Capture d’écran des connexions hybrides":::
 
 1. Sélectionnez **Enregistrer**.
 
 Vous pouvez maintenant voir les connexions hybrides que vous avez ajoutées. Vous pouvez également sélectionner la connexion hybride configurée pour en afficher les détails.
 
-![Capture d’écran des détails de la connexion hybride][10]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcmdetails.png" alt-text="Capture d’écran des détails de la connexion hybride":::
 
 Pour prendre en charge les connexions hybrides avec lesquelles il est configuré, HCM exige les éléments suivants :
 
@@ -158,7 +158,7 @@ Chaque GCH peut prendre en charge plusieurs connexions hybrides. De plus, toute 
 
 Pour permettre à une personne extérieure à votre abonnement d’héberger une instance HCM pour une connexion hybride donnée, communiquez-lui la chaîne de connexion de passerelle de la connexion hybride. Vous pouvez voir la chaîne de connexion de passerelle dans les propriétés de la connexion hybride dans le [portail Azure][portal]. Pour utiliser cette chaîne, sélectionnez **Saisir manuellement** dans HCM et collez la chaîne de connexion de passerelle.
 
-![Ajouter manuellement une connexion hybride][11]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-manual.png" alt-text="Ajouter manuellement une connexion hybride":::
 
 ### <a name="upgrade"></a>Mettre à niveau ###
 
@@ -216,20 +216,6 @@ Dans App Service, l’outil de ligne de commande **tcpping** peut être appelé 
 
 Si vous avez un client de ligne de commande pour votre point de terminaison, vous pouvez tester la connectivité à partir de la console de l’application. Par exemple, vous pouvez tester l’accès aux points de terminaison de serveur web à l’aide de curl.
 
-
-<!--Image references-->
-[1]: ./media/app-service-hybrid-connections/hybridconn-connectiondiagram.png
-[2]: ./media/app-service-hybrid-connections/hybridconn-portal.png
-[3]: ./media/app-service-hybrid-connections/hybridconn-addhc.png
-[4]: ./media/app-service-hybrid-connections/hybridconn-createhc.png
-[5]: ./media/app-service-hybrid-connections/hybridconn-properties.png
-[6]: ./media/app-service-hybrid-connections/hybridconn-aspproperties.png
-[7]: ./media/app-service-hybrid-connections/hybridconn-hcm.png
-[8]: ./media/app-service-hybrid-connections/hybridconn-hcmadd.png
-[9]: ./media/app-service-hybrid-connections/hybridconn-hcmadded.png
-[10]: ./media/app-service-hybrid-connections/hybridconn-hcmdetails.png
-[11]: ./media/app-service-hybrid-connections/hybridconn-manual.png
-[12]: ./media/app-service-hybrid-connections/hybridconn-bt.png
 
 <!--Links-->
 [HCService]: /azure/service-bus-relay/relay-hybrid-connections-protocol/

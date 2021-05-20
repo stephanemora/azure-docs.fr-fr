@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1, contperf-fy21q2
 ms.date: 12/14/2020
-ms.openlocfilehash: 5dabae76308f32da7968d8cfa89b95f1eb19c142
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7a31fde34a65d69ca862a6dd8bd4fb638b15cb3a
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104863766"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751416"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Mettre à l’échelle automatiquement les clusters Azure HDInsight
 
@@ -70,12 +70,12 @@ Le tableau suivant décrit les types de cluster et les versions qui sont compati
 
 | Version | Spark | Hive | Interactive Query | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sans ESP | Oui | Oui | Oui | Oui* | Non | Non | Non |
-| HDInsight 4.0 sans ESP | Oui | Oui | Oui | Oui* | Non | Non | Non |
-| HDInsight 3.6 avec ESP | Oui | Oui | Oui | Oui* | Non | Non | Non |
-| HDInsight 4.0 avec ESP | Oui | Oui | Oui | Oui* | Non | Non | Non |
+| HDInsight 3.6 sans ESP | Oui | Oui | Oui* | Oui* | Non | Non | Non |
+| HDInsight 4.0 sans ESP | Oui | Oui | Oui* | Oui* | Non | Non | Non |
+| HDInsight 3.6 avec ESP | Oui | Oui | Oui* | Oui* | Non | Non | Non |
+| HDInsight 4.0 avec ESP | Oui | Oui | Oui* | Oui* | Non | Non | Non |
 
-\* Les clusters HBase peuvent uniquement être configurés pour une mise à l’échelle basée sur la planification, et non basée sur la charge.
+\* Les clusters HBase et Interactive Query peuvent uniquement être configurés pour une mise à l’échelle basée sur la planification, et non sur la charge.
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -85,7 +85,7 @@ Pour activer la fonctionnalité de mise à l’échelle automatique basée sur l
 
 1. Sous l’onglet **Configuration + tarification**, cochez la case **Activer la mise à l’échelle automatique**.
 1. Sélectionnez **Basé sur la charge** sous **Type de mise à l’échelle automatique**.
-1. Entrez les valeurs prévues pour les propriétés suivantes :  
+1. Entrez les valeurs prévues pour les propriétés suivantes :
 
     * **Nombre de nœuds** initial pour le **Nœud Worker**.
     * Nombre **min** de nœuds Worker.
@@ -120,16 +120,16 @@ Sélectionnez le type de machine virtuelle pour les nœuds Worker en choisissant
 
 Votre abonnement a un quota de capacité pour chaque région. Le nombre total de cœurs de vos nœuds principaux et le nombre maximum de nœuds Worker ne peuvent pas dépasser le quota de capacité. Toutefois, ce quota est une limite logicielle ; vous pouvez toujours créer un ticket de support pour l’augmenter aisément.
 
-> [!Note]  
+> [!Note]
 > Si vous dépassez la limite totale de quota de base, vous recevrez un message d’erreur disant indiquant que le nœud maximum a dépassé les noyaux disponibles dans cette région et que vous devez choisir une autre région ou contacter le support pour augmenter le quota (« the maximum node exceeded the available cores in this region, please choose another region or contact the support to increase the quota »).
 
-Pour plus d’informations sur la création de clusters HDInsight à l’aide du portail Azure, consultez [Créer des clusters Linux dans HDInsight à l’aide du portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md).  
+Pour plus d’informations sur la création de clusters HDInsight à l’aide du portail Azure, consultez [Créer des clusters Linux dans HDInsight à l’aide du portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ### <a name="create-a-cluster-with-a-resource-manager-template"></a>Création d’un cluster avec un modèle Resource Manager
 
 #### <a name="load-based-autoscaling"></a>Mise à l’échelle automatique basée sur la charge
 
-Vous pouvez créer un cluster HDInsight avec la mise à l’échelle basée sur la charge d’un modèle Azure Resource Manager en ajoutant un nœud `autoscale` à la section `computeProfile` > `workernode` avec les propriétés `minInstanceCount` et `maxInstanceCount`, comme indiqué dans l’extrait de code json indiqué ci-dessous. Pour obtenir un modèle Resource Manager complet, consultez [Modèle de démarrage rapide : Déployer un cluster Spark avec mise à l’échelle automatique basée sur la charge](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
+Vous pouvez créer un cluster HDInsight avec la mise à l’échelle basée sur la charge d’un modèle Azure Resource Manager en ajoutant un nœud `autoscale` à la section `computeProfile` > `workernode` avec les propriétés `minInstanceCount` et `maxInstanceCount`, comme indiqué dans l’extrait de code json indiqué ci-dessous. Pour obtenir un modèle Resource Manager complet, consultez [Modèle de démarrage rapide : Déployer un cluster Spark avec mise à l’échelle automatique basée sur la charge](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-autoscale-loadbased).
 
 ```json
 {
@@ -157,7 +157,7 @@ Vous pouvez créer un cluster HDInsight avec la mise à l’échelle basée sur 
 
 #### <a name="schedule-based-autoscaling"></a>Mise à l’échelle automatique basée sur la planification
 
-Vous pouvez créer un cluster HDInsight avec la mise à l’échelle basée sur la planification d’un modèle Azure Resource Manager en ajoutant un nœud `autoscale` à la section `computeProfile` > `workernode`. Le nœud `autoscale` contient un élément `recurrence` qui a un élément `timezone` et un élément `schedule`. Ils vous permettent d’indiquer quand la modification doit avoir lieu. Pour obtenir un modèle Resource Manager complet, consultez [Déployer un cluster Spark avec mise à l’échelle automatique basée sur la planification](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-schedulebased).
+Vous pouvez créer un cluster HDInsight avec la mise à l’échelle basée sur la planification d’un modèle Azure Resource Manager en ajoutant un nœud `autoscale` à la section `computeProfile` > `workernode`. Le nœud `autoscale` contient un élément `recurrence` qui a un élément `timezone` et un élément `schedule`. Ils vous permettent d’indiquer quand la modification doit avoir lieu. Pour obtenir un modèle Resource Manager complet, consultez [Déployer un cluster Spark avec mise à l’échelle automatique basée sur la planification](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-autoscale-schedulebased).
 
 ```json
 {
@@ -251,25 +251,37 @@ Au cours de descente en puissance du cluster, la mise à l’échelle automatiqu
 
 Les travaux en cours d’exécution se poursuivront. Les travaux en attente attendrons d’être planifiés avec moins de nœuds Worker disponibles.
 
+### <a name="configure-schedule-based-autoscale-based-on-usage-pattern"></a>Configurer la mise à l’échelle automatique basée sur la planification en fonction du modèle d’utilisation
+
+Vous devez comprendre le modèle d’utilisation de votre cluster au moment de configurer la mise à l’échelle automatique basée sur la planification. Le [tableau de bord Grafana](./interactive-query/hdinsight-grafana.md) peut vous aider à comprendre votre charge de requêtes et vos emplacements d’exécution. Vous pouvez obtenir les emplacements d’exécuteur disponibles et le nombre total d’emplacements d’exécuteur à partir du tableau de bord.
+
+Voici une façon d’estimer le nombre de nœuds Worker qui seront nécessaires. Nous vous recommandons de prévoir une marge supplémentaire de 10 % pour gérer la variation de la charge de travail.
+
+Nombre d’emplacements d’exécuteur réellement utilisés = nombre total d’emplacements d’exécuteur - nombre total d’emplacements d’exécuteur disponibles.
+
+Nombre de nœuds Worker nécessaires = nombre d’emplacements d’exécuteur réellement utilisés / (hive.llap.daemon.num.executors + hive.llap.daemon.task.scheduler.wait.queue.size)
+
+*hive.llap.daemon.num.executors est configurable et sa valeur par défaut est 4
+
+*hive.llap.daemon.task.scheduler.wait.queue.size est configurable et sa valeur par défaut est 10
+
+
 ### <a name="be-aware-of-the-minimum-cluster-size"></a>Tenez compte de la taille minimale du cluster
 
 Ne mettez pas à l’échelle votre cluster à moins de trois nœuds. La mise à l’échelle de votre cluster à moins de trois nœuds peut entraîner le blocage en mode sans échec en raison d’une réplication de fichiers insuffisante. Pour plus d’informations, consultez [Blocage en mode sans échec](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
 ### <a name="increase-the-number-of-mappers-and-reducers"></a>Augmentez le nombre de mappeurs et de réducteurs
 
-La mise à l’échelle automatique pour les clusters Hadoop surveille également l’utilisation de HDFS. Si le HDFS est occupé, elle suppose que le cluster a toujours besoin des ressources actuelles. Lorsque des données volumineuses sont impliquées dans la requête, vous pouvez augmenter le nombre de mappeurs et de réducteurs pour augmenter le parallélisme et accélérer les opérations HDFS. De cette façon, la mise à l’échelle appropriée est déclenchée lorsque des ressources supplémentaires sont disponibles. 
+La mise à l’échelle automatique pour les clusters Hadoop surveille également l’utilisation de HDFS. Si le HDFS est occupé, elle suppose que le cluster a toujours besoin des ressources actuelles. Lorsque des données volumineuses sont impliquées dans la requête, vous pouvez augmenter le nombre de mappeurs et de réducteurs pour augmenter le parallélisme et accélérer les opérations HDFS. De cette façon, la mise à l’échelle appropriée est déclenchée lorsque des ressources supplémentaires sont disponibles.
 
 ### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>Définissez le nombre maximal de requêtes simultanées dans la configuration Hive pour le scénario d’utilisation maximale
 
 Les événements de mise à l’échelle automatique ne modifient pas la configuration Hive *Nombre total maximum de requêtes simultanées* dans Ambari. Cela signifie que le service interactif Hive Server 2 ne peut traiter qu’un nombre déterminé de requêtes simultanées à un moment donné, même si le nombre de démons Interactive Query est augmenté et réduit en fonction de la charge et de la planification. La recommandation générale consiste à définir cette configuration pour le scénario d’utilisation maximale afin d’éviter toute intervention manuelle.
 
-Toutefois, vous pouvez rencontrer un échec de redémarrage du serveur Hive 2 s’il n’y a qu’un petit nombre de nœuds Worker et que le nombre maximum total de requêtes simultanées est configuré sur une valeur trop élevée. Au minimum, vous avez besoin du nombre minimal de nœuds Worker pouvant prendre en charge le nombre donné d’AM Tez (égal à la configuration du maximum total de requêtes simultanées). 
+Toutefois, vous pouvez rencontrer un échec de redémarrage du serveur Hive 2 s’il n’y a qu’un petit nombre de nœuds Worker et que le nombre maximum total de requêtes simultanées est configuré sur une valeur trop élevée. Au minimum, vous avez besoin du nombre minimal de nœuds Worker pouvant prendre en charge le nombre donné d’AM Tez (égal à la configuration du maximum total de requêtes simultanées).
 
 ## <a name="limitations"></a>Limites
 
-### <a name="node-label-file-missing"></a>Fichier d’étiquette de nœud manquant
-
-La mise à l’échelle automatique HDInsight utilise un fichier d’étiquette de nœud pour déterminer si un nœud est prêt à exécuter des tâches. Le fichier d’étiquette de nœud est stocké sur HDFS avec trois réplicas. Si la taille du cluster est considérablement réduite et qu’il y a une grande quantité de données temporaires, les trois réplicas peuvent être supprimés. Dans ce cas, le cluster passe en état d’erreur.
 
 ### <a name="interactive-query-daemons-count"></a>Nombre de démons Interactive Query
 

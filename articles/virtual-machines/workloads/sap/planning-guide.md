@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 67ef0bf7a8c3906122468c895325a77de555c196
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 93a53169df18c88b4d74c699fe5c4cb8b2a11135
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258790"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738317"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 
@@ -228,7 +228,7 @@ ms.locfileid: "107258790"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-az-ps
+[powershell-install-configure]:/powershell/azure/install-az-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -591,7 +591,7 @@ Il est possible d’attribuer des adresses IP fixes ou réservées aux machines 
 
 
 ##### <a name="secondary-ip-addresses-for-sap-hostname-virtualization"></a>Adresses IP secondaires pour la virtualisation du nom d’hôte SAP
-Plusieurs adresses IP peuvent être affectées à chaque carte d’interface réseau de la machine virtuelle Azure. L’adresse IP secondaire peut être utilisée pour les noms d’hôte virtuels SAP qui sont mappés à un enregistrement DNS A/PTR, si nécessaire. Les adresses IP secondaires doivent être affectées à la configuration IP des cartes réseau virtuelles Azure, conformément à [cet article](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md), et également configurées dans le système d’exploitation, car les adresses IP secondaires ne sont pas attribuées par le biais de DHCP. Chaque adresse IP secondaire doit provenir du même sous-réseau auquel le carte réseau virtuelle est liée. L’utilisation de l’adresse IP flottante d’Azure Load Balancer n’est [pas prise en charge]( https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations) pour les configurations IP secondaires, comme les clusters Pacemaker, dans ce cas l’adresse IP de l’équilibreur de charge active le ou les noms d’hôte virtuels SAP. Consultez également la note de SAP [#962955](https://launchpad.support.sap.com/#/notes/962955) sur les conseils généraux pour les noms d’hôtes virtuels.
+Plusieurs adresses IP peuvent être affectées à chaque carte d’interface réseau de la machine virtuelle Azure. L’adresse IP secondaire peut être utilisée pour les noms d’hôte virtuels SAP qui sont mappés à un enregistrement DNS A/PTR, si nécessaire. Les adresses IP secondaires doivent être affectées à la configuration IP des cartes réseau virtuelles Azure, conformément à [cet article](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md), et également configurées dans le système d’exploitation, car les adresses IP secondaires ne sont pas attribuées par le biais de DHCP. Chaque adresse IP secondaire doit provenir du même sous-réseau auquel le carte réseau virtuelle est liée. L’utilisation de l’adresse IP flottante d’Azure Load Balancer n’est [pas prise en charge](/azure/load-balancer/load-balancer-multivip-overview#limitations) pour les configurations IP secondaires, comme les clusters Pacemaker, dans ce cas l’adresse IP de l’équilibreur de charge active le ou les noms d’hôte virtuels SAP. Consultez également la note de SAP [#962955](https://launchpad.support.sap.com/#/notes/962955) sur les conseils généraux pour les noms d’hôtes virtuels.
 
 
 ##### <a name="multiple-nics-per-vm"></a>Plusieurs cartes d’interface réseau par machine virtuelle
@@ -733,7 +733,7 @@ Le déploiement de l’extension Azure pour SAP (voir le chapitre [Extension Azu
 
 Étant donné qu’Azure propose davantage de fonctionnalités, de nouvelles applets de commande PS vont être ajoutées ; celles-ci nécessiteront une mise à jour des applets de commande. Il est donc recommandé de consulter le site de téléchargement Azure <https://azure.microsoft.com/downloads/> au moins une fois par mois, pour vérifier si une nouvelle version des applets de commande est disponible. La nouvelle version est installée par-dessus l’ancienne version.
 
-Pour une liste générale des commandes Azure PowerShell, consultez : <https://docs.microsoft.com/powershell/azure/>.
+Pour obtenir une liste générale des commandes Azure PowerShell, consultez : </powershell/azure/>.
 
 ### <a name="management-via-microsoft-azure-cli-commands"></a>Gestion à l’aide des commandes CLI Microsoft Azure
 
@@ -780,7 +780,7 @@ En raison des exigences spécifiques de correctif par rapport aux versions de vo
 ---
 > ![Logo Windows.][Logo_Windows] Windows
 >
-> Vous trouverez plus de détails ici : <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> Les paramètres de Windows (comme le nom d’hôte et le SID Windows) doivent être extraits/généralisés sur la machine virtuelle locale via la commande sysprep.
+> Plus d’informations ici : </azure/virtual-machines/windows/upload-generalized-managed> Les paramètres de Windows (tels que le nom d’hôte et le SID Windows) doivent être extraits/généralisés sur la machine virtuelle locale via la commande sysprep.
 >
 >
 > ![Logo Linux.][Logo_Linux] Linux
@@ -874,7 +874,7 @@ Si la préparation de la machine virtuelle permet à cette dernière d’être g
 ### <a name="transferring-vms-and-vhds-between-on-premises-to-azure"></a>Transfert de machines virtuelles et de disques durs virtuels locaux vers Azure
 Étant donné que le chargement d’images de machine virtuelle et de disques sur Azure n’est pas possible via le portail Azure, vous devez utiliser les applets de commande Azure PowerShell ou l’interface de ligne de commande. Une autre possibilité serait d’utiliser l’outil « AzCopy ». Cet outil peut copier les disques durs virtuels locaux vers Azure (et vice-versa). Il peut également copier les disques durs virtuels entre différentes régions Azure. Pour plus d’informations sur le téléchargement et l’utilisation d’AzCopy, consultez [cette documentation][storage-use-azcopy].
 
-Une troisième alternative consisterait à utiliser divers outils tiers orientés GUI. Toutefois, vérifiez que ces outils prennent en charge les objets blob de pages Azure. Dans notre cas, nous devons utiliser le magasin d’objets blob de pages Azure (les différences sont décrites ici : <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>). Les outils fournis par Azure sont efficaces pour compresser les machines virtuelles et les VHD à charger. Il s’agit d’un élément important car plus la compression est efficace, plus le temps de chargement est réduit. (Ce temps varie tout de même en fonction du lien de chargement vers Internet depuis l’emplacement local et de la région de déploiement Azure ciblée). Il est logique de supposer que le chargement d’une machine virtuelle ou d’un VHD à partir d’un emplacement européen sur un centre de données Azure se trouvant aux États-Unis prendra plus de temps que le chargement de ces machines virtuelles/VHD vers les centres de données Azure européens.
+Une troisième alternative consisterait à utiliser divers outils tiers orientés GUI. Toutefois, vérifiez que ces outils prennent en charge les objets blob de pages Azure. Dans notre cas, nous devons utiliser le magasin d’objets blob de pages Azure (les différences sont décrites ici : </rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>). Les outils fournis par Azure sont efficaces pour compresser les machines virtuelles et les VHD à charger. Il s’agit d’un élément important car plus la compression est efficace, plus le temps de chargement est réduit. (Ce temps varie tout de même en fonction du lien de chargement vers Internet depuis l’emplacement local et de la région de déploiement Azure ciblée). Il est logique de supposer que le chargement d’une machine virtuelle ou d’un VHD à partir d’un emplacement européen sur un centre de données Azure se trouvant aux États-Unis prendra plus de temps que le chargement de ces machines virtuelles/VHD vers les centres de données Azure européens.
 
 #### <a name="uploading-a-vhd-from-on-premises-to-azure"></a><a name="a43e40e6-1acc-4633-9816-8f095d5a7b6a"></a>Chargement d’un disque dur virtuel local vers Azure
 Pour charger une machine virtuelle ou un disque dur virtuel existants à partir du réseau local, ces derniers doivent répondre aux exigences décrites dans le chapitre [Préparation du déplacement d’une machine virtuelle locale vers Azure avec un disque non généralisé][planning-guide-5.2.1] dans ce document.
@@ -887,19 +887,19 @@ Dans ce scénario, nous souhaitons charger un disque dur virtuel, avec ou sans s
 **PowerShell**
 
 * Connectez-vous à votre abonnement avec *Connect-AzAccount*.
-* Définissez l’abonnement de votre contexte en entrant *Set-AzContext* et le paramètre SubscriptionId ou SubscriptionName - consultez <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
-* Chargez le disque dur virtuel (VHD) avec *Add-AzVhd* sur un compte de stockage Azure - consultez <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
-* (Facultatif) Créez un disque managé à partir du VHD avec *New-AzDisk* - consultez <https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk>
-* Définissez le disque du système d’exploitation d’une nouvelle configuration de machine virtuelle sur le VHD ou le disque managé avec *Set-AzVMOSDisk* - consultez <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
-* Créez une machine virtuelle à partir de la configuration de machine virtuelle avec *New-AzVM* - consultez <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
-* Ajoutez un disque de données à une nouvelle machine virtuelle en entrant *Add-AzVMDataDisk* - consultez <https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk>
+* Définissez l’abonnement de votre contexte en entrant *Set-AzContext* et le paramètre SubscriptionId ou SubscriptionName. Voir </powershell/module/az.accounts/set-Azcontext>
+* Chargez le disque dur virtuel (VHD) en entrant *Add-AzVhd* sur un compte de stockage Azure. Voir </powershell/module/az.compute/add-Azvhd>
+* (Facultatif) Créez un disque managé à partir du VHD en entrant *New-AzDisk*. Voir </powershell/module/az.compute/new-Azdisk>
+* Définissez le disque du système d’exploitation d’une nouvelle configuration de machine virtuelle sur le VHD ou le disque managé en entrant *Set-AzVMOSDisk*. Voir </powershell/module/az.compute/set-Azvmosdisk>
+* Créez une nouvelle machine virtuelle à partir de la configuration de machine virtuelle en entrant *New-AzVM*. Voir </powershell/module/az.compute/new-Azvm>
+* Ajoutez un disque de données à une nouvelle machine virtuelle en entrant *Add-AzVMDataDisk*. Voir </powershell/module/az.compute/add-Azvmdatadisk>
 
 **Azure CLI**
 
 * Connectez-vous à votre abonnement avec *az login*
 * Sélectionnez votre abonnement en entrant *az account set --subscription `<subscription name or id`>*
-* Chargez le VHD en entrant *az storage blob upload*. Consultez [Utilisation de l’interface de ligne de commande Azure avec Stockage Azure][storage-azure-cli].
-* (Facultatif) Créez un disque managé à partir du disque dur virtuel avec *az disk create* - consultez https://docs.microsoft.com/cli/azure/disk
+* Chargez le VHD en entrant *az storage blob upload*. Voir [Utilisation de l’interface de ligne de commande Azure avec Stockage Azure][storage-azure-cli].
+* (Facultatif) Créez un disque managé à partir du disque dur virtuel en entrant *az disk create*. Voir [az disk](/cli/azure/disk).
 * Créez une machine virtuelle et spécifiez le disque managé ou le VHD chargé en tant que disque du système d’exploitation en entrant *az vm create* et le paramètre *--attach-os-disk*
 * Ajoutez un disque de données à une nouvelle machine virtuelle en entrant *az vm disk attach* et le paramètre *--new*
 
@@ -907,28 +907,28 @@ Dans ce scénario, nous souhaitons charger un disque dur virtuel, avec ou sans s
 
 * Chargez le disque dur virtuel avec PowerShell ou l'interface de ligne de commande Azure (Azure CLI)
 * (Facultatif) Créez un disque managé à partir du VHD avec PowerShell, Azure CLI ou le portail Azure
-* Déployez la machine virtuelle avec un gabarit JSON en référençant le VHD comme indiqué dans [cet exemple de gabarit JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json)ou en utilisant la fonctionnalité Disques managés comme indiqué dans [cet exemple de gabarit JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
+* Déployez la machine virtuelle avec un gabarit JSON en référençant le VHD comme indiqué dans [cet exemple de gabarit JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json)ou en utilisant la fonctionnalité Disques managés comme indiqué dans [cet exemple de gabarit JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### <a name="deployment-of-a-vm-image"></a>Déploiement d’une image de machine virtuelle
 Pour charger une machine virtuelle ou un VHD existants à partir du réseau local afin de les utiliser comme une image de machine virtuelle Azure, cette machine virtuelle ou ce VHD doit respecter les exigences listées dans le chapitre [Préparation du déploiement d’une machine virtuelle avec une image spécifique du client pour SAP][planning-guide-5.2.2] dans ce document.
 
 * Utilisez *sysprep* sur Windows ou *waagent -deprovision* sur Linux afin de généraliser votre machine virtuelle. Voir [Informations techniques de référence de Sysprep](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10)) pour Windows ou [Comment capturer une machine virtuelle Linux à utiliser en tant que modèle Resource Manager][capture-image-linux-step-2-create-vm-image] pour Linux.
 * Connectez-vous à votre abonnement avec *Connect-AzAccount*.
-* Définissez l’abonnement de votre contexte en entrant *Set-AzContext* et le paramètre SubscriptionId ou SubscriptionName - consultez <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
-* Chargez le disque dur virtuel (VHD) avec *Add-AzVhd* sur un compte de stockage Azure - consultez <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
-* (Facultatif) Créez une image de disque managé à partir du VHD avec *New-AzImage* - consultez <https://docs.microsoft.com/powershell/module/az.compute/new-Azimage>
+* Définissez l’abonnement de votre contexte en entrant *Set-AzContext* et le paramètre SubscriptionId ou SubscriptionName. Voir </powershell/module/az.accounts/set-Azcontext>
+* Chargez le disque dur virtuel (VHD) en entrant *Add-AzVhd* sur un compte de stockage Azure. Voir </powershell/module/az.compute/add-Azvhd>
+* (Facultatif) Créez une image de disque managé à partir du VHD en entrant *New-AzImage*. Voir </powershell/module/az.compute/new-Azimage>
 * Définissez le disque du système d’exploitation d’une nouvelle configuration de machine virtuelle sur
-  * Le VHD avec *Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage* - consultez <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
-  * L’image de disque managé avec *Set-AzVMSourceImage* - consultez <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage>
-* Créez une machine virtuelle à partir de la configuration de machine virtuelle avec *New-AzVM* - consultez <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
+  * le VHD en entrant *Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage*. Voir </powershell/module/az.compute/set-Azvmosdisk>
+  * l’image de disque managé en entrant *Set-AzVMSourceImage*. Voir </powershell/module/az.compute/set-Azvmsourceimage>
+* Créez une nouvelle machine virtuelle à partir de la configuration de machine virtuelle en entrant *New-AzVM*. Voir </powershell/module/az.compute/new-Azvm>
 
 **Azure CLI**
 
 * Utilisez *sysprep* sur Windows ou *waagent -deprovision* sur Linux afin de généraliser votre machine virtuelle. Voir [Informations techniques de référence de Sysprep](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10)) pour Windows ou [Comment capturer une machine virtuelle Linux à utiliser en tant que modèle Resource Manager][capture-image-linux-step-2-create-vm-image] pour Linux.
 * Connectez-vous à votre abonnement avec *az login*
 * Sélectionnez votre abonnement en entrant *az account set --subscription `<subscription name or id`>*
-* Chargez le VHD en entrant *az storage blob upload*. Consultez [Utilisation de l’interface de ligne de commande Azure avec Stockage Azure][storage-azure-cli].
-* (Facultatif) Créez une image de disque managé à partir du disque dur virtuel avec *az image create* - consultez https://docs.microsoft.com/cli/azure/image
+* Chargez le VHD en entrant *az storage blob upload*. Voir [Utilisation de l’interface de ligne de commande Azure avec Stockage Azure][storage-azure-cli].
+* (Facultatif) Créez une image de disque managé à partir du disque dur virtuel en entrant *az image create*. Voir [az image](/cli/azure/image].
 * Créez une machine virtuelle et spécifiez l’image de disque managé ou le VHD chargé en tant que disque du système d’exploitation en entrant *az vm create* et le paramètre *--image*
 
 **Modèle**
@@ -967,7 +967,7 @@ Les VHD ou les disques managés ne peuvent pas être actifs pendant le télécha
   Save-AzVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
   ```
 
-  Pour plus d’informations sur la cmdlet Save-AzVhd, consultez l’article accessible à l’adresse : <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd>.
+  Pour plus d’informations sur la cmdlet Save-AzVhd, consultez : </powershell/module/az.compute/save-Azvhd>.
 
 #### <a name="azure-cli"></a>Azure CLI
 * Téléchargement d’un disque managé : vous devez d’abord obtenir l’accès à l’objet blob sous-jacent du disque managé. Vous pouvez ensuite copier l’objet blob sous-jacent dans un nouveau compte de stockage et télécharger l’objet blob à partir de ce compte de stockage.
@@ -1080,8 +1080,8 @@ Vous pouvez également copier des VHD entre des abonnements. Pour plus d’infor
 
 Le flux de base de la logique d’applet de commande PS ressemble à ceci :
 
-* Créez un contexte pour le compte de stockage **source** en entrant *New-AzStorageContext* - consultez <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
-* Créez un contexte pour le compte de stockage **cible** en entrant *New-AzStorageContext* - consultez <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Créez un contexte pour le compte de stockage **source** en entrant *New-AzStorageContext*. Voir </powershell/module/az.storage/new-AzStoragecontext>
+* Créez un contexte pour le compte de stockage **cible** en entrant *New-AzStorageContext*. Voir </powershell/module/az.storage/new-AzStoragecontext>
 * Démarrer la copie avec
 
 ```powershell
@@ -1261,7 +1261,7 @@ Voir la différence d’architecture entre le modèle classique et l’ARM, comm
 
 Consultez cet article qui décrit en détail ce sujet : .
 
-<https://docs.microsoft.com/archive/blogs/saponsqlserver/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure>
+</archive/blogs/saponsqlserver/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure>
 
 #### <a name="changing-firewall-settings-within-vm"></a>Modification des paramètres de pare-feu au sein de la machine virtuelle
 
@@ -1520,7 +1520,7 @@ Vous pouvez utiliser les exemples de modèles du référentiel Azure-quickstart-
 
 * [Machine virtuelle Linux simple](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
 * [Machine virtuelle Windows simple](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
-* [Machine virtuelle à partir d’une image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+* [Machine virtuelle à partir d’une image](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
 
 ### <a name="implement-a-set-of-vms-that-communicate-within-azure"></a>Implémenter un ensemble de machines virtuelles qui communiquent au sein d’Azure
 
@@ -1972,9 +1972,9 @@ Il est possible de sauvegarder d’autres machines virtuelles dans le système S
 > En théorie, les machines virtuelles qui exécutent des bases de données peuvent également être sauvegardées de manière cohérente si les systèmes SGBD prennent en charge Windows VSS (Volume Shadow Copy Service <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx>) comme le fait SQL Server, par exemple.
 > Toutefois, n’oubliez pas qu’une restauration dans le temps des bases de données peut ne pas être possible, selon les sauvegardes de machine virtuelle Azure. Ainsi, il est recommandé d’effectuer des sauvegardes de bases de données avec des systèmes SGBD plutôt que de compter sur la sauvegarde de machines virtuelles Azure.
 >
-> Pour vous familiariser avec la sauvegarde de machine virtuelle Azure, commencez ici : <https://docs.microsoft.com/azure/backup/backup-azure-vms>.
+> Pour vous familiariser avec la sauvegarde de machines virtuelles Azure, commencez ici : </azure/backup/backup-azure-vms>.
 >
-> Il est également possible de combiner Microsoft Data Protection Manager installé sur une machine virtuelle Azure et la sauvegarde Azure pour sauvegarder/restaurer des bases de données. Des informations supplémentaires sont disponibles ici : <https://docs.microsoft.com/azure/backup/backup-azure-dpm-introduction>.
+> Il est également possible de combiner Microsoft Data Protection Manager installé sur une machine virtuelle Azure et la sauvegarde Azure pour sauvegarder/restaurer des bases de données. Plus d’informations sont accessibles ici : </azure/backup/backup-azure-dpm-introduction>.
 >
 > ![Logo Linux.][Logo_Linux] Linux
 >
@@ -1986,7 +1986,7 @@ Il est possible de sauvegarder d’autres machines virtuelles dans le système S
 
 Depuis le milieu de l’année 2014, des extensions de divers composants relatifs à Hyper-V, System Center et Azure permettent d’utiliser Azure comme site de reprise d’activité après sinistre pour les machines virtuelles basées sur Hyper-V et exécutées localement.
 
-Un billet de blog détaillant comment déployer cette solution est documenté ici : <https://docs.microsoft.com/archive/blogs/saponsqlserver/protecting-sap-solutions-with-azure-site-recovery>.
+Un blog expliquant comment déployer cette solution est disponible ici : </archive/blogs/saponsqlserver/protecting-sap-solutions-with-azure-site-recovery>.
 
 ## <a name="summary-for-high-availability-for-sap-systems"></a>Résumé de la haute disponibilité pour les systèmes SAP
 
@@ -2004,6 +2004,7 @@ Voici les points clés de la haute disponibilité des systèmes SAP dans Azure :
 * La sauvegarde de la machine virtuelle qui contient le répertoire global du système SAP, et tous les profils des différentes instances, est utile et doit être effectuée avec la sauvegarde Windows ou, par exemple, tar sous Linux. Comme il existe des différences entre Windows Server 2008 (R2) et Windows Server 2012 (R2) qui facilitent la sauvegarde à l’aide des versions plus récentes de Windows Server, nous vous recommandons d’exécuter Windows Server 2012 (R2) comme système d’exploitation invité Windows.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Lisez les articles :
 
 - [Déploiement de machines virtuelles Azure pour SAP NetWeaver](./deployment-guide.md)
