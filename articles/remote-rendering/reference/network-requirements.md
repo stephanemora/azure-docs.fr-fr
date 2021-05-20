@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
-ms.openlocfilehash: fd8686cc396d5fcee20590fbac8bccaf187b024d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fd77f7ac69296c8d59b703d202b23e2112bd912
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101735945"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764708"
 ---
 # <a name="network-requirements"></a>Configuration requise pour le réseau
 
@@ -21,7 +21,7 @@ Une connexion réseau stable et à faible latence à un centre de données Azure
 La configuration réseau requise exacte dépend de votre utilisation spécifique, comme le nombre et la fréquence des modifications apportées au graphique de scène distant ainsi que la complexité de l’affichage rendu, mais il existe un certain nombre d’instructions pour vous assurer que votre expérience est la meilleure possible :
 
 * Votre connectivité Internet doit prendre en charge au moins **40 Mbits/s en aval** et **5 Mbits/s en amont** de manière constante pour une seule session utilisateur d’Azure Remote Rendering, en supposant qu’il n’y ait aucun trafic en concurrence sur le réseau. Nous vous recommandons les niveaux tarifaires plus élevés pour de meilleures expériences. 
-* Le **Wi-Fi** est le type de réseau recommandé, car il prend en charge une connexion à faible latence, à haute bande passante et stable. Certains réseaux mobiles introduisent une instabilité qui peut entraîner une expérience médiocre. 
+* Le **WiFi** est le type de réseau recommandé, car il permet une connexion stable, à faible latence et à haute bande passante. Certains réseaux mobiles introduisent une instabilité qui peut entraîner une expérience médiocre. 
 * En règle générale, l’utilisation de la **bande Wi-Fi de 5 GHz** produira de meilleurs résultats que la bande Wi-Fi de 2,4 GHz, bien que les deux fonctionnent.
 * S’il existe d’autres réseaux Wi-Fi à proximité, évitez d’utiliser des canaux Wi-Fi en cours d’utilisation par ces autres réseaux. Vous pouvez utiliser les outils d’analyse réseau comme [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) pour vérifier si les canaux utilisés par votre réseau Wi-Fi sont exempts de trafic en concurrence.
 * **Évitez impérativement d’utiliser des répéteurs Wi-Fi** ou un transfert LAN par courants porteurs en ligne.

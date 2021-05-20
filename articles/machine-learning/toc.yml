@@ -500,6 +500,9 @@
         - name: Création de scripts d’entrée avancés
           displayName: swagger inference schema binary cors
           href: how-to-deploy-advanced-entry-script.md
+        - name: Serveur HTTP d’inférence
+          href: how-to-inference-server-http.md
+          displayName: local debug
         - name: Surveiller des services web
           items:
             - name: Collecter et évaluer des données de modèle

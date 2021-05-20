@@ -1,21 +1,20 @@
 ---
-title: Redimensionner une machine virtuelle Windows dans Azure
+title: Redimensionner une machine virtuelle à l’aide du portail Azure ou de PowerShell
 description: Modifier la taille de la machine virtuelle utilisée pour une machine virtuelle Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.collection: windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: f7f41c0fb2bf949dd47491761fde8025a2d35155
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3bd921d8c17f89d4f9adbc7d0409d48c00cba7a1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560648"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768118"
 ---
-# <a name="resize-a-windows-vm"></a>Redimensionner une machine virtuelle Windows
+# <a name="resize-a-virtual-machine-using-the-azure-portal-or-powershell"></a>Redimensionner une machine virtuelle à l’aide du portail Azure ou de PowerShell
 
 Cet article vous explique comment modifier la [taille d’une machine virtuelle](../sizes.md).
 
@@ -119,4 +118,4 @@ $virtualMachines | Start-AzVM
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour une évolutivité supplémentaire, exécutez plusieurs instances de machine virtuelle et effectuez un scale-out. Pour plus d’informations, consultez [Mise à l’échelle automatique des machines Windows dans un groupe de machines virtuelles identiques](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).
+Pour une évolutivité supplémentaire, exécutez plusieurs instances de machine virtuelle et effectuez un scale-out. Pour plus d’informations, consultez [Mettre automatiquement à l’échelle des machines dans un groupe identique de machines virtuelles](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).

@@ -1,6 +1,6 @@
 ---
-title: Publier sur un serveur SharePoint local avec le Proxy d'application Azure Active Directory
-description: Découvrez les bases de l'intégration d'un serveur SharePoint local avec le Proxy d'application Azure Active Directory pour SAML.
+title: Publier une batterie de serveurs SharePoint locale avec Proxy d’application Azure Active Directory
+description: Découvrez les bases de l’intégration d’une batterie de serveurs SharePoint locale avec Proxy d’application Azure Active Directory pour SAML.
 services: active-directory
 author: kenwith
 manager: mtillman
@@ -11,25 +11,25 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 94c261543b658f6ae1e2a75406a826966bcad3a8
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: e23d8871b50827e76bb383c4a49475627a9ca4a9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108185994"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764438"
 ---
 # <a name="integrate-azure-active-directory-application-proxy-with-sharepoint-saml"></a>Intégrer le Proxy d'application Azure Active Directory à SharePoint (SAML)
 
-Ce guide pas à pas explique comment sécuriser l’accès à [SharePoint (local) intégré à Azure Active Directory (SAML)](../saas-apps/sharepoint-on-premises-tutorial.md) à l’aide du proxy d’application Azure AD, avec lequel les utilisateurs de votre organisation (Azure AD, B2B) se connectent à SharePoint sur Internet.
+Ce guide explique, étape par étape, comment sécuriser l’accès à [SharePoint local intégré à Azure Active Directory (SAML)](../saas-apps/sharepoint-on-premises-tutorial.md) à l’aide de Proxy d’application Azure AD, où les utilisateurs de votre organisation (Azure AD, B2B) se connectent à SharePoint via Internet.
 
-> [!NOTE] 
+> [!NOTE]
 > Si vous débutez avec le proxy d’application Azure AD et que vous souhaitez en savoir plus, consultez [Accéder à distance à des applications locales par le biais du proxy d’application Azure AD](./application-proxy.md).
 
 Cette configuration présente trois principaux avantages :
 
-- Le proxy d’application Azure AD garantit que le trafic authentifié peut atteindre votre réseau interne et le serveur SharePoint.
+- Proxy d’application Azure AD garantit que le trafic authentifié peut atteindre votre réseau interne et SharePoint.
 - Vos utilisateurs peuvent accéder aux sites SharePoint comme d’habitude sans utiliser de VPN.
-- Vous pouvez contrôler l’accès par attribution aux utilisateurs au niveau du proxy d’application Azure AD et vous pouvez renforcer la sécurité avec des fonctionnalités Azure AD telles que l’accès conditionnel et l’authentification multifacteur (MFA).
+- Vous pouvez contrôler l’accès par attribution d’utilisateurs au niveau de Proxy d’application Azure AD et vous pouvez renforcer la sécurité avec des fonctionnalités Azure AD telles que l’accès conditionnel et l’authentification multifacteur.
 
 Ce processus nécessite deux applications d’entreprise. L’une est une instance SharePoint locale que vous publiez à partir de la galerie sur votre liste d’applications SaaS managées. La seconde est une application locale (qui ne figure pas dans la galerie) que vous utiliserez pour publier la première application d’entreprise figurant dans la galerie.
 
@@ -41,21 +41,21 @@ Pour effectuer cette configuration, vous avez besoin des ressources suivantes :
  - Un [domaine vérifié personnalisé](../fundamentals/add-custom-domain.md) dans le locataire Azure AD. Le domaine vérifié doit correspondre au suffixe de l’URL SharePoint.
  - Un certificat SSL est nécessaire. Pour obtenir des informations détaillées, consultez cet [article sur la publication avec un domaine personnalisé](./application-proxy-configure-custom-domain.md).
  - Les utilisateurs Active Directory locaux doivent être synchronisés avec Azure AD Connect et doivent être configurés pour [se connecter à Azure](../hybrid/plan-connect-user-signin.md). 
- - Pour les utilisateurs invités cloud seul et B2B, vous devez [accorder l’accès à un compte invité à SharePoint (local) dans le portail Azure](../saas-apps/sharepoint-on-premises-tutorial.md#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal).
+ - Pour les utilisateurs invités cloud seul et B2B, vous devez [accorder l’accès à un compte invité à SharePoint (local) dans le portail Azure](../saas-apps/sharepoint-on-premises-tutorial.md#manage-guest-users-access).
  - Un connecteur de proxy d’application installé et en cours d’exécution sur un ordinateur au sein du domaine d’entreprise.
 
 
-## <a name="step-1-integrate-sharepoint-on-premises-with-azure-ad"></a>Étape 1 : Intégrer SharePoint (local) à Azure AD 
+## <a name="step-1-integrate-sharepoint-on-premises-with-azure-ad"></a>Étape 1 : Intégrer SharePoint (local) à Azure AD
 
 1. Configurez l’application SharePoint locale. Pour plus d’informations, consultez [Tutoriel : Intégration de l’authentification unique Azure Active Directory à SharePoint (local)](../saas-apps/sharepoint-on-premises-tutorial.md).
-2. Vérifiez la configuration avant de passer à l’étape suivante. Pour cela, essayez d’accéder au site SharePoint local à partir du réseau interne et vérifiez qu’il est accessible en interne. 
+2. Vérifiez la configuration avant de passer à l’étape suivante. Pour cela, essayez d’accéder au site SharePoint local à partir du réseau interne et vérifiez qu’il est accessible en interne.
 
 
-## <a name="step-2-publish-the-sharepoint-on-premises-application-with-application-proxy"></a>Étape 2 : Publier l’application SharePoint locale avec le proxy d’application
+## <a name="step-2-publish-the-sharepoint-on-premises-application-with-application-proxy"></a>Étape 2 : Publier l’application SharePoint locale avec Proxy d’application
 
 Dans cette étape, vous allez créer une application dans votre locataire Azure AD, qui utilise le proxy d’application. Vous définissez l’URL externe et spécifiez l’URL interne, les deux étant utilisées ultérieurement dans SharePoint.
 
-> [!NOTE] 
+> [!NOTE]
 > Les URL internes et externes doivent correspondre à l’**URL de connexion** de la configuration de l’application basée sur SAML de l’étape 1.
 
    ![Capture d’écran montrant la valeur de l’URL de connexion.](./media/application-proxy-integrate-with-sharepoint-server/sso-url-saml.png)
@@ -71,7 +71,7 @@ Dans cette étape, vous allez créer une application dans votre locataire Azure�
 
         ![Capture d’écran montrant les options utilisées pour créer l’application.](./media/application-proxy-integrate-with-sharepoint-server/create-application-azure-active-directory.png)
 
-2. Attribuez les [mêmes groupes](../saas-apps/sharepoint-on-premises-tutorial.md#create-an-azure-ad-security-group-in-the-azure-portal) que ceux que vous avez attribués à l’application de galerie SharePoint locale.
+2. Attribuez les [mêmes groupes](../saas-apps/sharepoint-on-premises-tutorial.md#grant-permissions-to-a-security-group) que ceux que vous avez attribués à l’application de galerie SharePoint locale.
 
 3. Enfin, accédez à la section **Propriétés** et définissez l’option **Visible par les utilisateurs ?** sur **Non**. Cette option garantit que seule l’icône de la première application s’affiche sur le portail Mes applications (https://myapplications.microsoft.com).
 

@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble de la sauvegarde opérationnelle des objets blob Azure
-description: Découvrez la sauvegarde opérationnelle des objets blob Azure (préversion).
+description: En savoir plus sur la sauvegarde opérationnelle des objets blob Azure.
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: 1f6bc98b92a2af4b05cae766a2186f2970b7133c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/05/2021
+ms.openlocfilehash: 5d6113108a41430e9d864ff05095be4d440989ee
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558752"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767236"
 ---
-# <a name="overview-of-operational-backup-for-azure-blobs-in-preview"></a>Vue d’ensemble de la sauvegarde opérationnelle des objets blob Azure (préversion)
+# <a name="overview-of-operational-backup-for-azure-blobs"></a>Vue d’ensemble de la sauvegarde opérationnelle des objets blob Azure
 
-La sauvegarde opérationnelle des objets blob est une solution gérée locale de protection des données qui permet de protéger les objets blob de blocs contre différentes situations de perte de données, notamment les altérations, la suppression d’objets blob et la suppression accidentelle de comptes de stockage. Les données sont stockées localement dans le compte de stockage source proprement dit, et peuvent être récupérées au point dans le temps sélectionné si nécessaire. La solution offre ainsi un moyen simple, sécurisé et économique de protéger des objets blob.
+La sauvegarde opérationnelle pour objets blob est une solution de protection des données locale gérée qui vous permet de protéger vos objets blob de blocs contre différentes situations de perte de données telles que des altérations de données, des suppressions de blobs et la suppression accidentelle de compte de stockage. Les données sont stockées localement dans le compte de stockage source proprement dit, et peuvent être récupérées au point dans le temps sélectionné si nécessaire. La solution offre ainsi un moyen simple, sécurisé et économique de protéger des objets blob.
 
 La sauvegarde opérationnelle des objets blob s’intègre avec le [centre de sauvegarde](backup-center-overview.md), entre autres fonctionnalités de gestion des sauvegardes, pour permettre de gérer, de superviser, de lancer et d’analyser les sauvegardes à grande échelle en un seul et même endroit.
 

@@ -4,12 +4,12 @@ description: Découvrir comment résoudre les problèmes courants liés à l’u
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 1d3dff19bd75bfa4e7564eb4b188ffe68d605025
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0892f11a79c62669d77cceb2dbc4f9a9f86c623a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952029"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765932"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -439,7 +439,7 @@ Dans les versions de Kubernetes **antérieures à 1.15.0**, vous pouvez recevoir
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Pourquoi les mises à niveau vers Kubernetes 1.16 échouent lors de l’utilisation d’étiquettes de nœud avec un préfixe kubernetes.io ?
 
-À compter de Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/), [seul un sous-ensemble défini d’étiquettes avec le préfixe kubernetes.io](https://v1-18.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/) peut être appliqué par le kubelet à des nœuds. AKS ne peut pas supprimer d’étiquettes actives en votre nom sans votre consentement, car cela peut entraîner un temps d’arrêt des charges de travail affectées.
+À compter de Kubernetes 1.16, [seul un sous-ensemble défini d’étiquettes avec le préfixe kubernetes.io](https://v1-18.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/) peut être appliqué par le kubelet à des nœuds. AKS ne peut pas supprimer d’étiquettes actives en votre nom sans votre consentement, car cela peut entraîner un temps d’arrêt des charges de travail affectées.
 
 Par conséquent, pour atténuer ce risque, vous pouvez :
 

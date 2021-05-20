@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 05/05/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 4817a68ad74ed9a51f8b9ea67f3d271bbaa3423b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8be9c97e23b579acf138a2861a77a5b8f219b886
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466172"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766466"
 ---
 Il existe **31** recommandations dans cette catégorie.
 
@@ -40,7 +40,7 @@ Il existe **31** recommandations dans cette catégorie.
 |Python doit être mis à jour vers la dernière version pour votre application de fonction |Régulièrement, de nouvelles versions sont publiées pour le logiciel Python, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires.<br>Nous vous recommandons d’utiliser la version la plus récente de Python pour les applications de fonction afin de bénéficier des correctifs de sécurité, s’il en existe, et/ou des nouvelles fonctionnalités.<br />(Stratégie associée : [Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application de fonction](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7238174a-fd10-4ef0-817e-fc820a951d73)) |Medium |
 |Python doit être mis à jour vers la dernière version pour votre application web |Régulièrement, de nouvelles versions sont publiées pour le logiciel Python, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires.<br>Nous vous recommandons d’utiliser la version la plus récente de Python pour les applications web afin de bénéficier des correctifs de sécurité, s’il en existe, et/ou des nouvelles fonctionnalités.<br />(Stratégie associée : [Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7008174a-fd10-4ef0-817e-fc820a951d73)) |Medium |
 |Le débogage à distance doit être désactivé pour l’application API |Le débogage distant nécessite que des ports d’entrée soient ouverts sur une application API. Le débogage à distance doit être désactivé.<br />(Stratégie associée : [Le débogage à distance doit être désactivé pour API Apps](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicydefinitions%2fe9c8d085-d9cc-4b17-9cdc-059f1f01f19e)) |Faible |
-|Le débogage à distance devrait être désactivé pour Function App |Le débogage à distance exige que des ports d’entrée soient ouverts sur une application de fonction. Le débogage à distance doit être désactivé.<br />(Stratégie associée : [Le débogage à distance doit être désactivé pour les applications de fonction](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicydefinitions%2f0e60b895-3786-45da-8377-9c6b4b6ac5f9)) |Faible |
+|Le débogage à distance devrait être désactivé pour Function App |Le débogage à distance exige que les ports d’entrée soient ouverts sur une application Azure Function. Le débogage à distance doit être désactivé.<br />(Stratégie associée : [Le débogage à distance doit être désactivé pour les applications de fonction](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicydefinitions%2f0e60b895-3786-45da-8377-9c6b4b6ac5f9)) |Faible |
 |Le débogage à distance doit être désactivé pour les applications web |Le débogage à distance exige que des ports d’entrée soient ouverts sur une application web. Le débogage à distance est activé. Si vous n’avez plus besoin d’utiliser le débogage à distance, celui-ci doit être désactivé.<br />(Stratégie associée : [Le débogage à distance doit être désactivé pour les applications web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicydefinitions%2fcb510bfd-1cba-4d9f-a230-cb0976f4bb71)) |Faible |
 |TLS doit être mis à jour vers la dernière version pour votre application API |Mise à niveau vers la version la plus récente de TLS<br />(Stratégie associée : [La dernière version de TLS doit être utilisée dans votre application API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f8cb6aa8b-9e41-4f4e-aa25-089a7ac2581e)) |Élevé |
 |TLS doit être mis à jour vers la dernière version pour votre application de fonction |Mise à niveau vers la version la plus récente de TLS<br />(Stratégie associée : [La dernière version de TLS doit être utilisée dans votre application de fonction](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff9d614c5-c173-4d56-95a7-b4437057d193)) |Élevé |
