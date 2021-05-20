@@ -3,12 +3,12 @@ title: Créer des stratégies Guest Configuration pour Windows
 description: Découvrez comment créer une stratégie Guest Configuration pour des machines virtuelles Windows.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: e1c71acd8544073c861a8ad62fb06d78e9d139c5
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 8fbe3528f998a70ad489174274bda0a54b5e2455
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165332"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733514"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Créer des stratégies Guest Configuration pour Windows
 
@@ -23,10 +23,10 @@ La [configuration d’invité Azure Policy](../concepts/guest-configuration.md) 
 Utilisez les actions suivantes pour créer votre propre configuration pour la validation de l’état d’une machine Azure ou non-Azure.
 
 > [!IMPORTANT]
-> Les définitions de stratégie personnalisées avec la configuration invité dans les environnements Azure Government et Azure Chine sont des fonctionnalités d’évaluation.
+> Les définitions de stratégie personnalisées avec la configuration invité dans les environnements Azure Government et Azure China 21Vianet sont des fonctionnalités d’évaluation.
 >
 > L’extension Guest Configuration (Configuration d’invité) est requise pour effectuer des audits sur des machines virtuelles Azure. Pour déployer l’extension à grande échelle sur tous les ordinateurs Windows, attribuez les définitions de stratégie suivantes : `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
-> 
+>
 > N’utilisez pas de secrets ni d’informations confidentielles dans des packages de contenu personnalisés.
 
 ## <a name="install-the-powershell-module"></a>Installer le module PowerShell
@@ -122,7 +122,7 @@ return @{
 La propriété Reasons doit être ajoutée au schéma MOF de la ressource en tant que classe incorporée.
 
 ```mof
-[ClassVersion("1.0.0.0")] 
+[ClassVersion("1.0.0.0")]
 class Reason
 {
     [Read] String Phrase;
@@ -214,9 +214,9 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-Exécutez ce script dans un terminal PowerShell ou enregistrez ce fichier sous le nom `config.ps1` dans le dossier du projet. Exécutez-le dans PowerShell en exécutant `./config.ps1` dans le terminal. Un nouveau fichier mof est créé.
+Exécutez ce script dans un terminal PowerShell ou enregistrez ce fichier sous le nom `config.ps1` dans le dossier du projet. Exécutez-le dans PowerShell en exécutant `./config.ps1` dans le terminal. Un nouveau fichier MOF est créé.
 
-La commande `Node AuditBitlocker` n’est pas techniquement obligatoire, mais elle produit un fichier `AuditBitlocker.mof` plutôt que `localhost.mof`par défaut. Le fait d’avoir le nom de fichier. mof à la suite de la configuration permet d’organiser facilement de nombreux fichiers à grande échelle.
+La commande `Node AuditBitlocker` n’est pas techniquement obligatoire, mais elle produit un fichier `AuditBitlocker.mof` plutôt que `localhost.mof`par défaut. Le fait d’avoir le nom de fichier .MOF à la suite de la configuration permet d’organiser facilement de nombreux fichiers à grande échelle.
 
 Une fois la compilation du fichier MOF terminée, les fichiers de prise en charge doivent être regroupés en un package. Le package obtenu est utilisé par Guest Configuration pour créer les définitions d’Azure Policy.
 
@@ -257,7 +257,7 @@ La cmdlet prend aussi en charge l’entrée depuis le pipeline PowerShell. Dirig
 New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./AuditBitlocker/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-L’étape suivante consiste à publier le fichier dans Stockage Blob Azure. Il n’existe aucune exigence particulière pour le compte de stockage, mais il est judicieux d’héberger le fichier dans une région proche de vos machines. Si vous n’avez pas de compte de stockage, utilisez l’exemple suivant. Les commandes ci-dessous, y compris `Publish-GuestConfigurationPackage`, requièrent le module `Az.Storage`.
+L’étape suivante consiste à publier le fichier dans Stockage Blob Azure. Il n’existe aucune exigence particulière pour le compte de stockage, mais il est judicieux d’héberger le fichier dans une région proche de vos machines. Si vous n’avez pas de compte de stockage, utilisez l’exemple suivant. Les commandes suivantes, y compris `Publish-GuestConfigurationPackage`, requièrent le module `Az.Storage`.
 
 ```azurepowershell-interactive
 # Creates a new resource group, storage account, and container
@@ -273,7 +273,7 @@ Paramètres de la cmdlet `Publish-GuestConfigurationPackage` :
 - **StorageContainerName** (par défaut _guestconfiguration_) : nom du conteneur de stockage dans le compte de stockage
 - **Force** : remplacer le package existant dans le compte de stockage du même nom
 
-L’exemple ci-dessous publie le package dans le conteneur de stockage nommé « guestconfiguration ».
+L’exemple suivant publie le package dans le conteneur de stockage nommé « guestconfiguration ».
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
@@ -283,7 +283,7 @@ Une fois qu’un package de stratégie personnalisée Guest Configuration a ét�
 
 Paramètres de la cmdlet `New-GuestConfigurationPolicy` :
 
-- **ContentUri** : URI http(s) publique du package de contenu Guest Configuration.
+- **ContentUri** : URI HTTP(S) public du package de contenu Guest Configuration.
 - **DisplayName** : Nom d'affichage de la stratégie.
 - **Description** : Description de la stratégie.
 - **Paramètre** : Paramètres de stratégie fournis au format Hashtable.
@@ -415,7 +415,7 @@ L’extension Guest Configuration requiert le développement de deux composants.
 La ressource DSC requiert un développement personnalisé d’il n’existe pas encore de solution de communauté.
 Les solutions de la communauté peuvent être affichées en recherchant la balise [GuestConfiguration](https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22) dans PowerShell Gallery.
 
-> [!Note]
+> [!NOTE]
 > L’extensibilité de Guest Configuration est un scénario de type BYOL (apportez votre propre licence). Veillez à respecter les conditions générales de tout outil tiers avant de l’utiliser.
 
 Une fois la ressource DSC installée dans l’environnement de développement, utilisez le paramètre **FilesToInclude** pour `New-GuestConfigurationPackage` afin d’inclure le contenu de la plateforme tierce dans l’artefact de contenu.
@@ -429,7 +429,7 @@ Si vous souhaitez publier une mise à jour de la stratégie, effectuez la modifi
 
 Tout d’abord, lorsque vous exécutez `New-GuestConfigurationPackage`, spécifiez un nom qui rende le package unique par rapport aux versions précédentes. Vous pouvez inclure un numéro de version dans le nom, par exemple `PackageName_1.0.0`. Le numéro dans cet exemple ne sert qu’à rendre le package unique, et non à spécifier que le package doit être considéré comme plus récent ou plus ancien que les autres.
 
-Ensuite, mettez à jour les paramètres utilisés avec la cmdlet `New-GuestConfigurationPolicy` en suivant chacune des explications ci-dessous.
+Ensuite, mettez à jour les paramètres utilisés avec la cmdlet `New-GuestConfigurationPolicy` en suivant chacune des explications suivantes.
 
 - **Version** : Lorsque vous exécutez l’applet de commande `New-GuestConfigurationPolicy`, vous devez spécifier un numéro de version supérieur à celui actuellement publié.
 - **contentUri** : Lorsque vous exécutez la cmdlet `New-GuestConfigurationPolicy`, vous devez spécifier un URI vers l’emplacement du package. L’inclusion d’une version de package dans le nom de fichier garantit que la valeur de cette propriété change dans chaque version.

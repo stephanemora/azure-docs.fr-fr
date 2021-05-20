@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: f551f40a9bd70c4a3b54c1d2756cfb94caf79590
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 8f0ebeebb47885d12529a7f09041af9bc3eb12f2
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103060"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656701"
 ---
 # <a name="azure-ddos-rapid-response"></a>Réponse rapide Azure DDoS
 
-Lors d’un accès actif, les clients Azure DDoS Protection Standard ont accès à l’équipe de réponse rapide DDoS (DRR), qui peut aider à faire des recherches sur une attaque au cours d’une attaque et une analyse après l’attaque.
+Lors d’une attaque active, les clients Azure DDoS Protection Standard ont accès à l’équipe de réponse rapide DDoS (DRR), qui peut les aider à enquêter sur l’attaque pendant celle-ci et à l’analyser après.
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -1,19 +1,19 @@
 ---
 title: 'Langage de requête Azure Cosmos DB : fonctions de contrôle de type'
 description: Découvrez les fonctions système SQL de contrôle de type dans Azure Cosmos DB.
-author: ginamr
+author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: girobins
+ms.date: 05/04/2021
+ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 2becc9216d847dfe26d8fd3a433993112fff7980
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a97517e524bbd6f13a108562a85037ae9695187
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96546348"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768910"
 ---
 # <a name="type-checking-functions-azure-cosmos-db"></a>Fonctions de contrôle de type (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,18 +22,18 @@ Les fonctions de vérification du type vous permettent de vérifier le type d’
 
 ## <a name="functions"></a>Fonctions
 
-Le tableau liste les fonctions de vérification du type intégrées qui sont prises en charge :
+Les fonctions suivantes prennent en charge la vérification de type par rapport aux valeurs d’entrée, et chacune renvoie une valeur booléenne :
 
-Les fonctions suivantes prennent en charge la vérification de type par rapport aux valeurs d’entrée, et chacune renvoie une valeur booléenne.  
-
-* [IS_ARRAY](sql-query-is-array.md)
-* [IS_BOOL](sql-query-is-bool.md)
-* [IS_DEFINED](sql-query-is-defined.md)
-* [IS_NULL](sql-query-is-null.md)
-* [IS_NUMBER](sql-query-is-number.md)
-* [IS_OBJECT](sql-query-is-object.md)
-* [IS_PRIMITIVE](sql-query-is-primitive.md)
-* [IS_STRING](sql-query-is-string.md)
+| Fonction système                           | Utilisation de l’index | [Utilisation de l’index dans les requêtes avec les fonctions d’agrégation scalaires](index-overview.md#index-utilization-for-scalar-aggregate-functions) | Notes |
+| ----------------------------------------- | ----------- | ------------------------------------------------------------ | ------- |
+| [IS_ARRAY](sql-query-is-array.md)         | Analyse complète   | Analyse complète                                                    |         |
+| [IS_BOOL](sql-query-is-bool.md)           | Recherche dans l'index  | Recherche dans l'index                                                   |         |
+| [IS_DEFINED](sql-query-is-defined.md)     | Recherche dans l'index  | Recherche dans l'index                                                   |         |
+| [IS_NULL](sql-query-is-null.md)           | Recherche dans l'index  | Recherche dans l'index                                                   |         |
+| [IS_NUMBER](sql-query-is-number.md)       | Recherche dans l'index  | Recherche dans l'index                                                   |         |
+| [IS_OBJECT](sql-query-is-object.md)       | Analyse complète   | Analyse complète                                                    |         |
+| [IS_PRIMITIVE](sql-query-is-primitive.md) | Recherche dans l'index  | Recherche dans l'index                                                   |         |
+| [IS_STRING](sql-query-is-string.md)       | Recherche dans l'index  | Recherche dans l'index                                                   |         
 
 ## <a name="next-steps"></a>Étapes suivantes
 

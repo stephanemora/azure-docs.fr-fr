@@ -3,22 +3,22 @@ title: Créer Datadog – Solutions de partenaires Azure
 description: Cet article explique comment utiliser le portail Azure pour créer une instance de Datadog.
 ms.service: partner-services
 ms.topic: quickstart
-ms.date: 02/19/2021
+ms.date: 05/05/2021
 author: tfitzmac
 ms.author: tomfitz
 ms.custom: references_regions
-ms.openlocfilehash: 7af8b82c5da6c60527b45b6e8e292b9f067016ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d9c364c1367986f4ebe47cc00b4cb8b2434b90c
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101747396"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517457"
 ---
 # <a name="quickstart-get-started-with-datadog"></a>Démarrage rapide : Prise en main de Datadog
 
-Dans ce démarrage rapide, vous allez créer une instance de Datadog. Vous pouvez soit créer une organisation Datadog, soit établir un lien vers une organisation Datadog existante.
+Dans ce démarrage rapide, vous allez créer une instance de Datadog. Vous pouvez soit créer une organisation Datadog, soit établir un lien vers une organisation Datadog existante. Azure se lie uniquement aux organisations Datadog existantes dans **US3**.
 
-## <a name="pre-requisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration de Datadog à Azure, vous devez disposer d’un accès **Propriétaire** sur l’abonnement Azure. Vérifiez que vous disposez de l’accès approprié avant de commencer l’installation.
 
@@ -85,7 +85,7 @@ Si vous établissez un lien vers une organisation Datadog existante, consultez l
 
 ## <a name="link-to-existing-datadog-organization"></a>Lien vers une organisation Datadog existante
 
-Vous pouvez lier votre nouvelle ressource Datadog dans Azure à une organisation Datadog existante.
+Vous pouvez lier votre nouvelle ressource Datadog dans Azure à une organisation Datadog existante dans **US3**.
 
 Sélectionnez **Existant** pour Organisation Datadog, puis sélectionnez **Lier à une organisation Datadog**.
 
@@ -127,7 +127,7 @@ Il existe deux types de journaux qui peuvent être émis d’Azure vers Datadog.
 
 Pour envoyer les journaux de niveau abonnement à Datadog, sélectionnez **Envoyer les journaux d’activité de l’abonnement**. Si cette option n’est pas cochée, aucun des journaux de niveau abonnement n’est envoyé à Datadog.
 
-Pour envoyer les journaux des ressources Azure à Datadog, sélectionnez **Envoyer les journaux des ressources Azure pour toutes les ressources définies**. Les types de journaux de ressources Azure sont répertoriés dans [Catégories de journaux de ressources Azure Monitor](../../azure-monitor/essentials/resource-logs-categories.md).  Pour filtrer l’ensemble des ressources Azure qui envoient des journaux à Datadog, utilisez des étiquettes de ressources Azure.  
+Pour envoyer les journaux des ressources Azure à Datadog, sélectionnez **Envoyer les journaux des ressources Azure pour toutes les ressources définies**. Les types de journaux de ressources Azure sont répertoriés dans [Catégories de journaux de ressources Azure Monitor](../../azure-monitor/essentials/resource-logs-categories.md).  Pour filtrer l’ensemble des ressources Azure qui envoient des journaux à Datadog, utilisez des étiquettes de ressources Azure.
 
 Les journaux envoyés à Datadog sont facturés par Azure. Pour plus d’informations, consultez la [tarification des journaux de plateforme](https://azure.microsoft.com/pricing/details/monitor/) envoyés aux partenaires de Place de marché Azure.
 

@@ -7,16 +7,16 @@ ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 8309a567436d1526c1341f3d7db774acf4879dc2
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 885c9d5a14eed7bdd518865344a9a41820fd7db7
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600617"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683949"
 ---
 # <a name="what-are-application-templates"></a>Présentation des modèles d’application
 
-Les modèles d’applications d’Azure IoT Central sont un outil permettant d’aider les créateurs de solutions à se lancer dans le développement de solutions IoT. Les modèles d’applications peuvent avoir plusieurs utilités : vous faire une idée des possibilités offertes ou bien personnaliser entièrement votre application pour la revendre à vos clients.
+Les modèles d'applications d'Azure IoT Central constituent un outil très utile pour se lancer dans le développement d'une solution IoT. Les modèles d’applications peuvent avoir plusieurs utilités : vous faire une idée des possibilités offertes ou bien personnaliser entièrement votre application pour la revendre à vos clients.
 
 Les modèles d’applications se décomposent ainsi :
 
@@ -30,28 +30,13 @@ Vous choisissez le modèle d’application lorsque vous créez votre application
 
 ## <a name="custom-templates"></a>Modèles personnalisés
 
-Si vous souhaitez créer votre application à partir de zéro, choisissez l’un des modèles d’**application personnalisée**.
+Si vous souhaitez créer votre application à partir de zéro, choisissez le modèle **Application personnalisée**. L'ID du modèle Application personnalisée est `iotc-pnp-preview`.
 
 ## <a name="industry-focused-templates"></a>Modèles sectoriels
 
-Azure IoT Central est une plateforme d’applications indépendante du secteur. Les modèles d’applications sont des exemples disponibles actuellement dans ces secteurs (en cours d’élargissement à d’autres secteurs) :
+Azure IoT Central est une plateforme d’applications indépendante du secteur. Les modèles d'applications sont des exemples disponibles actuellement dans ces secteurs :
 
-- [Retail](../retail/overview-iot-central-retail.md) (Commerce)
-  - Logistique connectée
-  - Centre de distribution numérique
-  - Analytique en magasin – Monitorage des conditions
-  - Analytique en magasin – Validation de l’achat
-  - Gestion intelligente des stocks
-  - Analytique vidéo - Détection d’objets et de mouvements
-- [Énergie](../energy/overview-iot-central-energy.md)
-  - Monitorage des compteurs intelligents
-  - Monitorage des panneaux solaires
-- [Secteur public](../government/overview-iot-central-government.md)
-  - Gestion connectée des déchets
-  - Monitorage de la consommation d’eau
-  - Monitorage de la qualité de l’eau
-- [Santé](../healthcare/overview-iot-central-healthcare.md)
-  - Monitorage continu des patients
+[!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

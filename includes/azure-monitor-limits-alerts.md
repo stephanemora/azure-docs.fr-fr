@@ -5,15 +5,15 @@ services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: include
-ms.date: 10/01/2020
+ms.date: 05/03/2021
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 071f2849a877f4ea1e8a84eff6ccfb8343be3ec7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a56be93309fd68f73bd542222ff14b8b99f3e5e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101734034"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108792223"
 ---
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
@@ -22,3 +22,13 @@ ms.locfileid: "101734034"
 | Alertes de journal d’activité | 100 règles d’alerte actives par abonnement (ne peut pas être augmentée). | Identique à la valeur par défaut |
 | Alertes de journal | 512 règles d’alerte actives par abonnement. 200 règles d’alerte actives par abonnement. | Appelez le support technique |
 | Longueur de la description des règles d’alerte et des règles d’action| Alertes de recherche dans les journaux avec 4 096 caractères<br/>Tous les 2 048 autres caractères | Identique à la valeur par défaut |
+
+### <a name="alerts-api"></a>API d’alertes
+Les alertes Azure Monitor permettent d’établir des limitations pour bloquer les utilisateurs qui effectuent un nombre excessif d’appels. Ce comportement peut en effet surcharger les ressources back-end du système et compromettre la réactivité du service. Les limites suivantes sont conçues pour protéger les clients des interruptions et maintenir le niveau de service. Les limites et limitations appliquées aux utilisateurs sont conçues pour impacter uniquement les cas d’usage extrêmes. Elles ne concernent pas les cas d’usage classiques.
+
+| Ressource | Limite par défaut | Limite maximale |
+| --- | --- | --- |
+| GET alertsSummary | 50 appels par minute et par abonnement | Identique à la valeur par défaut | 
+|   GET alerts (sans spécifier d’ID d’alerte) | 100 appels par minute et par abonnement | Identique à la valeur par défaut | 
+|   Tous les autres appels | 1 000 appels par minute et par abonnement | Identique à la valeur par défaut | 
+

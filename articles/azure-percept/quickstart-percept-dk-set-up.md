@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 7056027965bd5e0f41c07835d21b454ab772a55a
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1b844eb66a287e103e453e242bec407b2f3a38e6
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132248"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788406"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Configurer votre DK Azure Percept et déployer votre premier modèle IA
 
@@ -24,6 +24,9 @@ Procédez à l’installation d’Azure Percept DK pour configurer votre kit de 
 - Connecter votre kit de développement à votre IoT Hub et à votre compte Azure
 
 Si vous rencontrez des problèmes lors de ce processus, reportez-vous au [repère de résolution des problèmes d’installation](./how-to-troubleshoot-setup.md) pour connaître les solutions possibles.
+
+> [!TIP]
+> Vous pouvez revenir à l’expérience d’installation à tout moment pour réinitialiser votre kit de développement, notamment pour vous connecter à un nouveau réseau Wi-Fi, créer un utilisateur SSH et vous reconnecter à IoT Hub.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -144,10 +147,8 @@ Pour vérifier si votre compte Azure est un « propriétaire » ou un « cont
 
 1. Lorsque la page **Installation de l’appareil terminée !** s’affiche, votre kit de développement a été correctement lié à votre IoT Hub et a téléchargé les logiciels nécessaires. Votre kit de développement se déconnecte automatiquement du point d’accès Wi-Fi, ce qui envoie ces deux notifications :
 
-    <!---
     > [!NOTE]
-    > The onboarding process and connection to the device Wifi access to your host computer shuts down at this point, but your dev kit will stay connected to the internet.   You can restart the onboarding experience with a dev kit reboot, which will allow you to go back through the onboarding and reconnect the device to a different IOT hub associated with the same or a different Azure Subscription..
-    --->
+    > Les conteneurs IoT Edge configurés dans le cadre de ce processus d’installation utilisent des certificats qui expirent au bout de 90 jours. Les certificats peuvent être regénérés automatiquement en redémarrant IoT Edge. Pour plus d’informations, consultez [Gérer des certificats sur un appareil IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-manage-device-certificates).
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-19-0-warning.png" alt-text="Avertissement de déconnexion de l’expérience d’installation.":::
 
@@ -155,7 +156,7 @@ Pour vérifier si votre compte Azure est un « propriétaire » ou un « cont
 
 1. Cliquez sur **Continuer vers le portail Azure**.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-20-azure-portal-continue.png" alt-text="Accédez à Azure Percept Studio.":::
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-20-Azure-portal-continue.png" alt-text="Accédez à Azure Percept Studio.":::
 
 ## <a name="view-your-dev-kit-video-stream-and-deploy-a-sample-model"></a>Afficher le flux vidéo de votre kit de développement et déployer un échantillon de modèle
 

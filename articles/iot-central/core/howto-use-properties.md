@@ -7,16 +7,16 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 39bab52a564439d34b8702de11edabe7f0d6dfbc
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: a605046c8cf76a425f7df5b1cdf637f7dc4bfc90
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492254"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747248"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Utilisation des propriétés dans une solution Azure IoT Central
 
-Ce guide pratique vous explique comment, en tant que développeur de service, utiliser les propriétés de l’appareil qui sont définies dans un modèle d’appareil dans votre application Azure IoT Central.
+Ce guide pratique explique comment utiliser les propriétés de l’appareil qui sont définies dans un modèle d’appareil dans votre application Azure IoT Central.
 
 Les propriétés représentent des valeurs à un moment donné. Par exemple, un appareil peut utiliser une propriété pour indiquer la température cible qu’il tente d’atteindre. Par défaut, les propriétés de l’appareil sont en lecture seule dans IoT Central. Les propriétés accessibles en écriture vous permettent de synchroniser l’état entre votre appareil et votre application Azure IoT Central.
 

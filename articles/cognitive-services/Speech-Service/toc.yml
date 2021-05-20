@@ -120,14 +120,14 @@
               items:
                 - name: "Qu’est-ce qu’une voix neuronale personnalisée\_?"
                   href: custom-neural-voice.md
-                - name: Bien démarrer avec Custom Voice
+                - name: Bien démarrer avec la voix neuronale personnalisée
                   displayName: 'custom voice, neural voice'
                   href: how-to-custom-voice.md
-                - name: Préparer les données
+                - name: Préparer les données pour l’apprentissage
                   href: how-to-custom-voice-prepare-data.md
-                - name: Créer et utiliser des modèles Custom Voice
+                - name: Créer et utiliser votre modèle vocal
                   href: how-to-custom-voice-create-voice.md
-                - name: Enregistrement d’échantillons vocaux
+                - name: Guide pratique pour enregistrer des échantillons vocaux
                   href: record-custom-voice-samples.md
             - name: Création de contenu audio
               items:
@@ -295,12 +295,16 @@
       items:
         - name: API REST de reconnaissance de l’orateur
           href: /rest/api/speakerrecognition/
-- name: Mot clé personnalisé
+- name: Reconnaissance de mot clé
   items:
-    - name: Vue d’ensemble des mots clés personnalisés
-      href: custom-keyword-overview.md
-    - name: Principes de base des mots clés personnalisés
+    - name: Vue d’ensemble de la reconnaissance de mot clé
+      href: keyword-recognition-overview.md
+    - name: Démarrage rapide avec les mots clés personnalisés
       href: custom-keyword-basics.md
+    - name: Recommandations et instructions
+      href: keyword-recognition-guidelines.md
+    - name: Prise en charge de la région
+      href: keyword-recognition-region-support.md
 - name: Immersions dans des scénarios
   items:
     - name: Scénarios de conversation

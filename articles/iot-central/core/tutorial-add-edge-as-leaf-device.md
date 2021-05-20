@@ -1,6 +1,6 @@
 ---
 title: Tutoriel - Ajouter un appareil Azure IoT Edge à Azure IoT Central | Microsoft Docs
-description: Tutoriel - Ajouter un appareil Azure IoT Edge à votre application Azure IoT Central en qualité d’opérateur
+description: Tutoriel - Ajouter un appareil Azure IoT Edge à votre application Azure IoT Central
 author: rangv
 ms.author: rangv
 ms.date: 05/29/2020
@@ -11,16 +11,14 @@ ms.custom:
 - mvc
 - device-developer
 - iot-edge
-ms.openlocfilehash: 373d144b4df818a075f0088e9cbf31cb5027e747
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2adae8a99e9e0f3626f444c1c6dd13d29bad3b64
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101724878"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683980"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Tutoriel : Ajouter un appareil Azure IoT Edge à votre application Azure IoT Central
-
-*Cet article s’applique aux opérateurs, aux créateurs de solutions et aux développeurs d’appareils.*
 
 Ce tutoriel vous montre comment configurer et ajouter un appareil Azure IoT Edge à votre application Azure IoT Central. Ce tutoriel utilise une machine virtuelle Linux activée pour IoT Edge afin de simuler un appareil IoT Edge. L’appareil IoT Edge utilise un module qui génère des données de télémétrie environnementales simulées. Vous visualisez la télémétrie sur un tableau de bord dans votre application Azure IoT Central.
 
@@ -33,11 +31,9 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Suivez le guide de démarrage rapide [Créer une application Azure IoT Central](./quick-deploy-iot-central.md) pour créer une application IoT Central avec le modèle **Application personnalisée > Application personnalisée**.
+Pour suivre les étapes de ce tutoriel, vous devez disposer des éléments suivants :
 
-Pour effectuer les étapes de ce tutoriel, vous avez besoin d’un compte Azure actif.
-
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 Téléchargez le fichier manifeste IoT Edge à partir de GitHub. Cliquez avec le bouton droit sur le lien, puis sélectionnez **Enregistrer le lien sous** : [EnvironmentalSensorManifest.json](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/iotedge/EnvironmentalSensorManifest.json)
 
@@ -289,14 +285,9 @@ Si vous envisagez de continuer à utiliser la machine virtuelle IoT Edge, vous p
 * Pour supprimer la machine virtuelle IoT Edge et les ressources qui lui sont associées, supprimez le groupe de ressources **contoso-edge-rg** dans le portail Azure.
 * Pour supprimer l’application IoT Central, accédez à la page **Votre application** dans la section **Administration** de l’application, puis sélectionnez **Supprimer**.
 
-En tant que développeur de solutions ou opérateur, maintenant que vous avez appris à utiliser et gérer les appareils IoT Edge dans IoT Central, nous vous suggérons ensuite de lire :
-
-> [!div class="nextstepaction"]
-> [Utiliser des groupes d’appareils pour analyser les données de télémétrie des appareils](./tutorial-use-device-groups.md)
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-En tant que développeur d’appareils, maintenant que vous avez appris à utiliser et gérer les appareils IoT Edge dans IoT Central, nous vous suggérons ensuite de lire :
+Maintenant que vous savez comment utiliser et gérer les appareils IoT Edge dans IoT Central, nous vous suggérons de lire la documentation ci-dessous en guise d’étape suivante :
 
 > [!div class="nextstepaction"]
 > [Développer des modules IoT Edge](../../iot-edge/tutorial-develop-for-linux.md)

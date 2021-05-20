@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 04/28/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0bfc09a372584a25c23060cef33d1f698e6d5ff3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0997c74b8b99638771152620743f23e0816e178e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101712604"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756752"
 ---
 # <a name="azure-importexport-system-requirements"></a>Configuration système requise du service Azure Import/Export
 
@@ -63,7 +63,7 @@ Les types de stockage suivants sont pris en charge avec le service Azure Import/
 |Travail  |Service de stockage |Prise en charge  |Non pris en charge  |
 |---------|---------|---------|---------|
 |Importer     |  Stockage Blob Azure <br><br> Présentation du stockage de fichiers       | Objets blob de blocs et de pages pris en charge <br><br> Fichiers pris en charge          |
-|Exporter     |   Stockage Blob Azure       | Objets blob de blocs, de pages et d’ajout pris en charge         | Fichiers Azure non pris en charge
+|Exporter     |   Stockage Blob Azure       | Objets blob de blocs, de pages et d’ajout pris en charge         | Fichiers Azure non pris en charge<br>Exportation à partir du niveau Archive non prise en charge|
 
 
 ## <a name="supported-hardware"></a>Matériel pris en charge

@@ -8,12 +8,12 @@ ms.date: 11/18/2020
 ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 115c55a5833906aa0dcc616a5b1b659468647282
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 2fd9ac25d08cf4439278565f90258a230eeedb50
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814547"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109627759"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Développer pour Azure Files avec Java
 
@@ -259,7 +259,7 @@ Découvrez comment charger un fichier à partir du stockage local.
 
 # <a name="azure-java-sdk-v12"></a>[Kit de développement logiciel (SDK) Java Azure v12](#tab/java)
 
-Le code suivant charge un fichier local dans le stockage Azure Files en appelant la méthode [ShareFileClient.uploadFromFile](/java/api/com.azure.storage.file.share.sharefileclient.uploadfromfile). L’exemple de méthode suivant retourne une valeur `Boolean` indiquant si le fichier spécifié a bien été chargé.
+Le code suivant charge un fichier local vers Azure Files en appelant la méthode [ShareFileClient.uploadFromFile](/java/api/com.azure.storage.file.share.sharefileclient.uploadfromfile). L’exemple de méthode suivant retourne une valeur `Boolean` indiquant si le fichier spécifié a bien été chargé.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_uploadFile":::
 

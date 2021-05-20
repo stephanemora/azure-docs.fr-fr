@@ -1,24 +1,18 @@
 ---
 title: Degré de sécurisation dans Azure Security Center
 description: Description du degré de sécurisation d’Azure Security Center et de ses contrôles de sécurité
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetd: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/03/2021
+ms.date: 05/05/2021
 ms.author: memildin
-ms.openlocfilehash: 889c79357037afb0d9c83c645e86d05edc0df6f1
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 9879b5154866436e3216243b123b3575e6cd3df4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903755"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754895"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Degré de sécurisation dans Azure Security Center
 
@@ -47,19 +41,26 @@ Pour plus d’informations, consultez [Mode de calcul de votre degré de sécuri
 
 La contribution de chaque contrôle de sécurité au degré de sécurisation global est indiquée clairement dans la page des recommandations.
 
-[![La version améliorée du degré de sécurisation comprend désormais des contrôles de sécurité](media/secure-score-security-controls/security-controls.png)](media/secure-score-security-controls/security-controls.png#lightbox)
+:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Les contrôles de sécurité d’Azure Security Center et leur impact sur votre degré de sécurisation" lightbox="./media/secure-score-security-controls/security-controls.png":::
 
 Pour obtenir le nombre maximal de points que peut avoir un contrôle de sécurité, toutes vos ressources doivent se conformer à l’intégralité des recommandations de sécurité fournies dans le contrôle de sécurité. Par exemple, Security Center fournit plusieurs recommandations relatives à la sécurisation de vos ports de gestion. Vous devrez toutes les appliquer pour voir votre degré de sécurisation s’améliorer.
 
-Par exemple, le contrôle de sécurité « Appliquer les mises à jour système » a un degré maximal de six points, que vous pouvez voir dans l’info-bulle concernant l’augmentation potentielle de la valeur du contrôle :
+### <a name="example-scores-for-a-control"></a>Exemples de scores pour un contrôle
 
-[![Contrôle de sécurité « Appliquer les mises à jour système »](media/secure-score-security-controls/apply-system-updates-control.png)](media/secure-score-security-controls/apply-system-updates-control.png#lightbox)
+:::image type="content" source="./media/secure-score-security-controls/remediate-vulnerabilities-control.png" alt-text="Contrôle de sécurité Appliquer les mises à jour système" lightbox="./media/secure-score-security-controls/remediate-vulnerabilities-control.png":::
 
-Le score maximal pour ce contrôle, Appliquer des mises à jour système, est toujours 6. Dans cet exemple, il y a 50 ressources. Nous avons donc divisé le score maximal par 50 et le résultat est que chaque ressource contribue à 0,12 points. 
 
-* **Augmentation potentielle** (0,12 x 8 ressources non saines = 0,96) - Les points disponibles que vous conservez dans le cadre du contrôle. Si vous corrigez toutes les suggestions de ce contrôle, votre score augmentera de 2 % (dans ce cas, 0,96 points arrondis à 1 point). 
-* **Score courant** (0,12 x 42 ressources saines = 5,04) - Le score courant pour ce contrôle. Chaque contrôle contribue au score total. Dans cet exemple, le contrôle contribue à 5,04 points au total sécurisé courant.
-* **Score maximal** - Nombre maximal de points que vous pouvez gagner en appliquant toutes les recommandations d’un contrôle. Le score maximal d’un contrôle indique l’importance relative de ce contrôle. Utilisez les valeurs du score maximal pour que le triage des problèmes fonctionne en premier. 
+Dans cet exemple :
+
+| #  | Nom                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-:|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1 | **Contrôle de sécurité Corriger les vulnérabilités** | Ce contrôle regroupe plusieurs recommandations relatives à la découverte et à la résolution de vulnérabilités connues.                                                                                                                                                                                                                                                                                                                                   |
+| 2 | **Score maximal**                                  | Nombre maximal de points que vous pouvez gagner en appliquant toutes les recommandations d’un contrôle. Le score maximal d’un contrôle, qui est fixe pour chaque environnement, indique l’importance relative de ce contrôle. Utilisez les valeurs du score maximal pour que le triage des problèmes fonctionne en premier.<br>Pour obtenir la liste de tous les contrôles et leurs scores maximaux, consultez [Contrôles de sécurité et leurs recommandations](#security-controls-and-their-recommendations). |
+| 3 | **Nombre de ressources**                        | 35 ressources sont affectées par ce contrôle.<br>Pour comprendre la contribution possible de chaque ressource, divisez le score maximal par le nombre de ressources.<br>Pour cet exemple : 6/35 = 0,1714<br>**Chaque ressource contribue pour 0,1714 point.**                                                                                                                                                                                          |
+| 4 | **Score actuel**                              | Niveau de sécurité actuel de ce contrôle.<br>Score actuel = [Score par ressource] * [Nombre de ressources saines]<br> 0,1714 x 5 ressources saines = 0,86<br>Chaque contrôle contribue au score total. Dans cet exemple, le contrôle contribue pour 0,86 point au degré de sécurisation total actuel.                                                                                                                                               |
+| 5 | **Augmentation potentielle du niveau de sécurité**                   | Points restants dont vous disposez dans le contrôle. Si vous appliquez toutes les recommandations de ce contrôle, votre score augmentera de 9 %.<br>Augmentation potentielle du niveau de sécurité = [Score par ressource] * [Nombre de ressources non saines]<br> 0,1714 x 30 ressources non saines = 5,14<br>                                                                                                                                                        |
+|   |                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+
 
 
 ### <a name="calculations---understanding-your-score"></a>Calculs : comprendre votre score

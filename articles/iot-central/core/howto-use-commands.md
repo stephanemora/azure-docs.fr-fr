@@ -1,22 +1,22 @@
 ---
 title: Utilisation des commandes d'appareil dans une solution Azure IoT Central
-description: Utilisation des commandes d'appareil dans une solution Azure IoT Central Ce tutoriel destiné aux développeurs d'appareils explique comment utiliser les commandes d'appareil d'une application cliente dans une application Azure IoT Central.
+description: Utilisation des commandes d'appareil dans une solution Azure IoT Central Ce tutoriel destiné explique comment utiliser les commandes d'appareil d'une application cliente dans une application Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/07/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: e53bf377a7ef8f2293debd288ba25ef8f04ff4fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a0a7b24c2d28e27c44a130383e852838950abe49
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98610996"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733190"
 ---
 # <a name="how-to-use-commands-in-an-azure-iot-central-solution"></a>Utilisation des commandes dans une solution Azure IoT Central
 
-Ce guide pratique destiné aux développeurs d'appareils explique comment utiliser les commandes définies dans un modèle d'appareil.
+Ce guide pratique explique comment utiliser les commandes définies dans un modèle d'appareil.
 
 Un opérateur peut utiliser l'interface utilisateur d'IoT Central pour appeler une commande sur un appareil. Les commandes déterminent le comportement d'un appareil. Par exemple, un opérateur peut appeler une commande pour redémarrer un appareil ou collecter des données de diagnostic.
 

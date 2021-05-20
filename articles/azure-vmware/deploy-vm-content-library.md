@@ -3,12 +3,12 @@ title: Créer une bibliothèque de contenu pour déployer des machines virtuelle
 description: Créez une bibliothèque de contenu pour déployer une machine virtuelle dans un cloud privé Azure VMware Solution.
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: b27d2682d8799bec6b09a08e5063359113b20a88
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: bfac0e0353d1338d38d56b2fbf611ac3f0fb7e9b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107873880"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753746"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Créer une bibliothèque de contenu pour déployer des machines virtuelles dans Azure VMware Solution
 
@@ -95,7 +95,7 @@ Maintenant que la bibliothèque de contenu a été créée, vous pouvez ajouter 
 Maintenant que vous savez comment créer une bibliothèque de contenu pour déployer des machines virtuelles dans Azure VMware Solution, vous souhaiterez peut-être en savoir plus sur les éléments suivants :
 
 - [Migrer des charges de travail de machine virtuelle vers votre cloud privé](tutorial-deploy-vmware-hcx.md)
-- [Gestion du cycle de vie des machines virtuelles du service Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)
+- [Surveiller et gérer des machines virtuelles Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)
 
 <!-- LINKS - external-->
 

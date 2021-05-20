@@ -3,12 +3,12 @@ title: Créer des rapports d’évaluation des risques
 description: Obtenez des informations sur les risques réseau détectés par des capteurs individuels ou un affichage agrégé des risques détectés par tous les capteurs.
 ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 853157ef1b97fefdd15785b2a71c7ccc5d06a9a9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 567660d1e1e55ee3dde0cbf5e5c09748cbb2cf0c
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104784252"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109655333"
 ---
 # <a name="risk-assessment-reporting"></a>Rapport d’évaluation des risques
 
@@ -58,6 +58,16 @@ Les **appareils sécurisés** sont des appareils dont le score de sécurité est
 
 Les **appareils vulnérables** sont des appareils dont le score de sécurité est inférieur à 70 %.
 
+### <a name="about-backup-and-anti-virus-servers"></a>À propos des serveurs de sauvegarde et de protection antivirus
+
+Si vous ne définissez pas d’adresses de serveur de sauvegarde et de protection antivirus dans votre capteur, cela risque d’impacter négativement le score d’évaluation des risques. À l’inverse, si vous ajoutez ces adresses, votre score s’améliorera. Par défaut, ces adresses ne sont pas définies.
+La page de garde du rapport d’évaluation des risques indique si les serveurs de sauvegarde et de protection antivirus ne sont pas définis.
+
+**Pour ajouter des serveurs :**
+
+1. Sélectionnez **Paramètres système**, puis **Propriétés système**.
+1. Sélectionnez **Évaluation des vulnérabilités** et ajoutez les adresses aux champs **backup_servers** et **AV_addresses**. Utilisez des virgules pour séparer plusieurs adresses.  séparées par des virgules.  
+1. Sélectionnez **Enregistrer**.
 ## <a name="create-risk-assessment-reports"></a>Créer des rapports d’évaluation des risques
 
 Créer un rapport d’évaluation des risques au format PDF Le rapport est généré automatiquement sous le nom risk-assessment-report-1.pdf Le numéro est mis à jour pour chaque nouveau rapport que vous créez.  L’heure et le jour de création sont affichés.

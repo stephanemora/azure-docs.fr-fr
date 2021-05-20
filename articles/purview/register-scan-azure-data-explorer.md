@@ -6,13 +6,13 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/9/2020
-ms.openlocfilehash: 7adc7f568fb82692f2c96f610575076e397bd99c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: f218d87fe1f91e206c3b8873c9af0dddddd45b42
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896110"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656490"
 ---
 # <a name="register-and-scan-azure-data-explorer"></a>Inscription et analyse d’Azure Data Explorer
 
@@ -82,10 +82,10 @@ Pour inscrire un nouveau compte Azure Data Explorer (Kusto) dans votre catalogue
 Sur l’écran **Inscrire des sources (Azure Data Explorer (Kusto))** , procédez comme suit :
 
 1. Entrez le **Nom** sous lequel la source de données apparaîtra dans le catalogue.
-1. Choisissez la façon dont vous souhaitez pointer vers le compte de stockage de votre choix :
-   1. Sélectionnez **À partir d’un abonnement Azure**, puis sélectionnez l’abonnement approprié dans la zone de liste déroulante **Abonnement Azure** et le cluster approprié dans la zone de liste déroulante **Cluster**.
-   1. Vous pouvez également sélectionner **Entrer manuellement** et entrer un point de terminaison de service (URL).
-1. Sélectionnez **Terminer** pour inscrire la source de données.
+2. Choisissez votre abonnement Azure pour filtrer Azure Data Explorer.
+3. Sélectionnez un cluster approprié.
+4. Sélectionnez une collection ou créez-en une (facultatif).
+5. Sélectionnez **Inscrire** pour inscrire la source de données.
 
 :::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 

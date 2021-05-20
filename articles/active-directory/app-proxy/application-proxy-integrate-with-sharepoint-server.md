@@ -1,6 +1,6 @@
 ---
 title: Activation de l’accès à distance à SharePoint – Proxy d’application Azure Active Directory
-description: Découvrez les bases de l’intégration entre un serveur SharePoint local et le Proxy d’application Azure Active Directory.
+description: Découvrez les bases de l’intégration d’un serveur SharePoint local à Proxy d’application Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: mtillman
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 3bbe0480fcf6e4e1cf828cc61c5778fdd096ed8b
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 45433268a61772f499b5d2672a8b81044c1e3414
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108185977"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764456"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-active-directory-application-proxy"></a>Activation de l’accès à distance à SharePoint avec le Proxy d’application Azure Active Directory
 
@@ -180,7 +180,7 @@ Configurez la délégation KCD afin que le service de proxy d’application Azur
 Pour configurer la délégation KCD, suivez les étapes suivantes pour chaque ordinateur connecteur :
 
 1. Connectez-vous à un contrôleur de domaine en tant qu’administrateur de domaine, puis ouvrez Utilisateurs et ordinateurs Active Directory.
-1. Recherchez l’ordinateur exécutant le connecteur de proxy Azure AD. Dans cet exemple, il s’agit du serveur SharePoint.
+1. Recherchez l’ordinateur exécutant le connecteur de proxy Azure AD. Dans cet exemple, il s’agit de l’ordinateur qui exécute SharePoint Server.
 1. Double-cliquez sur l’ordinateur, puis sélectionnez l’onglet **Délégation**.
 1. Vérifiez que les options de délégation sont définies sur **N’approuver cet ordinateur que pour la délégation aux services spécifiés**. Sélectionnez ensuite **Utiliser tout protocole d’authentification**.
 1. Cliquez sur le bouton **Ajouter**, sélectionnez **Utilisateurs ou ordinateurs**, puis recherchez le compte de pool d’applications SharePoint. Par exemple : `Contoso\spapppool`.

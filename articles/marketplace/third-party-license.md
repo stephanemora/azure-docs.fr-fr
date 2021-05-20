@@ -1,5 +1,5 @@
 ---
-title: Gestion des licences d’application tierces avec Microsoft – Azure
+title: Gestion des licences d'application tierces avec Microsoft - Azure et Microsoft AppSource
 description: Découvrez la gestion des licences d’application tierces avec Microsoft.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,12 +8,12 @@ author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
 ms.date: 04/30/2021
-ms.openlocfilehash: de39afe0b88c78b75948fc7c702f0ae06916e2ff
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 8535d124596b2ce5bd80df0d95f0fb5af5bb68f9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331499"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759488"
 ---
 # <a name="third-party-app-license-management-through-microsoft"></a>Gestion des licences d’application tierces avec Microsoft
 
@@ -49,11 +49,11 @@ Ce tableau illustre le processus général de gestion des applications tierces a
 
 | Étape | Détails |
 | ------------ | ------------- |
-| Étape 1 : Créer une offre | L’éditeur de logiciels indépendant crée une offre dans l’Espace partenaires et choisit de gérer les licences associées avec Microsoft. Cela comprend la définition d’un ou plusieurs plans de licence pour l’offre. |
-| Étape 2 : Mettre à jour le package | L’éditeur de logiciels indépendant crée un package de solution pour l’offre, qui comprend des informations sur le plan de licence dans ses métadonnées, et le charge dans l’Espace partenaires pour publication sur Microsoft AppSource. Pour plus d’informations, consultez [Ajout de métadonnées de licence à une solution](https://go.microsoft.com/fwlink/?linkid=2162161&clcid=0x409). |
+| Étape 1 : Créer une offre | L’éditeur de logiciels indépendant crée une offre dans l’Espace partenaires et choisit de gérer les licences associées avec Microsoft. Cela comprend la définition d’un ou plusieurs plans de licence pour l’offre. Pour plus d'informations, consultez [Créer une offre Dynamics 365 pour Customer Engagement et Power Apps sur Microsoft AppSource](dynamics-365-customer-engage-offer-setup.md). |
+| Étape 2 : Mettre à jour le package | L’éditeur de logiciels indépendant crée un package de solution pour l’offre, qui comprend des informations sur le plan de licence dans ses métadonnées, et le charge dans l’Espace partenaires pour publication sur Microsoft AppSource. Pour plus d’informations, consultez [Ajout de métadonnées de licence à une solution](/powerapps/developer/data-platform/appendix-add-license-information-to-your-solution). |
 | Étape 3 : Acheter des licences | Les clients découvrent l’offre de l’éditeur dans AppSource ou directement sur le site web de l’éditeur. Les clients achètent des licences pour les plans qu’ils souhaitent directement auprès de l’éditeur (ces offres ne peuvent pas être achetées par le biais d’AppSource pour le moment). |
-| Étape 4 : Enregistrer la transaction | L’éditeur enregistre l’achat auprès de Microsoft dans l’Espace partenaires. Dans le cadre de [l’enregistrement de la transaction](/partner-center/csp-commercial-marketplace-licensing), il spécifie le type et la quantité de chacun des plans de licence achetés par le client. |
-| Étape 5 : Gérer les licences | Les plans de licence s’affichent dans le Centre d’administration Microsoft 365. Le client peut ainsi les affecter aux utilisateurs et aux groupes de son organisation. Il a également la possibilité d’installer l’application dans son locataire avec le Centre d’administration Power Platform. |
+| Étape 4 : Enregistrer la transaction | L’éditeur enregistre l’achat auprès de Microsoft dans l’Espace partenaires. Dans le cadre de [l’enregistrement de la transaction](/partner-center/csp-commercial-marketplace-licensing#register-isv-connect-deal-in-deal-registration), il spécifie le type et la quantité de chacun des plans de licence achetés par le client. |
+| Étape 5 : Gérer les licences | Les plans de licence apparaissent dans le Centre d'administration Microsoft 365 pour permettre au client de les [attribuer aux utilisateurs ou aux groupes](/microsoft-365/commerce/licenses/manage-third-party-app-licenses) de son organisation. Il a également la possibilité d’installer l’application dans son locataire avec le Centre d’administration Power Platform. |
 | Étape 6 : Effectuer la vérification de la licence | Lorsqu’un utilisateur de l’organisation du client tente d’exécuter une application, Microsoft vérifie qu’il dispose d’une licence avant de l’autoriser à exécuter l’application. Si ce n’est pas le cas, l’utilisateur voit un message lui indiquant qu’il doit contacter un administrateur pour obtenir une licence. |
 | Étape 7 : Afficher les rapports | Les éditeurs peuvent afficher des informations sur les licences provisionnées et attribuées sur une période de temps donnée et selon la zone géographique. |
 |||

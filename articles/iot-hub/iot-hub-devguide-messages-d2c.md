@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: 545272b15862ebab81d839cb8a885560f8920b76
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: c9c0b2807962aaddc2f3b6cef6a261084b21714c
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286309"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715769"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -38,7 +38,7 @@ Un hub IoT a un point de terminaison intégré par défaut (**messages/événeme
 
 Chaque message est routé vers tous les points de terminaison dont il correspond aux requêtes de routage. En d’autres termes, un message peut être routé vers plusieurs points de terminaison.
 
-Si votre point de terminaison personnalisé a des configurations de pare-feu, envisagez d’utiliser l’exception interne approuvée de Microsoft pour accorder à votre hub IoT l’accès au point de terminaison spécifique : le [Stockage Azure](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing), [Azure Event Hubs](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) et [Azure Service Bus](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). Cette option est disponible uniquement dans certaines régions pour les hubs IoT avec une [identité de service managé](./virtual-network-support.md).
+Si votre point d’accès personnalisé est configuré avec un pare-feu, envisagez d’utiliser l’[exception des premiers tiers Microsoft approuvés](./virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources).
 
 IoT Hub prend actuellement en charge les points de terminaison suivants :
 

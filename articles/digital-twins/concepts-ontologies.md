@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b7bed0f3b10dd057073203bb9c2e336299c50662
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ba261609772e380e85de084096a3242f2f92fd49
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207984"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734306"
 ---
 # <a name="what-is-an-ontology"></a>Qu’est-ce qu’une ontologie ? 
 
@@ -20,7 +20,7 @@ Le vocabulaire d’une solution Azure Digital Twins est défini à l’aide de [
 
 Parfois, quand votre solution est liée à un secteur particulier, il est plus facile et plus efficace de démarrer avec un ensemble de modèles qui existent déjà pour ce secteur, au lieu de créer votre propre ensemble de modèles à partir de zéro. Ces ensembles de modèles préexistants sont appelés **ontologies**. 
 
-En général, une ontologie est un ensemble de modèles pour un domaine donné, par exemple une structure de bâtiment, un système IoT, une ville intelligente, un réseau électrique, un contenu web, etc. Les ontologies sont souvent utilisées sous forme de schémas pour les graphes de connaissances, car elles présentent les avantages suivants :
+En général, une ontologie est un ensemble de modèles pour un domaine donné, par exemple une structure de bâtiment, un système IoT, une ville intelligente, un réseau électrique, un contenu web, etc. Les ontologies sont souvent utilisées sous forme de schémas pour les graphes jumeaux, car elles présentent les avantages suivants :
 * Harmonisation des composants logiciels, de la documentation, des bibliothèques de requêtes, etc.
 * Réduction des investissements dans la modélisation conceptuelle et le développement du système
 * Simplification de l’interopérabilité des données au niveau sémantique

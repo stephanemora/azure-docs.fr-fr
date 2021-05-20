@@ -3,12 +3,12 @@ title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes liés aux différents Kits de développement logiciel (SDK) lors de l’interrogation des ressources Azure avec Azure Resource Graph.
 ms.date: 05/01/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 54b680169c38cd4517c225e6452c02de8ecd4dd2
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 86d60f888dfd702e8895f560258b8ddb02d35827
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325802"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751478"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Résoudre les erreurs à l’aide d’Azure Resource Graph
 
@@ -43,15 +43,15 @@ Il existe plusieurs méthodes pour traiter les requêtes limitées :
 
 #### <a name="issue"></a>Problème
 
-Les clients ayant accès à plus de 1000 abonnements, y compris les abonnements inter-clients avec [Azure Lighthouse](../../../lighthouse/overview.md), ne peuvent pas extraire les données de tous les abonnements dans un seul appel à Azure Resource Graph.
+Les clients ayant accès à plus de 1 000 abonnements, y compris les abonnements inter-clients avec [Azure Lighthouse](../../../lighthouse/overview.md), ne peuvent pas extraire les données de tous les abonnements dans un seul appel à Azure Resource Graph.
 
 #### <a name="cause"></a>Cause
 
-Azure CLI et PowerShell transfèrent uniquement les 1000 premiers abonnements à Azure Resource Graph. L’API REST pour Azure Resource Graph accepte un nombre maximal d’abonnements pour exécuter la requête.
+Azure CLI et PowerShell transfèrent uniquement les 1 000 premiers abonnements à Azure Resource Graph. L’API REST pour Azure Resource Graph accepte un nombre maximal d’abonnements pour exécuter la requête.
 
 #### <a name="resolution"></a>Résolution
 
-Requêtes par lots pour la requête avec un sous-ensemble d’abonnements à conserver sous la limite d’abonnement de 1000. La solution utilise le paramètre d’**Abonnement** dans PowerShell.
+Requêtes par lots pour la requête avec un sous-ensemble d’abonnements à conserver sous la limite d’abonnement de 1 000. La solution utilise le paramètre d’**Abonnement** dans PowerShell.
 
 ```azurepowershell-interactive
 # Replace this query with your own
@@ -109,5 +109,5 @@ Incluez dans la liste d’abonnements au moins un abonnement auquel le client qu
 Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
 
 - Obtenez des réponses de la part d’experts Azure via les [Forums Azure](https://azure.microsoft.com/support/forums/).
-- Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), qui est le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées : réponses, support technique et experts.
+- Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées (réponses, support et experts).
 - Si vous avez besoin de plus d’aide, vous pouvez signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support**.

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 184ef66a0175c301497fa536c86eddc169995698
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 4fd158c5d19c805fe7b7592904fc42ed3117bef6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315360"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764348"
 ---
 # <a name="identity-providers-for-external-identities"></a>Fournisseurs d’identité pour les identités externes
 
@@ -36,9 +36,9 @@ Outre des comptes Azure AD, la solution External Identities offre un vaste éven
 
 - **Facebook** : lors de la création d’une application, vous pouvez configurer l’inscription en libre-service et activer un fédération Facebook afin que les utilisateurs puissent s’inscrire à votre application en utilisant leurs propres comptes Facebook. Facebook ne peut être utilisé que pour des flux d’utilisateurs d’inscription en libre-service, et n’est pas disponible en tant qu’option de connexion lorsque des utilisateurs donnent suite à des invitations de votre part. Découvrez comment [ajouter Facebook comme fournisseur d’identité](facebook-federation.md).
 
-- **Fédération directe** : vous pouvez également configurer une fédération avec n’importe quel fournisseur d’identité externe prenant en charge les protocoles SAML ou WS-Fed. Une fédération directe permet à des utilisateurs externes de donner suite à des invitations que vous leur avez envoyées en se connectant à vos applications avec leurs comptes professionnels ou de réseaux sociaux existants. Découvrez comment [configurer la fédération directe](direct-federation.md).
+- **Fédération de fournisseur d’identité SAML/WS-Fed** : vous pouvez également configurer une fédération avec n’importe quel fournisseur d’identité (IdP) prenant en charge les protocoles SAML ou WS-Fed. Grâce à la fédération de fournisseur d’identité SAML/WS-Fed, les utilisateurs externes peuvent accepter des invitations que vous leur avez envoyées en se connectant à vos applications avec leurs comptes professionnels ou de réseaux sociaux existants. Découvrez comment [configurer la fédération de fournisseur d’identité SAML/WS-Fed](direct-federation.md).
    > [!NOTE]
-   > Vous ne pouvez pas utiliser des fournisseurs d’identité de fédération directe dans vos flux d’utilisateurs d’inscription en libre-service.
+   > Les fournisseurs d’identité SAML/WS-Fed fédérés ne peuvent pas être utilisés dans vos flux utilisateur d’inscription en libre-service.
 
 ## <a name="adding-social-identity-providers"></a>Ajout de fournisseurs d’identité sociale
 
@@ -60,4 +60,4 @@ Pour savoir comment ajouter des fournisseurs d’identité pour la connexion à 
 - [Ajouter une authentification par envoi d’un code secret à usage unique par e-mail](one-time-passcode.md)
 - [Ajouter Google](google-federation.md) en tant que fournisseur d’identité sociale autorisé
 - [Ajouter Facebook](facebook-federation.md) en tant que fournisseur d’identité sociale autorisé
-- [Configurer une fédération directe](direct-federation.md) avec n’importe quelle organisation dont le fournisseur d’identité prend en charge le protocole SAML 2.0 ou WS-Fed. Notez qu’une fédération directe n’est pas possible pour des flux utilisateur d’inscription en libre-service.
+- [Configurez une fédération de fournisseur d’identité SAML/WS-Fed](direct-federation.md) avec toute organisation dont le fournisseur d’identité prend en charge le protocole SAML 2.0 ou WS-Fed. Notez qu’une fédération de fournisseur d’identité SAML/WS-Fed n’est pas possible pour des flux utilisateur d’inscription en libre-service.

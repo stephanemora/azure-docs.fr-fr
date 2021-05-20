@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/04/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 49e35687820679a1c06cf19e7a26b3b04a1e1318
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8115e79a0cf747fbf5980d717331883097012077
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363240"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109718923"
 ---
 ## <a name="available-event-types"></a>Types d’événement disponibles
 
@@ -22,7 +22,7 @@ Service Bus émet les types d’événements suivants :
 | Type d'événement | Description |
 | ---------- | ----------- |
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Événement levé lorsque des messages actifs sont présents dans une file d’attente ou un abonnement et qu’aucun récepteur n’est à l’écoute. |
-| Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Événement levé lorsque des messages actifs sont présents dans une file d’attente de lettres mortes et qu’aucun récepteur n’est actif. |
+| Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners | Événement levé lorsque des messages actifs sont présents dans une file d’attente de lettres mortes et qu’aucun récepteur n’est actif. |
 | Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications | Événement levé régulièrement lorsque des messages actifs sont présents dans une file d’attente ou un abonnement, même s’il existe des écouteurs actifs sur cette file d’attente ou cet abonnement spécifique. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications | Événement levé régulièrement lorsque des messages sont présents dans une entité de lettres mortes d’une file d’attente ou d’un abonnement, même s’il existe des écouteurs actifs sur l’entité de lettres mortes de cette file d’attente ou cet abonnement spécifique. | 
 
@@ -53,7 +53,7 @@ Cet événement est généré si des messages actifs sont présents dans une fil
 }]
 ```
 
-#### <a name="deadletter-messages-available-with-no-listener"></a>Messages de lettres mortes disponibles sans écouteur
+#### <a name="deadletter-messages-available-with-no-listeners"></a>Messages de lettres mortes disponibles sans écouteurs
 
 Le schéma pour un événement de file d’attente de lettres mortes est similaire. Vous obtenez au moins un événement par file d’attente de lettres mortes qui contient des messages et aucun récepteur actif.
 
@@ -61,7 +61,7 @@ Le schéma pour un événement de file d’attente de lettres mortes est similai
 [{
   "topic": "/subscriptions/{subscription-id}/resourcegroups/{your-rg}/providers/Microsoft.ServiceBus/namespaces/{your-service-bus-namespace}",
   "subject": "topics/{your-service-bus-topic}/subscriptions/{your-service-bus-subscription}",
-  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener",
+  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners",
   "eventTime": "2018-02-14T05:12:53.4133526Z",
   "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
   "data": {
@@ -147,7 +147,7 @@ Cet événement est généré si des messages actifs sont présents dans une fil
 }]
 ```
 
-#### <a name="deadletter-messages-available-with-no-listener"></a>Messages de lettres mortes disponibles sans écouteur
+#### <a name="deadletter-messages-available-with-no-listeners"></a>Messages de lettres mortes disponibles sans écouteurs
 
 Le schéma pour un événement de file d’attente de lettres mortes est similaire. Vous obtenez au moins un événement par file d’attente de lettres mortes qui contient des messages et aucun récepteur actif.
 
@@ -155,7 +155,7 @@ Le schéma pour un événement de file d’attente de lettres mortes est similai
 [{
   "source": "/subscriptions/{subscription-id}/resourcegroups/{your-rg}/providers/Microsoft.ServiceBus/namespaces/{your-service-bus-namespace}",
   "subject": "topics/{your-service-bus-topic}/subscriptions/{your-service-bus-subscription}",
-  "type": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener",
+  "type": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners",
   "time": "2018-02-14T05:12:53.4133526Z",
   "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
   "data": {

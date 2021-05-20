@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: aea55b77330972877fd5e2d87758ab110071c072
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 5224804b1e0d306bfca8e9e42511ad908a3bb5c1
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207768"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787740"
 ---
 # <a name="secure-azure-digital-twins"></a>Sécuriser Azure Digital Twins
 
@@ -47,7 +47,7 @@ Avec les identités managées, la plateforme Azure gère cette identité d’ex�
 
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Autorisation : Rôles Azure pour Azure Digital Twins
 
-Azure fournit **deux rôles intégrés Azure** pour autoriser l’accès à aux [API de plan de données](how-to-use-apis-sdks.md#overview-data-plane-apis) d’Azure Digital Twins. Vous pouvez faire référence aux rôles par nom ou par ID :
+Azure fournit **deux rôles intégrés Azure** pour autoriser l’accès à aux [API de plan de données](concepts-apis-sdks.md#overview-data-plane-apis) d’Azure Digital Twins. Vous pouvez faire référence aux rôles par nom ou par ID :
 
 | Rôle intégré | Description | id | 
 | --- | --- | --- |
@@ -67,7 +67,7 @@ Pour plus d’informations sur la définition des rôles intégrés, consultez [
 Lorsque vous faites référence à des rôles dans des scénarios automatisés, il est recommandé d’y faire référence par leurs **ID** plutôt que par leurs noms. Les noms peuvent changer d’une version à l’autre, mais pas les ID, ce qui en fait une référence plus stable pour l’automatisation.
 
 > [!TIP]
-> Si vous affectez des rôles à l’aide d’une applet de commande, comme `New-AzRoleAssignment` ([référence](/powershell/module/az.resources/new-azroleassignment)), vous pouvez utiliser le paramètre `-RoleDefinitionId` au lieu de `-RoleDefinitionName` pour passer un ID à la place d’un nom pour le rôle.
+> Si vous affectez des rôles à l’aide d’une applet de commande, comme `New-AzRoleAssignment` ([référence](/powershell/module/az.resources/new-azroleassignment)), vous pouvez utiliser le paramètre `-RoleDefinitionId` plutôt que `-RoleDefinitionName` pour transmettre un ID à la place d’un nom pour le rôle.
 
 ### <a name="permission-scopes"></a>Étendues d’autorisation
 

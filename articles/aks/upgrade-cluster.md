@@ -4,12 +4,12 @@ description: Découvrez comment mettre à niveau un cluster Azure Kubernetes ser
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: d6a5ed468541090d433dba732707a59841e6ff41
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 925edc3d83b9acc0a2c91001ada39921d3653824
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779612"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737654"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
@@ -126,6 +126,7 @@ En plus de mettre à niveau manuellement un cluster, vous pouvez définir un can
 | `patch`| met à niveau automatiquement le cluster vers la dernière version du correctif prise en charge lorsqu’elle devient disponible, tout en conservant la version mineure| Par exemple, si un cluster exécute la version *1.17.7* et que les versions *1.17.9*, *1.18.4*, *1.18.6* et *1.19.1* sont disponibles, votre cluster est mis à niveau vers la version *1.17.9*.|
 | `stable`| met à niveau automatiquement le cluster vers la dernière version du correctif prise en charge sur la version mineure *N-1*, où *N* désigne la dernière version mineure prise en charge.| Par exemple, si un cluster exécute la version *1.17.7* et que les versions *1.17.9*, *1.18.4*, *1.18.6* et *1.19.1* sont disponibles, votre cluster est mis à niveau vers la version *1.18.6*.
 | `rapid`| met à niveau automatiquement le cluster vers la dernière version du correctif prise en charge sur la dernière version mineure prise en charge.| Dans les cas où le cluster a une version de Kubernetes qui est une version mineure *N-2* où *N* est la dernière version mineure prise en charge, le cluster se met d’abord à niveau vers la dernière version de patch prise en charge sur la version mineure *N-1*. Par exemple, si un cluster exécute la version *1.17.7* et que les versions *1.17.9*, *1.18.4*, *1.18.6* et *1.19.1* sont disponibles, votre cluster se met d’abord à niveau vers la version *1.18.6*, puis se met à niveau vers la version *1.19.1*.
+| `node-image`| Mettez automatiquement à niveau l’image de nœud vers la dernière version disponible.| Microsoft fournit régulièrement des correctifs et de nouvelles images pour les nœuds d’image (généralement une fois par semaine), mais vos nœuds en cours d’exécution n’obtiendront pas les nouvelles images, sauf si vous effectuez une mise à niveau de l’image de nœud. L’activation du canal node-image met automatiquement à jour vos images de nœud quand une nouvelle version est disponible. |
 
 > [!NOTE]
 > La mise à jour automatique du cluster ne concerne que les versions GA de Kubernetes et non les versions en préversion.

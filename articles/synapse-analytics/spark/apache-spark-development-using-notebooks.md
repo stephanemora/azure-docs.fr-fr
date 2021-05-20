@@ -1,34 +1,34 @@
 ---
-title: Notebooks Synapse Studio
-description: Cet article explique comment créer et développer des blocs-notes Azure Synapse Studio pour la préparation et la visualisation de données.
+title: Guide pratique pour utiliser des notebooks Synapse
+description: Cet article explique comment créer et développer des notebooks Synapse pour la préparation et la visualisation de données.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 10/19/2020
+ms.date: 05/08/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 203ac7252f06b342e7f553bb1900cdf9ac959e0a
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: a66b036bde5f25873e9d4a371faf249deadd69dc
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891377"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736895"
 ---
-# <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Créer, développer et tenir à jour des notebooks Synapse Studio dans Azure Synapse Analytics
+# <a name="create-develop-and-maintain-synapse-notebooks-in-azure-synapse-analytics"></a>Créer, développer et gérer des notebooks Synapse dans Azure Synapse Analytics
 
-Un notebook Synapse Studio est une interface web permettant de créer des fichiers contenant du code, des visualisations et du texte descriptif en direct. Les blocs-notes constituent un bon endroit où valider des idées et effectuer des expérimentations rapides pour extraire des insights de vos données. Les blocs-notes sont également largement utilisés pour la préparation et la visualisation de données, l’apprentissage automatique et d’autres scénarios en lien avec le Big Data.
+Un notebook Synapse est une interface web permettant de créer des fichiers contenant du code, des visualisations et du texte descriptif dynamiques. Les blocs-notes constituent un bon endroit où valider des idées et effectuer des expérimentations rapides pour extraire des insights de vos données. Les blocs-notes sont également largement utilisés pour la préparation et la visualisation de données, l’apprentissage automatique et d’autres scénarios en lien avec le Big Data.
 
-Un bloc-notes Azure Synapse Studio permet d’effectuer les opérations suivantes :
+Avec un notebook Synapse, vous pouvez :
 
 * Commencer à travailler sans le moindre effort de configuration.
 * Sécuriser les données avec des fonctionnalités de sécurité d’entreprise intégrées.
 * Analyser des données dans des formats bruts (CSV, txt, JSON, etc.), des formats de fichiers traités (Parquet, Delta Lake, ORC, etc.) et des fichiers de données tabulaires SQL sur Spark et SQL.
 * Être productif grâce à des fonctionnalités de création améliorées et à la visualisation de données intégrée.
 
-Cet article explique comment utiliser des blocs-notes dans Azure Synapse Studio.
+Cet article explique comment utiliser des notebooks dans Synapse Studio.
 
 ## <a name="preview-of-the-new-notebook-experience"></a>Aperçu de la nouvelle expérience de notebook
 L’équipe de Synapse a introduit le nouveau composant pour notebooks dans Synapse Studio afin d’offrir une expérience cohérente aux clients de Microsoft et de maximiser la détectabilité, la productivité, le partage et la collaboration. La nouvelle expérience du notebook est prête à être présentée en préversion. Cochez le bouton **Fonctionnalités d’évaluation** dans la barre d’outils du notebook pour l’activer. Le tableau ci-dessous capture la comparaison des fonctionnalités entre un notebook existant (appelé « notebook classique ») et le nouvel disponible en préversion.  
@@ -48,13 +48,13 @@ L’équipe de Synapse a introduit le nouveau composant pour notebooks dans Syna
 
 ## <a name="create-a-notebook"></a>Créer un notebook
 
-Il existe deux façons de créer un bloc-notes. Vous pouvez créer un bloc-notes ou en importer un dans un espace de travail Azure Synapse à partir de l’**Explorateur d’objets**. Les blocs-notes Azure Synapse Studio peuvent reconnaître des fichiers IPYNB de bloc-notes Jupyter standard.
+Il existe deux façons de créer un bloc-notes. Vous pouvez créer un notebook ou en importer un dans un espace de travail Synapse à partir de l’**Explorateur d’objets**. Les notebooks Synapse reconnaissent les fichiers IPYNB Jupyter Notebook standard.
 
 ![créer un notebook d’importation](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook-2.png)
 
-## <a name="develop-notebooks"></a>Développer des blocs-notes
+## <a name="develop-notebooks"></a>Développer des notebooks
 
-Les blocs-notes sont constitués de cellules qui sont des blocs individuels de code ou de texte qui peuvent être exécutés de façon indépendante ou en tant que groupe.
+Les notebooks sont constitués de cellules qui sont des blocs individuels de code ou de texte qui peuvent être exécutés de façon indépendante ou en tant que groupe.
 
 ### <a name="add-a-cell"></a>Ajouter une cellule
 
@@ -87,7 +87,7 @@ Il existe plusieurs façons d’ajouter une cellule à un bloc-notes.
 
 ### <a name="set-a-primary-language"></a>Définir un langage principal
 
-Les notebooks Azure Synapse Studio prennent en charge quatre langages Apache Spark :
+Les notebooks Synapse prennent en charge quatre langages Apache Spark :
 
 * pySpark (Python)
 * Spark (Scala)
@@ -115,7 +115,7 @@ L’image suivante illustre la façon d’écrire une requête PySpark avec la c
 
 ### <a name="use-temp-tables-to-reference-data-across-languages&quot;></a>Utiliser des tables temporaires pour référencer des données dans plusieurs langages
 
-Vous ne pouvez pas référencer des données ou variables directement dans différents langages dans un bloc-notes Synapse Studio. Dans Spark, une table temporaire peut être référencée dans plusieurs langages. Voici un exemple de lecture d’une tramedonnées `Scala` en `PySpark` et `SparkSQL` en utilisant une table temporaire Spark comme solution de contournement.
+Vous ne pouvez pas référencer des données ou variables directement dans différents langages dans un notebook Synapse. Dans Spark, une table temporaire peut être référencée dans plusieurs langages. Voici un exemple de lecture d’une tramedonnées `Scala` en `PySpark` et `SparkSQL` en utilisant une table temporaire Spark comme solution de contournement.
 
 1. Dans la cellule 1, lisez une tramedonnées à partir du connecteur de pool SQL en utilisant Scala, puis créez une table temporaire.
 
@@ -141,7 +141,7 @@ Vous ne pouvez pas référencer des données ou variables directement dans diff�
 
 ### <a name="ide-style-intellisense"></a>IntelliSense de style IDE
 
-Des blocs-notes Azure Synapse Studio sont intégrés avec l’éditeur de Monaco pour intégrer IntelliSense de style IDE à l’éditeur de cellule. Une mise en évidence de la syntaxe, un marqueur d’erreurs et des saisies semi-automatiques de code vous aident à écrire le code et à identifier les problèmes plus rapidement.
+Les notebooks Synapse sont intégrés à l’éditeur Monaco pour doter l’éditeur de cellule de la fonctionnalité IntelliSense (de style IDE). Une mise en évidence de la syntaxe, un marqueur d’erreurs et des saisies semi-automatiques de code vous aident à écrire le code et à identifier les problèmes plus rapidement.
 
 Les fonctionnalités IntelliSense sont à des niveaux de maturité différents pour les différents langages. Utilisez le tableau suivant pour voir ce qui est pris en charge.
 
@@ -156,7 +156,7 @@ Les fonctionnalités IntelliSense sont à des niveaux de maturité différents p
 
 ### <a name="code-snippets"></a>Extraits de code
 
-Les notebooks Azure Synapse Studio fournissent des extraits de code qui facilitent l’entrée de modèles de code couramment utilisés, tels que la configuration de votre session Spark, la lecture des données en tant que DataFrame Spark ou le dessin de graphiques avec matplotlib, etc.
+Les notebooks Synapse fournissent des extraits de code qui facilitent l’entrée de modèles de code couramment utilisés, tels que la configuration de votre session Spark, la lecture des données en tant que DataFrame Spark ou la création de graphiques avec matplotlib, etc.
 
 Les extraits de code apparaissent dans [IntelliSense](#ide-style-intellisense) en combinaison avec d’autres suggestions. Le contenu des extraits de code s’aligne avec le langage des cellules de code. Vous pouvez voir les extraits de code disponibles en tapant **Extrait** ou n’importe quel mot clé apparaît dans le titre de l’extrait dans l’éditeur de cellule de code. Par exemple, en tapant **lire**, vous pouvez voir la liste des extraits pour lire les données à partir de différentes sources de données.
 
@@ -271,7 +271,8 @@ Non pris en charge.
 
 La Structure (Table des matières) présente le premier en-tête Markdown d'une cellule Markdown sur une barre latérale pour une navigation rapide. La barre latérale de la Structure est redimensionnable et réductible pour s'adapter au mieux à l'écran. Vous pouvez sélectionner le bouton **Structure** de la barre de commandes du notebook pour ouvrir ou masquer la barre latérale.
 
-<a name="azure-notebook-outline"></a>![azure-notebook-outline](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-outline.png)
+![azure-notebook-outline](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-outline.png)
+
 ---
 
 
@@ -372,7 +373,7 @@ Un état d’exécution de cellule pas à pas est affiché sous la cellule pour 
 
 ### <a name="spark-progress-indicator"></a>Indicateur de progression Spark
 
-Le bloc-notes Azure Synapse Studio est entièrement basé sur Spark. Les cellules de code sont exécutées sur le pool Apache Spark serverless à distance. Un indicateur de progression du travail Spark est fourni avec une barre de progression en temps réel qui s’affiche pour vous aider à comprendre l’état d’exécution du travail.
+Le notebook Synapse est entièrement basé sur Spark. Les cellules de code sont exécutées sur le pool Apache Spark serverless à distance. Un indicateur de progression du travail Spark est fourni avec une barre de progression en temps réel qui s’affiche pour vous aider à comprendre l’état d’exécution du travail.
 Le nombre de tâches par travail ou index vous aide à identifier le niveau parallèle de votre travail Spark. Vous pouvez également explorer plus en profondeur l’IU Spark pour un travail (ou index) spécifique en sélectionnant le lien hypertexte du nom du travail (ou de l’index).
 
 
@@ -476,7 +477,7 @@ Dans les propriétés du bloc-notes, vous pouvez éventuellement configurer l’
    ![bloc-notes-propriétés](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
 ## <a name="magic-commands"></a>Commandes magic
-Vous pouvez utiliser des commandes magic Jupyter familières dans les notebooks Azure Synapse Studio. Vérifiez la liste suivante des commandes magic actuellement disponibles. Parlez-nous de [vos cas d’usage sur GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) pour nous permettre de continuer à créer des commandes magic supplémentaires afin de répondre à vos besoins.
+Vous pouvez utiliser des commandes magic Jupyter connues dans les notebooks Synapse. Vérifiez la liste suivante des commandes magic actuellement disponibles. Parlez-nous de [vos cas d’usage sur GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) pour nous permettre de continuer à créer des commandes magic supplémentaires afin de répondre à vos besoins.
 
 > [!NOTE]
 > Seules les commandes magic suivantes sont prises en charge dans le pipeline Synapse : %%pyspark, %%spark, %%csharp, %%sql. 
@@ -528,7 +529,7 @@ Azure Data Factory recherche la cellule de paramètre et la traite comme cellule
 
 ### <a name="assign-parameters-values-from-a-pipeline"></a>Attribuer des valeurs de paramètres à partir d’un pipeline
 
-Une fois le notebook avec paramètres créé, vous pouvez l’exécuter depuis un pipeline à l’aide de l’activité Notebook Azure Synapse. Après avoir ajouter l’activité à votre canevas de pipeline, vous serez en mesure de définir les valeurs des paramètres dans la section **Paramètres de base** de l’onglet **Paramètres**. 
+Une fois que vous avez créé le notebook avec paramètres, vous pouvez l’exécuter depuis un pipeline à l’aide de l’activité Notebook Synapse. Après avoir ajouter l’activité à votre canevas de pipeline, vous serez en mesure de définir les valeurs des paramètres dans la section **Paramètres de base** de l’onglet **Paramètres**. 
 
 ![Attribuer un paramètre](./media/apache-spark-development-using-notebooks/assign-parameter.png)
 
@@ -538,7 +539,7 @@ Lors de l’attribution des valeurs de paramètre, vous pouvez utiliser le [lang
 
 ## <a name="shortcut-keys"></a>Touches de raccourci
 
-À l’instar des blocs-notes Jupyter, les blocs-notes Azure Synapse Studio disposent d’une interface utilisateur modale. Le clavier effectue des actions différentes selon le mode dans lequel se trouve la cellule du bloc-notes. Les blocs-notes Synapse Studio prennent en charge les deux modes suivants pour une cellule de code donnée : le mode de commande et le mode d’édition.
+Tout comme les notebooks Jupyter, les notebooks Synapse disposent d’une interface utilisateur modale. Le clavier effectue des actions différentes selon le mode dans lequel se trouve la cellule du bloc-notes. Les notebooks Synapse prennent en charge les deux modes suivants pour une cellule de code donnée : le mode de commande et le mode d’édition.
 
 1. Une cellule est en mode de commande quand elle n’affiche aucun curseur texte vous invitant à saisir. Quand une cellule est en mode de commande, vous pouvez modifier le bloc-notes entier, mais pas taper dans des cellules individuelles. Entrez en mode de commande en appuyant sur `ESC` ou en utilisant la souris pour sélectionner en dehors de la zone de l’éditeur d’une cellule.
 
@@ -552,9 +553,9 @@ Lors de l’attribution des valeurs de paramètre, vous pouvez utiliser le [lang
 
 # <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
 
-Les raccourcis clavier suivants vous permettent de parcourir et d’exécuter plus facilement du code dans des blocs-notes Azure Synapse.
+Les raccourcis clavier suivants vous permettent de parcourir et d’exécuter plus facilement du code dans les notebooks Synapse.
 
-| Action |Raccourcis de bloc-notes Synapse Studio  |
+| Action |Raccourcis de notebook Synapse  |
 |--|--|
 |Exécuter la cellule active et sélectionner la cellule en dessous | Maj + Entrée |
 |Exécuter la cellule active et insérer en dessous | Alt + Entrée |
@@ -571,7 +572,7 @@ Les raccourcis clavier suivants vous permettent de parcourir et d’exécuter pl
 
 # <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
-| Action |Raccourcis de bloc-notes Synapse Studio  |
+| Action |Raccourcis de notebook Synapse  |
 |--|--|
 |Exécuter la cellule active et sélectionner la cellule en dessous | Maj + Entrée |
 |Exécuter la cellule active et insérer en dessous | Alt + Entrée |
@@ -590,9 +591,9 @@ Les raccourcis clavier suivants vous permettent de parcourir et d’exécuter pl
 ### <a name="shortcut-keys-under-edit-mode"></a>Touches de raccourci en mode d’édition
 
 
-Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du code plus facilement dans des blocs-notes Azure Synapse en mode d’édition.
+Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du code plus facilement dans les notebooks Synapse en mode d’édition.
 
-| Action |Raccourcis de bloc-notes Synapse Studio  |
+| Action |Raccourcis de notebook Synapse  |
 |--|--|
 |Déplacer le curseur vers le haut | Haut |
 |Déplacer le curseur vers le bas|Bas|

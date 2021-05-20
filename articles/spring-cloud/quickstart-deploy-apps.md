@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: bcbf2f88409dba5d0f3e0955345c298de9961ca4
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: cf143af4bba7b26aa1fec5ed6e18ab41fbc65dd5
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289052"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664831"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Démarrage rapide : Créer et déployer des applications sur Azure Spring Cloud
 
@@ -285,7 +285,7 @@ La compilation du projet prend de 5 à 10 minutes. Une fois l’opération ter
     * **Point de terminaison public :** Dans la liste des projets fournis, entrez le numéro qui correspond à `api-gateway`.  Ceci lui donne un accès public.
 
 1. Vérifiez que les éléments `appName` figurant dans les fichiers POM sont corrects :
-    ```
+    ```xml
     <build>
         <plugins>
             <plugin>
@@ -298,7 +298,7 @@ La compilation du projet prend de 5 à 10 minutes. Une fois l’opération ter
                     <appName>customers-service</appName>
     
     ```
-    Vous devrez peut-être corriger les libellés `appName` des éléments suivants :
+    Vérifiez que les textes `appName` correspondent aux suivants, supprimez tous les préfixes si nécessaire et enregistrez le fichier :
     * api-gateway
     * customers-service
 
@@ -307,6 +307,7 @@ La compilation du projet prend de 5 à 10 minutes. Une fois l’opération ter
     ```azurecli
     mvn azure-spring-cloud:deploy
     ```
+    
 ## <a name="verify-the-services"></a>Vérifier les services
 
 Une commande de déploiement réussie retourne l’URL au format « https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io ».  Utilisez-la pour accéder au service en cours d’exécution.
@@ -321,12 +322,12 @@ Vous pouvez également accéder au Portail Azure pour trouver l’URL.
 
 ## <a name="deploy-extra-apps"></a>Déployer des applications supplémentaires
 
-Pour que l’application PetClinic marche avec toutes les fonctionnalités comme le Serveur d’administration, les Visites et les Vétérinaires, vous pouvez déployer les autres microservices.   Réexécutez la commande de configuration, puis sélectionnez les microservices suivants.
+Pour que l’application PetClinic marche avec toutes les fonctionnalités comme le Serveur d’administration, les Visites et les Vétérinaires, vous pouvez déployer les autres microservices. Réexécutez la commande de configuration, puis sélectionnez les microservices suivants.
 * admin-server
 * vets-service
 * visits-service
 
-Réexécutez la commande `deploy`.
+Corrigez les noms d’application dans chaque `pom.xml` pour les modules ci-dessus, puis réexécutez la commande `deploy`.
 
 #### <a name="intellij"></a>[IntelliJ](#tab/IntelliJ)
 
@@ -354,7 +355,7 @@ Pour effectuer un déploiement dans Azure, vous devez vous connecter avec votre 
 1. Définissez **Public Endpoint** (Point de terminaison public) sur *Enable* (Activer).
 1. Dans la zone de texte **App:** , sélectionnez **Create app...** .
 1. Entrez *api-gateway*, puis cliquez sur **OK**.
-1. Spécifiez les options de mémoire et JVM.
+1. Spécifiez 2 Go de mémoire et les options JVM : `-Xms2048m -Xmx2048m`.
 
      ![Options JVM de mémoire](media/spring-cloud-intellij-howto/memory-jvm-options.png)
 

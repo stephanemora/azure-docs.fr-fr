@@ -1,6 +1,6 @@
 ---
 title: Gérer les appareils dans votre application Azure IoT Central | Microsoft Docs
-description: En tant qu’opérateur, apprenez à gérer des appareils dans votre application Azure IoT Central. Découvrez comment gérer des appareils individuels et effectuer des importations et exportations en bloc des appareils de votre application.
+description: En savoir plus sur la gestion des appareils dans votre application Azure IoT Central. Découvrez comment gérer des appareils individuels et effectuer des importations et exportations en bloc des appareils de votre application.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/08/2020
@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 2ea75adfb7c2d990cfa543270f245113e15e4ee2
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: e1b4ca90cf7b4d8c5bdc23ea311a5a1feaada89c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389840"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741092"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gérer les appareils dans votre application Azure IoT Central
 
-Cet article explique comment gérer, en tant qu’opérateur, des appareils dans une application Azure IoT Central. En tant qu’opérateur, vous pouvez :
+Cet article explique la procédure de gestion des appareils dans votre application Azure IoT Central. Vous pouvez :
 
 - Utiliser la page **Appareils** pour visualiser, ajouter et supprimer des appareils connectés à votre application Azure IoT Central
 - Importer et exporter des appareils en bloc.

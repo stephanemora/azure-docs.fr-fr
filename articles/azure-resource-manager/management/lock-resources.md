@@ -2,14 +2,14 @@
 title: Verrouiller les ressources pour empêcher des modifications
 description: Empêchez les utilisateurs de mettre à jour ou de supprimer des ressources Azure en appliquant un verrou pour tous les utilisateurs et rôles.
 ms.topic: conceptual
-ms.date: 04/28/2021
+ms.date: 05/07/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 52e61dd1c84e0f5fa6267e687ab55ce386d5767b
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 5d8af2529039aa6e9435243249d7724d996b119d
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314802"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634794"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Verrouiller les ressources pour empêcher les modifications inattendues
 
@@ -17,40 +17,49 @@ En tant qu’administrateur, vous pouvez verrouiller un abonnement, une ressourc
 
 Vous pouvez définir le niveau de verrouillage sur **CanNotDelete** ou **ReadOnly**. Dans le portail, les verrous sont appelés **Supprimer** et **Lecture seule** respectivement.
 
-* **CanNotDelete** signifie que les utilisateurs autorisés peuvent lire et modifier une ressource, mais pas la supprimer.
-* **ReadOnly** signifie que les utilisateurs autorisés peuvent lire une ressource, mais pas la supprimer ni la mettre à jour. Appliquer ce verrou revient à limiter à tous les utilisateurs autorisés les autorisations accordées par le rôle **Lecteur**.
-
-## <a name="how-locks-are-applied"></a>Application des verrous
-
-Lorsque vous appliquez un verrou à une étendue parente, toutes les ressources de cette étendue héritent du même verrou. Même les ressources que vous ajoutez par la suite héritent du verrou du parent. Le verrou le plus restrictif de l’héritage est prioritaire.
+- **CanNotDelete** signifie que les utilisateurs autorisés peuvent lire et modifier une ressource, mais pas la supprimer.
+- **ReadOnly** signifie que les utilisateurs autorisés peuvent lire une ressource, mais pas la supprimer ni la mettre à jour. Appliquer ce verrou revient à limiter à tous les utilisateurs autorisés les autorisations accordées par le rôle **Lecteur**.
 
 Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles. Pour en savoir plus sur la définition des autorisations pour les utilisateurs et les rôles, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
-Les verrous Resource Manager s'appliquent uniquement aux opérations qui se produisent dans le plan de gestion, c'est-à-dire les opérations envoyées à `https://management.azure.com`. Les verrous ne limitent pas la manière dont les ressources exécutent leurs propres fonctions. Les modifications des ressources sont limitées, mais pas les opérations sur les ressources. Par exemple, un verrou ReadOnly placé sur un serveur logique SQL Database empêche la suppression et la modification du serveur. Il n’interdit pas de créer, de mettre à jour ni de supprimer des données dans les bases de données de ce serveur. Les transactions de données sont autorisées, car ces opérations ne sont pas envoyées à `https://management.azure.com`.
+## <a name="lock-inheritance"></a>Héritage de verrou
+
+Lorsque vous appliquez un verrou à une étendue parente, toutes les ressources de cette étendue héritent du même verrou. Même les ressources que vous ajoutez par la suite héritent du verrou du parent. Le verrou le plus restrictif de l’héritage est prioritaire.
+
+## <a name="understand-scope-of-locks"></a>Comprendre l’étendue des verrous
+
+> [!NOTE]
+> Il est important de comprendre que les verrous ne s’appliquent pas à tous les types d’opérations. Les opérations Azure peuvent être divisées en deux catégories : le plan de contrôle et le plan de données. **Les verrous s’appliquent uniquement aux opérations de plan de contrôle**.
+
+Les opérations de plan de contrôle sont des opérations envoyées à `https://management.azure.com`. Les opérations de plan de données sont des opérations envoyées à votre instance d’un service, par exemple `https://myaccount.blob.core.windows.net/`. Pour plus d’informations, consultez [Plan de contrôle et plan de données Azure](control-plane-and-data-plane.md). Pour découvrir quelles opérations utilisent l’URL du plan de contrôle, consultez [l’API REST Azure](/rest/api/azure/).
+
+Cette distinction signifie que les verrous empêchent les modifications d’une ressource, mais qu’ils ne restreignent pas la manière dont les ressources exécutent leurs propres fonctions.  Par exemple, un verrou ReadOnly placé sur un serveur logique SQL Database empêche la suppression et la modification du serveur. Il n’interdit pas de créer, de mettre à jour ni de supprimer des données dans les bases de données de ce serveur. Les transactions de données sont autorisées, car ces opérations ne sont pas envoyées à `https://management.azure.com`.
+
+D’autres exemples des différences entre les opérations du plan de contrôle et celles du plan de données sont décrits dans la section suivante.
 
 ## <a name="considerations-before-applying-locks"></a>Considérations avant l’application de verrous
 
 Si vous appliquez des verrous, il se peut que vous obteniez des résultats inattendus, car certaines opérations qui, en apparence, ne modifient pas la ressource nécessitent en réalité des actions qui sont bloquées par ce verrou. Les verrous empêchent toutes les opérations impliquant une demande POST à l’API Azure Resource Manager. Voici quelques exemples courants d’opérations bloquées par un verrou :
 
-* Un verrou en lecture seule appliqué à un **compte de stockage** empêche les utilisateurs de répertorier les clés du compte. L’opération Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) est gérée par le biais d’une requête POST pour protéger l’accès aux clés de compte, qui fournissent un accès complet aux données du compte de stockage. Lorsqu'un verrou en lecture seule est configuré pour un compte de stockage, les utilisateurs qui ne disposent pas des clés de compte doivent utiliser des informations d'identification Azure AD pour accéder aux données de blob ou de file d'attente. Un verrou en lecture seule empêche également l’attribution de rôles Azure RBAC étendus au compte de stockage ou à un conteneur de données (conteneur de blobs ou file d’attente).
+- Un verrou en lecture seule appliqué à un **compte de stockage** empêche les utilisateurs de répertorier les clés du compte. L’opération Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) est gérée par le biais d’une requête POST pour protéger l’accès aux clés de compte, qui fournissent un accès complet aux données du compte de stockage. Lorsqu'un verrou en lecture seule est configuré pour un compte de stockage, les utilisateurs qui ne disposent pas des clés de compte doivent utiliser des informations d'identification Azure AD pour accéder aux données de blob ou de file d'attente. Un verrou en lecture seule empêche également l’attribution de rôles Azure RBAC étendus au compte de stockage ou à un conteneur de données (conteneur de blobs ou file d’attente).
 
-* Un verrou cannot-delete (suppression impossible) sur un **compte de stockage** n'empêche pas la suppression ou la modification des données au sein de ce compte. Ce type de verrou empêche uniquement la suppression du compte de stockage lui-même, et ne protège pas les données de blob, de file d'attente, de table ou de fichier au sein de ce compte de stockage. 
+- Un verrou cannot-delete (suppression impossible) sur un **compte de stockage** n'empêche pas la suppression ou la modification des données au sein de ce compte. Ce type de verrou empêche uniquement la suppression du compte de stockage lui-même, et ne protège pas les données de blob, de file d'attente, de table ou de fichier au sein de ce compte de stockage.
 
-* Un verrou en lecture seule sur un **compte de stockage** n'empêche pas la suppression ou la modification des données au sein de ce compte. Ce type de verrou empêche uniquement la suppression ou la modification du compte de stockage lui-même, et ne protège pas les données de blob, de file d'attente, de table ou de fichier au sein de ce compte de stockage. 
+- Un verrou en lecture seule sur un **compte de stockage** n'empêche pas la suppression ou la modification des données au sein de ce compte. Ce type de verrou empêche uniquement la suppression ou la modification du compte de stockage lui-même, et ne protège pas les données de blob, de file d'attente, de table ou de fichier au sein de ce compte de stockage.
 
-* Un verrou en lecture seule sur une ressource **App Service** empêche l’Explorateur de serveurs Visual Studio d’afficher les fichiers de la ressource, car cette interaction requiert un accès en écriture.
+- Un verrou en lecture seule sur une ressource **App Service** empêche l’Explorateur de serveurs Visual Studio d’afficher les fichiers de la ressource, car cette interaction requiert un accès en écriture.
 
-* Un verrou en lecture seule sur un **groupe de ressources** qui contient un **plan App Service** empêche tout [scale-up ou scale-out du plan](../../app-service/manage-scale-up.md).
+- Un verrou en lecture seule sur un **groupe de ressources** qui contient un **plan App Service** empêche tout [scale-up ou scale-out du plan](../../app-service/manage-scale-up.md).
 
-* Un verrou en lecture seule appliqué à un **groupe de ressources** contenant une **machine virtuelle** empêche tous les utilisateurs de démarrer ou de redémarrer cette dernière. Ces opérations nécessitent une demande POST.
+- Un verrou en lecture seule appliqué à un **groupe de ressources** contenant une **machine virtuelle** empêche tous les utilisateurs de démarrer ou de redémarrer cette dernière. Ces opérations nécessitent une demande POST.
 
-* Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** empêche Azure Resource Manager de [supprimer automatiquement les déploiements](../templates/deployment-history-deletions.md) dans l’historique. Si vous atteignez 800 déploiements dans l’historique, vos déploiements échouent.
+- Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** empêche Azure Resource Manager de [supprimer automatiquement les déploiements](../templates/deployment-history-deletions.md) dans l’historique. Si vous atteignez 800 déploiements dans l’historique, vos déploiements échouent.
 
-* Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** créé par le **service Sauvegarde Azure**, fera échouer les sauvegardes. Le service prend en charge un maximum de 18 points de restauration. Lorsqu’il est verrouillé, le service de sauvegarde ne peut pas nettoyer les points de restauration. Pour plus d’informations, consultez le [Forum aux questions – Sauvegarde de machines virtuelles Azure](../../backup/backup-azure-vm-backup-faq.yml).
+- Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** créé par le **service Sauvegarde Azure**, fera échouer les sauvegardes. Le service prend en charge un maximum de 18 points de restauration. Lorsqu’il est verrouillé, le service de sauvegarde ne peut pas nettoyer les points de restauration. Pour plus d’informations, consultez le [Forum aux questions – Sauvegarde de machines virtuelles Azure](../../backup/backup-azure-vm-backup-faq.yml).
 
-* Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** empêche **Azure Machine Learning** d’effectuer la mise à l’échelle automatique des [clusters de calcul Azure Machine Learning](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed) pour supprimer les nœuds inutilisés.
+- Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** empêche **Azure Machine Learning** d’effectuer la mise à l’échelle automatique des [clusters de calcul Azure Machine Learning](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed) pour supprimer les nœuds inutilisés.
 
-* Un verrou en lecture seule sur un **abonnement** empêche **Azure Advisor** de fonctionner correctement. Advisor ne peut pas stocker les résultats de ses requêtes.
+- Un verrou en lecture seule sur un **abonnement** empêche **Azure Advisor** de fonctionner correctement. Advisor ne peut pas stocker les résultats de ses requêtes.
 
 ## <a name="who-can-create-or-delete-locks"></a>Utilisateurs autorisés à créer ou à supprimer des verrous
 
@@ -88,87 +97,142 @@ Quand vous utilisez un modèle Azure Resource Manager pour déployer un verrou, 
 
 Le modèle suivant applique un verrou au groupe de ressources sur lequel il est déployé. Notez qu’il n’existe pas de propriété d’étendue sur la ressource de verrou, car l’étendue du verrou correspond à celle du déploiement. Ce modèle est déployé au niveau du groupe de ressources.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {  
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Authorization/locks",
-            "apiVersion": "2016-09-01",
-            "name": "rgLock",
-            "properties": {
-                "level": "CanNotDelete",
-                "notes": "Resource Group should not be deleted."
-            }
-        }
-    ]
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/locks",
+      "apiVersion": "2016-09-01",
+      "name": "rgLock",
+      "properties": {
+        "level": "CanNotDelete",
+        "notes": "Resource group should not be deleted."
+      }
+    }
+  ]
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
+  name: 'rgLock'
+  properties: {
+    level: 'CanNotDelete'
+    notes: 'Resource group should not be deleted.'
+  }
+}
+```
+
+---
 
 Pour créer un groupe de ressources et le verrouiller, déployez le modèle suivant au niveau de l’abonnement.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "rgName": {
-            "type": "string"
-        },
-        "rgLocation": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "rgName": {
+      "type": "string"
     },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Resources/resourceGroups",
-            "apiVersion": "2019-10-01",
-            "name": "[parameters('rgName')]",
-            "location": "[parameters('rgLocation')]",
-            "properties": {}
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "lockDeployment",
-            "resourceGroup": "[parameters('rgName')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
-            ],
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "type": "Microsoft.Authorization/locks",
-                            "apiVersion": "2016-09-01",
-                            "name": "rgLock",
-                            "properties": {
-                                "level": "CanNotDelete",
-                                "notes": "Resource group and its resources should not be deleted."
-                            }
-                        }
-                    ],
-                    "outputs": {}
-                }
+    "rgLocation": {
+      "type": "string"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/resourceGroups",
+      "apiVersion": "2020-10-01",
+      "name": "[parameters('rgName')]",
+      "location": "[parameters('rgLocation')]",
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "lockDeployment",
+      "resourceGroup": "[parameters('rgName')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {},
+          "variables": {},
+          "resources": [
+            {
+              "type": "Microsoft.Authorization/locks",
+              "apiVersion": "2016-09-01",
+              "name": "rgLock",
+              "properties": {
+                "level": "CanNotDelete",
+                "notes": "Resource group and its resources should not be deleted."
+              }
             }
+          ],
+          "outputs": {}
         }
-    ],
-    "outputs": {}
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Le fichier Bicep principal crée un groupe de ressources et utilise un [module](../templates/bicep-modules.md) pour créer le verrou.
+
+```Bicep
+targetScope = 'subscription'
+
+param rgName string
+param rgLocation string
+
+resource createRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
+  name: rgName
+  location: rgLocation
+}
+
+module deployRgLock './lockRg.bicep' = {
+  name: 'lockDeployment'
+  scope: resourceGroup(createRg.name)
+}
+```
+
+Le module utilise un fichier Bicep nommé _lockRg.bicep_ qui ajoute le verrou du groupe de ressources.
+
+```bicep
+resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
+  name: 'rgLock'
+  properties: {
+    level: 'CanNotDelete'
+    notes: 'Resource group and its resources should not be deleted.'
+  }
+}
+```
+
+---
+
 Lorsque vous appliquez un verrou à une **ressource** au sein du groupe de ressources, ajoutez la propriété d’étendue. Définissez l’étendue sur le nom de la ressource à verrouiller.
 
-L’exemple suivant représente un modèle créant un verrou sur un compte de stockage.plan App Service et un verrou sur le site web. L’étendue du verrou est définie sur le site web.
+L’exemple suivant représente un modèle créant un plan App Service, un site web et un verrou sur le site web. L’étendue du verrou est définie sur le site web.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -179,8 +243,8 @@ L’exemple suivant représente un modèle créant un verrou sur un compte de st
       "type": "string"
     },
     "location": {
-        "type": "string",
-        "defaultValue": "[resourceGroup().location]"
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
     }
   },
   "variables": {
@@ -189,7 +253,7 @@ L’exemple suivant représente un modèle créant un verrou sur un compte de st
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-12-01",
       "name": "[parameters('hostingPlanName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -203,7 +267,7 @@ L’exemple suivant représente un modèle créant un verrou sur un compte de st
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-12-01",
       "name": "[variables('siteName')]",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -229,6 +293,47 @@ L’exemple suivant représente un modèle créant un verrou sur un compte de st
   ]
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```Bicep
+param hostingPlanName string
+param location string = resourceGroup().location
+
+var siteName = concat('ExampleSite', uniqueString(resourceGroup().id))
+
+resource serverFarm 'Microsoft.Web/serverfarms@2020-12-01' = {
+  name: hostingPlanName
+  location: location
+  sku: {
+    tier: 'Free'
+    name: 'f1'
+    capacity: 0
+  }
+  properties: {
+    targetWorkerCount: 1
+  }
+}
+
+resource webSite 'Microsoft.Web/sites@2020-12-01' = {
+  name: siteName
+  location: location
+  properties: {
+    serverFarmId: serverFarm.name
+  }
+}
+
+resource siteLock 'Microsoft.Authorization/locks@2016-09-01' = {
+  name: 'siteLock'
+  scope: webSite
+  properties:{
+    level: 'CanNotDelete'
+    notes: 'Site should not be deleted.'
+  }
+}
+```
+
+---
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -351,6 +456,6 @@ Dans la demande, incluez un objet JSON spécifiant les propriétés du verrou.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur l’organisation logique de vos ressources, consultez [Organisation des ressources à l’aide de balises](tag-resources.md).
-* Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Policy ?](../../governance/policy/overview.md).
-* Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption-guide/subscription-governance).
+- Pour en savoir plus sur l’organisation logique de vos ressources, consultez [Organisation des ressources à l’aide de balises](tag-resources.md).
+- Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Policy ?](../../governance/policy/overview.md).
+- Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption-guide/subscription-governance).

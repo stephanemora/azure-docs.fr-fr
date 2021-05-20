@@ -5,19 +5,19 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jobreen
-ms.openlocfilehash: 54d0df287865d5d92403bf68227a2d4c5faa8bb4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 49a2d242ef5cdb9304a9b94d29328c8379a05f46
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98200207"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755618"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>Créer un point de terminaison RESTful pour des fournisseurs personnalisés
 
 Un fournisseur personnalisé implique qu’un contrat soit passé entre Azure et un point de terminaison. Les fournisseurs personnalisés vous permettent de personnaliser des workflows dans Azure. Ce tutoriel montre comment créer un point de terminaison RESTful de fournisseur personnalisé. Si vous ne savez pas encore ce qu’est un fournisseur personnalisé Azure, consultez la [présentation des fournisseurs de ressources personnalisés](overview.md).
 
 > [!NOTE]
-> Ce tutoriel repose sur le tutoriel intitulé [Configurer des fonctions Azure pour des fournisseurs personnalisés Azure](./tutorial-custom-providers-function-setup.md). Certaines des étapes de ce tutoriel ne fonctionnent que si une application de fonction Azure a été configurée pour utiliser des fournisseurs personnalisés.
+> Ce tutoriel repose sur le tutoriel intitulé [Configurer des fonctions Azure pour des fournisseurs personnalisés Azure](./tutorial-custom-providers-function-setup.md). Certaines des étapes de ce tutoriel ne fonctionnent que si une application de fonction a été configurée dans Azure Functions pour utiliser des fournisseurs personnalisés.
 
 ## <a name="work-with-custom-actions-and-custom-resources"></a>Utiliser des actions et des ressources personnalisées
 
@@ -259,7 +259,7 @@ Une fois toutes les méthodes RESTful ajoutées à l’application de fonction, 
 
 ```csharp
 /// <summary>
-/// Entry point for the Azure function app webhook that acts as the service behind a custom provider.
+/// Entry point for the function app webhook that acts as the service behind a custom provider.
 /// </summary>
 /// <param name="requestMessage">The HTTP request message.</param>
 /// <param name="log">The logger.</param>

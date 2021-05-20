@@ -8,16 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 11bfe1fbb9b0ba7c38eb946918b04d1568d2d1da
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: d60c4ba78169bb137b8c63682b770c7148fe3f12
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108000995"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756734"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Charges utiles de télémétrie, de propriétés et de commandes
-
-_Cet article s’applique aux développeurs d’appareils._
 
 Un modèle d’appareil dans Azure IoT Central est un blueprint qui définit ce qui suit :
 
@@ -25,7 +23,7 @@ Un modèle d’appareil dans Azure IoT Central est un blueprint qui définit ce 
 * Les propriétés qu’un appareil synchronise avec IoT Central.
 * Les commandes qu’IoT Central appelle sur un appareil.
 
-Cet article décrit, pour les développeurs d’appareils, les charges utiles JSON que les appareils envoient et reçoivent pour les données de télémétrie, les propriétés et les commandes définies dans un modèle d’appareil.
+Cet article décrit les charges utiles JSON que les appareils envoient et reçoivent pour les données de télémétrie, les propriétés et les commandes définies dans un modèle d’appareil.
 
 L’article ne décrit pas tous les types possibles de charge utile de télémétrie, de propriété et de commande, mais les exemples illustrent tous les types de clés.
 
@@ -1136,4 +1134,4 @@ Si vous activez l’option **Mettre en file d’attente si hors connexion** dans
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En tant que développeur d’appareils, à présent que vous avez appris ce que sont les modèles d’appareils, nous vous suggérons de lire [Se connecter à Azure IoT Central](./concepts-get-connected.md) pour en savoir plus sur l’inscription des appareils auprès d’IoT Central et sur la manière dont IoT Central sécurise les connexions des appareils.
+Maintenant que vous avez appris ce que sont les modèles d’appareils, nous vous suggérons de lire [Se connecter à Azure IoT Central](./concepts-get-connected.md) pour en savoir plus sur l’inscription des appareils auprès d’IoT Central et sur la manière dont IoT Central sécurise les connexions des appareils.

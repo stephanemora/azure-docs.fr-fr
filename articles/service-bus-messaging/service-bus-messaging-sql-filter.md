@@ -2,13 +2,13 @@
 title: Syntaxe de filtre SQL pour les règles d’abonnement Azure Service Bus | Microsoft Docs
 description: Cet article fournit des détails sur la grammaire du filtre SQL. Un filtre SQL prend en charge un sous-ensemble de la norme SQL-92.
 ms.topic: article
-ms.date: 11/24/2020
-ms.openlocfilehash: 022f6cb1d698a10dc216db8d41c172691f7535ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/30/2021
+ms.openlocfilehash: 6b8190cf2a57b47fdce416fbe087fa8fa0485bda
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652939"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743234"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Syntaxe de filtre SQL pour les règles d’abonnement
 
@@ -50,7 +50,10 @@ Service Bus Premium prend également en charge la [syntaxe du sélecteur de mess
   
 ## <a name="arguments"></a>Arguments  
   
--   `<scope>` est une chaîne facultative qui indique la portée de `<property_name>`. Les valeurs valides sont `sys` ou `user`. La valeur `sys` indique la portée du système où `<property_name>` est un nom de propriété publique de la [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indique la portée de l’utilisateur où `<property_name>` est une clé du dictionnaire de la [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). L’étendue de l’objet `user` est l’étendue par défaut si `<scope>` n’est pas défini.  
+-   `<scope>` est une chaîne facultative qui indique la portée de `<property_name>`. Les valeurs valides sont `sys` ou `user`. 
+    - La valeur `sys` indique la portée du système où `<property_name>` est l’une des propriétés sur le message Service Bus comme décrit dans [Messages, charges utiles et sérialisation](service-bus-messages-payloads.md).
+    - La valeur `user` indique l’étendue de l’utilisateur où `<property_name>` est une clé des propriétés personnalisées que vous pouvez définir sur le message lors de l’envoi à Service Bus.
+    - L’étendue de l’objet `user` est l’étendue par défaut si `<scope>` n’est pas défini.  
   
 ## <a name="remarks"></a>Remarques
 
@@ -199,13 +202,13 @@ La fonction `property(name)` renvoie la valeur de la propriété référencée p
   
 ## <a name="considerations"></a>Considérations
   
-Tenez compte de la sémantique [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) suivante :  
+Tenez compte de la sémantique SqlFilter suivante :  
   
 -   Les noms de propriété respectent la casse.  
   
 -   Les opérateurs suivent autant que possible la sémantique de conversion implicite C#.  
   
--   Les propriétés système sont des propriétés publiques exposées dans les instances [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).  
+-   Les propriétés sont les propriétés sur le message Service Bus comme décrit dans [Messages, charges utiles et sérialisation](service-bus-messages-payloads.md).
   
     Examinez la sémantique `IS [NOT] NULL` suivante :  
   
@@ -213,7 +216,7 @@ Tenez compte de la sémantique [SqlFilter](/dotnet/api/microsoft.servicebus.mess
   
 ### <a name="property-evaluation-semantics"></a>Sémantique d’évaluation de la propriété  
   
-- Toute tentative pour évaluer une propriété de système qui n’existe pas lève une exception [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception).  
+- Toute tentative pour évaluer une propriété de système qui n’existe pas lève une exception `FilterException`.  
   
 - Une propriété qui n’existe pas est évaluée en interne comme **inconnue**.  
   

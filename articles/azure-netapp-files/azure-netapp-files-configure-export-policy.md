@@ -7,13 +7,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 07/27/2020
-ms.openlocfilehash: b71d3cc0636e5edeb78e1d88be1df2d2d61f239b
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 05/07/2021
+ms.openlocfilehash: 35bcff2615ab9b31f077a13c1cae7fbe38518575
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988457"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109628245"
 ---
 # <a name="configure-export-policy-for-nfs-or-dual-protocol-volumes"></a>Configurer la stratégie d’exportation pour les volumes NFS ou à deux protocoles
 
@@ -33,7 +33,7 @@ Vous pouvez créer jusqu’à cinq règles de stratégie d’exportation.
     * **Clients autorisés** : Spécifiez la valeur dans l’un des formats suivants :  
       * Adresse IPv4. Exemple : `10.1.12.24`
       * Adresse IPv4 avec un masque de sous-réseau exprimé sous la forme d’un nombre de bits. Exemple : `10.1.12.10/4`
-      * Adresses IP séparées par des virgules. Vous pouvez entrer plusieurs adresses IP hôtes dans une seule règle en les séparant par des virgules. Exemple : `10.1.12.25,10.1.12.28,10.1.12.29`
+      * Adresses IP séparées par des virgules. Vous pouvez entrer plusieurs adresses IP hôtes dans une seule règle en les séparant par des virgules. La longueur maximale est de 4096 caractères. Exemple : `10.1.12.25,10.1.12.28,10.1.12.29`
 
     * **Accès** : Sélectionnez l’un des types d’accès suivants :  
       * Aucun accès 

@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 580e5aab7b7ac1edcfee58345291afcb9eb0e977
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ca3a08cedacce23f9b3086a4bd6d8da98042d7c4
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103562159"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737243"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Gérer un appareil Azure Stack Edge Pro avec GPU via Windows PowerShell
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-La solution Azure Stack Edge Pro vous permet de traiter des données et de les envoyer à Azure via le réseau. Cet article décrit certaines des tâches de gestion et de configuration pour votre appareil Azure Stack Edge Pro. Vous pouvez utiliser le portail Azure, l'interface utilisateur locale ou l'interface Windows PowerShell pour gérer votre appareil.
+La solution GPU Azure Stack Edge Pro vous permet de traiter des données et de les envoyer à Azure via le réseau. Cet article décrit certaines des tâches de gestion et de configuration pour votre appareil GPU Azure Stack Edge Pro. Vous pouvez utiliser le portail Azure, l'interface utilisateur locale ou l'interface Windows PowerShell pour gérer votre appareil.
 
 Cet article se concentre sur la façon dont vous pouvez vous connecter à l’interface PowerShell de l’appareil et les tâches que vous pouvez effectuer à l’aide de cette interface. 
 
@@ -72,6 +72,64 @@ Un service multiprocessus (MPS) sur les GPU Nvidia fournit un mécanisme dans le
 
 [!INCLUDE [Enable MPS](../../includes/azure-stack-edge-gateway-enable-mps.md)]
 
+> [!NOTE]
+> Lors de la mise à jour du logiciel de l’appareil et du cluster Kubernetes, le paramètre MPS n’est pas conservé pour les charges de travail. Vous devez réactiver MPS.
+
+<!--## Enable compute on private network
+
+Use the `Add-HcsNetRoute` cmdlet to enable compute on a private network. This cmdlet lets you add custom routes on Kubernetes master and worker VMs. 
+#### Add new route configuration
+
+IP routing is the process of forwarding a packet based on the destination IP address. For the Kubernetes VMs on your device, you can route the traffic by adding a new route configuration.  
+
+A route configuration is a routing table entry that includes the following fields:
+
+| Parameter | Description  |
+|---------|---------|
+|Destination     | Either an IP address or an IP address prefix.         |
+|Prefix length     | The prefix length corresponding to the address or range of addresses in the destination.        |
+|Next hop     | The IP address to which the packet is forwarded.        |
+|Interface     | The network interface that forwards the IP packet.        |
+|Metric     |Routing metric determines the preferred network interface used to reach the destination.          |
+
+
+Consider the following information before you add these routes:
+
+- The Kubernetes network where you are adding this route is in a private network and not connected to the internet.
+- The device port on which the compute is enabled does not have a gateway configured.
+- If you have a flat subnet, then you don't need to add these routes to the private network. You can (optionally) add these routes when there are multiple subnets on your private network.
+- You can add these routes only to the Kubernetes master and worker VMs and not to the device (Windows host). 
+- The Kubernetes compute need not be configured before you add this route. You can also add or update routes after the Kubernetes compute is configured. You can only add a new route configuration via the PowerShell interface of the device and not through the local UI.
+- Make sure that the network interface that you'll use has a static configuration. 
+
+Consider an example where Port 1 and Port 2 on your device are connected to the internet. Ports 3 to Port 6 are on a private network and is the same network that has the Kubernetes master and worker VMs. None of the ports 3 to 6 have a default gateway configured. There are cameras that are connected to the private network. And the camera feed creates a traffic that flows between the camera and the network interfaces on the Kubernetes VMs. 
+
+To add a new custom route, use the cmdlet as follows:
+
+```powershell
+Add-HcsNetRoute -InterfaceAlias "Port3" -DestinationPrefix "192.168.21.0/24" -NextHop "192.168.20.1" -RouteMetric 100 
+```
+
+Here the compute is enabled on the Port 3 network interface on your device and a virtual switch is created. The above route defines a destination subnet 192.168.21.0/24 and specifies the next hop as 192.168.20.1. This routing configuration has a routing metric of 100. Lower the routing metric, higher the priority assigned to the route.
+ 
+
+#### Check route configuration for an interface 
+
+Use this cmdlet to check for all the custom route configurations that you added on your device. These routes do not include all the system routes or default routes that already exist on the device. 
+
+```powershell
+Get-HcsNetRoute -InterfaceAlias Port3
+```
+
+
+#### Remove a route configuration
+
+Use this cmdlet to remove a route configuration that you added on your device.
+
+```powershell
+Remove-HcsNetRoute -InterfaceAlias "Port3" -DestinationPrefix "192.168.21.0/24"
+```
+-->
 
 ## <a name="reset-your-device"></a>Réinitialisation de votre appareil
 
@@ -130,7 +188,7 @@ Avant de commencer, vous devez disposer des éléments suivants :
 - Réseau de calcul configuré. Consultez [Tutoriel : configurer le réseau pour Azure Stack Edge Pro avec GPU](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 - Rôle de calcul configuré sur votre appareil.
     
-Sur un appareil Azure Stack Edge Pro sur lequel le rôle de calcul est configuré, vous pouvez dépanner ou superviser l’appareil à l’aide de deux ensembles de commandes distincts.
+Sur un appareil GPU Azure Stack Edge Pro sur lequel le rôle de calcul est configuré, vous pouvez dépanner ou superviser l’appareil à l’aide de deux ensembles de commandes distincts.
 
 - À l’aide des commandes `iotedge`. Ces commandes sont disponibles pour les opérations de base pour votre appareil.
 - À l’aide des commandes `kubectl`. Ces commandes sont disponibles pour un ensemble complet d’opérations pour votre appareil.
@@ -242,7 +300,7 @@ Voici un exemple de sortie.
 
 ### <a name="use-kubectl-commands"></a>Utiliser des commandes kubectl
 
-Sur un appareil Azure Stack Edge Pro pour lequel le rôle de calcul est configuré, toutes les commandes `kubectl` sont disponibles pour surveiller ou dépanner les modules. Pour afficher la liste des commandes disponibles, exécutez `kubectl --help` à partir de la fenêtre Commande.
+Sur un appareil GPU Azure Stack Edge Pro sur lequel le rôle de calcul est configuré, toutes les commandes `kubectl` sont disponibles pour surveiller ou dépanner les modules. Pour afficher la liste des commandes disponibles, exécutez `kubectl --help` à partir de la fenêtre Commande.
 
 ```PowerShell
 C:\Users\myuser>kubectl --help
@@ -573,7 +631,7 @@ Le contrôleur de gestion de la carte de base (BMC) vous permet de surveiller et
     - Utilisez cette cmdlet pour configurer la configuration statique du contrôleur BMC. Vous pouvez spécifier les valeurs des éléments suivants : `IPv4Address`, `IPv4Gateway` et `IPv4SubnetMask`. 
     
         ```powershell
-        Set-HcsNetBmcInterface -IPv4Address "<IPv4 address of the device>" -IPv4Gateway "<IPv4 address of the gateway>" -IPv4SubnetMask "<IPv4 address for the subnet mask>"
+        Set-HcsNetBmcInterface -IPv4Address "<IPv4 address of the device>&quot; -IPv4Gateway &quot;<IPv4 address of the gateway>&quot; -IPv4SubnetMask &quot;<IPv4 address for the subnet mask>"
         ```        
         
         Voici un exemple de sortie : 
@@ -602,4 +660,4 @@ Pour quitter la session PowerShell à distance, fermez la fenêtre PowerShell.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Déployer [Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md) sur le portail Azure.
+- Déployer [GPU Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md) dans le portail Azure.

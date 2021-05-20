@@ -2,13 +2,13 @@
 title: Classeur avec les temps d’arrêt, les contrats SLA et les interruptions - Application Insights
 description: Calculez et indiquez le SLA pour les tests web via un seul et même volet pour vos ressources Application Insights et vos abonnements Azure.
 ms.topic: conceptual
-ms.date: 02/8/2021
-ms.openlocfilehash: d225627a27bffd9088956e5aee37ca543e528d4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/4/2021
+ms.openlocfilehash: 4063cd28111dd0ea3c3d0cabe44f884f6605c063
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714049"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750529"
 ---
 # <a name="downtime-sla-and-outages-workbook"></a>Classeur avec les temps d’arrêt, les contrats SLA et les interruptions
 
@@ -23,15 +23,15 @@ Le modèle de classeur SLA est accessible via la Galerie de classeurs de votre r
 
 Les paramètres définis dans le classeur influencent le reste de votre rapport.
 
-:::image type="content" source="./media/sla-report/outages.png" alt-text=" Capture d’écran de l’onglet des paramètres d’interruption/maintenance dans le classeur des temps d’arrêt et des interruptions." lightbox ="./media/sla-report/outages.png":::
+:::image type="content" source="./media/sla-report/parameters.png" alt-text=" Capture d’écran des paramètres." lightbox= "./media/sla-report/parameters.png":::
 
-Les paramètres `Subscriptions`, `App Insights Resources` et `Web Test` déterminent vos options générales pour les ressources. Ces paramètres sont basés sur des requêtes Log Analytics et sont utilisés dans chaque requête des rapports.
+Les paramètres `Subscriptions`, `App Insights Resources`et `Web Test` déterminent vos options pour les ressources de haut niveau. Ces paramètres sont basés sur des requêtes Log Analytics et sont utilisés dans chaque requête des rapports.
 
-`Failure Threshold` et `Outage Window` vous permettent de déterminer vos propres critères pour une interruption de service, par exemple les critères de l’alerte de disponibilité d’Application Insights en fonction du nombre d’emplacements en échec sur une période choisie. Le seuil standard est de trois emplacements dans une fenêtre de cinq minutes.
+`Failure Threshold` et `Outage Window` vous permettent de déterminer vos propres critères pour une interruption de service, par exemple les critères de l’alerte de disponibilité d’Application Insights en fonction du nombre d’emplacements en échec sur une période choisie. Le seuil standard est de trois emplacements dans une fenêtre de cinq minutes.
 
-`Maintenance Period` vous permet de sélectionner la fréquence de maintenance standard, et `Maintenance Window` est un sélecteur de date/heure pour un exemple de période de maintenance. Toutes les données qui sont générées au cours de la période identifiée seront ignorées dans vos résultats.
+`Maintenance Period` vous permet de sélectionner la fréquence de maintenance standard, et `Maintenance Window` est un sélecteur de date/heure pour un exemple de période de maintenance. Toutes les données qui sont générées au cours de la période identifiée seront ignorées dans vos résultats.
 
-`Availability Target 9s` spécifie votre objectif de 9s cibles, de deux 9s à cinq 9s.
+`Availability Target %` spécifie vos objectifs cibles et prend des valeurs personnalisées.
 
 ## <a name="overview-page"></a>Page Vue d’ensemble
 
