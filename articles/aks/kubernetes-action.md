@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/06/2020
 ms.author: atulmal
 ms.custom: github-actions-azure
-ms.openlocfilehash: 3d0b6030cc63d0d7f4eac2c72c3545cf315b1fd3
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 2539591b7c425750263653d137f904758982ca62
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832383"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751884"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub Actions pour un déploiement sur le service Kubernetes
 
@@ -98,14 +98,14 @@ jobs:
     steps:
     - uses: actions/checkout@main
     
-    # Connect to Azure Container registry (ACR)
+    # Connect to Azure Container Registry (ACR)
     - uses: azure/docker-login@v1
       with:
         login-server: ${{ env.REGISTRY_NAME }}.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }} 
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
-    # Container build and push to a Azure Container registry (ACR)
+    # Container build and push to a Azure Container Registry (ACR)
     - run: |
         docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
         docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
@@ -124,6 +124,8 @@ Pour déployer une image conteneur sur AKS, vous devez utiliser l’action `Azur
 | **imagepullsecrets** | (Facultatif) Nom d’un secret du registre Docker déjà configuré dans le cluster. Chaque nom de secret est ajouté sous le champ imagePullSecrets pour les charges de travail trouvées dans les fichiers manifestes d’entrée. |
 | **kubectl-version** | (Facultatif) Installe une version spécifique du fichier binaire kubectl. |
 
+> [!NOTE]
+> Vous devez créer manuellement les fichiers manifeste. Actuellement, il n’existe pas d’outils qui permettent de générer de tels fichiers de manière automatisée. Pour plus d’informations, consultez [cet exemple de référentiel contenant des exemples de fichiers manifeste](https://github.com/MicrosoftDocs/mslearn-aks-deploy-container-app/tree/master/kubernetes).
 
 Avant de pouvoir déployer sur AKS, vous devez définir l’espace de noms Kubernetes cible et créer un secret d’extraction (pull) d’image. Pour en savoir plus sur le fonctionnement de l’extraction (pull) d’images, consultez [Extraire des images depuis un registre de conteneurs Azure vers un cluster Kubernetes](../container-registry/container-registry-auth-kubernetes.md). 
 
@@ -165,14 +167,14 @@ jobs:
     steps:
     - uses: actions/checkout@main
     
-    # Connect to Azure Container registry (ACR)
+    # Connect to Azure Container Registry (ACR)
     - uses: azure/docker-login@v1
       with:
         login-server: ${{ env.REGISTRY_NAME }}.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }} 
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
-    # Container build and push to a Azure Container registry (ACR)
+    # Container build and push to a Azure Container Registry (ACR)
     - run: |
         docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
         docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
@@ -219,6 +221,9 @@ Quand votre registre de conteneurs, référentiel et cluster Kubernetes ne sont 
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-start-here)
+
+> [!div class="nextstepaction"]
+> [Découvrir comment créer plusieurs pipelines sur GitHub Actions avec AKS](https://docs.microsoft.com/learn/modules/aks-deployment-pipeline-github-actions)
 
 ### <a name="more-kubernetes-github-actions"></a>Autres Kubernetes GitHub Actions
 

@@ -5,15 +5,15 @@ services: automation
 author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 02/08/2021
+ms.date: 05/04/2021
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 3ee44509997a16fc7f06fd5a24e473d7011bde40
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1949fe7e795d7f671462f8c2a78204690dfa0595
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99974425"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108807452"
 ---
 #### <a name="process-automation"></a>Automatisation de processus
 
@@ -49,6 +49,7 @@ Le tableau suivant montre les limites des éléments suivis par machine pour Cha
 | **Ressource** | **Limite**| **Remarques** |
 |---|---|---|
 |Fichier|500||
+|Taille du fichier|5 Mo||
 |Registre|250||
 |Logiciels Windows|250|N’inclut pas les mises à jour logicielles.|
 |Packages Linux|1250||
@@ -62,3 +63,4 @@ Le tableau suivant indique les limites d’Update Management.
 | **Ressource** | **Limite**| **Remarques** |
 |---|---|---|
 |Nombre de machines par déploiement de mises à jour|1 000||
+|Nombre de groupes dynamiques par déploiement de mise à jour |500 ||

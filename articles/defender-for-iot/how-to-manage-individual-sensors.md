@@ -3,12 +3,12 @@ title: Gérer des capteurs individuels
 description: Découvrez comment gérer des capteurs individuels, y compris comment gérer les fichiers d’activation, exécuter des sauvegardes et mettre à jour un capteur autonome.
 ms.date: 02/02/2021
 ms.topic: how-to
-ms.openlocfilehash: df1d1dd6ca2085fb3ab12c104723c63e32249403
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8dd46552216e166fcfbf4126b1854681911225fb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781957"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734888"
 ---
 # <a name="manage-individual-sensors"></a>Gérer des capteurs individuels
 
@@ -520,9 +520,9 @@ La procédure suivante décrit comment mettre à jour un capteur autonome à l�
 
 5. Dans la barre latérale de la console du capteur, sélectionnez **Paramètres système**.
 
-6. Dans le volet **Mise à niveau de la version**, sélectionnez **Mettre à niveau**.
+6. Dans le volet **Mise à jour de la version**, sélectionnez **Mettre à jour**.
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Capture d’écran du volet de mise à niveau.":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Capture d'écran du volet de mise à jour.":::
 
 7. Sélectionnez le fichier que vous avez téléchargé à partir de la page **Mises à jour** de Defender pour IoT.
 

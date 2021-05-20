@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: ce2bf657b54ae824410fe4607e1c37bdfd84ac54
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 49969f4f404670961cf0ba35765c149fee134d62
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205878"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802663"
 ---
 # <a name="vpn-gateway-design"></a>Conception de la passerelle VPN
 
@@ -80,7 +80,7 @@ ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft 
 
 Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Elles offrent ainsi de meilleurs niveaux de fiabilité, de rapidité, de latence et de sécurité que les connexions classiques sur Internet.
 
-Une connexion ExpressRoute utilise une passerelle de réseau virtuel dans le cadre de sa configuration requise. Dans une connexion ExpressRoute, la passerelle de réseau virtuel est configurée avec le type de passerelle « ExpressRoute » plutôt que « Vpn ». Alors que le trafic qui transite sur un circuit ExpressRoute n’est pas chiffré par défaut, il est possible de créer une solution qui vous permet d’envoyer le trafic chiffré sur un circuit ExpressRoute. Pour plus d’informations sur ExpressRoute, consultez [Présentation technique d’ExpressRoute](../expressroute/expressroute-introduction.md).
+Une connexion ExpressRoute utilise une passerelle de réseau virtuel dans le cadre de sa configuration requise. Dans une connexion ExpressRoute, la passerelle de réseau virtuel est configurée avec le type de passerelle « ExpressRoute » plutôt que « Vpn ». Alors que le trafic qui transite sur un circuit ExpressRoute n'est pas chiffré par défaut, il est possible de créer une solution qui vous permet d'envoyer le trafic chiffré sur un circuit ExpressRoute. Pour plus d’informations sur ExpressRoute, consultez [Présentation technique d’ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## <a name="site-to-site-and-expressroute-coexisting-connections"></a><a name="coexisting"></a>Coexistence de connexions ExpressRoute et de site à site
 

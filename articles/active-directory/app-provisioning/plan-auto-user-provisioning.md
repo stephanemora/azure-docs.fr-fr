@@ -1,24 +1,24 @@
 ---
 title: Planifier un déploiement d’attribution automatique d’utilisateurs pour Azure Active Directory
-description: Conseils relatifs à la planification et à l’exécution de l’attribution automatique d’utilisateurs
+description: Conseils relatifs à la planification et à l’exécution de l’attribution automatique d’utilisateurs dans Azure Active Directory
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/31/2020
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: arvindha, celested
-ms.openlocfilehash: f29bf3fc347fa453dd2d7ebd1f10b3f0e07fac10
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.reviewer: arvinh
+ms.openlocfilehash: a8b2378949e0ead4d05651fc28919aceecd4c542
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059290"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785022"
 ---
-# <a name="plan-an-automatic-user-provisioning-deployment"></a>Planifier un déploiement d’attribution automatique d’utilisateurs
+# <a name="plan-an-automatic-user-provisioning-deployment-in-azure-active-directory"></a>Planifier un déploiement d’attribution automatique d’utilisateurs dans Azure Active Directory
 
 De nombreuses organisations s’appuient sur des applications SaaS, comme ServiceNow, Zscaler et Slack, pour accroître la productivité des utilisateurs finals. Historiquement, le personnel informatique comptait sur des méthodes de provisionnement manuelles, comme le chargement de fichiers CSV ou l’utilisation de scripts personnalisés, pour gérer de façon sécurisée les identités utilisateur dans chaque application SaaS. Ces processus sont sujets aux erreurs ; ils sont non sécurisés et difficiles à gérer.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 96c67327a8272a02e677cc40b46c3177e470b684
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 5efc74ec150dcd18181404d93dc2142552a2c792
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106125961"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108807450"
 ---
 Azure Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. Pour augmenter les limites jusqu'à la limite maximale pour votre abonnement, contactez le support.
 
@@ -21,7 +21,7 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 
 | Ressource | Limite par défaut | Limite maximale |
 | -------- | ------------- | ------------- |
-| Fabriques de données d’un abonnement Azure | 800 | 800 |
+| Fabriques de données par groupe de ressources | 800 | 800 |
 | Nombre total d’entités, telles que les pipelines, les jeux de données, les déclencheurs, les services liés, les points de terminaison privés et les runtimes d’intégration, dans une fabrique de données | 5 000 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Nombre total de cœurs d’UC pour les runtimes d’intégration Azure-SSIS d’un même abonnement | 256 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Exécutions de pipeline simultanés par fabrique de données qui sont partagées entre tous les pipelines de l’usine | 10 000  | 10 000 |

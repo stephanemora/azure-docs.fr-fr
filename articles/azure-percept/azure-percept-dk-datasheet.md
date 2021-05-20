@@ -1,17 +1,17 @@
 ---
 title: Fiche technique du DK Azure Percept
 description: Consulter la fiche technique du DK Azure Percept pour le détail des spécifications
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: 0c9f848827db452710b4bca355aae0db99a2c95c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a8e06e99730388a25f4d00b016f90cd74c336fbe
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027361"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742442"
 ---
 # <a name="azure-percept-dk-datasheet"></a>Fiche technique du DK Azure Percept
 
@@ -33,8 +33,8 @@ ms.locfileid: "105027361"
 |Stockage                         |16 Go     |
 |Mémoire                          |4 Go     |
 |Ports                           |1 port Ethernet <br> 2 ports USB-A 3.0 <br> 1 port USB-C     |
-|Température de fonctionnement           |0 à 35 °C     |
-|Température hors fonctionnement       |-40 à 85 °C     |
+|Température de fonctionnement           |0 à 35 degrés C     |
+|Température hors fonctionnement       |-40 à 85 degrés C     |
 |Humidité relative               |10 à 95 %    |
 |Certification                   |FCC <br> IC <br> RoHS <br> REACH <br> UL   |
-|Alimentation                    |19 V CC à 3,42 A (65 W) |
+|Alimentation                    |19 V CC à 3,42 A (65 W) |

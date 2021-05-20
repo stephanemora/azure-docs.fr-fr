@@ -5,18 +5,18 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 05/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 62de5eff098c467f048ae33cd38e7c730af863bc
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 1913b6cf14aaf31d610adcf446dbe91326e02ff1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108174611"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742910"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Ajouter un connecteur d’API à un workflow d’utilisateur d’inscription
 
@@ -24,7 +24,7 @@ En tant que développeur ou administrateur informatique, vous pouvez utiliser de
 
 ::: zone pivot="b2c-user-flow"
 
-Dans ce scénario, l’API REST valide si le domaine de l’adresse e-mail est fabrikam.com ou fabricam.com. Le poste fourni par l’utilisateur est supérieur à cinq caractères. 
+Dans ce scénario, l’API REST valide si le domaine de l’adresse e-mail est fabrikam.com ou fabricam.com. Le nom d’affichage fourni par l’utilisateur est supérieur à cinq caractères. Le poste est ensuite retourné avec une valeur statique. 
 
 > [!IMPORTANT]
 > Les connecteurs d’API pour l’inscription sont une fonctionnalité en préversion publique d’Azure AD B2C. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

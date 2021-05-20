@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 089d7d7990f0f94135f629a5cd7a461700aa3433
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: d8f4f98f666bcf2fd703e2f9484c0ed122550e33
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830769"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739922"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Créer une application web avec un cache Azure pour Redis à l’aide d’un modèle
 
@@ -81,7 +81,7 @@ Le modèle crée le cache au même emplacement que le groupe de ressources.
 ```
 
 
-### <a name="web-app"></a>Application web
+### <a name="web-app-azure-cache-for-redis"></a>Application web (Azure Cache pour Redis)
 Crée l’application web avec le nom spécifié dans la variable **webSiteName** .
 
 Notez que l’application web est configurée selon des paramètres qui lui permettent d’utiliser le cache Azure pour Redis. Ces paramètres sont créés de façon dynamique en fonction des valeurs fournies lors du déploiement.
@@ -93,8 +93,7 @@ Notez que l’application web est configurée selon des paramètres qui lui perm
   "type": "Microsoft.Web/sites",
   "location": "[resourceGroup().location]",
   "dependsOn": [
-    "[concat('Microsoft.Web/serverFarms/', variables('hostingPlanName'))]",
-    "[concat('Microsoft.Cache/Redis/', variables('cacheName'))]"
+    "[concat('Microsoft.Web/serverFarms/', variables('hostingPlanName'))]"
   ],
   "tags": {
     "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]": "empty",
@@ -114,7 +113,45 @@ Notez que l’application web est configurée selon des paramètres qui lui perm
         "[concat('Microsoft.Cache/Redis/', variables('cacheName'))]"
       ],
       "properties": {
-       "CacheConnection": "[concat(variables('cacheName'),'.redis.cache.windows.net,abortConnect=false,ssl=true,password=', listKeys(resourceId('Microsoft.Cache/Redis', variables('cacheName')), '2015-08-01').primaryKey)]"
+       "CacheConnection": "[concat(variables('cacheHostName'),'.redis.cache.windows.net,abortConnect=false,ssl=true,password=', listKeys(resourceId('Microsoft.Cache/Redis', variables('cacheName')), '2015-08-01').primaryKey)]"
+      }
+    }
+  ]
+}
+```
+
+
+### <a name="web-app-redisenterprise"></a>Application web (RedisEnterprise)
+Pour RedisEnterprise, étant donné que les types de ressources sont légèrement différents, la manière de créer des **listKeys** est différente :
+
+```json
+{
+  "apiVersion": "2015-08-01",
+  "name": "[variables('webSiteName')]",
+  "type": "Microsoft.Web/sites",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.Web/serverFarms/', variables('hostingPlanName'))]"
+  ],
+  "tags": {
+    "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]": "empty",
+    "displayName": "Website"
+  },
+  "properties": {
+    "name": "[variables('webSiteName')]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2015-08-01",
+      "type": "config",
+      "name": "appsettings",
+      "dependsOn": [
+        "[concat('Microsoft.Web/Sites/', variables('webSiteName'))]",
+        "[concat('Microsoft.Cache/RedisEnterprise/databases/', variables('cacheName'), "/default")]",
+      ],
+      "properties": {
+       "CacheConnection": "[concat(variables('cacheHostName'),abortConnect=false,ssl=true,password=', listKeys(resourceId('Microsoft.Cache/RedisEnterprise', variables('cacheName'), 'default'), '2020-03-01').primaryKey)]"
       }
     }
   ]

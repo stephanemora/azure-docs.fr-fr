@@ -9,12 +9,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
 adobe-target: true
-ms.openlocfilehash: 48c4b2a73628ab2105e23054d747e28acc105d01
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: ca53c42c5c80a86e50db5ac52e6efee75c17cd8e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103563184"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770638"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Qu’est-ce que le studio Azure Machine Learning ?
 
@@ -105,8 +105,10 @@ Voici quelques-uns des avantages que vous tirerez du passage à Azure Machine Le
 
 Visitez le [studio](https://ml.azure.com), ou explorez les différentes options de création avec ces tutoriels :  
 
-- + [Bien démarrer avec votre propre environnement de développement](tutorial-1st-experiment-sdk-setup-local.md)
-  + [Utiliser des notebooks Jupyter sur une instance de calcul pour entraîner et déployer des modèles](tutorial-1st-experiment-sdk-setup.md)
+Commencez par [Démarrage rapide : Bien démarrer avec Azure Machine Learning](quickstart-create-resources.md).  Utilisez ensuite ces ressources pour créer votre première expérience avec votre méthode favorite :
+
+  + [Exécuter un script Python « Hello World! » (partie 1 sur 3)](tutorial-1st-experiment-hello-world.md)
+  + [Utiliser un notebook Jupyter pour entraîner des modèles de classification d’images](tutorial-train-models-with-aml.md)
   + [Utiliser le Machine Learning automatisé pour entraîner et déployer des modèles](tutorial-first-experiment-automated-ml.md)  
   + [Utiliser le concepteur pour entraîner et déployer des modèles](tutorial-designer-automobile-price-train-score.md)
   + [Utiliser le studio dans un réseau virtuel sécurisé](how-to-enable-studio-virtual-network.md)

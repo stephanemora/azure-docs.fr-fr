@@ -5,15 +5,15 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 04/22/2020
+ms.date: 04/29/2021
 ms.author: cephalin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 8f18b31b7e3618d4a39923792dc743c9a6782295
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 88576f786ce2d55f97e616592fa7baafe72f1260
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107893190"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754508"
 ---
 Créer une [application web](../articles/app-service/overview.md#app-service-on-linux) dans le plan App Service `myAppServicePlan`. 
 
@@ -29,7 +29,7 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
 Une fois l’application web créée, Azure CLI affiche une sortie similaire à l’exemple suivant :
 
 <pre>
-Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git'
+Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -37,14 +37,14 @@ Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebs
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
 </pre>
 
-Vous avez créé une application web vide dans un conteneur Linux avec le déploiement Git activé.
+Vous avez créé une application web vide dans un conteneur Linux avec activation du déploiement Git.
 
 > [!NOTE]
 > L’URL du Git distant est indiquée dans la propriété `deploymentLocalGitUrl`, avec le format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Enregistrez cette URL, car vous en aurez besoin ultérieurement.

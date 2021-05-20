@@ -3,12 +3,12 @@ title: Protégez vos machines virtuelles Azure VMware Solution avec l’intégra
 description: Protégez vos machines virtuelles Azure VMware Solution avec les outils de sécurité natifs d’Azure à partir du tableau de bord Azure Security Center.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: d04f0ac3e3934442ce5b6d5fbf4b53e18b3dff18
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 3012da2f9d5254b581a4ce53ef51503dfb048e98
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107877513"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769522"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Protégez vos machines virtuelles Azure VMware Solution avec l’intégration Azure Security Center
 
@@ -24,7 +24,7 @@ Voici un résumé rapide des services Azure natifs :
 
 ## <a name="topology"></a>Topologie
 
-![Diagramme illustrant l’architecture de la sécurité intégrée d’Azure.](media/azure-security-integration/azure-integrated-security-architecture.png)
+:::image type="content" source="media/azure-security-integration/azure-integrated-security-architecture.png" alt-text="Diagramme de l’architecture de la sécurité intégrée Azure." border="false":::
 
 L’agent Log Analytics active la collecte de données de journal à partir d’Azure, d’Azure VMware Solution et de machines virtuelles locales. Les données de journal sont envoyées aux journaux Azure Monitor et stockées dans un espace de travail Log Analytics. Vous pouvez déployer l’agent Log Analytics à l’aide de serveurs compatibles avec Arc [prenant en charge les extensions de machine virtuelle](../azure-arc/servers/manage-vm-extensions.md) pour les machines virtuelles nouvelles et existantes. 
 
@@ -72,11 +72,11 @@ Azure Defender étend la protection avancée contre les menaces d’Azure Securi
 
 2. Sous Ressources, sélectionnez **Serveurs**, puis **+Ajouter**.
 
-    :::image type="content" source="media/azure-security-integration/add-server-to-azure-arc.png" alt-text="Capture d’écran montrant la page des serveurs Azure Arc pour l’ajout d’une machine virtuelle Azure VMware Solution à Azure.":::
+   :::image type="content" source="media/azure-security-integration/add-server-to-azure-arc.png" alt-text="Capture d’écran montrant la page des serveurs Azure Arc pour l’ajout d’une machine virtuelle Azure VMware Solution à Azure.":::
 
 3. Sélectionnez **Générer un script**.
  
-    :::image type="content" source="media/azure-security-integration/add-server-using-script.png" alt-text="Capture d’écran de la page Azure Arc montrant l’option d’ajout d’un serveur à l’aide d’un script interactif."::: 
+   :::image type="content" source="media/azure-security-integration/add-server-using-script.png" alt-text="Capture d’écran de la page Azure Arc montrant l’option d’ajout d’un serveur à l’aide d’un script interactif."::: 
  
 4. Sous l’onglet **Configuration requise**, sélectionnez **Suivant**.
 
@@ -101,13 +101,13 @@ Azure Defender étend la protection avancée contre les menaces d’Azure Securi
 
 2. Pour Type de ressource, sélectionnez **Serveurs - Azure Arc**.
  
-     :::image type="content" source="media/azure-security-integration/select-resource-in-security-center.png" alt-text="Capture d’écran de la page Stock d’Azure Security Center montrant l’option Serveurs - Azure Arc sélectionnée sous Type de ressource.":::
+   :::image type="content" source="media/azure-security-integration/select-resource-in-security-center.png" alt-text="Capture d’écran de la page Stock d’Azure Security Center montrant l’option Serveurs - Azure Arc sélectionnée sous Type de ressource.":::
 
 3. Sélectionnez le nom de votre ressource. Une page s’ouvre et affiche les détails de l’intégrité de la sécurité de votre ressource.
 
 4. Sous **Liste de suggestions**, sélectionnez les onglets **Suggestions**, **Évaluations réussies** et **Évaluations non disponibles** pour afficher ces détails.
 
-    :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Capture d’écran d’Azure Security Center montrant des suggestions de sécurité et les évaluations.":::
+   :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Capture d’écran d’Azure Security Center montrant des suggestions de sécurité et les évaluations.":::
 
 ## <a name="deploy-an-azure-sentinel-workspace"></a>Déployer un espace de travail Azure Sentinel
 
@@ -244,4 +244,4 @@ Maintenant que vous avez abordé les méthodes de protection de vos machines vir
 
 - Utilisation du [tableau de bord Azure Defender](../security-center/azure-defender-dashboard.md)
 - [Détection avancée des attaques multiphases dans Azure Sentinel](../azure-monitor/logs/quick-create-workspace.md)
-- [Gestion du cycle de vie des machines virtuelles du service Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)
+- [Surveiller et gérer des machines virtuelles Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)

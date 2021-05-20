@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 01/25/2021
-ms.openlocfilehash: 3442e3003ef8a299beb88cd212602c8713915474
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 1e0015887482023097cfb98ff244c3b53c808a85
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107499952"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685834"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Architecture de connectivité Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -44,7 +44,7 @@ Les étapes suivantes expliquent comment une connexion est établie avec Azure S
 Les serveurs dans SQL Database et Azure Synapse prennent en charge les trois options suivantes pour la configuration de la stratégie de connexion du serveur :
 
 - **Redirection (recommandée) :** Les clients établissent des connexions directement au nœud qui héberge la base de données, ce qui permet de réduire la latence et d’améliorer le débit. Pour que les connexions utilisent ce mode, les clients doivent :
-  - Autoriser les communications sortantes à partir du client vers toutes les adresses IP Azure SQL de la région sur les ports de la plage comprise entre 11000 et 11999. Utilisez les balises de service pour SQL afin de faciliter la gestion.  
+  - Autoriser les communications sortantes du client vers toutes les adresses IP Azure SQL de la région sur les ports de la plage comprise entre 11000 et 11999. Utilisez les balises de service pour SQL afin de faciliter la gestion.  
   - Autoriser les communications sortantes à partir du client vers les adresses IP de la passerelle Azure SQL Database sur le port 1433.
 
 - **Proxy :** Dans ce mode, toutes les connexions sont traitées par proxy via les passerelles Azure SQL Database, ce qui permet d’augmenter la latence et de réduire le débit. Pour que les connexions utilisent ce mode, les clients doivent autoriser les communications sortantes à partir du client vers les adresses IP de la passerelle Azure SQL Database sur le port 1433.
@@ -99,9 +99,9 @@ L’article suivant décrit comment migrer le trafic vers de nouvelles passerell
 | Inde Centre        | 104.211.96.159, 104.211.86.30, 104.211.86.31 |
 | Sud de l’Inde          | 104.211.224.146    |
 | Inde Ouest           | 104.211.160.80, 104.211.144.4 |
-| Japon Est           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 40.79.192.5 |
+| Japon Est           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 40.79.192.5, 13.78.104.32 |
 | OuJapon Est           | 104.214.148.156, 40.74.100.192, 40.74.97.10 |
-| Centre de la Corée        | 52.231.32.42, 52.231.17.22, 52.231.17.23 |
+| Centre de la Corée        | 52.231.32.42, 52.231.17.22, 52.231.17.23, 20.44.24.32, 20.194.64.33 |
 | Corée du Sud          | 52.231.200.86, 52.231.151.96 |
 | Centre-Nord des États-Unis     | 23.96.178.199, 23.98.55.75, 52.162.104.33, 52.162.105.9 |
 | Europe Nord         | 40.113.93.91, 52.138.224.1, 13.74.104.113 |
@@ -116,7 +116,7 @@ L’article suivant décrit comment migrer le trafic vers de nouvelles passerell
 | Émirats arabes unis Centre          | 20.37.72.64        |
 | Émirats arabes unis Nord            | 65.52.248.0        |
 | Sud du Royaume-Uni             | 51.140.184.11, 51.105.64.0, 51.140.144.36, 51.105.72.32 |
-| Ouest du Royaume-Uni              | 51.141.8.11        |
+| Ouest du Royaume-Uni              | 51.141.8.11, 51.140.208.96, 51.140.208.97 |
 | Centre-USA Ouest      | 13.78.145.25, 13.78.248.43, 13.71.193.32, 13.71.193.33 |
 | Europe Ouest          | 40.68.37.158, 104.40.168.105, 52.236.184.163  |
 | USA Ouest              | 104.42.238.205, 13.86.216.196   |

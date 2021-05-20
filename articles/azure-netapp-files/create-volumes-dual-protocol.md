@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 05/05/2021
 ms.author: b-juche
-ms.openlocfilehash: b195b1a816576ec8a065ebe83bd02fa3aeb53c5a
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 9efa376acd29758e6bb71930b5a6382e484fd3d7
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161390"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795111"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Créer un volume double protocole (NFSv3 et SMB) pour Azure NetApp Files
 
@@ -115,7 +115,7 @@ Pour créer des volumes NFS, voir [Créer un volume NFS](azure-netapp-files-crea
 
         Cette fonctionnalité active le chiffrement pour les données SMB3 à la volée uniquement. Elle ne chiffre pas les données NFSv3 à la volée. Les clients SMB qui n’utilisent pas le chiffrement SMB3 ne seront pas en mesure d’accéder à ce volume. Les données au repos sont chiffrées, indépendamment de ce paramètre. Pour plus d’informations, consultez le [Forum aux questions sur le chiffrement SMB](azure-netapp-files-faqs.md#smb-encryption-faqs). 
 
-        La fonctionnalité de **Chiffrement de protocole SMB3** est actuellement en préversion. Si vous utilisez cette fonctionnalité pour la première fois, inscrivez-la avant de l’utiliser : 
+        La fonctionnalité **Chiffrement de protocole SMB3** est actuellement en préversion. Si vous utilisez cette fonctionnalité pour la première fois, inscrivez-la avant de l’utiliser : 
 
         ```azurepowershell-interactive
         Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
@@ -172,5 +172,6 @@ Suivez les instructions de [Configurer un client NFS pour Azure NetApp Files](co
 ## <a name="next-steps"></a>Étapes suivantes  
 
 * [Configurer un client NFS pour Azure NetApp Files](configure-nfs-clients.md)
+* [Configurer ADDS LDAP sur TLS pour Azure NetApp Files](configure-ldap-over-tls.md)
 * [Résoudre les problèmes des volumes SMB ou à deux protocoles](troubleshoot-dual-protocol-volumes.md)
 * [Résoudre les problèmes liés au volume LDAP](troubleshoot-ldap-volumes.md)

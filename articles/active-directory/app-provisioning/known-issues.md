@@ -1,24 +1,24 @@
 ---
-title: Problèmes connus liés à l’approvisionnement d’applications dans Azure AD
-description: Découvrez les problèmes connus liés à l’utilisation de l’approvisionnement automatique d’applications dans Azure AD.
+title: Problèmes connus liés au provisionnement d’applications dans Azure Active Directory
+description: Prenez connaissance des problèmes connus liés à l’utilisation du provisionnement automatique d’applications dans Azure Active Directory.
 author: kenwith
 ms.author: kenwith
-manager: daveba
+manager: mtillman
 services: active-directory
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/05/2021
+ms.date: 05/11/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: 9eba671f6c824c8c88388f2b9d61512dfb1d122f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d45c64a75da4acb0be3efacc73ebf51d3fec2b3e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256641"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109782826"
 ---
-# <a name="known-issues-application-provisioning"></a>Problèmes connus : Approvisionnement d’applications
+# <a name="known-issues-for-application-provisioning-in-azure-active-directory"></a>Problèmes connus liés au provisionnement d’applications dans Azure Active Directory
 Problèmes connus à prendre en compte lors de l’utilisation de l’approvisionnement d’applications. Vous pouvez fournir des retours sur le service d’approvisionnement d’applications sur UserVoice ; voir [UserVoice pour l’approvisionnement d’applications Azure AD](https://aka.ms/appprovisioningfeaturerequest). Nous surveillons étroitement le service UserVoice pour améliorer le service. 
 
 > [!NOTE]

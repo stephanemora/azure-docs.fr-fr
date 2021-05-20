@@ -6,15 +6,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 05/05/2021
 ms.author: banders
 ms.reviewer: baolcsva
-ms.openlocfilehash: dc34d0f12430838be29897ccc5cbeee382ecaa2b
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: a1d66e1a28717feb66bc223d10ae44e8d5457728
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107485589"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747860"
 ---
 # <a name="manage-tenants-in-your-microsoft-customer-agreement-billing-account"></a>Gérer les locataires dans le compte de facturation de votre Contrat client Microsoft
 
@@ -43,6 +43,24 @@ Les propriétaires de facturation peuvent créer des abonnements quand ils dispo
 
 - Vous pouvez lier des abonnements d’autres locataires au compte de facturation de votre Contrat client Microsoft. La prise de propriété de facturation d’un abonnement modifie uniquement la configuration de la facturation. Elle n’affecte pas le locataire du service ou les rôles RBAC Azure.
 - Pour modifier le propriétaire de l’abonnement dans le locataire du service, vous devez transférer l’[abonnement vers un autre annuaire Azure Active Directory](../../role-based-access-control/transfer-subscription.md).
+
+Un compte de facturation MCA est géré par un seul locataire/annuaire. Le compte de facturation contrôle uniquement la facturation des abonnements figurant dans son locataire. Toutefois, vous pouvez utiliser un transfert de propriété de facturation pour lier un abonnement à un compte de facturation d’un autre locataire.
+
+### <a name="billing-ownership-transfer"></a>Transfert de propriété de facturation
+
+Un transfert de propriété de facturation modifie uniquement la disposition des factures d’un abonnement individuel. La gestion des utilisateurs et des ressources pour l’abonnement ne change pas.
+
+Un transfert de propriété de facturation réalise deux opérations :
+
+- La propriété de facturation d’origine de l’abonnement est supprimée.
+- La propriété de facturation de l’abonnement est *liée* au compte de facturation cible, qui peut se trouver dans un autre locataire/annuaire.
+
+Un transfert de propriété de facturation n’affecte pas les éléments suivants :
+
+- Utilisateurs
+- Ressources
+- Autorisations Azure RBAC
+
 
 ## <a name="add-guest-users-to-your-microsoft-customer-agreement-tenant"></a>Ajouter des utilisateurs invités au locataire de votre Contrat client Microsoft
 

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32973d063c36a45eee79db0b4da4e7419cb70013
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 25cbef009f73ac788da36d60f2313dcfe9b49ebe
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87798544"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713555"
 ---
 # <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Partager un lien pour demander un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -31,7 +31,7 @@ Tant que le catalogue du package d'accès est [activé pour les utilisateurs ext
 
 ## <a name="share-link-to-request-an-access-package"></a>Partager un lien pour demander un package d’accès
 
-**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
+**Rôle prérequis :** administrateur général, administrateur de la gouvernance des identités, administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès.
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 

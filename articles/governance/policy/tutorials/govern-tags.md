@@ -3,12 +3,12 @@ title: 'Tutoriel : Gérer la gouvernance des balises'
 description: Dans ce tutoriel, vous utilisez l’effet modify d’Azure Policy pour créer et appliquer un modèle de gouvernance des balises sur des ressources nouvelles ou existantes.
 ms.date: 03/31/2021
 ms.topic: tutorial
-ms.openlocfilehash: 1e8850dd6fe380b0ea38a2a1722734d917c63d0c
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 0552a37566a8c057c06664cf8dedcb8084fef498
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093280"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752108"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutoriel : Gérer la gouvernance des balises avec Azure Policy
 

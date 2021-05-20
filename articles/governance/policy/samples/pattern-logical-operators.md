@@ -3,12 +3,12 @@ title: 'Modèle : Opérateurs logiques d’une définition de stratégie'
 description: Ce modèle Azure Policy fournit des exemples d’utilisation des opérateurs logiques dans une définition de stratégie.
 ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: feb9e50b0c73c19027b747cf0f95fa1cb6fbd47c
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 3daf5e5873566b1335178d50a4589ec7a6e1971c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093348"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752270"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Modèle Azure Policy : opérateurs logiques
 

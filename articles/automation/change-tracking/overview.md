@@ -3,14 +3,14 @@ title: Présentation de la fonctionnalité Suivi des modifications et inventaire
 description: Cet article présente la fonctionnalité Change Tracking and Inventory, qui permet d’identifier les modifications apportées aux logiciels et aux services Microsoft de votre environnement.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/22/2021
+ms.date: 05/06/2021
 ms.topic: conceptual
-ms.openlocfilehash: ed29def305bfa33a0a947a331775de89275e5f7f
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 062e4cdeae9560bc5be58d8245390d4a538f5722
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220864"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783906"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Présentation de la fonctionnalité Suivi des modifications et inventaire
 
@@ -41,7 +41,7 @@ Les machines connectées à des espaces de travail Log Analytics utilisent l’[
 > [!NOTE]
 > Le suivi des modifications et inventaire vous demande d’établir une liaison entre un espace de travail Log Analytics et votre compte Automation. Pour obtenir la liste définitive des régions prises en charge, consultez [Mappages Azure Workspace](../how-to/region-mappings.md). Les mappages de région n’empêchent pas de gérer les machines virtuelles dans une autre région depuis votre compte Automation.
 
-En tant que fournisseur de services, vous avez peut-être intégré les locataires de plusieurs clients à [Azure Lighthouse](../../lighthouse/overview.md). Azure Lighthouse vous permet d’effectuer des opérations à grande échelle sur plusieurs locataires Azure Active Directory (Azure AD) à la fois, améliorant ainsi l’efficacité des tâches de gestion telles que Suivi des modifications et inventaire parmi les locataires dont vous êtes responsable. La tâche Suivi des modifications et inventaire peut gérer des machines dans plusieurs abonnements au sein d’un même locataire ou entre plusieurs locataires à l’aide de la [gestion des ressources déléguée Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
+En tant que fournisseur de services, vous avez peut-être intégré les locataires de plusieurs clients à [Azure Lighthouse](../../lighthouse/overview.md). Azure Lighthouse vous permet d’effectuer des opérations à grande échelle sur plusieurs locataires Azure Active Directory (Azure AD) à la fois, améliorant ainsi l’efficacité des tâches de gestion telles que Suivi des modifications et inventaire parmi les locataires dont vous êtes responsable. La tâche Suivi des modifications et inventaire peut gérer des machines dans plusieurs abonnements au sein d’un même locataire ou entre plusieurs locataires à l’aide de la [gestion des ressources déléguée Azure](../../lighthouse/concepts/architecture.md).
 
 ## <a name="current-limitations"></a>Limites actuelles
 
@@ -52,11 +52,16 @@ Suivi des modifications et inventaire ne prend pas en charge ou a les limitation
 - Méthodes d'installation différentes
 - *Fichiers **.exe** stockés sur Windows
 - La colonne **Taille maximale des fichiers** et ses valeurs ne sont pas utilisées dans l’implémentation actuelle.
+- Si vous effectuez le suivi des modifications de fichiers, la taille de fichier est limitée à 5 Mo. 
 - Si vous essayez de collecter plus de 2500 fichiers dans le cycle de collecte de 30 minutes, les performances de Change Tracking and Inventory peuvent être dégradées.
 - Si le trafic réseau est élevé, l’affichage des enregistrements de modifications peut prendre jusqu’à six heures.
 - Si vous modifiez une configuration quand une machine ou un serveur est arrêté, ce matériel risque de publier des modifications appartenant à la configuration précédente.
 - Les mises à jour de correctif logiciel ne sont pas collectées sur les machines Windows 2016 Core RS3.
 - Les démons Linux peuvent indiquer un état modifié même si aucune modification n’est intervenue. Ce problème est dû à la façon dont les données `SvcRunLevels` dans la table [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) d’Azure Monitor sont écrites.
+
+## <a name="limits"></a>Limites
+
+Pour les limites qui s’appliquent à Suivi des modifications et inventaire, consultez [Limites du service Azure Automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#change-tracking-and-inventory).
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 

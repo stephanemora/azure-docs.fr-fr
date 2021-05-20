@@ -3,12 +3,12 @@ title: Exemples de contrôles de blueprint FedRAMP High
 description: Mappage des contrôles de l’exemple de blueprint FedRAMP High. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 88449bfb52dfe2452e1dd6b744f67600242edf79
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 3e1cea90e7b1553fb3b8b9e93994208ecfa564da
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386737"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757454"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint FedRAMP High
 
@@ -117,7 +117,7 @@ Les données de journal collectées par Azure Monitor sont stockées dans un esp
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) Révision, analyse et rapports d’audit | Intégration/analyse et fonctionnalités de surveillance
 
-Ce blueprint fournit des définitions de stratégie qui auditent les enregistrements avec l’analyse de l’évaluation des vulnérabilités sur les machines virtuelles, les groupes de machines virtuelles identiques, les serveur SQL Database et les serveurs SQL Managed Instance. Ces définitions de stratégie vérifient également la configuration des journaux de diagnostic pour fournir des insights sur les opérations effectuées au sein des ressources Azure. Ces insights fournissent des informations en temps réel sur l’état de la sécurité de vos ressources déployées et peuvent vous aider à classer par ordre de priorité les actions de correction. Pour plus d’informations sur l’analyse et la surveillance des vulnérabilités, nous vous recommandons d’utiliser également Azure Sentinel et Azure Security Center.
+Ce blueprint fournit des définitions de stratégie qui auditent les enregistrements avec l’analyse de l’évaluation des vulnérabilités sur les machines virtuelles, les groupes de machines virtuelles identiques, les serveur SQL Database et les serveurs SQL Managed Instance. Ces définitions de stratégie vérifient également la configuration des journaux de diagnostic pour fournir des insights sur les opérations effectuées au sein des ressources Azure. Ces insights fournissent des informations en temps réel sur l’état de la sécurité de vos ressources déployées et peuvent vous aider à classer par ordre de priorité les actions de correction. Pour plus d’informations sur l’analyse et la supervision des vulnérabilités, nous vous recommandons d’utiliser également Azure Sentinel et Azure Security Center.
 
 - \[Préversion\] : L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
 - \[Préversion\] : Activer Azure Monitor pour machines virtuelles
@@ -160,19 +160,19 @@ Cette stratégie intégrée nécessite la spécification d’un tableau de types
 
 ## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM-7 (2) Fonctionnalités essentielles | Empêcher l’exécution d’un programme
 
-Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle des applications peut s’exécuter dans un mode de mise en conformité qui empêche l’exécution d’applications non approuvées. Ce blueprint attribue une définition Azure Policy qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
+Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle des applications peut s’exécuter dans un mode de mise en conformité qui empêche l’exécution d’applications non approuvées. Ce blueprint affecte une définition Azure Policy qui vous aide à superviser les machines virtuelles pour lesquelles une liste d’autorisation d’applications est recommandée mais n’a pas encore été configurée.
 
 - Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) Fonctionnalités essentielles | Logiciels autorisés / Mise sur liste verte
 
-Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications vous permet de créer des listes d’applications approuvées pour vos machines virtuelles. Ce blueprint attribue une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
+Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications vous permet de créer des listes d’applications approuvées pour vos machines virtuelles. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste d’autorisation d’applications est recommandée mais n’a pas encore été configurée.
 
 - Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
 
 ## <a name="cm-11-user-installed-software"></a>CM-11 Logiciels installés par l’utilisateur
 
-Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications peut vous aider à appliquer et à superviser la conformité à des stratégies de restriction logicielle. Ce blueprint attribue une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
+Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications peut vous aider à appliquer et à superviser la conformité à des stratégies de restriction logicielle. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste d’autorisation d’applications est recommandée mais n’a pas encore été configurée.
 
 - Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
 
@@ -182,7 +182,7 @@ Azure Site Recovery réplique les charges de travail exécutées sur des machine
 
 - Auditer des machines virtuelles pour lesquelles la reprise d’activité après sinistre n’est pas configurée
 
-## <a name="cp-9-05--information-system-backup--transfer-to-alternate-storage-site"></a>CP-9 (05) Sauvegarde du système d’information | Transfert vers un site de stockage secondaire
+## <a name="cp-9-05-information-system-backup--transfer-to-alternate-storage-site"></a>CP-9 (05) Sauvegarde du système d’information | Transfert vers un site de stockage secondaire
 
 Ce blueprint affecte des définitions d’Azure Policy qui auditent électroniquement les informations de sauvegarde du système de l’organisation sur le site de stockage alternatif. Pour l’envoi physique de métadonnées de stockage, envisagez d’utiliser Azure Data Box.
 
@@ -352,7 +352,7 @@ Advanced Threat Protection pour Stockage Azure détecte les tentatives d’accè
 - Déployer Advanced Threat Protection sur les comptes de stockage
 
 > [!NOTE]
-> La disponibilité des définitions Azure Policy peut varier dans Azure Government et dans d’autres clouds nationaux. 
+> La disponibilité des définitions Azure Policy peut varier dans Azure Government et dans d’autres clouds nationaux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

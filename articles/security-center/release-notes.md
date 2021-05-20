@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/29/2021
+ms.date: 05/03/2021
 ms.author: memildin
-ms.openlocfilehash: f9f8078bbd3410a3dac5eb3a6a8aeb3a8fe82b54
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 485140be1e28c645da056d9a0ee2d38aaa4659af
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278881"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755078"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Nouveautés d’Azure Security Center
 
@@ -24,6 +24,44 @@ Pour en savoir plus sur les changements *planifiés* qui seront bientôt disponi
 
 > [!TIP]
 > Si vous recherchez des éléments datant de plus de six mois, vous les trouverez dans l’[Archive des nouveautés d’Azure Security Center](release-notes-archive.md).
+
+
+## <a name="may-2021"></a>Mai 2021
+
+Les mises à jour du mois de mai incluent :
+
+- [Changement de la gravité de la recommandation de classification des données SQL](#sql-data-classification-recommendation-severity-changed)
+- [Développement de l’API Évaluations avec deux nouveaux champs](#assessments-api-expanded-with-two-new-fields)
+
+### <a name="sql-data-classification-recommendation-severity-changed"></a>Changement de la gravité de la recommandation de classification des données SQL
+
+La gravité de la recommandation **Les données sensibles de vos bases de données SQL doivent être classifiées** est passée d’un niveau **élevé** à un niveau **faible**.
+
+Ce changement s’inscrit dans le cadre des changements apportés à cette recommandation annoncés dans [Améliorations apportées à la recommandation de classification des données SQL](upcoming-changes.md#enhancements-to-sql-data-classification-recommendation). 
+
+
+### <a name="assessments-api-expanded-with-two-new-fields"></a>Développement de l’API Évaluations avec deux nouveaux champs
+
+Nous avons ajouté les deux champs suivants à l’[API REST Évaluations](https://docs.microsoft.com/rest/api/securitycenter/assessments) :
+
+- **FirstEvaluationDate** : Heure à laquelle la recommandation a été créée et évaluée pour la première fois. Retournée sous forme de temps universel coordonné (UTC) au format ISO 8601.
+- **StatusChangeDate** : Heure de la dernière modification de l’état de la recommandation. Retournée sous forme de temps universel coordonné (UTC) au format ISO 8601.
+
+La valeur initiale par défaut de ces champs (pour toutes les recommandations) est `2021-03-14T00:00:00+0000000Z`.
+
+Pour accéder à ces informations, vous pouvez utiliser l’une des méthodes indiquées dans le tableau ci-dessous.
+
+| Outil                 | Détails                                                                                                                                                                |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Appel d’API REST        | GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Security/assessments?api-version=2019-01-01-preview& $expand=statusEvaluationDates |
+| Azure Resource Graph | `securityresources`<br>`where type == "microsoft.security/assessments"`                                                                                                |
+| Automatisation des workflows  | Les deux champs dédiés seront disponibles dans les données de l’espace de travail Log Analytics.                                                                                                       |
+| [Exportation CSV](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations) | Les deux champs sont inclus dans les fichiers CSV.                                                        |
+|                      |                                                                                                                                                                        |
+
+
+Découvrez-en plus sur l’[API REST Évaluations](https://docs.microsoft.com/rest/api/securitycenter/assessments).
+
 
 ## <a name="april-2021"></a>Avril 2021
 
@@ -640,7 +678,7 @@ Liens connexes :
 
 ### <a name="csv-export-of-filtered-list-of-recommendations"></a>Exportation CSV de la liste filtrée de recommandations 
 
-En novembre 2020, nous avons ajouté des filtres à la page Recommandations ([La liste des recommandations comprend désormais des filtres](#recommendations-list-now-includes-filters)). En décembre, nous avons étendu ces filtres ([La page Recommandations contient de nouveaux filtres pour l’environnement, la gravité et les réponses disponibles](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
+En novembre 2020, nous avons ajouté des filtres à la page Recommandations ([La liste des recommandations comprend désormais des filtres](release-notes-archive.md#recommendations-list-now-includes-filters)). En décembre, nous avons étendu ces filtres ([La page Recommandations contient de nouveaux filtres pour l’environnement, la gravité et les réponses disponibles](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
 
 Avec cette annonce, nous changeons le comportement du bouton **Télécharger au format CSV** afin que l’exportation CSV inclue uniquement les recommandations actuellement affichées dans la liste filtrée. 
 
@@ -802,9 +840,9 @@ Découvrez les recommandations de chaque contrôle de sécurité dans [Contrôle
 
 Azure Security Center supervise toutes les ressources connectées et génère des recommandations de sécurité. Utilisez ces recommandations pour renforcer l’état de votre cloud hybride et effectuer le suivi de la conformité aux stratégies et normes pertinentes pour vos organisation, secteur d’activité et pays.
 
-Comme Security Center continue d’étendre sa couverture et de développer ses fonctionnalités, la liste des recommandations de sécurité augmente chaque mois. Par exemple, consultez [Ajout de 29 recommandations (préversion) pour mieux détailler le benchmark de sécurité Azure](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark).
+Comme Security Center continue d’étendre sa couverture et de développer ses fonctionnalités, la liste des recommandations de sécurité augmente chaque mois. Par exemple, consultez [Ajout de 29 recommandations (préversion) pour mieux détailler le benchmark de sécurité Azure](release-notes-archive.md#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark).
 
-Avec cette liste qui ne cesse de s’allonger, un filtrage des recommandations est nécessaire pour trouver celles qui présentent le plus grand intérêt. En novembre, nous avons ajouté des filtres à la page Recommandations (consultez [La liste des recommandations comprend désormais des filtres](#recommendations-list-now-includes-filters)).
+Avec cette liste qui ne cesse de s’allonger, un filtrage des recommandations est nécessaire pour trouver celles qui présentent le plus grand intérêt. En novembre, nous avons ajouté des filtres à la page Recommandations (consultez [La liste des recommandations comprend désormais des filtres](release-notes-archive.md#recommendations-list-now-includes-filters)).
 
 Les filtres ajoutés ce mois-ci fournissent des options pour affiner la liste des recommandations en fonction des éléments suivants :
 
@@ -840,119 +878,3 @@ Ces outils ont été améliorés et développés de différentes manières :
 - **Ajout de données d’évaluation de conformité réglementaire (en préversion).** Vous pouvez désormais exporter en continu des mises à jour pour des évaluations de conformité réglementaire, notamment pour des initiatives personnalisées, vers un espace de travail Log Analytics ou un hub d’événements. Cette fonctionnalité n’est pas disponible sur les clouds nationaux/souverains.
 
     :::image type="content" source="media/release-notes/continuous-export-regulatory-compliance-option.png" alt-text="Options permettant d’inclure des informations d’évaluation de conformité réglementaire avec vos données d’exportation continue.":::
-
-
-## <a name="november-2020"></a>Novembre 2020
-
-Les mises à jour en novembre sont les suivantes :
-
-- [Ajout de 29 recommandations (préversion) pour mieux détailler le benchmark de sécurité Azure](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
-- [Ajout de NIST SP 800 171 R2 au tableau de bord de conformité réglementaire Security Center](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
-- [La liste des recommandations comprend désormais des filtres](#recommendations-list-now-includes-filters)
-- [Amélioration et développement de l’expérience de provisionnement automatique](#auto-provisioning-experience-improved-and-expanded)
-- [Le score sécurisé est désormais disponible dans l’exportation continue (préversion)](#secure-score-is-now-available-in-continuous-export-preview)
-- [La recommandation « Les mises à jour système doivent être installées sur vos machines » inclut désormais des sous-recommandations](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations)
-- [La page Gestion des stratégies du portail Azure affiche maintenant l’état des affectations de stratégie par défaut](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
-
-### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Ajout de 29 recommandations (préversion) pour mieux détailler le benchmark de sécurité Azure
-
-Le Benchmark de sécurité Azure constitue l’ensemble des directives propres à Azure et créées par Microsoft, qui contient les bonnes pratiques de sécurité et de conformité s’inscrivant dans les cadres de conformité courants. [En savoir plus sur le Benchmark de sécurité Azure](/security/benchmark/azure/introduction).
-
-Les 29 recommandations suivantes (préversion) ont été ajoutées à Security Center pour mieux détailler ce benchmark.
-
-Les recommandations en préversion ne rendent pas une ressource non saine et ne sont pas incluses dans les calculs de votre degré de sécurisation. Corrigez-les là où c’est possible, de sorte que quand la période de préversion se termine, elles soient prises en compte dans le calcul de votre degré de sécurisation. Découvrez comment répondre à ces recommandations dans [Corriger les recommandations dans Azure Security Center](security-center-remediate-recommendations.md).
-
-| Contrôle de sécurité                     | Nouvelles recommandations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Chiffrer les données en transit              | - L’application de la connexion SSL doit être activée pour les serveurs de base de données PostgreSQL<br>- L’application de la connexion SSL doit être activée pour les serveurs de base de données MySQL<br>- TLS doit être mis à jour vers la dernière version pour votre application API<br>- TLS doit être mis à jour vers la dernière version pour votre application de fonction<br>- TLS doit être mis à jour vers la dernière version pour votre application web<br>- FTPS doit être exigé dans votre application API<br>- FTPS doit être exigé dans votre application de fonction<br>- FTPS doit être exigé dans votre application web                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Gérer l’accès et les autorisations        | - Les applications web doivent exiger un certificat SSL pour toutes les demandes entrantes<br>- Une identité managée doit être utilisée dans votre application API<br>- Une identité managée doit être utilisée dans votre application de fonction<br>- Une identité managée doit être utilisée dans votre application web                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Restreindre l’accès réseau non autorisé | - Le point de terminaison privé doit être activé pour les serveurs PostgreSQL<br>- Le point de terminaison privé doit être activé pour les serveurs MariaDB<br>- Le point de terminaison privé doit être activé pour les serveurs MySQL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| Activer l’audit et la journalisation          | - Les journaux de diagnostic d’App Services doivent être activés                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Implémenter les bonnes pratiques de sécurité    | - La Sauvegarde Azure doit être activée pour les machines virtuelles<br>- La sauvegarde géoredondante doit être activée pour Azure Database for MariaDB<br>- La sauvegarde géoredondante doit être activée pour Azure Database pour MySQL<br>- La sauvegarde géoredondante doit être activée pour Azure Database pour PostgreSQL<br>- PHP doit être mis à jour vers la dernière version pour votre application API<br>- PHP doit être mis à jour vers la dernière version pour votre application web<br>- Java doit être mis à jour vers la dernière version pour votre application API<br>- Java doit être mis à jour vers la dernière version pour votre application de fonction<br>- Java doit être mis à jour vers la dernière version pour votre application web<br>- Python doit être mis à jour vers la dernière version pour votre application API<br>- Python doit être mis à jour vers la dernière version pour votre application de fonction<br>- Python doit être mis à jour vers la dernière version pour votre application web<br>- La conservation des audits pour les serveurs SQL Server doit être définie sur au moins 90 jours |
-|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-
-Liens connexes :
-
-- [En savoir plus sur le Benchmark de sécurité Azure](/security/benchmark/azure/introduction)
-- [En savoir plus sur les applications API Azure](../app-service/app-service-web-tutorial-rest-api.md)
-- [En savoir plus sur les applications de fonction Azure](../azure-functions/functions-overview.md)
-- [En savoir plus sur les applications web Azure](../app-service/overview.md)
-- [En savoir plus sur Azure Database for MariaDB](../mariadb/overview.md)
-- [En savoir plus sur Azure Database pour MySQL](../mysql/overview.md)
-- [En savoir plus sur Azure Database pour PostgreSQL](../postgresql/overview.md)
-
-
-### <a name="nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard"></a>Ajout de NIST SP 800 171 R2 au tableau de bord de conformité réglementaire Security Center
-
-Le standard NIST SP 800-171 R2 est désormais disponible sous la forme d’une initiative intégrée à utiliser avec le tableau de bord de conformité réglementaire Azure Security Center. Les mappages des contrôles sont décrits dans [Détails de l’initiative intégrée de conformité réglementaire NIST SP 800-171 R2](../governance/policy/samples/nist-sp-800-171-r2.md). 
-
-Pour appliquer le standard à vos abonnements et superviser votre état de conformité en permanence, suivez les instructions fournies dans [Personnaliser l’ensemble de normes du tableau de bord de conformité réglementaire](update-regulatory-compliance-packages.md).
-
-:::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="Standard NIST SP 800 171 R2 dans le tableau de bord de conformité réglementaire Security Center":::
-
-Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
-
-
-### <a name="recommendations-list-now-includes-filters"></a>La liste des recommandations comprend désormais des filtres
-
-Vous pouvez maintenant filtrer la liste des recommandations de sécurité en fonction d’une plage de critères. Dans l’exemple suivant, la liste des recommandations a été filtrée pour afficher celles qui :
-
-- sont **généralement disponibles** (c’est-à-dire, pas en préversion)
-- concernent les **comptes de stockage**
-- prennent en charge la **correction rapide**
-
-:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="Filtres pour la liste des recommandations":::
-
-
-### <a name="auto-provisioning-experience-improved-and-expanded"></a>Amélioration et développement de l’expérience de provisionnement automatique
-
-La fonctionnalité de provisionnement automatique permet de réduire la surcharge de gestion en installant les extensions requises sur les machines virtuelles Azure nouvelles et existantes, afin qu’elles puissent tirer parti des protections de Security Center. 
-
-À mesure qu’Azure Security Center se développe, davantage d’extensions ont été développées et Security Center peut superviser une liste plus importante de types de ressources. Les outils de provisionnement automatique ont été développés pour prendre en charge d’autres extensions et types de ressources en tirant parti des fonctionnalités d’Azure Policy.
-
-Vous pouvez maintenant configurer le provisionnement automatique des éléments suivants :
-
-- Agent Log Analytics
-- (Nouveau) Module complémentaire Azure Policy pour Kubernetes
-- (Nouveau) Microsoft Dependency Agent
-
-Pour en savoir plus, consultez [Provisionnement automatique d’agents et d’extensions à partir d’Azure Security Center](security-center-enable-data-collection.md).
-
-
-### <a name="secure-score-is-now-available-in-continuous-export-preview"></a>Le score sécurisé est désormais disponible dans l’exportation continue (préversion)
-
-Avec l’exportation continue du score sécurisé, vous pouvez diffuser en streaming les modifications apportées à votre score en temps réel vers Azure Event Hubs ou un espace de travail Log Analytics. Utilisez cette fonctionnalité pour :
-
-- effectuer le suivi de votre score sécurisé au fur et à mesure avec des rapports dynamiques
-- exporter les données de score sécurisé vers Azure Sentinel (ou tout autre système SIEM)
-- intégrer ces données à tous les processus que vous utilisez peut-être déjà pour surveiller le score sécurisé dans votre organisation
-
-Apprenez-en plus sur la façon d’[exporter en continu des données Security Center](continuous-export.md).
-
-
-### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations"></a>La recommandation « Les mises à jour système doivent être installées sur vos machines » inclut désormais des sous-recommandations
-
-La recommandation **Les mises à jour système doivent être installées sur vos machines** a été améliorée. La nouvelle version inclut des sous-recommandations pour chaque mise à jour manquante et apporte les améliorations suivantes :
-
-- Une expérience repensée dans les pages Azure Security Center du portail Azure. La page Détails de la recommandation pour **Les mises à jour système doivent être installées sur vos machines** comprend la liste des résultats, comme illustré ci-dessous. Lorsque vous sélectionnez une recherche unique, le volet d’informations s’ouvre avec un lien vers des informations de correction et une liste de ressources affectées.
-
-    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Ouverture de l’une des sous-recommandations dans l’expérience du portail pour la recommandation mise à jour":::
-
-- Des données enrichies pour la recommandation provenant d’Azure Resource Graph (ARG). ARG est un service Azure conçu pour fournir une exploration efficace des ressources. Vous pouvez utiliser ARG pour effectuer une requête à grande échelle sur un ensemble d’abonnements donné, et ainsi gérer de façon optimale votre environnement. 
-
-    Pour Azure Security Center, vous pouvez utiliser ARG et le [langage de requête Kusto (KQL)](/azure/data-explorer/kusto/query/) pour interroger un large éventail de données relatives à la posture de sécurité.
-
-    Avant, si vous interrogiez cette recommandation dans ARG, les seules informations disponibles étaient que la recommandation devait être corrigée sur une machine. La requête suivante de la version améliorée retournera toutes les mises à jour système manquantes, regroupées par machine.
-
-    ```kusto
-    securityresources
-    | where type =~ "microsoft.security/assessments/subassessments"
-    | where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
-    | where properties.status.code == "Unhealthy"
-    ```
-
-### <a name="policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments"></a>La page Gestion des stratégies du portail Azure affiche maintenant l’état des affectations de stratégie par défaut
-
-Vous pouvez maintenant voir si la stratégie Security Center par défaut est affectée à vos abonnements, dans la page **Stratégie de sécurité** de Security Center du portail Azure.
-
-:::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="Page Gestion des stratégies d’Azure Security Center présentant les affectations de stratégie par défaut":::

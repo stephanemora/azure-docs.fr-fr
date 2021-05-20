@@ -4,15 +4,15 @@ description: Découvrez comment utiliser Azure DataBox pour migrer des fichiers 
 author: fauhse
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 04/02/2021
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: a8420d23c8bda29290722975ada2acca6733f0e7
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: eb3327ad84310e5dae55103171f7677d5b2c06d1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491670"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756158"
 ---
 # <a name="use-databox-to-migrate-from-network-attached-storage-nas-to-azure-file-shares"></a>Utiliser DataBox pour migrer d’un NAS vers des partages de fichiers Azure
 
@@ -29,11 +29,11 @@ Cet article vous guide tout au long des étapes de planification, de déploiemen
 
 ## <a name="migration-goals"></a>Objectifs de la migration
 
-L’objectif est de déplacer les partages que vous avez sur votre appliance NAS vers Azure et de les convertir en partages de fichiers Azure natifs que vous pouvez utiliser sans avoir besoin d’une instance Windows Server. Cette migration doit être effectuée de manière à garantir l’intégrité des données de production et la disponibilité pendant la migration. Garantir la disponibilité implique de garder les temps d’arrêt à un niveau minimal pour qu’ils respectent les fenêtres de maintenance habituelles ou ne les dépassent que légèrement.
+L’objectif est de déplacer les partages de votre appliance NAS vers Azure et de les convertir en partages de fichiers Azure natifs. Vous pouvez utiliser des partages de fichiers Azure natifs sans avoir besoin d’un serveur Windows. Cette migration doit être effectuée de manière à garantir l’intégrité des données de production et la disponibilité pendant la migration. Garantir la disponibilité implique de garder les temps d’arrêt à un niveau minimal pour qu’ils respectent les fenêtres de maintenance habituelles ou ne les dépassent que légèrement.
 
 ## <a name="migration-overview"></a>Vue d’ensemble de la migration
 
-Le processus de migration se compose de plusieurs phases : Vous devez déployer des comptes et des partages de fichiers Stockage Azure, configurer la mise en réseau, migrer à l’aide d’Azure DataBox, récupérer les modifications via RoboCopy et enfin, transférer vos utilisateurs vers les nouveaux partages de fichiers Azure. Les sections suivantes décrivent en détail les phases du processus de migration.
+Le processus de migration se compose de plusieurs phases : Vous devez déployer des comptes de stockage et des partages de fichiers Azure, et configurer la mise en réseau. Ensuite, vous allez migrer vos fichiers à l’aide d’Azure DataBox et RoboCopy pour rattraper les modifications. Enfin, vous allez transférer vos utilisateurs et applications vers les partages de fichiers Azure que vous venez de créer. Les sections suivantes décrivent en détail les phases du processus de migration.
 
 > [!TIP]
 > Si vous revenez à cet article, utilisez la navigation de droite pour accéder à la phase de migration là où vous vous étiez arrêté.
@@ -110,7 +110,7 @@ Pour gagner du temps, vous devez passer à cette phase pendant que vous attendez
 * [Comment configurer un VPN point à site Windows](storage-files-configure-p2s-vpn-windows.md)
 * [Comment configurer un VPN point à site Linux](storage-files-configure-p2s-vpn-linux.md)
 * [Procédure de configuration du transfert DNS](storage-files-networking-dns.md)
-* [Configurer DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)
+* [Configurer DFS-N](files-manage-namespaces.md)
    :::column-end:::
 :::row-end:::
 

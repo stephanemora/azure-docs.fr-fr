@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 05/07/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00c6fc7916355586787bb91225e71c4db280ed26
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 2b3ce98a55057b90f26cdc91d52a514fe4bb3c9e
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315911"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517691"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Options d’authentification sans mot de passe pour Azure Active Directory
 
@@ -156,12 +156,20 @@ Pour prendre en main les clés de sécurité FIDO2, procédez comme suit :
 
 Les considérations suivantes s'appliquent :
 
-- Les administrateurs peuvent activer des méthodes d’authentification sans mot de passe pour leur locataire
-- Les administrateurs peuvent cibler tous les utilisateurs ou sélectionner des utilisateurs/groupes au sein de leur locataire pour chaque méthode
-- Les utilisateurs finaux peuvent inscrire et gérer ces méthodes d’authentification sans mot de passe sur le portail de leur compte
-- Les utilisateurs finaux peuvent se connecter avec les méthodes d’authentification sans mot de passe suivantes :
+- Les administrateurs peuvent activer des méthodes d’authentification sans mot de passe pour leur locataire.
+
+- Les administrateurs peuvent cibler tous les utilisateurs ou sélectionner des utilisateurs/groupes au sein de leur locataire pour chaque méthode.
+
+- Les utilisateurs peuvent inscrire et gérer ces méthodes d’authentification sans mot de passe sur le portail de leur compte.
+
+- Les utilisateurs peuvent se connecter avec les méthodes d’authentification sans mot de passe suivantes :
    - Application Microsoft Authenticator : fonctionne dans les scénarios où l’authentification Azure AD est utilisée, notamment sur tous les navigateurs, pendant la configuration de Windows 10 et avec les applications mobiles intégrées sur n’importe quel système d’exploitation.
-   - Clés de sécurité : fonctionne dans le programme d’installation de Windows 10 dans OOBE avec ou sans Windows Autopilot, sur l’écran de verrouillage pour Windows 10 et sur le web dans les navigateurs pris en charge comme Microsoft Edge (hérité et nouveau).
+   - Clés de sécurité : Fonctionnent sur l’écran de verrouillage Windows 10 et les navigateurs web pris en charge, comme Microsoft Edge (ancienne et nouvelle version de Edge).
+
+- Les utilisateurs peuvent utiliser des informations d’identification sans mot de passe pour accéder à des ressources dans des locataires dans lequel ils sont invités, mais il se peut qu’ils soient tenus d’effectuer une authentification multifacteur dans ce locataire de ressources. Pour plus d’informations, consultez [Risque de redondance de l’authentification multifacteur](https://docs.microsoft.com/azure/active-directory/external-identities/current-limitations#possible-double-multi-factor-authentication).  
+
+- Les utilisateurs ne peuvent pas enregistrer les informations d’identification sans mot de passe dans un locataire dans lequel ils sont invités, de la même façon qu’ils n’ont pas de mot de passe géré dans ce locataire.  
+
 
 ## <a name="choose-a-passwordless-method"></a>Choix d’une méthode sans mot de passe
 

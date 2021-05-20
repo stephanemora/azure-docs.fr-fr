@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 05/04/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 436a972693aafd220d277d7411c0da12636e9cc6
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c164b52682d6f4aef2db70a5724f3f74db68c53f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829797"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746443"
 ---
 # <a name="enable-passwordless-security-key-sign-in"></a>Activer la connexion par clé de sécurité sans mot de passe 
 
@@ -54,6 +54,22 @@ Les fonctionnalités d’inscription pour les méthodes d’authentification san
    1. **Activer** - Oui ou Non
    1. **Cible** - Tous les utilisateurs ou les utilisateurs sélectionnés
 1. **Enregistrez** la configuration.
+
+
+### <a name="fido-security-key-optional-settings"></a>Paramètres facultatifs de clé de sécurité FIDO 
+
+Il existe certains paramètres facultatifs pour la gestion des clés de sécurité par locataire.  
+
+![Capture d’écran des options de clé de sécurité FIDO2](media/howto-authentication-passwordless-security-key/optional-settings.png) 
+
+**Général**
+
+- **Autoriser la configuration du libre-service** doit rester défini sur **Oui**. Si la valeur est non, vos utilisateurs ne seront pas en mesure d’inscrire une clé FIDO via le portail MySecurityInfo, même s’il est activé par la stratégie des méthodes d’authentification.  
+- Si la valeur du paramètre **Appliquer l’attestation** est **Oui**, les métadonnées de clé de sécurité FIDO doivent être publiées et vérifiées auprès du service de métadonnées FIDO Alliance et également passer d’autres tests de validation par Microsoft. Pour plus d’informations, consultez [Qu’est-ce qu’une clé de sécurité compatible Microsoft ?](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
+
+**Stratégie de restriction de clé**
+
+- La valeur de **Appliquer les restrictions de clé** doit être définie sur **Oui** uniquement si votre organisation souhaite autoriser ou interdire certaines clés de sécurité FIDO, identifiées par leur AAGuids. Vous pouvez utiliser votre fournisseur de clés de sécurité pour déterminer les AAGuid de leurs appareils. Si la clé est déjà inscrite, l’AAGUID peut également être retrouvé en consultant les détails de la méthode d’authentification de la clé par utilisateur. 
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>Inscription des utilisateurs et gestion des clés de sécurité FIDO2
 

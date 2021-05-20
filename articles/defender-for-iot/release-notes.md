@@ -2,13 +2,13 @@
 title: Nouveautés d’Azure Defender pour IoT
 description: Cet article vous présente les nouveautés de la dernière version de Defender pour IoT.
 ms.topic: overview
-ms.date: 04/25/2021
-ms.openlocfilehash: f7631caedcb26227abf65d6fad216fc629d41dd4
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 05/05/2021
+ms.openlocfilehash: e731d45d527a3bb2a59e532065fefc78a3237fd5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987090"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755258"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Nouveautés d’Azure Defender pour IoT  
 
@@ -100,15 +100,10 @@ Cette fonctionnalité est disponible sur la console de gestion locale avec la ve
 
 ### <a name="add-second-network-interface-to-on-premises-management-console-public-preview"></a>Ajouter une deuxième interface réseau à la console de gestion locale (préversion publique)
 
-Vous pouvez maintenant améliorer la sécurité de votre déploiement en ajoutant une deuxième interface réseau à votre console de gestion locale. Cette fonctionnalité permet à votre gestion sur site d’avoir ses capteurs connectés sur un réseau sécurisé, tout en permettant à vos utilisateurs d’accéder à la console de gestion sur site via une deuxième interface réseau distincte.
+Vous pouvez maintenant améliorer la sécurité de votre déploiement en ajoutant une deuxième interface réseau à votre console de gestion locale. Cette fonctionnalité permet à votre gestion locale d’avoir ses capteurs connectés sur un seul réseau sécurisé, tout en permettant à vos utilisateurs d’accéder à la console de gestion locale par le biais d’une deuxième interface réseau distincte.
 
 Cette fonctionnalité est disponible sur la console de gestion locale avec la version 10.2.
 
-### <a name="add-second-network-interface-to-on-premises-management-console-public-preview"></a>Ajouter une deuxième interface réseau à la console de gestion locale (préversion publique)
-
-Vous pouvez maintenant améliorer la sécurité de votre déploiement en ajoutant une deuxième interface réseau à votre console de gestion locale. Cette fonctionnalité permet à votre gestion sur site d’avoir ses capteurs connectés sur un réseau sécurisé, tout en permettant à vos utilisateurs d’accéder à la console de gestion sur site via une deuxième interface réseau distincte.
-
-Cette fonctionnalité est disponible sur la console de gestion locale avec la version 10.2.
 ### <a name="device-builder---new-micro-agent-public-preview"></a>Générateur d’appareils - Nouveau micro-agent (préversion publique)
 
 Un nouveau module Générateur d’appareils est disponible. Le module, désigné sous le terme de micro-agent, offre les éléments suivants :

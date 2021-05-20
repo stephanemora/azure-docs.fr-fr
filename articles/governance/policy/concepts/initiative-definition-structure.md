@@ -3,12 +3,12 @@ title: Informations sur la structure d'une définition d'initiative
 description: Explique comment les définitions d'initiative de stratégie permettent de regrouper les définitions de stratégie à des fins de déploiement sur les ressources Azure de votre organisation.
 ms.date: 03/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: edd3f25dd528d1a718c9287c9f30988b87fb73e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7efe34c76df46bb4499def5b92521eedecaee22d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104587217"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108744944"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Structure d'une définition d'initiative Azure Policy
 
@@ -123,7 +123,7 @@ Les clients peuvent définir toutes les propriétés et valeurs utiles à leur o
 
 ## <a name="parameters"></a>Paramètres
 
-Les paramètres permettent de simplifier la gestion des stratégies en réduisant le nombre de définitions de stratégies. Considérez les paramètres comme les champs d’un formulaire : `name`, `address`, `city`, `state`. Ces paramètres restent toujours les mêmes ; toutefois, leurs valeurs changent en fonction de la personne qui remplit le formulaire.
+Les paramètres permettent de simplifier la gestion des stratégies en réduisant le nombre de définitions de stratégies. Considérez les paramètres comme les champs d’un formulaire : `name`, `address`, `city`, `state`. Ces paramètres restent toujours les mêmes ; toutefois, leurs valeurs changent en fonction de la personne qui remplit le formulaire.
 Les paramètres fonctionnent de la même manière lors de l'élaboration des initiatives de stratégie. En incluant des paramètres dans une définition d'initiative de stratégie, vous pouvez réutiliser ce paramètre dans les stratégies incluses.
 
 > [!NOTE]
@@ -196,7 +196,7 @@ Cet exemple fait référence au paramètre **init_allowedLocations** qui a été
 
 ### <a name="strongtype"></a>strongType
 
-Dans la propriété `metadata`, vous pouvez utiliser **strongType** pour fournir une liste à choix multiple des options dans le portail Azure. **strongType** peut être un _type de ressource_ pris en charge ou une valeur autorisée. Pour déterminer si un _type de ressource_ est valide pour **strongType**, utilisez la commande [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+Dans la propriété `metadata`, vous pouvez utiliser **strongType** pour fournir une liste d’options à choix multiple dans le portail Azure. **strongType** peut être un _type de ressource_ pris en charge ou une valeur autorisée. Pour déterminer si un _type de ressource_ est valide pour **strongType**, utilisez la commande [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
 
 Certains types de ressources non retournés par la commande **Get-AzResourceProvider** sont pris en charge. Ces types de ressources sont les suivants :
 

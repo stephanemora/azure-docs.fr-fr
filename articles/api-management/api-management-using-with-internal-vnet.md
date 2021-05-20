@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 35d813b6dfedbd7f76a88713757ce83c2644ff95
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: e901f73f3a1751e0f2af7e0788a7b4846452225e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813143"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783938"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utiliser le service Gestion des API Azure avec un réseau virtuel interne
 Avec les réseaux virtuels Azure, la Gestion des API Azure peut gérer des API inaccessibles sur Internet. Plusieurs technologies VPN sont disponibles pour établir la connexion. La Gestion des API peut être déployée selon deux modes principaux à l’intérieur d’un réseau virtuel :
@@ -50,7 +50,7 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 
 [!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
-Lorsqu’un service Gestion des API est déployé dans un réseau virtuel, une [liste de ports](./api-management-using-with-vnet.md#required-ports) est utilisée et ces derniers doivent être ouverts. 
+Lorsqu’un service Gestion des API est déployé dans un réseau virtuel, une [liste de ports](./api-management-using-with-vnet.md#required-ports) est utilisée et ces derniers doivent être ouverts.
 
 ## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>Créer une Gestion des API dans un réseau virtuel interne
 Le service Gestion des API d’un réseau virtuel interne est hébergé derrière une référence SKU de base de l’équilibreur de charge interne si le service est créé avec l’API client version 2020-12-01. Pour le service créé avec des clients dotés de l’API version 2021-01-01-preview et ayant une adresse IP publique provenant de l’abonnement du client, il est hébergé derrière une référence standard d’équilibreur de charge interne. Pour plus d’informations, consultez la page [Références SKU Azure Load Balancer](../load-balancer/skus.md).
@@ -79,9 +79,9 @@ Vous pouvez également activer une connectivité de réseau virtuel à l’aide 
 
 ### <a name="api-version-2020-12-01"></a>API version 2020-12-01
 
-* [Modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-internal-vnet) Azure Resource Manager
+* [Modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet) Azure Resource Manager
 
-     [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
+     [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-internal-vnet%2Fazuredeploy.json)
 
 * Applets de commande Azure PowerShell : [créez](/powershell/module/az.apimanagement/new-azapimanagement) ou [mettez à jour](/powershell/module/az.apimanagement/update-azapimanagementregion) une instance Gestion des API dans un réseau virtuel
 
@@ -121,7 +121,7 @@ Si vous utilisez un serveur DNS personnalisé dans un réseau virtuel, vous pouv
 
 ### <a name="access-on-custom-domain-names"></a>Accès sur des noms de domaines personnalisés
 
-1. Si vous ne souhaitez pas accéder au service Gestion des API avec les noms d’hôtes par défaut, vous pouvez configurer des noms de domaines personnalisés pour tous vos points de terminaison de service, comme indiqué dans l’image suivante :
+1. Si vous ne souhaitez pas accéder au service Gestion des API avec les noms d’hôtes par défaut, vous pouvez configurer des noms de domaines personnalisés pour tous vos points de terminaison de service, comme indiqué dans l’image suivante :
 
    ![Configuration d’un domaine personnalisé pour la Gestion des API][api-management-custom-domain-name]
 
@@ -141,9 +141,9 @@ Pour en savoir plus, consultez les articles suivants :
 * [FAQ des réseaux virtuels](../virtual-network/virtual-networks-faq.md)
 * [Création d’un enregistrement A dans DNS](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10))
 
-[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png
-[api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
-[api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
+[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/updated-api-management-using-with-internal-vnet.png
+[api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/updated-api-management-internal-vnet-dashboard.png
+[api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/updated-api-management-custom-domain-name.png
 
 [Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/26/2021
+ms.date: 05/06/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e524430d696dab7233f4ebb3403f08b2a8030412
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 70f52e0b82b8a5a06aec322456253eb044141b75
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126702"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108794284"
 ---
 # <a name="sign-ins-logs-in-azure-active-directory"></a>Journaux des connexions dans Azure Active Directory
 
@@ -50,9 +50,9 @@ Vous pouvez utiliser les journaux des connexions pour trouver des réponses à d
 
 ## <a name="who-can-access-it"></a>Qui peut y accéder ?
 
-Vous pouvez toujours accéder à votre propre journal des connexions. 
+Vous pouvez toujours accéder à votre propre historique des connexions à l’aide de ce lien : [https://mysignins.microsoft.com](https://mysignins.microsoft.com).
 
-Pour accéder au journal des connexions d’un autre utilisateur, vous devez être :
+Pour accéder au journal des connexions, vous devez être :
 
 - Un administrateur général
 
@@ -267,7 +267,36 @@ Sur la page **Utilisateurs**, vous obtenez une vue d’ensemble complète de tou
 
 ![Capture d’écran montrant la section Activité dans laquelle vous pouvez sélectionner des connexions.](./media/concept-sign-ins/08.png "Activité de connexion")
 
-## <a name="usage-of-managed-applications"></a>Utilisation des applications gérées
+## <a name="authentication-details"></a>Informations sur l’authentification
+
+L’onglet **Informations sur l’authentification** situé dans le rapport des connexions fournit les informations suivantes pour chaque tentative d’authentification :
+
+- Une liste des stratégies d’authentification appliquées (par exemple, l’accès conditionnel, l’authentification multifacteur par utilisateur, les valeurs par défaut de sécurité)
+- La séquence des méthodes d’authentification utilisées pour la connexion
+- Si la tentative d’authentification a réussi ou non
+- Les raisons de la réussite ou de l’échec de la tentative d’authentification
+
+Ces informations permettent aux administrateurs de dépanner chaque étape de la connexion d’un utilisateur et de suivre :
+
+- Le volume des connexions protégées par l’authentification multifacteur 
+- L’utilisation et le taux de réussite de chaque méthode d’authentification 
+- L’utilisation de méthodes d’authentification sans mot de passe (par exemple, la connexion par téléphone sans mot de passe, FIDO2 et Windows Hello Entreprise) 
+- La fréquence à laquelle les exigences d’authentification sont satisfaites par des revendications de jeton (où les utilisateurs ne sont pas invités de manière interactive à entrer un mot de passe, à entrer un mot de passe à usage unique par SMS, etc.)
+
+Lorsque vous affichez le rapport des connexions, sélectionnez l’onglet **Informations sur l’authentification** : 
+
+![Capture d’écran de l’onglet Informations sur l’authentification](media/concept-sign-ins/auth-details-tab.png)
+
+>[!NOTE]
+>Le **code de vérification OATH** est consigné comme méthode d’authentification pour les jetons matériels et logiciels OATH (par exemple, l’application Microsoft Authenticator).
+
+>[!IMPORTANT]
+>L’onglet **Informations sur l’authentification** peut initialement afficher des données incomplètes ou inexactes, jusqu’à ce que les informations du journal soient entièrement agrégées. Voici quelques exemples connus : 
+>- Un message **Satisfaite par une revendication dans le jeton** s’affiche de manière incorrecte lors de la journalisation initiale des événements de connexion. 
+>- La ligne **Authentification principale** n’est pas initialement consignée. 
+
+
+## <a name="usage-of-managed-applications&quot;></a>Utilisation des applications gérées
 
 En disposant d’une vue centrée sur les applications de vos données de connexion, vous pouvez répondre aux questions telles que :
 
@@ -277,7 +306,7 @@ En disposant d’une vue centrée sur les applications de vos données de connex
 
 Le point d’entrée de ces données correspond aux trois principales applications de votre organisation. Les données sont contenues dans le rapport sur les 30 derniers jours dans la section **Vue d’ensemble** sous **Applications d’entreprise**.
 
-![Capture d’écran montrant où vous pouvez sélectionner Vue d’ensemble.](./media/concept-sign-ins/10.png "Activité de connexion")
+![Capture d’écran montrant où vous pouvez sélectionner Vue d’ensemble.](./media/concept-sign-ins/10.png &quot;Activité de connexion")
 
 Les graphiques d’utilisation des applications affiche les agrégations hebdomadaires des connexions pour vos trois principales applications au cours d’une période donnée. La valeur par défaut de cette période est de 30 jours.
 

@@ -6,13 +6,13 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/9/2020
-ms.openlocfilehash: 1aaeed1973ebd15af312b722ab61938aa4271947
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: 91005835a407cd097d7c5de3de02a48959b4cbfd
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97696249"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750768"
 ---
 # <a name="register-and-scan-azure-cosmos-database-sql-api"></a>Inscription et analyse d’Azure Cosmos DB (API SQL)
 
@@ -42,7 +42,7 @@ Si la méthode d’authentification sélectionnée est **Clé de compte**, vous 
 1. Copiez votre *clé* et enregistrez-la quelque part pour la suite.
 1. Accédez à votre coffre de clés.
 1. Sélectionnez **Paramètres > Secrets**.
-1. Sélectionnez **+ Générer/importer**, puis entrez le **Nom** et la **Valeur** comme *clé* de votre compte de stockage.
+1. Sélectionnez **+ Générer/importer**, puis entrez le **nom** et la **valeur** comme *clé* de votre compte Azure Cosmos DB.
 1. Sélectionnez **Créer** pour terminer.
 1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Enfin, [créez des informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide de la clé pour configurer votre analyse.
@@ -62,10 +62,11 @@ Pour inscrire un nouveau compte Azure Cosmos DB (API SQL) dans votre catalogue d
 Sur l’écran **Inscrire des sources (Azure Cosmos DB (API SQL))** , procédez comme suit :
 
 1. Entrez le **Nom** sous lequel la source de données apparaîtra dans le catalogue.
-1. Choisissez la façon dont vous souhaitez pointer vers le compte de stockage de votre choix :
-   1. Sélectionnez **À partir d’un abonnement Azure**, puis sélectionnez l’abonnement approprié dans la zone de liste déroulante **Abonnement Azure** et le compte Cosmos DB approprié dans la zone de liste déroulante **Nom du compte Cosmos DB**.
-   1. Vous pouvez également sélectionner **Entrer manuellement** et entrer un point de terminaison de service (URL).
-1. Sélectionnez **Terminer** pour inscrire la source de données.
+2. Choisissez votre abonnement Azure pour filtrer les bases de données Azure Cosmos DB.
+3. Sélectionnez un nom de compte Cosmos DB approprié.
+4. Sélectionnez une collection ou créez-en une (facultatif).
+5. Sélectionnez **Inscrire** pour inscrire la source de données.
+
 
 :::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 

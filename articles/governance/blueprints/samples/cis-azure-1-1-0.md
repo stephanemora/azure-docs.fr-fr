@@ -3,16 +3,16 @@ title: Exemple de blueprint CIS Microsoft Azure Foundations Benchmark v1.1.0
 description: Vue d’ensemble de l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark v1.1.0 Cet exemple de blueprint aide les clients à évaluer des contrôles spécifiques.
 ms.date: 03/11/2021
 ms.topic: sample
-ms.openlocfilehash: b6188d96971329a83bc82042a1f840bd893354eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a7b6afb2647db02f50704c8718ba8562c5c6c02
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103197798"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757778"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-v110-blueprint-sample"></a>Exemple de blueprint CIS Microsoft Azure Foundations Benchmark v1.1.0
 
-L’exemple de blueprint CIS Microsoft Azure Foundations Benchmark v1.1.0 fournit des garde-fou de gouvernance avec [Azure Policy](../../policy/overview.md), qui vous aident à évaluer les recommandations spécifiques de CIS Microsoft Azure Foundations Benchmark. Avec ce blueprint, les clients peuvent déployer un ensemble de stratégies pour toute architecture déployée par Azure devant implémenter des recommandations de CIS Microsoft Azure Foundations Benchmark v1.1.0.
+L’exemple de blueprint CIS Microsoft Azure Foundations Benchmark v1.1.0 fournit des garde-fous de gouvernance avec [Azure Policy](../../policy/overview.md), qui vous aident à évaluer les recommandations spécifiques de CIS Microsoft Azure Foundations Benchmark. Avec ce blueprint, les clients peuvent déployer un ensemble de stratégies pour toute architecture déployée par Azure devant implémenter des recommandations de CIS Microsoft Azure Foundations Benchmark v1.1.0.
 
 ## <a name="recommendation-mapping"></a>Correspondances des recommandations
 

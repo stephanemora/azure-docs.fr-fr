@@ -3,12 +3,12 @@ title: Exemples de requêtes de démarrage
 description: Utilisez Azure Resource Graph pour exécuter certaines requêtes de démarrage, notamment compter des ressources ou les trier, par exemple selon une étiquette spécifique.
 ms.date: 05/01/2021
 ms.topic: sample
-ms.openlocfilehash: 52744c3d1e83874d4ac469a93eef86ae12155b5a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: ddb4b57a9f2bae8298de8dad74e99edc19353e42
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326000"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751496"
 ---
 # <a name="starter-resource-graph-query-samples"></a>Exemples de requêtes Resource Graph de démarrage
 
@@ -17,7 +17,7 @@ Pour comprendre comment fonctionnent les requêtes dans Azure Resource Graph, vo
 Nous allons vous guider tout au long des requêtes de démarrage suivantes :
 
 - [Compter les ressources Azure](#count-resources)
-- [Compter les ressources de coffre de clés](#count-keyvaults)
+- [Compter les ressources Key Vault](#count-keyvaults)
 - [Lister les ressources triées par nom](#list-resources)
 - [Afficher toutes les machines virtuelles classées par nom dans l’ordre décroissant](#show-vms)
 - [Afficher les cinq premières machines virtuelles par nom et leur type de système d’exploitation](#show-sorted)
@@ -69,7 +69,7 @@ Search-AzGraph -Query "Resources | summarize count()"
 
 ---
 
-## <a name="count-key-vault-resources"></a><a name="count-keyvaults"></a>Compter les ressources de coffre de clés
+## <a name="count-key-vault-resources"></a><a name="count-keyvaults"></a>Compter les ressources Key Vault
 
 Cette requête utilise `count` au lieu de `summarize` pour compter le nombre d’enregistrements retournés. Seuls les coffres de clés sont inclus dans le décompte.
 
@@ -468,7 +468,7 @@ Cette requête liste les étiquettes sur les groupes d’administration, les abo
 La requête limite d’abord les résultats aux ressources où les étiquettes sont non vides (`isnotempty()`), puis limite les champs inclus en incluant uniquement _tags_ dans `project`, `mvexpand` et `extend` pour obtenir les données associées à partir du jeu de propriétés. Elle utilise ensuite `union` pour combiner les résultats de _ResourceContainers_ aux mêmes résultats de _Resources_, couvrant largement les étiquettes effectivement extraites. Enfin, elle limite les résultats aux données associées `distinct` et exclut les étiquettes cachées par le système.
 
 ```kusto
-ResourceContainers 
+ResourceContainers
 | where isnotempty(tags)
 | project tags
 | mvexpand tags
@@ -555,7 +555,7 @@ advisorresources
     solution = tostring(properties.shortDescription.solution),
     currency = tostring(properties.extendedProperties.savingsCurrency)
 | summarize
-    dcount(resources), 
+    dcount(resources),
     bin(sum(savings), 0.01)
     by solution, currency
 | project solution, dcount_resources, sum_savings, currency

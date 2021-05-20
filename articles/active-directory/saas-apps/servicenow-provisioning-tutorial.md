@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/10/2019
+ms.date: 05/10/2021
 ms.author: jeedes
-ms.openlocfilehash: b3b62e7c16106fd9d94d4a3438331dab4ce8b6e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afad903734fded062681f18683cb74492993fe1c
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99539041"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684214"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutoriel : Configurer ServiceNow pour l'approvisionnement automatique d'utilisateurs
 
@@ -162,6 +162,8 @@ Après avoir configuré l’approvisionnement, utilisez les ressources suivantes
   Si vous ne pouvez toujours pas résoudre votre problème, contactez les membres du support technique de ServiceNow et demandez-leur d’activer le débogage SOAP afin de faciliter le dépannage. 
 
 * Le service de provisionnement Azure AD fonctionne actuellement dans des [plages d’adresses IP](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges) spécifiques. Si nécessaire, vous pouvez restreindre d’autres plages IP et ajouter ces plages IP particulières à la liste verte de votre application. Cette technique autorisera le flux de trafic du service de provisionnement Azure AD à votre application.
+
+* Les instances de ServiceNow auto-hébergées ne sont pas prises en charge. 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -1,24 +1,24 @@
 ---
-title: Informations de référence sur l’attribut Workday
-description: Découvrez quels attributs vous pouvez extraire de Workday à l’aide de requêtes XPATH.
+title: Référence d’attribut Workday pour Azure Active Directory
+description: Découvrez quels attributs vous pouvez extraire de Workday à l’aide de requêtes XPATH dans Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/25/2020
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: celested
-ms.openlocfilehash: 0ff9b3d4cc3bee28c8e5e95d8854f64eaa546b0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: arvinh
+ms.openlocfilehash: beb15748086db6d2fb813a4ff636650d38472e36
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99255472"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784680"
 ---
-# <a name="workday-attribute-reference"></a>Informations de référence sur l’attribut Workday
+# <a name="workday-attribute-reference-for-azure-active-directory"></a>Référence d’attribut Workday pour Azure Active Directory
 
 Cette section fournit la liste des attributs que vous pouvez extraire de Workday à l’aide de requêtes XPATH. En fonction de la version de l’API Workday Web Services que vous envisagez d’utiliser, reportez-vous à la section appropriée. 
 

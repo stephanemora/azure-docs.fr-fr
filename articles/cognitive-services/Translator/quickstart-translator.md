@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: traducteur, service de traduction, traduire du texte, translittérer du texte, détection de la langue
-ms.openlocfilehash: f0397921b4ab29a16ee5259ce19502cad092eb83
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7cb3eb259cc21a5a10b426e4da53513d1f42fb56
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713029"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488696"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Démarrage rapide : Bien démarrer avec Translator
 
@@ -46,6 +46,9 @@ Dans ce guide de démarrage rapide, vous apprenez à utiliser le service Transla
 * [Ajoutez Newtonsoft.Json à l’aide de l’interface de ligne de commande .NET](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Exécutez le programme à partir du répertoire du projet : ``dotnet run``
 
+> [!div class="nextstepaction"]
+> [J’ai créé un projet](#headers) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+
 # <a name="go"></a>[Go](#tab/go)
 
 * Créez un projet Go dans votre éditeur de code favori.
@@ -55,6 +58,9 @@ Dans ce guide de démarrage rapide, vous apprenez à utiliser le service Transla
 * Ouvrez une invite de commandes sur un ordinateur sur lequel Go est installé.
 * Créez le fichier, par exemple : « go build example-code.go ».
 * Exécutez le fichier, par exemple : « example-code ».
+
+> [!div class="nextstepaction"]
+> [J’ai créé un projet](#headers) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=platform-setup)
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -80,6 +86,9 @@ Dans ce guide de démarrage rapide, vous apprenez à utiliser le service Transla
 * Créez un fichier Java et copiez-le dans le code de l’exemple fourni. N’oubliez pas d’ajouter votre clé d’abonnement.
 * Exécutez l’exemple : `gradle run`.
 
+> [!div class="nextstepaction"]
+> [J’ai créé un projet](#headers) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 * Créez un projet dans votre éditeur ou IDE favori.
@@ -87,12 +96,18 @@ Dans ce guide de démarrage rapide, vous apprenez à utiliser le service Transla
 * Définissez votre clé d’abonnement.
 * Exécutez le programme. Par exemple : `node Translate.js`.
 
+> [!div class="nextstepaction"]
+> [J’ai créé un projet](#headers) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+
 # <a name="python"></a>[Python](#tab/python)
 
 * Créez un projet dans votre éditeur ou IDE favori.
 * Copiez le code de l’un des exemples dans votre projet.
 * Définissez votre clé d’abonnement.
 * Exécutez le programme. Par exemple : `python translate.py`.
+
+> [!div class="nextstepaction"]
+> [J’ai créé un projet](#headers) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=platform-setup)
 
 ---
 
@@ -175,6 +190,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai traduit du texte](#detect-language) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -240,6 +258,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai traduit du texte](#detect-language) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -304,6 +325,9 @@ public class Translate {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai traduit du texte](#detect-language) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```Javascript
@@ -340,6 +364,10 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai traduit du texte](#detect-language) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -380,6 +408,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai traduit du texte](#detect-language) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=translate-text)
 
 ---
 
@@ -456,6 +487,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai détecté la langue source durant la traduction](#detect-source-language-without-translation) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
 
 # <a name="go"></a>[Go](#tab/go)
 
@@ -521,6 +555,10 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai détecté la langue source durant la traduction](#detect-source-language-without-translation) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -583,6 +621,10 @@ public class Translate {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai détecté la langue source durant la traduction](#detect-source-language-without-translation) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -619,6 +661,10 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai détecté la langue source durant la traduction](#detect-source-language-without-translation) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -658,6 +704,10 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai détecté la langue source durant la traduction](#detect-source-language-without-translation) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
 
 ---
 
@@ -734,6 +784,10 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai détecté les langues sources sans traduction](#transliterate-text) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
+
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -797,6 +851,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai détecté les langues sources sans traduction](#transliterate-text) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -857,6 +914,9 @@ public class Detect {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai détecté les langues sources sans traduction](#transliterate-text) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -891,6 +951,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai détecté les langues sources sans traduction](#transliterate-text) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -929,6 +992,10 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai détecté les langues sources sans traduction](#transliterate-text) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
+
 ---
 
 Quand vous utilisez le point de terminaison `/detect`, la réponse inclut d’autres détections et vous indique si la traduction et la translittération sont prises en charge pour toutes les langues détectées. Quand l’appel aboutit, vous devez voir la réponse suivante : 
@@ -1017,6 +1084,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai translittéré du texte durant la traduction](#transliterate-without-translation) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -1081,6 +1151,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai translittéré du texte durant la traduction](#transliterate-without-translation) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -1143,6 +1216,9 @@ public class Translate {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai translittéré du texte durant la traduction](#transliterate-without-translation) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -1179,6 +1255,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai translittéré du texte durant la traduction](#transliterate-without-translation) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
 
 # <a name="python"></a>[Python](#tab/python)
 ```Python
@@ -1218,6 +1297,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai translittéré du texte durant la traduction](#transliterate-without-translation) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
 
 ---
 
@@ -1298,6 +1380,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai translittéré du texte sans traduction](#get-sentence-length) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -1363,6 +1448,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai translittéré du texte sans traduction](#get-sentence-length) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -1426,6 +1514,9 @@ public class Transliterate {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai translittéré du texte sans traduction](#get-sentence-length) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -1463,6 +1554,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai translittéré du texte sans traduction](#get-sentence-length) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -1504,6 +1598,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai translittéré du texte sans traduction](#get-sentence-length) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
 
 ---
 
@@ -1573,6 +1670,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai obtenu la longueur des phrases durant la traduction](#get-sentence-length-without-translation) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -1637,6 +1737,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai obtenu la longueur des phrases durant la traduction](#get-sentence-length-without-translation) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -1699,6 +1802,9 @@ public class Translate {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai obtenu la longueur des phrases durant la traduction](#get-sentence-length-without-translation) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -1735,6 +1841,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai obtenu la longueur des phrases durant la traduction](#get-sentence-length-without-translation) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -1774,6 +1883,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai obtenu la longueur des phrases durant la traduction](#get-sentence-length-without-translation) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
 
 ---
 
@@ -1859,6 +1971,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai obtenu la longueur des phrases sans traduction](#dictionary-lookup-alternate-translations) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -1921,6 +2036,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai obtenu la longueur des phrases sans traduction](#dictionary-lookup-alternate-translations) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -1981,6 +2099,9 @@ public class BreakSentence {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai obtenu la longueur des phrases sans traduction](#dictionary-lookup-alternate-translations) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -2015,6 +2136,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai obtenu la longueur des phrases sans traduction](#dictionary-lookup-alternate-translations) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -2053,6 +2177,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai obtenu la longueur des phrases sans traduction](#dictionary-lookup-alternate-translations) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
 
 ---
 
@@ -2124,6 +2251,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai obtenu des traductions alternatives](#dictionary-examples-translations-in-context) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -2188,6 +2318,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai obtenu des traductions alternatives](#dictionary-examples-translations-in-context) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -2250,6 +2383,9 @@ public class DictionaryLookup {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai obtenu des traductions alternatives](#dictionary-examples-translations-in-context) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -2286,6 +2422,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai obtenu des traductions alternatives](#dictionary-examples-translations-in-context) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -2325,6 +2464,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai obtenu des traductions alternatives](#dictionary-examples-translations-in-context) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
 
 ---
 
@@ -2420,6 +2562,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai obtenu des traductions en contexte](#next-steps) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -2488,6 +2633,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai obtenu des traductions en contexte](#next-steps) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -2550,6 +2698,9 @@ public class DictionaryExamples {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai obtenu des traductions en contexte](#troubleshooting) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -2587,6 +2738,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai obtenu des traductions en contexte](#next-steps) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -2628,6 +2782,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai obtenu des traductions en contexte](#next-steps) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
 
 ---
 

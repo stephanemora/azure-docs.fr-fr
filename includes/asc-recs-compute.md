@@ -2,17 +2,17 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 04/26/2021
+ms.date: 05/11/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: f2b7fac28d1da7f74091e78808eef7604e6c74f1
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 7187599a269b37c1eb2b305bbcd8346a53bfb2e2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001876"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784281"
 ---
-Cette catégorie compte **51** recommandations.
+Cette catégorie compte **50** recommandations.
 
 |Recommandation |Description |Gravité |
 |---|---|---|
@@ -48,7 +48,6 @@ Cette catégorie compte **51** recommandations.
 |Les ports de gestion des machines virtuelles doivent être protégés par un contrôle d’accès réseau juste-à-temps |Azure Security Center a détecté des règles de trafic entrant trop permissives pour les ports de gestion de votre groupe de sécurité réseau. Activez le contrôle d’accès juste-à-temps pour protéger votre machine virtuelle contre les attaques en force brute provenant d’Internet. <a href="https://docs.microsoft.com/azure/security-center/security-center-just-in-time">En savoir plus.</a><br />(Stratégie associée : [Les ports de gestion des machines virtuelles doivent être protégés par un contrôle d’accès réseau juste-à-temps](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb0f33259-77d7-4c9e-aac6-3aabcfae693c)) |Élevé |
 |L’agent de collecte de données sur le trafic réseau doit être installé sur les machines virtuelles Linux |Security Center utilise Microsoft Dependency Agent pour collecter les données du trafic réseau sur vos machines virtuelles Azure, afin d’activer des fonctionnalités avancées de protection réseau : visualisation du trafic sur le plan du réseau, recommandations de durcissement de la sécurité réseau et menaces réseau spécifiques.<br />(Stratégie associée : [L’agent de collecte de données sur le trafic réseau doit être installé sur les machines virtuelles Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f04c4380f-3fae-46e8-96c9-30193528f602)) |Medium |
 |L’agent de collecte de données sur le trafic réseau doit être installé sur les machines virtuelles Windows |Security Center utilise Microsoft Dependency Agent pour collecter les données du trafic réseau sur vos machines virtuelles Azure, afin d’activer des fonctionnalités avancées de protection réseau : visualisation du trafic sur le plan du réseau, recommandations de durcissement de la sécurité réseau et menaces réseau spécifiques.<br />(Stratégie associée : [L’agent de collecte de données sur le trafic réseau doit être installé sur les machines virtuelles Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2f2ee1de-44aa-4762-b6bd-0893fc3f306d)) |Medium |
-|La version du système d’exploitation doit être mise à jour pour vos rôles de service cloud |Mettez à jour la version du système d'exploitation (SE) pour les rôles de votre service cloud vers la version la plus récente disponible pour la gamme de votre SE.<br />(Stratégie associée : [La version du système d’exploitation doit être la version la plus récente pour vos rôles de service cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5a913c68-0590-402c-a531-e57e19379da3)) |Élevé |
 |Les stratégies de sécurité des pods doivent être définies sur Kubernetes Services (déprécié) |(Déprécié) Définissez des stratégies de sécurité de pod pour réduire le vecteur d’attaque en supprimant les privilèges d’application inutiles. Il est recommandé de configurer des stratégies de sécurité des pods pour vous assurer que les pods qui demandent des ressources non autorisées ne peuvent pas s’exécuter dans le cluster AKS.<br />(Aucune stratégie associée) |Élevé |
 |Le démarrage sécurisé doit être activé sur votre machine virtuelle Linux |L’activation du démarrage sécurisé sur votre machine virtuelle permet de réduire les changements malveillants et non autorisés de la chaîne de démarrage. Une fois activé, seul le code signé est autorisé à s’exécuter sur votre machine virtuelle ou serveur.<br />(Aucune stratégie associée) |Faible |
 |La propriété ClusterProtectionLevel doit être définie sur EncryptAndSign pour les clusters Service Fabric |Service Fabric fournit trois niveaux de protection (None, Sign et EncryptAndSign) pour la communication nœud à nœud à l’aide d’un certificat de cluster principal. Définissez le niveau de protection pour vous assurer que tous les messages de nœud à nœud sont chiffrés et signés numériquement.<br />(Stratégie associée : [La propriété ClusterProtectionLevel doit être définie sur EncryptAndSign pour les clusters Service Fabric](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f617c02be-7f02-4efd-8836-3180d47b6c68)) |Élevé |

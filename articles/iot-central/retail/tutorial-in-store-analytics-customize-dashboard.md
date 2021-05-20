@@ -11,17 +11,17 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 74ce36652b1a00ac6813c62a17d44e2a5486645f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cea5ed5d75bbba4e2e6cdc8793bf5ce7503a5912
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99831709"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755348"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutoriel :  Personnaliser le tableau de bord de l’opérateur et gérer les appareils dans Azure IoT Central
 
 
-Dans ce tutoriel, vous allez découvrir comment vous pouvez, en tant que réalisateur de logiciel, personnaliser le tableau de bord de l’opérateur dans votre application d’analytique en magasin Azure IoT Central. Les opérateurs d’application peuvent utiliser le tableau de bord personnalisé pour exécuter l’application et gérer les appareils connectés.
+Dans ce tutoriel, vous allez découvrir comment vous pouvez personnaliser le tableau de bord de l’opérateur dans votre application d’analytique en magasin Azure IoT Central. Les opérateurs d’application peuvent utiliser le tableau de bord personnalisé pour exécuter l’application et gérer les appareils connectés.
 
 Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]

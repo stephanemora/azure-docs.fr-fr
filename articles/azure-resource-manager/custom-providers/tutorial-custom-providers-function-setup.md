@@ -1,27 +1,27 @@
 ---
 title: Configurer Azure Functions
-description: Ce tutoriel vous explique comment créer une application de fonction Azure et comment la configurer pour qu’elle fonctionne avec des fournisseurs personnalisés Azure.
+description: Ce tutoriel vous explique comment créer une application de fonction dans Azure Functions et comment la configurer pour qu’elle fonctionne avec des fournisseurs personnalisés Azure.
 author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 55554678047faeedd16b78dea61a42d50fd59491
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b63dc2e47a494b50ea756728afc39e74200f8d39
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98737318"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745826"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurer Azure Functions pour les fournisseurs personnalisés Azure
 
-Un fournisseur personnalisé implique qu’un contrat soit passé entre Azure et un point de terminaison. Les fournisseurs personnalisés vous permettent de modifier des workflows dans Azure. Ce tutoriel montre comment configurer une application de fonction Azure pour qu’elle fonctionne comme un point de terminaison de fournisseur personnalisé.
+Un fournisseur personnalisé implique qu’un contrat soit passé entre Azure et un point de terminaison. Les fournisseurs personnalisés vous permettent de modifier des workflows dans Azure. Ce tutoriel montre comment configurer une application de fonction dans Azure Functions pour qu’elle fonctionne comme un point de terminaison de fournisseur personnalisé.
 
-## <a name="create-the-azure-function-app"></a>Créer une application de fonction Azure
+## <a name="create-the-function-app"></a>Créer l’application de fonction
 
 > [!NOTE]
-> Dans ce tutoriel, vous allez créer un point de terminaison de service simple qui utilise une application de fonction Azure. Toutefois, un fournisseur personnalisé peut utiliser n’importe quel point de terminaison accessible publiquement. Les alternatives sont notamment Azure Logic Apps, la gestion des API Azure et la fonctionnalité Web Apps d’Azure App Service.
+> Dans ce tutoriel, vous créez un point de terminaison de service simple qui utilise une application de fonction dans Azure Functions. Toutefois, un fournisseur personnalisé peut utiliser n’importe quel point de terminaison accessible publiquement. Les alternatives sont notamment Azure Logic Apps, la gestion des API Azure et la fonctionnalité Web Apps d’Azure App Service.
 
-Pour démarrer ce tutoriel, vous devez d’abord suivre le tutoriel [Créer votre première application de fonction à l’aide du portail Azure](../../azure-functions/functions-get-started.md). Ce tutoriel crée une fonction webhook .NET Core qui peut être modifiée dans le portail Azure. C’est également la base du tutoriel actuel.
+Pour démarrer ce tutoriel, vous devez d’abord suivre le tutoriel [Créer votre première application de fonction dans le portail Azure](../../azure-functions/functions-get-started.md). Ce tutoriel crée une fonction webhook .NET Core qui peut être modifiée dans le portail Azure. C’est également la base du tutoriel actuel.
 
 ## <a name="install-azure-table-storage-bindings"></a>Installer les liaisons du stockage Table Azure
 
@@ -77,6 +77,6 @@ L’élément XML suivant est un exemple de fichier projet C# :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez configuré une application de fonction Azure pour qu’elle fonctionne comme un point de terminaison de fournisseur personnalisé Azure.
+Dans ce tutoriel, vous avez configuré une application de fonction dans Azure Functions pour qu’elle fonctionne comme un point de terminaison de fournisseur personnalisé Azure.
 
 Pour découvrir comment créer un point de terminaison de fournisseur personnalisé RESTful, consultez [Tutoriel : Création d’un point de terminaison de fournisseur personnalisé RESTful](./tutorial-custom-providers-function-authoring.md).

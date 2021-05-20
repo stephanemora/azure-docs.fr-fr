@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 8293ed1bfb53895b9631d9730fb75a2364457180
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ddc3d35817211d7396defa7460a2505b86c700c
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96452373"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713235"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Configurer un laboratoire avec des machines virtuelles GPU
 
@@ -47,16 +47,19 @@ Pour tirer parti des fonctionnalités GPU de vos machines virtuelles de labo, as
 
 ![Capture d’écran du « Nouveau labo » montrant l’option « Installer les pilotes GPU »](./media/how-to-setup-gpu/lab-gpu-drivers.png)
 
-Comme indiqué dans l’image ci-dessus, cette option est activée par défaut, ce qui garantit que les *derniers* pilotes sont installés pour le type de GPU et d’image que vous avez sélectionnés.
-- Lorsque vous sélectionnez une taille de GPU pour le *calcul*, les machines virtuelles de votre laboratoire sont alimentées par la GPU [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf).  Dans ce cas, les [pilotes d’architecture de calcul unifiée (CUDA)](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf) les plus récents sont installés, ce qui permet un calcul hautes performances.
-- Lorsque vous sélectionnez une taille de GPU pour la *visualisation*, les machines virtuelles de votre laboratoire sont alimentées par la GPU [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) et la technologie [GRID](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  Dans ce cas, les derniers pilotes GRID sont installés, ce qui permet l’utilisation d’applications gourmandes en ressources graphiques.
+Comme indiqué dans l’image ci-dessus, cette option est activée par défaut, ce qui garantit que les pilotes récemment publiés sont installés pour le type de GPU et l’image que vous avez sélectionnés :
+- Lorsque vous sélectionnez une taille de GPU pour le *calcul*, les machines virtuelles de votre laboratoire sont alimentées par la GPU [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf).  Dans ce cas, des pilotes [CUDA (Compute Unified Device Architecture)](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf) récents sont installés, ce qui permet un calcul haute performance.
+- Lorsque vous sélectionnez une taille de GPU pour la *visualisation*, les machines virtuelles de votre laboratoire sont alimentées par la GPU [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) et la technologie [GRID](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  Dans ce cas, des pilotes GRID récents sont installés, ce qui permet l’utilisation d’applications gourmandes en ressources graphiques.
+
+> [!IMPORTANT]
+> L’option **Installer des pilotes GPU** installe uniquement les pilotes lorsqu’ils ne sont pas présents sur l’image de votre lab.  Par exemple, les pilotes GPU sont déjà installés sur l’[image Data Science](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) de Place de marché Azure.  Si vous créez un lab à l’aide de l’image Data Science et que vous choisissez d’**installer les pilotes GPU**, les pilotes ne seront pas mis à jour vers une version plus récente.  Pour mettre à jour les pilotes, vous devez les installer manuellement, comme expliqué dans la section suivante.  
 
 ### <a name="install-the-drivers-manually"></a>Pour installer manuellement les pilotes
-Vous devrez peut-être installer une version de pilote autre que la plus récente.  Cette section montre comment installer manuellement les pilotes appropriés, selon que vous utilisez un GPU pour le *calcul* ou la *visualisation*.
+Vous devrez peut-être installer une version des pilotes différente de celle qu’Azure Lab Services installe pour vous.  Cette section montre comment installer manuellement les pilotes appropriés, selon que vous utilisez un GPU pour le *calcul* ou la *visualisation*.
 
 #### <a name="install-the-compute-gpu-drivers"></a>Installer les pilotes GPU de calcul
 
-Pour installer manuellement les pilotes pour la taille du GPU de calcul, procédez comme suit :
+Pour installer manuellement les pilotes pour la taille du GPU de *calcul*, procédez comme suit :
 
 1. Dans l’Assistant Création de laboratoire, lorsque vous [créez votre labo](./how-to-manage-classroom-labs.md), désactivez le paramètre **Installer les pilotes GPU**.
 
@@ -80,7 +83,7 @@ Pour installer manuellement les pilotes pour la taille du GPU de calcul, procéd
 
 #### <a name="install-the-visualization-gpu-drivers"></a>Installer les pilotes GPU de visualisation
 
-Pour installer manuellement les pilotes pour la taille de GPU de visualisation, procédez comme suit :
+Pour installer manuellement les pilotes pour les tailles de GPU de *visualisation*, procédez comme suit :
 
 1. Dans l’Assistant Création de laboratoire, lorsque vous [créez votre labo](./how-to-manage-classroom-labs.md), désactivez le paramètre **Installer les pilotes GPU**.
 1. Une fois votre laboratoire créé, connectez-vous au modèle de machine virtuelle pour installer les pilotes appropriés.
@@ -108,6 +111,8 @@ Cette section décrit comment vérifier que vos pilotes GPU ont bien été insta
 
       > [!IMPORTANT]
       > Les paramètres du panneau de configuration NVIDIA sont accessibles uniquement pour les GPU de *visualisation*.  Si vous tentez d’ouvrir le panneau de configuration NVIDIA pour un GPU de calcul, vous obtiendrez l’erreur suivante : « Les paramètres d’affichage NVIDIA ne sont pas disponibles.  Vous n'utilisez actuellement pas d'écran connecté à un processeur graphique NVIDA ».  De même, les informations de performances du GPU dans le gestionnaire des tâches sont fournies uniquement pour les GPU de visualisation.
+
+ Selon votre scénario, vous devrez peut-être effectuer une validation supplémentaire pour vous assurer que le GPU est correctement configuré.  Lisez le type de classe sur [Python et Jupyter Notebooks](./class-type-jupyter-notebook.md#template-virtual-machine) qui explique un exemple où des versions spécifiques des pilotes sont nécessaires.
 
 #### <a name="linux-images"></a>Images Linux
 Suivez les instructions de la section « Vérifier l’installation des pilotes » dans [installer les pilotes GPU NVIDIA sur les machines virtuelles de la série N exécutant Linux](../virtual-machines/linux/n-series-driver-setup.md#verify-driver-installation).

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 05/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 15a9a2becea9751903e99f6ef1d55bc6f7b65ca8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e19ab526df864bba7bd164a15c11185439d35d7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95998615"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742796"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-allyio"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Ally.io
 
@@ -41,7 +41,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Ally.io prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
 * Ally.io prend en charge le provisionnement d’utilisateurs **juste-à-temps**
-* Après avoir configuré Ally.io, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Après avoir configuré Ally.io, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration de données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-allyio-from-the-gallery"></a>Ajout d’Ally.io à partir de la galerie
 
@@ -64,7 +64,6 @@ Pour configurer et tester l’authentification unique Azure AD avec Ally.io, sui
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
     1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique Ally.io](#configure-allyio-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    1. **[Créer un utilisateur de test Ally.io](#create-allyio-test-user)** pour avoir un équivalent de B.Simon dans Ally.io lié à la représentation Azure AD associée.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -92,7 +91,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. L’application Ally.io s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
-    ![image](common/default-attributes.png)
+    ![Capture d’écran montrant la liste d’attributs par défaut.](common/default-attributes.png)
 
 1. En plus de ce qui précède, l’application Ally.io s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
     
@@ -142,11 +141,24 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-allyio-sso"></a>Configurer l’authentification unique Ally.io
 
-Pour configurer l’authentification unique côté **Ally.io**, vous devez envoyer le **certificat (en base64)** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support technique Ally.io](mailto:contact@ally.io). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté Ally.io, vous devez copier le certificat (en base64) et les URL appropriées à partir du portail Azure, et les ajouter dans Ally.io.
 
-### <a name="create-allyio-test-user"></a>Créer un utilisateur de test Ally.io
+1. Connectez-vous à Ally.io en utilisant un compte d’administrateur.
+1. En utilisant la barre de navigation à gauche de l’écran, sélectionnez **Administrateur** > **Intégrations**.
+1. Faites défiler jusqu’à la section **Authentication** et sélectionnez **Authentification unique**. Ensuite, sélectionnez **Activer**.
 
-Dans cette section, un utilisateur appelé B.Simon est créé dans Ally.io. Ally.io prend en charge le provisionnement juste-à-temps, qui est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Ally.io, il en est créé un quand vous tentez d’accéder à Ally.io.
+    ![Capture d’écran montrant le bouton Activer dans Ally I O.](./media/ally-tutorial/ally-enable.png)
+
+    La page **Configuration de l’authentification unique** s’ouvre, où vous pouvez configurer le certificat et les URL copiées à partir du portail Azure.
+
+    ![Capture d’écran montrant le volet de configuration de l’authentification unique dans Ally I O.](./media/ally-tutorial/ally-single-sign-on-configuration.png)
+
+1. Dans **SSO Configuration**, entrez ou sélectionnez les paramètres suivants : 
+
+    * **Ally** : Azure AD
+    * **SAML 2.0 Endpoint URL** : URL de connexion
+    * **Identity Provider Issuer URL** : Identificateur Azure AD
+    * **Public (X.509) Certificate** : Certificat (en base64)
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
@@ -154,9 +166,11 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
 Quand vous cliquez sur la vignette Ally.io dans le volet d’accès, vous devez être connecté automatiquement à l’application Ally.io pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
+Une utilisatrice appelée B.Simon est créée dans Ally.io. Ally.io prend en charge le provisionnement juste-à-temps, qui est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Ally.io, il en est créé un quand vous tentez d’accéder à Ally.io.
+
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 

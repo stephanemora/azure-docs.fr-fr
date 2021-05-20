@@ -8,16 +8,16 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: cacf298fe5f8d6d36bfa6a963e3f3d9a2c996778
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 13f8e12944349bea667110585af71ea078ef7656
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207732"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784104"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Comment utiliser Postman pour envoyer des demandes aux API Azure Digital Twins
 
-[Postman](https://www.getpostman.com/) est un outil de test REST qui fournit des fonctionnalités clés de requête HTTP dans une interface utilisateur graphique Bureau basée sur un plug-in. Vous pouvez l’utiliser pour créer des requêtes HTTP et envoyer celles-ci aux [API REST Azure Digital Twins](how-to-use-apis-sdks.md).
+[Postman](https://www.getpostman.com/) est un outil de test REST qui fournit des fonctionnalités clés de requête HTTP dans une interface utilisateur graphique Bureau basée sur un plug-in. Vous pouvez l’utiliser pour créer des requêtes HTTP et envoyer celles-ci aux [API REST Azure Digital Twins](concepts-apis-sdks.md).
 
 Cet article décrit comment configurer le [client REST Postman](https://www.getpostman.com/) pour interagir avec les API Azure Digital Twins en procédant comme suit :
 
@@ -27,7 +27,7 @@ Cet article décrit comment configurer le [client REST Postman](https://www.getp
     1. [Créer](#create-your-own-collection) votre propre collection à partir de rien.
 1. [Ajoutez des demandes](#add-an-individual-request) à votre collection configurée, et envoyez-les aux API Azure Digital Twins.
 
-Azure Digital Twins comprend deux ensembles API que vous pouvez utiliser : un **plan de données** et un **plan de contrôle**. Pour plus d’informations sur la différence entre ces ensembles API, consultez [Guide pratique : Utiliser les API et les Kits de développement logiciel (SDK) Azure Digital Twins](how-to-use-apis-sdks.md). Cet article contient des informations sur les deux ensembles API.
+Azure Digital Twins comprend deux ensembles API que vous pouvez utiliser : un **plan de données** et un **plan de contrôle**. Pour plus d’informations sur la différence entre ces ensembles API, consultez [Concepts : API et kits de développement logiciel (SDK) Azure Digital Twins](concepts-apis-sdks.md). Cet article contient des informations sur les deux ensembles API.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -58,7 +58,7 @@ Dans le cas contraire, vous pouvez ouvrir une fenêtre [Azure Cloud Shell](https
 
 2. Ensuite, utilisez la commande [az account get-access-token](/cli/azure/account#az_account_get_access_token) pour obtenir un jeton du porteur ayant accès au service Azure Digital Twins. Dans cette commande, vous allez transmettre l’ID de ressource pour le point de terminaison de service Azure Digital Twins afin d’obtenir un jeton d’accès permettant d’accéder aux ressources Azure Digital Twins. 
 
-    Le contexte requis pour le jeton dépend de l’ensemble API que vous utilisez. Utilisez donc les onglets ci-dessous pour choisir entre les API de plan de [données](how-to-use-apis-sdks.md#overview-data-plane-apis) et de [plan de contrôle](how-to-use-apis-sdks.md#overview-control-plane-apis) .
+    Le contexte requis pour le jeton dépend de l’ensemble API que vous utilisez. Utilisez donc les onglets ci-dessous pour choisir entre les API de plan de [données](concepts-apis-sdks.md#overview-data-plane-apis) et de [plan de contrôle](concepts-apis-sdks.md#overview-control-plane-apis) .
 
     # <a name="data-plane"></a>[Plan de données](#tab/data-plane)
     
@@ -128,7 +128,7 @@ Voici comment télécharger la collection choisie sur votre ordinateur afin de p
 1. Sélectionnez le bouton **Brut** pour ouvrir le texte brut du fichier.
     :::image type="content" source="media/how-to-use-postman/swagger-raw.png" alt-text="Capture d’écran du fichier digitaltwins.json de plan de données dans GitHub. Le bouton Brut est en évidence." lightbox="media/how-to-use-postman/swagger-raw.png":::
 1. Copiez le texte de la fenêtre, puis collez-le dans un nouveau fichier sur votre ordinateur.
-1. Enregistrez le fichier avec une extension *.json* (vous pouvez le nommer à votre guise, pour autant que vous puissiez mémoriser son nom afin de le retrouver ultérieurement).
+1. Enregistrez le fichier avec une extension .json (vous pouvez le nommer à votre guise, pour autant que vous puissiez mémoriser son nom afin de le retrouver ultérieurement).
 
 ### <a name="import-the-collection"></a>Importer la collection
 
@@ -168,7 +168,7 @@ Procédez comme suit pour ajouter un jeton du porteur à la collection pour l’
 
 # <a name="data-plane"></a>[Plan de données](#tab/data-plane)
 
-Si vous créez une collection [plan de données](how-to-use-apis-sdks.md#overview-data-plane-apis), aidez-la à se connecter facilement à vos ressources Azure Digital Twins en définissant certaines **variables** fournies avec les collections. Lorsque de nombreuses demandes d’une collection requièrent la même valeur (comme le nom d’hôte de votre instance Azure Digital Twins), vous pouvez stocker la valeur dans une variable s’appliquant à chaque demande de la collection. Les deux collections téléchargeables pour Azure Digital Twins sont fournies avec des variables prêtes à l’emploi que vous pouvez définir au niveau de la collection.
+Si vous créez une collection [plan de données](concepts-apis-sdks.md#overview-data-plane-apis), aidez-la à se connecter facilement à vos ressources Azure Digital Twins en définissant certaines **variables** fournies avec les collections. Lorsque de nombreuses demandes d’une collection requièrent la même valeur (comme le nom d’hôte de votre instance Azure Digital Twins), vous pouvez stocker la valeur dans une variable s’appliquant à chaque demande de la collection. Les deux collections téléchargeables pour Azure Digital Twins sont fournies avec des variables prêtes à l’emploi que vous pouvez définir au niveau de la collection.
 
 1. Toujours dans la boîte de dialogue de modification de votre collection, accédez à l’onglet **Variables** .
 
@@ -182,7 +182,7 @@ Une fois les étapes ci-dessus accomplies, vous avez fini de configurer la colle
 
 # <a name="control-plane"></a>[Plan de contrôle](#tab/control-plane)
 
-Si vous créez une collection de [plan de contrôle](how-to-use-apis-sdks.md#overview-control-plane-apis), vous avez fait tout ce qu’il fallait pour configurer la collection. Vous pouvez fermer l’onglet de modification de la collection si vous le souhaitez, puis passer à la section suivante.
+Si vous créez une collection de [plan de contrôle](concepts-apis-sdks.md#overview-control-plane-apis), vous avez fait tout ce qu’il fallait pour configurer la collection. Vous pouvez fermer l’onglet de modification de la collection si vous le souhaitez, puis passer à la section suivante.
 
 --- 
 
@@ -276,7 +276,7 @@ Pour envoyer une demande Postman à l’une des API Azure Digital Twins, vous av
 
 Pour continuer avec un exemple de requête, cet article utilise l’API de requête (et sa [documentation de référence](/rest/api/digital-twins/dataplane/query/querytwins)) pour interroger tous les jumeaux numériques dans une instance.
 
-1. Trouvez l’URL et le type de la demande dans la documentation de référence. Pour l’API de requête, il s’agit actuellement de *POST `https://digitaltwins-hostname/query?api-version=2020-10-31`* .
+1. Trouvez l’URL et le type de la demande dans la documentation de référence. Pour l’API de requête, il s’agit actuellement de *POST*  `https://digitaltwins-host-name/query?api-version=2020-10-31`.
 1. Dans Postman, définissez le type de la demande, puis entrez son URL en remplissant les espaces réservés dans l’URL de manière appropriée. C’est là que vous allez utiliser le **nom d’hôte** de votre instance, évoqué dans la section [Conditions préalables](#prerequisites).
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Capture d’écran des détails de la nouvelle demande dans Postman, avec l’URL de requête de la documentation de référence renseignée dans la zone URL de demande." lightbox="media/how-to-use-postman/postman-request-url.png":::
@@ -302,4 +302,4 @@ Vous pouvez également comparer la réponse aux données de réponse attendues d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les API Digital Twins, lisez [Guide pratique : Utiliser les API et les kits de développement logiciel (SDK) Azure Digital Twins](how-to-use-apis-sdks.md) ou consultez la [documentation de référence pour les API REST](/rest/api/azure-digitaltwins/).
+Pour en savoir plus sur les API Digital Twins, consultez [Concepts : API et kits de développement logiciel (SDK) Azure Digital Twins](concepts-apis-sdks.md) ou la [documentation de référence pour les API REST](/rest/api/azure-digitaltwins/).

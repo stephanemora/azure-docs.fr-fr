@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: 1231d4b14d4beb2b4e167b3e7572428ec99c8e54
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ab99d4aec732d2bc6b42576d30b59b0f8c0067c3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140278"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772038"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>Créer des stratégies et des initiatives de sécurité personnalisées
 
@@ -37,9 +37,7 @@ Comme nous l’avons vu dans la [documentation Azure Policy](../governance/polic
     [![Sélection d’un abonnement pour lequel vous allez créer votre stratégie personnalisée](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
 
     > [!NOTE]
-    > Vous devez ajouter des standards personnalisés au niveau de l’abonnement (ou à un niveau supérieur) pour qu’ils soient évalués et affichés dans Security Center. 
-    >
-    > Lorsque vous ajoutez une norme personnalisée, elle attribue une *initiative* à cette étendue. Nous vous recommandons donc de sélectionner l’étendue la plus vaste requise pour cette attribution.
+    > Vous devez ajouter des initiatives personnalisées au niveau de l’abonnement (ou à un niveau supérieur) pour qu’elles soient évaluées et affichées dans Security Center. Nous vous recommandons de sélectionner l’étendue la plus vaste disponible.
 
 1. Dans la page Stratégie de sécurité, sous vos initiatives personnalisées, cliquez sur **Ajouter une initiative personnalisée**.
 

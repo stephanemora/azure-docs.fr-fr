@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 4/05/2021
 ms.author: fauhse
 ms.custom: include file
-ms.openlocfilehash: 57d14ae6e6da7cfa883f1aed74cce390c0185d98
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: a3dc42ece6bbd05b61ef9a4f1a0f82e147b2a762
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491671"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749287"
 ---
 La vitesse et le taux de réussite d’une exécution de RoboCopy donnée dépendent de plusieurs facteurs :
 
@@ -51,6 +51,8 @@ Nous avons souvent tendance à considérer la bande passante comme le facteur le
 La cause de cette différence réside dans la puissance de traitement nécessaire pour parcourir un espace de noms. RoboCopy prend en charge les copies multithread par le biais du paramètre `/MT:n`, où n représente le nombre de threads de processeurs. Ainsi, lors du provisionnement d’une machine plus particulièrement destinée à RoboCopy, tenez compte du nombre de cœurs de processeur et de leur relation avec le nombre de threads qu’ils fournissent. Le plus souvent, il est question de deux threads par cœur. Le nombre de cœurs et de threads d’une machine constitue un point de données important pour déterminer les valeurs multithread `/MT:n` que vous devez spécifier. Tenez également compte du nombre de tâches de RoboCopy que vous prévoyez d’exécuter en parallèle sur une machine donnée.
 
 Des threads plus nombreux copieront notre exemple de 1 Tio de petits fichiers beaucoup plus rapidement que des threads moins nombreux. En même temps, l’investissement en ressources supplémentaires sur notre 1 Tio de fichiers volumineux peut ne pas produire d’avantages, en proportion. Un nombre élevé de threads tentera de copier simultanément un plus grand nombre de fichiers volumineux sur le réseau. Cette activité réseau supplémentaire augmente la probabilité d’être limité par les IOPS de débit ou de stockage.
+
+Pendant une première RoboCopy dans une cible vide ou une exécution différentielle avec un grand nombre de fichiers modifiés, vous êtes probablement limité par le débit de votre réseau. Démarrez avec un nombre élevé de threads pour une série initiale. Un nombre élevé de threads, même au-delà des threads actuellement disponibles sur votre machine, permet de saturer la bande passante réseau disponible. Les exécutions suivantes de /MIR sont affectées progressivement par les éléments traités. Un nombre moindre de modifications dans une exécution différentielle signifie moins de transport des données sur le réseau. Votre vitesse est désormais plus dépendante de votre capacité à traiter les éléments d’espace de noms que de leur déplacement sur la liaison réseau. Pour les exécutions suivantes, associez votre valeur de nombre de threads au nombre de cœurs du processeur et au nombre de threads par cœur. Déterminez si les cœurs doivent être réservés pour les autres tâches qu’un serveur de production peut prendre en charge.
 
 ### <a name="avoid-unnecessary-work"></a>Éviter les tâches inutiles
 

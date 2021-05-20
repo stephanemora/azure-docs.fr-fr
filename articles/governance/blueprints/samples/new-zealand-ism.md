@@ -3,12 +3,12 @@ title: Exemple de blueprint New Zealand ISM Restricted
 description: Vue d’ensemble de l’exemple de blueprint New Zealand ISM Restricted Cet exemple de blueprint aide les clients à évaluer des contrôles spécifiques.
 ms.date: 03/22/2021
 ms.topic: sample
-ms.openlocfilehash: c406ec453cf980c1e065c70e69151b692a878596
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1a7f50853c00336df584d210330860889e3f6881
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125766"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757095"
 ---
 # <a name="new-zealand-ism-restricted-blueprint-sample"></a>Exemple de blueprint New Zealand ISM Restricted
 

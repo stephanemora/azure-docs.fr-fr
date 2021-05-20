@@ -12,18 +12,23 @@ ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ea087513cf628c42362a295c51913b0a31c6db3f
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 367657b803ce50cd923c08b4b7b58dc3f945e1f4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285697"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748981"
 ---
-# <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Désactiver les chiffrements faibles et la synchronisation de hachage de mot de passe pour sécuriser un domaine managé Azure Active Directory Domain Services
+# <a name="harden-an-azure-active-directory-domain-services-managed-domain"></a>Renforcer un domaine géré des services de domaine Azure Active Directory
 
 Par défaut, Azure Active Directory Domain Services (Azure AD DS) permet l’utilisation de chiffrements comme NTLM v1 et TLS v1. Certaines applications héritées peuvent avoir besoin de ces chiffrements, mais étant considérés comme faibles, vous pouvez les désactiver si vous n’en avez pas l’utilité. Si vous disposez d’une connectivité hybride locale reposant sur Azure AD Connect, vous pouvez aussi désactiver la synchronisation des hachages de mot de passe NTLM.
 
-Cet article vous montre comment désactiver les chiffrements NTLM  1 et TLS  1 ainsi que la synchronisation de hachage de mot de passe NTLM.
+Cet article explique comment renforcer un domaine managé à l’aide d’un paramètre tel que : 
+
+- Désactiver les chiffrements NTLM v1 et TLS v1
+- Désactiver la synchronisation de hachage de mot de passe NTLM
+- Désactiver la possibilité de modifier les mots de passe avec le chiffrement RC4
+- Activer le blindage Kerberos
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -36,7 +41,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des ressour
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
     * Si nécessaire, [créez et configurez un domaine managé Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 
-## <a name="use-security-settings-to-disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Utiliser les paramètres de sécurité pour désactiver les chiffrements faibles et la synchronisation du hachage de mot de passe NTLM
+## <a name="use-security-settings-to-harden-your-domain"></a>Utiliser les paramètres de sécurité pour renforcer votre domaine
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sur le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**.
@@ -46,10 +51,12 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des ressour
    - **Mode TLS 1.2 uniquement**
    - **Authentification NTLM**
    - **Synchronisation de mot de passe NTLM à partir d’un emplacement local**
+   - **Chiffrement RC4**
+   - **Protection Kerberos**
 
    ![Capture d’écran des paramètres de sécurité pour désactiver les chiffrements faibles et la synchronisation du hachage de mot de passe NTLM](media/secure-your-domain/security-settings.png)
 
-## <a name="use-powershell-to-disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Utilisez PowerShell pour désactiver les chiffrements faibles et la synchronisation de hachage de mot de passe NTLM
+## <a name="use-powershell-to-harden-your-domain"></a>Utiliser PowerShell pour renforcer votre domaine
 
 Si nécessaire, [installez et configurez Azure PowerShell](/powershell/azure/install-az-ps). Veillez à vous connecter à votre abonnement Azure à l’aide de l’applet de commande [Connect-AzAccount][Connect-AzAccount]. 
 
@@ -76,13 +83,13 @@ Ensuite, définissez *DomainSecuritySettings* pour configurer les options de sé
 > Les utilisateurs et les comptes de service ne peuvent pas établir de liaisons simples LDAP si vous désactivez la synchronisation de hachage de mot de passe NTLM dans votre domaine managé Azure AD DS. Si vous devez établir des liaisons simples LDAP, ne définissez pas l’option de configuration de sécurité *"SyncNtlmPasswords"="Disabled";* dans la commande suivante.
 
 ```powershell
-$securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled"}}
+$securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled";"KerberosRc4Encryption"="Disabled";"KerberosArmoring"="Disabled"}}
 ```
 
 Enfin, appliquez les paramètres de sécurité définis au domaine managé à l’aide de l’applet de commande [Set-AzResource][Set-AzResource]. Spécifiez la ressource Azure AD DS de la première étape ainsi que les paramètres de sécurité de l’étape précédente.
 
 ```powershell
-Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
+Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -ApiVersion “2021-03-01” -Verbose -Force
 ```
 
 L’application des paramètres de sécurité au domaine managé prend quelques instants.

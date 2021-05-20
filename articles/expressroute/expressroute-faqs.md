@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 6cf70a6cfa4b1bf0f8d065872698d16977b4cb59
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 50ae89aefda00f21d07a19051c9aaa6e85726f8a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127746"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741380"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -171,7 +171,7 @@ Cliquez [ici](./designing-for-high-availability-with-expressroute.md) pour en sa
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Comment garantir une haute disponibilité sur un réseau virtuel connecté à ExpressRoute ?
 
-Vous pouvez obtenir une haute disponibilité en connectant jusqu’à 16 circuits ExpressRoute du même emplacement de peering à votre réseau virtuel, ou en connectant des circuits ExpressRoute à différents emplacements de peering (par exemple, Singapour, Singapour2) à votre réseau virtuel. Si un circuit ExpressRoute tombe en panne, la connectivité bascule vers un autre circuit ExpressRoute. Par défaut, le trafic qui quitte votre réseau virtuel est acheminé selon le principe de routage ECMP (Equal Cost Multi-path Routing). Vous pouvez utiliser le poids de connexion pour choisir un circuit plutôt qu’un autre. Pour plus d’informations, voir [Optimisation du routage ExpressRoute](expressroute-optimize-routing.md).
+Vous pouvez obtenir une haute disponibilité en connectant jusqu’à 4 circuits ExpressRoute du même emplacement de peering à votre réseau virtuel, ou jusqu’à 16 circuits ExpressRoute à différents emplacements de peering (par exemple, Singapour, Singapour2) à votre réseau virtuel. Si un circuit ExpressRoute tombe en panne, la connectivité bascule vers un autre circuit ExpressRoute. Par défaut, le trafic qui quitte votre réseau virtuel est acheminé selon le principe de routage ECMP (Equal Cost Multi-path Routing). Vous pouvez utiliser le poids de connexion pour choisir un circuit plutôt qu’un autre. Pour plus d’informations, voir [Optimisation du routage ExpressRoute](expressroute-optimize-routing.md).
 
 ### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-peering-or-public-peering-is-preferred-on-the-expressroute-path"></a>Comment puis-je m’assurer que mon trafic destiné aux services publics Azure comme Stockage Azure et Azure SQL sur le peering Microsoft ou le peering public a la préférence sur le chemin ExpressRoute ?
 

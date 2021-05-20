@@ -6,19 +6,15 @@ ms.author: mbaldwin
 ms.date: 03/31/2021
 ms.service: key-vault
 ms.subservice: general
-ms.topic: how-to
-ms.openlocfilehash: 7d219b752b894bbce9815911658c804ecb850ea1
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.topic: conceptual
+ms.openlocfilehash: 08ed6fc4c4a18a699a8a27b2436f5eb92252fa7e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753431"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755209"
 ---
-# <a name="authenticate-to-azure-key-vault"></a>S’authentifier auprès d’Azure Key Vault
-
-Azure Key Vault offre la possibilité de stocker des secrets et de contrôler leur distribution dans un référentiel cloud centralisé et sécurisé, ce qui évite d’avoir à stocker des informations d’identification dans les applications. Il suffit aux applications de s’authentifier auprès de Key Vault à l’exécution pour accéder à ces secrets.
-
-## <a name="app-identity-and-security-principals"></a>Identité et principaux de sécurité des applications
+# <a name="authentication-in-azure-key-vault"></a>Authentification dans Azure Key Vault
 
 L’authentification auprès de Key Vault fonctionne conjointement avec [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md), qui est chargé d’authentifier l’identité de chaque **principal de sécurité** donné.
 
@@ -40,49 +36,23 @@ Pour les applications, il existe deux façons d’obtenir un principal de servic
 
 * Si vous ne pouvez pas utiliser l’identité managée, **inscrivez** l’application auprès de votre locataire Azure AD (cf. [Démarrage rapide : Inscription d’une application avec la Plateforme d’identités Azure](../../active-directory/develop/quickstart-register-app.md)). L’inscription a également pour effet de créer un deuxième objet d’application qui identifie l’application sur tous les locataires.
 
-## <a name="authorize-a-security-principal-to-access-key-vault"></a>Autoriser un principal de sécurité à accéder à Key Vault
-
-Key Vault fonctionne avec deux niveaux d’autorisation distincts :
-
-- Les **stratégies d’accès** contrôlent si un utilisateur, un groupe ou un principal de service est autorisé à accéder aux secrets, aux clés et aux certificats *au sein* d’une ressource Key Vault existante (opérations parfois appelées « plan de données »). Ces stratégies sont généralement accordées à des utilisateurs, groupes et applications.
-
-    Pour affecter des stratégies d’accès, consultez les articles suivants :
-
-    - [Azure portal](assign-access-policy-portal.md)
-    - [Azure CLI](assign-access-policy-cli.md)
-    - [Azure PowerShell](assign-access-policy-portal.md)
-
-- Les **autorisations de rôle** contrôlent si un utilisateur, un groupe ou un principal de service est autorisé à créer, à supprimer et, plus généralement, à gérer une ressource Key Vault (opérations parfois appelées « plan de gestion »). Ces rôles sont la plupart du temps accordés uniquement aux administrateurs.
- 
-    Pour affecter et gérer les rôles, consultez les articles suivants :
-
-    - [Azure portal](../../role-based-access-control/role-assignments-portal.md)
-    - [Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-    - [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-
-    Pour obtenir des informations générales sur les rôles, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md)
-
-
-> [!IMPORTANT]
-> Pour une sécurité optimale, suivez toujours le principe des privilèges minimum : accordez uniquement les stratégies d’accès et les rôles les plus spécifiques nécessaires. 
-    
 ## <a name="configure-the-key-vault-firewall"></a>Configuration du pare-feu Key Vault
 
 Par défaut, Key Vault autorise l’accès aux ressources par le biais d’adresses IP publiques. Pour une sécurité optimale, vous pouvez aussi limiter l’accès à des plages d’adresses IP, des points de terminaison de service, des réseaux virtuels ou des points de terminaison privés spécifiques.
 
 Pour plus d’informations, consultez [Accès à Azure Key Vault derrière un pare-feu](./access-behind-firewall.md).
 
+## <a name="the-key-vault-request-operation-flow-with-authentication"></a>Déroulement de l’opération de demande Key Vault avec l’authentification
 
-## <a name="the-key-vault-authentication-flow"></a>Flux d’authentification Key Vault
+L’authentification Key Vault se produit dans le cadre de chaque opération de demande sur Key Vault. Une fois le jeton récupéré, il peut être réutilisé pour les appels suivants. Exemple de flux d’authentification :
 
-1. Un principal de service demande à s’authentifier auprès d’Azure AD, par exemple :
+1. Un jeton demande à s’authentifier auprès d’Azure AD, par exemple :
+    * Une ressource Azure, comme une machine virtuelle ou une application App Service avec identité managée, contacte le point de terminaison REST pour obtenir un jeton d’accès.
     * Un utilisateur se connecte au Portail Azure avec un nom d’utilisateur et un mot de passe.
-    * Une application appelle une API REST Azure, en présentant un ID client et une clé secrète ou un certificat client.
-    * Une ressource Azure, comme une machine virtuelle avec identité managée, contacte le point de terminaison REST [Azure Instance Metadata Service (IMDS)](../../virtual-machines/windows/instance-metadata-service.md) pour obtenir un jeton d’accès.
 
-1. Si l’authentification auprès d’Azure AD réussit, un jeton OAuth est accordé au principal de service.
+1. Si l’authentification auprès d’Azure AD réussit, un jeton OAuth est accordé au principal de sécurité.
 
-1. Le principal de service effectue un appel à l’API REST Key Vault par le biais du point de terminaison (URI) de Key Vault.
+1. Un appel à l’API REST Key Vault est effectué par le biais du point de terminaison (URI) de Key Vault.
 
 1. Le pare-feu Key Vault vérifie les critères suivants. Si un critère est respecté, l’appel est autorisé. Dans le cas contraire, l’appel est bloqué et une réponse Interdit est retournée.
 
@@ -91,9 +61,9 @@ Pour plus d’informations, consultez [Accès à Azure Key Vault derrière un pa
     * L’appelant est listé dans le pare-feu par adresse IP, réseau virtuel ou point de terminaison de service.
     * L’appelant peut accéder à Key Vault au moyen d’une connexion de liaison privée configurée.    
 
-1. Si le pare-feu autorise l’appel, Key Vault appelle Azure AD pour valider le jeton d’accès du principal de service.
+1. Si le pare-feu autorise l’appel, Key Vault appelle Azure AD pour valider le jeton d’accès du principal de sécurité.
 
-1. Key Vault vérifie si le principal de service dispose de la stratégie d’accès nécessaire pour l’opération demandée. Si ce n’est pas le cas, Key Vault retourne une réponse Interdit.
+1. Key Vault vérifie si le principal de sécurité dispose de l’autorisation nécessaire pour l’opération demandée. Si ce n’est pas le cas, Key Vault retourne une réponse Interdit.
 
 1. Key Vault effectue l’opération demandée et retourne le résultat.
 
@@ -104,24 +74,24 @@ Le diagramme suivant illustre le processus pour une application qui appelle une 
 > [!NOTE]
 > Les clients du SDK Key Vault pour les secrets, les certificats et les clés effectuent un appel supplémentaire en direction de Key Vault sans jeton d’accès, ce qui entraîne une réponse 401 pour récupérer les informations du locataire. Pour plus d’informations, consultez [Authentification, requêtes et réponses](authentication-requests-and-responses.md).
 
-## <a name="code-examples"></a>Exemples de code
+## <a name="authentication-to-key-vault-in-application-code"></a>Authentification auprès de Key Vault dans le code d’application
 
-Le tableau suivant contient des liens vers différents articles qui montrent comment utiliser Key Vault dans le code d’application à l’aide des bibliothèques Azure SDK du langage en question. D’autres interfaces, comme Azure CLI et le Portail Azure, sont incluses pour des raisons pratiques.
+Le SDK Key Vault utilise la bibliothèque de client Azure Identity, qui permet une authentification fluide auprès de Key Vault dans différents environnements avec le même code.
 
-| Secrets Key Vault | Clés Key Vault | Certificats Key Vault |
-|  --- | --- | --- |
-| [Python](../secrets/quick-create-python.md) | [Python](../keys/quick-create-python.md) | [Python](../certificates/quick-create-python.md) | 
-| [.NET](../secrets/quick-create-net.md) | [.NET](../keys/quick-create-net.md) | [.NET](../certificates/quick-create-net.md) |
-| [Java](../secrets/quick-create-java.md) | [Java](../keys/quick-create-java.md) | [Java](../certificates/quick-create-java.md) |
-| [JavaScript](../secrets/quick-create-node.md) | [JavaScript](../keys/quick-create-node.md) | [JavaScript](../certificates/quick-create-node.md) | 
-| [Azure portal](../secrets/quick-create-portal.md) | [Azure portal](../keys/quick-create-portal.md) | [Azure portal](../certificates/quick-create-portal.md) |
-| [Azure CLI](../secrets/quick-create-cli.md) | [Azure CLI](../keys/quick-create-cli.md) | [Azure CLI](../certificates/quick-create-cli.md) |
-| [Azure PowerShell](../secrets/quick-create-powershell.md) | [Azure PowerShell](../keys/quick-create-powershell.md) | [Azure PowerShell](../certificates/quick-create-powershell.md) |
-| [Modèle ARM](../secrets/quick-create-net.md) | -- | -- |
+**Bibliothèques clientes d’identité Azure**
+
+| .NET | Python | Java | JavaScript |
+|--|--|--|--|
+|[SDK de l’identité Azure .NET](/dotnet/api/overview/azure/identity-readme)|[SDK de l’identité Azure Python](/python/api/overview/azure/identity-readme)|[SDK de l’identité Azure Java](/java/api/overview/azure/identity-readme)|[SDK de l’identité Azure Javascript](/javascript/api/overview/azure/identity-readme)|   
+
+Pour plus d’informations sur les bonnes pratiques et des exemples de développement, consultez [S’authentifier auprès de Key Vault dans le code](developers-guide.md#authenticate-to-key-vault-in-code).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Guide du développeur Key Vault](developers-guide.md)
+- [Attribuer une stratégie d’accès Key Vault à l’aide du portail Azure](assign-access-policy-portal.md)
+- [Attribuer un rôle RBAC Azure à Key Vault](rbac-guide.md)
 - [Résolution des problèmes de stratégie d’accès à Key Vault](troubleshooting-access-issues.md)
 - [Codes d'erreur de l'API REST Key Vault](rest-error-codes.md)
-- [Guide du développeur Key Vault](developers-guide.md)
+
 - [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md)

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 92c2ae13b840d7a73d86365ce88584bcafc878e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 673dca65726a4258e267e8dd3e403329b47f6d98
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181456"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739976"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutoriel : Configurer Slack pour l’attribution automatique d’utilisateurs
 
@@ -36,9 +36,12 @@ L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md).
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général).
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général).
 * Un client Slack avec le [forfait Plus](https://aadsyncfabric.slack.com/pricing) ou mieux activé.
 * Un compte d’utilisateur dans Slack avec les autorisations d’administrateur d’équipe.
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Étape 1. Planifier votre déploiement de l’approvisionnement
 1. En savoir plus sur le [fonctionnement du service d’approvisionnement](../app-provisioning/user-provisioning.md).
@@ -125,6 +128,7 @@ Cette section vous guide à travers la connexion de votre instance d’Azure AD
    |profileUrl|String|
    |timezone|String|
    |userType|String|
+   |preferredLanguage|String|
    |urn:scim:schemas:extension:enterprise:1.0.department|String|
    |urn:scim:schemas:extension:enterprise:1.0.manager|Informations de référence|
    |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|String|
@@ -182,7 +186,7 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 
 * Slack n’autorise que la correspondance avec les attributs **userName** et **email**.  
   
-* Les codes d’erreur courants sont documentés dans la documentation officielle de Slack : https://api.slack.com/scim#errors.
+* Les codes d’erreur courants sont documentés dans la documentation officielle de Slack : https://api.slack.com/scim#errors
 
 ## <a name="change-log"></a>Journal des modifications
 

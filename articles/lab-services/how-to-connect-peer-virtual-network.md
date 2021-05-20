@@ -3,12 +3,12 @@ title: Se connecter à un réseau pair dans Azure Lab Services | Microsoft Docs
 description: Découvrez comment connecter votre réseau lab avec un autre réseau en tant que pair. Par exemple, connectez votre réseau local d’organisation/université avec le réseau virtuel du Lab dans Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 99ea72f11c8f389a15171a1fe3b376646494903a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 645e99681f5615c3082d784e4e540a6200f618b8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434241"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755132"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Connecter un réseau lab avec un réseau virtuel pair dans Azure Lab Services
 
@@ -27,6 +27,9 @@ Certains des réseaux locaux sont connectés au réseau virtuel Azure via [Expre
 
 > [!NOTE]
 > Lors de la création d’un Réseau virtuel Azure qui sera appairé avec un compte de labo, il est important de comprendre l’incidence de la région du réseau virtuel sur l’endroit où sont créés les labos.  Pour plus d’informations, consultez la section du guide de l’administrateur relative aux [régions et emplacements](./administrator-guide.md#regionslocations).
+
+> [!NOTE]
+> Si votre établissement scolaire doit effectuer un filtrage de contenu, par exemple pour être en conformité avec les règles de protection de l’enfance sur Internet (comme le [CIPA (Children’s Internet Protection Act)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act) aux États-Unis), vous devez utiliser un logiciel tiers.  Pour plus d’informations, lisez les recommandations sur le [filtrage de contenu avec Lab Services](./administrator-guide.md#content-filtering).
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Effectuer la configuration au moment de la création du compte lab
 

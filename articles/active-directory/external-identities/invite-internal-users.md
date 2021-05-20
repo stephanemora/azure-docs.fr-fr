@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 802307a21873d15242c2e387ec0defe35f50bb20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa2356cf45c1b1a04fac14bff2888d031ca5a423
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99576428"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750984"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Inviter des utilisateurs internes sur B2B Collaboration
 
@@ -31,9 +31,12 @@ L’envoi d’une invitation à un compte interne existant vous permet de conser
 
 - **L’invitation est unidirectionnelle** : Vous pouvez inviter des utilisateurs internes à utiliser B2B Collaboration, mais vous ne pouvez pas supprimer les informations d’identification B2B une fois qu’elles ont été ajoutées. Pour rétablir l’utilisateur en tant qu’utilisateur interne uniquement, vous devez supprimer l’objet utilisateur et en créer un autre.
 
-- **Teams** : quand l’utilisateur accède à Teams à l’aide de ses informations d’identification externes, son locataire n’est pas disponible initialement dans le sélecteur de locataire de Teams. L’utilisateur peut accéder à Teams à l’aide d’une URL contenant le contexte du locataire, par exemple : `https://team.microsoft.com/?tenantId=<TenantId>`. Ensuite, le locataire devient disponible dans le sélecteur de locataire de Teams.
+- **Teams** : quand l’utilisateur accède à Teams à l’aide de ses informations d’identification externes, son locataire n’est pas disponible initialement dans le sélecteur de locataire de Teams. L’utilisateur peut accéder à Teams à l’aide d’une URL contenant le contexte du locataire, par exemple : `https://teams.microsoft.com/?tenantId=<TenantId>`. Ensuite, le locataire devient disponible dans le sélecteur de locataire de Teams.
 
 - **Utilisateurs synchronisés localement** : Pour les comptes d’utilisateurs synchronisés localement et dans le cloud, l’annuaire local reste la source d’autorité une fois que les utilisateurs ont été invités à accéder à B2B Collaboration. Tous les changements que vous apportez au compte local sont synchronisés avec le compte cloud, notamment la désactivation ou la suppression du compte. Vous ne pouvez donc pas empêcher l’utilisateur de se connecter à son compte local tout en conservant son compte cloud, en supprimant simplement le compte local. À la place, vous pouvez affecter un GUID aléatoire ou toute autre valeur inconnue au mot de passe du compte local.
+
+> [!NOTE]
+> Si vous utilisez la synchronisation cloud Azure AD Connect, une règle par défaut écrit la propriété OnPremUserPrincipalName sur l’utilisateur. Cette règle doit être modifiée afin de ne pas écrire la propriété pour les utilisateurs que vous souhaitez convertir d’utilisateurs internes en utilisateurs externes.
 
 ## <a name="how-to-invite-internal-users-to-b2b-collaboration"></a>Guide pratique pour inviter des utilisateurs internes sur B2B Collaboration
 

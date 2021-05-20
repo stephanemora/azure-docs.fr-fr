@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a2d4ebee02d85d10d5db8ec2de0bb1be334770dc
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 59f2ac4021a4f3ae7d2121d9e96bac96c658485c
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717654"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516935"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach"></a>Configurer un partage de fichiers pour l’attachement d’application MSIX
 
@@ -21,7 +21,7 @@ L’attachement d’application MSIX n’a pas de dépendances par rapport au ty
 
 ## <a name="performance-requirements"></a>Exigences en matière de performances
 
-Les limites de taille d’image d’attachement d’application MSIX pour votre système dépendent du type de stockage que vous utilisez pour stocker les fichiers VHD ou VHDx, ainsi que des limitations de taille des fichiers VHD, VHSD ou CIM et du système de fichiers.
+Les limites de taille d’image d’attachement d’application MSIX pour votre système dépendent du type de stockage que vous utilisez pour stocker les fichiers VHD ou VHDx, ainsi que des limitations de taille des fichiers VHD, VHDX ou CIM et du système de fichiers.
 
 Le tableau suivant donne un exemple du nombre de ressources d’une seule image MSIX de 1 Go avec une application MSIX à l’intérieur de celle-ci pour chaque machine virtuelle :
 

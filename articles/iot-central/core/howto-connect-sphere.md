@@ -8,16 +8,14 @@ ms.author: sandeepu
 author: sandeeppujar
 ms.date: 04/30/2020
 ms.custom: device-developer
-ms.openlocfilehash: 770f6e56a669ab2d9b425a7a2879eeef5d37377b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0527834c71a2f2932b566608a16c2c1577ac68cf
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92123421"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756554"
 ---
 # <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Connecter un appareil Azure Sphere à votre application Azure IoT Central
-
-*Cet article s’applique aux développeurs d’appareils.*
 
 Cet article vous montre comment connecter un appareil Azure Sphere (DevKit) à une application Azure IoT Central.
 
@@ -61,7 +59,7 @@ Avant de connecter l’appareil du kit de développement Azure Sphere à IoT Cen
 
 ## <a name="connect-the-device"></a>Connecter l’appareil
 
-Pour permettre à l’exemple de se connecter à IoT Central, vous devez [configurer une application Azure IoT Central, puis modifier le manifeste d’application de l’exemple](https://aka.ms/iotcentral-sphere-git-readme).
+Pour permettre à l’exemple de se connecter à IoT Central, vous devez [configurer une application Azure IoT Central, puis modifier le manifeste d’application de l’exemple](https://github.com/Azure/azure-sphere-samples/blob/master/Samples/AzureIoT/READMEStartWithIoTCentral.md).
 
 ## <a name="view-the-telemetry-from-the-device"></a>Afficher les données de télémétrie de l'appareil
 
@@ -83,7 +81,7 @@ Pour créer un appareil simulé :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous êtes un développeur d’appareils, nous vous suggérons les étapes suivantes :
+Voici quelques suggestions pour continuer :
 
 - En savoir plus sur la [connectivité des appareils dans Azure IoT Central](./concepts-get-connected.md)
 - Découvrez comment [superviser la connectivité des appareils à l’aide d’Azure CLI](./howto-monitor-devices-azure-cli.md)

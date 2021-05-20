@@ -1,17 +1,17 @@
 ---
-title: Déployer un cluster Service Fabric managé (préversion)
+title: Déployer un cluster Service Fabric managé
 description: Dans ce tutoriel, vous allez déployer un cluster Service Fabric managé à des fins de test.
 ms.topic: tutorial
-ms.date: 08/27/2020
+ms.date: 5/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: fd54e6f8c5272c3a8fe0e0162ca2e57968b24642
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48332bd8115a48497157b846f02db49c96e61001
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791709"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685780"
 ---
-# <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>Tutoriel : Déployer un cluster Service Fabric managé (préversion)
+# <a name="tutorial-deploy-a-service-fabric-managed-cluster"></a>Tutoriel : Déployer un cluster Service Fabric managé
 
 Dans cette série de tutoriels, nous allons aborder les points suivants :
 

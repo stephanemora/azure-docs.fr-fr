@@ -1,16 +1,16 @@
 ---
-title: Effectuer le scale-out d’un cluster Service Fabric managé (préversion)
+title: Effectuer le scale-out d’un cluster Service Fabric managé
 description: Dans ce tutoriel, découvrez comment effectuer le scale-out d’un type de nœud d’un cluster Service Fabric managé.
 ms.topic: tutorial
-ms.date: 09/28/2020
-ms.openlocfilehash: 769bcb339b2cc1419c7a3d92d0f08130029a9f95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 5/10/2021
+ms.openlocfilehash: ebce8b0506866e52d79395a3abfcda280c460532
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98785429"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685762"
 ---
-# <a name="tutorial-scale-out-a-service-fabric-managed-cluster-preview"></a>Tutoriel : Effectuer le scale-out d’un cluster Service Fabric managé (préversion)
+# <a name="tutorial-scale-out-a-service-fabric-managed-cluster"></a>Tutoriel : Effectuer le scale-out d’un cluster Service Fabric managé
 
 Dans cette série de didacticiels, nous allons aborder les points suivants :
 

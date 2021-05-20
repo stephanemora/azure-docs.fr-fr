@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f19425ea4a72f62689daa9dda08a22667aa50bc6
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: aa81fdb68e13f7898df060a6d85d8ff05f6d2528
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331355"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714059"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Créer un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -55,7 +55,7 @@ Voici les principales étapes à suivre pour créer un package d’accès.
 
 ## <a name="start-new-access-package"></a>Démarrer le nouveau package d’accès
 
-**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
+**Rôle prérequis :** administrateur général, administrateur de la gouvernance des identités, administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -75,11 +75,11 @@ Sur l’onglet **Concepts de base**, vous donnez un nom au package d’accès et
 
 1. Dans la liste déroulante **Catalogue**, sélectionnez le catalogue dans lequel vous souhaitez créer le package d’accès. Par exemple, vous pouvez avoir un propriétaire du catalogue qui gère toutes les ressources marketing qui peuvent être demandées. Dans ce cas, vous pouvez sélectionner le catalogue marketing.
 
-    Vous verrez seulement les catalogues dans lesquels vous êtes autorisé à créer des packages d’accès. Pour créer un package d’accès dans un catalogue existant, vous devez être au moins un Administrateur général, un Administrateur d’utilisateurs, le propriétaire du catalogue ou le gestionnaire de package d’accès dans ce catalogue.
+    Vous verrez seulement les catalogues dans lesquels vous êtes autorisé à créer des packages d’accès. Pour créer un package d’accès dans un catalogue existant, vous devez être un administrateur général, un administrateur de la gouvernance des identités ou un administrateur d’utilisateurs, ou vous devez être le propriétaire du catalogue ou le gestionnaire de package d’accès dans ce catalogue.
 
     ![Package d’accès - Concepts de base](./media/entitlement-management-access-package-create/basics.png)
 
-    Si vous êtes un Administrateur général, un Administrateur d’utilisateurs ou un créateur de catalogue, et si vous souhaitez créer votre package d’accès dans un nouveau catalogue qui ne figure pas dans la liste, cliquez sur **Créer un catalogue**. Entrez le nom du catalogue et sa description, puis cliquez sur **Créer**.
+    Si vous êtes un administrateur général, un administrateur de la gouvernance des identités, un administrateur d’utilisateurs ou un créateur de catalogue, et si vous souhaitez créer votre package d’accès dans un nouveau catalogue qui ne figure pas dans la liste, cliquez sur **Créer un catalogue**. Entrez le nom du catalogue et sa description, puis cliquez sur **Créer**.
 
     Le package d’accès que vous créez et toutes les ressources incluses sont ajoutés dans le nouveau catalogue. Vous pouvez également ajouter d’autres propriétaires de catalogue plus tard.
 

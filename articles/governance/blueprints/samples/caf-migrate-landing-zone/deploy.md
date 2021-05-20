@@ -3,12 +3,12 @@ title: Déployer un exemple de blueprint de zone de destination de la migration 
 description: Étapes de déploiement pour l’exemple de blueprint de zone d’accueil de migration du framework d’adoption du cloud et informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: d5aed1d492fea102598a22921d04ed8681c727cb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9c953c5ec7f6c8a9a9ae7a1ff784b5c0d0f8f877
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470113"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757814"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Déployer l’exemple de blueprint de zone d’accueil de migration du framework d’adoption de Microsoft Cloud pour Azure
 
@@ -35,7 +35,7 @@ Commencez par implémenter l’exemple de blueprint. Pour cela, créez un bluepr
 1. Recherchez l’exemple de blueprint **Zone d’accueil de migration du framework d’adoption du cloud** sous _Autres exemples_ et sélectionnez **Utiliser cet exemple**.
 
 1. Entrez les _Fonctions de base_ de l’exemple de blueprint :
-   - **Nom du blueprint** : spécifiez un nom pour votre copie de l’exemple de zone d’accueil de migration du framework d’adoption du cloud.
+   - **Nom du blueprint** : spécifiez un nom pour votre copie de l’exemple de blueprint de zone d’atterrissage de migration du framework d’adoption du cloud.
    - **Emplacement de définition**  : utilisez les points de suspension et sélectionnez le groupe d’administration dans lequel vous souhaitez enregistrer votre copie de l’exemple.
 
 1. Sélectionnez l’onglet _Artefacts_ dans le haut de la page ou **Suivant : Artefacts** dans le bas de la page.
@@ -72,7 +72,7 @@ Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peu
      - Azure Blueprint utilise cette identité managée pour déployer tous les artefacts dans le blueprint affecté.
        Pour en savoir plus, consultez [Identités managées pour les ressources Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Version de définition du blueprint** : Choisissez une version **publiée** de votre copie de l’exemple de blueprint.
-    
+
    - Verrouiller l'affectation
 
      Sélectionnez le paramètre de verrouillage de blueprint pour votre environnement. Pour plus d’informations, consultez [Verrouillage des ressources des blueprints](../../concepts/resource-locking.md).
@@ -85,9 +85,9 @@ Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peu
 
      Les paramètres définis dans cette section sont utilisés par de nombreux artefacts dans la définition du blueprint à des fins de cohérence.
 
-       - **Organisation** : entrez le nom de votre organisation, par exemple Contoso ou Fabrikam. Ce nom doit être unique.
-       - **AzureRegion** : sélectionnez une région Azure pour le déploiement.
-       
+     - **Organisation** : entrez le nom de votre organisation, par exemple Contoso ou Fabrikam. Ce nom doit être unique.
+     - **AzureRegion** : sélectionnez une région Azure pour le déploiement.
+
    - Paramètres d'artefact
 
      Les paramètres définis dans cette section s’appliquent à l’artefact sous lequel elle est définie. Ces paramètres sont des [paramètres dynamiques](../../concepts/parameters.md#dynamic-parameters) puisqu’ils sont définis lors de l’affectation du blueprint. Pour obtenir la liste complète des paramètres d’artefact et leur description, consultez le [tableau des paramètres d’artefact](#artifact-parameters-table).

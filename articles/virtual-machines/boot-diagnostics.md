@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 030f19d61e19349de7e2d3416a3aee1385fd03c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbd3d9c3607a0326e7ad9403c8e69d20dafc952a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104607520"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108740300"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostics de démarrage Azure
 
@@ -102,7 +102,7 @@ Tout ce qui est postérieur à l’API version 2020-06-01 prend en charge les di
 ```
 
 ## <a name="limitations"></a>Limites
-- Les diagnostics de démarrage sont uniquement disponibles pour les machines virtuelles Azure Resource Manager.
+- Les diagnostics de démarrage managés sont uniquement disponibles pour les machines virtuelles Azure Resource Manager. 
 - Les diagnostics de démarrage managé ne prennent pas en charge les machines virtuelles utilisant des disques de système d’exploitation non managés.
 - Les diagnostics de démarrage ne prennent pas en charge les comptes de stockage Premium. Si un compte de stockage Premium est utilisé pour les diagnostics de démarrage, les utilisateurs recevront une erreur `StorageAccountTypeNotSupported` lors du démarrage de la machine virtuelle. 
 - Les comptes de stockage managés sont pris en charge dans l’API Resource Manager version « 2020-06-01 » et ultérieures.

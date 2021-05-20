@@ -1,25 +1,25 @@
 ---
 title: 'Créer un locataire Azure AD pour les connexions VPN P2S : Authentification Azure AD'
 titleSuffix: Azure VPN Gateway
-description: Apprenez à configurer un locataire Azure AD pour l'authentification Open VPN P2S.
+description: Découvrez comment configurer un locataire Azure AD pour l’authentification Azure AD P2S – Protocole OpenVPN.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 05/10/2021
 ms.author: cherylmc
-ms.openlocfilehash: c0d3aa376f11ca6b05a8fcbd10562ff2fed83258
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: f2f20580bc8396f6d7336d50bbe7fb55c94725de
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228655"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109712889"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Créer un locataire Azure Active Directory pour les connexions de protocole OpenVPN P2S
 
-Pour vous connecter à votre réseau virtuel, vous pouvez utiliser l'authentification par certificat ou l'authentification RADIUS. Toutefois, lorsque vous utilisez le protocole Open VPN, vous pouvez également utiliser l'authentification Azure Active Directory. Cet article vous aide à configurer un locataire Azure AD pour l'authentification Open VPN P2S.
+Lorsque vous vous connectez à votre réseau virtuel à l’aide d’une connexion point à site, vous avez le choix du protocole à utiliser. Le protocole que vous utilisez détermine les options d’authentification qui vous sont proposées. Si vous souhaitez utiliser l’authentification Azure Active Directory, vous pouvez le faire lorsque vous utilisez le protocole OpenVPN. Cet article vous aide à configurer un locataire Azure AD. Pour plus d’informations sur les protocoles et l’authentification point à site, consultez [À propos du VPN point à site](point-to-site-about.md).
 
-[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="1-verify-azure-ad-tenant"></a><a name="tenant"></a>1. Vérifier le locataire Azure AD
 
@@ -97,7 +97,13 @@ Suivez les étapes décrites dans [Ajouter ou supprimer des utilisateurs - Azure
 
    * **Locataire :** TenantID du locataire Azure AD ```https://login.microsoftonline.com/{AzureAD TenantID}/```
 
-   * **Audience** : ApplicationID de l'application d'entreprise Azure AD « Azure VPN » ```{AppID of the "Azure VPN" AD Enterprise app}```
+   * **Public** : Identifiant de l’application d’entreprise Azure AD « Azure VPN »
+
+       * Entrez 41b23e61-6c1e-4545-b367-cd054e0ed4b4 pour Azure Public
+       * Entrez 51bb15d4-3a4f-4EBF-9dca-40096fe32426 pour Azure Government
+       * Entrez 538ee9e6-310a-468d-afef-ea97365856a9 pour Azure German
+       * Entrez 49f817b6-84AE-4cc0-928c-73f27289b3aa pour Azure China21Vianet
+
 
    * **Émetteur** : URL de Secure Token Service (Service d'émission de jeton de sécurité - STS) ```https://sts.windows.net/{AzureAD TenantID}/```
 

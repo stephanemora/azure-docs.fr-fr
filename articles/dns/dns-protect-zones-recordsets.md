@@ -2,17 +2,17 @@
 title: Protection des zones DNS et des enregistrements - Azure DNS
 description: Dans ce parcours d’apprentissage, commencez à protéger des zones DNS et des jeux d’enregistrement dans Microsoft Azure DNS.
 services: dns
-author: asudbring
+author: duongau
 ms.service: dns
 ms.topic: how-to
-ms.date: 2/20/2020
-ms.author: allensu
-ms.openlocfilehash: 9d65e024e9efa3ad2bcb1c70d44360c8bd0de384
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/05/2021
+ms.author: duau
+ms.openlocfilehash: 66a19ae5ce4eb80b9c6fb04abeb24abc833f0353
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785849"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771073"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Comment protéger les enregistrements et zones DNS
 
@@ -34,13 +34,13 @@ Le groupe de ressources *myResourceGroup* contient cinq zones pour Contoso Corp
 
 La façon la plus simple d’attribuer des autorisations Azure RBAC consiste à utiliser [le portail Azure](../role-based-access-control/role-assignments-portal.md).  
 
-Ouvrez **Contrôle d’accès (IAM)** pour le groupe de ressources, sélectionnez **Ajouter**, puis sélectionnez le rôle **Collaborateur de zone DNS**. Sélectionnez les utilisateurs ou les groupes auxquels accorder des autorisations.
+Ouvrez **Contrôle d’accès (IAM)** pour le groupe de ressources, sélectionnez **+Ajouter**, puis sélectionnez le rôle **Collaborateur de zone DNS**. Sélectionnez les utilisateurs ou les groupes auxquels accorder des autorisations.
 
-![Azure RBAC au niveau groupe de ressources via le portail Azure](./media/dns-protect-zones-recordsets/rbac1.png)
+:::image type="content" source="./media/dns-protect-zones-recordsets/resource-group-rbac.png" alt-text="Capture d’écran de la page Contrôle d’accès (IAM) d’un groupe de ressources.":::
 
 Vous pouvez également [accorder des autorisations à l’aide d’Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) :
 
-```azurepowershell
+```azurepowershell-interactive
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
 
 $usr = "<user email address>"
@@ -52,7 +52,7 @@ New-AzRoleAssignment -SignInName $usr -RoleDefinitionName $rol -ResourceGroupNam
 
 La commande équivalente est également [disponible via l’interface de ligne de commande Azure](../role-based-access-control/role-assignments-cli.md) :
 
-```azurecli
+```azurecli-interactive
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
 
 az role assignment create \
@@ -67,13 +67,13 @@ Vous pouvez appliquer les règles RBAC d’Azure à un abonnement, à un groupe 
 
 Par exemple, le groupe de ressources *myResourceGroup* contient la zone *contoso.com* et la sous-zone *customers.contoso.com*. Des enregistrements CNAMe sont créés pour chaque compte client. Le compte d’administrateur utilisé pour gérer les enregistrements CNAME se voit attribuer des autorisations lui permettant de créer des enregistrements dans la zone *customers.contoso.com*. Le compte peut gérer uniquement *customers.contoso.com*.
 
-Vous pouvez accorder les autorisations Azure RBAC au niveau zone via le portail Azure.  Ouvrez **Contrôle d’accès (IAM)** pour la zone, sélectionnez **Ajouter**, sélectionnez le rôle **Contributeur de zone DNS**, puis sélectionnez les utilisateurs ou groupes auxquels accorder les autorisations.
+Vous pouvez accorder les autorisations Azure RBAC au niveau zone via le portail Azure.  Ouvrez **Contrôle d’accès (IAM)** pour la zone, sélectionnez **+Ajouter**, sélectionnez le rôle **Contributeur de zone DNS**, puis sélectionnez les utilisateurs ou groupes auxquels accorder les autorisations.
 
-![Azure RBAC au niveau zone DNS via le portail Azure](./media/dns-protect-zones-recordsets/rbac2.png)
+:::image type="content" source="./media/dns-protect-zones-recordsets/zone-rbac.png" alt-text="Capture d’écran de la page de contrôle d’accès pour la zone DNS.":::
 
 Vous pouvez également [accorder des autorisations à l’aide d’Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) :
 
-```azurepowershell
+```azurepowershell-interactive
 # Grant 'DNS Zone Contributor' permissions to a specific zone
 
 $usr = "<user email address>"
@@ -87,7 +87,7 @@ New-AzRoleAssignment -SignInName $usr -RoleDefinitionName $rol -ResourceGroupNam
 
 La commande équivalente est également [disponible via l’interface de ligne de commande Azure](../role-based-access-control/role-assignments-cli.md) :
 
-```azurecli
+```azurecli-interactive
 # Grant 'DNS Zone Contributor' permissions to a specific zone
 
 az role assignment create \
@@ -100,13 +100,13 @@ az role assignment create \
 
 Les autorisations sont appliquées au niveau du jeu d’enregistrements.  L’utilisateur peut contrôler les entrées dont il a besoin et ne peut apporter aucune autre modification.
 
-Vous pouvez configurer les autorisations Azure RBAC au niveau du jeu d’enregistrements via le portail Azure à l’aide du bouton **Contrôle d’accès (IAM)** situé dans la page du jeu d’enregistrements :
+Vous pouvez configurer les autorisations RBAC Azure au niveau du jeu d’enregistrements via le portail Azure à l’aide du bouton **Utilisateurs** dans la page du jeu d’enregistrements :
 
-![Azure RBAC au niveau jeu d’enregistrements via le portail Azure](./media/dns-protect-zones-recordsets/rbac3.png)
+:::image type="content" source="./media/dns-protect-zones-recordsets/record-set-rbac-1.png" alt-text="Capture d’écran du bouton utilisateur dans le jeu d’enregistrements.":::
 
 Vous pouvez également accorder les autorisations Azure RBAC au niveau jeu d’enregistrements en utilisant [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) :
 
-```azurepowershell
+```azurepowershell-interactive
 # Grant permissions to a specific record set
 
 $usr = "<user email address>"
@@ -119,7 +119,7 @@ New-AzRoleAssignment -SignInName $usr -RoleDefinitionName $rol -Scope $sco
 
 La commande équivalente est également [disponible via l’interface de ligne de commande Azure](../role-based-access-control/role-assignments-cli.md) :
 
-```azurecli
+```azurecli-interactive
 # Grant permissions to a specific record set
 
 az role assignment create \
@@ -172,14 +172,14 @@ Les Actions restantes sont copiées à partir du [rôle intégré Contributeur d
 
 Il n’est pas possible de définir des rôles personnalisés via le portail Azure. Vous pouvez créer un rôle personnalisé basé sur cette définition de rôle en utilisant Azure PowerShell :
 
-```azurepowershell
+```azurepowershell-interactive
 # Create new role definition based on input file
 New-AzRoleDefinition -InputFile <file path>
 ```
 
 Vous pouvez également le faire via l’interface de ligne de commande Azure :
 
-```azurecli
+```azurecli-interactive
 # Create new role definition based on input file
 az role create -inputfile <file path>
 ```
@@ -198,13 +198,13 @@ Il existe deux types de verrou de ressource : **CanNotDelete** et **ReadOnly**.
 
 Pour empêcher toute modification, appliquez à la zone un verrou ReadOnly. Le verrou empêche toute création, modification ou suppression de jeux d’enregistrements.
 
-Vous pouvez créer des verrous de ressources au niveau zone via le portail Azure.  Dans la page des zones DNS, sélectionnez **Verrous**, puis **+Ajouter** :
+Vous pouvez créer des verrous de ressources au niveau zone via le portail Azure. Dans la page des zones DNS, sélectionnez **Verrous**, puis **+Ajouter** :
 
-![Verrous de ressources au niveau zone via le portail Azure](./media/dns-protect-zones-recordsets/locks1.png)
+:::image type="content" source="./media/dns-protect-zones-recordsets/zone-locks.png" alt-text="Capture d’écran des verrous de ressources au niveau zone.":::
 
 Vous pouvez également créer des verrous de ressources au niveau d’une zone via [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock) :
 
-```azurepowershell
+```azurepowershell-interactive
 # Lock a DNS zone
 
 $lvl = "<lock level>"
@@ -218,7 +218,7 @@ New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceTy
 
 La commande équivalente est également [disponible via l’interface de ligne de commande Azure](/cli/azure/lock#az_lock_create) :
 
-```azurecli
+```azurecli-interactive
 # Lock a DNS zone
 
 az lock create \
@@ -239,7 +239,7 @@ Pour empêcher la modification d’un jeu d’enregistrements DNS, appliquez-lui
 
 Vous pouvez actuellement configurer des verrous de ressources au niveau jeu d’enregistrements uniquement à l’aide d’Azure PowerShell.  Il n’est pas possible de le faire via le portail Azure ou Azure CLI.
 
-```azurepowershell
+```azurepowershell-interactive
 # Lock a DNS record set
 
 $lvl = "<lock level>"
@@ -261,7 +261,7 @@ Une autre solution est d’appliquer un verrou CanNotDelete à un jeu d’enreg
 
 La commande PowerShell suivante crée un verrou CanNotDelete sur l’enregistrement SOA de la zone donnée :
 
-```azurepowershell
+```azurepowershell-interactive
 # Protect against zone delete with CanNotDelete lock on the record set
 
 $lvl = "CanNotDelete"

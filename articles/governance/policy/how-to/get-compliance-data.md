@@ -3,12 +3,12 @@ title: Obtenir les données de conformité de la stratégie
 description: Les évaluations et les effets d’Azure Policy déterminent la conformité. Découvrez comment obtenir des détails sur la conformité de vos ressources Azure.
 ms.date: 04/19/2021
 ms.topic: how-to
-ms.openlocfilehash: e1a9a7fcbbcbd7f490b2f665b40c7ed922ec61ee
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: fcc82e2f86746f68000e9cfcafedf2d7b8b3105d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107864592"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733564"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenir les données de conformité des ressources Azure
 
@@ -55,22 +55,21 @@ Il s’agit d’un processus asynchrone.
 
 Utilisez l’[action Analyse de conformité Azure Policy](https://github.com/marketplace/actions/azure-policy-compliance-scan) pour déclencher une analyse d’évaluation à la demande à partir de votre [workflow GitHub](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows) sur un nombre quelconque de ressources, de groupes de ressources ou d’abonnements et pour contrôler le workflow en fonction de l’état de conformité des ressources. Vous pouvez également configurer le workflow pour qu’il s’exécute à une heure planifiée afin d’obtenir l’état de conformité le plus récent au moment opportun. Si vous le souhaitez, cette action GitHub peut générer un rapport sur l’état de conformité des ressources analysées en vue d’une analyse plus poussée ou de l’archivage.
 
-L’exemple suivant exécute une analyse de conformité pour un abonnement. 
+L’exemple suivant exécute une analyse de conformité pour un abonnement.
 
 ```yaml
 on:
-  schedule:    
+  schedule:
     - cron:  '0 8 * * *'  # runs every morning 8am
 jobs:
-  assess-policy-compliance:    
+  assess-policy-compliance:
     runs-on: ubuntu-latest
-    steps:         
+    steps:
     - name: Login to Azure
       uses: azure/login@v1
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}} 
+        creds: ${{secrets.AZURE_CREDENTIALS}}
 
-    
     - name: Check for resource compliance
       uses: azure/policy-compliance-scan@v0
       with:
@@ -115,9 +114,9 @@ Pendant l’exécution de l’analyse de conformité, la vérification de l’ob
 ```azurepowershell-interactive
 $job
 
-Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
---     ----            -------------   -----         -----------     --------             -------
-2      Long Running O… AzureLongRunni… Running       True            localhost            Start-AzPolicyCompliance…
+Id     Name              PSJobTypeName     State         HasMoreData     Location             Command
+--     ----              -------------     -----         -----------     --------             -------
+2      Long Running O... AzureLongRunni... Running       True            localhost            Start-AzPolicyCompliance...
 ```
 
 Lorsque l’analyse de conformité est terminée, la propriété **État** prend la valeur _Terminé_.
@@ -178,10 +177,10 @@ Dans une affectation, une ressource est dite **Non conforme** si elle ne respect
 > [!NOTE]
 > Les effets DeployIfNotExist et AuditIfNotExist nécessitent que l’instruction IF ait pour valeur TRUE et que la condition d’existence ait pour valeur FALSE pour être non conformes. Lorsque la valeur est TRUE, la condition IF déclenche l’évaluation de la condition d’existence pour les ressources associées.
 
-Supposons, par exemple, que vous disposiez d’un groupe de ressources (ContosoRG), comprenant des comptes de stockage (en rouge) qui sont exposés sur des réseaux publics.
+Par exemple, supposez que vous disposez d’un groupe de ressources (ContosoRG) avec des comptes de stockage (en rouge) exposés à des réseaux publics.
 
 :::image type="complex" source="../media/getting-compliance-data/resource-group01.png" alt-text="Diagramme de comptes de stockage exposés sur des réseaux publics dans le groupe de ressources Contoso R G." border="false":::
-   Diagramme montrant des images pour cinq comptes de stockage dans le groupe de ressources Contoso R G.  Les comptes de stockage un et trois sont en bleu, tandis que les comptes de stockage deux, quatre et cinq sont en rouge.
+   Diagramme montrant des images pour cinq comptes de stockage dans le groupe de ressources Contoso R G. Les comptes de stockage un et trois sont en bleu, tandis que les comptes de stockage deux, quatre et cinq sont en rouge.
 :::image-end:::
 
 Dans cet exemple, vous devez faire attention aux risques de sécurité. Maintenant que vous avez créé une affectation de stratégie, elle est évaluée pour tous les comptes de stockage inclus et non exemptés du groupe de ressources ContosoRG. Elle effectue l’audit des trois comptes de stockage non conformes et en modifie l’état en conséquence pour afficher un état **Non conforme**.
@@ -229,7 +228,7 @@ Les événements (Append, Audit, Deny, Deploy, Modify) déclenchés par la requ�
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Capture d’écran de l’onglet Conformité des composants et des détails de conformité pour une affectation de mode de fournisseur de ressources." border="false":::
 
-Une fois de retour sur la page de conformité des ressources, cliquez avec le bouton droit sur la ligne de l’événement pour lequel vous souhaitez obtenir plus de détails et sélectionnez **Afficher les journaux d’activité**. La page Journal d’activité s’ouvre et les critères de recherche sont préfiltrés pour montrer les détails de l’affectation et des événements. Le journal d’activité fournit davantage de contexte ainsi que des informations supplémentaires sur ces événements.
+Une fois de retour dans la page de conformité des ressources, sélectionnez et maintenez l’appui (ou cliquez avec le bouton droit) sur la ligne de l’événement pour lequel vous souhaitez obtenir plus de détails et sélectionnez **Afficher les journaux d’activité**. La page Journal d’activité s’ouvre et les critères de recherche sont préfiltrés pour montrer les détails de l’affectation et des événements. Le journal d’activité fournit davantage de contexte ainsi que des informations supplémentaires sur ces événements.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Capture d’écran du journal d’activité pour les activités et évaluations Azure Policy." border="false":::
 

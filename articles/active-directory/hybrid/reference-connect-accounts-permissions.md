@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/04/2021
+ms.date: 05/03/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f7466931537745fb188a3bdb05646bff19912e8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 63d4c39c2c48312ca68adc501710ee23fb3bbf73
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466250"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754484"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect : Comptes et autorisations
 
@@ -81,6 +81,8 @@ Si vous effectuez une mise à niveau à partir de DirSync, les informations d’
 
 ### <a name="azure-ad-global-admin-credentials"></a>Informations d’identification de l’administrateur général Azure AD
 Ces informations d’identification ne sont utilisées que pendant l’installation. Elles permettent de créer le compte de connecteur Azure AD utilisé pour la synchronisation des modifications sur Azure AD. En outre, le compte active la synchronisation en tant que fonctionnalité dans Azure AD.
+
+Pour plus d’informations sur les comptes d’administrateur général, consultez [Administrateur général](../../active-directory/roles/permissions-reference.md#global-administrator).
 
 ### <a name="ad-ds-connector-account-required-permissions-for-express-settings"></a>Autorisations nécessaires du compte de connecteur AD DS pour la configuration rapide
 Le compte de connecteur AD DS est destiné à la lecture et à l’écriture sur Windows Server AD, il dispose des autorisations suivantes s’il a été créé par le biais de la configuration rapide :

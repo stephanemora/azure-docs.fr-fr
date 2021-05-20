@@ -12,36 +12,59 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: d106021d90304a06ea7c08494d626511bb903df0
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: bb0d39ea9e37f87a465ea5803e004a142c3a3fc6
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553037"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715157"
 ---
 # <a name="upload-files-with-iot-hub"></a>Chargement de fichiers avec IoT Hub
 
-Comme nous l’avons expliqué dans l’article [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md), un appareil peut lancer le chargement de fichiers en envoyant une notification par le biais d’un point de terminaison orienté appareil ( **/devices/{deviceId}/files**). Lorsqu’un appareil indique à IoT Hub la fin d’un chargement, IoT Hub envoie un message de notification de chargement de fichiers via le point de terminaison côté service ( **/messages/servicebound/filenotifications**).
+Dans de nombreux scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Par exemple :
+* Fichiers image volumineux
+* Fichiers vidéo
+* Données de vibration échantillonnées à une fréquence élevée
+* Un certain type de données prétraitées
 
-Au lieu de distribuer les messages via sa propre plate-forme, IoT Hub joue le rôle de répartiteur vers un compte Stockage Azure associé. Un appareil demande à IoT Hub un jeton de stockage spécifique au fichier que l’appareil souhaite télécharger. L’appareil utilise l’URI SAP pour télécharger le fichier vers le stockage. Une fois le téléchargement terminé, l’appareil envoie une notification à IoT Hub pour l’en informer. IoT Hub vérifie que le chargement de fichiers est terminé, puis ajoute un message de notification de chargement de fichiers au point de terminaison côté service dédié à la notification de fichiers.
-
-Avant de charger un fichier sur IoT Hub à partir d’un appareil, vous devez configurer votre hub en [l’associant à un compte de stockage Azure](iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub).
-
-Votre appareil peut ensuite [initialiser un chargement](iot-hub-devguide-file-upload.md#initialize-a-file-upload) et [notifier IoT Hub](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) quand le chargement est terminé. Éventuellement, lorsqu’un appareil notifie IoT Hub que le chargement est terminé, le service peut générer un [message de notification](iot-hub-devguide-file-upload.md#file-upload-notifications).
+S’il vous faut charger des fichiers de ce type à partir d’un appareil, vous pouvez toujours exploiter la sécurité et la fiabilité d’IoT Hub. Au lieu de distribuer les messages via sa propre plate-forme cependant, IoT Hub joue le rôle de répartiteur vers un compte Stockage Azure associé. Un appareil demande à IoT Hub un jeton de stockage spécifique au fichier que l’appareil souhaite télécharger. L’appareil utilise l’URI SAP pour télécharger le fichier vers le stockage. Une fois le téléchargement terminé, l’appareil envoie une notification à IoT Hub pour l’en informer. IoT Hub vérifie que le chargement du fichier est terminé.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ### <a name="when-to-use"></a>Quand l’utiliser
 
-Utilisez le chargement des fichiers pour envoyer des fichiers multimédias et de gros traitements télémétriques par lots chargés par des appareils connectés par intermittence ou compressés pour économiser de la bande passante.
-
-Reportez-vous à [l’aide sur la communication appareil-à-cloud](iot-hub-devguide-d2c-guidance.md) si vous hésitez entre l’utilisation des propriétés signalées, l’utilisation des messages appareil-à-cloud ou l’utilisation du chargement de fichiers.
+Utilisez le chargement des fichiers pour envoyer des fichiers multimédias et de gros traitements télémétriques par lots chargés par des appareils connectés par intermittence ou compressés pour économiser de la bande passante. Reportez-vous à [l’aide sur la communication appareil-à-cloud](iot-hub-devguide-d2c-guidance.md) si vous hésitez entre l’utilisation des propriétés signalées, l’utilisation des messages appareil-à-cloud ou l’utilisation du chargement de fichiers.
 
 ## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Association d’un compte Stockage Azure à IoT Hub
 
-Pour utiliser la fonctionnalité de téléchargement de fichier, vous devez d’abord lier un compte Stockage Azure à IoT Hub. Vous pouvez effectuer cette tâche via le portail Azure, ou par programmation avec les [API REST du fournisseur de ressources IoT Hub](/rest/api/iothub/iothubresource). Une fois que vous avez associé un compte Stockage Azure à IoT Hub, le service retourne un URI SAP vers un appareil lorsque ce dernier démarre une demande de téléchargement de fichier.
+Vous devez disposer d’un compte Stockage Azure associé à votre IoT Hub. 
 
-Les guides pratiques [Télécharger des fichiers de votre appareil vers le cloud avec IoT Hub](iot-hub-csharp-csharp-file-upload.md) fournissent la description complète du processus de chargement de fichier. Ces guides pratiques vous montrent comment utiliser le portail Azure pour associer un compte de stockage à un hub IoT.
+Pour plus d’informations sur la création d’un compte à l’aide du portail, consultez [Créer un compte de stockage](../storage/common/storage-account-create.md). 
+
+Vous pouvez également créer un compte par programmation à l’aide des [API REST de fournisseur de ressources IOT Hub](/rest/api/iothub/iothubresource). 
+
+Lorsque vous associez un compte de stockage Azure avec un IoT Hub, celui-ci génère un URI SAS. Un appareil peut utiliser cet URI SAS pour charger en toute sécurité un fichier vers un conteneur d’objets blob.
+
+## <a name="create-a-container"></a>Créez un conteneur.
+
+ Pour créer un conteneur d’objets blob via le portail :
+
+1. Dans le volet gauche de votre compte de stockage, sous **Stockage des données**, sélectionnez **Conteneurs**.
+1. Dans le panneau Conteneur, sélectionnez **+ Conteneur**.
+1. Dans le volet **Nouveau conteneur** qui s’ouvre, donnez un nom à votre conteneur, puis sélectionnez **Créer**.
+
+Après avoir créé un conteneur, suivez les instructions disponibles dans [Configurer les téléchargements de fichiers à l’aide du portail Azure](iot-hub-configure-file-upload.md). Assurez-vous qu’un conteneur de blobs est associé à votre IoT Hub et que les notifications de fichier sont activées.
+
+Vous pouvez également utiliser les [API REST de fournisseur de ressources IoT Hub](/rest/api/iothub/iothubresource) pour créer un conteneur associé au stockage de votre IoT Hub.
+
+## <a name="file-upload-using-an-sdk"></a>Charger des fichiers à l’aide d’un kit de développement logiciel (SDK)
+
+Les guides pratiques suivants fournissent des procédures pas à pas complètes du processus de chargement de fichiers dans différentes langues de SDK. Ces guides vous montrent comment utiliser le portail Azure pour associer un compte de stockage à un hub IoT. Ils contiennent également des extraits de code ou font référence à des exemples qui vous guident tout au long du processus de chargement.
+
+* [.NET](iot-hub-csharp-csharp-file-upload.md)
+* [Java](iot-hub-java-java-file-upload.md)
+* [Node.JS](iot-hub-node-node-file-upload.md)
+* [Python](iot-hub-python-python-file-upload.md)
 
 > [!NOTE]
 > Les kits [Azure IoT SDK](iot-hub-devguide-sdks.md) gèrent automatiquement la récupération de l’URI de signature d’accès partagé, le chargement du fichier et l’envoi d’une notification à IoT Hub de la fin du chargement. Si un pare-feu bloque l’accès au point de terminaison Stockage Blob, mais autorise l’accès au point de terminaison IoT Hub, le processus de téléchargement de fichiers échoue et affiche l’erreur suivante pour le Kit de développement logiciel (SDK) d’appareil IoT C# :
@@ -52,8 +75,9 @@ Les guides pratiques [Télécharger des fichiers de votre appareil vers le cloud
 > 
 
 
-## <a name="initialize-a-file-upload"></a>Initialiser un téléchargement de fichier
-IoT Hub a un point de terminaison spécifique aux appareils pour demander une URI SAS pour le stockage afin de télécharger un fichier. Pour démarrer le processus de chargement de fichiers, l’appareil envoie une requête POST à `{iot hub}.azure-devices.net/devices/{deviceId}/files` avec le corps JSON suivant :
+## <a name="initialize-a-file-upload-rest"></a>Initialiser un téléchargement de fichier (REST)
+
+Vous pouvez utiliser des API REST plutôt que l’un des kits de développement logiciel (SDK) pour charger un fichier. IoT Hub a un point de terminaison spécifique aux appareils pour demander une URI SAS pour le stockage afin de télécharger un fichier. Pour démarrer le processus de chargement de fichiers, l’appareil envoie une requête POST à `{iot hub}.azure-devices.net/devices/{deviceId}/files` avec le corps JSON suivant :
 
 ```json
 {
@@ -84,7 +108,7 @@ IoT Hub utilise deux points de terminaison REST pour prendre en charge le télé
 
 * Un ID de corrélation à utiliser une fois le chargement terminé.
 
-## <a name="notify-iot-hub-of-a-completed-file-upload"></a>Notifier IoT Hub de la fin du téléchargement d’un fichier
+## <a name="notify-iot-hub-of-a-completed-file-upload-rest"></a>Notifier IoT Hub de la fin du téléchargement d’un fichier (REST)
 
 L’appareil charge le fichier dans le stockage à l’aide des kits SDK Stockage Azure. Une fois le chargement terminé, l’appareil envoie une requête POST à `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` avec le corps JSON suivant :
 
@@ -103,7 +127,7 @@ La valeur de `isSuccess` est une valeur booléenne qui indique si le fichier a b
 
 Les rubriques de référence suivantes vous fournissent des informations supplémentaires sur le téléchargement de fichiers depuis un appareil.
 
-## <a name="file-upload-notifications"></a>Notifications de téléchargement de fichier
+### <a name="file-upload-notifications"></a>Notifications de téléchargement de fichier
 
 Éventuellement, lorsqu’un appareil notifie IoT Hub que le chargement est terminé, le service peut générer un message de notification. Ce message contient l’emplacement de stockage et le nom du fichier.
 
@@ -131,7 +155,7 @@ Comme l’explique la section [Points de terminaison](iot-hub-devguide-endpoints
 }
 ```
 
-## <a name="file-upload-notification-configuration-options"></a>Options de configuration de notification de téléchargement de fichier
+### <a name="file-upload-notification-configuration-options"></a>Options de configuration de notification de téléchargement de fichier
 
 Chaque IoT Hub dispose des options de configuration suivantes pour les notifications de chargement de fichier :
 

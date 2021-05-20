@@ -3,12 +3,12 @@ title: Exemples de contrôles de blueprint PCI-DSS v3.2.1
 description: Mappage des contrôles de l'exemple de blueprint Payment Card Industry Data Security Standard v3.2.1 vers Azure Policy et Azure RBAC.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 7011f0b55e73f193fb85881ed18812de97876fda
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 5d45e78af9bb07d433ea5aa52581fdbda6d1efea
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166664"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756950"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint PCI-DSS v3.2.1
 
@@ -59,12 +59,11 @@ Ce blueprint vous permet de gérer les vulnérabilités du système d’informat
 Le fait d’avoir un seul propriétaire d’abonnement Azure ne permet pas d’assurer la redondance administrative. À l’inverse, un nombre trop élevé de propriétaires d’abonnement Azure peut augmenter le risque d’une violation par le biais d’un compte de propriétaire compromis. Ce blueprint vous permet de maintenir un nombre approprié de propriétaires d’abonnement Azure en affectant des définitions [Azure Policy](../../../policy/overview.md) qui auditent le nombre de propriétaires pour les abonnements Azure. La gestion des autorisations des propriétaires d’abonnement peut vous aider à implémenter une séparation appropriée des tâches.
 
 - Plusieurs propriétaires doivent être affectés à votre abonnement
-- Trois propriétaires au plus doivent être désignés pour votre abonnement 
+- Trois propriétaires au plus doivent être désignés pour votre abonnement
 
 ## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3.2, 7.2.1, 8.3.1.a et 8.3.1.b Gestion des droits d’accès privilégié
 
-Ce blueprint vous permet de limiter et de contrôler les droits d’accès privilégié en affectant des définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes externes avec des autorisations de propriétaire et/ou en écriture et les comptes avec des autorisations de propriétaire et/ou en écriture pour lesquels l’authentification multifacteur n’est pas activée. Le contrôle d’accès en fonction du rôle (Azure RBAC) pour gérer qui a accès aux ressources Azure. Ces dernières étant non exemptes d’erreurs, le fait de savoir où elles sont implémentées peut vous aider à déterminer les besoins réels et l’implémentation appropriée. Ce blueprint affecte également des définitions [Azure Policy](../../../policy/overview.md) afin d’auditer l’utilisation de l’authentification Azure Active Directory pour les serveurs SQL. L’utilisation de l’authentification Azure Active Directory simplifie la gestion des autorisations et centralise la gestion centralisée des identités des utilisateurs de bases de données et d’autres services  
-Microsoft.
+Ce blueprint vous permet de limiter et de contrôler les droits d’accès privilégié en affectant des définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes externes avec des autorisations de propriétaire et/ou en écriture et les comptes avec des autorisations de propriétaire et/ou en écriture pour lesquels l’authentification multifacteur n’est pas activée. Le contrôle d’accès en fonction du rôle (Azure RBAC) pour gérer qui a accès aux ressources Azure. Ces dernières étant non exemptes d’erreurs, le fait de savoir où elles sont implémentées peut vous aider à déterminer les besoins réels et l’implémentation appropriée. Ce blueprint affecte également des définitions [Azure Policy](../../../policy/overview.md) afin d’auditer l’utilisation de l’authentification Azure Active Directory pour les serveurs SQL. L’utilisation de l’authentification Azure Active Directory simplifie la gestion des autorisations et centralise la gestion des identités des utilisateurs de bases de données et d’autres services Microsoft.
 
 - Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement
@@ -87,7 +86,8 @@ Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) vous permet de g
 
 ## <a name="813-removal-or-adjustment-of-access-rights"></a>8.1.3 Suppression ou adaptation des droits d’accès
 
-Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) vous permet de gérer les utilisateurs qui ont accès aux ressources dans Azure. Grâce à Azure Active Directory et Azure RBAC, vous pouvez mettre à jour les rôles d’utilisateur pour refléter les changements organisationnels. Si nécessaire, vous pouvez empêcher des comptes de se connecter (ou les supprimer). Dans ce cas, les droits d’accès aux ressources Azure sont immédiatement supprimés. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) pour auditer le compte déprécié dont la suppression doit être envisagée.
+Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) vous permet de gérer les utilisateurs qui ont accès aux ressources dans Azure.
+Grâce à Azure Active Directory et Azure RBAC, vous pouvez mettre à jour les rôles d’utilisateur pour refléter les changements organisationnels. Si nécessaire, vous pouvez empêcher des comptes de se connecter (ou les supprimer). Dans ce cas, les droits d’accès aux ressources Azure sont immédiatement supprimés. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) pour auditer le compte déprécié dont la suppression doit être envisagée.
 
 - Les comptes déconseillés doivent être supprimés de votre abonnement
 - Les comptes dépréciés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement

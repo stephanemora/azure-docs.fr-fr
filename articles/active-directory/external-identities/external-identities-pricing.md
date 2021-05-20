@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 05/05/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 983a803245467145a0b1161a4495e8045759e7ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2083df29754a8791848fd125136b04d1d7a06fb3
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92442063"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713213"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modèle de facturation pour les identités externes Azure AD
 
@@ -38,8 +38,8 @@ Pour tirer parti de la facturation MAU, votre locataire Azure AD doit être li�
 ## <a name="about-monthly-active-users-mau-billing"></a>À propos de la facturation pour des utilisateurs actifs mensuels (MAU)
 
 Dans votre locataire Azure AD, le recours à la collaboration d’utilisateur invité est facturé en fonction du nombre d’utilisateurs invités uniques associé à une activité d’authentification au cours d’un mois civil. Ce modèle remplace le modèle de facturation selon le rapport 1:5, qui autorise jusqu’à cinq utilisateurs invités pour chaque licence de Azure AD Premium disponible dans votre locataire. Lorsque votre locataire est lié à un abonnement et que vous utilisez des fonctionnalités d’identités externes pour collaborer avec des utilisateurs invités, vous êtes automatiquement facturé à l’aide du modèle basé MAU.
-  
-Le niveau tarifaire qui s’applique à vos utilisateurs invités est basé sur le niveau tarifaire le plus élevé attribué à votre locataire Azure AD. Par exemple, si le niveau tarifaire le plus élevé dans votre locataire est Azure AD Premium P1, le niveau tarifaire Premium P1 s’applique également à vos utilisateurs invités. Si la tarification la plus élevée est Azure AD Free, vous êtes invité à effectuer une mise à niveau vers un niveau tarifaire Premium lorsque vous essayez d’utiliser des fonctionnalités Premium pour des utilisateurs invités.
+
+Le niveau tarifaire qui s’applique à vos utilisateurs invités est basé sur le niveau tarifaire le plus élevé attribué à votre locataire Azure AD. Pour plus d’informations, consultez [Tarifs d’Azure Active Directory External Identities](https://azure.microsoft.com/en-us/pricing/details/active-directory/external-identities/).
 
 ## <a name="link-your-azure-ad-tenant-to-a-subscription"></a>Lier votre locataire Azure AD à un abonnement
 
