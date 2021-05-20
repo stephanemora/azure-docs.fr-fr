@@ -1,6 +1,6 @@
 ---
 title: Définir un nouveau type d’appareil IoT dans Azure IoT Central | Microsoft Docs
-description: Cet article vous explique, en tant que développeur de solutions, comment créer un modèle d’appareil Azure IoT dans votre application Azure IoT Central. Vous définissez la télémétrie, l’état, les propriétés et les commandes pour votre type d’appareil.
+description: Cet article vous explique comment créer un modèle d’appareil Azure IoT dans votre application Azure IoT Central. Vous définissez la télémétrie, l’état, les propriétés et les commandes pour votre type d’appareil.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
@@ -10,16 +10,14 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 9ef4be54f5c6025a09314a04504cff40fc39478d
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 8d51297b353a72861f864e42bf87cad4f1a712b3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168159"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747194"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Définir un nouveau type d’appareil IoT dans votre application Azure IoT Central
-
-*Cet article s’applique aux créateurs de solutions et aux développeurs d’appareils.*
 
 Un modèle d’appareil est un blueprint qui définit les caractéristiques et les comportements d’un type d’appareil se connectant à une [application Azure IoT Central](concepts-app-templates.md).
 
@@ -284,4 +282,4 @@ Une fois que vous avez publié un modèle d’appareil, un opérateur peut accé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous êtes un développeur d’appareils, nous vous suggérons de vous renseigner sur le [contrôle de version des modèles d’appareil](./howto-version-device-template.md).
+Nous vous suggérons de vous renseigner sur le [contrôle de version des modèles d’appareil](./howto-version-device-template.md).

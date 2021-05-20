@@ -3,12 +3,12 @@ title: "Démarrage rapide : Nouvelle affectation de stratégie à l'aide de Pow
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure PowerShell pour créer une attribution de stratégie Azure afin d’identifier les ressources non conformes.
 ms.date: 03/31/2021
 ms.topic: quickstart
-ms.openlocfilehash: 1043bd53fa2c494d34b0007a851b95afd937d991
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 69455742082930fdb436fee1c33bbdd372c7e4e7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091410"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753098"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes à l’aide d’Azure PowerShell
 
@@ -55,7 +55,7 @@ Les commandes précédentes utilisent les informations suivantes :
 
 - **Name** : nom réel de l’attribution. Pour cet exemple, _audit-vm-manageddisks_ a été utilisé.
 - **DisplayName** : nom d’affichage pour l’attribution de stratégie. Dans ce cas, nous allons utiliser l’affectation _Audit VMs without managed disks_ (Auditer les machines virtuelles sans disques managés).
-- **Definition** : définition de la stratégie, que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_.
+- **Definition** : Définition de la stratégie, basée sur celle que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_.
 - **Scope** : une étendue détermine les ressources ou le regroupement de ressources sur lequel l’attribution de stratégie est appliquée. Elle va d’un abonnement à des groupes de ressources. Assurez-vous de remplacer &lt;scope&gt; par le nom de votre groupe de ressources.
 
 Vous êtes maintenant prêt à identifier les ressources non conformes pour comprendre l’état de conformité de votre environnement.

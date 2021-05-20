@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôles de blueprint Services partagés ISO 27001
 description: Mappage des contrôles de l’exemple de blueprint Services partagés ISO 27001. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 02/05/2021
+ms.date: 04/30/2021
 ms.topic: sample
-ms.openlocfilehash: 64266e72bf2aa24ac7fbf70f87f27739709fa0be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c84a1bca5089e2287dac80758092f7377689340b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99626340"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739238"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint Services partagés ISO 27001
 
@@ -100,7 +100,7 @@ Ce blueprint vous aide à appliquer des mots de passe forts en affectant 10 dé
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 Stratégie sur l’utilisation des contrôles de chiffrement
 
-Ce blueprint vous aide à appliquer votre stratégie sur l’utilisation des contrôles de chiffrement en affectant 13 définitions [Azure Policy](../../../policy/overview.md) qui mettent en œuvre des contrôles de chiffrement spécifiques et détectent l’utilisation de paramètres de chiffrement faibles. Le fait de savoir où vos ressources Azure peuvent avoir des configurations de chiffrement non optimales peut vous aider à prendre des mesures correctives visant à vérifier que les ressources sont configurées conformément à votre stratégie de sécurité des informations. Plus précisément, les stratégies affectées par ce blueprint exigent le chiffrement des comptes de stockage d’objets blob et des comptes Data Lake Storage ; exigent le chiffrement transparent des données dans les bases de données SQL ; vérifient le chiffrement sur les comptes de stockage, bases de données SQL, disques de machine virtuelle et variables de compte Automation ; vérifient les connexions non sécurisées aux comptes de stockage, aux applications de fonction, aux applications web, aux applications API et au Cache Redis ; vérifient si le chiffrement par mot de passe des machines virtuelles est faible ; et vérifient les communication Service Fabric non chiffrées.
+Ce blueprint vous aide à appliquer votre stratégie sur l’utilisation des contrôles de chiffrement en affectant 13 définitions [Azure Policy](../../../policy/overview.md) qui mettent en œuvre des contrôles de chiffrement spécifiques et détectent l’utilisation de paramètres de chiffrement faibles. Le fait de savoir où vos ressources Azure peuvent avoir des configurations de chiffrement non optimales peut vous aider à prendre des mesures correctives visant à vérifier que les ressources sont configurées conformément à votre stratégie de sécurité des informations. Plus précisément, les stratégies affectées par ce blueprint exigent le chiffrement des comptes de stockage d’objets blob et des comptes de stockage Data Lake ; exigent le chiffrement transparent des données dans les bases de données SQL ; vérifient le chiffrement sur les comptes de stockage, bases de données SQL, disques de machine virtuelle et variables de compte Automation ; vérifient les connexions non sécurisées aux comptes de stockage, aux applications de fonction, aux applications web, aux applications API et au Cache Redis ; vérifient si le chiffrement par mot de passe des machines virtuelles est faible ; et vérifient les communication Service Fabric non chiffrées.
 
 - Function App ne doit pas être accessible via HTTPS
 - L'application web ne doit pas être accessible via HTTPS
@@ -178,7 +178,7 @@ Ce blueprint vous aide à gérer et à contrôler les réseaux en affectant une 
 
 ## <a name="a1321-information-transfer-policies-and-procedures"></a>A.13.2.1 Politiques et procédures de transfert de l’information
 
-Le blueprint vous aide à sécuriser le transfert des informations avec les services Azure en affectant deux définitions [Azure Policy](../../../policy/overview.md) qui auditent les connexions non sécurisées aux comptes de stockage et au cache Redis.
+Le blueprint vous aide à sécuriser le transfert des informations avec les services Azure en affectant deux définitions [Azure Policy](../../../policy/overview.md) qui auditent les connexions non sécurisées aux comptes de stockage et à Azure Cache pour Redis.
 
 - Seules les connexions sécurisées à votre instance Azure Cache pour Redis doivent être activées
 - La sécurisation du transfert vers des comptes de stockage doit être activée

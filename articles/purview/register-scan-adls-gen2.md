@@ -6,13 +6,13 @@ ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/17/2020
-ms.openlocfilehash: 4b7f71b5405708cc1988fafa5ca9c4628fe0d80b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: 137b77c09cc1ae4f18555568287324a373ca8786
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98882397"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109655411"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen2"></a>Inscrire et analyser Azure Data Lake Storage Gen2
 
@@ -101,7 +101,7 @@ Il est nécessaire de récupérer l’ID d’application et le secret du princip
 > [!NOTE]
 > Si un pare-feu est activé pour le compte de stockage, vous devez utiliser la méthode d’authentification **Identité managée** lors de la configuration d’une analyse.
 
-1. Accédez à votre compte de stockage ASLS Gen2 dans le [portail Azure](https://portal.azure.com)
+1. Accédez à votre compte de stockage ADLS Gen2 sur le [portail Azure](https://portal.azure.com)
 1. Accédez à **Paramètres > Mise en réseau** et
 1. Sélectionnez **Réseaux sélectionnés** sous **Autoriser l’accès depuis**
 1. Dans la section **Exceptions**, sélectionnez **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** et appuyez sur **Enregistrer**
@@ -121,10 +121,10 @@ Pour inscrire un nouveau compte ADLS Gen2 dans votre catalogue de données, proc
 Dans l’écran **Inscrire des sources (Azure Data Lake Storage Gen2)** , procédez comme suit :
 
 1. Entrez un **nom** avec lequel la source de données sera répertoriée dans le catalogue.
-2. Choisissez votre abonnement pour filtrer les comptes de stockage
-3. Sélectionner un compte de stockage
-4. Sélectionnez une collection ou créez-en une (facultatif)
-5. Utilisez **Terminer** pour inscrire la source de données.
+2. Choisissez votre abonnement pour filtrer les comptes de stockage.
+3. Sélectionnez un compte de stockage.
+4. Sélectionnez une collection ou créez-en une (facultatif).
+5. Sélectionnez **Inscrire** pour inscrire la source de données.
 
 :::image type="content" source="media/register-scan-adls-gen2/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 

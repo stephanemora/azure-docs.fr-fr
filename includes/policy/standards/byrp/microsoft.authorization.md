@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 2fd2e24aea191e629c07ba9c3f4eff46fb29da3a
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 490eb691f612cfde0a9f369f0308c9cbf7c8f721
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108178162"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754813"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark de sécurité Azure
 
@@ -70,6 +70,15 @@ Pour plus d’informations sur cette norme de conformité, consultez [HIPAA HITR
 |Répartition des tâches |1230.09c2Organizational.1 - 09.c |Aucune personne ne peut accéder, modifier ou utiliser des systèmes d’information sans autorisation ou détection. |[Auditer l’utilisation de règles personnalisées RBAC](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/Subscription_AuditCustomRBACRoles_Audit.json) |
 |Répartition des tâches |1276.09c2Organizational.2 - 09.c |Les activités d’audit de sécurité sont indépendantes. |[Les rôles de propriétaire d’abonnement personnalisé ne doivent pas exister](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F10ee2ea2-fb4d-45b8-a7e9-a2e770044cd9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/CustomSubscription_OwnerRole_Audit.json) |
 |Répartition des tâches |1278.09c2Organizational.56 - 09.c |L’organisation identifie les tâches qui doivent être séparées et définit les autorisations d’accès au système d’information pour la prise en charge de la séparation des tâches ; et les tâches incompatibles sont réparties entre plusieurs utilisateurs pour réduire le risque de fraude ou d’utilisation incorrecte. |[Les rôles de propriétaire d’abonnement personnalisé ne doivent pas exister](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F10ee2ea2-fb4d-45b8-a7e9-a2e770044cd9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/CustomSubscription_OwnerRole_Audit.json) |
+
+## <a name="irs-1075-september-2016"></a>IRS 1075 septembre 2016
+
+Pour voir comment les composants intégrés Azure Policy disponibles de tous les services Azure répondent à cette norme de conformité, consultez [Conformité réglementaire Azure Policy – IRS 1075 septembre 2016](../../../../articles/governance/policy/samples/irs-1075-sept2016.md).
+Pour plus d’informations sur cette norme de conformité, consultez [IRS 1075 septembre 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
+
+|Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Contrôle d’accès |9.3.1.2 |Gestion de compte (AC-2) |[Auditer l’utilisation de règles personnalisées RBAC](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/Subscription_AuditCustomRBACRoles_Audit.json) |
 
 ## <a name="iso-270012013"></a>ISO 27001:2013
 

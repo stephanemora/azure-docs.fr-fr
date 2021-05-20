@@ -1,14 +1,14 @@
 ---
 title: Activer et configurer votre capteur
 description: Cet article explique comment activer une console de capteur et s’y connecter.
-ms.date: 1/12/2021
+ms.date: 04/29/2021
 ms.topic: how-to
-ms.openlocfilehash: b040a87c2eae36e6049b4e1d0cf51ecb2cfde108
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 5e1e710f4f4eae844bbe18887bd3c3a1ab9f1da3
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385116"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656953"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Activer et configurer votre capteur
 
@@ -42,7 +42,7 @@ Votre capteur a été intégré à Azure Defender pour IoT dans un mode d’admi
 
 | Type de mode | Description |
 |--|--|
-| **Mode connecté au cloud** | Les informations détectées par le capteur s’affichent dans la console du capteur. Les informations sur les alertes sont également transmises par le biais du hub IoT et peuvent être partagées avec d’autres services Azure, comme Azure Sentinel. |
+| **Mode connecté au cloud** | Les informations détectées par le capteur s’affichent dans la console du capteur. Les informations sur les alertes sont également transmises par le biais du hub IoT et peuvent être partagées avec d’autres services Azure, comme Azure Sentinel. Vous pouvez aussi activer les mises à jour automatiques du renseignement sur les menaces. |
 | **Mode connecté localement** | Les informations détectées par le capteur s’affichent dans la console du capteur. Les informations de détection sont également partagées avec la console de gestion locale, si le capteur y est connecté. |
 
 Un fichier d’activation du mode connecté localement ou connecté au cloud a été généré et téléchargé pour ce capteur pendant l’intégration. Le fichier d’activation contient des instructions pour le mode d’administration du capteur. *Un fichier d’activation unique doit être chargé sur chaque capteur que vous déployez.*  La première fois que vous vous connectez, vous devez télécharger le fichier d’activation approprié pour ce capteur.
@@ -71,7 +71,7 @@ La console prend en charge les types de certificats suivants :
 
 ### <a name="sign-in-and-activate-the-sensor"></a>Se connecter et activer le capteur
 
-Pour vous connecter et activer :
+**Pour vous connecter et activer :**
 
 1. Accédez à la console du capteur à partir de votre navigateur à l’aide de l’adresse IP définie lors de l’installation. La boîte de dialogue de connexion s’ouvre.
 
@@ -102,7 +102,7 @@ Pour plus d’informations sur le chargement d’un nouveau certificat, sur les 
 
 #### <a name="update-sensor-network-configuration-before-activation"></a>Mettre à jour la configuration réseau du capteur avant l’activation  
 
-Les paramètres de configuration du réseau du capteur ont été définis lors de l’installation du logiciel ou lorsque vous avez acheté le capteur préconfiguré. Les paramètres suivants ont été définis :
+Les paramètres de configuration du réseau du capteur ont été définis pendant l’installation du logiciel ou quand vous avez acheté le capteur préconfiguré. Les paramètres suivants ont été définis :
 
 - Adresse IP
 - DNS
@@ -112,13 +112,35 @@ Les paramètres de configuration du réseau du capteur ont été définis lors d
 
 Vous souhaiterez peut-être mettre à jour ces informations avant d’activer le capteur. Par exemple, vous devrez peut-être modifier les paramètres préconfigurés définis par Arrow. Vous pouvez également définir des paramètres de proxy avant d’activer votre capteur.
 
-Pour mettre à jour les paramètres de configuration du réseau du capteur :
+**Pour mettre à jour les paramètres de configuration du réseau du capteur :**
 
 1. Sélectionnez le lien **Configuration réseau du capteur** dans la boîte de dialogue **Activation**.
 
    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/editable-network-configuration-screen-v2.png" alt-text="Configuration réseau du capteur.":::
 
 2. Les paramètres définis lors de l’installation s’affichent. L’option permettant de définir le proxy est également disponible. Mettez à jour les paramètres si nécessaire, puis sélectionnez **Enregistrer**.
+
+### <a name="activate-an-expired-license-versions-under-100"></a>Activer une licence ayant expiré (versions inférieures à 10.0)
+
+Pour les utilisateurs dont la version est antérieure à la version 10.0, il se peut que votre licence arrive à expiration et que l’alerte suivante s’affiche. 
+
+:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="Lorsque votre licence arrivera à expiration, vous devrez mettre à jour votre licence via le fichier d’activation.":::
+
+**Pour activer votre licence :**
+
+1. Ouvrez un incident auprès du [support](https://ms.portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
+
+1. Indiquez au support votre numéro d’identification d’activation.
+
+1. Le support vous fournira de nouvelles informations de licence se présentant sous la forme d’une chaîne de lettres.
+
+1. Lisez les conditions générales, puis cochez la case pour approuver.
+
+1. Collez la chaîne dans l’espace prévu à cet effet.
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/add-license.png" alt-text="Collez la chaîne dans le champ prévu à cet effet.":::
+
+1. Sélectionnez **Activer**.
 
 ### <a name="subsequent-sign-ins"></a>Connexions suivantes
 
@@ -156,7 +178,7 @@ Après avoir ajusté les paramètres système, vous pouvez laisser le capteur Az
 
 Le mode d’apprentissage devrait s’exécuter pendant environ deux à six semaines, selon la taille et la complexité de votre réseau. Une fois le mode d’apprentissage désactivé, toute activité qui diffère de votre activité de ligne de base déclenche une alerte.
 
-Pour désactiver le mode d’apprentissage :
+**Pour désactiver le mode d’apprentissage :**
 
 - Sélectionnez **Paramètres système** et désactivez l’option **Apprentissage**.
 
@@ -211,6 +233,8 @@ Vous accédez aux outils de la console à partir du menu latéral.
 | Support | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contactez [Support Microsoft](https://support.microsoft.com/) pour obtenir de l’aide. |
 
 ## <a name="see-also"></a>Voir aussi
+
+[Recherche et packages de renseignement sur les menaces #](how-to-work-with-threat-intelligence-packages.md)
 
 [Intégrer un capteur](getting-started.md#onboard-a-sensor)
 

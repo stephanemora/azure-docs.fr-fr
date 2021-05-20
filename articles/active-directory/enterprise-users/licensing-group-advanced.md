@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/02/2020
+ms.date: 04/05/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cec0f2be9dc86b156bc76f0de5afb1cc19fda99b
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: d55412ebc8d5b0d8d52b9f010937200838166f98
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108016488"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108794193"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
 
@@ -33,7 +33,7 @@ Certains services Microsoft ne sont pas disponibles dans tous les emplacements. 
 Pour l’affectation d’une licence à un groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Si vos utilisateurs se trouvent à plusieurs emplacements, assurez-vous de bien prendre en compte cette situation dans vos ressources utilisateur avant d’ajouter des utilisateurs à des groupes avec licences.
 
 > [!NOTE]
-> L’affectation d’une licence de groupe n’a jamais pour effet de modifier une valeur d’emplacement d’utilisation existante sur un utilisateur. Nous vous recommandons de toujours définir l’emplacement d’utilisation dans le cadre de votre flux de création d’utilisateur dans Azure AD (par exemple, via une Configuration AAD Connect). Cela garantit que le résultat de l’affectation de licence est toujours correct et que les utilisateurs ne reçoivent pas de services dans des emplacements non autorisés.
+> L’affectation d’une licence de groupe n’a jamais pour effet de modifier une valeur d’emplacement d’utilisation existante sur un utilisateur. Nous vous recommandons de toujours définir l’emplacement d’utilisation dans le cadre de votre flux de création d’utilisateur dans Azure AD (par exemple, via une Configuration AAD Connect). Cela garantit que le résultat de l’attribution de licences est toujours correct et que les utilisateurs ne reçoivent pas de services dans des emplacements non autorisés.
 
 ## <a name="use-group-based-licensing-with-dynamic-groups"></a>Utilisation de la gestion des licences par groupe avec des groupes dynamiques
 
@@ -63,18 +63,14 @@ Pour cet exemple, modifiez un utilisateur et définissez son attribut extensionA
 
 > [!WARNING]
 > Faites preuve de vigilance lorsque vous modifiez la règle d’appartenance au groupe existante. Lors de la modification d’une règle, l’appartenance du groupe est réévaluée et les utilisateurs qui ne correspondent pas à la nouvelle règle sont supprimés (ceux qui y correspondent ne sont pas affectés par ce processus). Les licences de ces utilisateurs sont supprimées au cours du processus, ce qui peut occasionner une perte de service ou, dans certains cas, une perte de données.
-> 
+>
 > Si vous avez un grand groupe dynamique dont vous dépendez pour l’attribution des licences, songez à valider des changements majeurs sur un groupe de test plus petit avant de les appliquer au groupe principal.
 
 ## <a name="multiple-groups-and-multiple-licenses"></a>Plusieurs groupes et plusieurs licences
 
 Un utilisateur peut être membre de plusieurs groupes avec des licences. Voici quelques possibilités d’opérations à prendre en considération :
 
-- Plusieurs licences pour le même produit peuvent se chevaucher, avec pour effet que tous les services activés sont appliqués à l’utilisateur. L’exemple suivant montre deux groupes de licences : *E3 - Services de base* contient les services de base à déployer en premier, pour tous les utilisateurs. *E3 - Services étendus* contient les services supplémentaires (Sway et Planner) à déployer uniquement pour certains utilisateurs. Dans cet exemple, l’utilisateur a été ajouté aux deux groupes :
-
-  ![Capture d’écran des services activés](./media/licensing-group-advanced/view-enabled-services.png)
-
-  7 des 12 services du produit sont donc activés pour l’utilisateur alors qu’il n’utilise qu’une seule licence pour ce produit.
+- Plusieurs licences pour le même produit peuvent se chevaucher, avec pour effet que tous les services activés sont appliqués à l’utilisateur. Par exemple, *E3 - Services de base* contient les services de base à déployer en premier pour tous les utilisateurs, et *E3 - Services étendus* contient des services supplémentaires (Sway et Planner) à déployer uniquement pour certains utilisateurs. Vous pouvez ajouter l’utilisateur aux deux groupes. 7 des 12 services du produit sont donc activés pour l’utilisateur alors qu’il n’utilise qu’une seule licence pour ce produit.
 
 - La sélection de la licence *E3* montre d’autres détails, notamment des informations sur les services activés pour l’utilisateur par l’affectation des licences de groupe.
 

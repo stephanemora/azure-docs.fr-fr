@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 04/01/2020
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: aebc1013dcead6c32dab55512ce915e25f60f94a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1430095861b4e8232127fe6d22b87afe5babcf67
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047573"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750732"
 ---
 # <a name="frequently-asked-questions-about-azure-object-anchors"></a>Forum aux questions sur Azure Object Anchors
 
@@ -33,11 +33,11 @@ Pour plus d’informations, consultez [Vue d’ensemble d’Azure Object Anchors
 * Effacer les arrière-plans avec aucun voire peu d’encombrement
 * L’objet analysé doit afficher une correspondance 1:1 avec le modèle que vous avez formé
 
-**Q : Quelles sont les dimensions maximales de l’objet qui peuvent être traitées pour l’ingestion de modèle ?**
+**Q : Quelles sont les dimensions maximales de l’objet qui peuvent être traitées pour la conversion de modèle ?**
 
 **R :** Chaque dimension d’un modèle CAO doit être inférieure à 10 mètres.
 
-**Q : Quelle est la taille maximale du modèle CAO qui peut être traitée pour l’ingestion ?**
+**Q : Quelle est la taille maximale du modèle CAO qui peut être traitée pour la conversion ?**
 
 **R :** La taille de fichier du modèle doit être inférieure à 150 Mo.
 
@@ -45,17 +45,21 @@ Pour plus d’informations, consultez [Vue d’ensemble d’Azure Object Anchors
 
 **R :** Nous prenons actuellement en charge les types de fichiers `fbx`, `ply`, `obj`, `glb` et `gltf`.
 
-**Q : Quelles sont la direction et l’unité de gravité requises par le service d’ingestion de modèle ? Comment obtenir ces valeurs ?**
+**Q : Quelles sont la direction et l’unité de gravité requises par le service de conversion de modèle ? Comment obtenir ces valeurs ?**
 
 **R :** La direction de la gravité est le vecteur vers le bas qui pointe vers la terre. Pour les modèles CAO, la direction de la gravité est généralement l’opposé d’une direction vers le haut. Par exemple, dans de nombreux cas, +Z signifie « vers le haut », auquel cas -Z ou `Vector3(0.0, 0.0, -1.0)` représente la direction de la gravité. Lorsque vous déterminez la gravité, vous ne devez pas seulement prendre en compte le modèle, mais également l’orientation dans laquelle le modèle sera visible lors de l’exécution. Si vous essayez de détecter une chaise dans le monde réel sur une surface plane, la gravité peut être `Vector3(0.0, 0.0, -1.0)`. Mais si la chaise se trouve sur une pente à 45 degrés, la gravité peut être `Vector3(0.0, -Sqrt(2)/2, -Sqrt(2)/2)`.
 
 La direction de la gravité peut être obtenue à l’aide d’un outil de rendu 3D, par exemple [MeshLab](http://www.meshlab.net/).
 
-L’unité représente l’unité de mesure du modèle. Les unités prises en charge peuvent être obtenues l’aide de l’énumération **Microsoft.Azure.ObjectAnchors.Ingestion.Unit**.
+L’unité représente l’unité de mesure du modèle. Les unités prises en charge peuvent être obtenues l’aide de l’énumération **Microsoft.Azure.ObjectAnchors.Conversion.AssetLengthUnit**.
 
-**Q : Combien de temps faut-il pour ingérer un modèle CAO ?**
+**Q : Combien de temps faut-il pour convertir un modèle CAO ?**
 
 **R :** Pour un modèle `ply`, 3 à 15 minutes en général. Si vous soumettez des modèles dans d’autres formats, comptez entre 15 et 60 minutes en fonction de la taille du fichier.
+
+**Q : Comment reprendre suite à un échec de conversion de modèle ?**
+
+**R :** Pour plus d’informations sur les différents codes d’erreur résultant d’un échec d’un travail de conversion de modèle et sur la façon de les gérer, consultez la [page des codes d’erreur de conversion](.\model-conversion-error-codes.md).
 
 **Q : Quels appareils Object Anchors prend-il en charge ?**
 
@@ -144,7 +148,7 @@ L’unité représente l’unité de mesure du modèle. Les unités prises en ch
 **Q : Puis-je utiliser Object Anchors sans connectivité Internet ?**
 
 **R :** 
-* Pour l’ingestion et l’apprentissage du modèle, une connectivité est nécessaire car ces opérations s’effectuent dans le cloud.
+* Pour la conversion et l’entraînement du modèle, une connectivité est nécessaire car ces opérations s’effectuent dans le cloud.
 * Les sessions d’exécution se déroulent entièrement sur l’appareil et ne nécessitent pas de connectivité, car tous les calculs se produisent sur HoloLens 2.
 
 ## <a name="privacy-faq"></a>Questions fréquentes sur la confidentialité

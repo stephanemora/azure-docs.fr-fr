@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: a1508d11478c2c1902d4697ca5ee50afd5747bbf
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 84ac1dcfa04fd949ccc702692a80980e683488ea
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108174923"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746660"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark de sécurité Azure
 
@@ -46,6 +46,15 @@ Pour passer en revue la façon dont les composants intégrés Azure Policy dispo
 |Sécurité réseau |1.4 |Refuser les communications présentant des adresses IP connues comme étant malveillantes |[L’ensemble du trafic Internet doit transiter par votre pare-feu Azure déployé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc5e4038-4584-4632-8c85-c0448d374b2c) |[3.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ASC_All_Internet_traffic_should_be_routed_via_Azure_Firewall.json) |
 |Sécurité réseau |1.4 |Refuser les communications présentant des adresses IP connues comme étant malveillantes |[Azure DDoS Protection Standard doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableDDoSProtection_Audit.json) |
 |Sécurité réseau |1.5 |Consigner les paquets réseau et les journaux de flux |[Network Watcher doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
+
+## <a name="canada-federal-pbmm"></a>PBMM fédéral du Canada
+
+Pour voir comment les composants intégrés Azure Policy de tous les services Azure répondent à ce standard de conformité, consultez [Conformité réglementaire Azure Policy – Canada Federal PBMM](../../../../articles/governance/policy/samples/canada-federal-pbmm.md).
+Pour plus d’informations sur cette norme de conformité, consultez [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html).
+
+|Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Protection du système et des communications |SC-5 |Protection contre le déni de service |[Azure DDoS Protection Standard doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableDDoSProtection_Audit.json) |
 
 ## <a name="cis-microsoft-azure-foundations-benchmark-110"></a>CIS Microsoft Azure Foundations Benchmark 1.1.0
 
@@ -157,6 +166,15 @@ Pour plus d’informations sur cette norme de conformité, consultez [HIPAA HITR
 |Sécurité de Network Services |0886.09n2Organizational.4 - 09.n |L’organisation utilise et documente dans un contrat officiel ou un autre document, i) une stratégie d’autorisation complète et de refus par exception, ou ii) une stratégie de refus complet et d’autorisation par exception (recommandé), pour autoriser des systèmes d’information spécifiques à se connecter à des systèmes d’information externes. |[Network Watcher doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
 |Sécurité de Network Services |0888.09n2Organizational.6 - 09.n |Le contrat avec le fournisseur de services externes/externalisés comprend la spécification selon laquelle le fournisseur de services est responsable de la protection des informations couvertes partagées. |[Network Watcher doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
 
+## <a name="irs-1075-september-2016"></a>IRS 1075 septembre 2016
+
+Pour voir comment les composants intégrés Azure Policy disponibles de tous les services Azure répondent à cette norme de conformité, consultez [Conformité réglementaire Azure Policy – IRS 1075 septembre 2016](../../../../articles/governance/policy/samples/irs-1075-sept2016.md).
+Pour plus d’informations sur cette norme de conformité, consultez [IRS 1075 septembre 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
+
+|Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Protection du système et des communications |9.3.16.4 |Protection contre le déni de service (SC-5) |[Azure DDoS Protection Standard doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableDDoSProtection_Audit.json) |
+
 ## <a name="new-zealand-ism-restricted"></a>New Zealand ISM Restricted
 
 Pour voir comment les composants intégrés Azure Policy disponibles pour tous les services Azure correspondent à cette norme de conformité, consultez [Conformité réglementaire Azure Policy – New Zealand ISM Restricted](../../../../articles/governance/policy/samples/new-zealand-ism.md).
@@ -188,4 +206,13 @@ Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 80
 |Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Protection du système et des communications |SC-5 |Protection contre le déni de service |[Azure DDoS Protection Standard doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableDDoSProtection_Audit.json) |
+
+## <a name="uk-official-and-uk-nhs"></a>UK OFFICIAL et UK NHS
+
+Pour voir comment les composants intégrés Azure Policy disponibles de tous les services Azure répondent à cette norme de conformité, consultez [Conformité réglementaire Azure Policy – UK OFFICIAL et UK NHS](../../../../articles/governance/policy/samples/ukofficial-uknhs.md).
+Pour plus d’informations sur cette norme de conformité, consultez [UK OFFICIAL](https://www.gov.uk/government/publications/government-security-classifications).
+
+|Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Sécurité opérationnelle |5.3 |Surveillance à des fins de protection |[Azure DDoS Protection Standard doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableDDoSProtection_Audit.json) |
 

@@ -3,12 +3,12 @@ title: Mettre à niveau des clusters Azure Service Fabric
 description: En savoir plus sur les options de mise à jour de votre cluster Azure Service Fabric
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 636d4cb11f7cc6780d560d3d0043a89c69840a4f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9af6a9b4d515fcede5bc0444a93ae8118077e7dd
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731108"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738749"
 ---
 # <a name="upgrading-and-updating-azure-service-fabric-clusters"></a>Mettre à niveau et mettre à jour des clusters Azure Service Fabric
 
@@ -116,7 +116,7 @@ De nombreux paramètres de configuration différents peuvent être personnalisé
 
 ### <a name="upgrading-os-images-for-cluster-nodes"></a>Mise à niveau des images de système d’exploitation pour les nœuds de cluster
 
-L’activation des mises à niveau automatiques des images de système d’exploitation pour vos nœuds de cluster Service Fabric est une bonne pratique. Pour ce faire, il existe plusieurs exigences en matière de cluster et étapes à suivre. Une autre option est d’utiliser l’application d’orchestration des correctifs, une application Service Fabric qui automatise l’application de correctifs du système d’exploitation sur un cluster Service Fabric sans temps d’arrêt. Pour en savoir plus sur ces options, consultez [Corriger le système d’exploitation Windows dans votre cluster Service Fabric](service-fabric-patch-orchestration-application.md).
+L’activation des mises à niveau automatiques des images de système d’exploitation pour vos nœuds de cluster Service Fabric est une bonne pratique. Pour ce faire, il existe plusieurs exigences en matière de cluster et étapes à suivre. Une autre option consiste à utiliser l’application d’orchestration des correctifs, une application Service Fabric qui automatise l’application de correctifs du système d’exploitation sur un cluster Service Fabric sans temps d’arrêt. Pour en savoir plus sur ces options, consultez [Corriger le système d’exploitation Windows dans votre cluster Service Fabric](how-to-patch-cluster-nodes-windows.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

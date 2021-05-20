@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/14/2020
+ms.date: 05/10/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 74c77356df4f35461a8b9f1459712cdcf7f77cbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77075388b28878f7256639489ef1f83a961f5a6e
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95563638"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738341"
 ---
 La fonctionnalité Disques partagés Azure est une nouvelle fonctionnalité pour disques managés Azure qui vous permet de connecter simultanément un disque managé à plusieurs machines virtuelles. Le fait d’attacher un disque managé à plusieurs machines virtuelles vous permet de déployer de nouvelles applications en cluster ou de migrer des applications en cluster existantes vers Azure.
 
@@ -46,6 +46,7 @@ Les disques partagés Azure sont pris en charge sur Windows Server 2008 et versi
 Voici quelques exemples d’applications bien connues qui s’exécutent sur WSFC :
 
 - [Création d’une instance FCI avec des disques partagés Azure (SQL Server sur les machines virtuelles Azure)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
+    - [Migration de votre instance de cluster de basculement vers SQL Server sur des machines virtuelles Azure avec des disques partagés](../articles/azure-sql/migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md)
 - Serveur de fichiers Scale-out (SoFS) [modèle] (https://aka.ms/azure-shared-disk-sofs-template)
 - SAP ASCS/SCS [modèle] (https://aka.ms/azure-shared-disk-sapacs-template)
 - Serveur de fichiers pour une utilisation générale (charge de travail IW)

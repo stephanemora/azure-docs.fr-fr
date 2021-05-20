@@ -1,24 +1,24 @@
 ---
 title: Découvrir les serveurs fonctionnant dans un environnement VMware avec l’outil de découverte et d’évaluation d’Azure Migrate
-description: Apprenez à découvrir les serveurs locaux fonctionnant dans un environnement VMware avec l’outil de découverte et d’évaluation d’Azure Migrate
+description: Apprenez à découvrir les applications, dépendances et serveurs locaux dans un environnement VMware en utilisant l’outil de découverte et d’évaluation d’Azure Migrate.
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: 09b04c67519bfa920a3781612823c5755cbc6d2d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 42140e61146d8682d193f89b2a691b8a13260533
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627793"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803598"
 ---
-# <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir les serveurs fonctionnant dans un environnement VMware avec l’outil Azure Migrate : découverte et évaluation
+# <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir les serveurs fonctionnant dans un environnement VMware avec l’outil Azure Migrate : découverte et évaluation
 
 Dans le cadre de votre migration vers Azure, vous devez découvrir vos charges de travail locales et réaliser votre inventaire.
 
-Ce tutoriel vous montre comment découvrir des serveurs fonctionnant dans un environnement VMware avec l’outil Azure Migrate : découverte et évaluation, à l’aide d’une appliance Azure Migrate légère. Vous déployez l’appliance en tant que serveur s’exécutant dans vCenter Server afin de découvrir en permanence les serveurs et leurs métadonnées de performances, les applications qui s’exécutent sur les serveurs, les dépendances de serveur et les instances et bases de données SQL.
+Ce tutoriel vous montre comment découvrir les serveurs qui fonctionnent dans votre environnement VMware en utilisant l’outil Azure Migrate : découverte et évaluation, qui est une appliance Azure Migrate légère. Vous déployez l’appliance en tant que serveur s’exécutant dans votre instance vCenter Server afin de découvrir en permanence les serveurs et leurs métadonnées de performances, les applications qui s’exécutent sur les serveurs, les dépendances de serveur et les bases de données et instances SQL.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -27,147 +27,155 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Préparer l’environnement VMware pour la découverte
 > * Crée un projet.
 > * Configurer l’appliance Azure Migrate
-> * Démarrer la découverte continue
+> * Démarrer la découverte en continu
 
 > [!NOTE]
-> Les tutoriels indiquent le moyen le plus rapide de tester un scénario et utilisent les options par défaut lorsque c’est possible.  
+> Les tutoriels vous présentent le parcours le plus rapide pour tester un scénario. Ils utilisent les options par défaut quand cela est possible.  
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer ce tutoriel, vérifiez les prérequis.
+Avant de commencer ce tutoriel, vérifiez les prérequis suivants :
 
-**Prérequis** | **Détails**
+Condition requise | Détails
 --- | ---
-**vCenter Server/Hôte ESXi** | Vous avez besoin d’une instance vCenter Server exécutant la version 5.5, 6.0, 6.5 ou 6.7.<br/><br/> Les serveurs doivent être hébergés sur un hôte ESXi exécutant la version 5.5 ou une version ultérieure.<br/><br/> Dans vCenter Server, autorisez les connexions entrantes sur le port TCP 443 pour que l’appliance puisse collecter les métadonnées de configuration et de performances.<br/><br/> L’appliance se connecte à vCenter Server sur le port 443 par défaut. Si vCenter Server écoute un autre port, vous pouvez modifier le port lorsque vous fournissez à vCenter Server des détails sur le gestionnaire de configuration de l’appliance.<br/><br/> Sur les hôtes ESXi, assurez-vous que l’accès entrant est autorisé sur le port TCP 443 pour permettre la détection des applications installées et l’analyse des dépendances sans agent sur les serveurs.
-**Appliance** | vCenter Server doit allouer des ressources à un serveur pour l’appliance Azure Migrate :<br/><br/> - 32 Go de RAM, 8 processeurs virtuels et environ 80 Go de stockage sur disque.<br/><br/> - Un commutateur virtuel externe et un accès à Internet sur le serveur de l’appliance, directement ou via un proxy.
-**Serveurs** | Toutes les versions de système d’exploitation Windows et Linux sont prises en charge pour la détection des métadonnées de configuration et de performances. <br/><br/> Pour effectuer la détection des applications sur les serveurs, toutes les versions de système d’exploitation Windows et Linux sont prises en charge. Cliquez [ici](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) pour obtenir les versions de système d’exploitation prises en charge pour l’analyse de dépendance sans agent.<br/><br/> Pour effectuer la détection des applications installées et l’analyse des dépendances sans agent, VMware Tools (version ultérieure à 10.2.0) doit être installé et opérationnel sur les serveurs. PowerShell version 2.0 ou ultérieure doit être installé sur les serveurs Windows.<br/><br/> Pour découvrir les instances et bases de données SQL, consultez [ici](migrate-support-matrix-vmware.md#requirements-for-discovery-of-sql-server-instances-and-databases) les versions et les éditions de SQL Server prises en charge, les versions du systèmes d’exploitation Windows prises en charge et les mécanismes d’authentification.
+**vCenter Server/Hôte ESXi** | Vous avez besoin d’un serveur exécutant vCenter Server version 6.7, 6.5, 6.0 ou 5.5.<br /><br /> Les serveurs doivent être hébergés sur un hôte ESXi exécutant la version 5.5 ou une version ultérieure.<br /><br /> Dans vCenter Server, autorisez les connexions entrantes sur le port TCP 443 pour que l’appliance puisse collecter des métadonnées de configuration et de performances.<br /><br /> L’appliance se connecte à vCenter Server sur le port 443 par défaut. Si le serveur exécutant vCenter Server écoute un autre port, vous pouvez modifier le port quand vous fournissez à vCenter Server des détails dans le gestionnaire de configuration de l’appliance.<br /><br /> Sur les hôtes ESXi, assurez-vous que l’accès entrant est autorisé sur le port TCP 443 pour la découverte des applications installées et pour l’analyse des dépendances sans agent sur les serveurs.
+**Appliance Azure Migrate** | vCenter Server doit pouvoir allouer les ressources suivantes à un serveur qui héberge l’appliance Azure Migrate :<br /><br /> - 32 Go de RAM, 8 processeurs virtuels et approximativement 80 Go de stockage sur disque.<br /><br /> - Un commutateur virtuel externe et un accès à Internet sur le serveur de l’appliance, directement ou via un proxy.
+**Serveurs** | Toutes les versions de système d’exploitation Windows et Linux sont prises en charge pour la détection des métadonnées de configuration et de performances. <br /><br /> Pour la découverte des applications sur les serveurs, toutes les versions de système d’exploitation Windows et Linux sont prises en charge. Vérifiez les [versions de système d’exploitation prises en charge pour l’analyse de dépendance sans agent](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).<br /><br /> Pour la découverte des applications installées et pour l’analyse des dépendances sans agent, VMware Tools (version 10.2.1 ou ultérieure) doit être installé et opérationnel sur les serveurs. PowerShell version 2.0 ou ultérieure doit être installé sur les serveurs Windows.<br /><br /> Pour découvrir les bases de données et instances SQL, consultez [les versions et les éditions des systèmes d’exploitation SQL Server et Windows prises en charge](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) et les mécanismes d’authentification Windows.
 
 ## <a name="prepare-an-azure-user-account"></a>Préparer un compte de stockage Azure
 
-Pour créer un projet et inscrire l’appliance Azure Migrate, vous avez besoin d’un compte avec :
+Pour créer un projet et inscrire l’appliance Azure Migrate, vous devez avoir un compte Azure disposant des autorisations suivantes :
 
-- Des autorisations de niveau Contributeur ou Propriétaire sur l’abonnement Azure
-- Des autorisations permettant d’inscrire des applications Azure Active Directory (AAD)
-- Des autorisations de niveau Propriétaire ou Contributeur plus Administrateur de l’accès utilisateur sur l’abonnement Azure pour créer un coffre de clés, utilisé pendant la migration du serveur sans agent
+- Des autorisations de niveau Contributeur ou Propriétaire dans l’abonnement Azure
+- Des autorisations permettant d’inscrire des applications Azure Active Directory (Azure AD)
+- Des autorisations de niveau Propriétaire ou Contributeur et Administrateur de l’accès utilisateur dans l’abonnement Azure pour créer une instance d’Azure Key Vault, qui est utilisée pendant la migration du serveur sans agent
 
-Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de votre abonnement. Si vous n’êtes pas le propriétaire de l’abonnement, demandez à celui-ci de vous attribuer les autorisations de la façon suivante :
+Si vous avez créé un compte Azure gratuit, vous êtes, par défaut, le propriétaire de l’abonnement Azure. Si vous n’êtes pas le propriétaire de l’abonnement, demandez au propriétaire de vous attribuer les autorisations.
 
-1. Dans le portail Azure, recherchez « abonnements », puis sous **Services**, sélectionnez **Abonnements**.
+Pour définir les autorisations de niveau Contributeur ou Propriétaire dans l’abonnement Azure :
 
-    :::image type="content" source="./media/tutorial-discover-vmware/search-subscription.png" alt-text="Zone de recherche pour rechercher l’abonnement Azure":::
+1. Dans le portail Azure, recherchez « abonnements ». Sous **Services** dans les résultats de la recherche, sélectionnez **Abonnements**.
 
+    :::image type="content" source="./media/tutorial-discover-vmware/search-subscription.png" alt-text="Capture d’écran montrant comment rechercher un abonnement Azure dans la zone de recherche.":::
 
-2. Dans la page **Abonnements**, sélectionnez l’abonnement dans lequel vous souhaitez créer un projet.
-3. Dans l’abonnement, sélectionnez **Contrôle d’accès (IAM)**  > **Vérifier l’accès**.
-4. Dans **Vérifier l’accès**, recherchez le compte d’utilisateur correspondant.
-5. Dans **Ajouter une attribution de rôle**, cliquez sur **Ajouter**.
-:::image type="content" source="./media/tutorial-discover-vmware/azure-account-access.png" alt-text="Rechercher un compte d’utilisateur pour vérifier l’accès et attribuer un rôle":::
+1. Dans **Abonnements**, sélectionnez l’abonnement dans lequel vous souhaitez créer un projet.
+1. Dans le menu de gauche, sélectionnez **Contrôle d’accès (IAM)** .
+1. Sous l’onglet **Vérifier l’accès**, sous **Vérifier l’accès**, recherchez le compte d’utilisateur que vous souhaitez utiliser.
+1. Dans le volet **Ajouter une attribution de rôle**, sélectionnez **Ajouter**.
+
+    :::image type="content" source="./media/tutorial-discover-vmware/azure-account-access.png" alt-text="Capture d’écran montrant comment rechercher un compte d’utilisateur pour vérifier l’accès et ajouter une attribution de rôle.":::
     
-6. Dans **Ajouter une attribution de rôle**, sélectionnez le rôle Contributeur ou Propriétaire, puis sélectionnez le compte (azmigrateuser dans notre exemple). Ensuite, cliquez sur **Enregistrer**.
+1. Dans **Ajouter une attribution de rôle**, sélectionnez le rôle Contributeur ou Propriétaire, puis sélectionnez le compte. Sélectionnez **Enregistrer**.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/assign-role.png" alt-text="Ouvre la page Ajouter une attribution de rôle pour attribuer un rôle au compte.":::
+    :::image type="content" source="./media/tutorial-discover-vmware/assign-role.png" alt-text="Capture d’écran montrant la page Ajouter une attribution de rôle permettant d’attribuer un rôle au compte.":::
 
-1. Pour inscrire l’appliance, votre compte Azure doit disposer d’**autorisations pour inscrire des applications AAD**.
-1. Dans le portail Azure, accédez à **Azure Active Directory** > **Utilisateurs** > **Paramètres utilisateur**.
+Pour accorder au compte les autorisations nécessaires afin d’inscrire des applications Azure AD :
+
+1. Dans le portail, accédez à **Azure Active Directory** > **Utilisateurs** > **Paramètres utilisateur**.
 1. Dans **Paramètres utilisateur**, vérifiez que les utilisateurs Azure AD peuvent inscrire des applications (défini sur **Oui** par défaut).
 
-    :::image type="content" source="./media/tutorial-discover-vmware/register-apps.png" alt-text="Vérifier dans les paramètres utilisateur que les utilisateurs peuvent inscrire des applications Active Directory":::
+    :::image type="content" source="./media/tutorial-discover-vmware/register-apps.png" alt-text="Capture d’écran montrant comment vérifier les paramètres utilisateur pour inscrire des applications.":::
 
-9. Si les paramètres « Inscriptions d’applications » ont la valeur « Non », demandez au locataire ou à l’administrateur général d’affecter l’autorisation nécessaire. L’administrateur général/le locataire peuvent également attribuer le rôle **Développeur d’applications** à un compte pour permettre l’inscription d’une application AAD. [Plus d’informations](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
+9. Si **Inscriptions d’applications** est défini sur **Non**, demandez au locataire ou à l’administrateur général d’affecter les autorisations nécessaires. L’administrateur général ou le locataire peuvent également attribuer à un compte le rôle Développeur d’applications pour permettre l’inscription d’applications Azure AD par les utilisateurs. [Plus d’informations](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 ## <a name="prepare-vmware"></a>Préparer VMware
 
-Sur vCenter Server, vérifiez que votre compte dispose des autorisations pour créer une machine virtuelle au moyen d’un fichier OVA. Cela est nécessaire quand vous déployez l’appliance Azure Migrate en tant que machine virtuelle VMware à l’aide d’un fichier OVA.
+Sur vCenter Server, vérifiez que votre compte dispose des autorisations nécessaires pour créer une machine virtuelle avec un fichier d’installation de machine virtuelle OVA (Open Virtualization Appliance) VMware. Vous devez avoir ces autorisations quand vous déployez l’appliance Azure Migrate en tant que machine virtuelle VMware en utilisant un fichier OVA.
 
-Azure Migrate a besoin d’un compte vCenter Server en lecture seule pour découvrir et évaluer les serveurs fonctionnant dans votre environnement VMware. Si vous souhaitez également procéder à la détection d’applications installées et à l’analyse des dépendances sans agent, le compte doit disposer de privilèges activés pour **Machines virtuelles > Opérations d’invité**.
+Azure Migrate doit avoir un compte vCenter Server en lecture seule pour découvrir et évaluer les serveurs fonctionnant dans votre environnement VMware. Si vous souhaitez également exécuter la découverte des applications installées et l’analyse des dépendances sans agent, le compte doit disposer des autorisations appropriées dans VMware pour les opérations de système invité VM.
 
-### <a name="create-an-account-to-access-vcenter"></a>Créer un compte pour accéder à vCenter
+### <a name="create-an-account-to-access-vcenter-server"></a>Créer un compte pour accéder à vCenter Server
 
-Dans le client web vSphere, configurez un compte de la façon suivante :
+Dans le client web VMware vSphere, configurez un compte en lecture seule à utiliser pour vCenter Server :
 
-1. À l’aide d’un compte disposant de privilèges Administrateur, dans le client web vSphere, sélectionnez **Administration**.
-2. Sous **Access** (Accès), sélectionnez **Single Sign-On - Users and Groups** (Authentification unique - Utilisateurs et groupes).
-3. Dans **Users** (Utilisateurs), ajoutez un nouvel utilisateur.
-4. Dans **New User** (Nouvel utilisateur), tapez les informations du compte. Cliquez ensuite sur **OK**.
-5. Dans **Global Permissions** (Autorisations globales), sélectionnez le compte d’utilisateur, puis attribuez le rôle **Read-only** (Lecture seule) au compte. Cliquez ensuite sur **OK**.
-6. Si vous souhaitez également procéder à la détection d’applications installées et à l’analyse des dépendances sans agent, accédez à **Rôles** > sélectionnez le rôle **En lecture seule** et, dans **Privilèges**, sélectionnez **Opérations d’invité**. Vous pouvez propager les privilèges à tous les objets sous vCenter Server en cochant la case « Propager aux enfants ».
+1. À partir d’un compte disposant de privilèges d’administrateur, dans le client web vSphere, dans le menu **Accueil**, sélectionnez **Administration**.
+1. Sous **Authentification unique**, sélectionnez **Utilisateurs et groupes**.
+1. Dans **Utilisateurs**, sélectionnez **Nouvel utilisateur**.
+1. Entrez les détails du compte et sélectionnez **OK**.
+1. Dans le menu sous **Administration**, sous **Contrôle d’accès**, sélectionnez **Autorisations globales**.
+1. Sélectionnez le compte d’utilisateur, puis sélectionnez **Lecture seule** pour attribuer le rôle au compte. Sélectionnez **OK**.
+1. Pour pouvoir démarrer la découverte des applications installées et l’analyse des dépendances sans agent, dans le menu sous **Contrôle d’accès**, sélectionnez **rôles**. Dans le volet **Rôles**, sous **Rôles**, sélectionnez **Lecture seule**. Sous **Privilèges**, sélectionnez **Opérations invité**. Pour propager les privilèges à tous les objets dans l’instance vCenter Server, cochez la case **Propager aux enfants**.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Case à cocher permettant d’autoriser les opérations invité pour le rôle Lecture seule":::
+    :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Capture d’écran montrant le client web vSphere et comment créer un compte et sélectionner des rôles d’utilisateur et des privilèges.":::
 
 > [!NOTE]
-> Vous pouvez définir l’étendue du compte vCenter Server pour limiter la détection à des centres de donnés vCenter Server, des clusters, un dossier de clusters, des hôtes, un dossier d’hôtes ou des serveurs individuels spécifiques. [**En savoir plus**](set-discovery-scope.md) sur la définition de l’étendue du compte d’utilisateur vCenter Server.
+> Vous pouvez définir l’étendue du compte vCenter Server pour limiter la découverte à des centres de données vCenter Server, des clusters, des hôtes, des dossiers de clusters ou d’hôtes ou des serveurs individuels spécifiques. Découvrez comment [définir l’étendue du compte d’utilisateur vCenter Server](set-discovery-scope.md).
 
 ### <a name="create-an-account-to-access-servers"></a>Créer un compte pour accéder aux serveurs
 
-Vous avez besoin d’un compte d’utilisateur doté des privilèges nécessaires sur les serveurs pour effectuer la découverte des applications installées, l’analyse des dépendances sans agent et la découverte des instances et bases de données SQL Server. Vous pouvez fournir le compte d’utilisateur sur le gestionnaire de configuration de l’appliance. L’appliance n’installe pas d’agents sur les serveurs.
+Votre compte d’utilisateur sur vos serveurs doit disposer des autorisations nécessaires pour lancer la découverte des applications installées, l’analyse des dépendances sans agent et la découverte des bases de données et instances SQL. Vous pouvez fournir les informations du compte d’utilisateur dans le gestionnaire de configuration de l’appliance. L’appliance n’installe pas d’agents sur les serveurs.
 
-1. Pour les serveurs Windows, créez un compte (local ou de domaine) avec des autorisations d’administration sur les serveurs. Pour découvrir les instances et les bases de données SQL, il faut que le compte Windows ou SQL Server soit membre du rôle serveur sysadmin. [En savoir plus](/sql/relational-databases/security/authentication-access/server-level-roles) sur l’attribution du rôle requis au compte d’utilisateur.
-2. Pour les serveurs Linux, créez un compte avec des privilèges racine. Vous pouvez également créer un compte disposant de ces autorisations sur les fichiers /bin/netstat et /bin/ls : CAP_DAC_READ_SEARCH et CAP_SYS_PTRACE.
+* Pour les serveurs Windows, créez un compte (local ou de domaine) doté d’autorisations d’administrateur sur les serveurs. Pour découvrir les bases de données et instances SQL, le compte Windows ou SQL Server doit être membre du rôle serveur sysadmin. Découvrez comment [attribuer le rôle requis au compte d’utilisateur](/sql/relational-databases/security/authentication-access/server-level-roles).
+* Pour les serveurs Linux, créez un compte doté de privilèges racine. Vous pouvez aussi créer un compte qui dispose des autorisations CAP_DAC_READ_SEARCH et CAP_SYS_PTRACE sur les fichiers /bin/netstat et /bin/ls.
 
 > [!NOTE]
-> Vous pouvez maintenant ajouter plusieurs informations d’identification de serveur sur le gestionnaire de configuration pour effectuer la détection des applications installées, l’analyse des dépendances sans agent et la détection des instances et bases de données SQL. Vous pouvez ajouter plusieurs informations d’identification pour l’authentification de domaine, Windows (hors domaine), Linux (hors domaine) et/ou SQL Server. [**En savoir plus**](add-server-credentials.md)
+> Vous pouvez ajouter diverses informations d’identification de serveur dans le gestionnaire de configuration de l’appliance Azure Migrate pour lancer une découverte des applications installées, une analyse des dépendances sans agent et une découverte des bases de données et instances SQL. Vous pouvez ajouter diverses informations d’authentification de domaine, Windows (hors domaine), Linux (hors domaine) ou SQL Server. Découvrez comment [ajouter des informations d’identification de serveur](add-server-credentials.md).
 
 ## <a name="set-up-a-project"></a>Configuration d’un projet
 
-Configurez un nouveau projet.
+Pour configurer un nouveau projet :
 
 1. Dans le portail Azure, sélectionnez **Tous les services**, puis recherchez **Azure Migrate**.
-2. Sous **Services**, sélectionnez **Azure Migrate**.
-3. Dans **Vue d’ensemble** > sélectionnez une valeur en fonction de vos objectifs de migration : **Windows, Linux et SQL Server** ou **SQL Server (uniquement)** ou **Explorez d’autres scénarios** > sélectionnez **Créer un projet**.
-5. Dans **Créer un projet**, sélectionnez votre abonnement Azure et votre groupe de ressources. Créez un groupe de ressources si vous n’en avez pas.
-6. Dans **Détails du projet**, spécifiez le nom du projet ainsi que la zone géographique où vous souhaitez le créer. Passez en revue les zones géographiques prises en charge pour les clouds [publics](migrate-support-matrix.md#supported-geographies-public-cloud) et du [secteur public](migrate-support-matrix.md#supported-geographies-azure-government).
+1. Sous **Services**, sélectionnez **Azure Migrate**.
+1. Dans **Vue d’ensemble**, sélectionnez l’une des options suivantes, en fonction de vos objectifs de migration : **Windows, Linux et SQL Server**, **SQL Server (uniquement)** ou **Explorez d’autres scénarios**. 
+1. Sélectionnez **Créer un projet**.
+1. Dans **Créer un projet**, sélectionnez votre abonnement Azure et votre groupe de ressources. Créez un groupe de ressources si vous n’en avez pas.
+1. Dans **Détails du projet**, spécifiez le nom du projet et la zone géographique où vous souhaitez créer le projet. Passez en revue les [zones géographiques prises en charge pour les clouds publics](migrate-support-matrix.md#supported-geographies-public-cloud) et les [zones géographiques prises en charge pour le secteur public](migrate-support-matrix.md#supported-geographies-azure-government).
 
-    :::image type="content" source="./media/tutorial-discover-vmware/new-project.png" alt-text="Zones pour le nom et la région du projet":::
+    :::image type="content" source="./media/tutorial-discover-vmware/new-project.png" alt-text="Capture d’écran montrant comment ajouter les détails d’un nouveau projet Azure Migrate.":::
 
-7. Sélectionnez **Create** (Créer).
-8. Attendez quelques minutes, le temps nécessaire au déploiement du projet. L’outil **Azure Migrate : découverte et évaluation** est ajouté par défaut au nouveau projet.
+1. Sélectionnez **Create** (Créer).
+1. Attendez quelques minutes, le temps nécessaire au déploiement du projet. L’outil **Azure Migrate : découverte et évaluation** est ajouté par défaut au nouveau projet.
 
 > [!NOTE]
-> Si vous avez déjà créé un projet, vous pouvez utiliser le même projet pour inscrire des appliances supplémentaires afin de découvrir et d’évaluer un plus grand nombre de serveurs. [**En savoir plus**](create-manage-projects.md#find-a-project)
+> Si vous avez déjà créé un projet, vous pouvez l’utiliser pour inscrire des appliances supplémentaires afin de découvrir et d’évaluer davantage de serveurs. Découvrez comment [gérer les projets](create-manage-projects.md#find-a-project).
 
 ## <a name="set-up-the-appliance"></a>Configurer l’appliance
 
-L’outil Azure Migrate : découverte et évaluation utilise une appliance Azure Migrate légère. L’appliance effectue la détection du serveur, puis envoie la configuration et les métadonnées de performances du serveur à Azure Migrate. L’appliance peut être configurée en déployant un modèle OVA pouvant être téléchargé à partir du projet.
+L’outil Azure Migrate : découverte et évaluation utilise une appliance Azure Migrate légère. L’appliance exécute la découverte du serveur, puis envoie la configuration et les métadonnées de performances du serveur à Azure Migrate. Configurez l’appliance en déployant un modèle OVA pouvant être téléchargé à partir du projet.
 
 > [!NOTE]
-> Si, pour une raison quelconque, vous ne pouvez pas configurer l’appliance à l’aide du modèle, vous pouvez la configurer à l’aide d’un script PowerShell sur un serveur Windows Server 2016 existant. [**En savoir plus**](deploy-appliance-script.md#set-up-the-appliance-for-vmware).
+> Si vous ne pouvez pas configurer l’appliance en utilisant le modèle OVA, vous pouvez la configurer en exécutant un script PowerShell sur un serveur existant exécutant Windows Server 2016. Découvrez comment [utiliser PowerShell pour configurer une appliance Azure Migrate](deploy-appliance-script.md#set-up-the-appliance-for-vmware).
 
-### <a name="deploy-with-ova"></a>Effectuer un déploiement avec OVA
+### <a name="deploy-by-using-an-ova-template"></a>Déployer en utilisant un modèle OVA
 
-Pour configurer l’appliance avec un modèle OVA, vous :
+Pour configurer l’appliance en utilisant un modèle OVA, vous devez effectuer les étapes décrites plus en détail dans cette section :
 
 1. Fournissez un nom d’appliance et générez une clé de projet sur le portail.
 1. Téléchargez un fichier de modèle OVA, puis importez-le dans vCenter Server. Vérifiez que l’OVA est sécurisé.
-1. Créez l’appliance à partir du modèle OVA et vérifiez qu’elle peut se connecter à Azure Migrate.
-1. Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet en utilisant la clé de projet.
+1. Créez l’appliance à partir du fichier OVA. Vérifiez que l’appliance peut se connecter à Azure Migrate.
+1. Configurez l’appliance pour la première fois. 
+1. Inscrivez l’appliance auprès du projet avec la clé de projet.
 
-### <a name="1-generate-the-project-key"></a>1. Générer la clé de projet
+#### <a name="generate-the-project-key"></a>Générer la clé de projet
 
-1. Dans **Objectifs de migration** > **Serveurs** > **Azure Migrate : découverte et évaluation**, sélectionnez **Découvrir**.
-2. Dans **Découvrir les serveurs** > **Vos serveurs sont-ils virtualisés ?** , sélectionnez **Oui, avec l’hyperviseur vSphere VMware**.
-3. Dans **1 : Générer une clé de projet**, attribuez un nom à l’appliance Azure Migrate que vous allez configurer pour la découverte de vos serveurs dans votre environnement VMware. Le nom doit être alphanumérique et comporter 14 caractères au maximum.
-1. Cliquez sur **Générer une clé** pour lancer la création des ressources Azure nécessaires. Ne fermez pas la page Découvrir pendant la création des ressources.
-1. Une fois les ressources Azure créées, une **clé de projet** est générée.
-1. Copiez la clé car vous en aurez besoin pour terminer l'inscription de l'appliance lors de sa configuration.
+1. Dans **Objectifs de la migration**, sélectionnez **Windows, Linux et SQL Server** > **Azure Migrate : découverte et évaluation** > **Découvrir**.
+1. Dans **Découvrir des serveurs**, sélectionnez **Vos serveurs sont-ils virtualisés ?** > **Oui, avec l’hyperviseur vSphere VMware**.
+1. Dans **1 : Générer une clé de projet**, attribuez un nom à l’appliance Azure Migrate que vous allez configurer pour la découverte des serveurs dans votre environnement VMware. Le nom doit être alphanumérique et comporter 14 caractères au maximum.
+1. Pour commencer à créer les ressources Azure requises, sélectionnez **Générer la clé**. Ne fermez pas le volet **Découvrir** pendant la création des ressources.
+1. Une fois les ressources Azure créées, une *clé de projet* est générée.
+1. Copiez la clé. Vous utiliserez la clé pour inscrire l’appliance lors de sa configuration.
 
-### <a name="2-download-the-ova-template"></a>2. Télécharger le modèle OVA
+#### <a name="download-the-ova-template"></a>Télécharger le modèle OVA
 
-Dans **2 : Télécharger l’appliance Azure Migrate**, sélectionnez le fichier .OVA et cliquez sur **Télécharger**.
+Dans **2 : Télécharger l’appliance Azure Migrate**, sélectionnez le fichier .OVA, puis **Télécharger**.
 
-### <a name="verify-security"></a>Vérifier la sécurité
+##### <a name="verify-security"></a>Vérifier la sécurité
 
-Vérifiez que le fichier OVA est sécurisé avant de le déployer :
+Avant de déployer le fichier OVA, vérifiez qu’il est sécurisé :
 
-1. Sur le serveur où vous avez téléchargé le fichier, ouvrez une fenêtre de commande d’administrateur.
-2. Exécutez la commande suivante pour générer le code de hachage du fichier OVA :
+1. Sur le serveur sur lequel vous avez téléchargé le fichier, ouvrez une fenêtre d’invite de commandes en utilisant l’option **Exécuter en tant qu’administrateur**.
+1. Exécutez la commande suivante pour générer le code de hachage du fichier OVA :
   
-   ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+    ```bash
+    C:\>CertUtil -HashFile <file_location> <hashing_agorithm>
+    ```
    
-   Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
+    Exemple : `C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256`
 
-3. Vérifiez les toutes dernières versions de l’appliance et les valeurs de hachage :
+1. Vérifiez les toutes dernières versions de l’appliance et les valeurs de hachage :
 
     - Pour le cloud public Azure :
     
@@ -181,124 +189,138 @@ Vérifiez que le fichier OVA est sécurisé avant de le déployer :
         --- | --- | ---
         VMware (85,8 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195f8add7d7c8352de77a9af0b860e2a627979085ca
 
-### <a name="3-create-the-appliance-server"></a>3. Créer le serveur de l’appliance
+#### <a name="create-the-appliance-server"></a>Créer le serveur de l’appliance
 
-Importez le fichier téléchargé, puis créez un serveur dans l’environnement VMware.
+Importez le fichier téléchargé, puis créez un serveur dans l’environnement VMware :
 
-1. Dans la console du client vSphere, cliquez sur **File** (Fichier) > **Deploy OVF Template** (Déployer le modèle OVF).
-2. Dans l’Assistant de déploiement du modèle OVF > **Source**, spécifiez l’emplacement du fichier .OVA.
-3. Dans **Nom** et **Emplacement**, spécifiez un nom convivial pour le serveur. Sélectionnez l’objet d’inventaire dans lequel le serveur doit être hébergée.
-5. Dans **Hôte/Cluster**, spécifiez l’hôte ou le cluster sur lequel s’exécute le serveur.
-6. Dans **Stockage**, spécifiez la destination du stockage du serveur.
-7. Dans **Disk Format** (Format de disque), spécifiez le type de disque et la taille.
-8. Dans **Mappage réseau**, spécifiez le réseau auquel se connectera. Le réseau nécessite une connexion à Internet pour envoyer des métadonnées à Azure Migrate.
-9. Passez en revue les paramètres, confirmez-les, puis cliquez sur **Finish** (Terminer).
+1. Dans la console du client vSphere, sélectionnez **File** (Fichier) > **Deploy OVF Template** (Déployer le modèle OVF).
+1. Dans l’Assistant de déploiement du modèle OVF, sélectionnez **Source**, puis entrez l’emplacement du fichier OVA.
+1. Dans **Nom**, entrez un nom pour le serveur. Dans **Emplacement**, sélectionnez l’objet d’inventaire dans lequel le serveur doit être hébergé.
+1. Dans **Hôte/Cluster**, sélectionnez l’hôte ou le cluster sur lequel s’exécute le serveur.
+1. Dans **Stockage**, sélectionnez la destination du stockage du serveur.
+1. Dans **Format de disque**, sélectionnez le type de disque et la taille.
+1. Dans **Mappage réseau**, sélectionnez le réseau auquel le serveur se connectera. Le réseau nécessite une connexion à Internet pour envoyer des métadonnées à Azure Migrate.
+1. Validez les paramètres, puis sélectionnez **Finish (Terminer)** .
 
-### <a name="verify-appliance-access-to-azure"></a>Vérifier l’accès de l’appliance à Azure
+#### <a name="verify-appliance-access-to-azure"></a>Vérifier l’accès de l’appliance à Azure
 
-Vérifiez que le serveur de l’appliance peut se connecter aux URL Azure pour les clouds [publics](migrate-appliance.md#public-cloud-urls) et ceux du [secteur public](migrate-appliance.md#government-cloud-urls).
+Vérifiez que le serveur de l’appliance peut se connecter aux URL Azure pour les [clouds publics](migrate-appliance.md#public-cloud-urls) et ceux du [secteur public](migrate-appliance.md#government-cloud-urls).
 
-### <a name="4-configure-the-appliance"></a>4. Configurer l’appliance
+### <a name="configure-the-appliance"></a>Configurer l’appliance
 
-Configurez l’appliance pour la première fois.
+Pour configurer l’appliance pour la première fois :
 
 > [!NOTE]
-> Si vous configurez l’appliance à l’aide d’un [**script PowerShell**](deploy-appliance-script.md) au lieu du modèle OVA téléchargé, les deux premières étapes de cette procédure ne s’appliquent pas.
+> Si vous configurez l’appliance avec un [script PowerShell](deploy-appliance-script.md) au lieu d’un modèle OVA téléchargé, vous pouvez ignorer les deux premières étapes.
 
-1. Dans la console du client vSphere, cliquez avec le bouton droit sur le serveur, puis sélectionnez **Ouvrir la console**.
-2. Spécifiez la langue, le fuseau horaire et le mot de passe pour l’appliance.
-3. Ouvrez un navigateur sur une machine pouvant se connecter à l’appliance, puis ouvrez l’URL du gestionnaire de configuration de l’appliance : `https://appliance name or IP address: 44368`.
+1. Dans le client vSphere, cliquez avec le bouton droit sur le serveur, puis sélectionnez **Ouvrir la console**.
+1. Sélectionnez ou entrez la langue, le fuseau horaire et le mot de passe pour l’appliance.
+1. Ouvrez un navigateur sur n’importe quel ordinateur pouvant se connecter à l’appliance. Ensuite, ouvrez l’URL du gestionnaire de configuration de l’appliance : `https://appliance name or IP address: 44368`.
 
-   Vous pouvez également ouvrir le gestionnaire de configuration à partir du bureau du serveur de l’appliance en sélectionnant le raccourci du gestionnaire de configuration.
-1. Acceptez les **termes du contrat de licence** et lisez les informations relatives aux tiers.
-1. Dans le gestionnaire de configuration > **Configurer les prérequis**, procédez comme suit :
-   - **Connectivité** : l’appliance vérifie que le serveur a accès à Internet. Si le serveur utilise un proxy :
-     - Cliquez sur **Configurer le proxy** pour spécifier l’adresse du proxy `http://ProxyIPAddress` ou `http://ProxyFQDN` ainsi que le port d’écoute.
-     - Spécifiez les informations d’identification si le proxy nécessite une authentification.
-     - Seuls les proxys HTTP sont pris en charge.
-     - Si vous avez ajouté les détails du proxy ou désactivé le proxy et/ou l’authentification, cliquez sur **Enregistrer** pour relancer la vérification de la connectivité.
-   - **Synchronisation de l’heure** : L’heure de l’appliance doit être synchronisée avec l’heure Internet pour que la découverte fonctionne correctement.
-   - **Installer les mises à jour** : L’appliance vérifie que les dernières mises à jour sont installées. Une fois la vérification terminée, vous pouvez cliquer sur **Afficher les services de l’appliance** pour voir l’état et les versions des services s’exécutant sur le serveur d’appliance.
-   - **Installer VDDK** : L’appliance vérifie que VDDK (VMware vSphere Virtual Disk Development Kit) est installé. S’il n’est pas installé, téléchargez VDDK 6.7 à partir de VMware, puis extrayez le contenu du fichier zip téléchargé sur l’appliance à l’emplacement indiqué dans les **instructions d’installation**.
+     Vous pouvez également ouvrir le gestionnaire de configuration à partir du bureau du serveur de l’appliance en sélectionnant le raccourci du gestionnaire de configuration.
+1. Acceptez les termes du contrat de licence et lisez les informations relatives aux tiers.
+1. Dans le gestionnaire de configuration, sélectionnez **Configurer les prérequis**, puis procédez comme suit :
+    1. **Connectivité** : l’appliance vérifie que le serveur a accès à Internet. Si le serveur utilise un proxy :
+        1. Sélectionnez **Configurer le proxy** pour spécifier l’adresse du proxy (sous la forme `http://ProxyIPAddress` ou `http://ProxyFQDN`, où *FQDN* fait référence à un *nom de domaine complet*) et le port d’écoute.
+        1.  Entrez les informations d’identification si le proxy nécessite une authentification.
+        1. Si vous avez ajouté les détails du proxy ou désactivé le proxy ou l’authentification, sélectionnez **Enregistrer** pour relancer la vérification de la connectivité.
 
-     L’outil de migration de serveur Azure Migrate utilise VDDK pour répliquer les serveurs durant la migration vers Azure. 
-1. Si vous le souhaitez, vous pouvez **réexécuter les prérequis** à tout moment pendant la configuration de l’appliance pour vérifier si celle-ci remplit les remplit tous.
+            Seuls les proxys HTTP sont pris en charge.
+    1. **Synchronisation de l’heure** : Vérifiez que l’heure de l’appliance est synchronisée avec l’heure Internet pour que la découverte fonctionne correctement.
+    1. **Installer les mises à jour** : L’appliance vérifie que les dernières mises à jour sont installées. Une fois la vérification terminée, vous pouvez cliquer sur **Voir les services d’appliance** pour voir l’état et les versions des services s’exécutant sur le serveur de l’appliance.
+    1. **Installer VDDK** : L’appliance vérifie que VDDK (VMware vSphere Virtual Disk Development Kit) est installé. Si le VDDK n’est pas installé, téléchargez VDDK 6.7 à partir de VMware. Extrayez le contenu du fichier zip téléchargé à l’emplacement spécifié sur l’appliance, comme indiqué dans les *instructions d’installation*.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Panneau 1 sur le gestionnaire de configuration de l’appliance":::
+        L’outil de migration de serveur Azure Migrate utilise VDDK pour répliquer les serveurs durant la migration vers Azure. 
+1. Vous pouvez *réexécuter les prérequis* à tout moment pendant la configuration de l’appliance pour vérifier si celle-ci remplit les remplit tous :
 
-### <a name="register-the-appliance-with-azure-migrate"></a>Inscrire l’appliance auprès d’Azure Migrate
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Capture d’écran montrant la configuration des prérequis dans le gestionnaire de configuration de l’appliance.":::
 
-1. Collez la **clé de projet** copiée à partir du portail. Si vous n’avez pas la clé, accédez à **Azure Migrate : Discovery and Assessment > Découvrir > Gérer les appliances existantes**, sélectionnez le nom d’appliance que vous avez indiqué au moment de générer la clé, puis copiez la clé correspondante.
-1. Vous aurez besoin d’un code d’appareil pour vous authentifier auprès d’Azure. Le fait de cliquer sur **Connexion** ouvre une boîte de dialogue modale comprenant le code de l’appareil, comme celle affichée ci-dessous.
+#### <a name="register-the-appliance-with-azure-migrate"></a>Inscrire l’appliance auprès d’Azure Migrate
 
-    :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Boîte de dialogue modale indiquant le code de l’appareil":::
+1. Collez la clé de projet copiée à partir du portail. Si vous n’avez pas la clé, accédez à **Azure Migrate : découverte et évaluation** > **Découvrir** > **Gérer les appliances existantes**. Sélectionnez le nom d’appliance que vous avez fourni lors de la génération de la clé de projet, puis copiez la clé affichée.
+1. Vous aurez besoin d’un code d’appareil pour vous authentifier auprès d’Azure. Sélectionnez **Connexion**. Cliquez sur **Continuer avec la connexion Azure**, sélectionnez **Copier le code et se connecter** pour copier le code de l’appareil et ouvrir une invite de connexion Azure dans un nouvel onglet de navigateur. Vérifiez que vous avez désactivé le bloqueur de fenêtres publicitaires dans le navigateur pour voir l’invite.
 
-1. Cliquez sur **Copier le code et se connecter** pour copier le code de l’appareil et ouvrir une invite de connexion Azure dans un nouvel onglet de navigateur. S’il n’apparaît pas, vérifiez que vous avez désactivé le bloqueur de fenêtres publicitaires dans le navigateur.
-1. Sous le nouvel onglet, collez le code de l’appareil, puis connectez-vous avec votre nom d’utilisateur et votre mot de passe Azure.
-   
-   La connexion avec un code PIN n’est pas prise en charge.
-3. Si vous avez fermé accidentellement l’onglet Connexion avant de vous être connecté, vous devrez actualiser l’onglet Appliance Configuration Manager pour réactiver le bouton de connexion.
-1. Une fois connecté, revenez à l’onglet précédent, c’est-à-dire, l’onglet Appliance Configuration Manager.
-1. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des autorisations adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
-1. Une fois l'appliance inscrite, vous pouvez consulter les détails de l'inscription en cliquant sur **Afficher les détails**.
+    :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Capture d’écran montrant où copier le code d’appareil et se connecter.":::
 
-    :::image type="content" source="./media/tutorial-discover-vmware/appliance-registration.png" alt-text="Volet 2 sur le gestionnaire de configuration d’appliance":::
+1. Dans un nouvel onglet de votre navigateur, collez le code de l’appareil, puis connectez-vous avec votre nom d’utilisateur et votre mot de passe Azure. La connexion avec un code PIN n’est pas prise en charge.
+
+    Si vous avez fermé accidentellement l’onglet Connexion avant de vous être connecté, actualisez l’onglet du gestionnaire de configuration de l’appliance pour afficher le code de l’appareil et le bouton **Copier le code et se connecter**.
+1. Une fois que vous êtes connecté, revenez à l’onglet de navigateur qui affiche le gestionnaire de configuration de l’appliance. Si le compte d’utilisateur Azure que vous avez utilisé pour vous connecter dispose des autorisations nécessaires pour les ressources Azure qui ont été créées lors de la génération de la clé, l’inscription de l’appliance démarre.
+1. Une fois l’inscription de l’appliance terminée, consultez les détails de l’inscription en sélectionnant **Afficher les détails**.
+
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-registration.png" alt-text="Capture d’écran de l’inscription avec le volet Azure Migrate montrant que l’appliance a été inscrite avec succès.":::
 
 ## <a name="start-continuous-discovery"></a>Démarrer la découverte en continu
 
+Effectuez les étapes de configuration dans le gestionnaire de configuration d’appliance pour préparer et démarrer la découverte.
+
 ### <a name="provide-vcenter-server-details"></a>Fournir les détails de vCenter Server
 
-L’appliance doit se connecter à vCenter Server pour découvrir les données de configuration et de performances des serveurs.
+L’appliance doit se connecter à vCenter Server pour découvrir les données de configuration et de performances des serveurs :
 
-1. À l’**Étape 1 : Fournir les informations d’identification de vCenter Server**, cliquez sur **Ajouter des informations d’identification** pour attribuer un nom convivial aux informations d’identification, puis ajoutez un **nom d’utilisateur** et un **mot de passe** pour le compte vCenter Server dont l’appliance se servira pour découvrir les serveurs s’exécutant sur le vCenter Server.
-    - Vous devriez avoir configuré un compte avec les autorisations requises, comme décrit dans cet article ci-dessus.
-    - Si vous souhaitez étendre la découverte à des objets VMware spécifiques (centres de données vCenter Server, clusters, dossier de clusters, hôtes, dossier d’hôtes ou serveurs individuels), passez en revue les instructions contenues dans [cet article](set-discovery-scope.md) pour restreindre le compte utilisé par Azure Migrate.
-1. À l’**Étape 2 : Fournir les détails de vCenter Server**, cliquez sur **Ajouter une source de découverte** pour sélectionner le nom convivial des informations d’identification dans la liste déroulante, puis spécifiez l’**adresse IP/nom de domaine complet** du vCenter Server. Vous pouvez laisser le **port** par défaut (443) ou spécifier un port personnalisé sur lequel vCenter Server est à l’écoute, puis cliquez sur **Enregistrer**.
-1. Dès que vous cliquez sur **Enregistrer**, l’appliance tente de valider la connexion au vCenter Server avec les informations d’identification indiquées, et affiche l’**état de validation** dans le tableau pour l’adresse IP/le nom de domaine complet de vCenter Server.
-1. Vous pouvez **revalider** la connectivité à vCenter Server à tout moment avant de lancer la découverte.
+1. Dans **Étape 1 : Fournir les informations d’identification de vCenter Server**, sélectionnez **Ajouter des informations d’identification** afin d’entrer un nom pour les informations d’identification. Ajoutez le nom d’utilisateur et le mot de passe du compte vCenter Server que l’appliance utilisera pour découvrir les serveurs qui s’exécutent sur vCenter Server.
+    - Vous devriez avoir configuré un compte avec les autorisations requises, comme décrit plus tôt dans cet article.
+    - Si vous souhaitez étendre la découverte à des objets VMware spécifiques (centres de données vCenter Server, clusters, dossier de clusters, hôtes, dossier d’hôtes ou serveurs individuels), passez en revue les instructions pour [définir l’étendue de découverte](set-discovery-scope.md) afin de restreindre le compte utilisé par Azure Migrate.
+1. Dans **Étape 2 : Fournir les détails de vCenter Server**, sélectionnez **Ajouter une source de découverte** pour sélectionner le nom des informations d’identification dans la liste déroulante. Sélectionnez l’adresse IP ou le nom de domaine complet (FQDN) du vCenter Server. Vous pouvez laisser le port par défaut (443) ou spécifier un port personnalisé sur lequel votre serveur vCenter Server est à l’écoute. Sélectionnez **Enregistrer**.
+1. L’appliance tente de valider la connexion au serveur exécutant vCenter Server avec les informations d’identification. Elle affiche l’état de validation de l’adresse IP ou du nom de domaine complet vCenter Server dans la table des informations d’identification.
+1. Vous pouvez *revalider* la connectivité à vCenter Server à tout moment avant de lancer la découverte.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panneau 3 sur le gestionnaire de configuration de l’appliance pour le détails de vCenter Server":::
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Capture d’écran montrant la gestion des informations d’identification et des sources de découverte pour vCenter Server dans le gestionnaire de configuration d’appliance.":::
 
 ### <a name="provide-server-credentials"></a>Fournir les informations d’identification du serveur
 
-À l’**Étape 3 : Fournir les informations d’identification de serveur pour effectuer l’inventaire logiciel, l’analyse des dépendances sans agent et la découverte des instances et bases de données SQL Server**, vous pouvez choisir de fournir plusieurs informations d’identification de serveur ou, si vous ne souhaitez pas utiliser ces fonctionnalités, vous pouvez ignorer l’étape et procéder à la découverte du vCenter Server. Vous pouvez revenir sur votre décision à tout moment.
+Dans **Étape 3 : Fournissez des informations d’identification de serveur pour effectuer l’inventaire logiciel, l’analyse des dépendances sans agent et la découverte des instances et bases de données SQL Server**, vous pouvez fournir plusieurs informations de connexion de serveur. Si vous ne souhaitez pas utiliser ces fonctionnalités d’appliance, vous pouvez ignorer cette étape et procéder à la découverte de vCenter Server. Vous pouvez changer cette option à tout moment.
 
-:::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Panneau 3 sur le gestionnaire de configuration de l’appliance pour les détails du serveur":::
+:::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Capture d’écran montrant comment fournir des informations d’identification pour l’inventaire logiciel, l’analyse des dépendances et la découverte de serveurs SQL.":::
 
-Si vous souhaitez utiliser ces fonctionnalités, vous pouvez fournir des informations d’identification de serveur en procédant comme suit. L’appliance tente de mapper automatiquement les informations d’identification aux serveurs pour exécuter les fonctionnalités de découverte.
+Si vous souhaitez utiliser ces fonctionnalités, fournissez des informations d’identification de serveur en procédant comme suit. L’appliance tente de mapper automatiquement les informations d’identification aux serveurs pour exécuter les fonctionnalités de découverte.
 
-- Vous pouvez ajouter les informations d’identification du serveur en cliquant sur le bouton **Ajouter des informations d’identification**. Cela a pour effet d’ouvrir une fenêtre modale dans laquelle vous pouvez choisir le **type d’informations d’identification** dans une liste déroulante.
-- Vous pouvez fournir des informations d’identification de domaine/Windows (hors domaine)/Linux (hors domaine)/SQL Server. [Apprenez-en davantage](add-server-credentials.md) sur la manière de fournir des informations d’identification et la façon dont nous les traitons.
-- Pour chaque type d’informations d’identification, vous devez spécifier un nom convivial, ajouter un **Nom d’utilisateur** et un **Mot de passe**, puis cliquer sur **Enregistrer**.
-- Si vous choisissez des informations d’identification de domaine, vous devez également spécifier le nom de domaine complet (FQDN) du domaine. Celui-ci est requis pour valider l’authenticité des informations d’identification auprès de l’Active Directory de ce domaine.
-- Examinez les [autorisations requises](add-server-credentials.md#required-permissions) sur le compte pour la découverte des applications installées, l’analyse des dépendances sans agent ou la découverte des instances et bases de données SQL Server.
-- Si vous souhaitez ajouter plusieurs informations d’identification à la fois, cliquez sur **Ajouter** pour enregistrer et ajouter d’autres informations d'identification.
-- Lorsque vous cliquez sur **Enregistrer** ou **Ajouter**, l’appliance valide les informations d’identification de domaine auprès de l’Active Directory du domaine pour vérifier leur authenticité. Cela permet d’éviter les verrouillages de compte lorsque l’appliance effectue plusieurs itérations pour mapper les informations d’identification aux serveurs concernés.
-- Vous pouvez voir l’**État de validation** de toutes les informations d’identification de domaine dans la table des informations d’identification. Seules les informations d’identification de domaine seront validées.
-- Si la validation échoue, vous pouvez cliquer sur état **Échec** pour voir l’erreur rencontrée, puis cliquer sur **Revalider les informations d’identification** après avoir corrigé le problème afin de valider à nouveau les informations d’identification de domaine qui ont échoué.
+Pour ajouter des informations d’identification de serveur :
 
-     :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panneau 3 sur le gestionnaire de configuration de l’appliance pour fournir plusieurs informations d’identification":::
+1. Sélectionnez **Ajouter des informations d’identification**.
+1. Dans le menu déroulant, sélectionnez **Type d’informations d’identification**.
+    
+    Vous pouvez fournir des informations d’authentification de domaine/Windows (hors domaine)/Linux (hors domaine)/ et SQL Server. Découvrez comment [fournir des informations d’identification](add-server-credentials.md) et comment nous les traitons.
+1. Pour chaque type d’informations d’identification, entrez :
+    * Un nom convivial.
+    * Un nom d'utilisateur : username.
+    * Un mot de passe.
+    Sélectionnez **Enregistrer**.
+
+    Si vous choisissez d’utiliser les informations d’identification du domaine, vous devez également entrer le nom de domaine complet du domaine. Celui-ci est requis pour valider l’authenticité des informations d’identification auprès de l’instance Active Directory de ce domaine.
+1. Examinez les [autorisations requises](add-server-credentials.md#required-permissions) sur le compte pour la découverte des applications installées, l’analyse des dépendances sans agent ou la découverte des bases de données et instances SQL.
+1. Pour ajouter plusieurs informations d’identification à la fois, sélectionnez **Ajouter** afin d’enregistrer les informations d’identification et d’en ajouter d’autres.
+    Quand vous sélectionnez **Enregistrer** ou **Ajouter**, l’appliance valide les informations d’identification de domaine auprès de l’instance Active Directory du domaine pour l’authentification. La validation est effectuée après chaque ajout afin d’éviter les verrouillages de compte, car l’appliance procède à une itération pour mapper les informations d’identification aux serveurs respectifs.
+
+Pour vérifier la validation des informations d’identification de domaine :
+
+Dans le gestionnaire de configuration, dans le tableau des informations d’identification, consultez l’**état de validation** des informations d’identification de domaine. Seules les informations d’identification de domaine seront validées.
+
+Si la validation échoue, vous pouvez sélectionner un état d’**échec** pour voir l’erreur de validation. Corrigez le problème, puis sélectionnez **Revalider les informations d’identification** pour retenter la validation des informations d’identification.
+
+:::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Capture d’écran illustrant la fourniture et la validation de plusieurs informations d’identification.":::
 
 ### <a name="start-discovery"></a>Démarrer la découverte
 
-1. Cliquez sur **Démarrer la découverte** pour lancer la découverte du vCenter Server. Une fois la découverte lancée, vous pouvez vérifier son état par rapport à l’adresse IP ou au le nom de domaine complet de vCenter Server dans la table des sources.
-1. Si vous avez fourni des informations d’identification de serveur, l’inventaire logiciel (découverte des applications installées) est automatiquement lancé une fois la découverte de vCenter Server terminée. L’inventaire logiciel est effectué une fois toutes les 12 heures.
-1. L’ [inventaire logiciel](how-to-discover-applications.md) identifie les instances SQL Server s’exécutant sur les serveurs et utilisant les informations. L’appliance tente de se connecter aux instances via l’authentification Windows ou les informations d’identification d’authentification de SQL Server fournies sur l’appliance, et de collecter des données sur les bases de données SQL Server et leurs propriétés. La découverte SQL est effectuée une fois toutes les 24 heures.
-1. Au cours de l’inventaire logiciel, les informations d’identification des serveurs ajoutées sont comparées aux serveurs et validées pour l’analyse des dépendances sans agent. Vous pouvez activer l’analyse des dépendances sans agent pour les serveurs à partir du portail. Seuls les serveurs dont la validation réussit peuvent être sélectionnés pour activer l’analyse des dépendances sans agent.
+Pour lancer la découverte de vCenter Server, dans **Étape 3 : Fournissez des informations d’identification de serveur pour effectuer l’inventaire logiciel, l’analyse des dépendances sans agent et la découverte des instances et bases de données SQL Server**, sélectionnez **Démarrer la découverte**. Une fois la découverte lancée, vous pouvez vérifier son état par rapport à l’adresse IP ou au le nom de domaine complet de vCenter Server dans la table des sources.
 
-> [!Note]
->Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL Server sources (avec la propriété Chiffrer la connexion définie sur TRUE). Ces connexions sont chiffrées avec [**TrustServerCertificate**](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (défini sur true). La couche transport utilise le protocole SSL pour chiffrer le canal et contourner la chaîne de certificats afin de valider l’approbation. Le serveur d’appliance doit être configuré pour [**approuver l’autorité racine du certificat**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
-Si aucun certificat n’a été approvisionné sur le serveur à son démarrage, SQL Server génère un certificat auto-signé qui est utilisé pour chiffrer les paquets d’ouverture de session. [**En savoir plus**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+> [!NOTE]
+> Azure Migrate chiffre les communications entre l’appliance Azure Migrate et les instances SQL sources quand la propriété [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) a la valeur `true`. La couche transport utilise SSL pour chiffrer le canal et contourner la chaîne de certificat pour valider l’approbation. Le serveur d’appliance doit être configuré pour [approuver l’autorité racine du certificat](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+>
+> Si aucun certificat n’a été provisionné sur le serveur au démarrage, SQL Server génère un certificat auto-signé qui servira au chiffrement des paquets de connexion. [Plus d’informations](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)
+>
 
-La découverte fonctionne comme ceci :
+## <a name="how-discovery-works"></a>Fonctionnement de la découverte
 
-- Environ 15 minutes s’écoulent avant que l’inventaire des serveurs découverts apparaisse dans le portail.
-- La découverte des applications installées peut prendre un certain temps. Sa durée dépend du nombre de serveurs découverts. Pour 500 serveurs, environ une heure s’écoule avant que l’inventaire découvert apparaisse dans le portail Azure Migrate.
-- Une fois la découverte des serveurs terminée, vous pouvez activer l’analyse des dépendances sans agent sur les serveurs à partir du portail.
-- Les données d’instances et de bases de données SQL Server commenceront à apparaître dans le portail dans les 24 heures après le lancement de la découverte.
+* Il faut environ 15 minutes par hôte pour que l’inventaire de serveurs découverts apparaisse sur le portail Azure.
+* Si vous avez fourni des informations d’identification de serveur, l’inventaire logiciel (découverte des applications installées) est automatiquement lancé une fois la découverte des serveurs exécutant vCenter Server terminée. L’inventaire logiciel est effectué une fois toutes les 12 heures.
+* L’[inventaire logiciel](how-to-discover-applications.md) identifie les instances SQL qui s’exécutent sur les serveurs. Avec ces informations collectées, l’appliance tente de se connecter aux diverses instances SQL grâce aux informations d’authentification Windows ou SQL Server fournies sur l’appliance. Ensuite, elle recueille des données sur les bases de données SQL Server et leurs propriétés. La découverte SQL Server est effectuée une fois toutes les 24 heures.
+* La découverte des applications installées peut prendre plus de 15 minutes. Sa durée dépend du nombre de serveurs découverts. Pour 500 serveurs, environ une heure s’écoule avant que l’inventaire découvert apparaisse dans le projet Azure Migrate dans le portail.
+* Au cours de l’inventaire logiciel, les informations d’identification des serveurs ajoutées sont comparées aux serveurs et validées pour l’analyse des dépendances sans agent. Une fois la découverte des serveurs terminée, vous pouvez activer l’analyse des dépendances sans agent sur les serveurs. Seuls les serveurs pour lesquels la validation réussit peuvent être sélectionnés pour activer l’analyse des dépendances sans agent.
+* Les données de bases de données et d’instances SQL commencent à apparaître dans le portail dans les 24 heures qui suivent le démarrage de la découverte.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Évaluer des serveurs](./tutorial-assess-vmware-azure-vm.md) en vue de leur migration vers des machines virtuelles Azure.
-- [Évaluer des serveurs SQL Server](./tutorial-assess-sql.md) en vue de leur migration vers Azure SQL.
-- [Passer en revue les données](migrate-appliance.md#collected-data---vmware) que l’appliance collecte pendant la découverte
+- Découvrez comment [évaluer les serveurs à migrer vers des machines virtuelles Azure](./tutorial-assess-vmware-azure-vm.md).
+- Découvrez comment [évaluer les serveurs exécutant SQL Server à migrer vers Azure SQL](./tutorial-assess-sql.md).
+- Passez en revue les [données que l’appliance Azure Migrate collecte](migrate-appliance.md#collected-data---vmware) pendant la découverte.

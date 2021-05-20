@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 98922829e83f84078c3d8cadae15844dba194c93
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a8df14dc5fbd3f69f9c4e1b29ddb04c1a04073d9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107800026"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108793195"
 ---
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -126,6 +126,9 @@ Utilisez la commande [az keyvault update](/cli/azure/keyvault#az_keyvault_update
 
 
 ## <a name="set-up-a-key-encryption-key-kek"></a>Configurer une clé de chiffrement principale (KEK)
+
+> [!IMPORTANT]
+> Le compte en cours d’exécution pour activer le chiffrement de disque sur le coffre de clés doit avoir des autorisations de « lecteur ».
 
 Si vous souhaitez utiliser une clé de chiffrement à clé pour renforcer la protection des clés de chiffrement, ajoutez une clé de chiffrement à clé à votre coffre de clés. Quand une clé de chiffrement principale est spécifiée, Azure Disk Encryption utilise cette clé pour wrapper les secrets de chiffrement avant d’écrire dans Key Vault.
 

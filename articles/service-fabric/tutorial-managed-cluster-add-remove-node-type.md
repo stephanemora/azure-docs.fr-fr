@@ -1,16 +1,16 @@
 ---
-title: Ajouter et supprimer des types de nœud liés à un cluster Service Fabric managé (préversion)
+title: Ajouter et supprimer des types de nœud liés à un cluster Service Fabric managé
 description: Dans ce tutoriel, découvrez comment ajouter et supprimer des types de nœud liés à un cluster Service Fabric managé.
 ms.topic: tutorial
-ms.date: 09/28/2020
-ms.openlocfilehash: bb33512652677fc4e46d8ba3668dca985bbcfe01
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: 73e6f7676f398287b607deb80f490267a7665733
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791238"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685798"
 ---
-# <a name="tutorial-add-and-remove-node-types-from-a-service-fabric-managed-cluster-preview"></a>Tutoriel : Ajouter et supprimer des types de nœud liés à un cluster Service Fabric managé (préversion)
+# <a name="tutorial-add-and-remove-node-types-from-a-service-fabric-managed-cluster"></a>Tutoriel : Ajouter et supprimer des types de nœud liés à un cluster Service Fabric managé
 
 Dans cette série de tutoriels, nous allons aborder les points suivants :
 

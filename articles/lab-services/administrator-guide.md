@@ -3,12 +3,12 @@ title: Azure Lab Services – Guide de l’administrateur | Microsoft Docs
 description: Ce guide aide les administrateurs qui créent et gèrent des comptes lab à l’aide d’Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 3ad3ee38a6c08a6af85822d76012cc6dfc34ff4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5dff57eb663324679941a043ebaa97f39c6aa20
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462475"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770710"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services – Guide de l’administrateur
 Les administrateurs informatiques qui gèrent les ressources cloud d’une université sont généralement responsables de la configuration du compte lab de leur établissement. Après avoir configuré un compte lab, les administrateurs ou enseignants créent des labos dans ce compte. Cet article offre une vue d’ensemble globale des ressources Azure en question ainsi que des conseils pour les créer.
@@ -216,12 +216,27 @@ Lorsque vous attribuez des rôles, vous pouvez suivre ces conseils :
    - Pour permettre aux enseignants de créer et de gérer des labos, il suffit de leur accorder le rôle Créateur de labo.
    - Pour permettre aux enseignants de gérer des labos spécifiques, mais *pas* de créer des labos, attribuez-leur le rôle de Propriétaire ou de Contributeur pour chacun des labos qu’ils seront amenés à gérer. Par exemple, vous pouvez permettre qu’un professeur et un assistant soient copropriétaires d’un labo. Pour plus d’informations, consultez [Ajouter des Propriétaires à un labo](./how-to-add-user-lab-owner.md).
 
+## <a name="content-filtering"></a>Filtrage du contenu
+
+Votre établissement scolaire devra peut-être effectuer un filtrage de contenu pour empêcher les étudiants d’accéder à des sites web inappropriés.  Il s’agit, par exemple, de se conformer à la [loi CIPA (Children’s Internet Protection Act) visant à protéger les enfants sur Internet](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act).  Lab Services n’offre pas de prise en charge intégrée pour le filtrage de contenu.
+
+Il existe deux approches que les écoles prennent généralement en considération pour le filtrage de contenu :
+- Configurer un pare-feu pour filtrer le contenu au niveau du réseau.
+- Installer un logiciel tiers directement sur chaque ordinateur qui effectue le filtrage du contenu.
+
+La première approche n’est actuellement pas prise en charge par Lab Services.  Lab Services héberge le réseau virtuel de chaque laboratoire au sein d’un abonnement Azure managé par Microsoft.  Par conséquent, vous n’avez pas accès au réseau virtuel sous-jacent pour effectuer un filtrage de contenu au niveau du réseau.  Pour plus d’informations sur l’architecture de Lab Services, consultez l’article [Notions de base de l’architecture](./classroom-labs-fundamentals.md).
+
+Nous recommandons plutôt la deuxième approche, qui consiste à installer un logiciel tiers sur chaque machine virtuelle de modèle de laboratoire.  Voici quelques points clés à mettre en évidence dans le cadre de cette solution :
+- Si vous envisagez d’utiliser les [paramètres d’arrêt automatique](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control), vous devez débloquer plusieurs noms d’hôte Azure avec le logiciel tiers.  Les paramètres d’arrêt automatique utilisent une extension de diagnostic qui doit pouvoir communiquer avec Lab Services.  Sinon, les paramètres d’arrêt automatique ne peuvent pas être activés pour le labo.
+- Peut-être souhaiterez-vous également que chaque étudiant utilise un compte non-administrateur sur sa machine virtuelle afin qu’il ne puisse pas désinstaller le logiciel de filtrage de contenu.  Par défaut, Lab Services crée un compte administrateur que chaque étudiant utilise pour se connecter à sa machine virtuelle.  Il est possible d’ajouter un compte non-administrateur à l’aide d’une image spécialisée, mais certaines limitations sont connues.
+
+Si votre établissement scolaire doit effectuer un filtrage de contenu, contactez-nous via les [forums d’Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices) pour plus d’informations.
+
 ## <a name="pricing"></a>Tarifs
 
 ### <a name="azure-lab-services"></a>Azure Lab Services
 
 Pour en savoir plus sur la tarification, consultez [Tarification Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).
-
 
 ### <a name="shared-image-gallery"></a>Galerie d’images partagées
 

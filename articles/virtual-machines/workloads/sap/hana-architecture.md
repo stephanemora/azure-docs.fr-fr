@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f45b84360c941e879461500a033ada3642fd5cbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7af21d294021f7641da6878eeb9a61652bceb7c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101671608"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768100"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Architecture SAP HANA (grandes instances) sur Azure
 
@@ -44,7 +44,7 @@ L’architecture présentée est divisée en trois sections :
   -  [Utiliser SAP sur des machines virtuelles Windows](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
   -  [Utiliser des solutions SAP sur des machines virtuelles Azure](get-started.md)
 
-- **À gauche** : montre le matériel certifié TDI SAP HANA dans le tampon de grande instance Azure. Les unités de grande instance HANA sont connectées aux réseaux virtuels de votre abonnement Azure à l’aide de la même technologie que la connectivité du système local à Azure. Depuis le mois de mai 2019, une optimisation a été introduite, qui permet la communication entre les unités d’instance de grande taille HANA et les machines virtuelles Azure sans implication de la passerelle ExpressRoute. Cette optimisation appelée ExpressRoute Fast Path est présentée dans cette architecture (lignes rouges). 
+- **À gauche** : montre le matériel certifié TDI SAP HANA dans le tampon de grande instance Azure. Les unités de grande instance HANA sont connectées aux réseaux virtuels de votre abonnement Azure à l’aide de la même technologie que la connectivité du système local à Azure. Depuis le mois de mai 2019, une optimisation a été introduite, qui permet la communication entre les unités d’instance de grande taille HANA et les machines virtuelles Azure sans implication de la passerelle ExpressRoute. Cette optimisation appelée ExpressRoute FastPath est présentée dans cette architecture (lignes rouges). 
 
 Le tampon de grande instance Azure combine les composants suivants :
 

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1115c08214db19227b4b8d7be671ce4da1cf2b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1a3a146b2622963fb20deeb2a8915eadb028ac3
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87798595"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714401"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Révision de l’accès d’un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -31,8 +31,7 @@ La gestion des droits d'utilisation d’Azure AD simplifie la gestion de l’acc
 
 Pour examiner les attributions de packages d’accès actives des utilisateurs, vous devez remplir les conditions préalables requises pour effectuer une révision d’accès :
 - Azure AD Premium P2
-- Administrateur général
-- Administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès désigné
+- Administrateur général, administrateur de la gouvernance des identités, administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
 
 Pour plus d’informations, consultez [Exigences des licences](entitlement-management-overview.md#license-requirements).
 

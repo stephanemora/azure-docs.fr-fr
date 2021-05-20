@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 28072184d47beb32dc03e0d6ba52328bfceb5b73
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 583f294551919baf946ec2f3f55213402f63e2d8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364870"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108763718"
 ---
 # <a name="calling-sdk-overview"></a>Vue d’ensemble du kit SDK Appel
 
@@ -35,91 +35,85 @@ Principales fonctionnalités du kit SDK Appel :
 
 La liste suivante présente l’ensemble des fonctionnalités actuellement disponibles dans les kits SDK Appel Azure Communication Services.
 
-| Groupe de fonctionnalités | Fonctionnalité                                                                                                          | JS  | Java (Android) | Objective-C (iOS)
-| ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
-| Fonctionnalités principales | Passer un appel un-à-un entre deux utilisateurs                                                                           | ✔️   | ✔️            | ✔️
-|                   | Passer un appel de groupe avec plus de deux utilisateurs (jusqu’à 350 utilisateurs)                                                       | ✔️   | ✔️            | ✔️
-|                   | Promouvoir un appel un-à-un avec deux utilisateurs en un appel de groupe avec plus de deux utilisateurs                                 | ✔️   | ✔️            | ✔️
-|                   | Rejoindre un appel de groupe après son démarrage                                                                              | ✔️   | ✔️            | ✔️
-|                   | Inviter un autre participant VoIP à rejoindre un appel de groupe en cours                                                       | ✔️   | ✔️            | ✔️
-|  Contrôle durant l’appel | Activer/désactiver la vidéo                                                                                              | ✔️   | ✔️            | ✔️
-|                   | Désactiver/réactiver le micro                                                                                                     | ✔️   | ✔️            | ✔️
-|                   | Basculer entre les caméras                                                                                              | ✔️   | ✔️            | ✔️
-|                   | Mettre en attente/reprendre                                                                                                  | ✔️   | ✔️            | ✔️
-|                   | Intervenant actif                                                                                                      | ✔️   | ✔️            | ✔️
-|                   | Choisir un intervenant pour les appels                                                                                            | ✔️   | ✔️            | ✔️
-|                   | Choisir un microphone pour les appels                                                                                         | ✔️   | ✔️            | ✔️
-|                   | Afficher l’état d’un participant<br/>*Inactif, Médias préliminaires, Connexion, Connecté, En attente, Dans la salle d’attente, Déconnecté*         | ✔️   | ✔️            | ✔️
-|                   | Afficher l’état d’un appel<br/>*Médias préliminaires, Entrant, Connexion, Sonnerie, Connecté, Attente, Déconnexion, Déconnecté* | ✔️   | ✔️            | ✔️
-|                   | Montrer si le micro d’un participant est désactivé                                                                                      | ✔️   | ✔️            | ✔️
-|                   | Afficher la raison pour laquelle un participant a quitté un appel                                                                       | ✔️   | ✔️            | ✔️
-| Partage d’écran    | Partager la totalité de l’écran dans l’application                                                                 | ✔️   | ❌            | ❌
-|                   | Partager une application spécifique (à partir de la liste des applications en cours d’exécution)                                                | ✔️   | ❌            | ❌
-|                   | Partager un onglet de navigateur web à partir de la liste des onglets ouverts                                                                  | ✔️   | ❌            | ❌
-|                   | Le participant peut visionner le partage d’écran à distance                                                                            | ✔️   | ✔️            | ✔️
-| Liste            | Lister les participants                                                                                                   | ✔️   | ✔️            | ✔️
-|                   | Supprimer un participant                                                                                                | ✔️   | ✔️            | ✔️
-| RTPC              | Passer un appel un-à-un avec un participant RTPC                                                                     | ✔️   | ✔️            | ✔️
-|                   | Passer un appel de groupe avec des participants RTPC                                                                           | ✔️   | ✔️            | ✔️
-|                   | Promouvoir un appel un-à-un avec un participant RTPC en appel de groupe                                                 | ✔️   | ✔️            | ✔️
-|                   | Composer un numéro à partir d’un appel de groupe en tant que participant RTPC                                                                    | ✔️   | ✔️            | ✔️
-| Général           | Tester votre micro, votre haut-parleur et votre caméra avec un service de test audio (disponible en appelant 8:echo123)                   | ✔️   | ✔️            | ✔️
-| Gestion des appareils | Demander l’autorisation d’utiliser l’audio et/ou la vidéo                                                                       | ✔️   | ✔️            | ✔️
-|                   | Obtenir la liste des caméras                                                                                                     | ✔️   | ✔️            | ✔️
-|                   | Définir la caméra                                                                                                          | ✔️   | ✔️            | ✔️
-|                   | Obtenir la caméra sélectionnée                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | Obtenir la liste des microphones                                                                                                 | ✔️   | ❌           |❌  
-|                   | Définir le microphone                                                                                                      | ✔️   | ❌           | ❌  
-|                   | Obtenir le microphone sélectionné                                                                                             | ✔️   | ❌           | ❌  
-|                   | Obtenir la liste des haut-parleurs                                                                                                   | ✔️   | ❌           | ❌  
-|                   | Définir le haut-parleur                                                                                                         | ✔️   | ❌           | ❌  
-|                   | Obtenir le haut-parleur sélectionné                                                                                                | ✔️   | ❌           | ❌  
-| Rendu vidéo   | Afficher une vidéo unique à de nombreux emplacements (caméra locale ou flux distant)                                                  | ✔️   | ✔️            | ✔️
-|                   | Définir/mettre à jour le mode de mise à l’échelle                                                                                           | ✔️   | ✔️            | ✔️
-|                   | Afficher un flux vidéo distant                                                                                          | ✔️   | ✔️            | ✔️
+| Groupe de fonctionnalités | Fonctionnalité                                                                                                          | JS  | Java (Android) | Objective-C (iOS) |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | -------------- | ----------------- |
+| Fonctionnalités principales | Passer un appel un-à-un entre deux utilisateurs                                                                           | ✔️   | ✔️              | ✔️                 |
+|                   | Passer un appel de groupe avec plus de deux utilisateurs (jusqu’à 350 utilisateurs)                                                       | ✔️   | ✔️              | ✔️                 |
+|                   | Promouvoir un appel un-à-un avec deux utilisateurs en un appel de groupe avec plus de deux utilisateurs                                 | ✔️   | ✔️              | ✔️                 |
+|                   | Rejoindre un appel de groupe après son démarrage                                                                              | ✔️   | ✔️              | ✔️                 |
+|                   | Inviter un autre participant VoIP à rejoindre un appel de groupe en cours                                                       | ✔️   | ✔️              | ✔️                 |
+| Contrôle durant l’appel  | Activer/désactiver la vidéo                                                                                              | ✔️   | ✔️              | ✔️                 |
+|                   | Désactiver/réactiver le micro                                                                                                     | ✔️   | ✔️              | ✔️                 |
+|                   | Basculer entre les caméras                                                                                              | ✔️   | ✔️              | ✔️                 |
+|                   | Mettre en attente/reprendre                                                                                                  | ✔️   | ✔️              | ✔️                 |
+|                   | Intervenant actif                                                                                                      | ✔️   | ✔️              | ✔️                 |
+|                   | Choisir un intervenant pour les appels                                                                                            | ✔️   | ✔️              | ✔️                 |
+|                   | Choisir un microphone pour les appels                                                                                         | ✔️   | ✔️              | ✔️                 |
+|                   | Afficher l’état d’un participant<br/>*Inactif, Médias préliminaires, Connexion, Connecté, En attente, Dans la salle d’attente, Déconnecté*         | ✔️   | ✔️              | ✔️                 |
+|                   | Afficher l’état d’un appel<br/>*Médias préliminaires, Entrant, Connexion, Sonnerie, Connecté, Attente, Déconnexion, Déconnecté* | ✔️   | ✔️              | ✔️                 |
+|                   | Montrer si le micro d’un participant est désactivé                                                                                      | ✔️   | ✔️              | ✔️                 |
+|                   | Afficher la raison pour laquelle un participant a quitté un appel                                                                       | ✔️   | ✔️              | ✔️                 |
+| Partage d’écran    | Partager la totalité de l’écran dans l’application                                                                 | ✔️   | ❌              | ❌                 |
+|                   | Partager une application spécifique (à partir de la liste des applications en cours d’exécution)                                                | ✔️   | ❌              | ❌                 |
+|                   | Partager un onglet de navigateur web à partir de la liste des onglets ouverts                                                                  | ✔️   | ❌              | ❌                 |
+|                   | Le participant peut visionner le partage d’écran à distance                                                                            | ✔️   | ✔️              | ✔️                 |
+| Liste            | Lister les participants                                                                                                   | ✔️   | ✔️              | ✔️                 |
+|                   | Supprimer un participant                                                                                                | ✔️   | ✔️              | ✔️                 |
+| RTPC              | Passer un appel un-à-un avec un participant RTPC                                                                     | ✔️   | ✔️              | ✔️                 |
+|                   | Passer un appel de groupe avec des participants RTPC                                                                           | ✔️   | ✔️              | ✔️                 |
+|                   | Promouvoir un appel un-à-un avec un participant RTPC en appel de groupe                                                 | ✔️   | ✔️              | ✔️                 |
+|                   | Composer un numéro à partir d’un appel de groupe en tant que participant RTPC                                                                    | ✔️   | ✔️              | ✔️                 |
+| Général           | Tester votre micro, votre haut-parleur et votre caméra avec un service de test audio (disponible en appelant 8:echo123)                   | ✔️   | ✔️              | ✔️                 |
+| Gestion des appareils | Demander l’autorisation d’utiliser l’audio et/ou la vidéo                                                                       | ✔️   | ✔️              | ✔️                 |
+|                   | Obtenir la liste des caméras                                                                                                     | ✔️   | ✔️              | ✔️                 |
+|                   | Définir la caméra                                                                                                          | ✔️   | ✔️              | ✔️                 |
+|                   | Obtenir la caméra sélectionnée                                                                                                 | ✔️   | ✔️              | ✔️                 |
+|                   | Obtenir la liste des microphones                                                                                                 | ✔️   | ❌              | ❌                 |
+|                   | Définir le microphone                                                                                                      | ✔️   | ❌              | ❌                 |
+|                   | Obtenir le microphone sélectionné                                                                                             | ✔️   | ❌              | ❌                 |
+|                   | Obtenir la liste des haut-parleurs                                                                                                   | ✔️   | ❌              | ❌                 |
+|                   | Définir le haut-parleur                                                                                                         | ✔️   | ❌              | ❌                 |
+|                   | Obtenir le haut-parleur sélectionné                                                                                                | ✔️   | ❌              | ❌                 |
+| Rendu vidéo   | Afficher une vidéo unique à de nombreux emplacements (caméra locale ou flux distant)                                                  | ✔️   | ✔️              | ✔️                 |
+|                   | Définir/mettre à jour le mode de mise à l’échelle                                                                                           | ✔️   | ✔️              | ✔️                 |
+|                   | Afficher un flux vidéo distant                                                                                          | ✔️   | ✔️              | ✔️                 |
 
 ## <a name="calling-sdk-streaming-support"></a>Prise en charge du streaming du kit SDK Appel
 Le kit SDK Appel Communication Services prend en charge les configurations de streaming suivantes :
 
-| Limite          |Web | Android/iOS|
-|-----------|----|------------|
-|**Nombre de flux sortants qui peuvent être envoyés simultanément** |1 vidéo ou 1 partage d’écran | 1 vidéo + 1 partage d’écran|
-|**Nombre de flux entrants qui peuvent être restitués simultanément** |1 vidéo ou 1 partage d’écran| 6 vidéos + 1 partage d’écran |
+| Limite                                                         | Web                         | Android/iOS                |
+| ------------------------------------------------------------- | --------------------------- | -------------------------- |
+| **Nombre de flux sortants qui peuvent être envoyés simultanément**     | 1 vidéo ou 1 partage d’écran | 1 vidéo + 1 partage d’écran |
+| **Nombre de flux entrants qui peuvent être restitués simultanément** | 1 vidéo ou 1 partage d’écran | 6 vidéos + 1 partage d’écran |
 
 ## <a name="calling-sdk-timeouts"></a>Délais d’attente du kit SDK Appel
 
 Les délais d’attente suivants s’appliquent aux kits SDK Appel Communication Services :
 
-| Action           | Délai en secondes |
-| -------------- | ---------- |
-| Reconnecter/supprimer un participant | 120 |
-| Ajouter ou supprimer une nouvelle modalité à partir d'un appel (démarrage/arrêt d'une vidéo ou partage d'écran) | 40 |
-| Délai d’attente de l’opération de transfert d’appel | 60 |
-| Délai d’établissement de l’appel en tête-à-tête | 85 % |
-| Délai d’établissement de l’appel de groupe | 85 % |
-| Délai d’établissement de l’appel PSTN | 115 |
-| Délai de la promotion de l’appel en tête-à-tête en appel de groupe | 115 |
+| Action                                                                      | Délai en secondes |
+| --------------------------------------------------------------------------- | ------------------ |
+| Reconnecter/supprimer un participant                                               | 120                |
+| Ajouter ou supprimer une nouvelle modalité à partir d'un appel (démarrage/arrêt d'une vidéo ou partage d'écran) | 40                 |
+| Délai d’attente de l’opération de transfert d’appel                                             | 60                 |
+| Délai d’établissement de l’appel en tête-à-tête                                              | 85 %                 |
+| Délai d’établissement de l’appel de groupe                                            | 85 %                 |
+| Délai d’établissement de l’appel PSTN                                             | 115                |
+| Délai de la promotion de l’appel en tête-à-tête en appel de groupe                                    | 115                |
 
 ## <a name="javascript-calling-sdk-support-by-os-and-browser"></a>Prise en charge du kit SDK Appel JavaScript par le système d’exploitation et le navigateur
 
 Le tableau suivant représente l’ensemble des navigateurs pris en charge disponibles. Nous prenons en charge les trois versions les plus récentes du navigateur, sauf indication contraire.
 
-| Plateforme                         | Chrome | Safari*  | Edge (Chromium) |
-| -------------------------------- | -------| ------  | --------------  |
-| Android                          |  ✔️    | ❌     | ❌             |
-| iOS                              |  ❌    | ✔️**** | ❌             |
-| macOS***                         |  ✔️    | ✔️**   | ❌             |
-| Windows***                       |  ✔️    | ❌     | ✔️             |
-| Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
+| Plateforme     | Chrome | Safari | Edge (Chromium) | Notes                                                                                                                                                                                                       |
+| ------------ | ------ | ------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Android      | ✔️      | ❌      | ❌               | Le partage d’écran sortant n’est pas pris en charge.                                                                                                                                                                   |
+| iOS          | ❌      | ✔️      | ❌               | Une application iOS sur Safari ne peut pas énumérer/sélectionner des périphériques de microphone et de haut-parleur (par exemple, Bluetooth) ; il s’agit d’une limitation du système d’exploitation et il n’y a toujours qu’un seul périphérique. Le partage d’écran sortant n’est pas pris en charge. |
+| macOS        | ✔️      | ✔️      | ❌               | Les versions 14+ de Safari et 11+ de macOS sont nécessaires pour la prise en charge des vidéos sortantes.                                                                                                                                                     |
+| Windows      | ✔️      | ❌      | ✔️               |                                                                                                                                                                                                             |
+| Ubuntu/Linux | ✔️      | ❌      | ❌               |                                                                                                                                                                                                             |
 
-*Safari (version 13.1 et versions ultérieures) est pris en charge. Les appels 1:1 ne sont pas pris en charge sur Safari.
-
-**Les versions 14+ de Safari et 11+ de macOS sont nécessaires pour la prise en charge des vidéos sortantes.
-
-***Le partage d’écran sortant est pris en charge uniquement sur les plateformes de bureau (Windows, macOS et Linux), quelle que soit la version du navigateur, et n’est pas pris en charge sur les plateformes mobiles (Android, iOS, iPad et tablettes).
-
-****Une application iOS sur Safari ne peut pas énumérer/sélectionner des périphériques de microphone et de haut-parleur (par exemple, Bluetooth) ; il s’agit d’une limitation du système d’exploitation et il n’y a toujours qu’un seul périphérique.
-
+* Safari (version 13.1 et versions ultérieures) est pris en charge. Les appels 1:1 ne sont pas pris en charge sur Safari.
+* Sauf indication contraire, les 3 dernières versions de chaque navigateur sont prises en charge.
 
 ## <a name="calling-client---browser-security-model"></a>Client appelant – Modèle de sécurité de navigateur
 

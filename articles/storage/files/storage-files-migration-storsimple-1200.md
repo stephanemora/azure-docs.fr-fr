@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 8562d63bf227fff665c70674c7fe66922bce9992
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 67ddcf5fd7d3ef3c1def12a325eb19980176a8ba
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98882278"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756212"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migration à partir de StorSimple 1200 vers Azure File Sync
 
@@ -23,7 +23,7 @@ StorSimple série 1200 atteindra sa [fin de vie](https://support.microsoft.com/
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 > [!IMPORTANT]
-> Microsoft s’engage à aider les clients lors de la migration. Envoyez un e-mail à l’adresse AzureFilesMigration@microsoft.com pour obtenir un plan de migration personnalisé ainsi qu’une assistance pendant la migration.
+> Microsoft s’engage à aider les clients lors de la migration. Envoyez un e-mail à l’adresse AzureFilesMigration@microsoft.com pour recevoir un plan de migration personnalisé, ainsi qu’une assistance pendant la migration.
 
 Azure File Sync est un service cloud Microsoft basé sur deux composants principaux :
 
@@ -32,8 +32,8 @@ Azure File Sync est un service cloud Microsoft basé sur deux composants princip
 
 Cet article est consacré aux étapes de migration. Si vous souhaitez en savoir plus sur Azure File Sync avant d’effectuer la migration, consultez les articles suivants :
 
-* [Azure File Sync - Vue d’ensemble](./storage-sync-files-planning.md "Vue d’ensemble")
-* [Azure File Sync - Guide de déploiement](storage-sync-files-deployment-guide.md)
+* [Azure File Sync - Vue d’ensemble](../file-sync/file-sync-planning.md "Vue d’ensemble")
+* [Azure File Sync - Guide de déploiement](../file-sync/file-sync-deployment-guide.md)
 
 ## <a name="migration-goals"></a>Objectifs de la migration
 
@@ -78,6 +78,15 @@ Cet article suppose que vous effectuez un mappage 1:1. Vous devez donc prendre 
 
 [!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azure-file-share.md)]
 
+#### <a name="storage-account-settings"></a>Paramètres du compte de stockage
+
+Différentes configurations peuvent être appliquées sur un compte de stockage. La liste de vérification suivante doit être utilisée pour les configurations de votre compte de stockage. Vous pouvez par exemple modifier la configuration de mise en réseau une fois la migration terminée. 
+
+> [!div class="checklist"]
+> * Partages de fichiers volumineux : activé. Les partages de fichiers volumineux améliorent les performances et vous permettent de stocker jusqu’à 100 Tio dans un partage.
+> * Pare-feu et réseaux virtuels : désactivés. Ne configurez pas de restrictions d’adresse IP ou ne limitez pas l’accès au compte de stockage à un réseau virtuel spécifique. Le point de terminaison public du compte de stockage est utilisé pendant la migration. Toutes les adresses IP des machines virtuelles Azure doivent être autorisées. Il est préférable de configurer les règles de pare-feu sur le compte de stockage après la migration.
+> * Points de terminaison privés : pris en charge. Vous pouvez activer des points de terminaison privés, mais le point de terminaison public est utilisé pour la migration et doit rester disponible.
+
 ### <a name="step-6-configure-windows-server-target-folders"></a>Étape 6 : Configurer les dossiers Windows Server cibles
 
 Dans le cadre des étapes précédentes, vous avez pris en compte tous les aspects qui détermineront les composants de vos topologies de synchronisation. À présent, vous devez préparer le serveur pour qu’il reçoive les fichiers à charger.
@@ -112,76 +121,7 @@ Exécutez la première copie locale vers votre dossier Windows Server cible :
 
 La commande RoboCopy suivante rappelle les fichiers de votre stockage Azure StorSimple sur votre stockage StorSimple local, puis les déplace vers le dossier Windows Server cible. Le serveur Windows Server va le synchroniser avec le(s) partage(s) de fichiers Azure. Quand le volume Windows Server local se remplit, la hiérarchisation cloud intervient et hiérarchise les fichiers qui ont déjà été correctement synchronisés. La hiérarchisation cloud génère suffisamment d’espace pour poursuivre la copie à partir de l’appliance virtuelle StorSimple. La hiérarchisation cloud effectue une vérification toutes les heures pour déterminer ce qui a été synchronisé et libérer de l’espace disque pour atteindre l’espace de volume libre de 99 %.
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-Arrière-plan :
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      Permet à RoboCopy de s’exécuter en multithread. La valeur par défaut est 8, le maximum est 128.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:<file name>
-   :::column-end:::
-   :::column span="1":::
-      Renvoie l’état au fichier LOG au format UNICODE (remplace le journal existant).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      Génère les sorties dans la fenêtre de la console. Utilisé conjointement avec la sortie dans un fichier journal.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      Exécute RoboCopy dans le même mode qu’une application de sauvegarde. Permet à RoboCopy de déplacer des fichiers pour lesquels l’utilisateur actuel n’a pas d’autorisations.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      Permet d’exécuter cette commande RoboCopy plusieurs fois, de manière séquentielle, sur la même cible/destination. La commande identifie et ignore ce qui a déjà été copié. Seuls les modifications, ajouts et « *suppressions* » effectués depuis la dernière exécution sont traités. Si la commande n’a pas encore été exécutée, rien n’est ignoré. Il s’agit d’une excellente option pour les emplacements sources qui sont toujours activement utilisés et qui évoluent.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY:indicateur[s]
-   :::column-end:::
-   :::column span="1":::
-      Fidélité de la copie de fichier (la valeur par défaut est /COPY:DAT), indicateurs de copie : D=Données, A=Attributs, T=Horodatages, S=Sécurité=ACL NTFS, O=Informations propriétaire, U=Informations audit
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPYALL
-   :::column-end:::
-   :::column span="1":::
-      Copie de toutes les informations de fichier (équivalent à /COPY:DATSOU)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      Fidélité de la copie des répertoires (la valeur par défaut est /DCOPY:DA), indicateurs de copie : D=Données, A=Attributs, T=Horodatages
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 Quand vous exécutez la commande RoboCopy pour la première fois, les utilisateurs et applications ont toujours accès aux fichiers et dossiers StorSimple et peuvent éventuellement les modifier. Il est possible que RoboCopy traite un répertoire, passe au répertoire suivant, puis qu’un utilisateur accédant à l’emplacement source (StorSimple) ajoute, modifie ou supprime un fichier qui ne sera pas traité durant cette exécution de RoboCopy. Bien sûr.
 
@@ -225,6 +165,8 @@ Quand la capacité disponible de votre serveur Windows Server est suffisante, r�
 D’autres problèmes liés à Azure File Sync peuvent se présenter
 de façon très occasionnelle. Dans ce cas, consultez le **guide de résolution des problèmes d’Azure File Sync (lien)** .
 
+[!INCLUDE [storage-files-migration-robocopy-optimize](../../../includes/storage-files-migration-robocopy-optimize.md)]
+
 ## <a name="relevant-links"></a>Liens pertinents
 
 Contenu relatif à la migration :
@@ -233,6 +175,6 @@ Contenu relatif à la migration :
 
 Contenu relatif à Azure File Sync :
 
-* [Vue d’ensemble d’AFS](./storage-sync-files-planning.md)
-* [Déployer AFS](./storage-how-to-create-file-share.md)
-* [Résoudre les problèmes de synchronisation de fichiers Azure](storage-sync-files-troubleshoot.md)
+* [Vue d’ensemble d’Azure File Sync](../file-sync/file-sync-planning.md)
+* [Déployer Azure File Sync](../file-sync/file-sync-deployment-guide.md)
+* [Guide de résolution des problèmes Azure File Sync](../file-sync/file-sync-troubleshoot.md)

@@ -3,14 +3,14 @@ title: Configurer un conteneur personnalisé
 description: Découvrez comment configurer un conteneur personnalisé dans Azure App Service. Cet article présente les tâches de configuration les plus courantes.
 ms.topic: article
 ms.date: 02/23/2021
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 48d2eeec1bdb1b9b4a393b4116092f043716077c
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 508c2cec8649134a6ecce529b91a55bf5eed8a79
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832030"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753990"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configurer un conteneur personnalisé pour Azure App Service
 
@@ -385,6 +385,7 @@ La fonctionnalité multiconteneurs est actuellement en préversion. Les fonction
 - Authentification / Autorisation
 - Identités managées
 - CORS
+- L’intégration au réseau virtuel n’est pas prise en charge pour les scénarios Docker Compose.
 
 ### <a name="docker-compose-options"></a>Options Docker Compose
 

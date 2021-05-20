@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8534d4dd8df1e60e1b341088cbfaaa944ec1221b
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 8460e428239a652d2accb3d1818b0a709dc16c3e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073392"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758663"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migrer vers l’authentification cloud avec un lancement intermédiaire
 
@@ -106,11 +106,11 @@ Pour savoir quel applet de commande PowerShell utiliser, consultez [la version p
 
 1. Activez la *synchronisation de hachage de mot de passe* dans la page [Fonctionnalités facultatives](how-to-connect-install-custom.md#optional-features) d’Azure AD Connect. 
 
-   ![Capture d’écran de la page Fonctionnalités facultatives d’Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
+   ![Capture d’écran de la page Fonctionnalités facultatives d’Azure Active Directory Connect](media/how-to-connect-staged-rollout/staged-1.png)
 
 1. Assurez-vous qu’un cycle complet de *synchronisation de hachage de mot de passe* a été exécuté pour que tous les hachages de mot de passe des utilisateurs aient été synchronisés avec Azure AD. Pour vérifier l’état de la *synchronisation de hachage de mot de passe*, vous pouvez utiliser les diagnostics PowerShell dans [Détecter un problème de synchronisation de hachage de mot de passe avec Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
 
-   ![Capture d’écran du journal de résolution des problèmes AADConnect](./media/how-to-connect-staged-rollout/sr2.png)
+   ![Capture d’écran du journal de résolution des problèmes AADConnect](./media/how-to-connect-staged-rollout/staged-2.png)
 
 Si vous souhaitez tester *l’authentification directe* à l’aide du lancement intermédiaire, activez-la en suivant les instructions de travail préalable de la section suivante.
 
@@ -146,7 +146,7 @@ Pour activer *l’authentification unique transparente* procédez comme suit :
 
 5. Appelez `Get-AzureADSSOStatus | ConvertFrom-Json`. Cette commande permet d’afficher la liste des forêts Azure Directory (voir la liste « Domaines ») dans lesquelles cette fonctionnalité a été activée. Par défaut, elle est définie sur False au niveau du locataire.
 
-   ![Exemple de la sortie Windows PowerShell](./media/how-to-connect-staged-rollout/sr3.png)
+   ![Exemple de la sortie Windows PowerShell](./media/how-to-connect-staged-rollout/staged-3.png)
 
 6. Appelez `$creds = Get-Credential`. Quand vous y êtes invité, entrez les informations d’identification d’administrateur de domaine pour la forêt Azure Directory souhaitée.
 
@@ -198,24 +198,24 @@ Nous avons activé les événements d’audit pour les différentes actions que 
   >[!NOTE]
   >Un événement est consigné lorsque *l’authentification unique transparente* est activée à l’aide du lancement intermédiaire.
 
-  ![Le volet « Créer une stratégie de déploiement pour la fonctionnalité » – Onglet Activités](./media/how-to-connect-staged-rollout/sr7.png)
+  ![Le volet « Créer une stratégie de déploiement pour la fonctionnalité » – Onglet Activités](./media/how-to-connect-staged-rollout/staged-7.png)
 
-  ![Le volet « Créer une stratégie de déploiement pour la fonctionnalité » – Onglet Propriétés modifiées](./media/how-to-connect-staged-rollout/sr8.png)
+  ![Le volet « Créer une stratégie de déploiement pour la fonctionnalité » – Onglet Propriétés modifiées](./media/how-to-connect-staged-rollout/staged-8.png)
 
 - Vérifiez l’événement lorsqu’un groupe est ajouté à la *synchronisation de hachage de mot de passe*, *l’authentification directe* ou *l’authentification unique transparente*.
 
   >[!NOTE]
   >Un événement est consigné lorsqu’un groupe est ajouté à *l’authentification unique transparente* pour le lancement intermédiaire.
 
-  ![Le volet « Ajouter un groupe au lancement de fonctionnalités » – Onglet Activités](./media/how-to-connect-staged-rollout/sr9.png)
+  ![Le volet « Ajouter un groupe au lancement de fonctionnalités » – Onglet Activités](./media/how-to-connect-staged-rollout/staged-9.png)
 
-  ![Le volet « Ajouter un groupe au lancement de fonctionnalités » – Onglet Propriétés modifiées](./media/how-to-connect-staged-rollout/sr10.png)
+  ![Le volet « Ajouter un groupe au lancement de fonctionnalités » – Onglet Propriétés modifiées](./media/how-to-connect-staged-rollout/staged-10.png)
 
 - Vérifiez l’événement lors de l’activation d’un utilisateur ajouté au groupe pour le lancement intermédiaire.
 
-  ![Le volet « Ajouter un utilisateur au lancement de fonctionnalités » – Onglet Activités](media/how-to-connect-staged-rollout/sr11.png)
+  ![Le volet « Ajouter un utilisateur au lancement de fonctionnalités » – Onglet Activités](media/how-to-connect-staged-rollout/staged-11.png)
 
-  ![Le volet « Ajouter un utilisateur au lancement de fonctionnalités » – Onglet Cible(s)](./media/how-to-connect-staged-rollout/sr12.png)
+  ![Le volet « Ajouter un utilisateur au lancement de fonctionnalités » – Onglet Cible(s)](./media/how-to-connect-staged-rollout/staged-12.png)
 
 ## <a name="validation"></a>Validation
 
@@ -236,6 +236,11 @@ Pour tester la connexion avec *l’authentification unique transparente* :
 1. Vérifiez que la connexion s’affiche bien dans le [rapport d’activité de connexion Azure AD](../reports-monitoring/concept-sign-ins.md) en filtrant par UserPrincipalName.
 
    Pour suivre les connexions utilisateur qui se produisent toujours sur les services de fédération Active Directory (AD FS) pour les utilisateurs sélectionnés pour le lancement intermédiaire, suivez les instructions fournies dans [Résolution des problèmes AD FS : Événements et journalisation](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Consultez la documentation du fournisseur pour savoir comment le vérifier sur les fournisseurs de fédération tiers.
+
+## <a name="monitoring"></a>Surveillance
+Grâce aux nouveaux workbooks d’authentification hybride du portail Azure, vous pouvez superviser les utilisateurs et groupes ajoutés ou supprimés dans un déploiement par étapes ainsi que les connexions des utilisateurs lors du déploiement par étapes.
+
+ ![Workbooks d’authentification hybride](./media/how-to-connect-staged-rollout/staged-13.png)
 
 ## <a name="remove-a-user-from-staged-rollout"></a>Supprimer un utilisateur du lancement intermédiaire
 
@@ -259,3 +264,5 @@ A : Oui. Pour découvrir comment utiliser PowerShell pour effectuer un lancemen
 - [Version préliminaire Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
 - [Changer la méthode de connexion pour la synchronisation de hachage de mot de passe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
 - [Changer la méthode de connexion pour l’authentification directe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [Guide interactif du déploiement par étapes](https://mslearn.cloudguides.com/en-us/guides/Test%20migration%20to%20cloud%20authentication%20using%20staged%20rollout%20in%20Azure%20AD)
+

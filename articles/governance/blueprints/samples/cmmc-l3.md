@@ -3,12 +3,12 @@ title: Exemple de blueprint CMMC niveau 3
 description: Vue d’ensemble de l’exemple de blueprint CMMC niveau 3 Cet exemple de blueprint aide les clients à évaluer des contrôles spécifiques.
 ms.date: 03/24/2021
 ms.topic: sample
-ms.openlocfilehash: 100e404567f0241e814280650944e620435dc60c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: df3dac17ce91757640f5b437f5915d41c901afc4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145084"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757634"
 ---
 # <a name="cmmc-level-3-blueprint-sample"></a>Exemple de blueprint CMMC niveau 3
 

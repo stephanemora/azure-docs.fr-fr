@@ -4,17 +4,17 @@ description: Découvrez comment créer une étendue de chiffrement pour isoler d
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/26/2021
+ms.date: 05/10/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 656443b0bc9d0e45f43634b1b4c21145de7a5bb5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1fc2f47c2cd95722bc7659a1bfb2354d00f3b9c2
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792540"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684436"
 ---
 # <a name="create-and-manage-encryption-scopes"></a>Créer et gérer des étendues de chiffrement
 
@@ -41,7 +41,8 @@ Pour créer une étendue de chiffrement dans le Portail Azure, effectuez les ét
 1. Dans le volet **Créer une étendue de chiffrement**, entrez un nom pour la nouvelle étendue.
 1. Sélectionnez le type souhaité de support de clé chiffrement, soit des **clés gérées par Microsoft**, soit des **clés gérées par le client**.
     - Si vous avez sélectionné **Clés gérées par Microsoft**, cliquez sur **Créer** pour créer l’étendue de chiffrement.
-    - Si vous avez sélectionné **Clés gérées par le client**, choisissez un abonnement et spécifiez un coffre de clés ou un HSM managé et une clé à utiliser pour cette étendue de chiffrement, comme illustré dans l’image suivante.
+    - Si vous avez sélectionné **Clés gérées par le client**, choisissez un abonnement et spécifiez un coffre de clés ou un HSM managé et une clé à utiliser pour cette étendue de chiffrement.
+1. Si le chiffrement d'infrastructure est activé pour le compte de stockage, il est automatiquement activé pour la nouvelle étendue de chiffrement. Sinon, vous pouvez choisir d'activer ou non le chiffrement d'infrastructure pour l'étendue de chiffrement.
 
     :::image type="content" source="media/encryption-scope-manage/create-encryption-scope-customer-managed-key-portal.png" alt-text="Capture d’écran montrant comment créer une file d’attente dans le Portail Azure":::
 
@@ -51,7 +52,9 @@ Pour créer une étendue de chiffrement avec PowerShell, installez d’abord le 
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Créer une étendue de chiffrement protégée par des clés gérées par Microsoft
 
-Pour créer une étendue de chiffrement protégée par des clés gérées par Microsoft, appelez la commande **New-AzStorageEncryptionScope** avec le paramètre `-StorageEncryption`.
+Pour créer une étendue de chiffrement protégée par des clés gérées par Microsoft, appelez la commande [New-AzStorageEncryptionScope](/powershell/module/az.storage/new-azstorageencryptionscope) avec le paramètre `-StorageEncryption`.
+
+Si le chiffrement d'infrastructure est activé pour le compte de stockage, il est automatiquement activé pour la nouvelle étendue de chiffrement. Sinon, vous pouvez choisir d'activer ou non le chiffrement d'infrastructure pour l'étendue de chiffrement. Pour créer la nouvelle étendue en activant le chiffrement d'infrastructure, incluez le paramètre `-RequireInfrastructureEncryption`.
 
 N’oubliez pas de remplacer les valeurs d’espace réservé de l’exemple par vos propres valeurs :
 
@@ -93,7 +96,9 @@ Set-AzKeyVaultAccessPolicy `
     -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
-Ensuite, appelez la commande **New-AzStorageEncryptionScope** avec le paramètre `-KeyvaultEncryption` et spécifiez l’URI de la clé. L’inclusion de la version de la clé sur l’URI de la clé est facultative. Si vous omettez la version de la clé, l’étendue de chiffrement utilisera automatiquement la version la plus récente de la clé. Si vous incluez la version de la clé, vous devez mettre à jour la version de clé manuellement pour utiliser une version différente.
+Ensuite, appelez la commande [New-AzStorageEncryptionScope](/powershell/module/az.storage/new-azstorageencryptionscope) avec le paramètre `-KeyvaultEncryption` et spécifiez l’URI de la clé. L’inclusion de la version de la clé sur l’URI de la clé est facultative. Si vous omettez la version de la clé, l’étendue de chiffrement utilisera automatiquement la version la plus récente de la clé. Si vous incluez la version de la clé, vous devez mettre à jour la version de clé manuellement pour utiliser une version différente.
+
+Si le chiffrement d'infrastructure est activé pour le compte de stockage, il est automatiquement activé pour la nouvelle étendue de chiffrement. Sinon, vous pouvez choisir d'activer ou non le chiffrement d'infrastructure pour l'étendue de chiffrement. Pour créer la nouvelle étendue en activant le chiffrement d'infrastructure, incluez le paramètre `-RequireInfrastructureEncryption`.
 
 N’oubliez pas de remplacer les valeurs d’espace réservé de l’exemple par vos propres valeurs :
 
@@ -111,7 +116,11 @@ Pour créer une étendue de chiffrement avec Azure CLI, commencez par installer 
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Créer une étendue de chiffrement protégée par des clés gérées par Microsoft
 
-Pour créer une étendue de chiffrement protégée par des clés gérées par Microsoft, appelez la commande [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) avec le paramètre `--key-source` comme `Microsoft.Storage`. N’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs :
+Pour créer une étendue de chiffrement protégée par des clés gérées par Microsoft, appelez la commande [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) avec le paramètre `--key-source` comme `Microsoft.Storage`.
+
+Si le chiffrement d'infrastructure est activé pour le compte de stockage, il est automatiquement activé pour la nouvelle étendue de chiffrement. Sinon, vous pouvez choisir d'activer ou non le chiffrement d'infrastructure pour l'étendue de chiffrement. Pour créer la nouvelle étendue en activant le chiffrement d'infrastructure, incluez le paramètre `--require-infrastructure-encryption` et définissez sa valeur sur `true`.
+
+N’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs :
 
 ```azurecli-interactive
 az storage account encryption-scope create \
@@ -122,8 +131,6 @@ az storage account encryption-scope create \
 ```
 
 ### <a name="create-an-encryption-scope-protected-by-customer-managed-keys"></a>Créer une étendue de chiffrement protégée par des clés gérées par clients
-
-Pour créer une étendue de chiffrement protégée par des clés gérées par Microsoft, appelez la commande [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) avec le paramètre `--key-source` comme `Microsoft.Storage`. N’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs :
 
 Pour créer une nouvelle étendue de chiffrement protégée par des clés gérées par le client dans un coffre de clés ou un HSM managé, configurez d’abord les clés gérées par le client pour le compte de stockage. Vous devez affecter une identité gérée au compte de stockage, puis utiliser l’identité gérée pour configurer la stratégie d’accès du coffre de clés afin que le compte de stockage dispose des autorisations nécessaires pour y accéder. Pour plus d’informations, consultez [Clés gérées par le client pour le chiffrement Stockage Azure](../common/customer-managed-keys-overview.md).
 
@@ -153,7 +160,9 @@ az keyvault set-policy \
     --key-permissions get unwrapKey wrapKey
 ```
 
-Ensuite, appelez la commande **az storage account encryption-scope create** avec le paramètre `--key-uri` et spécifiez l’URI de la clé. L’inclusion de la version de la clé sur l’URI de la clé est facultative. Si vous omettez la version de la clé, l’étendue de chiffrement utilisera automatiquement la version la plus récente de la clé. Si vous incluez la version de la clé, vous devez mettre à jour la version de clé manuellement pour utiliser une version différente.
+Ensuite, appelez la commande [az storage account encryption-scope](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) avec le paramètre `--key-uri` et spécifiez l'URI de la clé. L’inclusion de la version de la clé sur l’URI de la clé est facultative. Si vous omettez la version de la clé, l’étendue de chiffrement utilisera automatiquement la version la plus récente de la clé. Si vous incluez la version de la clé, vous devez mettre à jour la version de clé manuellement pour utiliser une version différente.
+
+Si le chiffrement d'infrastructure est activé pour le compte de stockage, il est automatiquement activé pour la nouvelle étendue de chiffrement. Sinon, vous pouvez choisir d'activer ou non le chiffrement d'infrastructure pour l'étendue de chiffrement. Pour créer la nouvelle étendue en activant le chiffrement d'infrastructure, incluez le paramètre `--require-infrastructure-encryption` et définissez sa valeur sur `true`.
 
 N’oubliez pas de remplacer les valeurs d’espace réservé de l’exemple par vos propres valeurs :
 
@@ -172,6 +181,8 @@ Pour apprendre à configurer le chiffrement Azure Storage avec des clés gérée
 
 - [Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault](../common/customer-managed-keys-configure-key-vault.md)
 - [Configurer le chiffrement avec des clés gérées par le client stockées dans le HSM managé par Azure Key Vault (préversion)](../common/customer-managed-keys-configure-key-vault-hsm.md).
+
+Pour en savoir plus sur le chiffrement d'infrastructure, consultez [Activer le chiffrement d'infrastructure pour le chiffrement double des données](../common/infrastructure-encryption-enable.md).
 
 ## <a name="list-encryption-scopes-for-storage-account"></a>Répertorier les étendues de chiffrement pour un compte de stockage
 
@@ -418,3 +429,4 @@ az storage account encryption-scope update \
 - [Chiffrement du stockage Azure pour les données au repos](../common/storage-service-encryption.md)
 - [Étendues de chiffrement pour le stockage d’objets blob](encryption-scope-overview.md)
 - [Clés gérées par le client pour le chiffrement du Stockage Azure](../common/customer-managed-keys-overview.md)
+- [Activer le chiffrement d'infrastructure pour le chiffrement double des données](../common/infrastructure-encryption-enable.md)

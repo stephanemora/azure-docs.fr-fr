@@ -5,16 +5,30 @@ ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 49f9bac40ae803f980a22c19fd5d44d85fa99e9e
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 8efdb20b463e9021f298597cd94dabbdbf9e62c0
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107564672"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109663890"
 ---
 ## <a name="joining-the-meeting-chat"></a>Participation à la conversation d’une réunion 
 
 Une fois l’interopérabilité de Teams activée, un utilisateur de Communication Services peut rejoindre l’appel Teams en tant qu’utilisateur externe à l’aide du kit de développement logiciel (SDK) Calling. En rejoignant l’appel, il est également ajouté comme participant à la conversation de la réunion, où il peut échanger des messages avec d’autres utilisateurs lors de l’appel. L’utilisateur n’aura pas accès aux messages de conversation qui ont été envoyés avant qu’il ne rejoigne l’appel. Pour participer à la réunion et commencer à converser, vous pouvez suivre les étapes suivantes.
+
+## <a name="create-a-new-nodejs-application"></a>Création d’une application Node.js
+
+Ouvrez votre fenêtre de terminal ou de commande, créez un répertoire pour votre application, puis accédez-y.
+
+```console
+mkdir chat-interop-quickstart && cd chat-interop-quickstart
+```
+
+Exécutez `npm init -y` pour créer un fichier **package.json** avec les paramètres par défaut.
+
+```console
+npm init -y
+```
 
 ## <a name="install-the-chat-packages"></a>Installer les packages de chat
 
@@ -33,6 +47,16 @@ npm install @azure/communication-calling --save
 ```
 
 L’option `--save` liste la bibliothèque comme dépendance dans votre fichier **package.json**.
+
+## <a name="set-up-the-app-framework"></a>Configurer le framework d’application
+
+Ce guide de démarrage rapide utilise webpack pour regrouper les ressources de l’application. Exécutez la commande suivante pour installer les packages npm webpack, webpack-cli et webpack-dev-server, puis listez-les comme dépendances de développement dans votre fichier **package.json** :
+
+```console
+npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
+```
+
+Créez un fichier **index.html** dans le répertoire racine de votre projet. Nous allons utiliser ce fichier pour configurer une disposition de base qui permettra à l’utilisateur de participer à une réunion et de démarrer une conversation.
 
 ## <a name="add-the-teams-ui-controls"></a>Ajouter les contrôles d’interface utilisateur de Teams
 
@@ -145,14 +169,12 @@ Une fenêtre de conversation contextuelle s’affiche au bas de la page. Elle pe
 Remplacez le contenu du fichier client.js par l’extrait de code suivant.
 
 Dans l’extrait de code, remplacez : 
-- `SECRET CONNECTION STRING` par la chaîne de connexion de votre service de communication ; 
-- `ENDPOINT URL` par l’URL du point de terminaison de votre service de communication.
+- `SECRET_CONNECTION_STRING` par la chaîne de connexion de votre service de communication ; 
+- `ENDPOINT_URL` par l’URL du point de terminaison de votre service de communication.
 
 ```javascript
-// run using
-// npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 import { CallClient, CallAgent } from "@azure/communication-calling";
-import { AzureCommunicationUserCredential } from "@azure/communication-common";
+import { AzureCommunicationTokenCredential } from "@azure/communication-common";
 import { CommunicationIdentityClient } from "@azure/communication-identity";
 import { ChatClient } from "@azure/communication-chat";
 
@@ -176,112 +198,115 @@ var userId = '';
 var messages = '';
 
 async function init() {
-  const connectionString = "<SECRET CONNECTION STRING>";
-  const endpointUrl = "<ENDPOINT URL>";
+    const connectionString = "<SECRET_CONNECTION_STRING>";
+    const endpointUrl = "<ENDPOINT_URL>";
 
-  const identityClient = new CommunicationIdentityClient(connectionString);
+    const identityClient = new CommunicationIdentityClient(connectionString);
 
-  let identityResponse = await identityClient.createUser();
-  userId = identityResponse.communicationUserId;
-  console.log(
-    `\nCreated an identity with ID: ${identityResponse.communicationUserId}`
-  );
+    let identityResponse = await identityClient.createUser();
+    userId = identityResponse.communicationUserId;
+    console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
 
-  let tokenResponse = await identityClient.issueToken(identityResponse, [
-    "voip",
-    "chat",
-  ]);
-  const { token, expiresOn } = tokenResponse;
-  console.log(
-    `\nIssued an access token that expires at ${expiresOn}:`
-  );
-  console.log(token);
+    let tokenResponse = await identityClient.getToken(identityResponse, [
+        "voip",
+        "chat",
+    ]);
 
-  const callClient = new CallClient();
-  const tokenCredential = new AzureCommunicationUserCredential(token);
-  callAgent = await callClient.createCallAgent(tokenCredential);
-  callButton.disabled = false;
+    const { token, expiresOn } = tokenResponse;
+    console.log(`\nIssued an access token that expires at: ${expiresOn}`);
+    console.log(token);
 
-  chatClient = new ChatClient(
-    endpointUrl,
-    new AzureCommunicationUserCredential(token)
-  );
+    const callClient = new CallClient();
+    const tokenCredential = new AzureCommunicationTokenCredential(token);
+    callAgent = await callClient.createCallAgent(tokenCredential);
+    callButton.disabled = false;
 
-  console.log('Azure Communication Chat client created!');
+    chatClient = new ChatClient(
+        endpointUrl,
+        new AzureCommunicationTokenCredential(token)
+    );
+
+    console.log('Azure Communication Chat client created!');
 }
 
 init();
 
 callButton.addEventListener("click", async () => {
-  // join with meeting link
-  call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
-    
-  call.on('callStateChanged', () => {
+    // join with meeting link
+    call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
+
+    call.on('stateChanged', () => {
         callStateElement.innerText = call.state;
-  })
-  // toggle button and chat box states
-  chatBox.style.display = "block";
-  hangUpButton.disabled = false;
-  callButton.disabled = true;
+    })
+    // toggle button and chat box states
+    chatBox.style.display = "block";
+    hangUpButton.disabled = false;
+    callButton.disabled = true;
 
-  messagesContainer.innerHTML = messages;
-  
-  console.log(call);
+    messagesContainer.innerHTML = messages;
 
-  // open notifications channel
-  await chatClient.startRealtimeNotifications();
+    console.log(call);
 
-  // subscribe to new message notifications
-  chatClient.on("chatMessageReceived", (e) => {
-    console.log("Notification chatMessageReceived!");
-    
-    if (e.sender.communicationUserId != userId) {
-       renderReceivedMessage(e.content);
-    }
-    else {
-       renderSentMessage(e.content);
-    }
-  });
-  chatThreadClient = await chatClient.getChatThreadClient(threadIdInput.value);
+    // open notifications channel
+    await chatClient.startRealtimeNotifications();
+
+    // subscribe to new message notifications
+    chatClient.on("chatMessageReceived", (e) => {
+        console.log("Notification chatMessageReceived!");
+
+      // check whether the notification is intended for the current thread
+        if (threadIdInput.value != e.threadId) {
+            return;
+        }
+
+        if (e.sender.communicationUserId != userId) {
+           renderReceivedMessage(e.message);
+        }
+        else {
+           renderSentMessage(e.message);
+        }
+    });
+
+    chatThreadClient = await chatClient.getChatThreadClient(threadIdInput.value);
 });
 
 async function renderReceivedMessage(message) {
-   messages += '<div class="container lighter">' + message + '</div>';
-   messagesContainer.innerHTML = messages;
+    messages += '<div class="container lighter">' + message + '</div>';
+    messagesContainer.innerHTML = messages;
 }
 
 async function renderSentMessage(message) {
-   messages += '<div class="container darker">' + message + '</div>';
-   messagesContainer.innerHTML = messages;
+    messages += '<div class="container darker">' + message + '</div>';
+    messagesContainer.innerHTML = messages;
 }
 
 hangUpButton.addEventListener("click", async () => 
-  {
-    // end the current call
-    await call.hangUp();
+    {
+        // end the current call
+        await call.hangUp();
 
-    // toggle button states
-    hangUpButton.disabled = true;
-    callButton.disabled = false;
-    callStateElement.innerText = '-';
+        // toggle button states
+        hangUpButton.disabled = true;
+        callButton.disabled = false;
+        callStateElement.innerText = '-';
 
-    // toggle chat states
-    chatBox.style.display = "none";
-    messages = "";
-  });
+        // toggle chat states
+        chatBox.style.display = "none";
+        messages = "";
+    });
 
 sendMessageButton.addEventListener("click", async () =>
-  {
-      let message = messagebox.value;
+    {
+        let message = messagebox.value;
 
-      let sendMessageRequest = { content: message };
-      let sendMessageOptions = { senderDisplayName : 'Jack' };
-      let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
-      let messageId = sendChatMessageResult.id;
+        let sendMessageRequest = { content: message };
+        let sendMessageOptions = { senderDisplayName : 'Jack' };
+        let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
+        let messageId = sendChatMessageResult.id;
 
-      messagebox.value = '';
-      console.log(`Message sent!, message id:${messageId}`);
-  });
+        messagebox.value = '';
+        console.log(`Message sent!, message id:${messageId}`);
+    });
 ```
 
 ## <a name="get-a-teams-meeting-chat-thread-for-a-communication-services-user"></a>Obtenir le fil de conversation d’une réunion Teams pour un utilisateur Communication Services

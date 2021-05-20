@@ -10,12 +10,12 @@ metadata:
   author: mimcco
   ms.author: mimcco
   ms.date: 03/25/2021
-  ms.openlocfilehash: 0cf9e95897554cb51ff6837dec72700124471025
-  ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+  ms.openlocfilehash: 1a18b819a96f8f84fb7d8e96b61f0b2d9f33709a
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/01/2021
-  ms.locfileid: "106107725"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110098863"
 landingContent:
 - title: Qu’est-ce qu’Azure Percept ?
   linkLists:
@@ -109,7 +109,7 @@ landingContent:
     links:
     - text: Dev Tools Pack Installer
       url: dev-tools-installer.md
-- title: Tenir votre DK Azure Percept à jour
+- title: Tenir votre Azure Percept DK à jour
   linkLists:
   - linkListType: overview
     links:
@@ -121,5 +121,5 @@ landingContent:
       url: how-to-set-up-over-the-air-updates.md
     - text: Mettre à jour votre appareil en OTA (Over-The-Air)
       url: how-to-update-over-the-air.md
-    - text: Mettre à jour votre appareil par USB
+    - text: Mettre à jour votre appareil avec une connexion par câble USB-C
       url: how-to-update-via-usb.md

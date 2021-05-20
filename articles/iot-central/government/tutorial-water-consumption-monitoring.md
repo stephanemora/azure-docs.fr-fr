@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: b65013bbf21faa8bffdcf799a991952b69f5fead
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 959289de2fa10e9ce31ce71c8ea3fcb9e33d0951
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714467"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789223"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>Tutoriel : Créer une application de suivi de la consommation d’eau avec Azure IoT Central
 
-Ce tutoriel vous montre comment créer une application de suivi de la consommation d’eau Azure IoT Central à partir du modèle d’application Azure IoT Central correspondant.
+Ce tutoriel vous montre comment créer une application Azure IoT Central de suivi de la consommation d’eau.
 
 Dans ce didacticiel, vous apprendrez à :
 
@@ -30,11 +30,6 @@ Dans ce didacticiel, vous apprendrez à :
 > * Configurer des travaux.
 > * Personnaliser la marque de votre application à l’aide d’une étiquette blanche
 
-## <a name="prerequisites"></a>Prérequis
-
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
-
-- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez en créer un sur la [page d’inscription à Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-a-water-consumption-monitoring-app-with-azure-iot-central"></a>Créer une application de suivi de la consommation d’eau avec Azure IoT Central
 
@@ -50,7 +45,8 @@ Pour créer une application Azure IoT Central de suivi de la consommation d’ea
 
 1. Sélectionnez **Build** (Créer) dans le volet gauche, puis sélectionnez l’onglet **Government** (Service public). La page **Government** (Secteur public) affiche plusieurs modèles d’application pour le secteur public.
 
-   ![Créer des modèles d’application pour le secteur public](./media/tutorial-waterconsumptionmonitoring/iotcentral-government-tab-overview1.png)
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/iotcentral-government-tab-overview1.png" alt-text="Créer des modèles d’application pour le secteur public.":::
+  
 
 1. Sélectionnez le modèle d’application **Water consumption monitoring** (Suivi de la consommation d’eau).
 Ce modèle comprend un exemple de modèle d’appareil pour la consommation d’eau, un appareil simulé, un tableau de bord d’opérateur et des règles de supervision préconfigurées.
@@ -60,13 +56,11 @@ Ce modèle comprend un exemple de modèle d’appareil pour la consommation d’
     * **URL** : Azure IoT Central génère automatiquement une URL basée sur le nom de l’application. Vous pouvez choisir de mettre à jour l’URL à votre convenance. Vous pouvez également modifier l’URL.
     * Si vous disposez d’un abonnement Azure, entrez les informations concernant l’**annuaire**, l’**abonnement Azure** et la **zone géographique**. Si vous n’avez pas d’abonnement, vous pouvez sélectionner l’option **Essai gratuit de 7 jours** et fournir vos coordonnées.
 
-    Pour plus d’informations sur les annuaires et les abonnements, consultez le guide de démarrage rapide [Créer une application](../core/quick-deploy-iot-central.md).
-
 1. Au bas de la page, sélectionnez **Créer**.
 
-    ![Page Nouvelle application dans Azure IoT Central](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring.png)
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/new-application-water-consumption-monitoring.png" alt-text="Page Nouvelle application dans Azure IoT Central.":::
 
-    ![Page d’informations de facturation Azure IoT Central](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring-billinginfo.png)
+    ![Page d’informations de facturation Azure IoT Central](./media/tutorial-waterconsumptionmonitoring/new-application-water-consumption-monitoring-billing-info.png)
 
 Vous venez de créer une application de suivi de la consommation d’eau à l’aide du modèle Azure IoT Central de suivi de la consommation d’eau.
 
@@ -76,48 +70,50 @@ L’application de suivi de la consommation d’eau est préconfigurée avec les
 * Exemples de modèles prédéfinis de débitmètre et de vanne
 * Débitmètre et dispositif de vanne intelligente simulés
 * Règles et travaux
-* Exemple de personnalisation à l’aide d’une étiquette blanche
+* Exemple de personnalisation.
 
-Cette application est la vôtre et vous pouvez la modifier à tout moment. Nous allons maintenant explorer l’application et effectuer certaines personnalisations.
+Cette application est la vôtre et vous pouvez la modifier à tout moment. Vous allez maintenant explorer l’application et effectuer certaines personnalisations.
 
 ## <a name="explore-and-customize-the-operator-dashboard"></a>Explorer et personnaliser le tableau de bord de l’opérateur
 
 Une fois l’application créée, l’exemple **Wide World water consumption dashboard** s’ouvre.
+  
+ :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-dashboard-full.png" alt-text="Tableau de bord de suivi de la consommation d’eau.":::
 
-   ![Tableau de bord de suivi de la consommation d’eau](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-dashboardfull.png)
 
-En tant que créateur, vous pouvez créer et personnaliser des vues dans le tableau de bord pour les opérateurs. Avant d’essayer de le personnaliser, commençons par explorer le tableau de bord.
+Vous pouvez créer et personnaliser des vues dans le tableau de bord pour les opérateurs.
 
 > [!NOTE]
-> Toutes les données affichées dans le tableau de bord sont basées sur des données d’appareils simulés, que nous explorerons dans la section suivante.
+> Toutes les données affichées dans le tableau de bord sont basées sur des données d’appareils simulés, que vous explorerez dans la section suivante.
   
 Le tableau de bord est constitué de différents types de vignettes :
 
 * **Vignette d’image Wide World water utility** (Utilitaire Wide World Water) : la première vignette du tableau de bord est une vignette d’image d’un utilitaire fictif Wide World Water. Vous pouvez personnaliser cette vignette en y insérant votre propre image ou en la supprimant.
 * **Vignette des KPI de débit moyen d’eau** : la vignette des KPI est configurée pour afficher comme exemple le *débit moyen des 30 dernières minutes*. Vous pouvez personnaliser les vignettes de KPI et définir un type et une plage de temps différents.
-* **Vignettes des commandes d’appareil** : il s’agit notamment des vignettes **Close valve** (Fermer la vanne), **Open valve**(Ouvrir la vanne) et **Set valve position** (Régler la position de la vanne). Lorsque vous sélectionnez une commande, vous êtes dirigé vers la page des commandes de l’appareil simulé. Dans Azure IoT Central, une *commande* est un type de *fonctionnalité d’appareil*. Nous aborderons ce concept dans la section « Modèle d’appareil » de ce tutoriel.
+* **Vignettes des commandes d’appareil** : il s’agit notamment des vignettes **Close valve** (Fermer la vanne), **Open valve**(Ouvrir la vanne) et **Set valve position** (Régler la position de la vanne). Lorsque vous sélectionnez une commande, vous êtes dirigé vers la page des commandes de l’appareil simulé. Dans Azure IoT Central, une *commande* est un type de *fonctionnalité d’appareil*. Nous aborderons ce concept dans la section [Modèle d’appareil](../government/tutorial-water-consumption-monitoring.md#explore-the-device-template) de ce tutoriel.
+
 * **Carte des zones de distribution de l’eau** : cette carte utilise Azure Maps, que vous pouvez configurer directement dans Azure IoT Central. La vignette de carte affiche l’emplacement des appareils. Essayez les contrôles de la carte, tels que *Zoom avant*, *Zoom arrière* ou *Développer*.
 
-    ![Carte du tableau de bord de suivi de la consommation d’eau](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-dashboard-map.png)
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-dashboard-map.png" alt-text="Carte du tableau de bord de suivi de la consommation d’eau":::
 
 * **Graphique en courbes du débit moyen de l’eau** et **Graphique en courbes des conditions environnementales** : vous pouvez visualiser les données de télémétrie provenant d’un ou de plusieurs appareils sous la forme d’un graphique en courbes représentant les données collectées au cours d’une période donnée.
 * **Carte thermique de la pression moyenne des valves** : vous pouvez choisir le type de carte thermique à utiliser pour afficher les données de télémétrie des appareils qui ont été collectées au cours d’une période avec un index de couleurs.
-* **Vignette de contenu Réinitialiser les seuils d’alerte** : Vous pouvez inclure des vignettes de contenu d’appel à l’action et incorporer un lien vers une page d’action. Dans ce cas, la vignette Réinitialiser les seuils d’alerte vous dirige vers l’application **Travaux**, dans laquelle vous pouvez mettre à jour les propriétés d’appareil. Nous aborderons cette option dans la section « Configuration des travaux » de ce tutoriel.
+* **Vignette de contenu Réinitialiser les seuils d’alerte** : Vous pouvez inclure des vignettes de contenu d’appel à l’action et incorporer un lien vers une page d’action. Dans ce cas, la vignette Réinitialiser les seuils d’alerte vous dirige vers l’application **Travaux**, dans laquelle vous pouvez mettre à jour les propriétés d’appareil. Vous aborderez cette option dans la section [Configuration des travaux](../government/tutorial-water-consumption-monitoring.md#configure-jobs) de ce tutoriel.
 * **Vignettes Propriétés** : le tableau de bord affiche les vignettes **Valve operational info** (Informations opérationnelles de la vanne), **Flow alert thresholds** (Seuils d’alerte de débit) et **Maintenance info** (Informations de maintenance).
 
 ### <a name="customize-the-dashboard"></a>Personnaliser le tableau de bord
 
-En tant que créateur, vous pouvez personnaliser les vues du tableau de bord pour les opérateurs.
+Vous pouvez personnaliser les vues du tableau de bord pour les opérateurs.
 
 1. Sélectionnez **Edit** (Modifier) pour personnaliser le tableau de bord **Wide World water consumption dashboard**. Vous pouvez personnaliser ce tableau de bord en sélectionnant le menu **Edit** (Modifier). Une fois que le tableau de bord est en mode **Edit**, vous pouvez ajouter de nouvelles vignettes ou le configurer.
 
-     ![Modification du tableau de bord](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-edit-dashboard.png)
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-edit-dashboard.png" alt-text="Modification du tableau de bord":::
 
-1. Sélectionnez **+ New** (Nouveau) pour créer un tableau de bord et le configurer intégralement. Vous pouvez avoir plusieurs tableaux de bord et passer de l’un à l’autre dans le menu Dashboard (Tableau de bord).
+Pour plus d’informations, consultez [Créer et personnaliser des tableaux de bord](../core/howto-create-personal-dashboards.md).
 
 ## <a name="explore-the-device-template"></a>Explorer le modèle d’appareil
 
-Un modèle d’appareil dans Azure IoT Central définit la fonctionnalité d’un appareil, qui peut être la télémétrie, une propriété ou une commande. En tant que créateur, vous pouvez définir un ou plusieurs modèles d’appareil dans Azure IoT Central qui représenteront la fonctionnalité des appareils que vous connecterez.
+ Dans Azure IoT Central, un modèle d’appareil définit les fonctionnalités d’un appareil. Les fonctionnalités de l’appareil incluent la télémétrie envoyée par ses capteurs, ses propriétés et les commandes qu’il peut exécuter. Vous pouvez définir un ou plusieurs modèles d’appareil dans Azure IoT Central qui représenteront la fonctionnalité des appareils que vous connecterez.
 
 L’application de suivi de la consommation d’eau est accompagnée de deux modèles d’appareil de référence représentant un *débitmètre* et une *vanne intelligente*.
 
@@ -125,11 +121,11 @@ Pour afficher ce modèle d’appareil :
 
 1. Sélectionnez **Device templates** (Modèles d’appareil) dans le volet de gauche de votre application dans Azure IoT Central. Dans la liste **Device templates** (Modèles d’appareil), vous pouvez voir deux modèles d’appareil : **Smart Valve** (Vanne intelligente) et **Flow meter** (Débitmètre).
 
-   ![Modèle d’appareil](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate.png)
+   ![Modèle d’appareil](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-device-template.png)
 
 1. Sélectionnez le modèle d’appareil **Flow meter** (Débitmètre) et familiarisez-vous avec les fonctionnalités de l’appareil.
 
-     ![Modèle d’appareil Flow meter (Débitmètre)](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-flowmeter.png)
+     ![Modèle d’appareil Flow meter (Débitmètre)](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-device-template-flow-meter.png)
 
 ### <a name="customize-the-device-template"></a>Personnaliser le modèle d’appareil
 
@@ -141,6 +137,8 @@ Pour personnaliser le modèle d’appareil :
 1. Mettez à jour l’unité de mesure ou définissez la valeur minimale (**Min value**) et la valeur maximale (**Max value**).
 1. Sélectionnez **Save** (Enregistrer) pour enregistrer les modifications.
 
+    ![Personnaliser le modèle d’appareil.](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-device-template-customize.png)
+
 ### <a name="add-a-cloud-property"></a>Ajouter une propriété cloud
 
 1. Accédez à **Cloud Properties** (Propriétés cloud) dans le menu **Device templates** (Modèles d’appareils).
@@ -148,20 +146,29 @@ Pour personnaliser le modèle d’appareil :
     Dans Azure IoT Central, vous pouvez ajouter une propriété qui s’applique à l’appareil. Par exemple, une propriété cloud peut être un seuil d’alerte propre à la zone d’installation, aux informations sur les ressources ou à d’autres informations de maintenance.
 1. Sélectionnez **Save** (Enregistrer) pour enregistrer les modifications.
 
+Pour plus d’informations, consultez [Propriétés du cloud](../core/quick-create-simulated-device.md#add-cloud-properties).
+
+
 ### <a name="views"></a>Les vues
 
-Le modèle d’appareil de suivi de la consommation d’eau est fourni avec des vues prédéfinies. Vous pouvez explorer ces vues et y apporter des modifications. Les vues définissent la façon dont les opérateurs voient les données de l’appareil, ainsi que la façon dont ils saisissent les propriétés cloud.
+Le modèle d’appareil de suivi de la consommation d’eau est fourni avec des vues prédéfinies. Les vues définissent la façon dont les opérateurs verront les données de l’appareil et définiront les valeurs des propriétés du cloud.
 
-  ![Vues du modèle d’appareil](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-views.png)
+  ![Vues du modèle d’appareil](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-device-template-views.png)
 
-### <a name="publish"></a>Publish
+Pour plus d’informations, consultez [Les vues](../core/quick-create-simulated-device.md#views).
 
-Si vous avez apporté des modifications, veillez à **publier** le modèle d’appareil.
+### <a name="publish-the-device-template"></a>Publier le modèle d’appareil
+
+Accédez à la page des modèles d’appareils, puis sélectionnez **Publier** pour enregistrer toutes les modifications apportées au modèle d’appareil.
+
+Pour plus d’informations, consultez [Comment publier des modèles](../core/quick-create-simulated-device.md#publish-device-template).
 
 ### <a name="create-a-new-device-template"></a>Créer un modèle d’appareil
 
 Sélectionnez **+ New** (Nouveau) pour créer un nouveau modèle d’appareil et suivre le processus de création.
 Vous pouvez créer un modèle d’appareil personnalisé à partir de zéro ou choisir un modèle d’appareil dans le catalogue d’appareils Azure.
+
+Pour plus d’informations, consultez [Comment ajouter des modèles d’appareil](../core/quick-create-simulated-device.md#add-a-device-template).
 
 ## <a name="explore-simulated-devices"></a>Explorer les appareils simulés
 
@@ -171,24 +178,26 @@ Dans Azure IoT Central, vous pouvez créer des appareils simulés pour tester vo
 
 1. Sélectionnez **Devices (Appareils)**  > **All devices (Tous les appareils)** dans le volet gauche.
 
-   ![Volet Tous les appareils](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devices.png)
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-devices.png" alt-text="Volet Tous les appareils":::
 
 1. Sélectionnez **Smart Valve 1**.
 
-    ![Smart Valve 1](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitor-device1.png)
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitor-device-1.png" alt-text="Smart Valve 1":::
 
 1. Sous l’onglet **Commands** (Commandes), vous pouvez voir les trois commandes de l’appareil (**Close valve** (Fermer la vanne), **Open valve** (Ouvrir la vanne) et **Set valve position** (Régler la position de la vanne)), qui sont les fonctionnalités définies dans le modèle d’appareil **Smart Valve** (Vanne intelligente).
 
 1. Explorez l’onglet **Device Properties** (Propriétés de l’appareil) et l’onglet **Device Dashboard** (Tableau de bord de l’appareil).
 
 > [!NOTE]
-> Notez que tous les onglets sont configurés à partir des vues de modèle d’appareil.
+> Les vues que vous voyez dans cette page sont configurées avec la page **Modèle d’appareil > Vues**. 
 
 ### <a name="add-new-devices"></a>Ajouter de nouveaux appareils
 
 Ajoutez de nouveaux appareils en sélectionnant **+ New** (Nouveau) sous l’onglet **Devices** (Appareils).
 
-## <a name="explore-and-configure-rules"></a>Explorer et configurer les règles
+Pour plus d’informations, consultez [Comment ajouter de nouveaux appareils](../core/quick-create-simulated-device.md#add-a-simulated-device).
+
+## <a name="explore-rules"></a>Explorer les règles
 
 Dans Azure IoT Central, vous pouvez créer des règles pour superviser automatiquement les données de télémétrie des appareils et déclencher des actions quand une ou plusieurs conditions sont remplies. Ces actions peuvent inclure l’envoi d’e-mails de notification, le déclenchement d’une action Microsoft Power Automate ou une action webhook pour envoyer des données à d’autres services.
 
@@ -198,15 +207,15 @@ L’application de suivi de la consommation d’eau que vous avez créée a troi
 
 1. Dans le volet gauche, sélectionnez **Rules** (Règles).
 
-   ![Volet Règles](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-rules.png)
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-rules.png" alt-text="Volet Règles":::
 
 1. Sélectionnez **High water flow alert** (Alerte de débit d’eau élevé), qui est l’une des règles préconfigurées dans l’application.
 
-     ![Alerte de pH élevé](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-high-flow-alert.png" alt-text="Alerte de pH élevé":::
 
-    La règle `High water flow alert` est configurée pour vérifier si la condition `Flow` est `greater than` à `Max flow threshold`. Le seuil de débit maximal est une propriété cloud qui est définie dans le modèle d’appareil **Smart Valve** (Vanne intelligente). La valeur de `Max flow threshold` est définie pour chaque instance d’appareil.
+    La règle `High water flow alert` est configurée pour vérifier si la condition `Flow` est `greater than` à `Max flow threshold`. Le seuil de débit est une propriété cloud qui est définie dans le modèle d’appareil **Smart Valve** (Vanne intelligente). La valeur de `Max flow threshold` est définie pour chaque instance d’appareil.
 
-À présent, nous allons créer une action de messagerie.
+Ensuite, vous pouvez créer une action d’e-mail.
 
 Pour ajouter une action à la règle :
 
@@ -225,7 +234,7 @@ Si la condition configurée est remplie, vous recevrez un e-mail au bout de quel
   
 Pour créer une nouvelle règle :
 
-* Sélectionnez **+ New** (+ Nouveau) sous l’onglet **Rules** (Règles) situé dans le volet gauche.
+Pour créer une règle, sélectionnez **+ Nouveau** sous l’onglet **Règles** dans le volet gauche.
 
 ## <a name="configure-jobs"></a>Configuration des travaux
 
@@ -234,19 +243,21 @@ Dans Azure IoT Central, les travaux vous permettent de déclencher la mise à jo
 1. Dans le volet gauche, sélectionnez **Jobs** (Travaux).
 1. Sélectionnez **+New** (Nouveau) et configurez un ou plusieurs travaux.
 
+Pour plus d’informations, consultez [Comment exécuter un travail](../core/howto-run-a-job.md).
+
 ## <a name="customize-your-application"></a>Personnaliser votre application
 
-En tant que réalisateur de logiciel, vous pouvez modifier plusieurs paramètres pour personnaliser l’expérience utilisateur dans votre application.
+En tant qu’administrateur, vous pouvez changer plusieurs paramètres pour personnaliser l’expérience utilisateur dans votre application.
 
 1. Sélectionnez **Administration** > **Personnaliser votre application**.
 1. Pour choisir l’image à charger en tant que **logo de l’application**, sélectionnez le bouton **Change** (Modifier).
 1. Pour choisir l’image de l’**icône du navigateur** qui s’affichera dans les onglets du navigateur, sélectionnez le bouton **Change** (Modifier).
-1. Vous pouvez également remplacer les **couleurs du navigateur** par défaut en ajoutant des codes couleur hexadécimaux HTML.
+1. Vous pouvez également remplacer les **couleurs du navigateur** par défaut en ajoutant des codes couleur hexadécimaux HTML. Pour plus d’informations sur la notation des couleurs en **valeur hexadécimale (HEX)**, veuillez consulter la page [Couleurs HTML](https://www.w3schools.com/html/html_colors.asp).
 
-   ![Choix du logo de l’application, de l’icône du navigateur et des couleurs du navigateur](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-customize-your-application.png)
+   ![Choix du logo de l’application, de l’icône du navigateur et des couleurs du navigateur](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-customize-your-application.png)
 
 1. Vous pouvez également modifier les images d’application en sélectionnant **Administration** > **Application settings (Paramètres d’application)** . Pour choisir une image à charger en tant qu’image de l’application, sélectionnez le bouton **Select image** (Sélectionner une image).
-1. Enfin, vous pouvez également modifier le **thème** en sélectionnant l’icône des **paramètres** située dans l’angle supérieur droit de l’application.
+
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -256,8 +267,5 @@ Si vous ne comptez pas continuer à utiliser cette application, supprimez-la.
 1. Sélectionnez **Application settings** (Paramètres de l’application), puis sélectionnez le bouton **Delete** (Supprimer) en bas de la page.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-* En savoir plus sur 
-
-> [!div class="nextstepaction"]
-> [Concepts du suivi de la consommation d’eau](./concepts-waterconsumptionmonitoring-architecture.md).
+ 
+En guise d’étape suivante, nous vous suggérons de découvrir les [concepts du suivi de la consommation d’eau](./concepts-waterconsumptionmonitoring-architecture.md).

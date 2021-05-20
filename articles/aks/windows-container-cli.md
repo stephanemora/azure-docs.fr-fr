@@ -4,12 +4,12 @@ description: Découvrez comment créer rapidement un cluster Kubernetes et dépl
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 617590a3f482e246b8af5db6dd906591c16b20fa
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1093020bb0a98745ca47176fb5eaa6ddc4736295
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769424"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789890"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Créer un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide d’Azure CLI
 
@@ -70,19 +70,19 @@ L’exemple de sortie suivant montre que le groupe de ressources a été créé 
 Pour pouvoir exécuter un cluster AKS qui prend en charge des pools de nœuds pour les conteneurs Windows Server, votre cluster doit appliquer une stratégie de réseau qui utilise un plug-in réseau [Azure CNI][azure-cni-about] (avancé). Pour plus d’informations sur la planification des plages de sous-réseau nécessaires et les considérations réseau, consultez [Configurer le réseau Azure CNI][use-advanced-networking]. Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS nommé *myAKSCluster*. Cette commande crée les ressources réseau nécessaires si elles n’existent pas.
 
 * Le cluster est configuré avec deux nœuds.
-* Les paramètres `--windows-admin-password` et `--windows-admin-username` définissent les informations d’identification administrateur pour les conteneurs Windows Server créés sur le cluster et doivent répondre aux [exigences relatives aux mots de passe de Windows Server][windows-server-password]. Si vous ne spécifiez pas le paramètre *windows-admin-password*, vous êtes invité à fournir une valeur.
+* Les paramètres `--windows-admin-password` et `--windows-admin-username` définissent les informations d’identification d’administrateur pour tous les nœuds Windows Server du cluster et doivent répondre aux [exigences relatives aux mots de passe de Windows Server][windows-server-password]. Si vous ne spécifiez pas le paramètre *windows-admin-password*, vous êtes invité à fournir une valeur.
 * Le pool de nœuds utilise `VirtualMachineScaleSets`.
 
 > [!NOTE]
 > Pour garantir un fonctionnement fiable de votre cluster, vous devez exécuter au moins 2 (deux) nœuds dans le pool de nœuds par défaut.
 
-Créez un nom d’utilisateur à utiliser en tant qu’informations d’identification d’administrateur pour vos conteneurs Windows Server sur votre cluster. Les commandes suivantes vous invitent à entrer un nom d’utilisateur et à lui affecter la valeur WINDOWS_USERNAME pour une utilisation dans une commande ultérieure (n’oubliez pas que les commandes de cet article sont entrées dans un interpréteur de commandes BASH).
+Créez un nom d’utilisateur à utiliser en tant qu’informations d’identification d’administrateur pour les nœuds Windows Server sur votre cluster. Les commandes suivantes vous invitent à entrer un nom d’utilisateur et à lui affecter la valeur WINDOWS_USERNAME pour une utilisation dans une commande ultérieure (n’oubliez pas que les commandes de cet article sont entrées dans un interpréteur de commandes BASH).
 
 ```azurecli-interactive
-echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
+echo "Please enter the username to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_USERNAME
 ```
 
-Créez votre cluster en vous assurant que vous spécifiez le paramètre `--windows-admin-username`. L’exemple de commande suivant crée un cluster à l’aide de la valeur de *WINDOWS_USERNAME* que vous avez définie dans la commande précédente. Vous pouvez également fournir un nom d’utilisateur différent directement dans le paramètre au lieu d’utiliser *WINDOWS_USERNAME*. La commande suivante vous invite également à créer un mot de passe pour les informations d’identification d’administrateur de vos conteneurs Windows Server sur votre cluster. Vous pouvez également utiliser le paramètre *windows-admin-password* et y spécifier votre propre valeur.
+Créez votre cluster en vous assurant que vous spécifiez le paramètre `--windows-admin-username`. L’exemple de commande suivant crée un cluster à l’aide de la valeur de *WINDOWS_USERNAME* que vous avez définie dans la commande précédente. Vous pouvez également fournir un nom d’utilisateur différent directement dans le paramètre au lieu d’utiliser *WINDOWS_USERNAME*. La commande suivante vous invite également à créer un mot de passe pour les informations d’identification d’administrateur des nœuds Windows Server sur votre cluster. Vous pouvez également utiliser le paramètre *windows-admin-password* et y spécifier votre propre valeur.
 
 ```azurecli-interactive
 az aks create \
@@ -98,6 +98,10 @@ az aks create \
 
 > [!NOTE]
 > Si vous recevez une erreur de validation du mot de passe, vérifiez que le mot de passe que vous avez défini respecte les [exigences en matière de mot de passe de Windows Server][windows-server-password]. Si votre mot de passe répond aux conditions, essayez de créer votre groupe de ressources dans une autre région. Puis essayez de créer le cluster avec le nouveau groupe de ressources.
+>
+> Si vous ne spécifiez pas un nom d’utilisateur et mot de passe d’administrateur lorsque vous définissez `--vm-set-type VirtualMachineScaleSets` et `--network-plugin azure`, le nom d’utilisateur est défini sur *azureuser* et le mot de passe sur une valeur aléatoire.
+> 
+> Le nom d’utilisateur de l’administrateur ne peut pas être modifié, mais vous pouvez modifier le mot de passe d’administrateur utilisé par votre cluster AKS pour les nœuds Windows Server à l’aide de la commande `az aks update`. Pour plus d’informations, consultez [FAQ sur les pools de nœuds Windows Server][win-faq-change-admin-creds].
 
 Au bout de quelques minutes, la commande se termine et retourne des informations au format JSON sur le cluster. Parfois, le provisionnement du cluster peut prendre plus de quelques minutes. Autorisez jusqu’à 10 minutes dans ces cas de figure.
 
@@ -294,6 +298,7 @@ Pour en savoir plus sur AKS et parcourir le code complet de l’exemple de dépl
 [use-advanced-networking]: configure-azure-cni.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
+[win-faq-change-admin-creds]: windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster

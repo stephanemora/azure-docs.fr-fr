@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df4cb32720d80dd23289be7e760c9934e9a8db8a
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 6b93da489d1d2cbaa96ea8ed99b096ea8b7af45e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501499"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746150"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restriction des autorisations d’accès invité (préversion) dans Azure Active Directory
 
@@ -34,7 +34,7 @@ Lorsque l’accès invité est restreint, les invités ne peuvent afficher que l
 
 ## <a name="permissions-and-licenses"></a>Autorisations et licences
 
-Vous devez disposer du rôle Administrateur général pour configurer les paramètres de collaboration externe. Il n’existe aucune exigence de licence supplémentaire nécessaire pour restreindre l’accès invité.
+Vous devez être avoir le rôle administrateur général ou administrateur de rôle privilégié pour configurer l’accès utilisateur invité. Il n’existe aucune exigence de licence supplémentaire nécessaire pour restreindre l’accès invité.
 
 ## <a name="update-in-the-azure-portal"></a>Mise à jour sur le Portail Azure
 

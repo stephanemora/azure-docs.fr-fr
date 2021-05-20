@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 012eefe9140703a62d7bb1074ab763191a0976cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf34223e44ddfb59a72f98d31f0df5d9a882e0eb
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87798509"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713591"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Créer une révision d’accès d’un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -31,7 +31,7 @@ Pour réduire le risque d’un accès obsolète, vous devez activer les révisio
 
 Pour activer des révisions des packages d’accès, vous devez remplir les conditions préalables à la création d’un package d’accès :
 - Azure AD Premium P2
-- Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
+- Administrateur général, administrateur de la gouvernance des identités, administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
 
 Pour plus d’informations, consultez [Exigences des licences](entitlement-management-overview.md#license-requirements).
 

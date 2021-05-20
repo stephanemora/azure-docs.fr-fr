@@ -15,12 +15,12 @@ ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48c4473cfafce1215219251c47bce1d5730645fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84b2d75c03644e346dfad84ae01be31d8589f4ec
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91534418"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481928"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Attribuer l’éligibilité à l’appartenance ou la propriété d’un groupe d’accès privilégié (préversion) dans Privileged Identity Management
 
@@ -56,7 +56,10 @@ Effectuez les étapes suivantes pour rendre un utilisateur éligible à l’appa
 
 1. Dans la liste **Type d'attribution**, sélectionnez **Éligible** ou **Actif**. Les groupes d’accès privilégié offrent deux types d’attribution distincts :
 
-    - Les attributions **éligibles** exigent des membres qu’ils effectuent une action pour utiliser ce rôle. Il peut s’agir de procéder à une vérification de l’authentification multifacteur (MFA), de fournir une justification professionnelle ou de demander une approbation aux approbateurs désignés.
+    - Les attributions **éligibles** exigent des membres qu’ils effectuent une action pour utiliser ce rôle. Il peut s’agir de procéder à une vérification de l’authentification multifacteur (MFA), de fournir une justification professionnelle ou de demander une approbation aux approbateurs désignés. 
+
+      > [!Important]
+      > Pour les groupes d’accès privilégiés utilisés pour l’élévation des rôles Azure AD, Microsoft recommande de demander un processus d’approbation pour les attributions de membres éligibles. Les attributions qui peuvent être activées sans approbation peuvent vous exposer à un risque de sécurité, dans lequel un autre administrateur est autorisé à réinitialiser les mots de passe d’un utilisateur éligible.
 
     - Les attributions **actives** n’exigent pas des membres qu’ils effectuent une action pour utiliser ce rôle. Les membres attribués comme étant actifs détiennent à tout moment les privilèges affectés au rôle.
 

@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha
-ms.openlocfilehash: 2d0f82565ec4010d03003ed902e9aba819e93bc3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 68b6ea79425bcd3e0d016c67eb9a0de839f3d8d6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303183"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108744260"
 ---
 # <a name="nvv4-series"></a>Série NVv4 
 
@@ -28,7 +28,7 @@ Les machines virtuelles de la série NVv4 sont alimentées par des GPU [AMD Rade
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1 et 2<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
-[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge <br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge ([en préversion](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 <br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) |

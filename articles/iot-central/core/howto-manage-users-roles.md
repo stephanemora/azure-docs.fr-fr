@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: cff8830d180b0c234e54f7578ed9fafafeb598f0
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 620274962f56173ff7e729d2a71c3ee50a277489
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719166"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733487"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gérer les utilisateurs et rôles dans votre application Azure IoT Central
 
-Cet article explique comment, en tant qu’administrateur, vous pouvez ajouter, modifier et supprimer des utilisateurs dans votre application Azure IoT Central. L’article explique également comment gérer des rôles dans votre application.
+Cet article explique comment vous pouvez ajouter, modifier et supprimer des utilisateurs dans votre application Azure IoT Central. L’article explique également comment gérer des rôles dans votre application.
 
 Pour accéder à la section **Administration** et l’utiliser, vous devez avoir le rôle **Administrateur** dans l’application Azure IoT Central. Si vous créez une application Azure IoT Central, le rôle **Administrateur** vous est automatiquement attribué pour cette application.
 

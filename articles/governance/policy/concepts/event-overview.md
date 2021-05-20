@@ -3,16 +3,16 @@ title: Réaction aux événements de changement d’état Azure Policy
 description: Utilisez Azure Event Grid pour vous abonner aux événements Azure Policy, qui permettent aux applications de réagir aux changements d’état sans nécessiter de code complexe.
 ms.date: 03/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: c100d5038a8c2506f5339ea0962012a8c32e22cf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 197dfbe410874541c38334b169c526bac63a614e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105734911"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752900"
 ---
 # <a name="reacting-to-azure-policy-state-change-events"></a>Réaction aux événements de changement d’état Azure Policy
 
-Les événements Azure Policy permettent aux applications de réagir aux changements d’état. Cette intégration se fait sans avoir recours à un code complexe ni à des services d’interrogation coûteux et inefficaces. Au lieu de cela, les événements sont envoyés (push) via [Azure Event Grid](../../../event-grid/index.yml) aux abonnés, comme [Azure Functions](../../../azure-functions/index.yml), [Azure Logic Apps](../../../logic-apps/index.yml), ou même à votre propre écouteur HTTP personnalisé.
+Les événements Azure Policy permettent aux applications de réagir aux changements d’état. Cette intégration se fait sans avoir recours à un code complexe ni à des services d’interrogation coûteux et inefficaces. Au lieu de cela, les événements sont envoyés (push) via [Azure Event Grid](../../../event-grid/index.yml) aux abonnés, comme [Azure Functions](../../../azure-functions/index.yml), [Azure Logic Apps](../../../logic-apps/index.yml), voire à votre propre écouteur HTTP personnalisé.
 Vous paierez uniquement pour ce que vous utiliserez.
 
 Les événements Azure Policy sont envoyés à Azure Event Grid, qui fournit des services de livraison fiables à vos applications via des stratégies enrichies de nouvelle tentative et de livraison de lettres mortes. Pour plus d’informations, consultez [Distribution et nouvelle tentative de distribution de messages avec Azure Grid](../../../event-grid/delivery-and-retry.md).
@@ -39,8 +39,7 @@ Event Grid utilise les [abonnements aux événements](../../../event-grid/concep
 ## <a name="event-schema"></a>Schéma d’événement
 
 Les événements Azure Policy contiennent toutes les informations dont vous avez besoin pour répondre aux changements apportés à vos données. Vous pouvez identifier un événement Azure Policy lorsque la propriété `eventType` commence par « Microsoft.PolicyInsights ».
-Plus d’informations sur l’utilisation des propriétés d’événement Event Grid sont documentées dans  
-[Schéma d’événement Event Grid](../../../event-grid/event-schema.md).
+Plus d’informations sur l’utilisation des propriétés d’événement Event Grid sont documentées dans [schéma d’événement Event Grid](../../../event-grid/event-schema.md).
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
