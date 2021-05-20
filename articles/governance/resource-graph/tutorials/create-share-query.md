@@ -3,12 +3,12 @@ title: 'Tutoriel : Gérer les requêtes dans le portail Azure'
 description: Dans ce tutoriel, vous créez une requête Resource Graph et vous la partagez avec d’autres personnes dans le portail Azure.
 ms.date: 05/01/2021
 ms.topic: tutorial
-ms.openlocfilehash: a7c2e5917abc89aded225bc7a62746399bec050b
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 75942cf681384d2759a8cf0f32c938efa793df86
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324830"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751424"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutoriel : Créer et partager une requête Azure Resource Graph sur le portail Azure
 
@@ -44,7 +44,7 @@ Les requêtes privées ne sont accessibles et visibles que par le compte qui les
 
    Sélectionnez **Exécuter la requête** pour afficher les résultats de la requête dans le volet inférieur.
 
-   Pour plus d'informations sur cette requête, consultez [Exemples - Nombre de machines virtuelles par type de système d'exploitation](../samples/starter.md#count-os).
+   Pour plus d’informations sur cette requête, consultez [Exemples - Nombre de machines virtuelles par type de système d’exploitation](../samples/starter.md#count-os).
 
 1. Sélectionnez **Enregistrer** ou **Enregistrer sous**, entrez **Nombre de machines virtuelles par système d'exploitation**, conservez le type **Requête privée**, puis sélectionnez **Enregistrer** en bas du volet **Enregistrer la requête**. Le titre de l'onglet change : **Requête 1** est remplacé par **Nombre de machines virtuelles par système d'exploitation**.
 
@@ -52,7 +52,7 @@ Les requêtes privées ne sont accessibles et visibles que par le compte qui les
 
 1. Sélectionnez **Ouvrir une requête**. Assurez-vous que le type est défini sur **Requête privée**. Le nom enregistré, **Nombre de machines virtuelles par système d'exploitation**, apparaît maintenant dans la liste **Nom de la requête**. Lorsque vous sélectionnez le lien titre de la requête enregistrée, il est chargé dans un nouvel onglet portant le nom de cette requête.
 
-   > [!NOTE] 
+   > [!NOTE]
    > Lorsqu'une requête enregistrée est ouverte et que l'onglet affiche son nom, il suffit de sélectionner le bouton **Enregistrer** pour la mettre à jour avec les modifications apportées. Pour créer une nouvelle requête enregistrée à partir de cette requête ouverte, sélectionnez **Enregistrer sous** et procédez comme si vous enregistriez une nouvelle requête.
 
 1. Pour supprimer la requête enregistrée, sélectionnez à nouveau **Ouvrir une requête** et vérifiez que le champ **Type** est défini sur **Requête privée**. Sur la ligne de la requête `Count VMs by OS` enregistrée, sélectionnez **Supprimer** (icône Corbeille). Dans la boîte de dialogue de confirmation, sélectionnez **Oui** pour valider la suppression de la requête.
@@ -71,10 +71,10 @@ Contrairement à une requête privée, une requête partagée est une ressource 
    | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
-    
+
    Sélectionnez **Exécuter la requête** pour afficher les résultats de la requête dans le volet inférieur.
 
-   Pour plus d'informations sur cette requête, consultez [Exemples - Nombre de machines virtuelles par type de système d'exploitation](../samples/starter.md#count-os).
+   Pour plus d’informations sur cette requête, consultez [Exemples - Nombre de machines virtuelles par type de système d’exploitation](../samples/starter.md#count-os).
 
 1. Sélectionnez **Enregistrer** ou **Enregistrer sous**.
 
@@ -87,10 +87,10 @@ Contrairement à une requête privée, une requête partagée est une ressource 
 1. Cochez la case **Publier dans le groupe de ressources resource-graph-queries** et définissez l'**Emplacement du groupe de ressources** sur **(USA) USA Centre-Ouest**.
 
 1. Sélectionnez **Enregistrer** en bas du volet **Enregistrer la requête**. Le titre de l'onglet change : **Requête 1** est remplacé par **Nombre de machines virtuelles par système d'exploitation**. La première fois que le groupe de ressources **resource-graph-queries** est utilisé, l'enregistrement peut prendre un certain temps car le groupe de ressources est en cours de création.
-   
+
    :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Enregistrer la nouvelle requête en tant que requête partagée" border="false":::
 
-   > [!NOTE] 
+   > [!NOTE]
    > Vous pouvez décocher la case **Publier dans le groupe de ressources resource-graph-queries** si vous souhaitez fournir le nom d'un groupe de ressources existant pour l'enregistrement de la requête partagée. L'utilisation du groupe de ressources nommé par défaut pour les requêtes facilite la découverte des requêtes partagées et permet de mieux comprendre la raison d'être de ce groupe de ressources. Vous pouvez toutefois choisir de sélectionner un groupe de ressources existant pour des raisons de sécurité, en fonction des autorisations existantes.
 
 1. Sur le portail Azure, quittez l'Explorateur Azure Resource Graph, puis rouvrez-le. Notez que la requête enregistrée n'apparaît plus et que l'onglet **Requête 1** est réapparu.
@@ -99,7 +99,7 @@ Contrairement à une requête privée, une requête partagée est une ressource 
 
    :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Afficher la requête partagée avec l’icône" border="false":::
 
-   > [!NOTE] 
+   > [!NOTE]
    > Lorsqu'une requête enregistrée est ouverte et que l'onglet affiche son nom, le bouton **Enregistrer** la met à jour avec les modifications apportées. Pour créer une nouvelle requête enregistrée, sélectionnez **Enregistrer sous** et procédez comme si vous enregistriez une nouvelle requête.
 
 ## <a name="discover-shared-queries"></a>Découvrir des requêtes partagées
@@ -122,7 +122,7 @@ Accédez à la page Requêtes Resource Graph à partir du menu du portail en sé
 ### <a name="list-resource-groups-resources"></a>Répertorier les ressources des groupes de ressources
 
 La requête Resource Graph est répertoriée avec d'autres ressources qui font partie d'un groupe de ressources.
-La sélection de la requête Resource Graph ouvre la page de cette requête. Les points de suspension et les options du menu contextuel (accessible via un clic droit) fonctionnent de la même manière que sur la page Requête Resource Graph.
+La sélection de la requête Resource Graph ouvre la page de cette requête. Les points de suspension et les options du menu contextuel, accessible en sélectionnant et en maintenant l’appui (ou via un clic droit), fonctionnent de la même manière que sur la page Requête Resource Graph.
 
 ### <a name="query-resource-graph"></a>Interroger Resource Graph
 

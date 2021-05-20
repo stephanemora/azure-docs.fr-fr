@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 04/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 84fd1a2d3d0dc4ce6960469ea3212b8ca1d4d07c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9480bc7ddb03ba537ea7f13057492aa05ed66bae
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96023021"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770176"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Désactiver et supprimer un StorSimple Virtual Array
 
@@ -27,7 +27,7 @@ ms.locfileid: "96023021"
 
 Quand vous désactivez une instance StorSimple Virtual Array, vous interrompez la connexion entre l’appareil et le service StorSimple Device Manager correspondant. Ce didacticiel explique comment :
 
-* Désactiver un appareil 
+* Désactiver un appareil
 * Supprimer un appareil désactivé
 
 Les informations publiées dans cet article s'appliquent uniquement aux instances StorSimple Virtual Array. Pour plus d’informations sur la série 8000, accédez la procédure relative à la [désactivation ou la suppression d’un appareil](./storsimple-8000-deactivate-and-delete-device.md).
@@ -42,11 +42,11 @@ La désactivation est une opération DÉFINITIVE et ne peut pas être annulée. 
 
 ## <a name="deactivate-a-device"></a>Désactiver un appareil
 
-Suivez la procédure suivante pour désactiver votre appareil.
+Suivez la procédure suivante pour désactiver votre appareil. Un appareil doit être en ligne pour être désactivé.
 
 #### <a name="to-deactivate-the-device"></a>Pour désactiver l’appareil
 
-1. Dans votre service, accédez à **Gestion > Appareils**. Dans le panneau **Appareils**, cliquez sur (sélectionnez) l’appareil que vous souhaitez désactiver.
+1. Dans votre service, accédez à **Gestion > Appareils**. Dans le panneau **Appareils**, cliquez sur (sélectionnez) l’appareil que vous souhaitez désactiver. L’état de l’appareil doit être **En ligne**.
    
     ![Sélection de l’appareil à désactiver](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete7.png)
 2. Dans votre panneau **Device dashboard** (Tableau de bord de l’appareil), cliquez sur **… Plus**, puis sélectionnez **Désactiver** dans la liste.
@@ -59,6 +59,7 @@ Suivez la procédure suivante pour désactiver votre appareil.
     Le processus de désactivation, qui met plusieurs minutes à s’exécuter, démarre.
    
     ![Désactivation en cours](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete2.png)
+
 4. Après la désactivation, la liste des appareils est actualisée.
    
     ![Désactivation terminée](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete3.png)
@@ -67,7 +68,7 @@ Suivez la procédure suivante pour désactiver votre appareil.
 
 ## <a name="delete-the-device"></a>Supprimer l’appareil
 
-Un appareil doit être désactivé avant d’être supprimé. Si vous supprimez un appareil, il est retiré de la liste des appareils connectés au service. Le service ne peut alors plus gérer l’appareil supprimé. Toutefois, les données associées à l’appareil demeurent dans le cloud. Ensuite, les frais associés aux données s’accumulent.
+Un appareil doit être désactivé avant d’être supprimé. Si vous supprimez un appareil, il est retiré de la liste des appareils connectés au service. Le service ne peut alors plus gérer l’appareil supprimé. Toutefois, les données associées à l’appareil restent dans le cloud. Ensuite, les frais associés aux données s’accumulent.
 
 Pour supprimer l’appareil, procédez comme suit.
 

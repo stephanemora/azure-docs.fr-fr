@@ -1,15 +1,15 @@
 ---
 title: Présentation de l’agent Connected Machine
 description: Cet article fournit une présentation détaillée de l’agent des serveurs avec Azure Arc disponible, qui prend en charge la surveillance de machines virtuelles hébergées dans des environnements hybrides.
-ms.date: 04/27/2021
+ms.date: 05/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 31dfb9ac38b1a6d808b5ab060600297987ab4236
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 31316fae541464d9b1c25b303593948b7e45b5b3
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071628"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713879"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Présentation de l’agent des serveurs activés par Azure Arc
 
@@ -84,9 +84,9 @@ Les serveurs activés pour Arc prennent en charge l’installation de l’agent 
 Les versions suivantes des systèmes d’exploitation Windows et Linux sont officiellement prises en charge pour l’agent Azure Connected Machine :
 
 - Windows Server 2008 R2, Windows Server 2012 R2 et versions ultérieures (y compris Server Core)
-- Ubuntu 16.04 et 18.04 LTS (x64)
+- Ubuntu 16.04, 18.04 et 20.04 LTS (x64)
 - CentOS Linux 7 et 8 (x64)
-- SUSE Linux Enterprise Server (SLES) 15 (x64)
+- SUSE Linux Enterprise Server (SLES) 12 et 15 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 et 8 (x64)
 - Amazon Linux 2 (x64)
 - Oracle Linux 7

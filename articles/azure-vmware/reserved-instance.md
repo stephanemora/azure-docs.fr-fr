@@ -3,12 +3,12 @@ title: Instances réservées d’Azure VMware Solution
 description: Découvrez comment acheter une instance réservée pour Azure VMware Solution. L’instance réservée couvre uniquement la partie calcul de votre utilisation et inclut les coûts liés aux licences logicielles.
 ms.topic: how-to
 ms.date: 04/09/2021
-ms.openlocfilehash: 68f61832ab01b3d7946e3bd8dffb3ef274e74aac
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: fb30ae2fcf06abfa25770aff85f2668d7aaca770
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145328"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753728"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Économiser grâce à Azure VMware Solution
 
@@ -139,5 +139,5 @@ Maintenant que vous avez abordé une instance réservée d’Azure VMware Soluti
 
 - [Création d’une évaluation Azure VMware Solution](../migrate/how-to-create-azure-vmware-solution-assessment.md).
 - [Gestion du protocole DHCP pour Azure VMware Solution](manage-dhcp.md).
-- [Gestion du cycle de vie des machines virtuelles Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md).
+- [Surveiller et gérer des machines virtuelles Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md).
  

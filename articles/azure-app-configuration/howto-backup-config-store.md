@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: b3e0bcad7beccc31e1772fbb24ffad7f502b8140
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b72de537f573d03f37a9b1de4341a14830479e7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102454241"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748418"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Sauvegarder automatiquement des magasins App Configuration
 
@@ -127,7 +127,7 @@ Dans cet article, vous allez utiliser des fonctions C# qui ont les propriétés
 - Runtime Azure Functions version 3.x
 - Fonction déclenchée par le minuteur toutes les 10 minutes
 
-Pour faciliter la sauvegarde de vos données, nous avons [testé et publié une fonction](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) que vous pouvez utiliser sans modifier le code. Téléchargez les Fichiers projet et [publiez-les sur votre propre application de fonction Azure à partir de Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+Pour faciliter la sauvegarde de vos données, nous avons [testé et publié une fonction](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) que vous pouvez utiliser sans modifier le code. Téléchargez les fichiers projet et [publiez-les sur votre propre application de fonction à partir de Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
 > N’apportez aucune modification aux variables d’environnement dans le code que vous avez téléchargé. Vous allez créer les paramètres d’application requis dans la section suivante.

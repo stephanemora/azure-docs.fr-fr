@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: adfb46894e769a23a2ac48bdb4ac3e432d9cebce
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ea7d44cc704e6937a0d3f396b8eea3f298a02931
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139054"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772312"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Créer des certificats de démonstration pour tester les fonctionnalités de l’appareil IoT Edge
 
@@ -159,7 +159,7 @@ Avant de suivre les étapes de cette section, suivez les étapes décrites dans 
 
 1. Accédez au répertoire de travail où vous avez placé les scripts de génération de certificat.
 
-1. Créez le certificat d’autorité de certification racine et faites-le signer un certificat intermédiaire. Les certificats sont tous placés dans le répertoire de travail.
+1. Créez le certificat d’autorité de certification racine et faites-le signer un certificat intermédiaire. Les certificats sont tous placés dans le répertoire de travail. 
 
    ```powershell
    New-CACertsCertChain rsa
@@ -168,6 +168,8 @@ Avant de suivre les étapes de cette section, suivez les étapes décrites dans 
    Cette commande de script crée plusieurs fichiers de certificat et de clé, mais lorsque les articles demandent le **certificat d’autorité de certification racine**, utilisez le fichier suivant :
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
+   
+   Ce certificat est nécessaire pour pouvoir créer plus de certificats pour vos appareils IoT Edge et appareil de nœud terminal, comme décrit dans les sections suivantes.
 
 ### <a name="linux"></a>Linux
 
@@ -206,6 +208,9 @@ La nouvelle commande d’identité d’appareil crée plusieurs fichiers de cert
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
+
+Pour l’inscription individuelle de l’appareil IoT Edge dans le DPS, utilisez `iot-edge-device-identity-<name>.cert.pem`. Pour inscrire l’appareil IOT Edge à IoT Hub, utilisez les certificats `iot-edge-device-identity-<name>-full-chain.cert.pem` et `iot-edge-device-identity-<name>.key.pem`. Pour plus d’informations, consultez [Créer et provisionner un appareil IoT Edge à l’aide de certificats X.509](how-to-auto-provision-x509-certs.md).
+
 
 ### <a name="linux"></a>Linux
 
@@ -361,7 +366,7 @@ Lorsque vous authentifiez un appareil IoT avec des certificats auto-signés, vou
 Ensuite, vous effectuez une vérification pour prouver à IoT Hub que vous êtes propriétaire du certificat d’autorité de certification racine.
 Enfin, vous utilisez le même certificat d’autorité de certification racine pour créer des certificats d’appareil à placer sur votre appareil IoT afin qu’il puisse s’authentifier avec IoT Hub.
 
-Les certificats de cette section concernent la procédure [Configurer la sécurité X.509 dans votre Azure IoT Hub](../iot-hub/tutorial-x509-scripts.md).
+Les certificats de cette section concernent les étapes de la série de didacticiels sur le certificat IoT Hub X. 509. Consultez [Tutoriel : Comprendre le chiffrement à clé publique et l’infrastructure à clé publique X.509](../iot-hub/tutorial-x509-introduction.md) pour la présentation de cette série.
 
 #### <a name="windows"></a>Windows
 

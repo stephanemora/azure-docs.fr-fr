@@ -10,12 +10,12 @@ author: mx-iao
 ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: how-to
-ms.openlocfilehash: 5a641f349b070f3b4cb285b3d0007baa54219683
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 543b99013d31f5a80150bb7daa52d9a9e2992811
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884423"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746996"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Entraîner des modèles Keras à grande échelle avec Azure Machine Learning
 
@@ -36,7 +36,7 @@ Exécutez ce code sur l’un de ces environnements :
 
 - Instance de calcul Azure Machine Learning : pas de téléchargement ni d’installation nécessaire
 
-     - Suivre le [Tutoriel : Configurer l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur de notebook dédié préchargé avec le kit SDK et l’exemple de dépôt.
+     - Suivez le guide de démarrage rapide [Prise en main d’Azure Machine Learning](quickstart-create-resources.md) pour créer un serveur de notebook dédié sur lequel sont préchargés le SDK et l’exemple de dépôt.
     - Dans le dossier des exemples du serveur de notebook, recherchez un notebook terminé et développé en accédant à ce répertoire : le dossier **how-to-use-azureml > ml-frameworks > keras > train-hyperparameter-tune-deploy-with-keras**.
 
  - Votre propre serveur de notebooks Jupyter

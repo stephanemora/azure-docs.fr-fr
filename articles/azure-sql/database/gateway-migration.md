@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 07611a3620a2fd8efe0da075b03b55a5be3a5be9
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 6561de6c8483c5bcdb02ff4b6aa7732fc508164e
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505375"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684754"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,6 +29,14 @@ Les informations les plus récentes seront conservées dans la table [Adresses I
 ## <a name="status-updates"></a>Mises à jour d’état
 
 # <a name="in-progress"></a>[En cours](#tab/in-progress-ip)
+## <a name="june-2021"></a>Juin 2021
+De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
+- Royaume-Uni Ouest : 51.140.208.96, 51.140.208.97
+- Corée Centre : 20.44.24.32, 20.194.64.33
+- Japon Est : 13.78.104.32
+
+Cette passerelle SQL doit commencer à accepter le trafic client le 1er juin 2021.
+
 ## <a name="may-2021"></a>Mai 2021
 De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
 - Royaume-Uni Sud :  51.140.144.36, 51.105.72.32  

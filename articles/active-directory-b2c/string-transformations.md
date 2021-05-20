@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85574b7d33af6d9abfe25f5af4d811255f08ce4b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 176c36ee5c3addf655503e3a371767764e0d9968
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452235"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738050"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -34,7 +34,7 @@ Compare deux revendications et lève une exception si elles ne sont pas égales 
 | InputClaim | inputClaim2 | string | Type de la deuxième revendication qui doit être comparée. |
 | InputParameter | stringComparison | string | comparaison de chaînes, une des valeurs suivantes : Ordinal, OrdinalIgnoreCase. |
 
-La transformation de revendication **AssertStringClaimsAreEqual** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md) ou un [DisplayConrtol](display-controls.md). Les métadonnées `UserMessageIfClaimsTransformationStringsAreNotEqual` d’un profil technique autodéclaré contrôlent le message d’erreur présenté à l’utilisateur. Les messages d’erreur peuvent être [localisés](localization-string-ids.md#claims-transformations-error-messages).
+La transformation de revendication **AssertStringClaimsAreEqual** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md) ou un [DisplayControl](display-controls.md). Les métadonnées `UserMessageIfClaimsTransformationStringsAreNotEqual` d’un profil technique autodéclaré contrôlent le message d’erreur présenté à l’utilisateur. Les messages d’erreur peuvent être [localisés](localization-string-ids.md#claims-transformations-error-messages).
 
 
 ![Exécution de AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)

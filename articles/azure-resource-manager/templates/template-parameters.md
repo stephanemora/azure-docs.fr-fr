@@ -2,13 +2,13 @@
 title: Paramètres dans les modèles
 description: Explique comment définir des paramètres dans un modèle Azure Resource Manager (modèle ARM) et un fichier Bicep.
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: a8608e4733960d7f5ba7e5f548c47f16a2b244bb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 05/05/2021
+ms.openlocfilehash: c42a1a178785351bb1148c047737f62baebefa30
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102123392"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736862"
 ---
 # <a name="parameters-in-arm-templates"></a>Paramètres dans les modèles ARM
 
@@ -23,6 +23,8 @@ Chaque paramètre doit être défini sur l’un des [types de données](data-typ
 ## <a name="minimal-declaration"></a>Déclaration minimale
 
 Au minimum, chaque paramètre a besoin d’un nom et d’un type. Dans le langage Bicep, un paramètre ne peut pas avoir le même nom qu’une variable, une ressource, une sortie ou un autre paramètre dans la même étendue.
+
+Lorsque vous déployez un modèle via le portail Azure, les noms de paramètres en casse mixte sont convertis en noms séparés par des espaces. Par exemple, *demoString* dans l’exemple suivant est représenté sous la forme *Demo String*. Pour plus d’informations, consultez [Utiliser un bouton de déploiement pour déployer des modèles à partir du référentiel GitHub](./deploy-to-azure-button.md) et [Déployer des ressources avec des modèles ARM et le portail Azure](./deploy-portal.md).
 
 # <a name="json"></a>[JSON](#tab/json)
 

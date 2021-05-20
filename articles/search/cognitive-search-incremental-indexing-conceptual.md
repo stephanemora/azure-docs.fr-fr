@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: 2448609b1184c8e91947bffbd13cfea8e3fe5d52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d17577d7e138c4c04b7f386cb166e765c0e2e10c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100390859"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733100"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Enrichissement incrémentiel et mise en cache dans Recherche cognitive Azure
 
@@ -40,6 +40,9 @@ Pour plus d’informations sur les étapes et les considérations à prendre en 
 L’enrichissement incrémentiel ajoute un cache au pipeline d’enrichissement. Cet indexeur met en cache les résultats du craquage de document, ainsi que les résultats de chaque compétence pour chaque document. Quand un ensemble de compétences est mis à jour, seules les compétences ayant changé ou situées en aval sont réexécutées. Les résultats mis à jour sont écrits dans le cache. Le document est mis à jour dans l’index ou dans la base de connaissances.
 
 Physiquement, le cache est stocké dans un conteneur d’objets blob de votre compte de stockage Azure. Le cache utilise également le stockage table pour un enregistrement interne des mises à jour de traitement. Tous les index d’un service de recherche peuvent partager le même compte de stockage pour le cache de l’indexeur. Chaque indexeur se voir affecté un identificateur de cache unique et non modifiable au conteneur qu’il utilise.
+
+> [!NOTE]
+> Le cache de l’indexeur requiert un compte de stockage à usage général. Pour plus d’informations, consultez les [différents types de comptes de stockage](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 
 ## <a name="cache-configuration"></a>Configuration du cache
 

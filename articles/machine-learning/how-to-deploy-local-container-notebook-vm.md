@@ -11,12 +11,12 @@ ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 04/22/2021
-ms.openlocfilehash: 36a8ee83d2ff4b8673042d7764e83ab14ac2f016
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: f9c52307e4d743e32f8771998e2dfaacc6643a35
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107946220"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739004"
 ---
 # <a name="deploy-a-model-locally"></a>Déployer un modèle localement
 
@@ -30,7 +30,7 @@ Découvrez comment utiliser Azure Machine Learning pour déployer un modèle en 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un espace de travail Azure Machine Learning avec une instance de calcul en cours d’exécution. Pour plus d’informations, consultez [Configuration de l’environnement et de l’espace de travail](tutorial-1st-experiment-sdk-setup.md).
+- Un espace de travail Azure Machine Learning avec une instance de calcul en cours d’exécution. Pour plus d’informations, consultez [Démarrage rapide : Bien démarrer avec Azure Machine Learning](quickstart-create-resources.md).
 
 ## <a name="deploy-to-the-compute-instances"></a>Déploiement sur des instances de calcul
 

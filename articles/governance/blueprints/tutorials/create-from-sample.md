@@ -3,12 +3,12 @@ title: 'Tutoriel : Exemple de blueprint dans un nouvel environnement'
 description: Dans ce tutoriel, vous utilisez un exemple de blueprint pour créer une définition de blueprint qui définit jusqu’à deux groupes de ressources et configure une attribution de rôle pour chacun.
 ms.date: 05/01/2021
 ms.topic: tutorial
-ms.openlocfilehash: 50871c14ed8357e46e49a599065f878253c860df
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 809f29e603d82467a5188a94d4517b48fa825a37
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324434"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733910"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutoriel : Créer un nouvel environnement à partir d’un exemple de blueprint
 
@@ -122,7 +122,7 @@ L’affectation du blueprint crée et suit les artefacts définis dans la défin
 
 1. Sélectionnez la page **Blueprints affectés** à gauche. Utilisez les filtres pour trouver l’affectation du blueprint _Assignment-two-rgs-with-role-assignments_, puis sélectionnez celle-ci.
 
-   Cette page répertorie l’affectation réussie, les ressources créées ainsi que l’état de verrouillage de blueprint qui leur est associé. Si l’affectation est mise à jour, le menu déroulant **Opération d’affectation** affiche des détails sur le déploiement de chaque version de définition. Chaque ressource répertoriée qui a été créée peut être sélectionnée, ce qui ouvre la page de propriétés associée.
+   Cette page répertorie l’affectation réussie, les ressources créées ainsi que l’état de verrouillage de blueprint qui leur est associé. Si l’affectation est mise à jour, la liste déroulante **Opération d’affectation** affiche des détails sur le déploiement de chaque version de définition. Chaque ressource répertoriée qui a été créée peut être sélectionnée, ce qui ouvre la page de propriétés associée.
 
 1. Sélectionnez le groupe de ressources **ProductionRG**.
 

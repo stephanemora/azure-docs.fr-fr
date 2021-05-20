@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2021
+ms.date: 05/03/2021
 ms.author: b-juche
-ms.openlocfilehash: d1cc59fe2eb3a2938dc776fd62e6645aec62bb1f
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 08e46f056a63fe82c8a41afb9934963f55e13c36
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291792"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742514"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -325,6 +325,10 @@ La configuration requise pour la migration de données en local vers Azure NetAp
 - Validez la connectivité réseau entre la source et l’adresse IP du volume Azure NetApp Files cible. Le transfert de données entre la machine locale et le service Azure NetApp Files est pris en charge via ExpressRoute.
 - Créez le volume Azure NetApp Files cible.
 - Transférez les données de la source vers le volume cible à l’aide de votre outil de copie de fichiers par défaut.
+
+### <a name="where-does-azure-netapp-files-store-customer-data"></a>Où Azure NetApp Files stocke-t-il les données client ?   
+
+Par défaut, vos données restent dans la région dans laquelle vous déployez vos volumes Azure NetApp Files. Toutefois, vous pouvez choisir de répliquer vos données volume par volume vers les régions de destination disponibles à l’aide de la [réplication entre les régions](cross-region-replication-introduction.md).
 
 ### <a name="how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region"></a>Comment créer une copie d’un volume Azure NetApp Files dans une autre région Azure ?
     

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: 1e232651d273f1e32beef152b2fa3c062da38b06
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 2df332450c996c1a7b1b9b5e35b06d4fb226ed93
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291869"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108794463"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modèle de coût pour Azure NetApp Files 
 
@@ -58,6 +58,7 @@ Le diagramme suivant illustre ces concepts.
 * [Limites des ressources pour Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Modèle de coût pour la réplication inter-région](cross-region-replication-introduction.md#cost-model-for-cross-region-replication)
 * [Présentation du quota de volume](volume-quota-introduction.md)
-* [Monitoring de la capacité d’un volume](monitor-volume-capacity.md)
-* [Redimensionnement du pool de capacité d’un volume](azure-netapp-files-resize-capacity-pools-or-volumes.md)
+* [Surveiller la capacité d'un volume](monitor-volume-capacity.md)
+* [Redimensionner le pool de capacité ou un volume](azure-netapp-files-resize-capacity-pools-or-volumes.md)
+* [Gérer la facturation en utilisant des étiquettes](manage-billing-tags.md)
 * [Questions fréquentes (FAQ) sur la gestion de la capacité](azure-netapp-files-faqs.md#capacity-management-faqs)

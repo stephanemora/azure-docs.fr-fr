@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 03/19/2021
-ms.openlocfilehash: b2e5fdec732b823a42492af03b1cde705814b924
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d39cdc7430e41d788c29b72b129ee7939ac8b611
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136532"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736412"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-database"></a>Guide de migration : de SQL Server vers SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -36,12 +36,13 @@ Pour plus d’informations sur la migration, consultez la [vue d’ensemble de l
 
 ## <a name="prerequisites"></a>Prérequis 
 
-Pour la [migration de votre serveur SQL Server](https://azure.microsoft.com/en-us/migration/sql-server/) vers Azure SQL Database, vous devez disposer des prérequis suivants : 
+Pour la [migration de votre serveur SQL Server](https://azure.microsoft.com/en-us/migration/sql-server/) vers Azure SQL Database, veillez à avoir : 
 
-- Choix d’une [méthode de migration](sql-server-to-sql-database-overview.md#compare-migration-options) et des outils correspondants.
-- [Outil DMA (Assistant Migration de données)](https://www.microsoft.com/download/details.aspx?id=53595) installé sur une machine qui peut se connecter à votre serveur SQL Server source.
-- une instance cible d’[Azure SQL Database](../../database/single-database-create-quickstart.md) ; 
-- Connectivité et autorisations nécessaires pour accéder à la fois à la source et à la cible. 
+- Choisi une [méthode de migration](sql-server-to-sql-database-overview.md#compare-migration-options) et des outils correspondants.
+- Installé l’[Assistant Migration de données (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) sur une machine qui peut se connecter à votre serveur SQL Server source.
+- Créé une instance [Azure SQL Database](../../database/single-database-create-quickstart.md) cible. 
+- Configuré la connectivité et les autorisations nécessaires pour accéder à la fois à la source et à la cible. 
+- Examiné les fonctionnalités du moteur de base de données [disponibles dans Azure SQL Database](../../database/features-comparison.md). 
 
 
 

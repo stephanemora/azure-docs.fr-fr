@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 72fd005ce44d116f86d9a0b4c0d1932e2e4facfb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5fc09bd554bc61f38a3b208de808a621cbfda80
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102425768"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748022"
 ---
 # <a name="specify-a-face-detection-model"></a>Spécifier un modèle de détection des visages
 
@@ -102,7 +102,7 @@ Les différents modèles de détection sont optimisés pour différentes tâches
 |---------|---------|---|
 |Choix par défaut pour toutes les opérations de détection de visage. | Publié en mai 2019 et disponible si vous le souhaitez dans toutes les opérations de détection de visage. |  Publié en février 2021 et disponible si vous le souhaitez dans toutes les opérations de détection de visage.
 |Non optimisé pour les visages petits, pris de côté ou flous.  | Amélioration de la précision pour les visages petits, pris de côté ou flous. | Amélioration de la précision, notamment sur les visages plus petits (64x64 pixels) et les orientations de visages tournés.
-|Retourne les principaux attributs du visage (posture de la tête, âge, émotion, etc.) s’ils sont spécifiés dans l’appel de détection. |  Ne retourne pas les attributs du visage.     | Retourne les attributs « faceMask » et « noseAndMouthCovered » s’ils sont spécifiés dans l’appel de détection.
+|Retourne les principaux attributs du visage (posture de la tête, âge, émotion, etc.) s’ils sont spécifiés dans l’appel de détection. |  Ne retourne pas les attributs du visage.     | Retourne l’attribut « Mask » s’il est spécifié dans l’appel de détection.
 |Retourne les points de repère du visage s’ils sont spécifiés dans l’appel de détection.   | Ne retourne pas les points de repère du visage.  | Ne retourne pas les points de repère du visage.
 
 La meilleure façon de comparer les performances des modèles de détection consiste à les utiliser sur un exemple de jeu de données. Nous vous recommandons d’appeler l’API [Visage - Détecter] sur un grand nombre d’images, en particulier les images avec de nombreux visages ou des visages qui sont difficiles à voir, avec chaque modèle de détection. Prêtez attention au nombre de visages que chaque modèle retourne.

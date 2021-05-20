@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/04/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90fca4342b1fe04adef97a1a4c1c2166ca7ec51e
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 6e33b32b04fde4fb42c37dc379911369bee19835
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532488"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108794409"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -92,10 +92,14 @@ Utilisez ce paramètre pour définir le pack d’IA que vous souhaitez appliquer
 
     La valeur `DefaultWithNoiseReduction` est maintenant mappée à la présélection par défaut (déconseillée).
 - `BasicAudio` — Permet d’indexer et d’extraire des insights à l’aide de l’audio uniquement (la vidéo est ignorée), y compris uniquement les fonctionnalités audio de base (transcription, traduction, format de légendes et de sous-titres).
- - `AdvancedAudio` — Permet d’indexer et d’extraire des insights en utilisant uniquement l’audio (la vidéo est ignorée), y compris les fonctionnalités audio avancées (détection des événements audio) en plus de l’analyse audio standard.
+- `AdvancedAudio` — Permet d’indexer et d’extraire des insights en utilisant uniquement l’audio (la vidéo est ignorée), y compris les fonctionnalités audio avancées (détection des événements audio) en plus de l’analyse audio standard.
+- `AdvancedVideo` – Permet d’indexer et d’extraire des insights en utilisant uniquement la vidéo (l’audio est ignoré), y compris les fonctionnalités vidéo avancées (Traçage des personnes observées) en plus de l’analyse vidéo standard.
+- `AdvancedVideoAndAudio` – Permet d’indexer et d’extraire des insights en utilisant à la fois l’audio avancé et l’analyse vidéo avancée. 
 
 > [!NOTE]
-> Video Indexer prend en charge jusqu’à deux pistes audio. Si le fichier contient plus de pistes audio, elles sont traitées comme une seule piste.<br/>
+> Parmi les présélections avancées (listées ci-dessus) figurent des modèles en préversion publique. La mise en disponibilité générale de ces modèles pourrait avoir des répercussions sur le tarif. 
+
+Video Indexer prend en charge jusqu’à deux pistes audio. Si le fichier contient plus de pistes audio, elles sont traitées comme une seule piste.<br/>
 Si vous souhaitez indexer les pistes séparément, vous devez extraire le fichier audio approprié et l’indexer comme `AudioOnly`.
 
 Le prix dépend de l’option d’indexation sélectionnée. Pour plus d'informations, consultez la page [Tarification Media Services](https://azure.microsoft.com/pricing/details/media-services/).

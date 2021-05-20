@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 2188aaea0cf5a4616291d3fdad839aefb2dbc413
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 85aad5435add7ca32de4cf6fcb91944431ab5506
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280698"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685168"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gérer et rechercher des données Azure Blob à l’aide de balises d’index de blob (préversion)
 
@@ -114,6 +114,7 @@ Les critères suivants s’appliquent au filtrage de l’index d’objet blob :
 - Les filtres sont appliqués avec un tri lexicographique sur les chaînes.
 - Des opérations de comparaison dans un même sens sur la même clé ne sont pas valides (p. ex., `"Rank" > '10' AND "Rank" >= '15'`).
 - Lorsque vous utilisez REST pour créer une expression de filtre, les caractères doivent être encodés sous forme d’URI.
+- Les requêtes d’étiquette sont optimisées pour la correspondance d’égalité avec une seule étiquette (par exemple, StoreID = "100").  Les requêtes de plage utilisant une seule étiquette impliquant >, >=, <, <= sont également efficaces. Toute requête utilisant AND avec plusieurs étiquettes ne sera pas aussi efficace.  Par exemple, Coût > "01" AND Coût <= "100" est efficace. Coût > "01 AND StoreID = "2" n’est pas aussi efficace.
 
 Le tableau ci-dessous montre tous les opérateurs valides pour `Find Blobs by Tags` :
 
@@ -281,7 +282,7 @@ Le tableau suivant récapitule les différences entre les métadonnées et les �
 
 ## <a name="pricing"></a>Tarifs
 
-Les tarifs d’index de blob sont en préversion publique et sujets à modification en ce qui concerne la disponibilité générale. Vous êtes facturé pour le nombre moyen mensuel de balises d’index dans un compte de stockage. Aucun coût ne s’applique au moteur d’indexation. Les demandes adressées à `Set Blob Tags`, `Get Blob Tags` et `Find Blobs by Tags` sont facturées en fonction de leurs types d’opérations respectifs. Consultez [Tarification d’objet blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/) pour en savoir plus.
+Les tarifs d’index de blob sont en préversion publique et sujets à modification en ce qui concerne la disponibilité générale. Vous êtes facturé pour le nombre moyen mensuel de balises d’index dans un compte de stockage. Aucun coût ne s’applique au moteur d’indexation. Les demandes pour Définir des étiquettes de blob, Obtenir des étiquettes de blob et Rechercher des étiquettes de blob sont facturées aux tarifs de transaction respectifs actuels. Notez que le nombre de transactions de liste consommées lors de la réalisation d’une transaction Rechercher des blobs par étiquette est égal au nombre de clauses dans la demande. Par exemple, la requête (StoreID = 100) est une transaction de liste.  La requête (StoreID = 100 AND SKU = 10010) est deux transactions de liste. Consultez [Tarification d’objet blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/) pour en savoir plus.
 
 ## <a name="regional-availability-and-storage-account-support"></a>Disponibilité régionale et prise en charge des comptes de stockage
 

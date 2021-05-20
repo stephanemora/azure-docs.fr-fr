@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 4e88ad58c7baba1c66c30df3f4effdbf11371c18
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2703e5f92ad0756ece8088c4948170ea13fa0e06
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045329"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683440"
 ---
 # <a name="how-to-connect-devices-through-an-iot-edge-transparent-gateway"></a>Guide pratique pour connecter des appareils via une passerelle transparente IoT Edge
 
@@ -25,11 +25,11 @@ Cet article utilise des machines virtuelles pour héberger l’appareil en aval 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer les étapes de ce tutoriel, vous avez besoin d’un compte Azure actif.
+Pour accomplir les étapes décrites dans cet article, vous avez besoin de ce qui suit :
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+- Un abonnement Azure actif. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Suivez le guide de démarrage rapide [Créer une application Azure IoT Central](./quick-deploy-iot-central.md) pour créer une application IoT Central avec le modèle **Application personnalisée > Application personnalisée**.
+- [Application IoT Central créée](howto-create-iot-central-application.md) à partir du modèle **Application personnalisée**. Pour plus d’informations, consultez [Créer une application IoT Central](howto-create-iot-central-application.md).
 
 Pour suivre les étapes de cet article, téléchargez les fichiers suivants sur votre ordinateur :
 
@@ -155,7 +155,7 @@ Pour générer les certificats de démonstration et les installer sur votre appa
 
     Pour en savoir plus sur ces certificats de démonstration, consultez [Créer des certificats de démonstration pour tester les fonctionnalités de l’appareil IoT Edge](../../iot-edge/how-to-create-test-certificates.md).
 
-1. Ouvrez le fichier *config.yaml* dans un éditeur de texte. Exemple :
+1. Ouvrez le fichier *config.yaml* dans un éditeur de texte. Par exemple :
 
     ```bash
     sudo nano /etc/iotedge/config.yaml

@@ -1,5 +1,5 @@
 ---
-title: Fournisseur de solutions Cloud - Place de marché commerciale Microsoft
+title: Fournisseur de solutions Cloud – Marketplace commercial de Microsoft – Azure
 description: Découvrez comment vendre vos offres via le réseau de partenaires du programme des fournisseurs de solutions Microsoft Cloud (CSP) de la place de marché commerciale.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: c906d37a01f0fca2d4114e8ba07078fc46eec88b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 64ad2c4311ade34314edde6e841e747745378e8c
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93131171"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109716255"
 ---
 # <a name="cloud-solution-provider-program"></a>Programme des fournisseurs de solution Cloud
 
@@ -34,7 +34,7 @@ Les offres suivantes peuvent être choisies pour être vendues par des partenair
 
 ## <a name="how-to-configure-an-offer"></a>Configuration d’une offre
 
-Configurez le paramètre de consentement au programme CSP lorsque vous créez l’offre dans l’Espace partenaires. [En savoir plus sur l’évolution de l’expérience pour les éditeurs](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
+Configurez le paramètre de consentement au programme CSP lorsque vous créez l’offre dans l’Espace partenaires.
 
 ### <a name="partner-center-opt-in"></a>Abonnement à l’Espace partenaires
 

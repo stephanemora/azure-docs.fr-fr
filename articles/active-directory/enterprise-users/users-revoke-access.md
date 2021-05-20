@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 03/29/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08f6e636be885fa2e647a61a6ca1a3d35281a9eb
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 0708548e1ece88cbf575301ee779fd5e5000dc5d
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226585"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683511"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Révoquer les accès utilisateur dans Azure Active Directory
 
@@ -50,23 +50,24 @@ La plupart des applications basées sur un navigateur utilisent des jetons de se
 
 - Les stratégies d’autorisation d’Azure AD sont réévaluées aussi souvent que l’application renvoie l’utilisateur vers Azure AD. La réévaluation se produit généralement de manière transparente pour l’utilisateur, à une fréquence variable selon la configuration de l’application. Il est possible que l’application ne renvoie jamais l’utilisateur vers Azure AD tant que le jeton de session est valide.
 
-- Pour qu’un jeton de session puisse être révoqué, l’application doit révoquer l’accès sur la base de ses propres stratégies d’autorisation. Azure AD ne peut pas directement révoquer un jeton de session émis par une application.  
+- Pour qu’un jeton de session puisse être révoqué, l’application doit révoquer l’accès sur la base de ses propres stratégies d’autorisation. Azure AD ne peut pas directement révoquer un jeton de session émis par une application.  
 
 ## <a name="revoke-access-for-a-user-in-the-hybrid-environment"></a>Révoquer l’accès d’un utilisateur dans l’environnement hybride
 
-Dans un environnement hybride où un Active Directory local est synchronisé avec Azure Active Directory, Microsoft recommande aux administrateurs informatiques de suivre les procédures ci-après. Si vous avez un **environnement uniquement Azure AD**, vous pouvez ignorer la section [Environnement Active Directory local](https://docs.microsoft.com/azure/active-directory/enterprise-users/users-revoke-access#on-premises-active-directory-environment).
+Dans un environnement hybride où un Active Directory local est synchronisé avec Azure Active Directory, Microsoft recommande aux administrateurs informatiques de suivre les procédures ci-après. Si vous avez un **environnement uniquement Azure AD**, passez à la section [Environnement Active Directory local](https://docs.microsoft.com/azure/active-directory/enterprise-users/users-revoke-access#azure-active-directory-environment).
+
 
 ### <a name="on-premises-active-directory-environment"></a>Environnement Active Directory local
 
 En tant qu’administrateur dans l’environnement Active Directory, connectez-vous à votre réseau local, ouvrez PowerShell et effectuez les étapes suivantes :
 
-1. Désactivez l’utilisateur dans Active Directory. Consultez [Disable-ADAccount](/powershell/module/activedirectory/disable-adaccount?view=win10-ps).
+1. Désactivez l’utilisateur dans Active Directory. Consultez [Disable-ADAccount](/powershell/module/activedirectory/disable-adaccount).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-2. Réinitialisez le mot de passe de l’utilisateur à deux reprises dans Active Directory. Consultez [Set-ADAccountPassword](/powershell/module/activedirectory/set-adaccountpassword?view=win10-ps).
+2. Réinitialisez le mot de passe de l’utilisateur à deux reprises dans Active Directory. Consultez [Set-ADAccountPassword](/powershell/module/activedirectory/set-adaccountpassword).
 
     > [!NOTE]
     > Changer deux fois de suite le mot de passe d’un utilisateur contribue à atténuer le risque d’attaque de type pass-the-hash, surtout quand des délais sont observés durant la réplication du mot de passe local. Si vous avez l’assurance que ce compte n’est pas compromis, vous pouvez vous contenter de réinitialiser le mot de passe une seule fois.
@@ -83,19 +84,19 @@ En tant qu’administrateur dans l’environnement Active Directory, connectez-v
 
 En tant qu’administrateur dans Azure Active Directory, ouvrez PowerShell, exécutez ``Connect-AzureAD`` et effectuez les actions suivantes :
 
-1. Désactivez l’utilisateur dans Azure AD. Consultez [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Désactivez l’utilisateur dans Azure AD. Consultez [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
 
-2. Révoquez les jetons d’actualisation Azure AD de l’utilisateur. Consultez [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+2. Révoquez les jetons d’actualisation Azure AD de l’utilisateur. Consultez [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-3. Désactivez les appareils de l’utilisateur. Consultez [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+3. Désactivez les appareils de l’utilisateur. Consultez [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
@@ -114,7 +115,7 @@ Une fois que les administrateurs ont effectué les étapes ci-dessus, l’utilis
 
   - Utilisez [l’approvisionnement d’applications SaaS dans Azure AD](../app-provisioning/user-provisioning.md). L’approvisionnement d’applications SaaS dans Azure AD s’exécute généralement automatiquement toutes les 20 à 40 minutes. [Configurez l’approvisionnement d’Azure AD](../saas-apps/tutorial-list.md) pour supprimer les privilèges d’accès ou désactiver les utilisateurs désactivés dans les applications.
   
-  - Pour les applications qui n’utilisent pas l’approvisionnement d’applications SaaS dans Azure AD, utilisez [Microsoft Identity Manager (MIM)](/microsoft-identity-manager/mim-how-provision-users-adds) ou une solution tierce pour automatiser la suppression des privilèges d’accès des utilisateurs.  
+  - Pour les applications qui n’utilisent pas le provisionnement d’applications SaaS dans Azure AD, utilisez [Microsoft Identity Manager (MIM)](/microsoft-identity-manager/mim-how-provision-users-adds) ou une solution tierce pour automatiser la suppression des privilèges d’accès des utilisateurs.  
   - Identifiez les applications qui nécessitent une suppression manuelle des privilèges d’accès et développez un processus à cet effet. Veillez à ce que les administrateurs puissent exécuter rapidement les tâches manuelles requises pour supprimer les privilèges d’accès de l’utilisateur de ces applications, le cas échéant.
   
 - [Gérez vos appareils et applications avec Microsoft Intune](/mem/intune/remote-actions/device-management). Les [appareils gérés par Intune peuvent être restaurés aux paramètres d’usine](/mem/intune/remote-actions/devices-wipe). Si l’appareil est non géré, vous pouvez [effacer les données d’entreprise des applications gérées](/mem/intune/apps/apps-selective-wipe). Ces processus sont efficaces pour supprimer les données potentiellement sensibles des appareils des utilisateurs finaux. Toutefois, pour que l’un ou l’autre processus soit déclenché, l’appareil doit être connecté à Internet. Si l’appareil est hors connexion, il aura toujours accès à toutes les données stockées localement.
@@ -130,4 +131,4 @@ Une fois que les administrateurs ont effectué les étapes ci-dessus, l’utilis
 
 - [Pratiques de sécurisation des accès pour les administrateurs d’Azure AD](../roles/security-planning.md)
 - [Ajouter ou mettre à jour les informations de profil utilisateur](../fundamentals/active-directory-users-profile-azure-portal.md)
-- [Ôter ou supprimer un ancien employé](https://docs.microsoft.com/microsoft-365/admin/add-users/remove-former-employee?view=o365-worldwide)
+- [Ôter ou supprimer un ancien employé](/microsoft-365/admin/add-users/remove-former-employee)

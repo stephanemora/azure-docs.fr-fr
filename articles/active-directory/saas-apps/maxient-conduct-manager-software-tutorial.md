@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 4b57b3fbb338774eb8d66fc4d3c0c817e19aff4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2790ae787831fb5dfa81656d32473c98ac4bb4bd
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92458198"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739940"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Maxient Conduct Manager Software
 
@@ -64,7 +64,7 @@ Configurer et tester l’authentification unique Azure AD avec Maxient Conduct 
 Pour configurer et tester l’authentification unique Azure AD avec Maxient Conduct Manager Software, suivez les indications des modules ci-après :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs de s’authentifier afin d’utiliser Maxient Conduct Manager Software
-    1. **[Affecter tous les utilisateurs pour l’utilisation de Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software)** afin de permettre à tous les membres de votre établissement de s’authentifier.
+   - **[Affecter la valeur Non à Affectation de l’utilisateur obligatoire](#set-user-assignment-required-to-no)** pour permettre à tous les utilisateurs de votre établissement de s’authentifier.
 1. **[Tester la configuration d’Azure AD avec Maxient](#test-with-maxient)** pour vérifier si la configuration fonctionne et si les attributs corrects sont publiés.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -90,21 +90,15 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
-### <a name="assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software"></a>Affecter tous les utilisateurs pour qu’ils puissent s’authentifier auprès de Maxient Conduct Manager Software
+<a name="set-user-assignment-required-to-no"></a>
+    
+### <a name="set-user-assignment-required-to-no"></a>Affecter la valeur Non à Affectation de l’utilisateur obligatoire
 
-Dans cette section, vous allez accorder l’accès pour que tous les comptes s’authentifient à l’aide du système Azure auprès de Maxient Conduct Manager Software.  Il est important de noter que cette étape est **OBLIGATOIRE** pour que Maxient fonctionne correctement.  Maxient utilise votre système Azure AD pour *authentifier* les utilisateurs. L’*autorisation* des utilisateurs est effectué dans le système Maxient pour la fonction particulière qu’ils essaient d’exécuter. Maxient n’utilise pas les attributs de votre annuaire pour prendre ces décisions.
+Il est important de noter que cette étape est **OBLIGATOIRE** pour que Maxient fonctionne correctement.  Maxient utilise votre système Azure AD pour *authentifier* les utilisateurs. L’*autorisation* des utilisateurs est effectué dans le système Maxient pour la fonction particulière qu’ils essaient d’exécuter. Maxient n’utilise pas les attributs de votre annuaire pour prendre ces décisions.
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Maxient Conduct Manager Software**.
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
-1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez tous les utilisateurs (ou les groupes appropriés) et **affectez**-les pour qu’ils puissent s’authentifier auprès de Maxient.
+1. Dans la page de vue d’ensemble de l’application, affectez la valeur Non à Affectation de l’utilisateur obligatoire.
 
 ## <a name="test-with-maxient"></a>Tester avec Maxient 
 

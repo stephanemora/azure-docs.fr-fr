@@ -7,13 +7,13 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: e139c15ef6de00376a4e1a88000d263c3486994b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/11/2021
+ms.openlocfilehash: 16808be9b4a0c3a03a2a56a5255809b585aa404f
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92101373"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715791"
 ---
 # <a name="indexer-access-to-azure-storage-using-the-trusted-service-exception-azure-cognitive-search"></a>Accès d’indexeur au service Stockage Azure à l’aide de l’exception de service approuvé (Recherche cognitive Azure)
 
@@ -25,6 +25,9 @@ Les indexeurs d’un service Recherche cognitive Azure qui accèdent aux donnée
 ## <a name="step-1-configure-a-connection-using-a-managed-identity"></a>Étape 1 : Configurer une connexion à l’aide d’une identité managée
 
 Suivez les instructions de la page [Configurer une connexion à un compte Stockage Azure à l’aide d’une identité managée](search-howto-managed-identities-storage.md). Lorsque vous avez terminé, vous aurez inscrit votre service de recherche auprès de Azure Active Directory en tant que service approuvé, et vous aurez accordé des autorisations dans le stockage Azure qui donne à l’identité de recherche des droits spécifiques pour accéder aux données ou aux informations.
+
+> [!NOTE]
+> Les instructions vous guident dans une approche utilisant le portail pour configurer Recherche cognitive en tant que service approuvé. Pour réaliser cette opération dans le code, vous pouvez utiliser l’[API REST](/rest/api/searchmanagement/services/createorupdate), [Azure PowerShell](search-manage-powershell.md#create-a-service-with-a-system-assigned-managed-identity) ou [Azure CLI](search-manage-azure-cli.md#create-a-service-with-a-system-assigned-managed-identity).
 
 ## <a name="step-2-allow-trusted-microsoft-services-to-access-the-storage-account"></a>Étape 2 : Autoriser les services Microsoft approuvés à accéder au compte de stockage
 

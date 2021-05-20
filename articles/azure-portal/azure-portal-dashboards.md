@@ -3,13 +3,13 @@ title: Créer un tableau de bord dans le portail Azure
 description: Cet article décrit comment créer et personnaliser un tableau de bord dans le portail Azure.
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
-ms.date: 04/15/2021
-ms.openlocfilehash: 0666a9f8ca9df2fa44a7eaa4045c9b5e9a724ff5
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.date: 05/06/2021
+ms.openlocfilehash: 668aead7b448cd462fab80003e498e956a6484d2
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726079"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108794887"
 ---
 # <a name="create-a-dashboard-in-the-azure-portal"></a>Créer un tableau de bord dans le portail Azure
 
@@ -42,7 +42,7 @@ Cet exemple montre comment créer un nouveau tableau de bord privé avec un nom 
 
     :::image type="content" source="media/azure-portal-dashboards/dashboard-name.png" alt-text="Capture d’écran d’une grille vide avec la Galerie de vignettes.":::
 
-1. Pour enregistrer le tableau de bord tel quel, sélectionnez **Personnalisation terminée** dans l’en-tête de page. Vous pouvez également passer à la section suivante pour ajouter des vignettes et enregistrer votre tableau de bord.
+1. Pour enregistrer le tableau de bord tel quel, sélectionnez **Personnalisation terminée** dans l’en-tête de page. Vous pouvez aussi passer à l’étape 2 de la section suivante pour ajouter des vignettes et enregistrer votre tableau de bord.
 
 La vue du tableau de bord affiche maintenant votre nouveau tableau de bord. Sélectionnez la flèche en regard du nom du tableau de bord pour afficher les tableaux de bord disponibles. La liste peut inclure des tableaux de bord que d’autres utilisateurs ont créés et partagés.
 
@@ -68,21 +68,26 @@ Pour ajouter des vignettes à un tableau de bord, effectuez les étapes suivante
 
     - Si vous travaillez avec plusieurs organisations, ajoutez la vignette **Identité d’organisation** au tableau de bord pour montrer clairement à quelle organisation les ressources appartiennent.
 
-1. Si vous le souhaitez, redimensionnez la vignette en faisant glisser son coin inférieur droit.
+1. Au besoin, [redimensionnez ou réorganisez](#resize-or-rearrange-tiles) vos vignettes.
 
-1. Pour enregistrer le modifications, sélectionnez **Enregistrer** dans l’en-tête de page. Vous pouvez également afficher un aperçu des modifications sans les enregistrer en sélectionnant **Aperçu** dans l’en-tête de page. Dans l’écran d’aperçu, vous pouvez sélectionner **Enregistrer** pour conserver les modifications, **Ignorer** pour les annuler, ou **Modifier** pour revenir aux options d’édition et apporter d’autres modifications.
+1. Pour enregistrer le modifications, sélectionnez **Enregistrer** dans l’en-tête de page. Vous pouvez également afficher un aperçu des modifications sans les enregistrer en sélectionnant **Aperçu** dans l’en-tête de page. Ce mode Aperçu vous permet également de voir l’effet des [filtres](#set-and-override-dashboard-filters) sur vos vignettes. Dans l’écran d’aperçu, vous pouvez sélectionner **Enregistrer** pour conserver les modifications, **Ignorer** pour les annuler, ou **Modifier** pour revenir aux options d’édition et apporter d’autres modifications.
 
    :::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Capture d’écran des options d’aperçu, d’enregistrement et d’annulation.":::
+
+> [!NOTE]
+> Utilisez une étiquette Markdown pour afficher un contenu statique personnalisé dans votre tableau de bord. Par exemple, vous pouvez afficher des instructions de base, une image, un ensemble de liens hypertexte ou même des informations de contact. Pour plus d’informations sur l’utilisation d’une vignette Markdown, voir [Utiliser une vignette Markdown sur les tableaux de bord Azure pour afficher un contenu personnalisé](azure-portal-markdown-tile.md).
 
 ### <a name="pin-content-from-a-resource-page"></a>Épingler du contenu à partir d’une page de ressource
 
 Vous pouvez également ajouter des vignettes à votre tableau de bord directement à partir d’une page de ressource.
 
-Bon nombre de pages de ressources contiennent une icône d’épingle dans la barre de commandes. Si vous sélectionnez cette icône, vous pouvez épingler une vignette représentant la page source à un tableau de bord existant ou à un nouveau tableau de bord que vous créez.
+Bon nombre de pages de ressources contiennent une icône d’épingle dans l’en-tête de page. Vous pouvez donc épingler une vignette qui représente la page source. Dans certains cas, une icône d’épingle peut également apparaître en fonction du contenu spécifique présent dans une page, ce qui vous permet d’épingler une vignette représentant ce contenu spécifique plutôt que la page entière.
 
-![Capture d’écran de la barre de commandes d’une page avec l’icône de punaise](./media/azure-portal-dashboards/dashboard-pin-blade.png)
+:::image type="content" source="media/azure-portal-dashboards/dashboard-pin-blade.png" alt-text="Capture d’écran de la barre de commandes d’une page avec l’icône d’épingle.":::
 
-Dans certains cas, une icône d’épingle peut également apparaître en fonction du contenu spécifique présent dans une page, ce qui signifie que vous pouvez épingler une vignette pour ce contenu spécifique plutôt que la page entière.
+Si vous sélectionnez cette icône, vous pouvez épingler la vignette à un tableau de bord privé ou partagé existant. Vous pouvez aussi créer un autre tableau de bord avec cette épingle en sélectionnant **Créer**.
+
+:::image type="content" source="media/azure-portal-dashboards/dashboard-pin-pane.png" alt-text="Capture d’écran des options Épingler au tableau de bord.":::
 
 ### <a name="resize-or-rearrange-tiles"></a>Redimensionner ou réorganiser des vignettes
 
@@ -96,26 +101,45 @@ Pour changer la taille d’une vignette ou réorganiser les vignettes dans un ta
 
 1. Sélectionnez une vignette et faites-la glisser vers un nouvel emplacement sur la grille pour réorganiser votre tableau de bord.
 
-### <a name="additional-tile-configuration"></a>Configuration supplémentaire des vignettes
+### <a name="set-and-override-dashboard-filters"></a>Définir et remplacer des filtres de tableau de bord
 
-Certaines vignettes peuvent nécessiter une configuration supplémentaire pour afficher les informations dont vous avez besoin. Par exemple, la vignette **Graphique des métriques** doit être configurée pour afficher une métrique d’Azure Monitor. Vous pouvez également personnaliser les données des vignettes pour remplacer les paramètres de date et d’heure par défaut du tableau de bord.
+Vers le haut de votre tableau de bord se trouvent des options qui vous permettent de configurer l’**actualisation automatique** et les **paramètres d’heure** pour les données affichées dans le tableau de bord, ainsi qu’une option vous permettant d’ajouter des filtres supplémentaires.
 
-Une bannière reste affichée sur chaque vignette qui n’a pas encore été personnalisée. Pour le **graphique des métriques**, la bannière est **Modifier dans les métriques**. Pour personnaliser la vignette :
+:::image type="content" source="media/azure-portal-dashboards/dashboard-global-filters.png" alt-text="Capture d’écran montrant les filtres globaux d’un tableau de bord.":::
+
+Par défaut, les données sont actualisées toutes les heures. Pour changer ce paramètre, sélectionnez **Actualisation automatique** et choisissez un autre intervalle d’actualisation. Après avoir fait votre sélection, sélectionnez **Appliquer**.
+
+Les paramètres d’heure sont définis par défaut sur **Heure UTC** : les données affichées sont celles des **Dernières 24 heures**. Pour changer ce paramètre, sélectionnez le bouton et choisissez un autre intervalle de temps, une autre granularité temporelle et/ou un autre fuseau horaire, puis sélectionnez **Appliquer**.
+
+Pour appliquer des filtres supplémentaires, sélectionnez **Ajouter des filtres**. Les options proposées varient en fonction des vignettes présentes dans votre tableau de bord. Par exemple, vous verrez peut-être uniquement les données d’un abonnement ou d’un emplacement spécifique. Sélectionnez le filtre qui vous intéresse et effectuez vos sélections. Le filtre sera ensuite appliqué à vos données. Pour supprimer un filtre, sélectionnez la lettre **X** dans le bouton associé.
+
+Les vignettes qui prennent en charge le filtrage comportent une icône de filtre ![icône de filtre](./media/azure-portal-dashboards/dashboard-filter.png) dans leur coin supérieur gauche. Pour certaines vignettes, vous pouvez remplacer les filtres globaux par des filtres qui sont propres à ces vignettes. Pour cela, sélectionnez **Configurer les données de vignette** dans le menu contextuel, ou sélectionnez l’icône de filtre, puis appliquez les filtres souhaités.
+
+Si vous définissez des filtres pour une vignette particulière, celle-ci contient une icône de filtre double dans son coin gauche, ce qui indique que les données affichées dans cette vignette reflètent les filtres propres à la vignette.
+
+:::image type="content" source="media/azure-portal-dashboards/dashboard-filter-override.png" alt-text="Capture d’écran montrant l’icône d’une vignette avec un remplacement de filtre.":::
+
+## <a name="modify-tile-settings"></a>Modifier des paramètres de vignette
+
+Certaines vignettes peuvent nécessiter une configuration supplémentaire pour afficher les informations dont vous avez besoin. Par exemple, la vignette **Graphique des métriques** doit être configurée pour afficher une métrique d’Azure Monitor. Vous pouvez également personnaliser les données des vignettes pour remplacer les filtres et les paramètres d’heure par défaut du tableau de bord.
+
+## <a name="complete-tile-configuration"></a>Terminer la configuration des vignettes
+
+Une bannière reste affichée sur chaque vignette qui n’a pas encore été personnalisée. Par exemple, dans le **graphique des métriques**, la bannière indique **Modifier dans Métriques**. D’autres bannières peuvent contenir du texte différent, par exemple **Configurer la vignette**.
+
+Pour personnaliser la vignette :
 
 1. Dans l’en-tête de page, sélectionnez **Enregistrer** pour quitter le mode d’édition.
 
 1. Sélectionnez la bannière, puis effectuez la configuration requise.
 
-    ![Capture d’écran d’une vignette à configurer](./media/azure-portal-dashboards/dashboard-configure-tile.png)
+    ![Capture d’écran d’une vignette à configurer.](./media/azure-portal-dashboards/dashboard-configure-tile.png)
 
-> [!NOTE]
-> Utilisez une étiquette Markdown pour afficher un contenu statique personnalisé dans votre tableau de bord. Par exemple, vous pouvez afficher des instructions de base, une image, un ensemble de liens hypertexte ou même des informations de contact. Pour plus d’informations sur l’utilisation d’une vignette Markdown, voir [Utiliser une vignette Markdown sur les tableaux de bord Azure pour afficher un contenu personnalisé](azure-portal-markdown-tile.md).
+### <a name="customize-time-span-for-a-tile"></a>Personnaliser l’intervalle de temps pour une vignette
 
-### <a name="customize-tile-data"></a>Personnaliser les données de vignette
+Le tableau de bord affiche des données d’activité qui sont actualisées selon les filtres globaux. Pour certaines vignettes, vous pouvez changer l’intervalle de temps d’une vignette spécifique. Pour ce faire, procédez comme suit :
 
-Le tableau de bord affiche automatiquement les données d’activité des dernières 24 heures. Pour changer l’intervalle de temps des données de cette vignette, effectuez les étapes suivantes :
-
-1. Sélectionnez **Personnaliser les données de vignette** dans le menu contextuel ou le filtre ![icône de filtre](./media/azure-portal-dashboards/dashboard-filter.png) dans l’angle supérieur gauche de la vignette.
+1. Sélectionnez **Personnaliser les données de vignette** en utilisant le menu contextuel ou l’![icône de filtre](./media/azure-portal-dashboards/dashboard-filter.png) située dans le coin supérieur gauche de la vignette.
 
     ![Capture d’écran du menu contextuel de la vignette.](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
@@ -125,7 +149,7 @@ Le tableau de bord affiche automatiquement les données d’activité des derni�
 
 1. Choisissez l’intervalle de temps des données à afficher sur cette vignette. Vous pouvez choisir un intervalle allant des 30 dernières minutes aux 30 derniers jours, ou définir une plage personnalisée.
 
-1. Choisissez la granularité temporelle de l’affichage. Vous pouvez choisir d’afficher les données par incréments d’une minute à un mois.
+1. Choisissez la granularité temporelle de l’affichage.  Vous pouvez choisir d’afficher les données par incréments d’une minute à un mois.
 
 1. Sélectionnez **Appliquer**.
 

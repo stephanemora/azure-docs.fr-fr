@@ -3,12 +3,12 @@ title: 'Modèle : Opérateur count dans une définition de stratégie'
 description: Ce modèle Azure Policy fournit un exemple d’utilisation de l’opérateur count dans une définition de stratégie.
 ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: dc2914028887ae5a91e3379e2a94ddbc57a7cef3
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 4b4a2615491632caf1a7abddd1b6ace96ccc608d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093450"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752522"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Modèle Azure Policy : Opérateur count
 
@@ -22,7 +22,7 @@ Cette définition de stratégie [audite](../concepts/effects.md#audit) des group
 
 ### <a name="explanation"></a>Explication
 
-Les principaux composants de l’opérateur **count** sont _field_, _where_ et la condition. Chacun est mis en surbrillance dans l’extrait de code ci-dessous.
+Les principaux composants de l’opérateur **count** sont _field_, _where_ et la condition. Chacun est mis en évidence dans l’extrait de code suivant.
 
 - _field_ indique à count de quel [alias](../concepts/definition-structure.md#aliases) il faut évaluer les membres. Ici, nous examinons l’alias **securityRules\[\*\]** _array_ du groupe de sécurité réseau.
 - _where_ utilise le langage de stratégie pour définir quels membres d’_array_ remplissent les critères. Dans cet exemple, un opérateur logique **allOf** regroupe trois évaluations de condition différentes de propriétés d’alias _array_ : _direction_, _access_ et _destinationPortRange_.

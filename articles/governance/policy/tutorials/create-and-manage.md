@@ -3,12 +3,12 @@ title: 'Tutoriel : Générer des stratégies pour appliquer la conformité'
 description: Dans ce tutoriel, vous utilisez des stratégies pour appliquer des normes, maîtriser les coûts, garantir la sécurité et imposer des principes de conception à l’échelle de l’entreprise.
 ms.date: 05/01/2021
 ms.topic: tutorial
-ms.openlocfilehash: 68621ee5a4cdfcb3bdbdddb2baa423d443eba36a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 8f5b68190691651855bae31bae2885f80a16111f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325208"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752234"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutoriel : Créer et gérer des stratégies pour appliquer la conformité
 
@@ -103,7 +103,7 @@ Maintenant que vous avez affecté une définition de stratégie intégrée, vous
    - Copiez le code JSON suivant, puis mettez-le à jour selon vos besoins avec :
       - Les paramètres de la stratégie.
       - Les règles/conditions de la stratégie, dans ce cas : la taille de la référence (SKU) de la machine virtuelle est égale à la série G
-      - L’effet de la stratégie, dans ce cas – **Refuser**.
+      - L’effet de la stratégie, dans ce cas : **Refuser**.
 
    Voici à quoi le code JSON doit ressembler. Collez le code révisé dans le portail Azure.
 
@@ -400,7 +400,7 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
    > [!NOTE]
    > Dans le cas de certains paramètres `strongType`, la liste de valeurs ne peut pas être déterminée automatiquement. Dans ce cas, un bouton de sélection s’affiche à droite de la ligne de paramètre. En le sélectionnant, vous ouvrez la page Étendue du paramètre (&lt;nom du paramètre&gt;). Sur cette page, sélectionnez l’abonnement à utiliser pour fournir les options de valeur. L’étendue de ce paramètre est utilisée uniquement lors de la création de la définition d’initiative et n’a aucun impact sur l’évaluation de la stratégie ou l’étendue de l’initiative lors de l’affectation.
 
-   Définissez le _type de valeur_ « Allowed locations » (Emplacements autorisés) sur « Set value » (Définir la valeur), puis sélectionnez « East US 2 » (USA Est 2) dans la liste déroulante. Pour les deux instances des définitions de stratégie _Ajouter ou remplacer une étiquette dans les ressources_, définissez les paramètres **Tag Name** (Nom d’étiquette) sur « Env » et « CostCenter », et les paramètres **Tag Value** (Valeur d’étiquette) sur « Test » et « Lab », comme ci-dessous. Laissez les autres valeurs sur « Default value » (Valeur par défaut). En utilisant la même définition deux fois dans l’initiative mais avec des paramètres différents, cette configuration ajoute ou remplace une étiquette « Env » par la valeur « Test », et une étiquette « CostCenter » par la valeur « Lab », sur les ressources comprises dans l’étendue de l’affectation.
+   Définissez le _type de valeur_ « Allowed locations » (Emplacements autorisés) sur « Set value » (Définir la valeur), puis sélectionnez « East US 2 » (USA Est 2) dans la liste déroulante. Pour les deux instances des définitions de stratégie _Ajouter ou remplacer une étiquette dans les ressources_, définissez les paramètres **Tag Name** (Nom d’étiquette) sur « Env » et « CostCenter », et les paramètres **Tag Value** (Valeur d’étiquette) sur « Test » et « Lab », comme ci-dessous. Laissez les autres valeurs sur « Default value » (Valeur par défaut). En utilisant la même définition deux fois dans l’initiative mais avec des paramètres différents, cette configuration ajoute ou remplace une étiquette « Env » par la valeur « Test », et une étiquette « CostCenter » par la valeur « Lab », sur les ressources comprises dans l’étendue de l’affectation.
 
    :::image type="content" source="../media/create-and-manage/initiative-definition-4.png" alt-text="Capture d’écran des options entrées pour les valeurs acceptées du paramètre de définition des emplacements autorisés et les valeurs des paramètres des deux étiquettes définis sous l’onglet des paramètres de stratégie de la page de définition d’initiative.":::
 
@@ -457,7 +457,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
    :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Capture d’écran du bouton « Affecter » dans la page Définition d’initiative." border="false":::
 
-   Vous pouvez également cliquer avec le bouton droit sur la ligne sélectionnée ou sélectionner les points de suspension situé en fin de ligne pour faire apparaître un menu contextuel. Sélectionnez ensuite **Affecter**.
+   Vous pouvez également sélectionner et maintenir l’appui (ou cliquer avec le bouton droit) sur la ligne sélectionnée ou sélectionner les points de suspension situé en fin de ligne pour faire apparaître un menu contextuel. Sélectionnez ensuite **Affecter**.
 
    :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Capture d’écran du menu contextuel d’une initiative pour sélectionner la fonctionnalité Affecter." border="false":::
 

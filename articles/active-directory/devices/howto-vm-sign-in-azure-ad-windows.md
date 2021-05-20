@@ -1,40 +1,38 @@
 ---
-title: Se connecter à une machine virtuelle Windows dans Azure à l’aide d’Azure Active Directory (préversion)
+title: Se connecter à une machine virtuelle Windows dans Azure à l’aide d’Azure Active Directory
 description: Connexion Azure AD sur une machine virtuelle Azure exécutant Windows
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 05/10/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 418741c10dfe5f0678d7771d046781697512bafe
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e29aab4db0e568d06ab3d5f0f898b2fec9fee181
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776498"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732791"
 ---
-# <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
+# <a name="login-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory
 
-Les organisations peuvent désormais utiliser l’authentification Azure Active Directory (AD) pour leurs machines virtuelles Azure exécutées sous **Windows Server 2019 Datacenter Edition** ou **Windows 10 1809** et versions ultérieures. L’utilisation d’Azure AD pour l’authentification sur des machines virtuelles vous offre un moyen de contrôler et d’appliquer des stratégies de manière centralisée. Des outils tels que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et l’accès conditionnel Azure AD vous permettent de contrôler qui peut accéder à une machine virtuelle. Cet article indique comment créer et configurer une machine virtuelle Windows Server 2019 pour utiliser l’authentification Azure AD.
+Les organisations peuvent désormais améliorer la sécurité des machines virtuelles Windows dans Azure en y intégrant l’authentification Azure Active Directory (AD). Vous pouvez maintenant utiliser Azure AD comme plateforme d’authentification principale pour RDP dans une **édition Datacenter de Windows Server 2019** ou **Windows 10 1809** et versions ultérieures. En outre, vous serez en mesure de contrôler et d’appliquer de manière centralisée les stratégies d’accès conditionnel et Azure RBAC qui autorisent ou refusent l’accès aux machines virtuelles. Cet article indique comment créer et configurer une machine virtuelle Windows et vous connecter à l’aide d’une authentification basée sur Azure AD.
 
-> [!NOTE]
-> La connexion Azure AD pour machines virtuelles Windows Azure est une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+L’utilisation de l’authentification basée sur Azure AD pour se connecter aux machines virtuelles Windows dans Azure présente de nombreux avantages en termes de sécurité, notamment :
+- Utilisez les informations d’identification AD de votre entreprise pour vous connecter aux machines virtuelles Windows dans Azure.
+- Réduisez votre dépendance à l’égard des comptes administrateur locaux, vous n’avez pas à vous soucier de la perte ou du vol des informations d’identification, des utilisateurs qui configurent des informations d’identification faibles, etc.
+- Les stratégies portant sur la complexité et la durée de vie du mot de passe qui sont configurées pour votre répertoire Azure AD contribuent également à sécuriser les machines virtuelles Windows.
+- Avec le contrôle d’accès en fonction du rôle Azure (Azure RBAC), spécifiez qui peut se connecter à une machine virtuelle en tant qu’utilisateur standard ou avec des privilèges d’administrateur. Lorsque des utilisateurs rejoignent ou quittent votre équipe, vous pouvez mettre à jour la stratégie Azure RBAC pour la machine virtuelle pour accorder les accès appropriés. Lorsque des employés quittent votre organisation et que leur compte d’utilisateur est désactivé ou supprimé d’Azure AD, ils n’ont plus accès à vos ressources.
+- Avec l’accès conditionnel, configurez des stratégies pour exiger une authentification multifacteur et d’autres signaux, tels que le faible risque pour l’utilisateur et la connexion, avant de pouvoir utiliser le protocole RDP sur des machines virtuelles Windows. 
+- Utilisez les stratégies de déploiement et d’audit Azure pour exiger une connexion Azure AD pour les machines virtuelles Windows et pour signaler l’utilisation d’un compte local non approuvé sur les machines virtuelles.
+- La connexion aux machines virtuelles Windows avec Azure Active Directory fonctionne également pour les clients qui utilisent des services de fédération.
+- Automatisez et mettez à l’échelle la connexion avec Azure AD grâce à l’inscription automatique des machines virtuelles Windows Azure qui font partie de vos déploiements VDI auprès de la gestion des périphériques mobiles à l’aide d’Intune. L’inscription automatique auprès de la gestion des périphériques mobiles requiert une licence Azure AD P1. Les machines virtuelles Windows Server 2019 ne prennent pas en charge l’inscription auprès de la gestion des périphériques mobiles.
 
-Les avantages liés à l’utilisation de l’authentification Azure AD pour se connecter aux machines virtuelles Windows dans Azure sont nombreux, parmi lesquels :
-
-- Utilisez les mêmes informations d’identification Azure AD fédérées ou managés que vous utilisez normalement.
-- Vous n’avez plus besoin de gérer les comptes Administrateur locaux.
-- Azure RBAC vous permet d’accorder l’accès approprié aux machines virtuelles en fonction des besoins et de le supprimer lorsque l’accès n’est plus nécessaire.
-- Avant d’autoriser l’accès à une machine virtuelle, l’accès conditionnel Azure AD peut imposer des exigences supplémentaires telles que : 
-   - Authentification multifacteur
-   - Vérification du risque de connexion
-- Automatisez et mettez à l’échelle la jointure Azure AD de machines virtuelles Microsoft Azure qui font partie de vos déploiements VDI.
 
 > [!NOTE]
 > Une fois cette fonctionnalité activée, vos machines virtuelles Windows dans Azure sont jointes à Azure AD. Vous ne pouvez pas les joindre à un autre domaine, par exemple sur AD ou Azure AD DS en local. Si vous devez le faire, vous devez déconnecter la machine virtuelle de votre locataire Azure AD en désinstallant l’extension.
@@ -43,7 +41,7 @@ Les avantages liés à l’utilisation de l’authentification Azure AD pour se 
 
 ### <a name="supported-azure-regions-and-windows-distributions"></a>Régions Azure et distributions Windows prises en charge
 
-Les distributions Windows suivantes sont actuellement prises en charge pendant l’évaluation de cette fonctionnalité :
+Cette fonctionnalité prend actuellement en charge les distributions Windows suivantes :
 
 - Windows Server 2019 Datacenter
 - Windows 10 1809 et versions ultérieures
@@ -51,21 +49,38 @@ Les distributions Windows suivantes sont actuellement prises en charge pendant l
 > [!IMPORTANT]
 > La connexion à distance aux machines virtuelles jointes à Azure AD n’est autorisée qu’à partir des PC Windows 10 qui sont inscrits sur Azure AD (à partir de Windows 10 20H1), joints à Azure AD ou joints à Azure AD par une jointure hybride Azure AD au **même** répertoire que la machine virtuelle. 
 
-Les régions Azure suivantes sont actuellement prises en charge dans la préversion de cette fonctionnalité :
+Cette fonctionnalité est désormais disponible dans les clouds Azure suivants :
 
-- Toutes les régions globales Azure
+- Azure Global
+- Azure Government
+- Azure Chine
 
-> [!IMPORTANT]
-> Pour utiliser cette fonctionnalité d’évaluation, déployez uniquement une distribution Windows prise en charge dans une région Azure prise en charge. La fonctionnalité n’est actuellement pas prise en charge ni dans Azure Government ni dans les clouds souverains.
+
 
 ### <a name="network-requirements"></a>Configuration requise pour le réseau
 
 Pour activer l’authentification Azure AD pour vos machines virtuelles Windows dans Azure, vous devez vous assurer que la configuration de votre réseau de machines virtuelles autorise un accès sortant aux points de terminaison suivants sur le port TCP 443 :
 
-- `https://enterpriseregistration.windows.net`
-- `https://login.microsoftonline.com`
-- `https://device.login.microsoftonline.com`
-- `https://pas.windows.net`
+Pour Azure Global
+- `https://enterpriseregistration.windows.net` : Pour l’inscription d’appareils.
+- `http://169.254.169.254` : Point de terminaison Azure Instance Metadata Service.
+- `https://login.microsoftonline.com` : Pour les flux d’authentification.
+- `https://pas.windows.net` : Pour les flux Azure RBAC.
+
+
+Pour Azure Government
+- `https://enterpriseregistration.microsoftonline.us` : Pour l’inscription d’appareils.
+- `http://169.254.169.254` : Azure Instance Metadata Service.
+- `https://login.microsoftonline.us` : Pour les flux d’authentification.
+- `https://pasff.usgovcloudapi.net` : Pour les flux Azure RBAC.
+
+
+Pour Azure Chine
+- `https://enterpriseregistration.partner.microsoftonline.cn` : Pour l’inscription d’appareils.
+- `http://169.254.169.254` : Point de terminaison Azure Instance Metadata Service.
+- `https://login.chinacloudapi.cn` : Pour les flux d’authentification.
+- `https://pas.chinacloudapi.cn` : Pour les flux Azure RBAC.
+
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Activation de la connexion Azure AD dans pour les machines virtuelles Windows dans Azure
 
@@ -85,9 +100,9 @@ Pour créer une machine virtuelle Windows Server 2019 Datacenter dans Azure avec
 1. Saisissez **Windows Serveur** dans la barre de recherche Rechercher dans la Place de marché.
    1. Cliquez sur **Windows Server** et choisissez **Windows Server 2019 Datacenter** dans la liste déroulante Sélectionner un plan logiciel.
    1. Cliquez sur **Créer**.
-1. Sous l’onglet « Gestion », activez l’option permettant de **Se connecter avec les informations d’identification AAD (préversion)** sous la section Azure Active Directory en la passant à l’état **Activé**.
+1. Sous l’onglet « Gestion », activez l’option permettant de **Se connecter avec les informations d’identification AAD** sous la section Azure Active Directory en la passant à l’état **Activé**.
 1. Assurez-vous que **Identité managée affectée par le système** sous la section Identité est définie sur **Activé**. Cette action doit se produire automatiquement une fois que vous avez activé la connexion avec les informations d’identification Azure AD.
-1. Parcourez le reste de l’expérience de création d’une machine virtuelle. Dans cette préversion, vous devrez créer un nom d’utilisateur et un mot de passe Administrateur pour la machine virtuelle.
+1. Parcourez le reste de l’expérience de création d’une machine virtuelle. Vous devrez créer un nom d’utilisateur et un mot de passe Administrateur pour la machine virtuelle.
 
 ![Se connecter avec des informations d’identification Azure AD créer une machine virtuelle](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-login-with-azure-ad.png)
 
@@ -227,6 +242,10 @@ Vous êtes à présent connecté à la machine virtuelle Azure Windows Server 2
 > [!NOTE]
 > Vous pouvez enregistrer le fichier .RDP localement sur votre ordinateur pour lancer les futures connexions de bureau à distance sur votre machine virtuelle au lieu d’accéder à la page de vue d’ensemble de la machine virtuelle dans le Portail Azure et à l’aide de l’option de connexion.
 
+## <a name="using-azure-policy-to-ensure-standards-and-assess-compliance"></a>Utilisation d’Azure Policy pour garantir les normes et évaluer la conformité
+
+Utilisez Azure Policy pour vous assurer que la connexion Azure AD est activée pour vos machines virtuelles Windows nouvelles et existantes et évaluer la conformité de votre environnement à grande échelle sur votre tableau de bord de conformité Azure Policy. Grâce à cette capacité, vous pouvez utiliser plusieurs niveaux d’application : vous pouvez signaler les machines virtuelles Windows nouvelles et existantes de votre environnement pour lesquelles la connexion Azure AD n’est pas activée. Vous pouvez également utiliser Azure Policy pour déployer l’extension Azure AD sur de nouvelles machines virtuelles Windows sur lesquelles la connexion Azure AD n’est pas activée, ainsi que pour corriger les machines virtuelles Windows existantes afin qu’elles respectent la même norme. Outre ces capacités, vous pouvez également utiliser Policy pour détecter et signaler les machines virtuelles Windows sur lesquelles des comptes locaux non approuvés sont créés. Pour en savoir plus, consultez [Azure Policy](https://www.aka.ms/AzurePolicy).
+
 ## <a name="troubleshoot"></a>Dépanner
 
 ### <a name="troubleshoot-deployment-issues"></a>Résoudre les problèmes de déploiement
@@ -314,7 +333,7 @@ Ce code de sortie se traduit par `DSREG_AUTOJOIN_DISC_FAILED`, car l’extension
 
 Le code de sortie 51 se traduit par « Cette extension n’est pas prise en charge sur le système d’exploitation de la machine virtuelle ».
 
-En Préversion publique, l’extension AADLoginForWindows est uniquement destinée à être installée sur Windows Server 2019 ou Windows 10 (version 1809 ou ultérieure). Vérifiez que la version de Windows est prise en charge. Si la version de Windows n’est pas prise en charge, désinstallez l’extension de machine virtuelle.
+L’extension AADLoginForWindows est uniquement destinée à être installée sur Windows Server 2019 ou Windows 10 (Build 1809 ou ultérieure). Vérifiez que la version de Windows est prise en charge. Si la version de Windows n’est pas prise en charge, désinstallez l’extension de machine virtuelle.
 
 ### <a name="troubleshoot-sign-in-issues"></a>Résoudre les problèmes de connexion
 
@@ -369,9 +388,7 @@ Si vous n’avez pas déployé Windows Hello Entreprise et si ce n’est pas pos
 > [!NOTE]
 > L’authentification par code confidentiel Windows Hello Entreprise avec le Bureau à distance a été prise en charge par Windows 10 pour plusieurs versions, mais la prise en charge de l’authentification biométrique avec le Bureau à distance a été ajoutée dans Windows 10 version 1809. L’authentification Windows Hello Entreprise lors de l’utilisation du Bureau à distance n’est disponible que pour les déploiements qui utilisent le modèle approuvé de certificat et qui ne sont actuellement pas disponibles pour le modèle approuvé de clé.
  
-## <a name="preview-feedback"></a>Commentaires de la préversion
-
-Partagez vos commentaires sur cette fonctionnalité d’évaluation ou signalez des problèmes lors de son utilisation sur le [forum de commentaires d’Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+Partagez vos commentaires sur cette fonctionnalité ou signalez des problèmes lors de son utilisation sur le [forum de commentaires d’Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -2,13 +2,13 @@
 title: Gérer les ressources avec le portail Azure
 description: Utilisez le portail Azure et Azure Resource Manager pour déployer vos ressources dans un groupe de ressources de votre abonnement.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: d8467bb4e51fc4e6ba89a84f1260a8d2743758d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/05/2021
+ms.openlocfilehash: 6370b628a8dc2d880168dd3c4ea8a7d10a1cd36c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98028673"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737114"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Déployer des ressources à l’aide de modèles ARM et le portail Azure
 
@@ -95,7 +95,7 @@ Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de
 
     Ce tutoriel fournit les instructions nécessaires au chargement d’un modèle de démarrage rapide.
 
-1. Sous **Charger un modèle de démarrage rapide GitHub**, tapez ou sélectionnez **101-storage-account-create**.
+1. Sous **Charger un modèle de démarrage rapide GitHub**, tapez ou sélectionnez **storage-account-create**.
 
     Deux options s'offrent à vous :
 
@@ -118,7 +118,7 @@ Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de
     - **Abonnement**: Sélectionnez un abonnement Azure.
     - **Groupe de ressources** : Sélectionnez **Créer** et donnez un nom.
     - **Emplacement** : Sélectionnez un emplacement Azure.
-    - **Type de compte de stockage** : Utilisez la valeur par défaut.
+    - **Type de compte de stockage** : Utilisez la valeur par défaut. Le nom de paramètre en casse mixte *storageAccountType* défini dans le modèle est converti en une chaîne séparée par des espaces lorsqu’il est affiché sur le portail.
     - **Emplacement** : Utilisez la valeur par défaut.
     - **J’accepte les termes et conditions mentionnés ci-dessus** : (cochez la case)
 
@@ -129,4 +129,3 @@ Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de
 - Pour visualiser les journaux d’audit, voir [Opérations d’audit avec Resource Manager](../management/view-activity-logs.md).
 - Pour résoudre les erreurs de déploiement, consultez [Voir les opérations de déploiement](deployment-history.md).
 - Pour exporter un modèle à partir d’un déploiement ou d’un groupe de ressources, consultez [Exporter des modèles ARM](export-template-portal.md).
-- Pour déployer votre service sur plusieurs régions de façon sécurisée, consultez [Azure Deployment Manager](deployment-manager-overview.md).

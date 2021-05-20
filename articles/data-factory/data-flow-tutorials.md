@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 12/14/2020
-ms.openlocfilehash: f1171bdd087d6ca72a09a2e3efb7f4767a575d21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/04/2021
+ms.openlocfilehash: bc1297790322202713d06c4d1f7a474c1b9dcda8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100517788"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108774076"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriels vidéo sur le flux de données de mappage
 
@@ -93,6 +93,8 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 
 [Transformation d’analyse](https://www.youtube.com/watch?v=r7O7AJcuqoY)
 
+[Transformer des types de données complexes](https://youtu.be/Wk0C76wnSDE)
+
 ## <a name="source-and-sink"></a>Source et récepteur
 
 [Lecture et écriture de JSON](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
@@ -130,6 +132,8 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 [Optimiser les temps de démarrage de flux de données](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
 [Runtimes d’intégration Azure pour les flux de données](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+
+[Temps de démarrage rapide du cluster avec Azure IR](https://www.youtube.com/watch?v=mxzsOZX6WVY)
 
 ## <a name="mapping-data-flow-scenarios"></a>Scénarios de flux de données de mappage
 

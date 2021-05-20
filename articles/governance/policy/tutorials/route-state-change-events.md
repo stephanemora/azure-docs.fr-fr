@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous configurez Event Grid pour écouter les év�
 ms.date: 03/29/2021
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1fe87e4fd3349df7d8f5d57b2b2d95f95ed3fba8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d2017b4e85c4d064fc206d9b908be126559032bd
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105734874"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752018"
 ---
 # <a name="tutorial-route-policy-state-change-events-to-event-grid-with-azure-cli"></a>Tutoriel : Router les événements de changement d’état de stratégie vers Event Grid avec Azure CLI
 
@@ -39,7 +39,7 @@ Dans cet article, vous allez voir comment configurer des abonnements à des év�
 
 Les rubriques Event Grid sont des ressources Azure et doivent être placées dans un groupe de ressources Azure. Un groupe de ressources est une collection logique dans laquelle des ressources Azure sont déployées et gérées.
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group). 
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group).
 
 L’exemple suivant crée un groupe de ressources nommé `<resource_group_name>` à l’emplacement _westus_. Remplacez `<resource_group_name>` par un nom unique pour votre groupe de ressources.
 
@@ -116,7 +116,7 @@ La commande précédente utilise les informations suivantes :
 - **Name** : nom réel de l’attribution. Dans cet exemple, nous utilisons _requiredtags-events_.
 - **DisplayName** : nom d’affichage pour l’attribution de stratégie. En l’occurrence, vous utilisez _Require tag on RG_.
 - **Scope** : une étendue détermine les ressources ou le regroupement de ressources sur lequel l’attribution de stratégie est appliquée. Elle va d’un abonnement à des groupes de ressources. Assurez-vous de remplacer &lt;scope&gt; par le nom de votre groupe de ressources. Le format de l’étendue d’un groupe de ressources est `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>`.
-- **Policy** : ID de définition de la stratégie, que vous utilisez pour créer l’attribution. En l’occurrence, il s’agit de l’ID de la définition de stratégie _Require a tag on resource groups_. Pour obtenir l’ID de définition de stratégie, exécutez cette commande : `az policy definition list --query "[?displayName=='Require a tag on resource groups']"`
+- **Policy** : ID de définition de la stratégie, que vous utilisez pour créer l’attribution. En l’occurrence, il s’agit de l’ID de la définition de stratégie _Require a tag on resource groups_. Pour obtenir l’ID de définition de stratégie, exécutez cette commande : `az policy definition list --query "[?displayName=='Require a tag on resource groups']"`
 
 Après avoir créé l’attribution de stratégie, attendez qu’une notification d’événement **Microsoft.PolicyInsights.PolicyStateCreated** apparaisse dans l’application web. Au départ, le groupe de ressources que nous avons créé affiche la valeur _NonCompliant_ pour le paramètre `data.complianceState`.
 

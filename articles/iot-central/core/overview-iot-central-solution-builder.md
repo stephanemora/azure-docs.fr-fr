@@ -8,16 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: e762b8c2e2d7f72b89629c520560b205cedcd036
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: dc8ca48d11f31f69ca9db5dce53cce4d9d6e8f25
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728553"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772330"
 ---
 # <a name="iot-central-solution-builder-guide"></a>Guide du générateur de solutions IoT Central
-
-*Cet article s’applique aux créateurs de solutions.*
 
 Une application IoT Central vous permet de surveiller et de gérer des millions d’appareils tout au long de leur cycle de vie. Ce guide s’adresse aux générateurs de solutions qui utilisent IoT Central pour créer des solutions intégrées. Une application IoT Central vous permet de gérer des appareils, d’analyser les données de télémétrie des appareils, et de les intégrer à d’autres services principaux.
 
@@ -56,6 +54,14 @@ En tant que générateur de solutions, vous pouvez utiliser les fonctionnalités
 - [Étendre Azure IoT Central avec des règles personnalisées à l’aide de Stream Analytics, d’Azure Functions et de SendGrid](howto-create-custom-rules.md)
 - [Étendre Azure IoT Central avec des analyses personnalisées à l’aide d’Azure Databricks](howto-create-custom-analytics.md)
 - [Visualiser et analyser des données Azure IoT Central dans un tableau de bord Power BI](howto-connect-powerbi.md)
+
+## <a name="apis"></a>API
+
+Les API IoT Central vous permettent de créer des intégrations approfondies avec d’autres services dans votre solution IoT. Les API disponibles sont classées comme API de *plan de données* ou de *plan de contrôle*.
+
+Les API de plan de données permettent d’accéder aux entités dans et aux fonctionnalités de votre application IoT Central. Par exemple, la gestion des appareils, des modèles d’appareils, des utilisateurs et des rôles. Les opérations de l’API REST d’IoT Central sont des opérations de *plan de données*. Pour plus d’informations, consultez [Comment utiliser l’API REST IoT Central pour gérer les utilisateurs et les rôles](howto-manage-users-roles-with-rest-api.md).
+
+Le *plan de contrôle* permet de gérer les ressources IoT Central de votre abonnement Azure. Vous pouvez utiliser les modèles Azure CLI et Resource Manager pour les opérations de plan de contrôle. Par exemple, vous pouvez utiliser Azure CLI pour créer une application IoT Central. Pour plus d’informations, consultez [Gérer IOT Central à partir d’Azure CLI](howto-manage-iot-central-from-cli.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df178b49e3f9853bd8561794e7e6444e73630edd
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: f58eea2ecc994a0cb97cf8460029e4d87a5b7f74
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323665"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748922"
 ---
 # <a name="what-is-azure-ad-connect-cloud-sync"></a>Qu’est-ce que la synchronisation cloud Azure AD Connect ?
 La synchronisation cloud Azure AD Connect est une nouvelle offre Microsoft conçue pour répondre à vos objectifs d’identités hybrides en matière de synchronisation des utilisateurs, groupes et contacts sur Azure AD.  Elle utilise pour cela l’agent de provisionnement cloud Azure AD au lieu de l’application Azure AD Connect.  Toutefois, elle peut être utilisée avec la synchronisation Azure AD Connect, et offre les avantages suivants :
@@ -72,11 +72,12 @@ Le tableau suivant présente une comparaison entre la synchronisation Azure AD 
 | Prise en charge de la réécriture (mots de passe, appareils, groupes) |● | |
 | Support Azure AD Domain Services|● | |
 | [Écriture différée d’Exchange hybride](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
+| Nombre illimité d’objets par domaine AD |● | |
 | Prise en charge d’un maximum de 150 000 objets par domaine AD |● |● |
 | Groupes jusqu’à 50 000 membres |● |● |
 | Grands groupes jusqu’à 250 000 membres |● |  |
 | Références entre les domaines|● | |
-| Approvisionnement à la demande| |● |
+| Approvisionnement à la demande|● |● |
 
 ## <a name="next-steps"></a>Étapes suivantes 
 

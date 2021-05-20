@@ -10,30 +10,30 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 0000e7690ab92f469a7417e82cb375c524e0b343
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ee22c1e68f407eb2b508cd97e611ea83b82174b2
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96014760"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684124"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Connecter un appareil de passerelle Rigado Cascade 500 à votre application IoT Central
 
-*Cet article s’applique aux créateurs de solutions.*
-
-Cet article vous explique comment, en tant que concepteur de solutions, vous pouvez connecter un appareil de passerelle Rigado Cascade 500 à votre application Microsoft Azure IoT Central. 
+Cet article vous explique la procédure à suivre pour connecter un appareil de passerelle Rigado Cascade 500 à votre application Microsoft Azure IoT Central.
 
 ## <a name="what-is-cascade-500"></a>Qu’est-ce qu’un Cascade 500 ?
 
 Une passerelle IoT Cascade 500 est une offre matérielle de Rigado incluse dans le cadre de sa solution Cascade EaaS. Il fournit aux équipes commerciales et de projets IoT une solution flexible de calcul de périphérie, un environnement d’application en conteneur robuste et un large éventail d’options de connectivité de périphériques sans fil, notamment Bluetooth 5, LTE, & Wi-Fi.
 
-Cascade 500 est précertifié pour Azure IoT Plug-and-Play (préversion), ce qui permet aux créateurs de solutions d’intégrer facilement l’appareil dans leurs solutions de bout en bout. La passerelle Cascade vous permet d’établir une connexion sans fil avec un large éventail de capteurs de surveillance de condition qui sont à proximité de l’appareil de passerelle. Ces capteurs peuvent être intégrés dans IoT Central via l’appareil de passerelle.
+Cascade 500 est certifié pour l’IoT Plug-and-Play Azure et vous permet d’intégrer facilement l’appareil dans vos solutions de bout en bout. La passerelle Cascade vous permet d’établir une connexion sans fil avec un large éventail de capteurs de surveillance de condition qui sont à proximité de l’appareil de passerelle. Ces capteurs peuvent être intégrés dans IoT Central via l’appareil de passerelle.
 
 ## <a name="prerequisites"></a>Prérequis
-Pour parcourir ce guide pratique, vous devez disposer des ressources suivantes :
 
-* Un appareil Rigado Cascade 500. Pour plus d’informations, veuillez visiter [Rigado](https://www.rigado.com/).
-* Une application Azure IoT Central. Pour plus d'informations, consultez [Créer une application](./quick-deploy-iot-central.md).
+Pour suivre les étapes décrites dans ce guide pratique, vous devez disposer des éléments suivants :
+
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
+
+- Un appareil Rigado Cascade 500. Pour plus d’informations, veuillez visiter [Rigado](https://www.rigado.com/).
 
 ## <a name="add-a-device-template"></a>Ajouter un modèle d’appareil
 
@@ -71,7 +71,7 @@ Vous êtes maintenant prêt à utiliser votre appareil C500 dans votre applicati
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous êtes un développeur d’appareils, nous vous suggérons les étapes suivantes :
+Voici quelques suggestions pour continuer :
 
 - En savoir plus sur la [connectivité des appareils dans Azure IoT Central](./concepts-get-connected.md)
 - Découvrez comment [superviser la connectivité des appareils à l’aide d’Azure CLI](./howto-monitor-devices-azure-cli.md)

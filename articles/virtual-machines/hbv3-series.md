@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 14c5484268940a927965acf798310c3bdccf17d3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: cb87ca44ecc7ff5c308dbf3a74390e34a0f5daea
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309711"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770008"
 ---
 # <a name="hbv3-series"></a>Série HBv3
 
@@ -21,14 +21,14 @@ Les machines virtuelles de la série HBv3 sont optimisées pour les application
 
 Toutes les machines virtuelles de la série HBv3 sont équipées d’InfiniBand HDR à 200 Gbit/s des solutions de mise en réseau NVIDIA pour permettre des charges de travail MPI à l’échelle d’un superordinateur. Ces machines virtuelles sont connectées dans une arborescence FAT non bloquante pour des performances RDMA optimisées et cohérentes. L’architecture InfiniBand HDR prend également en charge le routage adaptatif et le transport connecté dynamique (DCT, en plus des transports RC et UD standards). Ces fonctionnalités améliorent les performances, la scalabilité et la cohérence des applications, et leur utilisation est vivement recommandée.
 
-[Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
-[Disques Ultra](disks-types.md#ultra-disk) : pris en charge ([En savoir plus](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) sur la disponibilité, l'utilisation et les performances) <br>
+[Disques Ultra](disks-types.md#ultra-disk) : pris en charge ([En savoir plus](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) sur la disponibilité, l’utilisation et les performances) <br>
 [Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1 et 2<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Bientôt disponible<br>
-[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge ([en préversion](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 <br>
 
 |Taille |Processeurs virtuels |Processeur |Mémoire (Gio) |Bande passante mémoire (Go/s) |Fréquence du processeur de base (GHz) |Fréquence de tous les cœurs (GHz, pic) |Fréquence d’un cœur (GHz, pic) |Performances RDMA (Gbit/s) |Prise en charge MPI |Stockage temporaire (Gio) |Disques de données max. |Cartes réseau virtuelles Ethernet max. |

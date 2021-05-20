@@ -3,12 +3,12 @@ title: Exemples de requêtes avancées
 description: Utilisez Azure Resource Graph pour exécuter certaines requêtes avancées, notamment en utilisant des colonnes, en listant les étiquettes utilisées et en mettant en correspondance des ressources avec des expressions régulières.
 ms.date: 03/23/2021
 ms.topic: sample
-ms.openlocfilehash: c6a140b0392affea252e05d63055232532305c75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef26a12b2b9d8b0d2bfe473ca91c12985185ade8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104949853"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751550"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Exemples de requêtes Resource Graph avancées
 
@@ -218,7 +218,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ## <a name="list-cosmos-db-with-specific-write-locations"></a><a name="mvexpand-cosmosdb"></a>Lister Cosmos DB avec des emplacements d’écriture spécifiques
 
-La requête suivante se limite aux ressources Cosmos DB, utilise `mv-expand` afin de développer le jeu de propriétés pour **properties.writeLocations**, puis projeter des champs spécifiques et limiter les résultats aux valeurs **properties.writeLocations.locationName** correspondant à « East US » ou « West US ».
+La requête suivante se limite aux ressources Azure Cosmos DB, utilise `mv-expand` afin de développer le jeu de propriétés pour **properties.writeLocations**, puis projeter des champs spécifiques et limiter les résultats aux valeurs **properties.writeLocations.locationName** correspondant à « East US » ou « West US ».
 
 ```kusto
 Resources
@@ -330,15 +330,15 @@ Cette requête utilise deux commandes **leftouter** `join` pour réunir des mach
 ```kusto
 Resources
 | where type =~ 'microsoft.compute/virtualmachines'
-| extend nics=array_length(properties.networkProfile.networkInterfaces) 
-| mv-expand nic=properties.networkProfile.networkInterfaces 
-| where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic) 
-| project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id) 
+| extend nics=array_length(properties.networkProfile.networkInterfaces)
+| mv-expand nic=properties.networkProfile.networkInterfaces
+| where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic)
+| project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id)
 | join kind=leftouter (
     Resources
     | where type =~ 'microsoft.network/networkinterfaces'
-    | extend ipConfigsCount=array_length(properties.ipConfigurations) 
-    | mv-expand ipconfig=properties.ipConfigurations 
+    | extend ipConfigsCount=array_length(properties.ipConfigurations)
+    | mv-expand ipconfig=properties.ipConfigurations
     | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true'
     | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id))
 on nicId
@@ -390,7 +390,7 @@ Resources
 | join kind=leftouter(
     Resources
     | where type == 'microsoft.compute/virtualmachines/extensions'
-    | extend 
+    | extend
         VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
         ExtensionName = name
 ) on $left.JoinID == $right.VMId
@@ -532,7 +532,6 @@ Search-AzGraph -Query "ResourceContainers | where type=='microsoft.resources/sub
 
 Cette requête utilise les [propriétés étendues](../concepts/query-language.md#extended-properties) sur les machines virtuelles pour synthéthiser par états d’alimentation.
 
-
 ```kusto
 Resources
 | where type == 'microsoft.compute/virtualmachines'
@@ -563,7 +562,8 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 
 ## <a name="count-of-non-compliant-guest-configuration-assignments"></a><a name="count-gcnoncompliant"></a>Nombre d’affectations de configurations d’invité non conformes
 
-Affiche un nombre de machines non conformes par [motif d’affectation de configuration d’invité](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration). Limite les résultats aux 100 premiers pour des raisons de performance.
+Affiche un nombre de machines non conformes par [motif d’affectation de configuration d’invité](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration).
+Limite les résultats aux 100 premiers pour des raisons de performance.
 
 ```kusto
 GuestConfigurationResources

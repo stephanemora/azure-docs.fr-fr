@@ -5,12 +5,12 @@ ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom:
 - mode-api
-ms.openlocfilehash: 8c568e223e12a6315e7fa5e63431f8102211f71a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 51fbac59aef82d0f7a8edbb7ce271e2eb049b699
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323408"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747575"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec PowerShell
 
@@ -108,7 +108,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
      Par défaut, l’objet blueprint est créé dans l’abonnement par défaut. Pour spécifier le groupe d’administration, utilisez le paramètre **ManagementGroupId**. Pour spécifier l’abonnement, utilisez le paramètre **SubscriptionId**.
 
-1. Ajoutez une attribution de rôle au niveau de l’abonnement. **ArtifactFile** définit le _genre_ d’artefact, les propriétés varient en fonction de l’identificateur de définition de rôle et les identités de principal sont passées sous forme de tableau de valeurs. Dans l’exemple ci-dessous, les identités de principal ayant reçu le rôle spécifié sont configurées avec un paramètre qui est défini durant l’affectation du blueprint. Cet exemple utilise le rôle intégré _Contributeur_ avec le GUID `b24988ac-6180-42a0-ab88-20f7382dd24c`.
+1. Ajoutez une attribution de rôle au niveau de l’abonnement. **ArtifactFile** définit le _genre_ d’artefact, les propriétés varient en fonction de l’identificateur de définition de rôle et les identités de principal sont passées sous forme de tableau de valeurs. Dans l’exemple suivant, les identités de principal ayant reçu le rôle spécifié sont configurées avec un paramètre qui est défini durant l’affectation du blueprint. Cet exemple utilise le rôle intégré _Contributeur_ avec le GUID `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
    - Fichier JSON – \artifacts\roleContributor.json
 

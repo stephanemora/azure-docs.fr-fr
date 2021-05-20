@@ -2,15 +2,15 @@
 title: Créer une spec de modèle avec des modèles liés
 description: Découvrez comment créer une spec de modèle avec des modèles liés.
 ms.topic: conceptual
-ms.date: 01/05/2021
-ms.openlocfilehash: b1c757895faee208590b638094591d246bf605d8
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 05/04/2021
+ms.openlocfilehash: 0a4d34016ce270c8921615868ef7019c33281905
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310612"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754052"
 ---
-# <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutoriel : Créer une spec de modèle avec des modèles liés (préversion)
+# <a name="tutorial-create-a-template-spec-with-linked-templates"></a>Tutoriel : Créer une spec de modèle avec des modèles liés
 
 Découvrez comment créer une [spec de modèle](template-specs.md) avec un modèle principal et un [modèle lié](linked-templates.md#linked-template). Les specs de modèle permettent de partager des modèles ARM avec d’autres utilisateurs de votre organisation. Cet article explique comment créer une spec de modèle pour empaqueter un modèle principal et ses modèles liés à l’aide de la nouvelle propriété `relativePath` de la [ressources de déploiement](/azure/templates/microsoft.resources/deployments).
 
@@ -19,7 +19,7 @@ Découvrez comment créer une [spec de modèle](template-specs.md) avec un modè
 Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> La fonctionnalité Specs de modèle est actuellement en préversion. Pour l’utiliser avec Azure PowerShell, vous devez installer la [version 5.0.0 ou ultérieure](/powershell/azure/install-az-ps). Pour l’utiliser avec l’interface de ligne de commande Azure CLI, utilisez la [version 2.14.2 ou ultérieure](/cli/azure/install-azure-cli).
+> Pour utiliser des specs de modèle avec Azure PowerShell, vous devez installer la [version 5.0.0 ou ultérieure](/powershell/azure/install-az-ps). Pour l’utiliser avec l’interface de ligne de commande Azure CLI, utilisez la [version 2.14.2 ou ultérieure](/cli/azure/install-azure-cli).
 
 ## <a name="create-linked-templates"></a>Créer des modèles liés
 

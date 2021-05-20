@@ -1,6 +1,6 @@
 ---
 title: Gérer sa facture et passer du plan Gratuit au plan Standard dans l’application Azure IoT Central | Microsoft Docs
-description: En tant qu’administrateur, découvrez comment gérer votre facture et passer du plan tarifaire Gratuit au plan Standard dans votre application Azure IoT Central
+description: Découvrez comment gérer votre facture et passer du plan tarifaire Gratuit au plan Standard dans votre application Azure IoT Central
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/23/2019
@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 50d0119b08d2c76a5f6111e485408ebcdace83c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8c268965f94f5d362fb4874566e10f39ee80b18
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96549019"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747230"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Gérer sa facture dans une application IoT Central
 
-Cet article explique aux administrateurs comment gérer la facturation Azure IoT Central. Vous pouvez migrer une application du plan tarifaire Gratuit au plan Standard et passer à un niveau tarifaire supérieur ou inférieur.
+Cet article explique comment gérer la facturation Azure IoT Central. Vous pouvez migrer une application du plan tarifaire Gratuit au plan Standard et passer à un niveau tarifaire supérieur ou inférieur.
 
 Pour accéder à la section **Administration**, vous devez disposer du rôle *Administrateur* ou d’un *rôle d’utilisateur personnalisé* permettant de voir la facturation. Si vous créez une application Azure IoT Central, le rôle **Administrateur** vous est automatiquement attribué.
 

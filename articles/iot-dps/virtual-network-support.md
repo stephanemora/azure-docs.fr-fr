@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: f1409a931195d236b2729e629e4603c606137593
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5b1947a8d037dbdd20a3335a79f90ebf10b2ca6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94959779"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749894"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Prise en charge des réseaux virtuels dans le service Azure IoT Hub Device Provisioning (DPS)
 
@@ -110,6 +110,38 @@ Pour configurer un point de terminaison privé, procédez comme suit :
     ![Configurer un point de terminaison privé](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
 6. Cliquez sur **Vérifier + créer**, puis sur **Créer** pour créer votre ressource de point de terminaison privé.
+
+
+## <a name="use-private-endpoints-with-devices"></a>Utiliser des points de terminaison privés avec des appareils
+
+Pour utiliser des points de terminaison privés avec du code de configuration d’appareil, votre code d’approvisionnement doit utiliser le **point de terminaison de service** spécifique pour votre ressource DPS, comme indiqué sur la page Vue d’ensemble de votre ressource DPS dans le [portail Azure](https://portal.azure.com). Le point de terminaison de service se présente sous la forme suivante.
+
+`<Your DPS Tenant Name>.azure-devices-provisioning.net`
+
+La plupart des exemples de code présentés dans notre documentation et les kits de développement logiciel (SDK) utilisent le **point de terminaison d’appareil global** (`global.azure-devices-provisioning.net`) et l’**étendue d’ID** pour résoudre une ressource de DPS particulière. Utilisez le point de terminaison de service à la place du point de terminaison d’appareil global lors de la connexion à une ressource DPS à l’aide de liaisons privées pour approvisionner vos appareils.
+
+Par exemple, l’exemple de client d’appareil d’approvisionnement ([pro_dev_client_sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/prov_dev_client_sample)) dans le [Kit de développement logiciel (SDK) Azure IOT C](https://github.com/Azure/azure-iot-sdk-c) est conçu pour utiliser le **point de terminaison d’appareil global** en tant qu’URI d’approvisionnement global (`global_prov_uri`) dans [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)
+
+:::code language="c" source="~/iot-samples-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c" range="60-64" highlight="4":::
+
+:::code language="c" source="~/iot-samples-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c" range="138-144" highlight="3":::
+
+Pour utiliser l’exemple avec une liaison privée, le code en surbrillance ci-dessus est modifié afin d’utiliser le point de terminaison de service pour votre ressource DPS. Par exemple, si vous avez un point de terminaison de service `mydps.azure-devices-provisioning.net`, le code se présenterait comme suit.
+
+```C
+static const char* global_prov_uri = "global.azure-devices-provisioning.net";
+static const char* service_uri = "mydps.azure-devices-provisioning.net";
+static const char* id_scope = "[ID Scope]";
+```
+
+```C
+    PROV_DEVICE_RESULT prov_device_result = PROV_DEVICE_RESULT_ERROR;
+    PROV_DEVICE_HANDLE prov_device_handle;
+    if ((prov_device_handle = Prov_Device_Create(service_uri, id_scope, prov_transport)) == NULL)
+    {
+        (void)printf("failed calling Prov_Device_Create\r\n");
+    }
+```
 
 
 ## <a name="request-a-private-endpoint"></a>Demander un point de terminaison privé

@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 04/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 3e5e126815d0171a6c1627a08419b05b9a3c0c23
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: f84aa2c6e89c0a40249423ec8e45ac804cf03a66
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719202"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685096"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gérer IoT Central à l’aide du Portail Azure
 
@@ -32,6 +32,8 @@ Pour créer une application, accédez à la page [Application IoT Central](http
 
 * L’**URL de l’application** est l’URL que vous pouvez utiliser pour accéder à votre application.
 
+* **Modèle** est le type d’application IoT Central que vous souhaitez créer. Vous pouvez créer une application à partir de la liste des modèles pertinents pour le secteur pour démarrer rapidement ou partir de zéro à l’aide du modèle **Application personnalisée**.
+
 * L’**Emplacement** correspond à la [zone géographique](https://azure.microsoft.com/global-infrastructure/geographies/) où vous souhaitez créer votre application. D'une façon générale, il est recommandé de choisir l'emplacement qui est physiquement le plus proche de vos appareils pour obtenir des performances optimales. Azure IoT Central est actuellement disponible aux localisations suivantes :
 
   * Asie-Pacifique
@@ -43,7 +45,7 @@ Pour créer une application, accédez à la page [Application IoT Central](http
 
   Une fois que vous avez choisi un emplacement, vous ne pouvez pas par la suite déplacer votre application dans un autre emplacement.
 
-Après avoir renseigné tous les champs, sélectionnez **Créer**. Pour plus d’informations, consultez le guide de démarrage rapide [Créer une application IoT Central](quick-deploy-iot-central.md).
+Après avoir renseigné tous les champs, sélectionnez **Créer**. Pour plus d’informations, consultez [Créer une application IoT Central](howto-create-iot-central-application.md).
 
 ## <a name="manage-existing-iot-central-applications"></a>Gérer des applications IoT Central existantes
 

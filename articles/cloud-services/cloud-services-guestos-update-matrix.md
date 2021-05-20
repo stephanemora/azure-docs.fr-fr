@@ -2,6 +2,7 @@
 title: En savoir plus sur les dernières publications du SE invité de Microsoft Azure | Microsoft Docs
 description: Dernières informations de publication et de compatibilité du Kit de développement logiciel (SDK) pour le SE invité de Microsoft Azure Cloud Services.
 services: cloud-services
+ms.subservice: auto-os-updates
 documentationcenter: na
 author: gunnarcms
 editor: ''
@@ -10,14 +11,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/28/2021
+ms.date: 4/30/2021
 ms.author: gunnarc
-ms.openlocfilehash: 0bd0257c3b99e343f1aebba31867f687b522c6fb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fd9aa5b2202a197b12a8e888dc510cdf4544bdec
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709563"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108735962"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -41,6 +42,9 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 Vous ne savez pas comment mettre à jour votre système d’exploitation invité ? Consultez [cet article][cloud updates].
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+
+###### <a name="april-30-2021"></a>**30 avril 2021**
+Le système d’exploitation invité d’avril a été publié. 
 
 ###### <a name="march-28-2021"></a>**28 mars 2021**
 Le système d’exploitation invité de mars a été publié. 
@@ -161,8 +165,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.30_202104-01 |  30 avril 2021  |  Post 6.32  |  
 |  WA-GUEST-OS-6.29_202103-01 |  28 mars 2021  |  Post 6.31  |  
-|  WA-GUEST-OS-6.28_202102-01 |  19 février 2021  |  Post 6.30  |  
+|~~WA-GUEST-OS-6.28_202102-01~~|  19 février 2021  |  30 avril 2021  |  
 |~~WA-GUEST-OS-6.27_202101-01~~|  5 février 2021  |  28 mars 2021  |  
 |~~WA-GUEST-OS-6.26_202012-01~~|  15 janvier 2021  |  19 février 2021  |  
 |~~WA-GUEST-OS-6.25_202011-01~~|  19 décembre 2020  |  5 février 2021  |  
@@ -203,8 +208,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.54_202104-01  |  30 avril 2021  |  Post 5.56  | 
 |  WA-GUEST-OS-5.53_202103-01  |  28 mars 2021  |  Post 5.55  | 
-|  WA-GUEST-OS-5.52_202102-01  |  19 février 2021  |  Post 5.54  | 
+|~~WA-GUEST-OS-5.52_202102-01~~|  19 février 2021  |  30 avril 2021  | 
 |~~WA-GUEST-OS-5.51_202101-01~~|  5 février 2021  |  28 mars 2021  | 
 |~~WA-GUEST-OS-5.50_202012-01~~|  15 janvier 2021  |  19 février 2021  | 
 |~~WA-GUEST-OS-5.49_202011-01~~|  19 décembre 2020  |  5 février 2021  | 
@@ -242,8 +248,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.89_202104-01  |  30 avril 2021  |  Post 4.91  | 
 |  WA-GUEST-OS-4.88_202103-01  |  28 mars 2021  |  Post 4.90  | 
-|  WA-GUEST-OS-4.87_202102-01  |  19 février 2021  |  Post 4.89  | 
+|~~WA-GUEST-OS-4.87_202102-01~~|  19 février 2021  |  30 avril 2021  | 
 |~~WA-GUEST-OS-4.86_202101-01~~|  5 février 2021  |  28 mars 2021  | 
 |~~WA-GUEST-OS-4.85_202012-01~~|  15 janvier 2021  |  19 février 2021  | 
 |~~WA-GUEST-OS-4.84_202011-01~~|  19 décembre 2020  |  5 février 2021  | 
@@ -281,8 +288,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.96_202104-01  |  30 avril 2021  |  Post 3.98  |
 |  WA-GUEST-OS-3.95_202103-01  |  28 mars 2021  |  Post 3.97  |
-|  WA-GUEST-OS-3.94_202102-01  |  19 février 2021  |  Post 3.96  |
+|~~WA-GUEST-OS-3.94_202102-01~~|  19 février 2021  |  30 avril 2021  |
 |~~WA-GUEST-OS-3.93_202101-01~~|  5 février 2021  |  28 mars 2021  |
 |~~WA-GUEST-OS-3.92_202012-01~~|  15 janvier 2021  |  19 février 2021  |  
 |~~WA-GUEST-OS-3.91_202011-01~~|  19 décembre 2020  |  5 février 2021  |  
@@ -320,8 +328,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.109_202104-01  |  30 avril 2021  |  Post 2.111  |
 |  WA-GUEST-OS-2.108_202103-01  |  28 mars 2021  |  Post 2.110  |
-|  WA-GUEST-OS-2.107_202102-01  |  19 février 2021  |  Post 2.109  |  
+|~~WA-GUEST-OS-2.107_202102-01~~|  19 février 2021  |  30 avril 2021  |  
 |~~WA-GUEST-OS-2.106_202101-01~~|  5 février 2021  |  28 mars 2021  |  
 |~~WA-GUEST-OS-2.105_202012-01~~|  15 janvier 2021  |  19 février 2021  |  
 |~~WA-GUEST-OS-2.104_202011-01~~|  19 décembre 2020  |  5 février 2021  |  

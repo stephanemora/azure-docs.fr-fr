@@ -5,14 +5,14 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/29/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e7351079e7325aa7750dc0d10f0923bc847ccc3c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7befc9648e696e80e0469d5e91173786354574d8
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101678311"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685744"
 ---
 # <a name="vision-solution-troubleshooting"></a>Résolution des problèmes liés à la solution de vision
 
@@ -60,7 +60,9 @@ Pour plus d’informations sur la résolution des problèmes liés aux solutions
 
 ## <a name="eye-module-troubleshooting-tips"></a>Conseils de dépannage pour les modules oculaires
 
-En cas de problème avec **WebStreamModule**, vérifiez que **azureeyemodule** (qui s’occupe de l’inférence du modèle de vision) est en cours d’exécution. Pour vérifier l’état de l’exécution, accédez au [portail Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home), puis accédez à **Toutes les ressources** ->  **\<your IoT hub>**  -> **IoT Edge** ->  **\<your device ID>** . Cliquez sur l’onglet **Modules** pour voir l’état d’exécution de tous les modules installés.
+### <a name="check-the-runtime-status-of-azureeyemodule"></a>Vérifier le statut d’exécution d’azureeyemodule
+
+En cas de problème avec **WebStreamModule**, vérifiez que **azureeyemodule**, qui s’occupe de l’inférence du modèle de vision, est en cours d’exécution. Pour vérifier l’état de l’exécution, accédez au [portail Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home), puis accédez à **Toutes les ressources** ->  **\<your IoT hub>**  -> **IoT Edge** ->  **\<your device ID>** . Cliquez sur l’onglet **Modules** pour voir l’état d’exécution de tous les modules installés.
 
 :::image type="content" source="./media/vision-solution-troubleshooting/over-the-air-iot-edge-device-page-inline.png" alt-text="Écran de l’état d’exécution du module d’appareil." lightbox= "./media/vision-solution-troubleshooting/over-the-air-iot-edge-device-page.png":::
 
@@ -68,11 +70,41 @@ Si l’état d’exécution de **azureeyemodule** n’est pas **en cours d’ex�
 
  :::image type="content" source="./media/vision-solution-troubleshooting/firmware-desired-status-stopped.png" alt-text="Écran de configuration des paramètres du module.":::
 
+### <a name="update-telemetryintervalneuralnetworkms"></a>Mettre à jour TelemetryIntervalNeuralNetworkMs
+
+Si vous rencontrez l’erreur de limitation de compte suivante, la valeur TelemetryIntervalNeuralNetworkMs dans les paramètres de jumeau du module azureeyemodule doivent être mis à jour.
+
+|Message d’erreur|
+|------|
+|Le nombre total de messages sur l’IotHub « xxxxxxxxx » a dépassé le quota alloué. Nombre maximal de messages autorisés : « 8000 », nombre de messages actuel : « xxxx ». Les opérations d’envoi et de réception sont bloquées pour ce hub jusqu’au prochain jour UTC. Envisagez d’augmenter les unités pour que ce hub augmente le quota.|
+
+TelemetryIntervalNeuralNetworkMs détermine la fréquence d’envoi des messages (en millisecondes) à partir du réseau neuronal. Les abonnements Azure ont un nombre limité de messages par jour, en fonction de votre niveau d’abonnement. Si vous êtes bloqué en raison de l’envoi d’un trop grand nombre de messages, augmentez la limite à un nombre supérieur. 12000 (une fois toutes les 12 secondes) vous donnera 7200 messages par jour, ce qui se trouve sous la limite de 8000 messages pour l’abonnement gratuit.
+
+Pour mettre à jour votre valeur TelemetryIntervalNeuralNetworkMs, procédez comme suit :
+
+1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home) et ouvrez **Toutes les ressources**.
+
+1. Dans la page **Toutes les ressources**, cliquez sur le nom de l’IoT Hub qui a été configuré dans votre devkit lors de l’installation.
+
+1. Sur le côté gauche de la page IoT Hub, cliquez sur **IoT Edge** sous **Gestion automatique des appareils**. Sur la page Appareils IoT Edge, recherchez l’ID d’appareil de votre devkit. Cliquez sur l’ID d’appareil de votre devkit pour ouvrir sa page d’appareil IoT Edge.
+
+1. Sélectionnez **azureeyemodule** sous l’onglet **Modules**.
+
+1. Sur la page azureeyemodule, ouvrez **Jumeau d’identité de module**.
+
+    :::image type="content" source="./media/vision-solution-troubleshooting/module-page-inline.png" alt-text="Capture d’écran de la page du module." lightbox= "./media/vision-solution-troubleshooting/module-page.png":::
+
+1. Faites défiler jusqu’à **Propriétés**. Les propriétés « Running » et « Logging » ne sont pas actives pour l’instant.
+
+    :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline.png" alt-text="Capture d’écran des propriétés de jumeau de module." lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
+
+1. Mettez à jour la valeur **TelemetryIntervalNeuralNetworkMs** comme vous le souhaitez, puis cliquez sur l’icône **Enregistrer**.
+
 ## <a name="view-device-rtsp-video-stream"></a>Afficher le flux vidéo RTSP de l’appareil
 
 Affichez le flux vidéo RTSP de votre appareil dans [Azure Percept Studio](./how-to-view-video-stream.md) ou [VLC media player](https://www.videolan.org/vlc/index.html).
 
-Pour ouvrir le flux RTSP dans VLC media player, accédez à **Media** -> **Open network stream (Ouvrir le flux réseau)**  -> **rtsp://[adresse IP de l’appareil]/result**.
+Pour ouvrir le flux RTSP dans VLC media player, accédez à **Media** -> **Open network stream** -> **rtsp://[device IP address]:8554/result**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

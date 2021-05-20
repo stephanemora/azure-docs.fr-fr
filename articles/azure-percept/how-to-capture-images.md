@@ -1,22 +1,22 @@
 ---
 title: Capturer des images pour une solution de vision sans code dans Azure Percept Studio
-description: Découvrez comment capturer des images avec votre DK Azure Percept dans Azure Percept Studio pour une solution de vision sans code.
-author: elqu20
-ms.author: v-elqu
+description: Comment capturer des images avec Azure percept DK dans Azure Percept Studio
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: d6cece6ee3079ba9f400f40026ca26ea36668710
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c7116d7e62afe6a59ad48bbb28dabf3c05bc311
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024640"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754394"
 ---
 # <a name="capture-images-for-a-vision-project-in-azure-percept-studio"></a>Capturer des images pour un projet de vision dans Azure Percept Studio
 
-Suivez ce guide afin de capturer des images à l’aide du SoM Vision du DK Azure Percept pour un projet de vision existant dans Azure Percept Studio. Si vous n’avez pas encore créé de projet de vision, consultez le [tutoriel pour créer un projet de vision sans code](./tutorial-nocode-vision.md).
+Suivez ce guide afin de capturer des images avec Azure Percept DK pour un projet de vision existant. Si vous n’avez pas encore créé de projet de vision, consultez le [tutoriel pour créer un projet de vision sans code](./tutorial-nocode-vision.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -31,7 +31,7 @@ Suivez ce guide afin de capturer des images à l’aide du SoM Vision du DK Azur
 
 1. Accédez à [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
 
-1. À gauche de la page de vue d’ensemble, cliquez sur **Appareils**.
+1. À gauche de la page de vue d’ensemble, sélectionnez **Appareils**.
 
     :::image type="content" source="./media/how-to-capture-images/overview-devices-inline.png" alt-text="Écran de vue d’ensemble d’Azure Percept Studio." lightbox="./media/how-to-capture-images/overview-devices.png":::
 
@@ -39,7 +39,7 @@ Suivez ce guide afin de capturer des images à l’aide du SoM Vision du DK Azur
 
     :::image type="content" source="./media/how-to-capture-images/select-device.png" alt-text="Liste des appareils Percept.":::
 
-1. Dans la page de votre appareil, cliquez sur **Capturer les images d’un projet**.
+1. Dans la page de votre appareil, sélectionnez **Capturer les images d’un projet**.
 
     :::image type="content" source="./media/how-to-capture-images/capture-images.png" alt-text="Page des appareils Percept avec les actions disponibles listées.":::
 
@@ -47,9 +47,9 @@ Suivez ce guide afin de capturer des images à l’aide du SoM Vision du DK Azur
 
     1. Dans le menu déroulant **Projet**, sélectionnez le projet de vision pour lequel vous souhaitez collecter des images.
 
-    1. Cliquez sur **Afficher le flux d’appareil** pour vérifier que la caméra du SoM Vision est bien placée.
+    1. Sélectionnez **Afficher le flux d’appareil** pour vérifier que la caméra du SoM Vision est bien placée.
 
-    1. Cliquez sur **Prendre une photo** pour capturer une image.
+    1. Sélectionnez **Prendre une photo** pour capturer une image.
 
     1. Vous pouvez également cocher la case à côté de **Capture d’image automatique** afin de configurer un minuteur pour la capture d’image :
 

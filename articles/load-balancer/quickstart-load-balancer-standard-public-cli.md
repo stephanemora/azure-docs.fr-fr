@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 9b332b18930d58ebb1d155c35a74eed69a90ce73
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 90bc724ac6184943415ae0d86cb5ccd1b34c35d3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788778"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733298"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Démarrage rapide : Créer un équilibreur de charge public pour équilibrer la charge des machines virtuelles à l’aide d’Azure CLI
 
@@ -281,7 +281,7 @@ Utilisez la commande [az network public-ip create](/cli/azure/network/public-ip#
     --sku Standard
 ```
 
-Pour créer une adresse IP publique redondante zonale dans la Zone 1, procédez comme suit :
+Pour créer une adresse IP publique zonale dans la zone 1 :
 
 ```azurecli-interactive
   az network public-ip create \

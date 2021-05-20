@@ -3,12 +3,12 @@ title: Syntaxe d’action SQL pour les règles d’abonnement Azure Service Bus 
 description: Cet article fournit une référence pour la syntaxe d’action des règles SQL. Les actions sont écrites dans une syntaxe basée sur le langage SQL exécutée sur un message.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 75ff437bace59d7f4de07342277f0760480a5b0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7aceb1992aafbbf92718a6bf558a72060f3275df
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652834"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770080"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Syntaxe d’action SQL pour les règles d’abonnement
 
@@ -53,7 +53,10 @@ Une *action SQL* permet de manipuler les métadonnées d’un message après qu�
   
 ## <a name="arguments"></a>Arguments  
   
--   `<scope>` est une chaîne facultative qui indique la portée de `<property_name>`. Les valeurs valides sont `sys` ou `user`. La valeur `sys` indique la portée du système où `<property_name>` est un nom de propriété publique de la [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indique la portée de l’utilisateur où `<property_name>` est une clé du dictionnaire de la [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). L’étendue de l’objet `user` est l’étendue par défaut si `<scope>` n’est pas défini.  
+-   `<scope>` est une chaîne facultative qui indique la portée de `<property_name>`. Les valeurs valides sont `sys` ou `user`. 
+    - La valeur `sys` indique l’étendue du système où `<property_name>` est l’une des propriétés sur le message Service Bus, comme décrit dans [Messages, charges utiles et sérialisation](service-bus-messages-payloads.md).
+    - La valeur `user` indique l’étendue de l’utilisateur où `<property_name>` est une clé des propriétés personnalisées que vous pouvez définir sur le message lors d’un envoi à Service Bus.
+    - L’étendue de `user` est l’étendue par défaut si `<scope>` n’est pas spécifié.  
   
 ### <a name="remarks"></a>Remarques  
 

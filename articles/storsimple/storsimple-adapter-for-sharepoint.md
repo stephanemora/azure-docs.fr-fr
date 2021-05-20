@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.openlocfilehash: 639efab3a9eaef400b3fbe3d0b134d02f458b865
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b0c8ff4e360fa0641c3e50420c2ce7085cd5f68
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94966290"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746894"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Installation et configuration de StorSimple Adapter for SharePoint
 ## <a name="overview"></a>Vue d’ensemble
@@ -87,10 +87,10 @@ Avant de configurer RBS, passez en revue les éléments suivants :
 > Si vous n’avez pas activé RBS, il est déconseillé de déplacer la base de données de contenu sur l’appareil StorSimple. Il s'agit d'une configuration non testée.
 
 ## <a name="storsimple-adapter-for-sharepoint-installation"></a>Installation de StorSimple Adapter for SharePoint
-Avant d'installer StorSimple Adapter for SharePoint, vous devez configurer l’appareil StorSimple et vous assurer que la batterie de serveurs SharePoint et l'instanciation SQL Server répondent à toutes les conditions préalables. Ce didacticiel décrit la configuration requise ainsi que les procédures d’installation et de mise à niveau de StorSimple Adapter for SharePoint.
+Avant d’installer StorSimple Adapter for SharePoint, vous devez configurer l’appareil StorSimple et vous assurer que la batterie de serveurs SharePoint et l’instanciation SQL Server répondent à toutes les conditions préalables. Ce didacticiel décrit la configuration requise ainsi que les procédures d’installation et de mise à niveau de StorSimple Adapter for SharePoint.
 
 ## <a name="configure-prerequisites"></a>Configuration préalable requise
-Avant d'installer StorSimple Adapter for SharePoint, assurez-vous que l’appareil StorSimple, la batterie de serveurs SharePoint et l'instanciation SQL Server répondent aux conditions préalables suivantes.
+Avant d’installer StorSimple Adapter for SharePoint, assurez-vous que l’appareil StorSimple, la batterie de serveurs SharePoint et l’instanciation SQL Server répondent aux conditions préalables suivantes.
 
 ### <a name="system-requirements"></a>Configuration système requise
 StorSimple Adapter for SharePoint fonctionne avec les matériels et logiciels suivants :
@@ -127,9 +127,9 @@ Si vous prévoyez d'utiliser StorSimple Snapshot Manager pour prendre des instan
 
 
 ## <a name="sharepoint-farm-configuration-prerequisites"></a>Conditions préalables à la configuration d’une batterie de serveurs SharePoint
-Assurez-vous que votre batterie de serveurs SharePoint est correctement configurée, comme suit :
+Assurez-vous que votre batterie de serveurs SharePoint est correctement configurée, comme suit :
 
-* Vérifiez que votre batterie de serveurs SharePoint est dans un état sain, puis vérifiez les éléments suivants :
+* Vérifiez que votre batterie de serveurs SharePoint est dans un état sain, puis vérifiez les éléments suivants :
 * Tous les serveurs WFE et d’application SharePoint enregistrés dans la batterie sont en cours d'exécution et accessibles à partir du serveur sur lequel vous installerez StorSimple Adapter for SharePoint.
 * Le service SharePoint Timer (SPTimerV3 ou SPTimerV4) s'exécute sur chaque serveur WFE et serveur d'applications.
 * Le service SharePoint Timer et le pool d'applications IIS sur lequel le site d'Administration centrale de SharePoint s'exécute disposent des privilèges d'administration.
@@ -154,7 +154,7 @@ Les objets blob peuvent être externalisés uniquement sur les volumes que l’a
 Lorsque vous avez effectué toutes les étapes de configuration requises, consultez la rubrique [Installation de StorSimple Adapter for SharePoint](#install-the-storsimple-adapter-for-sharepoint).
 
 ## <a name="install-the-storsimple-adapter-for-sharepoint"></a>Installation de StorSimple Adapter for SharePoint
-Utilisez les étapes suivantes pour installer StorSimple Adapter for SharePoint. Si vous réinstallez le logiciel, consultez la rubrique [Mise à niveau ou réinstallation de StorSimple Adapter for SharePoint](#upgrade-or-reinstall-the-storsimple-adapter-for-sharepoint). Le temps nécessaire à l'installation varie selon le nombre total de bases de données SharePoint dans votre batterie de serveurs SharePoint.
+Utilisez les étapes suivantes pour installer StorSimple Adapter for SharePoint. Si vous réinstallez le logiciel, consultez la rubrique [Mise à niveau ou réinstallation de StorSimple Adapter for SharePoint](#upgrade-or-reinstall-the-storsimple-adapter-for-sharepoint). Le temps nécessaire à l’installation varie selon le nombre total de bases de données SharePoint dans votre batterie de serveurs SharePoint.
 
 [!INCLUDE [storsimple-install-sharepoint-adapter](../../includes/storsimple-install-sharepoint-adapter.md)]
 
@@ -188,7 +188,7 @@ Si vous avez besoin de supprimer immédiatement des objets blob orphelins, vous 
 [!INCLUDE [storsimple-sharepoint-adapter-garbage-collection](../../includes/storsimple-sharepoint-adapter-garbage-collection.md)]
 
 ## <a name="upgrade-or-reinstall-the-storsimple-adapter-for-sharepoint"></a>Mise à niveau ou réinstallation de StorSimple Adapter for SharePoint
-Utilisez la procédure suivante pour mettre à niveau le serveur SharePoint puis réinstaller StorSimple Adapter for SharePoint ou pour simplement mettre à niveau ou réinstaller l'adaptateur dans une batterie de serveurs SharePoint existante.
+Utilisez la procédure suivante pour mettre à niveau le serveur SharePoint puis réinstaller StorSimple Adapter for SharePoint ou pour simplement mettre à niveau ou réinstaller l’adaptateur dans une batterie de serveurs SharePoint existante.
 
 > [!IMPORTANT]
 > Passez en revue les informations suivantes avant d'essayer de mettre à niveau votre logiciel SharePoint et/ou mettre à niveau ou réinstaller StorSimple Adapter for SharePoint :
