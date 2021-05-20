@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Nouvelle attribution de stratégie avec une API RES
 description: Dans ce démarrage rapide, vous allez utiliser une API REST pour créer une attribution Azure Policy afin d’identifier des ressources non conformes.
 ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: e6353c24b6c1e641a236837036a0105d6c5e02d2
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 7c7657143673e773e1c4108ecb8d86ddc8d1c559
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326270"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108763106"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier des ressources non conformes avec une API REST
 
@@ -69,7 +69,7 @@ URI DE L’API REST :
 Corps de la demande :
 - **DisplayName** : nom d’affichage pour l’attribution de stratégie. Dans ce cas, nous allons utiliser l’affectation _Audit VMs without managed disks_ (Auditer les machines virtuelles sans disques managés).
 - **Description**  : explication plus détaillée de ce que fait la stratégie ou de la raison pour laquelle elle est attribuée à cette étendue.
-- **policyDefinitionId** : ID de définition de stratégie, sur lequel vous vous basez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_.
+- **policyDefinitionId** : ID de définition de la stratégie, basé sur celui que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_.
 - **nonComplianceMessages** : définition du message qui s’affiche quand une ressource est refusée en raison de sa non-conformité ou est évaluée comme non conforme. Pour plus d’informations, consultez la section sur les [messages de non-conformité des affectations](./concepts/assignment-structure.md#non-compliance-messages).
 
 ## <a name="identify-non-compliant-resources"></a>Identifier des ressources non conformes

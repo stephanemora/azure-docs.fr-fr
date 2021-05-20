@@ -14,19 +14,19 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94dd5c2579eb7ce96dea70c6354df8ec84125bd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5947d9bcd6109e4d13d0f4492911b0cd8ead3f40
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88141667"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790610"
 ---
 # <a name="audit-activity-history-for-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Historique des activités d’audit pour les affectations de groupe d’accès privilégié (préversion) dans Privileged Identity Management
 
 Grâce à Privileged Identity Management (PIM), vous pouvez voir l’activité, les activations et l’historique d’audit des membres et des propriétaires de groupes d’accès privilégié Azure au sein de votre organisation Azure Active Directory (Azure AD).
 
 > [!NOTE]
-> Si votre organisation possède des fonctions de gestion externalisées pour un fournisseur de services qui utilise la [gestion des ressources déléguées Azure](../../lighthouse/concepts/azure-delegated-resource-management.md), les attributions de rôles autorisées par ce fournisseur de services ne seront pas affichées ici.
+> Si votre organisation externalise des fonctions de gestion à un fournisseur de services qui utilise[Azure Lighthouse](../../lighthouse/overview.md), les attributions de rôles autorisées par ce fournisseur de services ne s’afficheront pas ici.
 
 Procédez comme suit pour afficher l’historique d’audit des groupes d’accès privilégié.
 

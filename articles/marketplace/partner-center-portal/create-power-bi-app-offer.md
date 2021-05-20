@@ -6,13 +6,13 @@ ms.author: navits
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/22/2020
-ms.openlocfilehash: d5eb253fb24f463106866f8b0fe17f634e805cbb
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 04/14/2021
+ms.openlocfilehash: 346824a9a64fa9c6b01ae29c74dca693e31f67ac
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107475"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109635262"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Créer une offre d’application Power BI
 
@@ -56,7 +56,7 @@ La page montre une représentation visuelle des étapes nécessaires à la publi
 Elle contient des liens permettant d’effectuer des opérations sur cette offre en fonction de la sélection que vous effectuez. Par exemple :
 
 - Si l’offre est un brouillon : Supprimer le brouillon de l’offre
-- Si l’offre est publiée : [Arrêter de vendre l’offre](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Si l’offre est en ligne : [Déprécier l’offre (anciennement Arrêter la vente)](update-existing-offer.md#deprecate-an-offer-or-plan)
 - Si l’offre est disponible en préversion : [Mise en service](../review-publish-offer.md#previewing-and-approving-your-offer)
 - Si vous n’avez pas complété Déconnexion de l’éditeur : [Annuler la publication](../review-publish-offer.md#cancel-publishing)
 

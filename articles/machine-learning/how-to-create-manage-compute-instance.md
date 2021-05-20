@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: f3e0a14ee917bf9b1396eef9d1ec36709e5e706a
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 5dd61207d3155c1279b8e8609b8aa8abf65e7ee2
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331384"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109518159"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Créer et gérer une instance de calcul Azure Machine Learning
 
@@ -111,7 +111,7 @@ Vous pouvez également créer une instance de calcul avec un [modèle Azure Reso
 
 
 
-## <a name="create-on-behalf-of-preview"></a>Créer au nom de (préversion)
+## <a name="create-on-behalf-of-preview"></a><a name="on-behalf"></a> Créer au nom de (préversion)
 
 En tant qu’administrateur, vous pouvez créer une instance de calcul au nom d’un scientifique des données et lui affecter l’instance avec :
 
@@ -140,32 +140,43 @@ Utilisez un script de configuration pour personnaliser et configurer automatique
 
 Voici quelques exemples de ce que vous pouvez faire dans un script de configuration :
 
-* Installer des packages et des outils
+* Installer des packages, des outils et des logiciels
 * Monter des données
 * Créer un environnement Conda personnalisé et des noyaux Jupyter
-* Cloner des référentiels Git
+* Cloner des référentiels Git et définir la configuration Git
+* Définir des proxys réseau
+* Définir des variables d’environnement
+* Installer des extensions JupyterLab
 
 ### <a name="create-the-setup-script"></a>Création du script de configuration
 
-Le script de configuration est un script shell qui s’exécute en tant que *azureuser*.  Créez ou chargez le script dans vos fichiers **Notebooks** :
+Le script de configuration est un script d’interpréteur de commandes qui s’exécute en tant que *rootuser*.  Créez ou chargez le script dans vos fichiers **Notebooks** :
 
 1. Connectez-vous au [studio](https://ml.azure.com) et sélectionnez votre espace de travail.
-1. Sur la gauche, sélectionnez **Notebooks**.
-1. Utilisez l’outil **Ajouter des fichiers** pour créer ou charger votre script shell de configuration.  Veillez à ce que le nom de fichier du script se termine par « .sh ».  Lorsque vous créez un fichier, remplacez également le **Type de fichier** par *bash (.sh)* .
+2. Sur la gauche, sélectionnez **Notebooks**.
+3. Utilisez l’outil **Ajouter des fichiers** pour créer ou charger votre script shell de configuration.  Veillez à ce que le nom de fichier du script se termine par « .sh ».  Lorsque vous créez un fichier, remplacez également le **Type de fichier** par *bash (.sh)* .
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/create-or-upload-file.png" alt-text="Création ou chargement d’un script de configuration dans un fichier Notebooks dans le studio.":::
 
-Lorsque le script s’exécute, le répertoire de travail actif est le répertoire dans lequel il a été chargé.  Si vous chargez le script dans **Users>admin**, l’emplacement du fichier est */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users/admin* pour le provisionnement de l’instance de calcul nommée **ciname**.
+Lorsque le script s’exécute, le répertoire de travail actif du script est le répertoire dans lequel il a été chargé. Par exemple, si vous chargez le script dans **Utilisateurs>Administrateur**, l’emplacement du script sur l’instance de calcul et le répertoire de travail actuel lorsque le script s’exécute est */home/azureuser/cloudfiles/code/Users/admin*. Cela vous permettrait d’utiliser des chemins d’accès relatifs dans le script.
 
-Les arguments de script peuvent être indiqués dans le script sous la forme $1, $2, etc. Par exemple, si vous exécutez `scriptname ciname`, vous pouvez utiliser la commande `cd /mnt/batch/tasks/shared/LS_root/mounts/clusters/$1/code/admin` dans le script pour accéder au répertoire dans lequel il est stocké.
+Les arguments de script peuvent être référencés dans le script sous la forme $1, $2, etc. 
 
-Vous pouvez également récupérer le chemin à l’intérieur du script :
+Si votre script effectue une opération spécifique à azureuser, par exemple l’installation de l’environnement Conda ou du noyau Jupyter, vous devez le placer dans le bloc *sudo -u azureuser* comme suit.
 
 ```shell
-#!/bin/bash 
-SCRIPT=$(readlink -f "$0") 
-SCRIPT_PATH=$(dirname "$SCRIPT") 
+sudo -u azureuser -i <<'EOF'
+
+EOF
 ```
+Veuillez noter que *sudo -u azureuser* modifie le répertoire de travail actuel en */home/azureuser*. Vous ne pouvez pas non plus accéder aux arguments du script dans ce bloc.
+
+Vous pouvez également utiliser les variables d’environnement suivantes dans votre script :
+
+1. CI_RESOURCE_GROUP
+2. CI_WORKSPACE
+3. CI_NAME
+4. CI_LOCAL_UBUNTU_USER. Cela pointe vers azureuser
 
 ### <a name="use-the-script-in-the-studio"></a>Utilisation du script dans le studio
 
@@ -220,7 +231,7 @@ Les journaux issus de l’exécution du script de configuration s’affichent da
 
 ## <a name="manage"></a>Gérer
 
-Démarrez, arrêtez, redémarrez et supprimez une instance de calcul. Une instance de calcul ne fait pas automatiquement l’objet d’un scale-down. Veillez donc à arrêter la ressource pour éviter les frais récurrents.
+Démarrez, arrêtez, redémarrez et supprimez une instance de calcul. Une instance de calcul ne fait pas automatiquement l’objet d’un scale-down. Veillez donc à arrêter la ressource pour éviter les frais récurrents. L’arrêt d’une instance de calcul a pour effet de la libérer. Ensuite, redémarrez-la quand vous en avez besoin. Si l’arrêt de l’instance de calcul met fin à la facturation des heures de calcul, le disque, l’IP publique et l’équilibreur de charge standard vous seront toujours facturés.
 
 > [!TIP]
 > L’instance de calcul a un disque de système d’exploitation de 120 Go. Si vous ne disposez pas de suffisamment d’espace disque, [utilisez le terminal](how-to-access-terminal.md) pour effacer au moins 1 à 2 Go avant d’arrêter ou redémarrer l’instance de calcul.
@@ -324,8 +335,7 @@ Pour chaque instance de calcul de votre espace de travail que vous avez créée 
 
 ---
 
-
-Le [contrôle d'accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) vous permet de contrôler les utilisateurs de l'espace de travail qui peuvent créer, supprimer, démarrer ou arrêter une instance de calcul. Tous les utilisateurs ayant les rôles Contributeur et Propriétaire dans l’espace de travail sont autorisés à créer, supprimer, démarrer, arrêter et redémarrer des instances de calcul dans tout l’espace de travail. Toutefois, seul le créateur d’une instance de calcul spécifique, ou l’utilisateur affecté si elle a été créée en son nom, est autorisé à accéder à Jupyter, JupyterLab et RStudio sur cette instance de calcul. Une instance de calcul est dédiée à un seul utilisateur disposant d’un accès racine et peut accéder au terminal par le biais de Jupyter/JupyterLab/RStudio. L’instance de calcul utilise une connexion mono-utilisateur et toutes les actions utilisent l’identité de cet utilisateur pour le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et l’attribution des exécutions d’expériences. L’accès SSH est contrôlé par le biais d’un mécanisme de clé publique/privée.
+Le [contrôle d'accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) vous permet de contrôler les utilisateurs de l'espace de travail qui peuvent créer, supprimer, démarrer ou arrêter une instance de calcul. Tous les utilisateurs ayant les rôles Contributeur et Propriétaire dans l’espace de travail sont autorisés à créer, supprimer, démarrer, arrêter et redémarrer des instances de calcul dans tout l’espace de travail. Toutefois, seul le créateur d’une instance de calcul spécifique, ou l’utilisateur affecté si elle a été créée en son nom, est autorisé à accéder à Jupyter, JupyterLab et RStudio sur cette instance de calcul. Une instance de calcul est dédiée à un seul utilisateur disposant d’un accès racine et peut accéder au terminal par le biais de Jupyter/JupyterLab/RStudio. L'instance de calcul utilisera une connexion mono-utilisateur et toutes les actions utiliseront l'identité de cet utilisateur pour le contrôle d'accès en fonction du rôle Azure (Azure RBAC) et l'attribution des exécutions d'expériences. L’accès SSH est contrôlé par le biais d’un mécanisme de clé publique/privée.
 
 Ces actions peuvent être contrôlées par Azure RBAC :
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
@@ -334,6 +344,11 @@ Ces actions peuvent être contrôlées par Azure RBAC :
 * *Microsoft.MachineLearningServices/workspaces/computes/start/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
+
+Pour créer une instance de calcul, vous avez besoin d’autorisations pour les actions suivantes :
+* *Microsoft.MachineLearningServices/workspaces/computes/write*
+* *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

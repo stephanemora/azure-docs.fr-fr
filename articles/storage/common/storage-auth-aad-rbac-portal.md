@@ -10,12 +10,12 @@ ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d63a31eae57d09f1658f5f19c1518cb0648fa4e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3beba41dbd5b28d2c03d45652f6cf2eff85ba5d5
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100373745"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633287"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente
 
@@ -56,14 +56,13 @@ Avant d’attribuer un rôle à un principal de sécurité, veillez à tenir com
 
 La procédure illustrée ici attribue un rôle limité à un conteneur, mais vous pouvez suivre les mêmes étapes pour attribuer un rôle limité à une file d’attente :
 
-1. Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage, puis affichez l’**Aperçu** du compte.
-1. Sous Services, sélectionnez **Blobs**.
+1. Dans le [portail Azure](https://portal.azure.com), sous **Stockage des données**, sélectionnez **Conteneurs d’objets blob**.
 1. Recherchez le conteneur pour lequel vous souhaitez attribuer un rôle, puis affichez les paramètres de ce conteneur.
 1. Sélectionnez **Contrôle d’accès (IAM)** pour afficher les paramètres de contrôle d’accès du conteneur. Sélectionnez l’onglet **Attributions de rôles** pour afficher la liste des attributions de rôles.
 
     :::image type="content" source="media/storage-auth-aad-rbac-portal/portal-access-control-container.png" alt-text="Capture d’écran montrant les paramètres de contrôle d’accès du conteneur":::
 
-1. Cliquez sur le bouton **Ajouter une attribution de rôle** pour ajouter un nouveau rôle.
+1. Cliquez sur **Ajouter**, puis sur **Ajouter une attribution de rôle** pour ajouter un nouveau rôle.
 1. Dans la fenêtre **Ajouter une attribution de rôle**, sélectionnez le rôle Stockage Azure que vous souhaitez attribuer. Recherchez ensuite le principal de sécurité auquel vous souhaitez attribuer ce rôle.
 
     :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Capture d’écran montrant comment attribuer un rôle Azure":::
@@ -86,11 +85,12 @@ Si vos utilisateurs doivent être en mesure d’accéder aux blobs dans le porta
 Suivez ces étapes pour attribuer le rôle **Lecteur** afin qu’un utilisateur puisse accéder aux objets blob à partir du portail Azure. Dans cet exemple, l’attribution est étendue au compte de stockage :
 
 1. Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
-1. Sélectionnez **Contrôle d’accès (IAM)** pour afficher les paramètres de contrôle d’accès du compte de stockage. Sélectionnez l’onglet **Attributions de rôles** pour afficher la liste des attributions de rôles.
-1. Dans la fenêtre **Ajouter une attribution de rôle**, sélectionnez le rôle **Lecteur**. 
-1. Dans le champ **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou principal du service Azure AD**.
-1. Recherchez le principal de sécurité auquel vous souhaitez attribuer le rôle.
-1. Enregistrez l’attribution de rôle.
+2. Sélectionnez **Contrôle d’accès (IAM)** pour afficher les paramètres de contrôle d’accès du compte de stockage. Sélectionnez l’onglet **Attributions de rôles** pour afficher la liste des attributions de rôles.
+3. Cliquez sur **Ajouter**, puis sur **Ajouter une attribution de rôle** pour ajouter un nouveau rôle.
+4. Dans la fenêtre **Ajouter une attribution de rôle**, sélectionnez le rôle **Lecteur**. 
+5. Dans le champ **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou principal du service Azure AD**.
+6. Recherchez le principal de sécurité auquel vous souhaitez attribuer le rôle.
+7. Enregistrez l’attribution de rôle.
 
 L’attribution du rôle **Lecteur** est uniquement nécessaire pour les utilisateurs qui doivent accéder aux blobs ou files d’attente à l’aide du Portail Azure.
 

@@ -1,32 +1,34 @@
 ---
-title: Configurer votre cluster Service Fabric managé (préversion)
+title: Configurer votre cluster managé Service Fabric
 description: Découvrez comment configurer votre cluster managé Service Fabric pour les mises à niveau automatiques du système d’exploitation, les règles de groupe de sécurité réseau et bien plus encore.
 ms.topic: how-to
-ms.date: 02/15/2021
-ms.openlocfilehash: 44b1b949fe314231cb44f190c31b53903e47a904
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 5/10/2021
+ms.openlocfilehash: 42c8cf75a274ba3b4630caf9ac7e0d194465cfe7
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732630"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735473"
 ---
-# <a name="service-fabric-managed-cluster-preview-configuration-options"></a>Options de configuration du cluster Service Fabric managé (préversion)
+# <a name="service-fabric-managed-cluster-configuration-options"></a>Options de configuration du cluster Service Fabric géré
 
-En plus de sélectionner la [référence SKU du cluster managé Service Fabric](overview-managed-cluster.md#service-fabric-managed-cluster-skus) lors de la création de votre cluster, il existe d’autres façons de le configurer. Dans la préversion actuelle, vous pouvez :
+En plus de sélectionner la [référence SKU du cluster managé Service Fabric](overview-managed-cluster.md#service-fabric-managed-cluster-skus) lors de la création de votre cluster, il existe d’autres façons de le configurer, notamment :
 
-* Configurer les [options de mise en réseau](how-to-managed-cluster-networking.md) pour votre cluster
-* Ajouter une [extension de groupe de machines virtuelles identiques](how-to-managed-cluster-vmss-extension.md) à un type de nœud
-* Configurer une [identité managée](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) sur vos types de nœuds
-* Activer les [mises à niveau automatiques du système d’exploitation](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) pour vos nœuds
-* Activer le [chiffrement du disque de données et du système d’exploitation](how-to-enable-managed-cluster-disk-encryption.md) sur vos nœuds
+* Ajout d’une [extension de groupe de machines virtuelles identiques](how-to-managed-cluster-vmss-extension.md) à un type de nœud
+* Configuration de la [répartition des zones de disponibilité](how-to-managed-cluster-availability-zones.md) d’un cluster
+* Configuration de [règles NSG et autres options de mise en réseau](how-to-managed-cluster-networking.md) pour un cluster
+* Configuration de l’[identité managée](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) sur des types de nœuds de cluster
+* Activation des [mises à jour automatiques du système d’exploitation](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) pour les nœuds de cluster
+* Activation du [chiffrement du disque de données et du système d’exploitation](how-to-enable-managed-cluster-disk-encryption.md) sur des nœuds de cluster
+* Sélection de la SKU du [type de disque managé](how-to-managed-cluster-managed-disk.md) du cluster
 
 ## <a name="enable-automatic-os-image-upgrades"></a>Activer les mises à niveau de l’image du système d’exploitation
 
-Vous pouvez choisir d’activer les mises à niveau automatiques de l’image du système d’exploitation vers les machines virtuelles exécutant vos nœuds de cluster managés. Bien que les ressources du groupe de machines virtuelles identiques soient managées en votre nom avec des clusters managés Service Fabric, vous avez le choix d’activer les mises à niveau automatiques de l’image du système d’exploitation pour vos nœuds de cluster. Comme avec les clusters [Service Fabric classiques](service-fabric-best-practices-infrastructure-as-code.md#azure-virtual-machine-operating-system-automatic-upgrade-configuration), les nœuds de cluster managés ne sont pas mis à niveau par défaut, afin d’éviter toute interruption involontaire de votre cluster.
+Vous pouvez choisir d’activer les mises à niveau automatiques de l’image du système d’exploitation vers les machines virtuelles exécutant vos nœuds de cluster managés. Bien que les ressources du groupe de machines virtuelles identiques soient managées en votre nom avec des clusters managés Service Fabric, vous avez le choix d’activer les mises à niveau automatiques de l’image du système d’exploitation pour vos nœuds de cluster. Comme avec les clusters [Service Fabric classiques](service-fabric-best-practices-infrastructure-as-code.md#virtual-machine-os-automatic-upgrade-configuration), les nœuds de cluster managés ne sont pas mis à niveau par défaut, afin d’éviter toute interruption involontaire de votre cluster.
 
 Pour activer les mises à niveau automatiques du système d’exploitation :
 
-* Utilisez la version `2021-01-01-preview` (ou ultérieure) des ressources *Microsoft.ServiceFabric/managedclusters* et *Microsoft.ServiceFabric/managedclusters/nodetypes*
+* Utilisez la version `2021-05-01` (ou ultérieure) des ressources *Microsoft.ServiceFabric/managedclusters* et *Microsoft.ServiceFabric/managedclusters/nodetypes*
 * Définir la propriété `enableAutoOSUpgrade` du cluster sur *true*
 * Définir la propriété `vmImageVersion` de la ressource nodeTypes du cluster sur *latest*
 
@@ -34,7 +36,7 @@ Par exemple :
 
 ```json
     {
-      "apiVersion": "2021-01-01-preview",
+      "apiVersion": "2021-05-01",
       "type": "Microsoft.ServiceFabric/managedclusters",
       ...
       "properties": {
@@ -43,7 +45,7 @@ Par exemple :
       },
     },
     {
-      "apiVersion": "2021-01-01-preview",
+      "apiVersion": "2021-05-01",
       "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
        ...
       "properties": {

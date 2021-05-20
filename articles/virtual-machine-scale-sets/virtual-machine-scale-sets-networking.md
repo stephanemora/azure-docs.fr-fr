@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: e427d51068115db27a36243d738c0e93a10d3cb1
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: e44dc221ccb8dd614372e53dd626f513c9490e78
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375914"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754405"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Mise en réseau pour des groupes de machines virtuelles identiques Azure
 
@@ -130,7 +130,7 @@ En règle générale, les machines virtuelles des groupes identiques Azure ne n�
 Toutefois, dans certains cas, les machines virtuelles de groupes identiques doivent posséder leurs propres adresses IP publiques. Par exemple, dans le cas des jeux vidéo, lorsqu’une console doit être directement connectée à une machine virtuelle sur Cloud qui procède à un traitement physique du jeu. Autre exemple : lorsque des machines virtuelles doivent établir des connexions externes entre elles, dans différentes régions, dans une base de données distribuée.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Création d’un groupe identique avec IP public par machine virtuelle
-Pour créer un groupe identique qui attribue une adresse IP publique à chaque machine virtuelle avec l’interface CLI, ajoutez le paramètre **--public-ip-per-vm** à la commande **vmss create**. 
+Pour créer un groupe identique qui attribue une adresse IP publique à chaque machine virtuelle avec l’interface CLI, ajoutez le paramètre **--public-ip-per-vm** à la commande **vmss create**.
 
 Pour créer un groupe identique à l’aide d’un modèle Azure, assurez-vous que la version API de la ressource Microsoft.Compute/virtualMachineScaleSets correspond au moins à la version du **30/03/2017**, et ajoutez une propriété JSON **publicIpAddressConfiguration** à la section ipConfigurations du groupe identique. Par exemple :
 
@@ -143,7 +143,7 @@ Pour créer un groupe identique à l’aide d’un modèle Azure, assurez-vous q
 }
 ```
 
-Exemple de modèle : [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
+Exemple de modèle : [vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Interrogation des adresses IP publiques des machines virtuelles dans un groupe identique
 Pour répertorier les adresses IP publiques attribuées à des machines virtuelles d’un groupe identique avec l’interface CLI, utilisez la commande **az vmss list-instance-public-ips**.
@@ -384,7 +384,7 @@ az vmss show \
 
 ## <a name="make-networking-updates-to-specific-instances"></a>Effectuer des mises à jour réseau sur des instances spécifiques
 
-Vous pouvez effectuer des mises à jour réseau sur des instances spécifiques du groupe de machines virtuelles identiques. 
+Vous pouvez effectuer des mises à jour réseau sur des instances spécifiques du groupe de machines virtuelles identiques.
 
 Vous pouvez effectuer un `PUT` sur l’instance pour mettre à jour la configuration réseau. Vous pouvez l’utiliser pour effectuer des opérations comme l’ajout ou la suppression de cartes réseau, ou la suppression d’une instance d’un pool back-end.
 
@@ -395,8 +395,8 @@ PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/provid
 L’exemple suivant montre comment ajouter une deuxième configuration IP à votre carte réseau.
 
 1. Obtenez (`GET`) les détails d’une instance de groupe de machines virtuelles identiques.
-    
-    ``` 
+
+    ```
     GET https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
     ```
 
@@ -449,10 +449,10 @@ L’exemple suivant montre comment ajouter une deuxième configuration IP à vo
       }
     }
     ```
- 
+
 2. Effectuez un `PUT` sur l’instance, ce qui entraîne une mise à jour pour ajouter la configuration IP supplémentaire. Cette étape est similaire pour ajouter un `networkInterfaceConfiguration` supplémentaire.
 
-    
+
     ```
     PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
     ```

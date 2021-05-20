@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.custom: contperf-fy21q2; references_regions
-ms.openlocfilehash: 5ffae530bcd8a7274b4b75c447591cf619012661
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: a4b528a0a8abac2cad9b68ed145c5cc137efba26
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106387058"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664345"
 ---
 # <a name="what-is-custom-speech"></a>Qu’est-ce que Custom Speech ?
 
-[Custom Speech](https://aka.ms/customspeech) est un ensemble d’outils basés sur une IU, qui vous permettent d’évaluer et d’améliorer l’exactitude de la reconnaissance vocale de Microsoft pour vos applications, outils et produits. Pour bien démarrer, il vous suffit de quelques fichiers audio de test. Suivez les liens fournis dans cet article pour commencer à créer une expérience de reconnaissance vocale personnalisée.
+[Custom Speech](https://aka.ms/customspeech) est un outil basé sur une IU qui vous permet d'évaluer et d'améliorer l'exactitude de la reconnaissance vocale de Microsoft pour vos applications, outils et produits. Pour bien démarrer, il vous suffit de quelques fichiers audio de test. Suivez les liens fournis dans cet article pour commencer à créer une expérience de reconnaissance vocale personnalisée.
 
 ## <a name="whats-in-custom-speech"></a>Qu’y a-t-il dans Custom Speech ?
 

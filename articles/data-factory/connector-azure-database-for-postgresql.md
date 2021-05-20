@@ -1,18 +1,18 @@
 ---
 title: Copier et transformer des données dans Azure Database pour PostgreSQL
 description: Apprenez à copier et à transformer des données dans Azure Database pour PostgreSQL à l’aide d’Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/25/2021
-ms.openlocfilehash: ec4ea645e325ef48d4cb5951cd39fd4e9cbe1617
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d7d5ac30549667a6806b9f0c45328c0662a2e47e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738053"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785364"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Database pour PostgreSQL à l’aide d’Azure Data Factory
 
@@ -30,11 +30,11 @@ Ce connecteur Azure Database pour PostgreSQL est pris en charge pour les activit
 - [Mappage de flux de données](concepts-data-flow-overview.md)
 - [Activité de recherche](control-flow-lookup-activity.md)
 
-Actuellement, le flux de données prend en charge un serveur unique Azure Database pour PostgreSQL, mais pas un serveur flexible ou hyperscale (Citus).
+Actuellement, le flux de données dans Azure Data Factory prend en charge Azure Database pour PostgreSQL – Serveur unique, mais pas Serveur flexible ou Hyperscale (Citus) ; le flux de données dans Azure Synapse Analytics prend en charge toutes les saveurs de PostgreSQL.
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes détaillent les propriétés utilisées pour définir des entités Data Factory propres au connecteur Azure Database pour PostgreSQL.
 

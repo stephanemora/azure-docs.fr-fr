@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 05/03/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9ee81abd7cd0268a7cbd6b16aa6065ec7b54bef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 068a3852371c44086717a6f0164e42d6a3ee33a6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96861304"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754538"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Planifier un déploiement d'Azure AD Multi-Factor Authentication
 
@@ -144,6 +144,9 @@ L’utilisateur reçoit un SMS avec le code de vérification et il est invité �
 
 1. Cliquez sur **Save**(Enregistrer).
 1. Fermez l’onglet **paramètres de service**.
+
+> [!WARNING]
+> Ne désactivez pas les méthodes de votre organisation si vous utilisez les paramètres de [sécurité par défaut](../fundamentals/concept-fundamentals-security-defaults.md). La désactivation de ces méthodes peut vous empêcher ensuite d’accéder à votre locataire. Laissez toutes les **méthodes disponibles pour les utilisateurs** activées dans le portail des paramètres du service MFA.
 
 ## <a name="plan-registration-policy"></a>Planifier la stratégie d'inscription
 

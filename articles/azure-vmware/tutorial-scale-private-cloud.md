@@ -1,16 +1,16 @@
 ---
-title: Tutoriel - Mettre à l’échelle un cloud privé
+title: Tutoriel - Développer ou réduire les clusters dans un cloud privé
 description: Dans ce tutoriel, vous utilisez le portail Azure pour mettre à l’échelle un cloud privé Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: 2129a3f5d04311883369b7b708689a13f07ec118
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 23fa38f41a1effab212896e59118978202ef17a7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463596"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769288"
 ---
-# <a name="tutorial-scale-an-azure-vmware-solution-private-cloud"></a>Tutoriel : Mettre à l’échelle un cloud privé Azure VMware Solution
+# <a name="tutorial-expand-or-shrink-clusters-in-a-private-cloud"></a>Tutoriel : Développer ou réduire les clusters dans un cloud privé
 
 Pour tirer le meilleur parti de votre expérience de cloud privé Azure VMware Solution, mettez à l’échelle les clusters et les hôtes selon vos besoins pour les charges de travail planifiées. Vous pouvez mettre à l’échelle les clusters et les hôtes d’un cloud privé en fonction des besoins de la charge de travail de vos applications. Les limitations de performances et de disponibilité pour des services spécifiques doivent être traitées au cas par cas. Les limites de clusters et d’hôtes sont indiquées dans l’[article sur le concept de cloud privé](concepts-private-clouds-clusters.md).
 

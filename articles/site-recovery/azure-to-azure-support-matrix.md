@@ -3,12 +3,12 @@ title: Prendre en charge la matrice de la récupération d’urgence des machine
 description: Résume la prise en charge de la récupération d’urgence des machines virtuelles Azure vers une région secondaire à l’aide d’Azure Site Recovery.
 ms.topic: article
 ms.date: 11/29/2020
-ms.openlocfilehash: 92def8f964ec15033816cddfaa41f7e0d82ac595
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: fe3424b8905569076a1fe6e4d29352581db3bec8
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108174557"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109665029"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -52,7 +52,7 @@ Azure Government    | US Gov Virginie, US Gov Iowa, US Gov Arizona, US Gov Texas
 Allemagne    | Centre de l’Allemagne, Nord-Est de l’Allemagne
 Chine | Chine Est, Chine Nord, Chine Nord 2, Chine Est 2
 Brésil | Brésil Sud
-Régions restreintes réservées pour la reprise d’activité après sinistre dans leur pays |Suisse Ouest réservé à Suisse Nord, France Sud réservé à France Centre, Émirats arabes unis Centre réservé aux clients Émirats arabes unis Nord, Norvège Ouest pour les clients Norvège Est, Inde Centre JIO pour les clients Norvège Ouest, Brésil Sud-Est pour Brésil Sud
+Régions restreintes réservées pour la reprise d’activité après sinistre dans leur pays |Suisse Ouest réservée pour les clients Suisse Nord, France Sud réservée pour les clients France Centre, Émirats arabes unis Centre réservée pour les clients Émirats arabes unis Nord, Norvège Ouest réservée pour les clients Norvège Est, Inde Centre JIO réservée pour les clients Inde Ouest JIO, Brésil Sud-Est réservée pour les clients Brésil Sud, Afrique du Sud Ouest réservée pour les clients Afrique du Sud Nord, Allemagne Nord réservée pour les clients Allemagne Centre-Ouest.
 
 La réplication et la récupération de machines virtuelles entre deux régions de différents continents sont limitées aux paires de régions suivantes :
 
@@ -197,7 +197,7 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.37](https://support.
 
 **Version release** | **Version du service Mobilité** | **Version du noyau** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  | Par défaut, tous les [noyaux de stock SUSE 15 SP1 et SP2](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.12.14-5.5-azure à 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure à 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azur à 5.3.18-18.38-azure
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  | Par défaut, tous les [noyaux de stock SUSE 15 SP1 et SP2](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.12.14-5.5-azure à 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure à 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure à 5.3.18-18.38-azure
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)  | Par défaut, tous les [noyaux de stock SUSE 15 SP1 et SP2](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.12.14-5.5-azure à 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure à 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure à 5.3.18-18.35-azure </br> 5.3.18-18.38-azure au correctif logiciel à chaud 9.41**
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | Par défaut, tous les [noyaux de stock SUSE 15 SP1 et SP2](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.12.14-5.5-azure à 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure à 4.12.14-8.58-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure à 5.3.18-18.29-azure </br> 5.3.18-18.32-azure, 4.12.14-8.58-azure au correctif logiciel à chaud 9.40**
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9.39](https://support.microsoft.com/help/4597409/)  | Par défaut, tous les [noyaux de stock SUSE 15 SP1 et SP2](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.12.14-5.5-azure à 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure à 4.12.14-8.47-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure à 5.3.18-18.21-azure </br> 4.12.14-8.52-azure, 5.3.18-18.24-azure, 4.12.14-8.55-azure, 5.3.18-18.29-azure à 9.39 correctif logiciel à chaud**

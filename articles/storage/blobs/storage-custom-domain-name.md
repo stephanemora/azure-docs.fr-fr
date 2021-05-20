@@ -9,12 +9,12 @@ ms.date: 02/12/2021
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 286e230a501b8730dd3c33e33639d89aa319d047
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 6050cb576de40eefd975154a591178df59a4633b
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286975"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632778"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapper un domaine personnalisé à un point de terminaison de Stockage Blob Azure
 
@@ -56,7 +56,7 @@ Le nom d’hôte est l’URL du point de terminaison de stockage sans l’identi
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
 
-2. Dans le volet du menu, sous **Paramètres**, sélectionnez **Propriétés**.  
+2. Dans le volet du menu, sous **Paramètres**, sélectionnez **Points de terminaison**.  
 
 3. Copiez la valeur du point de terminaison **Service Blob** ou du point de terminaison **Site web statique** dans un fichier texte. 
   
@@ -100,7 +100,7 @@ Créez un enregistrement CNAME pointant vers votre nom d’hôte. Un enregistrem
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
 
-2. Dans le volet du menu, sous **Paramètres**, sélectionnez **Réseau**.
+2. Dans le volet du menu, sous **Sécurité + mise en réseau**, sélectionnez **Mise en réseau**.
 
 3. Dans la page **Réseau**, choisissez l’onglet **Domaine personnalisé**.
 
@@ -190,7 +190,7 @@ Le nom d’hôte est l’URL du point de terminaison de stockage sans l’identi
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
 
-2. Dans le volet du menu, sous **Paramètres**, sélectionnez **Propriétés**.  
+2. Dans le volet du menu, sous **Paramètres**, sélectionnez **Points de terminaison**.  
 
 3. Copiez la valeur du point de terminaison **Service Blob** ou du point de terminaison **Site web statique** dans un fichier texte.  
 
@@ -236,7 +236,7 @@ Lorsque vous pré-enregistrez votre domaine personnalisé auprès d’Azure, vou
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
 
-2. Dans le volet du menu, sous **Paramètres**, sélectionnez **Réseau**.
+2. Dans le volet du menu, sous **Sécurité + mise en réseau**, sélectionnez **Mise en réseau**.
 
 3. Dans la page **Réseau**, choisissez l’onglet **Domaine personnalisé**.
 
@@ -327,7 +327,7 @@ Pour supprimer un mappage de domaine personnalisé, annulez l’inscription du d
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
 
-2. Dans le volet du menu, sous **Paramètres**, sélectionnez **Réseau**.
+2. Dans le volet du menu, sous **Sécurité + mise en réseau**, sélectionnez **Mise en réseau**.
 
 3. Dans la page **Réseau**, choisissez l’onglet **Domaine personnalisé**.
 

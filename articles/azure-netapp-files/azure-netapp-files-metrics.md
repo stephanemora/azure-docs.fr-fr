@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/28/2021
+ms.date: 05/06/2021
 ms.author: b-juche
-ms.openlocfilehash: 5282c806f5c6011418dabc14d6f82d6b9c0df251
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: e16e95bbb65bde6c4c0b38b9c68c0f7287b8b9b3
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206346"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795579"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métriques pour Azure NetApp Files
 
@@ -71,24 +71,6 @@ Vous pouvez rechercher des métriques pour un pool de capacité ou un volume en 
     Nombre de lectures sur le volume par seconde.
 - *E/S par seconde en écriture*   
     Nombre d’écritures sur le volume par seconde.
-<!-- These two metrics are not yet available, until ~ 2020.09
-- *Read MiB/s*   
-    Read throughput in bytes per second.
-- *Write MiB/s*   
-    Write throughput in bytes per second.
---> 
-<!-- ANF-4128; 2020.07
-- *Pool Provisioned Throughput*   
-    The total throughput a capacity pool can provide to its volumes based on "Pool Provisioned Size" and "Service Level".
-- *Pool Allocated to Volume Throughput*   
-    The total throughput allocated to volumes in a given capacity pool (that is, the total of the volumes' allocated throughput in the capacity pool).
--->
-
-<!-- ANF-6443; 2020.11
-- *Pool Consumed Throughput*    
-    The total throughput being consumed by volumes in a given capacity pool.
--->
-
 
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>Métriques de réplication de volume
 
@@ -116,6 +98,32 @@ Vous pouvez rechercher des métriques pour un pool de capacité ou un volume en 
 
 - *Transfert total de la réplication de volume*   
     Les octets cumulés transférés pour la relation. 
+
+## <a name="throughput-metrics-for-capacity-pools"></a>Mesures de débit pour les pools de capacité   
+
+* *Débit de pool alloué au volume*    
+    Débit total alloué aux volumes dans un pool de capacité donné. Autrement dit, le total des débits alloués aux volumes dans le pool de capacité.   
+
+* *Débit consommé par le pool*   
+    Débit total consommé par les volumes d’un pool de capacité donné.   
+
+* *Pourcentage du débit de pool alloué au volume*   
+    Pourcentage de débit approvisionné du pool de capacité qui est alloué aux volumes.   
+
+* *Pourcentage du débit consommé par le pool*    
+    Pourcentage de débit approvisionné du pool de capacité qui est consommé par les volumes.
+
+## <a name="throughput-metrics-for-volumes"></a>Métriques de débit pour les volumes   
+
+*  *Débit alloué au volume*    
+    Débit du pool de capacité parent (Mio/s) qui est alloué au volume. Il s’agit du débit maximal que le volume est en mesure de consommer.
+
+* *Débit consommé par le volume*    
+    Débit réel (Mio/s) que le volume utilise.
+
+* *Pourcentage du débit consommé par le volume*   
+    Pourcentage du débit alloué que le volume utilise. Autrement dit, *Débit consommé par le volume* est un pourcentage de *Débit alloué au volume*.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

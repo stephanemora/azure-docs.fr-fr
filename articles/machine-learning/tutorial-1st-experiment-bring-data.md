@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel : Utiliser vos propres données'
 titleSuffix: Azure Machine Learning
-description: La partie 4 de la série de tutoriels sur la prise en main d’Azure Machine Learning vous explique comment utiliser vos propres données dans le cadre d’un entraînement à distance.
+description: La partie 3 de la série de tutoriels sur la prise en main d’Azure Machine Learning explique comment utiliser vos propres données dans le cadre d’un entraînement à distance.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,22 +9,22 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 02/11/2021
+ms.date: 04/29/2021
 ms.custom: tracking-python, contperf-fy21q3
-ms.openlocfilehash: e664b08f7ca487236e5e2780d183c19d342a915b
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 2b6659e533edac33e992c2648140760888a6b32c
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888023"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785580"
 ---
-# <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutoriel : Utiliser vos propres données (partie 4 sur 4)
+# <a name="tutorial-use-your-own-data-part-3-of-3"></a>Tutoriel : Utiliser vos propres données (partie 3 sur 3)
 
 Ce tutoriel vous montre comment télécharger et utiliser vos propres données pour former des modèles Machine Learning dans Azure Machine Learning.
 
-Ce tutoriel constitue la *quatrième partie d’une série de quatre tutoriels* conçus pour vous apprendre les principes fondamentaux d’Azure Machine Learning et à effectuer des tâches de machine learning basées sur des travaux dans Azure. Ce tutoriel s’appuie sur les exercices que vous avez effectués dans [Partie 1 : Configurer un script « Hello World »](tutorial-1st-experiment-sdk-setup-local.md), [Partie 2 : Exécuter « Hello World »](tutorial-1st-experiment-hello-world.md) et [Partie 3 : Effectuer l'apprentissage d'un modèle](tutorial-1st-experiment-sdk-train.md).
+Ce tutoriel constitue la *partie 3 d’une série de trois tutoriels* où vous découvrez les principes fondamentaux d’Azure Machine Learning ainsi que l’exécution de tâches de machine learning basées sur des travaux dans Azure. Ce tutoriel s’appuie sur le travail que vous avez effectué dans [Partie 1 : Exécuter « Hello World! »](tutorial-1st-experiment-hello-world.md) et [Partie 2 : Entraîner un modèle](tutorial-1st-experiment-sdk-train.md).
 
-Dans le troisième tutoriel de notre série, [Partie 3 : Entraîner un modèle](tutorial-1st-experiment-sdk-train.md), des données ont été téléchargées via la méthode `torchvision.datasets.CIFAR10` intégrée dans l’API PyTorch. Cependant, dans de nombreux cas, vous allez utiliser vos propres données pour réaliser un entraînement à distance. Cet article montre le workflow que vous pouvez suivre pour travailler avec vos propres données dans Azure Machine Learning.
+Dans [Partie 2 : Entraîner un modèle](tutorial-1st-experiment-sdk-train.md), des données ont été téléchargées via la méthode `torchvision.datasets.CIFAR10` intégrée dans l’API PyTorch. Cependant, dans de nombreux cas, vous allez utiliser vos propres données pour réaliser un entraînement à distance. Cet article montre le workflow que vous pouvez suivre pour travailler avec vos propres données dans Azure Machine Learning.
 
 Dans ce tutoriel, vous allez :
 
@@ -34,28 +34,112 @@ Dans ce tutoriel, vous allez :
 > * Charger des données sur Azure.
 > * Créer un script de contrôle.
 > * Comprendre les nouveaux concepts d’Azure Machine Learning (passage de paramètres, jeux de données, magasins de données).
-> * Soumettre et exécuter votre script de formation.
+> * Soumettre et exécuter votre script d’entraînement.
 > * Afficher le résultat de votre code dans le cloud.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous aurez besoin des données et d’une version mise à jour de l’environnement pytorch créé dans le tutoriel précédent.  Vérifiez que vous avez effectué ces étapes :
+Vous aurez besoin des données téléchargées dans le tutoriel précédent.  Vérifiez que vous avez effectué ces étapes :
 
-1. [Créer le script d’apprentissage](tutorial-1st-experiment-sdk-train.md#create-training-scripts)
-1. [Créer un environnement Python](tutorial-1st-experiment-sdk-train.md#environment)
-1. [Tester localement](tutorial-1st-experiment-sdk-train.md#test-local)
-1. [Mettre à jour le fichier d’environnement Conda](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
+1. [Créer le script d’entraînement](tutorial-1st-experiment-sdk-train.md#create-training-scripts).  
+1. [Tester localement](tutorial-1st-experiment-sdk-train.md#test-local).
 
 ## <a name="adjust-the-training-script"></a>Ajuster le script de formation
 
-À présent, votre script d’entraînement (tutorial/src/train.py) s’exécute dans Azure Machine Learning et peut superviser les performances du modèle. Nous allons paramétrer le script d’entraînement en introduisant des arguments. L’utilisation d’arguments vous permet de comparer facilement différents hyperparamètres.
+À présent, votre script d’entraînement (get-started/src/train.py) s’exécute dans Azure Machine Learning, et vous pouvez superviser les performances du modèle. Nous allons paramétrer le script d’entraînement en introduisant des arguments. L’utilisation d’arguments vous permet de comparer facilement différents hyperparamètres.
 
-Actuellement, notre script d’entraînement est configuré pour télécharger le jeu de données CIFAR10 à chaque exécution. Le code Python ci-dessous a été ajusté pour lire les données d’un répertoire.
+Notre script d’entraînement est configuré pour télécharger le jeu de données CIFAR10 à chaque exécution. Le code Python ci-dessous a été ajusté pour lire les données d’un répertoire.
 
 >[!NOTE] 
 > L’utilisation de `argparse` paramètre le script.
 
-:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/code/pytorch-cifar10-your-data/train.py":::
+1. Ouvrez *train.py*, et remplacez son contenu par le code suivant :
+
+    ```python
+    import os
+    import argparse
+    import torch
+    import torch.optim as optim
+    import torchvision
+    import torchvision.transforms as transforms
+    from model import Net
+    from azureml.core import Run
+    run = Run.get_context()
+    if __name__ == "__main__":
+        parser = argparse.ArgumentParser()
+        parser.add_argument(
+            '--data_path',
+            type=str,
+            help='Path to the training data'
+        )
+        parser.add_argument(
+            '--learning_rate',
+            type=float,
+            default=0.001,
+            help='Learning rate for SGD'
+        )
+        parser.add_argument(
+            '--momentum',
+            type=float,
+            default=0.9,
+            help='Momentum for SGD'
+        )
+        args = parser.parse_args()
+        print("===== DATA =====")
+        print("DATA PATH: " + args.data_path)
+        print("LIST FILES IN DATA PATH...")
+        print(os.listdir(args.data_path))
+        print("================")
+        # prepare DataLoader for CIFAR10 data
+        transform = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+        ])
+        trainset = torchvision.datasets.CIFAR10(
+            root=args.data_path,
+            train=True,
+            download=False,
+            transform=transform,
+        )
+        trainloader = torch.utils.data.DataLoader(
+            trainset,
+            batch_size=4,
+            shuffle=True,
+            num_workers=2
+        )
+        # define convolutional network
+        net = Net()
+        # set up pytorch loss /  optimizer
+        criterion = torch.nn.CrossEntropyLoss()
+        optimizer = optim.SGD(
+            net.parameters(),
+            lr=args.learning_rate,
+            momentum=args.momentum,
+        )
+        # train the network
+        for epoch in range(2):
+            running_loss = 0.0
+            for i, data in enumerate(trainloader, 0):
+                # unpack the data
+                inputs, labels = data
+                # zero the parameter gradients
+                optimizer.zero_grad()
+                # forward + backward + optimize
+                outputs = net(inputs)
+                loss = criterion(outputs, labels)
+                loss.backward()
+                optimizer.step()
+                # print statistics
+                running_loss += loss.item()
+                if i % 2000 == 1999:
+                    loss = running_loss / 2000
+                    run.log('loss', loss)  # log loss metric to AML
+                    print(f'epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}')
+                    running_loss = 0.0
+        print('Finished Training')
+    ```
+
+1. **Enregistrez** le fichier.  Fermez l’onglet si vous le souhaitez.
 
 ### <a name="understanding-the-code-changes"></a>Compréhension des modifications du code
 
@@ -82,40 +166,8 @@ optimizer = optim.SGD(
 ```
 
 > [!div class="nextstepaction"]
-> [J’ai modifié le script d’entraînement](?success=adjust-training-script#test-locally) [J’ai rencontré un problème](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
+> [J’ai modifié le script d’entraînement](?success=adjust-training-script#upload) [J’ai rencontré un problème](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
 
-## <a name="test-the-script-locally"></a><a name="test-locally"></a> Tester le script localement
-
-Votre script accepte à présent _data path_ (chemin d’accès aux données) en tant qu’argument. Pour commencer, effectuez un test en local. Ajoutez à la structure de répertoires de votre tutoriel un dossier appelé `data`. La structure de votre répertoire doit ressembler à ce qui suit :
-
-:::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="La structure de répertoires affiche les sous-répertoires .azureml, data et src":::
-
-1. Quittez l’environnement actuel.
-
-    ```bash
-    conda deactivate
-
-1. Now create and activate the new environment.  This will rebuild the pytorch-aml-env with the [updated environment file](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
-
-
-    ```bash
-    conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
-    ```
-
-    ```bash
-    conda activate pytorch-aml-env          # activate new conda environment
-    ```
-
-1. Pour terminer, exécutez en local le script d’entraînement modifié.
-
-    ```bash
-    python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
-    ```
-
-Vous ne devez pas télécharger le jeu de données CIFAR10 en passant un chemin d’accès local aux données. Vous pouvez également faire des expériences avec différentes valeurs pour les hyperparamètres _learning rate_ et _momentum_ sans avoir à les coder en dur dans le script d’entraînement.
-
-> [!div class="nextstepaction"]
-> [J’ai testé le script localement](?success=test-locally#upload) [J’ai rencontré un problème](https://www.research.net/r/7C6W7BQ?issue=test-locally)
 
 ## <a name="upload-the-data-to-azure"></a><a name="upload"></a> Charger les données dans Azure
 
@@ -124,42 +176,47 @@ Pour exécuter ce script dans Azure Machine Learning, vous devez rendre vos donn
 >[!NOTE] 
 > Azure Machine Learning vous permet de connecter d’autres magasins de données cloud qui stockent vos données. Pour plus d’informations, consultez la [documentation des magasins de données](./concept-data.md).  
 
-Créez un script de contrôle Python appelé `05-upload-data.py` dans le répertoire `tutorial` :
+1. Créez un script de contrôle Python appelé *upload-data.py* dans le dossier **get-started** :
+    
+    ```python
+    # upload-data.py
+    from azureml.core import Workspace
+    ws = Workspace.from_config()
+    datastore = ws.get_default_datastore()
+    datastore.upload(src_dir='./data',
+                     target_path='datasets/cifar10',
+                     overwrite=True)
+    
+    ```
 
-:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/05-upload-data.py":::
+    La valeur de `target_path` spécifie le chemin du magasin de données où les données CIFAR10 seront téléchargées.
 
-La valeur de `target_path` spécifie le chemin du magasin de données où les données CIFAR10 seront téléchargées.
+    >[!TIP] 
+    > Vous utilisez Azure Machine Learning pour charger les données, mais vous pouvez utiliser l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour charger des fichiers ad hoc. Si vous avez besoin d’un outil ETL, vous pouvez utiliser [Azure Data Factory](../data-factory/introduction.md) pour ingérer vos données dans Azure.
 
->[!TIP] 
-> Vous utilisez Azure Machine Learning pour charger les données, mais vous pouvez utiliser l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour charger des fichiers ad hoc. Si vous avez besoin d’un outil ETL, vous pouvez utiliser [Azure Data Factory](../data-factory/introduction.md) pour ingérer vos données dans Azure.
+2. Sélectionnez **Enregistrer et exécuter le script dans le terminal** pour exécuter le script *upload-data.py*.
 
-Dans la fenêtre qui contient l’environnement Conda *tutorial1* activé, exécutez le fichier Python pour charger les données. (Le chargement doit normalement être rapide, moins de 60 secondes.)
+    Vous devez normalement voir la sortie standard suivante :
 
-```bash
-python 05-upload-data.py
-```
-
-Vous devez normalement voir la sortie standard suivante :
-
-```txt
-Uploading ./data\cifar-10-batches-py\data_batch_2
-Uploaded ./data\cifar-10-batches-py\data_batch_2, 4 files out of an estimated total of 9
-.
-.
-Uploading ./data\cifar-10-batches-py\data_batch_5
-Uploaded ./data\cifar-10-batches-py\data_batch_5, 9 files out of an estimated total of 9
-Uploaded 9 files
-```
+    ```txt
+    Uploading ./data\cifar-10-batches-py\data_batch_2
+    Uploaded ./data\cifar-10-batches-py\data_batch_2, 4 files out of an estimated total of 9
+    .
+    .
+    Uploading ./data\cifar-10-batches-py\data_batch_5
+    Uploaded ./data\cifar-10-batches-py\data_batch_5, 9 files out of an estimated total of 9
+    Uploaded 9 files
+    ```
 
 > [!div class="nextstepaction"]
 > [J’ai chargé les données](?success=upload-data#control-script) [J’ai rencontré un problème](https://www.research.net/r/7C6W7BQ?issue=upload-data)
 
 ## <a name="create-a-control-script"></a><a name="control-script"></a> Créer un script de contrôle
 
-Comme vous l’avez fait précédemment, créez un script de contrôle Python appelé `06-run-pytorch-data.py` :
+À nouveau, créez un script de contrôle Python appelé *run-pytorch-data.py* dans le dossier **get-started** :
 
 ```python
-# 06-run-pytorch-data.py
+# run-pytorch-data.py
 from azureml.core import Workspace
 from azureml.core import Experiment
 from azureml.core import Environment
@@ -182,11 +239,9 @@ if __name__ == "__main__":
             '--learning_rate', 0.003,
             '--momentum', 0.92],
     )
-    # set up pytorch environment
-    env = Environment.from_conda_specification(
-        name='pytorch-env',
-        file_path='./.azureml/pytorch-env.yml'
-    )
+
+    # use curated pytorch environment 
+    env = ws.environments['AzureML-PyTorch-1.6-CPU']
     config.run_config.environment = env
 
     run = experiment.submit(config)
@@ -222,11 +277,7 @@ Le script de contrôle est similaire à celui de la [partie 3 de notre série](
 
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit-to-cloud"></a> Soumettre l’exécution à Azure Machine Learning
 
-À présent, soumettez à nouveau l’exécution pour utiliser la nouvelle configuration :
-
-```bash
-python 06-run-pytorch-data.py
-```
+Sélectionnez **Enregistrer et exécuter le script dans le terminal** pour exécuter le script *run-pytorch-data.py*.  Cette exécution permet d’entraîner le modèle sur le cluster de calcul à l’aide des données que vous avez chargées.
 
 Ce code va produire une URL vers l’expérience dans Azure Machine Learning Studio. Si vous accédez à ce lien, vous pourrez voir votre code en cours d’exécution.
 
@@ -279,6 +330,20 @@ Remarques :
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
+Si vous comptez suivre à présent un autre tutoriel, ou commencer vos propres entraînements, passez à [Étapes suivantes](#next-steps).
+
+### <a name="stop-compute-instance"></a>Arrêter l’instance de calcul
+
+Si vous ne comptez pas l’utiliser maintenant, arrêtez l’instance de calcul :
+
+1. Dans le studio, sur la gauche, sélectionnez **Calcul**.
+1. Sous les onglets supérieurs, sélectionnez **Instances de calcul**
+1. Sélectionnez l’instance de calcul dans la liste.
+1. Dans la barre d’outils supérieure, sélectionnez **Arrêter**.
+
+
+### <a name="delete-all-resources"></a>Supprimer toutes les ressources
+
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 Vous pouvez également conserver le groupe de ressources mais supprimer un espace de travail unique. Affichez les propriétés de l’espace de travail, puis sélectionnez **Supprimer**.
@@ -287,7 +352,7 @@ Vous pouvez également conserver le groupe de ressources mais supprimer un espac
 
 Dans ce tutoriel, nous avons vu comment charger des données sur Azure en utilisant `Datastore`. Le magasin de données a servi de stockage cloud pour votre espace de travail, ce qui vous offre un emplacement permanent et flexible pour conserver vos données.
 
-Vous avez appris comment modifier votre script de formation pour accepter un chemin d’accès aux données via la ligne de commande. En utilisant `Dataset` vous avez pu monter un répertoire sur l’exécution distante. 
+Vous avez appris comment modifier votre script de formation pour accepter un chemin d’accès aux données via la ligne de commande. En utilisant `Dataset` vous avez pu monter un répertoire sur l’exécution distante.
 
 Maintenant que vous avez un modèle, découvrez :
 

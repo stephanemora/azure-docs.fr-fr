@@ -3,12 +3,12 @@ title: "Démarrage rapide : Créer un blueprint avec l'API REST"
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts avec l’API REST.
 ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 37f67e6db753969344b8c442de78b867dd41ecd6
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 5b65350f47e470fc9f4797d768a32acded241266
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323822"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761504"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec l’API REST
 
@@ -124,7 +124,7 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
      }
      ```
 
-1. Ajoutez une attribution de rôle au niveau de l’abonnement. Le **corps de la demande** définit le _genre_ d’artefact, les propriétés sont alignées avec l’identificateur de définition de rôle et les identités de principal sont passées en tant que tableau de valeurs. Dans l’exemple ci-dessous, les identités de principal ayant reçu le rôle spécifié sont configurées avec un paramètre qui est défini durant l’affectation du blueprint. Cet exemple utilise le rôle intégré _Contributeur_ avec le GUID `b24988ac-6180-42a0-ab88-20f7382dd24c`.
+1. Ajoutez une attribution de rôle au niveau de l’abonnement. Le **corps de la demande** définit le _genre_ d’artefact, les propriétés sont alignées avec l’identificateur de définition de rôle et les identités de principal sont passées en tant que tableau de valeurs. Dans l’exemple suivant, les identités de principal ayant reçu le rôle spécifié sont configurées avec un paramètre qui est défini durant l’affectation du blueprint. Cet exemple utilise le rôle intégré _Contributeur_ avec le GUID `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
    - URI de l’API REST
 
@@ -435,4 +435,4 @@ Pour supprimer le blueprint, utilisez l’opération d’API REST suivante :
 Dans ce guide de démarrage rapide, vous avez créé, affecté et supprimé un blueprint à l’aide de l’API REST. Pour plus d’informations sur Azure Blueprints, consultez l’article concernant le cycle de vie des blueprints.
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur le cycle de vie des blueprints](./concepts/lifecycle.md)
+> [En savoir plus sur le cycle de vie des blueprints](./concepts/lifecycle.md) 

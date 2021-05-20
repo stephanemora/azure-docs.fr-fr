@@ -5,20 +5,20 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: how-to
-ms.date: 2/7/2019
+ms.date: 05/03/2021
 ms.author: rohink
-ms.openlocfilehash: 9b37d313aa5d8c2255b4e3be69831dfcb50238ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f431202a12cecd3e3ec8290ccac3afa2c10e878
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84712545"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757994"
 ---
 # <a name="delegate-an-azure-dns-subdomain-using-azure-powershell"></a>Déléguer un sous-domaine d’Azure DNS à l’aide d’Azure PowerShell
 
 Vous pouvez utiliser Azure PowerShell pour déléguer un sous-domaine de DNS. Par exemple, si vous êtes propriétaire du domaine contoso.com, vous pouvez déléguer un sous-domaine nommé *engineering* à une autre zone que vous pouvez administrer séparément de la zone contoso.com.
 
-Si vous préférez, vous pouvez déléguer un sous-domaine à l’aide du [portail Azure](delegate-subdomain.md).
+Si vous préférez, vous pouvez aussi déléguer un sous-domaine à l’aide du [portail Azure](delegate-subdomain.md).
 
 > [!NOTE]
 > Contoso.com est utilisé comme exemple tout au long de cet article. Changez votre nom de votre domaine par contoso.com.
@@ -35,25 +35,31 @@ Pour déléguer un sous-domaine Azure DNS, vous devez tout d’abord déléguer 
 
 Tout d’abord, créez la zone pour le sous-domaine **engineering**.
 
-`New-AzDnsZone -ResourceGroupName <resource group name> -Name engineering.contoso.com`
+```azurepowershell-interactive
+New-AzDnsZone -ResourceGroupName <resource group name> -Name engineering.contoso.com
+```
 
 ## <a name="note-the-name-servers"></a>Noter les serveurs de noms
 
 Ensuite, notez les quatre serveurs de noms pour le sous-domaine engineering.
 
-`Get-AzDnsRecordSet -ZoneName engineering.contoso.com -ResourceGroupName <resource group name> -RecordType NS`
+```azurepowershell-interactive
+Get-AzDnsRecordSet -ZoneName engineering.contoso.com -ResourceGroupName <resource group name> -RecordType NS
+```
 
 ## <a name="create-a-test-record"></a>Créer un enregistrement test
 
 Dans la zone engineering, créez un enregistrement **A** à utiliser à des fins de test.
 
-   `New-AzDnsRecordSet -ZoneName engineering.contoso.com -ResourceGroupName <resource group name> -Name www -RecordType A -ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address 10.10.10.10)`.
+```azurepowershell-interactive
+New-AzDnsRecordSet -ZoneName engineering.contoso.com -ResourceGroupName <resource group name> -Name www -RecordType A -ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address 10.10.10.10)
+```
 
 ## <a name="create-an-ns-record"></a>Créer un enregistrement NS
 
 Ensuite, créez un enregistrement de serveur de noms (NS) pour la zone **engineering** dans la zone contoso.com.
 
-```azurepowershell
+```azurepowershell-interactive
 $Records = @()
 $Records += New-AzDnsRecordConfig -Nsdname <name server 1 noted previously>
 $Records += New-AzDnsRecordConfig -Nsdname <name server 2 noted previously>
@@ -67,8 +73,10 @@ $RecordSet = New-AzDnsRecordSet -Name engineering -RecordType NS -ResourceGroupN
 Utilisez nslookup pour tester la délégation.
 
 1. Ouvrez une fenêtre PowerShell.
-2. À l’invite de commandes, tapez `nslookup www.engineering.contoso.com.`.
-3. Vous devez recevoir une réponse ne faisant pas autorité montrant l’adresse **10.10.10.10**.
+
+1. À l’invite de commandes, tapez `nslookup www.engineering.contoso.com.`.
+
+1. Vous devez recevoir une réponse ne faisant pas autorité montrant l’adresse **10.10.10.10**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
