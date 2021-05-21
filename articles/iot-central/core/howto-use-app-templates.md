@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 15daaa7d64bb6719807d2930691ff9e9a4ca3902
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a7ad5188e891786ebe1bc1680365a891c256979a
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061466"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683584"
 ---
 # <a name="export-your-application"></a>Exporter votre application
 
-Cet article explique comment, en tant que gestionnaire de solutions, exporter une application IoT Central pour pouvoir la réutiliser.
+Cet article explique comment exporter une application IoT Central pour pouvoir la réutiliser.
 
 Deux options s'offrent à vous :
 
@@ -28,7 +28,7 @@ Deux options s'offrent à vous :
 
 Vous pouvez créer une copie de n’importe quelle application, à l’exception des instances d’appareils, de l’historique des données d’un appareil et des données utilisateur. La copie utilise un plan tarifaire Standard qui vous sera facturé. Vous ne pouvez pas créer une application qui utilise le plan Gratuit en copiant une application.
 
-Sélectionnez **Copier**. Dans la boîte de dialogue, entrez les détails de la nouvelle application. Ensuite, sélectionnez **Copier** pour confirmer que vous souhaitez continuer. Pour plus d’informations sur les champs du formulaire, consultez le guide de démarrage rapide [Créer une application](quick-deploy-iot-central.md).
+Sélectionnez **Copier**. Dans la boîte de dialogue, entrez les détails de la nouvelle application. Ensuite, sélectionnez **Copier** pour confirmer que vous souhaitez continuer. Pour plus d’informations sur les champs du formulaire, consultez [Créer une application](howto-create-iot-central-application.md).
 
 ![Capture d’écran montrant la page de paramètres « Copier l’application ».](media/howto-use-app-templates/appcopy2.png)
 

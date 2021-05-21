@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48b5260e883d85899953240f6ee4f83127681c9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c857de5c9182d49e2527c9cbf416d7012c46370
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97591296"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713951"
 ---
 # <a name="change-approval-and-requestor-information-preview-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modifier les paramètres d'approbation et d'informations sur le demandeur (préversion) d'un package d'accès dans la fonctionnalité de gestion des droits d'utilisation Azure AD
 
@@ -52,7 +52,7 @@ Pour obtenir une démonstration de l’ajout d’une approbation en plusieurs é
 
 Pour spécifier les paramètres d’approbation pour les demandes de package d’accès, procédez comme suit :
 
-**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
+**Rôle prérequis :** administrateur général, administrateur de la gouvernance des identités, administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès.
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 

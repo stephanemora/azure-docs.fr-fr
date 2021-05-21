@@ -86,6 +86,10 @@
       href: tutorial-send-email.md
     - name: Résoudre les erreurs
       href: tutorial-troubleshoot-monitor.md
+    - name: GitHub Actions
+      items:
+        - name: ASP.NET Core avec un conteneur
+          href: app-service-sql-github-actions.md
 - name: Exemples
   items:
     - name: Azure CLI

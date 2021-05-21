@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 04/28/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 57dec4187ea42476ff1c0a993b751a7389da5639
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: f50255510d5f4716f181a8e2b51cb5fa3998062d
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490350"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715079"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)
 
@@ -96,21 +96,43 @@ Un client peut se connecter via un point de terminaison public ou [un point de t
 > [!IMPORTANT]
 > Si vous vous connectez à partir d’un réseau local, assurez-vous que votre client autorise les communications sortantes via les ports 111 et 2048. Le protocole NFS 3.0 utilise ces ports.
 
-## <a name="azure-storage-features-not-yet-supported"></a>Fonctionnalités de stockage Azure pas encore prises en charge
+<a id="azure-storage-features-not-yet-supported"></a>
 
-Les fonctionnalités de stockage Azure suivantes ne sont pas prises en charge lorsque vous activez le protocole NFS 3.0 sur votre compte. 
+## <a name="support-for-azure-storage-features"></a>Prise en charge des fonctionnalités du Stockage Azure
 
-- Sécurité d’Azure Active Directory (AD)
+Le tableau suivant indique le niveau actuel de prise en charge des fonctionnalités du Stockage Azure dans les comptes pour lesquels la fonctionnalité NFS 3.0 est activée. 
 
-- Listes de contrôle d’accès (ACL) de type POSIX
+L’état des éléments figurant dans ce tableau évolue au fil du temps, car la prise en charge continue de s’étendre.
 
-- Possibilité d’activer la prise en charge de NFS 3.0 sur des comptes de stockage existants
+| Fonctionnalité Stockage | Premium | standard |Fonctionnalité Stockage | Premium | standard |
+|-----------------|---------|----------|----------------|---------|----------|
+| [API REST du service Blob](/rest/api/storageservices/blob-service-rest-api)  | ✔️ |  ⛔ | [API REST Azure Data Lake Storage](/rest/api/storageservices/data-lake-storage-gen2) | ⛔ |    ⛔ |
+| [Niveaux d’accès du Stockage Blob Azure](storage-blob-storage-tiers.md) |    ✔️ |    ⛔ | [Étiquettes d’index d’objet blob](storage-blob-index-how-to.md) |   ⛔ | ⛔ |
+| [Gestion de cycle de vie du Stockage Blob Azure](storage-lifecycle-management-concepts.md) | ✔️  |   ⛔ | [Journalisation Azure Storage Analytics](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | ⛔ |   ⛔ |
+|  [Inventaire des objets blob du Stockage Azure](blob-inventory.md) |  ✔️  |   ⛔ | [Modifier le flux](storage-blob-change-feed.md) |    ⛔ | ⛔ |
+| [Azure Monitor](monitor-blob-storage.md) |    ✔️ |    ⛔ | [Contrôle de version des blobs](versioning-enable.md) | ⛔ |   ⛔ |
+| [Instantanés d’objet blob](snapshots-overview.md) | ✔️  |   ⛔ | [Restauration dans le temps pour les objets blob de blocs](point-in-time-restore-overview.md) | ⛔ |    ⛔ |
+| [Points de terminaison privés](../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json) | ✔️  | ⛔ | [Intégration à la Sauvegarde Azure](/azure/backup/blob-backup-overview) | ⛔ |    ⛔ |
+| [Points de terminaison de service](../../virtual-network/virtual-network-service-endpoints-overview.md) | ✔️  |  ⛔ | [Suppression réversible des conteneurs](soft-delete-container-overview.md) |   ⛔ | ⛔ |
+| [Règles de pare-feu](../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json) | ✔️  | ⛔ | [Suppression réversible pour les objets blob](soft-delete-blob-overview.md) | ⛔ | ⛔ |
+| [Désactivation de l’autorisation Shared Key](../common/shared-key-authorization-prevent.md)  | ✔️ |    ⛔ | [Suivi de l’heure du dernier accès pour la gestion de cycle de vie](storage-lifecycle-management-concepts.md#move-data-based-on-last-accessed-date-preview) |  ⛔|  ⛔ |
+| [Clés gérées par le client pour le chiffrement du stockage Azure](../common/customer-managed-keys-overview.md) |   ✔️ |    ⛔ | [Clés fournies par le client pour le chiffrement du Stockage Azure](encryption-customer-provided-keys.md)  |  ⛔ | ⛔ |
+| [Stockage Blob immuable](storage-blob-immutable-storage.md) | ✔️    | ⛔ | [Hébergement de sites web statiques](storage-blob-static-website.md) | ⛔  |    ⛔ |
+| [Objets blob d’ajout](storage-blobs-introduction.md#blobs) | ✔️   |  ⛔ | [Objets blob de pages](storage-blobs-introduction.md#blobs) | ⛔ | ⛔ |
+| [Sécurité d’Azure Active Directory (AD)](../common/storage-auth-aad.md?toc=/azure/storage/blobs/toc.json) | ⛔ | ⛔ | [Étendues de chiffrement](encryption-scope-overview.md)  |    ⛔ | ⛔ |
+| [Réplication d'objets blob de blocs](object-replication-overview.md) | ⛔  |   ⛔ | [Basculement de compte géré par le client](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | ⛔ |    ⛔ |
+| [Événements de stockage Blob](storage-blob-event-overview.md)| ⛔ |    ⛔ 
 
-- Possibilité de désactiver la prise en charge de NFS 3.0 dans un compte de stockage (après l’avoir activée)
-
-- Possibilité d’écrire dans des objets blob à l’aide d’API REST ou de kits de développement logiciel (SDK). 
   
-## <a name="nfs-30-features-not-yet-supported"></a>Fonctionnalités NFS 3.0 pas encore prises en charge
+## <a name="known-issues"></a>Problèmes connus
+
+- La prise en charge NFS 3.0 ne peut pas être activée sur les comptes de stockage existants.
+
+- Une fois activée, la prise en charge NFS 3.0 ne peut pas être désactivée dans un compte de stockage.
+
+-  Les fichiers ne peuvent être affichés ni sur le Portail Azure ni dans l’Explorateur Stockage Azure. Pour voir la liste des fichiers et répertoires, [montez un conteneur de Stockage Blob avec le protocole NFS 3.0](network-file-system-protocol-support-how-to.md) ou utilisez [l’API REST du service Blob](/rest/api/storageservices/blob-service-rest-api).
+
+### <a name="nfs-30-features-not-yet-supported"></a>Fonctionnalités NFS 3.0 pas encore prises en charge
 
 Les fonctionnalités NFS 3.0 suivantes ne sont pas encore prises en charge.
 
@@ -128,7 +150,7 @@ Les fonctionnalités NFS 3.0 suivantes ne sont pas encore prises en charge.
 
 - Exportation d’un conteneur en lecture seule
 
-## <a name="nfs-30-clients-not-yet-supported"></a>Les clients NFS 3.0 pas encore pris en charge
+### <a name="nfs-30-clients-not-yet-supported"></a>Les clients NFS 3.0 pas encore pris en charge
 
 Les clients NFS 3.0 suivants ne sont pas encore pris en charge.
 

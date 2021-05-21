@@ -5,14 +5,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 3/18/2021
+ms.date: 5/17/2021
 ms.author: cavoeg
-ms.openlocfilehash: 7df88f1a425b563733310d69fc14d85f9251ae44
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 50f79d8b73b6c716e14504d6d763d900a7bed488
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108794373"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078654"
 ---
 # <a name="how-to-export-fhir-data"></a>Comment exporter des données FHIR
 
@@ -74,13 +74,33 @@ L’API Azure pour FHIR prend en charge les paramètres de requête suivants. To
 
 ## <a name="secure-export-to-azure-storage"></a>Sécuriser l’exportation vers Stockage Azure
 
-L’API Azure pour FHIR prend en charge l’exportation sécurisée. Pour effectuer une exportation sécurisée, une solution est d’autoriser l’accès de certaines adresses IP associées à l’API Azure pour FHIR au compte de stockage Azure. Les configurations sont différentes selon que le compte de stockage se trouve dans le même emplacement ou dans un autre emplacement que celui de l’API Azure pour FHIR.
+L’API Azure pour FHIR prend en charge l’exportation sécurisée. Choisissez l’une des deux options ci-dessous :
 
-### <a name="when-the-azure-storage-account-is-in-a-different-region"></a>Quand le compte de stockage Azure se trouve dans une autre région
+* Autorisation de l’API Azure pour FHIR en tant que service approuvé Microsoft pour accéder au compte de stockage Azure.
+ 
+* Autoriser des adresses IP spécifiques associées à l’API Azure pour FHIR à accéder au compte de stockage Azure. Cette option fournit deux configurations différentes selon que le compte de stockage se trouve au même emplacement que, ou se trouve dans un emplacement différent de celui de l’API Azure pour FHIR.
+
+### <a name="allowing-azure-api-for-fhir-as-a-microsoft-trusted-service"></a>Autorisation de l’API Azure pour FHIR en tant que service approuvé Microsoft
+
+Sélectionnez un compte de stockage dans la Portail Azure, puis sélectionnez le panneau **mise en réseau** . Sélectionnez **réseaux sélectionnés** sous l’onglet **pare-feu et réseaux virtuels** .
+
+> [!IMPORTANT]
+> Vérifiez que vous disposez de l’autorisation d’accès au compte de stockage pour l’API Azure pour FHIR à l’aide de son identité gérée. Pour plus d’informations, consultez [configurer les paramètres d’exportation et configurer le compte de stockage](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-export-data).
+
+  :::image type="content" source="media/export-data/storage-networking.png" alt-text="Paramètres réseau de Stockage Azure." lightbox="media/export-data/storage-networking.png":::
+
+Dans la section **exceptions** , activez la case **à cocher Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** et enregistrer le paramètre. 
+
+:::image type="content" source="media/export-data/exceptions.png" alt-text="Autorisez les services Microsoft approuvés à accéder à ce compte de stockage.":::
+
+Vous êtes maintenant prêt à exporter des données FHIR vers le compte de stockage en toute sécurité. Notez que le compte de stockage se trouve sur les réseaux sélectionnés et n’est pas accessible publiquement. Pour accéder aux fichiers, vous pouvez activer et utiliser des points de terminaison privés pour le compte de stockage, ou activer tous les réseaux pour le compte de stockage pendant une brève période de temps.
+
+> [!IMPORTANT]
+> L’interface utilisateur sera mise à jour ultérieurement pour vous permettre de sélectionner le type de ressource pour l’API Azure pour FHIR et une instance de service spécifique.
+
+### <a name="allowing-specific-ip-addresses-for-the-azure-storage-account-in-a-different-region"></a>Autoriser des adresses IP spécifiques pour le compte de stockage Azure dans une autre région
 
 Sélectionnez **mise en réseau** du compte de stockage Azure à partir du portail. 
-
-   :::image type="content" source="media/export-data/storage-networking.png" alt-text="Paramètres réseau de Stockage Azure." lightbox="media/export-data/storage-networking.png":::
    
 Sélectionnez **Réseaux sélectionnés**. Dans la section pare-feu, spécifiez l’adresse IP dans la zone **plage d’adresses** . Ajoutez des plages d’adresses IP pour autoriser l’accès à partir d’Internet ou de vos réseaux locaux. Vous pouvez trouver l’adresse IP dans le tableau ci-dessous pour la région Azure dans laquelle le service API Azure pour FHIR est approvisionné.
 
@@ -111,7 +131,7 @@ Sélectionnez **Réseaux sélectionnés**. Dans la section pare-feu, spécifiez 
 > [!NOTE]
 > Les étapes ci-dessus sont similaires aux étapes de configuration décrites dans le document Comment convertir des données en FHIR (version préliminaire). Pour plus d’informations, consultez [héberger et utiliser des modèles](https://docs.microsoft.com/azure/healthcare-apis/fhir/convert-data#host-and-use-templates)
 
-### <a name="when-the-azure-storage-account-is-in-the-same-region"></a>Quand le compte de stockage Azure se trouve dans la même région
+### <a name="allowing-specific-ip-addresses-for-the-azure-storage-account-in-the-same-region"></a>Autoriser des adresses IP spécifiques pour le compte de stockage Azure dans la même région
 
 Le processus de configuration est le même que précédemment à ceci près qu’une plage d’adresses IP spécifique au format CIDR est ici utilisée (100.64.0.0/10). Si la plage d’adresses IP, qui comprend 100.64.0.0 – 100.127.255.255, doit être spécifiée, c’est parce que l’adresse IP effectivement utilisée par le service varie à chaque demande $export, tout en restant dans la plage.
 

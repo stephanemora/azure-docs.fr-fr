@@ -1,17 +1,16 @@
 ---
-title: Déployer un cluster managé Service Fabric (version préliminaire) à l’aide d’Azure Resource Manager
+title: Déployer un cluster managé Service Fabric à l’aide d’Azure Resource Manager
 description: Découvrez comment créer un cluster managé Service Fabric avec un modèle Azure Resource Manager
 ms.topic: quickstart
-ms.date: 09/28/2020
-ms.custom: references_regions
-ms.openlocfilehash: 079e8e3e39bd306332abb43fa2ae1f8cc04e305b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 5/10/2021
+ms.openlocfilehash: 0775d5f6874de8fafb1d9a32cf19071f4a7a99b4
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91410393"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685204"
 ---
-# <a name="quickstart-deploy-a-service-fabric-managed-cluster-preview-with-an-azure-resource-manager-template"></a>Démarrage rapide : Déployer un cluster managé Service Fabric (version préliminaire) avec un modèle Azure Resource Manager
+# <a name="quickstart-deploy-a-service-fabric-managed-cluster-with-an-azure-resource-manager-template"></a>Démarrage rapide : Déployer un cluster managé Service Fabric avec un modèle Azure Resource Manager
 
 Les clusters managés Service Fabric sont une évolution du modèle de ressource de cluster Azure Service Fabric qui simplifie votre expérience de déploiement et de gestion de cluster. Les clusters managés Service Fabric sont une ressource entièrement encapsulée qui vous permet de déployer une seule ressource de cluster Service Fabric au lieu de déployer toutes les ressources sous-jacentes qui composent un cluster Service Fabric. Cet article explique comment déployer un cluster managé Service Fabric à des fins de test dans Azure à l’aide d’un modèle Azure Resource Manager (modèle ARM).
 
@@ -47,7 +46,7 @@ Notez l’empreinte numérique du certificat, car cela sera nécessaire pour dé
 
     * **Abonnement**: Sélectionnez un abonnement Azure.
     * **Groupe de ressources** : Sélectionnez **Créer nouveau**. Entrez un nom unique pour le groupe de ressources, tel que *myResourceGroup*, puis choisissez **OK**.
-    * **Emplacement** : Sélectionnez un emplacement, comme **eastus2**. Les régions prises en charge pour les clusters managés Service Fabric (préversion) incluent `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus` et `eastus2`.
+    * **Emplacement** : Sélectionnez un emplacement.
     * **Nom du cluster** : Entrez un nom unique pour votre cluster, par exemple *mysfcluster*.
     * **Nom d’utilisateur administrateur** : Entrez un nom pour l’administrateur à utiliser pour le protocole RDP sur les machines virtuelles sous-jacentes dans le cluster.
     * **Mot de passe administrateur** : Entrez un mot de passe pour l’administrateur à utiliser pour le protocole RDP sur les machines virtuelles sous-jacentes dans le cluster.

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/15/2021
+ms.date: 05/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 390ccfa828ebaa0d3dec15990ffeb60cbb24360e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f94c19f52ab5b49f63d02296f30108f643f5c66d
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648575"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Didacticiel : Intégration d’Azure Active Directory avec Overdrive
 
@@ -82,9 +82,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique d’Overdrive](https://help.overdrive.com/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger l’**URL des métadonnées de fédération d’application** en fonction des options définies selon vos besoins, puis enregistrez-la sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](common/metadataxml.png)
+    ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
 6. Dans la section **Configurer Overdrive**, copiez la ou les URL appropriées en fonction de vos besoins.
 
@@ -123,7 +123,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ## <a name="configure-overdrive-sso"></a>Configurer l’authentification unique Overdrive
 
-Pour configurer l’authentification unique côté **Overdrive**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées dans le portail Azure à l’[équipe du support technique Overdrive](https://help.overdrive.com/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Overdrive**, vous devez envoyer l’**URL des métadonnées de fédération d’application** à l’[équipe du support technique d’Overdrive](https://help.overdrive.com/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-overdrive-test-user"></a>Créer un utilisateur de test Overdrive
 

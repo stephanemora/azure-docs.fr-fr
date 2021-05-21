@@ -101,6 +101,8 @@
           href: how-to-create-azure-function.md
         - name: Interroger le graphe de jumeaux
           href: how-to-query-graph.md
+        - name: Créer un RBAC de niveau jumeau avec des étiquettes de marqueur
+          href: how-to-create-twin-level-role-based-access-control.md
     - name: Développer des applications clientes
       items:
         - name: Faire des demandes avec Postman
@@ -141,6 +143,8 @@
           href: troubleshoot-diagnostics.md
         - name: Activer les alertes
           href: troubleshoot-alerts.md
+        - name: Résoudre les problèmes de performances
+          href: troubleshoot-performance.md
         - name: Comprendre l’intégrité de vos ressources
           href: troubleshoot-resource-health.md
         - name: Problèmes connus
@@ -162,21 +166,21 @@
         - name: Plan de contrôle
           items:
             - name: Kit SDK .NET (C#)
-              href: /dotnet/api/overview/azure/digitaltwins/management
+              href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true
             - name: Kit de développement logiciel (SDK) Java
-              href: /java/api/overview/azure/digitaltwins/resourcemanagement
+              href: /java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable&preserve-view=true
         - name: Plan de données
           items:
             - name: Kit SDK .NET (C#)
-              href: /dotnet/api/overview/azure/digitaltwins/client
+              href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
             - name: Kit de développement logiciel (SDK) Java
-              href: /java/api/overview/azure/digitaltwins/client
+              href: /java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true
             - name: Kit de développement logiciel (SDK) JavaScript
-              href: /javascript/api/@azure/digital-twins-core/
+              href: /javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true
             - name: Kit de développement logiciel (SDK) Python
-              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
+              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true
     - name: Interface CLI Digital Twins
-      href: /cli/azure/dt
+      href: /cli/azure/dt?view=azure-cli-latest&preserve-view=true
     - name: Spécification DTDL v2
       href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
     - name: Informations de référence sur le langage de requête
