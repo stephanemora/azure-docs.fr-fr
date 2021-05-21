@@ -5,14 +5,14 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 5/3/2021
+ms.date: 5/17/2021
 ms.author: cavoeg
-ms.openlocfilehash: 37e75fb4f1e63e52bf81458641e56da9ae677b91
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 93468d2be1c9ab8fbdbce1e82a58f04f0676f260
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770890"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071179"
 ---
 # <a name="overview-of-fhir-search"></a>Vue d’ensemble de la recherche FHIR
 
@@ -117,7 +117,7 @@ Les [modificateurs](https://www.hl7.org/fhir/search.html#modifiers) vous permett
 |  : type (référence) | Oui             | Oui                       | Oui                             | 
 |  : non         | Oui                  | Oui                       | Oui                             | 
 |  : ci-dessous (Uri) | Oui                  | Oui                       | Oui                             |  
-|  : ci-dessus (Uri) | Non                   | Non                        | Non                              | 
+|  : ci-dessus (Uri) | Oui                  | Oui                       | Oui                             | 
 |  : in (jeton)  | Non                   | Non                        | Non                              | 
 |  : ci-dessous (jeton) | Non                 | Non                        | Non                              | 
 |  : ci-dessus (jeton) | Non                 | Non                        | Non                              | 
@@ -130,7 +130,7 @@ Pour faciliter la gestion des ressources retournées, vous pouvez utiliser des p
 
 | **Paramètres des résultats de la recherche**  | **Prise en charge - PaaS** | **Prise en charge - OSS (SQL)** | **Prise en charge - OSS (Cosmos DB)** | **Commentaires**                 |
 | ----------------------------  | -------------------- | ------------------------- | ------------------------------- | -----------------------------|
-| _elements                     | Oui                  | Oui                       | Oui                             |  Problème [1256](https://github.com/microsoft/fhir-server/issues/1256)                              |
+| _elements                     | Oui                  | Oui                       | Oui                             |                                |
 | _count                        | Oui                  | Oui                       | Oui                             | _count est limité à 1000 ressources. S’il est défini sur une valeur supérieure à 1000, seul 1000 est retourné et un avertissement est renvoyé dans le bundle.                               |
 | _include                      | Oui                  | Oui                       | Oui                             | Les éléments inclus sont limités à 100. _include sur PaaS et OSS sur Cosmos DB n’incluez pas : prise en charge des itérations [(#1313)](https://github.com/microsoft/fhir-server/issues/1313).                               |
 | _revinclude                   | Oui                  | Oui                       | Oui                             |  Les éléments inclus sont limités à 100. _revinclude sur PaaS et OSS sur Cosmos DB n’incluez pas : prise en charge des itérations [(#1313)](https://github.com/microsoft/fhir-server/issues/1313).  Problème [n° 1319](https://github.com/microsoft/fhir-server/issues/1319)                            |

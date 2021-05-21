@@ -3,12 +3,12 @@ title: Installer le serveur de sauvegarde Azure sur Azure Stack
 description: Dans cet article, vous allez découvrir comment utiliser un serveur de sauvegarde Azure pour protéger ou sauvegarder les charges de travail dans Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: d7c685a16db50e51a54387dde49ffb137fcfd626
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: c133645f1d813380ba4bd6095afb6af5bdc94379
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519474"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767758"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installer le serveur de sauvegarde Azure sur Azure Stack
 
@@ -370,5 +370,5 @@ L’article [Préparation de votre environnement pour DPM](/system-center/dpm/pr
 Vous pouvez utiliser les articles suivants pour mieux appréhender la notion de protection des charges de travail à l’aide du serveur de sauvegarde Microsoft Azure.
 
 - [Sauvegarde SQL Server](./backup-mabs-sql-azure-stack.md)
-- [Sauvegarde de serveur SharePoint](./backup-mabs-sharepoint-azure-stack.md)
+- [Sauvegarde SharePoint Server](./backup-mabs-sharepoint-azure-stack.md)
 - [Sauvegarde sur un autre serveur](backup-azure-alternate-dpm-server.md)

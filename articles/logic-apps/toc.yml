@@ -66,11 +66,19 @@
     - name: Environnement monolocataire Azure Logic Apps (préversion)
       items:
         - name: Vue d’ensemble d’un environnement monolocataire (préversion)
-          href: logic-apps-overview-preview.md
-        - name: Créer des applications logiques en préversion - Portail
-          href: create-stateful-stateless-workflows-azure-portal.md
-        - name: Créer des applications logiques en préversion - Visual Studio Code
-          href: create-stateful-stateless-workflows-visual-studio-code.md
+          href: single-tenant-overview-compare.md
+        - name: Créer des workflows monolocataires - Portail
+          href: create-single-tenant-workflows-azure-portal.md
+        - name: Créer des workflows monolocataires - Visual Studio Code
+          href: create-single-tenant-workflows-visual-studio-code.md
+        - name: Déploiement DevOps pour workflow monolocataire
+          href: devops-deployment-single-tenant-azure-logic-apps.md
+        - name: Configurer le déploiement DevOps pour workflow monolocataire
+          href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
+        - name: Sécuriser le trafic entre les workflows monolocataires et les réseaux virtuels
+          href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
+        - name: Estimer les coûts de stockage pour les workflows monolocataires
+          href: estimate-storage-costs.md
     - name: Développer
       items:
         - name: Créer à partir de modèles prédéfinis
@@ -350,7 +358,7 @@
           href: test-logic-apps-mock-data-static-results.md
     - name: Déployer
       items:
-        - name: Vue d’ensemble - Automatiser le déploiement d’applications logiques
+        - name: À propos du déploiement automatisé (multilocataire)
           href: logic-apps-azure-resource-manager-templates-overview.md
         - name: Créer des modèles d’application logique
           href: logic-apps-create-azure-resource-manager-templates.md

@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: nibaccam
-author: nibaccam
+ms.author: yogipandey
+author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: data4ml
-ms.openlocfilehash: 4263c3334e19ddeb6a61325e8802f8544a282c6f
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: b85be179fa12e29ef17fe9fa488b22c3d8a3c69b
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890057"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785112"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Se connecter aux données avec Azure Machine Learning Studio
 
@@ -156,7 +156,7 @@ Vous trouverez des informations sur la clé de compte, le jeton SAS et le princi
 
 > [!IMPORTANT]
 > * Si vous avez besoin de modifier vos clés d’accès pour un compte de stockage Azure (clé de compte ou jeton SAP), veillez à synchroniser les nouvelles informations d’identification avec votre espace de travail et les magasins de données qui y sont connectés. Découvrez comment [synchroniser vos informations d’identification mises à jour](how-to-change-storage-access-key.md). <br> <br>
-> * Si vous désinscrivez puis réinscrivez un magasin de données portant le même nom et que l’opération échoue, le compte Azure Key Vault de votre espace de travail peut ne pas être doté de la suppression réversible. Par défaut, la suppression réversible est activée pour l’instance de coffre de clés créée par votre espace de travail, mais elle peut ne pas l’être si vous avez utilisé un coffre de clés existant ou si votre espace de travail a été créé avant octobre 2020. Pour plus d’informations sur l’activation de la suppression réversible, consultez [Activer la suppression réversible pour un coffre de clés existant]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).
+> * Si vous désinscrivez puis réinscrivez un magasin de données portant le même nom et que l’opération échoue, le compte Azure Key Vault de votre espace de travail peut ne pas être doté de la suppression réversible. Par défaut, la suppression réversible est activée pour l’instance de coffre de clés créée par votre espace de travail, mais elle peut ne pas l’être si vous avez utilisé un coffre de clés existant ou si votre espace de travail a été créé avant octobre 2020. Pour plus d’informations sur l’activation de la suppression réversible, consultez [Activer la suppression réversible pour un coffre de clés existant](../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault).
 
 ### <a name="permissions"></a>Autorisations
 

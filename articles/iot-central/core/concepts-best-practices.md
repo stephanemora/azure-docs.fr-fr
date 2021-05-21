@@ -9,16 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom:
 - device-developer
-ms.openlocfilehash: e8ae8b0173e53c0a46ded1a2690175e367997c9f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 683ec2b75cad36e4f4745b74ec3207bde9af9ac3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054083"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760946"
 ---
 # <a name="best-practices-for-device-development"></a>Meilleures pratiques relatives pour le développement d’appareil
-
-*Cet article s’applique aux développeurs d’appareils.*
 
 Ces recommandations montrent comment implémenter des appareils pour tirer parti de la récupération d’urgence et de la mise à l’échelle automatique intégrée dans IoT Central.
 
@@ -61,7 +59,7 @@ Pour en savoir plus sur les codes d’erreur des appareils, consultez [Résoluti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous êtes un développeur d’appareils, nous vous suggérons les étapes suivantes :
+Voici quelques suggestions pour continuer :
 
 - Consultez un exemple de code montrant comment utiliser les jetons SAS dans [Tutoriel : Créer et connecter une application cliente à votre application Azure IoT Central](tutorial-connect-device.md)
 - Découvrez comment [connecter des appareils avec des certificats X.509 à l’aide du kit de développement logiciel (SDK) d’appareil Node.js pour une application IoT Central](how-to-connect-devices-x509.md)

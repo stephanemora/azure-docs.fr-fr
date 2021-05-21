@@ -4,12 +4,12 @@ description: Fichier include pour Azure Digital Twins - Instructions relatives a
 ms.topic: include
 ms.date: 3/5/2021
 ms.author: baanders
-ms.openlocfilehash: a94b9304ecd6c6630f6ad45652e76d2879bbc1b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 784dde0790633adbbae0ae315ce0fd5c271bdb4c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463783"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766750"
 ---
 1. **Mettez à jour le numéro de version** pour indiquer que vous fournissez une version mise à jour de ce modèle. Pour ce faire, remplacez le *1* à la fin de la valeur `@id` par un *2*. Tout nombre supérieur au numéro de version actuel convient aussi.
 1. **Modifiez une propriété**. Remplacez le nom de la propriété `Humidity` par *HumidityLevel* (ou une autre valeur si vous le souhaitez. Si vous utilisez autre chose que *HumidityLevel*, souvenez-vous de ce que vous avez utilisé et continuez à l’utiliser à la place de *HumidityLevel* tout au long du tutoriel).

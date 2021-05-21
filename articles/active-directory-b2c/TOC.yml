@@ -274,12 +274,26 @@
           href: configure-tokens.md
     - name: Définir des attributs personnalisés
       href: user-flow-custom-attributes.md
-    - name: Authentification basée sur les risques
+    - name: Gestion de la sécurité et des menaces
       items:
         - name: Investiguer les risques avec Identity Protection
           href: identity-protection-investigate-risk.md
         - name: Configurer un accès conditionnel
           href: conditional-access-user-flow.md
+        - name: Atténuer les attaques sur les informations d’identification
+          displayName: 'smart lockout, account lockout, password attack'
+          href: threat-management.md
+        - name: Partenaires de protection contre les fraudes
+          items:
+            - name: Arkose Labs
+              href: partner-arkose-labs.md
+              displayName: 'fraud protection, fraud, Azure AD b2c, protection, B2Cprotection'
+            - name: BioCatch
+              href: partner-biocatch.md
+              displayName: 'fraud protection, fraud, Azure AD b2c, protection, B2Cprotection, user behavior'
+            - name: Microsoft Dynamics 365 Fraud Protection
+              href: partner-dynamics-365-fraud-protection.md
+              displayName: 'm365 dynamics, dynamics fraud protection, fraud, 365 protection'
     - name: Configurer la vérification de l’âge
       href: age-gating.md
     - name: Connecteurs d’API
@@ -322,17 +336,6 @@
           href: partner-lexisnexis.md
         - name: Onfido
           href: partner-onfido.md
-    - name: Partenaires de protection contre les fraudes
-      items:
-        - name: Arkose Labs
-          href: partner-arkose-labs.md
-          displayName: 'fraud protection, fraud, Azure AD b2c, protection, B2Cprotection'
-        - name: BioCatch
-          href: partner-biocatch.md
-          displayName: 'fraud protection, fraud, Azure AD b2c, protection, B2Cprotection, user behavior'
-        - name: Microsoft Dynamics 365 Fraud Protection
-          href: partner-dynamics-365-fraud-protection.md
-          displayName: 'm365 dynamics, dynamics fraud protection, fraud, 365 protection'
     - name: Sécuriser l’accès aux applications héritées et locales
       items:
         - name: Identité Ping
@@ -538,8 +541,6 @@
           href: ../active-directory/fundamentals/resilience-b2c-developer-best-practices.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
         - name: Supervision et analytique
           href: ../active-directory/fundamentals/resilience-with-monitoring-alerting.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-    - name: Gestion des menaces
-      href: threat-management.md
       displayName: security
     - name: Versions de flux utilisateur
       href: user-flow-versions.md

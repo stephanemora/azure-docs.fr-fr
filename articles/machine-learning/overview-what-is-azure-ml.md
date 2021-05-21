@@ -10,12 +10,12 @@ author: BlackMist
 ms.date: 04/08/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: cd395f0ff29eed1e09f5bdac882482b201052c90
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 086c1f6ebd1b9e448a8f5e229bc6706493729422
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814822"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762890"
 ---
 # <a name="what-is-azure-machine-learning"></a>Qu'est-ce que Azure Machine Learning ?
 
@@ -126,9 +126,10 @@ Votre compte de stockage Azure, vos cibles de calcul et d’autres ressources pe
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Créez votre première expérience avec la méthode de votre choix :
-- + [Bien démarrer avec votre propre environnement de développement](tutorial-1st-experiment-sdk-setup-local.md)
-  + [Utiliser des notebooks Jupyter sur une instance de calcul pour entraîner et déployer des modèles ML](tutorial-1st-experiment-sdk-setup.md)
+Commencez par [Démarrage rapide : Bien démarrer avec Azure Machine Learning](quickstart-create-resources.md).  Utilisez ensuite ces ressources pour créer votre première expérience avec votre méthode favorite :
+
+  + [Exécuter un script Python « Hello World! » (partie 1 sur 3)](tutorial-1st-experiment-hello-world.md)
+  + [Utiliser un notebook Jupyter pour entraîner des modèles de classification d’images](tutorial-train-models-with-aml.md)
   + [Utiliser le Machine Learning automatisé pour entraîner et déployer des modèles ML](tutorial-first-experiment-automated-ml.md) 
   + [Gérer des ressources dans Visual Studio Code](how-to-manage-resources-vscode.md)
   + [Utiliser Visual Studio Code pour l’entraînement et le déploiement d’un modèle de classification d’images](tutorial-train-deploy-image-classification-model-vscode.md)

@@ -7,18 +7,18 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 1d2de439e661ef5b1d1669187355621f25400bc4
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 48924cd16eef4cafb2ee0d6a85e30903203169ce
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075570"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785508"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migration de StorSimple 8100 et 8600 vers Azure File Sync
 
 La série StorSimple 8000 est représentée par les appliances physiques locales 8100 ou 8600 et leurs composants de service cloud. Il est possible d’effectuer la migration des données de l’une ou l’autre de ces appliances vers un environnement Azure File Sync. Azure File Sync est le service Azure à long terme stratégique et par défaut vers lequel les appliances StorSimple peuvent être migrées.
 
-StorSimple série 8000 atteindra sa [fin de vie](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%208000%20Series) en décembre 2022. Il est important de planifier votre migration le plus tôt possible. Cet article donne les étapes à suivre pour effectuer correctement une migration vers Azure File Sync, en fournissant toutes les connaissances générales nécessaires.
+StorSimple série 8000 atteindra sa [fin de vie](/lifecycle/products/azure-storsimple-8000-series) en décembre 2022. Il est important de planifier votre migration le plus tôt possible. Cet article donne les étapes à suivre pour effectuer correctement une migration vers Azure File Sync, en fournissant toutes les connaissances générales nécessaires.
 
 ## <a name="phase-1-prepare-for-migration"></a>Phase 1 : Préparation de la migration
 
@@ -45,7 +45,7 @@ Les migrations vers des partages de fichiers Azure à partir de volumes StorSimp
 
 Les partages de fichiers Azure ouvrent un tout nouveau monde de possibilités pour structurer le déploiement de vos services de fichiers. Un partage de fichiers Azure désigne simplement un partage SMB dans le cloud, que vous pouvez configurer pour que les utilisateurs y accèdent directement via le protocole SMB avec l’authentification Kerberos habituelle et les autorisations NTFS existantes (listes de contrôle d’accès de fichiers et de dossiers) fonctionnant en mode natif. En savoir plus sur l’[accès aux partages de fichiers Azure en fonction de l’identité](storage-files-active-directory-overview.md).
 
-Une alternative à l’accès direct est [Azure File Sync](./storage-sync-files-planning.md). Azure File Sync est un équivalent direct de la mise en cache locale des fichiers fréquemment utilisés proposée par StorSimple.
+Une alternative à l’accès direct est [Azure File Sync](../file-sync/file-sync-planning.md). Azure File Sync est un équivalent direct de la mise en cache locale des fichiers fréquemment utilisés proposée par StorSimple.
 
 Azure File Sync est un service cloud Microsoft basé sur deux composants principaux :
 
@@ -56,8 +56,8 @@ Les partages de fichiers Azure conservent d’importants aspects de fidélité s
 
 Cet article est consacré aux étapes de migration. Si vous souhaitez en savoir plus sur Azure File Sync avant d’effectuer la migration, consultez les articles suivants :
 
-* [Vue d’ensemble d’Azure File Sync](./storage-sync-files-planning.md "Vue d’ensemble")
-* [Guide de déploiement d’Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Vue d’ensemble d’Azure File Sync](../file-sync/file-sync-planning.md "Vue d’ensemble")
+* [Guide de déploiement d’Azure File Sync](../file-sync/file-sync-deployment-guide.md)
 
 ### <a name="storsimple-service-data-encryption-key"></a>Clé de chiffrement des données de service StorSimple
 
@@ -117,6 +117,15 @@ Si vous avez établi la liste de vos partages, mappez chaque partage au compte d
 > Choisissez une région Azure, puis vérifiez que chaque compte de stockage et chaque ressource Azure File Sync correspondent à la région que vous avez sélectionnée.
 > Ne configurez pas les paramètres réseau et les paramètres de pare-feu des comptes de stockage pour le moment. À ce stade, ces configurations rendraient la migration impossible. Vous configurerez ces paramètres de stockage Azure une fois la migration terminée.
 
+### <a name="storage-account-settings"></a>Paramètres du compte de stockage
+
+Différentes configurations peuvent être appliquées sur un compte de stockage. La liste de vérification suivante doit être utilisée pour confirmer les configurations de votre compte de stockage. Vous pouvez par exemple modifier la configuration de mise en réseau une fois la migration terminée. 
+
+> [!div class="checklist"]
+> * Partages de fichiers volumineux : activé. Les partages de fichiers volumineux améliorent les performances et vous permettent de stocker jusqu’à 100 Tio dans un partage. Ce paramètre s’applique aux comptes de stockage cibles avec des partages de fichiers Azure.
+> * Pare-feu et réseaux virtuels : désactivés. Ne configurez pas de restrictions d’adresse IP ou ne limitez pas l’accès au compte de stockage à un réseau virtuel spécifique. Le point de terminaison public du compte de stockage est utilisé pendant la migration. Toutes les adresses IP des machines virtuelles Azure doivent être autorisées. Il est préférable de configurer les règles de pare-feu sur le compte de stockage après la migration. Configurez vos comptes de stockage source et cible de cette manière.
+> * Points de terminaison privés : pris en charge. Vous pouvez activer des points de terminaison privés, mais le point de terminaison public est utilisé pour la migration et doit rester disponible. Cette considération s’applique à vos comptes de stockage source et cible.
+
 ### <a name="phase-1-summary"></a>Récapitulatif de la phase 1
 
 À la fin de la phase 1 :
@@ -160,7 +169,7 @@ Vous pouvez choisir une région différente de celle où résident actuellement 
 
 #### <a name="performance"></a>Performances
 
-Vous avez la possibilité de choisir entre le stockage Premium (SSD) et le stockage Standard pour les partages de fichiers Azure. Le stockage Standard comprend [plusieurs niveaux pour un partage de fichiers](storage-how-to-create-file-share.md#changing-the-tier-of-an-azure-file-share). Le stockage Standard est l’option qui convient à la plupart des clients qui migrent depuis StorSimple.
+Vous avez la possibilité de choisir entre le stockage Premium (SSD) et le stockage Standard pour les partages de fichiers Azure. Le stockage Standard comprend [plusieurs niveaux pour un partage de fichiers](storage-how-to-create-file-share.md#change-the-tier-of-an-azure-file-share). Le stockage Standard est l’option qui convient à la plupart des clients qui migrent depuis StorSimple.
 
 Vous ne savez toujours pas ?
 
@@ -204,6 +213,9 @@ Opter pour les grands partages de fichiers d’une capacité de 100 Tio présen
 * Le partage de fichiers disposera d'une capacité suffisante pour contenir toutes les données que vous migrerez vers celui-ci, y compris la capacité de stockage requise par les sauvegardes différentielles.
 * La croissance future est couverte.
 
+> [!IMPORTANT]
+> N’appliquez pas de mise en réseau spécifique à votre compte de stockage avant ou pendant la migration. Le point de terminaison public doit être accessible sur les comptes de stockage source et cible. Aucune limitation en termes d’adresses IP ou de réseaux virtuels spécifiques n’est prise en charge. Vous pouvez modifier les configurations de mise en réseau du compte de stockage après la migration.
+
 ### <a name="azure-file-shares"></a>Partages de fichiers Azure
 
 Une fois les comptes de stockage créés, accédez à la section **Partage de fichiers** du compte de stockage, puis déployez le nombre approprié de partages de fichiers Azure selon votre plan de migration (voir phase 1). Envisagez d’utiliser les paramètres de base suivants pour tout nouveau partage de fichiers dans Azure.
@@ -242,7 +254,7 @@ Cette section décrit comment configurer une tâche de migration et mapper avec 
 
 :::row:::
     :::column:::
-        ![Tâche de migration de StorSimple série 8000.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "Capture d'écran du nouveau formulaire de création d'une tâche de migration.")
+       ![Tâche de migration de StorSimple série 8000.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "Capture d'écran du nouveau formulaire de création d'une tâche de migration.")
     :::column-end:::
     :::column:::
         **Nom de la définition de travail**</br>Ce nom doit indiquer l’ensemble des fichiers que vous déplacez. Donnez-lui un nom similaire à celui de votre partage de fichiers Azure. </br></br>**Emplacement d’exécution de la tâche**</br>Lorsque vous sélectionnez une région, vous devez sélectionner celle de votre compte de stockage StorSimple ou, si cela n’est pas possible, une région proche de celui-ci. </br></br><h3>Source</h3>**Abonnement source**</br>Sélectionnez l’abonnement dans lequel vous stockez votre ressource StorSimple Device Manager. </br></br>**Ressource StorSimple**</br>Sélectionnez la ressource StorSimple Device Manager auprès de laquelle votre appliance est inscrite. </br></br>**Clé de chiffrement de données du service**</br>Consultez la [section précédente de cet article](#storsimple-service-data-encryption-key) si vous ne trouvez pas la clé dans vos dossiers. </br></br>**Appareil**</br>Sélectionnez l’appareil StorSimple contenant le volume vers lequel vous souhaitez effectuer la migration. </br></br>**Volume**</br>Sélectionnez le volume source. Plus tard, vous déciderez si vous souhaitez migrer l’ensemble du volume ou des sous-répertoires vers le partage de fichiers Azure cible.</br></br> **Sauvegardes de volume**</br>Vous pouvez sélectionner *Sélectionner des sauvegardes de volume* pour choisir les sauvegardes à déplacer dans le cadre de cette tâche. [Une section dédiée de cet article](#selecting-volume-backups-to-migrate) sera prochainement disponible. Celle-ci couvrira le processus en détail.</br></br><h3>Cible</h3>Sélectionnez l’abonnement, le compte de stockage et le partage de fichiers Azure comme cible de cette tâche de migration.</br></br><h3>Mappage de répertoires</h3>[Une section dédiée de cet article](#directory-mapping) traite de tous les détails pertinents.
@@ -295,7 +307,7 @@ Le mappage de répertoires est facultatif pour votre tâche de migration. Si vou
 Dans le cadre de votre plan de migration, vous avez peut-être décidé que les dossiers présents sur un volume StorSimple doivent être répartis entre plusieurs partages de fichiers Azure. Si tel est le cas, vous pouvez les répartir en :
 
 1. Définissant plusieurs tâches afin d’effectuer la migration des dossiers d’un volume. Chacune aura la même source de volume StorSimple, mais un partage de fichiers Azure différent comme cible.
-1. Spécifiant précisément les dossiers du volume StorSimple qui doivent être déplacés vers le partage de fichiers spécifié, à l’aide de la section **Mappage des répertoires** du formulaire de création de tâche, et en respectant la [sémantique de mappage](#semantic-elements).
+1. Il convient de spécifier précisément les dossiers du volume StorSimple qui doivent être déplacés vers le partage de fichiers spécifié, à l’aide de la section **Mappage des répertoires** du formulaire de création de tâche, et en respectant la [sémantique de mappage](#semantic-elements).
 
 > [!IMPORTANT]
 > Les chemins et les expressions de mappage de ce formulaire ne peuvent pas être validés lorsque le formulaire est envoyé. Si les mappages ne sont pas spécifiés correctement, une tâche peut échouer intégralement ou produire un résultat indésirable. Dans ce cas, il est généralement préférable de supprimer le partage de fichiers Azure, de le recréer, puis de corriger les instructions de mappage dans une nouvelle tâche de migration pour le partage. L’exécution d’une nouvelle tâche avec des instructions de mappage corrigées peut résoudre les dossiers omis et les placer dans le partage existant. Toutefois, seuls les dossiers qui ont été omis en raison d’un chemin d’accès mal orthographié peuvent être résolus de cette façon.
@@ -367,6 +379,23 @@ Dans le panneau qui s'ouvre, vous pouvez voir que votre tâche est exécutée da
         > Il est impératif d'exécuter la tâche de migration en commençant par la sauvegarde la plus ancienne sélectionnée, puis en passant à une sauvegarde plus récente. Vous devez toujours maintenir l'ordre de vos sauvegardes manuellement, de la plus ancienne à la plus récente.
     :::column-end:::
 :::row-end:::
+
+#### <a name="run-jobs-in-parallel"></a>Exécuter des tâches en parallèle
+
+Vous aurez probablement plusieurs emplacements StorSimple qui doivent être copiés sur un partage de fichiers Azure différent. Pour une seule appliance StorSimple, vous pouvez exécuter jusqu’à quatre tâches de migration en parallèle sous réserve que chacune cible un partage de fichiers Azure différent. 
+
+Chaque tâche passe par plusieurs phases. Le démarrage d’une autre tâche n’est possible que lorsque la tâche précédente est passée à la phase de copie de fichiers. En général, dans les 25 à 35 minutes suivant le début de la tâche, une autre tâche peut être démarrée, dans la limite de quatre tâches en parallèle. Les tâches ciblant le même partage de fichiers (pour les sauvegardes ultérieures) doivent être copiées une sauvegarde après l’autre.
+
+> [!CAUTION]
+> Démarrez une seule tâche de migration à la fois pour toutes les données transférées vers le même partage de fichiers Azure.
+
+#### <a name="interpret-the-log-files"></a>Interpréter les fichiers journaux
+
+Une tâche de migration terminée affiche un lien vers les journaux de copie. Ces journaux sont des fichiers *\*.csv* qui répertorient les éléments d’espace de noms réussis et les éléments qui n’ont pas pu être copiés.
+
+Après avoir accédé à l’emplacement des fichiers journaux, vous pouvez localiser les journaux des fichiers ayant échoué en filtrant la liste avec le terme de recherche « failed » (échec). Le résultat correspondra à un ensemble de journaux pour les fichiers qui n’ont pas pu être copiés. Triez-les ensuite par taille. Il peut y avoir des journaux supplémentaires générés à une taille de 17 octets. Ils sont vides et peuvent être ignorés. Ce tri vous permet de facilement vous concentrer sur les journaux présentant du contenu.
+
+Le même processus s’applique pour l’enregistrement des copies réussies des fichiers journaux.
 
 ### <a name="phase-3-summary"></a>Récapitulatif de la phase 3
 
@@ -475,7 +504,7 @@ Vous pouvez utiliser le portail Azure pour voir à quel moment votre espace de n
 
 * Connectez-vous au portail Azure et accédez à votre groupe de synchronisation. Vérifiez l’état de synchronisation de votre groupe de synchronisation et de votre point de terminaison de serveur.
 * Le sens le plus important est celui du téléchargement. Si le point de terminaison de serveur vient d’être provisionné, il affiche **Synchronisation initiale**, ce qui indique que l’espace de noms est toujours en cours de téléchargement.
-Lorsqu’il n’affiche plus **Synchronisation initiale**, cela signifie que votre espace de noms a été entièrement copié sur le serveur. Vous pouvez maintenant procéder à une copie RoboCopy locale.
+Lorsqu’il n’affiche plus l’état **Synchronisation initiale**, cela signifie que votre espace de noms a été entièrement copié sur le serveur. Vous pouvez maintenant procéder à une copie RoboCopy locale.
 
 #### <a name="windows-server-event-viewer"></a>Observateur d’événements Windows Server
 
@@ -502,96 +531,11 @@ Vous pouvez également utiliser l’observateur d’événements sur l’instanc
 > [!WARNING]
 > Vous *ne devez pas* démarrer la RoboCopy avant que le serveur ait téléchargé complètement l’espace de noms pour un partage de fichiers Azure. Pour plus d’informations, consultez [Déterminer le moment où votre espace de noms est entièrement synchronisé à votre serveur](#determine-when-your-namespace-has-fully-synced-to-your-server).
 
- Vous souhaitez uniquement copier les fichiers qui ont été modifiés après la dernière exécution de la tâche de migration et les fichiers qui n’ont pas été déplacés par lesdites tâches auparavant. Vous pouvez comprendre pourquoi ils n’ont pas été déplacés plus tard sur le serveur, une fois la migration terminée. Pour plus d’informations, consultez [Résolution des problèmes Azure File Sync](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+ Vous souhaitez uniquement copier les fichiers qui ont été modifiés après la dernière exécution de la tâche de migration et les fichiers qui n’ont pas été déplacés par lesdites tâches auparavant. Vous pouvez comprendre pourquoi ils n’ont pas été déplacés plus tard sur le serveur, une fois la migration terminée. Pour plus d’informations, consultez [Résolution des problèmes Azure File Sync](../file-sync/file-sync-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
 RoboCopy a plusieurs paramètres. L’exemple suivant montre une commande terminée, ainsi que la liste des raisons pour lesquelles vous devez choisir ces paramètres.
 
-```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /IT /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-Arrière-plan :
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      Permet à RoboCopy de s’exécuter en multithread. La valeur par défaut est 8 et la valeur maximale est 128.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:<file name>
-   :::column-end:::
-   :::column span="1":::
-      Renvoie l’état au fichier LOG au format UNICODE (remplace le journal existant).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      Génère les sorties dans la fenêtre de la console. Utilisé conjointement avec la sortie dans un fichier journal.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /NP
-   :::column-end:::
-   :::column span="1":::
-      Omet la journalisation de la progression pour garder le journal lisible.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      Exécute RoboCopy dans le même mode qu’une application de sauvegarde. Cela permet à RoboCopy de déplacer des fichiers pour lesquels l’utilisateur actuel n’a pas d’autorisations.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      Permet à RoboCopy de prendre uniquement en compte les écarts entre la source (appliance StorSimple) et la cible (répertoire Windows Server).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /IT
-   :::column-end:::
-   :::column span="1":::
-      Garantit la fidélité dans certains scénarios de mise en miroir.</br>Exemple : Entre deux exécutions Robocopy, un fichier fait l’objet d’une modification de liste de contrôle d’accès et d’une mise à jour d’attribut, par exemple, il est également marqué *masqué*. Sans /IT, la modification de la liste de contrôle d’accès peut être ignorée par Robocopy et donc pas transférée vers l’emplacement cible.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      Fidélité de la copie de fichier (la valeur par défaut est /COPY:DAT), indicateurs de copie : D=Données, A=Attributs, T=Horodatages, S=Sécurité=ACL NTFS, O=Informations propriétaire, U=Informations audit.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPYALL
-   :::column-end:::
-   :::column span="1":::
-      Informations de fichier COPY ALL (équivalent de /COPY:DATSOU).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      Fidélité de la copie des répertoires (la valeur par défaut est /DCOPY:DA), indicateurs de copie : D=Données, A=Attributs, T=Horodatages.
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 Quand vous configurez les emplacements source et cible de la commande RoboCopy, veillez à examiner la structure de la source et de la cible pour être sûr qu’elles correspondent. Si vous avez utilisé la fonctionnalité de mappage de répertoires de la tâche de migration, la structure de votre répertoire racine peut être différente de celle de votre volume StorSimple. Si c’est le cas, vous pouvez avoir besoin de plusieurs tâches RoboCopy, une pour chaque sous-répertoire. Si vous ne savez pas si la commande s’exécute comme prévu, vous pouvez utiliser le paramètre */L*, qui simulera la commande sans apporter de modification.
 
@@ -604,11 +548,15 @@ Si vous n’utilisez pas Azure File Sync pour mettre en cache le partage de fich
 1. [Montez votre partage de fichiers Azure](storage-how-to-use-files-windows.md#mount-the-azure-file-share) en tant que lecteur réseau sur un ordinateur Windows local.
 1. Exécutez RoboCopy entre votre volume StorSimple et le partage de fichiers Azure monté. Si les fichiers ne sont pas copiés, corrigez leurs noms côté StorSimple pour supprimer les caractères non valides. Ensuite, réessayez RoboCopy. La commande RoboCopy mentionnée précédemment peut être exécutée plusieurs fois sans provoquer de rappel inutile vers StorSimple.
 
+### <a name="troubleshoot-and-optimize"></a>Dépanner et optimiser
+
+[!INCLUDE [storage-files-migration-robocopy-optimize](../../../includes/storage-files-migration-robocopy-optimize.md)]
+
 ### <a name="user-cut-over"></a>Transfert de l’utilisateur
 
 Si vous utilisez Azure File Sync, vous devrez probablement créer des partages SMB sur cette instance Windows Server avec Azure File Sync correspondant aux partages que vous aviez sur les volumes StorSimple. Vous pouvez commencer par cette étape, et le plus tôt possible pour ne pas perdre de temps. Toutefois, vous devez garantir que personne ne pourra apporter des modifications à l’instance Windows Server avant la fin de cette étape.
 
-Si vous avez un déploiement DFS-N, vous pouvez faire pointer les espaces de noms DFN vers les emplacements des nouveaux dossiers du serveur. Si vous ne disposez pas d’un déploiement DFS-N et que vous avez déjà relié votre appliance 8100 ou 8600 localement à une instance Windows Server, vous pouvez retirer ce serveur du domaine. Ensuite, joignez le domaine à votre nouvelle instance Windows Server avec Azure File Sync. Au cours de ce processus, donnez au serveur le même nom de serveur et les mêmes noms de partage que l’ancien serveur, afin que le basculement reste transparent pour vos utilisateurs, votre stratégie de groupe et vos scripts.
+Si vous avez un déploiement DFS-N, vous pouvez faire pointer les espaces de noms DFN vers les emplacements des nouveaux dossiers du serveur. Si vous ne disposez pas d’un déploiement DFS-N et que vous avez déjà relié votre appliance 8100 ou 8600 localement à une instance Windows Server, vous pouvez retirer ce serveur du domaine. Joignez ensuite le domaine à votre nouvelle instance Windows Server avec Azure File Sync. Au cours de ce processus, donnez au serveur le même nom de serveur et les mêmes noms de partage que l’ancien serveur, afin que le basculement reste transparent pour vos utilisateurs, votre stratégie de groupe et vos scripts.
 
 En savoir plus sur [DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview).
 
@@ -636,7 +584,7 @@ Votre migration est terminée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Familiarisez-vous avec [Azure File Sync](./storage-sync-files-planning.md).
-* Comprenez la flexibilité des stratégies de [hiérarchisation cloud](storage-sync-cloud-tiering-overview.md).
+* Familiarisez-vous avec [Azure File Sync](../file-sync/file-sync-planning.md).
+* Comprenez la flexibilité des stratégies de [hiérarchisation cloud](../file-sync/file-sync-cloud-tiering-overview.md).
 * [Activez Sauvegarde Azure](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) sur vos partages de fichiers Azure pour planifier des instantanés et définir des planifications de conservation de sauvegardes.
-* Si vous constatez dans le portail Azure que certains fichiers ne se synchronisent jamais, consultez le [guide de résolution des problèmes](storage-sync-files-troubleshoot.md) pour connaître les mesures à prendre pour les résoudre.
+* Si vous constatez dans le portail Azure que certains fichiers ne se synchronisent jamais, consultez le [guide de résolution des problèmes](../file-sync/file-sync-troubleshoot.md) pour connaître les mesures à prendre pour les résoudre.

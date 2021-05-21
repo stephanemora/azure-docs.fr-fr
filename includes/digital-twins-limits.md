@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 4/8/2021
 ms.author: baanders
-ms.openlocfilehash: 34fec713c3764987f07bc7fb89ecb0a0d770a840
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 2a6cff1aa93c4f3ac4f95fd176e1b1e42736d8f4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728016"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108763345"
 ---
 ### <a name="functional-limits"></a>Limitations fonctionnelles
 
@@ -56,6 +56,6 @@ Le tableau suivant reflète les limites de débit de différentes API.
 
 ### <a name="other-limits"></a>Autres limites
 
-Les limites des types de données et des champs dans les documents DTDL pour les modèles Azure Digital Twins sont disponibles dans la documentation des spécifications sur GitHub : [*DTDL (Digital Twins Definition Language) – version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Les limites des types de données et des champs dans les documents DTDL pour les modèles Azure Digital Twins sont disponibles dans la documentation des spécifications sur GitHub : [DTDL (Digital Twins Definition Language) – version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
-Pour des détails sur la latence des requêtes et les limitations de requête, consultez [*Procédure : Interroger le graphique de jumeaux*](../articles/digital-twins/how-to-query-graph.md).
+Les détails de la latence des requêtes sont décrits dans [Concepts : Langage de requête](../articles/digital-twins/concepts-query-language.md#considerations-for-querying). Les limitations des fonctionnalités spécifiques du langage de requête se trouvent dans la [documentation de référence sur les requêtes](../articles/digital-twins/concepts-query-language.md#reference-documentation).

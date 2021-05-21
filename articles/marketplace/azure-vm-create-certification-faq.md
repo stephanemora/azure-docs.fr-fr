@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: mathapli
 ms.author: mathapli
-ms.date: 01/18/2021
-ms.openlocfilehash: 7a9fa4a6f44e88caa6f98d5e1c56adaa065fa29a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/13/2021
+ms.openlocfilehash: 20f69edac6338c07132e004acc6c0ce1cd58ab29
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558706"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634326"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Résoudre les problèmes de certification des machines virtuelles
 
@@ -540,13 +540,13 @@ Contactez le [support d’Espace partenaires](https://aka.ms/marketplacepublishe
 Cette décrit comment fournir une nouvelle image de machine virtuelle quand une vulnérabilité ou un code malveillant exploitant une faille de sécurité est détecté dans l’une de vos images de machine virtuelle. Elle s’applique uniquement aux offres de machine virtuelle Azure publiées sur Place de marché Azure.
 
 > [!NOTE]
-> Vous ne pouvez pas supprimer la dernière image de machine virtuelle d’un plan ni arrêter la vente du dernier plan d’une offre.
+> Vous ne pouvez pas supprimer la dernière image de machine virtuelle d'un plan ni déprécier (anciennement arrêter la vente) le dernier plan d'une offre.
 
 Effectuez l’une des actions suivantes :
 
 - Si vous disposez d’une nouvelle image de machine virtuelle pour remplacer l’image de machine virtuelle vulnérable, consultez [Fournir une image de machine virtuelle corrigée](#provide-a-fixed-vm-image).
-- Si vous n’avez pas de nouvelle image de machine virtuelle pour remplacer la seule image de machine virtuelle dans un plan ou si vous avez terminé le plan, [arrêtez la vente du plan](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
-- Si vous n’envisagez pas de remplacer la seule image de machine virtuelle dans l’offre, nous vous recommandons d’[arrêter de vendre l’offre](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
+- Si vous n'avez pas de nouvelle image de machine virtuelle pour remplacer la seule image de machine virtuelle d'un plan, ou si vous en avez terminé avec le plan, [dépréciez le plan (anciennement arrêt de la vente)](partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan).
+- Si vous n'envisagez pas de remplacer la seule image de machine virtuelle de l'offre, nous vous recommandons de [déprécier l'offre (anciennement arrêter la vendre)](partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan).
 
 ### <a name="provide-a-fixed-vm-image"></a>Fournir une image de machine virtuelle corrigée
 

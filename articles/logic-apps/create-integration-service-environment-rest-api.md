@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: d4500229800fa5d1743779b29927637777647e47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa0b37c46fd39a1764c356aa910347cafaa7d448
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99550655"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787254"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Créer un environnement de service d'intégration (ISE) à l'aide de l'API REST Logic Apps
 
@@ -195,6 +195,8 @@ Vous utilisez souvent ISE pour vous connecter à des services personnalisés sur
 Avant de mettre à jour votre ISE avec un certificat racine approuv personnalisé, passez en revue les considérations suivantes :
 
 * Veillez à charger le certificat racine *et* tous les certificats intermédiaires. Le nombre maximal de certificats est de 20.
+
+* Le nom d’objet du certificat doit correspondre au nom d’hôte du point de terminaison cible que vous souhaitez appeler à partir d’Azure Logic Apps. 
 
 * Le chargement des certificats racines est une opération de remplacement dans laquelle le chargement le plus récent remplace les chargements précédents. Par exemple, si vous envoyez une requête qui charge un certificat, puis envoyez une autre demande pour charger un autre certificat, votre ISE utilise uniquement le deuxième certificat. Si vous devez utiliser les deux certificats, ajoutez-les ensemble dans la même demande.  
 

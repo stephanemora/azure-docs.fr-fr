@@ -112,6 +112,8 @@ items:
                 displayName: Register and scan Azure SQL DB Managed Instance
               - name: Pool SQL dédié Azure (anciennement SQL DW)
                 href: register-scan-azure-synapse-analytics.md
+              - name: Base de données de metastore Hive
+                href: register-scan-hive-metastore-source.md
               - name: Serveur SQL local
                 href: register-scan-on-premises-sql-server.md
               - name: Oracle
@@ -184,6 +186,8 @@ items:
         items:
           - name: Gérer les points de terminaison privés
             href: catalog-private-link.md
+          - name: Questions fréquentes sur les points de terminaison privés Azure Purview
+            href: catalog-private-link-faqs.md
       - name: Récupération d'urgence
         items:
           - name: Récupération d'urgence

@@ -6,16 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 05/07/2021
 ms.author: tamram
-ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 11d9b38d71d428a3c6c829b508318389338f5a15
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: c091d1b25b8c8e166fa759dfc31421bc7b778232
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800344"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109635226"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Reprise d’activité après sinistre et basculement de compte de stockage
 
@@ -89,7 +88,7 @@ L’accès en écriture est restauré pour les comptes géoredondants une fois q
 > [!IMPORTANT]
 > Une fois le basculement terminé, le compte de stockage est configuré pour être localement redondant dans le nouveau point de terminaison principal. Pour reprendre la réplication vers la nouvelle région secondaire, configurez à nouveau le compte pour la géoredondance.
 >
-> N’oubliez pas que la conversion d’un compte LRS pour utiliser la géo-redondance entraîne un coût. Ce coût s’applique à la mise à jour du compte de stockage dans la nouvelle région primaire après un basculement.  
+> N’oubliez pas que la conversion d’un compte de stockage localement redondant pour utiliser la géo-redondance entraîne des coûts et du temps. Pour plus d’informations, consultez [Implications importantes du basculement de compte](storage-initiate-account-failover.md#important-implications-of-account-failover).
 
 ### <a name="anticipate-data-loss"></a>Anticiper la perte de données
 
@@ -158,7 +157,7 @@ N’oubliez pas que toutes les données stockées dans un disque temporaire sont
 Les fonctionnalités et services suivants ne sont pas pris en charge pour le basculement de compte :
 
 - Azure File Sync ne prend pas en charge le basculement de compte de stockage. Les comptes de stockage contenant des partages de fichiers Azure utilisés en tant que points de terminaison cloud dans Azure File Sync ne doivent pas être basculés. Cela provoquera en effet un arrêt de la synchronisation et pourra entraîner une perte inattendue de données dans le cas de fichiers nouvellement hiérarchisés.
-- Les comptes de stockage ADLS Gen2 (comptes dans lesquels est activé un espace de noms hiérarchique) ne sont pas pris en charge pour l’instant.
+- Les comptes dans lesquels est activé un espace de noms hiérarchique (comme Data Lake Storage Gen2) ne sont pas pris en charge pour l’instant.
 - Un compte de stockage contenant des objets blob de blocs premium ne peut pas être basculé. Les comptes de stockage qui prennent en charge les objets blob de blocs premium ne prennent pas en charge la géoredondance.
 - Un compte de stockage incluant des conteneurs avec une [stratégie d’immuabilité WORM](../blobs/storage-blob-immutable-storage.md) ne peut pas être basculé. Les stratégies de rétention temporelles ou les stratégies de conservation légale déverrouillées/verrouillées empêchent le basculement afin de maintenir la conformité.
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f101c8a3d3af9658414e816afff9050402d71ce
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: d8a4b97ef095f5860ddf99751186ca04926e1698
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064068"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761738"
 ---
 # <a name="securing-service-principals"></a>Sécurisation des principaux de service
 
@@ -37,7 +37,7 @@ Une instance d’application donnée dispose de deux propriétés distinctes : 
 > Vous constaterez peut-être que les termes application et principal du service sont utilisés de manière interchangeable lorsque vous faites référence à une application dans le contexte des tâches liées à l’authentification. Il s’agit cependant de deux représentations différentes d’applications dans Azure AD.
  
 
-La propriété ApplicationID représente l’application globale et est la même pour toutes les instances d’application au sein des locataires. La propriété ObjectID est une valeur unique pour un objet d’application et représente le principal du service. Comme pour les utilisateurs, groupes et autres ressources, ObjectID permet d’identifier de manière unique une instance d’application dans Azure AD.
+La propriété ApplicationID représente l’application globale et est la même pour toutes les instances d’application au sein des locataires. La propriété ObjectID est une valeur unique pour un objet d’application. Comme pour les utilisateurs, groupes et autres ressources, ObjectID permet d’identifier de manière unique une instance d’application dans Azure AD.
 
 Pour plus d’informations sur ce sujet, consultez [Relation entre l’application et le principal du service](../develop/app-objects-and-service-principals.md).
 

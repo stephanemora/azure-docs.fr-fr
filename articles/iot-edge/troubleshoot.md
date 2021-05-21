@@ -4,16 +4,16 @@ description: Cet article vous permettra d’acquérir des compétences de diagno
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/01/2021
+ms.date: 05/04/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6fa49af946a1e5fc631eeb1ee9b9c7c99d3adff8
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 78dff59e1cd902b6f503d9dc75213d0bd4822baa
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308266"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634722"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Résoudre les problèmes de votre appareil IoT Edge
 
@@ -113,7 +113,15 @@ sudo iotedge support-bundle --since 6h
 :::moniker-end
 <!-- end 1.2 -->
 
-Vous pouvez également utiliser un appel de [méthode directe](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) à destination de votre appareil pour charger la sortie de la commande support-bundle dans Stockage Blob Azure.
+Par défaut, la commande `support-bundle` crée un fichier zip appelé **support_bundle.zip** dans le répertoire où la commande est appelée. Utilisez l’indicateur `--output` pour spécifier un chemin d’accès ou un nom de fichier différent pour la sortie.
+
+Pour plus d’informations sur la commande, consultez ses informations d’aide.
+
+```bash/cmd
+iotedge support-bundle --help
+```
+
+Vous pouvez également utiliser l’appel de méthode directe intégré [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) pour charger la sortie de la commande « support-bundle » dans Stockage Blob Azure.
 
 > [!WARNING]
 > La sortie de la commande `support-bundle` peut contenir des noms d’hôte, d’appareil et de module, des informations journalisées par vos modules, etc. Soyez conscient de cela si vous partagez la sortie dans un forum public.
@@ -131,7 +139,7 @@ Vous pouvez vérifier l’installation d’IoT Edge sur vos appareils en [survei
 Pour obtenir le dernier jumeau de module, exécutez la commande suivante depuis [Azure Cloud Shell](https://shell.azure.com/) :
 
    ```azurecli-interactive
-   az iot hub module-twin show --device-id <edge_device_id> --module-id $edgeAgent --hub-name <iot_hub_name>
+   az iot hub module-twin show --device-id <edge_device_id> --module-id '$edgeAgent' --hub-name <iot_hub_name>
    ```
 
 Cette commande renvoie toutes les [propriétés edgeAgent signalées](./module-edgeagent-edgehub.md). Vous trouverez ci-dessous quelques propriétés utiles pour surveiller l’état de l’appareil :
@@ -264,6 +272,21 @@ iotedge logs <container name>
 ```
 
 Vous pouvez également utiliser un appel de [méthode directe](how-to-retrieve-iot-edge-logs.md#upload-module-logs) à destination d’un modèle de votre appareil pour charger les journaux de ce module dans Stockage Blob Azure.
+
+## <a name="clean-up-container-logs"></a>Nettoyer les journaux de conteneur
+
+Par défaut, le moteur de conteneur Moby ne définit pas de limites de taille pour le journal de conteneur. Au fil du temps, cela peut amener l’appareil à se remplir de journaux et à manquer d’espace disque. Si les journaux de conteneurs volumineux nuisent aux performances de votre appareil IoT Edge, utilisez la commande suivante pour forcer la suppression du conteneur et des journaux associés.
+
+Si vous êtes toujours en train de résoudre des problèmes, attendez d’avoir inspecté les journaux du conteneur pour effectuer cette étape.
+
+>[!WARNING]
+>Si vous forcez la suppression du conteneur edgeHub alors qu’il contient un backlog de messages non remis et qu’aucun [stockage hôte](how-to-access-host-storage-from-module.md) n’est configuré, les messages non remis seront perdus.
+
+```cmd
+docker rm --force <container name>
+```
+
+Pour la maintenance continue des journaux et les scénarios de production, [limitez la taille du journal](production-checklist.md#place-limits-on-log-size).
 
 ## <a name="view-the-messages-going-through-the-iot-edge-hub"></a>Afficher les messages acheminés via hub IoT Edge
 

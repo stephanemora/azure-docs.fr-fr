@@ -1,6 +1,6 @@
 ---
 title: Gestion multilocataire dans Azure Security Center | Microsoft Docs
-description: Découvrez comment configurer la gestion multilocataire pour gérer la posture de sécurité de plusieurs locataires dans Security Center à l’aide de la gestion déléguée des ressources Azure.
+description: Découvrez comment configurer la gestion multilocataire pour gérer la posture de sécurité de plusieurs locataires dans Security Center à l’aide d’Azure Lighthouse.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 493a06e85ad6c8260c342cf8167386394835b1c6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 65ab3d1e6229d3d6fad752b1bc336d0ad749b597
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099486"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787992"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestion multilocataire dans Security Center
 
-La gestion multilocataire permet d’afficher et de gérer la posture de sécurité de plusieurs locataires dans Security Center, en tirant parti de la [gestion déléguée des ressources Azure](../lighthouse/concepts/azure-delegated-resource-management.md). Gérez efficacement plusieurs locataires à partir d’une même vue, sans avoir à vous connecter à l’annuaire de chaque locataire.
+La gestion multilocataire permet d’afficher et de gérer la posture de sécurité de plusieurs locataires dans Security Center en tirant parti d’[Azure Lighthouse](../lighthouse/overview.md). Gérez efficacement plusieurs locataires à partir d’une même vue, sans avoir à vous connecter à l’annuaire de chaque locataire.
 
 - Les fournisseurs de services peuvent gérer la posture de sécurité des ressources pour plusieurs clients, à partir de leur propre locataire.
 
@@ -30,7 +30,7 @@ La gestion multilocataire permet d’afficher et de gérer la posture de sécuri
 
 ## <a name="set-up-cross-tenant-management"></a>Configurer la gestion multilocataire
 
-La gestion des ressources déléguées Azure est l’un des principaux composants d’Azure Lighthouse. Configurez la gestion multilocataire en déléguant à votre propre locataire l’accès aux ressources des locataires managés, en utilisant ces instructions de la documentation Azure Lighthouse : [Gestion des ressources déléguées Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
+La [gestion des ressources déléguées Azure](../lighthouse/concepts/architecture.md) est un élément clé d’Azure Lighthouse. Configurez la gestion multilocataire en déléguant à votre propre locataire l’accès aux ressources des locataires managés en suivant ces instructions de la documentation d’Azure Lighthouse : [Intégrer un client à Azure Lighthouse](../lighthouse/how-to/onboard-customer.md).
 
 
 ## <a name="how-does-cross-tenant-management-work-in-security-center"></a>Fonctionnement de la gestion multilocataire dans Security Center

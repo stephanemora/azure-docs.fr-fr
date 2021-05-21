@@ -10,12 +10,12 @@ metadata:
   author: mingshen-ms
   ms.author: mingshen
   ms.date: 09/02/2020
-  ms.openlocfilehash: 2610013e7f5c2ee856a6fb1cd10fe4aebcbeb4c5
-  ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+  ms.openlocfilehash: 28ef4a1b2531de4462a1ae313732b1dae17e09f1
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/30/2021
-  ms.locfileid: "108318978"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110071827"
 landingContent:
 - title: Utilisation de la place de marché commerciale
   linkLists:
@@ -111,22 +111,16 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: Guide des API de place de marché
+      url: marketplace-apis-guide.md
+    - text: Prérequis de l’API
+      url: ./cloud-partner-portal-api-prerequisites.md
     - text: API de traitement SaaS
       url: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
     - text: API de service de mesure de la Place de marché
       url: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-    - text: Référence d’API pour le portail Cloud Partner
-      url: ./cloud-partner-portal-api-overview.md
-    - text: Prérequis de l’API
-      url: ./cloud-partner-portal-api-prerequisites.md
-    - text: Récupération des offres
-      url: ./cloud-partner-portal-api-retrieve-offers.md
-    - text: Créer ou modifier une offre
-      url: ./cloud-partner-portal-api-creating-offer.md
-    - text: Tarification des offres de machine virtuelle
-      url: ./cloud-partner-portal-api-setting-price.md
-    - text: Démarrer
-      url: ./cloud-partner-portal-api-go-live.md
+    - text: API de rapport (PDF)
+      url: https://partneranalytics-api.azureedge.net/partneranalytics-api/Programmatic%20Access%20to%20Commercial%20Marketplace%20Analytics%20Data_v1.pdf
 - title: Obtenir de l’aide
   linkLists:
   - linkListType: get-started
