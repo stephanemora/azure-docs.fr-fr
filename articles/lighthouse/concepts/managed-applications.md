@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse et applications managées Azure
 description: Comprendre comment Azure Lighthouse et les applications managées Azure peuvent être utilisés ensemble.
-ms.date: 12/18/2020
+ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5c30c3234a57e25ceaa521ad485f58d4d663ebe9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b2bca71973dd22e566c5fb330206d37cc2854d6c
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97693967"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788604"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse et applications managées Azure
 
@@ -33,9 +33,9 @@ Ce tableau illustre certaines différences fondamentales qui peuvent avoir une i
 
 Avec [Azure Lighthouse](../overview.md), un fournisseur de services peut effectuer une grande diversité de tâches de gestion directement sur l’abonnement d’un client (ou groupe de ressources). Cet accès s’effectue au moyen d’une projection logique, qui permet au fournisseur de services de se connecter à son propre locataire et d’accéder aux ressources qui appartiennent au locataire du client. Le client détermine quels abonnements ou groupes de ressources il souhaite déléguer au fournisseur de services, et il assure l’accès total à ces ressources. Il peut également supprimer l’accès du fournisseur de services à tout moment.
 
-Pour pouvoir utiliser Azure Lighthouse, les clients sont intégrés à la [gestion des ressources déléguées Azure](azure-delegated-resource-management.md) soit en [déployant des modèles ARM](../how-to/onboard-customer.md), soit en publiant une [offre de service managé sur la Place de marché Azure](managed-services-offers.md). Vous pouvez suivre votre impact sur les engagements des clients en [liant votre ID partenaire](../how-to/partner-earned-credit.md).
+Pour utiliser Azure Lighthouse, les clients sont intégrés en [déployant des modèles ARM](../how-to/onboard-customer.md) ou via une [offre de service managé sur la Place de marché Azure](managed-services-offers.md). Vous pouvez suivre votre impact sur les engagements des clients en [liant votre ID partenaire](../how-to/partner-earned-credit.md).
 
-Azure Lighthouse est généralement utilisé dans les scénarios où un fournisseur de services effectue des tâches de gestion pour un client de manière continue.
+Azure Lighthouse est généralement utilisé dans les scénarios où un fournisseur de services effectue des tâches de gestion pour un client de manière continue. Pour en savoir plus sur le fonctionnement d’Azure Lighthouse en termes techniques, consultez [Architecture d’Azure Lighthouse](architecture.md).
 
 ### <a name="azure-managed-applications"></a>Applications managées Azure
 

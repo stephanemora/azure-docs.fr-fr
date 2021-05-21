@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 4/7/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5aa74920919e7af98368d08bfea892494273f946
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 18089da198d842f19eb6c42e82188dc615888993
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208632"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789927"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Intégrer Azure Digital Twins avec Azure Time Series Insights
 
@@ -24,10 +24,8 @@ La solution décrite dans cet article vous permettra de collecter et d’analyse
 
 Avant de pouvoir configurer une relation avec Time Series Insights, vous devez configurer les ressources suivantes :
 * Un **IoT Hub**. Pour obtenir des instructions, consultez la section [Créer un hub IoT](../iot-hub/quickstart-send-telemetry-cli.md#create-an-iot-hub) du démarrage rapide *Envoyer la télémétrie d’IoT Hub*.
-* Une **instance d’Azure Digital Twins**.
-Pour obtenir des instructions, consultez [Procédure : Configurer une instance Azure Digital Twins et l’authentification](./how-to-set-up-instance-portal.md).
-* Un **modèle et un jumeau dans l’instance Azure Digital Twins**.
-Vous devez mettre à jour les informations du jumeau plusieurs fois pour voir ces données suivies dans Time Series Insights. Pour obtenir des instructions, consultez la section [Ajouter un modèle et un jumeau](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) de l’article *Guide pratique : Ingérer IoT Hub*.
+* Une **instance d’Azure Digital Twins**. Pour obtenir des instructions, consultez [Procédure : Configurer une instance Azure Digital Twins et l’authentification](./how-to-set-up-instance-portal.md).
+* Un **modèle et un jumeau dans l’instance Azure Digital Twins**. Vous devez mettre à jour les informations du jumeau plusieurs fois pour voir ces données suivies dans Time Series Insights. Pour obtenir des instructions, consultez la section [Ajouter un modèle et un jumeau](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) de l’article *Guide pratique : Ingérer IoT Hub*.
 
 > [!TIP]
 > Dans cet article, les valeurs de jumeau changeantes qui sont affichées dans Time Series Insights sont mises à jour manuellement par souci de simplicité. Toutefois, si vous souhaitez suivre cet article avec des données simulées en temps réel, vous pouvez configurer une fonction Azure qui met à jour les jumeaux en fonction des événements de télémétrie IoT à partir d’un appareil simulé. Pour obtenir des instructions, consultez [Guide pratique : Ingérer les données d’IoT Hub](how-to-ingest-iot-hub-data.md), notamment les dernières étapes pour exécuter le simulateur d’appareil et valider le fonctionnement du workflow.
@@ -52,7 +50,7 @@ Vous allez attacher Time Series Insights à Azure Digital Twins via le chemin d�
 Avant de créer les hubs d’événements, créez d’abord un espace de noms Event Hub, qui recevra les événements de notre instance Azure Digital Twins. Vous pouvez utiliser les instructions Azure CLI ci-dessous ou utiliser le portail Azure : [Démarrage rapide : Créer un hub d’événements avec le portail Azure](../event-hubs/event-hubs-create.md). Pour connaître les régions qui prennent en charge Event Hubs, consultez [Produits Azure disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
 
 ```azurecli-interactive
-az eventhubs namespace create --name <name-for-your-event-hubs-namespace> --resource-group <your-resource-group> -l <region>
+az eventhubs namespace create --name <name-for-your-event-hubs-namespace> --resource-group <your-resource-group> --location <region>
 ```
 
 > [!TIP]
@@ -95,7 +93,7 @@ az eventhubs eventhub authorization-rule create --rights Listen Send --name <nam
 Créez un [point de terminaison](concepts-route-events.md#create-an-endpoint) Azure Digital Twins qui lie votre hub d’événements à votre instance Azure Digital Twins. Spécifiez un nom pour le point de terminaison de votre hub Twins.
 
 ```azurecli-interactive
-az dt endpoint create eventhub -n <your-Azure-Digital-Twins-instance-name> --eventhub-resource-group <your-resource-group> --eventhub-namespace <your-event-hubs-namespace-from-earlier> --eventhub <your-twins-hub-name-from-above> --eventhub-policy <your-twins-hub-auth-rule-from-earlier> --endpoint-name <name-for-your-twins-hub-endpoint>
+az dt endpoint create eventhub --dt-name <your-Azure-Digital-Twins-instance-name> --eventhub-resource-group <your-resource-group> --eventhub-namespace <your-event-hubs-namespace-from-earlier> --eventhub <your-twins-hub-name-from-above> --eventhub-policy <your-twins-hub-auth-rule-from-earlier> --endpoint-name <name-for-your-twins-hub-endpoint>
 ```
 
 ### <a name="create-twins-hub-event-route"></a>Créer un itinéraire d’événement hub Twins
@@ -105,7 +103,7 @@ Les instances Azure Digital Twins peuvent émettre des [événements de mise à 
 Créez un [itinéraire](concepts-route-events.md#create-an-event-route) dans Azure Digital Twins pour envoyer des événements de mise à jour de jumeaux à votre point de terminaison à partir d’en haut. Le filtre de cet itinéraire permet uniquement aux messages de mise à jour de jumeaux d’être transmis à votre point de terminaison. Spécifiez un nom pour l’itinéraire d’événement du hub Twins.
 
 ```azurecli-interactive
-az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <your-twins-hub-endpoint-from-above> --route-name <name-for-your-twins-hub-event-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
+az dt route create --dt-name <your-Azure-Digital-Twins-instance-name> --endpoint-name <your-twins-hub-endpoint-from-above> --route-name <name-for-your-twins-hub-event-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
 ```
 
 ### <a name="get-twins-hub-connection-string"></a>Obtient la chaîne de connexion du hub Twins
@@ -202,13 +200,13 @@ Ensuite, vous allez ajouter des variables d’environnement dans les paramètres
 Utilisez la valeur du hub Twins **primaryConnectionString** que vous avez enregistrée précédemment pour créer un paramètre d’application dans votre application de fonction qui contient la chaîne de connexion du hub Twins :
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your-twins-hub-primaryConnectionString>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your-twins-hub-primaryConnectionString>" --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>
 ```
 
 Utilisez la valeur du hub Time Series **primaryConnectionString** que vous avez enregistrée précédemment pour créer un paramètre d’application dans votre application de fonction qui contient la chaîne de connexion du hub Time Series :
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-time-series-hub-primaryConnectionString>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-time-series-hub-primaryConnectionString>" --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>
 ```
 
 ## <a name="create-and-connect-a-time-series-insights-instance"></a>Créer et connecter une instance Time Series Insights
@@ -252,10 +250,10 @@ Dans cette section, vous allez configurer une instance Time Series Insights pour
 
 Pour commencer à envoyer des données à Time Series Insights, vous devez commencer à mettre à jour les propriétés dans Azure Digital Twins avec des valeurs de données variables.
 
-Utilisez la commande CLI suivante pour mettre à jour la propriété *Temperature* sur le jumeau *thermostat67* que vous avez ajouté à votre instance dans la section [Conditions préalables](#prerequisites).
+Utilisez la commande CLI suivante pour mettre à jour la propriété *Temperature* sur le jumeau thermostat67 que vous avez ajouté à votre instance dans la section [Conditions préalables](#prerequisites).
 
 ```azurecli-interactive
-az dt twin update -n <your-azure-digital-twins-instance-name> --twin-id thermostat67 --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
+az dt twin update --dt-name <your-azure-digital-twins-instance-name> --twin-id thermostat67 --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
 ```
 
 **Répétez la commande au moins 4 fois avec différentes valeurs de température** pour créer plusieurs points de données qui peuvent être observés plus tard dans l’environnement Time Series Insights.
@@ -272,9 +270,9 @@ Après cela, vous pouvez exécuter l’appareil pour commencer à envoyer des do
 
     :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Capture d’écran du portail Azure pour sélectionner l’URL de l’explorateur de Time Series Insights sous l’onglet Vue d’ensemble de votre environnement Time Series Insights." lightbox="media/how-to-integrate-time-series-insights/view-environment.png":::
 
-2. Dans l’Explorateur, vous verrez vos trois instances d’Azure Digital Twins sur la gauche. Sélectionnez le jumeau *thermostat67*, choisissez la propriété *Temperature*, puis appuyez sur **Ajouter**.
+2. Dans l’Explorateur, vous verrez vos trois instances d’Azure Digital Twins sur la gauche. Sélectionnez le jumeau thermostat67, choisissez la propriété *Température*, puis sélectionnez **Ajouter**.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Capture d’écran de l’Explorateur Time Series Insights pour sélectionner thermostat67, choisir la propriété Temperature, puis appuyer sur Ajouter." lightbox="media/how-to-integrate-time-series-insights/add-data.png":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Capture d’écran de l’Explorateur Time Series Insights pour sélectionner thermostat67, choisir la propriété Temperature, puis sélectionner Ajouter." lightbox="media/how-to-integrate-time-series-insights/add-data.png":::
 
 3. Vous devriez maintenant voir les valeurs de température initiales de votre thermostat, comme indiqué ci-dessous. 
 

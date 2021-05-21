@@ -5,14 +5,14 @@ author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 05/04/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 220a6c2107063734201064115898611c20cab650
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0041299031934bd76e4ef0700d2e75e2d61516cd
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304458"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745456"
 ---
 # <a name="add-components-on-the-portal"></a>Ajouter des composants sur le portail
 
@@ -26,9 +26,9 @@ Lorsque vous suivez le [tutoriel pour ajouter des détails](tutorial-02-adding-d
 
 Chaque projet soumis à la certification inclura un composant **Produit prêt pour le client** (qui, dans de nombreux cas, représente le produit dans son intégralité). Pour mieux comprendre la distinction d’un type de composant Produit prêt pour le client, consultez notre [glossaire de certification](./resources-glossary.md). Tout ajout de composants supplémentaires est laissé à votre discrétion afin d’obtenir une représentation fidèle de votre appareil.
 
-1. Sélectionnez `Add a component` sous l’onglet Détails du produit.
+1. Sélectionnez `Add a component` sous l’onglet Matériel.
 
-    ![Ajouter un lien de composant](./media/images/add-a-component-link.png)
+    ![Ajouter un lien de composant](./media/images/add-component-new.png)
 
 1. Remplissez les champs de formulaire pertinents pour le composant.
 
@@ -112,4 +112,3 @@ Maintenant que vous êtes prêt à utiliser la caractéristique des composants, 
 
 - [Tutoriel : Ajout des détails de l’appareil](tutorial-02-adding-device-details.md)
 - [Modification de votre appareil publié](how-to-edit-published-device.md)
-

@@ -4,12 +4,12 @@ description: Décrit comment partitionner des files d’attente et des rubriques
 ms.topic: article
 ms.date: 04/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 36b3437d3f5e8b27f38ca414fc8a4b954226e608
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 4eba3a911eb5522a1d6ae46f597e99c34d56ef0d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136802"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743216"
 ---
 # <a name="partitioned-queues-and-topics"></a>Files d’attente et rubriques partitionnées
 
@@ -79,7 +79,7 @@ committableTransaction.Commit();
 
 Si les propriétés qui servent de clé de partition sont définies, Service Bus épingle le message à une partition spécifique. Ce comportement se produit qu'une transaction soit utilisée ou non. Il est recommandé de ne pas spécifier de clé de partition si elle n'est pas nécessaire.
 
-### <a name="use-sessions-with-partitioned-entities"></a>Utiliser des sessions avec les entités partitionnées
+### <a name="use-transactions-in-sessions-with-partitioned-entities"></a>Utiliser des transactions dans des sessions avec des entités partitionnées
 
 Pour envoyer un message transactionnel à une file d’attente ou une rubrique utilisant une session, le message doit contenir la propriété d’ID de session définie. Si la propriété de clé de partition est également spécifiée, elle doit être identique à la propriété d’ID de session. Si ces propriétés diffèrent, Service Bus renvoie une exception d’opération non valide.
 
@@ -113,12 +113,6 @@ Actuellement, Service Bus impose les limites suivantes aux files d’attente et
 * Les files d’attente et les rubriques partitionnées ne sont pas prises en charge dans le niveau de messagerie Premium. Les sessions sont prises en charge dans le premier niveau à l’aide de SessionId. 
 * Les rubriques et files d’attente partitionnées ne prennent pas en charge l’envoi de messages appartenant à des sessions différentes dans une transaction unique.
 * Service Bus permet actuellement de disposer jusqu’à 100 rubriques ou files d’attente par espace de noms. Chaque file d’attente ou rubrique partitionnée est comptabilisée dans le quota de 10 000 entités par espace de noms (non applicable au niveau Premium).
-
-## <a name="other-features"></a>Autres fonctionnalités
-- L’ajout ou la suppression de règles est pris en charge avec les entités partitionnées, mais pas dans le cadre des transactions. 
-- AMQP est pris en charge pour l’envoi et la réception de messages vers et à partir d’une entité partitionnée.
-- AMQP est désormais pris en charge pour les opérations suivantes : Envoi par lots, Réception par lots, Réception par numéro de séquence, Affichage d’aperçu, Verrouillage du renouvellement, Planification des messages, Annulation des messages planifiés, Ajout de règles, Suppression de règles, Verrouillage de renouvellement de session, Définition de l’état d’une session, Obtention de l’état d’une session et Énumération des sessions.
-
 
 
 ## <a name="next-steps"></a>Étapes suivantes

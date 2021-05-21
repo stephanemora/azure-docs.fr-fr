@@ -3,18 +3,18 @@ title: Comprendre et utiliser les étendues d’Azure Cost Management
 description: Cet article vous explique les étendues de facturation et de gestion des ressources disponibles dans Azure, et comment les utiliser dans Cost Management et les API.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/19/2021
+ms.date: 05/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: f1b98cdf662f6f518e0bc1c3e869de3774c1bf7e
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: afa2811fe6e0dab3bc5c114febeec8aae25bd891
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204150"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765572"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -186,7 +186,7 @@ Les comptes de facturation Contrat client Microsoft présentent les étendues su
 
 - **Client**  : représente un groupe d’abonnements associés à un client spécifique qui est intégré à un contrat client Microsoft par un partenaire. Cette étendue est spécifique aux fournisseurs de solutions Cloud (CSP).
 
-Contrairement aux étendues de facturation EA, les comptes de facturation de contrat client _sont_ liés à un répertoire unique et ne peuvent pas posséder des abonnements sur plusieurs annuaires Azure AD.
+Contrairement aux étendues de facturation EA, les comptes de facturation de contrat client _sont_ gérés par un seul annuaire. Les comptes de facturation des contrats clients Microsoft peuvent avoir des abonnements *liés* qui peuvent se trouver dans des annuaires Azure AD différents.
 
 Les étendues de facturation de Contrat client ne s’appliquent pas aux partenaires. Les autorisations et rôles des partenaires sont décrits dans [Affecter des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview).
 

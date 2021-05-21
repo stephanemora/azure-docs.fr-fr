@@ -6,19 +6,19 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 01/19/2021
+ms.date: 05/11/2021
 ms.author: ranku
-ms.openlocfilehash: c796b72da15cb6278c355ed86fdf9eaaf54ca2be
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 8d60cde14d52dceb58ea5c68383fad192a1e1ff3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108794486"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078685"
 ---
 # <a name="how-to-convert-data-to-fhir-preview"></a>Comment convertir des données en FHIR (préversion)
 
 > [!IMPORTANT]
-> Cette fonctionnalité en préversion publique est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette fonctionnalité est disponible en version préliminaire publique et elle est fournie sans contrat de niveau de service. Il n’est pas recommandé pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Le point de terminaison personnalisé $convert-data dans l’API Azure pour FHIR est destiné à la conversion de données de différents formats vers FHIR. Il utilise le moteur de modèle Liquid et les modèles du projet [FHIR Converter](https://github.com/microsoft/FHIR-Converter) comme modèles par défaut. Vous pouvez personnaliser ces modèles de conversion en fonction de vos besoins. Actuellement, il prend en charge la conversion de HL7v2 vers FHIR.
 
@@ -34,7 +34,7 @@ $convert-data prend une ressource [Parameter](http://hl7.org/fhir/parameters.htm
 | ----------- | ----------- | ----------- |
 | inputData      | Données à convertir. | Valeur valide du type de données de chaîne JSON|
 | inputDataType   | Type de données de l’entrée. | ```HL7v2``` |
-| templateCollectionReference | Référence à une collection de modèles. Il peut s’agir d’une référence au **modèles par défaut** ou d’une image de modèle personnalisée inscrite auprès de l’API Azure pour FHIR. Pour en savoir plus sur la personnalisation des modèles, leur hébergement sur ACR et l’inscription à l’API Azure pour FHIR, consultez les sections ci-dessous.  | ```microsofthealth/fhirconverter:default```, \<RegistryServer\>/\<imageName\>@\<imageDigest\> |
+| templateCollectionReference | Référence à une collection de modèles. Il peut s’agir d’une référence à des **modèles par défaut** ou d’une image de modèle personnalisée inscrite auprès de l’API Azure pour FHIR. Pour en savoir plus sur la personnalisation des modèles, leur hébergement sur ACR et l’inscription à l’API Azure pour FHIR, consultez les sections ci-dessous.  | ```microsofthealth/fhirconverter:default```, \<RegistryServer\>/\<imageName\>@\<imageDigest\> |
 | rootTemplate | Modèle racine à utiliser lors de la transformation des données. | ```ADT_A01```, ```OML_O21```, ```ORU_R01```, ```VXU_V04``` |  
 
 > [!WARNING]
@@ -91,11 +91,11 @@ $convert-data prend une ressource [Parameter](http://hl7.org/fhir/parameters.htm
 
 ## <a name="customize-templates"></a>Personnaliser des modèles
 
-Vous pouvez utiliser l’[extension FHIR Converter](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) pour Visual Studio Code afin de personnaliser les modèles en fonction de vos besoins. L’extension fournit une expérience d’édition interactive et facilite le téléchargement de modèles et d’exemples de données publiés par Microsoft. Pour plus d’informations, consultez la documentation dans l’extension.
+Vous pouvez utiliser l’[extension FHIR Converter](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) pour Visual Studio Code afin de personnaliser les modèles en fonction de vos besoins. L’extension fournit une expérience d’édition interactive et facilite le téléchargement de modèles et d’exemples de données publiés par Microsoft. Pour plus d’informations, reportez-vous à la documentation de l’extension.
 
 ## <a name="host-and-use-templates"></a>Héberger et utiliser des modèles
 
-Nous vous recommandons vivement d’héberger votre propre copie des modèles sur ACR. Quatre étapes sont nécessaires pour héberger votre propre copie des modèles et les utiliser dans l’opération de $convert de données :
+Il est fortement recommandé d’héberger votre propre copie des modèles sur ACR. Quatre étapes sont nécessaires pour héberger votre propre copie des modèles et les utiliser dans l’opération de $convert de données :
 
 1. Envoyer (push) les modèles à votre instance Azure Container Registry
 1. Activer Managed Identity sur votre instance d’API Azure pour FHIR
@@ -109,32 +109,34 @@ Après avoir créé une instance d’ACR, vous pouvez utiliser la commande _FHIR
 
 ### <a name="enable-managed-identity-on-azure-api-for-fhir"></a>Activer Managed Identity sur l’API Azure pour FHIR
 
-Accédez à votre instance du service API Azure pour FHIR dans le portail Azure, puis sélectionnez le panneau **Identité**.
+Accédez à votre instance d’Azure API pour FHIR service dans le Portail Azure, puis sélectionnez le panneau **identité** .
 Basculez l’état sur **Activé** afin d’activer Managed Identity dans API Azure pour FHIR.
 
 ![Activer une identité managée](media/convert-data/fhir-mi-enabled.png)
 
 ### <a name="provide-access-of-the-acr-to-azure-api-for-fhir"></a>Fournir l’accès à l’ACR à l’API Azure pour FHIR
 
-Accédez au panneau Access Control (IAM) de votre instance ACR et sélectionnez _Ajouter des attributions de rôles_.
+1. Accédez au **panneau de contrôle d’accès (IAM)** .
 
-![Attribution de rôle ACR](media/convert-data/fhir-acr-role-assignment.png)
+1. Sélectionnez **Ajouter**, puis sélectionnez **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
 
-Accordez le rôle AcrPull à votre instance du service API Azure pour FHIR.
+1. Affectez le rôle [AcrPull](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#acrpull) . 
 
-![Ajout de rôle](media/convert-data/fhir-acr-role-add.png)
+   ![Page Ajouter une attribution de rôle](../../../includes/role-based-access-control/media/add-role-assignment-page.png) 
+
+Pour plus d’informations sur l’affectation de rôles dans le Portail Azure, consultez [rôles intégrés Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="register-the-acr-servers-in-azure-api-for-fhir"></a>Inscrire les serveurs ACR dans API Azure pour FHIR
 
 Vous pouvez inscrire le serveur ACR à l’aide de l’Portail Azure ou à l’aide de l’interface CLI.
 
 #### <a name="registering-the-acr-server-using-azure-portal"></a>Inscription du serveur ACR à l’aide de Portail Azure
-Accédez au panneau _artefacts_ sous _transformation des données_ dans votre API Azure pour l’instance FHIR. La liste des serveurs ACR actuellement inscrits s’affiche. Sélectionnez _Ajouter_ , puis sélectionnez votre serveur de Registre dans la liste déroulante. Vous devrez sélectionner _Enregistrer_ pour que l’inscription prenne effet. L’application de la modification et le redémarrage de votre instance peuvent prendre quelques minutes.
+Accédez au panneau **artefacts** sous **transformation des données** dans votre API Azure pour l’instance FHIR. La liste des serveurs ACR actuellement inscrits s’affiche. Sélectionnez **Ajouter**, puis sélectionnez votre serveur de Registre dans le menu déroulant. Vous devez sélectionner **Enregistrer** pour que l’inscription prenne effet. L’application de la modification et le redémarrage de votre instance peuvent prendre quelques minutes.
 
 #### <a name="registering-the-acr-server-using-cli"></a>Inscription du serveur ACR à l’aide de l’interface CLI
 Vous pouvez inscrire jusqu’à 20 serveurs ACR dans l’API Azure pour FHIR.
 
-Installez l’interface CLI healthcareapis à partir d’Azure PowerShell si nécessaire :
+Installez l’interface CLI des API de santé à partir de Azure PowerShell si nécessaire :
 
 ```powershell
 az extension add -n healthcareapis
@@ -192,7 +194,7 @@ Dans le tableau ci-dessous, vous trouverez l’adresse IP de la région Azure da
 
 
 > [!NOTE]
-> Les étapes ci-dessus sont similaires aux étapes de configuration décrites dans le document Comment exporter des données FHIR.  Pour plus d’informations, consultez [exportation sécurisée vers le stockage Azure](https://docs.microsoft.com/azure/healthcare-apis/fhir/export-data#secure-export-to-azure-storage) .
+> Les étapes ci-dessus sont similaires aux étapes de configuration décrites dans le document Comment exporter des données FHIR. Pour plus d’informations, consultez [exportation sécurisée vers le stockage Azure](https://docs.microsoft.com/azure/healthcare-apis/fhir/export-data#secure-export-to-azure-storage) .
 
 ### <a name="verify"></a>Vérification
 

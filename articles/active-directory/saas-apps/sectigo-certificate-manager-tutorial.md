@@ -9,26 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 05/04/2021
 ms.author: jeedes
-ms.openlocfilehash: c589db84b6221aa23868b3b49aea84f33623619f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 862138903721ddfb27547adb2b287df0526c32c6
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92673870"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Tutoriel : Intégration d'Azure Active Directory à Sectigo Certificate Manager
 
-L’objectif de ce tutoriel est de vous apprendre à intégrer Sectigo Certificate Manager (également appelé SCM) à Azure Active Directory (Azure AD).
+Dans ce tutoriel, vous allez découvrir comment intégrer Sectigo Certificate Manager à Azure Active Directory (Azure AD). Quand vous intégrez Sectigo Certificate Manager à Azure AD, vous pouvez :
 
-L’intégration de Sectigo Certificate Manager à Azure AD vous offre les avantages suivants :
-
-* Vous pouvez utiliser Azure AD pour contrôler qui a accès à Sectigo Certificate Manager.
-* Les utilisateurs peuvent être automatiquement connectés à Sectigo Certificate Manager avec leur compte Azure AD (par le biais de l’authentification unique).
-* Vous pouvez centraliser la gestion de vos comptes à un seul emplacement : le Portail Azure.
-
-Pour plus d’informations sur l’intégration d’applications software as a service (SaaS) à Azure AD, consultez l’article [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Contrôler dans Azure AD qui a accès à Sectigo Certificate Manager.
+* Permettre à vos utilisateurs d’être connectés automatiquement à Sectigo Certificate Manager avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,61 +42,45 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 Sectigo Certificate Manager prend en charge les fonctionnalités suivantes :
 
-* **Authentification unique lancée par le fournisseur de services**
-* **Authentification unique démarrée par le fournisseur d’identité**
+* **Authentification unique lancée par le fournisseur de services**.
+* **Authentification unique lancée par le fournisseur d’identité**.
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="add-sectigo-certificate-manager-in-the-azure-portal"></a>Ajouter Sectigo Certificate Manager dans le portail Azure
 
-Pour intégrer Sectigo Certificate Manager à Azure AD, vous devez ajouter Sectigo Certificate Manager à votre liste d’applications SaaS managées.
+Pour configurer l’intégration de Sectigo Certificate Manager à Azure AD, vous devez ajouter Sectigo Certificate Manager à votre liste d’applications SaaS gérées à partir de la galerie.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Sectigo Certificate Manager** dans la zone de recherche.
+1. Sélectionnez **Sectigo Certificate Manager** dans le volet des résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-sectigo-certificate-manager"></a>Configurer et tester l’authentification unique Azure AD pour Sectigo Certificate Manager
 
-    ![Option Azure Active Directory](common/select-azuread.png)
+Configurez et testez l’authentification unique Azure AD avec Sectigo Certificate Manager pour une utilisatrice de test appelée **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur associé dans Sectigo Certificate Manager.
 
-1. Sélectionnez **Applications d’entreprise** > **Toutes les applications**.
+Pour configurer et tester l’authentification unique Azure AD avec Sectigo Certificate Manager, effectuez les étapes suivantes :
 
-    ![Volet Applications d’entreprise](common/enterprise-applications.png)
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique Sectigo Certificate Manager](#configure-sectigo-certificate-manager-sso)** pour configurer les paramètres d’authentification unique côté application.
+    1. **[Créer un utilisateur de test Sectigo Certificate Manager](#create-sectigo-certificate-manager-test-user)** pour avoir dans Sectigo Certificate Manager un équivalent de B.Simon lié à la représentation de l’utilisateur Azure AD associée.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-1. Pour ajouter une application, sélectionnez **Nouvelle application**.
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-    ![Option Nouvelle application](common/add-new-app.png)
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans la zone de recherche, entrez **Sectigo Certificate Manager**. Dans les résultats de la recherche, sélectionnez **Sectigo Certificate Manager**, puis **Ajouter**.
+1. Dans le portail Azure, dans la page d’intégration de l’application **Sectigo Certificate Manager**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
-    ![Sectigo Certificate Manager dans la liste des résultats](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
-
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Sectigo Certificate Manager via un utilisateur de test appelé **Britta Simon**. Pour que l’authentification unique fonctionne, vous devez établir une relation entre l’utilisateur Azure AD et l’utilisateur Sectigo Certificate Manager.
-
-Pour configurer et tester l’authentification unique d’Azure AD avec Sectigo Certificate Manager, vous devez suivre les indications des sections suivantes :
-
-| Tâche | Description |
-| --- | --- |
-| **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** | Autorise les utilisateurs à utiliser cette fonctionnalité. |
-| **[Configurer l’authentification unique de Sectigo Certificate Manager](#configure-sectigo-certificate-manager-single-sign-on)** | Configure les paramètres d’authentification unique dans l’application. |
-| **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** | Teste l’authentification unique Azure AD pour un utilisateur appelé Britta Simon. |
-| **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** | Active Britta Simon pour lui permettre d'utiliser l’authentification unique Azure AD. |
-| **[Créer utilisateur de test Sectigo Certificate Manager](#create-a-sectigo-certificate-manager-test-user)** | Crée un équivalent de Britta Simon dans Sectigo Certificate Manager lié à la représentation d’un utilisateur Azure AD. |
-| **[Tester l’authentification unique](#test-single-sign-on)** | Vérifie que la configuration fonctionne. |
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
-
-Dans cette section, vous configurez l’authentification unique Azure AD avec Sectigo Certificate Manager dans le portail Azure.
-
-1. Dans le [portail Azure](https://portal.azure.com/), à la page d’intégration de l’application **Sectigo Certificate Manager**, sélectionnez **Authentification unique**.
-
-    ![Configurer l’option d’authentification unique](common/select-sso.png)
-
-1. Dans le volet **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML** ou **SAML/WS-Fed** pour activer l’authentification unique.
-
-    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
-
-1. Dans le volet **Configurer l’authentification unique avec SAML**, sélectionnez **Modifier** (icône de crayon) pour ouvrir le volet **Configuration SAML de base**.
-
-    ![Modifier la configuration SAML de base](common/edit-urls.png)
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
@@ -109,15 +89,13 @@ Dans cette section, vous configurez l’authentification unique Azure AD avec Se
     1. Dans la zone **URL de réponse**, entrez **https:\//cert-manager.com/Shibboleth.sso/SAML2/POST** pour l’instance Sectigo Certificate Manager principale.
         
     > [!NOTE]
-    > Bien qu’en général l’**URL de connexion** soit obligatoire pour le mode *initié par le fournisseur de service*, il n’est pas nécessaire de se connecter à partir de Sectigo Certificate Manager.        
+    > Bien qu’en général l’**URL de connexion** soit obligatoire pour le mode **initié par le fournisseur de service**, il n’est pas nécessaire de se connecter à partir de Sectigo Certificate Manager.        
 
-1. Le cas échéant, dans la section **Configuration SAML de base**, pour configurer le *mode initié par le fournisseur d’identité* et permettre l’utilisation de **Test**, effectuez les étapes suivantes :
+1. Si vous le souhaitez, dans la section **Configuration SAML de base**, pour configurer le **mode initié par le fournisseur d’identité** et permettre l’utilisation de **Test**, effectuez les étapes suivantes :
 
     1. Sélectionnez **Définir des URL supplémentaires**.
 
     1. Dans la zone **État de relais**, entrez l’URL propre à votre client Sectigo Certificate Manager. Pour l’instance Sectigo Certificate Manager principale, entrez **https:\//cert-manager.com/customer/\<customerURI\>/idp**.
-
-    ![Informations d’authentification unique pour le domaine et les URL de Sectigo Certificate Manager](common/idp-relay.png)
 
 1. Dans la section **Attributs et revendications de l’utilisateur**, effectuez les étapes suivantes :
 
@@ -138,65 +116,39 @@ Dans cette section, vous configurez l’authentification unique Azure AD avec Se
 
     ![Option de téléchargement du fichier XML de métadonnées de fédération](common/metadataxml.png)
 
-### <a name="configure-sectigo-certificate-manager-single-sign-on"></a>Configurer l’authentification unique de Sectigo Certificate Manager
-
-Pour configurer l’authentification unique côté Sectigo Certificate Manager, envoyez le fichier XML de métadonnées de fédération téléchargé à l’[équipe du support technique Sectigo Certificate Manager](https://sectigo.com/support). L’équipe du support technique Sectigo Certificate Manager utilise les informations que vous lui envoyez pour vérifier que la connexion SAML à authentification unique est correctement configurée des deux côtés.
-
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
-Dans cette section, créez un utilisateur de test nommé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le portail Azure, sélectionnez **Azure Active Directory** > **Utilisateurs** > **Tous les utilisateurs**.
-
-    ![Options Utilisateurs et Tous les utilisateurs](common/users.png)
-
-1. Sélectionnez **Nouvel utilisateur**.
-
-    ![Option Nouvel utilisateur](common/new-user.png)
-
-1. Dans le volet **Utilisateur**, effectuez les étapes suivantes :
-
-    1. Dans la zone **Nom**, entrez **BrittaSimon**.
-  
-    1. Dans la zone **Nom d’utilisateur**, entrez **brittasimon\@\<your-company-domain>.\<extension\>** . Par exemple, **brittasimon\@contoso.com**.
-
-    1. Cochez la case **Afficher le mot de passe**. Prenez note de la valeur affichée dans la zone **Mot de passe**.
-
-    1. Sélectionnez **Create** (Créer).
-
-    ![Volet Utilisateur](common/user-properties.png)
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à accéder à Sectigo Certificate Manager et donc permettre à cet utilisateur d’utiliser l’authentification unique Azure.
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Sectigo Certificate Manager.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** > **Toutes les applications** > **Sectigo Certificate Manager**.
-
-    ![Volet Applications d’entreprise](common/enterprise-applications.png)
-
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Sectigo Certificate Manager**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-    ![Sectigo Certificate Manager dans la liste des applications](common/all-applications.png)
+## <a name="configure-sectigo-certificate-manager-sso"></a>Configurer l’authentification unique de Sectigo Certificate Manager
 
-1. Dans le menu, sélectionnez **Utilisateurs et groupes**.
+Pour configurer l’authentification unique côté Sectigo Certificate Manager, envoyez le fichier XML de métadonnées de fédération téléchargé à l’[équipe du support technique Sectigo Certificate Manager](https://sectigo.com/support). L’équipe du support technique Sectigo Certificate Manager utilise les informations que vous lui envoyez pour vérifier que la connexion SAML à authentification unique est correctement configurée des deux côtés.
 
-    ![Option Utilisateurs et groupes](common/users-groups-blade.png)
-
-1. Sélectionnez **Ajouter un utilisateur**. Ensuite, dans le volet **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
-
-    ![Volet Ajouter une attribution](common/add-assign-user.png)
-
-1. Dans le volet **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs. Choisissez **Select**.
-
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans le volet **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste. Choisissez **Select**.
-
-1. Dans le volet **Ajouter une attribution**, sélectionnez **Attribuer**.
-
-### <a name="create-a-sectigo-certificate-manager-test-user"></a>Créer utilisateur de test Sectigo Certificate Manager
+### <a name="create-sectigo-certificate-manager-test-user"></a>Créer utilisateur de test Sectigo Certificate Manager
 
 Dans cette section, vous créez un utilisateur appelé Britta Simon dans Sectigo Certificate Manager. Collaborez avec [l’équipe du support technique Sectigo Certificate Manager](https://sectigo.com/support) pour ajouter l'utilisateur à la plateforme Sectigo Certificate Manager. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD.
 
@@ -214,8 +166,4 @@ Sélectionnez **Sectigo Certificate Manager** dans le portail Mes applications. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus, consultez les articles suivants :
-
-- [Listes des tutoriels pour intégrer des applications SaaS à Azure Active Directory](./tutorial-list.md)
-- [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+Après avoir configuré Sectigo Certificate Manager, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

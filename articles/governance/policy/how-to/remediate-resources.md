@@ -3,12 +3,12 @@ title: Remédier aux ressources non conformes
 description: Ce guide explique comment corriger les ressources qui ne sont pas conformes aux stratégies dans Azure Policy.
 ms.date: 05/01/2021
 ms.topic: how-to
-ms.openlocfilehash: 677e203b724f2046dfd7ba8d7a509965a36a8172
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 886087a22712e316f4ecd50674f48594d6953dab
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326162"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747464"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corriger les ressources non conformes avec Azure Policy
 
@@ -22,7 +22,7 @@ Azure Policy crée automatiquement une identité managée pour chaque affectatio
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Capture d’écran d’une stratégie deployIfNotExists qui ne dispose pas d’une autorisation définie sur l’identité managée." border="false":::
 
 > [!IMPORTANT]
-> Dans les scénarios suivants, l’autorisation d’accès à l’identité managée de l’affectation doit être [accordée manuellement](#manually-configure-the-managed-identity) sinon le déploiement de la correction échoue :
+> Dans les scénarios suivants, l’autorisation d’accès à l’identité managée de l’affectation doit être [accordée manuellement](#manually-configure-the-managed-identity) sinon le déploiement de la correction échoue :
 >
 > - Si l’affectation est créée via le kit de développement logiciel (SDK)
 > - Si une ressource modifiée par **deployIfNotExists** ou **modify** est en dehors de l’étendue de l’affectation de stratégie
@@ -151,7 +151,7 @@ Pour créer une **tâche de correction**, effectuez les étapes suivantes :
 
 1. Sélectionnez la **tâche de correction** dans la page de conformité à la stratégie pour obtenir plus d’informations sur la progression. Le filtrage utilisé pour la tâche est affiché, ainsi qu’une liste des ressources en cours de correction.
 
-1. Dans la page **Tâche de correction**, cliquez avec le bouton droit sur une ressource pour afficher le déploiement de la tâche de correction ou la ressource. À la fin de la ligne, sélectionnez **Événements associés** pour voir des détails tels qu’un message d’erreur.
+1. Dans la page **Tâche de correction**, sélectionnez (ou cliquez avec le bouton droit sur) une ressource pour afficher le déploiement de la tâche de correction ou la ressource. À la fin de la ligne, sélectionnez **Événements associés** pour voir des détails tels qu’un message d’erreur.
 
    :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Capture d’écran du menu contextuel d’une ressource dans l’onglet Tâche de correction de correction." border="false":::
 

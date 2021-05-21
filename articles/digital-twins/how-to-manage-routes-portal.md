@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4aef4f3a0da17abc497225bcd0a27b98e4eaea95
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: a7159b6528c07a2cb2734c06d644a4db3753d48a
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208506"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790880"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (portail)
 
@@ -22,11 +22,11 @@ Dans Azure Digital Twins, vous pouvez acheminer les [notifications d’événeme
 
 Cet article vous guide tout au long du processus de création de points de terminaison et d’itinéraires à l’aide du [portail Azure](https://portal.azure.com).
 
-Vous pouvez également gérer les points de terminaison et les routes à l’aide des [API de routes d’événements](/rest/api/digital-twins/dataplane/eventroutes), des kits [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) ou de l’[interface CLI Azure Digital Twins](how-to-use-cli.md). Pour obtenir une version de cet article qui utilise ces mécanismes plutôt que le portail, consultez [Guide pratique : Gérer les points de terminaison et les itinéraires (API et CLI)](how-to-manage-routes-apis-cli.md) .
+Vous pouvez également gérer les points de terminaison et les routes à l’aide des [API de routes d’événements](/rest/api/digital-twins/dataplane/eventroutes), des kits [SDK](concepts-apis-sdks.md#overview-data-plane-apis) ou de l’[interface CLI Azure Digital Twins](concepts-cli.md). Pour obtenir une version de cet article qui utilise ces mécanismes plutôt que le portail, consultez [Guide pratique : Gérer les points de terminaison et les itinéraires (API et CLI)](how-to-manage-routes-apis-cli.md) .
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Vous avez besoin d’un **compte Azure** (vous pouvez en définir un gratuitement [ici](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
+* Vous aurez besoin d’un **compte Azure**, qui [peut être configuré gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Vous aurez besoin d’une **instance Azure Digital Twins** dans votre abonnement Azure. Si vous n’avez pas d’instance, vous pouvez en créer une en suivant les étapes décrites du [Tutoriel : Configurer une instance et l’authentification](how-to-set-up-instance-portal.md). Utilisez les valeurs suivantes du programme d’installation pour les utiliser plus loin dans cet article :
     - Nom de l’instance
     - Resource group
@@ -98,7 +98,7 @@ La rubrique Event Grid, Event Hub ou Service Bus est maintenant disponible en ta
 
 Lorsqu’un point de terminaison ne peut pas remettre un événement dans un laps de temps donné ou après avoir essayé de remettre l’événement un certain nombre de fois, il peut envoyer l’événement non remis à un compte de stockage. Ce processus est appelé **mise en file d’attente de lettres mortes**.
 
-Pour créer un point de terminaison avec mise en file d’attente de lettres mortes, il est préférable d’utiliser les [commandes CLI](how-to-use-cli.md) ou les [API de plan de contrôle](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) pour créer votre point de terminaison, plutôt que le portail Azure.
+Pour créer un point de terminaison avec mise en file d’attente de lettres mortes, il est préférable d’utiliser les [commandes CLI](concepts-cli.md) ou les [API de plan de contrôle](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) pour créer votre point de terminaison, plutôt que le portail Azure.
 
 Pour obtenir des instructions sur la façon de procéder avec ces outils, consultez la version basée sur [l’interface CLI et les API](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) de cet article.
 
@@ -129,13 +129,13 @@ Dans le menu de l’instance, sélectionnez _Itinéraires d’événements_. Ens
 
 Dans la page *Créer un itinéraire d’événement* qui s’ouvre, choisissez au minimum :
 * Un nom pour votre itinéraire dans le champ _Nom_
-* Le _point de terminaison_ que vous souhaitez utiliser pour créer l’itinéraire 
+* Le _point de terminaison_ que vous souhaitez utiliser pour créer la route 
 
 Pour que l’itinéraire soit activé, vous devez également **ajouter un filtre d’itinéraires d’événements** `true` au minimum. (Laisser la valeur `false` par défaut créera l’itinéraire, mais aucun événement ne lui sera envoyé.) Pour ce faire, appuyez sur le bouton bascule de l’_éditeur avancé_ pour l’activer, puis écrivez `true` dans la zone *Filtre*.
 
 :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Capture d’écran de la création de l’itinéraire d’événement pour votre instance." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
-Lorsque vous avez terminé, cliquez sur le bouton _Enregistrer_ pour créer votre itinéraire d’événement.
+Lorsque vous avez terminé, sélectionnez le bouton _Enregistrer_ pour créer votre itinéraire d’événement.
 
 ## <a name="filter-events"></a>Filtrer les événements
 
@@ -148,7 +148,7 @@ Après avoir activé le filtre minimal `true`, les points de terminaison recevro
 
 Vous pouvez restreindre les types d’événements envoyés en définissant un filtre plus spécifique.
 
-Pour ajouter un filtre d’événements lors de la création d’un itinéraire d’événement, utilisez la section _Ajouter un filtre d’itinéraires d’événements_ de la page *Créer un itinéraire d’événement*. 
+Pour ajouter un filtre d’événements lors de la création d’un itinéraire d’événement, utilisez la section Ajouter un filtre d’itinéraires d’événements de la page *Créer une route d’événement*. 
 
 Vous pouvez sélectionner l’une des options de filtre courantes de base ou utiliser les options de filtre avancées pour écrire vos propres filtres personnalisés.
 

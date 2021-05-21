@@ -11,12 +11,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8919285f31e04a51ce10afe3313b28cf86b64ee0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f15fd789264922865acb792bdb766b9624665d91
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102055184"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109654757"
 ---
 # <a name="investigate-risk-with-identity-protection-in-azure-ad-b2c"></a>Examiner les risques avec Identity Protection dans Azure AD B2C
 
@@ -70,7 +70,7 @@ Azure AD B2C Premium P2 est requis pour certaines fonctionnalités d’Identity 
 
 Les informations indiquées dans le rapport Utilisateurs à risque permettent aux administrateurs de trouver :
 
-- Quels sont les utilisateurs à risques ? Pour qui les risques ont-ils été corrigés ou éliminés ?
+- L’**état du risque**, indiquant quels utilisateurs sont **à risque**, ont vu leur risque **corrigé** ou ont vu leur risque **ignoré**
 - Détails sur les détections
 - Historique de toutes les connexions à risque
 - Historique des risques
@@ -82,6 +82,8 @@ Les administrateurs peuvent ensuite choisir d’agir sur ces événements. Les a
 - Ignorer le risque lié à l’utilisateur
 - Empêcher l’utilisateur de se connecter
 - Effectuer d’autres examens au moyen d’Azure ATP
+
+Un administrateur peut choisir d’ignorer le risque d’un utilisateur dans le portail Azure ou par programmation par le biais de l’API Microsoft Graph [Ignorer le risque lié à l’utilisateur](https://docs.microsoft.com/graph/api/riskyusers-dismiss?view=graph-rest-beta&preserve-view=true). Des privilèges d’administrateur sont nécessaires pour ignorer le risque lié à un utilisateur. La correction d’un risque peut être effectuée par l’utilisateur à risque ou par un administrateur au nom de l’utilisateur, notamment par le biais d’une réinitialisation de mot de passe.
 
 ### <a name="navigating-the-risky-users-report"></a>Consultation du rapport sur les utilisateurs à risque
 
@@ -107,8 +109,8 @@ Le rapport sur les détections de risque contient des données filtrables corres
 Les informations indiquées dans le rapport des détections de risques permettent aux administrateurs de trouver :
 
 - Des informations sur chaque détection de risques, y compris le type
-- Les autres risques déclenchés au même moment
-- L’emplacement de la tentative de connexion
+- Les autres risques déclenchés en même temps.
+- L’emplacement de la tentative de connexion.
 
 Les administrateurs peuvent ensuite choisir de revenir au rapport des risques ou des connexions de l’utilisateur pour effectuer des actions en fonction des informations recueillies.
 

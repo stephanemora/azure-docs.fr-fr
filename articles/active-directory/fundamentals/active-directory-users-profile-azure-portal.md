@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/11/2019
+ms.date: 05/04/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27896bac6f5436fb6717e4bc1ab0a1f9381904ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 173bd167a0814ddf735d90b257089a685d99cc58
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92370914"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762602"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Ajouter ou mettre à jour les informations du profil utilisateur avec Azure Active Directory
 Ajoutez des informations à un profil utilisateur, dont une image de profil, des informations sur l’emploi, et quelques réglages avec Azure Active Directory (Azure AD). Pour en savoir plus sur l’ajout de nouveaux utilisateurs, consultez [Comment ajouter ou supprimer des utilisateurs dans Azure Active Directory](add-users-azure-active-directory.md).
@@ -26,7 +26,11 @@ Ajoutez des informations à un profil utilisateur, dont une image de profil, des
 Vous trouverez bien plus d’informations disponibles dans un profil utilisateur qu’il est possible d’en ajouter lors de la création de l’utilisateur. Toutes ces informations supplémentaires sont facultatives et peuvent être ajoutées si besoin par votre organisation.
 
 ## <a name="to-add-or-change-profile-information"></a>Ajouter ou modifier les informations de profil
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur d’utilisateurs de l’organisation.
+
+>[!Note]
+>Les propriétés Nom d’utilisateur et Adresse e-mail ne peuvent pas contenir de caractères accentués.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec le rôle Administrateur d’utilisateurs pour l’organisation.
 
 2. Sélectionnez **Azure Active Directory**, **Utilisateurs**, puis un utilisateur. Par exemple, _Alain Charon_.
 

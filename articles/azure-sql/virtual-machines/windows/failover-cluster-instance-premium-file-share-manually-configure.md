@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: ddd25c605ef159bddfb8a9c7cb4d02ac7094c511
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 19d2ea7b042cb6b28936bbfe92764b497ad4487c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482192"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769576"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Créer un ICF avec un partage de fichiers premium (SQL Server sur les machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,6 +29,9 @@ Cet article explique comment créer une instance de cluster de basculement (ICF)
 Les partages de fichiers Premium sont des partages de fichiers à faible latence s’appuyant sur des espaces de stockage direct, qui sont entièrement pris en charge pour une utilisation avec une instance de cluster de basculement pour SQL Server 2012 et ultérieur sur Windows Server 2012 et ultérieur. Les partages de fichiers Premium vous offrent une plus grande flexibilité, ce qui vous permet de redimensionner et de mettre à l’échelle un partage de fichiers sans temps d’arrêt.
 
 Pour plus d’informations, consultez une présentation de [ICF avec SQL Server sur les machines virtuelles Azure](failover-cluster-instance-overview.md) et les [meilleures pratiques de cluster](hadr-cluster-best-practices.md). 
+
+> [!NOTE]
+> Il est maintenant possible d’effectuer un lift-and-shift de votre solution d’instance de cluster de basculement vers SQL Server sur des machines virtuelles Azure à l’aide d’Azure Migrate. Pour en savoir plus, consultez [Migrer une instance de cluster de basculement](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md). 
 
 ## <a name="prerequisites"></a>Prérequis
 

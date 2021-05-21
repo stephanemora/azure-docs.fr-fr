@@ -9,12 +9,12 @@ ms.date: 03/18/2021
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 0072ce81fc619c39770eba52e24dc5a0c57280a6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 397a26c7a0ba3771c47e2971fecde09f166cc90f
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604574"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751219"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrer des machines virtuelles Hyper-V vers Azure 
 
@@ -69,7 +69,18 @@ Pour la migration de machines virtuelles Hyper-V, Azure Migrate : Migration de 
     ![Télécharger le fournisseur et la clé](./media/tutorial-migrate-hyper-v/download-provider-hyper-v.png)
 
 4. Copiez le fichier de configuration du fournisseur et le fichier de clé d’inscription sur chaque hôte Hyper-V (ou nœud de cluster) exécutant des machines virtuelles que vous voulez répliquer.
-5. Exécutez le fichier de configuration du fournisseur sur chaque hôte, comme décrit dans la procédure suivante.
+5. Exécutez le fichier de configuration du fournisseur sur chaque hôte, comme décrit ci-dessous :
+    - Copiez le fichier de configuration du fournisseur et le fichier de clé d’inscription sur chaque hôte Hyper-V (ou nœud de cluster) exécutant des machines virtuelles que vous voulez répliquer.
+    - Cliquez sur l’icône de fichier dans la barre des tâches pour ouvrir le dossier dans lequel sont téléchargés le fichier du programme d’installation et la clé d’inscription.
+    - Sélectionnez **AzureSiteRecoveryProvider**. 
+    - Dans l’Assistant Installation du fournisseur, assurez-vous que l’option **Activé (recommandé)** est cochée, puis cliquez sur **Suivant**.
+    - Sélectionnez **Installer** pour accepter le dossier d’installation par défaut.
+    - Sélectionnez **Inscrire** pour inscrire ce serveur dans le coffre Azure Site Recovery.
+    - Cliquez sur **Parcourir**.
+    - Recherchez la clé d’inscription, puis cliquez sur **Ouvrir**.
+    - Cliquez sur **Suivant**.
+    - Assurez-vous que l’option **Se connecter directement à Azure Site Recovery sans serveur proxy** est sélectionnée, puis cliquez sur **Suivant**.
+    - Cliquez sur **Terminer**.
 6. Après avoir installé le fournisseur sur les hôtes, dans **Découvrir des machines**, cliquez sur **Finaliser l’inscription**.
 
     ![Finaliser l’inscription](./media/tutorial-migrate-hyper-v/finalize-registration.png)

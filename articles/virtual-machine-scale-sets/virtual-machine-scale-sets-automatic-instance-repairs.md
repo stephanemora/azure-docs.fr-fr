@@ -9,12 +9,12 @@ ms.subservice: instance-protection
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 733f4602e43511924783f6bc8cb1bad29edb5ea0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e1505a1a901472f0ce1a93ae71ba8ea0364b7b8d
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762908"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754152"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Réparations automatiques d’instances pour les groupes de machines virtuelles identiques Azure
 
@@ -38,7 +38,7 @@ Pour les instances marquées comme non saines, des réparations automatiques son
 
 **Nombre maximal d'instances dans le groupe identique**
 
-Cette fonction n'est actuellement disponible que pour les groupes identiques composés d'un maximum de 200 instances. Le groupe identique peut être déployé en tant que groupe à placement unique ou groupe à placements multiples, mais le nombre d'instances ne peut pas être supérieur à 200 si les réparations automatiques d'instances sont activées pour le groupe identique.
+Cette fonction n'est actuellement disponible que pour les groupes identiques composés d'un maximum de 500 instances. Le groupe identique peut être déployé en tant que groupe à placement unique ou groupe à placements multiples, mais le nombre d'instances ne peut pas être supérieur à 200 si les réparations automatiques d'instances sont activées pour le groupe identique.
 
 **Version d’API**
 
@@ -62,13 +62,13 @@ Les opérations de réparation automatique d’instances sont effectuées par lo
 
 ### <a name="grace-period"></a>Période de grâce
 
-Lorsqu’une instance passe par une opération de changement d’état en raison d’une action PUT, PATCH ou POST effectuée sur le groupe identique (par exemple, une réinitialisation, un redéploiement, une mise à jour, etc.), toute action de réparation sur cette instance est exécutée uniquement après l’attente de la période de grâce. La période de grâce correspond à la durée nécessaire pour permettre à l’instance de retrouver son état d’intégrité. La période de grâce commence une fois que le changement d’état est terminé. Cela permet d’éviter toute opération de réparation prématurée ou accidentelle. La période de grâce est honorée pour toute instance nouvellement créée dans le groupe identique (y compris celle créée à la suite d’une opération de réparation). La période de grâce est spécifiée en minutes au format ISO 8601 et peut être définie à l’aide de la propriété *automaticRepairsPolicy.gracePeriod*. La période de grâce peut être comprise entre 30 minutes et 90 minutes, 30 minutes étant la valeur par défaut.
+Lorsqu’une instance passe par une opération de changement d’état en raison d’une action PUT, PATCH ou POST effectuée sur le groupe identique (par exemple, une réinitialisation, un redéploiement, une mise à jour, etc.), toute action de réparation sur cette instance est exécutée uniquement après l’attente de la période de grâce. La période de grâce correspond à la durée nécessaire pour permettre à l’instance de retrouver son état d’intégrité. La période de grâce commence une fois que le changement d’état est terminé. Cela permet d’éviter toute opération de réparation prématurée ou accidentelle. La période de grâce est honorée pour toute instance nouvellement créée dans le groupe identique (y compris celle créée à la suite d’une opération de réparation). La période de grâce est spécifiée en minutes au format ISO 8601 et peut être définie à l’aide de la propriété *automaticRepairsPolicy.gracePeriod*. La période de grâce peut être comprise entre 10 minutes et 90 minutes, 30 minutes étant la valeur par défaut.
 
-### <a name="suspension-of-repairs"></a>Interruption des réparations 
+### <a name="suspension-of-repairs"></a>Interruption des réparations
 
 Les groupes de machines virtuelles identiques permettent de suspendre temporairement des réparations automatiques d’instances si nécessaire. Le paramètre *serviceState* pour les réparations automatiques sous la propriété *orchestrationServices* dans la vue des instances du groupe de machines virtuelles identiques indique l’état actuel des réparations automatiques. Lorsqu’un groupe identique est paramétré pour des réparations automatiques, la valeur du paramètre *serviceState* est définie sur *Running*. Lorsque les réparations automatiques sont interrompues pour un groupe identique, le paramètre *serviceState* est défini sur *Suspended*. Si *automaticRepairsPolicy* est défini sur un groupe identique, mais que la fonctionnalité des réparations automatiques n’est pas activée, le paramètre *serviceState* est défini sur *Not Running*.
 
-Si des instances nouvellement créées destinées à remplacer les instances non saines d’un groupe identique continuent d’être non saines, même après des opérations de réparation répétées, alors, par mesure de sécurité, la plateforme met à jour le *serviceState* pour les réparations automatiques sur *Suspended*. Vous pouvez reprendre à nouveau les réparations automatiques en définissant la valeur de *serviceState* pour les réparations automatiques sur *Running*. Des instructions détaillées sont fournies dans la section relative [à l’affichage et à la mise à jour de l’état du service de la stratégie de réparation automatique](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) pour votre groupe identique. 
+Si des instances nouvellement créées destinées à remplacer les instances non saines d’un groupe identique continuent d’être non saines, même après des opérations de réparation répétées, alors, par mesure de sécurité, la plateforme met à jour le *serviceState* pour les réparations automatiques sur *Suspended*. Vous pouvez reprendre à nouveau les réparations automatiques en définissant la valeur de *serviceState* pour les réparations automatiques sur *Running*. Des instructions détaillées sont fournies dans la section relative [à l’affichage et à la mise à jour de l’état du service de la stratégie de réparation automatique](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) pour votre groupe identique.
 
 Le processus de réparation automatique d’instances fonctionne comme suit :
 
@@ -80,7 +80,7 @@ Le processus de réparation automatique d’instances fonctionne comme suit :
 
 ## <a name="instance-protection-and-automatic-repairs"></a>Protection d’instance et réparations automatiques
 
-Si l’instance d’un groupe identique est protégée par l’une des [stratégies de protection](./virtual-machine-scale-sets-instance-protection.md), les réparations automatiques ne sont pas effectuées sur cette instance. Cela s’applique aux deux stratégies de protection : les actions *Protection contre les opérations scale-in* et *Protection contre les opérations de groupe identique*. 
+Si l’instance d’un groupe identique est protégée par l’une des [stratégies de protection](./virtual-machine-scale-sets-instance-protection.md), les réparations automatiques ne sont pas effectuées sur cette instance. Cela s’applique aux deux stratégies de protection : les actions *Protection contre les opérations scale-in* et *Protection contre les opérations de groupe identique*.
 
 ## <a name="terminatenotificationandautomaticrepairs"></a>Notification d’arrêt et réparations automatiques
 
@@ -90,20 +90,20 @@ Si la fonctionnalité de [notification d’arrêt](./virtual-machine-scale-sets-
 
 Pour activer la stratégie de réparation automatique lors de la création d’un groupe identique, assurez-vous que toutes les [conditions requises](#requirements-for-using-automatic-instance-repairs) pour l’adhésion à cette fonctionnalité sont remplies. Le point de terminaison d’application doit être correctement configuré pour les instances de groupe identique afin d’éviter de déclencher des réparations involontaires pendant la configuration du point de terminaison. Pour les groupes identiques nouvellement créés, toute réparation d’instance est effectuée uniquement après l’expiration de la période de grâce. Pour activer la réparation automatique d’instances dans un groupe identique, utilisez l’objet *automaticRepairsPolicy* dans le modèle de groupe de machines virtuelles identiques.
 
-Vous pouvez également utiliser ce [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-automatic-repairs-slb-health-probe) pour déployer un groupe de machines virtuelles identiques dont la sonde d’intégrité de l’équilibreur de charge et les réparations automatiques d’instances sont activées avec une période de grâce de 30 minutes.
+Vous pouvez également utiliser ce [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-automatic-repairs-slb-health-probe) pour déployer un groupe de machines virtuelles identiques dont la sonde d’intégrité de l’équilibreur de charge et les réparations automatiques d’instances sont activées avec une période de grâce de 30 minutes.
 
 ### <a name="azure-portal"></a>Portail Azure
- 
+
 Les étapes suivantes permettent d’activer la stratégie de réparation automatique lors de la création d’un groupe identique.
- 
+
 1. Accédez à **Groupes identiques de machines virtuelles**.
 1. Sélectionnez **+ Ajouter** pour créer un groupe identique.
-1. Accédez à l’onglet **Intégrité**. 
+1. Accédez à l’onglet **Intégrité**.
 1. Recherchez la section **Intégrité**.
 1. Activez l’option **Superviser l’intégrité de l’application**.
 1. Recherchez la section **Stratégie de réparation automatique**.
 1. **Activez** l’option **Réparations automatiques**.
-1. Dans **Période de grâce (min)** , spécifiez la période de grâce en minutes ; les valeurs autorisées sont comprises entre 30 et 90 minutes. 
+1. Dans **Période de grâce (min)** , spécifiez la période de grâce en minutes ; les valeurs autorisées sont comprises entre 30 et 90 minutes.
 1. Lorsque vous avez fini de créer le groupe identique, sélectionnez le bouton **Vérifier + créer**.
 
 ### <a name="rest-api"></a>API REST
@@ -166,15 +166,15 @@ Après la mise à jour du modèle d’un groupe identique existant, vérifiez qu
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Vous pouvez modifier la stratégie de réparation automatique d’un groupe identique via le Portail Azure. 
- 
+Vous pouvez modifier la stratégie de réparation automatique d’un groupe identique via le Portail Azure.
+
 1. Accédez à un groupe de machines virtuelles identiques existant.
 1. Sous **Paramètres** dans le menu de gauche, sélectionnez **Intégrité et réparation**.
 1. Activez l’option **Superviser l’intégrité de l’application**.
 1. Recherchez la section **Stratégie de réparation automatique**.
 1. **Activez** l’option **Réparations automatiques**.
-1. Dans **Période de grâce (min)** , spécifiez la période de grâce en minutes ; les valeurs autorisées sont comprises entre 30 et 90 minutes. 
-1. Lorsque vous avez terminé, sélectionnez **Enregistrer**. 
+1. Dans **Période de grâce (min)** , spécifiez la période de grâce en minutes ; les valeurs autorisées sont comprises entre 30 et 90 minutes.
+1. Lorsque vous avez terminé, sélectionnez **Enregistrer**.
 
 ### <a name="rest-api"></a>API REST
 
@@ -212,7 +212,7 @@ Update-AzVmss `
 Voici un exemple de mise à jour de la stratégie de réparation automatique d’instances d’un groupe identique existant, à l’aide de la commande *[az vmss update](/cli/azure/vmss#az_vmss_update)* .
 
 ```azurecli-interactive
-az vmss update \  
+az vmss update \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
   --enable-automatic-repairs true \
@@ -221,9 +221,9 @@ az vmss update \
 
 ## <a name="viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy"></a>Affichage et mise à jour de l’état du service de la stratégie de réparation automatique d’instances
 
-### <a name="rest-api"></a>API REST 
+### <a name="rest-api"></a>API REST
 
-Utilisez [Get Instance View](/rest/api/compute/virtualmachinescalesets/getinstanceview) avec la version d’API 2019-12-01 ou ultérieure pour que le groupe de machines virtuelles identiques affichage le paramètre *serviceState* pour les réparations automatiques sous la propriété *orchestrationServices*. 
+Utilisez [Get Instance View](/rest/api/compute/virtualmachinescalesets/getinstanceview) avec la version d’API 2019-12-01 ou ultérieure pour que le groupe de machines virtuelles identiques affichage le paramètre *serviceState* pour les réparations automatiques sous la propriété *orchestrationServices*.
 
 ```http
 GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01'
@@ -240,7 +240,7 @@ GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provider
 }
 ```
 
-Utilisez l’API *setOrchestrationServiceState* avec la version d’API 2019-12-01 ou ultérieure sur un groupe de machines virtuelles identiques pour définir l’état des réparations automatiques. Une fois que le groupe identique est paramétré pour la fonctionnalité de réparation automatique, vous pouvez utiliser cette API pour interrompre ou reprendre les réparations automatiques pour votre groupe identique. 
+Utilisez l’API *setOrchestrationServiceState* avec la version d’API 2019-12-01 ou ultérieure sur un groupe de machines virtuelles identiques pour définir l’état des réparations automatiques. Une fois que le groupe identique est paramétré pour la fonctionnalité de réparation automatique, vous pouvez utiliser cette API pour interrompre ou reprendre les réparations automatiques pour votre groupe identique.
 
  ```http
  POST '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/setOrchestrationServiceState?api-version=2019-12-01'
@@ -257,9 +257,9 @@ Utilisez l’API *setOrchestrationServiceState* avec la version d’API 2019-12
 }
 ```
 
-### <a name="azure-cli"></a>Azure CLI 
+### <a name="azure-cli"></a>Azure CLI
 
-Utilisez la cmdlet [get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view) pour afficher le paramètre *serviceState* pour les réparations automatiques d’instances. 
+Utilisez la cmdlet [get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view) pour afficher le paramètre *serviceState* pour les réparations automatiques d’instances.
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -267,7 +267,7 @@ az vmss get-instance-view \
     --resource-group MyResourceGroup
 ```
 
-Utilisez la cmdlet [set-orchestration-service-state](/cli/azure/vmss#az_vmss_set_orchestration_service_state) pour mettre à jour le paramètre *serviceState* pour les automatiques d’instances. Une fois que le groupe identique est paramétré pour la fonctionnalité de réparation automatique, vous pouvez utiliser cette cmdlet pour interrompre ou reprendre les réparations automatiques pour votre groupe identique. 
+Utilisez la cmdlet [set-orchestration-service-state](/cli/azure/vmss#az_vmss_set_orchestration_service_state) pour mettre à jour le paramètre *serviceState* pour les automatiques d’instances. Une fois que le groupe identique est paramétré pour la fonctionnalité de réparation automatique, vous pouvez utiliser cette cmdlet pour interrompre ou reprendre les réparations automatiques pour votre groupe identique.
 
 ```azurecli-interactive
 az vmss set-orchestration-service-state \
@@ -311,7 +311,7 @@ L’instance peut être en période de grâce. Il s’agit de la durée d’atte
 
 Vous pouvez utiliser l’[API Get Instance View](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) pour les instances d’un groupe de machines virtuelles identiques pour afficher l’état d’intégrité de l’application. Avec Azure PowerShell, vous pouvez utiliser la cmdlet [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) avec l’indicateur *-InstanceView*. L’état d’intégrité de l’application est fourni sous la propriété *vmHealth*.
 
-Dans le Portail Azure, vous pouvez également voir l’état d’intégrité. Accédez à un groupe identique existant, sélectionnez **Instances** dans le menu de gauche, puis examinez la colonne **État d’intégrité** pour déterminer l’état d’intégrité de chaque instance de groupe identique. 
+Dans le Portail Azure, vous pouvez également voir l’état d’intégrité. Accédez à un groupe identique existant, sélectionnez **Instances** dans le menu de gauche, puis examinez la colonne **État d’intégrité** pour déterminer l’état d’intégrité de chaque instance de groupe identique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

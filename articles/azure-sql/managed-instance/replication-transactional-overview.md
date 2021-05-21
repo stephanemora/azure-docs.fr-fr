@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
-ms.date: 04/20/2020
-ms.openlocfilehash: e08fe67dece02b936aa3a22e9cac58d809f19f46
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.date: 05/10/2020
+ms.openlocfilehash: 23c9650a4bb53257e369e87e7a03681f94ed9cae
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285681"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684304"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Réplication transactionnelle avec Azure SQL Managed Instance (préversion)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -152,8 +152,6 @@ Dans cette configuration, une base de données dans Azure SQL Database ou Azure 
 
 ## <a name="with-failover-groups"></a>Avec les groupes de basculement
 
-[La géoréplication active](../database/active-geo-replication-overview.md) n’est pas prise en charge avec une instance managée SQL utilisant la réplication transactionnelle. Au lieu de la géoréplication active, utilisez des [groupes de basculement automatique](../database/auto-failover-group-overview.md), mais notez que la publication doit être [supprimée manuellement](transact-sql-tsql-differences-sql-server.md#replication) de l’instance managée principale et recréée sur l’instance managée SQL secondaire après le basculement.
-
 Si une instance SQL managée de **publication** ou de **distribution** se trouve dans un [groupe de basculement](../database/auto-failover-group-overview.md), l’administrateur SQL Managed Instance doit nettoyer toutes les publications de l’ancienne instance principale et les reconfigurer sur la nouvelle instance principale après un basculement. Les activités suivantes sont nécessaires dans ce scénario :
 
 1. Arrêtez tous les travaux de réplication en cours d’exécution sur la base de données, le cas échéant.
@@ -184,7 +182,7 @@ Si une instance SQL managée de **publication** ou de **distribution** se trouve
    EXEC sp_dropdistributor 1,1
    ```
 
-Si la géoréplication est activée sur une instance de l’**abonné** dans un groupe de basculement, la publication doit être configurée pour se connecter au point de terminaison de l’écouteur de groupe de basculement pour l’instance managée de l’abonné. En cas de basculement, l’action suivante de l’administrateur de l’instance managée dépend du type de basculement qui s’est produit :
+Si une instance gérée SQL **abonnée** fait partie d’un groupe de basculement, la publication doit être configurée pour se connecter au point de terminaison de l’écouteur du groupe de basculement pour l’instance gérée abonnée. En cas de basculement, l’action suivante de l’administrateur de l’instance managée dépend du type de basculement qui s’est produit :
 
 - Pour un basculement sans perte de données, la réplication continue de fonctionner après le basculement.
 - Pour un basculement avec perte de données, la réplication fonctionne également. Elle répliquera à nouveau les modifications perdues.

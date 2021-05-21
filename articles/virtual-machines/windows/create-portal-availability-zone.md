@@ -1,20 +1,20 @@
 ---
 title: Créer une machine virtuelle en zone avec le portail Azure
-description: Créer une machine virtuelle Windows dans une zone de disponibilité avec le portail Azure
+description: Créer une machine virtuelle dans une zone de disponibilité avec le portail Azure
 documentationcenter: virtual-machines
 author: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 3/8/2021
+ms.date: 5/10/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 7c7f135d4033a31f855342c172d73f51478931ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3abbe547b8788d468c2273f037d52c9d61e3f9ce
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501683"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752947"
 ---
 # <a name="create-a-virtual-machine-in-an-availability-zone-using-the-azure-portal"></a>Créer une machine virtuelle dans une zone de disponibilité à l’aide du portail Azure
 
@@ -24,29 +24,25 @@ Pour utiliser une zone de disponibilité, créez votre machine virtuelle dans un
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure 
 
-Connectez-vous au portail Azure sur https://portal.azure.com.
+1. Connectez-vous au portail Azure sur https://portal.azure.com.
 
-## <a name="create-virtual-machine"></a>Créer une machine virtuelle
+1. Cliquez sur **Créer une ressource** > **Calcul** > **Machine virtuelle**. 
 
-1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
+3. Saisissez les informations de la machine virtuelle. Le nom d’utilisateur et le mot de passe vous serviront pour vous connecter à la machine virtuelle. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](faq.md#what-are-the-password-requirements-when-creating-a-vm). 
 
-2. Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**. 
+4. Choisissez une région, par exemple USA Est 2, qui prend en charge des zones de disponibilité. 
 
-3. Saisissez les informations de la machine virtuelle. Le nom d’utilisateur et le mot de passe que vous avez entrés vous serviront pour vous connecter à la machine virtuelle. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](faq.md#what-are-the-password-requirements-when-creating-a-vm). Choisissez un emplacement, par exemple USA Est 2, qui prend en charge des zones de disponibilité. Lorsque vous avez terminé, cliquez sur **OK**.
+5. Sous **Options de disponibilité**, sélectionnez la liste déroulante **Zone de disponibilité**. 
 
-    ![Saisie des informations de base sur votre machine virtuelle dans le panneau du portail](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
-
+1. Sous **Zone de disponibilité**, sélectionnez une zone dans la liste déroulante.
+        
 4. Choisissez une taille pour la machine virtuelle. Sélectionnez une taille recommandée, ou filtrez sur la base de fonctionnalités. Confirmez que la taille est disponible dans la zone que vous souhaitez utiliser.
 
-    ![Sélectionnez une taille de machine virtuelle](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
+6. Finissez de renseigner les informations de votre machine virtuelle. Quand vous avez terminé, sélectionnez **Vérifier + créer**.
 
-5. Dans **Paramètres** > **Haute disponibilité**, sélectionnez une des zones numérotées dans la liste déroulante **Zone de disponibilité**, conservez les valeurs par défaut restantes et cliquez sur **OK**.
+7. Une fois les informations vérifiées, sélectionnez **Créer**.
 
-    ![Sélectionner une zone de disponibilité](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
-
-6. Dans la page de résumé, cliquez sur **Créer** pour démarrer le déploiement de la machine virtuelle.
-
-7. La machine virtuelle sera épinglée au tableau de bord du portail Azure. Une fois le déploiement terminé, le récapitulatif de la machine virtuelle s’ouvre automatiquement.
+1. Une fois la machine virtuelle créée, vous pouvez voir la zone de disponibilité répertoriée dans la **section Essentials** sur la page de la machine virtuelle.
 
 ## <a name="confirm-zone-for-managed-disk-and-ip-address"></a>Confirmer la zone du disque managé et de l’adresse IP
 
@@ -54,18 +50,11 @@ Lorsque la machine virtuelle est déployée dans une zone de disponibilité, un 
 
 Vous pouvez confirmer les paramètres de zone pour ces ressources dans le portail.  
 
-1. Cliquez sur **Groupes de ressources**, puis sur le nom du groupe de ressource de la machine virtuelle, par exemple *myResourceGroup*.
+1. Sélectionnez **Disques** dans le menu de gauche, puis sélectionnez le disque du système d’exploitation. La page du disque comprend des détails sur l’emplacement et la zone de disponibilité du disque.
 
-2. Cliquez sur le nom de la ressource de disque. La page **Vue d’ensemble** inclut des détails sur l’emplacement et sur la zone de disponibilité de la ressource.
+1. De retour sur la page de la machine virtuelle, sélectionnez l’IP publique. Dans le menu de gauche, sélectionnez **Propriétés**. La page de propriétés inclut des détails sur l’emplacement et sur la zone de disponibilité de l’IP publique.
 
-    ![Zone de disponibilité du disque managé](./media/create-portal-availability-zone/create-windows-vm-portal-disk.png)
-
-3. Cliquez sur le nom de la ressource de l’adresse IP publique. La page **Vue d’ensemble** inclut des détails sur l’emplacement et sur la zone de disponibilité de la ressource.
-
-    ![Zone de disponibilité pour l’adresse IP](./media/create-portal-availability-zone/create-windows-vm-portal-ip.png)
-
-
-
+    
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez appris à créer une machine virtuelle dans une zone de disponibilité. Apprenez-en davantage sur la [disponibilité](../availability.md) des machines virtuelles Azure.

@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 2c8b27043c20bfe9736c2b2ab669a108dc219286
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: b729720d82c34ced583038e8f3bde56f9e52f299
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175661"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761689"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark de sécurité Azure
 
@@ -32,6 +32,15 @@ Pour passer en revue la façon dont les composants intégrés Azure Policy dispo
 |Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Protection des données |4.4 |Chiffrer toutes les informations sensibles en transit |[Seules les connexions sécurisées à votre instance Azure Cache pour Redis doivent être activées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
+
+## <a name="canada-federal-pbmm"></a>PBMM fédéral du Canada
+
+Pour voir comment les composants intégrés Azure Policy de tous les services Azure répondent à ce standard de conformité, consultez [Conformité réglementaire Azure Policy – Canada Federal PBMM](../../../../articles/governance/policy/samples/canada-federal-pbmm.md).
+Pour plus d’informations sur cette norme de conformité, consultez [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html).
+
+|Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Protection du système et des communications |SC-8(1) |Confidentialité et intégrité des transmissions \| Protection par chiffrement ou protection physique différente |[Seules les connexions sécurisées à votre instance Azure Cache pour Redis doivent être activées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
 
 ## <a name="cmmc-level-3"></a>CMMC niveau 3
 
@@ -58,6 +67,15 @@ Pour plus d’informations sur cette norme de conformité, consultez [HIPAA HITR
 |Contrôle de connexion réseau |0814.01n1Organizational.12 - 01.n |La capacité des utilisateurs à se connecter au réseau interne est limitée à l’aide d’une stratégie de refus par défaut et d’autorisation par exception sur les interfaces gérées conformément à la stratégie de contrôle d’accès et aux exigences des applications cliniques et métier. |[Seules les connexions sécurisées à votre instance Azure Cache pour Redis doivent être activées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
 |Identification des risques liés à des parties externes |1451.05iCSPOrganizational.2 - 05.i |Les fournisseurs de services cloud conçoivent et implémentent des contrôles pour atténuer et limiter les risques de sécurité des données grâce à une séparation correcte des tâches, à un accès en fonction du rôle et à un accès de moindre privilège pour l’ensemble du personnel au sein de leur chaîne d’approvisionnement. |[Seules les connexions sécurisées à votre instance Azure Cache pour Redis doivent être activées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
 |Transactions en ligne |0946.09y2Organizational.14 - 09.y |L’organisation exige l’utilisation d’un chiffrement entre, et l’utilisation de signatures électroniques par, chacune des parties impliquées dans la transaction. |[Seules les connexions sécurisées à votre instance Azure Cache pour Redis doivent être activées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
+
+## <a name="irs-1075-september-2016"></a>IRS 1075 septembre 2016
+
+Pour voir comment les composants intégrés Azure Policy disponibles de tous les services Azure répondent à cette norme de conformité, consultez [Conformité réglementaire Azure Policy – IRS 1075 septembre 2016](../../../../articles/governance/policy/samples/irs-1075-sept2016.md).
+Pour plus d’informations sur cette norme de conformité, consultez [IRS 1075 septembre 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
+
+|Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Protection du système et des communications |9.3.16.6 |Confidentialité et intégrité des transmissions (SC-8) |[Seules les connexions sécurisées à votre instance Azure Cache pour Redis doivent être activées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
 
 ## <a name="iso-270012013"></a>ISO 27001:2013
 
@@ -97,4 +115,13 @@ Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 80
 |Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Protection du système et des communications |SC-8 (1) |Confidentialité et intégrité des transmissions \| Protection par chiffrement ou protection physique différente |[Seules les connexions sécurisées à votre instance Azure Cache pour Redis doivent être activées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
+
+## <a name="uk-official-and-uk-nhs"></a>UK OFFICIAL et UK NHS
+
+Pour voir comment les composants intégrés Azure Policy disponibles de tous les services Azure répondent à cette norme de conformité, consultez [Conformité réglementaire Azure Policy – UK OFFICIAL et UK NHS](../../../../articles/governance/policy/samples/ukofficial-uknhs.md).
+Pour plus d’informations sur cette norme de conformité, consultez [UK OFFICIAL](https://www.gov.uk/government/publications/government-security-classifications).
+
+|Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Protection des données en transit |1 |Protection des données en transit |[Seules les connexions sécurisées à votre instance Azure Cache pour Redis doivent être activées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
 

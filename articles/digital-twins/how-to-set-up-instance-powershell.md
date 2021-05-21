@@ -8,12 +8,12 @@ ms.date: 12/16/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 024b238ef9a6330831ae6cf4dcd6bb72d72dcc74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc7d1ca00f77ca5056c1ffd263c7bc810cd564bc
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98044269"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783762"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-powershell"></a>Configurer une instance Azure Digital Twins et l’authentification (PowerShell)
 
@@ -23,11 +23,10 @@ Cet article explique comment **configurer une nouvelle instance Azure Digital Tw
 
 Cette version de cet article suit ces étapes manuellement, une par une, à l’aide d’[Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-* Pour suivre ces étapes manuellement à l’aide du portail Azure, consultez la version de cet article relative au portail : [*Guide pratique : Configurer une instance et l’authentification (portail)*](how-to-set-up-instance-portal.md).
-* Pour exécuter une configuration automatisée à l’aide d’un exemple de script de déploiement, consultez la version avec script de cet article : [*Guide pratique : Configurer une instance et l’authentification (procédure scriptée)*](how-to-set-up-instance-scripted.md).
+* Pour suivre ces étapes manuellement à l’aide du portail Azure, consultez la version de cet article relative au portail : [Guide pratique : Configurer une instance et l’authentification (portail)](how-to-set-up-instance-portal.md) .
+* Pour exécuter une configuration automatisée à l’aide d’un exemple de script de déploiement, consultez la version avec script de cet article : [Guide pratique : Configurer une instance et l’authentification (procédure scriptée)](how-to-set-up-instance-scripted.md) .
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
-[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 ## <a name="prepare-your-environment"></a>Préparation de votre environnement
 
@@ -74,7 +73,7 @@ Vous devrez fournir les éléments suivants :
   New-AzResourceGroup -Name <name-for-your-resource-group> -Location <region>
   ```
 
-* Une région pour le déploiement. Pour connaître les régions qui prennent en charge Azure Digital Twins, consultez [*Produits Azure disponibles par région*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+* Une région pour le déploiement. Pour connaître les régions qui prennent en charge Azure Digital Twins, visitez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * Un nom pour votre instance. Le nom de la nouvelle instance doit être unique dans la région de votre abonnement. Si votre abonnement a une autre instance Azure Digital Twins dans la région qui utilise déjà le nom spécifié, vous êtes invité à choisir un autre nom.
 
 Utilisez vos valeurs dans la commande suivante pour créer l’instance :
@@ -103,13 +102,20 @@ Get-AzDigitalTwinsInstance -ResourceGroupName <your-resource-group> -ResourceNam
 > [!TIP]
 > Vous pouvez utiliser cette commande pour afficher toutes les propriétés de votre instance à tout moment.
 
-Notez les valeurs **HostName**, **Name** et **ResourceGroup** de l’instance Azure Digital Twins. Il s’agit de valeurs importantes dont vous pouvez avoir besoin quand vous continuez à travailler avec votre instance Azure Digital Twins pour configurer l’authentification et les ressources Azure associées. Si d’autres utilisateurs doivent programmer pour l’instance, vous devez partager ces valeurs avec eux.
+Notez les valeurs **host name**, **name** et **resource group** de l’instance Azure Digital Twins. Il s’agit de valeurs importantes dont vous pouvez avoir besoin quand vous continuez à travailler avec votre instance Azure Digital Twins pour configurer l’authentification et les ressources Azure associées. Si d’autres utilisateurs doivent programmer pour l’instance, vous devez partager ces valeurs avec eux.
 
 Vous disposez maintenant d’une instance Azure Digital Twins opérationnelle. Ensuite, vous allez accorder les autorisations utilisateur Azure appropriées pour la gérer.
 
 ## <a name="set-up-user-access-permissions"></a>Configurer les autorisations d’accès utilisateur
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
+
+### <a name="prerequisites-permission-requirements"></a>Configuration requise : Spécifications relatives aux autorisations
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
+
+### <a name="assign-the-role"></a>Attribuer le rôle
+
+Pour accorder à un utilisateur les autorisations nécessaires pour gérer une instance Azure Digital Twins, vous devez lui attribuer le rôle _**Propriétaire de données Azure Digital Twins**_ au sein de l’instance.
 
 Tout d’abord, déterminez l’**ObjectId** du compte Azure AD de l’utilisateur qui doit recevoir le rôle. Vous pouvez trouver cette valeur à l’aide de l’applet de commande [Get-AzAdUser](/powershell/module/az.resources/get-azaduser) en transmettant le nom d’utilisateur principal sur le compte Azure AD pour récupérer son ObjectId (et d’autres informations utilisateur). Dans la plupart des cas, le nom d’utilisateur principal correspond à l’adresse e-mail de l’utilisateur sur le compte Azure AD.
 
@@ -139,4 +145,4 @@ Vous disposez maintenant d’une instance Azure Digital Twins prête à l’empl
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment connecter une application cliente à votre instance avec un code d’authentification :
-* [*Guide pratique : Écrire le code d’authentification de l’application*](how-to-authenticate-client.md)
+* [Guide pratique : Écrire le code d’authentification de l’application](how-to-authenticate-client.md)

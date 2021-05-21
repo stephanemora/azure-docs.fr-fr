@@ -2,15 +2,15 @@
 title: Déployer une spec de modèle en tant que modèle lié
 description: Découvrez comment déployer une spec de modèle existante dans un déploiement lié.
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 8d4ccd77c8b37a696fab7494a8d3f8052fc89b35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/04/2021
+ms.openlocfilehash: d51343412352143939c1aa375857280b9e031121
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889261"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736811"
 ---
-# <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutoriel : Déployer une spec de modèle en tant que modèle lié (préversion)
+# <a name="tutorial-deploy-a-template-spec-as-a-linked-template"></a>Tutoriel : Déployer une spec de modèle en tant que modèle lié
 
 Découvrez comment déployer une [spec de modèle](template-specs.md) existante à l’aide d’un [déploiement lié](linked-templates.md#linked-template). Les specs de modèle permettent de partager des modèles ARM avec d’autres utilisateurs de votre organisation. Une fois que vous avez créé une spec de modèle, vous pouvez la déployer à l’aide d’Azure PowerShell ou Azure CLI. Vous pouvez également déployer la spec de modèle dans le cadre de votre solution à l’aide d’un modèle lié.
 
@@ -19,7 +19,7 @@ Découvrez comment déployer une [spec de modèle](template-specs.md) existante 
 Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> La fonctionnalité Specs de modèle est actuellement en préversion. Pour l’utiliser avec Azure PowerShell, vous devez installer la [version 5.0.0 ou ultérieure](/powershell/azure/install-az-ps). Pour l’utiliser avec l’interface de ligne de commande Azure CLI, utilisez la [version 2.14.2 ou ultérieure](/cli/azure/install-azure-cli).
+> Pour l’utiliser les specs de modèle avec Azure PowerShell, vous devez installer la [version 5.0.0 ou ultérieure](/powershell/azure/install-az-ps). Pour l’utiliser avec l’interface de ligne de commande Azure CLI, utilisez la [version 2.14.2 ou ultérieure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-template-spec"></a>Créer une spec de modèle
 

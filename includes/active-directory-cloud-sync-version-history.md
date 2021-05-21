@@ -1,14 +1,30 @@
 ---
-ms.openlocfilehash: 69f0da2f1528ad1f45762a8f754cc2020b4cb880
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1beac7a75bc8ddfbdec046d381ee95b23b1575ca
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98900899"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108793514"
 ---
 Cet article liste les versions et les fonctionnalités de l’agent de provisionnement Azure Active Directory Connect qui ont été publiées. L’équipe Azure AD met régulièrement à jour l’agent d’approvisionnement avec de nouvelles fonctions et fonctionnalités. L’agent de provisionnement est mis à jour automatiquement quand une nouvelle version est publiée. 
 
 Microsoft offre une prise en charge directe de la version la plus récente de l’agent et de la version précédente.
+
+## <a name="113590"></a>1.1.359.0
+
+### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
+- Cmdlets GMSA pour définir/réinitialiser l’autorisation
+
+### <a name="fixed-issues"></a>Problèmes résolus
+- Correctif du bogue de l’autorisation du dossier GMSA (à l’origine, le problème entraînait des problèmes de démarrage)
+- Correctif de bogue pour la gestion des modifications multiples apportées à un attribut de référence à valeur unique (par exemple, manager)
+- Correctif de bogue pour l’échec de l’énumération initiale et amélioration du suivi de l’échec.
+- Optimisation des mises à jour de l’appartenance à un groupe d’étendue. Grâce à cela, les clients peuvent désormais synchroniser un groupe comptant jusqu’à 50 000 membres en utilisant le filtre d’étendue de groupe 
+- Prise en charge de la récupération d’un seul objet par DN avec l’étendue utilisée par l’approvisionnement à la demande pour obéir à la logique d’étendue
+
+
+
+
 
 ## <a name="113540"></a>1.1.354.0
 

@@ -1,24 +1,24 @@
 ---
 title: Déployer et effectuer des prédictions avec ONNX
 titleSuffix: SQL machine learning
-description: Apprenez à effectuer l’apprentissage d’un modèle, à le convertir en ONNX, à le déployer sur Azure SQL Edge ou Azure SQL Managed Instance (préversion), puis à exécuter une fonction PREDICT native sur des données à l’aide du modèle ONNX chargé.
+description: Apprenez à entraîner un modèle, à le convertir en ONNX, à le déployer sur Azure SQL Edge ou Azure SQL Managed Instance, puis à exécuter une fonction PREDICT native sur des données à l’aide du modèle ONNX chargé.
 keywords: déployer SQL Edge
 ms.prod: sql
 ms.technology: machine-learning
 ms.topic: quickstart
 author: dphansen
 ms.author: davidph
-ms.date: 10/13/2020
-ms.openlocfilehash: 755111b2fc48ec119c30d09f2e51b9db6c333848
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/06/2021
+ms.openlocfilehash: bd85ab065e7b3e2500cbbee262c5f7f4ddfb5c39
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100653208"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634002"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>Déployer et faire des prédictions avec un modèle ONNX et l’apprentissage automatique SQL
 
-Dans ce démarrage rapide, vous allez apprendre à effectuer l’apprentissage d’un modèle, à le convertir en ONNX, à le déployer sur [Azure SQL Edge](onnx-overview.md) ou [Azure SQL Managed Instance (préversion)](../azure-sql/managed-instance/machine-learning-services-overview.md), puis à exécuter une fonction PREDICT native sur des données à l’aide du modèle ONNX chargé.
+Dans ce guide de démarrage rapide, vous allez apprendre à entraîner un modèle, à le convertir en ONNX, à le déployer sur [Azure SQL Edge](onnx-overview.md) ou [Azure SQL Managed Instance](../azure-sql/managed-instance/machine-learning-services-overview.md), puis à exécuter une fonction PREDICT native sur des données à l’aide du modèle ONNX chargé.
 
 Ce guide de démarrage rapide est basé sur **scikit-Learn** et utilise le jeu de données [Boston Housing](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
@@ -398,4 +398,4 @@ FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Machine Learning et intelligence artificielle avec ONNX dans SQL Edge](onnx-overview.md)
-* [Machine Learning Services dans Azure SQL Managed Instance (préversion)](../azure-sql/managed-instance/machine-learning-services-overview.md)
+* [Machine Learning Services dans Azure SQL Managed Instance](../azure-sql/managed-instance/machine-learning-services-overview.md)

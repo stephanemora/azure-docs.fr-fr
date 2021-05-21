@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 0fa6777dc5b587150f630ed8ccc110d16448cc21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb0cf3d84db507d3200f0285e95c2142e3288fbd
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602245"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784068"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Sauvegarde et restauration dans un pool SQL dédié Azure Synapse
 
@@ -57,7 +57,7 @@ La section suivante contient plus d’informations sur les périodes de rétenti
 1. Le pool SQL dédié supprime un point de restauration à l’issue de la période de conservation de 7 jours **et** quand il y a au moins 42 points de restauration au total (points de restauration définis par l’utilisateur et points de restauration automatiques).
 2. Aucune capture instantanée n’est prise quand un pool SQL dédié est suspendu.
 3. L’âge d’un point de restauration est mesuré selon les jours calendaires absolus à partir du moment où le point de restauration est pris, ce qui inclut le moment où le pool SQL est suspendu.
-4. À tout moment, un pool SQL dédié peut stocker jusqu’à 42 points de restauration définis par l’utilisateur et 42 points de restauration automatiques, à condition que ces points de restauration n’aient pas atteint la période de conservation de 7 jours
+4. À tout moment, un pool SQL dédié peut stocker jusqu’à 42 points de restauration définis par l’utilisateur ou 42 points de restauration automatiques, à condition que ces points de restauration n’aient pas atteint la période de conservation de 7 jours
 5. Si une capture instantanée est prise, le pool SQL dédié est alors suspendu pendant plus de 7 jours, puis son activité est reprise. Le point de restauration persiste jusqu’à ce qu’il y ait 42 points de restauration au total (points de restauration définis par l’utilisateur et points de restauration automatiques)
 
 ### <a name="snapshot-retention-when-a-sql-pool-is-dropped"></a>Conservation des captures instantanées quand un pool SQL est supprimé

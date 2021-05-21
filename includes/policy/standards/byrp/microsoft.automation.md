@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f1fa4ccdc346bd601ea34e52f00fae8ba50673c9
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: c30f2894e37193ed3bcd0f04eef69bf5f3b4dded
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108178486"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748549"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark de sécurité Azure
 
@@ -50,4 +50,13 @@ Pour plus d’informations sur cette norme de conformité, consultez [ISO 27001
 |Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Chiffrement |10.1.1 |Stratégie sur l’utilisation des contrôles de chiffrement |[Les variables de compte Automation doivent être chiffrées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
+
+## <a name="uk-official-and-uk-nhs"></a>UK OFFICIAL et UK NHS
+
+Pour voir comment les composants intégrés Azure Policy disponibles de tous les services Azure répondent à cette norme de conformité, consultez [Conformité réglementaire Azure Policy – UK OFFICIAL et UK NHS](../../../../articles/governance/policy/samples/ukofficial-uknhs.md).
+Pour plus d’informations sur cette norme de conformité, consultez [UK OFFICIAL](https://www.gov.uk/government/publications/government-security-classifications).
+
+|Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Protection et résilience des ressources |2.3 |Protection des données au repos |[Les variables de compte Automation doivent être chiffrées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
 

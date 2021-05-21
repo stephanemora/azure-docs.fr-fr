@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 02/11/2021
-ms.openlocfilehash: 3802d25ebd8f21ab5b8991a66ceb6650f2f276a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: 22923742e5389ac2bd6e5268e6dcd9055c23a703
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103461706"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656063"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Informations d'identification pour l'authentification des sources dans Azure Purview
 
@@ -57,6 +57,19 @@ Avant de pouvoir créer des informations d’identification, vous devez d’abor
 
 ## <a name="grant-the-purview-managed-identity-access-to-your-azure-key-vault"></a>Autoriser l'identité managée Purview à accéder à votre coffre de clés Azure Key Vault
 
+Actuellement, Azure Key Vault prend en charge deux modèles d’autorisation :
+
+- Option 1 : Stratégies d’accès 
+- Option 2 : Contrôle d’accès en fonction du rôle 
+
+Avant d’attribuer l’accès à l’identité managée Purview, commencez par identifier votre modèle d’autorisation Azure Key Vault à partir des **stratégies d’accès** aux ressources Key Vault dans le menu. Suivez les étapes ci-dessous en fonction du modèle d’autorisation concerné.  
+
+:::image type="content" source="media/manage-credentials/akv-permission-model.png" alt-text="Modèle d’autorisation Azure Key Vault"::: 
+
+### <a name="option-1---assign-access-using-using-key-vault-access-policy"></a>Option 1 : Attribuer l’accès à l’aide de la stratégie d’accès au coffre de clés  
+
+Suivez ces étapes uniquement si le modèle d’autorisation dans votre ressource Azure Key Vault est défini sur **Stratégie d’accès au coffre** :
+
 1. Accédez à votre coffre de clés Azure Key Vault.
 
 2. Sélectionnez la page **Stratégies d’accès**.
@@ -76,6 +89,21 @@ Avant de pouvoir créer des informations d’identification, vous devez d’abor
 7. Sélectionnez **Enregistrer** pour enregistrer la stratégie d’accès.
 
    :::image type="content" source="media/manage-credentials/save-access-policy.png" alt-text="Enregistrer la stratégie d'accès":::
+
+### <a name="option-2---assign-access-using-key-vault-azure-role-based-access-control"></a>Option 2 : Attribuer l’accès à l’aide du contrôle d’accès en fonction du rôle Azure de Key Vault 
+
+Suivez ces étapes uniquement si le modèle d’autorisation dans votre ressource Azure Key Vault est défini sur **Contrôle d’accès en fonction du rôle Azure** :
+
+1. Accédez à votre coffre de clés Azure Key Vault.
+
+2. Dans le menu de navigation de gauche, sélectionnez **Contrôle d’accès (IAM)** .
+
+3. Sélectionnez **Ajouter**.
+
+4. Définissez le **rôle** sur **Utilisateur des secrets Key Vault** et entrez le nom de votre compte Azure Purview sous la zone d’entrée **Sélectionner**. Ensuite, sélectionnez Enregistrer pour fournir cette attribution de rôle à votre compte Purview.
+
+   :::image type="content" source="media/manage-credentials/akv-add-rbac.png" alt-text="RBAC Azure Key Vault":::
+
 
 ## <a name="create-a-new-credential"></a>Créer de nouvelles informations d'identification
 

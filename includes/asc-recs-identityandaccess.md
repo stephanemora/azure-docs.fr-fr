@@ -2,17 +2,17 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 05/11/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: d35fbc6f16b018f55e4ec7bcd6257884c3f10186
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1ab9e1895c29222b252c54e6bb8356fd6cabb14
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466159"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784294"
 ---
-Il existe **21** recommandations dans cette catégorie.
+Cette catégorie compte **22** recommandations.
 
 |Recommandation |Description |Gravité |
 |---|---|---|
@@ -29,6 +29,7 @@ Il existe **21** recommandations dans cette catégorie.
 |Les secrets Key Vault doivent avoir une date d’expiration |Les secrets doivent avoir une date d’expiration définie et ne pas être permanents. Les secrets valides indéfiniment offrent à un attaquant potentiel plus de temps pour les compromettre. Il est recommandé de définir les dates d’expiration des secrets.<br />(Stratégie associée : [Les secrets Key Vault doivent avoir une date d’expiration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f98728c90-32c7-4049-8429-847dc0f4fe37)) |Élevé |
 |La protection contre la suppression définitive doit être activée sur les coffres de clés |La suppression malveillante d’un coffre de clés peut entraîner une perte définitive des données. Une personne malveillante interne à votre organisation peut potentiellement supprimer et vider des coffres de clés. La protection contre la suppression définitive vous protège des attaques internes en appliquant une période de conservation obligatoire pour les coffres de clés supprimés de manière réversible. Personne au sein de votre organisation ni chez Microsoft ne pourra supprimer définitivement vos coffres de clés pendant la période de conservation de la suppression réversible.<br />(Stratégie associée : [La protection contre la suppression définitive doit être activée sur les coffres de clés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0b60c0b2-2dc2-4e1c-b5c9-abbed971de53)) |Moyenne |
 |La suppression réversible doit être activée sur les coffres de clés |La suppression d’un coffre de clés sur lequel la suppression réversible n’est pas activée supprime définitivement tous les secrets, toutes les clés et tous les certificats qui y stockés. La suppression accidentelle d’un coffre de clés peut entraîner la perte définitive des données. La suppression réversible vous permet de récupérer un coffre de clés supprimé accidentellement, pendant une période de conservation configurable.<br />(Stratégie associée : [La suppression réversible doit être activée sur les coffres de clés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d)) |Élevé |
+|L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement |MFA (Multi-Factor Authentication) doit être activé pour tous les comptes de l'abonnement disposant d'autorisations de propriétaire afin d'éviter une violation des comptes ou des ressources.<br />(Stratégie associée : [MFA doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faa633080-8b72-40c4-a2d7-d00c03e80bed)) |Élevé |
 |L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement |MFA (Multi-Factor Authentication) doit être activé pour tous les comptes de l'abonnement disposant d'autorisations de propriétaire afin d'éviter une violation des comptes ou des ressources.<br />(Stratégie associée : [MFA doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faa633080-8b72-40c4-a2d7-d00c03e80bed)) |Élevé |
 |L'authentification multifacteur doit être activée sur les comptes disposant d’autorisations de lecture de votre abonnement |MFA (Multi-Factor Authentication) doit être activé pour tous les comptes de l'abonnement disposant de privilèges d'accès en lecture afin d'éviter une violation des comptes ou des ressources.<br />(Stratégie associée : [L’authentification multifacteur (MFA) doit être activée sur les comptes disposant d’autorisations de lecture sur votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fe3576e28-8b17-4677-84c3-db2990658d64)) |Élevé |
 |L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations d’écriture sur votre abonnement |MFA (Multi-Factor Authentication) doit être activé pour tous les comptes de l'abonnement disposant de privilèges d'accès en écriture pour éviter une violation des comptes ou des ressources.<br />(Stratégie associée : [MFA doit être activée sur les comptes disposant d’autorisations d’écriture sur votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f9297c21d-2ed6-4474-b48f-163f75654ce3)) |Élevé |

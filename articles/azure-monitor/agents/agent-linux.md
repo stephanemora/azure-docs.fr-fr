@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 23597804a34a9bc409db179010569024aa472016
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 45489d25256d049467dd946922d30606c53f9bed
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725923"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750948"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installer l’agent Log Analytics sur des ordinateurs Linux
 Cet article fournit des détails sur l’installation de l’agent Log Analytics sur des ordinateurs Linux à l’aide des méthodes suivantes :
@@ -56,7 +56,7 @@ Si vous utilisez une version antérieure de l’agent, vous devez faire en sorte
  - Ubuntu, Debian : `apt-get install -y python2`
  - SUSE : `zypper install -y python2`
 
-L’exécutable python2 doit avoir un alias pour *python*. Voici une méthode que vous pouvez utiliser pour définir cet alias :
+Là encore, si et seulement si vous utilisez une version antérieure de l’agent, l’exécutable python2 doit avoir un alias pour *python*. Voici une méthode que vous pouvez utiliser pour définir cet alias :
 
 1. Exécutez la commande suivante pour supprimer tous les alias existants.
  
@@ -80,7 +80,7 @@ Les éléments suivants ne sont pas pris en charge :
 - CIS
 - SELINUX
 
-La prise en charge du durcissement CIS et SELINUX est prévue pour l’[agent Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview). Aucune autre méthode de durcissement ou de personnalisation n’est prise en charge ou prévue pour l’agent OMS.  
+La prise en charge du durcissement CIS et SELINUX est prévue pour l’[agent Azure Monitor](./azure-monitor-agent-overview.md). Aucune autre méthode de durcissement ou de personnalisation n’est prise en charge ou prévue pour l’agent OMS.  
 
 ## <a name="agent-prerequisites"></a>Conditions préalables associées à l’agent
 

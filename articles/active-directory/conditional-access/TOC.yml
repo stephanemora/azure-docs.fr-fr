@@ -39,6 +39,8 @@
       href: service-dependencies.md
     - name: Conditions d’emplacement
       href: location-condition.md
+    - name: Filtres pour les appareils
+      href: concept-condition-filters-for-devices.md
     - name: Outil de simulation
       href: what-if-tool.md
     - name: Évaluation de l’accès continu

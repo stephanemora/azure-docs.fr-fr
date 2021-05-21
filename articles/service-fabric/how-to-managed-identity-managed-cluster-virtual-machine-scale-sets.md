@@ -1,22 +1,20 @@
 ---
-title: Ajouter une identité managée à un type de nœud cluster géré par Service Fabric (préversion)
+title: Ajouter une identité managée à un type de nœud de cluster managé Service Fabric
 description: Cet article explique comment ajouter une identité managée à un type de nœud de cluster géré par Service Fabric.
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.custom: references_regions
-ms.openlocfilehash: 3ff5d66160ddbb037469378634826fd9eeae0c54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 5/10/2021
+ms.openlocfilehash: 9b83d0a7e68e162eb3231d4605755e74dc7f9fe4
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651644"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685312"
 ---
-# <a name="add-a-managed-identity-to-a-service-fabric-managed-cluster-node-type-preview"></a>Ajouter une identité managée à un type de nœud cluster géré par Service Fabric (préversion)
+# <a name="add-a-managed-identity-to-a-service-fabric-managed-cluster-node-type"></a>Ajouter une identité managée à un type de nœud de cluster managé Service Fabric
 
 Chaque type de nœud d’un cluster managé Service Fabric est adossé à un groupe de machines virtuelles identiques. Pour permettre l’utilisation des identités managées avec un type de nœud de cluster géré, une propriété `vmManagedIdentity` a été ajoutée aux définitions de type de nœud contenant une liste d’identités qui peuvent être utilisées, `userAssignedIdentities`. La fonctionnalité reflète la manière dont les identités managées peuvent être utilisées dans les clusters non gérés, par exemple l’utilisation d’une identité managée avec l’[extension de groupe de machines virtuelles identiques Azure Key Vault](../virtual-machines/extensions/key-vault-windows.md).
 
-
-Pour obtenir un exemple de déploiement de cluster géré par Service Fabric qui utilise l’identité managée sur un type de nœud, consultez [ce modèle](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI). Pour obtenir la liste des régions prises en charge, consultez [la FAQ relative aux clusters gérés](./faq-managed-cluster.md#what-regions-are-supported-in-the-preview).
+Pour obtenir un exemple de déploiement de cluster géré par Service Fabric qui utilise l’identité managée sur un type de nœud, consultez [ce modèle](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI).
 
 > [!NOTE]
 > Seules les identités affectées par l’utilisateur sont actuellement prises en charge pour cette fonctionnalité.
@@ -28,7 +26,7 @@ Avant de commencer :
 * Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Si vous prévoyez d’utiliser PowerShell, [installez](/cli/azure/install-azure-cli) l’interface Azure CLI pour exécuter les commandes de référence de l’interface de ligne de commande.
 
-## <a name="create-a-user-assigned-managed-identity"></a>Créer une identité managée attribuée par l’utilisateur 
+## <a name="create-a-user-assigned-managed-identity"></a>Créer une identité managée attribuée par l’utilisateur
 
 Une identité managée affectée par l’utilisateur peut être définie dans la section des ressources d’un modèle Azure Resource Manager (ARM) à des fins de création lors du déploiement :
 
@@ -52,22 +50,34 @@ az identity create --name <userAssignedIdentityName> --resource-group <resourceG
 
 Ajoutez une attribution de rôle à l’identité managée avec l’application de fournisseur de ressources Service Fabric. Cette attribution permet au fournisseur de ressources Service Fabric d’attribuer l’identité au groupe de machines virtuelles identiques du cluster géré. 
 
-Les valeurs suivantes doivent être utilisées, le cas échéant :
+Obtenir le principal du service pour une application de fournisseur de ressources Service Fabric :
 
-|Name|Valeur du fournisseur de ressources Service Fabric correspondant|
-|----|-------------------------------------|
-|ID de l'application|74cb6831-0dbb-4be1-8206-fd4df301cdc2|
-|ID de l'objet|fbc587f2-66f5-4459-a027-bcd908b9d278|
+```powershell
+Login-AzAccount
+Select-AzSubscription -SubscriptionId <SubId>
+Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"
+```
 
+> [!NOTE]
+> Vérifiez que vous êtes dans l’abonnement approprié. L’ID du principal change si l’abonnement se trouve dans un autre locataire.
+
+```powershell
+ServicePrincipalNames : {74cb6831-0dbb-4be1-8206-fd4df301cdc2}
+ApplicationId         : 74cb6831-0dbb-4be1-8206-fd4df301cdc2
+ObjectType            : ServicePrincipal
+DisplayName           : Azure Service Fabric Resource Provider
+Id                    : 00000000-0000-0000-0000-000000000000
+Type                  :
+```
+
+Utilisez l’ID de la sortie précédente comme **principalId** et l’ID de définition de rôle ci-dessous comme **roleDefinitionId**, le cas échéant, sur le modèle ou la commande PowerShell :
 
 |Nom de la définition de rôle|ID de définition de rôle|
 |----|-------------------------------------|
-|Opérateur d’identités gérées|f1a07417-d97a-45cb-824c-7a7467783830
-|
+|Opérateur d’identités gérées|f1a07417-d97a-45cb-824c-7a7467783830|
 
 
-
-Cette attribution de rôle peut être définie dans la section Ressources à l’aide de l’ID d’objet et de l’ID de définition de rôle :
+Cette attribution de rôle peut être définie dans le modèle de section Ressources à l’aide de l’ID de principal et de l’ID de définition de rôle :
 
 ```JSON
 {
@@ -80,32 +90,28 @@ Cette attribution de rôle peut être définie dans la section Ressources à l�
     ], 
     "properties": {
         "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'f1a07417-d97a-45cb-824c-7a7467783830')]",
-        "principalId": "fbc587f2-66f5-4459-a027-bcd908b9d278" 
+        "principalId": "00000000-0000-0000-0000-000000000000" 
     } 
 }, 
 ```
+> [!NOTE]
+> vmIdentityRoleNameGuid doit être un GUID valide. Si vous redéployez le même modèle, dont cette attribution de rôle, vérifiez que le GUID est identique à celui utilisé à l’origine, ou supprimez cette ressource car elle doit être créée une seule fois.
 
-ou créée via PowerShell soit à l’aide de l’ID d’application et de l’ID de définition de rôle :
-
-```powershell
-New-AzRoleAssignment -ApplicationId 74cb6831-0dbb-4be1-8206-fd4df301cdc2 -RoleDefinitionName "Managed Identity Operator" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>"
-```
-
-soit à l’aide de l’ID d’objet et de l’ID de définition de rôle :
+ou créée par le biais de PowerShell à l’aide de l’ID de principal et du nom de définition de rôle :
 
 ```powershell
-New-AzRoleAssignment -PrincipalId fbc587f2-66f5-4459-a027-bcd908b9d278 -RoleDefinitionName "Managed Identity Operator" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>"
+New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Managed Identity Operator" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>"
 ```
 
 ## <a name="add-managed-identity-properties-to-node-type-definition"></a>Ajouter les propriétés d’identité managée à la définition de type de nœud
 
-Enfin, ajoutez les propriétés `vmManagedIdentity` et `userAssignedIdentities` à la définition du type de nœud du cluster managé. Veillez à utiliser **2021-01-01-preview** ou une version ultérieure pour `apiVersion`.
+Enfin, ajoutez les propriétés `vmManagedIdentity` et `userAssignedIdentities` à la définition du type de nœud du cluster managé. Veillez à utiliser **2021-05-01** ou une version ultérieure pour `apiVersion`.
 
 ```json
 
  {
     "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     ...
     "properties": {
         "isPrimary" : true,

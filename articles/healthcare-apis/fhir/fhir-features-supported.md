@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: 92f6f5c449b5f47b0a9a59f432c130446b324091
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: b36937b61b5508dfc933ef15b316d1d1da7b7acc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783564"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078631"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -87,8 +87,6 @@ Actuellement, les actions autorisées pour un rôle donné sont appliquées *à 
 ## <a name="service-limits"></a>Limites du service
 
 * [**Unités de requête (RU)**](../../cosmos-db/concepts-limits.md) : vous pouvez configurer jusqu’à 10 000 unités de requête dans le portail pour l’API Azure pour FHIR. Vous aurez besoin d’un minimum de 400 ou de 40 unités de capacité/Go, selon la valeur la plus grande. Si vous avez besoin de plus de 10 000 unités de requête, vous pouvez envoyer un ticket de support pour augmenter ce quota. Le maximum disponible est 1 000 000.
-
-* **Connexions simultanées** et **Instances** : vous avez, par défaut, cinq connexions simultanées sur deux instances du cluster (pour un total de 10 requêtes simultanées). Si vous pensez avoir besoin de plus de requêtes simultanées, ouvrez un ticket de support en détaillant vos besoins.
 
 * **Taille de bundle** : chaque bundle est limité à 500 éléments.
 

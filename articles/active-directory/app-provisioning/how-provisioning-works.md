@@ -1,6 +1,6 @@
 ---
-title: Comprendre le fonctionnement du provisionnement Azure AD | Microsoft Docs
-description: Comprendre le fonctionnement du provisionnement Azure AD
+title: Comprendre l’approvisionnement d’applications dans Azure Active Directory
+description: Comprendre le fonctionnement de l’approvisionnement d’applications dans Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,18 +8,17 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 19ec3ec95fbbccbaa5c646c8de16999b86349626
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f2f2f121ba6dde7bc516f40d5e50d53acb80b18a
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579448"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109782862"
 ---
-# <a name="how-provisioning-works"></a>Comment fonctionne le provisionnement
+# <a name="how-application-provisioning-works-in-azure-active-directory"></a>Fonctionnement de l’approvisionnement d’applications dans Azure Active Directory
 
 Le provisionnement automatique correspond à la création d’identités utilisateur et de rôles dans les applications cloud auxquelles les utilisateurs ont besoin d’accéder. En plus de créer des identités utilisateur, l’approvisionnement automatique comprend la maintenance et la suppression d’identités utilisateur en cas de modification de l’état ou des rôles. Avant de commencer un déploiement, vous pouvez consulter cet article pour savoir comment fonctionne le provisionnement Azure AD et pour obtenir des recommandations concernant la configuration. 
 
