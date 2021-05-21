@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Azure Certified Device Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 497ffa4b3026491d6aa95df87708b3b1f2f1619e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 5acbd4a9cc48841999716cfd9c52d72ccad733b4
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308283"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109712817"
 ---
 # <a name="azure-certified-device-requirements"></a>Exigences relatives à Azure Certified Device 
 (anciennement IoT Hub)
@@ -51,7 +51,7 @@ Les promesses de la certification Azure Certified Device sont les suivantes :
 | **S’applique à**          | N’importe quel appareil                                                   |
 | **SE**                  | Sans dépendance                                                     |
 | **Type de validation**     | Automatisé                                                    |
-| **Validation**          | L’appareil permet de saisir facilement la propriété de l’étendue de l’ID DPS cible sans avoir à recompiler le code incorporé. Microsoft fournit le [workflow du portail](https://certify.azure.com) pour exécuter les tests afin de valider que l’appareil prend en charge DPS : **1.** L’utilisateur doit sélectionner l’une des méthodes d’attestation (X.509, TPM et clé SAP) **2.** Selon la méthode d’attestation, l’utilisateur doit effectuer une action correspondante, telle que **a)** charger le certificat X.509 dans l’étendue gérée par AICS ; **b)** implémenter la clé SAP ou la paire de clés de type EK (Endorsement Key) dans l’appareil |
+| **Validation**          | L’appareil prend en charge la saisie facile de la propriété d’étendue de l’ID DPS cible. Microsoft fournit le [workflow du portail](https://certify.azure.com) pour exécuter les tests afin de valider que l’appareil prend en charge DPS : **1.** L’utilisateur doit sélectionner l’une des méthodes d’attestation (X.509, TPM et clé SAP) **2.** Selon la méthode d’attestation, l’utilisateur doit effectuer une action correspondante, telle que **a)** charger le certificat X.509 dans l’étendue gérée par AICS ; **b)** implémenter la clé SAP ou la paire de clés de type EK (Endorsement Key) dans l’appareil |
 | **Ressources**           | [Vue d’ensemble du service Device Provisioning](../iot-dps/about-iot-dps.md) |
 
 **[Si implémenté] Cloud-à-appareil : L’objectif du test est de s’assurer que les messages peuvent être envoyés du cloud aux appareils.**                                                              
@@ -86,3 +86,14 @@ Les promesses de la certification Azure Certified Device sont les suivantes :
 | **Type de validation**                       | Automatisé                                                       |
 | **Validation**                            | L’appareil doit envoyer tous les schémas de télémétrie à IoT Hub. Microsoft fournit le [workflow du portail](https://certify.azure.com) pour exécuter les tests. Propriété de jumeau d’appareil (si implémentée) : **1.** AICS valide la propriété accessible en lecture/écriture dans le JSON du jumeau d’appareil. **2.** L’utilisateur doit spécifier la charge utile JSON à modifier. **3.** AICS valide les propriétés spécifiées envoyées à partir d’IoT Hub et le message ACK reçu par l’appareil |
 | **Ressources**                             | **a)** [Étapes de certification](./overview.md) (dispose de toutes les ressources supplémentaires) ; **b)** [Utiliser les jumeaux d’appareil avec IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md) |
+
+**[Obligatoire] Limiter la recompilation : L’objectif de cette stratégie est d’éviter aux utilisateurs de recompiler par défaut le code pour déployer l’appareil.**
+
+| **Nom**                                  | AzureCertified.Policy.LimitRecompile                                      |
+| ----------------------------------------- | ------------------------------------------------------------ |
+| **Disponibilité de la cible**                   | Policy                                            |
+| **S’applique à**                            | N’importe quel appareil                                                   |
+| **SE**                                    | Sans dépendance                                                     |
+| **Type de validation**                       | Policy                                                       |
+| **Validation**                            | Pour simplifier la configuration des appareils pour les utilisateurs, tous les appareils doivent être configurés pour se connecter à Azure sans nécessiter la recompilation et le déploiement du code source de l’appareil. Vous devez ainsi définir les informations DPS, comme l’ID d’étendue, en tant que paramètres de configuration sans les compiler. Toutefois, si votre appareil contient un composant matériel sécurisé ou si l’utilisateur s’attend à compiler et à déployer du code en raison de circonstances atténuantes, contactez l’équipe de certification pour demander une exception. |
+| **Ressources**                             | **a)** [Vue d’ensemble du service de provisionnement des appareils](../iot-dps/about-iot-dps.md)  **b)** [Exemple de fichier config pour le transfert d’étendue d’ID DPS](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview-pnp/serializer/samples/devicetwin_simplesample) |

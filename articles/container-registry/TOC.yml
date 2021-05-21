@@ -147,8 +147,8 @@
         - name: Superviser
           expanded: false
           items:
-            - name: Journaux de diagnostic et d’audit
-              href: container-registry-diagnostics-audit-logs.md
+            - name: Superviser Container Registry
+              href: monitor-service.md
             - name: Auditer la conformité avec Azure Policy
               href: container-registry-azure-policy.md
         - name: Dépanner
@@ -257,6 +257,8 @@
     - name: Éléments intégrés Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
+    - name: Données de surveillance
+      href: monitor-service-reference.md
 - name: Ressources
   expanded: false
   items:

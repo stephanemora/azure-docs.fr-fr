@@ -1,21 +1,21 @@
 ---
 title: Expériences de la gestion multilocataire
-description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 03/29/2021
+description: Azure Lighthouse autorise et améliore les expériences interlocataires dans de nombreux services Azure.
+ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 005d8f15c20749dff7d45385124a08a64b213afb
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f482c4738fd0bec8f32eaeb540b2d0ef2e0d4b15
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139036"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790430"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
-En tant que fournisseur de services, vous pouvez utiliser [Azure Lighthouse](../overview.md) pour gérer les ressources de plusieurs clients à partir de votre propre locataire Azure Active Directory (Azure AD). De nombreuses tâches et de nombreux services peuvent être exécutés sur tous les locataires gérés en utilisant la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md).
+En tant que fournisseur de services, vous pouvez utiliser [Azure Lighthouse](../overview.md) pour gérer les ressources de plusieurs clients à partir de votre propre locataire Azure Active Directory (Azure AD). De nombreuses tâches et de nombreux services peuvent être exécutés sur tous les locataires gérés en utilisant la [gestion des ressources déléguées Azure](../concepts/architecture.md).
 
 > [!TIP]
-> La gestion des ressources déléguées Azure peut également être utilisée [au sein d’une entreprise qui dispose de plusieurs locataires Azure AD](enterprise.md) pour simplifier l’administration entre locataires.
+> Azure Lighthouse peut aussi être utilisé [dans une entreprise qui compte plusieurs locataires Azure AD propres](enterprise.md) afin de simplifier l’administration interlocataire.
 
 ## <a name="understanding-tenants-and-delegation"></a>Comprendre les locataires et la délégation
 
@@ -88,7 +88,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 
 - Gérer des environnements Kubernetes hébergés, ainsi que déployer et gérer des applications en conteneur au sein des locataires du client
 - Déployer et gérer des clusters dans les locataires client
--   Utiliser Azure Monitor pour les conteneurs afin de surveiller les performances des locataires clients
+- Utiliser Azure Monitor pour les conteneurs afin de surveiller les performances des locataires clients
 
 [Azure Migrate](../../migrate/index.yml) :
 
@@ -175,7 +175,7 @@ Demandes de support :
 Dans tous les scénarios, gardez à l’esprit les limitations actuelles suivantes :
 
 - Les demandes traitées par Azure Resource Manager peuvent être effectuées à l’aide d’Azure Lighthouse. Les URI d’opération pour ces demandes commencent par `https://management.azure.com`. Toutefois, les demandes qui sont gérées par une instance d’un type de ressource (par exemple, accès aux secrets du coffre de clés ou accès aux données de stockage) ne sont pas prises en charge avec Azure Lighthouse. Les URI d’opération pour ces demandes commencent généralement par une adresse propre à votre instance, telle que `https://myaccount.blob.core.windows.net` ou `https://mykeyvault.vault.azure.net/`. Ces dernières sont également des opérations sur les données plutôt que des opérations de gestion.
-- Les attributions de rôles doivent utiliser les [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md). Tous les rôles intégrés sont actuellement pris en charge avec la gestion des ressources déléguées Azure, à l’exception du propriétaire et des rôles intégrés avec l’autorisation [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions). Le rôle Administrateur de l’accès utilisateur est pris en charge uniquement pour une utilisation limitée dans [l’affectation de rôles à des identités gérées](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Les rôles personnalisés et les [Rôles Administrateur classique de l’abonnement](../../role-based-access-control/classic-administrators.md) ne sont pas pris en charge.
+- Les attributions de rôles doivent utiliser les [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md). Tous les rôles intégrés sont actuellement pris en charge avec Azure Lighthouse, à l’exception du propriétaire et des rôles intégrés avec l’autorisation [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions). Le rôle Administrateur de l’accès utilisateur est pris en charge uniquement pour une utilisation limitée dans [l’affectation de rôles à des identités gérées](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Les rôles personnalisés et les [Rôles Administrateur classique de l’abonnement](../../role-based-access-control/classic-administrators.md) ne sont pas pris en charge.
 - S’il vous est possible d’intégrer des abonnements utilisant Azure Databricks, les utilisateurs du locataire gestionnaire ne peuvent pas lancer d’espaces de travail Azure Databricks sur un abonnement délégué pour le moment.
 - Bien que vous puissiez intégrer des abonnements et des groupes de ressources qui ont des verrous de ressources, ces verrous n’empêchent pas les actions d’être effectuées par les utilisateurs dans le locataire gestionnaire. Les [affectations de refus](../../role-based-access-control/deny-assignments.md), qui protègent les ressources managées par le système, telles que celles créées par les applications managées Azure ou Azure Blueprints (affectations de refus émises par le système), empêchent les utilisateurs du locataire gestionnaire d’agir sur ces ressources. Toutefois, à ce moment-là, les utilisateurs du locataire client ne peuvent pas créer leurs propres affectations de refus (affectations de refus émises par l’utilisateur).
 - La délégation d’abonnements sur un [cloud national](../../active-directory/develop/authentication-national-cloud.md) et le cloud public Azure, ou sur deux clouds nationaux distincts, n’est pas prise en charge.

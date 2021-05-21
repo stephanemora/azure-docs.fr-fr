@@ -55,7 +55,7 @@
 - name: Guides pratiques
   items:
     - name: Demander un quota hôte pour Azure VMware Solution
-      href: enable-azure-vmware-solution.md
+      href: request-host-quota-azure-vmware-solution.md
     - name: Déplacer des ressources
       items:
         - name: Déplacer des abonnements Azure VMware Solution
@@ -64,8 +64,10 @@
       href: reserved-instance.md
     - name: Créer une évaluation Azure VMware Solution
       href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
-    - name: "Gérer\_DHCP"
-      href: manage-dhcp.md
+    - name: Configurer et gérer DHCP
+      href: configure-dhcp-azure-vmware-solution.md
+    - name: Configurer DHCP sur les réseaux VMware HCX étendus L2
+      href: configure-l2-stretched-vmware-hcx-networks.md
     - name: Configurer les composants réseau NSX
       href: configure-nsx-network-components-azure-portal.md
     - name: Configurer GitHub Enterprise Server
@@ -76,8 +78,8 @@
       href: configure-site-to-site-vpn-gateway.md
     - name: Configurer le cluster de basculement Windows Server
       href: configure-windows-server-failover-cluster.md
-    - name: Réinitialiser les informations d’identification vSphere
-      href: reset-vsphere-credentials.md
+    - name: Rotation des informations d’identification cloudadmin
+      href: rotate-cloudadmin-credentials.md
     - name: Sauvegarder et restaurer avec un serveur de sauvegarde Azure
       items:
         - name: Sauvegarder des machines virtuelles VMware
@@ -147,7 +149,7 @@
     - name: Questions fréquentes (FAQ)
       items:
         - name: Général
-          href: /azure/azure-vmware/faq#general
+          href: faq.yml
         - name: Communication du client
           href: /azure/azure-vmware/faq#customer-communication
         - name: Configuration et installation

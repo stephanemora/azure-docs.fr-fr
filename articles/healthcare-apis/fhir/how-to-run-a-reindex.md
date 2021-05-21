@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/23/2021
 ms.author: cavoeg
-ms.openlocfilehash: ea679023b2b5bb620bb9684a0e841f6cc4fa310d
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 5285de1a8481f37238ce3e3f3038d0d4f4c3d54a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847001"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078534"
 ---
 # <a name="running-a-reindex-job"></a>Exécution d’un travail de réindexation
 
@@ -91,7 +91,7 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
 ```
 
 > [!NOTE]
-> Pour vérifier l’état de ou pour annuler un travail de réindexation, vous avez besoin de l’ID de réindexation. Il s’agit de l’ID de la ressource de paramètres résultante (voir ci-dessus). Vous pouvez également trouver l’ID de réindexeur à la fin de la chaîne Content-Location. Dans l'exemple ci-dessus, il s'agirait de `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
+> Pour vérifier l’état de ou pour annuler un travail de réindexation, vous avez besoin de l’ID de réindexation. Il s’agit de l’ID de la ressource de paramètres résultante. Dans l’exemple ci-dessus, l’ID de la tâche de réindexation est `560c7c61-2c70-4c54-b86d-c53a9d29495e` .
 
  ## <a name="how-to-check-the-status-of-a-reindex-job"></a>Vérification de l’état d’un travail de réindexation
 

@@ -203,8 +203,8 @@
           href: core/howto-create-iot-central-application.md
         - name: Configurer un modèle d’appareil
           href: core/howto-set-up-template.md
-        - name: Modèle d’appareil de version
-          href: core/howto-version-device-template.md
+        - name: Modifier un modèle d’appareil
+          href: core/howto-edit-device-template.md
         - name: Utilisation des propriétés
           href: core/howto-use-properties.md
         - name: Guide pratique pour utiliser les commandes

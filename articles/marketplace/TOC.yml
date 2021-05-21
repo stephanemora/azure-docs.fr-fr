@@ -419,6 +419,8 @@
       href: /legal/marketplace/mpa-change-history
 - name: Informations de référence
   items:
+    - name: Guide des API de place de marché
+      href: marketplace-apis-guide.md
     - name: Informations de référence sur l’API CPP
       items:
         - name: Vue d’ensemble de l’API CPP

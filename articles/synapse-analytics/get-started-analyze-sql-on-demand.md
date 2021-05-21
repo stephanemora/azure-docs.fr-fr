@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 04/15/2021
-ms.openlocfilehash: acae55ca82b82de8459068bb1ac4363d6a9faafe
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 8a8e8fae151b0d9be318d4dfad832ead34ef04da
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206634"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738083"
 ---
 # <a name="analyze-data-with-a-serverless-sql-pool"></a>Analyser des données avec un pool SQL serverless
 
@@ -28,6 +28,9 @@ Les pools SQL serverless vous permettent d’utiliser SQL sans avoir de capacit�
 Chaque espace de travail est fourni avec un pool SQL serverless préconfiguré, dit **Intégré**. 
 
 ## <a name="analyze-nyc-taxi-data-with-a-serverless-sql-pool"></a>Analyser les données de NYC Taxi avec un pool SQL serverless
+ 
+> [!NOTE]
+> Vérifiez que vous avez [placé les exemples de données dans le compte de stockage principal](get-started-create-workspace.md#place-sample-data-into-the-primary-storage-account).
 
 1. Dans Synapse Studio, accédez au hub **Développer**
 1. Un nouveau script SQL est alors créé.
@@ -97,7 +100,7 @@ En revanche, si vous approfondissez l’exploration des données, vous risquez d
     FROM
         OPENROWSET(
                 BULK '/users/NYCTripSmall.parquet',
-                DATA_SOURCE = 'ContosoLake'
+                DATA_SOURCE = 'ContosoLake',
                 FORMAT='PARQUET'
         ) AS [result]
     ```

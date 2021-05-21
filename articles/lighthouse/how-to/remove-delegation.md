@@ -1,18 +1,18 @@
 ---
 title: Supprimer l’accès à une délégation
 description: Découvrez comment supprimer l’accès aux ressources qui ont été déléguées à un fournisseur de services pour Azure Lighthouse.
-ms.date: 02/16/2021
+ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: c53b678ba6e37ece1bcaf2860abceb9eea980532
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a127eb47e48796225df6118159485e2c327eb704
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555781"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785941"
 ---
 # <a name="remove-access-to-a-delegation"></a>Supprimer l’accès à une délégation
 
-Une fois que le groupe de ressources ou l’abonnement d’un client a été délégué à un fournisseur de services pour [Azure Lighthouse](../overview.md), la délégation peut être supprimée si nécessaire. Une fois qu’une délégation est supprimée, l’accès à [la gestion des ressources déléguées Azure Lighthouse](../concepts/azure-delegated-resource-management.md) précédemment accordé aux utilisateurs du locataire du fournisseur de services ne s’appliquera plus.
+Une fois que le groupe de ressources ou l’abonnement d’un client a été délégué à un fournisseur de services pour [Azure Lighthouse](../overview.md), la délégation peut être supprimée si nécessaire. Une fois qu’une délégation est supprimée, l’accès à [la gestion des ressources déléguées Azure Lighthouse](../concepts/architecture.md) précédemment accordé aux utilisateurs du locataire du fournisseur de services ne s’appliquera plus.
 
 La suppression d’une délégation peut être effectuée par un utilisateur dans le locataire du client ou dans le locataire du fournisseur de services, tant que l’utilisateur dispose des autorisations appropriées.
 
@@ -97,6 +97,6 @@ az managedservices assignment delete --assignment <id or full resourceId>
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez [Gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md).
+- Découvrez l’[architecture d’Azure Lighthouse](../concepts/architecture.md).
 - [Affichez et gérez les clients](view-manage-customers.md) en accédant à **Mes clients** sur le portail Azure.
 - Apprenez à [mettre à jour une délégation précédente](update-delegation.md).
