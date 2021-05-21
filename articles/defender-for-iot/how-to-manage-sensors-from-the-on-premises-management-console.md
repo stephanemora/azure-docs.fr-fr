@@ -1,14 +1,14 @@
 ---
 title: Gérer les capteurs depuis la console de gestion locale
 description: Apprenez à gérer des capteurs à partir de la console de gestion, notamment la mise à jour des versions de capteur, l’envoi (push) des paramètres système aux capteurs et l’activation et la désactivation de moteurs sur les capteurs.
-ms.date: 12/07/2020
+ms.date: 04/22/2021
 ms.topic: how-to
-ms.openlocfilehash: 4706fbcf58b8e5f5eed6532f9a08f65c7716e07e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2a1f1dbd69013db63365b64e255225c465b67238
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781923"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734840"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Gérer les capteurs depuis la console de gestion
 
@@ -42,25 +42,25 @@ Pour appliquer les paramètres système :
 
 1. Dans le volet gauche de la console, sélectionnez **Paramètres système**.
 
-2. Dans le volet **Configurer les capteurs**, sélectionnez l’une des options.
+1. Dans le volet **Configurer les capteurs**, sélectionnez l’une des options.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-system-setting-options.png" alt-text="Options de paramètre système pour un capteur.":::
 
    L’exemple suivant décrit la façon de définir des paramètres de serveur de messagerie pour vos capteurs d’entreprise.
 
-3. Sélectionnez **Serveur de messagerie**.
+1. Sélectionnez **Serveur de messagerie**.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/edit-system-settings-screen.png" alt-text="Sélectionnez votre serveur de messagerie dans l’écran Paramètres système.":::
 
-4. Sélectionnez un capteur sur la gauche.
+1. Sélectionnez un capteur sur la gauche.
 
-5. Définissez les paramètres du serveur de messagerie et sélectionnez **Dupliquer**. Chaque élément de l’arborescence du capteur apparaît avec une case à cocher à côté.
+1. Définissez les paramètres du serveur de messagerie et sélectionnez **Dupliquer**. Chaque élément de l’arborescence du capteur apparaît avec une case à cocher à côté.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/check-off-each-sensor.png" alt-text="Vérifiez que les cases sont cochées pour vos capteurs.":::
 
-6. Dans l’arborescence du capteur, sélectionnez les éléments auxquels vous souhaitez appliquer la configuration.
+1. Dans l’arborescence du capteur, sélectionnez les éléments auxquels vous souhaitez appliquer la configuration.
 
-7. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 ## <a name="update-versions"></a>Mettre à jour les versions
 
@@ -70,35 +70,53 @@ Pour mettre à jour plusieurs capteurs :
 
 1. Accédez au [portail Azure](https://portal.azure.com/).
 
-2. Accédez à Azure Defender pour IoT.
+1. Accédez à Azure Defender pour IoT.
 
-3. Accédez à la page **Mises à jour**.
+1. Accédez à la page **Mises à jour**.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/update-screen.png" alt-text="Capture d’écran de la vue du tableau de bord Mises à jour.":::
 
-4. Sélectionnez **Télécharger** dans la section **Capteurs** et enregistrez le fichier.
+1. Sélectionnez **Télécharger** dans la section **Capteurs** et enregistrez le fichier.
 
-5. Connectez-vous à la console de gestion et sélectionnez **Paramètres système**.
+1. Connectez-vous à la console de gestion et sélectionnez **Paramètres système**.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/admin-system-settings.png" alt-text="Capture d’écran du menu Administration pour sélectionner Paramètres système.":::
 
-6. Marquez les capteurs que vous souhaitez mettre à jour dans la section **Configuration des moteurs des capteurs**, puis sélectionnez **Mises à jour automatiques**.
+1. Sélectionnez les capteurs à mettre à jour dans la section **Configuration des moteurs des capteurs**, puis sélectionnez **Mises à jour automatiques**.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensors-select.png" alt-text="Deux capteurs indiquant le mode d’apprentissage et les mises à jour automatiques.":::
 
-7. Sélectionnez **Enregistrer les modifications**.
+1. Sélectionnez **Enregistrer les modifications**.
 
-8. Dans le volet **Mise à niveau de la version des capteurs**, sélectionnez :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/plus-icon.png" border="false":::.
+1. Sur le capteur, sélectionnez **Paramètres système** puis **Mettre à jour**.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/display-files.png" alt-text="Écran de mise à niveau de la version des capteurs pour afficher les fichiers.":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Capture d'écran du volet Mettre à jour.":::
 
 9. Un boîte de dialogue **Télécharger un fichier** s’ouvre. Chargez le fichier que vous avez téléchargé à partir de la page **Mises à jour**.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/upload-file.png" alt-text="Sélectionnez le bouton Parcourir pour charger votre fichier.":::
+    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/upload-file.png" alt-text="Sélectionnez le bouton Parcourir pour charger votre fichier.":::
 
-10. Pendant le processus de mise à jour, l’état de mise à jour de chaque capteur s’affiche dans la fenêtre **Gestion des sites**.
+Vous pouvez surveiller l'état de mise à jour de chaque capteur dans la fenêtre **Gestion des sites**.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/progress.png" alt-text="Observez la progression de votre mise à jour.":::
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/progress.png" alt-text="Observez la progression de votre mise à jour.":::
+
+### <a name="update-sensors-from-the-on-premises-management-console"></a>Mettre à jour les capteurs depuis la console de gestion locale
+
+Vous pouvez consulter l'état de mise à jour de vos capteurs à partir de la console de gestion. Si la mise à jour a échoué, vous pouvez effectuer une nouvelle tentative à partir de la console de gestion locale (versions 2.3.5 et suivantes).
+
+Pour mettre à jour le capteur à partir de la console de gestion locale :
+
+1. Connectez-vous à la console de gestion locale et accédez à la page **Gestion des sites**.
+
+1. Repérez les capteurs qui ont **échoué** dans la colonne Progression de la mise à jour et sélectionnez le bouton de téléchargement. 
+
+    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/download-update-button.png" alt-text="Sélectionnez l'icône de téléchargement pour essayer de télécharger et d'installer la mise à jour de votre capteur.":::
+
+Vous pouvez surveiller l'état de mise à jour de chaque capteur dans la fenêtre **Gestion des sites**.
+
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/progress.png" alt-text="Observez la progression de votre mise à jour.":::
+
+Si vous ne parvenez pas à mettre à jour le capteur, contactez le support technique pour obtenir de l'aide.
 
 ## <a name="update-threat-intelligence-packages"></a>Mettre à jour des packages de renseignement sur les menaces 
 
@@ -110,17 +128,17 @@ Pour mettre à jour les données de renseignement sur les menaces :
 
 1. Accédez à la page **Mises à jour** de Defender pour IoT. 
 
-2. Téléchargez et enregistrez le fichier.
+1. Téléchargez et enregistrez le fichier.
 
-3. Connectez-vous à la console de gestion. 
+1. Connectez-vous à la console de gestion. 
 
-4. Dans le menu latéral, sélectionnez **Paramètres système**. 
+1. Dans le menu latéral, sélectionnez **Paramètres système**. 
 
-5. Sélectionnez les capteurs qui doivent recevoir la mise à jour dans la section **Configuration des moteurs des capteurs**.  
+1. Sélectionnez les capteurs qui doivent recevoir la mise à jour dans la section **Configuration des moteurs des capteurs**.  
 
-6. Dans la section **Sélectionner les données de renseignement sur les menaces**, sélectionnez le signe plus ( **+** ). 
+1. Dans la section **Sélectionner les données de renseignement sur les menaces**, sélectionnez le signe plus ( **+** ). 
 
-7. Chargez le package que vous avez téléchargé à partir de la page **Mises à jour** de Defender pour IoT.
+1. Chargez le package que vous avez téléchargé à partir de la page **Mises à jour** de Defender pour IoT.
 
 ## <a name="understand-sensor-disconnection-events"></a>Comprendre les événements de déconnexion des capteurs
 
@@ -153,9 +171,9 @@ Pour activer ou désactiver des moteurs pour les capteurs connectés :
 
 1. Dans le volet gauche de la console, sélectionnez **Paramètres système**.
 
-2. Dans la section **Configuration des moteurs des capteurs**, sélectionnez **Activer** ou **Désactiver** pour les moteurs.
+1. Dans la section **Configuration des moteurs des capteurs**, sélectionnez **Activer** ou **Désactiver** pour les moteurs.
          
-3. Sélectionnez **ENREGISTRER LES MODIFICATIONS**.
+1. Sélectionnez **ENREGISTRER LES MODIFICATIONS**.
 
    Un point d’exclamation rouge s’affiche si les moteurs activés ne correspondent pas sur l’un des capteurs de votre entreprise. Le moteur a peut-être été désactivé directement à partir du capteur.
 
@@ -217,21 +235,21 @@ Pour sauvegarder des capteurs :
 
 1. Sélectionnez **Planifier la sauvegarde des capteurs** dans la fenêtre **Paramètres système**. Les capteurs gérés par votre console de gestion locale s’affichent dans la boîte de dialogue **Planification des sauvegardes des capteurs**.  
 
-2. Activez le bouton bascule **Collecter les sauvegardes**.  
+1. Activez le bouton bascule **Collecter les sauvegardes**.  
 
-3. Sélectionnez un intervalle de calendrier, une date et un fuseau horaire. Le format de l’heure est basé sur une horloge numérique de 24 heures. Par exemple, entrez 18 h sous la forme **18:00**. 
+1. Sélectionnez un intervalle de calendrier, une date et un fuseau horaire. Le format de l’heure est basé sur une horloge numérique de 24 heures. Par exemple, entrez 18 h sous la forme **18:00**. 
 
-4. Dans le champ **Allocation du stockage de sauvegarde**, entrez le stockage que vous souhaitez allouer à vos sauvegardes. Vous êtes averti si vous dépassez l’espace maximal.
+1. Dans le champ **Allocation du stockage de sauvegarde**, entrez le stockage que vous souhaitez allouer à vos sauvegardes. Vous êtes averti si vous dépassez l’espace maximal.
 
-5. Dans le champ **Conserver le dernier**, indiquez le nombre de sauvegardes par capteur que vous souhaitez conserver. Lorsque la limite est dépassée, la sauvegarde la plus ancienne est supprimée.  
+1. Dans le champ **Conserver le dernier**, indiquez le nombre de sauvegardes par capteur que vous souhaitez conserver. Lorsque la limite est dépassée, la sauvegarde la plus ancienne est supprimée.  
 
-6. Choisissez un emplacement de sauvegarde :  
+1. Choisissez un emplacement de sauvegarde :  
 
    - Pour effectuer une sauvegarde sur la console de gestion locale, désactivez le bouton bascule **Chemin personnalisé**. L’emplacement par défaut est `/var/cyberx/sensor-backups`.  
 
    - Pour effectuer une sauvegarde sur un serveur externe, activez le bouton bascule **Chemin personnalisé** et entrez un emplacement. Les nombres et caractères suivants sont pris en charge : `/, a-z, A-Z, 0-9, and, _`. 
 
-7. Sélectionnez **Enregistrer**. 
+1. Sélectionnez **Enregistrer**. 
 
 Pour sauvegarder immédiatement : 
 
@@ -277,39 +295,39 @@ Pour configurer un serveur SMB afin de pouvoir enregistrer une sauvegarde de cap
 
 1. Créez un dossier partagé sur le serveur SMB externe. 
 
-2. Obtenez le chemin d’accès au dossier, le nom d’utilisateur et le mot de passe requis pour accéder au serveur SMB. 
+1. Obtenez le chemin d’accès au dossier, le nom d’utilisateur et le mot de passe requis pour accéder au serveur SMB. 
 
-3. Dans Defender pour IoT, créez un répertoire pour les sauvegardes : 
+1. Dans Defender pour IoT, créez un répertoire pour les sauvegardes : 
 
    `sudo mkdir /<backup_folder_name_on_server>` 
 
    `sudo chmod 777 /<backup_folder_name_on_server>/` 
 
-4. Modifiez fstab :  
+1. Modifiez fstab :  
 
    `sudo nano /etc/fstab` 
 
    `add - //<server_IP>/<folder_path> /<backup_folder_name_on_cyberx_server> cifs rw,credentials=/etc/samba/user,vers=3.0,uid=cyberx,gid=cyberx,file_mode=0777,dir_mode=0777 0 0` 
 
-5. Modifiez ou créez des informations d’identification à partager. Il s’agit des informations d’identification du serveur SMB : 
+1. Modifiez ou créez des informations d’identification à partager. Il s’agit des informations d’identification du serveur SMB : 
 
    `sudo nano /etc/samba/user` 
 
-6. Ajoutez :  
+1. Ajoutez :  
 
    `username=<user name>` 
 
    `password=<password>` 
 
-7. Montez le répertoire : 
+1. Montez le répertoire : 
 
    `sudo mount -a` 
 
-8. Configurez un répertoire de sauvegarde dans le dossier partagé sur le capteur Defender pour IoT :  
+1. Configurez un répertoire de sauvegarde dans le dossier partagé sur le capteur Defender pour IoT :  
 
    `sudo nano /var/cyberx/properties/backup.properties` 
 
-9. Définissez `Backup.shared_location` sur `<backup_folder_name_on_cyberx_server>`.
+1. Définissez `Backup.shared_location` sur `<backup_folder_name_on_cyberx_server>`.
 
 ## <a name="see-also"></a>Voir aussi
 

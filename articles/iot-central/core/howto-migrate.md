@@ -1,22 +1,20 @@
 ---
 title: Migrer une application Azure IoT Central v2 vers v3 | Microsoft Docs
-description: En tant qu’administrateur, découvrez comment migrer votre application Azure IoT Central v2 vers la version 3.
+description: Découvrez comment migrer votre application Azure IoT Central v2 vers la version 3.
 author: troyhopwood
 ms.author: troyhop
 ms.date: 01/18/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 735ad7ad9ded6baded59ab3f08e239d1c8376b74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0868720668f5db09748e6976327f1500bc8a4781
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702723"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733352"
 ---
 # <a name="migrate-your-v2-iot-central-application-to-v3"></a>Migrer votre application IoT Central v2 vers v3
-
-*Cet article concerne les administrateurs.*
 
 Actuellement, lorsque vous créez une application IoT Central, il s’agit d’une application v3. Si vous avez déjà créé une application, selon la date à laquelle vous l’avez créée, il peut s’agir d’une application v2. Cet article explique comment migrer une application v2 vers une application v3 pour vous assurer que vous utilisez les fonctionnalités d’IoT Central les plus récentes.
 

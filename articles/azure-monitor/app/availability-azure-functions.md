@@ -2,189 +2,191 @@
 title: Créer et exécuter des tests de disponibilité personnalisés avec Azure Functions
 description: Cette documentation explique comment créer une fonction Azure avec TrackAvailability() pour qu’elle s’exécute régulièrement selon la configuration spécifiée dans la fonction TimerTrigger. Les résultats de ce test sont envoyés à votre ressource Application Insights, où vous pouvez rechercher et signaler des données sur les résultats de disponibilité. Les tests personnalisés vous permettent d’écrire des tests de disponibilité plus complexes qu’avec l’IU du portail, de superviser une application dans votre réseau virtuel Azure, de changer l’adresse du point de terminaison ou de créer un test de disponibilité, si ce dernier n’est pas disponible dans votre région.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 98d9eaadb31ffdeabe85752f7c76bdd4f7c0d4f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/06/2021
+ms.openlocfilehash: 891f69bd42dc228e01e7b341630e7f37522f9828
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589941"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109628152"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Créer et exécuter des tests de disponibilité personnalisés avec Azure Functions
 
 Cet article explique comment créer une fonction Azure avec TrackAvailability() pour qu’elle s’exécute régulièrement selon la configuration spécifiée dans la fonction TimerTrigger avec votre propre logique métier. Les résultats de ce test sont envoyés à votre ressource Application Insights, où vous pouvez rechercher et signaler des données sur les résultats de disponibilité. Cela vous permet de créer des tests personnalisés similaires à ceux que vous pouvez effectuer via la [supervision de la disponibilité](./monitor-web-app-availability.md) dans le portail. Les tests personnalisés vous permettent d’écrire des tests de disponibilité plus complexes qu’avec l’IU du portail, de superviser une application dans votre réseau virtuel Azure, de changer l’adresse du point de terminaison ou de créer un test de disponibilité même si cette fonctionnalité n’est pas disponible dans votre région.
 
 > [!NOTE]
-> Cet exemple est conçu uniquement pour vous montrer comment fonctionne l’appel d’API TrackAvailability() au sein d’une fonction Azure. Notez comment écrire le code de test HTTP sous-jacent/la logique métier nécessaires pour convertir ce code en test de disponibilité entièrement fonctionnel. Par défaut, si vous passez en revue cet exemple, vous allez créer un test de disponibilité qui génère toujours un échec.
+> Cet exemple est conçu uniquement pour vous montrer comment fonctionne l’appel d’API TrackAvailability() au sein d’une fonction Azure. Notez comment écrire le code de test HTTP sous-jacent/la logique métier nécessaires pour convertir ce code en test de disponibilité entièrement fonctionnel. Par défaut, si vous suivez cet exemple, vous allez créer un test HTTP GET de disponibilité de base.
 
-## <a name="create-timer-triggered-function"></a>Créer une fonction déclenchée par un minuteur
+## <a name="create-a-timer-trigger-function"></a>Créer une fonction de déclencheur de minuteur
 
-- Si vous avez une ressource Application Insights :
-    - Par défaut, Azure Functions crée une ressource Application Insights, mais si vous souhaitez utiliser l’une de vos ressources déjà créées, vous devez le spécifier durant la création.
-    - Suivez les instructions permettant de [créer une ressource Azure Functions et une fonction déclenchée par un minuteur](../../azure-functions/functions-create-scheduled-function.md) (arrêter avant le nettoyage) avec les choix suivants.
-        -  Sélectionnez l’onglet **Supervision** en haut.
+1. Créez une ressource Azure Functions.
+    - Si vous avez déjà une ressource Application Insights :
+        - Par défaut, Azure Functions crée une ressource Application Insights, mais si vous souhaitez utiliser l’une de vos ressources déjà créées, vous devez le spécifier durant la création.
+        - Suivez les instructions de [création d'une ressource Azure Functions](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app) en intégrant la modification suivante :
+            - Sous l'onglet **Supervision**, sélectionnez la zone déroulante Application Insights, puis entrez ou sélectionnez le nom de votre ressource.
+                :::image type="content" source="media/availability-azure-functions/app-insights-resource.png" alt-text="Sous l'onglet Supervision, sélectionnez votre ressource Application Insights existante.":::
+    - Si vous n’avez pas encore créé de ressource Application Insights pour votre fonction déclenchée par un minuteur :
+        - Par défaut, quand vous créez votre application Azure Functions, une ressource Application Insights est créée automatiquement. Suivez les instructions de [création d'une ressource Azure Functions](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app).
+    > [!NOTE]
+    > Vous pouvez héberger vos fonctions sur un plan Consommation, Premium ou App Service. Si vous effectuez un test derrière un réseau virtuel ou si vous testez des points de terminaison non publics, vous devrez utiliser le plan Premium à la place du plan Consommation. Sélectionnez votre plan sous l'onglet **Hébergement**.
+2. Créez une fonction de déclencheur de minuteur.
+    1. Sous votre application de fonction, sélectionnez l'onglet **Fonction**.
+    1. Sélectionnez **Ajouter** et, sous l'onglet Ajouter une fonction, sélectionnez les configurations suivantes :
+        1. Environnement de développement : *Développer sur le portail*
+        1. Sélectionnez un modèle : *Déclencheur de minuteur*
+    1. Sélectionnez **Ajouter** pour créer la fonction de déclencheur de minuteur.
 
-            ![ Créer une application Azure Functions avec votre propre ressource App Insights](media/availability-azure-functions/create-function-app.png)
+    :::image type="content" source="media/availability-azure-functions/add-function.png" alt-text="Capture d'écran montrant comment ajouter une fonction de déclencheur de minuteur à votre application de fonction." lightbox="media/availability-azure-functions/add-function.png":::
 
-        - Sélectionnez la zone de liste déroulante Application Insights et tapez ou sélectionnez le nom de votre ressource.
+## <a name="add-and-edit-code-in-the-app-service-editor"></a>Ajouter et modifier le code dans l'Éditeur App Service
 
-            ![Sélection d’une ressource Application Insights existante](media/availability-azure-functions/app-insights-resource.png)
+Accédez à l'application de fonction déployée et, sous *Outils de développement*, sélectionnez l'onglet **Éditeur App Service**.
 
-        - Sélectionner **Vérifier + créer**
-- Si vous n’avez pas encore créé de ressource Application Insights pour votre fonction déclenchée par un minuteur :
-    - Par défaut, quand vous créez votre application Azure Functions, une ressource Application Insights est créée automatiquement.
-    - Suivez les instructions permettant de [créer une ressource Azure Functions et une fonction déclenchée par un minuteur](../../azure-functions/functions-create-scheduled-function.md) (arrêter avant le nettoyage).
+Pour créer un fichier, cliquez avec le bouton droit sous votre fonction de déclencheur de minuteur (par exemple « TimerTrigger1 ») et sélectionnez **Nouveau fichier**. Entrez ensuite le nom du fichier et appuyez sur Entrée.
 
-## <a name="sample-code"></a>Exemple de code
+1. Créez un fichier appelé « function.proj » et collez-y le code suivant :
 
-Copiez le code ci-dessous dans le fichier run.csx (cette opération remplace le code préexistant). Pour ce faire, accédez à votre application Azure Functions, puis sélectionnez votre fonction avec déclenchement par minuteur sur la gauche.
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk"> 
+        <PropertyGroup> 
+            <TargetFramework>netstandard2.0</TargetFramework> 
+        </PropertyGroup> 
+        <ItemGroup> 
+            <PackageReference Include="Microsoft.ApplicationInsights" Version="2.15.0" /> <!-- Ensure you’re using the latest version --> 
+        </ItemGroup> 
+    </Project> 
+    
+    ```
 
->[!div class="mx-imgBorder"]
->![Fichier run.csx de la fonction Azure dans le portail Azure](media/availability-azure-functions/runcsx.png)
+     :::image type="content" source="media/availability-azure-functions/function-proj.png" alt-text="Capture d'écran du fichier function.proj dans l'Éditeur App Service." lightbox="media/availability-azure-functions/function-proj.png":::
 
-> [!NOTE]
-> Pour l’adresse du point de terminaison, utilisez `EndpointAddress= https://dc.services.visualstudio.com/v2/track`. Si votre ressource se trouve dans une région comme Azure Government ou Azure Chine, consultez cet article sur le [remplacement des points de terminaison par défaut](./custom-endpoints.md#regions-that-require-endpoint-modification), puis sélectionnez le point de terminaison de canal de télémétrie approprié pour votre région.
+2. Créez un fichier nommé « runAvailabilityTest.csx » et collez-y le code suivant :
 
-```C#
-#load "runAvailabilityTest.csx&quot;
- 
-using System;
-using System.Diagnostics;
-using Microsoft.ApplicationInsights;
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.DataContracts;
-using Microsoft.ApplicationInsights.Extensibility;
- 
-// The Application Insights Instrumentation Key can be changed by going to the overview page of your Function App, selecting configuration, and changing the value of the APPINSIGHTS_INSTRUMENTATIONKEY Application setting.
-// DO NOT replace the code below with your instrumentation key, the key's value is pulled from the environment variable/application setting key/value pair.
-private static readonly string instrumentationKey = Environment.GetEnvironmentVariable(&quot;APPINSIGHTS_INSTRUMENTATIONKEY");
- 
-//[CONFIGURATION_REQUIRED]
-// If your resource is in a region like Azure Government or Azure China, change the endpoint address accordingly.
-// Visit https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification for more details.
-private const string EndpointAddress = "https://dc.services.visualstudio.com/v2/track";
- 
-private static readonly TelemetryConfiguration telemetryConfiguration = new TelemetryConfiguration(instrumentationKey, new InMemoryChannel { EndpointAddress = EndpointAddress });
-private static readonly TelemetryClient telemetryClient = new TelemetryClient(telemetryConfiguration);
- 
-public async static Task Run(TimerInfo myTimer, ILogger log)
-{
-    log.LogInformation($"Entering Run at: {DateTime.Now}");
- 
-    if (myTimer.IsPastDue)
-    {
-        log.LogWarning($"[Warning]: Timer is running late! Last ran at: {myTimer.ScheduleStatus.Last}");
-    }
- 
-    // [CONFIGURATION_REQUIRED] provide {testName} accordingly for your test function
-    string testName = "AvailabilityTestFunction";
- 
-    // REGION_NAME is a default environment variable that comes with App Service
-    string location = Environment.GetEnvironmentVariable("REGION_NAME");
- 
-    log.LogInformation($"Executing availability test run for {testName} at: {DateTime.Now}");
-    string operationId = Guid.NewGuid().ToString("N");
- 
-    var availability = new AvailabilityTelemetry
-    {
-        Id = operationId,
-        Name = testName,
-        RunLocation = location,
-        Success = false
-    };
- 
-    var stopwatch = new Stopwatch();
-    stopwatch.Start();
- 
-    try
-    {
-        await RunAvailbiltyTestAsync(log);
-        availability.Success = true;
-    }
-    catch (Exception ex)
-    {
-        availability.Message = ex.Message;
- 
-        var exceptionTelemetry = new ExceptionTelemetry(ex);
-        exceptionTelemetry.Context.Operation.Id = operationId;
-        exceptionTelemetry.Properties.Add("TestName", testName);
-        exceptionTelemetry.Properties.Add("TestLocation", location);
-        telemetryClient.TrackException(exceptionTelemetry);
-    }
-    finally
-    {
-        stopwatch.Stop();
-        availability.Duration = stopwatch.Elapsed;
-        availability.Timestamp = DateTimeOffset.UtcNow;
- 
-        telemetryClient.TrackAvailability(availability);
-        // call flush to ensure telemetry is sent
-        telemetryClient.Flush();
-    }
-}
+    ```csharp
+    using System.Net.Http; 
+    
+    public async static Task RunAvailabilityTestAsync(ILogger log) 
+    { 
+        using (var httpClient = new HttpClient()) 
+        { 
+            // TODO: Replace with your business logic 
+            await httpClient.GetStringAsync("https://www.bing.com/"); 
+        } 
+    } 
+    ```
 
-```
+3. Copiez le code ci-dessous dans le fichier run.csx (cette opération remplace le code préexistant) :
 
-À droite, sous Afficher les fichiers, sélectionnez **Ajouter**. Appelez le nouveau fichier **function.proj** avec la configuration suivante.
-
-```C#
-<Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights" Version="2.15.0" /> <!-- Ensure you’re using the latest version -->
-    </ItemGroup>
-</Project>
-
-```
-
->[!div class="mx-imgBorder"]
->![À droite, sélectionnez Ajouter. Nommer le fichier function.proj](media/availability-azure-functions/addfile.png)
-
-À droite, sous Afficher les fichiers, sélectionnez **Ajouter**. Appelez le nouveau fichier **runAvailabilityTest.csx** avec la configuration suivante.
-
-```C#
-public async static Task RunAvailbiltyTestAsync(ILogger log)
-{
-    // Add your business logic here.
-    throw new NotImplementedException();
-}
-
-```
+    ```csharp
+    #load "runAvailabilityTest.csx" 
+    
+    using System; 
+    
+    using System.Diagnostics; 
+    
+    using Microsoft.ApplicationInsights; 
+    
+    using Microsoft.ApplicationInsights.Channel; 
+    
+    using Microsoft.ApplicationInsights.DataContracts; 
+    
+    using Microsoft.ApplicationInsights.Extensibility; 
+    
+    private static TelemetryClient telemetryClient; 
+    
+    // ============================================================= 
+    
+    // ****************** DO NOT MODIFY THIS FILE ****************** 
+    
+    // Business logic must be implemented in RunAvailabilityTestAsync function in runAvailabilityTest.csx 
+    
+    // If this file does not exist, please add it first 
+    
+    // ============================================================= 
+    
+    public async static Task Run(TimerInfo myTimer, ILogger log, ExecutionContext executionContext) 
+    
+    { 
+        if (telemetryClient == null) 
+        { 
+            // Initializing a telemetry configuration for Application Insights based on connection string 
+    
+            var telemetryConfiguration = new TelemetryConfiguration(); 
+            telemetryConfiguration.ConnectionString = Environment.GetEnvironmentVariable("APPLICATIONINSIGHTS_CONNECTION_STRING"); 
+            telemetryConfiguration.TelemetryChannel = new InMemoryChannel(); 
+            telemetryClient = new TelemetryClient(telemetryConfiguration); 
+        } 
+    
+        string testName = executionContext.FunctionName; 
+        string location = Environment.GetEnvironmentVariable("REGION_NAME"); 
+        var availability = new AvailabilityTelemetry 
+        { 
+            Name = testName, 
+    
+            RunLocation = location, 
+    
+            Success = false, 
+        }; 
+    
+        availability.Context.Operation.ParentId = Activity.Current.SpanId.ToString(); 
+        availability.Context.Operation.Id = Activity.Current.RootId; 
+        var stopwatch = new Stopwatch(); 
+        stopwatch.Start(); 
+    
+        try 
+        { 
+            using (var activity = new Activity("AvailabilityContext")) 
+            { 
+                activity.Start(); 
+                availability.Id = Activity.Current.SpanId.ToString(); 
+                // Run business logic 
+                await RunAvailabilityTestAsync(log); 
+            } 
+            availability.Success = true; 
+        } 
+    
+        catch (Exception ex) 
+        { 
+            availability.Message = ex.Message; 
+            throw; 
+        } 
+    
+        finally 
+        { 
+            stopwatch.Stop(); 
+            availability.Duration = stopwatch.Elapsed; 
+            availability.Timestamp = DateTimeOffset.UtcNow; 
+            telemetryClient.TrackAvailability(availability); 
+            telemetryClient.Flush(); 
+        } 
+    } 
+    
+    ```
 
 ## <a name="check-availability"></a>Vérifier la disponibilité
 
 Pour vérifier que tout fonctionne correctement, vous pouvez consulter le graphe sous l’onglet Disponibilité de votre ressource Application Insights.
 
 > [!NOTE]
-> Si vous avez implémenté votre propre logique métier dans runAvailabilityTest.csx, vous allez voir des résultats corrects comme dans les captures d’écran ci-dessous. Dans le cas contraire, les résultats sont incorrects. Les tests créés à l’aide de `TrackAvailability()` s’affichent avec **CUSTOM** à côté du nom du test.
+> Les tests créés à l'aide de TrackAvailability() apparaissent avec la mention **CUSTOM** en regard du nom du test.
 
->[!div class="mx-imgBorder"]
->![Onglet Disponibilité avec des résultats réussis](media/availability-azure-functions/availability-custom.png)
+ :::image type="content" source="media/availability-azure-functions/availability-custom.png" alt-text="Onglet Disponibilité avec des résultats réussis." lightbox="media/availability-azure-functions/availability-custom.png":::
 
 Pour voir les détails de la transaction de bout en bout, sélectionnez **Réussite** ou **Échec** dans Explorer, puis sélectionnez un exemple. Vous pouvez également accéder aux détails de la transaction de bout en bout en sélectionnant un point de données sur le graphe.
 
->[!div class="mx-imgBorder"]
->![Sélectionner un exemple de test de disponibilité](media/availability-azure-functions/sample.png)
+:::image type="content" source="media/availability-azure-functions/sample.png" alt-text="Sélectionner un exemple de test de disponibilité.":::
 
->[!div class="mx-imgBorder"]
->![Détails de la transaction de bout en bout](media/availability-azure-functions/end-to-end.png)
-
-Si vous avez tout exécuté tel quel (sans ajouter de logique métier), vous allez voir que le test a échoué.
+:::image type="content" source="media/availability-azure-functions/end-to-end.png" alt-text="Détails de la transaction de bout en bout." lightbox="media/availability-azure-functions/end-to-end.png":::
 
 ## <a name="query-in-logs-analytics"></a>Interroger les journaux (Analytics)
 
 Vous pouvez utiliser les journaux (Analytics) pour voir les résultats de la disponibilité, les dépendances, etc. Pour en savoir plus sur les journaux, consultez [Vue d’ensemble des requêtes de journal](../logs/log-query-overview.md).
 
->[!div class="mx-imgBorder"]
->![Résultats de disponibilité](media/availability-azure-functions/availabilityresults.png)
+:::image type="content" source="media/availability-azure-functions/availabilityresults.png" alt-text="Résultats de disponibilité." lightbox="media/availability-azure-functions/availabilityresults.png":::
 
->[!div class="mx-imgBorder"]
->![Screenshot shows New Query tab with dependencies limited to 50.](media/availability-azure-functions/dependencies.png)
+:::image type="content" source="media/availability-azure-functions/dependencies.png" alt-text="Screenshot shows New Query tab with dependencies limited to 50." lightbox="media/availability-azure-functions/dependencies.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Plan de l’application](./app-map.md)
 - [Diagnostics de transaction](./transaction-diagnostics.md)
-

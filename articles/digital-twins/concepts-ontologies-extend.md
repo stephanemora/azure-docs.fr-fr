@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 547081122b1bc6611200e2abc2042a111e4284e1
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 48a5ddcdb3d66e54b2405a67f0f66d17b8080882
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208074"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734396"
 ---
 # <a name="extending-ontologies"></a>Extension d’ontologies 
 

@@ -1,14 +1,14 @@
 ---
 title: Résoudre les problèmes du capteur et de la console de gestion locale
 description: Dépannez votre capteur et la console de gestion locale pour éliminer les problèmes que vous pourriez rencontrer.
-ms.date: 03/14/2021
+ms.date: 04/22/2021
 ms.topic: article
-ms.openlocfilehash: e20c11e869ebeea0b4fc7f917dd8cebba7a69c5c
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: aac8fb9d3b6c102d72cf427cae46b8530b94cc0f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209046"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734630"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Résoudre les problèmes du capteur et de la console de gestion locale
 
@@ -165,7 +165,7 @@ Pour corriger la configuration :
 
 1. Dans le rapport d’exploration de données, sélectionnez :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: pour passer en mode administrateur et supprimer les adresses IP de vos périphériques ICS.
 
-### <a name="tweak-the-sensors-quality-of-service"></a>Ajuster la qualité de service du capteur
+### <a name="tweak-the-sensors-quality-of-service-qos"></a>Ajuster la qualité de service du capteur
 
 Pour économiser vos ressources réseau, vous pouvez limiter la bande passante de l’interface que le capteur utilise pour les procédures quotidiennes.
 
@@ -198,7 +198,7 @@ Si une alerte attendue n’est pas affichée dans la fenêtre **Alertes**, véri
 
 - Vérifiez que vous n’avez pas exclu cette alerte en utilisant les règles **Exclusion d’alerte** dans la console de gestion locale.  
 
-### <a name="tweak-the-quality-of-service"></a>Ajuster la qualité de service
+### <a name="tweak-the-quality-of-service-qos"></a>Ajuster la qualité de service
 
 Pour économiser vos ressources réseau, vous pouvez limiter le nombre d’alertes envoyées à des systèmes externes (tels que les e-mails ou les SIEM) en une seule opération de synchronisation entre une appliance et la console de gestion locale.
 

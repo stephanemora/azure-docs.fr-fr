@@ -1,14 +1,14 @@
 ---
 title: Installation de Defender pour IoT
 description: Découvrez comment installer un capteur et la console de gestion locale pour Azure Defender pour IoT.
-ms.date: 04/27/2021
+ms.date: 05/04/2021
 ms.topic: how-to
-ms.openlocfilehash: 77ff5a6d29544599a74bd6176e8b8e99a5c41968
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 2bbf9440dbae8c50569e18cccef7a2a0a2a7782a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076479"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108735284"
 ---
 # <a name="defender-for-iot-installation"></a>Installation de Defender pour IoT
 
@@ -906,8 +906,8 @@ La machine virtuelle de la console de gestion locale prend en charge les archite
 | Architecture | Spécifications | Utilisation | 
 |--|--|--|
 | Enterprise <br/>(Par défaut et la plus courante) | Processeur : 8 <br/>Mémoire : RAM 32 Go<br/> HDD : 1,8 To | Environnements de production volumineux | 
-| Enterprise | Processeur : 4 <br/> Mémoire : RAM 8 Go<br/> HDD : 500 Go | Environnements de production volumineux |
-| Enterprise | Processeur : 4 <br/>Mémoire : RAM 8 Go <br/> HDD : 100 Go | Petits environnements de test | 
+| Petite | Processeur : 4 <br/> Mémoire : RAM 8 Go<br/> HDD : 500 Go | Environnements de production volumineux |
+| Office | Processeur : 4 <br/>Mémoire : RAM 8 Go <br/> HDD : 100 Go | Petits environnements de test | 
    
 ### <a name="prerequisites"></a>Prérequis
 
@@ -1036,6 +1036,191 @@ Pour installer le logiciel :
 1. Accédez à la console de gestion à l’aide de l’adresse IP précédemment configurée : `<https://ip_address>`.
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-management-console-sign-in-screen.png" alt-text="Capture d’écran montrant l’écran de connexion de la console de gestion.":::
+
+## <a name="legacy-devices"></a>Appareils hérités
+
+Cette section décrit les appareils qui ne sont plus disponibles à l'achat, mais qui sont toujours pris en charge par Azure Defender pour IoT.
+
+### <a name="nuvo-5006lp-installation"></a>Installation du Nuvo 5006LP
+
+Cette section décrit la procédure d'installation du Nuvo 5006LP. Avant d'installer le logiciel sur le Nuvo 5006LP, vous devez ajuster la configuration du BIOS de l'appliance : 
+
+#### <a name="nuvo-5006lp-front-panel"></a>Panneau avant du Nuvo 5006LP
+
+:::image type="content" source="media/tutorial-install-components/nuvo5006lp_frontpanel.png" alt-text="Vue du panneau avant de l'appareil Nuvo 5006LP.":::
+
+1. Bouton d'alimentation, voyant d'alimentation
+1. Connecteurs vidéo DVI
+1. Connecteurs vidéo HDMI
+1. Connecteurs vidéo VGA
+1. Commande marche/arrêt à distance et sortie LED d'état
+1. Bouton de réinitialisation
+1. Carte réseau de gestion
+1. Ports permettant de recevoir les données mises en miroir
+
+#### <a name="nuvo-back-panel"></a>Panneau arrière du Nuvo
+
+:::image type="content" source="media/tutorial-install-components/nuvo5006lp_backpanel.png" alt-text="Vue du panneau arrière du Nuvo 5006lp.":::
+
+1. Emplacement carte SIM
+1. Micro et haut-parleurs
+1. Ports COM
+1. Connecteurs USB
+1. Port d'alimentation DC (DC IN)
+
+#### <a name="configure-the-nuvo-5006lp-bios"></a>Configurer le BIOS du Nuvo 5006LP
+
+La procédure suivante explique comment configurer le BIOS du Nuvo 5006LP. Assurez-vous que le système d'exploitation a déjà été installé sur l'appliance.
+
+Pour configurer le BIOS :
+
+1. Mettez l'appliance sous tension.
+
+1. Appuyez sur **F2** pour accéder à la configuration du BIOS.
+
+1. Accédez à **Power** et définissez « Power On after Power Failure » sur « S0-Power On ».
+
+    :::image type="content" source="media/tutorial-install-components/nuvo-power-on.png" alt-text="Faites en sorte que votre Nuvo 5006 s'allume après une panne de courant.":::
+
+1. Accédez à **Boot** et vérifiez que l'option **PXE Boot to LAN** est définie sur **Disabled**.
+
+1. Appuyez sur **F10** pour enregistrer, puis sélectionnez **Exit**. 
+
+#### <a name="software-installation-nuvo-5006lp"></a>Installation du logiciel (Nuvo 5006LP)
+
+Le processus d'installation prend environ 20 minutes. Après l'installation, le système redémarre plusieurs fois.
+
+1. Connectez le CD externe ou le disque sur clé avec l'image ISO.
+
+1. Démarrez l'appliance.
+
+1. Sélectionnez **Français**.
+
+1. Sélectionnez **XSENSE-RELEASE-<version> Office...** .
+
+    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Sélectionnez la version du capteur à installer.":::
+
+1. Définissez l'architecture de l'appliance et les propriétés du réseau :
+
+    :::image type="content" source="media/tutorial-install-components/nuvo-profile-appliance.png" alt-text="Définissez l'architecture du Nuvo et les propriétés du réseau.":::
+
+    | Paramètre | Configuration |
+    | ----------| ------------- |
+    | **Profil matériel** | Sélectionnez **Office**. |
+    | **Interface de gestion** | **eth0** |
+    | **Adresse IP du réseau de gestion** | **adresse IP fournie par le client** | 
+    | **Masque du sous-réseau de gestion** | **adresse IP fournie par le client** | 
+    | **DNS** | **adresse IP fournie par le client** |
+    | **Adresse IP par défaut de la passerelle** | **0.0.0.0** | 
+    | **Interface d'entrée** | La liste des interfaces d'entrée est automatiquement générée par le système. <br />Pour mettre en miroir les interfaces d’entrée, copiez tous les éléments présentés dans la liste en les séparant par une virgule. |
+    | **Interface de pont** | - |
+
+1. Acceptez les paramètres et continuez en entrant `Y`.
+
+Les informations d'identification sont automatiquement générées au bout d'une dizaine de minutes. Enregistrez le nom d’utilisateur et le mot de passe. Vous aurez besoin de ces informations d’identification pour accéder à la plateforme la première fois que vous l’utiliserez.
+
+### <a name="fitlet2-mini-sensor-installation"></a>Installation du mini-capteur Fitlet2
+
+Cette section décrit la procédure d'installation du Fitlet2. Avant d'installer le logiciel sur le Fitlet2, vous devez ajuster la configuration du BIOS de l'appliance :
+
+#### <a name="fitlet2-front-panel"></a>Panneau avant du Fitlet2 
+
+:::image type="content" source="media/tutorial-install-components/fitlet-front-panel.png" alt-text="Vue du panneau avant du Fitlet 2.":::
+
+#### <a name="fitlet2-back-panel"></a>Panneau arrière du Fitlet2
+
+:::image type="content" source="media/tutorial-install-components/fitlet2-back-panel.png" alt-text="Vue du panneau arrière du Fitlet2.":::
+
+#### <a name="configure-the-fitlet2-bios"></a>Configurez le BIOS du Fitlet2.
+
+1. Mettez l'appliance sous tension.
+
+1. Accédez à **Main** > **OS Selection**.
+
+1. Appuyez sur **+/-** pour sélectionner **Linux**.
+
+    :::image type="content" source="media/tutorial-install-components/fitlet-linux.png" alt-text="Définissez le système d'exploitation sur Linux sur votre Fitlet2.":::
+
+1. Vérifiez que la date et l'heure du système sont mises à jour avec la date et l'heure d'installation.
+
+1. Accédez à **Advanced** et sélectionnez **ACPI Settings**.
+
+1. Sélectionnez **Enable Hibernation** et appuyez sur **+/-** pour sélectionner **Disabled**.
+
+    :::image type="content" source="media/tutorial-install-components/disable-hibernation.png" alt-text="Désactiver le mode de mise en veille prolongée sur votre Fitlet2.":::
+
+1. Appuyez sur **Échap**.
+
+1. Accédez à **Advanced** > **TPM Configuration**.
+
+1. Sélectionnez **fTPM** et appuyez sur **+/-** pour sélectionner **Disabled**.
+
+1. Appuyez sur **Échap**.
+
+1. Accédez à **CPU Configuration** > **VT-d**.
+
+1. Appuyez sur **+/-** pour sélectionner **Enabled**.
+
+1. Accédez à **CSM Configuration** > **CSM Support**.
+
+1. Appuyez sur **+/-** pour sélectionner **Enabled**.
+1. Accédez à **Advanced** > **Boot option filter [Legacy only]** et définissez la valeur des champs suivants sur **Legacy** :
+    - Réseau
+    - Stockage
+    - Vidéo
+    - Autre PCI
+
+    :::image type="content" source="media/tutorial-install-components/legacy-only.png" alt-text="Définissez tous les champs sur Legacy.":::
+
+1. Appuyez sur **Échap**.
+
+1. Accédez à **Security** > **Secure Boot Customization**.
+
+1. Appuyez sur **+/-** pour sélectionner **Disabled**.
+
+1. Appuyez sur **Échap**.
+
+1. Accédez à **Boot** > **Boot mode** et sélectionnez **Legacy**.
+
+1. Sélectionnez **Boot Option #1 – [USB CD/DVD]** .
+ 
+1. Sélectionnez **Save & Exit**.
+
+#### <a name="software-installation-fitlet2"></a>Installation du logiciel (Fitlet2)
+
+Le processus d'installation prend environ 20 minutes. Après l'installation, le système redémarre plusieurs fois.
+
+1. Connectez le CD externe ou le disque sur clé avec l'image ISO.
+
+1. Démarrez l'appliance.
+
+1. Sélectionnez **Français**.
+
+1. Sélectionnez **XSENSE-RELEASE-<version> Office...** .
+
+    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Sélectionnez la version du capteur à installer.":::
+
+    > [!Note]
+    > Ne sélectionnez pas Ruggedized.
+
+1. Définissez l'architecture de l'appliance et les propriétés du réseau :
+
+    :::image type="content" source="media/tutorial-install-components/nuvo-profile-appliance.png" alt-text="Définissez l'architecture du Nuvo et les propriétés du réseau.":::
+
+    | Paramètre | Configuration |
+    | ----------| ------------- |
+    | **Profil matériel** | Sélectionnez **Office**. |
+    | **Interface de gestion** | **em1** |
+    | **Adresse IP du réseau de gestion** | **adresse IP fournie par le client** | 
+    | **Masque du sous-réseau de gestion** | **adresse IP fournie par le client** | 
+    | **DNS** | **adresse IP fournie par le client** |
+    | **Adresse IP par défaut de la passerelle** | **0.0.0.0** | 
+    | **Interface d'entrée** | La liste des interfaces d'entrée est automatiquement générée par le système. <br />Pour mettre en miroir les interfaces d’entrée, copiez tous les éléments présentés dans la liste en les séparant par une virgule. |
+    | **Interface de pont** | - |
+
+1. Acceptez les paramètres et continuez en entrant `Y`.
+
+Les informations d'identification sont automatiquement générées au bout d'une dizaine de minutes. Enregistrez le nom d’utilisateur et le mot de passe. Vous aurez besoin de ces informations d’identification pour accéder à la plateforme la première fois que vous l’utiliserez.
 
 ## <a name="post-installation-validation"></a>Validation après installation
 
@@ -1251,7 +1436,7 @@ Vous pouvez renforcer la sécurité du système en empêchant l’accès direct 
 
 Pour activer le tunneling :
 
-1. Connectez-vous à l’interface de ligne de commande de la console de gestion locale en utilisant les informations d’identification de l’utilisateur **CyberX** ou **Support**.
+1. Connectez-vous à l'interface de ligne de commande de la console de gestion locale en utilisant les informations d'identification de l'utilisateur **CyberX** ou **Support**.
 
 1. Entrez `sudo cyberx-management-tunnel-enable`.
 

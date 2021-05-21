@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: overview
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 05/06/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: 4241e476b2f778ff63057d0491b5dc8666c7520c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4428e349277bc8a1482f80620b178b098eb44b2f
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100650862"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480565"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?
 
@@ -44,13 +44,13 @@ Les attributions de rôles Azure vous permettent de contrôler l’accès aux re
 
 Un *principal de sécurité* est un objet qui représente un utilisateur, un groupe, un principal de service ou une identité managée demandant l’accès à des ressources Azure. Vous pouvez attribuer un rôle à l’un de ces principaux de sécurité.
 
-![Principe de sécurité d’une attribution de rôle](./media/shared/rbac-security-principal.png)
+![Schéma présentant les principaux types de sécurité pour l’attribution de rôle.](./media/shared/rbac-security-principal.png)
 
 ### <a name="role-definition"></a>Définition de rôle
 
 Une *définition de rôle* est une collection d’autorisations. Elle est généralement simplement appelée *rôle*. Une définition de rôle répertorie les opérations qui peuvent être effectuées, telles que lire, écrire et supprimer. Les rôles peuvent être de haut niveau, comme propriétaire, ou spécifiques, comme lecteur de machines virtuelles.
 
-![Définition de rôle pour une attribution de rôle](./media/shared/rbac-role-definition.png)
+![Schéma présentant un exemple de définition de rôle pour une attribution de rôle](./media/shared/rbac-role-definition.png)
 
 Azure inclut plusieurs [rôles intégrés](built-in-roles.md) que vous pouvez utiliser. Par exemple, le rôle de [contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) permet à l’utilisateur de créer et gérer des machines virtuelles. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés Azure](custom-roles.md).
 
@@ -68,7 +68,7 @@ Pour plus d’informations, consultez [Comprendre les définitions de rôle Azur
 
 Dans Azure, vous pouvez spécifier une étendue à quatre niveaux : [groupe d’administration](../governance/management-groups/overview.md), abonnement, [groupe de ressources](../azure-resource-manager/management/overview.md#resource-groups) ou ressource. Les étendues sont structurées dans une relation parent-enfant. Vous pouvez attribuer des rôles à n’importe de ces niveaux d’étendue.
 
-![Étendue pour une attribution de rôle](./media/shared/rbac-scope.png)
+![Schéma présentant les niveaux d’étendue d’une attribution de rôle.](./media/shared/rbac-scope.png)
 
 Pour plus d’informations sur l’étendue, consultez [Comprendre l’étendue](scope-overview.md).
 
@@ -78,7 +78,7 @@ Une *attribution de rôle* est le processus d’attachement d’une définition 
 
 Le diagramme suivant montre un exemple d’attribution de rôle. Dans cet exemple, le rôle de [contributeur](built-in-roles.md#contributor) a été attribué au groupe Marketing pour le groupe de ressources pharma-sales. Cela signifie que les utilisateurs du groupe Marketing peuvent créer ou gérer n’importe quelle ressource Azure dans le groupe de ressources pharma-sales. Les utilisateurs Marketing n’ont pas accès aux ressources en dehors du groupe de ressources pharma-sales, sauf si elles font partie d’une autre attribution de rôle.
 
-![Attribution de rôle pour contrôler les accès](./media/overview/rbac-overview.png)
+![Schéma présentant comment le principal de sécurité, la définition de rôle et l’étendue créent une attribution de rôle.](./media/overview/rbac-overview.png)
 
 Vous pouvez attribuer des rôles en utilisant le portail Azure, Azure PowerShell, Azure CLI, des SDK Azure ou des API REST.
 
@@ -88,7 +88,7 @@ Pour plus d’informations, consultez [Étapes pour attribuer un rôle Azure](ro
 
 Que se passe-t-il si plusieurs attributions de rôles se chevauchent ? Le contrôle RBAC Azure étant un modèle additif, vos autorisations effectives correspondent à la somme de vos attributions de rôles. Prenons l’exemple suivant où un utilisateur reçoit le rôle Contributeur pour l’étendue de l’abonnement et le rôle Lecteur pour un groupe de ressources. La somme des autorisations du rôle Contributeur et des autorisations du rôle Lecteur correspond effectivement au rôle Contributeur pour l’abonnement. Ainsi, dans ce cas, l’attribution du rôle Lecteur n’a aucun impact.
 
-![Attributions de rôles multiples](./media/overview/rbac-multiple-roles.png)
+![Schéma présentant le chevauchement de plusieurs attributions de rôles.](./media/overview/rbac-multiple-roles.png)
 
 ## <a name="deny-assignments"></a>Affectations de refus
 
@@ -98,7 +98,7 @@ Pour plus d’informations, consultez [Comprendre les affectations de refus Azur
 
 ## <a name="how-azure-rbac-determines-if-a-user-has-access-to-a-resource"></a>Comment le contrôle RBAC Azure détermine si un utilisateur a accès à une ressource
 
-Voici les principales étapes suivies par le contrôle RBAC Azure pour déterminer si vous avez accès à une ressource sur le plan de gestion. Cela s’avère utile pour comprendre si vous tentez de résoudre un problème d’accès.
+Voici les principales étapes suivies par le contrôle RBAC Azure pour déterminer si vous avez accès à une ressource. Ces étapes s’appliquent aux services Azure Resource Manager ou de plan de données intégrés à Azure RBAC. Cela s’avère utile pour comprendre si vous tentez de résoudre un problème d’accès.
 
 1. Un utilisateur (ou principal de service) se procure un jeton pour Azure Resource Manager.
 
@@ -108,13 +108,25 @@ Voici les principales étapes suivies par le contrôle RBAC Azure pour détermin
 
 1. Azure Resource Manager récupère toutes les attributions de rôle et les affectations de refus qui s’appliquent à la ressource sur laquelle l’action est entreprise.
 
+1. Si c’est le cas, l’accès est bloqué. Dans le cas contraire, l’évaluation se poursuit.
+
 1. Azure Resource Manager restreint les attributions de rôles qui s’appliquent à cet utilisateur ou à son groupe, et détermine les rôles dont l’utilisateur dispose pour cette ressource.
 
-1. Azure Resource Manager détermine si l’action contenue dans l’appel d’API est incluse dans les rôles dont l’utilisateur dispose pour cette ressource.
+1. Azure Resource Manager détermine si l’action contenue dans l’appel d’API est incluse dans les rôles dont l’utilisateur dispose pour cette ressource. Si les rôles incluent `Actions` un caractère générique (`*`), les autorisations effectives sont calculées en soustrayant `NotActions` de l’autorisation `Actions`. De même, la même soustraction est effectuée pour toutes les actions de données.
 
-1. Si l’utilisateur n’a aucun rôle avec l’action appropriée dans l’étendue demandée, l’accès n’est pas octroyé. Sinon, Azure Resource Manager vérifie si une affectation de refus s’applique.
+    `Actions - NotActions = Effective management permissions`
 
-1. Si c’est le cas, l’accès est bloqué. Autrement, l’accès est accordé.
+    `DataActions - NotDataActions = Effective data permissions`
+
+1. Si l’utilisateur n’a aucun rôle avec l’action appropriée dans l’étendue demandée, l’accès n’est pas autorisé. Dans le cas contraire, toutes les conditions sont évaluées.
+
+1. Si l’attribution de rôle comprend des conditions, elles sont évaluées. Sinon, l’accès est accordé.
+
+1. Si les conditions sont remplies, l’accès est autorisé. Sinon, l’accès n’est pas accordé.
+
+Le schéma suivant est un résumé de la logique d’évaluation.
+
+![Organigramme de la logique d’évaluation pour déterminer l’accès à une ressource.](./media/overview/evaluation-logic.png)
 
 ## <a name="license-requirements"></a>Conditions de licence :
 

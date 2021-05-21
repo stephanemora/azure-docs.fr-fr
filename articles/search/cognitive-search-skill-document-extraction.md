@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: 144e8058e640f98dc6b0ef60534405525532b00e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 681900e2d2175e3e52a906072ae0b31a835cd1c8
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547864"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483656"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Compétence cognitive Extraction de document
 
@@ -26,6 +26,12 @@ La compétence **Extraction de document** extrait le contenu d’un fichier dans
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.DocumentExtractionSkill
+
+## <a name="supported-document-formats"></a>Formats de document pris en charge
+
+DocumentExtractionSkill peut extraire du texte à partir des formats de document suivants :
+
+[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## <a name="skill-parameters"></a>Paramètres de la compétence
 
@@ -60,13 +66,23 @@ L’entrée « file_data » doit être un objet défini comme suit :
 }
 ```
 
+or
+
+```json
+{
+  "$type": "file",
+  "url": "URL to download file",
+  "sasToken": "OPTIONAL: SAS token for authentication if the URL provided is for a file in blob storage"
+}
+```
+
 Cet objet de référence de fichier peut être généré de 3 manières :
 
  - En définissant le paramètre `allowSkillsetToReadFileData` de votre définition d’indexeur sur la valeur « true ».  Ceci permet de créer un chemin `/document/file_data` qui est un objet représentant les données du fichier d’origine téléchargées à partir de votre source de données d’objets blob. Ce paramètre s’applique uniquement aux données dans le stockage d’objets BLOB.
 
  - En définissant le paramètre `imageAction` de votre définition d’indexeur sur autre valeur que `none`.  Ceci crée un tableau d’images qui suivent la convention nécessaire pour les entrées de cette compétence, si elles sont passées individuellement (c’est-à-dire `/document/normalized_images/*`).
 
- - Avoir une compétence personnalisée renvoie un objet JSON défini exactement comme indiqué ci-dessus.  Le paramètre `$type` doit être défini sur `file` et le paramètre `data` doit être données du tableau d’octets encodé en base 64 du contenu du fichier.
+ - Avoir une compétence personnalisée renvoie un objet JSON défini exactement comme indiqué ci-dessus.  Le paramètre `$type` doit être défini exactement sur `file` et le paramètre `data` doit correspondre aux données de tableau d’octets encodé en base 64 du fichier de contenu, ou le paramètre `url` doit être une URL au format correct avec un accès pour télécharger le fichier à cet emplacement.
 
 ## <a name="skill-outputs"></a>Sorties de la compétence
 

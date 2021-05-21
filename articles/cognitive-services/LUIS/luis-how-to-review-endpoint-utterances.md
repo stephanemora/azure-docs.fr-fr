@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 04/16/2021
-ms.openlocfilehash: 339b87abad863f19a012dc6ed3a14ab13a44fc48
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.date: 05/05/2021
+ms.openlocfilehash: 41c45b2887736847c2413c2193e57d35f49594e7
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107949107"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109518067"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Comment améliorer l’application LUIS en examinant les énoncés de point de terminaison
 
@@ -39,16 +39,18 @@ Utilisez le portail LUIS pour créer la requête de point de terminaison correct
     > [!div class="mx-imgBorder"]
     > ![Utilisez le portail LUIS pour enregistrer les journaux, ce qui est nécessaire pour l’apprentissage actif.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
 
-     Cette action modifie l’URL de l’exemple en ajoutant le paramètre querystring `log=true`. Copiez et utilisez l’exemple d’URL de requête modifié lors de l’exécution de requêtes de prédiction sur le point de terminaison du runtime.
+     Cette action modifie l’URL de l’exemple en ajoutant le paramètre querystring `log=true`. Copiez et utilisez l’exemple d’URL de requête modifié quand vous effectuez des requêtes de prédiction au point de terminaison de runtime.
 
-## <a name="correct-intent-predictions-to-align-utterances"></a>Corriger les prédictions d’intention pour aligner les énoncés
+## <a name="correct-predictions-to-align-utterances"></a>Corriger les prédictions pour aligner les énoncés
 
-Chaque énoncé contient une intention suggérée affichée dans la colonne **Aligned intent** (Intention alignée).
+Pour chaque énoncé, l’intention suggérée est affichée dans la colonne **Prédiction d’intention**, et les entités suggérées dans des cadres englobants en pointillés.
 
 > [!div class="mx-imgBorder"]
 > [![Passez en revue les énoncés de point de terminaison dont LUIS n’est pas sûr](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
-Si vous acceptez cette intention, cochez la case. Si n’acceptez pas la suggestion, sélectionnez l’intention appropriée dans la liste déroulante de l’intention alignée, puis sélectionnez la coche à droite de l’intention alignée. Une fois que vous avez coché la case, l’énoncé est déplacé vers l’intention et supprimé de la liste **Réviser les énoncés de point de terminaison**.
+Si vous êtes d’accord avec la prédiction d’intention et les entités, cochez la case à côté de l’énoncé. Si la coche est désactivée, cela signifie qu’il n’y a rien à confirmer.  
+Si vous n’êtes pas d’accord avec l’intention suggérée, sélectionnez l’intention correcte dans la liste déroulante Prédiction d’intention. Si vous n’êtes pas d’accord avec les entités suggérées, commencez à les étiqueter.
+Une fois que vous avez terminé, sélectionnez la coche à côté de l’énoncé pour confirmer ce que vous avez étiqueté. Sélectionnez **Enregistrer l’énoncé** pour le déplacer de la liste de révision et lui ajouter son intention respective.
 
 > [!TIP]
 > Il est important d’accéder à la page des détails de l’intention pour passer en revue et corriger les prédictions d’entité de tous les exemples d’énoncés de la liste **Réviser les énoncés de point de terminaison**.
@@ -61,7 +63,8 @@ Si vous ne savez pas si vous devez supprimer l’énoncé, déplacez-le vers l�
 
 ## <a name="disable-active-learning"></a>Désactiver l’apprentissage actif
 
-Pour désactiver l’apprentissage actif, n’enregistrez pas des requêtes de l’utilisateur. Pour cela, définissez la [requête de point de terminaison](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) avec le paramètre et la valeur querystring `log=false` ou n’utilisez pas la valeur querystring, car la valeur par défaut est false.
+Pour désactiver l’apprentissage actif, n’enregistrez pas des requêtes de l’utilisateur. Pour ce faire, vous devez modifier les paramètres de requête comme indiqué ci-dessus ou en définissant le paramètre `log=false` dans la requête de point de terminaison, ou vous pouvez omettre le paramètre `log`, car la valeur par défaut est `false`.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

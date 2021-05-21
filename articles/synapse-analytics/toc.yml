@@ -644,11 +644,17 @@ items:
                 href: monitoring/how-to-monitor-spark-pools.md
               - name: Analyser JSON avec Apache Spark
                 href: how-to-analyze-complex-schema.md
-          - name: Ingérer et préparer les données
+          - name: Sources de données
             items:
-              - name: SQL Data Warehouse
+              - name: "Azure Cosmos\_DB"
+                href: ./synapse-link/how-to-query-analytical-store-spark.md
+              - name: Azure Data Explorer (Kusto)
+                href: ./spark/data-sources/apache-spark-kusto-connector.md
+              - name: Azure SQL Data Warehouse
                 href: ./spark/synapse-spark-sql-pool-import-export.md
-              - name: Analyser JSON
+              - name: "Azure\_SQL et SQL\_Server"
+                href: ./spark/data-sources/apache-spark-sql-connector.md
+              - name: JSON
                 href: how-to-analyze-complex-schema.md
   - name: Synapse Link
     items:
@@ -744,6 +750,8 @@ items:
                 href: ../data-factory/connector-amazon-redshift.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Amazon S3
                 href: ../data-factory/connector-amazon-simple-storage-service.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              - name: "Stockage compatible Amazon\_S3"
+                href: ../data-factory/connector-amazon-s3-compatible-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: "Format\_Avro"
                 href: ../data-factory/format-avro.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Stockage Blob Azure
@@ -784,12 +792,12 @@ items:
                 href: ../data-factory/connector-cassandra.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Format Common Data Model
                 href: ../data-factory/format-common-data-model.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-              - name: Common Data Service pour les applications
-                href: ../data-factory/connector-dynamics-crm-office-365.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Concur
                 href: ../data-factory/connector-concur.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Couchbase
                 href: ../data-factory/connector-couchbase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              - name: Dataverse
+                href: ../data-factory/connector-dynamics-crm-office-365.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: DB2
                 href: ../data-factory/connector-db2.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Format de texte délimité
@@ -863,6 +871,8 @@ items:
                 href: ../data-factory/connector-office-365.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Oracle
                 href: ../data-factory/connector-oracle.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              - name: Oracle Cloud Storage
+                href: ../data-factory/connector-oracle-cloud-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: "Oracle\_Eloqua"
                 href: ../data-factory/connector-oracle-eloqua.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Oracle Responsys
@@ -969,6 +979,10 @@ items:
           - name: Transformer les données
             href: ../data-factory/transform-data.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             items:
+              - name: Exécuter une activité de flux de données
+                href: ../data-factory/control-flow-execute-data-flow-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              - name: Activité de procédure stockée de pool SQL Synapse
+                href: ./data-integration/sql-pool-stored-procedure-activity.md
               - name: Activité de fonction Azure
                 href: ../data-factory/control-flow-azure-function-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Activité personnalisée
@@ -979,6 +993,8 @@ items:
                 href: ../data-factory/transform-data-databricks-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Activité de Databricks Python
                 href: ../data-factory/transform-data-databricks-python.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              - name: Activité de commande Data Explorer
+                href: /azure/data-explorer/data-factory-command-activity?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Activité Data Lake U-SQL
                 href: ../data-factory/transform-data-using-data-lake-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Activité Hive HDInsight
@@ -1005,8 +1021,6 @@ items:
             items:
               - name: Ajouter une activité variable
                 href: ../data-factory/control-flow-append-variable-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-              - name: Exécuter une activité de flux de données
-                href: ../data-factory/control-flow-execute-data-flow-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Activité d’exécution du pipeline
                 href: ../data-factory/control-flow-execute-pipeline-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Activité de filtre

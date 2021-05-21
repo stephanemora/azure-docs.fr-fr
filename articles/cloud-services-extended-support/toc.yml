@@ -71,6 +71,8 @@
           href: enable-rdp.md
         - name: Appliquer l’extension WAD
           href: enable-wad.md
+        - name: Appliquer l’extension Key Vault
+          href: enable-key-vault-virtual-machine.md
     - name: Activer les alertes
       href: enable-alerts.md
     - name: Configurer la mise à l’échelle

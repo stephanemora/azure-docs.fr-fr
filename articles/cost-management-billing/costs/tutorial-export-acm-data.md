@@ -3,18 +3,18 @@ title: 'Tutoriel : Créer et gérer des données exportées depuis Azure Cost M
 description: Cet article vous montre comment créer et gérer des données Azure Cost Management exportées pour les utiliser dans des systèmes externes.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2021
+ms.date: 05/06/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 100f4252768f6a141253d4df03a73da9f4f6b4bc
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 9f9afe0b7c27fb2199f9bdcd1fa5edbe4da01602
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290203"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517637"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
 
@@ -262,6 +262,8 @@ Les exportations pour les groupes d’administration d’autres types d’abonne
 Si vous disposez d’un Contrat client Microsoft ou d’un Contrat Partenaire Microsoft, vous pouvez activer les exportations pour diviser votre fichier en plusieurs partitions de fichiers plus petites et ainsi faciliter l’ingestion des données. Lors de la phase initiale de configuration de l’exportation, définissez le paramètre **Partitionnement de fichiers** sur **Activé**. Ce paramètre est défini sur **Désactivé** par défaut.
 
 :::image type="content" source="./media/tutorial-export-acm-data/file-partition.png" alt-text="Capture d’écran montrant l’option Partitionnement de fichiers." lightbox="./media/tutorial-export-acm-data/file-partition.png" :::
+
+Si vous n’avez pas de contrat client Microsoft ni de contrat Partenaire Microsoft, vous ne verrez pas l’option **Partitionnement de fichiers**.
 
 #### <a name="update-existing-exports-to-use-file-partitioning"></a>Mettre à jour les exportations existantes pour utiliser le partitionnement de fichiers
 

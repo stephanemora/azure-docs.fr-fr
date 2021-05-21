@@ -1,14 +1,14 @@
 ---
 title: Activer et configurer votre console de gestion locale
 description: L’activation de la console de gestion garantit que les capteurs sont inscrits auprès d’Azure et envoient des informations à la console de gestion locale, et que la console de gestion locale effectue des tâches de gestion sur les capteurs connectés.
-ms.date: 4/6/2021
+ms.date: 05/05/2021
 ms.topic: how-to
-ms.openlocfilehash: db0d2a84feeb5bf52932842badda8c126994c05d
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: c491ebfe68c85b222818c9a9cf2e8e66abe8d959
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492152"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108735162"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Activer et configurer votre console de gestion locale 
 
@@ -24,7 +24,7 @@ L’activation et la configuration de la console de gestion locale garantissent 
 
 ## <a name="sign-in-for-the-first-time"></a>Se connecter pour la première fois
 
-Pour vous connecter à la console de gestion :
+**Pour vous connecter à la console de gestion :**
 
 1. Accédez à l’adresse IP que vous avez reçue pour la console de gestion locale lors de l’installation du système.
  
@@ -37,7 +37,7 @@ Si vous avez oublié votre mot de passe, sélectionnez l’option **Récupérer 
 
 Une fois que vous vous êtes connecté pour la première fois, vous devez activer la console de gestion locale en obtenant et en chargeant un fichier d’activation. 
 
-Pour activer la console de gestion locale :
+**Pour activer la console de gestion locale :**
 
 1. Connectez-vous à la console de gestion locale.
 
@@ -51,15 +51,46 @@ Pour activer la console de gestion locale :
  
 1. Sélectionnez un abonnement auquel associer la console de gestion locale, puis cliquez sur le bouton **Télécharger le fichier d’activation de la console de gestion locale**. Le fichier d’activation est téléchargé.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Télécharger le fichier d’activation.":::
+   La console de gestion locale peut être associée à un ou plusieurs abonnements. Le fichier d’activation sera associé à tous les abonnements sélectionnés et au nombre d’appareils validés au moment du téléchargement.
+
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png" alt-text="Vous pouvez sélectionner plusieurs abonnements auxquels intégrer votre console de gestion locale.":::
 
    Si vous n’avez pas encore intégré d’abonnement, [Intégrer un abonnement](how-to-manage-subscriptions.md#onboard-a-subscription).
+
+   > [!Note]
+   > Si vous supprimez un abonnement, vous devez charger un nouveau fichier d’activation vers toutes les consoles de gestion locale qui étaient affiliées à l’abonnement supprimé.
 
 1. Revenez à l’écran contextuel **Activation** et sélectionnez **Choisir un fichier**.
 
 1. Sélectionnez le fichier téléchargé.
 
-Après l’activation initiale, le nombre d’appareils surveillés pourrait dépasser le nombre d’appareils validés définis lors de l’intégration. Cela se produit si vous connectez d’autres capteurs à la console de gestion. S’il y a un écart entre le nombre d’appareils surveillés et le nombre d’appareils validés, un avertissement s’affiche sur la console de gestion. Dans ce cas, chargez un nouveau fichier d’activation.
+Après l’activation initiale, le nombre d’appareils surveillés pourrait dépasser le nombre d’appareils validés définis lors de l’intégration. Ce problème se produit si vous connectez d’autres capteurs à la console de gestion. S’il y a un écart entre le nombre d’appareils surveillés et le nombre d’appareils validés, un avertissement s’affiche sur la console de gestion. 
+
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/device-commitment-update.png" alt-text="Si vous voyez l’avertissement relatif à la validation de l’appareil, vous devrez charger un nouveau fichier d’activation.":::
+
+Si cet avertissement s’affiche, vous devez charger un [nouveau fichier d’activation](#activate-the-on-premises-management-console).
+
+### <a name="activate-an-expired-license-versions-under-100"></a>Activer une licence ayant expiré (versions antérieures à 10.0)
+
+Pour les utilisateurs dont la version est antérieure à la version 10.0, il se peut que leur licence arrive à expiration et qu’ils reçoivent une alerte du type suivant. 
+
+:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="Lorsque votre licence arrivera à expiration, vous devrez mettre à jour votre licence via le fichier d’activation.":::
+
+**Pour activer votre licence :**
+
+1. Ouvrez un incident auprès du [support](https://ms.portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
+
+1. Indiquez au support votre numéro d’identification d’activation.
+
+1. Le support vous fournira de nouvelles informations de licence se présentant sous la forme d’une chaîne de lettres.
+
+1. Lisez les conditions générales, puis cochez la case pour accepter.
+
+1. Collez la chaîne dans l’espace prévu à cet effet.
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/add-license.png" alt-text="Collez la chaîne dans le champ prévu à cet effet.":::
+
+1. Sélectionnez **Activer**.
 
 ## <a name="set-up-a-certificate"></a>Configuration d'un certificat
 
@@ -68,6 +99,7 @@ Une fois la console de gestion installé, un certificat auto-signé local est g�
 Deux niveaux de sécurité sont disponibles :
 
 - répondre aux exigences de chiffrement et de certificat spécifiques requises par votre organisation en téléchargeant le certificat signé par une autorité de certification ;
+
 - Autorisez la validation entre la console de gestion et les capteurs connectés. La validation est évaluée par rapport à une liste de révocation de certificats et à la date d’expiration du certificat. *En cas d’échec de la validation, la communication entre la console de gestion et le capteur est interrompue et une erreur de validation apparaît sur la console.* Cette option est activée par défaut après l’installation.  
 
 La console prend en charge les types de certificats suivants :
@@ -81,7 +113,7 @@ La console prend en charge les types de certificats suivants :
   > [!IMPORTANT]
   > Nous vous recommandons de ne pas utiliser de certificat auto-signé. Le certificat n’est pas sécurisé et doit être utilisé uniquement pour les environnements de test. Le propriétaire du certificat ne peut pas être validé et la sécurité de votre système ne peut pas être assurée. N’utilisez jamais cette option pour les réseaux de production.
 
-Pour charger un certificat :
+**Pour charger un certificat :**
 
 1. Quand vous y êtes invité après vous être connecté, définissez un nom de certificat.
 
@@ -91,7 +123,7 @@ Pour charger un certificat :
 
 Il se peut que vous deviez actualiser votre écran après avoir chargé le certificat signé par une autorité de certification.
 
-Pour désactiver la validation entre la console de gestion et les capteurs connectés :
+**Pour désactiver la validation entre la console de gestion et les capteurs connectés :**
 
 1. Sélectionnez **Suivant**.
 
@@ -101,7 +133,7 @@ Pour plus d’informations sur le chargement d’un nouveau certificat, les fich
 
 ## <a name="connect-sensors-to-the-on-premises-management-console"></a>Connecter des capteurs à la console de gestion locale
 
-Vous devez vous assurer que les capteurs envoient des informations à la console de gestion locale et que la console de gestion locale peut effectuer des sauvegardes, gérer des alertes et effectuer d’autres activités sur les capteurs. Pour ce faire, utilisez les procédures suivantes pour vérifier que vous établissez une connexion initiale entre les capteurs et la console de gestion locale.
+Assurez-vous que les capteurs envoient des informations à la console de gestion locale et que la console de gestion locale peut effectuer des sauvegardes, gérer des alertes et effectuer d’autres activités sur les capteurs. Pour ce faire, utilisez les procédures suivantes pour vérifier que vous établissez une connexion initiale entre les capteurs et la console de gestion locale.
 
 Deux options sont disponibles pour connecter des capteurs Azure Defender pour IoT à la console de gestion locale :
 
@@ -113,7 +145,7 @@ Après vous être connecté, vous devez configurer un site avec ces capteurs.
 
 ### <a name="connect-sensors-to-the-on-premises-management-console-from-the-sensor-console"></a>Connecter des capteurs à la console de gestion locale à partir de la console du capteur
 
-Vous pouvez connecter des capteurs à la console de gestion locale à partir de la console du capteur :
+**Pour connecter des capteurs à la console de gestion locale à partir de la console du capteur :**
 
 1. Dans la console de gestion locale, sélectionnez **Paramètres système**.
 
@@ -135,7 +167,7 @@ Activez une connexion sécurisée par tunneling entre les capteurs de l’organi
 
 L’utilisation du tunneling vous permet de connecter la console de gestion locale à partir de son adresse IP et d’un seul port (c’est-à-dire, 9000) à n’importe quel capteur.
 
-Pour configurer le tunneling à partir de la console de gestion locale :
+**Pour configurer le tunneling à partir de la console de gestion locale :**
 
 - Connectez-vous à la console de gestion locale et exécutez les commandes suivantes :
 
@@ -146,7 +178,7 @@ Pour configurer le tunneling à partir de la console de gestion locale :
   service apache2 reload
   ```
 
-Pour configurer le tunneling sur le capteur :
+**Pour configurer le tunneling sur le capteur :**
 
 1. Ouvrez manuellement le port TCP 9000 sur le capteur (network.properties). Si le port n’est pas ouvert, le capteur rejette la connexion depuis la console de gestion locale.
 
@@ -176,7 +208,7 @@ Les groupes d’accès permettent de mieux contrôler l’emplacement où les ut
 
 Vous pouvez définir une unité commerciale et une région pour chaque site de votre organisation. Vous pouvez ensuite ajouter des zones, qui sont des entités logiques existant dans votre réseau. 
 
-Vous devriez attribuer au moins un capteur par zone. Le modèle à cinq niveaux offre la flexibilité et la granularité requises pour fournir un système de protection qui reflète la structure de votre organisation.
+Attribuez au moins un capteur par zone. Le modèle à cinq niveaux offre la flexibilité et la granularité requises pour fournir un système de protection qui reflète la structure de votre organisation.
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/diagram-of-sensor-showing-relationships.png" alt-text="Diagramme montrant les capteurs et la relation régionale.":::
 
@@ -184,7 +216,7 @@ Dans la vue Enterprise, vous pouvez modifier vos sites directement. Lorsque vous
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/console-map-with-data-overlay-v2.png" alt-text="Capture d’écran d’une carte de la console de gestion locale avec la superposition des données de Berlin.":::
 
-Pour configurer un site :
+**Pour configurer un site :**
 
 1. Ajoutez de nouvelles unités commerciales pour refléter la structure logique de votre organisation.
 
@@ -222,7 +254,7 @@ Pour configurer un site :
 
 Si vous n’avez plus besoin d’un site, vous pouvez le supprimer de votre console de gestion locale.
 
-Pour supprimer un site :
+**Pour supprimer un site :**
 
 1. Dans la fenêtre **Gestion des sites**, sélectionnez :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: dans la barre qui contient le nom du site, puis sélectionnez **Supprimer le site**. La boîte de confirmation s’affiche et vous permet de confirmer que vous souhaitez supprimer le site.
 
@@ -255,7 +287,7 @@ Le tableau suivant décrit les paramètres de la fenêtre **Gestion des sites**.
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/number-of-alerts-icon.png" border="false"::: | Indique le nombre d’alertes envoyées par les capteurs qui sont attribués à la zone. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/unassign-sensor-icon.png" border="false"::: | Libère des capteurs des zones. |
 
-Pour ajouter une zone à un site :
+**Pour ajouter une zone à un site :**
 
 1. Dans la fenêtre **Gestion des sites**, sélectionnez :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: dans la barre qui contient le nom du site, puis sélectionnez **Ajouter une zone**. La boîte de dialogue **Créer une zone** s’affiche.
 
@@ -267,7 +299,7 @@ Pour ajouter une zone à un site :
 
 1. Sélectionnez **SAVE** (Enregistrer). La nouvelle zone s’affiche dans la fenêtre **Gestion des sites** sous le site auquel cette zone appartient.
 
-Pour modifier une zone :
+**Pour modifier une zone :**
 
 1. Dans la fenêtre **Gestion des sites**, sélectionnez :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: dans la barre qui contient le nom de la zone, puis sélectionnez **Modifier la zone**. La boîte de dialogue **Modifier la zone** s’affiche.
 
@@ -275,13 +307,13 @@ Pour modifier une zone :
 
 1. Modifiez les paramètres de la zone et sélectionnez **ENREGISTRER**.
 
-Pour supprimer une zone :
+**Pour supprimer une zone :**
 
 1. Dans la fenêtre **Gestion des sites**, sélectionnez :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: dans la barre qui contient le nom de la zone, puis sélectionnez **Supprimer la zone**.
 
 1. Dans la zone de confirmation, sélectionnez **OUI**.
 
-Pour filtrer selon l’état de la connectivité :
+**Pour filtrer selon l’état de la connectivité :**
 
 - Dans l’angle supérieur gauche, sélectionnez :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/down-pointing-icon.png" border="false"::: à côté de **Connectivité**, puis sélectionnez l’une des options suivantes :
 
@@ -291,7 +323,7 @@ Pour filtrer selon l’état de la connectivité :
 
   - **Déconnecté** : Présente uniquement les capteurs déconnectés.
 
-Pour filtrer selon l’état de la mise à niveau :
+**Pour filtrer selon l’état de la mise à niveau :**
 
 - Dans l’angle supérieur gauche, sélectionnez :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/down-pointing-icon.png" border="false"::: à côté d’**État de la mise à niveau**, puis sélectionnez l’une des options suivantes :
 
@@ -307,7 +339,7 @@ Pour filtrer selon l’état de la mise à niveau :
 
 Pour chaque zone, vous devez attribuer des capteurs qui analysent le trafic local et génèrent des alertes. Vous pouvez attribuer uniquement les capteurs qui sont connectés à la console de gestion locale.
 
-Pour attribuer un capteur :
+**Pour attribuer un capteur :**
 
 1. Sélectionnez **Gestion des sites**. Les capteurs non attribués s’affichent dans l’angle supérieur gauche de la boîte de dialogue.
 
@@ -323,7 +355,7 @@ Pour attribuer un capteur :
 
 1. Sélectionnez **ATTRIBUER**.
 
-Pour annuler l’attribution d’un capteur et le supprimer :
+**Pour annuler l’attribution d’un capteur et le supprimer :**
 
 1. Déconnectez le capteur de la console de gestion locale. Pour plus d’informations, consultez [Connecter des capteurs à la console de gestion locale](#connect-sensors-to-the-on-premises-management-console).
 

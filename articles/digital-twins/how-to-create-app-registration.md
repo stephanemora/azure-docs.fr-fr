@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/13/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b22552147bec789c4b1d796cad2c52165d266334
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: c238f847994b6317085fbbc7d132168c88797e03
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207714"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734252"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins"></a>Créer une inscription d’application à utiliser avec Azure Digital Twins
 
@@ -24,7 +24,7 @@ Cela n’est pas obligatoire pour tous les scénarios d’authentification. Tout
 
 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) est le service Microsoft basé sur le cloud qui gère les identités et les accès. La configuration d’une **inscription d’application** dans Azure AD est un moyen d’accorder à une application cliente l’accès à Azure Digital Twins.
 
-Cette inscription d’application est l’emplacement où vous configurez les autorisations d’accès aux [API d’Azure Digital Twins](how-to-use-apis-sdks.md). Plus tard, les applications clientes peuvent s’authentifier auprès de l’inscription d’application à l’aide des **valeurs d’ID client et de locataire** de l’inscription, et ainsi recevoir les autorisations d’accès configurées aux API.
+Cette inscription d’application est l’emplacement où vous configurez les autorisations d’accès aux [API d’Azure Digital Twins](concepts-apis-sdks.md). Plus tard, les applications clientes peuvent s’authentifier auprès de l’inscription d’application à l’aide des **valeurs d’ID client et de locataire** de l’inscription, et ainsi recevoir les autorisations d’accès configurées aux API.
 
 >[!TIP]
 > Vous préférerez peut-être configurer une nouvelle inscription d’application chaque fois que vous en aurez besoin, *ou* pour effectuer cette opération une seule fois, en établissant une inscription d’application unique qui sera partagée entre tous les scénarios qui l’exigent.
@@ -40,7 +40,7 @@ Dans la page *Inscrire une application* qui suit, renseignez les valeurs demand�
 * **Types de comptes pris en charge** : Select *Comptes dans cet annuaire organisationnel uniquement (Annuaire par défaut uniquement – Locataire unique)*
 * **URI de redirection** : *URL de réponse de l’application Azure AD* pour l’application Azure AD. Ajoutez un URI *Client public/natif (mobile et bureau)* pour `http://localhost`.
 
-Lorsque vous avez terminé, cliquez sur le bouton *S’inscrire*.
+Lorsque vous avez terminé, sélectionnez le bouton *S’inscrire*.
 
 :::image type="content" source="media/how-to-create-app-registration/register-an-application.png" alt-text="Vue de la page « inscrire une application » avec les valeurs décrites renseignées":::
 
@@ -58,7 +58,7 @@ Prenez note de _**l’ID d’application (client)**_ et de _**l’ID de réperto
 
 Ensuite, configurez l’inscription d’application que vous avez créée avec les autorisations de base pour les API Azure Digital Twins.
 
-À partir de la page du portail pour l’inscription de votre application, sélectionnez *Autorisations des API* dans le menu. Sur la page d’autorisations suivantes, cliquez sur le bouton *+ Ajouter une autorisation*.
+À partir de la page du portail pour l’inscription de votre application, sélectionnez *Autorisations des API* dans le menu. Sur la page d’autorisations suivantes, sélectionnez le bouton *+Ajouter une autorisation*.
 
 :::image type="content" source="media/how-to-create-app-registration/add-permission.png" alt-text="Vue de l’inscription de l’application dans le portail Azure, mettant en surbrillance l’option de menu « Autorisations des API » et le bouton « + Ajouter une autorisation »":::
 
@@ -74,7 +74,7 @@ Ensuite, vous allez sélectionner les autorisations à accorder pour ces API. D�
 
 :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-2.png" alt-text="Vue de la page « Demander des autorisations d’API » en sélectionnant les autorisations « Lecture.Écriture » pour les API Azure Digital Twins":::
 
-Lorsque vous avez terminé, appuyez sur *Ajouter des autorisations*.
+Lorsque vous avez terminé, sélectionnez *Ajouter des autorisations*.
 
 ### <a name="verify-success"></a>Vérifier la réussite de l’exécution
 

@@ -5,13 +5,13 @@ ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
-ms.date: 02/07/2021
-ms.openlocfilehash: 4f3e5a22b9692823f1e9542fb3a6d9ad42fe79cf
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 05/07/2021
+ms.openlocfilehash: 0547e6dbdddc5533642145e6a54a20d29ae240d1
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321138"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109518375"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportation des données de l’espace de travail Log Analytics dans Azure Monitor (préversion)
 L’exportation des données de l’espace de travail Log Analytics dans Azure Monitor vous permet d’exporter en continu des données de tables sélectionnées dans votre espace de travail Log Analytics vers un compte de stockage Azure ou Azure Event Hubs à mesure qu’elles sont collectées. Cet article fournit des informations détaillées sur cette fonctionnalité et les étapes à suivre pour configurer l’exportation de données dans vos espaces de travail.
@@ -38,17 +38,11 @@ L’exportation des données d’espace de travail Log Analytics exporte en cont
 - Les tables prises en charge sont actuellement limitées à celles qui sont spécifiques à la section [tables prises en charge](#supported-tables) ci-dessous. Par exemple, les tables de journal personnalisées ne sont actuellement pas prises en charge.
 - Si la règle d’exportation de données comprend une table non prise en charge, l’opération réussit, mais aucune donnée n’est exportée pour cette table tant qu’elle n’est pas prise en charge. 
 - Si la règle d’exportation de données comprend une table qui n’existe pas, elle échoue avec l’erreur ```Table <tableName> does not exist in the workspace```.
-- Votre espace de travail Log Analytics peut se trouver dans n’importe quelle région, à l’exception des suivantes :
-  - Régions Azure Government
-  - OuJapon Est
-  - Brésil Sud-Est
-  - Norvège Est
-  - Émirats arabes unis Nord
-- Vous pouvez avoir jusqu’à 10 règles activées dans votre espace de travail. Au-delà de 10, des règles supplémentaires peuvent être créées à l’état désactivé. 
+- L'exportation des données sera disponible dans toutes les régions, mais elle n'est actuellement pas disponible dans les régions suivantes : régions Azure Government, Japon Ouest, Brésil Sud-Est, Norvège Est, Norvège Ouest, Émirats arabes unis Nord, Émirats arabes unis Centre, Australie Centre 2, Suisse Nord, Suisse Ouest, Allemagne Centre-Ouest, Inde Sud, France Sud, Japon Ouest
+- Vous pouvez définir l'activation d'un maximum de 10 règles dans votre espace de travail. Des règles supplémentaires sont autorisées mais à l'état désactivé. 
 - La destination doit être unique pour toutes les règles d’exportation de votre espace de travail.
 - Le compte de stockage de destination ou Event Hub doit se trouver dans la même région que l’espace de travail Log Analytics.
 - Les noms des tables à exporter ne peuvent pas dépasser 60 caractères pour un compte de stockage et 47 caractères pour un Event Hub. Les tables avec des noms plus longs ne seront pas exportées.
-- La prise en charge de d’objet blob d’ajout pour Azure Data Lake Storage est désormais en [préversion publique limitée](https://azure.microsoft.com/updates/append-blob-support-for-azure-data-lake-storage-preview/)
 
 ## <a name="data-completeness"></a>Exhaustivité des données
 L’exportation de données continuera de réessayer d’envoyer des données pendant 30 minutes au cas où la destination est indisponible. Si elle n’est toujours pas disponible après 30 minutes, les données seront ignorées jusqu’à ce que la destination devienne disponible.
@@ -68,9 +62,6 @@ Le format des données du compte de stockage est en [lignes JSON](../essentials/
 [![Exemple de données de stockage](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
 L’exportation de données Log Analytics peut écrire des objets Blob d’ajout à des comptes de stockage immuables lorsque le paramètre *allowProtectedAppendWrites* est activé sur les stratégies de rétention temporelles. Cela permet l’écriture de nouveaux blocs dans un objet blob d’ajout tout en conservant la protection et la conformité de l’immuabilité. Consultez [Autoriser les écritures protégées d’objets blob d’ajout](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
-
-> [!NOTE]
-> La prise en charge d’objet blob d’ajout pour Azure Data Lake Storage est désormais disponible en préversion dans toutes les régions Azure. [Inscrivez-vous à la préversion publique limitée](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pURDk2NjMzUTVEVzU5UU1XUlRXSTlHSlkxQS4u) avant de créer une règle d’exportation pour Azure Data Lake Storage. L’exportation ne fonctionnera pas sans cette inscription.
 
 ### <a name="event-hub"></a>Event Hub
 Les données sont envoyées à votre Event Hub quasiment en temps réel à mesure qu’elles atteignent Azure Monitor. Un Event Hub est créé pour chaque type de données que vous exportez avec le nom *am-* suivi du nom de la table. Par exemple, la table *SecurityEvent* serait envoyée à un Event Hub nommé *am-SecurityEvent*. Si vous souhaitez que les données exportées atteignent un Event Hub spécifique, ou si vous avez une table avec un nom qui dépasse la limite de 47 caractères, vous pouvez fournir votre propre nom Event Hub et y exporter toutes les données pour les tables définies.
@@ -118,7 +109,7 @@ Si vous avez configuré votre compte de stockage pour autoriser l’accès à pa
 Une règle d’exportation de données définit les tables pour lesquelles les données sont exportées et la destination. Vous pouvez avoir 10 règles activées dans votre espace de travail alors que toute règle supplémentaire au-delà de 10 doit être à l’état désactivé. Une destination doit être unique pour toutes les règles d’exportation de votre espace de travail.
 
 > [!NOTE]
-> L’exportation de données envoie les journaux vers des destinations dont vous êtes propriétaire, mais celles-ci ont certaines limites : [scalabilité des comptes de stockage](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts), [quota d’espaces de noms d’Event Hubs](../../event-hubs/event-hubs-quotas.md). Il est recommandé de surveiller la limitation de vos destinations et d’appliquer des mesures lorsque vous approchez de la limite de destinations. Par exemple : 
+> L’exportation de données envoie les journaux vers des destinations dont vous êtes propriétaire, mais celles-ci ont certaines limites : [scalabilité des comptes de stockage](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts), [quota d’espaces de noms d’Event Hubs](../../event-hubs/event-hubs-quotas.md). Il est recommandé de surveiller les destinations et d'appliquer des mesures lorsqu'elles se rapprochent de leur limite. Par exemple : 
 > - Définissez la fonctionnalité de majoration automatique dans l’Event Hub pour effectuer un scale-up automatiquement et augmenter le nombre d’unités de débit (TU). Vous pouvez demander plus d’unités de débit lorsque la majoration automatique est au maximum.
 > - Fractionnement des tables en plusieurs règles d’exportation, chacune d’entre elles étant destinée à des destinations différentes
 
@@ -626,7 +617,7 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | DnsEvents |  |
 | DnsInventory |  |
 | Dynamics365Activity |  |
-| Événement | Prise en charge partielle : Certaines des données de cette table sont ingérées par le biais du compte de stockage. Cette partie est manquante dans l’exportation actuellement. |
+| Événement | Prise en charge partielle : les données provenant de l'agent Log Analytics (MMA) ou de l'agent Azure Monitor (AMA) sont entièrement prises en charge lors de l'exportation. Les données arrivant via l'agent Diagnostics Extension sont collectées par le biais du stockage alors que ce chemin n'est pas pris en charge lors de l'exportation. |
 | ExchangeAssessmentRecommendation |  |
 | FailedIngestion |  |
 | FunctionAppLogs |  |
@@ -662,7 +653,7 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | SecurityBaseline |  |
 | SecurityBaselineSummary |  |
 | SecurityDetection |  |
-| SecurityEvent | Prise en charge partielle : Certaines des données de cette table sont ingérées par le biais du compte de stockage. Cette partie est manquante dans l’exportation actuellement. |
+| SecurityEvent | Prise en charge partielle : les données provenant de l'agent Log Analytics (MMA) ou de l'agent Azure Monitor (AMA) sont entièrement prises en charge lors de l'exportation. Les données arrivant via l'agent Diagnostics Extension sont collectées par le biais du stockage alors que ce chemin n'est pas pris en charge lors de l'exportation. |
 | SecurityIncident |  |
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
@@ -687,7 +678,7 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | SynapseSqlPoolRequestSteps |  |
 | SynapseSqlPoolSqlRequests |  |
 | SynapseSqlPoolWaits |  |
-| syslog | Prise en charge partielle : Certaines des données de cette table sont ingérées par le biais du compte de stockage. Cette partie est manquante dans l’exportation actuellement. |
+| syslog | Prise en charge partielle : les données provenant de l'agent Log Analytics (MMA) ou de l'agent Azure Monitor (AMA) sont entièrement prises en charge lors de l'exportation. Les données arrivant via l'agent Diagnostics Extension sont collectées par le biais du stockage alors que ce chemin n'est pas pris en charge lors de l'exportation. |
 | ThreatIntelligenceIndicator |  |
 | Update | Prise en charge partielle : Certaines des données sont ingérées par le biais de services internes qui ne sont pas pris en charge pour l’exportation. Cette partie est manquante dans l’exportation actuellement. |
 | UpdateRunProgress |  |

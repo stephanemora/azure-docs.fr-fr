@@ -5,14 +5,14 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 3/18/2021
+ms.date: 5/11/2021
 ms.author: matjazl
-ms.openlocfilehash: ee110420c697afb6ecad857ba823c61d03c6be6c
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 20c08851d082702342b43bad12409cc71a0cae46
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105046981"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062017"
 ---
 # <a name="configure-export-setting-and-set-up-the-storage-account"></a>Configurer le paramètre d’exportation et le compte de stockage
 
@@ -36,15 +36,15 @@ Pour ce faire, accédez au service Azure API pour FHIR et sélectionnez **identi
 
 ## <a name="adding-permission-to-storage-account"></a>Ajout d’autorisations au compte de stockage
 
-L’étape suivante de l’exportation consiste à attribuer l’autorisation pour l’API Azure pour le service FHIR à écrire dans le compte de stockage.
+L’étape suivante de l’exportation de données consiste à attribuer l’autorisation pour l’API Azure pour le service FHIR à écrire dans le compte de stockage.
 
-Une fois que vous avez créé un compte de stockage, accédez à **Access Control (IAM)** dans le compte de stockage et sélectionnez **Ajouter une attribution de rôle**.
+Une fois que vous avez créé un compte de stockage, accédez au **Access Control (IAM)** dans le compte de stockage, puis sélectionnez **Ajouter une attribution de rôle**. 
 
-![Exporter une attribution de rôle](media/export-data/fhir-export-role-assignment.png)
+Pour plus d’informations sur l’affectation de rôles dans le Portail Azure, consultez [rôles intégrés Azure](../../role-based-access-control/role-assignments-portal.md).
 
-C’est ici que vous allez ajouter le **contributeur de stockage** de rôle à notre nom de service, puis sélectionnez **Enregistrer**.
+C’est ici que vous allez ajouter le [contributeur de stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) de rôle à notre nom de service, puis sélectionnez **Enregistrer**.
 
-![Ajout de rôle](media/export-data/fhir-export-role-add.png)
+![Page Ajouter une attribution de rôle](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 Vous êtes maintenant prêt à sélectionner le compte de stockage dans l’API Azure pour FHIR comme compte de stockage par défaut pour $export.
 

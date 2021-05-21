@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 51df72e31acaadc83f4c094b99fa938377e5f023
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b332b1871c92d36821e8f797ceac5b6697e5dc1
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500000"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632184"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Maintenance des machines virtuelles dans Azure
 
@@ -48,6 +48,9 @@ Pour un meilleur contrôle sur toutes les activités de maintenance, notamment l
 
 La migration dynamique est une opération qui ne nécessite aucun redémarrage et qui conserve la mémoire pour la machine virtuelle. Elle entraîne une pause ou un blocage qui dure généralement moins de 5 secondes. Toutes les machines virtuelles infrastructure as a service (IaaS) sont éligibles pour la migration dynamique, à l’exception des machines de série G, M, N et H. Les machines virtuelles éligibles représentent plus de 90 % des machines virtuelles IaaS déployées sur la flotte Azure. 
 
+> [!NOTE]
+> Vous ne recevrez pas de notification sur le portail Azure pour les opérations de migration dynamique qui ne nécessitent pas de redémarrage. Pour afficher la liste des migrations dynamiques qui ne nécessitent pas de redémarrage, [interrogez les événements planifiés](./windows/scheduled-events.md#query-for-events).
+
 La plateforme Azure démarre la migration dynamique dans les scénarios suivants :
 - Maintenance planifiée
 - Défaillance matérielle
@@ -56,6 +59,8 @@ La plateforme Azure démarre la migration dynamique dans les scénarios suivants
 Certains scénarios de maintenance planifiée utilisent la migration dynamique. Vous pouvez utiliser Scheduled Events pour connaître à l’avance la date de démarrage des opérations de migration dynamique.
 
 La migration dynamique peut également servir à déplacer des machines virtuelles lorsque les algorithmes d’Azure Machine Learning prédisent une défaillance matérielle imminente ou lorsque vous souhaitez optimiser les allocations de machines virtuelles. Pour plus d’informations sur la modélisation prédictive détectant les instances de matériel détérioré, consultez [Améliorer la résilience des machines virtuelles Azure grâce à la migration dynamique et au Machine Learning prédictif](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure). Les notifications de migration dynamique s’affichent sur le portail Azure, dans les journaux Monitor et Service Health ainsi que dans Scheduled Events si vous utilisez ces services.
+
+
 
 ## <a name="maintenance-that-requires-a-reboot"></a>Maintenance nécessitant un redémarrage
 
