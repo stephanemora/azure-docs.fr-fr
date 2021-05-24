@@ -16,12 +16,12 @@ ms.date: 09/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1adbc653c8b698cb7b439b54b0a77d2b8cd4042a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 607a68870d3124eadba63b7a04b73ec7705a97a0
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100547398"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713969"
 ---
 # <a name="tutorial-manage-access-to-resources-in-azure-ad-entitlement-management"></a>Tutoriel : Gérer l’accès aux ressources dans la gestion des droits d’utilisation Azure AD
 
@@ -78,7 +78,7 @@ Un répertoire de ressources comprend une ou plusieurs ressources à partager. D
 
 Un *package d’accès* est un bundle de ressources dont une équipe ou un projet a besoin et qui est régi par des stratégies. Les packages d’accès sont définis dans des conteneurs appelés *catalogues*. Dans cette étape, vous allez créer un package d’accès **Marketing Campaign** dans le catalogue **Général**.
 
-**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
+**Rôle prérequis :** administrateur général, administrateur Identity Governance, administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
 
 ![Créer un package d’accès](./media/entitlement-management-access-package-first/elm-access-package.png)
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: c38b7c33cfe787ba933ca1fc4961080eaa4ada61
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 324ff6f29aef76ef5baded89db92bb4e4b5ec362
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276057"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755546"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Questions fréquentes (FAQ) sur l’API Analyse de texte
 
@@ -39,7 +39,7 @@ Non, les modèles sont préintégrés. Les seules opérations disponibles sur le
 
 L’analyse des sentiments et l’extraction des expressions clés sont disponibles pour un [certain nombre de langues](./language-support.md). Le traitement du langage naturel est complexe et nécessite de nombreux tests avant de pouvoir publier de nouvelles fonctionnalités. Pour cette raison, nous évitons d’annoncer une prise en charge à l’avance, afin que personne n’attende une fonctionnalité dont le développement nécessite plus de temps que prévu. 
 
-Pour nous aider à hiérarchiser les langues à ajouter, votez pour des langues spécifiques sur [User Voice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
+Pour nous aider à hiérarchiser les langues à ajouter, votez pour des langues spécifiques dans l’[outil de commentaires](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749). 
 
 ## <a name="why-does-key-phrase-extraction-return-some-words-but-not-others"></a>Pourquoi l’extraction d’expressions clés renvoie-t-elle certains mots, mais pas d’autres ?
 
@@ -63,7 +63,7 @@ Aucune configuration client n’est nécessaire pour activer la résilience des 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Votre question concerne-t-elle une fonctionnalité manquante ? Demandez-la ou votez pour elle sur notre [site web UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics).
+Votre question concerne-t-elle une fonctionnalité manquante ? Envisagez de la demander ou de la voter à l’aide de l’[outil de commentaires](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749).
 
 ## <a name="see-also"></a>Voir aussi
 

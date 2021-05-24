@@ -6,13 +6,13 @@ ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 10/02/2020
-ms.openlocfilehash: 9873ec2113c0c5704ccca4fa10daf6ac8d572989
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 05/08/2021
+ms.openlocfilehash: 47cc0eeb052d980e5c33061dc4721e2f819b3b34
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107429"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109654919"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Inscrire et analyser une base de données Azure SQL
 
@@ -139,9 +139,9 @@ Pour inscrire une nouvelle base de données Azure SQL Database dans votre catalo
 
 1. Accédez à votre compte Purview.
 
-1. Sélectionnez **Sources** dans le volet de navigation de gauche.
+1. Sélectionnez **Sources** dans la barre de navigation à gauche.
 
-1. Sélectionnez **Inscrire**.
+1. Sélectionnez **Inscription**.
 
 1. Sous **Inscrire des sources**, sélectionnez **Azure SQL Database**. Sélectionnez **Continuer**.
 
@@ -151,7 +151,7 @@ Dans l’écran **Inscrire des sources (Azure SQL Database)** , procédez comme 
 
 1. Entrez le **nom** avec lequel la source de données sera listée dans le catalogue.
 1. Sélectionnez **À partir de l’abonnement Azure**, puis sélectionnez l’abonnement approprié dans la zone de liste déroulante **Abonnement Azure** et le serveur approprié dans la zone de liste déroulante **Nom du serveur**.
-1. Sélectionnez **Terminer** pour inscrire la source de données.
+1. Sélectionnez **Inscrire** pour inscrire la source de données.
 
 :::image type="content" source="media/register-scan-azure-sql-database/add-azure-sql-database.png" alt-text="Options d’inscription de sources" border="true":::
 

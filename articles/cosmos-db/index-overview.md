@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 05/04/2021
 ms.author: tisande
-ms.openlocfilehash: fec7ed32b236dd0a5f9c0663209b5c2f44e05b29
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 00b119d993b549340467bf3892f3ffc5cf7b76dd
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166718"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755420"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Vue d’ensemble de l’indexation dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -186,10 +186,10 @@ Pour savoir comment configurer des index composites, consultez les [exemples de 
 
 Le moteur de requête peut évaluer les filtres de requête de cinq façons, de la plus efficace à la moins efficace :
 
-- Recherche dans l’index
-- Analyse précise de l’index
+- Recherche dans l'index
+- Analyse précise de l'index
 - Analyse développée de l’index
-- Analyse complète de l’index
+- Analyse complète de l'index
 - Analyse complète
 
 Lorsque vous indexez des chemins de propriétés, le moteur de requête utilise automatiquement l’index aussi efficacement que possible. En dehors de l’indexation des nouveaux chemins de propriétés, vous n’avez pas besoin de configurer quoi que ce soit pour optimiser la façon dont les requêtes utilisent l’index. Les frais d’unité de requête (RU, Request Unit) d’une requête correspondent à une combinaison des frais d’utilisation de l’index et de chargement des éléments.
@@ -198,11 +198,11 @@ Voici un tableau qui résume les différentes façons dont les index sont utilis
 
 | Type de recherche dans l’index  | Description                                                  | Exemples courants                                 | Frais RU d’utilisation de l’index                                   | Frais RU de chargement des éléments à partir d’un magasin de données transactionnel                   |
 | ------------------ | ------------------------------------------------------------ | ----------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------- |
-| Recherche dans l’index         | Lecture des valeurs indexées requises uniquement et chargement des éléments correspondants uniquement à partir du magasin de données transactionnel | Filtres d’égalité, IN                            | Constants par filtre d’égalité                                                     | Augmentent en fonction du nombre d’éléments présents dans les résultats de la requête |
-| Analyse précise de l’index | Recherche binaire des valeurs indexées requises uniquement et chargement des éléments correspondants uniquement à partir du magasin de données transactionnel | Comparaisons de plages (>, <, <= ou >=), StartsWith | Comparables à la recherche dans l’index ; augmentent légèrement en fonction de la cardinalité des propriétés indexées | Augmentent en fonction du nombre d’éléments présents dans les résultats de la requête |
+| Recherche dans l'index         | Lecture des valeurs indexées requises uniquement et chargement des éléments correspondants uniquement à partir du magasin de données transactionnel | Filtres d’égalité, IN                            | Constants par filtre d’égalité                                                     | Augmentent en fonction du nombre d’éléments présents dans les résultats de la requête |
+| Analyse précise de l'index | Recherche binaire des valeurs indexées requises uniquement et chargement des éléments correspondants uniquement à partir du magasin de données transactionnel | Comparaisons de plages (>, <, <= ou >=), StartsWith | Comparables à la recherche dans l’index ; augmentent légèrement en fonction de la cardinalité des propriétés indexées | Augmentent en fonction du nombre d’éléments présents dans les résultats de la requête |
 | Analyse développée de l’index | Recherche optimisée (mais moins efficace qu’une recherche binaire) de valeurs indexées et chargement des éléments correspondants uniquement à partir du magasin de données transactionnel | StartsWith (non-respect de la casse), StringEquals (non-respect de la casse) | Augmentent légèrement en fonction de la cardinalité des propriétés indexées | Augmentent en fonction du nombre d’éléments présents dans les résultats de la requête |
-| Analyse complète de l’index    | Lecture d’un ensemble distinct de valeurs indexées requises uniquement et chargement des éléments correspondants uniquement à partir du magasin de données transactionnel                                              | Contains, EndsWith, RegexMatch, LIKE                                    | Augmentent de façon linéaire en fonction de la cardinalité des propriétés indexées | Augmentent en fonction du nombre d’éléments présents dans les résultats de la requête |
-| Analyse complète          | Chargement de tous les éléments                                               | Upper, Lower                                    | N/A                                                          | Augmentent en fonction du nombre d’éléments présents dans le conteneur |
+| Analyse complète de l'index    | Lecture d’un ensemble distinct de valeurs indexées requises uniquement et chargement des éléments correspondants uniquement à partir du magasin de données transactionnel                                              | Contains, EndsWith, RegexMatch, LIKE                                    | Augmentent de façon linéaire en fonction de la cardinalité des propriétés indexées | Augmentent en fonction du nombre d’éléments présents dans les résultats de la requête |
+| Analyse complète          | Charger tous les éléments à partir du magasin de données transactionnelles                                          | Upper, Lower                                    | NON APPLICABLE                                                          | Augmentent en fonction du nombre d’éléments présents dans le conteneur |
 
 Lorsque vous écrivez des requêtes, utilisez le prédicat de filtre qui exploite l’index aussi efficacement que possible. Par exemple, si `StartsWith` et `Contains` fonctionnent pour votre cas d’utilisation, optez pour `StartsWith`. Il effectue en effet une analyse précise plutôt qu’une analyse complète de l’index.
 
@@ -244,15 +244,15 @@ Exemples d’éléments :
 
 Azure Cosmos DB utilise un index inversé. Cet index fonctionne en faisant correspondre chacun des chemins JSON avec l’ensemble des éléments qui contiennent cette valeur. Le mappage des ID d’élément est représenté sur différentes pages d’index du conteneur. Voici un exemple de diagramme d’un index inversé pour un conteneur comprenant les deux exemples d’éléments :
 
-| Chemin d’accès                    | Valeur   | Liste des ID d’élément   |
+| Path                    | Valeur   | Liste des ID d’élément   |
 | ----------------------- | ------- | ---------- |
 | /locations/0/country    | Allemagne | 1          |
 | /locations/0/country    | Irlande | 2          |
 | /locations/0/city       | Berlin  | 1          |
-| /locations/0/city       | Dublin  | 1          |
+| /locations/0/city       | Dublin  | 2          |
 | /locations/1/country    | France  | 1          |
 | /locations/1/city       | Paris   | 1          |
-| /headquarters/country   | Belgique | 2          |
+| /headquarters/country   | Belgique | 1,2        |
 | /headquarters/employees | 200     | 2          |
 | /headquarters/employees | 250     | 1          |
 
@@ -262,7 +262,7 @@ L’index inversé possède deux attributs importants :
 
 Le moteur de requête peut utiliser l’index inversé de quatre façons différentes :
 
-### <a name="index-seek"></a>Recherche dans l’index
+### <a name="index-seek"></a>Recherche dans l'index
 
 Considérez la requête suivante : 
 
@@ -278,7 +278,7 @@ Le prédicat de requête (filtrage sur les éléments dont le pays/région de l�
 
 Cette requête possède un filtre d’égalité. Après avoir parcouru cette arborescence, nous pouvons donc rapidement identifier les pages d’index qui contiennent les résultats de la requête. Dans ce cas, le moteur de requête lit les pages d’index qui contiennent l’élément 1. La recherche dans l’index constitue la manière la plus efficace d’utiliser l’index. En effet, il suffit de lire les pages d’index nécessaires et de ne charger que les éléments dans les résultats de la requête. Par conséquent, le temps de recherche dans l’index et les frais RU associés sont extrêmement faibles, quel que soit le volume total de données. 
 
-### <a name="precise-index-scan"></a>Analyse précise de l’index
+### <a name="precise-index-scan"></a>Analyse précise de l'index
 
 Considérez la requête suivante : 
 
@@ -299,26 +299,26 @@ Considérez la requête suivante :
 ```sql
 SELECT *
 FROM company
-WHERE StartsWith(company.headquarters.country, "United", true)
+WHERE STARTSWITH(company.headquarters.country, "United", true)
 ```
 
-Le prédicat de requête (filtrage sur les éléments dont le siège social se trouve dans un pays qui commence par « United » avec respect de la casse) peut être évalué avec une analyse développée de l’index du chemin `headquarters/country`. Les opérations qui effectuent une analyse développée de l’index présentent des optimisations qui évitent d’avoir à analyser toutes les pages d’index, mais sont légèrement plus coûteuses que la recherche binaire d’une analyse précise de l’index.
+Le prédicat de requête (filtrage sur les éléments dont le siège social se trouve dans un pays qui commence par « United » sans respect de la casse) peut être évalué avec une analyse développée de l’index du chemin `headquarters/country`. Les opérations qui effectuent une analyse développée de l’index présentent des optimisations qui évitent d’avoir à analyser toutes les pages d’index, mais sont légèrement plus coûteuses que la recherche binaire d’une analyse précise de l’index.
 
 Par exemple, lorsqu’il évalue `StartsWith` avec respect de la casse, le moteur de requête recherche différentes combinaisons possibles de valeurs en majuscules et en minuscules dans l’index. Cette optimisation lui évite de lire la plupart des pages d’index. D’autres fonctions système présentent des optimisations différentes pour ne pas avoir à lire chaque page d’index. Nous les regroupons donc dans la catégorie « Analyse développée de l’index ». 
 
-### <a name="full-index-scan"></a>Analyse complète de l’index
+### <a name="full-index-scan"></a>Analyse complète de l'index
 
 Considérez la requête suivante : 
 
 ```sql
 SELECT *
 FROM company
-WHERE Contains(company.headquarters.country, "United")
+WHERE CONTAINS(company.headquarters.country, "United")
 ```
 
 Le prédicat de requête (filtrage sur les éléments dont le siège social se trouve dans un pays qui contient « United ») peut être évalué avec une analyse de l’index du chemin `headquarters/country`. Contrairement à une analyse précise de l’index, une analyse complète de l’index analyse toujours l’ensemble des valeurs possibles pour identifier les pages d’index où se trouvent les résultats. Dans ce cas, `Contains` est exécuté sur l’index. Le temps de recherche dans l’index et les frais RU des analyses de l’index augmentent avec la cardinalité du chemin. En d’autres termes, plus le moteur de requête a de valeurs distinctes possibles à analyser, plus la latence et les frais RU sont élevés dans une analyse complète de l’index.  
 
-Par exemple, considérez deux propriétés : ville et pays. La cardinalité de la propriété ville est 5 000 et celle de la propriété pays est 200. Voici deux exemples de requêtes contenant chacun une fonction système [Contains](sql-query-contains.md) qui effectue une analyse de l’index sur la propriété `town`. La première requête utilise plus d’unités RU que la deuxième, car la cardinalité de town est supérieure à celle de country.
+Par exemple, considérez deux propriétés : ville et pays. La cardinalité de la propriété ville est 5 000 et celle de la propriété pays est 200. Voici deux exemples de requêtes contenant chacun une fonction système [Contains](sql-query-contains.md) qui effectue une analyse complète de l’index sur la propriété `town`. La première requête utilise plus d’unités RU que la deuxième, car la cardinalité de town est supérieure à celle de country.
 
 ```sql
     SELECT *
@@ -348,7 +348,7 @@ FROM company
 WHERE company.headquarters.employees = 200 AND CONTAINS(company.headquarters.country, "United")
 ```
 
-Pour exécuter cette requête, le moteur de requête doit effectuer une recherche précise dans l’index sur `headquarters/employees` et une analyse complète de l’index sur `headquarters/country`. Le moteur de requête possède des heuristiques internes qu’il utilise pour évaluer l’expression de filtre de requête aussi efficacement que possible. Dans ce cas, il évite d’avoir à lire les pages d’index inutiles en commençant par la recherche dans l’index. Si, par exemple, seuls 50 éléments correspondent au filtre d’égalité, il ne doit évaluer `Contains` que sur les pages d’index qui contiennent ces éléments. Une analyse complète de l’index de l’ensemble du conteneur n’est pas nécessaire.
+Pour exécuter cette requête, le moteur de requête doit effectuer une recherche dans l’index sur `headquarters/employees` et une analyse complète de l’index sur `headquarters/country`. Le moteur de requête possède des heuristiques internes qu’il utilise pour évaluer l’expression de filtre de requête aussi efficacement que possible. Dans ce cas, il évite d’avoir à lire les pages d’index inutiles en commençant par la recherche dans l’index. Si, par exemple, seuls 50 éléments correspondent au filtre d’égalité, il ne doit évaluer `Contains` que sur les pages d’index qui contiennent ces éléments. Une analyse complète de l’index de l’ensemble du conteneur n’est pas nécessaire.
 
 ## <a name="index-utilization-for-scalar-aggregate-functions"></a>Fonctions d’agrégation scalaires avec l’index
 
@@ -363,7 +363,7 @@ Par exemple, considérez la requête suivante :
 ```sql
 SELECT *
 FROM company
-WHERE Contains(company.headquarters.country, "United")
+WHERE CONTAINS(company.headquarters.country, "United")
 ```
 
 La fonction système `Contains` est susceptible de retourner des faux positifs dans les correspondances. Le moteur de requête doit donc vérifier si chacun des éléments chargés correspond à l’expression de filtre. Dans cet exemple, il n’a que peu d’éléments à charger en plus. Par conséquent, l’impact sur l’utilisation de l’index et les frais RU est minime.
@@ -373,7 +373,7 @@ Cependant, les requêtes avec fonctions d’agrégation doivent reposer exclusiv
 ```sql
 SELECT COUNT(1)
 FROM company
-WHERE Contains(company.headquarters.country, "United")
+WHERE CONTAINS(company.headquarters.country, "United")
 ```
 
 Comme dans le premier exemple, la fonction système `Contains` est susceptible de retourner des faux positifs dans les correspondances. Contrairement à la requête `SELECT *` toutefois, la requête `Count` ne peut pas évaluer l’expression de filtre sur les éléments chargés pour vérifier toutes les correspondances d’index. Elle doit reposer exclusivement sur l’index. Par conséquent, si une expression de filtre risque de retourner des faux positifs, le moteur de requête a recours à une analyse complète.

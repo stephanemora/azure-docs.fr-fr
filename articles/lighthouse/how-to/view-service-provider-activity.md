@@ -1,18 +1,18 @@
 ---
 title: Voir l’activité des fournisseurs de services
-description: Les clients peuvent consulter l’activité journalisée pour voir les actions effectuées par les fournisseurs de services par le biais de la gestion des ressources déléguées Azure.
-ms.date: 12/11/2020
+description: Les clients peuvent consulter l’activité journalisée pour voir les actions effectuées par les fournisseurs de services par le biais d’Azure Lighthouse.
+ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 40deca310eea2fc9618cfc83d34caadcf2b2b14d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef9f8e76c9b6c2ab23c4075b81874816ff784f67
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571736"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785953"
 ---
 # <a name="view-service-provider-activity"></a>Voir l’activité des fournisseurs de services
 
-Les clients disposant d’abonnements délégués pour [Azure Lighthouse](../overview.md) peuvent [consulter les données du journal d’activité Azure](../../azure-monitor/essentials/platform-logs-overview.md) pour voir toutes les actions entreprises. Ils bénéficient ainsi d’une visibilité complète sur les opérations effectuées par les fournisseurs de services par le biais de la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md), ainsi que par les utilisateurs dans le locataire Azure Active Directory (Azure AD) du client.
+Les clients disposant d’abonnements délégués pour [Azure Lighthouse](../overview.md) peuvent [consulter les données du journal d’activité Azure](../../azure-monitor/essentials/platform-logs-overview.md) pour voir toutes les actions entreprises. Ils bénéficient ainsi d’une visibilité complète sur les opérations effectuées par les fournisseurs de services par le biais de la [gestion des ressources déléguées Azure](../concepts/architecture.md), ainsi que par les utilisateurs dans le locataire Azure Active Directory (Azure AD) du client.
 
 > [!TIP]
 > Nous fournissons également des définitions de stratégie intégrée Azure Policy pour [restreindre la délégation à des locataires gestionnaires spécifiques](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json) et [auditer la délégation d’étendues sur un locataire gestionnaire](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Pour plus d’informations, consultez [Auditer des délégations dans votre environnement](view-manage-service-providers.md#audit-delegations-in-your-environment).

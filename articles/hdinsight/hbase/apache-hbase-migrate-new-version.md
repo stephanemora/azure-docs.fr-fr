@@ -1,250 +1,221 @@
 ---
 title: Migrer un cluster HBase vers une nouvelle version - Azure HDInsight
-description: Explique comment effectuer la migration de clusters Apache HBase vers une version plus récente dans Azure HDInsight.
+description: Découvrez comment migrer des clusters Apache HBase dans Azure HDInsight vers une version plus récente.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/02/2020
-ms.openlocfilehash: 6c473b534a6f14699babe2f8f4f661e83d275785
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.date: 05/06/2021
+ms.openlocfilehash: 1d6f2d66a00601334a9cab4695b4e78c77a67917
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064158"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109654785"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Effectuer la migration d’un cluster Apache HBase vers une nouvelle version
 
-Cet article décrit les étapes requises pour mettre à jour de votre cluster Apache HBase sur Azure HDInsight vers une version plus récente.
+Cet article explique comment mettre à jour un cluster Apache HBase sur Azure HDInsight vers une version plus récente.
 
-Le temps d’arrêt lors de la mise à niveau doit être minime, de l’ordre de quelques minutes. Ce temps d’arrêt est dû à la procédure pour vider toutes les données en mémoire, puis au temps nécessaire à la configuration et au redémarrage des services sur le nouveau cluster. Vos résultats peuvent varier en fonction du nombre de nœuds, de la quantité de données et d’autres variables.
+Cet article vaut uniquement si vous utilisez le même compte Stockage Azure pour vos clusters source et de destination. Pour effectuer une mise à niveau avec un compte Stockage nouveau ou différent pour votre cluster de destination, consultez [Migrer Apache HBase vers une nouvelle version avec un nouveau compte Stockage](apache-hbase-migrate-new-version-new-storage-account.md).
+
+En règle générale, le temps d’arrêt dans le cas d’une mise à niveau se limite à quelques minutes. Ce temps d’arrêt est causé par le processus de vidage de toutes les données en mémoire et par le temps nécessaire à la configuration et au redémarrage des services sur le nouveau cluster. Vos résultats peuvent varier en fonction du nombre de nœuds, de la quantité de données et d’autres variables.
 
 ## <a name="review-apache-hbase-compatibility"></a>Vérifier la compatibilité d’Apache HBase
 
-Avant de mettre à niveau Apache HBase, vérifiez que la version de HBase présente sur le cluster source est compatible avec celle du cluster de destination. Pour plus d’informations, consultez [Composants et versions d’Apache Hadoop disponibles avec HDInsight](../hdinsight-component-versioning.md).
+Avant de mettre à niveau Apache HBase, vérifiez que la version de HBase présente sur le cluster source est compatible avec celle du cluster de destination. Pour vérifier que votre application est compatible avec la nouvelle version, consultez la matrice de compatibilité et les notes de publication des versions de HBase dans le [Guide de référence HBase](https://hbase.apache.org/book.html#upgrading).
 
-> [!NOTE]  
-> Nous vous recommandons vivement d’examiner la matrice de compatibilité de versions dans le [guide sur HBase](https://hbase.apache.org/book.html#upgrading). Les dernières incompatibilités doivent être décrites dans les notes de publication de version HBase.
-
-Voici un exemple de matrice de compatibilité de versions. O indique une compatibilité et N une incompatibilité potentielle :
+Voici un exemple de matrice de compatibilité des versions. O indique une compatibilité et N une incompatibilité potentielle :
 
 | Type de compatibilité | Version principale| Version secondaire | Correctif |
 | --- | --- | --- | --- |
-| Compatibilité communication client-serveur | N | O | O |
-| Compatibilité serveur-serveur | N | O | O |
-| Compatibilité format de fichier | N | O | O |
-| Compatibilité API client | N | O | O |
+| Compatibilité communication client-serveur | N | Y | O |
+| Compatibilité serveur-serveur | N | Y | O |
+| Compatibilité format de fichier | N | Y | O |
+| Compatibilité API client | N | Y | O |
 | Compatibilité fichier binaire client | N | N | O |
 | **Compatibilité API limitée côté serveur** |  |  |  |
-| Stable | N | O | O |
+| Stable | N | Y | O |
 | En cours d’évolution | N | N | O |
 | Instable | N | N | N |
-| Compatibilité dépendance | N | O | O |
-| Compatibilité opérationnelle | N | N | O |
+| Compatibilité dépendance | N | Y | O |
+| Compatibilité opérationnelle | N | N | Y |
 
-## <a name="upgrade-with-same-apache-hbase-major-version"></a>Mettre à niveau vers la même version principale d’Apache HBase
+Pour plus d’informations sur les versions de HDInsight et leur compatibilité, consultez [Versions d’Azure HDInsight](../hdinsight-component-versioning.md).
 
-Pour mettre à niveau votre cluster Apache HBase sur Azure HDInsight, procédez comme suit :
+## <a name="apache-hbase-cluster-migration-overview"></a>Vue d’ensemble de la migration de clusters Apache HBase
 
-1. Vérifiez que votre application est compatible avec la nouvelle version, comme indiqué dans les notes de version et la matrice de compatibilité HBase. Testez votre application dans un cluster exécutant la version cible de HDInsight et HBase.
+Pour mettre à niveau votre cluster Apache HBase sur Azure HDInsight, effectuez les étapes de base suivantes. Pour obtenir des instructions détaillées, reportez-vous aux étapes et commandes détaillées.
 
-1. [Configurez un nouveau cluster HDInsight de destination](../hdinsight-hadoop-provision-linux-clusters.md) avec le même compte de stockage, mais avec un nom de conteneur différent :
+Préparez le cluster source :
+1. Arrêtez l’ingestion de données.
+1. Videz les données des memstores.
+1. Arrêtez HBase à partir d’Ambari.
+1. Pour les clusters utilisant les écritures accélérées, sauvegardez le répertoire du journal WAL (Write Ahead Log).
 
-   :::image type="content" source="./media/apache-hbase-migrate-new-version/same-storage-different-container.png" alt-text="Utiliser le même compte de stockage, mais créer un autre conteneur" border="true":::
+Préparez le cluster de destination :
+1. Créez le cluster de destination.
+1. Arrêtez HBase à partir d’Ambari.
+1. Mettez à jour `fs.defaultFS` dans les configurations des services HDFS pour faire référence au conteneur du cluster source d’origine.
+1. Pour les clusters utilisant les écritures accélérées, mettez à jour `hbase.rootdir` dans les configurations des services HBase pour faire référence au conteneur du cluster source d’origine.
+1. Nettoyez les données Zookeeper.
 
-1. Videz votre cluster HBase source, qui est le cluster que vous mettez à niveau. HBase écrit les données entrantes dans un magasin en mémoire, appelé _memstore_. Une fois que le memstore atteint une certaine taille, HBase le vide sur le disque pour le stockage à long terme dans le compte de stockage du cluster. Lorsque vous supprimez l’ancien cluster, les memstores sont recyclés, ce qui entraîne potentiellement une perte de données. Pour vider manuellement le memstore de chaque table sur le disque, exécutez le script suivant. La version la plus récente de ce script se trouve sur [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh) Azure.
+Effectuer la migration :
+1. Nettoyez et migrez le journal WAL.
+1. Copiez les applications du conteneur par défaut du cluster de destination vers le conteneur source d’origine.
+1. Démarrez tous les services à partir du cluster de destination Ambari.
+1. Vérifiez HBase.
+1. Supprimez le cluster source.
 
-    ```bash
-    #!/bin/bash
-    
-    #-------------------------------------------------------------------------------#
-    # SCRIPT TO FLUSH ALL HBASE TABLES.
-    #-------------------------------------------------------------------------------#
-    
-    LIST_OF_TABLES=/tmp/tables.txt
-    HBASE_SCRIPT=/tmp/hbase_script.txt
-    TARGET_HOST=$1
-    
-    usage ()
-    {
-        if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]
-        then
-            cat << ...
-    
-    Usage: 
-    
-    $0 [hostname]
-    
-    Providing hostname is optional and not required when the script is executed within HDInsight cluster with access to 'hbase shell'.
-    
-    However hostname should be provided when executing the script as a script-action from HDInsight portal.
-    
-    For Example:
-    
-        1.  Executing script inside HDInsight cluster (where 'hbase shell' is 
-            accessible):
-    
-            $0 
-    
-            [No need to provide hostname]
-    
-        2.  Executing script from HDinsight Azure portal:
-    
-            Provide Script URL.
-    
-            Provide hostname as a parameter (i.e. hn* or wn* etc.).
-    ...
-            exit
-        fi
-    }
-    
-    validate_machine ()
-    {
-        THIS_HOST=`hostname`
-    
-        if [[ ! -z "$TARGET_HOST" ]] && [[ $THIS_HOST  != $TARGET_HOST* ]]
-        then
-            echo "[INFO] This machine '$THIS_HOST' is not the right machine ($TARGET_HOST) to execute the script."
-            exit 0
-        fi
-    }
-    
-    get_tables_list ()
-    {
-    hbase shell << ... > $LIST_OF_TABLES 2> /dev/null
-        list
-        exit
-    ...
-    }
-    
-    add_table_for_flush ()
-    {
-        TABLE_NAME=$1
-        echo "[INFO] Adding table '$TABLE_NAME' to flush list..."
-        cat << ... >> $HBASE_SCRIPT
-            flush '$TABLE_NAME'
-    ...
-    }
-    
-    clean_up ()
-    {
-        rm -f $LIST_OF_TABLES
-        rm -f $HBASE_SCRIPT
-    }
-    
-    ########
-    # MAIN #
-    ########
-    
-    usage $1
-    
-    validate_machine
-    
-    clean_up
-    
-    get_tables_list
-    
-    START=false
-    
-    while read LINE 
-    do 
-        if [[ $LINE == TABLE ]] 
-        then
-            START=true
-            continue
-        elif [[ $LINE == *row*in*seconds ]]
-        then
-            break
-        elif [[ $START == true ]]
-        then
-            add_table_for_flush $LINE
-        fi
-    
-    done < $LIST_OF_TABLES
-    
-    cat $HBASE_SCRIPT
-    
-    hbase shell $HBASE_SCRIPT << ... 2> /dev/null
-    exit
-    ...
-    
-    ```
+## <a name="detailed-migration-steps-and-commands"></a>Étapes et commandes de migration détaillées
 
-1. Arrêtez l’ingestion des données vers l’ancien cluster HBase.
+Aidez-vous de ces étapes et commandes détaillées pour migrer votre cluster Apache HBase.
 
-1. Pour vous assurer que toutes les données récentes dans le memstore sont vidées, exécutez à nouveau le script précédent.
+### <a name="prepare-the-source-cluster"></a>Préparer le cluster source
 
-1. Connectez-vous à [Apache Ambari](https://ambari.apache.org/) sur l’ancien cluster (`https://OLDCLUSTERNAME.azurehdidnsight.net`) et interrompez les services HBase. Lorsque vous êtes invité à confirmer que vous souhaitez arrêter les services, cochez la case pour activer le mode de maintenance pour HBase. Pour plus d’informations sur la connexion à Ambari et sur l’utilisation d’Ambari, consultez [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](../hdinsight-hadoop-manage-ambari.md).
-
-    :::image type="content" source="./media/apache-hbase-migrate-new-version/stop-hbase-services1.png" alt-text="Dans Ambari, cliquez sur Services > HBase > Arrêter sous Action du service" border="true":::
-
-    :::image type="content" source="./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png" alt-text="Cocher la case pour activer le mode de maintenance pour HBase, puis confirmer" border="true":::
-
-1. Si vous n’utilisez pas de clusters HBase avec la fonctionnalité Écritures améliorées, ignorez cette étape. Elle n’est requise que pour les clusters HBase avec la fonctionnalité Écritures améliorées.
-
-   Sauvegardez le répertoire WAL sous HDFS en exécutant les commandes ci-dessous dans une session SSH sur l’un des nœuds ZooKeeper ou Worker du cluster d’origine.
+1. Arrêtez l’ingestion vers le cluster HBase source.
+   
+1. Videz le cluster HBase source que vous mettez à niveau.
+   
+   HBase écrit les données entrantes dans un magasin en mémoire appelé *memstore*. Une fois que le memstore atteint une certaine taille, HBase le vide sur le disque pour le stockage à long terme dans le compte de stockage du cluster. La suppression du cluster source après une mise à niveau a également pour effet de supprimer les données contenues dans les memstores. Pour conserver les données, videz manuellement le memstore de chaque table sur le disque avant la mise à niveau.
+   
+   Vous pouvez vider les données des memstores en exécutant le script [flush_all_tables.sh](https://github.com/Azure/hbase-utils/blob/master/scripts/flush_all_tables.sh) à partir du [dépôt GitHub Azure hbase-utils](https://github.com/Azure/hbase-utils/).
+   
+   Vous pouvez aussi vider les données des memstores en exécutant la commande shell HBase suivante à partir du cluster HDInsight :
    
    ```bash
-   hdfs dfs -mkdir /hbase-wal-backup**
-   hdfs dfs -cp hdfs://mycluster/hbasewal /hbase-wal-backup**
+   hbase shell
+   flush "<table-name>"
    ```
-    
-1. Connectez-vous à Ambari sur le nouveau cluster HDInsight. Modifiez le paramètre HDFS `fs.defaultFS` pour pointer vers le nom du conteneur utilisé par le cluster d’origine. Ce paramètre se trouve sous **HDFS > Configurations > Avancé > Advanced core-site (Site principal avancé)** .
+   
+1. Connectez-vous à [Apache Ambari](https://ambari.apache.org/) sur le cluster source avec `https://<OLDCLUSTERNAME>.azurehdinsight.net`, puis arrêtez les services HBase.
+   
+1. À l’invite de confirmation, cochez la case pour activer le mode de maintenance pour HBase.
+   
+   Pour plus d’informations sur la connexion à Ambari et sur l’utilisation d’Ambari, consultez [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](../hdinsight-hadoop-manage-ambari.md).
+   
+1. Si votre cluster HBase source n’utilise pas la fonctionnalité d’[écritures accélérées](apache-hbase-accelerated-writes.md), passez cette étape. Pour les clusters HBase sources utilisant les écritures accélérées, sauvegardez le répertoire du journal WAL sous HDFS en exécutant les commandes suivantes à partir d’une session SSH sur un nœud Zookeeper ou un nœud Worker du cluster source.
+   
+   ```bash
+   hdfs dfs -mkdir /hbase-wal-backup
+   hdfs dfs -cp hdfs://mycluster/hbasewal /hbase-wal-backup
+   ```
+   
+### <a name="prepare-the-destination-cluster"></a>Préparer le cluster de destination
 
-   :::image type="content" source="./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png" alt-text="Dans Ambari, cliquez sur Services > HDFS > Configurations > Avancé" border="true":::
+1. Sur le portail Azure, [configurez un nouveau cluster HDInsight de destination](../hdinsight-hadoop-provision-linux-clusters.md) en utilisant le même compte de stockage que le cluster source, mais avec un nom de conteneur différent :
 
-   :::image type="content" source="./media/apache-hbase-migrate-new-version/change-container-name.png" alt-text="Dans Ambari, modifier le nom du conteneur" border="true":::
-
-1. Si vous n’utilisez pas de clusters HBase avec la fonctionnalité Écritures améliorées, ignorez cette étape. Elle n’est requise que pour les clusters HBase avec la fonctionnalité Écritures améliorées.
-
-   Modifiez le chemin d’accès `hbase.rootdir` pour qu’il pointe vers le conteneur du cluster d’origine.
-
-   :::image type="content" source="./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png" alt-text="Dans Ambari, modifier le nom du conteneur pour HBase rootdir" border="true":::
-    
-1. Si vous n’utilisez pas de clusters HBase avec la fonctionnalité Écritures améliorées, ignorez cette étape. Elle n’est nécessaire que pour les clusters HBase dotés de la fonctionnalité Écritures améliorées, et uniquement dans le cas où le cluster d’origine était un cluster HBase doté de la fonctionnalité Écritures améliorées.
-
-   Nettoyez les données FS ZooKeeper et WAL de ce nouveau cluster. Émettez les commandes suivantes dans l’un des nœuds ZooKeeper ou Worker :
-
+   
+1. Connectez-vous à [Apache Ambari](https://ambari.apache.org/) sur le nouveau cluster à l’adresse `https://<NEWCLUSTERNAME>.azurehdinsight.net`, puis arrêtez les services HBase.
+   
+1. Sous **Services** > **HDFS** > **Configs** > **Avanced** > **Advanced core-site**, changez le paramètre HDFS `fs.defaultFS` de façon à le faire pointer vers le nom du conteneur du cluster source d’origine. Par exemple, le paramètre dans la capture d’écran suivante doit être remplacé par `wasbs://hbase-upgrade-old-2021-03-22`.
+   
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png" alt-text="Dans Ambari, sélectionnez Services > HDFS > Configs > Advanced > Advanced core-site et changez le nom du conteneur." border="false":::
+   
+1. Si votre cluster de destination utilise la fonctionnalité d’écritures accélérées, modifiez le chemin `hbase.rootdir` en le faisant pointer vers le nom du conteneur du cluster source d’origine. Par exemple, le chemin suivant doit être remplacé par `hbase-upgrade-old-2021-03-22`. Si votre cluster n’utilise pas les écritures accélérées, passez cette étape.
+   
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png" alt-text="Dans Ambari, changez le nom du conteneur pour HBase rootdir." border="true":::
+   
+1. Nettoyez les données Zookeeper sur le cluster de destination en exécutant les commandes suivantes dans un nœud Zookeeper ou worker :
+   
    ```bash
    hbase zkcli
    rmr /hbase-unsecure
    quit
+   ```
+   
+### <a name="clean-and-migrate-wal"></a>Nettoyer et migrer le journal WAL
 
-   hdfs dfs -rm -r hdfs://mycluster/hbasewal**
+Exécutez les commandes suivantes en fonction de votre version de HDI source et selon que les clusters source et de destination utilisent ou non les écritures accélérées.
+
+- Le cluster de destination utilise toujours HDI version 4.0, car HDI 3.6 est en Support De base et n’est pas recommandé pour les nouveaux clusters.
+- La commande de copie HDFS est `hdfs dfs <copy properties starting with -D> -cp <source> <destination> # Serial execution`.
+
+> [!NOTE]  
+> - Le `<source-container-fullpath>` pour le stockage de type WASB est `wasbs://<source-container-name>@<storageaccountname>.blob.core.windows.net`.
+> - Le `<source-container-fullpath>` pour le stockage de type Azure Data Lake Storage Gen2 est `abfs://<source-container-name>@<storageaccountname>.dfs.core.windows.net`.
+
+- [Le cluster source utilise HDI 3.6 avec les écritures accélérées et le cluster de destination utilise les écritures accélérées](#the-source-cluster-is-hdi-36-or-hdi-40-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
+- [Le cluster source utilise HDI 3.6 sans les écritures accélérées et le cluster de destination utilise des écritures accélérées](#the-source-cluster-is-hdi-36-without-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
+- [Le cluster source utilise HDI 3.6 sans les écritures accélérées et le cluster de destination n’utilise pas les écritures accélérées](#the-source-cluster-is-hdi-36-without-accelerated-writes-and-the-destination-cluster-doesnt-have-accelerated-writes).
+- [Le cluster source utilise HDI 4.0 avec les écritures accélérées et le cluster de destination utilise les écritures accélérées](#the-source-cluster-is-hdi-36-or-hdi-40-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
+- [Le cluster source utilise HDI 4.0 sans les écritures accélérées et le cluster de destination utilise les écritures accélérées](#the-source-cluster-is-hdi-40-without-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
+- [Le cluster source utilise HDI 4.0 sans les écritures accélérées et le cluster de destination n’utilise pas les écritures accélérées](#the-source-cluster-is-hdi-40-without-accelerated-writes-and-the-destination-cluster-doesnt-have-accelerated-writes).
+
+#### <a name="the-source-cluster-is-hdi-36-or-hdi-40-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes"></a>Le cluster source utilise HDI 3.6 ou HDI 4.0 avec les écritures accélérées et le cluster de destination utilise les écritures accélérées
+
+Nettoyez les données FS du journal WAL pour le cluster de destination et copiez le répertoire du journal WAL du cluster source vers le HDFS du cluster de destination. Copiez le répertoire en exécutant les commandes suivantes dans un nœud Zookeeper ou worker sur le cluster de destination :
+
+```bash   
+sudo -u hbase hdfs dfs -rm -r hdfs://mycluster/hbasewal
+sudo -u hbase hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal hdfs://mycluster/
+```
+#### <a name="the-source-cluster-is-hdi-36-without-accelerated-writes-and-the-destination-cluster-has-accelerated-writes"></a>Le cluster source utilise HDI 3.6 sans les écritures accélérées et le cluster de destination utilise les écritures accélérées
+
+Nettoyez les données FS du journal WAL pour le cluster de destination et copiez le répertoire du journal WAL du cluster source vers le HDFS du cluster de destination. Copiez le répertoire en exécutant les commandes suivantes dans un nœud Zookeeper ou worker sur le cluster de destination :
+
+```bash
+sudo -u hbase hdfs dfs -rm -r hdfs://mycluster/hbasewal
+sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase/WALs,/hbase/MasterProcWALs,/hbase/oldWALs" -cp <source-container>/hbase/*WALs hdfs://mycluster/hbasewal
+```
+
+#### <a name="the-source-cluster-is-hdi-36-without-accelerated-writes-and-the-destination-cluster-doesnt-have-accelerated-writes"></a>Le cluster source utilise HDI 3.6 sans les écritures accélérées et le cluster de destination n’utilise pas les écritures accélérées
+
+Nettoyez les données FS du journal WAL pour le cluster de destination et copiez le répertoire du journal WAL du cluster source vers le HDFS du cluster de destination. Pour copier le répertoire, exécutez les commandes suivantes dans un nœud Zookeeper ou worker sur le cluster de destination :
+
+```bash
+sudo -u hbase hdfs dfs -rm -r /hbase-wals/*
+sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase/WALs,/hbase/MasterProcWALs,/hbase/oldWALs" -cp <source-container-fullpath>/hbase/*WALs /hbase-wals
+```
+
+#### <a name="the-source-cluster-is-hdi-40-without-accelerated-writes-and-the-destination-cluster-has-accelerated-writes"></a>Le cluster source utilise HDI 4.0 sans les écritures accélérées et le cluster de destination utilise les écritures accélérées
+
+Nettoyez les données FS du journal WAL pour le cluster de destination et copiez le répertoire du journal WAL du cluster source vers le HDFS du cluster de destination. Copiez le répertoire en exécutant les commandes suivantes dans un nœud Zookeeper ou worker sur le cluster de destination :
+
+```bash
+sudo -u hbase hdfs dfs -rm -r hdfs://mycluster/hbasewal
+sudo -u hbase hdfs dfs -cp <source-container-fullpath>/hbase-wals/* hdfs://mycluster/hbasewal
    ```
 
-1. Si vous n’utilisez pas de clusters HBase avec la fonctionnalité Écritures améliorées, ignorez cette étape. Elle n’est requise que pour les clusters HBase avec la fonctionnalité Écritures améliorées.
+#### <a name="the-source-cluster-is-hdi-40-without-accelerated-writes-and-the-destination-cluster-doesnt-have-accelerated-writes"></a>Le cluster source utilise HDI 4.0 sans les écritures accélérées et le cluster de destination n’utilise pas les écritures accélérées
+
+Nettoyez les données FS du journal WAL pour le cluster de destination et copiez le répertoire du journal WAL du cluster source vers le HDFS du cluster de destination. Pour copier le répertoire, exécutez les commandes suivantes dans un nœud Zookeeper ou worker sur le cluster de destination :
+
+```bash
+sudo -u hbase hdfs dfs -rm -r /hbase-wals/*
+sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase-wals" -cp <source-container-fullpath>/hbase-wals /
+```
+
+### <a name="complete-the-migration"></a>Effectuer la migration
+
+1. En utilisant le contexte utilisateur `sudo -u hdfs`, copiez le dossier `/hdp/apps/<new-version-name>` et son contenu de `<destination-container-fullpath>` vers le dossier `/hdp/apps` sous `<source-container-fullpath>`. Vous pouvez copier le dossier en exécutant les commandes suivantes sur le cluster de destination :
    
-   Restaurez le répertoire WAL sur le nouveau HDFS du cluster dans une session SSH sur l’un des nœuds ZooKeeper ou Worker du nouveau cluster.
+   ```bash   
+   sudo -u hdfs hdfs dfs -cp /hdp/apps/<hdi-version> <source-container-fullpath>/hdp/apps
+   ```
    
+   Par exemple :
    ```bash
-   hdfs dfs -cp /hbase-wal-backup/hbasewal hdfs://mycluster/**
+   sudo -u hdfs hdfs dfs -cp /hdp/apps/4.1.3.6 wasbs://hbase-upgrade-old-2021-03-22@hbaseupgrade.blob.core.windows.net/hdp/apps
    ```
    
-1. Si vous mettez à niveau HDInsight 3.6 vers la version 4.0, suivez les étapes ci-dessous, sinon passez à l’étape 13 :
-
-    1. Redémarrez tous les services requis dans Ambari en sélectionnant **Services** > **Restart All Required** (Redémarrer tous les services requis).
-    1. Arrêtez le service HBase.
-    1. Ouvrez une connexion SSH sur le nœud Zookeeper et exécutez la commande [zkCli](https://github.com/go-zkcli/zkcli)`rmr /hbase-unsecure` pour supprimer le znode racine HBase de Zookeeper.
-    1. Redémarrez HBase.
-
-1. Si vous mettez à niveau vers une version de HDInsight autre que 4.0, procédez comme suit :
-    1. Enregistrez vos modifications.
-    1. Redémarrez tous les services requis, comme indiqué par Ambari.
-
-1. Pointez votre application vers le nouveau cluster.
-
-    > [!NOTE]  
-    > Le DNS statique de votre application est modifié lors de la mise à niveau. Au lieu de coder en dur ce DNS, vous pouvez configurer un CNAME dans les paramètres DNS de votre nom de domaine qui pointe vers le nom du cluster. Une autre option consiste à utiliser un fichier config pour votre application, que vous pouvez mettre à jour sans nouveau déploiement.
-
-1. Lancez l’ingestion des données pour voir si tout fonctionne comme prévu.
-
-1. Si le nouveau cluster vous convient, supprimez le cluster d’origine.
+1. Sur le cluster de destination, enregistrez vos modifications et redémarrez tous les services nécessaires indiqués par Ambari.
+   
+1. Faites pointer votre application vers le cluster de destination.
+   
+   > [!NOTE]  
+   > Le nom DNS statique de votre application change pendant la mise à niveau. Au lieu de coder en dur ce nom DNS, vous pouvez configurer un CNAME dans les paramètres DNS de votre nom de domaine qui pointe vers le nom du cluster. Une autre option consiste à utiliser un fichier config pour votre application, que vous pouvez mettre à jour sans nouveau déploiement.
+   
+1. Lancez l’ingestion.
+   
+1. Vérifiez la cohérence HBase et les opérations simples de langage de définition de données (DDL) et de langage de manipulation de données (DDL).
+   
+1. Si le cluster de destination est satisfaisant, supprimez le cluster source.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur [Apache HBase](https://hbase.apache.org/) et la mise à niveau de clusters HDInsight, consultez les articles suivants :
 
-* [Mettre à niveau le cluster HDInsight](../hdinsight-upgrade-cluster.md)
-* [Superviser et gérer Azure HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](../hdinsight-hadoop-manage-ambari.md)
-* [Composants et versions d’Apache Hadoop](../hdinsight-component-versioning.md)
-* [Optimiser Apache HBase](../optimize-hbase-ambari.md)
+- [Mettre à niveau le cluster HDInsight](../hdinsight-upgrade-cluster.md)
+- [Superviser et gérer Azure HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](../hdinsight-hadoop-manage-ambari.md)
+- [Versions d’Azure HDInsight](../hdinsight-component-versioning.md)
+- [Optimiser Apache HBase](../optimize-hbase-ambari.md)

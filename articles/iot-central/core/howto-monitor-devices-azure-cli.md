@@ -9,16 +9,14 @@ ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 3a592d00e4e3bc45bbb156b19f374c2fdef23005
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 9193e908f00a601774a9f06b6c94f4369da68fc5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324758"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768784"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Superviser la connectivité des appareils à l’aide d’Azure CLI
-
-*Cette rubrique s’applique aux développeurs d’appareils et aux créateurs de solutions.*
 
 Utilisez l’extension IoT d’Azure CLI pour consulter les messages que vos appareils envoient à IoT Central et observez les modifications apportées au jumeau d’appareil. Vous pouvez utiliser cet outil pour déboguer et observer la connectivité des appareils. Vous pouvez aussi diagnostiquer les problèmes des messages d’appareil n’atteignant pas le cloud ou les appareils qui ne répondent pas aux modifications du jumeau.
 
@@ -81,4 +79,4 @@ az iot central device twin show --app-id <app-id> --device-id <device-id>
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous êtes un développeur d’appareils, nous vous suggérons de vous renseigner sur la [connectivité des appareils dans Azure IoT Central](./concepts-get-connected.md).
+Nous vous suggérons de vous renseigner sur la [connectivité des appareils dans Azure IoT Central](./concepts-get-connected.md).

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
-ms.openlocfilehash: 8f38ed175241bdb9235795d7a999a82d0799d46d
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 8f35e0fcf369616e5e95ce41554370e2bb7b604d
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107876559"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632634"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) du processeur de flux de modification .NET Téléchargement et notes de publication
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -52,6 +52,10 @@ ms.locfileid: "107876559"
 ## <a name="release-notes"></a>Notes de publication
 
 ### <a name="v2-builds"></a>Builds V2
+
+### <a name="240"></a><a id="2.4.0"></a>2.4.0
+* Ajout de la prise en charge des collections de baux qui peuvent être partitionnées avec une clé de partition définie comme /partitionKey. Avant ce changement, la clé de partition de la collection de baux devait être définie comme /id.
+* Cette version permet d’utiliser les collections de baux avec l’API Gremlin, car les collections Gremlin ne peuvent pas avoir de clé de partition définie comme /id.
 
 ### <a name="232"></a><a id="2.3.2"></a>2.3.2
 * Ajout de la compatibilité du magasin de baux avec le SDK V3 qui active les chemins de migration à chaud. Une application peut migrer vers le kit SDK V3 et migrer à nouveau vers la bibliothèque du processeur Modifier le flux sans perdre aucun état.
@@ -199,6 +203,7 @@ Microsoft fournira une notification au moins **12 mois** avant le retrait d’u
 
 | Version | Date de sortie | Date de suppression |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |6 mai 2021 |--- |
 | [2.3.2](#2.3.2) |11 août 2020 |--- |
 | [2.3.1](#2.3.1) |30 juillet 2020 |--- |
 | [2.3.0](#2.3.0) |2 avril 2020 |--- |

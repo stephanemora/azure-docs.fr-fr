@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2021
 ms.author: yelevin
-ms.openlocfilehash: 365ba9df39b4b3bd7397e86e6a51b285bf049242
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b2a98e92630fcdc46228cc36579cfe9787b92daf
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600582"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786642"
 ---
 # <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>Didacticiel : utiliser des règles d’automatisation dans Azure Sentinel
 
@@ -36,7 +36,7 @@ Ce didacticiel vous explique comment utiliser des playbooks en association avec 
 
 ## <a name="what-are-automation-rules-and-playbooks"></a>Que sont les règles d’automatisation et les playbooks ?
 
-Les règles d’automatisation vous aident à trier les incidents dans Azure Sentinel. Vous pouvez les utiliser pour attribuer automatiquement des incidents aux personnes appropriées, fermer des incidents indésirables ou des faux positifs connus, modifier leur gravité et ajouter des balises. Ils sont également le mécanisme par lequel vous pouvez exécuter des règles en réponse aux incidents.
+Les règles d’automatisation vous aident à trier les incidents dans Azure Sentinel. Vous pouvez les utiliser pour attribuer automatiquement des incidents aux personnes appropriées, fermer des incidents indésirables ou des [faux positifs](false-positives.md) connus, modifier leur gravité et ajouter des balises. Ils sont également le mécanisme par lequel vous pouvez exécuter des règles en réponse aux incidents.
 
 Un playbook est une collection de procédures qui peut être exécutée à partir d’Azure Sentinel en réponse à une alerte ou à un incident. Un playbook peut vous aider à automatiser et à orchestrer votre réponse, et peut être configuré pour s’exécuter automatiquement lorsque des alertes ou des incidents spécifiques sont générés, en les joignant à une règle d’analyse ou à une règle d’automatisation. Il peut également être exécuté manuellement à la demande.
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 05/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 3b6104bcf68c720fa727d16e408a25adcba805aa
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 393163cadf1907ac5bbb769ea2644bea190773ed
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259572"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108794319"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Créer un volume NFS pour Azure NetApp Files
 
@@ -126,11 +126,11 @@ Cet article explique comment créer un volume NFS. Pour les volumes SMB, consul
  
     Un volume hérite de l’abonnement, du groupe de ressources et des attributs d’emplacement de son pool de capacité. Vous pouvez suivre l’état du déploiement du volume dans le volet des notifications.
 
-
 ## <a name="next-steps"></a>Étapes suivantes  
 
 * [Configurer le domaine par défaut NFSv4.1 pour Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Configurer le chiffrement Kerberos NFSv4.1](configure-kerberos-encryption.md)
+* [Configurer ADDS LDAP sur TLS pour Azure NetApp Files](configure-ldap-over-tls.md)
 * [Configurer ADDS LDAP avec des groupes étendus pour l’accès au volume NFS](configure-ldap-extended-groups.md)
 * [Monter ou démonter un volume pour des machines virtuelles Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configurer une stratégie d’exportation pour un volume NFS](azure-netapp-files-configure-export-policy.md)

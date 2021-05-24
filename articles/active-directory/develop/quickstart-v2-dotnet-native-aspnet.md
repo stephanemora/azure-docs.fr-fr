@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 7d802aa83e2d48e7b66980b5c06aece10a93f37f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79557d889e4942c7cb7e4ae849b1da84c12a3712
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104658524"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748724"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Démarrage rapide : Appeler une API web ASP.NET qui est protégée par la plateforme d’identités Microsoft
 
@@ -35,25 +35,18 @@ L’article utilise également une application Windows Presentation Foundation (
 Vous pouvez obtenir l’exemple de deux manières :
 
 * Le cloner à partir de votre interpréteur de commandes ou de votre ligne de commande :
+
    ```console
    git clone https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
    ```
+
 * [Le télécharger sous la forme d’un fichier Zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 
-## <a name="register-your-web-api"></a>Inscrire votre API web
+## <a name="register-the-web-api-todolistservice"></a>Inscrire l’API web (TodoListService)
 
-Dans cette section, vous allez inscrire votre API web dans **Inscriptions d’applications** au sein du portail Azure.
-
-### <a name="choose-your-azure-ad-tenant"></a>Choisir votre locataire Azure AD
-
-Pour inscrire vos applications manuellement, choisissez le locataire Azure Active Directory (Azure AD) où vous voulez créer vos applications.
-
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
-1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Annuaire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu supérieur pour sélectionner le locataire que vous souhaitez utiliser.
-
-### <a name="register-the-todolistservice-app"></a>Inscrire l’application TodoListService
+Inscrivez votre API web dans **Inscriptions d’applications** au sein du portail Azure.
 
 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
@@ -76,30 +69,30 @@ Pour inscrire vos applications manuellement, choisissez le locataire Azure Activ
 
 ### <a name="configure-the-service-project"></a>Configurer le projet de service
 
-Configurez le projet de service en fonction de l’API web inscrite en effectuant les opérations suivantes :
+Configurez le projet de service en fonction de l’API web inscrite.
 
 1. Ouvrez la solution dans Visual Studio, puis ouvrez le fichier *Web.config* sous la racine du projet TodoListService.
 
-1. Remplacez la valeur du paramètre `ida:ClientId` par la valeur ID client (ID d’application) de l’application que vous venez d’inscrire dans le portail **Inscriptions d’applications**.
+1. Remplacez la valeur du paramètre `ida:ClientId` par la valeur ID client (ID d’application) de l’application que vous avez inscrite dans le portail **Inscriptions d’applications**.
 
 ### <a name="add-the-new-scope-to-the-appconfig-file"></a>Ajouter la nouvelle étendue au fichier app.config
 
-Pour ajouter une nouvelle étendue au fichier *app.config* de TodoListClient, effectuez les opérations suivantes :
+Pour ajouter la nouvelle étendue au fichier *app.config* de TodoListClient, effectuez les étapes suivantes :
 
 1. Dans le dossier racine du projet TodoListClient, ouvrez le fichier *app.config*.
 
-1. Collez l’ID d’application à partir de l’application que vous venez d’inscrire pour votre projet TodoListService dans le paramètre `TodoListServiceScope`, en remplaçant la chaîne `{Enter the Application ID of your TodoListService from the app registration portal}`.
+1. Collez l’ID d’application à partir de l’application que vous avez inscrite pour votre projet TodoListService dans le paramètre `TodoListServiceScope`, en remplaçant la chaîne `{Enter the Application ID of your TodoListService from the app registration portal}`.
 
   > [!NOTE]
   > Vérifiez que l’ID d’application utilise le format suivant : `api://{TodoListService-Application-ID}/access_as_user` (où `{TodoListService-Application-ID}` est le GUID représentant l’ID d’application de votre application TodoListService).
 
-## <a name="register-the-todolistclient-client-app"></a>Inscrire l’application cliente TodoListClient
+## <a name="register-the-web-app-todolistclient"></a>Inscrire l’application web (TodoListClient)
 
-Dans cette section, vous inscrivez votre application TodoListClient dans **Inscriptions d’applications** dans le portail Azure, puis vous configurez le code dans le projet TodoListClient. Si le client et le serveur sont considérés comme étant *la même application*, vous pouvez réutiliser l’application inscrite à l’étape 2. Utilisez la même application si vous voulez que les utilisateurs se connectent avec un compte Microsoft personnel.
+Inscrivez votre application TodoListClient dans **Inscriptions d’applications** au sein du portail Azure, puis configurez le code dans le projet TodoListClient. Si le client et le serveur sont considérés comme étant la même application, vous pouvez réutiliser l’application inscrite à l’étape 2. Utilisez la même application si vous voulez que les utilisateurs se connectent avec un compte Microsoft personnel.
 
 ### <a name="register-the-app"></a>Enregistrer l'application
 
-Pour inscrire l’application TodoListClient, effectuez les opérations suivantes :
+Pour inscrire l’application TodoListClient, effectuez les étapes suivantes :
 
 1. Accédez au portail [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identités Microsoft pour les développeurs.
 1. Sélectionnez **Nouvelle inscription**.
@@ -111,18 +104,19 @@ Pour inscrire l’application TodoListClient, effectuez les opérations suivante
 
    > [!NOTE]
    > Dans le fichier *app.config* du projet TodoListClient, la valeur par défaut de `ida:Tenant` est définie sur `common`. Les valeurs possibles sont les suivantes :
-   > - `common` : Vous pouvez vous connecter à l’aide d’un compte professionnel ou scolaire ou d’un compte Microsoft personnel (car vous avez sélectionné **Comptes dans un annuaire organisationnel** à l’étape 3b).
+   >
+   > - `common` : Vous pouvez vous connecter à l’aide d’un compte professionnel ou scolaire ou d’un compte Microsoft personnel (car vous avez sélectionné **Comptes dans un annuaire organisationnel** lors d’une étape précédente).
    > - `organizations` : Vous pouvez vous connecter à l’aide d’un compte professionnel ou scolaire.
    > - `consumers` : Vous pouvez vous connecter à l’aide d’un compte Microsoft personnel uniquement.
 
-1. Dans la page **Vue d’ensemble**, sélectionnez **Créer**, puis effectuez les opérations suivantes :
+1. Dans la page **Vue d’ensemble** de l’application, sélectionnez **Authentification**, puis effectuez les étapes suivantes pour ajouter une plateforme :
 
     1. Sous **Configurations de plateformes**, sélectionnez le bouton **Ajouter une plateforme**.
     1. Pour l’option **Applications de bureau et mobiles**, sélectionnez **Application de bureau et mobiles**.
-    1. Pour les **URI de redirection**, activez la case à cocher **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+    1. Pour les **URI de redirection**, activez la case à cocher `https://login.microsoftonline.com/common/oauth2/nativeclient` .
     1. Sélectionnez **Configurer**.
 
-1. Sélectionnez **Autorisations de l’API**, puis effectuez les opérations suivantes :
+1. Sélectionnez **API autorisées**, puis effectuez les étapes suivantes pour ajouter des autorisations :
 
     1. Cliquez sur le bouton **Ajouter une autorisation**.
     1. Sélectionnez l’onglet **Mes API**.
@@ -132,7 +126,7 @@ Pour inscrire l’application TodoListClient, effectuez les opérations suivante
 
 ### <a name="configure-your-project"></a>Configurer votre projet
 
-Pour configurer votre projet TodoListClient, effectuez les opérations suivantes :
+Configurez votre projet TodoListClient en ajoutant l’ID d’application au fichier *app.config*.
 
 1. Dans le portail **Inscriptions d’applications**, dans la page **Vue d’ensemble**, copiez la valeur de l’**ID d’application (client)** .
 
@@ -140,9 +134,9 @@ Pour configurer votre projet TodoListClient, effectuez les opérations suivantes
 
 ## <a name="run-your-todolistclient-project"></a>Exécuter votre projet TodoListClient
 
-Pour exécuter votre projet TodoListClient, effectuez les opérations suivantes :
+Connectez-vous pour exécuter votre projet TodoListClient.
 
-1. Appuyez sur F5 pour exécuter votre projet TodoListClient. La page du projet doit s’ouvrir.
+1. Appuyez sur F5 pour exécuter votre projet TodoListClient. La page du projet s’ouvre.
 
 1. En haut à droite, sélectionnez **Se connecter**, puis connectez-vous avec les mêmes informations d’identification que celles que vous avez utilisées pour inscrire votre application ou connectez-vous en tant qu’utilisateur dans le même annuaire.
 
@@ -152,7 +146,7 @@ Pour exécuter votre projet TodoListClient, effectuez les opérations suivantes�
 
 ## <a name="pre-authorize-your-client-application"></a>Pré-autoriser votre application cliente
 
-Une façon de permettre aux utilisateurs d’autres annuaires d’accéder à votre API web consiste à pré-autoriser l’application cliente à accéder à votre API web. Pour ce faire, ajoutez l’ID d’application de l’application cliente à la liste des applications pré-autorisées pour votre API web. En ajoutant un client pré-autorisé, vous autorisez les utilisateurs à accéder à votre API web sans avoir à fournir de consentement. Pour pré-autoriser votre application cliente, effectuez les opérations suivantes :
+Vous pouvez permettre aux utilisateurs d’autres annuaires d’accéder à votre API web en autorisant préalablement l’application cliente à accéder à votre API web. Pour ce faire, ajoutez l’ID d’application de l’application cliente à la liste des applications pré-autorisées pour votre API web. En ajoutant un client pré-autorisé, vous autorisez les utilisateurs à accéder à votre API web sans avoir à fournir de consentement.
 
 1. Dans le portail **Inscriptions d’applications**, ouvrez les propriétés de votre application TodoListService.
 1. Dans la section **Exposer une API**, sous **Applications clientes autorisées**, sélectionnez **Ajouter une application cliente**.
@@ -162,21 +156,21 @@ Une façon de permettre aux utilisateurs d’autres annuaires d’accéder à vo
 
 ### <a name="run-your-project"></a>Exécuter votre projet
 
-1. Appuyez sur F5 pour exécuter votre projet. Votre application TodoListClient doit s’ouvrir.
-1. En haut à droite, sélectionnez **Se connecter**, puis connectez-vous en utilisant un compte Microsoft personnel, comme live.com ou hotmail.com, ou un compte professionnel ou scolaire.
+1. Appuyez sur <kbd>F5</kbd> pour exécuter votre projet. Votre application TodoListClient s’ouvre.
+1. En haut à droite, sélectionnez **Se connecter**, puis connectez-vous en utilisant un compte Microsoft personnel, comme un compte *live.com* ou *hotmail.com*, ou encore un compte professionnel ou scolaire.
 
 ## <a name="optional-limit-sign-in-access-to-certain-users"></a>Facultatif : Limiter l’accès de connexion à certains utilisateurs
 
-Par défaut, quand vous avez suivi les étapes précédentes, tous les comptes personnels, comme outlook.com ou live.com, ou les comptes professionnels ou scolaires des organisations qui sont intégrés à Azure AD peuvent demander des jetons et accéder à votre API web.
+Par défaut, tous les comptes personnels, comme les comptes *outlook.com* ou *live.com*, ou encore les comptes professionnels ou scolaires d’organisations qui sont intégrés à Azure AD peuvent demander des jetons et accéder à votre API web.
 
 Pour spécifier qui peut se connecter à votre application, utilisez l’une des options suivantes :
 
 ### <a name="option-1-limit-access-to-a-single-organization-single-tenant"></a>Option 1 : Limiter l’accès à une seule organisation (monolocataire)
 
-Vous pouvez limiter l’accès à votre application aux comptes d’utilisateur qui se trouvent dans un seul locataire Azure AD, notamment les *comptes d’invités* de ce locataire. Ce scénario est courant pour les *applications métier*.
+Vous pouvez limiter l’accès à votre application aux comptes d’utilisateur qui se trouvent dans un seul locataire Azure AD, notamment les comptes d’invités de ce locataire. Ce scénario est courant pour les applications métier.
 
-1. Ouvrez le fichier *App_Start\Startup.Auth*, puis remplacez la valeur du point de terminaison de métadonnées qui est passée dans `OpenIdConnectSecurityTokenProvider` par `"https://login.microsoftonline.com/{Tenant ID}/v2.0/.well-known/openid-configuration"`. Vous pouvez également utiliser le nom du locataire, par exemple `contoso.onmicrosoft.com`.
-2. Dans le même fichier, affectez à la propriété `ValidIssuer` définie sur `TokenValidationParameters` la valeur `"https://sts.windows.net/{Tenant ID}/"`, et définissez l’argument `ValidateIssuer` sur `true`.
+1. Ouvrez le fichier *App_Start\Startup.Auth*, puis remplacez la valeur du point de terminaison de métadonnées qui est passée dans `OpenIdConnectSecurityTokenProvider` par `https://login.microsoftonline.com/{Tenant ID}/v2.0/.well-known/openid-configuration`. Vous pouvez également utiliser le nom du locataire, par exemple `contoso.onmicrosoft.com`.
+1. Dans le même fichier, affectez à la propriété `ValidIssuer` définie sur `TokenValidationParameters` la valeur `https://sts.windows.net/{Tenant ID}/`, et définissez l’argument `ValidateIssuer` sur `true`.
 
 ### <a name="option-2-use-a-custom-method-to-validate-issuers"></a>Option n°2 : Utiliser une méthode personnalisée pour valider les émetteurs
 
@@ -185,6 +179,7 @@ Vous pouvez implémenter une méthode personnalisée pour valider les émetteurs
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Apprenez-en davantage sur le scénario d’API web protégée pris en charge par la Plateforme d’identité Microsoft :
+
+Découvrez-en plus sur le scénario d’API web protégée pris en charge par la plateforme d’identité Microsoft.
 > [!div class="nextstepaction"]
 > [Scénario d’API web protégée](scenario-protected-web-api-overview.md)

@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 2/26/2021
-ms.openlocfilehash: f3503dd986f037310b2b24dec535cc05b9d4c4a4
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 05/08/2021
+ms.openlocfilehash: ce78b36a07a0648e869a2a382554fdc41b408f96
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127494"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656323"
 ---
 # <a name="register-and-scan-multiple-sources-in-azure-purview"></a>Inscrire et analyser plusieurs sources dans Azure Purview
 
@@ -73,7 +73,7 @@ Pour inscrire plusieurs sources dans votre catalogue de données, procédez comm
 
       :::image type="content" source="media/register-scan-azure-multiple-sources/azure-multiple-source-setup.png" alt-text="Capture d’écran montrant les zones de sélection d’un abonnement et d’un groupe de ressources.":::
    1. Dans la zone **Sélectionner une collection**, sélectionnez une collection ou créez-en une (facultatif).
-   1. Sélectionnez **Terminer** pour inscrire la source de données.
+   1. Sélectionnez **Inscrire** pour inscrire les sources de données.
 
 
 ## <a name="create-and-run-a-scan"></a>Créer et exécuter une analyse

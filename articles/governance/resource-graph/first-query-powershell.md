@@ -1,16 +1,16 @@
 ---
 title: 'Démarrage rapide : Votre première requête PowerShell'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes pour activer le module Resource Graph pour Azure PowerShell et vous exécutez votre première requête.
-ms.date: 05/01/2021
+ms.date: 05/11/2021
 ms.topic: quickstart
 ms.custom:
 - mode-api
-ms.openlocfilehash: 6147b6bcdda2674190fe3591794bb6758eb8d3eb
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: dd620ec63547b0b9fdba41da3cd2dcf6daa9dea0
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324992"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750912"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide d’Azure PowerShell
 
@@ -47,7 +47,7 @@ Le module Resource Graph pour PowerShell est **Az.ResourceGraph**.
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Vérifiez que le module a été importé et qu’il s’agit de la dernière version (0.7.5) :
+1. Vérifiez que le module a été importé et que sa version est supérieure ou égale à `0.10.0` :
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
@@ -64,17 +64,17 @@ Une fois le module Azure PowerShell ajouté à l’environnement de votre choix,
    # Login first with Connect-AzAccount if not using Cloud Shell
 
    # Run Azure Resource Graph query
-   Search-AzGraph -Query 'Resources | project name, type | limit 5'
+   (Search-AzGraph -Query 'Resources | project name, type | limit 5').Data
    ```
 
    > [!NOTE]
-   > Comme cet exemple de requête ne fournit pas un modificateur de tri tel que `order by`, l’exécution répétée de cette requête peut produire un ensemble différent de ressources.
+   > Comme cet exemple de requête ne fournit pas de modificateur de tri tel que `order by`, l’exécution répétée de cette requête peut produire un ensemble distinct de ressources par requête.
 
 1. Mettez à jour la requête pour la trier (`order by`) en fonction du nom (**name**) de la propriété :
 
    ```azurepowershell-interactive
    # Run Azure Resource Graph query with 'order by'
-   Search-AzGraph -Query 'Resources | project name, type | limit 5 | order by name asc'
+   (Search-AzGraph -Query 'Resources | project name, type | limit 5 | order by name asc').Data
    ```
 
    > [!NOTE]
@@ -84,14 +84,14 @@ Une fois le module Azure PowerShell ajouté à l’environnement de votre choix,
 
    ```azurepowershell-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
-   Search-AzGraph -Query 'Resources | project name, type | order by name asc | limit 5'
+   (Search-AzGraph -Query 'Resources | project name, type | order by name asc | limit 5').Data
    ```
 
 Si votre environnement ne change pas et si vous exécutez plusieurs fois la requête finale, les résultats retournés sont cohérents et classés en fonction de la propriété **Name**, mais toujours limités aux cinq premiers.
 
 > [!NOTE]
 > Si la requête ne retourne aucun résultat à partir d’un abonnement auquel vous avez déjà accès, notez que l’applet de commande `Search-AzGraph` porte par défaut sur les abonnements du contexte par défaut. Pour voir la liste des ID d’abonnement qui font partie du contexte par défaut, exécutez `(Get-AzContext).Account.ExtendedProperties.Subscriptions`. Si vous souhaitez effectuer une recherche sur tous les abonnements auxquels vous avez accès, vous pouvez définir PSDefaultParameterValues pour l’applet de commande `Search-AzGraph` en exécutant `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`.
-   
+
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez supprimer le module Resource Graph de votre environnement Azure PowerShell, vous pouvez le faire à l’aide de la commande suivante :

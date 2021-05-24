@@ -3,12 +3,12 @@ title: Transférer les informations d’alerte
 description: Vous pouvez envoyer des informations d’alerte à des systèmes partenaires en utilisant des règles de transfert.
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.openlocfilehash: bc405f7d4837bf81d9cfcd859d562b7152cfc54b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0fec86a6212cc0f4cb3df67280a0e6d39ed329ac
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104778795"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732220"
 ---
 # <a name="forward-alert-information"></a>Transférer les informations d’alerte
 
@@ -140,6 +140,20 @@ Entrez les paramètres suivants :
 | Message | Nom du capteur : Nom de l’appliance Azure Defender pour IoT. <br />LEEF:1.0 <br />Azure Defender pour IoT <br />Capteur  <br />Version du capteur <br />Alerte Azure Defender pour IoT <br />titre : Titre de l’alerte. <br />msg : Message de l’alerte. <br />protocole : Protocole de l’alerte.<br />gravité :  **Avertissement**, **Mineur**, **Majeur** ou **Critique**. <br />type : Type de l’alerte : **Violation de protocole**, **Violation de stratégie**, **Programme malveillant**, **Anomalie** ou **Opérationnelle**. <br />start : Heure de l’alerte. Notez qu’elle peut être différente de l’heure du serveur Syslog. (Cela dépend de la configuration du fuseau horaire.) <br />src_ip : Adresse IP de l’appareil source.<br />dst_ip : Adresse IP de l’appareil de destination. <br />cat : Groupe d’alertes associé à l’alerte. |
 
 Après avoir entré toutes les informations, sélectionnez **Envoyer**.
+
+#### <a name="webhook-server-action"></a>Action du serveur Webhook
+
+Envoyez des informations d’alerte à un serveur Webhook. L’utilisation de serveurs Webhook vous permet de configurer des intégrations qui s’abonnent à des événements d’alerte avec Defender pour IoT. Lorsqu’un événement d’alerte est déclenché, la console de gestion envoie une charge utile HTTP POST à l’URL configurée du Webhook. Les Webhooks peuvent être utilisés pour mettre à jour un système SIEM externe, des systèmes SOAR, des systèmes de gestion des incidents, etc.   
+
+**Pour définir une action de Webhook :**
+
+1. Sélectionnez l’action de Webhook.
+
+:::image type="content" source="media/how-to-work-with-alerts-sensor/webhook.png" alt-text="Définissez une règle de transfert de Webhook.":::
+
+1. Entrez l’adresse du serveur dans le champ **URL**.
+1. Dans les champs **Clé** et **Valeur**, personnalisez l’en-tête HTTP avec une définition de clé et de valeur. Les clés peuvent uniquement contenir des lettres, des chiffres, des tirets et des traits de soulignement. Les valeurs peuvent uniquement contenir une espace de début et/ou une espace de fin.
+1. Sélectionnez **Enregistrer**.
 
 #### <a name="netwitness-action"></a>Action NetWitness
 

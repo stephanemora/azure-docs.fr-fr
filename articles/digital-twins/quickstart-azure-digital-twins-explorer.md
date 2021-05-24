@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/27/2021
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: ca50c0221843b4e24a6287177f36608b86a0a1a9
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: d56c4b8fc17dc29578366e3d84e9ba20ca95a9dd
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075657"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789710"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Démarrage rapide - Explorer un exemple de scénario Azure Digital Twins avec Azure Digital Twins Explorer
 
@@ -41,7 +41,7 @@ Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure.
 
 Vous avez également besoin de **Node.js** sur votre machine. Pour obtenir la version la plus récente, consultez [Node.js](https://nodejs.org/).
 
-Enfin, vous devez également télécharger les exemples que vous utiliserez dans le cadre du guide de démarrage rapide. L’exemple d’application est **Azure Digital Twins Explorer**. Cet exemple contient l’application que vous utiliserez dans le guide de démarrage rapide pour charger et explorer un scénario Azure Digital Twins. Il contient également les fichiers d’exemples de scénario. Pour obtenir l’exemple, accédez à [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Sélectionnez le bouton **Browse code** sous le titre afin d’accéder au dépôt GitHub de l’exemple. Sélectionnez le bouton **Code** et **Download ZIP** pour télécharger l’exemple sous la forme d’un fichier *.ZIP*. 
+Enfin, vous devez également télécharger les exemples que vous utiliserez dans le cadre du guide de démarrage rapide. L’exemple d’application est **Azure Digital Twins Explorer**. Cet exemple contient l’application que vous utiliserez dans le guide de démarrage rapide pour charger et explorer un scénario Azure Digital Twins. Il contient également les fichiers d’exemples de scénario. Pour obtenir l’exemple, accédez à [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Sélectionnez le bouton **Parcourir le code** sous le titre afin d’accéder au référentiel GitHub de l’exemple. Sélectionnez le bouton **Code**, puis **Download ZIP** pour télécharger l’exemple sous la forme d’un fichier .zip. 
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png" alt-text="Capture d’écran du dépôt digital-twins-explorer sur GitHub. Le bouton Code est sélectionné et une petite boîte de dialogue s’ouvre, dans laquelle le bouton Download ZIP est mis en évidence." lightbox="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png":::
 
@@ -155,7 +155,7 @@ Azure Digital Twins Explorer charge maintenant ces fichiers de modèle dans votr
 
 Maintenant que certains modèles ont été chargés dans votre instance Azure Digital Twins, vous pouvez ajouter des [jumeaux numériques](concepts-twins-graph.md) basés sur les définitions de modèle.
 
-Les jumeaux numériques représentent les véritables entités au sein de votre environnement métier. Il peut s’agir des capteurs dans une ferme, des voyants d’une voiture ou, dans ce guide de démarrage rapide, des pièces d’un étage. Vous pouvez créer de nombreux jumeaux d’un type de modèle donné, par exemple plusieurs pièces qui utilisent toutes le modèle *Room*. Vous les connectez à l’aide de relations dans un **graphe de jumeaux** qui représente l’environnement complet.
+Les jumeaux numériques représentent les véritables entités au sein de votre environnement métier. Il peut s’agir des capteurs dans une ferme, des voyants d’une voiture ou, dans ce guide de démarrage rapide, des pièces d’un étage. Vous pouvez créer de nombreux jumeaux d’un type de modèle donné, par exemple plusieurs pièces qui utilisent toutes le modèle Room. Vous les connectez à l’aide de relations dans un **graphe de jumeaux** qui représente l’environnement complet.
 
 Dans cette section, vous allez charger des jumeaux précréés qui sont connectés dans un graphe lui aussi précréé. Le graphe contient deux étages et deux pièces, connectés de la façon suivante :
 
@@ -212,7 +212,7 @@ Vous pouvez maintenant voir le graphe chargé de l’exemple de scénario.
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Vue du panneau Vue du graphe avec un graphe de jumeaux. Un cercle nommé « floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « room1 ». Un cercle nommé « floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « room0 ».":::
 
-Les cercles (« nœuds » de graphe) représentent des jumeaux numériques. Les lignes représentent des relations. Le jumeau **Floor0** contient **Room0**, tandis que le jumeau **Floor1** contient **Room1**.
+Les cercles (« nœuds » de graphe) représentent des jumeaux numériques. Les lignes représentent des relations. Le jumeau Floor0 contient Room0, tandis que le jumeau Floor1 contient Room1.
 
 Si vous utilisez une souris, vous pouvez faire glisser des parties du graphe pour les déplacer.
 
@@ -283,7 +283,7 @@ Les propriétés de cette liste sont modifiables. Sélectionnez la valeur de tem
     :::column-end:::
 :::row-end:::
 
-À présent, vous voyez une fenêtre **Informations sur les correctifs** dans laquelle apparaît le code correctif utilisé en arrière-plan avec les [API](how-to-use-apis-sdks.md) Azure Digital Twins pour effectuer la mise à jour. Sélectionnez **Fermer**.
+À présent, vous voyez une fenêtre **Informations sur les correctifs** dans laquelle apparaît le code correctif utilisé en arrière-plan avec les [API](concepts-apis-sdks.md) Azure Digital Twins pour effectuer la mise à jour. Sélectionnez **Fermer**.
 
 ### <a name="query-to-see-the-result"></a>Exécuter une requête pour afficher le résultat
 
@@ -313,7 +313,7 @@ Dans ce guide de démarrage rapide, vous avez mis à jour la température manuel
 
 Pour conclure ce guide de démarrage rapide, arrêtez l’exécution de l’application console. Cette action désactive la connexion à l’application Azure Digital Twins Explorer dans le navigateur. Vous ne serez plus en mesure de voir les données actives dans le navigateur. Vous pouvez fermer l’onglet du navigateur.
 
-Vous pouvez alors choisir les ressources à supprimer, en fonction de ce que vous souhaitez faire ensuite.
+Vous pourrez ensuite choisir les ressources à supprimer, en fonction de ce que vous souhaitez faire ensuite.
 
 * **Si vous envisagez de passer aux tutoriels Azure Digital Twins**, ne supprimez pas l’instance de ce guide de démarrage rapide, car vous pourrez la réutiliser.
 

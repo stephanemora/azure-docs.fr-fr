@@ -1,14 +1,14 @@
 ---
 title: Offres de services managés dans la Place de marché Azure
 description: Les offres de services gérés vous permettent de vendre des offres de gestion des ressources à des clients sur la Place de marché Azure.
-ms.date: 02/17/2021
+ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: e66a87751e0375804031e777a40c5fc1d0e8a7e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 056efee8b8bb7a1e32619cc46c0f2665e5463343
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092989"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788640"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Offres de services managés dans la Place de marché Azure
 
@@ -18,7 +18,7 @@ Cet article décrit le type d’offre **Services gérés** sur la [Place de marc
 
 Les offres de services gérés simplifient le processus d’intégration des clients pour Azure Lighthouse. Quand un client achète une offre dans la Place de marché Azure, il peut spécifier les abonnements et/ou les groupes de ressources à intégrer.
 
-Après cela, les utilisateurs de votre organisation seront en mesure de travailler sur ces ressources à partir de votre locataire de gestion avec la [gestion des ressources déléguées Azure](azure-delegated-resource-management.md), en fonction de l’accès que vous avez défini lors de la création de l’offre. Cette opération s'effectue par le biais d'un manifeste spécifiant les utilisateurs, groupes et principaux de service Azure Active Directory (Azure AD) qui auront accès aux ressources du client, ainsi que les [rôles](tenants-users-roles.md) déterminant leur niveau d'accès.
+Après cela, les utilisateurs de votre organisation seront en mesure de travailler sur ces ressources à partir de votre locataire de gestion avec la [gestion des ressources déléguées Azure](architecture.md), en fonction de l’accès que vous avez défini lors de la création de l’offre. Cette opération s'effectue par le biais d'un manifeste spécifiant les utilisateurs, groupes et principaux de service Azure Active Directory (Azure AD) qui auront accès aux ressources du client, ainsi que les [rôles](tenants-users-roles.md) déterminant leur niveau d'accès.
 
 > [!NOTE]
 > Les offres de services managés peuvent ne pas être disponibles dans Azure Government et d’autres clouds nationaux.
@@ -45,5 +45,5 @@ Pour savoir comment publier une offre de service managé, consultez [Publier une
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez la [Gestion des ressources déléguées Azure](azure-delegated-resource-management.md) et les [Expériences de gestion inter-locataire](cross-tenant-management-experience.md).
+- Apprenez-en davantage sur l’[architecture](architecture.md) Azure Lighthouse et les [expériences de gestion multilocataires](cross-tenant-management-experience.md).
 - [Publiez des offres de services managés](../how-to/publish-managed-services-offers.md) sur la Place de marché Azure.

@@ -1,32 +1,33 @@
 ---
-title: Mettre à jour votre DK Azure Percept via une connexion USB
-description: Découvrez comment mettre à jour le DK Azure Percept via une connexion USB
+title: Mettre à jour Azure Percept DK via une connexion par câble USB-C
+description: Découvrez comment mettre à jour Azure Percept DK via une connexion par câble USB-C
 author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e8ab657ec7b4ef9a413993c064c931b4fc1523c5
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 39889455cd41883f5782f9fb140b400d6ed09ed7
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929450"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786732"
 ---
-# <a name="how-to-update-azure-percept-dk-over-a-usb-connection"></a>Comment mettre à jour le DK Azure Percept via une connexion USB
+# <a name="how-to-update-azure-percept-dk-over-a-usb-c-cable-connection"></a>Comment mettre à jour Azure Percept DK via une connexion par câble USB-C
 
-Bien que l’utilisation de mises à jour par voie hertzienne (OTA) soit la meilleure méthode pour tenir à jour le système d’exploitation et le microprogramme de votre kit de développement, il existe des scénarios dans lesquels la mise à jour (ou le « flashage ») du kit de développement via une connexion USB s’impose :
-
-- Une mise à jour OTA n’est pas possible en raison de problèmes de connectivité ou autres.
-- L’appareil doit être réinitialisé à son état usine.
-
-Ce guide explique comment mettre à jour correctement le système d’exploitation et le microprogramme de votre kit de développement via une connexion USB.
+Ce guide explique comment mettre à jour correctement le système d’exploitation et le microprogramme de votre kit de développement via une connexion USB. Voici une vue d’ensemble de ce que vous allez effectuer pendant cette procédure.
+1. Télécharger le package de mise à jour sur un ordinateur hôte
+1. Exécuter la commande qui transfère le package de mise à jour vers le kit de développement
+1. Configurer le kit de développement en « mode USB » (à l’aide de SSH) afin qu’il puisse être détecté par l’ordinateur hôte et recevoir le package de mise à jour
+1. Connecter le kit de développement à l’ordinateur hôte via un câble USB-C
+1. Attendre la fin de la mise à jour
 
 > [!WARNING]
 > La mise à jour de votre kit de développement via une connexion USB aura pour effet de supprimer toutes les données existantes sur l’appareil, y compris les modèles et conteneurs d’IA.
 >
 > Suivez toutes les instructions dans l’ordre. Sauter des étapes pourrait avoir pour effet de mettre votre kit de développement dans un état inutilisable.
+
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -37,14 +38,12 @@ Ce guide explique comment mettre à jour correctement le système d’exploitati
 
 ## <a name="download-software-tools-and-update-files"></a>Télécharger les outils logiciels et les fichiers de mise à jour
 
-1. [Outil NXP UUU](https://github.com/NXPmicro/mfgtools/releases). Téléchargez la **dernière version** du fichier uuu.exe (pour Windows) ou du fichier uuu (pour Linux) à partir de l’onglet **Ressources**.
-
-1. [7-Zip](https://www.7-zip.org/). Ce logiciel sera utilisé pour extraire le fichier image RAW de son fichier compressé XZ. Téléchargez et installez le fichier .exe approprié.
+1. [Outil NXP UUU](https://github.com/NXPmicro/mfgtools/releases). Téléchargez la **version la plus récente** du fichier uuu.exe (pour Windows) ou du fichier uuu (pour Linux) sous l’onglet **Ressources**. UUU est un outil créé par NXP et utilisé pour mettre à jour les cartes de développement NXP.
 
 1. [Téléchargez les fichiers de mise à jour](https://go.microsoft.com/fwlink/?linkid=2155734). Ils sont tous contenus dans un fichier zip que vous extrairez dans la section suivante.
 
 1. Vérifiez que les trois artefacts de la build sont présents :
-    - Azure-Percept-DK- *&lt;numéro de version&gt;* .raw.xz
+    - Azure-Percept-DK- *&lt;numéro de version&gt;* .raw
     - fast-hab-fw.raw
     - emmc_full.txt
 
@@ -58,9 +57,11 @@ Ce guide explique comment mettre à jour correctement le système d’exploitati
 
 ## <a name="update-your-device"></a>Mise à jour de votre appareil
 
-1. [Connectez-vous avec SSH à votre kit de développement](./how-to-ssh-into-percept-dk.md).
+Cette procédure utilise l’unique port USB-C du kit de développement pour la mise à jour.  Si votre ordinateur dispose d’un port USB-C, vous pouvez déconnecter l’appareil Azure Percept Vision et utiliser ce câble.  Si votre ordinateur ne dispose que d’un port USB-A, déconnectez l’appareil Azure Percept Vision du port USB-C du kit de développement et connectez un câble USB-C vers USB-A (vendu séparément) au kit de développement et à l’ordinateur hôte.
 
-1. Ouvrez une invite de commandes Windows (**Démarrer** > **cmd**) ou un terminal Linux, puis accédez au dossier où sont stockés les fichiers de mise à jour et l’outil UUU. Entrez la commande suivante dans l’invite de commandes ou le terminal pour préparer votre ordinateur à recevoir un appareil pouvant être flashé :
+1. Ouvrez une invite de commandes Windows (Démarrer > cmd) ou un terminal Linux, puis **accédez au dossier où sont stockés les fichiers de mise à jour et l’outil UUU**. 
+
+1. Exécutez la commande suivante dans l’invite de commande ou le terminal.
 
     - Windows :
 
@@ -74,11 +75,13 @@ Ce guide explique comment mettre à jour correctement le système d’exploitati
         sudo ./uuu -b emmc_full.txt fast-hab-fw.raw Azure-Percept-DK-<version number>.raw
         ```
 
-1. Déconnectez l’appareil Azure Percept Vision du port USB-C de la carte porteuse.
+1. La fenêtre d’invite de commandes affiche un message indiquant « **En attente de l’apparition d’un périphérique USB connu…**  ». L’outil UUU attend maintenant que le kit de développement soit détecté par l’ordinateur hôte. Vous pouvez maintenant passer aux étapes suivantes.
 
-1. Connectez le câble USB-C fourni au port USB-C de la carte porteuse et au port USB-C de l’ordinateur hôte. Si votre ordinateur ne dispose que d’un port USB-A, connectez un câble de conversion USB-C vers USB-A (vendu séparément) à la carte porteuse et à l’ordinateur hôte.
+1. Connectez le câble USB-C fourni au port USB-C du kit de développement et au port USB-C de l’ordinateur hôte. Si votre ordinateur ne dispose que d’un port USB-A, connectez un câble USB-C vers USB-A (vendu séparément) au kit de développement et à l’ordinateur hôte.
 
-1. Dans l’invite du client SSH, entrez les commandes suivantes :
+1. Connectez-vous à votre kit de développement via SSH. Si vous avez besoin d’aide pour vous connecter par protocole SSH, [suivez ces instructions](./how-to-ssh-into-percept-dk.md).
+
+1. Dans le terminal SSH, entrez les commandes suivantes :
 
     1. Mettez l’appareil en mode de mise à jour USB :
 
@@ -97,7 +100,7 @@ Ce guide explique comment mettre à jour correctement le système d’exploitati
     > [!NOTE]
     > Après la mise à jour, votre appareil sera réinitialisé aux paramètres usine et vous perdrez votre connexion Wi-Fi et votre session SSH.
 
-1. Une fois la mise à jour terminée, mettez la carte mère hors tension. Débranchez le câble USB du PC.  
+1. Une fois la mise à jour terminée, mettez le kit de développement hors tension. Débranchez le câble USB du PC.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

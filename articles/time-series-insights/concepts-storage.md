@@ -1,8 +1,8 @@
 ---
 title: Vue d’ensemble du stockage - Azure Time Series Insights Gen2 | Microsoft Docs
 description: Découvrez le stockage des données dans Azure Time Series Insights Gen2.
-author: deepakpalled
-ms.author: dpalled
+author: tedvilutis
+ms.author: tvilutis
 manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 70a0ecb6e9ff2707401517e185964edf512a94c9
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 9c0bbf9224f8864428d46e38487f614e0c3f61f0
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204258"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715229"
 ---
 # <a name="data-storage"></a>Stockage des données
 
@@ -43,7 +43,9 @@ Lors de l’ingestion d’un événement, celui-ci est indexé tant dans le maga
 Azure Time Series Insights Gen2 partitionne et indexe les données pour optimiser les performances des requêtes. Il est possible d’interroger les données après les avoir indexées à la fois depuis un magasin chaud (s’il est activé) et un magasin froid. La quantité de données ingérées et le débit par partition peuvent affecter la disponibilité. Pour obtenir des performances optimales, examinez les [limites de débit](./concepts-streaming-ingress-throughput-limits.md) de la source de l’événement et les [meilleures pratiques](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices). Vous pouvez également configurer une [alerte](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) de latence pour être notifié si votre environnement rencontre des problèmes de traitement des données.
 
 > [!IMPORTANT]
-> Il peut s’écouler jusqu’à 60 secondes avant que les données ne soient disponibles. Si vous constatez une latence significative supérieure à 60 secondes, veuillez envoyer un ticket de support par le biais du Portail Azure.
+> Il peut s’écouler jusqu’à 60 secondes avant que les données soient disponibles via les [API Time Series Query](./concepts-query-overview.md). Si vous constatez une latence significative supérieure à 60 secondes, veuillez envoyer un ticket de support par le biais du Portail Azure.
+> 
+> Il peut s’écouler jusqu’à cinq minutes avant que les données soient disponibles lorsque vous accédez directement aux fichiers Parquet en dehors d’Azure Time Series Insights Gen2. Pour plus d’informations, consultez la section [Format de fichier Parquet](#parquet-file-format-and-folder-structure).
 
 ## <a name="warm-store"></a>Magasin de stockage à chaud
 
@@ -96,32 +98,26 @@ Pour plus d’informations sur le type de fichier Parquet, consultez la [documen
 
 Azure Time Series Insights Gen2 stocke des copies de vos données comme suit :
 
-* La première copie initiale est partitionnée par heure d’ingestion et stocke les données par ordre approximatif d’arrivée. Ces données se trouvent dans le dossier `PT=Time` :
+* Le dossier `PT=Time` est partitionné par heure d’ingestion et stocke les données par ordre approximatif d’arrivée. Ces données sont conservées dans le temps et vous pouvez y accéder directement en dehors d’Azure Time Series Insight Gen2, par exemple à partir de vos notebooks Spark. Le timestamp `<YYYYMMDDHHMMSSfff>` correspond à l’heure d’ingestion des données. `<MinEventTimeStamp>` et `<MaxEventTimeStamp>` correspondent à la plage de timestamps d’événements inclus dans le fichier. Le chemin d’accès et le nom de fichier sont formatés comme suit :
 
-  `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
+  `V=1/PT=Time/Y=<YYYY>/M=<MM>/<BlobCreationTimestamp>_<MinEventTimestamp>_<MaxEventTimestamp>_<TsiInternalSuffix>.parquet`
 
-* La deuxième copie repartitionnée est regroupée par ID Time Series et se trouve dans le dossier `PT=TsId` :
-
-  `V=1/PT=TsId/<TSI_INTERNAL_NAME>.parquet`
-
-Le timestamp des noms d’objets blob du dossier `PT=Time` correspond à l’heure d’arrivée des données dans Azure Time Series Insights Gen2 et non au timestamp des événements.
-
-Les données du dossier `PT=TsId` seront optimisées pour les requêtes au fil du temps et ne sont pas statiques. Durant le repartitionnement, plusieurs événements peuvent être présents dans plusieurs objets blob. Il n’est pas garanti que le nom des objets blob dans ce dossier reste le même.
-
-En règle générale, si vous avez besoin d’accéder directement aux données via des fichiers Parquet, utilisez le dossier `PT=Time`.  Les fonctionnalités futures permettront un accès efficace au dossier `PT=TsId`.
+* Les dossiers `PT=Live` et `PT=Tsid` contiennent une seconde copie de vos données, repartitionnée pour des performances de requête de série chronologique à grande échelle. Ces données sont optimisées dans le temps et ne sont pas statiques. Pendant le repartitionnement, certains événements peuvent être présents dans plusieurs blobs et les noms des blobs peuvent changer.  Ces dossiers sont utilisés par Azure Time Series Insights Gen2 et ne doivent pas être accessibles directement. Vous devez utiliser `PT=Time` uniquement à cette fin.
 
 > [!NOTE]
 >
+> Les données du dossier `PT=Time` antérieures à juin 2021 peuvent avoir un format de nom de fichier sans intervalles de temps d’événement : `V=1/PT=Time/Y=<YYYY>/M=<MM>/<BlobCreationTimestamp>_<TsiInternalSuffix>.parquet`.  Le format de fichier interne est le même, et les fichiers avec les deux schémas de dénomination peuvent être utilisés ensemble. 
+>
 > * `<YYYY>` correspond à une représentation de l’année à quatre chiffres.
 > * `<MM>` correspond à une représentation du mois à deux chiffres.
-> * `<YYYYMMDDHHMMSSfff>` correspond à une représentation de l’horodatage avec une année à quatre chiffres (`YYYY`), un mois à deux chiffres (`MM`), un jour à deux chiffres (`DD`), une heure à deux chiffres (`HH`), une minute à deux chiffres (`MM`), une seconde à deux chiffres (`SS`) et une milliseconde à trois chiffres (`fff`).
+> * Le format `<YYYYMMDDHHMMSSfff>` des timestamps correspond à une année à quatre chiffres (`YYYY`), un mois à deux chiffres (`MM`), un jour à deux chiffres (`DD`), une heure à deux chiffres (`HH`), une minute à deux chiffres (`MM`), une seconde à deux chiffres (`SS`) et une milliseconde à trois chiffres (`fff`).
 
 Les événements Azure Time Series Insights Gen2 sont mappés au contenu du fichier Parquet comme suit :
 
 * Chaque événement correspond à une ligne unique.
 * Chaque ligne comprend la colonne **timestamp** avec un horodatage de l’événement. La propriété timestamp n’est jamais nulle. Par défaut, elle a la valeur **event enqueued time** si la propriété timestamp n’est pas spécifiée dans la source de l’événement. L’horodatage stocké est toujours au format UTC.
 * Chaque ligne comprend les colonnes ID Time Series (TSID) telles qu’elles sont définies lors de la création de l’environnement Azure Time Series Insights Gen2. Le nom de la propriété TSID comprend le suffixe `_string`.
-* Toutes les autres propriétés envoyées en tant que données de télémétrie sont mappées à des noms de colonnes qui se terminent par `_bool` (booléen), `_datetime` (horodatage), `_long` (long), `_double` (double), `_string` (chaîne) ou `dynamic` (dynamique), en fonction du type de propriété.  Pour en savoir plus, découvrez les [types de données pris en charge](./concepts-supported-data-types.md).
+* Toutes les autres propriétés envoyées en tant que données de télémétrie sont mappées à des noms de colonnes qui se terminent par `_bool` (booléen), `_datetime` (horodatage), `_long` (long), `_double` (double), `_string` (chaîne) ou `_dynamic` (dynamique), en fonction du type de propriété.  Pour en savoir plus, découvrez les [types de données pris en charge](./concepts-supported-data-types.md).
 * Ce schéma de mappage s’applique à la première version du format de fichier, référencée **V=1** et stockée dans le dossier de base du même nom. À mesure que cette fonctionnalité évolue, ce schéma de mappage est susceptible de changer et le nom de référence d’être incrémenté.
 
 ## <a name="next-steps"></a>Étapes suivantes

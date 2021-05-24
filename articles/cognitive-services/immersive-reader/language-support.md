@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metang
-ms.openlocfilehash: 80da6776412e0df7b5b9ae5759ac770c04673992
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c36933a13bf3373930acf5dbb36513aa171748f9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631068"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768892"
 ---
 # <a name="language-support-for-immersive-reader"></a>Prise en charge linguistique pour le Lecteur immersif
 
@@ -53,6 +53,7 @@ Cet article liste les langues prises en charge pour les fonctionnalités du Lect
 | Danois | da |
 | Danois (Danemark) | da-DK |
 | Néerlandais | nl |
+| Néerlandais (Belgique) | nl-BE |
 | Néerlandais (Pays-Bas) | nl-NL |
 | Anglais | en |
 | Anglais (Australie) | en-AU |
@@ -61,11 +62,14 @@ Cet article liste les langues prises en charge pour les fonctionnalités du Lect
 | Anglais (Inde) | en-IN |
 | Anglais (Irlande) | en-IE |
 | Anglais (Nouvelle-Zélande) | en-NZ |
+| Anglais (Philippines) | en-PH |
 | Anglais (Royaume-Uni) | en-GB |
 | Anglais (États-Unis) | fr-FR |
+| Estonien | Et-EE |
 | Finnois | fi |
 | Finnois (Finlande) | fi-FI |
 | Français | fr |
+| Français (Belgique) | fr-BE |
 | Français (Canada) | fr-CA |
 | Français (France) | fr-FR |
 | Français (Suisse) | fr-CH |
@@ -83,14 +87,18 @@ Cet article liste les langues prises en charge pour les fonctionnalités du Lect
 | Hongrois (Hongrie) | hu-HU |
 | Indonésien | id |
 | Indonésien (Indonésie) | id-ID |
+| Irlandais | ga-IE |
 | Italien | it |
 | Italien (Italie) | it-IT |
 | Japonais | ja |
 | Japonais (Japon) | ja-JP |
 | Coréen | ko |
 | Coréen (Corée) | ko-KR |
+| Letton | Lv-LV |
+| Lituanien | lt-LT |
 | Malais | ms |
 | Malais (Malaisie) | ms-MY |
+| Maltais | Mt-MT |
 | Norvégien Bokmal| nb |
 | Norvégien Bokmal (Norvège) | nb-NO |
 | Polonais | pl |
@@ -120,21 +128,29 @@ Cet article liste les langues prises en charge pour les fonctionnalités du Lect
 | Thaï (Thaïlande) | th-TH |
 | Turc | tr |
 | Turc (Turquie) | tr-TR |
+| Ukrainien | ur-PK |
 | Vietnamien | vi |
 | Vietnamien (Vietnam) | vi-VN |
+| Gallois | Cy-GB |
 
 ## <a name="translation"></a>Traduction
 
 | Langage | Tag |
 |----------|-----|
 | Afrikaans | af |
+| Albanais | sq |
+| Amharique | am |
 | Arabe | ar |
 | Arabe (égyptien) | ar-EG |
 | Arabe (Arabie saoudite) | ar-SA |
+| Arménien | hy |
+| Azéri | az |
+| Afrikaans | af |
 | Bangla | bn |
 | Bosniaque | bs |
 | Bulgare | bg |
 | Bulgare (Bulgarie) | bg-BG |
+| Birman | my |
 | Catalan | ca |
 | Catalan (Catalogne) | ca-ES |
 | Chinois | zh |
@@ -202,11 +218,14 @@ Cet article liste les langues prises en charge pour les fonctionnalités du Lect
 | Japonais | ja |
 | Japonais (Japon) | ja-JP |
 | Kannada | kn |
+| Kazakh | kk |
+| Khmer | km |
 | Kiswahili | sw |
 | Coréen | ko |
 | Coréen (Corée) | ko-KR |
 | Kurde (central) | ku |
 | Kurde (Nord) | kmr |
+| Lao | lo |
 | Letton | lv |
 | Lituanien | lt |
 | Malgache | mg |
@@ -216,6 +235,7 @@ Cet article liste les langues prises en charge pour les fonctionnalités du Lect
 | Maltais | mt |
 | Maori | mi |
 | Marathi | mr |
+| Népalais | ne |
 | Norvégien Bokmal| nb |
 | Norvégien Bokmal (Norvège) | nb-NO |
 | Odia | ou |
@@ -253,6 +273,7 @@ Cet article liste les langues prises en charge pour les fonctionnalités du Lect
 | Télougou (Inde) | te-IN |
 | Thaï | th |
 | Thaï (Thaïlande) | th-TH |
+| Tigrigna | ti |
 | Tonga | to |
 | Turc | tr |
 | Turc (Turquie) | tr-TR |
@@ -548,31 +569,3 @@ Cet article liste les langues prises en charge pour les fonctionnalités du Lect
 | Espagnol (Espagne) | es-ES |
 | Suédois | sv |
 | Suédois (Suède) | sv-SE |
-
-## <a name="dictionary"></a>Dictionnaire
-
-| Langage | Tag |
-|----------|-----|
-| Anglais | en |
-| Anglais (Australie) | en-AU |
-| Anglais (Canada) | en-CA |
-| Anglais (Hong Kong R.A.S.) | en-HK |
-| Anglais (Inde) | en-IN |
-| Anglais (Irlande) | en-IE |
-| Anglais (Nouvelle-Zélande) | en-NZ |
-| Anglais (Royaume-Uni) | en-GB |
-| Anglais (États-Unis) | fr-FR |
-| Français | fr |
-| Français (Canada) | fr-CA |
-| Français (France) | fr-FR |
-| Français (Suisse) | fr-CH |
-| Allemand | de |
-| Allemand (Autriche) | de-AT |
-| Allemand (Allemagne) | de-DE |
-| Allemand (Suisse)| de-CH |
-| Italien | it |
-| Italien (Italie) | it-IT |
-| Espagnol | es |
-| Espagnol (Amérique latine) | es-419 |
-| Espagnol (Mexique) | es-MX |
-| Espagnol (Espagne) | es-ES |

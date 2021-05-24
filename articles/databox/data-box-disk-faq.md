@@ -55,7 +55,7 @@ R. Pour cinq disques de 8 To chacun (7 To de capacité utile), la capacité ut
 R.  Pour voir où les disques Data Box Disk sont actuellement disponibles, accédez à [Disponibilité dans la région](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. Dans quelles régions puis-je stocker des données avec des disques Data Box ?
-R. Data Box Disk est pris en charge dans toutes les régions des pays suivants : États-Unis, Canada, Union européenne, Royaume-Uni, Australie, Singapour, Inde, Chine, Hong Kong, Japon, Corée et Afrique du Sud. Seules les régions du cloud public Azure sont prises en charge. Azure Government et les autres clouds souverains ne sont pas pris en charge.
+R. Data Box Disk est pris en charge dans toutes les régions des pays suivants : États-Unis, Canada, Union européenne, Royaume-Uni, Australie, Singapour, Inde, Chine, Hong Kong (R.A.S.), Japon, Corée et Afrique du Sud. Seules les régions du cloud public Azure sont prises en charge. Azure Government et les autres clouds souverains ne sont pas pris en charge.
 
 ### <a name="q-how-can-i-import-source-data-present-at-my-location-in-one-countryregion-to-an-azure-region-in-a-different-country"></a>Q. Comment importer des données sources présentes sur le site où je me trouve dans un pays/une région vers une région Azure située dans un autre pays ?
 R. Data Box Disk prend en charge l'ingestion de données, mais uniquement dans le même pays/la même région que leur destination. Aucune frontière internationale ne peut être franchie. La seule exception concerne les commandes au sein de l'Union européenne (UE), où les disques Data Box Disk peuvent être expédiés depuis et vers n'importe quel pays/région de l'UE.

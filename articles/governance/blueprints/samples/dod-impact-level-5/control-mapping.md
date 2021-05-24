@@ -3,17 +3,17 @@ title: Contrôles de l’exemple de blueprint DoD Impact Level 5
 description: Mappage des contrôles de l’exemple de blueprint DoD Impact Level 5. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: af68ee959c50102b8344f91f8c3aa2fe11a0e2c2
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: fdfa0cb3824234b68710600bd70ebf074cf3d157
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386689"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757508"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint DoD Impact Level 5
 
 L’article suivant explique en détail comment l’exemple de blueprint Department of Defense Impact Level 5 (DoD IL5) Azure Blueprints est mappé aux contrôles DoD Impact Level 5. Pour plus d’informations sur les contrôles, consultez le [Guide des exigences de sécurité du Cloud Computing du DoD (en anglais)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf).
-La DISA (Defense Information Systems Agency) est une agence du ministère américain de la défense (DoD) qui est responsable du développement et de la mise à jour du Guide des exigences de sécurité du Cloud Computing du DoD. Le Guide des exigences de sécurité définit les exigences de sécurité de base applicables aux fournisseurs de services cloud qui hébergent des informations, des systèmes et des applications DoD, ainsi qu’à l’utilisation des services cloud par le DoD.  
+La DISA (Defense Information Systems Agency) est une agence du ministère américain de la défense (DoD) qui est responsable du développement et de la mise à jour du Guide des exigences de sécurité du Cloud Computing du DoD. Le Guide des exigences de sécurité définit les exigences de sécurité de base applicables aux fournisseurs de services cloud qui hébergent des informations, des systèmes et des applications DoD, ainsi qu’à l’utilisation des services cloud par le DoD.
 
 Les mappages suivants concernent les contrôles **DoD Impact Level 5**. Utilisez le volet de navigation de droite pour accéder directement à la correspondance d’un contrôle spécifique. De nombreux contrôles mappés sont implémentés avec une initiative [Azure Policy](../../../policy/overview.md). Pour examiner l’initiative complète, ouvrez **Stratégie** dans le portail Azure et sélectionnez la page **Définitions**. Ensuite, recherchez et sélectionnez l’initiative de stratégie intégrée **\[Préversion\] : DoD Impact Level 5**.
 
@@ -120,7 +120,7 @@ Les données de journal collectées par Azure Monitor sont stockées dans un esp
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) Révision, analyse et rapports d’audit | Intégration/analyse et fonctionnalités de surveillance
 
-Ce blueprint fournit des définitions de stratégie qui auditent les enregistrements avec l’analyse de l’évaluation des vulnérabilités sur les machines virtuelles, les groupes de machines virtuelles identiques, les serveur SQL Database et les serveurs SQL Managed Instance. Ces définitions de stratégie vérifient également la configuration des journaux de diagnostic pour fournir des insights sur les opérations effectuées au sein des ressources Azure. Ces insights fournissent des informations en temps réel sur l’état de la sécurité de vos ressources déployées et peuvent vous aider à classer par ordre de priorité les actions de correction. Pour plus d’informations sur l’analyse et la surveillance des vulnérabilités, nous vous recommandons d’utiliser également Azure Sentinel et Azure Security Center.
+Ce blueprint fournit des définitions de stratégie qui auditent les enregistrements avec l’analyse de l’évaluation des vulnérabilités sur les machines virtuelles, les groupes de machines virtuelles identiques, les serveur SQL Database et les serveurs SQL Managed Instance. Ces définitions de stratégie vérifient également la configuration des journaux de diagnostic pour fournir des insights sur les opérations effectuées au sein des ressources Azure. Ces insights fournissent des informations en temps réel sur l’état de la sécurité de vos ressources déployées et peuvent vous aider à classer par ordre de priorité les actions de correction. Pour plus d’informations sur l’analyse et la supervision des vulnérabilités, nous vous recommandons d’utiliser également Azure Sentinel et Azure Security Center.
 
 - Auditer le paramètre de diagnostic
 - L'évaluation des vulnérabilités doit être activée sur l'instance SQL Managed Instance
@@ -154,19 +154,19 @@ Cette stratégie intégrée nécessite la spécification d’un tableau de types
 
 ## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM-7 (2) Fonctionnalités essentielles | Empêcher l’exécution d’un programme
 
-Le contrôle des applications adaptatif dans Azure Security Center est une solution intelligente et automatisée de mise en liste verte d’applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle des applications peut s’exécuter dans un mode de mise en conformité qui empêche l’exécution d’applications non approuvées. Ce blueprint affecte une définition Azure Policy qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
+Le contrôle des applications adaptatif dans Azure Security Center est une solution intelligente et automatisée de mise en liste d’autorisation d’applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle des applications peut s’exécuter dans un mode de mise en conformité qui empêche l’exécution d’applications non approuvées. Ce blueprint affecte une définition Azure Policy qui vous aide à superviser les machines virtuelles pour lesquelles une liste d’autorisation d’applications est recommandée mais n’a pas encore été configurée.
 
 - Les contrôles d’application adaptatifs pour définir les applications sécurisées doivent être activés sur vos machines
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) Fonctionnalités essentielles | Logiciels autorisés / Mise sur liste verte
 
-Le contrôle des applications adaptatif dans Azure Security Center est une solution intelligente et automatisée de mise en liste verte d’applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications vous permet de créer des listes d’applications approuvées pour vos machines virtuelles. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
+Le contrôle des applications adaptatif dans Azure Security Center est une solution intelligente et automatisée de mise en liste d’autorisation d’applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications vous permet de créer des listes d’applications approuvées pour vos machines virtuelles. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste d’autorisation d’applications est recommandée mais n’a pas encore été configurée.
 
 - Les contrôles d’application adaptatifs pour définir les applications sécurisées doivent être activés sur vos machines
 
 ## <a name="cm-11-user-installed-software"></a>CM-11 Logiciels installés par l’utilisateur
 
-Le contrôle des applications adaptatif dans Azure Security Center est une solution intelligente et automatisée de mise en liste verte d’applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications peut vous aider à appliquer et à superviser la conformité à des stratégies de restriction logicielle. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
+Le contrôle des applications adaptatif dans Azure Security Center est une solution intelligente et automatisée de mise en liste d’autorisation d’applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications peut vous aider à appliquer et à superviser la conformité à des stratégies de restriction logicielle. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste d’autorisation d’applications est recommandée mais n’a pas encore été configurée.
 
 - Les contrôles d’application adaptatifs pour définir les applications sécurisées doivent être activés sur vos machines
 
@@ -176,7 +176,7 @@ Azure Site Recovery réplique les charges de travail exécutées sur des machine
 
 - Auditer des machines virtuelles pour lesquelles la reprise d’activité après sinistre n’est pas configurée
 
-## <a name="cp-9-05--information-system-backup--transfer-to-alternate-storage-site"></a>CP-9 (05) Sauvegarde du système d’information | Transfert vers un site de stockage secondaire
+## <a name="cp-9-05-information-system-backup--transfer-to-alternate-storage-site"></a>CP-9 (05) Sauvegarde du système d’information | Transfert vers un site de stockage secondaire
 
 Ce blueprint affecte des définitions d’Azure Policy qui auditent électroniquement les informations de sauvegarde du système de l’organisation sur le site de stockage alternatif. Pour l’envoi physique de métadonnées de stockage, envisagez d’utiliser Azure Data Box.
 
@@ -353,14 +353,14 @@ Ce blueprint vous aide à superviser votre système en auditant et en appliquant
 
 ## <a name="si-4-12-information-system-monitoring--automated-alerts"></a>SI-4 (12) Supervision du système d’information | Alertes automatisées
 
-Ce blueprint fournit des définitions de stratégie qui vous permettent de vérifier que les notifications de sécurité des données sont correctement activées. De plus, ce blueprint garantit que le niveau tarifaire standard est activé pour Azure Security Center. Notez que le niveau tarifaire standard permet la détection des menaces sur les réseaux et les machines virtuelles, en fournissant des fonctions de renseignement sur les menaces, la détection d’anomalies et l’analytique de comportement dans Azure Security Center.
+Ce blueprint fournit des définitions de stratégie qui vous permettent de vérifier que les notifications de sécurité des données sont correctement activées. De plus, ce blueprint garantit que le niveau tarifaire Standard est activé pour Azure Security Center. Notez que le niveau tarifaire Standard permet la détection des menaces sur les réseaux et les machines virtuelles, en fournissant des fonctions de renseignement sur les menaces, la détection d’anomalies et l’analytique de comportement dans Azure Security Center.
 
 - La notification par e-mail au propriétaire de l’abonnement pour les alertes à gravité élevée doit être activée
 - Une adresse e-mail de contact de sécurité doit être fournie pour votre abonnement
 - Un numéro de téléphone de contact de sécurité doit être fourni pour votre abonnement
 
 > [!NOTE]
-> La disponibilité des définitions Azure Policy peut varier dans Azure Government et dans d’autres clouds nationaux. 
+> La disponibilité des définitions Azure Policy peut varier dans Azure Government et dans d’autres clouds nationaux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

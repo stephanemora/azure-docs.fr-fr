@@ -3,12 +3,12 @@ title: Utiliser des points de terminaison privés pour intégrer Azure Functions
 description: Ce tutoriel pas à pas vous montre comment connecter une fonction à un réseau virtuel Azure et le verrouiller avec des points de terminaison privés.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: e1ed944250f05f52860c47f6cb61130f50b08e7c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 0f18712e9881c60754d5729751609f6458104daf
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078772"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715481"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutoriel : intégrer des Azure Functions à un réseau virtuel Azure à l’aide de points de terminaison privés
 
@@ -20,7 +20,7 @@ Dans ce didacticiel, vous allez :
 > * Créez une application de fonction sur le plan Premium.
 > * Créez des ressources Azure (Service Bus, compte de stockage, réseau virtuel).
 > * Verrouillez votre compte de stockage derrière un point de terminaison privé.
-> * Verrouiller votre Service Bus derrière un point de terminaison privé.
+> * Verrouillez votre Service Bus derrière un point de terminaison privé.
 > * Déployez une application de fonction qui utilise à la fois les déclencheurs Service Bus et HTTP.
 > * Verrouillez votre application de fonction derrière un point de terminaison privé.
 > * Vérifiez que votre application de fonction est sécurisée dans le réseau virtuel.
@@ -71,7 +71,7 @@ Félicitations ! Vous avez créé votre application de fonction Premium avec su
 
 ## <a name="create-azure-resources"></a>Créer des ressources Azure
 
-Ensuite, vous allez créer un compte de stockage, un Service Bus et un réseau virtuel. 
+Vous allez ensuite créer un compte de stockage, un Service Bus et un réseau virtuel. 
 ### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
 Vos réseaux virtuels auront besoin d’un compte de stockage distinct de celui que vous avez créé avec votre application de fonction.
@@ -103,8 +103,8 @@ Vos réseaux virtuels auront besoin d’un compte de stockage distinct de celui 
     | ------------ | ---------------- | ---------------- |
     | **Abonnement** | Votre abonnement | Abonnement sous lequel vos ressources sont créées. |
     | **[Groupe de ressources](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Le groupe de ressources que vous avez créé avec votre application de fonction. |
-    | **Nom** | myServiceBus| Nom du Service Bus auquel le point de terminaison privé sera appliqué. |
-    | **[Région](https://azure.microsoft.com/regions/)** | myFunctionRegion | La région dans laquelle vous avez créé votre application de fonction. |
+    | **Nom de l’espace de noms** | myServiceBus| Nom du Service Bus auquel le point de terminaison privé sera appliqué. |
+    | **[Emplacement](https://azure.microsoft.com/regions/)** | myFunctionRegion | La région dans laquelle vous avez créé votre application de fonction. |
     | **Niveau tarifaire** | Premium | Choisissez ce niveau pour utiliser des points de terminaison privés avec Azure Service Bus. |
 
 1. Sélectionnez **Revoir + créer**. Une fois la validation terminée, sélectionnez **Créer**.
@@ -183,14 +183,18 @@ Créez les points de terminaison privés pour le stockage Azure Files et le stoc
     | ------------ | ---------------- | ---------------- |
     | **Abonnement** | Votre abonnement | Abonnement sous lequel vos ressources sont créées. | 
     | **Type de ressource**  | Microsoft.Storage/storageAccounts | Le type de ressource pour les comptes de stockage. |
+    | **Nom** | blob-endpoint | Nom du point de terminaison privé pour les objets blob de votre compte de stockage. |
     | **Ressource** | mysecurestorage | Le compte de stockage que vous avez créé. |
     | **Sous-ressource cible** | objet BLOB | Ce point de terminaison privé sera utilisé pour les fichiers blob du compte de stockage. |
+1. Une fois les points de terminaison privés créés, revenez à la section **Pare-feu et réseaux virtuels** de votre compte de stockage.  
+1. Vérifiez que l’option **Réseaux sélectionnés** est sélectionnée.  Il n’est pas nécessaire d’ajouter un réseau virtuel existant.
 
+Les ressources du réseau virtuel peuvent désormais communiquer avec le compte de stockage à l’aide du point de terminaison privé.
 ## <a name="lock-down-your-service-bus"></a>Verrouiller votre Service Bus
 
 Créez le point de terminaison privé pour verrouiller votre Service Bus :
 
-1. Dans votre nouveau compte de stockage, sélectionnez **Mise en réseau** dans le menu sur la gauche.
+1. Dans votre nouveau Service Bus, sélectionnez **Mise en réseau** dans le menu de gauche.
 
 1. Sélectionnez l’onglet **Connexions des points de terminaison privés**, puis sélectionnez **Point de terminaison privé**.
 
@@ -210,15 +214,32 @@ Créez le point de terminaison privé pour verrouiller votre Service Bus :
     | Paramètre      | Valeur suggérée  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Abonnement** | Votre abonnement | Abonnement sous lequel vos ressources sont créées. | 
-    | **Type de ressource**  | Microsoft.ServiceBus/namespaces | Le type de ressource pour le Service Bus. |
+    | **Type de ressource**  | Microsoft.ServiceBus/namespaces | Type de ressource pour le Service Bus. |
     | **Ressource** | myServiceBus | Le Service Bus que vous avez créé précédemment dans le tutoriel. |
     | **Sous-ressource cible** | espace de noms | Ce point de terminaison privé sera utilisé pour l’espace de noms du Service Bus. |
 
 1. Sous l’onglet **Configuration**, choisissez **Par défaut** pour le paramètre **Sous-réseau**.
 
 1. Sélectionnez **Revoir + créer**. Une fois la validation terminée, sélectionnez **Créer**. 
+1. Une fois le point de terminaison privé créé, revenez à la section **Pare-feu et réseaux virtuels** de l’espace de noms de votre Service Bus.
+1. Vérifiez que l’option **Réseaux sélectionnés** est sélectionnée.
+1. Sélectionnez **+ Ajouter un réseau virtuel existant** pour ajouter le réseau virtuel récemment créé.
+1. Sous l’onglet **Ajouter des réseaux**, utilisez les paramètres réseau du tableau suivant :
 
-Les ressources du réseau virtuel peuvent désormais communiquer avec le Service Bus.
+    | Paramètre | Valeur suggérée | Description|
+    |---------|-----------------|------------|
+    | **Abonnement** | Votre abonnement | Abonnement sous lequel vos ressources sont créées. |
+    | **Réseaux virtuels** | myVirtualNet | Nom du réseau virtuel auquel votre application de fonction se connectera. |
+    | **Sous-réseaux** | functions | Nom du sous-réseau auquel votre application de fonction se connectera. |
+
+1. Sélectionnez **Ajouter l’adresse IP de votre client** pour permettre à l’adresse IP de votre client actuel d’accéder à l’espace de noms.
+    > [!NOTE]
+    > Vous devez autoriser l’adresse IP de votre client pour permettre au portail Azure de [publier des messages dans la file d’attente ultérieurement dans ce tutoriel](#test-your-locked-down-function-app).
+1. Sélectionnez **Activer** pour activer le point de terminaison de service.
+1. Sélectionnez **Ajouter** pour ajouter le réseau virtuel et le sous-réseau sélectionnés aux règles de pare-feu pour le Service Bus.
+1. Sélectionnez **Enregistrer** pour enregistrer le paramètre d’entrée mis à jour.
+
+Les ressources du réseau virtuel peuvent désormais communiquer avec le Service Bus à l’aide du point de terminaison privé.
 
 ## <a name="create-a-file-share"></a>Créer un partage de fichiers
 
@@ -242,17 +263,17 @@ Les ressources du réseau virtuel peuvent désormais communiquer avec le Service
 
 Créez la file d’attente dans laquelle votre déclencheur de Service Bus Azure Functions obtiendra les événements suivants :
 
-1. Dans votre Service Bus, dans le menu sur la gauche, sélectionnez **files d’attente**.
+1. Dans votre Service Bus, sélectionnez **Files d’attente** dans le menu de gauche.
 
-1. Sélectionnez **Stratégies d’accès partagé**. Pour les besoins de ce tutoriel, nommez la liste *file d'attente*.
+1. Sélectionnez **File d’attente**. Dans le cadre de ce tutoriel, indiquez la *file d’attente* comme nom de la nouvelle file d’attente.
 
-    :::image type="content" source="./media/functions-create-vnet/6-create-queue.png" alt-text="Capture d’écran de la création d’une file d’attente Service Bus.":::
+    :::image type="content" source="./media/functions-create-vnet/6-create-queue.png" alt-text="Capture d’écran montrant comment créer une file d’attente Service Bus.":::
 
 1. Sélectionnez **Create** (Créer).
 
 ## <a name="get-a-service-bus-connection-string"></a>Obtenir une chaîne de connexion Service Bus
 
-1. Dans votre Service Bus, sélectionnez **Stratégies d’accès partagé** dans le menu sur la gauche.
+1. Dans votre Service Bus, sélectionnez **Stratégies d’accès partagé** dans le menu de gauche.
 
 1. Sélectionnez **RootManageSharedAccessKey**. Copiez et enregistrez la **Chaîne de connexion principale**. Vous aurez besoin de cette chaîne de connexion lorsque vous configurerez les paramètres de l’application.
 
@@ -272,7 +293,7 @@ Pour utiliser votre application de fonction avec des réseaux virtuels, vous dev
 
 1. Sous **Réseau virtuel**, sélectionnez le réseau virtuel que vous avez créé précédemment.
 
-1. Sélectionnez le sous-réseau **fonctions** créé précédemment. Votre application de fonction est désormais intégrée à votre réseau virtuel !
+1. Sélectionnez le sous-réseau **fonctions** créé précédemment. Sélectionnez **OK**.  Votre application de fonction est désormais intégrée à votre réseau virtuel !
 
     :::image type="content" source="./media/functions-create-vnet/9-connect-app-subnet.png" alt-text="Capture d’écran montrant comment connecter une application de fonction à un sous-réseau.":::
 
@@ -316,9 +337,10 @@ Pour utiliser votre application de fonction avec des réseaux virtuels, vous dev
     | ------------ | ---------------- | ---------------- |
     | **Source** | GitHub | Vous devez avoir créé un référentiel GitHub avec l’exemple de code à l’étape 2. | 
     | **Organisation**  | myOrganization | Organisation dans laquelle votre référentiel est archivée. Il s’agit généralement de votre compte. |
-    | **Référentiel** | myRepo | Le référentiel que vous avez créé pour l’exemple de code. |
+    | **Référentiel** | functions-vnet-tutorial | Référentiel dupliqué (fork) depuis https://github.com/Azure-Samples/functions-vnet-tutorial. |
     | **Branche** | main | Branche primaire du référentiel que vous avez créé. |
     | **Pile d’exécution** | .NET | L’exemple de code est dans C#. |
+    | **Version** | .NET Core 3.1 | Version du runtime |
 
 1. Sélectionnez **Enregistrer**. 
 
@@ -348,7 +370,7 @@ Pour plus d'informations, consultez la [documentation de point de terminaison pr
 
 1. Sélectionnez **OK** pour ajouter le point de terminaison privé. 
  
-Félicitations ! Vous avez correctement sécurisé votre application de fonction, Service Bus et votre compte de stockage en ajoutant des points de terminaison privés !
+Félicitations ! Vous avez correctement sécurisé votre application de fonction, Service Bus et votre compte de stockage en ajoutant des points de terminaison privés.
 
 ### <a name="test-your-locked-down-function-app"></a>Tester votre application de fonction verrouillée
 
@@ -368,7 +390,7 @@ Voici une autre façon de surveiller votre fonction en utilisant Application Ins
 
 1. Dans le menu sur la gauche, sélectionnez **Métriques temps réel**.
 
-1. Ouvrez un nouvel onglet. Dans votre Service Bus, dans le menu sur la gauche, sélectionnez **files d’attente**.
+1. Ouvrez un nouvel onglet. Dans votre Service Bus, sélectionnez **Files d’attente** dans le menu de gauche.
 
 1. Sélectionnez votre file d’attente.
 
@@ -402,11 +424,9 @@ Les zones DNS suivantes ont été créées dans ce tutoriel :
 
 Dans ce tutoriel, vous avez créé une application de fonction Premium, un compte de stockage et un Service Bus. Vous avez sécurisé toutes ces ressources derrière des points de terminaison privés. 
 
-Utilisez les liens suivants pour en savoir plus sur les fonctionnalités de mise en réseau disponibles :
+Utilisez les liens suivants pour en savoir plus sur les options de mise en réseau et les points de terminaison privés d’Azure Functions :
 
-> [!div class="nextstepaction"]
-> [Options de mise en réseau d’Azure Functions](./functions-networking-options.md)
-
-
-> [!div class="nextstepaction"]
-> [Plan Premium Azure Functions](./functions-premium-plan.md)
+- [Options de mise en réseau d’Azure Functions](./functions-networking-options.md)
+- [Plan Premium Azure Functions](./functions-premium-plan.md)
+- [Points de terminaison privés Service Bus](../service-bus-messaging/private-link-service.md)
+- [Points de terminaison privés Stockage Azure](../storage/common/storage-private-endpoints.md)

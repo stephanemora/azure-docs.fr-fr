@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 45b2ac73ffcb4b777572f9ad62d8aae0e8277e1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f7d69d1bf2bd0c1f3b6b8a3a67a788155f30d73
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95560946"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746893"
 ---
 > [!NOTE]
 > Lorsque vous modifiez la configuration RBS de l’adaptateur StorSimple pour SharePoint, vous devez être connecté avec un compte utilisateur appartenant au groupe Domain Admins. En outre, vous devez accéder à la page de configuration à partir d’un navigateur s’exécutant sur le même hôte que l’Administration centrale.
@@ -32,7 +32,7 @@ ms.locfileid: "95560946"
    3. Cliquez sur le bouton **Activer** situé sous chacune des bases de données de contenu que vous voulez configurer pour le stockage étendu.
       
       > [!NOTE]
-      > Le magasin d’objets BLOB doit être partagé par tous les serveurs web frontaux (WFE) et le compte d’utilisateur qui est configuré pour la batterie de serveurs SharePoint doit avoir accès au partage.
+      > Le magasin d’objets blob doit être partagé par tous les serveurs web frontaux (WFE) et le compte d’utilisateur qui est configuré pour la batterie de serveurs SharePoint doit avoir accès au partage.
       
       ![Activation du fournisseur RBS](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS2-include.png)
       

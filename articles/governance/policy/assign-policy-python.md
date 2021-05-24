@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous allez utiliser Python pour
 ms.date: 03/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 2c9a0d6bb00d82748505304264aeaefa409c4b06
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: f68e114571ea241f2051125862f89a7dc77dfce3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379398"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747583"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier les ressources non conformes à l'aide de Python
 
@@ -93,7 +93,7 @@ Les commandes précédentes utilisent les informations suivantes :
 
 Détails de l'attribution :
 - **display_name** : nom d'affichage de l'attribution de stratégie. Dans ce cas, nous allons utiliser l’affectation _Audit VMs without managed disks_ (Auditer les machines virtuelles sans disques managés).
-- **policy_definition_id** : chemin de la définition de stratégie, sur lequel vous vous basez pour créer l'attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_. Dans cet exemple, la définition de stratégie est intégrée et le chemin n'inclut pas d'informations sur le groupe d'administration ou l'abonnement.
+- **policy_definition_id** : chemin de la définition de la stratégie, basé sur celui que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_. Dans cet exemple, la définition de stratégie est intégrée et le chemin n'inclut pas d'informations sur le groupe d'administration ou l'abonnement.
 - **scope** : une étendue détermine les ressources ou le groupe de ressources sur lesquels l'attribution de stratégie est appliquée. Cette étendue peut aller d'un groupe d'administration à une ressource individuelle. Veillez à remplacer `{scope}` par l’un des modèles suivants :
   - Groupe d’administration : `/providers/Microsoft.Management/managementGroups/{managementGroup}`
   - Abonnement : `/subscriptions/{subscriptionId}`
