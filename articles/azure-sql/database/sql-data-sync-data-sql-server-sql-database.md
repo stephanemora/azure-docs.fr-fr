@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 660297beacb6594058a3d83fb622ddeb579c223b
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 7746e05583057b3ed313a55699cae711c560f061
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107951717"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803941"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Présentation de SQL Data Sync pour Azure
 
@@ -152,6 +152,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 - Les colonnes avec des type de données définis par l’utilisateur ne sont pas prises en charge
 - Le déplacement de serveurs entre différents abonnements n’est pas pris en charge. 
 - Si deux clés primaires ne sont pas différentes dans le cas (par exemple, Foo et foo), la synchronisation des données ne prend pas en charge ce scénario.
+- La troncation des tables n’est pas une opération prise en charge par la synchronisation des données (les modifications ne sont pas suivies).
 
 #### <a name="unsupported-data-types"></a>Types de données non pris en charge
 

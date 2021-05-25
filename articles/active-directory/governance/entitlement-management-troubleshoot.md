@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b01321c2cbb15be5526bbe9ed04f52238390574
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1e165340dc9856916a8c2ccdcd6609663282d63
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100516887"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714095"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Résoudre les problèmes de gestion des droits d’utilisation Azure AD
 
@@ -74,7 +74,7 @@ Cet article décrit certains éléments que vous devriez vérifier pour vous aid
 
 ### <a name="view-a-requests-delivery-errors"></a>Afficher les erreurs de remise d’une requête
 
-**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs, gestionnaire de package d'accès ou gestionnaire d’affectation de package d’accès
+**Rôle prérequis :** administrateur général, administrateur de la gouvernance des identités, administrateur d’utilisateurs, propriétaire de catalogue, gestionnaire de package d’accès ou gestionnaire d’attribution de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -102,7 +102,7 @@ Vous ne pouvez retraiter qu’une demande dont l’état est **Échec de livrais
 
 - Si l’erreur n’a pas été corrigée dans la fenêtre des essais, l’état de la demande peut être **Échec de livraison** ou **Partiellement remis**. Vous pouvez ensuite utiliser le bouton **Retraiter**. Vous aurez sept jours pour retraiter la demande.
 
-**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs, gestionnaire de package d'accès ou gestionnaire d’affectation de package d’accès
+**Rôle prérequis :** administrateur général, administrateur de la gouvernance des identités, administrateur d’utilisateurs, propriétaire de catalogue, gestionnaire de package d’accès ou gestionnaire d’attribution de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -120,7 +120,7 @@ Vous ne pouvez retraiter qu’une demande dont l’état est **Échec de livrais
 
 Vous pouvez uniquement annuler une requête en attente qui n’a pas encore été autorisée ou dont la livraison a échoué. Dans le cas contraire, le bouton **Annuler** est grisé.
 
-**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs, gestionnaire de package d'accès ou gestionnaire d’affectation de package d’accès
+**Rôle prérequis :** administrateur général, administrateur de la gouvernance des identités, administrateur d’utilisateurs, propriétaire de catalogue, gestionnaire de package d’accès ou gestionnaire d’attribution de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 

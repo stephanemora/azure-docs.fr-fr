@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 263397aa2cd09ba24fa750131b76047801869a65
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b0295c994a736e26d7b581bd13b6167819833360
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798933"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748706"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Application de bureau qui appelle des API web : Inscription d'application
 
@@ -43,9 +43,10 @@ Les URI de redirection à utiliser dans une application de bureau dépendent du 
 Spécifiez l’URI de redirection de votre application en [configurant les paramètres de plateforme](quickstart-register-app.md#add-a-redirect-uri) de l’application dans **Inscriptions d’applications** dans le portail Azure.
 
 - Pour les applications qui utilisent l’authentification interactive :
-  - Applications qui utilisent des navigateurs incorporés : `https://login.microsoftonline.com/common/oauth2/nativeclient`
-  - Applications qui utilisent des navigateurs système : `http://localhost`
 
+  - Applications qui utilisent des navigateurs incorporés : `https://login.microsoftonline.com/common/oauth2/nativeclient` (Remarque : si votre application affiche une fenêtre contextuelle qui est généralement dépourvue de barre d’adresse, elle utilise le « navigateur incorporé ».)
+  - Applications qui utilisent des navigateurs système : `http://localhost` (Remarque : si votre application ouvre le navigateur par défaut de votre système (par exemple, Edge, Chrome, Firefox, etc.) pour l’accès au portail de connexion Microsoft, elle utilise le « navigateur système ».)
+  
   > [!IMPORTANT]
   > Comme meilleure pratique de sécurité, nous vous recommandons de définir explicitement `https://login.microsoftonline.com/common/oauth2/nativeclient` ou `http://localhost` comme URI de redirection. Certaines bibliothèques d’authentification comme MSAL.NET utilisent la valeur par défaut `urn:ietf:wg:oauth:2.0:oob` si aucun autre URI de redirection n’est spécifié, ce qui n’est pas recommandé. Ce paramètre par défaut sera mis à jour en tant que changement cassant dans la prochaine version majeure.
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 5890ca90b0ad0dcb3d5141e62e986475fd386959
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 81697efc7832adf62d26c751d1e6e93070c2579b
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064118"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684070"
 ---
 # <a name="how-to-set-up-azure-iot-hub-to-deploy-over-the-air-updates-to-your-azure-percept-dk"></a>Comment configurer Azure IoT Hub pour déployer des mises à jour OTA sur votre DK Azure Percept
 
@@ -28,17 +28,21 @@ Utilisez des mises à jour OTA (over-the-air) pour garder votre DK Azure Percept
 
 1. Accédez au [portail Azure](https://portal.azure.com) et connectez-vous avec le compte Azure que vous utilisez avec Azure Percept.
 
-1. Dans la barre de recherche en haut de la page, entrez **Device Update pour IoT Hub**.
+1. Sur la barre de recherche du haut de la page, entrez **Device Update pour IoT Hub**.
 
-1. Sélectionnez **Device Update pour IoT Hub** quand cela apparaît dans la barre de recherche.
+1. Sélectionnez **Device Update pour IoT Hubs** lorsque cela apparaît sur la barre de recherche.
 
-1. Cliquez sur le bouton **+Ajouter** dans la partie supérieure gauche de la page.
+1. Sélectionnez le bouton **+Ajouter** dans la partie supérieure gauche de la page.
 
 1. Sélectionnez l’**Abonnement Azure** et le **Groupe de ressources** associés à votre appareil Azure Percept et à son IoT Hub.
 
 1. Spécifiez un **Nom** et un **Emplacement** pour votre compte Device Update.
 
+1. Cochez la case **Attribuer le rôle Administrateur de mise à jour d'appareil.** 
+
 1. Révisez les détails, puis sélectionnez **Vérifier + créer**.
+
+1. Cliquez sur le bouton **Créer**.
 
 1. Une fois le déploiement terminé, cliquez sur **Accéder à la ressource**.
 

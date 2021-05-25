@@ -4,14 +4,14 @@ description: Comment créer une instance de cache Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 05/05/2021
 ms.author: v-erkel
-ms.openlocfilehash: 02934a1943ef37d282dd2a2e7862c5695bbd6ecb
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 0cb4317a874e0f342c799fabad55aaefe5ba485d
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862702"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109733799"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Créer un cache Azure HPC Cache
 
@@ -42,7 +42,7 @@ Dans **Détails sur le service**, définissez le nom du cache et les autres attr
 
 Dans la page **Cache**, vous devez définir la capacité de votre cache. Les valeurs définies ici déterminent la quantité de données que votre cache peut contenir et la rapidité avec laquelle il peut traiter les requêtes des clients.
 
-La capacité affecte également le coût du cache.
+La capacité influe également sur le coût du cache et le nombre de cibles de stockage qu’il peut prendre en charge.
 
 Choisissez la capacité en définissant les deux valeurs suivantes :
 
@@ -50,6 +50,9 @@ Choisissez la capacité en définissant les deux valeurs suivantes :
 * Quantité de stockage allouée aux données mises en cache, en To
 
 Choisissez l’une des valeurs de débit et des tailles de stockage du cache disponibles.
+
+> [!TIP]
+> Si vous souhaitez utiliser plus de 10 cibles de stockage avec votre cache, vous devez choisir la valeur de taille de stockage de cache la plus élevée disponible pour votre taille de débit. Pour plus d’informations, consultez [Ajouter des cibles de stockage](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
 
 Gardez à l’esprit que le taux de transfert de données réel dépend de la charge de travail, des vitesses réseau et du type de cible de stockage. Les valeurs que vous choisissez définissent le débit maximal pour l’ensemble du système de mise en cache. Toutefois, certaines d’entre elles sont utilisées pour les tâches de surcharge. Par exemple, si un client demande un fichier qui n’est pas déjà stocké dans le cache, ou si le fichier est marqué comme étant obsolète, votre cache utilise une partie de son débit pour l’extraire du stockage back-end.
 
@@ -133,10 +136,12 @@ nets/<cache_subnet_name>"``
   | Taille du cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
   | 3072 Go    | oui         | non          | Non          |
-  | 6144 Go    | oui         | oui         | Non          |
-  | 12288 Go   | oui         | oui         | oui         |
-  | 24576 Go   | Non          | oui         | oui         |
-  | <49152 Go   | Non          | non          | oui         |
+  | 6144 Go    | Oui         | Oui         | Non          |
+  | 12288 Go   | oui         | Oui         | oui         |
+  | 24576 Go   | Non          | Oui         | oui         |
+  | <49152 Go   | Non          | non          | Oui         |
+
+  Si vous souhaitez utiliser plus de 10 cibles de stockage avec votre cache, choisissez la valeur de taille de cache la plus élevée disponible pour votre SKU. Ces configurations prennent en charge jusqu’à 20 cibles de stockage.
 
   Pour obtenir des informations importantes sur la tarification, le débit et la taille de votre cache en fonction de votre flux de travail, consultez la section **Définir la capacité du cache** sous l’onglet Instructions du portail.
 
@@ -236,9 +241,9 @@ nets/<cache_subnet_name>"`
   | Taille du cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
   | 3072 Go    | oui         | non          | Non          |
-  | 6144 Go    | oui         | oui         | non          |
-  | 12 288 Go   | Oui         | oui         | Oui         |
-  | 24 576 Go   | non          | oui         | Oui         |
+  | 6144 Go    | Oui         | Oui         | non          |
+  | 12 288 Go   | Oui         | Oui         | Oui         |
+  | 24 576 Go   | non          | Oui         | Oui         |
   | 49 152 Go   | non          | non          | oui         |
 
   Pour obtenir des informations importantes sur la tarification, le débit et la taille de votre cache en fonction de votre flux de travail, consultez la section **Définir la capacité du cache** sous l’onglet Instructions du portail.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2021
 ms.author: yelevin
-ms.openlocfilehash: 8980a8920b4f41f5a8e6afe106415032eef2055b
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 82efc1d36176003d11b610fd8e0e669f034dc0a1
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375834"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786678"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutoriel : Examiner les incidents avec Azure Sentinel
 
@@ -125,6 +125,8 @@ Une fois que vous avez résolu un incident particulier (par exemple, lorsque vot
 - Indéterminé
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Capture d’écran qui met en évidence les classifications disponibles dans la liste Sélectionner le classification.":::
+
+Pour plus d’informations sur les faux positifs et les positifs bénins, consultez [Gérer les faux positifs dans Azure Sentinel](false-positives.md).
 
 Après avoir choisi la classification appropriée, ajoutez un texte descriptif dans le champ **Commentaire**. Cela vous sera utile dans l’éventualité où vous devriez revenir à cet incident. Lorsque vous avez terminé, cliquez sur **Appliquer** pour clôturer l’incident.
 

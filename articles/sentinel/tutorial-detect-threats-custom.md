@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: 180a5edd00b6085ffd91568471ca763f5e4e9711
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 9115c31b3eb24e9d0e3afd5984ea60308c424a77
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814853"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786750"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Tutoriel : Créer des règles d’analytique personnalisées pour détecter des menaces
 
@@ -207,6 +207,8 @@ Dans la section **Regroupement des alertes**, si vous souhaitez qu’un seul inc
 - Vous trouverez la règle personnalisée (de type « Planifiée ») que vous venez de créer dans le tableau situé sous l'onglet **Règles actives** de l'écran **Analytique** principal. Dans cette liste, vous pouvez activer, désactiver ou supprimer chaque règle.
 
 - Pour voir les résultats de vos règles d’alerte, accédez à la page **Incidents**, où vous pouvez ensuite trier, [examiner les incidents](tutorial-investigate-cases.md) et corriger les menaces.
+
+- Vous pouvez mettre à jour la requête de règle pour exclure les faux positifs. Pour plus d’informations, consultez [Gérer les faux positifs dans Azure Sentinel](false-positives.md).
 
 > [!NOTE]
 > Les alertes générées dans Azure Sentinel sont disponibles via [Microsoft Graph Security](/graph/security-concept-overview). Pour plus d’informations, consultez la [documentation sur les alertes Microsoft Graph Security](/graph/api/resources/security-api-overview).

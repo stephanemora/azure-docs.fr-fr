@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 38d0c350718480506e1267c161a85505ece4b69d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ac0b1b78291d895e97cb967e047ae36da6ff7469
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452255"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746834"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explorer Azure Machine Learning avec des notebooks Jupyter
 
@@ -37,7 +37,7 @@ Cet article vous montre comment accéder au dépôt dans les environnements suiv
 <a name="notebookvm"></a>
 ## <a name="get-samples-on-azure-machine-learning-compute-instance"></a>Obtenir des exemples d’instance de calcul Azure Machine Learning
 
-Pour bien démarrer avec les exemples, le plus simple est de suivre le [Tutoriel : Configurer l'environnement et l'espace de travail](tutorial-1st-experiment-sdk-setup.md). Une fois que vous l’aurez suivi, vous disposerez d’un serveur de notebook dédié dans lequel auront été préchargés le SDK et l’exemple de dépôt. Aucune installation ni aucun téléchargement ne sont nécessaires.
+Le moyen le plus simple pour commencer à utiliser les exemples consiste à suivre le guide [Démarrage rapide : Bien démarrer avec Azure Machine Learning](quickstart-create-resources.md). Une fois que vous l’aurez suivi, vous disposerez d’un serveur de notebook dédié dans lequel auront été préchargés le SDK et l’exemple de dépôt. Aucune installation ni aucun téléchargement ne sont nécessaires.
 
 <a name="byo"></a>
 

@@ -6,15 +6,15 @@ ms.service: storage
 ms.topic: how-to
 ms.author: jukullam
 ms.reviewer: dineshm
-ms.date: 01/11/2021
+ms.date: 05/05/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3ae0904eda2608026ad09ba8b8993008380725f4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5ab81f442aaf45328892de42cbf9aef651d3fe8d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788526"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762800"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configurer un workflow GitHub Actions pour déployer votre site web statique dans Stockage Azure
 
@@ -117,7 +117,7 @@ Dans l’exemple ci-dessus, remplacez les espaces réservés par votre ID d’ab
               creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
-1. Utilisez l’action Azure CLI pour charger votre code dans le stockage de blob et vider votre point de terminaison CDN. Pour `az storage blob upload-batch`, remplacez l’espace réservé par le nom de votre compte de stockage. Le script est chargé dans le conteneur `$web`. Pour `az cdn endpoint purge`, remplacez les espaces réservés par le nom de votre profil CDN, le nom de votre point de terminaison CDN et votre groupe de ressources.
+1. Utilisez l’action Azure CLI pour charger votre code dans le stockage de blob et vider votre point de terminaison CDN. Pour `az storage blob upload-batch`, remplacez l’espace réservé par le nom de votre compte de stockage. Le script est chargé dans le conteneur `$web`. Pour `az cdn endpoint purge`, remplacez les espaces réservés par le nom de votre profil CDN, le nom de votre point de terminaison CDN et votre groupe de ressources. Pour accélérer le vidage de votre CDN, vous pouvez ajouter l’option `--no-wait` à `az cdn endpoint purge` .
 
     ```yaml
         - name: Upload to blob storage

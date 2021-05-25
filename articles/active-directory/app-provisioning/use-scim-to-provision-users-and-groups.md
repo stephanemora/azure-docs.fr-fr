@@ -1,25 +1,24 @@
 ---
-title: Tutoriel – Développer un point de terminaison SCIM pour l’approvisionnement d’utilisateurs aux applications à partir d’Azure AD
+title: 'Tutoriel : Développer un point de terminaison SCIM pour le provisionnement d’utilisateurs des applications à partir d’Azure Active Directory'
 description: Le système SCIM (Cross-domain Identity Management) normalise le provisionnement automatique des utilisateurs. Ce tutoriel explique comment développer un point de terminaison SCIM, intégrer votre API SCIM avec Azure Active Directory, et automatiser l’approvisionnement d’utilisateurs et de groupes dans vos applications cloud.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/28/2021
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9a39a1b0df364aeed970f3ed0e0d99d4d31585b2
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: ddc50ab8c72017160a7032e35a69eedf85ebac95
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175475"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784806"
 ---
-# <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutoriel : Développer et planifier le provisionnement pour un point de terminaison SCIM
+# <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint-in-azure-active-directory"></a>Tutoriel : Développer et planifier le provisionnement d’un point de terminaison SCIM dans Azure Active Directory
 
 En tant que développeur d’applications, vous pouvez utiliser l’API de gestion des utilisateurs SCIM (System for Cross-Domain Identity Management) pour activer le provisionnement automatique des utilisateurs et des groupes entre votre application et Azure AD (AAD). Cet article explique comment créer un point de terminaison SCIM et l’intégrer au service de provisionnement AAD. La spécification SCIM fournit un schéma utilisateur commun pour l’approvisionnement. Utilisée conjointement avec des normes de fédération comme SAML ou OpenID Connect, la spécification SCIM offre aux administrateurs une solution de bout en bout basée sur des normes pour la gestion des accès.
 
@@ -84,7 +83,7 @@ Pour concevoir votre schéma, effectuez les étapes suivantes :
 |lastName|name.familyName|surName|
 |workMail|emails[type eq “work”].value|Messagerie|
 |manager|manager|manager|
-|tag|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
+|tag|urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:tag|extensionAttribute1|
 |status|active|isSoftDeleted (valeur calculée non stockée sur l’utilisateur)|
 
 **Exemple de liste d’attributs nécessaires**
@@ -104,7 +103,7 @@ Pour concevoir votre schéma, effectuez les étapes suivantes :
      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
      "Manager": "123456"
    },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
      "tag": "701984",
    },
    "meta": {

@@ -3,7 +3,7 @@ title: Afficher les rapports et les journaux dans la gestion des droits d’util
 description: Découvrez comment afficher le rapport d’affectations d’utilisateur et les journaux d’audit dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: jocastel-MSFT
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb44c1efd683b6febe9a355ef72c80cc6f2e40d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab1cd0da0e44f9b0dd496b72c3dff7630eb9d641
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97746624"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786264"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Afficher les rapports et les journaux dans la gestion des droits d’utilisation Azure AD
 
@@ -35,7 +35,7 @@ Regardez la vidéo suivante pour savoir comment afficher les ressources auxquell
 
 Ce rapport vous permet de répertorier tous les packages d’accès qu’un utilisateur peut demander et les packages d’accès qui sont actuellement affectés à l’utilisateur.
 
-**Rôle prérequis :** Administrateur général ou Administrateur d’utilisateurs
+**Rôle prérequis :** administrateur d’entreprise, administrateur de la gouvernance des identités ou administrateur d’utilisateurs
 
 1. Cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -59,7 +59,7 @@ Ce rapport vous permet de répertorier tous les packages d’accès qu’un util
 
 Ce rapport vous permet de répertorier les ressources actuellement attribuées à un utilisateur dans la gestion des droits d’utilisation. Notez que ce rapport est destiné aux ressources gérées avec la gestion des droits d’utilisation. L’utilisateur peut avoir accès à d’autres ressources dans votre répertoire en dehors de la gestion des droits d’utilisation.
 
-**Rôle prérequis :** Administrateur général ou Administrateur d’utilisateurs
+**Rôle prérequis :** administrateur d’entreprise, administrateur de la gouvernance des identités ou administrateur d’utilisateurs
 
 1. Cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 

@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 204d83b96e3cbe26759d678126d8826d0b2e492e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a66b53cbcc8a072dce6b4f5f2f1f0cf1dc6322f
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100577840"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714329"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Délégation et rôles dans la gestion des droits d’utilisation Azure AD
 
@@ -65,7 +65,7 @@ Le diagramme suivant montre les catalogues contenant les ressources des services
 
 | Utilisateur | Fonction principale | Rôle Azure AD | Rôle de gestion des droits d’utilisation |
 | --- | --- | --- | --- |
-| Hana | Administrateur informatique | Administrateur général ou Administrateur d’utilisateurs |  |
+| Hana | Administrateur informatique | Administrateur général, administrateur de la gouvernance des identités ou administrateur d’utilisateurs |  |
 | Mamta | Directrice marketing | Utilisateur | Créateur du catalogue et propriétaire du catalogue |
 | Bob | Responsable marketing | Utilisateur | Propriétaire de catalogue |
 | Jessica | Chef de projet marketing | Utilisateur | Gestionnaire de package d’accès |

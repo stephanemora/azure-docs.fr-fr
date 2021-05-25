@@ -3,12 +3,12 @@ title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
 ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 594dbfe3dda919e4d8dcbf3047fac78bad600127
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 926ee1d44d0f0ce523e883c36203fb278023e6c4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326198"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753062"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -122,7 +122,7 @@ La propriété facultative `metadata` stocke les informations relatives à la d�
 ### <a name="common-metadata-properties"></a>Propriétés de métadonnées communes
 
 - `version` (chaîne) : Effectue le suivi des détails sur la version du contenu d’une définition de stratégie.
-- `category` (chaîne) : détermine sous quelle catégorie du portail Azure la définition de stratégie apparaît.
+- `category` (chaîne) : détermine sous quelle catégorie du portail Azure la définition de stratégie apparaît.
 - `preview` (booléen) : indicateur true ou false permettant de déterminer si la définition de stratégie est en _préversion_.
 - `deprecated` (booléen) : indicateur true ou false permettant de déterminer si la définition de stratégie a été marquée comme _déconseillée_.
 
@@ -131,7 +131,7 @@ La propriété facultative `metadata` stocke les informations relatives à la d�
 
 ## <a name="parameters"></a>Paramètres
 
-Les paramètres permettent de simplifier la gestion des stratégies en réduisant le nombre de définitions de stratégies. Considérez les paramètres comme les champs d’un formulaire : `name`, `address`, `city`, `state`. Ces paramètres restent toujours les mêmes ; toutefois, leurs valeurs changent en fonction de la personne qui remplit le formulaire.
+Les paramètres permettent de simplifier la gestion des stratégies en réduisant le nombre de définitions de stratégies. Considérez les paramètres comme les champs d’un formulaire : `name`, `address`, `city`, `state`. Ces paramètres restent toujours les mêmes ; toutefois, leurs valeurs changent en fonction de la personne qui remplit le formulaire.
 Les paramètres fonctionnent de manière identique durant la création de stratégies. En incluant des paramètres dans une définition de stratégie, vous pouvez réutiliser cette stratégie pour différents scénarios avec des valeurs différentes.
 
 > [!NOTE]
@@ -150,7 +150,7 @@ Un paramètre possède les propriétés suivantes qui sont utilisées dans la d�
   - `assignPermissions`: (Facultatif) Définissez l’option sur _True_ pour que le portail Azure crée des attributions de rôles lors de l’attribution de stratégie. Cette propriété est utile si vous souhaitez attribuer des autorisations en dehors de l’étendue d’attribution. Il existe une attribution de rôle par définition de rôle dans la stratégie (ou par définition de rôle dans toutes les stratégies dans l’initiative). La valeur du paramètre doit être une ressource ou une étendue valide.
 - `defaultValue`: (Facultatif) Définit la valeur du paramètre dans une affectation si aucune valeur n’est fournie.
   Obligatoire lors de la mise à jour d’une définition de stratégie existante qui est affectée.
-- `allowedValues`: (Facultatif) Fournit le tableau des valeurs que le paramètre accepte pendant l’attribution. Les comparaisons de valeurs autorisées respectent la casse. 
+- `allowedValues`: (Facultatif) Fournit le tableau des valeurs que le paramètre accepte pendant l’attribution. Les comparaisons de valeurs autorisées respectent la casse.
 
 Par exemple, vous pouvez définir une définition de stratégie qui limite les emplacements sur lesquels les ressources peuvent être déployées. Le paramètre **allowedLocations** pourrait s’appliquer à cette définition de stratégie. Ce paramètre serait utilisé par chaque affectation de la définition de la stratégie pour limiter les valeurs acceptées. L’utilisation de **strongType** permet d’améliorer l’expérience lors de l’affectation via le portail :
 
@@ -188,7 +188,7 @@ Cet exemple fait référence au paramètre **allowedLocations** autorisé qui a 
 
 ### <a name="strongtype"></a>strongType
 
-Dans la propriété `metadata`, vous pouvez utiliser **strongType** pour fournir une liste à choix multiple des options dans le portail Azure. **strongType** peut être un _type de ressource_ pris en charge ou une valeur autorisée. Pour déterminer si un _type de ressource_ est valide pour **strongType**, utilisez la commande [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). Le format d’un _type de ressource_ **strongType** est `<Resource Provider>/<Resource Type>`. Par exemple : `Microsoft.Network/virtualNetworks/subnets`.
+Dans la propriété `metadata`, vous pouvez utiliser **strongType** pour fournir une liste d’options à choix multiple dans le portail Azure. **strongType** peut être un _type de ressource_ pris en charge ou une valeur autorisée. Pour déterminer si un _type de ressource_ est valide pour **strongType**, utilisez la commande [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). Le format d’un _type de ressource_ **strongType** est `<Resource Provider>/<Resource Type>`. Par exemple : `Microsoft.Network/virtualNetworks/subnets`.
 
 Certains _types de ressources_ non retournés par la commande **AzResourceProvider** sont pris en charge. Ces types sont les suivants :
 
@@ -720,6 +720,7 @@ Valeur du paramètre :
 ```
 
 Stratégie :
+
 ```json
 {
     "count": {
@@ -811,7 +812,7 @@ Les fonctions suivantes sont disponibles uniquement dans les règles de stratég
 
 - `policy()`
   - Retourne les informations suivantes sur la stratégie en cours d’évaluation. Les propriétés sont accessibles à partir de l’objet retourné (exemple : `[policy().assignmentId]`).
-  
+
     ```json
     {
       "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",

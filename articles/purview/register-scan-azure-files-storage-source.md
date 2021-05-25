@@ -6,13 +6,13 @@ ms.author: suvirdi
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/01/2020
-ms.openlocfilehash: a0bd7a4cd8afafc16f05b4a37cd5723304ad931e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: c88134e978615d53bdfbde26492096212c3f582f
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96550295"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656401"
 ---
 # <a name="register-and-scan-azure-files"></a>Inscription et analyse de fichiers Azure Files
 
@@ -40,10 +40,10 @@ Pour inscrire un nouveau compte Azure Files dans votre catalogue de données, pr
 Sur l’écran **Inscrire des sources (Azure Files)** , procédez comme suit :
 
 1. Entrez le **Nom** sous lequel la source de données apparaîtra dans le catalogue.
-1. Choisissez la façon dont vous souhaitez pointer vers le compte de stockage de votre choix :
-   1. Sélectionnez **À partir d’un abonnement Azure**, puis sélectionnez l’abonnement approprié dans la zone de liste déroulante **Abonnement Azure** et le compte de stockage approprié dans la zone de liste déroulante **Nom du compte de stockage**.
-   1. Vous pouvez également sélectionner **Entrer manuellement** et entrer un point de terminaison de service (URL).
-1. Sélectionnez **Terminer** pour inscrire la source de données.
+2. Choisissez votre abonnement Azure pour filtrer les comptes Stockage Azure.
+3. Sélectionnez un compte Stockage Azure.
+4. Sélectionnez une collection ou créez-en une (facultatif).
+5. Sélectionnez **Inscrire** pour inscrire la source de données.
 
 :::image type="content" source="media/register-scan-azure-files/register-sources.png" alt-text="Options d’inscription des sources" border="true":::
 

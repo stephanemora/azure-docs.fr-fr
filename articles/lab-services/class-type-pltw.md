@@ -3,12 +3,12 @@ title: Configuration d’instances Lab Projet Lead The Way avec Azure Lab Servic
 description: Découvrez comment configurer des instances Lab pour enseigner dans le cadre de cours Project Lead The Way.
 ms.topic: article
 ms.date: 10/28/2020
-ms.openlocfilehash: 12efa11d2062b5a4d919dbdcdb4a824dec33f5fb
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: aaaddcb2c2111ccfbf0edfc79bbefafb711b19dc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278719"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768532"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Configuration d’instances Lab pour des cours Project Lead The Way
 
@@ -48,7 +48,7 @@ ms.locfileid: "108278719"
 
 - **Informatique A**
 
-    Dans ce cours, les élèves étendent leurs compétences en programmation en apprenant à développer des applications mobiles.  Ils apprennent [Java](https://www.java.com/) à l’aide de [l’environnement de développement Microsoft Visual Studio Code](https://code.visualstudio.com/).  Les élèves utilisent aussi un émulateur qui leur permet d’exécuter et tester le code de leur application mobile.  Pour savoir comment configurer un émulateur dans Azure Lab Services, [contactez Azure Lab Services](mailto:AzLabsCOVIDSupport@microsoft.com).
+    Dans ce cours, les élèves étendent leurs compétences en programmation en apprenant à développer des applications mobiles.  Ils apprennent [Java](https://www.java.com/) à l’aide de [l’environnement de développement Microsoft Visual Studio Code](https://code.visualstudio.com/).  Les élèves utilisent aussi un émulateur qui leur permet d’exécuter et tester le code de leur application mobile.  Pour plus d’informations sur la configuration d’un émulateur dans Azure Lab Services, contactez-nous via les [forums Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices).
 
 Pour obtenir la liste complète des logiciels du cours, accédez au site [PLTW](https://www.pltw.org/pltw-software) du cours.
 
@@ -122,6 +122,9 @@ Si vous suivez cette recommandation, tenez compte des principales tâches à eff
 1.  Une fois l’instance Lab créée, démarrez la machine virtuelle de modèle et connectez-vous-y pour vérifier que l’image fonctionne comme prévu.
 
 1.  Enfin, publiez la machine virtuelle de modèle pour créer les machines virtuelles des élèves.
+
+> [!NOTE]
+> Si votre établissement scolaire doit effectuer un filtrage de contenu, par exemple pour être en conformité avec les règles de protection de l’enfance sur Internet (comme le [CIPA (Children’s Internet Protection Act)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act) aux États-Unis), vous devez utiliser un logiciel tiers.  Pour plus d’informations, lisez les recommandations sur le [filtrage de contenu avec Lab Services](./administrator-guide.md#content-filtering).
 
 ## <a name="student-devices"></a>Appareils des élèves
 Les élèves peuvent se connecter à leurs machines virtuelles Lab à partir d’ordinateurs Windows, de Mac et de Chromebooks. Pour obtenir des instructions, consultez les liens suivants :

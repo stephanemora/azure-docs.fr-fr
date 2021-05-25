@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e81389ec953829115062a31a019caf040850cbea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a4a33170fecab6efbe86568eb81b87637ca5da24
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87798633"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714293"
 ---
 # <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>Déléguer la gouvernance des accès aux gestionnaires de package dans le cadre de la gestion des droits d’utilisation Azure AD
 
@@ -40,7 +40,7 @@ Cette vidéo fournit une vue d’ensemble de la délégation de la gouvernance d
 
 Suivez ces étapes pour affecter un utilisateur au rôle de gestionnaire de package d’accès :
 
-**Rôle prérequis :** administrateur général, administrateur d’utilisateurs ou propriétaire de catalogue.
+**Rôle prérequis :** administrateur général, administrateur de la gouvernance des identités, administrateur d’utilisateurs ou propriétaire de catalogue.
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 

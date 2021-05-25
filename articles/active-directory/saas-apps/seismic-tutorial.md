@@ -9,33 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/27/2020
+ms.date: 05/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 71de0573f252cab7f2b479212551562de2b1d1c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ce6382e5ae0123d1a4dd85a6c622dabe126c5a4
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92674354"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735779"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-seismic"></a>Tutoriel : Intégration d’Azure Active Directory à Seismic
 
-Dans ce tutoriel, vous allez apprendre à intégrer Seismic à Azure Active Directory (Azure AD).
-L’intégration de Seismic à Azure AD vous offre les avantages suivants :
+Dans ce tutoriel, vous allez découvrir comment intégrer Seismic à Azure Active Directory (Azure AD). Quand vous intégrez Seismic à Azure AD, vous pouvez :
 
-* Dans Azure AD, vous pouvez contrôler l’accès des utilisateurs à Seismic.
-* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Seismic (via l’authentification unique) avec leurs comptes Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
-
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+* Contrôler, dans Azure AD, qui a accès à Seismic.
+* Permettre aux utilisateurs de se connecter automatiquement à Seismic avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD à Seismic, vous avez besoin des éléments suivants :
+Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Abonnement Seismic pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Seismic pour lequel l’authentification SSO (authentification unique) est activée.
 
 > [!NOTE]
 > Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
@@ -44,47 +40,43 @@ Pour configurer l’intégration d’Azure AD à Seismic, vous avez besoin des 
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Seismic prend en charge l’authentification unique lancée par le **fournisseur de services**
-* Après avoir configuré Seismic, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+* Seismic prend en charge l’authentification SSO lancée par le fournisseur de services (**SP**).
 
-## <a name="adding-seismic-from-the-gallery"></a>Ajout de Seismic à partir de la galerie
+## <a name="add-seismic-from-the-gallery"></a>Ajouter Seismic à partir de la galerie
 
 Pour configurer l’intégration de Seismic à Azure AD, vous devez ajouter Seismic à votre liste d’applications SaaS managées à partir de la galerie.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Seismic** dans la zone de recherche.
 1. Sélectionnez **Seismic** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-seismic"></a>Configurer et tester l’authentification SSO Azure AD pour Seismic
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Seismic pour un utilisateur de test appelé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur Seismic associé doit être établie.
+Configurez et testez l’authentification SSO Azure AD avec Seismic à l’aide d’une utilisatrice de test appelée **B.Simon**. Pour que l’authentification SSO fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur associé dans Seismic.
 
-Pour configurer et tester l’authentification unique Azure AD avec Seismic, vous devez effectuer les modules suivants :
+Pour configurer et tester l’authentification SSO Azure AD avec Seismic, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    * **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-    * **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-2. **[Configurer l’authentification unique Seismic](#configure-seismic-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    * **[Créer un utilisateur de test Seismic](#create-seismic-test-user)** pour avoir un équivalent de Britta Simon dans Seismic lié à la représentation Azure AD associée.
-3. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification SSO pour Seismic](#configure-seismic-sso)** afin de configurer les paramètres d’authentification unique côté application.
+    1. **[Créer une utilisatrice de test pour Seismic](#create-seismic-test-user)** afin de disposer dans Seismic d’un équivalent de B.Simon lié à la représentation Azure AD de l’utilisatrice.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Seismic**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, dans la page d’intégration de l’application **Seismic**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
-
-    ![Informations d’authentification unique dans Domaine et URL Seismic](common/sp-identifier.png)
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.seismic.com`
 
@@ -122,15 +114,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Seismic**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-seismic-sso"></a>Configurer l’authentification unique Seismic
@@ -141,16 +127,16 @@ Pour configurer l’authentification unique côté **Seismic**, vous devez envoy
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Seismic. Collaborez avec l’[équipe du support Seismic](mailto:support@seismic.com) pour ajouter les utilisateurs à la plateforme Seismic. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO)
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Le fait de cliquer sur la vignette Seismic dans le volet d’accès doit automatiquement vous connecter à l’application Seismic pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Une redirection est effectuée vers l’URL de connexion à Seismic, où vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL de connexion à Seismic, puis lancez le flux de connexion à partir de cet emplacement.
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Seismic dans Mes applications, une redirection est effectuée vers l’URL de connexion à Seismic. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+Une fois que vous avez configuré Seismic, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

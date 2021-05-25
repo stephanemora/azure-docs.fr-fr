@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/28/2021
+ms.date: 05/07/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4653ea1e266f65fe60eff6cadeef81a65fb709d4
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: ac9b0f07697c7f8c6a5d733e29270b1652bad5e2
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319447"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753738"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor    
 
@@ -38,7 +38,10 @@ Les tarifs par défaut de Log Analytics suivent un modèle de **paiement à l’
   - Nombre de machines virtuelles surveillées
   - Type des données collectées à partir de chaque machine virtuelle surveillée 
   
-En plus du modèle Paiement à l’utilisation, Log Analytics possède des niveaux de **réservation de capacité** qui vous permettent d’économiser jusqu’à 25 % par rapport au tarif de Paiement à l’utilisation. Les tarifs de la réservation de capacité vous permettent d’acheter une réservation à partir de 100 Go/jour. Toute utilisation au-dessus du niveau de réservation sera facturée au tarif de paiement à l’utilisation. Les niveaux de réservation de capacité ont une période d’engagement de 31 jours. Pendant la période d’engagement, vous pouvez passer à un niveau supérieur de réservation de capacité (ce qui relancera la période d’engagement de 31 jours), mais vous ne pouvez pas revenir à un Paiement à l’utilisation ou à un niveau inférieur de réservation de capacité avant que la période d’engagement ne soit terminée. La facturation des niveaux de réservation de capacité est effectuée quotidiennement. [En savoir plus](https://azure.microsoft.com/pricing/details/monitor/) sur les tarifs de la réservation de capacité et de paiement à l’utilisation de Log Analytics. 
+En plus du modèle Paiement à l’utilisation, Log Analytics possède des niveaux de **réservation de capacité** qui vous permettent d’économiser jusqu’à 25 % par rapport au tarif de Paiement à l’utilisation. Les tarifs de la réservation de capacité vous permettent d’acheter une réservation à partir de 100 Go/jour. Toute utilisation au-delà du niveau de réservation (dépassement) sera facturée au même prix par Go comme fourni par le niveau de réservation de la capacité actuelle. Les niveaux de réservation de capacité ont une période d’engagement de 31 jours. Pendant la période d’engagement, vous pouvez passer à un niveau supérieur de réservation de capacité (ce qui relancera la période d’engagement de 31 jours), mais vous ne pouvez pas revenir à un Paiement à l’utilisation ou à un niveau inférieur de réservation de capacité avant que la période d’engagement ne soit terminée. La facturation des niveaux de réservation de capacité est effectuée quotidiennement. [En savoir plus](https://azure.microsoft.com/pricing/details/monitor/) sur les tarifs de la réservation de capacité et de paiement à l’utilisation de Log Analytics. 
+
+> [!NOTE]
+> Jusqu’au début du mois de mai 2021, le dépassement de réservation de capacité était facturé au tarif du paiement à l’utilisation. La modification apportée au dépassement de facture au même prix par Go que le niveau de réservation de capacité actuel réduit la nécessité pour les utilisateurs ayant des niveaux de réservation importants d’ajuster leur niveau de réservation. 
 
 À tous les niveaux tarifaires, la taille des données d’un événement est calculée à partir d’une représentation des propriétés sous forme d’une chaîne stockée dans Log Analytics pour cet événement, que les données soient envoyées par un agent ou qu’elles soient ajoutées pendant le processus d’ingestion. Cela comprend tous les [champs personnalisés](custom-fields.md) ajoutés à mesure que des données sont collectées, puis stockées dans Log Analytics. Plusieurs propriétés communes à tous les types de données, notamment certaines [propriétés standard de Log Analytics](./log-standard-columns.md), ne sont pas incluses dans le calcul de la taille de l’événement. Cela inclut `_ResourceId`, `_SubscriptionId`, `_ItemId`, `_IsBillable`, `_BilledSize` et `Type`. Toutes les autres propriétés stockées dans Log Analytics sont incluses dans le calcul de la taille de l’événement. Certains types de données sont exempts de frais d’ingestion de données, par exemple les types Activité Azure, Pulsation et Utilisation. Pour déterminer si un événement est exclu de la facturation pour l’ingestion des données, vous pouvez utiliser la propriété `_IsBillable` comme illustré [ci-dessous](#data-volume-for-specific-events). L’utilisation est exprimée en Go (1,0E9 octets). 
 
@@ -213,7 +216,7 @@ Chaque espace de travail a sa limite quotidienne appliquée à une heure différ
 Peu après que cette limite quotidienne est atteinte, la collecte des types de données facturables s’arrête pour le reste de la journée. La latence inhérente à l’application de la limite quotidienne signifie que la limite n’est pas appliquée au niveau de limite quotidienne spécifiée. Une bannière d’avertissement s’affiche en haut de la page de l’espace de travail Log Analytics sélectionné, et un événement d’opération est envoyé vers la table *Opération* dans la catégorie **LogManagement**. La collecte de données reprend après l’heure de réinitialisation définie dans *La limite quotidienne est fixée à*. Nous vous recommandons de définir une règle d’alerte en fonction de cet événement d’opération, configuré pour avertir lorsque la limite de données quotidienne a été atteinte (vois [ci-dessous](#alert-when-daily-cap-reached)). 
 
 > [!NOTE]
-> La limite quotidienne ne peut pas arrêter la collecte de données, car précisément le niveau de cap spécifié et certaines données excédentaires sont attendus, en particulier si l’espace de travail reçoit des volumes de données élevés. Pour obtenir une requête utile pour l’étude du comportement de limite quotidienne, voir [ci-dessous](#view-the-effect-of-the-daily-cap). 
+> La limite quotidienne ne peut pas arrêter la collecte de données, car précisément le niveau de cap spécifié et certaines données excédentaires sont attendus, en particulier si l’espace de travail reçoit des volumes de données élevés. Les données collectées au-delà de la capacité sont toujours facturées. Pour obtenir une requête utile pour l’étude du comportement de limite quotidienne, voir [ci-dessous](#view-the-effect-of-the-daily-cap). 
 
 > [!WARNING]
 > La limite quotidienne n’arrête pas la collecte des types de données WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, Update and UpdateSummary, à l’exception des espaces de travail dans lesquels Azure Defender (Security Center) a été installé avant le 19 juin 2017. 

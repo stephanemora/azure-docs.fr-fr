@@ -4,12 +4,12 @@ description: Dans cet article,découvrez les scénarios pris en charge et les li
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: cbf910a0291e90965c9698a8b2a43c587cbfe0b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a3a05ad41affa52a62456e7d0ad41c55b69cf5b
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101707232"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684934"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matrice de prise en charge pour la sauvegarde des bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -24,8 +24,8 @@ Le service Sauvegarde Azure prend en charge la sauvegarde des bases de données 
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topologie**               | SAP HANA s’exécutant sur des machines virtuelles Azure Linux uniquement                    | Grandes instances HANA (HLI)                                   |
 | **Régions**                   | **Disponibilité générale :**<br> **Amériques**  – USA Centre, USA Est 2, USA Est, USA Centre Nord, USA Centre Sud, USA Ouest 2, USA Centre-Ouest, USA Ouest, Canada Centre, Canada Est, Brésil Sud <br> **Asie-Pacifique** – Australie Centre, Australie Centre 2, Australie Est, Australie Sud-Est, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Asie Est, Asie Sud-Est, Inde Centre, Inde Sud, Inde Ouest, Chine Est, Chine Nord, Chine Est 2, Chine Nord 2 <br> **Europe** – Europe Ouest, Europe Nord, France Centre, Royaume-Uni Sud, Royaume-Uni Ouest, Allemagne Nord, Allemagne Centre-Ouest, Suisse Nord, Suisse Ouest, Suisse Centre Nord, Norvège Est, Norvège Ouest <br> **Moyen-Orient et Afrique** – Afrique du Sud Nord, Afrique du Sud Ouest, Émirats arabes unis Nord, Émirats arabes unis Centre  <BR>  **Régions Azure Government** | France Sud, Allemagne Centre, Allemagne Nord-Est, US Gov IOWA |
-| **Versions du système d’exploitation**            | SLES 12 avec SP2, SP3, SP4 et SP5 ; SLES 15 avec SP0, SP1 et SP2 <br><br>  RHEL 7.4, 7.6, 7.7, 8.1 & 8.2                |                                             |
-| **Versions HANA**          | SDC sur HANA 1.x, MDC sur HANA 2.x SPS04, SPS05 Rév. <= 53 (validé également pour les scénarios prenant en charge le chiffrement)      |                                                            |
+| **Versions du système d’exploitation**            | SLES 12 avec SP2, SP3, SP4 et SP5 ; SLES 15 avec SP0, SP1 et SP2 <br><br>  RHEL 7.4, 7.6, 7.7, 7.9, 8.1 et 8.2                |                                             |
+| **Versions HANA**          | SDC sur HANA 1.x, MDC sur HANA 2.x SPS04, SPS05 Rév. <= 55 (validé également pour les scénarios prenant en charge le chiffrement)      |                                                            |
 | **Déploiements HANA**       | SAP HANA sur une machine virtuelle Azure unique - Scale-up uniquement. <br><br> Pour les déploiements à haute disponibilité, les deux nœuds présents sur les deux ordinateurs sont traités individuellement avec des chaînes de données distinctes.               | Montée en charge <br><br> Dans les déploiements à haute disponibilité, la sauvegarde ne bascule pas automatiquement vers le nœud secondaire. La configuration de la sauvegarde doit être effectuée séparément pour chaque nœud.                                           |
 | **Instances HANA**         | Une seule SAP HANA instance sur une seule machine virtuelle Azure - montée en puissance uniquement | Plusieurs instances de SAP HANA sur une seule machine virtuelle. Vous ne pouvez protéger qu’une seule de ces instances à la fois.                  |
 | **Types de bases de données HANA**    | Conteneur de base de données unique (SDC) sur 1.x, conteneur de bases de données multiples (MDC) sur 2.x | MDC dans HANA 1. x                                              |

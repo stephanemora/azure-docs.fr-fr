@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 0e4585e801b356bd1c0e4bc1fb0f2ab9ee7ab7bf
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c5e8a9eafc2bee0631ead77cde5855651c3f81ed
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136334"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745774"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-managed-instance"></a>Guide de migration : SQL Server vers Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -36,12 +36,13 @@ Pour plus d’informations sur la migration, consultez la [vue d’ensemble de l
 
 ## <a name="prerequisites"></a>Prérequis 
 
-Pour pouvoir migrer votre serveur SQL Server vers Azure SQL Managed Instance, respectez les prérequis suivants : 
+Pour migrer votre serveur SQL vers Azure SQL Managed Instance, assurez-vous d’avoir : 
 
-- Choisir une [méthode de migration](sql-server-to-managed-instance-overview.md#compare-migration-options) et les outils correspondants nécessaires
-- Installer l’[outil DMA (Assistant Migration de données)](https://www.microsoft.com/download/details.aspx?id=53595) sur une machine qui peut se connecter à votre serveur SQL Server source
-- Connectivité et autorisations nécessaires pour accéder à la fois à la source et à la cible. 
-
+- Choisi une [ méthode de migration ](sql-server-to-managed-instance-overview.md#compare-migration-options) et les outils correspondants pour votre méthode.
+- Installé l’[outil DMA (Assistant Migration de données)](https://www.microsoft.com/download/details.aspx?id=53595) sur une machine qui peut se connecter à votre serveur SQL Server source.
+- Créé une instance cible d’[Azure SQL Managed Instance](../../managed-instance/instance-create-quickstart.md)
+- Configuré la connectivité et les autorisations nécessaires pour accéder à la fois à la source et à la cible. 
+- Examen des fonctionnalités du moteur de base de données SQL Server [disponibles dans Azure SQL Managed instance](../../database/features-comparison.md). 
 
 
 ## <a name="pre-migration"></a>Prémigration

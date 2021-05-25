@@ -1,14 +1,14 @@
 ---
 title: Superviser les changements de délégation dans votre locataire gérant
 description: Découvrez comment superviser l’activité de délégation à votre locataire gérant à partir des locataires clients.
-ms.date: 02/18/2021
+ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 1a12b916fae9794d6d695191a81ec076917bda31
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 4280e83ef0fc44310aabc2d8d5d9e04044322d4d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814889"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786152"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Superviser les changements de délégation dans votre locataire gérant
 
@@ -180,6 +180,6 @@ else {
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment intégrer des clients à [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
+- Découvrez comment [intégrer des clients à Azure Lighthouse](onboard-customer.md).
 - Découvrez [Azure Monitor](../../azure-monitor/index.yml) et le [journal d’activité Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 - Consultez l’exemple de classeur [Journaux d’activité par domaine](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) pour savoir comment afficher les journaux d’activité Azure des différents abonnements avec une option permettant un filtrage par nom de domaine.

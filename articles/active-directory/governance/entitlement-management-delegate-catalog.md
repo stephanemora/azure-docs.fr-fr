@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e41f372cd0105896765d5a267456b6bda767dd4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b66ef767795b320368224e5ef855332a735b210
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87798424"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714311"
 ---
 # <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Déléguer la gouvernance des accès aux créateurs de catalogue dans la gestion des droits d’utilisation Azure AD
 
@@ -33,7 +33,7 @@ Pour déléguer à des utilisateurs qui ne sont pas administrateurs, pour qu’i
 
 Suivez ces étapes pour affecter un utilisateur au rôle de créateur de catalogue.
 
-**Rôle prérequis :** Administrateur général ou Administrateur d’utilisateurs
+**Rôle prérequis :** administrateur général, administrateur de la gouvernance des identités ou administrateur d’utilisateurs
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 

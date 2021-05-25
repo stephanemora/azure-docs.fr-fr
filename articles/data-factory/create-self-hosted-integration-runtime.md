@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
 ms.date: 02/10/2021
-ms.openlocfilehash: 3e61b6a0f17d2d21aaaebc5ff42b0221cf851a4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4be6e297fafb3184224806f0bde4db468ce3b79
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389494"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788178"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 
@@ -44,15 +44,13 @@ Voici un résumé global des étapes de flux de données de copie avec un runtim
 
 ![Vue d’ensemble du flux de données](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
-1. Un développeur des données crée un runtime d’intégration auto-hébergé dans une fabrique de données Azure à l’aide du portail Azure ou de la cmdlet PowerShell.
+1. Un développeur de données crée d’abord un runtime d’intégration auto-hébergé dans une fabrique de données Azure à l’aide du portail Azure ou de la cmdlet PowerShell.  Le développeur des données crée ensuite un service lié pour un magasin de données local en spécifiant l’instance de runtime d’intégration auto-hébergé que le service doit utiliser pour se connecter à des magasins de données.
 
-2. Le développeur de données crée un service lié pour un magasin de données local. Pour ce faire, le développeur spécifie l’instance de runtime d’intégration auto-hébergé que le service doit utiliser pour se connecter à des magasins de données.
+2. Le nœud du runtime d’intégration auto-hébergé chiffre les informations d’identification à l’aide de l’API de protection des données (DPAPI) Windows et les enregistre localement. Si plusieurs nœuds sont définis pour une haute disponibilité, les informations d’identification sont synchronisées sur les autres nœuds. Chaque nœud chiffre les informations d’identification à l’aide de DPAPI et les stocke localement. La synchronisation des informations d’identification est une opération transparente pour le développeur des données, et elle est gérée par le runtime d’intégration auto-hébergé.
 
-3. Le nœud du runtime d’intégration auto-hébergé chiffre les informations d’identification à l’aide de l’API de protection des données (DPAPI) Windows et les enregistre localement. Si plusieurs nœuds sont définis pour une haute disponibilité, les informations d’identification sont synchronisées sur les autres nœuds. Chaque nœud chiffre les informations d’identification à l’aide de DPAPI et les stocke localement. La synchronisation des informations d’identification est une opération transparente pour le développeur des données, et elle est gérée par le runtime d’intégration auto-hébergé.
+3. Azure Data Factory communique avec le runtime d’intégration auto-hébergé afin de planifier et de gérer les travaux. La communication s'effectue via un canal de contrôle qui utilise une connexion [Azure Relay](../azure-relay/relay-what-is-it.md#wcf-relay) partagée. Lorsqu’une tâche de l’activité doit être lancée, Data Factory place la requête en file d’attente, de même que les informations d’identification. Et ce au cas où les informations d'identification ne sont pas déjà stockées sur le runtime d’intégration auto-hébergé. Le runtime d’intégration auto-hébergé démarre le travail après interrogation de la file d’attente.
 
-4. Azure Data Factory communique avec le runtime d’intégration auto-hébergé afin de planifier et de gérer les travaux. La communication s'effectue via un canal de contrôle qui utilise une connexion [Azure Relay](../azure-relay/relay-what-is-it.md#wcf-relay) partagée. Lorsqu’une tâche de l’activité doit être lancée, Data Factory place la requête en file d’attente, de même que les informations d’identification. Et ce au cas où les informations d'identification ne sont pas déjà stockées sur le runtime d’intégration auto-hébergé. Le runtime d’intégration auto-hébergé démarre le travail après interrogation de la file d’attente.
-
-5. Le runtime d’intégration auto-hébergé copie des données entre un magasin local et le stockage cloud. La direction de la copie dépend de la manière dont l’activité de copie est configurée dans le pipeline de données. Pour cette étape, le runtime d’intégration auto-hébergé communique directement avec les services de stockage cloud, comme le stockage Blob Azure, via un canal sécurisé (HTTPS).
+4. Le runtime d’intégration auto-hébergé copie des données entre un magasin local et le stockage cloud. La direction de la copie dépend de la manière dont l’activité de copie est configurée dans le pipeline de données. Pour cette étape, le runtime d’intégration auto-hébergé communique directement avec les services de stockage cloud, comme le stockage Blob Azure, via un canal sécurisé (HTTPS).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -332,7 +330,7 @@ Si vous sélectionnez l'option **Utiliser le proxy système** pour le proxy HTTP
 > [!IMPORTANT]
 > N’oubliez pas de mettre à jour diahost.exe.config et diawp.exe.config.
 
-Vous devez également vérifier que Microsoft Azure figure dans la liste autorisée de votre entreprise. Vous pouvez télécharger la liste des adresses IP Azure valides à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+Vous devez également vérifier que Microsoft Azure figure dans la liste d’autorisation de votre entreprise. Vous pouvez télécharger la liste des adresses IP Azure valides à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="possible-symptoms-for-issues-related-to-the-firewall-and-proxy-server"></a>Symptômes possibles problèmes liés au pare-feu et au serveur proxy
 
@@ -389,7 +387,7 @@ Pour certaines bases de données cloud, comme Azure SQL Database et Azure Data L
 
 ### <a name="get-url-of-azure-relay"></a>Obtenir l'URL d'Azure Relay
 
-Un domaine et un port requis doivent être placés dans la liste verte de votre pare-feu pour la communication avec Azure Relay. Le runtime d'intégration auto-hébergé les utilisera pour la création interactive, par exemple pour tester la connexion, parcourir la liste des dossiers et la liste des tables, obtenir le schéma et afficher un aperçu des données. Si vous ne souhaitez pas autoriser **.servicebus.windows.net** et tenez à bénéficier d'URL plus spécifiques, vous pouvez afficher tous les noms de domaine complets requis par le runtime d'intégration auto-hébergé à partir du portail ADF. Procédez comme suit :
+Un domaine et un port requis doivent être placés dans la liste d’autorisation de votre pare-feu pour la communication avec Azure Relay. Le runtime d'intégration auto-hébergé les utilisera pour la création interactive, par exemple pour tester la connexion, parcourir la liste des dossiers et la liste des tables, obtenir le schéma et afficher un aperçu des données. Si vous ne souhaitez pas autoriser **.servicebus.windows.net** et tenez à bénéficier d'URL plus spécifiques, vous pouvez afficher tous les noms de domaine complets requis par le runtime d'intégration auto-hébergé à partir du portail ADF. Procédez comme suit :
 
 1. Accédez au portail ADF et sélectionnez votre runtime d'intégration auto-hébergé.
 2. Sur la page Modifier, sélectionnez **Nœuds**.
@@ -397,7 +395,7 @@ Un domaine et un port requis doivent être placés dans la liste verte de votre 
 
    ![URL d'Azure Relay](media/create-self-hosted-integration-runtime/Azure-relay-url.png)
 
-4. Vous pouvez ajouter ces noms de domaine complets à la liste verte des règles de pare-feu.
+4. Vous pouvez ajouter ces noms de domaine complets à la liste d’autorisation des règles de pare-feu.
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>Copier des données d’une source vers un récepteur
 

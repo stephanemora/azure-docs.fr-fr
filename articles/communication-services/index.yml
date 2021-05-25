@@ -9,12 +9,12 @@ metadata:
   author: mikben
   ms.author: mikben
   ms.date: 03/10/2021
-  ms.openlocfilehash: 151e97123c2704a06a994b3b6fd742ba9373af21
-  ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+  ms.openlocfilehash: ec0a4ebaebecf9cf5fac95ca1b3bded1ba759958
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/13/2021
-  ms.locfileid: "109845561"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110092275"
 landingContent:
 - title: À propos d’Azure Communication Services
   linkLists:
@@ -64,20 +64,14 @@ landingContent:
       url: concepts/voice-video-calling/calling-sdk-features.md
     - text: Flux d’appels
       url: concepts/call-flows.md
-- title: Infrastructure d’interface utilisateur
+- title: Bibliothèque d’interface utilisateur
   linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Bien démarrer avec les composites
-      url: https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-composites--page
-    - text: Bien démarrer avec les composants IU
-      url: https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-ui-components--page
   - linkListType: concept
     links:
-    - text: Vue d’ensemble de l’infrastructure d’interface utilisateur
-      url: concepts/ui-framework/ui-sdk-overview.md
-    - text: Fonctionnalités de l’infrastructure d’interface utilisateur
-      url: concepts/ui-framework/ui-sdk-features.md
+    - text: Vue d’ensemble de la bibliothèque d’interface utilisateur
+      url: concepts/ui-library/ui-library-overview.md
+    - text: Cas d’usage de la bibliothèque d’interface utilisateur
+      url: concepts/ui-library/ui-library-use-cases.md
 - title: Téléphonie et SMS
   linkLists:
   - linkListType: quickstart

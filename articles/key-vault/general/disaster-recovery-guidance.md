@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 3c5afc92044fcb109bedd38298b0b027ebeb437d
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 7a23522da2bf6d1c5f9c6a76ab3d9c92cbc64897
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749687"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749534"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilité et redondance d’Azure Key Vault
 
@@ -22,13 +22,13 @@ Azure Key Vault dispose de plusieurs couches de redondance pour garantir que vos
 > [!NOTE]
 > Ce guide s’applique aux coffres. Les pools HSM managés utilisent un autre modèle de haute disponibilité et de reprise d’activité. Pour plus d’informations, consultez [Guide de reprise d’activité pour un HSM managé](../managed-hsm/disaster-recovery-guide.md).
 
-Le contenu de votre coffre de clés est répliqué dans la région ainsi que dans une région secondaire éloignée d’au moins 240 km, mais située au sein de la même zone géographique, afin de maintenir une durabilité élevée de vos clés et secrets. Pour plus d’informations sur les paires de régions spécifiques, consultez [Régions jumelées Azure](../../best-practices-availability-paired-regions.md). L’exception au modèle de régions jumelées est Brésil Sud, qui offre uniquement la possibilité de conserver les données résidant dans cette région. Brésil Sud utilise un stockage redondant interzone (ZRS) pour répliquer vos données trois fois dans la seule et même localisation/région. Pour AKV Premium, seules 2 des 3 régions sont utilisées pour répliquer des données à partir des HSM.  
+Le contenu de votre coffre de clés est répliqué dans la région ainsi que dans une région secondaire éloignée d’au moins 240 km, mais située au sein de la même zone géographique, afin de maintenir une durabilité élevée de vos clés et secrets. Pour plus d’informations sur les paires de régions spécifiques, consultez [Régions jumelées Azure](../../best-practices-availability-paired-regions.md). L’exception au modèle de régions appairées est la zone géographique à région unique, par exemple Brésil Sud ou Qatar Central. Ces régions offrent uniquement la possibilité de conserver les données résidant dans ces mêmes régions. Brésil Sud et Qatar Central utilisent un stockage redondant interzone (ZRS) pour répliquer vos données trois fois dans la seule et même localisation/région. Pour AKV Premium, seules 2 des 3 régions sont utilisées pour répliquer des données à partir des HSM.
 
 En cas d’échec de composants du service Key Vault, d’autres composants de la même région interviennent pour traiter votre demande afin de garantir l’intégrité des fonctionnalités. Vous n’avez besoin d’effectuer aucune action pour démarrer ce processus. Il se produit automatiquement sans que vous le perceviez.
 
-Dans les rares cas d’indisponibilité d’une région Azure entière, les demandes d’Azure Key Vault effectuées dans cette région sont automatiquement routées (*basculées*) vers une région secondaire, sauf s’il s’agit de la région Brésil Sud. Lorsque la région principale est de nouveau disponible, les demandes sont réacheminées (*basculées*) vers la région principale. Vous n’avez pas besoin d’agir dans la mesure où tout se passe automatiquement.
+Dans les rares cas d’indisponibilité d’une région Azure entière, les demandes d’Azure Key Vault effectuées dans cette région sont automatiquement routées (*basculées*) vers une région secondaire, sauf s’il s’agit de la région Brésil Sud ou Qatar Central. Lorsque la région principale est de nouveau disponible, les demandes sont réacheminées (*basculées*) vers la région principale. Vous n’avez pas besoin d’agir dans la mesure où tout se passe automatiquement.
 
-Dans la région Brésil Sud, vous devez planifier la récupération de vos coffres de clés Azure dans un scénario de défaillance de région. Pour sauvegarder et restaurer votre coffre de clés Azure dans une région de votre choix, effectuez les étapes détaillées dans [Sauvegarde Azure Key Vault](backup.md). 
+Dans les régions Brésil Sud et Qatar Central, vous devez planifier la récupération de vos coffres de clés Azure dans un scénario de défaillance de région. Pour sauvegarder et restaurer votre coffre de clés Azure dans une région de votre choix, effectuez les étapes détaillées dans [Sauvegarde Azure Key Vault](backup.md). 
 
 Dans cette conception haute disponibilité, Azure Key Vault n’exige aucun temps d’arrêt pour les activités de maintenance.
 

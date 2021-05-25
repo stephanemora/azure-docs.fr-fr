@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 04/30/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cb3b3fd2010bf4ad1288b767d62d3d76f7b37e3
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: fbe90455142da55289c053c64390f354668b52bc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550963"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766076"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Ajouter Google comme fournisseur d’identité pour les utilisateurs invités B2B
 
@@ -28,10 +28,10 @@ Une fois que vous avez ajouté Google aux options de connexion de votre applicat
 ![Options de connexion pour les utilisateurs Google](media/google-federation/sign-in-with-google-overview.png)
 
 > [!NOTE]
-> La fédération Google est conçue spécialement pour les utilisateurs Gmail. Pour fédérer avec les domaines G Suite, utilisez la [fédération directe](direct-federation.md).
+> La fédération Google est conçue spécialement pour les utilisateurs Gmail. Pour fédérer avec les domaines G Suite, utilisez la [fédération de fournisseur d’identité (IdP) SAML/WS-Fed](direct-federation.md).
 
 > [!IMPORTANT]
-> **À compter du 4 janvier 2021**, Google [déconseille la prise en charge de la connexion WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si vous utilisez la fédération Google ou l’inscription en libre-service avec Gmail, [testez la compatibilité de vos applications métier natives](google-federation.md#deprecation-of-webview-sign-in-support).
+> **À partir du second semestre 2021**, Google [déprécie la prise en charge de la connexion aux vues web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vous utilisez la fédération Google pour les invitations B2B ou [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), ou bien si vous utilisez l’inscription en libre-service avec Gmail, les utilisateurs de Google Gmail ne pourront pas se connecter si vos applications effectuent l’authentification des utilisateurs via une vue web incorporée. [Plus d’informations](#deprecation-of-web-view-sign-in-support)
 
 ## <a name="what-is-the-experience-for-the-google-user"></a>Quelle est l’expérience de l’utilisateur Google ?
 
@@ -56,34 +56,41 @@ Les utilisateurs invités Google peuvent également se servir des points de term
 
 Vous pouvez également fournir aux utilisateurs invités Google un lien direct vers une application ou une ressource en incluant les informations de votre locataire, par exemple `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`.
 
-## <a name="deprecation-of-webview-sign-in-support"></a>Prise en charge de la connexion WebView déconseillée
+## <a name="deprecation-of-web-view-sign-in-support"></a>Dépréciation de la prise en charge de la connexion via vue web
 
-À compter du 4 janvier 2021, Google [déconseille la prise en charge de la connexion WebView incorporée](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si vous utilisez la fédération Google ou [l’inscription en libre-service avec Gmail](identity-providers.md), testez la compatibilité de vos applications métier natives. Si vos applications incluent du contenu WebView pour lequel une authentification est nécessaire, les utilisateurs de Google Gmail ne pourront pas s’authentifier. Voici quelques scénarios connus ayant une incidence sur les utilisateurs de Gmail :
+À partir du second semestre 2021, Google [déprécie la prise en charge de la connexion via vue web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vous utilisez la fédération Google pour B2B ou [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), ou bien si vous utilisez [l’inscription en libre-service avec Gmail](identity-providers.md), si vos applications effectuent l’authentification des utilisateurs via une vue web incorporée, les utilisateurs de Google Gmail ne pourront pas s’authentifier.
 
-- Applications Windows qui utilisent la connexion WebView incorporée ou WebAccountManager (WAM) sur des versions antérieures de Windows
-- Autres applications natives développées par vos soins, qui utilisent une infrastructure de navigateur incorporée pour l’authentification
+Voici quelques scénarios connus ayant une incidence sur les utilisateurs de Gmail :
+- Applications Windows qui utilisent le contrôle [WebView](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/webview), [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/) ou l’ancien contrôle WebBrowser pour l’authentification. Ces applications doivent migrer vers l’utilisation du gestionnaire de comptes web (WAM).
+- Applications Android utilisant l’élément d’interface utilisateur WebView 
+- applications iOS utilisant UIWebView/WKWebview 
+- Applications utilisant ADAL
 
 Cette modification n’a aucune incidence sur les scénarios suivants :
 
-- Applications Windows qui utilisent la connexion WebView incorporée ou WebAccountManager (WAM) sur les dernières versions de Windows
-- Applications Microsoft iOS
-- Identités G Suite, par exemple la [fédération directe](direct-federation.md) basée sur SAML utilisée avec G Suite
+- Applications Microsoft sur Windows
+- Applications web
+- Applications mobiles utilisant des vues web système pour l’authentification ([SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) sur iOS, [Onglets personnalisés](https://developer.chrome.com/docs/android/custom-tabs/overview/) sur Android).  
+- Identités G Suite, par exemple la [fédération basée sur SAML](direct-federation.md) utilisée avec G Suite
+
+Nous vérifions actuellement auprès de Google si cette modification affecte les éléments suivants :
+- Applications Windows qui utilisent le gestionnaire de compte web (WAM) ou le répartiteur d’authentification web (WAB).  
 
 Nous continuons à tester différentes plateformes et différents scénarios. Cet article sera mis à jour en conséquence.
-### <a name="to-test-your-apps-for-compatibility"></a>Test de la compatibilité des applications
+### <a name="action-needed-for-embedded-web-views"></a>Action requise pour les vues web incorporées
+Modifiez vos applications de façon à utiliser le navigateur système pour la connexion. Pour plus d’informations, consultez [Interface utilisateur incorporée ou Web System](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers#embedded-vs-system-web-ui) dans la documentation de MSAL.NET. Tous les kits SDK MSAL utilisent la vue web système par défaut.
+### <a name="what-to-expect"></a>À quoi s’attendre
+Avant que Google n’applique ces modifications au second semestre 2021, Microsoft déploiera une solution de contournement pour les applications qui utilisent toujours des vues web incorporées afin que l’authentification ne soit pas bloquée.
 
-1. Suivez les [conseils de Google](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html) pour déterminer si vos applications sont affectées.
-2. À l’aide de Fiddler ou d’un autre outil de test, injectez un en-tête lors de la connexion et utilisez une identité Google externe pour tester la connexion :
+Les applications qui sont migrées vers une vue web autorisée pour l’authentification ne sont pas affectées, et les utilisateurs sont autorisés à s’authentifier via Google comme d’habitude.
 
-   1. Ajoutez Google-Accounts-Check-OAuth-Login:true à vos en-têtes de requête HTTP lorsque les demandes sont envoyées à accounts.google.com.
-   1. Essayez de vous connecter à l’application en entrant une adresse Gmail sur la page de connexion accounts.google.com.
-   1. Si la connexion échoue et qu’une erreur du type « Ce navigateur ou cette application n’est peut-être pas sécurisé » apparaît, la connexion des identités Google externes sera bloquée.
+Ce document sera mis à jour quand les dates et détails supplémentaires seront annoncés par Google.
 
-3. Résolvez le problème en procédant de l’une des façons suivantes :
+### <a name="distinguishing-between-cefelectron-and-embedded-web-views"></a>Distinction entre CEF/Electron et les vues web incorporées
+En plus de la [dépréciation de la prise en charge de la vue web incorporée et de la connexion à l’infrastructure](#deprecation-of-web-view-sign-in-support), Google [déprécie également l’authentification Gmail basée sur le CEF (Chromium Embedded Framework)](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Pour les applications basées sur CEF, telles que les applications Electron, Google désactivera l’authentification le 30 juin 2021. Les applications affectées ont reçu directement une notification de Google et ne sont pas abordées dans cette documentation.  Ce document concerne les vues web incorporées décrites ci-dessus que Google va restreindre ultérieurement en 2021.
 
-   - Si votre application Windows utilise la connexion WebView incorporée ou WebAccountManager (WAM) sur une version antérieure de Windows, passez à la dernière version de Windows.
-   - Modifiez vos applications de façon à utiliser le navigateur système pour la connexion. Pour plus d’informations, consultez [Interface utilisateur incorporée ou Web System](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) dans la documentation de MSAL.NET.  
-
+### <a name="action-needed-for-embedded-frameworks"></a>Action requise pour les infrastructures incorporées
+Suivez les [conseils de Google](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html) pour déterminer si vos applications sont affectées.
 
 ## <a name="step-1-configure-a-google-developer-project"></a>Étape 1 : Configurer un projet de développeur Google
 Commencez par créer un projet dans la console des développeurs Google pour obtenir un ID client et une clé secrète client que vous pourrez ajouter plus tard à Azure Active Directory (Azure AD). 

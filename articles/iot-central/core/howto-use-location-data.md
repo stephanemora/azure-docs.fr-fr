@@ -7,18 +7,18 @@ ms.date: 01/08/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: c909fd1438488e3625f3674dd26f959cf6fad79f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e93da2bec3753ba6efda2b4eb16d6ef78b42234b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98127967"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747212"
 ---
 # <a name="use-location-data-in-an-azure-iot-central-solution"></a>Utiliser des données d’emplacement dans une solution Azure IoT Central
 
 Cet article explique comment utiliser des données d’emplacement dans une application IoT Central. Un appareil connecté à IoT Central peut envoyer des données d’emplacement sous forme de flux de télémétrie ou utiliser une propriété d’appareil pour signaler des données d’emplacement.
 
-Un générateur de solutions peut utiliser des données d’emplacement pour :
+Vous pouvez utiliser les données de localisation pour :
 
 * Tracer l’emplacement signalé sur une carte.
 * Tracer l’historique des emplacements de télémétrie sur une carte.

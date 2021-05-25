@@ -3,20 +3,20 @@ title: Découvrez comment l’approvisionnement s’intègre aux journaux Azure 
 description: Découvrez comment l’approvisionnement s’intègre aux journaux Azure Monitor dans Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: arvinh,luleon
-ms.openlocfilehash: f656f55b0c74103053f110b8c66645d353db9fbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: arvinh
+ms.openlocfilehash: 8ad80b7fb8c148ae42d52b15719ddadf4b5302e2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561566"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783276"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Découvrez comment l’approvisionnement s’intègre aux journaux Azure Monitor
 
@@ -96,7 +96,7 @@ AADProvisioningLogs
 
 Azure Monitor vous permet de configurer des alertes personnalisées afin de recevoir des notifications sur les principaux événements liés à l’approvisionnement. Par exemple, vous souhaiterez peut-être recevoir une alerte en cas de défaillance. Ou peut-être en cas de pics de désactivation ou de suppression. Un autre exemple d’alerte que vous pourriez vouloir recevoir est l’absence d’approvisionnement, qui indique un problème.
 
-Pour en savoir plus sur les alertes, consultez [Répondre aux événements avec les alertes Azure Monitor](../../azure-monitor/alerts/tutorial-response.md).
+Pour en savoir plus sur les alertes, consultez [Alertes de journal Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 
 Alerte en cas de pic de défaillances. Remplacez jobID par le jobID de votre application.
 

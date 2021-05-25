@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse dans les scénarios d’entreprise
 description: Les fonctionnalités d’Azure Lighthouse peuvent être utilisées pour simplifier la gestion inter-locataire au sein d’une entreprise qui utilise plusieurs locataires Azure AD.
-ms.date: 03/12/2021
+ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 97b44f71750bdb533e889546f370a9b36ea5d3b4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 139c7be2c1736841e81e70aa562ab9841fd76337
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103419352"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788712"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse dans les scénarios d’entreprise
 
@@ -20,7 +20,7 @@ Pour la plupart des organisations, la gestion est plus facile avec un seul locat
 
 Certaines organisations peuvent avoir besoin d’utiliser plusieurs locataires Azure AD. Il peut s’agir d’une situation temporaire, comme quand des acquisitions ont eu lieu et qu’une stratégie de consolidation du locataire à long terme n’a pas encore été définie. Parfois, une organisation peut avoir à assurer en permanence la maintenance de plusieurs locataires en raison de filiales totalement indépendantes, de conditions géographiques ou légales, entre autres.
 
-Dans les cas où une architecture multilocataire est nécessaire, Azure Lighthouse contribue à centraliser et simplifier les opérations de gestion. En utilisant la [gestion déléguée des ressources Azure](azure-delegated-resource-management.md), les utilisateurs d’un locataire gérant peuvent effectuer des [ fonctions de gestion inter-locataires](cross-tenant-management-experience.md) de manière centralisée et évolutive.
+Dans les cas où une architecture multilocataire est nécessaire, Azure Lighthouse contribue à centraliser et simplifier les opérations de gestion. En utilisant la [gestion déléguée des ressources Azure](architecture.md), les utilisateurs d’un locataire gérant peuvent effectuer des [ fonctions de gestion inter-locataires](cross-tenant-management-experience.md) de manière centralisée et évolutive.
 
 ## <a name="tenant-management-architecture"></a>Architecture de gestion des locataires
 
@@ -61,4 +61,4 @@ En poursuivant cet exemple, les utilisateurs de Locataire A disposant des autor
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez les [Expériences de gestion inter-locataire](cross-tenant-management-experience.md).
-- Découvrez [Gestion des ressources déléguées Azure](azure-delegated-resource-management.md).
+- Apprenez-en davantage sur le [fonctionnement d’Azure Lighthouse](architecture.md).

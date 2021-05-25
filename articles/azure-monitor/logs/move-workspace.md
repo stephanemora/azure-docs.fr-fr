@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3628669890d23dd504e7900afa8910a5586db938
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 96d9e64a7b3443b4c2e835bfe824bd7d9197cb1c
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322218"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752154"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Déplacer un espace de travail Log Analytics vers un autre abonnement ou groupe de ressources
 
@@ -44,7 +44,7 @@ Les abonnements source et de destination de l’espace de travail doivent existe
 > - Si vous avez déjà déplacé l’espace de travail, désactivez toutes les règles actives dans **Analytics**, puis réactivez-les après cinq minutes. Cette solution s’avère efficace la plupart du temps, mais pour rappel, elle n’est pas prise en charge et relève de votre propre responsabilité.
 > 
 > **Recréer des alertes**
-> - Toutes les alertes doivent être recréées après un déplacement, car les autorisations sont basées sur l’ID de ressource Azure de l’espace de travail, qui change lors du déplacement d’un espace de travail.
+> - Toutes les alertes doivent être recréées après une opération visant à déplacer ou à renommer un espace de travail, car les autorisations sont basées sur l’ID de ressource Azure de l’espace de travail, qui change lors du déplacement ou du renommage d’un espace de travail.
 >
 > **Mettre à jour les chemins d’accès aux ressources**
 > - Après le déplacement d’un espace de travail, toutes les ressources Azure ou externes qui pointent vers l’espace de travail doivent être examinées et mises à jour pour pointer vers le nouveau chemin cible des ressources.

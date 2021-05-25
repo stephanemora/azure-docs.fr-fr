@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 85129cf282e39b4f4932cc5e9f7cfd72d1e445b0
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 7dc42c305ff8cd7320d711574e4095141041d8b4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210633"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773878"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutoriel : Utiliser le machine learning automatisé pour prédire le prix des courses de taxi
 
@@ -40,8 +40,11 @@ Essayez également le machine learning automatisé pour ces autres types de mod�
 
 Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante](https://aka.ms/AMLFree) d’Azure Machine Learning dès aujourd’hui.
 
-* Effectuez le [tutoriel d’installation](tutorial-1st-experiment-sdk-setup.md) si vous n’avez pas encore d’espace de travail Azure Machine Learning ou de machine virtuelle de notebook.
-* Une fois le tutoriel d’installation terminé, ouvrez le notebook *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* en utilisant le même serveur de notebooks.
+* Suivez le guide [Démarrage rapide : Bien démarrer avec Azure Machine Learning](quickstart-create-resources.md), si vous ne disposez pas déjà d’un espace de travail Azure Machine Learning ou d’une instance de calcul.
+* Après avoir suivi le guide de démarrage rapide :
+    1. Sélectionnez **Notebooks** dans le studio.
+    1. Sélectionnez l’onglet **Exemples**.
+    1. Ouvrez le notebook *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb*.
 
 Vous trouverez également ce tutoriel sur [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si vous souhaitez l’exécuter dans votre propre [environnement local](how-to-configure-environment.md#local). Pour vous procurer les packages requis : 
 * [Installez le client `automl` complet](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment).

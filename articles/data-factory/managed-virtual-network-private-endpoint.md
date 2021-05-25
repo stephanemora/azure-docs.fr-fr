@@ -1,20 +1,20 @@
 ---
 title: Réseau virtuel managé et points de terminaison privés managés
 description: Découvrez le réseau virtuel managé et les points de terminaison privés managés dans Azure Data Factory.
-ms.author: abnarain
-author: nabhishek
+ms.author: lle
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 34211feb34b3e2ec21b9bc0e6a180df0febd8c76
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: dd4e5838c97d6a2e86f67bb40457b797462183d9
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987935"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785472"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Réseau virtuel managé Azure Data Factory (préversion)
 
@@ -57,7 +57,7 @@ Le point de terminaison privé utilise une adresse IP privée sur le réseau vi
 > Nous vous recommandons de créer des points de terminaison privés managés pour vous connecter à toutes vos sources de données Azure. 
  
 > [!WARNING]
-> Si un magasin de données PaaS (Blob, ADLS Gen2, Azure Synapse Analytics) a un point de terminaison privé déjà créé, et même s’il autorise l’accès à partir de tous les réseaux, ADF peut uniquement y accéder à l’aide d’un point de terminaison privé managé. Veillez à créer un point de terminaison privé dans de tels scénarios. 
+> Si un magasin de données PaaS (Blob, ADLS Gen2, Azure Synapse Analytics) a un point de terminaison privé déjà créé, et même s’il autorise l’accès à partir de tous les réseaux, ADF peut uniquement y accéder à l’aide d’un point de terminaison privé managé. En l’absence de point de terminaison privé, vous devez en créer un dans de tels scénarios. 
 
 Une connexion de point de terminaison privé est créée dans un état « en attente » quand vous créez un point de terminaison privé managé dans Azure Data Factory. Un workflow d’approbation est lancé. Le propriétaire de la ressource de liaison privée est responsable de l’approbation ou du refus de la connexion.
 

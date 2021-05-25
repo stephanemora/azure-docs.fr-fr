@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 04/26/2021
+ms.date: 05/05/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25b4494fedec61fd2e23c793271d53a703fc5c8c
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 32aa09d5c607b932da1530ced30c1b5b378b3990
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064428"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683884"
 ---
 # <a name="azure-ad-built-in-roles"></a>Rôles intégrés Azure AD
 
@@ -67,6 +67,7 @@ Cet article répertorie les rôles intégrés Azure AD que vous pouvez attribuer
 > | [Inviteur d’invités](#guest-inviter) | Peut inviter des utilisateurs invités indépendamment du paramètre « Les membres peuvent inviter des invités ». | 95e79109-95c0-4d8e-aee3-d01accf2d47b |
 > | [Administrateur du support technique](#helpdesk-administrator) | Peut réinitialiser des mots de passe pour les utilisateurs non-administrateurs et les administrateurs du support technique. | 729827e3-9c14-49f7-bb1b-9608f156bbb8 |
 > | [Administrateur d’identité hybride](#hybrid-identity-administrator) | Peut gérer les paramètres d’approvisionnement d’AD au cloud Azure AD, d’Azure AD Connect et de fédération. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
+> | [Administrateur Identity Governance](#identity-governance-administrator) | Gérez l'accès à l'aide d'Azure AD pour les scénarios de gouvernance des identités. | 45d8d3c5-c802-45c6-b32a-1d70b5e1e86e |
 > | [Administrateur Insights](#insights-administrator) | Dispose d’un accès administratif dans l’application Microsoft 365 Insights. | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c |
 > | [Leader d’entreprise Insights](#insights-business-leader) | Peut voir et partager des tableaux de bord et des insights par le biais de l’application M365 Insights. | 31e939ad-9672-4796-9c2e-873181342d2d |
 > | [Administrateur Intune](#intune-administrator) | Peut gérer tous les aspects du produit Intune. | 3a2c62db-5318-420d-8d74-23affee5d9d5 |
@@ -1080,6 +1081,18 @@ Les utilisateurs de ce rôle peuvent créer, gérer et déployer la configuratio
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Lire et configurer Service Health dans le Centre d’administration Microsoft 365 |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Créer et gérer des demandes de service Microsoft 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Lire les propriétés de base sur toutes les ressources dans le Centre d’administration Microsoft 365 |
+
+## <a name="identity-governance-administrator"></a>Administrateur Identity Governance
+
+Les utilisateurs dotés de ce rôle peuvent gérer la configuration de la gouvernance des identités Azure AD, notamment les packages d'accès, les révisions d'accès, les catalogues et les stratégies, afin que l'accès soit approuvé et révisé et que les utilisateurs invités qui n'ont plus besoin de l'accès soient supprimés.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/accessReviews/allProperties/allTasks | Créer et supprimer des révisions d’accès, et lire et mettre à jour toutes les propriétés des révisions d’accès dans Azure AD |
+> | microsoft.directory/entitlementManagement/allProperties/allTasks | Créer et supprimer des ressources, ainsi que lire et mettre à jour toutes les propriétés dans la gestion des droits d’utilisation Azure AD |
+> | microsoft.directory/groups/members/update | Mettre à jour les membres de groupes, à l’exclusion des groupes assignables à un rôle |
+> | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Mettre à jour les attributions de rôles des principaux de service |
 
 ## <a name="insights-administrator"></a>Administrateur Insights
 

@@ -5,14 +5,14 @@ author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial
-ms.date: 03/02/2021
+ms.date: 05/04/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: f4f3d045a2530fa54d22bec789918454cba80097
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: be6bcf84ebb9c979cd60e6ca6803b7a24a0944a1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310425"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736299"
 ---
 # <a name="tutorial-add-device-details"></a>Tutoriel : Ajouter les détails de l’appareil
 
@@ -29,24 +29,32 @@ Dans ce tutoriel, vous allez apprendre à :
 ## <a name="prerequisites"></a>Prérequis
 
 * Vous devez être connecté et disposer d’un projet pour votre appareil sur le [portail Azure Certified Device](https://certify.azure.com). Pour plus d’informations, consultez ce [tutoriel](tutorial-01-creating-your-project.md).
-* Vous devez disposer d’un guide de prise en main pour votre appareil au format PDF. Nous fournissons un certain nombre de modèles de guide de prise en main que vous pouvez utiliser, en fonction du programme de certification et de la langue de votre choix. Les modèles sont disponibles à l’emplacement GitHub [Get_Started_Templates](https://aka.ms/GSTemplate "Modèles de démarrage").
+* Vous devez disposer d’un guide de prise en main pour votre appareil au format PDF. Nous fournissons un grand nombre de modèles de prise en main que vous pouvez utiliser, en fonction du programme de certification et de la langue de votre choix. Les modèles sont disponibles à l’emplacement GitHub [Get_Started_Templates](https://aka.ms/GSTemplate "Modèles de démarrage").
 
 ## <a name="adding-technical-device-details"></a>Ajout des détails techniques de l’appareil
 
 La première section de la page de votre projet, appelée « Entrer les détails de l’appareil », vous permet de fournir des informations sur les principales fonctionnalités matérielles de votre appareil, telles que le nom de l’appareil, la description, le processeur, le système d’exploitation, les options de connectivité, les interfaces matérielles, les protocoles du secteur d’activité et les dimensions physiques. Même si de nombreux champs sont facultatifs, la plupart de ces informations seront mises à la disposition des clients potentiels dans le catalogue Azure Certified Device si vous choisissez de publier votre appareil une fois qu’il a été certifié.
 
-1. Cliquez sur `Add` (Ajouter) dans la section « Entrer les détails de l’appareil » de la page du récapitulatif de votre projet pour ouvrir la section des détails de l’appareil. Vous verrez cinq sections à compléter.
+1. Cliquez sur `Add` (Ajouter) dans la section « Entrer les détails de l’appareil » de la page du récapitulatif de votre projet pour ouvrir la section des détails de l’appareil. Vous voyez six sections à compléter.
 
 ![Image de la page des détails du projet](./media/images/device-details-menu.png)
 
 2. Sous l’onglet `Basics` (Informations de base), passez en revue les informations que vous avez fournies quand vous avez créé le projet.
 1. Sous l’onglet `Certifications`, passez en revue les certifications pour lesquelles vous postulez avec votre appareil.
-1. Ouvrez l’onglet `Product details` (Détails du produit) et sélectionnez au moins un système d’exploitation.
-1. Ajoutez **au moins** un composant discret qui décrit votre appareil. Vous pouvez consulter des conseils supplémentaires sur l’utilisation des composants [ici](how-to-using-the-components-feature.md).
+1. Ouvrez l’onglet `Hardware` et ajoutez **au moins** un composant discret qui décrit votre appareil. Vous pouvez aussi consulter nos instructions sur l’[utilisation des composants](how-to-using-the-components-feature.md).
 1. Cliquez sur `Save`. Vous pourrez alors modifier les détails de votre composant et ajouter des détails plus avancés.
-1. Sous `Additional product details` (Détails supplémentaires du produit), listez les détails supplémentaires sur l’appareil non capturés par les détails du composant.
+1. Ajoutez toutes les informations pertinentes concernant les conditions de fonctionnement (comme l’indice de protection, la température de fonctionnement ou la certification de sécurité).
+
+![Image de la section du matériel](./media/images/hardware-section.png)
+
+7. Sous `Additional product details` (Détails supplémentaires du produit), listez les détails supplémentaires sur l’appareil non capturés par les détails du composant.
 1. Si vous avez sélectionné `Other` (Autre) dans l’un des champs de composant ou que vous souhaitez signaler une circonstance particulière à l’équipe de certification Azure, laissez un commentaire explicatif dans la section `Comments for reviewer` (Commentaires pour le réviseur).
-1. Utilisez l’onglet `Dependencies` pour lister toutes les dépendances si votre appareil nécessite du matériel ou des services supplémentaires pour envoyer des données à Azure. Vous pouvez consulter des informations supplémentaires sur le listage des dépendances [ici](how-to-indirectly-connected-devices.md).
+1. Ouvrez l’onglet `Software` et sélectionnez **au moins** un système d’exploitation.
+1. (**Obligatoire pour les appareils du kit de développement** et fortement recommandé pour tous les autres) Sélectionnez un niveau pour indiquer le processus de configuration attendu pour connecter votre appareil à Azure. Si vous sélectionnez Niveau 2, vous devez fournir un lien vers l’image logicielle disponible.
+
+![Image de la section du logiciel](./media/images/software-section.png)
+
+11. Utilisez l’onglet `Dependencies` pour lister toutes les dépendances si votre appareil nécessite du matériel ou des services supplémentaires pour envoyer des données à Azure. Vous pouvez aussi consulter nos instructions supplémentaires pour [lister les dépendances](how-to-indirectly-connected-devices.md).
 1. Une fois que vous êtes satisfait des informations que vous avez fournies, vous pouvez utiliser l’onglet `Review` (Examen) pour obtenir une vue d’ensemble en lecture seule de tous les détails de l’appareil qui ont été entrés.
 1. Cliquez sur `Project summary` (Récapitulatif du projet) en haut de la page pour revenir à la page du récapitulatif.
 
@@ -82,7 +90,7 @@ Dans cette zone, vous allez fournir des informations marketing adaptées aux cli
     > Vérifiez que toutes les URL fournies sont valides ou seront actives au moment de la publication après approbation.
 
 1. Indiquez jusqu’à 3 secteurs d’activité cibles pour lesquels votre appareil est optimisé.
-1. Fournissez des informations pour 5 distributeurs au maximum de votre appareil. Ces dernières peuvent inclure le propre site du fabricant.
+1. Fournissez des informations pour jusqu’à 5 distributeurs de votre appareil. Ces dernières peuvent inclure le propre site du fabricant.
 
     > [!Note]
     > Si aucune URL de page de produit de distributeur n’est fournie, le bouton `Shop` (Acheter) du catalogue affiche par défaut le lien fourni pour `Distributor page` (Page du distributeur), qui n’est pas nécessairement propre à l’appareil. Dans l’idéal, l’URL du distributeur doit aboutir à une page spécifique où un client peut acheter un appareil, mais ce n’est pas obligatoire. Si le distributeur est le fabricant lui-même, cette URL peut être la même que la page marketing du fabricant.

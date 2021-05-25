@@ -1,20 +1,20 @@
 ---
 title: Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse
 description: Découvrez les concepts d’Azure Active Directory pour les locataires, les utilisateurs et les rôles, ainsi que la façon dont ils peuvent être utilisés dans les scénarios Azure Lighthouse.
-ms.date: 01/14/2021
+ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: d78828cc739030f8e456c64885d77ddf59dd13fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40b446063e828c694925ecfe5f530f570b162f32
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98233914"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786930"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse
 
 Avant d’intégrer des clients pour la [Azure Lighthouse](../overview.md), il est important de comprendre comment les locataires, les utilisateurs et les rôles fonctionnent dans Azure Active Directory (Azure AD), ainsi que la façon dont ils peuvent être utilisés dans les scénarios Azure Lighthouse.
 
-Un *locataire* est une instance dédiée et approuvée d’Azure AD. En général, chaque locataire représente une seule organisation. [La gestion des ressources déléguées Azure](azure-delegated-resource-management.md) permet d’opérer une projection logique des ressources d’un locataire sur un autre. Cela permet aux utilisateurs du locataire de gestion (appartenant par exemple à un fournisseur de services) d’accéder à des ressources déléguées dans le locataire d’un client, ou permet aux [entreprises avec plusieurs locataires de centraliser leurs opérations de gestion](enterprise.md).
+Un *locataire* est une instance dédiée et approuvée d’Azure AD. En général, chaque locataire représente une seule organisation. Azure Lighthouse permet d’opérer une [projection logique](architecture.md#logical-projection) des ressources d’un locataire sur un autre. Cela permet aux utilisateurs du locataire de gestion (appartenant par exemple à un fournisseur de services) d’accéder à des ressources déléguées dans le locataire d’un client, ou permet aux [entreprises avec plusieurs locataires de centraliser leurs opérations de gestion](enterprise.md).
 
 Pour atteindre cette projection logique, un abonnement (ou un ou plusieurs groupes de ressources au sein d’un abonnement) dans le locataire client doit être *intégré* à Azure Lighthouse. Ce processus d’intégration peut être effectué [par le biais de modèles Azure Resource Manager](../how-to/onboard-customer.md) ou par [la publication d’une offre publique ou privée sur la Place de marché Azure](../how-to/publish-managed-services-offers.md).
 

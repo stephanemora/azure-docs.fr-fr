@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 1ff9fbbb6cd4b8827555a6cb1b222ed4eb0a5299
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5ef5f465cbb8dfd044482bfad1eb72f1aa78df39
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608638"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783726"
 ---
 # <a name="automate-incident-handling-in-azure-sentinel-with-automation-rules"></a>Automatiser la gestion des incidents dans Azure Sentinel à l’aide de règles d’automatisation
 
@@ -54,7 +54,7 @@ Vous pouvez définir des actions peuvent à exécuter quand les conditions (voir
 
 - Modification de l’état d’un incident, maintien à jour de votre flux de travail.
 
-  - Lors du passage à « fermé », spécification de la [raison de la fermeture](tutorial-investigate-cases.md#closing-an-incident) et ajout d’un commentaire. Cela vous permet d’effectuer le suivi de vos performances et de votre efficacité, ainsi que de régler précisément pour réduire les faux positifs.
+  - Lors du passage à « fermé », spécification de la [raison de la fermeture](tutorial-investigate-cases.md#closing-an-incident) et ajout d’un commentaire. Cela vous permet d’effectuer le suivi de vos performances et de votre efficacité, ainsi que de régler précisément pour réduire les [faux positifs](false-positives.md).
 
 - Modification de la gravité d’un incident : vous pouvez réévaluer et ré-hiérarchiser en fonction de la présence, de l’absence, des valeurs ou des attributs des entités impliquées dans l’incident.
 

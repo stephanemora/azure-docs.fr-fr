@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: a64564887fa2738fd3c0586d1040be3c95193927
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 050512da539e08d029786983fbda46da0fea27ce
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205788"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789620"
 ---
 # <a name="what-is-azure-digital-twins"></a>Qu’est-ce qu’Azure Digital Twins ?
 
-**Azure Digital Twins** est une offre de plateforme en tant que service (PaaS) qui permet la création de graphes de connaissances basés sur des modèles numériques d’environnements entiers. Il peut s’agir de bâtiments, d’usines, de batteries de serveurs, de réseaux énergétiques, de chemins de fer, de stades, etc., voire de villes entières. Ces modèles numériques peuvent être utilisés pour obtenir des insights qui permettent d’améliorer les produits, d’optimiser les opérations, de réduire les coûts et de fournir des expériences client exceptionnelles.
+**Azure Digital Twins** est une offre PaaS (platform as a service) qui permet de créer des graphes de jumeaux basés sur des modèles numériques d’environnements entiers. Il peut s’agir de bâtiments, d’usines, de batteries de serveurs, de réseaux énergétiques, de chemins de fer, de stades, etc., voire de villes entières. Ces modèles numériques peuvent être utilisés pour obtenir des insights qui permettent d’améliorer les produits, d’optimiser les opérations, de réduire les coûts et de fournir des expériences client exceptionnelles.
 
 Tirez parti de votre expertise sur Azure Digital Twins pour créer des solutions personnalisées et connectées qui :
 * Modélisent tous les environnements et donnent vie aux jumeaux numériques de manière scalable et sécurisée
@@ -32,12 +32,12 @@ Voici un résumé des fonctionnalités fournies par Azure Digital Twins.
 
 Dans Azure Digital Twins, vous définissez les entités numériques qui représentent les personnes, les lieux et les objets de votre environnement physique à l’aide de types de jumeaux personnalisés appelés [modèles](concepts-models.md). 
 
-Vous pouvez voir ces définitions de modèle comme un vocabulaire spécialisé décrivant votre activité. Pour une solution de gestion de bâtiments par exemple, vous pouvez définir des modèles tels que « immeuble », « étage » et « ascenseur ». Vous pouvez ensuite créer des **jumeaux numériques** en fonction de ces modèles pour représenter votre environnement spécifique.
+Vous pouvez voir ces définitions de modèle comme un vocabulaire spécialisé décrivant votre activité. Pour une solution de gestion de bâtiments, par exemple, vous pouvez définir des modèles tels que « immeuble », « étage » et « ascenseur ». Vous pouvez ensuite créer des **jumeaux numériques** en fonction de ces modèles pour représenter votre environnement spécifique.
 
 [!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
 Les modèles sont définis dans un langage de type JSON appelé [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Ils décrivent les jumeaux par rapport à leurs propriétés d’état, événements de télémétrie, commandes, composants et relations.
-* Les modèles définissent les **relations**  sémantiques entre vos entités afin que vous puissiez connecter vos jumeaux dans un graphe de connaissances qui reflète leurs interactions. Vous pouvez considérer les modèles comme des noms dans une description de votre monde, et les relations comme des verbes.
+* Les modèles définissent les **relations** sémantiques entre vos entités. Ainsi, vous pouvez connecter vos jumeaux dans un graphe qui reflète leurs interactions. Vous pouvez considérer les modèles comme des noms dans une description de votre monde, et les relations comme des verbes.
 * Vous pouvez également spécialiser des jumeaux à l’aide de l’héritage de modèle. Un modèle peut hériter d’un autre modèle.
 
 Le langage DTDL est utilisé pour les modèles de données dans d’autres services Azure IoT, notamment [IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md) et [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). Il vous permet de garder votre solution Azure Digital Twins connectée et compatible avec d’autres parties de l’écosystème Azure.
@@ -94,11 +94,11 @@ Le schéma suivant montre où Azure Digital Twins se trouve dans le contexte d�
 
 ## <a name="service-limits"></a>Limites du service
 
-Pour en savoir plus sur les **limites de service** d’Azure Digital Twins, consultez [Limites du service Azure Digital Twins](reference-service-limits.md). Ces informations vous seront utiles lors de l’utilisation du service pour comprendre les limites fonctionnelles et de taux du service, ainsi que les limites susceptibles d’être ajustées, si besoin.
+Pour en savoir plus sur les **limites de service** d’Azure Digital Twins, consultez l’[article sur les limites du service Azure Digital Twins](reference-service-limits.md). Ces informations vous seront utiles lors de l’utilisation du service pour comprendre les limites fonctionnelles et de taux du service, ainsi que les limites susceptibles d’être ajustées, si besoin.
 
 ## <a name="terminology"></a>Terminologie
 
-Vous pouvez consulter la liste des **termes IoT courants** et leurs utilisations dans les services Azure IoT, y compris Azure Digital Twins, ici : [Glossaire Azure IoT](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). Ces informations vous seront utiles pour prendre en main Azure Digital Twins et créer une solution IoT.
+Vous pouvez voir la liste des **termes IoT courants** et leurs utilisations au sein des services Azure IoT, notamment Azure Digital Twins, dans le [Glossaire Azure IoT](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). Cette ressource peut servir de référence pour bien démarrer avec Azure Digital Twins et créer une solution IoT.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

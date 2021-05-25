@@ -1,18 +1,18 @@
 ---
-title: Configuration des paramètres réseau pour les clusters Service Fabric gérés (préversion)
+title: Configurer les paramètres réseau pour les clusters Service Fabric managés
 description: Découvrez comment configurer votre cluster Service Fabric géré pour les règles de groupe de sécurité réseau, l’accès aux ports RDP, les règles d’équilibrage de charge, etc.
 ms.topic: how-to
-ms.date: 03/02/2021
-ms.openlocfilehash: e17251523c0720665c4c6f5b7811304eebc9923e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 5/10/2021
+ms.openlocfilehash: 2b31e62bdd7f18ea866c69566ffea80e77df145f
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743240"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685276"
 ---
-# <a name="configure-network-settings-for-service-fabric-managed-clusters-preview"></a>Configuration des paramètres réseau pour les clusters Service Fabric gérés (préversion)
+# <a name="configure-network-settings-for-service-fabric-managed-clusters"></a>Configurer les paramètres réseau pour les clusters Service Fabric managés
 
-Les clusters Service Fabric gérés sont créés avec une configuration de mise en réseau par défaut. Cette configuration se compose de règles obligatoires pour les fonctionnalités essentielles des clusters et de quelques règles facultatives destinées à faciliter la configuration client.
+Les clusters Service Fabric managés sont créés avec une configuration réseau par défaut. Cette configuration se compose de règles obligatoires pour les fonctionnalités essentielles des clusters et de quelques règles facultatives, comme l’autorisation de tout le trafic sortant par défaut, destinées à faciliter la configuration client.
 
 Au-delà de la configuration de mise en réseau par défaut, vous pouvez modifier les règles de mise en réseau pour répondre aux besoins de votre scénario.
 
@@ -28,10 +28,10 @@ Tenez compte de ces considérations lors de la création de règles de groupe de
 
 Avec des clusters Service Fabric classiques (non gérés), vous devez déclarer et gérer une ressource *Microsoft.Network/networkSecurityGroups* distincte pour [appliquer des règles NSG à votre cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-nsg-cluster-65-node-3-nodetype). Les clusters Service Fabric gérés vous permettent d’affecter des règles NSG directement dans la ressource de cluster de votre modèle de déploiement.
 
-Utilisez la propriété [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) de votre ressource *Microsoft.ServiceFabric/managedclusters* (version `2021-01-01-preview` ou ultérieure) pour affecter des règles NSG. Par exemple :
+Utilisez la propriété [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) de votre ressource *Microsoft.ServiceFabric/managedclusters* (version `2021-05-01` ou ultérieure) pour affecter des règles NSG. Par exemple :
 
 ```json
-            "apiVersion": "2021-01-01-preview",
+            "apiVersion": "2021-05-01",
             "type": "Microsoft.ServiceFabric/managedclusters",
             ...
             "properties": {

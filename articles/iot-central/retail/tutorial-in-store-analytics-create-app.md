@@ -11,16 +11,16 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: caa61170504c3ee4b7162cc06db4df16d1232395
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 183693963d66a5df13cbb4dd1e561b26f5495f08
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014364"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685690"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutoriel : Créer une application d’analytique en magasin dans Azure IoT Central
 
-Le tutoriel montre aux concepteurs de solutions comment créer une application d’analytique en magasin Azure IoT Central. L’exemple d’application est destiné à un magasin de vente au détail. Il s’agit d’une solution aux besoins courants des entreprises pour surveiller et s’adapter au taux de présence et aux conditions environnementales.
+Le tutoriel vous montre comment créer une application d’analytique en magasin Azure IoT Central. L’exemple d’application est destiné à un magasin de vente au détail. Il s’agit d’une solution aux besoins courants des entreprises pour surveiller et s’adapter au taux de présence et aux conditions environnementales.
 
 L’exemple d’application que vous créez comprend trois appareils réels : une passerelle Rigado Cascade 500 et deux capteurs RuuviTag. Ce tutoriel montre également comment utiliser la simulation du capteur de présence incluse dans le modèle d’application à des fins de test. La passerelle Rigado C500 sert de hub de communication dans votre application. Il communique avec les capteurs de votre magasin et gère leurs connexions au cloud. Le RuuviTag est un capteur environnemental qui fournit des données de télémétrie, notamment la température, l’humidité et la pression. La simulation du capteur de présence permet de suivre le mouvement et la présence de la clientèle dans les zones de caisse d’un magasin. 
 
@@ -72,8 +72,6 @@ Pour créer une application d’analytique en magasin pour les caisses :
     > Si vous utilisez un **nom d’application** convivial, vous devez toujours utiliser une valeur unique pour l’**URL** de l’application.
 
 1. Si vous disposez d’un abonnement Azure, entrez vos informations *Répertoire, Abonnement Azure et Région*. Si vous n’avez pas d’abonnement, vous pouvez activer une **version d’évaluation gratuite de 7 jours** et remplir les coordonnées requises.  
-
-    Pour plus d’informations sur les répertoires et les abonnements, consultez le guide de démarrage rapide [Créer une application](../core/quick-deploy-iot-central.md).
 
 1. Sélectionnez **Create** (Créer).
 

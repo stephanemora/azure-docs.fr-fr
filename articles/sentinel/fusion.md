@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 23e116eba6393f834b3368901d4440e668b16fca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bde035a468c4cc543410d6eb5c2e68d11138050
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101724283"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790232"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Détection avancée des attaques multiphases dans Azure Sentinel
 
@@ -26,7 +26,7 @@ ms.locfileid: "101724283"
 
 La technologie Fusion basée sur l’apprentissage automatique permet à Azure Sentinel de détecter automatiquement les attaques multiphases en identifiant des combinaisons de comportements anormaux et d’activités suspectes observés à différentes phases de la chaîne de destruction. Sur la base de ces découvertes, Azure Sentinel génère des incidents qui seraient autrement difficiles à intercepter. Ces incidents comprennent au moins deux alertes ou activités. Le système est conçu de façon à ce que ces incidents soient peu volumineux, soient détectés avec une haute fidélité, et présentent un niveau de gravité élevé.
 
-Personnalisée pour votre environnement, cette technologie de détection, en plus de réduire la fréquence de faux positifs, peut détecter des attaques même si les informations sont limitées ou si certaines informations sont manquantes.
+Personnalisée pour votre environnement, cette technologie de détection, en plus de réduire la fréquence de [faux positifs](false-positives.md), peut détecter des attaques même si les informations sont limitées ou si certaines informations sont manquantes.
 
 ## <a name="configuration-for-advanced-multistage-attack-detection"></a>Configuration de la détection avancée des attaques multiphases
 
@@ -515,4 +515,3 @@ Ce scénario est actuellement en **PRÉVERSION**.
 Maintenant que vous en savez plus sur la détection avancée des attaques multiphases, il peut vous être utile de suivre le guide de démarrage suivant pour savoir comment bénéficier d’une visibilité sur vos données et sur les menaces potentielles : [Bien démarrer avec Azure Sentinel](quickstart-get-visibility.md).
 
 Si vous êtes prêt à examiner les incidents créés pour vous, consultez le tutoriel suivant : [Examiner les incidents avec Azure Sentinel](tutorial-investigate-cases.md).
-

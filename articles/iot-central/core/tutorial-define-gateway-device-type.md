@@ -9,18 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 7d2321189e32c77d9360ff6d772fcebf9c6abb1d
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: d1a730a20ef2ab0fe5e455ef86a428aa1d83fc19
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324560"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683926"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutoriel - Définir un nouveau type d’appareil de passerelle IoT dans votre application Azure IoT Central
 
-*Cet article s’applique aux créateurs de solutions et aux développeurs d’appareils.*
-
-Ce tutoriel vous explique comment, en tant que créateur de solutions, utiliser un modèle d’appareil de passerelle pour définir un appareil de passerelle dans votre application IoT Central. Vous configurez ensuite plusieurs appareils en aval qui se connectent à votre application IoT Central via l’appareil de passerelle. 
+Ce tutoriel vous explique comment utiliser un modèle d’appareil de passerelle pour définir un appareil de passerelle dans votre application IoT Central. Vous configurez ensuite plusieurs appareils en aval qui se connectent à votre application IoT Central via l’appareil de passerelle. 
 
 Dans ce tutoriel, vous créez un modèle d’appareil de passerelle **Smart Building** (Construction intelligente). Un appareil de passerelle **Construction intelligente** a des relations avec d’autres appareils en aval.
 
@@ -37,7 +35,9 @@ En plus de permettre à des appareils en aval de communiquer avec votre applicat
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce tutoriel, vous devez [Créer une application Azure IoT Central](./quick-deploy-iot-central.md).
+Pour suivre les étapes de ce tutoriel, vous devez disposer des éléments suivants :
+
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 ## <a name="create-downstream-device-templates"></a>Créer des modèles d’appareils en aval
 
@@ -221,7 +221,7 @@ Dans ce didacticiel, vous avez appris à :
 * Ajouter des relations.
 * Publier votre modèle d’appareil.
 
-Ensuite, en tant que développeur d’appareils, vous pouvez apprendre à :
+Vous pouvez ensuite apprendre à :
 
 > [!div class="nextstepaction"]
 > [Ajouter un appareil Azure IoT Edge à votre application Azure IoT Central](tutorial-add-edge-as-leaf-device.md)

@@ -9,12 +9,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 09/28/2020
 ms.topic: how-to
-ms.openlocfilehash: 297721d9801385d9fdbff708c723c5b6e02949ad
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: c1c0ac3d95a005a55d3b334a1f68add072b75700
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950601"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764762"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Entraîner des modèles TensorFlow à grande échelle avec Azure Machine Learning
 
@@ -30,7 +30,7 @@ Exécutez ce code sur l’un de ces environnements :
 
  - Instance de calcul Azure Machine Learning : pas de téléchargement ni d’installation nécessaire
 
-     - Suivre le [Tutoriel : Configurer l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur de notebook dédié préchargé avec le kit SDK et l’exemple de dépôt.
+     - Suivez le guide de démarrage rapide [Prise en main d’Azure Machine Learning](quickstart-create-resources.md) pour créer un serveur de notebook dédié sur lequel sont préchargés le SDK et l’exemple de dépôt.
     - Dans le dossier des exemples de Deep Learning sur le serveur de notebooks, recherchez un notebook finalisé et développé en accédant à ce répertoire : dossier **how-to-use-azureml > ml-frameworks > tensorflow > train-hyperparameter-tune-deploy-with-tensorflow**. 
  
  - Votre propre serveur de notebooks Jupyter

@@ -1,30 +1,30 @@
 ---
 title: Se connecter à une machine virtuelle Linux avec les informations d’identification d’Azure Active Directory
 description: Découvrez comment créer et configurer une machine virtuelle Linux pour utiliser l’authentification Azure Active Directory.
-author: SanDeo-MSFT
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/17/2020
-ms.author: sandeo
-ms.openlocfilehash: 654d47102685c04d6440d7c155e4d6eb931abcae
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/11/2021
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: sandeo
+ms.custom: references_regions
+ms.openlocfilehash: fd1d3afdd8ab6836971fbda88baac93f3abdbbb2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788112"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785598"
 ---
-# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Aperçu : Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory
+# <a name="deprecated-login-to-a-linux-virtual-machine-in-azure-with-azure-active-directory-using-device-code-flow-authentication"></a>Déconseillé : Se connecter à une machine virtuelle Linux dans Azure avec Azure Active Directory à l’aide de l’authentification du flux de code de l’appareil
+
+> [!CAUTION]
+> **La fonctionnalité en préversion publique décrite dans cet article est déconseillée à compter du 15 août 2021.**
+> 
+> Cette fonctionnalité est remplacée par la possibilité d’utiliser Azure AD et SSH par le biais de l’authentification basée sur les certificats. Pour plus d’informations, consultez l’article [Préversion : Se connecter à une machine virtuelle Linux dans Azure avec Azure Active Directory à l’aide de l’authentification par certificat SSH](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md). Pour migrer de l’ancienne version vers cette dernière, consultez [Migration à partir de la préversion précédente](https://docs.microsoft.com/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux#migration-from-previous-preview).
 
 Pour améliorer la sécurité des machines virtuelles Linux (VM) dans Azure, vous pouvez intégrer l’authentification Azure Active Directory (AD). Lorsque vous utilisez l’authentification Azure AD pour les machines virtuelles Linux, vous contrôlez et appliquez de façon centralisée des stratégies qui autorisent ou refusent l’accès aux machines virtuelles. Cet article indique comment créer et configurer une machine virtuelle Linux pour utiliser l’authentification Azure AD.
-
-
-> [!IMPORTANT]
-> L’authentification Azure Active Directory est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Utilisez cette fonctionnalité sur une machine virtuelle de test que vous prévoyez d’abandonner après le test.
->
-
 
 Les avantages liés à l’utilisation de l’authentification Azure AD pour se connecter aux machines virtuelles Linux dans Azure sont nombreux, parmi lesquels :
 
@@ -50,16 +50,10 @@ Les distributions Linux suivantes sont actuellement prises en charge dans la pr�
 | SUSE Linux Enterprise Server | SLES 12 |
 | Serveur Ubuntu | Ubuntu 14.04 LTS, Ubuntu Server 16.04 et Ubuntu Server 18.04 |
 
-
-Les régions Azure suivantes sont actuellement prises en charge dans la préversion de cette fonctionnalité :
-
-- Toutes les régions Azure globales
-
->[!IMPORTANT]
-> Pour utiliser cette fonctionnalité en préversion, déployez uniquement une distribution Linux prise en charge dans une région Azure prise en charge. La fonctionnalité n’est prise en charge ni dans Azure Government ni dans les clouds souverains.
+> [!IMPORTANT]
+> La préversion n’est prise en charge ni dans Azure Government ni dans les clouds souverains.
 >
 > L’utilisation de cette extension n’est pas prise en charge sur les clusters Azure Kubernetes Service (AKS). Pour plus d’informations, consultez [Stratégies de support pour AKS](../../aks/support-policies.md).
-
 
 Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.31 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -182,7 +176,6 @@ Avec cette ligne :
 ```bash
 %aad_admins ALL=(ALL) NOPASSWD:ALL
 ```
-
 
 ## <a name="troubleshoot-sign-in-issues"></a>Résoudre les problèmes de connexion
 

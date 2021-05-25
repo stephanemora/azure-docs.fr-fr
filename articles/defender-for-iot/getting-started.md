@@ -2,13 +2,13 @@
 title: 'Démarrage rapide : Bien démarrer'
 description: Suivez ce guide de démarrage rapide pour vous familiariser avec le workflow de base du déploiement de Defender pour IoT.
 ms.topic: quickstart
-ms.date: 04/17/2021
-ms.openlocfilehash: b1e7686e1d68d5a3f239320930d69f22c78e13cb
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.date: 05/10/2021
+ms.openlocfilehash: 97d08d1911634db0a2d1ce4583f7b61090d01bfc
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750443"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664759"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>Démarrage rapide : Bien démarrer avec Defender pour IoT
 
@@ -20,9 +20,12 @@ Cet article donne une vue d’ensemble de la procédure permettant de configurer
 
 ## <a name="permission-requirements"></a>Spécifications relatives aux autorisations
 
+### <a name="for-sensors-and-on-premises-management-consoles"></a>Pour les capteurs et consoles de gestion locale
+
 Certaines des étapes de configuration exigent des autorisations d’utilisateur spécifiques.
 
 Des autorisations d’utilisateur administratif sont requises pour activer le capteur et la console de gestion, charger des certificats SSL/TLS et générer de nouveaux mots de passe.
+### <a name="for-the-defender-for-iot-portal"></a>Pour le portail Defender pour IoT
 
 Le tableau suivant décrit les autorisations d’accès utilisateur aux outils du portail Azure Defender pour IoT :
 

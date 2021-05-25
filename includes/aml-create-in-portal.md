@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier Include
 services: machine-learning
 author: sdgilley
@@ -8,23 +8,26 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 11/04/2019
-ms.openlocfilehash: f5f132d257e30cd8f4fa1153087bf0df2f0f5b2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 05/11/2021
+ms.openlocfilehash: 42af7691d7401e397e7e0d9819fded60b3821b26
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841840"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785327"
 ---
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’aide des informations d’identification de votre abonnement Azure.
 
-1. En haut à gauche du portail Azure, sélectionnez **+Créer une ressource**.
+1. En haut à gauche du portail Azure, sélectionnez les trois lignes, puis **+Créer une ressource**.
 
-    ![Capture d’écran montrant l’option Créer une ressource.](media/aml-create-in-portal/create-workspace.gif)
+    :::image type="content" source="media/aml-create-in-portal/create-resource.png" alt-text="Capture d’écran montrant +Créer une ressource.":::
 
 1. Utilisez la barre de recherche pour rechercher **Machine Learning**.
 
 1. Sélectionnez **Machine Learning**.
+
+   :::image type="content" source="media/aml-create-in-portal/machine-learning.png" alt-text="Capture d’écran affiche les résultats de la recherche pour sélectionner Machine Learning.":::
+
 
 1. Dans le volet **Machine Learning**, sélectionnez **Créer** pour commencer.
 
@@ -36,9 +39,9 @@ ms.locfileid: "91841840"
    Subscription |Sélectionnez l’abonnement Azure que vous souhaitez utiliser.
    Resource group | Utilisez un groupe de ressources existant dans votre abonnement, ou entrez un nom pour créer un groupe de ressources. Un groupe de ressources contient les ressources associées d’une solution Azure. Dans cet exemple, nous allons utiliser **docs-aml**. 
    Location | Sélectionnez l’emplacement le plus proche de vos utilisateurs et des ressources de données pour créer votre espace de travail.
-   Édition de l’espace de travail | Sélectionnez **De base** comme type d’espace de travail pour ce didacticiel. Ce type d’espace de travail détermine les fonctionnalités auxquelles vous aurez accès et leur tarification. Tous les éléments de ce didacticiel peuvent être exécutés avec un espace de travail De base ou Enterprise.
 
 1. Lorsque vous avez terminé de configurer l’espace de travail, sélectionnez **Vérifier + créer**.
+1. Sélectionnez **Créer** pour créer l’espace de travail.
 
    > [!Warning]
    > La création de votre espace de travail dans le cloud peut prendre plusieurs minutes.
@@ -46,4 +49,5 @@ ms.locfileid: "91841840"
    Une fois le processus terminé, un message indiquant la réussite du déploiement s’affiche.
  
  1. Pour afficher le nouvel espace de travail, sélectionnez **Accéder à la ressource**.
+ 1. Dans la vue du portail de votre espace de travail, sélectionnez **Lancer Studio** pour accéder à Azure Machine Learning studio. 
 

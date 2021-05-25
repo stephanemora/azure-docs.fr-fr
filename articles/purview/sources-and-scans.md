@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3b19fab33d0c8f53025605fd14fe65f08e660392
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 15ade6fca3885bfabba7a23e2c3d8e561a9e6a0c
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677914"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738461"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Sources de données et types de fichiers pris en charge dans Azure Purview
 
@@ -21,23 +21,7 @@ Cet article traite des sources de données et types de fichiers pris en charge, 
 
 ## <a name="supported-data-sources"></a>Sources de données prises en charge
 
-Azure Purview prend en charge les sources suivantes :
-
-| Type de magasin | Type d’authentification pris en charge | Configurer des analyses via UX/PowerShell |
-| ---------- | ------------------- | ------------------------------ |
-| SQL Server local                   | Authentification SQL                        | UX                                |
-| Azure Synapse Analytics (anciennement SQL DW)            | Authentification SQL, principal de service, MSI               | UX                             |
-| Azure SQL Database (DB)                  | Authentification SQL, principal de service, MSI               | UX |
-| Azure SQL Database Managed Instance      | Authentification SQL, principal de service, MSI               | UX    |
-| Stockage Blob Azure                       | Clé de compte, principal de service, MSI | UX            |
-| Explorateur de données Azure                      | Principal de service                              | UX            |
-| Compte Azure Data Lake Storage Gen1 (ADLS Gen1) | Principal du service, MSI                              | UX            |
-| Azure Data Lake Storage Gen2 (ADLS Gen2) | Clé de compte, principal de service, MSI            | UX            |
-| Azure Cosmos DB                          | Clé du compte                                    | UX            |
-
-
-> [!Note]
-> Azure Data Lake Storage Gen2 est maintenant en disponibilité générale. Nous vous recommandons de commencer à l’utiliser dès aujourd'hui. Pour plus d’informations, consultez la [page du produit](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
+Purview prend en charge toutes les sources de données répertoriées [ici](purview-connector-overview.md).
 
 ## <a name="file-types-supported-for-scanning"></a>Types de fichiers pris en charge pour l’analyse
 
@@ -48,7 +32,10 @@ Les types de fichiers suivants sont pris en charge pour l’analyse, ainsi que p
 - Purview prend également en charge les extensions de fichiers personnalisées et les analyseurs personnalisés.
  
 > [!Note]
-> Chaque fichier Gzip doit être mappé à un seul fichier csv contenu. Les fichiers Gzip sont soumis à des règles système et personnalisées de classification. Actuellement, nous ne prenons pas en charge l’analyse d’un fichier gzip mappé à plusieurs fichiers contenus, ou à n’importe quel autre type de fichier qui n’est pas csv. 
+> Chaque fichier Gzip doit être mappé à un seul fichier csv contenu. Les fichiers Gzip sont soumis à des règles système et personnalisées de classification. Actuellement, nous ne prenons pas en charge l’analyse d’un fichier gzip mappé à plusieurs fichiers contenus, ou à n’importe quel autre type de fichier qui n’est pas csv. En outre, l’analyseur Purview prend en charge l’analyse des types de fichiers PARQUET et AVRO compressés pour l’extraction et la classification des schémas.
+
+> [!Note]
+> L’analyseur Purview ne prend pas en charge les types de données complexes dans les types de fichiers AVRO, ORC et PARQUET pour l’extraction des schémas.   
 
 ## <a name="sampling-within-a-file"></a>Échantillonnage dans un fichier
 
@@ -74,28 +61,6 @@ Dans Purview, un dossier ou un groupe de fichiers de partition est détecté en 
 - **Autres types de fichiers structurés (JSON, XML, TXT)** - 1 fichier sur 100 est échantillonné (analyse L3) dans un dossier ou groupe de fichiers de partition considérés comme « ensemble de ressources »
 - **Objets SQL et entités CosmosDB** - chaque fichier est soumis à une analyse L3.
 - **Types de fichiers de document** - chaque fichier est soumis à un analyse L3. Les modèles d’ensembles de ressources ne s’appliquent pas à ces types de fichiers.
-
-## <a name="scan-regions"></a>Analyser des régions
-Voici une liste de toutes les régions de la source de données Azure (centre de données) sur lesquelles l’analyseur Purview s’exécute. Si votre source de données Azure se trouve dans une région qui ne figure pas dans cette liste, l’analyseur s’exécutera dans la région de votre instance de Purview.
- 
-### <a name="purview-scanner-regions"></a>Régions de l’analyseur Purview
-
-- EastUs
-- EastUs2 
-- SouthCentralUS
-- WestUs
-- WestUs2
-- AsieSudEst
-- WestEurope
-- NorthEurope
-- UkSouth
-- AustraliaEast
-- CanadaCentral
-- BrazilSouth
-- CentralIndia
-- JaponEst
-- SouthAfricaNorth
-- FranceCentral
 
 ## <a name="classification"></a>classification ;
 

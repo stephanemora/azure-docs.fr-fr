@@ -4,14 +4,14 @@ description: Comment utiliser Azure HPC Cache pour améliorer l’accès aux don
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/26/2021
+ms.date: 05/05/2021
 ms.author: v-erkel
-ms.openlocfilehash: 1358f3cfebcd5cdc6d9e402e9c487f80f1aa8bcd
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 8dca61a9debad2c743c66b15d6f721edc7538178
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322021"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737291"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Utiliser Azure HPC Cache avec Azure NetApp Files
 
@@ -50,7 +50,7 @@ Utilisez la taille minimale du sous-réseau délégué lors de la création d’
 
 La taille minimale, spécifiée avec le masque réseau /28, fournit 16 adresses IP. Dans la pratique, Azure NetApp Files utilise uniquement trois des adresses IP disponibles pour l’accès au volume. Cela signifie que vous n’avez qu’à créer trois cibles de stockage dans votre cache Azure HPC Cache pour couvrir tous les volumes.
 
-Si le sous-réseau délégué est trop grand, il est possible que les volumes Azure NetApp Files utilisent davantage d’adresses IP que ce que peut gérer une seule instance de cache Azure HPC Cache. Un seul cache a une limite de 10 cibles de stockage pour la plupart des tailles de débit de cache, ou de 20 cibles de stockage pour les configurations les plus volumineuses.
+Si le sous-réseau délégué est trop grand, il est possible que les volumes Azure NetApp Files utilisent davantage d’adresses IP que ce que peut gérer une seule instance de cache Azure HPC Cache. Un seul cache a une [limite de 10 cibles de stockage](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) pour la plupart des combinaisons de débit et de taille de cache, ou de 20 cibles de stockage pour les configurations les plus volumineuses.
 
 L’exemple de démarrage rapide dans la Documentation Azure NetApp Files utilise 10.7.0.0/16 pour le sous-réseau délégué, ce qui donne un sous-réseau trop grand.
 

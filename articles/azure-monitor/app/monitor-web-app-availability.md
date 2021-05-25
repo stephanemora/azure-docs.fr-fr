@@ -4,12 +4,12 @@ description: Configurez des tests ping dans Application Insights. Recevez des a
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 60698862e26175425221940a4b69867cb414fe86
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: eba55212b4b40a364f37d6f86d41a25a1564281a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107598871"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767326"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Superviser la disponibilité d’un site web
 
@@ -144,3 +144,4 @@ Outre les résultats bruts, vous pouvez examiner deux mesures essentielles de la
 * [Availability alerts](availability-alerts.md) (Alertes de disponibilité)
 * [Tests web à plusieurs étapes](availability-multistep.md)
 * [Dépannage](troubleshoot-availability.md)
+* [Modèle Azure Resource Manager pour les tests web](https://docs.microsoft.com/azure/templates/microsoft.insights/webtests?tabs=json)

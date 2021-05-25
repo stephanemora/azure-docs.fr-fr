@@ -141,10 +141,14 @@
               href: vpn-profile-intune.md
         - name: Clients VPN
           items:
-            - name: Windows 10
-              href: openvpn-azure-ad-client.md
             - name: OpenVPN
               href: howto-openvpn-clients.md?
+            - name: Authentification Azure AD
+              items:
+                - name: Windows 10
+                  href: openvpn-azure-ad-client.md
+                - name: macOS - Préversion
+                  href: openvpn-azure-ad-client-mac.md
         - name: Configurer des tunnels Always-On
           items:
             - name: Tunnel d’utilisateur

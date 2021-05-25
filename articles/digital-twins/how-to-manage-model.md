@@ -7,30 +7,26 @@ ms.author: baanders
 ms.date: 4/07/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ac794fda92e2ad005b30fc1aa153cc0546430fbe
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 3947267959bd5cc90cc5d74512417df97eadae9e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208560"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789843"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gérer les modèles Azure Digital Twins
 
-Vous pouvez gérer les [modèles](concepts-models.md) de votre instance Azure Digital Twins à l'aide des [API DigitalTwinModels](/rest/api/digital-twins/dataplane/models), du [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) ou de l'[interface CLI Azure Digital Twins](how-to-use-cli.md). 
-
-Les opérations de gestion incluent le chargement, la validation, la récupération et la suppression des modèles. 
+Cet article explique comment gérer les [modèles](concepts-models.md) dans votre instance Azure Digital Twins. Les opérations de gestion incluent le chargement, la validation, la récupération et la suppression des modèles. 
 
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## <a name="ways-to-manage-models"></a>Modes de gestion des modèles
-
-[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
 ## <a name="create-models"></a>Créer des modèles
 
-Les modèles pour Azure Digital Twins sont écrits en DTDL et enregistrés sous forme de fichiers *.JSON*. Il existe également une [extension DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible pour [Visual Studio Code](https://code.visualstudio.com/), offrant une validation de la syntaxe et d’autres fonctionnalités facilitant l’écriture de documents DTDL.
+Les modèles pour Azure Digital Twins sont écrits en DTDL et enregistrés sous forme de fichiers .JSON. Il existe également une [extension DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible pour [Visual Studio Code](https://code.visualstudio.com/), offrant une validation de la syntaxe et d’autres fonctionnalités facilitant l’écriture de documents DTDL.
 
 Prenons l’exemple d’un hôpital souhaitant disposer d’une représentation numérique des pièces de son bâtiment. Chaque pièce contient un distributeur de savon intelligent permettant de contrôler le lavage des mains, et des capteurs pour suivre le trafic.
 
@@ -41,7 +37,7 @@ La première étape de la solution consiste à créer des modèles pour représe
 > [!NOTE]
 > Il s’agit d’un exemple de corps pour un fichier. JSON au sein duquel un modèle est défini et enregistré, et doit être téléchargé dans le cadre d’un projet client. En revanche, l’appel d’API REST prend un tableau de définitions de modèle comme celle ci-dessus (qui est mappée à un `IEnumerable<string>` dans le kit de développement logiciel .NET). Par conséquent, pour utiliser ce modèle dans l’API REST directement, entourez-le avec des crochets.
 
-Ce modèle définit un nom et un ID unique pour la chambre du patient, et les propriétés pour représenter le nombre de visiteurs et l’état du lavage à la main (ces compteurs seront mis à jour à partir des capteurs de mouvement et des distributeurs de savon intelligents, et ils seront utilisés ensemble pour calculer une propriété de *pourcentage de lavage de main*). Le modèle définit également une relation *hasDevices*, qui sera utilisée pour connecter toute [représentation numérique](concepts-twins-graph.md) basée sur ce modèle *Room* aux périphériques réels.
+Ce modèle définit un nom et un ID unique pour la chambre du patient, et les propriétés pour représenter le nombre de visiteurs et l’état du lavage à la main (ces compteurs seront mis à jour à partir des capteurs de mouvement et des distributeurs de savon intelligents, et ils seront utilisés ensemble pour calculer une propriété de *pourcentage de lavage de main*). Le modèle définit également une relation *hasDevices*, qui sera utilisée pour connecter toute [représentation numérique](concepts-twins-graph.md) basée sur ce modèle Room aux périphériques réels.
 
 En suivant cette méthode, vous pouvez définir des modèles pour l’hôpital entier, ou bien pour certaines zones.
 
@@ -94,7 +90,7 @@ Mais si vous voulez apporter des modifications à un modèle (par exemple, modif
 
 ### <a name="model-versioning"></a>Gestion des versions des modèles
 
-Pour créer une nouvelle version d’un modèle existant, commencez par le DTDL du modèle d’origine. Mettez à jour, ajoutez ou supprimez les champs à modifier.
+Pour créer une nouvelle version d’un modèle existant, commencez par le DTDL du modèle d’origine. Mettez à jour, ajoutez ou supprimez les champs que vous souhaitez modifier.
 
 Ensuite, marquez ce modèle comme une version plus récente en mettant à jour son champ `id`. La dernière section de l’ID de modèle, après le point-virgule (`;`), représente le numéro de modèle. Pour indiquer qu’il s’agit maintenant d’une version plus à jour de ce modèle, incrémentez le nombre à la fin de la valeur `id` en un nombre supérieur au numéro de version actuel.
 
@@ -150,7 +146,7 @@ Le reste de cette section décompose la suppression du modèle plus en détails 
 
 En règle générale, les modèles peuvent être supprimés à tout moment.
 
-L’exception concerne les modèles dont dépendent d’autres modèles, qu’il s’agisse d’une relation `extends` ou en tant que composant. Par exemple, si un modèle *ConferenceRoom* étend un modèle *Room*, et qu’il possède un modèle *ACUnit* en tant que composant, vous ne pouvez pas supprimer *Room* ou *ACUnit* avant que *ConferenceRoom* ne supprime leurs références respectives. 
+L’exception concerne les modèles dont dépendent d’autres modèles, qu’il s’agisse d’une relation `extends` ou en tant que composant. Par exemple, si un modèle ConferenceRoom étend un modèle Room, et qu’il possède un modèle ACUnit en tant que composant, vous ne pouvez pas supprimer Room ou ACUnit avant que ConferenceRoom ne supprime leurs références respectives. 
 
 Pour ce faire, vous pouvez mettre à jour le modèle dépendant pour supprimer les dépendances ou bien supprimer complètement le modèle dépendant.
 

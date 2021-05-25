@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: a9c832d9a5e90cb2c9ffcbe8a26cdb08ebcddfcc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1fd639d1050490c03d269422d2d6eabad972ce10
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553117"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738176"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Support des machines virtuelles de 2e génération dans Azure
 
@@ -65,10 +65,10 @@ Les machines virtuelles de 2e génération prennent en charge les images de la P
 * Windows 10 Professionnel, Windows 10 Entreprise
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04, 18.04, 19.04, 19.10 
-* RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
-* Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
-* Oracle Linux 7.7, 7.7-CI
+* Ubuntu Server 16.04, 18.04, 19.04, 19.10, 20.04 
+* RHEL 8.2, 8.1, 8.0, 7.9, 7.7, 7.6, 7.5, 7.4, 7.0, 8.3
+* Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 8.2, 8.3
+* Oracle Linux 7.7, 7.7-CI, 7.8
 
 > [!NOTE]
 > Les tailles de machine virtuelle spécifiques telles que la série MV2 ne peuvent prendre en charge qu’un sous-ensemble de ces images. Pour plus d’informations, consultez la documentation appropriée sur la taille de machine virtuelle.

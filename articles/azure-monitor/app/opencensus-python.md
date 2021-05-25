@@ -7,24 +7,34 @@ ms.reviewer: mbullwin
 ms.custom: devx-track-python
 author: lzchen
 ms.author: lechen
-ms.openlocfilehash: 548cfd9d593e9adaeaaf984f756e58d242ca9f45
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 4f3ef03e3561cf054102b5f5c15ff571c3d4d28d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576548"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742622"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurer Azure Monitor pour votre application Python
 
-Azure Monitor prend en charge le traçage distribué, la collecte de métriques et la journalisation des applications Python via l’intégration à [OpenCensus](https://opencensus.io). Cet article vous guide pas à pas pour configurer OpenCensus pour Python et envoyer vos données de supervision à Azure Monitor.
+Azure Monitor prend en charge le traçage distribué, la collecte de métriques et la journalisation des applications Python.
+
+La solution prise en charge par Microsoft pour le suivi et l’exportation des données pour vos applications Python consiste à utiliser le [Kit de développement logiciel (SDK) python Opencensus](#introducing-opencensus-python-sdk) via les [exportateurs d’Azure Monitor](#instrument-with-opencensus-python-sdk-with-azure-monitor-exporters).
+
+Les autres kits de développement logiciel (SDK) de télémétrie pour Python ne sont pas pris en charge et ne sont pas recommandés par Microsoft comme solution de télémétrie.
+
+Vous avez peut-être remarqué que OpenCensus converge vers [OpenTelemetry](https://opentelemetry.io/). Toutefois, nous continuons à recommander OpenCensus pendant que OpenTelemetry progresse.
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- Installation de Python. Si cet article s’appuie sur [Python 3.7.0](https://www.python.org/downloads/release/python-370/), il est toutefois possible d’utiliser d’autres versions moyennant quelques modifications mineures. Le kit SDK prend uniquement en charge Python v2.7 et v3.4-v3.7.
+- Installation de Python. Si cet article s’appuie sur [Python 3.7.0](https://www.python.org/downloads/release/python-370/), il est toutefois possible d’utiliser d’autres versions moyennant quelques modifications mineures. Le kit SDK Opencensus Python prend uniquement en charge Python v2.7 et v3.4-v3.7.
 - Créez une [ressource](./create-new-resource.md) Application Insights. Vous recevrez votre propre clé d’instrumentation (ikey) pour votre ressource.
 
-## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumentez à l’aide du Kit de développement logiciel (SDK) OpenCensus Python pour Azure Monitor
+## <a name="introducing-opencensus-python-sdk"></a>Présentation du kit de développement logiciel (SDK) Opencensus Python
+
+[OpenCensus](https://opencensus.io) est un ensemble de bibliothèques open source permettant de collecter des données de télémétrie distribuées sur le traçage, les métriques et la journalisation. Avec les [exportateurs Azure Monitor](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure), vous pourrez envoyer ces informations de télémétrie à Application Insights. Cet article vous guide pas à pas pour configurer OpenCensus et les exportateurs Azure Monitor pour Python afin d’envoyer vos données de supervision à Azure Monitor.
+
+## <a name="instrument-with-opencensus-python-sdk-with-azure-monitor-exporters"></a>Instrumentation à l’aide du Kit de développement logiciel (SDK) OpenCensus Python pour Azure Monitor
 
 Installez les exportateurs OpenCensus Azure Monitor comme suit :
 
@@ -539,4 +549,3 @@ Pour obtenir des informations plus détaillées sur l’utilisation des requête
 * [Tests de disponibilité](./monitor-web-app-availability.md) : créez des tests pour vous assurer que votre site est visible sur le web.
 * [Diagnostics intelligents](./proactive-diagnostics.md) : ces tests s’exécutent automatiquement, sans que vous n’ayez rien à faire pour les configurer. Ils vous indiquent si votre application affiche un taux inhabituel de demandes ayant échoué.
 * [Alertes de métriques](../alerts/alerts-log.md) : Définissez des alertes qui vous avertissent si un indicateur de performance dépasse un seuil. Vous pouvez définir des mesures personnalisées que vous codez dans votre application.
-

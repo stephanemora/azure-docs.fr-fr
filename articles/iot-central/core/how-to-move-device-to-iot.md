@@ -7,16 +7,14 @@ ms.date: 02/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 79aead5b374714e7856897a9b85349198341cb3d
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 73e74b460f64ee03744a4cc109ce6ebeccbd534b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107872728"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756644"
 ---
 # <a name="how-to-transfer-a-device-to-azure-iot-central-from-iot-hub"></a>Transférer un appareil vers Azure IoT Central à partir d’IoT Hub
-
-*Cet article s’applique aux opérateurs et aux développeurs d’appareils.*  
 
 Cet article explique comment transférer un appareil vers une application Azure IoT Central à partir d’un IoT Hub. 
 
@@ -35,7 +33,7 @@ Pour interagir avec IoT Central, un modèle d’appareil doit modéliser les pro
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous êtes un développeur d’appareils, nous vous suggérons les étapes suivantes :
+Voici quelques suggestions pour continuer :
 
 - Consultez un exemple de code montrant comment utiliser les jetons SAS dans [Tutoriel : Créer et connecter une application cliente à votre application Azure IoT Central](tutorial-connect-device.md)
 - Découvrez comment [connecter des appareils avec des certificats X.509 à l’aide du kit de développement logiciel (SDK) d’appareil Node.js pour une application IoT Central](how-to-connect-devices-x509.md)

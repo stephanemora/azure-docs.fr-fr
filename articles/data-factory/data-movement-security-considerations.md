@@ -6,13 +6,13 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/26/2020
-ms.openlocfilehash: 1a99fbd3d3163808a364e8b26e770563a901dc18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/03/2021
+ms.openlocfilehash: 54c96aced03853b8a3f78ff0f348eeb6459afccc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371326"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760278"
 ---
 # <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considérations de sécurité relatives au déplacement des données dans Azure Data Factory
 
@@ -130,10 +130,11 @@ Les informations d’identification peuvent être stockées dans une fabrique de
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Ports utilisés pendant le chiffrement du service lié sur le runtime d’intégration auto-hébergé
 
-Par défaut, PowerShell utilise le port 8060 sur la machine disposant du runtime d’intégration auto-hébergé pour garantir une communication sécurisée. Ce port peut être modifié en cas de besoin.  
+Par défaut, quand l’accès à distance à partir de l’intranet est activé, PowerShell utilise le port 8060 sur l’ordinateur avec le runtime d’intégration auto-hébergé pour la communication sécurisée. Si nécessaire, vous pouvez modifier ce port à partir du Gestionnaire de configuration Microsoft Integration Runtime sous l’onglet Paramètres :
 
-![Port HTTPS pour la passerelle](media/data-movement-security-considerations/https-port-for-gateway.png)
+:::image type="content" source="media/data-movement-security-considerations/integration-runtime-configuration-manager-settings.png" alt-text="Onglet Paramètres du Gestionnaire de configuration Integration Runtime":::
 
+:::image type="content" source="media/data-movement-security-considerations/https-port-for-gateway.png" alt-text="Port HTTPS pour la passerelle":::
 
 ### <a name="encryption-in-transit"></a>Chiffrement en transit
 
@@ -175,7 +176,7 @@ Dans une entreprise, un pare-feu d’entreprise s’exécute sur le routeur cent
 
 Le tableau suivant indique les exigences de ports et de domaines sortants pour les pare-feu d’entreprise :
 
-[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
+[!INCLUDE [domain-and-outbound-port-requirements](includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE]
 > Vous devrez peut-être gérer les ports ou configurer une liste d’autorisation pour les domaines au niveau du pare-feu d’entreprise tel que requis par les sources de données respectives. Ce tableau utilise uniquement Azure SQL Database, Azure Synapse Analytics et Azure Data Lake Store comme exemples.   
