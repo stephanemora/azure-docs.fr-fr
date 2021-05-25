@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 04/19/2021
 ms.author: yelevin
-ms.openlocfilehash: bf7a17d96d31fd4214d5465a5739acc9ce9a9d53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 64c921f1ad401baaf12b1545bfc2bdda54ab3444
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102455499"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664381"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identifier les menaces avancées avec l’analyse du comportement des utilisateurs et des entités (User and Entity Behavior Analytics, UEBA) dans Azure Sentinel
 
@@ -29,15 +29,13 @@ ms.locfileid: "102455499"
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>Qu’est-ce que l’analyse du comportement des utilisateurs et des entités ?
 
-### <a name="the-concept"></a>Le concept
-
 L’identification des menaces au sein de votre organisation, ainsi que de leur impact potentiel, qu’il s’agisse d’une entité compromise ou d’une personne malveillante, a toujours été un processus laborieux et chronophage. Le criblage des alertes, la connexion des points et la chasse active des menaces nécessitent du temps et des efforts considérables pour très peu de résultats, avec la possibilité que des menaces sophistiquées échappent tout simplement à la détection. En particulier, des menaces insaisissables, telles que des menaces persistantes zero-day, ciblées et avancées, peuvent être des plus dangereuses pour votre organisation, ce qui rend leur détection d’autant plus critique.
 
 La fonctionnalité d’analyse du comportement des utilisateurs et des entités d’Azure Sentinel élimine la pénibilité des charges de travail de vos analystes et l’incertitude liée aux résultats de leurs efforts. Elle leur apporte également une intelligence hautement fiable et actionnable, qui leur permet de se concentrer sur les tâches d’investigation et de correction.
 
 Azure Sentinel collecte les journaux et les alertes de toutes les sources de données connectées, les analyse, et génère au fil du temps des profils comportementaux de base des entités de votre organisation (telles que les utilisateurs, hôtes, adresses IP et applications), ainsi qu’un horizon de groupe d’homologues. À l’aide de diverses techniques et fonctionnalités de Machine Learning, Azure Sentinel peut ensuite identifier l’activité anormale et vous aider à déterminer si une ressource a été compromise. Outre cela, il peut déterminer la sensibilité relative de ressources particulières, identifier des groupes homologues de ressources et évaluer l’impact potentiel (« rayon d’impact ») de la compromission de toute ressource. Ces informations vous permettent de hiérarchiser efficacement l’investigation et la gestion de l’incident. 
 
-### <a name="architecture-overview"></a>Vue d’ensemble de l’architecture
+### <a name="ueba-analytics-architecture"></a>Architecture de l’analytique UEBA
 
 :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/entity-behavior-analytics-architecture.png" alt-text="Architecture d’analyse du comportement des entités":::
 
@@ -117,36 +115,9 @@ Les pages d’entité sont conçues pour faire partie de plusieurs scénarios d�
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Cas d’usage de page d’entité":::
 
-## <a name="data-schema"></a>Schéma de données
+Pour plus d’informations sur les données affichées dans la table **Analytique du comportement des entités**, consultez les [Informations de référence sur les enrichissements UEBA Azure Sentinel](ueba-enrichments.md).
 
-### <a name="behavior-analytics-table"></a>Tableau d’analyse des comportements
-
-| Champ                     | Description                                                         |
-|---------------------------|---------------------------------------------------------------------|
-| TenantId                  | Numéro d’identification unique du locataire                                      |
-| SourceRecordId            | Numéro d’identification unique de l’événement EBA                                   |
-| TimeGenerated             | Horodateur de l’occurrence de l’activité                              |
-| TimeProcessed             | Horodateur du traitement de l’activité par le moteur EBA            |
-| ActivityType              | Catégorie de haut niveau de l’activité                                 |
-| ActionType                | Nom normalisé de l’activité                                     |
-| UserName                  | Nom d’utilisateur de l’utilisateur ayant lancé l’activité                    |
-| UserPrincipalName         | Nom d’utilisateur complet de l’utilisateur ayant lancé l’activité               |
-| EventSource               | Source de données ayant fourni l’événement d’origine                        |
-| SourceIPAddress           | Adresse IP à partir de laquelle l’activité a été lancée                        |
-| SourceIPLocation          | Pays à partir duquel l’activité a été lancée, enrichie à partir de l’adresse IP |
-| SourceDevice              | nom d’hôte de l’appareil ayant lancé l’activité                  |
-| DestinationIPAddress      | Adresse IP de la cible de l’activité                            |
-| DestinationIPLocation     | Pays de la cible de l’activité, enrichi à partir de l’adresse IP     |
-| DestinationDevice         | Nom de l’appareil cible                                           |
-| **UsersInsights**         | Enrichissements contextuels des utilisateurs impliqués                            |
-| **DevicesInsights**       | Enrichissements contextuels des appareils concernés                          |
-| **ActivityInsights**      | Analyse contextuelle de l’activité basée sur notre profilage              |
-| **InvestigationPriority** | Score d’anomalie, entre 0 et 10 (0 = bénigne, 10 = très anormale)         |
-|
-
-Vous pouvez voir l’ensemble complet des enrichissements contextuels référencés dans **UsersInsights**, **DevicesInsights** et **ActivityInsights** dans le [document de référence sur les enrichissements UEBA](ueba-enrichments.md).
-
-### <a name="querying-behavior-analytics-data"></a>Interrogation des données d’analyse du comportement
+## <a name="querying-behavior-analytics-data"></a>Interrogation des données d’analyse du comportement
 
 Une requête de mots clés [KQL](/azure/data-explorer/kusto/query/) nous permet d’interroger la table d’analyse du comportement.
 
@@ -173,7 +144,7 @@ Vous pouvez utiliser le [bloc-notes Jupyter](https://github.com/Azure/Azure-Sent
 
 L’analyse d’autorisation permet de déterminer l’impact potentiel de la compromission d’une ressource d’organisation par un attaquant. Cet impact est également appelé « rayon d’impact » de la ressource. Les analystes de la sécurité peuvent utiliser ces informations pour hiérarchiser les investigations et la gestion des incidents.
 
-Azure Sentinel détermine les droits d’accès direct et transitif aux ressources Azure détenus par un utilisateur donné, en évaluant les abonnements Azure auxquels l’utilisateur peut accéder directement ou via des groupes ou des principaux de service. Ces informations, ainsi que la liste complète d’appartenance de groupe de sécurité Azure AD de l’utilisateur, sont ensuite stockées dans la table **UserAccessAnalytics**. La capture d’écran ci-dessous montre un exemple de ligne dans la table UserAccessAnalytics pour l’utilisateur Alex Johnson. L’**entité source** est le compte d’utilisateur ou de principal de service, et l’**entité cible** est la ressource à laquelle l’entité source a accès. Les valeurs de **niveau d’accès** et de **type d’accès** dépendent du modèle de contrôle d’accès de l’entité cible. Vous pouvez voir qu’Alex dispose d’un accès contributeur à l’abonnement Azure du *Locataire Contoso Hotels*. Le modèle de contrôle d’accès de l’abonnement est RBAC Azure.   
+Azure Sentinel détermine les droits d’accès direct et transitif aux ressources Azure détenus par un utilisateur donné, en évaluant les abonnements Azure auxquels l’utilisateur peut accéder directement ou via des groupes ou des principaux de service. Ces informations, ainsi que la liste complète d’appartenance de groupe de sécurité Azure AD de l’utilisateur, sont ensuite stockées dans la table **UserAccessAnalytics**. La capture d’écran ci-dessous montre un exemple de ligne dans la table UserAccessAnalytics pour l’utilisateur Alex Johnson. L’**entité source** est le compte d’utilisateur ou de principal de service, et l’**entité cible** est la ressource à laquelle l’entité source a accès. Les valeurs de **niveau d’accès** et de **type d’accès** dépendent du modèle de contrôle d’accès de l’entité cible. Vous pouvez voir qu’Alex dispose d’un accès contributeur à l’abonnement Azure du *Locataire Contoso Hotels*. Le modèle de contrôle d’accès de l’abonnement est RBAC Azure.
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Capture d’écran du tableau d’analyse de l’accès utilisateur":::
 
@@ -181,12 +152,21 @@ Vous pouvez utiliser le [bloc-notes Jupyter](https://github.com/Azure/Azure-Sent
 
 ### <a name="hunting-queries-and-exploration-queries"></a>Requêtes de chasse et d’exploration
 
-Azure Sentinel offre un ensemble prêt à l’emploi de requêtes de chasse et d’exploration, ainsi qu’un classeur, basés sur la table BehaviorAnalytics. Ces outils présentent des données enrichies, axées sur des cas d’usage spécifiques, qui indiquent un comportement anormal. 
+Azure Sentinel offre un ensemble prêt à l’emploi de requêtes de repérage, de requêtes d’exploration, ainsi que le classeur  **Analytique du comportement des entités et des utilisateurs**, qui est basé sur la table **BehaviorAnalytics**. Ces outils présentent des données enrichies, axées sur des cas d’usage spécifiques, qui indiquent un comportement anormal.
 
-Apprenez-en davantage sur [la chasse et le graphique d’examen](./hunting.md) dans Azure Sentinel.
+Pour plus d'informations, consultez les pages suivantes :
+
+- [Repérer les menaces avec Azure Sentinel](hunting.md)
+- [Visualiser et superviser vos données](tutorial-monitor-your-data.md)
+
+Alors que les outils de défense hérités deviennent obsolètes, les organisations peuvent avoir un patrimoine numérique si vaste et si perméable qu’il devient ingérable d’obtenir une image complète du risque et de la posture que leur environnement peuvent rencontrer. Les acteurs malveillants s’appuient fortement sur des initiatives réactives, comme les analytiques et les règles, pour apprendre à y échapper. C’est là qu’intervient UEBA, en fournissant des méthodologies et des algorithmes de scoring des risques pour déterminer ce qui se passe vraiment.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Ce document vous a montré les fonctionnalités d’analyse du comportement d’entité d’Azure Sentinel. Pour obtenir des conseils pratiques sur l’implémentation et pour utiliser les insights que vous avez acquises, consultez les articles suivants :
 
 - [Activer l’analyse du comportement d’entité](./enable-entity-behavior-analytics.md) dans Azure Sentinel.
+- [Examiner les incidents avec les données UEBA](investigate-with-ueba.md).
 - [Chasse des menaces de sécurité](./hunting.md).
+
+Pour plus d’informations, consultez également les [Informations de référence sur les enrichissements UEBA Azure Sentinel](ueba-enrichments.md).

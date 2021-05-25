@@ -3,20 +3,20 @@ title: Planifier une application RH cloud pour l’approvisionnement d’utilisa
 description: Cet article décrit le processus de déploiement de l’intégration des systèmes RH cloud, tels que Workday et SucessFactors avec Azure Active Directory. L’intégration d’Azure AD à votre système RH cloud permet d’obtenir un système complet de gestion du cycle de vie des identités.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/22/2019
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: arvindha, celested
-ms.openlocfilehash: d9171226de7c975e75139af92798ea78419428f0
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: arvinh
+ms.openlocfilehash: 4f8803dc3cf8234bfbdf3cf9281ec8388727749b
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175421"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785040"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planifier une application RH cloud pour l’approvisionnement d’utilisateurs Azure Active Directory
 
@@ -85,7 +85,7 @@ Vous avez également besoin d’une licence valide à un abonnement Azure AD Pre
 - Rôle d’[administrateur d’application](../roles/permissions-reference.md#application-administrator) Azure AD pour configurer l’application d’approvisionnement dans le portail Azure.
 - Une instance de test et de production de l’application RH cloud.
 - Autorisations d’administrateur dans l’application RH cloud pour créer un utilisateur de l’intégration système et apporter des modifications afin de tester les informations de l’employé.
-- Pour l’approvisionnement d’utilisateurs vers Active Directory, un serveur exécutant Windows Server 2012 ou version ultérieure et doté d’un runtime .NET 4.7.1+ est nécessaire afin d’héberger l’agent d’approvisionnement Azure AD Connect.
+- Pour l’attribution d’utilisateurs vers Active Directory, un serveur exécutant Windows Server 2016 ou une version ultérieure est nécessaire afin d’héberger l’agent d’approvisionnement Azure AD Connect. Ce serveur doit être un serveur de niveau 0 basé sur le modèle de niveau d’administration Active Directory.
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) pour la synchronisation des utilisateurs entre Active Directory et Azure AD.
 
 ### <a name="training-resources"></a>Ressources de formation

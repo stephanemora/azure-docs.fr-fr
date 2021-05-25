@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5833308f03d328d988ac818d83ff5ee618a4c79c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3baf87cc1b14ca4d8d7d3630e777b03801398968
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563570"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737546"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Convertir des configurations en ressources composites
 
@@ -26,7 +26,7 @@ Voici quelques exemples :
 
 - création d’un serveur web
 - création d’un serveur DNS
-- création d’un serveur SharePoint
+- création d’un serveur qui exécute SharePoint
 - configuration d’un cluster SQL
 - gestion des paramètres de pare-feu
 - gestion des paramètres de mot de passe

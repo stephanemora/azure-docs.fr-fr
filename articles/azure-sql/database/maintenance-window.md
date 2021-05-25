@@ -10,12 +10,12 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 04/28/2021
-ms.openlocfilehash: a02735c20b7286df4aafef998066b9edfc519ef4
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: ab3da3ba8764ced53f3dcd936d56a24e73cfd8a2
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228277"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736448"
 ---
 # <a name="maintenance-window-preview"></a>Fenêtre de maintenance (préversion)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -100,15 +100,15 @@ Pour tirer le meilleur parti des fenêtres de maintenance, vérifiez que vos app
 
 * Dans Azure SQL Database, toutes les connexions utilisant la stratégie de connexion proxy peuvent être affectées par la fenêtre de maintenance choisie et par une fenêtre de maintenance de nœud de passerelle. Toutefois, les connexions client utilisant la stratégie de connexion par redirection recommandée ne sont pas affectées par une reconfiguration de la maintenance du nœud de passerelle. 
 
-* Dans Azure SQL Managed Instance, les nœuds de passerelle sont hébergés [dans le cluster virtuel](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) et ont la même fenêtre de maintenance que l’instance managée. Toutefois, il est toujours recommandé d’utiliser la stratégie de connexion de redirection afin de réduire le nombre de perturbations pendant l’événement de maintenance.
+* Dans Azure SQL Managed Instance, les nœuds de passerelle sont hébergés [au sein du cluster virtuel](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) et ont la même fenêtre de maintenance que l'instance managée. Toutefois, il est toujours recommandé d'utiliser la stratégie de connexion de redirection afin de réduire le nombre de perturbations pendant l'événement de maintenance.
 
 Pour plus d’informations sur la stratégie de connexion client dans Azure SQL Database, consultez [Stratégie de connexion Azure SQL Database](../database/connectivity-architecture.md#connection-policy). 
 
-Pour plus d’informations sur la stratégie de connexion client dans Azure SQL Managed Instance, consultez [Types de connexion Azure SQL Managed Instance](../../azure-sql/managed-instance/connection-types-overview.md).
+Pour plus d'informations sur la stratégie de connexion client dans Azure SQL Managed Instance, consultez [Types de connexion Azure SQL Managed Instance](../../azure-sql/managed-instance/connection-types-overview.md).
 
 ## <a name="considerations-for-azure-sql-managed-instance"></a>Considérations relatives à Azure SQL Managed Instance
 
-Azure SQL Managed Instance est un ensemble de composants de service qui sont hébergés sur un groupe dédié de machines virtuelles isolées qui s’exécutent dans le sous-réseau virtuel du client. Ces machines virtuelles forment [un ou plusieurs clusters virtuels](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture) qui peuvent héberger plusieurs instances managées. La fenêtre de maintenance qui est configurée sur les instances d’un sous-réseau peut influencer le nombre de clusters virtuels présents dans le sous-réseau, ainsi que la distribution des instances entre les clusters virtuels. Vous devrez alors prendre en compte plusieurs choses.
+Azure SQL Managed Instance est un ensemble de composants de service hébergés sur un groupe dédié de machines virtuelles isolées qui s'exécutent dans le sous-réseau virtuel du client. Ces machines virtuelles forment [un ou plusieurs clusters virtuels](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture) qui peuvent héberger plusieurs instances managées. La fenêtre de maintenance qui est configurée sur les instances d’un sous-réseau peut influencer le nombre de clusters virtuels présents dans le sous-réseau, ainsi que la distribution des instances entre les clusters virtuels. Vous devrez alors prendre en compte plusieurs choses.
 
 ### <a name="maintenance-window-configuration-is-long-running-operation"></a>La configuration de la fenêtre de maintenance est une opération longue 
 Toutes les instances qui sont hébergées dans un cluster virtuel partagent la même fenêtre de maintenance. Par défaut, toutes les instances managées sont hébergées dans le cluster virtuel avec la fenêtre de maintenance par défaut. Si vous spécifiez une autre fenêtre de maintenance pour l’instance managée lors de sa création ou après celle-ci, cela signifie qu’elle doit être placée dans le cluster virtuel avec la fenêtre de maintenance correspondante. S’il n’existe pas de cluster virtuel de ce type dans le sous-réseau, vous devez d’abord en créer un pour l’instance. L’ajout d’une instance supplémentaire dans un cluster virtuel existant peut nécessiter le redimensionnement de ce cluster. Les deux opérations contribuent à la durée de configuration de la fenêtre de maintenance d’une instance managée.

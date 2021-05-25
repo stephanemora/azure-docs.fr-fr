@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: feabdcef9298c93f0cba93d3eeb9ebb0a32d6ef2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 974bff2502fd93527653b7e1fb5890f2c916521c
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560342"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683422"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Séries Ddv4 et Ddsv4
 
@@ -48,7 +48,7 @@ Les nouvelles tailles de machines virtuelles Ddv4 incluent un stockage SSD local
 | Standard_D48d_v4 | 48 | 192 | 1800 | 32 | 462000/2904 | 8|24 000 |
 | Standard_D64d_v4 | 64 | 256 | 2 400 | 32 | 615000/3872 | 8|30000 |
 
-<sup>**</sup> Ces valeurs IOPS peuvent être garanties avec des [machines virtuelles de deuxième génération](generation-2.md)
+<sup>**</sup> Ces valeurs IOPS peuvent être atteintes avec des [machines virtuelles de deuxième génération](generation-2.md)
 
 ## <a name="ddsv4-series"></a>Série Ddsv4
 
@@ -60,7 +60,7 @@ Les nouvelles tailles de machines virtuelles Ddsv4 incluent un stockage SSD loca
  >Les tarifs et les compteurs de facturation de ces tailles sont identiques à ceux de la série Ddv4.
 
 [ACU](acu.md) : 195-210<br>
-[Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
@@ -79,7 +79,7 @@ Les nouvelles tailles de machines virtuelles Ddsv4 incluent un stockage SSD loca
 | Standard_D48ds_v4 | 48 | 192 | 1800 | 32 | 462000/2904(1200) | 76 800/1152 | 8|24 000 |
 | Standard_D64ds_v4 | 64 | 256 | 2 400 | 32 | 615000/3872(1600) | 80 000/1 200 | 8|30000 |
 
-<sup>**</sup> Ces valeurs IOPS peuvent être garanties avec des [machines virtuelles de deuxième génération](generation-2.md)
+<sup>**</sup> Ces valeurs IOPS peuvent être atteintes avec des [machines virtuelles de deuxième génération](generation-2.md)
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

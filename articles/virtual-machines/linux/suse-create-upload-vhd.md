@@ -9,19 +9,19 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 276f5f4542ecea42c665764b8c4e5f66f2531126
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7788d7e7a8aa92d4c06b0895c5bea000e13e2d85
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552709"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713123"
 ---
-# <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle SLES ou openSUSE pour Azure
+# <a name="prepare-a-sles-or-opensuse-leap-virtual-machine-for-azure"></a>Préparation d’une machine virtuelle SLES ou openSUSE Leap pour Azure
 
 
-Cet article suppose que vous avez déjà installé un système d'exploitation SUSE ou openSUSE Linux dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
+Cet article suppose que vous avez déjà installé un système d’exploitation SUSE ou openSUSE Leap Linux sur un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
-## <a name="sles--opensuse-installation-notes"></a>Notes d'installation SLES/openSUSE
+## <a name="sles--opensuse-leap-installation-notes"></a>Notes d’installation SLES/openSUSE Leap
 * Consultez également les [Notes générales d’installation sous Linux](create-upload-generic.md#general-linux-installation-notes) pour obtenir d’autres conseils sur la préparation de Linux pour Azure.
 * Azure ne prend pas en charge le format VHDX, seulement le **VHD fixe**.  Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de l’applet de commande convert-vhd.
 * Lors de l’installation du système Linux, il est recommandé d’utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. La technique [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) ou [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) peut être utilisée sur les disques de données, le cas échéant.
@@ -29,7 +29,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation S
 * Tous les VDH sur Azure doivent avoir une taille virtuelle alignée à 1 Mo. Lors de la conversion d’un disque brut vers VDH, vous devez vous assurer que la taille du disque brut est un multiple de 1 Mo avant la conversion. Pour plus d’informations, consultez [Notes d’installation sur Linux](create-upload-generic.md#general-linux-installation-notes).
 
 ## <a name="use-suse-studio"></a>Utilisation de SUSE Studio
-[SUSE Studio](https://studioexpress.opensuse.org/) peut facilement créer et gérer vos images SLES et openSUSE pour Azure et Hyper-V. Cette approche est recommandée pour personnaliser vos propres images SLES et openSUSE.
+[SUSE Studio](https://studioexpress.opensuse.org/) peut facilement créer et gérer vos images SLES et openSUSE Leap pour Azure et Hyper-V. Cette approche est recommandée pour personnaliser vos propres images SLES et openSUSE Leap.
 
 Pour vous éviter de créer votre propre disque dur virtuel, SUSE publie également des images BYOS (« 	Apportez votre propre abonnement ») pour SLES sur [VM Depot](https://www.microsoft.com/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
@@ -157,23 +157,23 @@ Pour vous éviter de créer votre propre disque dur virtuel, SUSE publie égalem
 16. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
 ---
-## <a name="prepare-opensuse-131"></a>Préparation de openSUSE 13.1+
+## <a name="prepare-opensuse-152"></a>Préparation d’openSUSE 15.2+
 1. Dans le panneau central de Hyper-V Manager, sélectionnez la machine virtuelle.
 2. Cliquez sur **Connect** pour ouvrir la fenêtre de la machine virtuelle.
 3. Sur l’interpréteur de commandes, exécutez la commande`zypper lr`. Si cette commande renvoie un résultat semblable à ce qui suit, alors les référentiels sont configurés comme prévu, aucune modification n'est nécessaire (notez que les numéros de version peuvent varier) :
 
    | # | Alias                 | Nom                  | activé | Actualiser
    | - | :-------------------- | :-------------------- | :------ | :------
-   | 1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | Oui     | Oui
-   | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Oui     | Oui
-   | 3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Oui     | Oui
+   | 1 | Cloud:Tools_15.2      | Cloud:Tools_15.2      | Oui     | Oui
+   | 2 | openSUSE_15.2_OSS     | openSUSE_15.2_OSS     | Oui     | Oui
+   | 3 | openSUSE_15.2_Updates | openSUSE_15.2_Updates | Oui     | Oui
 
     Si la commande renvoie « Aucun référentiel défini... », utilisez les commandes suivantes pour ajouter ces référentiels :
 
     ```console
-    # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1
-    # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
-    # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
+    # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_15.2 Cloud:Tools_15.2
+    # sudo zypper ar -f https://download.opensuse.org/distribution/15.2/repo/oss openSUSE_15.2_OSS
+    # sudo zypper ar -f http://download.opensuse.org/update/15.2 openSUSE_15.2_Updates
     ```
 
     Vous pouvez alors réexécuter la commande `zypper lr` pour vérifier que ces référentiels ont été ajoutés. Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :

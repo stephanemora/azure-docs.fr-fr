@@ -1,6 +1,6 @@
 ---
 title: Démarrage rapide – Superviser vos appareils dans Azure IoT Central
-description: Démarrage rapide - En tant qu’opérateur, découvrez comment utiliser votre application Azure IoT Central pour superviser vos appareils.
+description: 'Démarrage rapide : Apprenez à utiliser votre application Azure IoT Central pour superviser vos appareils.'
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/16/2020
@@ -8,18 +8,16 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 4c3aaeb5b3c01c9c940d49fd7022de653de0e48b
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 49ebe27f655734aeba3201f55305d42f57074360
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206778"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765230"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Démarrage rapide : Utiliser Azure IoT Central pour surveiller vos appareils
 
-*Cet article s’applique aux opérateurs, aux créateurs et aux administrateurs.*
-
-Ce guide de démarrage rapide vous explique comment, en tant qu’opérateur, vous pouvez utiliser votre application Azure IoT Central pour superviser vos appareils et changer les paramètres.
+Ce guide de démarrage rapide vous explique comment utiliser votre application Azure IoT Central pour superviser vos appareils et changer les paramètres.
 
 ## <a name="prerequisites"></a>Prérequis
 

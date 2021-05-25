@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: fe61c0903a558a981ed10bf2a11fba82e5ee83b6
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 1ddc1579686fae1f37b4bf3aed5225b87625dfd9
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175079"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632724"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Utilisation du proxy d’application Azure AD pour publier des applications locales pour les utilisateurs distants
 
@@ -31,7 +31,7 @@ De nombreuses entreprises pensent contrôler et protéger leurs ressources tant 
 
 Vous utilisez peut-être déjà Azure AD pour gérer les utilisateurs dans le cloud qui doivent accéder aux applications Microsoft 365 et autres applications SaaS, ainsi qu’aux applications web hébergées localement. Si vous avez déjà Azure AD, vous pouvez l’utiliser comme point de contrôle pour autoriser un accès fluide et sécurisé à vos applications locales. Ou bien, vous vous demandez encore peut-être s’il faut migrer vers le cloud. Dans ce cas, vous pouvez commencer votre parcours vers le cloud en implémentant le proxy d’application et en prenant les premières mesures pour créer une base d’identités solide.
 
-La liste ci-dessous, bien que non exhaustive, illustre certaines possibilités que vous offre le proxy d’application quand vous l’implémentez dans un scénario de coexistence hybride :
+La liste ci-dessous, bien que non exhaustive, illustre certaines possibilités que vous offre Proxy d’application quand vous l’implémentez dans un scénario de coexistence hybride :
 
 * Publier des applications web localement en externe de manière simplifiée sans zone DMZ
 * Prendre en charge l’authentification unique (SSO) sur les appareils, ressources et applications dans le cloud et localement

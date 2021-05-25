@@ -9,12 +9,12 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2eb109078728b8a9070b3991733450c1da790d9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5061b2b45f63b6d6d7d9f533b127341c7b604d28
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879593"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517097"
 ---
 # <a name="table-design-patterns"></a>Modèles de conception de table
 Cet article décrit certains modèles adaptés aux solutions de service de Table. Par ailleurs, il explique comment traiter certains problèmes et compromis abordés dans les autres articles de conception de stockage de table. Le diagramme suivant récapitule les relations entre les différents modèles :  
@@ -25,7 +25,7 @@ Cet article décrit certains modèles adaptés aux solutions de service de Table
 Le plan des modèles ci-dessus met en évidence les relations entre les modèles (bleus) et les anti-modèles (orange) qui sont décrits dans ce guide. Il existe bien d’autres modèles qui méritent votre attention. Par exemple, l’un des principaux scénarios pour un service de Table consiste à utiliser des [modèles d’affichages matérialisés](/previous-versions/msp-n-p/dn589782(v=pandp.10)) à partir du modèle [Répartition de la responsabilité de requête de commande](/previous-versions/msp-n-p/jj554200(v=pandp.10)) (CQRS).  
 
 ## <a name="intra-partition-secondary-index-pattern"></a>Modèle d’index secondaire intra-partition
-Stockez plusieurs copies de chaque entité en utilisant différentes valeurs de **RowKey** (dans la même partition) pour pouvoir mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey**. La cohérence des mises à jour entre les copies peut être assurée à l’aide d’EGT.  
+Stockez plusieurs copies de chaque entité en utilisant différentes valeurs de **RowKey** (dans la même partition) pour pouvoir mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey**. La cohérence des mises à jour entre les copies peut être assurée par des transactions de groupe d’entités (EGT).  
 
 ### <a name="context-and-problem"></a>Contexte et problème
 Le service de Table indexe automatiquement les entités en utilisant les valeurs de **PartitionKey** et de **RowKey**. Ainsi, une application cliente peut récupérer une entité efficacement à l'aide de ces valeurs. Par exemple, à l’aide de la structure de table ci-dessous, une application cliente peut utiliser une requête de pointage pour récupérer une entité d’employé individuelle en utilisant le nom de service et l’ID d’employé (**PartitionKey** et **RowKey**). Un client peut aussi récupérer des entités triées par ID d’employé au sein de chaque service.

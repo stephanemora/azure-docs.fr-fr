@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0948c7c82d7577bae07057bff9d1be4d7e09f978
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3de7a322d90f3a6a45a0965da72a1f53d5edc3a2
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462280"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751848"
 ---
 # <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Créer et utiliser des vues avec le pool SQL serverless dans Azure Synapse Analytics
 
@@ -55,7 +55,11 @@ WITH (
 ) AS [r];
 ```
 
-La vue de cet exemple utilise la fonction `OPENROWSET` qui se sert du chemin absolu des fichiers sous-jacents. Si vous disposez de `EXTERNAL DATA SOURCE` avec une URL racine de votre stockage, vous pouvez utiliser `OPENROWSET` avec `DATA_SOURCE` et le chemin relatif du fichier :
+La vue utilise `EXTERNAL DATA SOURCE` avec une URL racine de votre stockage, en tant que `DATA_SOURCE` et ajoute un chemin de fichier relatif aux fichiers.
+
+## <a name="create-a-partitioned-view"></a>Créer une vue partitionnée
+
+Si vous disposez d’un ensemble de fichiers partitionnés dans la structure de dossiers hiérarchique, vous pouvez décrire le modèle de partition à l’aide des caractères génériques dans le chemin du fichier. Utilisez la fonction `FILEPATH` pour exposer des parties du chemin de dossier en tant que colonnes de partitionnement.
 
 ```sql
 CREATE VIEW TaxiView
@@ -67,6 +71,8 @@ FROM
         FORMAT='PARQUET'
     ) AS nyc
 ```
+
+Les vues partitionnées effectuent une élimination des partitions de dossier si vous interrogez cette vue avec les filtres sur les colonnes de partitionnement. Cela peut améliorer les performances de vos requêtes.
 
 ## <a name="use-a-view"></a>Utiliser une vue
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 423e08511003c8ba1f810bd024d0e253df612473
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 514a6f9d4d72eeffaa4a8592b57c3fdd6592d958
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293275"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109627525"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
@@ -506,7 +506,7 @@ Les alphabets phonétiques sont constitués de phonèmes composés de lettres, d
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-JennyNeural">
-        <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
+        <phoneme alphabet="ipa" ph="təˈmeɪtoʊ"> tomato </phoneme>
     </voice>
 </speak>
 ```
@@ -529,7 +529,7 @@ Les alphabets phonétiques sont constitués de phonèmes composés de lettres, d
 
 ## <a name="use-custom-lexicon-to-improve-pronunciation"></a>Utiliser un lexique personnalisé pour améliorer la prononciation
 
-Parfois, le service de synthèse vocale ne peut pas prononcer un mot de façon correcte. Par exemple, le nom d’une société ou un terme médical. Les développeurs peuvent définir le mode de lecture des entités uniques dans SSML à l’aide des balises `phoneme` et `sub`. Toutefois, si vous devez définir le mode de lecture de plusieurs entités, vous pouvez créer un lexique personnalisé à l’aide de la balise `lexicon`.
+Parfois, le service de synthèse vocale ne peut pas prononcer un mot de façon correcte. Par exemple, le nom d'une société, un terme médical ou un emoji. Les développeurs peuvent définir le mode de lecture des entités uniques dans SSML à l’aide des balises `phoneme` et `sub`. Toutefois, si vous devez définir le mode de lecture de plusieurs entités, vous pouvez créer un lexique personnalisé à l’aide de la balise `lexicon`.
 
 > [!NOTE]
 > Le lexique personnalisé prend actuellement en charge l’encodage UTF-8.
@@ -570,10 +570,16 @@ Pour définir le mode de lecture de plusieurs entités, vous pouvez créer un le
     <grapheme> Benigni </grapheme>
     <phoneme> bɛˈniːnji</phoneme>
   </lexeme>
+  <lexeme>
+    <grapheme>😀</grapheme> 
+    <alias>test emoji</alias> 
+  </lexeme>
 </lexicon>
 ```
 
-L’élément `lexicon` contient au moins un élément `lexeme`. Chaque élément `lexeme` contient au moins un élément `grapheme` et un ou plusieurs éléments `grapheme`, `alias` et `phoneme`. L’élément `grapheme` contient le texte décrivant l’<a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthographe </a>. Les éléments `alias` sont utilisés pour indiquer la prononciation d’un acronyme ou d’un terme abrégé. L’élément `phoneme` fournit du texte décrivant la façon dont le `lexeme` est prononcé.
+L’élément `lexicon` contient au moins un élément `lexeme`. Chaque élément `lexeme` contient au moins un élément `grapheme` et un ou plusieurs éléments `grapheme`, `alias` et `phoneme`. L’élément `grapheme` contient le texte décrivant l’<a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthographe </a>. Les éléments `alias` sont utilisés pour indiquer la prononciation d’un acronyme ou d’un terme abrégé. L’élément `phoneme` fournit du texte décrivant la façon dont le `lexeme` est prononcé. Lorsque les éléments `alias` et `phoneme` sont fournis avec le même élément `grapheme`, `alias` est prioritaire.
+
+Le lexique contient l'attribut `xml:lang` nécessaire pour indiquer les paramètres régionaux pour lesquels il doit être appliqué. Un lexique personnalisé est limité à un seul paramètre régional par conception. Il ne fonctionnera donc pas si vous l'appliquez à un autre paramètre régional.
 
 Il est important de noter que vous ne pouvez pas définir directement la prononciation d’une phrase à l’aide du lexique personnalisé. Si vous devez définir la prononciation d’un acronyme ou d’un terme abrégé, fournissez d’abord un `alias`, puis associez `phoneme` à `alias`. Par exemple :
 
@@ -632,7 +638,7 @@ Dans l’exemple ci-dessus, nous utilisons l’alphabet phonétique internationa
 
 Sachant que l’API n’est pas facile à mémoriser, le service Speech définit un jeu de phonèmes pour sept langues (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN` et `zh-TW`).
 
-Vous pouvez utiliser `sapi` comme valeur pour l’attribut `alphabet` avec des lexiques personnalisés, comme illustré ci-dessous :
+Vous pouvez utiliser `x-microsoft-sapi` comme valeur pour l’attribut `alphabet` avec des lexiques personnalisés, comme illustré ci-dessous :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -641,7 +647,7 @@ Vous pouvez utiliser `sapi` comme valeur pour l’attribut `alphabet` avec des l
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
         http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
-      alphabet="sapi" xml:lang="en-US">
+      alphabet="x-microsoft-sapi" xml:lang="en-US">
   <lexeme>
     <grapheme>BTW</grapheme>
     <alias> By the way </alias>

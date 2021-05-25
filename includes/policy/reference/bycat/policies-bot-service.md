@@ -2,17 +2,18 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 6025298dfc00dc4d9283f61f81ac348e88c1abe0
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 4595e611d5a3d95b885f0ae4b1b6479d07f12187
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108182879"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761955"
 ---
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Le point de terminaison du service bot doit être un URI HTTPS valide](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6164527b-e1ee-4882-8673-572f425f5e0a) |Les données peuvent être falsifiées pendant la transmission. Certains protocoles chiffrent les données pour résoudre les problèmes d’utilisation abusive et de falsification. Pour veiller à ce que vos bots communiquent uniquement sur des canaux chiffrés, définissez le point de terminaison sur un URI HTTPS valide. Ainsi, le protocole HTTPS est utilisé pour chiffrer vos données en transit, ce qui constitue souvent une exigence à des fins de conformité aux normes réglementaires ou du secteur. Consultez : [https://docs.microsoft.com/azure/bot-service/bot-builder-security-guidelines](https://docs.microsoft.com/azure/bot-service/bot-builder-security-guidelines). |audit, deny, disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Bot%20Service/BotService_ValidEndpoint_Audit.json) |
 |[Bot Service doit être chiffré avec une clé gérée par le client](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F51522a96-0869-4791-82f3-981000c2c67f) |Azure Bot Service chiffre automatiquement votre ressource pour protéger vos données et satisfaire aux engagements de sécurité et de conformité de l’organisation. Par défaut, les clés de chiffrement gérées par Microsoft sont utilisées. Pour une plus grande flexibilité dans la gestion des clés ou le contrôle de l’accès à votre abonnement, sélectionnez des clés gérées par le client, option également appelée Bring Your Own Key (BYOK). En savoir plus sur le chiffrement Azure Bot Service : [https://docs.microsoft.com/azure/bot-service/bot-service-encryption](https://docs.microsoft.com/azure/bot-service/bot-service-encryption). |audit, deny, disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Bot%20Service/BotService_CMKEnabled_Audit.json) |
+|[Le mode isolé doit être activé pour le service bot](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F52152f42-0dda-40d9-976e-abb1acdd611e) |Les robots doivent être définis en mode « isolé uniquement ». Ce paramètre configure les canaux Bot Service qui nécessitent la désactivation du trafic sur l’Internet public. |audit, deny, disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Bot%20Service/BotService_NetworkIsolatedEnabled_Audit.json) |

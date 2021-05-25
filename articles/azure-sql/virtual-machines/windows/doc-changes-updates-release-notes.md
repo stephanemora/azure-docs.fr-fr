@@ -10,70 +10,49 @@ ms.service: virtual-machines-sql
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/15/2020
-ms.openlocfilehash: a42457848c2a21889e15ebe5bc5b6ceaba8d6999
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 04/25/2021
+ms.openlocfilehash: ba33373cb89e5d1faba0a9dc66233fc363e9e47d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129744"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755654"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifications apportées à la documentation concernant SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure permet de déployer une machine virtuelle avec une image de SQL Server intégrée. Cet article résume les modifications apportées à la documentation en lien avec les nouvelles fonctionnalités et les améliorations introduites dans les mises en production récentes de [SQL Server sur des machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
-## <a name="october-2020"></a>Octobre 2020
+
+## <a name="april-2021"></a>Avril 2021
 
 | Modifications | Détails |
 | --- | --- |
-| **DNN pour AG** | Vous pouvez maintenant configurer un [écouteur DNN (Distributed Network Name)](availability-group-distributed-network-name-dnn-listener-configure.md) pour SQL Server 2019 CU8 et versions ultérieures afin de remplacer l’[écouteur VNN](availability-group-overview.md#connectivity) traditionnel, en annulant la nécessité d’un Azure Load Balancer.   | 
-
-## <a name="september-2020"></a>Septembre 2020
-
-| Modifications | Détails |
-| --- | --- |
-| **Inscription automatique auprès de l’extension** | Vous pouvez maintenant activer la fonctionnalité [Inscription automatique](sql-agent-extension-automatic-registration-all-vms.md) pour inscrire automatiquement toutes les machines virtuelles SQL Server déjà déployées sur votre abonnement auprès de [l’extension SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Cela s’applique à toutes les machines virtuelles existantes et inscrira automatiquement toutes les machines virtuelles SQL Server ajoutées à l’avenir.   | 
+| **Migrer la haute disponibilité vers la machine virtuelle** | Azure Migrate offre la prise en charge pour déplacer votre solution haute disponibilité vers SQL Server sur des machines virtuelles Azure. Déplacez votre [groupe de disponibilité](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) ou votre [instance de cluster de basculement](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) sur des machines virtuelles SQL Server à l’aide d’Azure Migrate dès aujourd’hui. | 
 
 
-## <a name="august-2020"></a>Août 2020
+## <a name="march-2021"></a>Mars 2021
 
 | Modifications | Détails |
 | --- | --- |
-| **Configurer la disponibilité générale dans le portail** | Il est désormais possible de [configurer votre groupe de disponibilité via le portail Azure](availability-group-azure-portal-configure.md). Cette fonctionnalité est actuellement en préversion et en cours de déploiement. Par conséquent, si la région de votre choix n’est pas disponible, nous vous invitions à revérifier ultérieurement. | 
+| **Actualisation des meilleures pratiques relatives aux performances** | Nous avons réécrit, actualisé et mis à jour la documentation sur les meilleures pratiques en matière de performances, en fractionnant un article en une série contenant : [une liste de contrôle](performance-guidelines-best-practices-checklist.md), [une aide sur la taille des machines virtuelles](performance-guidelines-best-practices-vm-size.md), [une aide sur le stockage](performance-guidelines-best-practices-storage.md)et [des instructions sur la collecte de références](performance-guidelines-best-practices-collect-baseline.md).   | 
 
 
-## <a name="july-2020"></a>Juillet 2020
 
-
-| Modifications | Détails |
-| --- | --- |
-| **Migration du journal vers un disque Ultra** | Découvrez comment [migrer votre fichier journal vers un disque Ultra](storage-migrate-to-ultradisk.md) pour bénéficier de performances élevées et d’une faible latence. | 
-| **Créer un groupe de disponibilité avec Azure PowerShell** | Il est désormais possible de simplifier la création d’un groupe de disponibilité à l’aide d’[Azure PowerShell](availability-group-az-commandline-configure.md), ainsi que d’Azure CLI. | 
-
-
-## <a name="june-2020"></a>Juin 2020
-
-| Modifications | Détails |
-| --- | --- |
-| **Nom de réseau distribué (DNN)** | SQL Server 2019 sur Windows Server 2016+ propose en préversion la prise en charge de l’acheminement du trafic vers votre instance de cluster de basculement (FCI) en utilisant un [nom de réseau distribué](./failover-cluster-instance-distributed-network-name-dnn-configure.md) au lieu d’utiliser Azure Load Balancer. Cette prise en charge simplifie et rationalise la connexion à votre solution de haute disponibilité dans Azure. | 
-| **FCI avec des disques partagés Azure** | Vous pouvez désormais déployer votre [instance de cluster de basculement (FCI)](failover-cluster-instance-overview.md) à l’aide de [disques partagés Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md). |
-| **Documents FCI réorganisés** | La documentation relative aux [instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure](failover-cluster-instance-overview.md) a été réécrite et réorganisée pour plus de clarté. Nous avons séparé une partie du contenu de configuration, comme les [meilleures pratiques en matière de configuration de cluster](hadr-cluster-best-practices.md), la façon de préparer une [machine virtuelle pour une FCI SQL Server](failover-cluster-instance-prepare-vm.md) et la manière de configurer [Azure Load Balancer](./availability-group-vnn-azure-load-balancer-configure.md). | 
-| &nbsp; | &nbsp; |
-
-
-## <a name="may-2020"></a>Mai 2020 
-
-| Modifications | Détails |
-| --- | --- |
-| **Famille Azure SQL** | SQL Server sur Machines virtuelles Microsoft Azure fait désormais partie intégrante de la [famille de produits Azure SQL](../../azure-sql-iaas-vs-paas-what-is-overview.md). Découvrez notre [nouvelle apparence](../index.yml) ! Rien n’a changé dans le produit, mais la documentation vise à faciliter le choix du produit Azure SQL. | 
-
-
-## <a name="january-2020"></a>Janvier 2020
+## <a name="2020"></a>2020
 
 | Modifications | Détails |
 | --- | --- |
 | **Prise en charge d’Azure Government** | Il est désormais possible d’inscrire des machines virtuelles SQL Server auprès de l’extension SQL IaaS Agent pour les machines virtuelles hébergées dans le cloud [Azure Government](https://azure.microsoft.com/global-infrastructure/government/). | 
+| **Famille Azure SQL** | SQL Server sur Machines virtuelles Microsoft Azure fait désormais partie intégrante de la [famille de produits Azure SQL](../../azure-sql-iaas-vs-paas-what-is-overview.md). Découvrez notre [nouvelle apparence](../index.yml) ! Rien n’a changé dans le produit, mais la documentation vise à faciliter le choix du produit Azure SQL. | 
+| **Nom de réseau distribué (DNN)** | SQL Server 2019 sur Windows Server 2016+ propose en préversion la prise en charge de l’acheminement du trafic vers votre instance de cluster de basculement (FCI) en utilisant un [nom de réseau distribué](./failover-cluster-instance-distributed-network-name-dnn-configure.md) au lieu d’utiliser Azure Load Balancer. Cette prise en charge simplifie et rationalise la connexion à votre solution de haute disponibilité dans Azure. | 
+| **FCI avec des disques partagés Azure** | Vous pouvez désormais déployer votre [instance de cluster de basculement (FCI)](failover-cluster-instance-overview.md) à l’aide de [disques partagés Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md). |
+| **Documents FCI réorganisés** | La documentation relative aux [instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure](failover-cluster-instance-overview.md) a été réécrite et réorganisée pour plus de clarté. Nous avons séparé une partie du contenu de configuration, comme les [meilleures pratiques en matière de configuration de cluster](hadr-cluster-best-practices.md), la façon de préparer une [machine virtuelle pour une FCI SQL Server](failover-cluster-instance-prepare-vm.md) et la manière de configurer [Azure Load Balancer](./availability-group-vnn-azure-load-balancer-configure.md). | 
+| **Migration du journal vers un disque Ultra** | Découvrez comment [migrer votre fichier journal vers un disque Ultra](storage-migrate-to-ultradisk.md) pour bénéficier de performances élevées et d’une faible latence. | 
+| **Créer un groupe de disponibilité avec Azure PowerShell** | Il est désormais possible de simplifier la création d’un groupe de disponibilité à l’aide d’[Azure PowerShell](availability-group-az-commandline-configure.md), ainsi que d’Azure CLI. | 
+| **Configurer la disponibilité générale dans le portail** | Il est désormais possible de [configurer votre groupe de disponibilité via le portail Azure](availability-group-azure-portal-configure.md). Cette fonctionnalité est actuellement en préversion et en cours de déploiement. Par conséquent, si la région de votre choix n’est pas disponible, nous vous invitions à revérifier ultérieurement. | 
+| **Inscription automatique auprès de l’extension** | Vous pouvez maintenant activer la fonctionnalité [Inscription automatique](sql-agent-extension-automatic-registration-all-vms.md) pour inscrire automatiquement toutes les machines virtuelles SQL Server déjà déployées sur votre abonnement auprès de [l’extension SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Cela s’applique à toutes les machines virtuelles existantes et inscrira automatiquement toutes les machines virtuelles SQL Server ajoutées à l’avenir.   | 
+| **DNN pour AG** | Vous pouvez maintenant configurer un [écouteur DNN (Distributed Network Name)](availability-group-distributed-network-name-dnn-listener-configure.md) pour SQL Server 2019 CU8 et versions ultérieures afin de remplacer l’[écouteur VNN](availability-group-overview.md#connectivity) traditionnel, en annulant la nécessité d’un Azure Load Balancer.   | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2019"></a>2019

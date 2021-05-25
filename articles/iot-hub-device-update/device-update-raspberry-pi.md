@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: c330cc4e5721fab9d7336fd5b111d8cef67e170c
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 05b42a3dd6d5df7bf4484e23b2780732d55ab731
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070224"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789152"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Tutoriel sur le service Device Update pour IoT Hub : Utilisation de l’image de référence Raspberry Pi 3 B+
 
@@ -35,7 +35,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 ## <a name="download-image"></a>Télécharger une image
 
-Nous fournissons des exemples d’images dans les « ressources » figurant dans la [page des versions GitHub de mise à jour d’appareil](https://github.com/Azure/iot-hub-device-update/releases). Le fichier swUpdate est l’image de base que vous pouvez flasher sur une carte Raspberry Pi 3 B+ et le fichier .gz correspond à la mise à jour que vous importez par le biais de Device Update pour IoT Hub. 
+Nous fournissons des exemples d’images dans les « ressources » figurant dans la [page des versions GitHub de mise à jour d’appareil](https://github.com/Azure/iot-hub-device-update/releases). Le fichier .gz est l’image de base que vous pouvez flasher sur une carte Raspberry Pi 3 B+ et le fichier swUpdate correspond à la mise à jour que vous importez par le biais de Device Update pour IoT Hub. 
 
 ## <a name="flash-sd-card-with-image"></a>Flasher la carte SD avec une image
 
@@ -143,11 +143,11 @@ Utilisez ce numéro de version dans l’étape « Importer la mise à jour » 
 
 ## <a name="import-update"></a>Importer la mise à jour
 
-1. Créez un manifeste d’importation en suivant ces [instructions](import-update.md).
-2. Sélectionnez l’option Mises à jour de l’appareil sous Gestion automatique des appareils dans la barre de navigation de gauche.
+1. Téléchargez l’[exemple de manifeste d’importation](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/TutorialImportManifest.json) et l’[exemple de mise à jour d’image](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
+2. Connectez-vous au [portail Azure](https://portal.azure.com/) et accédez à votre hub IoT avec Device Update. Ensuite, sélectionnez l’option Mises à jour de l’appareil sous Gestion automatique des appareils dans la barre de navigation de gauche.
 3. Sélectionnez l’onglet Mises à jour.
 4. Sélectionnez « + Importer une nouvelle mise à jour ».
-5. Sélectionnez l’icône de dossier ou la zone de texte sous « Sélectionner un fichier manifeste d’importation ». Vous verrez une boîte de dialogue de sélection de fichiers. Sélectionnez le manifeste d’importation que vous avez créé plus haut.  Ensuite, sélectionnez l’icône de dossier ou la zone de texte sous « Sélectionner un ou plusieurs fichiers de mise à jour ». Vous verrez une boîte de dialogue de sélection de fichiers. Sélectionnez le fichier de mise à jour que vous souhaitez déployer sur vos appareils IoT.
+5. Sélectionnez l’icône de dossier ou la zone de texte sous « Sélectionner un fichier manifeste d’importation ». Vous verrez une boîte de dialogue de sélection de fichiers. Sélectionnez l’_exemple de manifeste d’importation_ que vous avez téléchargé à l’étape 1 ci-dessus.  Ensuite, sélectionnez l’icône de dossier ou la zone de texte sous « Sélectionner un ou plusieurs fichiers de mise à jour ». Vous verrez une boîte de dialogue de sélection de fichiers. Sélectionnez l’_exemple de fichier de mise à jour_ que vous avez téléchargé à l’étape 1 ci-dessus.
    
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Capture d’écran illustrant la sélection du fichier de mise à jour." lightbox="media/import-update/select-update-files.png":::
 

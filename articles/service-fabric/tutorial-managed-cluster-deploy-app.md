@@ -1,16 +1,16 @@
 ---
-title: Déployer une application sur un cluster Service Fabric managé via PowerShell (préversion)
+title: Déployer une application sur un cluster Service Fabric managé via PowerShell
 description: Dans ce tutoriel, vous allez vous connecter à un cluster Service Fabric managé et déployer une application via PowerShell.
 ms.topic: tutorial
-ms.date: 09/28/2020
-ms.openlocfilehash: 36a91d2852bcda5f958441b48ef4721d6ccc83c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 5/10/2021
+ms.openlocfilehash: c51d753f3d0aa5d3c05c66fc45ae653f0bfa8e71
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91410230"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685420"
 ---
-# <a name="tutorial-deploy-an-app-to-a-service-fabric-managed-cluster-preview"></a>Tutoriel : Déployer une application sur un cluster Service Fabric managé (préversion)
+# <a name="tutorial-deploy-an-app-to-a-service-fabric-managed-cluster"></a>Tutoriel : Déployer une application sur un cluster Service Fabric managé
 
 Dans cette série de tutoriels, nous allons aborder les points suivants :
 
@@ -39,7 +39,7 @@ Pour vous connecter à votre cluster, vous avez besoin de l’empreinte numériq
 La commande suivante peut être utilisée pour interroger votre ressource de cluster afin d’obtenir l’empreinte numérique du certificat de cluster.
 
 ```powershell
-$serverThumbprint = (Get-AzResource -ResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/managedclusters/mysfcluster).Properties.clusterCertificateThumbprint
+$serverThumbprint = (Get-AzResource -ResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/managedclusters/mysfcluster).Properties.clusterCertificateThumbprints
 ```
 
 Avec l’empreinte numérique du certificat de cluster, vous êtes prêt à vous connecter à votre cluster.
@@ -93,7 +93,12 @@ Remove-ServiceFabricApplication fabric:/Voting
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cette étape, nous avons déployé une application sur un cluster Service Fabric managé. Pour plus d’informations sur les clusters Service Fabric managé, consultez :
+Dans cette étape, nous avons déployé une application sur un cluster Service Fabric managé. Pour en découvrir plus sur les options de déploiement d’applications, consultez :
 
-> [!div class="nextstepaction"]
-> [Questions fréquentes (FAQ) sur les clusters Service Fabric managés](faq-managed-cluster.md)
+* [Déployer des secrets d’application de cluster managé](how-to-managed-cluster-application-secrets.md)
+* [Déployer des applications de cluster managé avec un modèle ARM](how-to-managed-cluster-app-deployment-template.md)
+* [Déployer des applications de cluster managé avec une identité managée](how-to-managed-cluster-application-managed-identity.md)
+
+Pour en découvrir plus sur les options de configuration de cluster managé, consultez :
+
+* [Configurer votre cluster managé](how-to-managed-cluster-configuration.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 6899edc25a55beff45d2058975008f7fe2c2bb9d
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 64b84c248a943c8558bf1e5fea646a36046c7f1b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107886712"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108740408"
 ---
 # <a name="structured-application-log-for-azure-spring-cloud"></a>Journal des applications structuré pour Azure Spring Cloud
 
@@ -47,6 +47,12 @@ Afin d’améliorer l’expérience d’interrogation des journaux, un journal d
  ```
 {"timestamp":"2021-01-08T09:23:51.280Z","logger":"com.example.demo.HelloController","level":"ERROR","thread":"http-nio-1456-exec-4","mdc":{"traceId":"c84f8a897041f634","spanId":"c84f8a897041f634"},"stackTrace":"java.lang.RuntimeException: get an exception\r\n\tat com.example.demo.HelloController.throwEx(HelloController.java:54)\r\n\","message":"Got an exception","exceptionClass":"RuntimeException"}
 ```
+
+## <a name="limitations"></a>Limites
+
+Chaque ligne des journaux JSON peut avoir au maximum **16 000 octets**. Si la sortie JSON d’un enregistrement de journal unique dépasse cette limite, elle est divisée en plusieurs lignes et chaque ligne brute est collectée dans la colonne `Log`, sans être analysée de façon structurelle.
+
+En général, cela se produit lors de la journalisation des exceptions avec le StackTrace profond, en particulier lorsque l’[agent AppInsights In-Process](./how-to-application-insights.md) est activé.  Appliquez les paramètres de limite à la sortie du StackTrace (voir les exemples de configuration ci-dessous) pour vous assurer que la sortie finale est correctement analysée.
 
 ## <a name="generate-schema-compliant-json-log"></a>Générer un journal JSON conforme au schéma  
 
@@ -94,6 +100,12 @@ La procédure :
                     </nestedField>
                     <stackTrace>
                         <fieldName>stackTrace</fieldName>
+                        <!-- maxLength - limit the length of the stack trace -->
+                        <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+                            <maxDepthPerThrowable>200</maxDepthPerThrowable>
+                            <maxLength>14000</maxLength>
+                            <rootCauseFirst>true</rootCauseFirst>
+                        </throwableConverter>
                     </stackTrace>
                     <message />
                     <throwableClassName>
@@ -207,7 +219,8 @@ La procédure :
     <configuration>
         <appenders>
             <console name="Console" target="SYSTEM_OUT">
-                <JsonTemplateLayout eventTemplateUri="classpath:jsonTemplate.json" />
+                <!-- maxStringLength - limit the length of the stack trace -->
+                <JsonTemplateLayout eventTemplateUri="classpath:jsonTemplate.json" maxStringLength="14000" />
             </console>
         </appenders>
         <loggers>

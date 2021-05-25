@@ -3,12 +3,12 @@ title: Utiliser des paramètres pour créer des blueprints dynamiques
 description: Découvrez les paramètres statiques et dynamiques et comment les utiliser pour créer des blueprints sécurisés et dynamiques.
 ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 324763d6518acf0b57e4f9048f2773027e71ca23
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 6db29a058bd8022c2f1224a8a8bf6e4fb85a398f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323894"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761342"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Création de blueprints dynamiques au moyen de paramètres
 
@@ -63,7 +63,7 @@ Une valeur de paramètre définie dans la définition d’un blueprint est appel
 
    :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Capture d’écran d’une définition de blueprint et du paramètre « X paramètres renseignés sur Y » en surbrillance." border="false":::
 
-1. La page **Modifier un artefact** affiche des options de valeur appropriées à l’artefact sélectionné. Chaque paramètre sur l’artefact a un titre, une zone de valeur et une case à cocher. Décochez la case pour rendre le **paramètre statique**. Dans l’exemple ci-dessous, seul _Emplacement_ est un **paramètre statique**, car la case est décochée, tandis que la case _Nom du groupe de ressources_ est cochée.
+1. La page **Modifier un artefact** affiche des options de valeur appropriées à l’artefact sélectionné. Chaque paramètre sur l’artefact a un titre, une zone de valeur et une case à cocher. Décochez la case pour rendre le **paramètre statique**. Dans l’exemple qui suit, seul _Emplacement_ est un **paramètre statique**, car la case est décochée, tandis que la case _Nom du groupe de ressources_ est cochée.
 
    :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Capture d’écran des paramètres statiques sur un artefact de blueprint." border="false":::
 

@@ -3,17 +3,19 @@
 - name: Vue d’ensemble
   expanded: true
   items:
+    - name: Présentation de Translator
+      href: translator-info-overview.md
     - name: Prise en charge de la langue
       href: language-support.md
     - name: Tarifs
       href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator'
+    - name: Nouveautés
+      href: whats-new.md
+    - name: FAQ de Translator
+      href: translator-faq.md
 - name: Traduction de texte
   expanded: true
   items:
-    - name: Présentation de Translator
-      href: translator-info-overview.md
-    - name: FAQ de Translator
-      href: 'https://www.microsoft.com/translator/faq.aspx'
     - name: Démarrage rapide
       href: quickstart-translator.md
     - name: Exemples
@@ -50,10 +52,6 @@
           href: dynamic-dictionary.md
         - name: Traduire derrière des pare-feu
           href: firewalls.md
-    - name: Concepts
-      items:
-        - name: Comment l’API compte le nombre de caractères
-          href: character-counts.md
     - name: Tutoriels
       items:
         - name: 'Créer une application WPF pour Translator, C#'
@@ -66,8 +64,6 @@
           href: reference/v3-0-reference.md
         - name: Languages
           href: reference/v3-0-languages.md
-        - name: Disponibilité régionale
-          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
         - name: Limites de requête
           href: request-limits.md
         - name: Translate
@@ -82,7 +78,37 @@
           href: reference/v3-0-dictionary-lookup.md
         - name: Exemples de dictionnaire
           href: reference/v3-0-dictionary-examples.md
-- name: Traduction personnalisée
+- name: Traduction de documents
+  items:
+    - name: "Qu’est-ce que la traduction de documents\_?"
+      href: document-translation/overview.md
+    - name: Démarrage rapide
+      href: document-translation/get-started-with-document-translation.md
+    - name: Guides pratiques
+      items:
+        - name: Créer des jetons SAS pour la traduction de documents
+          href: document-translation/create-sas-tokens.md
+    - name: Informations de référence
+      items:
+        - name: Obtenir les formats de document pris en charge
+          href: document-translation/reference/get-supported-document-formats.md
+        - name: Obtenir les formats de glossaire pris en charge
+          href: document-translation/reference/get-supported-glossary-formats.md
+        - name: Obtenir les sources de stockage prises en charge
+          href: document-translation/reference/get-supported-storage-sources.md
+        - name: Commencer la traduction
+          href: document-translation/reference/start-translation.md
+        - name: Obtenir l’état des documents
+          href: document-translation/reference/get-documents-status.md
+        - name: Obtenir l’état d’un document
+          href: document-translation/reference/get-document-status.md
+        - name: Obtenir l’état des traductions
+          href: document-translation/reference/get-translations-status.md
+        - name: Obtenir l’état de la traduction
+          href: document-translation/reference/get-translation-status.md
+        - name: Annuler la traduction
+          href: document-translation/reference/cancel-translation.md
+- name: Custom Translator
   items:
     - name: Qu’est-ce que Custom Translator ?
       href: custom-translator/overview.md
@@ -140,45 +166,9 @@
       items:
         - name: Notes de publication
           href: custom-translator/release-notes.md
-- name: Traduction de documents
-  items:
-    - name: "Qu’est-ce que la traduction de documents\_?"
-      href: document-translation/overview.md
-    - name: Démarrage rapide
-      href: document-translation/get-started-with-document-translation.md
-    - name: Guides pratiques
-      items:
-        - name: Créer des jetons SAS pour la traduction de documents
-          href: document-translation/create-sas-tokens.md
-    - name: Informations de référence
-      items:
-        - name: Obtenir les formats de document pris en charge
-          href: document-translation/reference/get-supported-document-formats.md
-        - name: Obtenir les formats de glossaire pris en charge
-          href: document-translation/reference/get-supported-glossary-formats.md
-        - name: Obtenir les sources de stockage prises en charge
-          href: document-translation/reference/get-supported-storage-sources.md
-        - name: Commencer la traduction
-          href: document-translation/reference/start-translation.md
-        - name: Obtenir l’état des documents
-          href: document-translation/reference/get-documents-status.md
-        - name: Obtenir l’état d’un document
-          href: document-translation/reference/get-document-status.md
-        - name: Obtenir l’état des traductions
-          href: document-translation/reference/get-translations-status.md
-        - name: Obtenir l’état de la traduction
-          href: document-translation/reference/get-translation-status.md
-        - name: Annuler la traduction
-          href: document-translation/reference/cancel-translation.md
 - name: Ressources
   items:
-    - name: Prise en charge de la région
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformité et certification
       href: 'https://www.microsoft.com/translator/business/notrace/'
-    - name: Options d’aide et de support
-      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
     - name: Exemples de code sur GitHub
       href: 'https://aka.ms/TranslatorGitHub'
-    - name: Confidentialité et cookies
-      href: 'https://privacy.microsoft.com/en-US/privacystatement'

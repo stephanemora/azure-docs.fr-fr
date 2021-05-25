@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 05/05/2021
 ms.author: duau
-ms.openlocfilehash: b133f1cce4af07d8d5e50e04670741fcf7c936a4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b659fee979fd936a85c0cd5a711390594bbe79b1
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097072"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795751"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Créer une ressource ExpressRoute Direct à l’aide du portail Azure
 
@@ -81,7 +81,13 @@ Une fois que vous êtes inscrit, vérifiez que le fournisseur de ressources **Mi
 
 ## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Générer la lettre d’autorisation
 
-La génération de la lettre d’autorisation n’est pas disponible à partir du portail pour l’instant. Utilisez **[Azure PowerShell](expressroute-howto-erdirect.md#authorization)** pour obtenir la lettre d’autorisation.
+1. Accédez à la page de présentation de la ressource ExpressRoute Direct et sélectionnez **Generate Letter of Authorization** (Générer une lettre d’autorisation).
+
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/overview.png" alt-text="Capture d’écran du bouton de génération de lettre d’autorisation dans la page de présentation.":::
+
+1. Entrez le nom de votre entreprise et sélectionnez **Download** (Télécharger) pour générer la lettre.
+
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/letter-of-authorization-page.png" alt-text="Capture d’écran de la page de lettre d’autorisation.":::
 
 ## <a name="change-admin-state-of-links"></a><a name="state"></a>Changer l’état Administrateur de liens
 

@@ -60,8 +60,6 @@
       href: concepts/anomaly-detection-best-practices.md
     - name: Architecture de maintenance prédictive (multivariée)
       href: concepts/multivariate-architecture.md
-    - name: Résolution des problèmes multivariés
-      href: concepts/troubleshoot.md
     - name: Détection des anomalies SR (Spectral Residual) et CNN (Convolutional Neural Net)
       href: 'https://arxiv.org/abs/1906.03821'
     - name: Détection d’anomalies de séries chronologiques multivariée via un réseau à graphe d’attention
@@ -104,7 +102,9 @@
       href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
     - name: Mises à jour Azure
       href: 'https://azure.microsoft.com/en-us/updates/?product=cognitive-services'
-    - name: Blogs techniques
+    - name: Résolution des problèmes multivariés
+      href: concepts/troubleshoot.md
+    - name: Articles techniques
       items:
         - name: Introduction à l’API Détecteur d’anomalies Azure
           href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162'

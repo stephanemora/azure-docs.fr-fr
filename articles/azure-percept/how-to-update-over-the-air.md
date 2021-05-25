@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e5d431d4594a89d4bfcd3b4f09c57b5cdd61b547
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: fc8e3e42e75eacd1c5bc3312b7adf6c8a8150f3c
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929486"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684340"
 ---
 # <a name="update-your-azure-percept-dk-over-the-air-ota"></a>Mettre à jour votre DK Azure Percept en OTA
 
@@ -30,7 +30,7 @@ Suivez ce guide pour découvrir comment mettre à jour le système d’exploitat
 > [!NOTE]
 > Si vous avez déjà importé la mise à jour, vous pouvez passer directement à **Créer un groupe de mises à jour d’appareil**.
 
-1. [Téléchargez le fichier manifeste (.json)](https://go.microsoft.com/fwlink/?linkid=2155625) et le [fichier de mise à jour (.swu)](https://go.microsoft.com/fwlink/?linkid=2161538) pour votre appareil Azure Percept.
+1. Déterminez le [manifeste et le package de mise à jour](./how-to-select-update-package.md) qui conviennent à votre kit de développement.
 
 1. Accédez au hub IoT Azure que vous utilisez pour votre appareil Azure Percept. Dans le panneau de menu gauche, sélectionnez **Mises à jour de l’appareil** sous **Gestion automatique des appareils**.
 
@@ -38,7 +38,7 @@ Suivez ce guide pour découvrir comment mettre à jour le système d’exploitat
 
 1. Sélectionnez **+ Importer une nouvelle mise à jour** sous l’en-tête **Prêt pour le déploiement**.
 
-1. Cliquez sur les cases sous **Sélectionner le fichier manifeste d’importation** et **Sélectionner les fichiers de mise à jour** pour sélectionner votre fichier manifeste (.json) et votre fichier de mise à jour (.swu).
+1. Sélectionnez les cases sous **Sélectionner le fichier manifeste d’importation** et **Sélectionner les fichiers de mise à jour** pour sélectionner votre fichier manifeste (.json) et votre fichier de mise à jour (.swu).
 
 1. Sélectionnez l’icône de dossier ou la zone de texte sous **Sélectionner un conteneur de stockage** et sélectionnez le compte de stockage approprié. Si vous avez déjà créé un conteneur de stockage, vous pouvez le réutiliser. Sinon, sélectionnez **+ Conteneur** pour créer un conteneur de stockage pour les mises à jour en OTA. Sélectionnez le conteneur que vous souhaitez utiliser, puis cliquez sur **Sélectionner**.
 
@@ -71,7 +71,7 @@ Conditions d’utilisation des étiquettes de groupe :
 
     1. Dans **IoT Edge**, dans le volet de navigation gauche, recherchez votre DK Azure Percept et accédez à son **Jumeau d’appareil**.
 
-    1. Ajoutez une nouvelle valeur d’étiquette **Device Update pour IoT Hub** comme indiqué ci-dessous (```<CustomTagValue>``` fait référence à votre valeur/nom d’étiquette, par exemple GroupeAzurePercept1). Apprenez-en davantage sur les [étiquettes de document JSON](../iot-hub/iot-hub-devguide-device-twins.md#device-twins) de jumeau d’appareil.
+    1. Ajoutez une nouvelle valeur d’étiquette **Device Update pour IoT Hub** comme indiqué ci-dessous (```<CustomTagValue>``` fait référence à votre valeur/nom d’étiquette, par exemple AzurePerceptGroup1). Apprenez-en davantage sur les [étiquettes de document JSON](../iot-hub/iot-hub-devguide-device-twins.md#device-twins) de jumeau d’appareil.
 
         ```
         "tags": {

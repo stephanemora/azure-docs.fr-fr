@@ -1,18 +1,18 @@
 ---
 title: Intégrer un client à Azure Lighthouse
 description: Apprenez à intégrer un client à Azure Lighthouse pour permettre l'accès à ses ressources et la gestion de celles-ci via votre propre locataire à l'aide de la gestion des ressources déléguées Azure.
-ms.date: 03/29/2021
+ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: d8ad448ac022b07ecdea6b68c4544b8c955814b1
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: fc67146b6fb1fb5767678838af0c7cbf30c5815a
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497963"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786127"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Intégrer un client à Azure Lighthouse
 
-Cet article explique comment, en tant que fournisseur de services, vous pouvez intégrer un client à Azure Lighthouse. Les ressources déléguées (abonnements et/ou groupes de ressources) dans le locataire Azure Active Directory (Azure AD) du client peuvent être gérées via votre propre locataire en utilisant la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md).
+Cet article explique comment, en tant que fournisseur de services, vous pouvez intégrer un client à Azure Lighthouse. Les ressources déléguées (abonnements et/ou groupes de ressources) dans le locataire Azure Active Directory (Azure AD) du client peuvent être gérées par les utilisateurs de votre locataire par le biais de la [gestion des ressources déléguées Azure](../concepts/architecture.md).
 
 > [!TIP]
 > Même si nous faisons ici référence aux fournisseurs de services et aux clients, les [entreprises gérant plusieurs locataires](../concepts/enterprise.md) peuvent suivre le même processus pour configurer Azure Lighthouse et consolider leur expérience de gestion.
@@ -205,7 +205,7 @@ La dernière autorisation dans l’exemple ci-dessus ajoute un **principalId** a
 Une fois que vous avez mis à jour votre fichier de paramètres, un utilisateur du locataire du client doit déployer le modèle Azure Resource Manager au sein de son locataire. Un déploiement distinct est nécessaire pour chaque abonnement que vous souhaitez intégrer (ou pour chaque abonnement contenant des groupes de ressources que vous souhaitez intégrer).
 
 > [!IMPORTANT]
-> Ce déploiement doit être effectué par un compte non invité dans le locataire client disposant de l’autorisation `Microsoft.Authorization/roleAssignments/write`, telle que [Propriétaire](../../role-based-access-control/built-in-roles.md#owner), pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour rechercher les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
+> Ce déploiement doit être effectué par un compte non invité dans le locataire client disposant de l’autorisation `Microsoft.Authorization/roleAssignments/write`, telle que [Propriétaire](../../role-based-access-control/built-in-roles.md#owner), pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour rechercher les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 >
 > Si l’abonnement a été créé par le biais du [programme Fournisseur de solutions Cloud (CSP)](../concepts/cloud-solution-provider.md), tout utilisateur disposant du rôle [Agent d’administration](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) dans le locataire de votre fournisseur de services peut effectuer le déploiement.
 

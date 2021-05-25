@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 04ff93f8fa19e6ec18ebf606291a09f558d93529
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 15d5e1d68dce69b5b2f68a02f8b4832393cdd59c
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075912"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713465"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autoriser l’accès à des données blob et de files d’attente avec des identités managées pour les ressources Azure
 
@@ -71,7 +71,7 @@ Pour créer un principal du service avec Azure CLI et attribuer un rôle Azure,
 
 Si vous ne disposez pas des autorisations suffisantes pour attribuer un rôle au principal du service, vous devrez peut-être demander au propriétaire du compte ou à l’administrateur d’effectuer l’attribution de rôle.
 
-L’exemple suivant utilise Azure CLI pour créer un principal du service et lui attribuer le rôle de **lecteur de données d’objets blob de stockage** avec une étendue de compte
+L'exemple suivant utilise Azure CLI pour créer un nouveau principal de service et lui attribuer le rôle de **Contributeur aux données blob du stockage** avec une étendue de compte.
 
 ```azurecli-interactive
 az ad sp create-for-rbac \

@@ -5,12 +5,12 @@ ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 42982ec488fcbd354f110c4778ecbd8c42cd3055
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 9371ebfbb89e30b53183ad364514b5bba904c56b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323786"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761558"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Définir et affecter un blueprint dans le portail :
 
@@ -141,7 +141,7 @@ La première étape de la définition d’un modèle standard à des fins de con
       }
       ```
 
-   1. Décochez la case **storageAccountType** et notez que la liste déroulante contient uniquement les valeurs incluses dans le modèle Resource Manager sous **allowedValues**. Cochez la case pour redéfinir le paramètre en paramètre dynamique.
+   1. Décochez la case **storageAccountType** et notez que la liste déroulante contient uniquement les valeurs incluses dans le modèle ARM sous **allowedValues**. Cochez la case pour redéfinir le paramètre en paramètre dynamique.
 
    1. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
 
@@ -159,7 +159,7 @@ Dans [Créer un blueprint](#create-a-blueprint), vous n’avez pas fourni de des
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 
-1. Dans la liste des blueprints, cliquez avec le bouton droit sur celui précédemment créé, puis sélectionnez **Modifier le blueprint**.
+1. Dans la liste des blueprints, sélectionnez et maintenez l’appui (ou cliquez avec le bouton droit) sur celui précédemment créé, puis sélectionnez **Modifier le blueprint**.
 
 1. Dans **Description du blueprint**, fournissez des informations sur le blueprint et les artefacts qui le composent. Dans ce cas, entrez un texte semblable à celui-ci : « Ce blueprint définit la stratégie des étiquettes et l’attribution de rôle sur l’abonnement, crée un groupe de ressources, et déploie un modèle de ressource et une attribution de rôle sur ce groupe de ressources. »
 
@@ -192,7 +192,7 @@ Une fois publié, un blueprint peut être affecté à un abonnement.
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 
-1. Dans la liste des blueprints, cliquez avec le bouton droit sur celui précédemment créé, puis sélectionnez **Publier le blueprint**.
+1. Dans la liste des blueprints, sélectionnez et maintenez l’appui (ou cliquez avec le bouton droit) sur celui précédemment créé, puis sélectionnez **Publier le blueprint**.
 
 1. Dans le volet qui s’ouvre, indiquez une **Version** (au maximum 20 caractères : lettres, chiffres et traits d’union), par exemple **v1**. Vous pouvez aussi entrer du texte dans **Notes de changement**, par exemple **Première publication**.
 
@@ -204,9 +204,9 @@ Une fois publié, vous pouvez affecter le blueprint à un abonnement. Affectez l
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 
-1. Dans la liste des blueprints, cliquez avec le bouton droit sur celui précédemment créé (ou sélectionnez les points de suspension), puis sélectionnez **Affecter le blueprint**.
+1. Dans la liste des blueprints, sélectionnez et maintenez l’appui (ou cliquez avec le bouton droit) sur celui précédemment créé (ou sélectionnez les points de suspension), puis sélectionnez **Affecter le blueprint**.
 
-1. Dans la liste déroulante **Abonnement** de la page **Affecter le blueprint**, sélectionnez les abonnements dans lesquels vous souhaitez déployer ce blueprint.
+1. Dans la liste déroulante **Abonnement** de la page **Affecter le blueprint**, sélectionnez les abonnements dans lesquels vous voulez déployer ce blueprint.
 
    Si des offres Entreprise prises en charge sont disponibles à partir de [Facturation Azure](../../cost-management-billing/index.yml), un lien **Créer** est activé sous la zone **Abonnement**. Procédez comme suit :
 
@@ -232,7 +232,7 @@ Une fois publié, vous pouvez affecter le blueprint à un abonnement. Affectez l
 
 1. Dans **Emplacement**, sélectionnez une région dans laquelle créer l’identité managée et un objet de déploiement d’abonnement. Azure Blueprint utilise cette identité managée pour déployer tous les artefacts dans le blueprint affecté. Pour en savoir plus, consultez [Identités managées pour ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-1. Dans la liste déroulante **Version de définition du blueprint** des versions **Publiée**, conservez l’entrée **v1** (par défaut, il s’agit de la dernière version publiée).
+1. Dans la liste déroulante **Version de définition du blueprint** des versions **Publiée**, conservez l’entrée **v1**. (par défaut, il s’agit de la dernière version publiée).
 
 1. Pour **Verrouiller l’affectation**, conservez la valeur par défaut **Ne pas verrouiller**. Pour plus d’informations, consultez [Verrouillage des ressources des blueprints](./concepts/resource-locking.md).
 
@@ -244,7 +244,7 @@ Une fois publié, vous pouvez affecter le blueprint à un abonnement. Affectez l
 
 1. Pour l’attribution de stratégie au niveau de l’abonnement, définissez **Nom d’étiquette** sur **CostCenter** et **Valeur de l’étiquette** sur **ContosoIT**.
 
-1. Pour **ResourceGroup**, entrez **StorageAccount** comme **Nom**, puis choisissez **USA Est 2** comme **Emplacement** dans la liste déroulante.
+1. Pour **ResourceGroup**, entrez **StorageAccount** comme **Nom**, puis choisissez **USA Est 2** comme **Emplacement** dans la liste déroulante.
 
    > [!NOTE]
    > Chaque artefact ajouté sous le groupe de ressources durant la définition du blueprint est mis en retrait de façon à être aligné sur le groupe de ressources ou l’objet avec lequel il sera déployé.
@@ -265,7 +265,7 @@ Maintenant que le blueprint est affecté à un abonnement, vérifiez la progress
 
 1. Sélectionnez **Blueprints affectés** dans la page de gauche.
 
-1. Dans la liste des blueprints, cliquez avec le bouton droit sur celui précédemment affecté, puis sélectionnez **Voir les détails de l’affectation**.
+1. Dans la liste des blueprints, sélectionnez et maintenez l’appui (ou cliquez avec le bouton droit) sur celui précédemment affecté, puis sélectionnez **Voir les détails de l’affectation**.
 
    :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Capture d’écran du menu contextuel d’attribution de blueprint avec l’option « Voir les détails de l’attribution » sélectionnée." border="false":::
 

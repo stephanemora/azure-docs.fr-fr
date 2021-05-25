@@ -2,17 +2,17 @@
 title: Créer et déployer des spécifications de modèle
 description: Décrit comment créer des specs de modèle et les partager avec d’autres utilisateurs de votre organisation.
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 05/04/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 2f4aec6d9fa07edf36dea68a23ba12eb5f72d308
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fa93342fa1f0a2358ca05da5c5510b8510034210
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626082"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736793"
 ---
-# <a name="azure-resource-manager-template-specs-preview"></a>Specs de modèle Azure Resource Manager (préversion)
+# <a name="azure-resource-manager-template-specs"></a>Spec de modèle Azure Resource Manager
 
 Une spec de modèle est un type de ressource permettant de stocker un modèle Resource Manager dans Azure en vue d’un déploiement ultérieur. Ce type de ressource vous permet de partager des modèles Ressource Manager avec d’autres utilisateurs de votre organisation. Comme toute autre ressource Azure, vous pouvez utiliser le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour partager la spec de modèle.
 
@@ -21,7 +21,7 @@ Une spec de modèle est un type de ressource permettant de stocker un modèle Re
 Pour déployer la spec de modèle, vous utilisez des outils Azure standard tels que PowerShell, Azure CLI, Portail Azure, REST et d’autres Kits de développement logiciel (SDK) et clients pris en charge. Vous utilisez les mêmes commandes que pour le modèle.
 
 > [!NOTE]
-> La fonctionnalité Specs de modèle est actuellement en préversion. Pour l’utiliser avec Azure PowerShell, vous devez installer la [version 5.0.0 ou ultérieure](/powershell/azure/install-az-ps). Pour l’utiliser avec Azure CLI, utilisez la [version 2.14.2 ou ultérieure](/cli/azure/install-azure-cli).
+> Pour utiliser la spec de modèle avec Azure PowerShell, vous devez installer la [version 5.0.0 ou ultérieure](/powershell/azure/install-az-ps). Pour l’utiliser avec Azure CLI, utilisez la [version 2.14.2 ou ultérieure](/cli/azure/install-azure-cli).
 
 ## <a name="why-use-template-specs"></a>Pourquoi utiliser des spécifications de modèle ?
 

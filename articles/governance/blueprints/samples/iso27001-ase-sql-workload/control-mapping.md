@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôles de blueprint Charge de travail ASE/SQL ISO 27001
 description: Correspondance des contrôles de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001 à Azure Policy et Azure RBAC.
-ms.date: 02/05/2021
+ms.date: 04/30/2021
 ms.topic: sample
-ms.openlocfilehash: f4bd340e67547ee22a558a63b56619171a1749c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ad15e7ebc980a72b079ff965e3f94a46c470af7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99627465"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753008"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Charge de travail ASE/SQL ISO 27001
 
@@ -179,7 +179,7 @@ Ce blueprint vous aide à gérer et à contrôler les réseaux en affectant une 
 
 ## <a name="a1321-information-transfer-policies-and-procedures"></a>A.13.2.1 Politiques et procédures de transfert de l’information
 
-Le blueprint vous aide à sécuriser le transfert des informations avec les services Azure en affectant deux définitions [Azure Policy](../../../policy/overview.md) qui auditent les connexions non sécurisées aux comptes de stockage et au cache Redis.
+Le blueprint vous aide à sécuriser le transfert des informations avec les services Azure en affectant deux définitions [Azure Policy](../../../policy/overview.md) qui auditent les connexions non sécurisées aux comptes de stockage et à Azure Cache pour Redis.
 
 - Seules les connexions sécurisées à votre instance Azure Cache pour Redis doivent être activées
 - La sécurisation du transfert vers des comptes de stockage doit être activée

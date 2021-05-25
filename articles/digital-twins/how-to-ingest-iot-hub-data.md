@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b69ba164a7bd0edecf427866cd3e872a65e41355
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ac55c3cdc041ab724c80b1042db9d988d2e988fc
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208740"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783668"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingérer des données de télémétrie IoT Hub dans Azure Digital Twins
 
@@ -49,7 +49,7 @@ Pour créer un jumeau de type thermostat, vous devez d’abord charger le [modè
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
-Vous devez ensuite **créer un jumeau à l’aide de ce modèle**. Utilisez la commande suivante pour créer un jumeau de thermostat nommé **thermostat67** et définissez 0,0 comme valeur initiale de température.
+Vous devez ensuite **créer un jumeau à l’aide de ce modèle**. Utilisez la commande suivante pour créer un jumeau de thermostat nommé thermostat67 et définissez 0,0 comme valeur initiale de température.
 
 ```azurecli-interactive
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
@@ -146,7 +146,7 @@ Sélectionnez le bouton _Créer_ pour créer l’abonnement aux événements.
 
 ## <a name="send-simulated-iot-data"></a>Envoyer des données IoT simulées
 
-Pour tester votre nouvelle fonction d’entrée, utilisez le simulateur d’appareil à partir du [Tutoriel : Connecter une solution de bout en bout](./tutorial-end-to-end.md). Ce tutoriel est piloté par un exemple de projet écrit en C#. L’exemple de code se trouve ici : [Exemples Azure Digital Twins de bout en bout](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Vous utiliserez le projet **DeviceSimulator** dans ce référentiel.
+Pour tester votre nouvelle fonction d’entrée, utilisez le simulateur d’appareil à partir du [Tutoriel : Connecter une solution de bout en bout](./tutorial-end-to-end.md). Ce tutoriel est piloté par [cet exemple de projet de bout en bout Azure Digital écrit en C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Vous utiliserez le projet **DeviceSimulator** dans ce référentiel.
 
 Dans ce tutoriel intégral, vous allez effectuer les étapes suivantes :
 1. [Inscrire l’appareil simulé auprès d’IoT Hub](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
@@ -157,7 +157,7 @@ Dans ce tutoriel intégral, vous allez effectuer les étapes suivantes :
 Lors de l’exécution du simulateur d’appareil ci-dessus, la valeur de température de votre jumeau numérique sera modifiée. Dans Azure CLI, exécutez la commande suivante pour afficher la valeur de la température.
 
 ```azurecli-interactive
-az dt twin query -q "select * from digitaltwins" -n {digital_twins_instance_name}
+az dt twin query --query-command "select * from digitaltwins" --dt-name {digital_twins_instance_name}
 ```
 
 Votre sortie doit contenir une valeur de température comme ceci :

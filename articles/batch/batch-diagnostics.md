@@ -4,12 +4,12 @@ description: Enregistrez et analysez les événements du journal de diagnostic p
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.custom: seodec18
-ms.openlocfilehash: 61aaca84b609aaf7513c6de6f0f7e73aef5a5efe
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 3bbaf01b71a2256416112f5e365f70d563a9f36d
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389313"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753941"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision
 
@@ -67,7 +67,7 @@ Pour configurer une alerte de métrique dans le Portail Azure :
 
 Pour plus d’informations sur la création d’alertes de métriques, consultez [Comprendre le fonctionnement des alertes de métrique dans Azure Monitor](../azure-monitor/alerts/alerts-metric-overview.md) et [Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
-Vous pouvez également configurer une alerte en temps quasi-réel à l’aide de [l’API REST Azure Monitor](/rest/api/monitor/). Pour plus d’informations, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). Pour inclure des informations relatives aux travaux, aux tâches ou aux pools dans vos alertes, consultez [Répondre aux événements avec les Alertes Azure Monitor](../azure-monitor/alerts/tutorial-response.md).
+Vous pouvez également configurer une alerte en temps quasi-réel à l’aide de [l’API REST Azure Monitor](/rest/api/monitor/). Pour plus d’informations, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). Pour inclure des informations relatives aux travaux, aux tâches ou aux pools dans vos alertes, consultez [Alertes de journal Azure Monitor](../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="batch-diagnostics"></a>Diagnostics Batch
 

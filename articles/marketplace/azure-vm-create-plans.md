@@ -6,19 +6,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/01/2021
-ms.openlocfilehash: b1111caf2eaab1114371cbfed1e929afcff20898
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.date: 05/06/2021
+ms.openlocfilehash: b6efd4fbb96c519508d621983eee7619d18efc38
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219363"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656125"
 ---
-# <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Comment créer des plans pour une offre de machine virtuelle
+# <a name="create-plans-for-a-virtual-machine-offer"></a>Créer des plans pour une offre de machine virtuelle
 
 Dans la page **Vue d’ensemble du plan** (à partir du menu de navigation de gauche dans Espace partenaires), vous pouvez proposer différentes options de plan au sein d’une même offre. Une offre nécessite au moins un plan (précédemment appelé SKU), qui peut varier en termes de public de monétisation, de région Azure, de fonctionnalités ou d’images de machines virtuelles.
 
-Vous pouvez créer jusqu’à 100 plans pour chaque offre : jusqu’à 45 peuvent être privés. En savoir plus sur les offres privées dans les [offres du marketplace commercial de Microsoft](private-offers.md).
+Vous pouvez créer jusqu’à 100 plans pour chaque offre ; jusqu’à 45 d’entre eux peuvent être privés. En savoir plus sur les offres privées dans les [offres du marketplace commercial de Microsoft](private-offers.md).
 
 Une fois que vous avez créé vos plans, sélectionnez l’onglet **Vue d’ensemble du plan** pour afficher :
 
@@ -28,7 +28,7 @@ Une fois que vous avez créé vos plans, sélectionnez l’onglet **Vue d’ense
 - État actuel de la publication
 - Actions disponibles
 
-Les actions disponibles dans le volet **Vue d’ensemble du plan** varient en fonction de l’état actuel de votre plan.
+Les actions disponibles dans ce volet varient selon l’état actuel de votre plan.
 
 - Si l’état du plan est Brouillon, sélectionnez **Supprimer le brouillon**.
 - Si l’état du plan est Publié, sélectionnez **Arrêter la vente du plan** ou **Synchroniser le public privé**.
@@ -49,13 +49,6 @@ Sélectionnez **Create** (Créer). Cela ouvre la page **Configuration du plan**.
 ## <a name="plan-setup"></a>Configuration du plan
 
 Définissez la configuration générale du type de plan, indiquez si le plan réutilisera la configuration technique d’un autre plan, et identifiez les régions Azure où le plan doit être disponible. Les options que vous choisissez ici déterminent les champs affichés dans les autres volets du même plan.
-
-### <a name="reuse-technical-configuration"></a>Réutiliser la configuration technique
-
-Si vous avez plusieurs plans du même type et que les packages qu’ils utilisent sont identiques, vous pouvez sélectionner l’option pour que **ce plan réutilise la configuration technique d’un autre plan**. Cette option vous permet de sélectionner l’un des autres plans du même type pour cette offre et de réutiliser sa configuration technique.
-
-> [!NOTE]
-> Si vous réutilisez la configuration technique d’un autre plan, l’onglet **Configuration technique** ne s’affiche plus pour ce plan. Les paramètres de la configuration technique de l’autre plan, y compris les mises à jour effectuées ultérieurement, seront également appliqués à ce plan. Ce paramètre n’est plus modifiable après la publication du plan.
 
 ### <a name="azure-regions"></a>Régions Azure
 
@@ -166,6 +159,10 @@ Fournissez les images et autres propriétés techniques associées à ce plan.
 
 > [!NOTE]
 > Cet onglet ne s’affiche pas si vous avez configuré ce plan pour réutiliser les packages d’un autre plan dans l’onglet **Configuration du plan**.
+
+### <a name="reuse-technical-configuration"></a>Réutiliser la configuration technique
+
+Si vous avez plusieurs plans du même type et que les packages qu’ils utilisent sont identiques, sélectionnez l’option **Ce plan réutilise la configuration technique d’un autre plan**. Cette option vous permet de sélectionner l’un des autres plans du même type pour cette offre et de réutiliser sa configuration technique.
 
 ### <a name="operating-system"></a>Système d'exploitation
 

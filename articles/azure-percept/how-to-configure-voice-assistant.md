@@ -1,26 +1,26 @@
 ---
 title: Configurer l’application Assistant vocal avec Azure IoT Hub
 description: Configurer l’application Assistant vocal avec Azure IoT Hub
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: b22ef4ee0a8b5978bb2ec1c02fadf368815f3014
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 514bee115ee0e01910fe726ee8ae378352f89d99
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095780"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754358"
 ---
 # <a name="configure-voice-assistant-application-using-azure-iot-hub"></a>Configurer l’application Assistant vocal avec Azure IoT Hub
 
-Cet article explique comment configurer votre application Assistant vocal avec IoT Hub. Pour obtenir un tutoriel pas à pas qui vous guide tout au long du processus de création d’un Assistant vocal à l’aide d’un modèle de démonstration, consultez [Créer un Assistant vocal sans code avec Azure Percept Studio et Azure Percept Audio](./tutorial-no-code-speech.md).
+Cet article explique comment configurer votre application Assistant vocal avec IoT Hub. Pour obtenir un tutoriel pas à pas du processus de création d’un Assistant vocal, consultez [Créer un Assistant vocal sans code avec Azure Percept Studio et Azure Percept Audio](./tutorial-no-code-speech.md).
 
 ## <a name="update-your-voice-assistant-configuration"></a>Mettre à jour la configuration de votre Assistant vocal
 
-1. Ouvrez le [portail Azure](https://portal.azure.com) et tapez **IoT Hub** dans la barre de recherche. Cliquez sur l’icône pour ouvrir la page IoT Hub.
+1. Ouvrez le [portail Azure](https://portal.azure.com) et tapez **IoT Hub** dans la barre de recherche. Sélectionnez l’icône pour ouvrir la page IoT Hub.
 
 1. Dans la page IoT Hub, sélectionnez le hub IoT sur lequel votre appareil a été provisionné.
 
@@ -28,7 +28,7 @@ Cet article explique comment configurer votre application Assistant vocal avec I
 
 1. Sélectionnez l’appareil sur lequel votre application Assistant vocal a été déployée.
 
-1. Cliquez sur **Définir des modules**.
+1. Sélectionnez **Définir modules**.
 
     :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/set-modules.png" alt-text="Capture d’écran de la page de l’appareil avec Définir les modules encadré.":::
 
@@ -42,17 +42,17 @@ Cet article explique comment configurer votre application Assistant vocal avec I
 
     :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/modules.png" alt-text="Capture d’écran montrant la liste de tous les modules IoT Edge de l’appareil.":::
 
-1. Cliquez sur l’onglet **Paramètres du module**. Vérifiez la configuration suivante :
+1. Sélectionnez l’onglet **Paramètres du module** et vérifiez la configuration suivante :
 
     URI d’image|Stratégie de redémarrage|État souhaité
     ---------|--------------|--------------
-    mcr.microsoft.com/azureedgedevices/azureearspeechclientmodule:preload-devkit|toujours|exécution en cours
+    mcr.microsoft.com/azureedgedevices/azureearspeechclientmodule: preload-devkit|toujours|exécution en cours
 
-    Si vos paramètres ne correspondent pas, modifiez-les et cliquez sur **Mettre à jour**.
+    Si vos paramètres ne correspondent pas à cette configuration, modifiez-les et sélectionnez **Mettre à jour**.
 
-1. Cliquez sur l’onglet **Variables d’environnement**. Vérifiez qu’aucune variable d’environnement n’est définie.
+1. Sélectionnez l’onglet **Variables d’environnement** et vérifiez qu’aucune variable d’environnement n’est définie.
 
-1. Cliquez sur l’onglet **Paramètres du jumeau de module**. Mettez à jour la section **speechConfigs** comme ceci :
+1. Sélectionnez l’onglet **Paramètres du jumeau de module** et mettez à jour la section **speechConfigs** comme ceci :
 
     ```
     "speechConfigs": {
@@ -72,12 +72,12 @@ Cet article explique comment configurer votre application Assistant vocal avec I
 Pour localiser votre **ID d’application**, votre **clé** et votre **région**, accédez à [Speech Studio](https://speech.microsoft.com/) :
 
 1. Connectez-vous et sélectionnez la ressource vocale appropriée.
-1. Dans la page d’accueil de **Speech Studio** , cliquez sur **Commandes personnalisées** sous **Assistants vocaux**.
+1. Dans la page d’accueil de **Speech Studio**, sélectionnez **Commandes personnalisées** sous **Assistants vocaux**.
 1. Sélectionnez votre projet cible.
 
     :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/project.png" alt-text="Capture d’écran de la page de projet dans Speech Studio.":::
 
-1. Cliquez sur **Paramètres** dans le panneau du menu de gauche.
+1. Sélectionnez **Paramètres** dans le panneau de menu de gauche.
 1. L’**ID d’application** et la **clé** se trouvent sous l’onglet **Général** des paramètres.
 
     :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/general-settings.png" alt-text="Capture d’écran des paramètres généraux du projet vocal.":::
@@ -86,9 +86,9 @@ Pour localiser votre **ID d’application**, votre **clé** et votre **région**
 
     :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/luis-resources.png" alt-text="Capture d’écran des ressources LUIS du projet vocal.":::
 
-1. Après avoir entré vos informations **speechConfigs**, cliquez sur **Mettre à jour**.
+1. Après avoir entré vos informations **speechConfigs**, sélectionnez **Mettre à jour**.
 
-1. Cliquez sur l’onglet **Routes** situé en haut de la page **Définir des modules**. Vérifiez que vous disposez d’une route avec la valeur suivante :
+1. Sélectionnez l’onglet **Routes** situé en haut de la page **Définir des modules**. Vérifiez que vous disposez d’une route avec la valeur suivante :
 
     ```
     FROM /messages/modules/azureearspeechclientmodule/outputs/* INTO $upstream
@@ -96,9 +96,9 @@ Pour localiser votre **ID d’application**, votre **clé** et votre **région**
 
     Ajoutez la route si elle n’existe pas.
 
-1. Cliquez sur **Revoir + créer**.
+1. Sélectionnez **Vérifier + créer**.
 
-1. Cliquez sur **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 05/03/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: efa88e1be5c5df5dd09cb5a97c8ece352496ccdb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c663282865e19df0e103e75a7e32d86651232a93
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769694"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762548"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
@@ -135,6 +135,9 @@ Ces paramètres de sécurité par défaut gratuits permettent l’inscription à
 
 - ** Les utilisateurs peuvent utiliser des codes de vérification de l’application Microsoft Authenticator, mais ils peuvent uniquement s’inscrire à l’aide de l’option de notification.
 - *** Les mots de passe d’application sont uniquement disponibles dans l’authentification multifacteur par utilisateur avec des scénarios d’authentification hérités uniquement s’ils sont activés par des administrateurs.
+
+> [!WARNING]
+> Ne désactivez pas les méthodes de votre organisation si vous utilisez les paramètres de sécurité par défaut. La désactivation de ces méthodes peut vous empêcher ensuite d’accéder à votre locataire. Laissez toutes les **méthodes disponibles pour les utilisateurs** activées dans le [portail des paramètres du service MFA](../authentication/howto-mfa-getstarted.md#choose-verification-options).
 
 ### <a name="disabled-mfa-status"></a>État MFA désactivé
 

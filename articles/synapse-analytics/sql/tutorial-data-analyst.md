@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d37597f8667c461e8d61f8214483f57eb702c2a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91f9bab7ca85275f914b8421cb4eb7517396ff8a
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97007549"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685006"
 ---
 # <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>Tutoriel : Explorer et analyser des lacs de données avec un pool SQL serverless
 
@@ -25,6 +25,13 @@ La fonction OPENROWSET (BULK...) vous permet d’accéder aux fichiers dans le s
 ## <a name="automatic-schema-inference"></a>Inférence de schéma automatique
 
 Les données étant stockées au format de fichier Parquet, l’inférence de schéma automatique est disponible. Il est donc possible d’interroger facilement les données sans lister les types de données de toutes les colonnes dans les fichiers. Vous pouvez aussi utiliser le mécanisme de colonne virtuelle et la fonction filepath pour filtrer un certain sous-ensemble de fichiers.
+
+> [!NOTE]
+> Si vous utilisez une base de données avec un classement autre que celui par défaut (SQL_Latin1_General_CP1_CI_AS), vous devez prendre en compte le respect de la casse. 
+> 
+> Si vous créez une base de données avec un classement respectant la casse, quand vous spécifiez des colonnes, veillez à utiliser le nom correct de ces dernières.
+> 
+> L’exemple de nom de colonne « tpepPickupDateTime » serait correct alors que « tpeppickupdatetime » ne fonctionnerait pas dans un classement autre que celui par défaut.
 
 Commençons par nous familiariser avec les données sur les taxis de la ville de New York en exécutant la requête suivante :
 

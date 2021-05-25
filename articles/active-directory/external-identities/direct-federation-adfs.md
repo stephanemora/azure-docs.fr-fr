@@ -1,6 +1,6 @@
 ---
-title: Configurer la fédération directe avec AD FS pour B2B - Azure AD
-description: Découvrez comment configurer AD FS en tant que fournisseur d’identité pour la fédération directe de sorte que les invités puissent se connecter à vos applications Azure AD
+title: Configurer la fédération IdP SAML/WS-Fed avec AD FS pour B2B - Azure AD
+description: Découvrez comment configurer AD FS en tant que fournisseur d’identité (IdP) pour la fédération IdP SAML/WS-Fed de sorte que les invités puissent se connecter à vos applications Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,27 +12,29 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc66dec0ff66e61038503b752f6bd1f2760e9859
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 984ddc25f11f76ba8dbe0874ac5aa64c15ebf323
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108162992"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758462"
 ---
-# <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Exemple : Fédération directe avec les services de fédération Active Directory (AD FS) (préversion)
+# <a name="example-configure-samlws-fed-based-identity-provider-federation-with-ad-fs-preview"></a>Exemple : Configurer la fédération IdP SAML/WS-Fed avec AD FS (préversion)
+
+>[!NOTE]
+>- La *fédération directe* dans Azure Active Directory s’appelle maintenant *fédération Fournisseur d’identité (IdP) SAML/WS-Fed*.
+>- La fédération IdP SAML/WS-Fed est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Cet article décrit comment utiliser les services de fédération Active Directory (AD FS) pour configurer la [fédération IdP SAML/WS-Fed](direct-federation.md) en tant qu’IdP SAML 2.0 ou WS-Fed. Pour permettre la prise en charge de la fédération, des attributs et revendications spécifiques doivent être configurés au niveau de l’IdP. Pour illustrer le processus de configuration d’un IdP en vue de la fédération, nous allons utiliser les services de fédération Active Directory (AD FS) en guise d’exemple. Nous allons vous montrer comment configurer AD FS en tant qu’IdP SAML et en tant que IdP WS-Fed.
 
 > [!NOTE]
-> La fédération directe est une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cet article décrit comment configurer AD FS pour SAML et WS-Fed à titre d’illustration. Pour les intégrations de fédération où l’IdP est AD FS, nous recommandons d’utiliser le protocole WS-Fed.
 
-Cet article décrit comment configurer la [fédération directe](direct-federation.md) à l’aide des services de fédération Active Directory (AD FS) en tant que fournisseur d’identité SAML 2.0 ou WS-Fed. Pour prendre en charge la fédération directe, des attributs et revendications doivent être configurés au niveau du fournisseur d’identité. Pour illustrer comment configurer un fournisseur d’identité pour la fédération directe, nous allons utiliser les services de fédération Active Directory (AD FS) comme exemple. Nous allons montrer comment configurer AD FS en tant que fournisseur d’identité SAML et en tant que fournisseur d’identité WS-Fed.
+## <a name="configure-ad-fs-for-saml-20-federation"></a>Configurer AD FS pour la fédération SAML 2.0
 
-> [!NOTE]
-> Cet article décrit comment configurer AD FS pour SAML et WS-Fed à titre d’illustration. Pour les intégrations de fédération directe dans lesquelles le fournisseur d’identité est AD FS, nous recommandons d’utiliser WS-Fed en tant que protocole. 
+Azure AD B2B peut être configuré pour la fédération avec des IdP qui utilisent le protocole SAML en respectant certaines exigences spécifiques indiquées ci-dessous. Pour illustrer les étapes de configuration SAML, cette section montre comment configurer AD FS pour SAML 2.0.
 
-## <a name="configure-ad-fs-for-saml-20-direct-federation"></a>Configurer AD FS pour la fédération directe SAML 2.0
-Azure AD B2B peut être configuré pour la fédération avec les fournisseurs d’identité qui utilisent le protocole SAML avec certaines exigences spécifiques indiquées ci-dessous. Pour illustrer les étapes de configuration SAML, cette section montre comment configurer AD FS pour SAML 2.0. 
-
-Pour configurer la fédération directe, les attributs suivants doivent être reçus dans la réponse SAML 2.0 à partir du fournisseur d’identité. Ces attributs peuvent être configurés en liant le fichier XML du service d’émission de jeton de sécurité en ligne ou en les entrant manuellement. L’étape 12 de [Créer une instance de test AD FS](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) décrit comment rechercher les points de terminaison AD FS ou comment générer votre URL de métadonnées, par exemple `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`. 
+Pour configurer la fédération, les attributs suivants doivent être reçus dans la réponse SAML 2.0 de l’IdP. Ces attributs peuvent être configurés en liant le fichier XML du service d’émission de jeton de sécurité en ligne ou en les entrant manuellement. L’étape 12 de [Créer une instance de test AD FS](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) décrit comment rechercher les points de terminaison AD FS ou comment générer votre URL de métadonnées, par exemple `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`. 
 
 |Attribut  |Valeur  |
 |---------|---------|
@@ -40,7 +42,7 @@ Pour configurer la fédération directe, les attributs suivants doivent être re
 |Public visé     |`urn:federation:MicrosoftOnline`         |
 |Émetteur     |L’URI de l’émetteur du fournisseur d’identité partenaire, par exemple `http://www.example.com/exk10l6w90DHM0yi...`         |
 
-Les revendications suivantes doivent être configurées dans le jeton SAML 2.0 émis par le fournisseur d’identité :
+Les revendications suivantes doivent être configurées dans le jeton SAML 2.0 émis par l’IdP :
 
 
 |Attribut  |Valeur  |
@@ -49,7 +51,7 @@ Les revendications suivantes doivent être configurées dans le jeton SAML 2.0 �
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
 
-La section suivante illustre comment configurer les attributs et revendications requis à l’aide d’AD FS comme exemple de fournisseur d’identité SAML 2.0.
+La section ci-après illustre comment configurer les attributs et revendications requis en utilisant AD FS comme exemple d’IdP SAML 2.0.
 
 ### <a name="before-you-begin"></a>Avant de commencer
 
@@ -100,12 +102,12 @@ Un serveur AD FS doit déjà être configuré et opérationnel avant de commence
 
 3. Cliquez sur **Terminer**. 
 4. La fenêtre **Modifier les règles de revendication** affiche les nouvelles règles. Cliquez sur **Appliquer**. 
-5. Cliquez sur **OK**. Le serveur AD FS est désormais configuré pour la fédération directe à l’aide du protocole SAML 2.0.
+5. Cliquez sur **OK**. Le serveur AD FS est maintenant configuré pour la fédération avec le protocole SAML 2.0.
 
-## <a name="configure-ad-fs-for-ws-fed-direct-federation"></a>Configurer AD FS pour la fédération directe WS-Fed 
-Azure AD B2B peut être configuré pour la fédération avec les fournisseurs d’identité qui utilisent le protocole WS-Fed avec les exigences spécifiques indiquées ci-dessous. Actuellement, les deux fournisseurs WS-Fed testés pour assurer la compatibilité avec Azure AD incluent AD FS et Shibboleth. Nous allons utiliser ici les services de fédération Active Directory (AD FS) comme exemple de fournisseur d’identité WS-Fed. Pour plus d’informations sur l’approbation de partie de confiance entre un fournisseur compatible WS-Fed et Azure AD, téléchargez les documents relatifs à la compatibilité du fournisseur d’identité Azure AD.
+## <a name="configure-ad-fs-for-ws-fed-federation"></a>Configurer AD FS pour la fédération WS-Fed 
+Azure AD B2B peut être configuré pour la fédération avec des IdP qui utilisent le protocole WS-Fed en respectant les exigences spécifiques indiquées ci-dessous. Actuellement, les deux fournisseurs WS-Fed testés pour assurer la compatibilité avec Azure AD incluent AD FS et Shibboleth. Ici, nous allons utiliser les services de fédération Active Directory (AD FS) en guise d’exemple d’IdP WS-Fed. Pour plus d’informations sur l’approbation de partie de confiance entre un fournisseur compatible WS-Fed et Azure AD, téléchargez les documents relatifs à la compatibilité du fournisseur d’identité Azure AD.
 
-Pour configurer la fédération directe, les attributs suivants doivent être reçus dans le message WS-Fed à partir du fournisseur d’identité. Ces attributs peuvent être configurés en liant le fichier XML du service d’émission de jeton de sécurité en ligne ou en les entrant manuellement. L’étape 12 de [Créer une instance de test AD FS](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) décrit comment rechercher les points de terminaison AD FS ou comment générer votre URL de métadonnées, par exemple `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`.
+Pour configurer la fédération, les attributs suivants doivent être reçus dans le message WS-Fed de l’IdP. Ces attributs peuvent être configurés en liant le fichier XML du service d’émission de jeton de sécurité en ligne ou en les entrant manuellement. L’étape 12 de [Créer une instance de test AD FS](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) décrit comment rechercher les points de terminaison AD FS ou comment générer votre URL de métadonnées, par exemple `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`.
  
 |Attribut  |Valeur  |
 |---------|---------|
@@ -120,7 +122,7 @@ Revendications requises pour le jeton WS-Fed émis par le fournisseur d’identi
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
-La section suivante illustre comment configurer les attributs et revendications requis à l’aide d’AD FS comme exemple de fournisseur d’identité WS-Fed.
+La section ci-après illustre comment configurer les attributs et revendications requis en utilisant AD FS comme exemple d’IdP WS-Fed.
 
 ### <a name="before-you-begin"></a>Avant de commencer
 Un serveur AD FS doit déjà être configuré et opérationnel avant de commencer cette procédure. Pour obtenir de l’aide sur la configuration d’un serveur AD FS, consultez [Créer une instance de test AD FS 3.0 sur une machine virtuelle Azure](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed).
@@ -150,7 +152,7 @@ Un serveur AD FS doit déjà être configuré et opérationnel avant de commence
 
 1.  Sélectionnez **Terminer**. 
 1.  La fenêtre **Modifier les règles de revendication** affiche la nouvelle règle. Cliquez sur **Appliquer**.  
-1.  Cliquez sur **OK**. Le serveur AD FS est désormais configuré pour la fédération directe à l’aide de WS-Fed.
+1.  Cliquez sur **OK**. Le serveur AD FS est maintenant configuré pour la fédération avec le protocole WS-Fed.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous allez ensuite [configurer la fédération directe dans Azure AD](direct-federation.md#step-3-configure-direct-federation-in-azure-ad) dans le portail Azure AD ou à l’aide de PowerShell. 
+Vous allez ensuite [configurer la fédération IdP SAML/WS-Fed dans Azure AD](direct-federation.md#step-3-configure-samlws-fed-idp-federation-in-azure-ad) par le biais du portail Azure AD ou à l’aide de PowerShell.

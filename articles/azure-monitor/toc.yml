@@ -370,6 +370,9 @@
             - name: Collecte des données
               displayname: 'data collection rule,Azure Monitor agent'
               href: agents/data-collection-rule-azure-monitor-agent.md
+            - name: Questions fréquentes (FAQ)
+              displayname: Azure Monitor agent FAQ
+              href: faq.md#azure-monitor-agent-preview
         - name: Agent Log Analytics
           items:
             - name: Vue d’ensemble
@@ -647,15 +650,15 @@
               items:
                 - name: les applications web
                   displayname: java
-                  href: app/java-get-started.md
+                  href: app/java-2x-get-started.md
                 - name: Suivis de journaux
-                  href: app/java-trace-logs.md
+                  href: app/java-2x-trace-logs.md
                 - name: Les dépendances
-                  href: app/java-agent.md
+                  href: app/java-2x-agent.md
                 - name: Filtrer les données de télémétrie
-                  href: app/java-filter-telemetry.md
+                  href: app/java-2x-filter-telemetry.md
                 - name: Dépanner
-                  href: app/java-troubleshoot.md
+                  href: app/java-2x-troubleshoot.md
             - name: Node.js
               href: app/nodejs.md
             - name: Python
@@ -785,6 +788,8 @@
             - name: Tests multiétapes
               displayname: 'availability, GSM, visual studio web test, web test'
               href: app/availability-multistep.md
+            - name: Tests privés
+              href: app/availability-private-test.md
             - name: Disponibilité + Azure Functions
               href: app/availability-azure-functions.md
               displayname: 'availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch'
@@ -1440,10 +1445,10 @@
         - name: Key Vault Analytics (déprécié)
           href: insights/azure-key-vault-deprecated.md
         - name: Mesures d’UNIX
-          href: app/java-collectd.md
+          href: app/java-2x-collectd.md
         - name: Mesures Micrometer
           displayname: java
-          href: app/micrometer-java.md
+          href: app/java-2x-micrometer.md
         - name: Les vues
           items:
             - name: Concepteur de vue

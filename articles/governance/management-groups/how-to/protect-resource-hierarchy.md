@@ -3,12 +3,12 @@ title: Guide pratique pour protéger votre hiérarchie de ressources – Gouvern
 description: Découvrez comment protéger votre hiérarchie de ressources avec des paramètres de hiérarchie qui incluent la définition du groupe d’administration par défaut.
 ms.date: 04/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 11c20ccf5aff74d810533cd56e0a7b116f2dc64b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: c87603510d036efded1331a5c08a7aae17326d09
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303642"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765158"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Comment protéger votre hiérarchie de ressources
 
@@ -113,7 +113,7 @@ Pour désactiver le paramètre, utilisez le même point de terminaison et attrib
 
 ## <a name="powershell-sample"></a>Exemple de code PowerShell
 
-PowerShell n’a pas de commande ’Az’pour définir le groupe d’administration par défaut ou ne pas exiger d’autorisation, mais comme solution de contournement, vous pouvez utiliser l’API REST avec l’exemple PowerShell ci-dessous :
+PowerShell n’a pas de commande « Az » pour définir le groupe d’administration par défaut ou l’autorisation requise, mais comme solution de contournement, vous pouvez utiliser l’API REST avec l’exemple PowerShell ci-dessous :
 
 ```powershell
 $root_management_group_id = "Enter the ID of root management group"

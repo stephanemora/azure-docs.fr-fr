@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 04/02/2021
 ms.author: aahi
-ms.openlocfilehash: d7f62082d860d8ec39a5937af5c1bae81b372caa
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: b1af48aa2aad3daa37a3ca4073d44574b5b05e6c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906581"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742118"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exemple : Détecter la langue avec Analyse de texte
 
@@ -91,9 +91,9 @@ Toutes les requêtes POST retournent une réponse au format JSON avec les ID et 
 
 La sortie est retournée immédiatement. Vous pouvez diffuser les résultats vers une application qui accepte JSON ou enregistrer la sortie dans un fichier sur le système local. Ensuite, importez la sortie dans une application que vous pouvez utiliser pour trier, rechercher et manipuler les données.
 
-Les résultats de l’exemple de demande doivent ressembler au code JSON suivant. Notez qu’il s’agit d’un document unique contenant plusieurs éléments. La sortie est en anglais. Les identificateurs de langue incluent un nom convivial et un code de langue au format [ISO 639-1](https://www.iso.org/standard/22109.html).
+Les résultats de l’exemple de requête doivent ressembler au document JSON suivant. Notez qu’il s’agit d’un seul document JSON comportant plusieurs éléments, où chaque élément représente le résultat de la détection pour chaque document que vous soumettez. La sortie est en anglais. 
 
-Un score positif de 1,0 exprime le niveau de confiance possible le plus haut de l’analyse.
+La détection de langue retourne une langue prédominante pour un seul document ainsi que son nom [ISO 639-1](https://www.iso.org/standard/22109.html), son nom convivial et son score de confiance. Un score positif de 1,0 exprime le niveau de confiance possible le plus haut de l’analyse.
 
 ```json
 {
