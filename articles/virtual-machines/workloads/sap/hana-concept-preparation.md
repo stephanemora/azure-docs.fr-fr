@@ -3,26 +3,26 @@ title: Principes de récupération d’urgence et de préparation sur SAP HANA s
 description: Principes de récupération d’urgence et de préparation sur SAP HANA sur Azure (grandes Instances)
 services: virtual-machines-linux
 documentationcenter: ''
-author: saghorpa
+author: Ajayan1008
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
-ms.author: saghorpa
+ms.date: 05/10/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: babd7c1dcae9d83af1f6c41e756b663d92d6d486
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c8c52235a96a7f83d0bcecc2a9f9ba64c1e164a2
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677126"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109733079"
 ---
 # <a name="disaster-recovery-principles"></a>Principes de la récupération d’urgence
 
-Les grandes instances HANA offrent une fonctionnalité de récupération d’urgence entre les horodatages de grande instance HANA dans différentes régions Azure. Par exemple, si vous déployez des unités de grande instance HANA dans la région Azure USA Ouest, vous pouvez utiliser des unités de grande instance HANA dans la région USA Est comme des unités de récupération d’urgence. Comme mentionné précédemment, la récupération d’urgence n’est pas configurée automatiquement, car vous devez acheter une autre unité de grande instance HANA dans la région de la récupération d’urgence. La configuration de la récupération d’urgence fonctionne pour les configurations avec montée en puissance et avec montée en puissance parallèle. 
+Les grandes instances HANA offrent une fonctionnalité de récupération d’urgence entre les horodatages de grande instance HANA dans différentes régions Azure. Par exemple, si vous déployez des unités de grande instance HANA dans la région Azure USA Ouest, vous pouvez utiliser des unités de grande instance HANA dans la région USA Est comme des unités de récupération d’urgence. Comme mentionné précédemment, la récupération d’urgence n’est pas configurée automatiquement, car vous devez payer pour une autre unité de grande instance HANA dans la région de la récupération d’urgence. La configuration de la récupération d’urgence fonctionne pour les configurations avec scale-up et scale-out. 
 
 Dans les scénarios déployés jusqu’à présent, nos clients se servent de l’unité dans la région de la récupération d’urgence pour exécuter des systèmes de non-production qui utilisent une instance HANA installée. L’unité de grande instance HANA doit avoir la même référence SKU que celle utilisée à des fins de production. L’image suivante montre la configuration de disque entre l’unité du serveur dans la région de production Azure et la région de récupération d’urgence :
 
@@ -34,9 +34,9 @@ Comme le montre cette vue d’ensemble, vous devez commander un deuxième ensemb
 - /hana/logbackups 
 - /hana/shared (/usr/sap compris)
 
-Le volume /hana/log n’est pas répliqué, car le journal des transactions SAP HANA n’est pas nécessaire avec le mode de restauration depuis ces volumes qui est employé. 
+Le volume /hana/log n’est pas répliqué car le journal des transactions SAP HANA n’est pas nécessaire lors d’une restauration à partir de ces volumes. 
 
-La fonctionnalité de récupération d’urgence proposée est la fonctionnalité de réplication de stockage offerte par l’infrastructure des grandes instances HANA. La fonctionnalité qui est utilisée côté stockage n’est pas un flux constant de modifications répliquées de manière asynchrone à mesure que des changements sont apportés au volume de stockage. Il s’agit plutôt d’un mécanisme qui repose sur le fait que des captures instantanées de ces volumes sont régulièrement créées. La différence entre une capture instantanée déjà répliquée et une nouvelle capture instantanée non encore répliquée est ensuite transférée au site de récupération d’urgence dans les volumes de disque cibles.  Ces captures instantanées sont stockées sur les volumes et doivent, en cas de basculement dans le cadre d’une récupération d’urgence, être restaurées sur ces volumes.  
+La fonctionnalité de récupération d’urgence proposée est la réplication de stockage offerte par l’infrastructure des grandes instances HANA. La fonctionnalité utilisée côté stockage n’est pas un flux constant de modifications répliquées de manière asynchrone à mesure que des changements sont apportés au volume de stockage. Il s’agit plutôt d’un mécanisme reposant sur la création régulière de captures instantanées de ces volumes. La différence entre une capture instantanée déjà répliquée et une nouvelle capture instantanée non encore répliquée est ensuite transférée au site de récupération d’urgence dans les volumes de disque cibles.  Ces captures instantanées sont stockées sur les volumes et doivent, en cas de basculement dans le cadre d’une récupération d’urgence, être restaurées sur ces volumes.  
 
 Le premier transfert de la totalité des données d’un volume doit avoir lieu avant que la quantité de données ne devienne inférieure aux données différentielles entre les captures instantanées. Ainsi, les volumes sur le site de récupération d’urgence contiennent chacun des captures instantanées de volume effectuées sur le site de production. Au final, vous pouvez utiliser ce système de récupération d’urgence pour revenir à un état antérieur et récupérer des données perdues, sans restaurer le système de production.
 
