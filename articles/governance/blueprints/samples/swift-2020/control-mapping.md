@@ -3,12 +3,12 @@ title: Exemples de contrôles de blueprint SWIFT CSP-CSCF v2020
 description: Correspondance des contrôles de l’exemple de blueprint SWIFT CSP-CSCF v2020. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 9d385cfddae11b026cd93f49c1bc41ca48265a87
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 5f534853fb34be75f5bafcf0eb5dc90cf5afcc1a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386174"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733964"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint SWIFT CSP-CSCF v2020
 
@@ -37,7 +37,7 @@ Le [contrôle d’accès en fonction du rôle Azure](../../../../role-based-acce
 - Faire l’audit des machines virtuelles n’utilisant aucun disque managé
 - Les clusters Service Fabric ne doivent utiliser Azure Active Directory que pour l’authentification client
 
-## <a name="29a--account-management--account-monitoring--atypical-usage"></a>2.9A  Gestion des comptes | Supervision des comptes/utilisation atypique
+## <a name="29a-account-management--account-monitoring--atypical-usage"></a>2.9A Gestion des comptes | Supervision des comptes/utilisation atypique
 
 L’accès juste-à-temps (JIT) à la machine virtuelle verrouille le trafic entrant vers les machines virtuelles Azure, réduisant l’exposition aux attaques tout en facilitant la connexion aux machines virtuelles en cas de besoin. Toutes les demandes JIT pour accéder aux machines virtuelles sont journalisées dans le journal d’activité, ce qui vous permet de détecter toute utilisation atypique. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pouvant prendre en charge l’accès juste-à-temps mais qui n’ont pas encore été configurées.
 
@@ -122,19 +122,19 @@ Ces définitions de stratégie vérifient et appliquent le déploiement de l’a
 
 ## <a name="11-least-functionality--prevent-program-execution"></a>1.1 Fonctionnalités essentielles | Empêcher l’exécution d’un programme
 
-Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle des applications peut s’exécuter dans un mode de mise en conformité qui empêche l’exécution d’applications non approuvées. Ce blueprint attribue une définition Azure Policy qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
+Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle des applications peut s’exécuter dans un mode de mise en conformité qui empêche l’exécution d’applications non approuvées. Ce blueprint affecte une définition Azure Policy qui vous aide à superviser les machines virtuelles pour lesquelles une liste d’autorisation d’applications est recommandée mais n’a pas encore été configurée.
 
 - Les contrôles d’application adaptatifs pour définir les applications sécurisées doivent être activés sur vos machines
 
 ## <a name="11-least-functionality--authorized-software--whitelisting"></a>1.1 Fonctionnalités essentielles | Logiciels autorisés/Mise sur liste verte
 
-Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications vous permet de créer des listes d’applications approuvées pour vos machines virtuelles. Ce blueprint attribue une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
+Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications vous permet de créer des listes d’applications approuvées pour vos machines virtuelles. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste d’autorisation d’applications est recommandée mais n’a pas encore été configurée.
 
 - Les contrôles d’application adaptatifs pour définir les applications sécurisées doivent être activés sur vos machines
 
 ## <a name="11-user-installed-software"></a>1.1 Logiciels installés par l’utilisateur
 
-Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications peut vous aider à appliquer et à superviser la conformité à des stratégies de restriction logicielle. Ce blueprint attribue une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
+Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications peut vous aider à appliquer et à superviser la conformité à des stratégies de restriction logicielle. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste d’autorisation d’applications est recommandée mais n’a pas encore été configurée.
 
 - Les contrôles d’application adaptatifs pour définir les applications sécurisées doivent être activés sur vos machines
 - Les machines virtuelles doivent être migrées vers de nouvelles ressources Azure Resource Manager
@@ -188,7 +188,7 @@ Azure Security Center fournit des fonctionnalités de création de rapports qui 
 - Advanced Data Security doit être activé sur vos serveurs SQL
 - L’audit sur SQL Server doit être activé
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
-- Les vulnérabilités de vos bases de données SQL doivent être éliminées 
+- Les vulnérabilités de vos bases de données SQL doivent être éliminées
 - Les vulnérabilités de la configuration de sécurité sur vos machines doivent être corrigées
 
 ## <a name="13-denial-of-service-protection"></a>1.3 Protection contre le déni de service

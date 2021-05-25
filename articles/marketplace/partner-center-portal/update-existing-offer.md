@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: trkeya
 ms.author: trkeya
-ms.date: 10/27/2020
+ms.date: 04/14/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c28ab557f6aac94fa9acde78c7433b850ecba0be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4ffb01b6fcd9fe3e487abcf306470dd9529eec0
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100097249"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109635208"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Mettre à jour des offres existantes dans le marketplace commercial
 
@@ -23,7 +23,7 @@ Cet article explique comment mettre à jour les offres et les plans existants et
 
 Procédez comme suit pour mettre à jour une offre qui a été publiée en préversion ou qui est active.
 
-1. Sélectionnez le nom de l’offre à mettre à jour. L’état de l’offre peut être répertorié comme suit : **Préversion**, **Activée**, **Publication en cours**, **Brouillon**, **Attention requise** ou **Non disponible** (si vous avez précédemment choisi d’arrêter de vendre l’offre). Une fois sélectionnée, la page **Vue d’ensemble de l’offre** de cette offre s’ouvre.
+1. Sélectionnez le nom de l’offre à mettre à jour. L’état de l’offre peut être répertorié comme suit : **Préversion**, **Activée**, **Publication en cours**, **Brouillon**, **Attention requise** ou **Non disponible** (si vous avez précédemment choisi de déprécier l’offre [anciennement Arrêter la vente]). Une fois sélectionnée, la page **Vue d’ensemble de l’offre** de cette offre s’ouvre.
 1. Sélectionnez la page de l’offre que vous souhaitez mettre à jour, par exemple **Propriétés**, **Liste des offres** ou **Préversion** (ou sélectionnez **Mise à jour** dans la carte appropriée sur la page **Vue d’ensemble de l’offre**).
 1. Apportez vos modifications, puis sélectionnez **Enregistrer le brouillon**. Répétez ce processus jusqu'à ce que toutes vos modifications soient terminées.
 1. Passez en revue les modifications apportées à la page **[Comparer](#compare-changes-to-your-offer)** .
@@ -71,7 +71,7 @@ Maintenant que vous avez masqué le plan avec l’ancien prix, créez une copie 
 2. Sélectionnez **Créer un plan**. Entrez un **ID de plan** et un **Nom de plan**, puis sélectionnez **Créer**.
 1. Pour réutiliser la configuration technique du plan que vous avez masqué, activez la case à cocher **Réutiliser la configuration technique**. Pour en savoir plus, consultez [Créer des plans pour une offre de machine virtuelle](../azure-vm-create-plans.md).
     > [!IMPORTANT]
-    > Si vous sélectionnez **Ce plan réutilise la configuration technique d’un autre plan**, vous ne pourrez pas arrêter la vente du plan parent ultérieurement. N’utilisez pas cette option si vous souhaitez arrêter la vente du plan parent.
+    > Si vous sélectionnez **Ce plan réutilise la configuration technique d’un autre plan**, vous ne pourrez pas déprécier le plan parent (anciennement Arrêter la vente) ultérieurement. N’utilisez pas cette option si vous souhaitez déprécier le plan parent (anciennement Arrêter la vente).
 3. Renseignez toutes les sections requises pour le nouveau plan, y compris le nouveau prix.
 1. Sélectionnez **Enregistrer le brouillon**.
 1. Une fois que vous avez terminé toutes les sections requises pour le nouveau plan, sélectionnez **Vérifier et publier**. Cela permet d’envoyer votre offre à des fins de révision et de publication. Lisez [Consulter et publier une offre sur la place de marché commerciale](../review-publish-offer.md) pour plus d’informations.
@@ -125,17 +125,20 @@ Si vous avez des modifications en préversion qui ne sont pas en direct, vous po
 
 Pensez à republier votre offre après avoir apporté des mises à jour pour que les modifications prennent effet.
 
-## <a name="stop-selling-an-offer-or-plan"></a>Arrêter la vente d’une offre ou d’un plan
+## <a name="deprecate-an-offer-or-plan"></a>Déprécier une offre ou un plan
+
+> [!IMPORTANT]
+> Le nom de l’option Arrêter la vente a changé pour devenir Déprécier.
 
 Vous pouvez supprimer des listes et des plans d’offres du marketplace commercial de Microsoft, ce qui empêchera les nouveaux clients de les trouver et de les acheter. Les clients ayant déjà acquis l’offre ou le plan peuvent continuer à les utiliser, et ils peuvent les télécharger à nouveau si nécessaire. Toutefois, ils ne recevront pas les mises à jour si vous décidez de republier l’offre ou le plan ultérieurement.
 
-- Pour arrêter la vente d’une offre après sa publication, sélectionnez **Arrêter la vente** à partir de la page **Vue d’ensemble de l’offre**. Dans les quelques heures qui suivent votre confirmation, l’offre n’est plus visible sur le marketplace commercial.
+- Pour déprécier une offre (anciennement Arrêter la vente) après sa publication, sélectionnez **Déprécier** à partir de la page **Vue d’ensemble de l’offre**. Dans les quelques heures qui suivent votre confirmation, l’offre n’est plus visible sur le marketplace commercial.
 
-- Pour arrêter de vendre un plan, sélectionnez **Arrêter la vente** à partir de la page **Vue d’ensemble du plan**. L’option d’arrêt d’un plan est uniquement disponible si l’offre contient plus d’un plan. Vous pouvez choisir d’arrêter la vente d’un seul plan sans influer sur les autres plans au sein de votre offre.
+- Pour déprécier un plan (anciennement Arrêter la vente), sélectionnez **Déprécier** dans la page **Vue d’ensemble du plan**. L’option permettant de déprécier un plan (anciennement Arrêter la vente) est uniquement disponible si l’offre contient plus d’un plan. Vous pouvez choisir de déprécier un seul plan (anciennement Arrêter la vente) sans influer sur les autres plans au sein de votre offre.
      >[!NOTE]
-     > Une fois que vous avez confirmé vouloir arrêter la vente du plan, vous devez republier l’offre pour que la modification prenne effet.
+     > Une fois que vous avez confirmé vouloir déprécier le plan (anciennement Arrêter la vente), vous devez republier l’offre pour que la modification prenne effet.
 
-Une fois que vous avez cessé de vendre une offre ou un plan, vous les voyez toujours dans Espace partenaires avec un état **Non disponible**. Si vous décidez de référencer ou de vendre à nouveau cette offre ou ce plan, suivez les instructions pour [mettre à jour une offre publiée](#update-a-published-offer). N’oubliez pas que vous devrez **publier** à nouveau l’offre ou le plan après y avoir apporté des modifications.
+Une fois que vous avez déprécié une offre ou un plan (anciennement Arrêter la vente), vous les voyez toujours dans Espace partenaires avec un état **Non disponible**. Si vous décidez de référencer ou de vendre à nouveau cette offre ou ce plan, suivez les instructions pour [mettre à jour une offre publiée](#update-a-published-offer). N’oubliez pas que vous devrez **publier** à nouveau l’offre ou le plan après y avoir apporté des modifications.
 
 ## <a name="remove-offers-from-existing-customers"></a>Supprimer des offres de clients existants
 
