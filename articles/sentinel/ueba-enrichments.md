@@ -15,25 +15,58 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 01/04/2021
 ms.author: yelevin
-ms.openlocfilehash: daba8fc1f645b51dc8668c806be63744b6ae0842
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d393b325d30e2136ac08741c4b5010130535300a
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97901599"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664615"
 ---
 # <a name="azure-sentinel-ueba-enrichments-reference"></a>Informations de référence sur les enrichissements UEBA Azure Sentinel
 
-Ces tableaux répertorient et décrivent les enrichissements d’entités qui peuvent être utilisés pour cibler et affiner votre analyse des incidents de sécurité.
+Cet article décrit le tableau **Analyse des comportements** qui se trouve sur les [pages de détails des entités](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages), ainsi que d’autres enrichissements d’entités que vous pouvez utiliser pour cibler et affiner vos enquêtes sur les incidents de sécurité.
 
-Les deux premiers tableaux, **Insights sur les utilisateurs** et **Insights sur les appareils**, contiennent des informations sur les entités provenant des sources Active Directory/Azure AD et Microsoft Threat Intelligence.
+Le [tableau Insights sur les utilisateurs](#user-insights-table) et le [tableau Insights sur les appareils](#device-insights-table) contiennent des informations sur les entités provenant des sources Active Directory/Azure AD et Microsoft Threat Intelligence.
 
-<a name="baseline-explained"></a>Le reste des tableaux, sous **Tableaux d’insights sur les activités**, contiennent des informations sur les entités basées sur les profils de comportement établis par l’analyse du comportement des entités d’Azure Sentinel. Les activités sont analysées par rapport à une ligne de base qui est compilée dynamiquement à chaque utilisation. Chaque activité a sa période de référence définie à partir de laquelle cette base de référence dynamique est dérivée. Cette période est spécifiée dans la colonne [**Ligne de base**](#activity-insights-tables) de ce tableau.
+D’autres tableaux, décrits dans la section [Tableaux d’insights sur les activités](#activity-insights-tables), contiennent des informations sur les entités basées sur les profils comportementaux établis par l’analyse du comportement des entités d’Azure Sentinel. 
+
+<a name="baseline-explained"></a>Les activités des utilisateurs sont analysées par rapport à une ligne de base qui est compilée de façon dynamique à chaque utilisation. Chaque activité a sa période de référence définie à partir de laquelle la base de référence dynamique est dérivée. La période de référence est spécifiée dans la colonne [**Ligne de base**](#activity-insights-tables) de ce tableau.
 
 > [!NOTE] 
-> Le champ **Nom d’enrichissement** dans les trois tableaux affiche deux lignes d’informations. La première, en **gras**, est le « nom convivial » de l’enrichissement. La deuxième, *(en italiques et entre parenthèses)* , est le nom de champ de l’enrichissement, tel qu’il est stocké dans le [**tableau d’analyse comportementale**](identify-threats-with-entity-behavior-analytics.md#data-schema).
+> Le champ **Nom d’enrichissement** des tableaux [Insights sur les utilisateurs](#user-insights-table), [Insights sur les appareils](#device-insights-table) et [Insights sur les activités](#activity-insights-tables) affiche deux lignes d’informations. 
+> 
+> La première, en **gras**, est le « nom convivial » de l’enrichissement. La deuxième, *(en italiques et entre parenthèses)* , est le nom de champ de l’enrichissement, tel qu’il est stocké dans le [**tableau d’analyse comportementale**](#behavior-analytics-table).
+
+## <a name="behavior-analytics-table"></a>Tableau d’analyse des comportements
+
+Le tableau suivant décrit les données d’analyse des comportements affichées sur chaque [page de détails de l’entité](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages) dans Azure Sentinel.
+
+| Champ                     | Description                                                         |
+|---------------------------|---------------------------------------------------------------------|
+| **TenantId**                  | Numéro d’identification unique du locataire                                      |
+| **SourceRecordId**            | Numéro d’identification unique de l’événement EBA                                   |
+| **TimeGenerated**             | Horodateur de l’occurrence de l’activité                              |
+| **TimeProcessed**             | Horodateur du traitement de l’activité par le moteur EBA            |
+| **ActivityType**              | Catégorie de haut niveau de l’activité                                 |
+| **ActionType**                | Nom normalisé de l’activité                                     |
+| **UserName**                  | Nom d’utilisateur de l’utilisateur ayant lancé l’activité                    |
+| **UserPrincipalName**         | Nom d’utilisateur complet de l’utilisateur ayant lancé l’activité               |
+| **EventSource**               | Source de données ayant fourni l’événement d’origine                        |
+| **SourceIPAddress**           | Adresse IP à partir de laquelle l’activité a été lancée                        |
+| **SourceIPLocation**          | Pays à partir duquel l’activité a été lancée, enrichie à partir de l’adresse IP |
+| **SourceDevice**              | nom d’hôte de l’appareil ayant lancé l’activité                  |
+| **DestinationIPAddress**      | Adresse IP de la cible de l’activité                            |
+| **DestinationIPLocation**     | Pays de la cible de l’activité, enrichi à partir de l’adresse IP     |
+| **DestinationDevice**         | Nom de l’appareil cible                                           |
+| **UsersInsights**         | Enrichissements contextuels des utilisateurs impliqués                            |
+| **DevicesInsights**       | Enrichissements contextuels des appareils concernés                          |
+| **ActivityInsights**      | Analyse contextuelle de l’activité basée sur notre profilage              |
+| **InvestigationPriority** | Score d’anomalie, entre 0 et 10 (0 = bénigne, 10 = très anormale)         |
+|
 
 ## <a name="user-insights-table"></a>Tableau d’insights sur les utilisateurs
+
+Le tableau suivant décrit les <?> listés dans le tableau **Insights sur les utilisateurs** dans Azure Sentinel (où ?).
 
 | Nom d’enrichissement | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -64,7 +97,7 @@ Les deux premiers tableaux, **Insights sur les utilisateurs** et **Insights sur 
 
 ## <a name="activity-insights-tables"></a>Tableaux d’insights sur les activités
 
-#### <a name="action-performed"></a>Action effectuée
+### <a name="action-performed"></a>Action effectuée
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -75,7 +108,7 @@ Les deux premiers tableaux, **Insights sur les utilisateurs** et **Insights sur 
 | **Action effectuée de façon inhabituelle dans le locataire**<br>*(ActionUncommonlyPerformedInTenant)* | 180 | L’action n’est généralement pas effectuée dans l’organisation. | True, False |
 |
 
-#### <a name="app-used"></a>Application utilisée
+### <a name="app-used"></a>Application utilisée
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -86,7 +119,7 @@ Les deux premiers tableaux, **Insights sur les utilisateurs** et **Insights sur 
 | **Application utilisée de façon inhabituelle dans le locataire**<br>*(AppUncommonlyUsedInTenant)* | 180 | L’application n’est généralement pas utilisée dans l’organisation. | True, False |
 | 
 
-#### <a name="browser-used"></a>Navigateur utilisé
+### <a name="browser-used"></a>Navigateur utilisé
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -97,7 +130,7 @@ Les deux premiers tableaux, **Insights sur les utilisateurs** et **Insights sur 
 | **Navigateur utilisé de façon inhabituelle dans le locataire**<br>*(BrowserUncommonlyUsedInTenant)* | 30 | Le navigateur n’est généralement pas utilisé dans l’organisation. | True, False |
 | 
 
-#### <a name="country-connected-from"></a>Pays à partir duquel la connexion est établie
+### <a name="country-connected-from"></a>Pays à partir duquel la connexion est établie
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -108,7 +141,7 @@ Les deux premiers tableaux, **Insights sur les utilisateurs** et **Insights sur 
 | **Pays d’où la connexion est inhabituelle dans le locataire**<br>*(CountryUncommonlyConnectedFromInTenant)* | 90 | L’emplacement géographique, tel que résolu à partir de l’adresse IP, n’est généralement pas utilisé dans l’organisation pour établir une connexion. | True, False |
 | 
 
-#### <a name="device-used-to-connect"></a>Appareil utilisé pour se connecter
+### <a name="device-used-to-connect"></a>Appareil utilisé pour se connecter
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -119,7 +152,7 @@ Les deux premiers tableaux, **Insights sur les utilisateurs** et **Insights sur 
 | **Appareil utilisé de façon inhabituelle dans le locataire**<br>*(DeviceUncommonlyUsedInTenant)* | 180 | L’appareil n’est généralement pas utilisé dans l’organisation. | True, False |
 | 
 
-#### <a name="other-device-related"></a>Autres insights relatifs aux appareils
+### <a name="other-device-related"></a>Autres insights relatifs aux appareils
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -127,7 +160,7 @@ Les deux premiers tableaux, **Insights sur les utilisateurs** et **Insights sur 
 | **Famille d’appareils utilisée de façon inhabituelle dans le locataire**<br>*(DeviceFamilyUncommonlyUsedInTenant)* | 30 | La famille d’appareils n’est généralement pas utilisée dans l’organisation. | True, False |
 | 
 
-#### <a name="internet-service-provider-used-to-connect"></a>Fournisseur de services Internet utilisé pour la connexion
+### <a name="internet-service-provider-used-to-connect"></a>Fournisseur de services Internet utilisé pour la connexion
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -138,7 +171,7 @@ Les deux premiers tableaux, **Insights sur les utilisateurs** et **Insights sur 
 | **ISP utilisé de façon inhabituelle dans le locataire**<br>*(ISPUncommonlyUsedInTenant)* | 30 | L’ISP n’est généralement pas utilisé dans l’organisation. | True, False |
 | 
 
-#### <a name="resource-accessed"></a>Ressource consultée
+### <a name="resource-accessed"></a>Ressource consultée
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -149,7 +182,7 @@ Les deux premiers tableaux, **Insights sur les utilisateurs** et **Insights sur 
 | **Ressource consultée de façon inhabituelle dans le locataire**<br>*(ResourceUncommonlyAccessedInTenant)* | 180 | La ressource n’est généralement pas consultée dans l’organisation. | True, False |
 | 
 
-#### <a name="miscellaneous"></a>Divers
+### <a name="miscellaneous"></a>Divers
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |

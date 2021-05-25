@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentation Azure Active Directory B2C
-summary: Azure Active Directory B2C (Azure AD B2C) est un service de gestion des identités qui vous offre un contrôle personnalisé sur le mode d’inscription, de connexion et de gestion de profils de vos clients quand ils utilisent vos applications iOS, Android, .NET, monopages (SPA) et autres. Découvrez comment utiliser Azure AD B2C en tirant parti de nos guides de démarrage rapide, de nos tutoriels et de nos exemples.
+summary: Azure Active Directory B2C (Azure AD B2C) est un service de gestion des identités qui vous offre un contrôle personnalisé sur le mode d’inscription, de connexion et de gestion de profils de vos clients quand ils utilisent vos applications iOS, Android, .NET, monopages (SPA) et autres. Découvrez comment utiliser Azure AD B2V en tirant parti de nos guides de démarrage rapide, de nos tutoriels et de nos exemples.
 metadata:
   title: Documentation Azure Active Directory B2C
   description: Découvrez comment utiliser Azure Active Directory B2C pour personnaliser et contrôler la façon dont les clients s’inscrivent, se connectent et gèrent leurs profils lorsqu’ils utilisent vos applications.
@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   ms.date: 01/28/2020
-  ms.openlocfilehash: acf02fcb0d827228bf6709fd871d1248e895f9fd
-  ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+  ms.openlocfilehash: cf4c84aefbf05da66f6e33a3890f022176bfaccf
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/17/2021
-  ms.locfileid: "100555080"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110059749"
 landingContent:
 - title: Azure AD B2C
   linkLists:
@@ -89,7 +89,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Gérer les menaces
+    - text: Gérer les attaques d’informations d’identification
       url: threat-management.md
     - text: Apprendre où les données utilisateur sont stockées
       url: data-residency.md

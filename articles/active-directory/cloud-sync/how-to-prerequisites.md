@@ -11,12 +11,12 @@ ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0277d4ce263610576178e3844a0665ab6506fbfa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cd2d660a0591506b59aaa1b11526175582d2785b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579159"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758768"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Prérequis pour la synchronisation cloud Azure AD Connect
 Cet article fournit des conseils sur la façon de choisir et d’utiliser la synchronisation cloud Azure Active Directory (Azure AD) Connect en tant que solution d’identité.
@@ -116,7 +116,7 @@ Les limitations connues sont les suivantes :
 
 ### <a name="delta-synchronization"></a>Synchronisation d’écart
 
-- Le filtre d’étendue du groupe pour la synchronisation delta ne prend pas en charge plus de 1 500 membres.
+- Le filtre d’étendue du groupe pour la synchronisation delta ne prend pas en charge plus de 50 000 membres.
 - Lorsque vous supprimez un groupe utilisé dans le cadre d’un filtre d’étendue de groupe, les utilisateurs qui sont membres du groupe ne sont pas supprimés. 
 - Lorsque vous renommez l’unité d’organisation ou le groupe qui se trouve dans l’étendue, la synchronisation delta ne supprime pas les utilisateurs.
 
@@ -125,6 +125,11 @@ Les limitations connues sont les suivantes :
 
 ### <a name="group-re-naming-or-ou-re-naming"></a>Renommer le groupe ou renommer l’unité d’organisation
 - Si vous renommez un groupe ou une unité d’organisation dans AD dans le cadre d’une configuration donnée, le travail de synchronisation cloud ne pourra pas reconnaître le changement de nom dans AD. Le travail ne sera pas mis en quarantaine et restera sain.
+
+### <a name="scoping-filter"></a>Filtre d’étendue
+Quand vous utilisez le filtre d’étendue des unités d’organisation
+- Vous pouvez uniquement synchroniser jusqu’à 59 unités d’organisation distinctes pour une configuration donnée. 
+- Les unités d’organisation imbriquées sont prises en charge : cela signifie que vous **pouvez** synchroniser une unité d’organisation contenant 130 unités d’organisation imbriquées, mais que vous **ne pouvez pas** synchroniser 60 unités d’organisation distinctes dans la même configuration. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes 

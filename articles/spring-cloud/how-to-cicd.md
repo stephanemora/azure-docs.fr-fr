@@ -6,30 +6,31 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 6991fe7023991ed507c3dbbf7ca3db77545d0886
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3335dbb749369129889f132a68be0270a1016f1c
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135362"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790790"
 ---
-# <a name="cicd-for-azure-spring-cloud"></a>CI/CD pour Azure Spring Cloud
+# <a name="automate-application-deployments-to-azure-spring-cloud"></a>Automatiser les déploiements d’applications dans Azure Spring Cloud
 
-Les outils d’intégration continue et de livraison continue vous permettent de déployer rapidement des mises à jour d’applications existantes avec un minimum d’effort et de risque. Azure DevOps vous aide à organiser et à contrôler ces travaux clés. Actuellement, Azure Spring Cloud n’offre pas de plug-in Azure DevOps spécifique.  Toutefois, vous pouvez intégrer vos applications Spring Cloud à DevOps à l’aide d’une [tâche Azure CLI](/azure/devops/pipelines/tasks/deploy/azure-cli).
+Les outils d’intégration continue et de livraison continue vous permettent de déployer rapidement des mises à jour d’applications existantes avec un minimum d’effort et de risque. Azure DevOps vous aide à organiser et à contrôler ces travaux clés. 
 
-Cet article montre comment utiliser une tâche Azure CLI avec Azure Spring Cloud pour l’intégration avec Azure DevOps.
+Cet article explique comment utiliser la [tâche Azure Spring Cloud pour Azure pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud) afin de déployer des applications.
 
 ## <a name="create-an-azure-resource-manager-service-connection"></a>Créer une connexion de service Azure Resource Manager
 
 Pour découvrir comment créer une connexion de service Azure Resource Manager à votre projet Azure DevOps, consultez [cet article](/azure/devops/pipelines/library/connect-to-azure). Veillez à sélectionner le même abonnement que celui utilisé pour votre instance de service Azure Spring Cloud.
 
-## <a name="azure-cli-task-templates"></a>Modèles de tâche Azure CLI
+## <a name="build-and-deploy-apps"></a>Créer et déployer des applications
+
 ::: zone pivot="programming-language-csharp"
 ### <a name="deploy-artifacts"></a>Déployer des artefacts
 
-Vous pouvez générer et déployer vos projets à l’aide d’une série de `tasks`. Cet extrait de code définit des variables, une tâche .NET Core pour générer l’application et une tâche Azure CLI pour déployer le fichier *.zip*.
+Vous pouvez générer et déployer vos projets à l’aide d’une série de tâches. Cet extrait de code définit des variables, une tâche .NET Core pour générer l’application et une tâche Azure Spring Cloud pour déployer l’application.
 
 ```yaml
 variables:
@@ -39,7 +40,7 @@ variables:
   planetAppName: 'planet-weather-provider'
   solarAppName: 'solar-system-weather'
   serviceName: '<your service name>'
-  resourceGroupName: '<your resource group name>'
+
 
 steps:
 # Restore, build, publish and package the zipped planet app
@@ -52,41 +53,84 @@ steps:
     modifyOutputPath: false
     workingDirectory: $(workingDirectory)
 
-# Configure Azure CLI and install spring-cloud extension
-- task: AzureCLI@1
+# Deploy the planet app
+- task: AzureSpringCloud@0
   inputs:
-    azureSubscription: '<your subscription>'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      az extension add --name spring-cloud --y
-      az configure --defaults group=${{ variables.resourceGroupName }}
-      az configure --defaults spring-cloud=${{ variables.serviceName }}
-      az spring-cloud app deploy -n ${{ variables.planetAppName }} --runtime-version NetCore_31 --main-entry ${{ variables.planetMainEntry }} --artifact-path ./${{ variables.planetAppName }}/publish-deploy-planet.zip
-      az spring-cloud app deploy -n ${{ variables.solarAppName }} --runtime-version NetCore_31 --main-entry ${{ variables.solarMainEntry }} --artifact-path ./${{ variables.solarAppName }}/publish-deploy-solar.zip
-      az spring-cloud app update -n ${{ variables.solarAppName }} --assign-endpoint
-      az spring-cloud app show -n ${{ variables.solarAppName }} -o table
-    workingDirectory: '${{ variables.workingDirectory }}/src'
+    azureSubscription: '<Service Connection Name>'
+    Action: 'Deploy'
+    AzureSpringCloud: $(serviceName)
+    AppName: 'testapp'
+    UseStagingDeployment: false
+    DeploymentName: 'default'
+    Package: $(workingDirectory)/src/$(planetAppName)/publish-deploy-planet.zip
+    RuntimeVersion: 'NetCore_31'
+    DotNetCoreMainEntryPath: $(planetMainEntry)
+
+# Deploy the solar app
+- task: AzureSpringCloud@0
+  inputs:
+    azureSubscription: '<Service Connection Name>'
+    Action: 'Deploy'
+    AzureSpringCloud: $(serviceName)
+    AppName: 'testapp'
+    UseStagingDeployment: false
+    DeploymentName: 'default'
+    Package: $(workingDirectory)/src/$(solarAppName)/publish-deploy-solar.zip
+    RuntimeVersion: 'NetCore_31'
+    DotNetCoreMainEntryPath: $(solarMainEntry)
 ```
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 ### <a name="deploy-artifacts"></a>Déployer des artefacts
 
-Vous pouvez générer et déployer vos projets à l’aide d’une série de `tasks`. Cet extrait de code définit tout d’abord une tâche Maven pour générer l’application, suivie d’une deuxième tâche qui déploie le fichier JAR à l’aide de l’extension Azure CLI Azure Spring Cloud.
+#### <a name="to-production"></a>En production
+
+Vous pouvez générer et déployer vos projets à l’aide d’une série de tâches. Cet extrait de code définit tout d’abord une tâche Maven pour générer l’application, suivie d’une deuxième tâche qui déploie le fichier JAR à l’aide de la tâche Azure Spring Cloud pour Azure Pipelines.
 
 ```yaml
 steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-- task: AzureCLI@1
+- task: AzureSpringCloud@0
   inputs:
-    azureSubscription: <your service connection name>
-    scriptLocation: inlineScript
-    inlineScript: |
-      az extension add -y --name spring-cloud
-      az spring-cloud app deploy --resource-group <your-resource-group> --service <your-spring-cloud-service> --name <app-name> --jar-path ./target/your-result-jar.jar
-      # deploy other app
+    azureSubscription: '<your service connection name>'
+    Action: 'Deploy'
+    AzureSpringCloud: <your Azure Spring Cloud service>
+    AppName: <app-name>
+    UseStagingDeployment: false
+    DeploymentName: 'default'
+    Package: ./target/your-result-jar.jar
+```
+
+#### <a name="blue-green-deployments"></a>Déploiement Blue-Green
+
+Le déploiement présenté dans la section précédente reçoit immédiatement le trafic de l’application lors du déploiement. Parfois, les développeurs souhaitent tester leurs applications dans l’environnement de production, mais avant que l’application ne reçoive le trafic des clients.
+
+L’extrait de code suivant génère l’application de la même façon que ci-dessus, puis la déploie dans un déploiement intermédiaire. Dans cet exemple, le déploiement intermédiaire doit déjà exister. Pour une autre approche, consultez [Stratégies de déploiement bleu-vert](concepts-blue-green-deployment-strategies.md).
+
+
+```yaml
+steps:
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+- task: AzureSpringCloud@0
+  inputs:
+    azureSubscription: '<your service connection name>'
+    Action: 'Deploy'
+    AzureSpringCloud: <your Azure Spring Cloud service>
+    AppName: <app-name>
+    UseStagingDeployment: true
+    Package: ./target/your-result-jar.jar
+- task: AzureSpringCloud@0
+  inputs:
+    azureSubscription: '<your service connection name>'
+    Action: 'Set Production'
+    AzureSpringCloud: <your Azure Spring Cloud service>
+    AppName: <app-name>
+    UseStagingDeployment: true
 ```
 
 ### <a name="deploy-from-source"></a>Déployer à partir de la source
@@ -94,19 +138,19 @@ steps:
 Il est possible de déployer directement sur Azure sans étape de génération distincte.
 
 ```yaml
-- task: AzureCLI@1
+- task: AzureSpringCloud@0
   inputs:
-    azureSubscription: <your service connection name>
-    scriptLocation: inlineScript
-    inlineScript: |
-      az extension add -y --name spring-cloud
-      az spring-cloud app deploy --resource-group <your-resource-group> --service <your-spring-cloud-service> --name <app-name>
-
-      # or if it is a multi-module project
-      az spring-cloud app deploy --resource-group <your-resource-group> --service <your-spring-cloud-service> --name <app-name> --target-module relative/path/to/module
+    azureSubscription: '<your service connection name>'
+    Action: 'Deploy'
+    AzureSpringCloud: <your Azure Spring Cloud service>
+    AppName: <app-name>
+    UseStagingDeployment: false
+    DeploymentName: 'default'
+    Package: $(Build.SourcesDirectory)
 ```
 ::: zone-end
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Démarrage rapide : Déployer votre première application Azure Spring Cloud](./quickstart.md)
+

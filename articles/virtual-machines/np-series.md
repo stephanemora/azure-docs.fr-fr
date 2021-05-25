@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: 69af7e2129136128e87b4c9b28806b2f02f09e27
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: e56867b66e963239a62a13876fee78f4075ea65b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205392"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108744314"
 ---
 # <a name="np-series"></a>Série NP 
 Les machines virtuelles de la série NP sont alimentées par des FPGA [Xilinx U250](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) pour accélérer les charges de travail, notamment l’inférence machine learning, le transcodage vidéo et la recherche de base de données et Analytics. Les machines virtuelles de la série NP sont également alimentées par des processeurs Intel Xeon 8171M (Skylake) avec une vitesse d’horloge de Turbo de 3,2 GHz.
@@ -23,7 +23,7 @@ Les machines virtuelles de la série NP sont alimentées par des FPGA [Xilinx U2
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 Génération de machine virtuelle prise en charge : Génération 1<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
-[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge ([en préversion](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 <br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | FPGA | Mémoire FPGA : Gio | Disques de données max. | Nombre max. de cartes réseau/Bande passante réseau attendue (Mbits/s) | 
@@ -38,6 +38,10 @@ Génération de machine virtuelle prise en charge : Génération 1<br>
 
 
 ##  <a name="frequently-asked-questions"></a>Forum aux questions
+
+**Q :** Comment demander un quota pour les machines virtuelles NP ?
+
+**R :** Veuillez suivre cette page pour [augmenter les limites par série de machines virtuelles](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). Les machines virtuelles NP sont disponibles dans les régions USA Est, USA Ouest 2, Europe Ouest et Asie Sud-Est.
 
 **Q :** Quelle version de Vitis dois-je utiliser ? 
 
@@ -143,14 +147,7 @@ Pour désactiver Host_Mem(SB) : sudo xbutil host_mem --disable
 
 **R :** Vous devez exécuter la requête xbutil et examiner la partie inférieure. 
 
-**Q :** Si je crée ma propre machine virtuelle et que je déploie XRT manuellement, quelles modifications supplémentaires dois-je effectuer ? 
 
-**R :** Dans /opt/xilinx/xrt/setup.sh, ajoutez une entrée pour XRT_INI_PATH pointant vers /opt/xilinx/xrt/xrt.ini
-
- 
-/opt/xilinx/xrt/xrt.ini doit contenir : <br>
-[Runtime]<br>
-ert=false <br>
 
 ## <a name="other-sizes"></a>Autres tailles
 

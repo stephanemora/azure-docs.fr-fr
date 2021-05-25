@@ -3,13 +3,13 @@ title: Gérer et surveiller les sauvegardes de l’agent MARS
 description: Découvrez comment gérer et surveiller les sauvegardes de l’agent Microsoft Azure Recovery Services (MARS) à l’aide du service Sauvegarde Azure.
 ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 10/07/2019
-ms.openlocfilehash: 4306f01d608542f7453b32b32a1a6894c2379159
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 04/29/2021
+ms.openlocfilehash: 5e495a5a5750ce2a2375000d208d9856ce68d803
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515020"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516683"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gérer les sauvegardes de l’agent Microsoft Azure Recovery Services (MARS) à l’aide du service Sauvegarde Azure
 
@@ -94,9 +94,8 @@ Il existe deux façons d’arrêter la protection de la sauvegarde de fichiers e
   - Vous pourrez restaurer les données sauvegardées pour les points de récupération non expirés.
   - Si vous décidez de reprendre la protection, vous pouvez utiliser l’option *Réactiver la planification de sauvegarde*. Après cela, les données sont conservées en fonction de la nouvelle stratégie de rétention.
 - **Arrêter la protection et supprimer les données de sauvegarde**.
-  - Cette option empêche toutes les futures tâches de sauvegarde de protéger vos données et supprime tous les points de récupération.
-  - Vous recevrez un e-mail d’alerte de suppression des données de sauvegarde comportant le message *Vos données relatives à cet élément de sauvegarde ont été supprimées. Ces données seront temporairement disponibles pendant 14 jours, après quoi elles seront définitivement supprimées* et l’action recommandée *Protégez à nouveau l’élément de sauvegarde dans un délai de 14 jours pour récupérer vos données.*
-  - Pour reprendre la protection, réactivez la protection dans un délai de 14 jours après l’opération de suppression.
+  - Avec cette option, tous les futurs travaux de sauvegarde cesseront de protéger vos données. Si les fonctionnalités de sécurité du coffre ne sont pas activées, tous les points de récupération sont immédiatement supprimés.<br>Si les fonctions de sécurité sont activées, la suppression est retardée de 14 jours et vous recevrez un e-mail d’alerte de suppression des données de sauvegarde comportant le message *Vos données relatives à cet élément de sauvegarde ont été supprimées. Ces données seront temporairement disponibles pendant 14 jours, après quoi elles seront définitivement supprimées* et l’action recommandée *Protégez à nouveau l’élément de sauvegarde dans un délai de 14 jours pour récupérer vos données.*<br>Dans cet état, la stratégie de rétention continue à s’appliquer, et les données de sauvegarde restent facturables. [En savoir plus](backup-azure-security-feature.md#enable-security-features) sur l’activation des fonctionnalités de sécurité du coffre.
+  - Pour reprendre la protection, réactivez la protection du serveur dans un délai de 14 jours après l’opération de suppression. Pendant cette période, vous pouvez également restaurer les données sur un autre serveur.
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Arrêter la protection et conserver les données de sauvegarde
 

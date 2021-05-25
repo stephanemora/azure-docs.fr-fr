@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: b4d69157f4544daad962cca15e53802e7b912399
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: b6071370d510881d06c5b81f8660781169596a72
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530439"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764408"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quelles sont les méthodes d’authentification et de vérification disponibles dans Microsoft Azure Active Directory ?
 
@@ -89,6 +89,9 @@ Pour en savoir plus sur le fonctionnement de chaque méthode d’authentificatio
 
 > [!NOTE]
 > Dans Azure AD, un mot de passe constitue souvent l’une des méthodes d’authentification principales. Vous ne pouvez pas désactiver la méthode d’authentification par mot de passe. Si vous utilisez un mot de passe en tant que facteur d'authentification principal, renforcez la sécurité des événements de connexion à l'aide d'Azure AD Multi-Factor Authentication.
+
+> [!IMPORTANT]
+> Bien que FIDO2 remplisse les conditions requises pour servir d’authentification multifacteur, FIDO2 ne peut être utilisé que sous forme d’authentification sans mot de passe.
 
 Les méthodes de vérification supplémentaires suivantes peuvent être utilisées dans certains scénarios :
 

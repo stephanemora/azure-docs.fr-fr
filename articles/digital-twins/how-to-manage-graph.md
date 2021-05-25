@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f662c825dba99ec7513a523ab511cb75ebb1f0f9
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: f1136676002a737f4e860e33e8b3b855712d3928
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208614"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789818"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gérer un graphique de jumeaux numériques à l’aide de relations
 
 Azure Digital Twins consiste en un [graphique de jumeaux](concepts-twins-graph.md) représentant l’ensemble de votre environnement. Le graphe de jumeaux est constitué de jumeaux numériques individuels connectés via des **relations**. 
 
-Une fois que vous disposez d’une [instance Azure Digital Twins](how-to-set-up-instance-portal.md) opérationnelle et que vous avez configuré un code d’[authentification](how-to-authenticate-client.md) dans votre application cliente, vous pouvez utiliser les [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) pour créer, modifier et supprimer des jumeaux numériques et leurs relations dans une instance Azure Digital Twins. Vous pouvez également utiliser le [Kit de développement logiciel (SDK) .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) ou l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
+Une fois que vous disposez d’une [instance Azure Digital Twins](how-to-set-up-instance-portal.md) opérationnelle et que vous avez configuré un code d’[authentification](how-to-authenticate-client.md) dans votre application cliente, vous pouvez créer, modifier et supprimer des jumeaux numériques et leurs relations dans une instance Azure Digital Twins.
 
 Cet article se concentre sur la gestion des relations et du graphique dans son ensemble. Pour utiliser des jumeaux numériques individuels, consultez [Procédure : Gestion des jumeaux numériques](how-to-manage-twin.md).
 
@@ -26,9 +26,7 @@ Cet article se concentre sur la gestion des relations et du graphique dans son e
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## <a name="ways-to-manage-graph"></a>Modes de gestion d’un graphe
-
-[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
 Vous pouvez également apporter des changements à votre graphe à l’aide de l’exemple Azure Digital Twins Explorer, qui vous permet de visualiser vos jumeaux et votre graphe, et qui utilise le SDK en arrière-plan. La section suivante décrit cet exemple en détail.
 
@@ -47,7 +45,7 @@ Pour créer une relation, vous devez spécifier :
 * Un ID de relation (`relId` dans l’exemple de code ci-dessous) : le nom spécifique de cette relation, tel que _Relation1_.
 
 L’ID de relation doit être unique au sein du jumeau source donné. Il ne doit pas être globalement unique.
-Par exemple, pour le jumeau *foo*, chaque ID de relation spécifique doit être unique. Toutefois, un autre jumeau *bar* peut avoir une relation sortante qui correspond au même ID d’une relation *foo*.
+Par exemple, pour le jumeau Foo, chaque ID de relation spécifique doit être unique. Toutefois, un autre jumeau Bar peut avoir une relation sortante qui correspond au même ID que celui d’une relation Foo.
 
 L’exemple de code suivant illustre la procédure de création d’une relation dans votre instance Azure Digital Twins. Il utilise l’appel du kit SDK (en surbrillance) dans une méthode personnalisée pouvant apparaître au sein d’un programme plus volumineux.
 
@@ -59,7 +57,7 @@ Cette fonction personnalisée peut désormais être appelée pour créer une rel
 
 Si vous souhaitez créer plusieurs relations, vous pouvez répéter des appels à la même méthode, en passant différents types de relations dans l’argument. 
 
-Pour plus d’informations sur la classe d’assistance `BasicRelationship`, consultez [Procédure : Utiliser les API et les Kits de développement logiciel (SDK) Azure Digital Twins](how-to-use-apis-sdks.md#serialization-helpers).
+Pour plus d’informations sur la classe d’assistance `BasicRelationship`, consultez [Concepts : API et kits de développement logiciel (SDK) Azure Digital Twins](concepts-apis-sdks.md#serialization-helpers).
 
 ### <a name="create-multiple-relationships-between-twins"></a>Créer plusieurs relations entre jumeaux
 
@@ -70,9 +68,9 @@ Les relations peuvent être classées comme suit :
 
 Il n’existe aucune restriction du nombre de relations que vous pouvez avoir entre deux jumeaux : vous pouvez avoir autant de relations entre jumeaux que vous le souhaitez. 
 
-Cela signifie que vous pouvez exprimer plusieurs types de relations entre deux jumeaux à la fois. Par exemple, le *Jumeau A* peut avoir une relation *stockée* et une relation *fabriquée* avec le *Jumeau B*.
+Cela signifie que vous pouvez exprimer plusieurs types de relations entre deux jumeaux à la fois. Par exemple, le Jumeau A peut avoir une relation *stockée* et une relation *fabriquée* avec le Jumeau B.
 
-Vous pouvez même créer plusieurs instances du même type de relation entre les deux mêmes jumeaux si vous le souhaitez. Dans cet exemple, le *Jumeau A* peut avoir deux relations *stockées* différentes avec le *Jumeau B*, à condition que les relations aient différents ID de relation.
+Vous pouvez même créer plusieurs instances du même type de relation entre les deux mêmes jumeaux si vous le souhaitez. Dans cet exemple, le Jumeau A peut avoir deux relations *stockées* différentes avec le Jumeau B, à condition que les relations aient différents ID de relation.
 
 ## <a name="list-relationships"></a>Lister les relations
 
@@ -124,7 +122,7 @@ Les relations sont mises à jour à l’aide de la méthode `UpdateRelationship`
 >[!NOTE]
 >Cette méthode permet de mettre à jour les **propriétés** d’une relation. Si vous êtes amené à changer le jumeau source ou le jumeau cible de la relation, vous devez [supprimer la relation](#delete-relationships) et [en recréer une](#create-relationships) à l’aide des nouveaux jumeaux.
 
-Les paramètres obligatoires pour l’appel du client sont l’ID du jumeau source (jumeau d’où provient la relation), l’ID de la relation à mettre à jour ainsi qu’un document [JSON Patch](http://jsonpatch.com/) contenant les propriétés et les nouvelles valeurs à mettre à jour.
+Les paramètres obligatoires pour l’appel du client sont l’ID du jumeau source (jumeau d’où provient la relation), l’ID de la relation à mettre à jour ainsi qu’un document [JSON Patch](http://jsonpatch.com/) contenant les propriétés et les nouvelles valeurs que vous souhaitez mettre à jour.
 
 Voici un exemple de code montrant comment utiliser cette méthode. Cet exemple utilise l’appel du kit SDK (en surbrillance) dans une méthode personnalisée pouvant apparaître au sein d’un programme plus volumineux.
 
@@ -146,40 +144,6 @@ Vous pouvez à présent appeler cette méthode personnalisée pour supprimer une
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseDeleteRelationship":::
 
-## <a name="runnable-twin-graph-sample"></a>Exemple de graphe de jumeaux exécutable
-
-L’extrait de code exécutable suivant utilise les opérations de relation de cet article pour créer un graphe de jumeaux en dehors des relations et des jumeaux.
-
-### <a name="set-up-the-runnable-sample"></a>Configurer l’exemple exécutable
-
-L’extrait de code utilise les définitions de modèle [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) et [Floor.json](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) du [Tutoriel : Explorer Azure Digital Twins avec un exemple d’application cliente](tutorial-command-line-app.md). Vous pouvez utiliser ces liens pour accéder directement aux fichiers ou télécharger ces derniers dans le cadre de l’[exemple complet de projet de bout en bout](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
-
-Avant d’exécuter l’exemple, effectuez les étapes suivantes :
-1. Téléchargez les fichiers de modèle, placez-les dans votre projet et remplacez l’espace réservé `<path-to>` dans le code ci-dessous pour indiquer à votre programme où les trouver.
-2. Remplacez l’espace réservé `<your-instance-hostname>` par le nom d’hôte de votre instance Azure Digital Twins.
-3. Ajoutez deux dépendances à votre projet. Elles seront nécessaires pour travailler avec Azure Digital Twins. La première est le package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client), tandis que la seconde fournit des outils facilitant l’authentification auprès d’Azure.
-
-      ```cmd/sh
-      dotnet add package Azure.DigitalTwins.Core
-      dotnet add package Azure.Identity
-      ```
-
-Vous devez également configurer des informations d’identification locales si vous souhaitez exécuter l’exemple directement. La section suivante décrit cette procédure.
-[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
-
-### <a name="run-the-sample"></a>Exécution de l'exemple
-
-Une fois les étapes ci-dessus terminées, vous pouvez exécuter directement l’exemple de code suivant.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs":::
-
-Voici la sortie de la console du programme ci-dessus : 
-
-:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Sortie de la console présentant les détails sur les jumeaux, les relations entrantes et sortantes des jumeaux." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
-
-> [!TIP]
-> Le graphe de jumeaux est un concept en lien avec la création de relations entre les jumeaux. Si vous souhaitez afficher la représentation visuelle du graphe de jumeaux, consultez la section [Visualisation](how-to-manage-graph.md#visualization) de cet article. 
-
 ## <a name="create-graph-from-a-csv-file"></a>Créer un graphe à partir d’un fichier CSV
 
 Dans des cas d’usage pratiques, les hiérarchies de jumeaux sont souvent créées à partir des données stockées dans une base de données différente ou peut-être dans une feuille de calcul ou un fichier CSV. Cette section explique comment lire des données à partir d’un fichier CSV et créer un graphe de jumeaux en dehors de celui-ci.
@@ -198,6 +162,46 @@ L’une des méthodes permettant d’obtenir ces données dans Azure Digital Twi
 Dans le code ci-dessous, le fichier CSV est appelé *data.csv* et il existe un espace réservé représentant le **nom d’hôte** de votre instance Azure Digital Twins. L’exemple utilise aussi plusieurs packages que vous pouvez ajouter à votre projet pour faciliter ce processus.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graphFromCSV.cs":::
+
+## <a name="runnable-twin-graph-sample"></a>Exemple de graphe de jumeaux exécutable
+
+L’extrait de code exécutable suivant utilise les opérations de relation de cet article pour créer un graphe de jumeaux en dehors des relations et des jumeaux.
+
+### <a name="set-up-sample-project-files"></a>Configurer des exemples de fichiers de projet
+
+L’extrait de code utilise deux exemples de définitions de modèle, [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Room.json) et [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Floor.json). Pour **télécharger les fichiers de modèle** et les utiliser dans votre code, utilisez les liens suivants afin d’accéder directement aux fichiers dans GitHub. Cliquez avec le bouton droit n’importe où sur l’écran, sélectionnez **Enregistrer sous** dans le menu contextuel du navigateur, puis utilisez la fenêtre Enregistrer sous pour enregistrer les fichiers sous les noms **Room.json** et **Floor.json**.
+
+Créez ensuite un **projet d’application console** dans Visual Studio ou l’éditeur de votre choix.
+
+Puis, **copiez le code suivant** de l’exemple exécutable dans votre projet :
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs":::
+
+### <a name="configure-project"></a>Configurer un projet
+
+Ensuite, effectuez les étapes ci-après pour configurer votre code de projet :
+1. Ajoutez les fichiers **Room.json** et **Floor.json** précédemment téléchargés à votre projet et remplacez les espaces réservés `<path-to>` dans le code pour indiquer à votre programme où les trouver.
+1. Remplacez l’espace réservé `<your-instance-hostname>` par le nom d’hôte de votre instance Azure Digital Twins.
+1. Ajoutez deux dépendances à votre projet. Elles seront nécessaires pour travailler avec Azure Digital Twins. La première correspond au package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client), et la seconde fournit des outils facilitant l’authentification auprès d’Azure.
+
+      ```cmd/sh
+      dotnet add package Azure.DigitalTwins.Core
+      dotnet add package Azure.Identity
+      ```
+
+Vous devez également configurer des informations d’identification locales si vous souhaitez exécuter l’exemple directement. La section suivante décrit cette procédure.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>Exécution de l'exemple
+
+Vous avez terminé la configuration et pouvez à présent exécuter l’exemple de projet de code.
+
+Voici la sortie de la console du programme : 
+
+:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Sortie de la console présentant les détails sur les jumeaux, les relations entrantes et sortantes des jumeaux." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
+
+> [!TIP]
+> Le graphe de jumeaux est un concept en lien avec la création de relations entre les jumeaux. Si vous souhaitez afficher la représentation visuelle du graphe de jumeaux, consultez la section [Visualisation](how-to-manage-graph.md#visualization) de cet article. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

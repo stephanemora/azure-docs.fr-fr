@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 03/10/2021
-ms.openlocfilehash: f8ddcbef6d2ce4a9cba625374db9908335954424
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.date: 04/13/2021
+ms.openlocfilehash: bff07f18d0c72e4c4dc4e6b079924b9062442c9d
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630892"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633876"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Comment vérifier et publier une offre sur le marketplace commercial
 
@@ -30,7 +30,7 @@ Vous pouvez consulter l’état de votre offre dans l’onglet **Vue d’ensembl
 | Attention requise | Nous avons découvert un problème critique au cours de la certification ou au cours d’une autre phase de publication. |
 | PRÉVERSION | L’offre a été certifiée par Microsoft et doit maintenant faire l’objet d’une vérification finale par l’éditeur. Sélectionnez **Mise en ligne** pour proposer l’offre en direct. |
 | En direct | L’offre est également disponible en direct dans la Place de marché. Des clients peuvent la voir et l’acheter. |
-| Arrêt de la vente en attente | L’éditeur a sélectionné « Arrêter la vente » sur l’offre ou le plan, mais l’action n’est pas encore terminée. |
+| Dépréciation en attente | L’éditeur a sélectionné « Déprécier (anciennement Arrêter la vente) » sur l’offre ou le plan, mais l’action n’est pas encore terminée. |
 | Non disponible dans la Place de marché | Une offre publiée sur la place de marché a été supprimée. |
 |||
 
@@ -209,9 +209,9 @@ Pour afficher l’historique de votre offre :
 |---------|---------------|
 |Offre créée    |L’offre a été créée dans Espace partenaires. Un utilisateur a sélectionné le type d’offre, l’ID d’offre et l’alias d’offre dans **Marketplace commercial** > **Vue d’ensemble**.    |
 |Plan créé : *nom du plan*    |Un utilisateur a créé un nouveau plan en entrant l’ID et le nom du plan dans l’onglet **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
-|Plan supprimé    |Un utilisateur a supprimé un plan brouillon qui n’avait pas été publié en sélectionnant **Supprimer le brouillon** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
-|Initiation d’un plan de fin de vente : *nom du plan*    |Un utilisateur a initié un plan de fin de vente en sélectionnant **Arrêter la vente** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
-|Annulation d’un plan de fin de vente : *nom du plan*    |Un utilisateur a annulé un plan de fin de vente en sélectionnant **Annuler la fin de vente** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Plan supprimé  |Un utilisateur a supprimé un plan brouillon qui n’avait pas été publié en sélectionnant **Supprimer le brouillon** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Initiation d’une dépréciation de plan : *nom du plan*    |Un utilisateur a initié une dépréciation de plan (anciennement Arrêter la vente) en sélectionnant **Déprécier** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Annulation d’une dépréciation de plan : *nom du plan*    |Un utilisateur a annulé une dépréciation de plan (anciennement Arrêter la vente) en sélectionnant **Annuler la dépréciation (anciennement Arrêter la vente)** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
 |Offre soumise à la préversion    |Un utilisateur a soumis l’offre à la préversion en sélectionnant **Publier** dans la page **Vérifier et publier**.    |
 |Annulation de la soumission initiée à la préversion    |Un utilisateur a demandé l’annulation de la publication de l’offre en préversion en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après la soumission à la préversion.</br>*Cet événement s’affiche lorsque la demande d’annulation est en cours de traitement*.    |
 |Annulation de la soumission à la préversion    |Un utilisateur a annulé la publication de l’offre en préversion en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après la soumission à la préversion.</br>*Cet événement s’affiche une fois que la demande d’annulation a été traitée*.    |
@@ -219,7 +219,7 @@ Pour afficher l’historique de votre offre :
 |Annulation de la publication initiée sur le marketplace    |Un utilisateur a demandé l’annulation de la publication de l’offre en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après l’approbation de la mise en ligne.</br>*Cet événement s’affiche lorsque la demande d’annulation est en cours de traitement*.    |
 |Annulation de la publication sur le marketplace commercial    |Un utilisateur a annulé la publication de l’offre en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après l’approbation de la mise en ligne.</br>*Cet événement s’affiche une fois que la demande d’annulation a été traitée*.    |
 |Synchronisation des audiences privées    |Un utilisateur a mis à jour et synchronisé l’audience privée en sélectionnant **Synchroniser l’audience privée** dans la page **Vue d’ensemble du plan** dans la page **Tarification et disponibilité du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans privés*.    |
-|Arrêt de la vente du plan    |Un utilisateur a interrompu la vente de l’offre en sélectionnant **Arrêter la vente** dans la page **Vue d’ensemble de l’offre**.    |
+|Déprécier l’offre (anciennement Arrêter la vente)    |Un utilisateur a interrompu la vente de l’offre en sélectionnant **Déprécier** dans la page **Vue d’ensemble de l’offre**.    |
 
 > [!NOTE]
 > La page Historique n’indique pas quand un brouillon d’offre a été enregistré.

@@ -5,15 +5,15 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 05/07/2021
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cae2bcb1a3302814a426fa0cb2dfb36ba1b013fa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e473e7305f7e2dd9609edf0f2d18a12a950b9d40
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218364"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656917"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil et de module, les travaux et le routage des messages
 
@@ -152,11 +152,23 @@ Cette requête de regroupement retourne un résultat similaire à l’exemple ci
 
 Dans cet exemple, trois appareils ont signalé une configuration réussie, deux appliquent toujours la configuration et un signale une erreur.
 
-Les requêtes de projection permettent aux développeurs de retourner uniquement les propriétés qui les intéressent. Par exemple, pour récupérer l’heure de la dernière activité de tous les appareils déconnectés, utilisez la requête suivante :
+Les requêtes de projection permettent aux développeurs de retourner uniquement les propriétés qui les intéressent. Par exemple, pour récupérer l’heure de la dernière activité avec l’ID de tous les appareils activés et déconnectés, utilisez la requête suivante :
 
 ```sql
-SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+SELECT DeviceId, LastActivityTime FROM devices WHERE status = 'enabled' AND connectionState = 'Disconnected'
 ```
+
+Voici un exemple de résultat de cette requête dans l’**Explorateur de requêtes** pour un hub IoT :
+
+```json
+[
+  {
+    "deviceId": "AZ3166Device",
+    "lastActivityTime": "2021-05-07T00:50:38.0543092Z"
+  }
+]
+```
+
 
 ### <a name="module-twin-queries"></a>Requêtes de jumeaux de module
 

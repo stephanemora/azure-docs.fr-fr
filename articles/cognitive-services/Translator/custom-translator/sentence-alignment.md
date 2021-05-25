@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 04/19/2021
 ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: f286e2bcded99ad59b706bd7e6d8b2b29f4b4c0a
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 265f7376ea919b1dff13a1ed5dd3b5f0c48fa9a6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292359"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758210"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Appairage et alignement des phrases dans des documents parallèles
 
@@ -46,7 +46,8 @@ Pour qu’un entraînement réussisse, le tableau ci-dessous indique le nombre m
 > - L’entraînement ne commencera pas et échouera si le nombre minimal de 10 000 phrases d’entraînement n’est pas atteint.
 > - Le réglage et le test sont facultatifs. Si vous ne les fournissez pas, le système supprime un pourcentage approprié de l’entraînement à utiliser pour la validation et le test.
 > - Il est possible d’entraîner un modèle en n’utilisant que des données de dictionnaire. Reportez-vous à [Qu’est-ce qu’un dictionnaire ?](./what-is-dictionary.md).
-> - Si votre dictionnaire contient plus de 250 000 phrases, le **[Traducteur de documents](../document-translation/overview.md)** est probablement un meilleur choix.
+> -  Si votre dictionnaire contient plus de 250 000 phrases, notre Traducteur de documents constitue un meilleur choix. Reportez-vous au [Traducteur de documents](https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview).
+> - La formation gratuite (F0) de l’abonnement a une limite maximale de 2 millions de caractères. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

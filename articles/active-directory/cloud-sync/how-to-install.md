@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 742b9fc79489feba8192b6e62a6431bb37f55ad4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d83b617f08c143ee09251667c4f9bee89577a23
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98612520"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758858"
 ---
 # <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installer l’agent de provisionnement Azure AD Connect
 Ce document vous guide tout au long du processus d’installation de l’agent d’approvisionnement Azure Active Directory (Azure AD) Connecte, et explique comment le configurer au départ dans le portail Azure.
@@ -30,6 +30,8 @@ L’installation et la configuration de la synchronisation cloud Azure AD Connec
 - [Installer l’agent](#install-the-agent)
 - [Vérifier l’installation de l’agent](#verify-agent-installation)
 
+>[!NOTE]
+>Ce document traite de l’installation de l’agent d’approvisionnement à l’aide de l’Assistant.  Pour plus d’informations sur l’installation de l’agent d’approvisionnement d’Azure AD Connect à l’aide d’une interface de ligne de commande (CLI), consultez [Installation de l’agent d’approvisionnement Azure AD Connect à l’aide d’une interface de ligne de commande (CLI) et de PowerShell](how-to-install-pshell.md).
 
 ## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
 Un compte de service managé de groupe est un compte de domaine managé qui fournit la gestion automatique des mots de passe, la gestion simplifiée du nom de principal du service (SPN), la possibilité de déléguer la gestion à d’autres administrateurs et cette fonctionnalité s’étend sur plusieurs serveurs.  Azure AD Connect Cloud Sync prend en charge et recommande l’utilisation d’un compte de service géré de groupe pour l’exécution de l’agent.  Pour plus d’informations sur un gMSA, consultez [Comptes de service managés de groupe](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
@@ -37,6 +39,8 @@ Un compte de service managé de groupe est un compte de domaine managé qui four
 
 ### <a name="upgrading-an-existing-agent-to-use-the-gmsa-account"></a>Mise à niveau d’un agent existant pour utiliser le compte gMSA
 Pour mettre à niveau un agent existant afin d’utiliser le compte gMSA créé pendant l’installation, il vous suffit de mettre à jour le service de l’agent vers la dernière version en exécutant AADConnectProvisioningAgent.msi.  Cette opération mettra à niveau le service vers la version la plus récente.  À présent, exécutez à nouveau l’assistant d’installation et fournissez les informations d’identification pour créer le compte lorsque vous y êtes invité.
+
+
 
 
 

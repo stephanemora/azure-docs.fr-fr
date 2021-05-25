@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 64f18d3217d7f5b7c2feb28190475ef885d4e72b
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: bacf9682e8ac9587a664eb7f363f505faa73b383
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203502"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787704"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutoriel : Codage avec les API Azure Digital Twins
 
@@ -43,7 +43,7 @@ Pour commencer, il vous faut :
 
 Une fois que vous êtes prêt à utiliser votre instance Azure Digital Twins, commencez à configurer le projet d’application cliente. 
 
-Ouvrez une invite de commandes ou une autre fenêtre de console sur votre ordinateur, puis créez un répertoire de projet vide dans lequel vous souhaitez stocker votre travail au cours de ce tutoriel. Nommez le répertoire comme vous le souhaitez (par exemple *TutorielCodeDigitalTwins*).
+Ouvrez une invite de commandes ou une autre fenêtre de console sur votre machine, puis créez un répertoire de projet vide dans lequel vous souhaitez stocker votre travail au cours de ce tutoriel. Nommez le répertoire comme vous le souhaitez (par exemple *DigitalTwinsCodeTutorial*).
 
 Accédez au nouveau répertoire.
 
@@ -96,9 +96,9 @@ Ensuite, vous allez ajouter du code à ce fichier pour activer certaines fonctio
 
 La première chose que votre application doit faire, c’est s’authentifier auprès du service Azure Digital Twins. Vous pouvez ensuite créer une classe cliente de service pour accéder aux fonctions du SDK.
 
-Pour vous authentifier, vous avez besoin du *nom d’hôte* de votre instance Azure Digital Twins.
+Pour vous authentifier, vous avez besoin du *nom d’hôte* de votre instance d’Azure Digital Twins.
 
-Dans *Program.cs*, collez le code suivant sous la ligne « Hello, World ! » dans la méthode `Main`. Définissez la valeur de `adtInstanceUrl` sur le *hostName* de votre instance Azure Digital Twins.
+Dans *Program.cs*, collez le code suivant sous la ligne « Hello, World ! » dans la méthode `Main`. Affectez à `adtInstanceUrl` le *nom d’hôte* de votre instance d’Azure Digital Twins.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Authentication_code":::
 
@@ -120,7 +120,7 @@ Azure Digital Twins n’a aucun vocabulaire de domaine intrinsèque. C’est vou
 
 La première étape de la création d’une solution Azure Digital Twins consiste à définir au moins un modèle dans un fichier DTDL.
 
-Dans le répertoire où vous avez créé votre projet, créez un fichier *.json* nommé *SampleModel.json*. Collez-y le corps de fichier suivant : 
+Dans le répertoire où vous avez créé votre projet, créez un fichier .json nommé *SampleModel.json*. Collez-y le corps de fichier suivant : 
 
 :::code language="json" source="~/digital-twins-docs-samples/models/SampleModel.json":::
 
@@ -192,7 +192,7 @@ Ajoutez le code suivant à la fin de la méthode `Main` pour créer et initialis
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Initialize_twins":::
 
-Dans votre fenêtre de commande, exécutez le programme avec `dotnet run`. Dans la sortie, recherchez les messages print indiquant que *sampleTwin-0*, *sampleTwin-1* et *sampleTwin-2* ont été créés. 
+Dans votre fenêtre de commande, exécutez le programme avec `dotnet run`. Dans la sortie, recherchez les messages print indiquant que sampleTwin-0, sampleTwin-1 et sampleTwin-2 ont été créés. 
 
 Ensuite, réexécutez le programme. 
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2016
+ms.date: 05/05/2021
 ms.author: rohink
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8e116096afbd01af4914be49d5675881724d5069
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3418ef3f0c6a85a21ef4f295fa3d0e4104a91e5a
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96015058"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108794049"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Créer des zones et des jeux d’enregistrements DNS à l’aide du Kit de développement logiciel (SDK) .NET
 
@@ -28,15 +28,18 @@ Vous pouvez automatiser les opérations de création, de suppression ou de mise 
 
 ## <a name="create-a-service-principal-account"></a>Créer un compte de principal du service
 
-En règle générale, l’accès par programme aux ressources Azure est accordé via un compte dédié au lieu de vos propres informations d’identification de l’utilisateur. Ces comptes dédiés sont appelés comptes de « principal du service ». Pour utiliser l’exemple de projet de kit de développement logiciel Azure DNS, vous devez d’abord créer un compte de principal du service et lui attribuer les autorisations appropriées.
+En règle générale, l'accès par programme aux ressources Azure est accordé avec un compte dédié au lieu de vos propres informations d'identification d'utilisateur. Ces comptes dédiés sont appelés comptes de « principal du service ». Pour utiliser l'exemple de projet de kit de développement logiciel (SDK) Azure DNS, vous devez d'abord créer un compte de principal de service et lui attribuer les autorisations appropriées.
 
-1. Suivez [ces instructions](../active-directory/develop/howto-authenticate-service-principal-powershell.md) pour créer un compte de principal du service (l’exemple de projet de kit de développement logiciel Azure DNS part du principe qu’il s’agit d’une authentification par mot de passe).
-2. Créez un groupe de ressources ([procédure](../azure-resource-manager/templates/deploy-portal.md)).
-3. Utilisez Azure RBAC pour accorder une autorisation « Collaborateur de zone DNS » au groupe de ressources ([procédure](../role-based-access-control/role-assignments-portal.md)).
-4. Si vous utilisez l’exemple de projet de kit de développement logiciel Azure DNS, modifiez le fichier program.cs comme suit :
+1. [Créez un compte de principal de service](../active-directory/develop/howto-authenticate-service-principal-powershell.md). L'exemple de projet de kit de développement logiciel (SDK) Azure DNS part du principe qu'il s'agit d'une authentification par mot de passe.
 
-   * Insérez les valeurs correctes pour `tenantId`, `clientId` (également appelé ID de compte), `secret` (mot de passe du compte du principal du service) et `subscriptionId` tels qu’utilisés à l’étape 1.
-   * Entrez le nom du groupe de ressources choisi à l’étape 2.
+1. Puis créez un [groupe de ressources](../azure-resource-manager/templates/deploy-portal.md).
+
+1. Utilisez [Azure RBAC](../role-based-access-control/role-assignments-portal.md) pour accorder les autorisations « Contributeur de zone DNS » du compte du principal de service au groupe de ressources.
+
+1. Si vous utilisez l'exemple de projet de kit de développement logiciel (SDK) Azure DNS, modifiez le fichier « program.cs » comme suit :
+
+   * Insérez les valeurs qui conviennent pour les paramètres `tenantId`, `clientId` (également appelé ID de compte), `secret` (mot de passe du compte du principal de service) et `subscriptionId` tels qu'utilisés à l'étape 1.
+   * Entrez le nom du groupe de ressources créé à l'étape 2.
    * Entrez le nom de zone DNS de votre choix.
 
 ## <a name="nuget-packages-and-namespace-declarations"></a>Packages NuGet et déclaration des espaces de noms
@@ -44,10 +47,14 @@ En règle générale, l’accès par programme aux ressources Azure est accordé
 Pour utiliser le Kit de développement logiciel .NET d’Azure DNS, vous devez installer le package NuGet de la **bibliothèque de gestion Azure DNS** et les autres packages Azure requis.
 
 1. Dans **Visual Studio**, ouvrez un projet existant ou un nouveau projet.
-2. Accédez à **Outils** **>** **Gestionnaire de package NuGet** **>** **Gérer les packages NuGet pour la solution...** .
-3. Cliquez sur **Parcourir**, cochez la case **Inclure la version préliminaire** et tapez **Microsoft.Azure.Management.Dns** dans la zone de recherche.
-4. Sélectionnez le package et cliquez sur **Installer** pour l’ajouter à votre projet Visual Studio.
-5. Répétez la procédure ci-dessus pour installer les packages suivants : **Microsoft.Rest.ClientRuntime.Azure.Authentication** et **Microsoft.Azure.Management.ResourceManager**.
+
+1. Accédez à **Outils** **>** **Gestionnaire de package NuGet** **>** **Gérer les packages NuGet pour la solution...** .
+
+1. Sélectionnez **Parcourir**, cochez la case **Inclure la préversion** et entrez **Microsoft.Azure.Management.Dns** dans la zone de recherche.
+
+1. Sélectionnez le package, puis choisissez **Installer** pour l'ajouter à votre projet Visual Studio.
+
+1. Répétez la procédure ci-dessus pour installer les packages suivants : **Microsoft.Rest.ClientRuntime.Azure.Authentication** et **Microsoft.Azure.Management.ResourceManager**.
 
 ## <a name="add-namespace-declarations"></a>Ajout de déclarations d'espaces de noms
 
@@ -72,14 +79,14 @@ dnsClient.SubscriptionId = subscriptionId;
 
 ## <a name="create-or-update-a-dns-zone"></a>Créer ou mettre à jour une zone DNS
 
-Pour créer une zone DNS, un objet « Zone » est d’abord créé pour contenir les paramètres de la zone DNS. Comme les zones DNS ne sont pas liées à une région spécifique, l’emplacement est défini sur « global ». Dans cet exemple, une [« balise » Azure Resource Manager](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) est également ajoutée à la zone.
+Pour créer une zone DNS, vous devez d'abord créer un objet « Zone » qui contiendra les paramètres de la zone DNS. Comme les zones DNS ne sont pas liées à une région spécifique, l'emplacement est défini sur « global ». Dans cet exemple, une [« balise » Azure Resource Manager](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) est également ajoutée à la zone.
 
-Pour créer ou mettre à jour la zone dans Azure DNS, l’objet de zone qui contient les paramètres de zone est transmis à la méthode `DnsManagementClient.Zones.CreateOrUpdateAsyc`.
+Pour créer ou mettre à jour la zone dans Azure DNS, l'objet de zone qui contient les paramètres de zone est transmis à la méthode `DnsManagementClient.Zones.CreateOrUpdateAsyc`.
 
 > [!NOTE]
 > DnsManagementClient prend en charge trois modes de fonctionnement : synchrone (CreateOrUpdate), asynchrone (CreateOrUpdateAsync) ou asynchrone avec accès à la réponse HTTP (CreateOrUpdateWithHttpMessagesAsync).  Vous pouvez choisir l’un de ces modes, selon les besoins de votre application.
 
-Azure DNS prend en charge l’accès simultané optimiste, appelé [ETags](./dns-getstarted-powershell.md). Dans cet exemple, le fait de spécifier « * » pour l’en-tête « If-None-Match » indique à Azure DNS de créer une zone DNS si celle-ci n’existe pas déjà.  L’appel échoue si une zone portant le nom spécifié existe déjà dans le groupe de ressources donné.
+Azure DNS prend en charge l’accès simultané optimiste, appelé [ETags](./dns-getstarted-powershell.md). Dans cet exemple, le fait de spécifier « * » pour l'en-tête « If-None-Match » indique à Azure DNS de créer une zone DNS s'il n'en existe pas encore.  L’appel échoue si une zone portant le nom spécifié existe déjà dans le groupe de ressources donné.
 
 ```cs
 // Create zone parameters
@@ -102,7 +109,7 @@ Les enregistrements DNS sont gérés en tant que jeu d'enregistrements. Un jeu d
 
 Pour créer ou mettre à jour un jeu d’enregistrements, un objet « RecordSet » est créé et transmis à la méthode `DnsManagementClient.RecordSets.CreateOrUpdateAsync`. Comme avec les zones DNS, il existe trois modes de fonctionnement : synchrone (CreateOrUpdate), asynchrone (CreateOrUpdateAsync) ou asynchrone avec accès à la réponse HTTP (CreateOrUpdateWithHttpMessagesAsync).
 
-Comme avec les zones DNS, les opérations sur les jeux d’enregistrements prennent en charge l’accès concurrentiel optimiste.  Dans cet exemple, étant donné que ni « If-Match » ni « If-None-Match » n’est spécifié, le jeu d’enregistrements est toujours créé.  Cet appel remplace tout jeu d’enregistrements existant portant le même nom et le même type d’enregistrement dans cette zone DNS.
+Comme avec les zones DNS, les opérations sur les jeux d’enregistrements prennent en charge l’accès concurrentiel optimiste.  Dans cet exemple, étant donné que ni « If-Match » ni « If-None-Match » ne sont spécifiés, le jeu d'enregistrements est toujours créé.  Cet appel remplace tout jeu d’enregistrements existant portant le même nom et le même type d’enregistrement dans cette zone DNS.
 
 ```cs
 // Create record set parameters
@@ -132,7 +139,7 @@ var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetN
 
 ## <a name="update-an-existing-record-set"></a>Mettre à jour un jeu d’enregistrements
 
-Pour mettre à jour un jeu d’enregistrements DNS, récupérez d’abord le jeu d’enregistrements, puis mettez à jour son contenu et soumettez la modification.  Dans cet exemple, nous spécifions l’Etag du jeu d’enregistrements récupéré dans le paramètre If-Match. L’appel échoue si une opération simultanée a modifié le jeu d’enregistrements entre-temps.
+Pour mettre à jour un jeu d'enregistrements DNS, commencez par le récupérer. Puis mettez à jour son contenu et soumettez les modifications. Dans cet exemple, nous spécifions l’Etag du jeu d’enregistrements récupéré dans le paramètre If-Match. L’appel échoue si une opération simultanée a modifié le jeu d’enregistrements entre-temps.
 
 ```cs
 var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);
@@ -147,7 +154,9 @@ recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zo
 
 ## <a name="list-zones-and-record-sets"></a>Répertorier les zones et les jeux d’enregistrements
 
-Pour répertorier les zones, utilisez les méthodes *DnsManagementClient.Zones.List...* , qui prennent en charge l’énumération de toutes les zones d’un groupe de ressources donné ou toutes les zones d’un abonnement Azure donné (parmi les groupes de ressources). Pour répertorier les jeux d’enregistrements, utilisez les méthodes *DnsManagementClient.RecordSets.List...* , qui prennent en charge l’énumération de tous les jeux d’enregistrements d’une zone donnée ou uniquement les jeux d’enregistrements d’un type spécifique.
+* Pour répertorier les zones, utilisez les méthodes *DnsManagementClient.Zones.List...*, qui prennent en charge l’énumération de toutes les zones d’un groupe de ressources donné ou toutes les zones d’un abonnement Azure donné (parmi les groupes de ressources). 
+
+* Pour répertorier les jeux d’enregistrements, utilisez les méthodes *DnsManagementClient.RecordSets.List...*, qui prennent en charge l’énumération de tous les jeux d’enregistrements d’une zone donnée ou uniquement les jeux d’enregistrements d’un type spécifique.
 
 Notez que les résultats peuvent être paginés lors du répertoriage des zones et des jeux d’enregistrements.  L’exemple suivant montre comment effectuer une itération dans les pages de résultats. (Une taille de page artificiellement petite de « 2 » est utilisée pour forcer la pagination. Dans la pratique, ce paramètre doit être omis et la taille de page par défaut doit être utilisée.)
 
@@ -167,4 +176,4 @@ while (page.NextPageLink != null)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Téléchargez l’[exemple de projet de SDK Azure DNS .NET](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), qui inclut d’autres exemples d’utilisation du Kit de développement logiciel (SDK) Azure DNS .NET, notamment des exemples d’autres types d’enregistrements DNS.
+Téléchargez l'[exemple de projet de SDK Azure DNS .NET](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True). Celui-ci inclut des exemples d'utilisation du Kit de développement logiciel (SDK) Azure DNS .NET ainsi que des exemples d'autres types d'enregistrements DNS.

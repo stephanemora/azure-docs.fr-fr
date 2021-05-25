@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b79b2d9767112d95f6ea0388bfc7ef577ef8d7ba
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 6435fbffc6a78d82129443f15a9ebcc41ab52ce8
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073536"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109635190"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gérer les clés d’accès au compte de stockage
 
@@ -33,7 +33,7 @@ Vous pouvez afficher et copier les clés d’accès à votre compte avec le port
 Pour afficher et copier les clés d’accès ou la chaîne de connexion de votre compte de stockage à partir du portail Azure :
 
 1. Accédez à votre compte de stockage dans le [Portail Azure](https://portal.azure.com).
-1. Sous **Paramètres**, sélectionnez **Clés d’accès**. Vos clés d’accès au compte s’affichent, ainsi que la chaîne de connexion complète de chaque clé.
+1. Sous **Sécurité + mise en réseau**, sélectionnez **Clés d’accès**. Vos clés d’accès au compte s’affichent, ainsi que la chaîne de connexion complète de chaque clé.
 1. Recherchez la valeur de **Key** sous **key1**, puis cliquez sur le bouton **Copier** pour copier la clé du compte.
 1. Vous pouvez aussi copier la chaîne de connexion complète. Recherchez la valeur de **Chaîne de connexion** sous **clé1**, puis cliquez sur le bouton **Copier** pour copier la chaîne de connexion.
 
@@ -90,7 +90,7 @@ Pour opérer la rotation des clés d’accès de votre compte de stockage dans l
 
 1. Mettez à jour les chaînes de connexion dans votre code d’application pour désigner la clé d’accès secondaire du compte de stockage.
 1. Accédez à votre compte de stockage dans le [Portail Azure](https://portal.azure.com).
-1. Sous **Paramètres**, sélectionnez **Clés d’accès**.
+1. Sous **Sécurité + mise en réseau**, sélectionnez **Clés d’accès**.
 1. Pour régénérer la clé d’accès primaire de votre compte de stockage, sélectionnez le bouton **Régénérer** en regard de la clé d’accès primaire.
 1. Mettez à jour les chaînes de connexion dans votre code pour désigner la nouvelle clé d’accès principale.
 1. Régénérez la clé d’accès secondaire de la même manière.

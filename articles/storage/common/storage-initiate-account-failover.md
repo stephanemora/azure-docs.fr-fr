@@ -6,17 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/29/2020
+ms.date: 05/07/2021
 ms.author: tamram
-ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 93bcbab9445d83bf17b37b6affc1d2bc70703bbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28f46ec6354f98c11ce68beeb2e3de375c7a0249
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97814327"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632328"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Lancer un basculement de compte de stockage
 
@@ -41,7 +40,7 @@ Pour plus d’informations sur la redondance du Stockage Azure, consultez [Redon
 N’oubliez pas que les fonctionnalités et services suivants ne sont pas pris en charge pour le basculement de compte :
 
 - Azure File Sync ne prend pas en charge le basculement de compte de stockage. Les comptes de stockage contenant des partages de fichiers Azure utilisés en tant que points de terminaison cloud dans Azure File Sync ne doivent pas être basculés. Cela provoquera en effet un arrêt de la synchronisation et pourra entraîner une perte inattendue de données dans le cas de fichiers nouvellement hiérarchisés.
-- Les comptes de stockage ADLS Gen2 (comptes dans lesquels est activé un espace de noms hiérarchique) ne sont pas pris en charge pour l’instant.
+- Les comptes de stockage dans lesquels est activé un espace de noms hiérarchique (comme Data Lake Storage Gen2) ne sont pas pris en charge pour l’instant.
 - Un compte de stockage contenant des objets blob de blocs premium ne peut pas être basculé. Les comptes de stockage qui prennent en charge les objets blob de blocs premium ne prennent pas en charge la géoredondance.
 - Un compte de stockage incluant des conteneurs avec une [stratégie d’immuabilité WORM](../blobs/storage-blob-immutable-storage.md) ne peut pas être basculé. Les stratégies de rétention temporelles ou les stratégies de conservation légale déverrouillées/verrouillées empêchent le basculement afin de maintenir la conformité.
 
@@ -117,10 +116,15 @@ Pour estimer l'étendue de la perte de données probable avant de procéder à u
 
 Le temps nécessaire au basculement après l’initiation peut varier et dure en général moins d’une heure.
 
-Au terme du basculement, votre compte de stockage devient un compte de stockage localement redondant (LRS) dans la nouvelle région primaire. Vous pouvez réactiver le stockage géoredondant (GRS) ou le stockage géographiquement redondant avec accès en lecture (RA-GRS) pour le compte. Notez que la conversion de LRS en GRS ou RA-GRS entraîne un coût supplémentaire. Pour plus d'informations, consultez [Détails de la tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/).
+Au terme du basculement, votre compte de stockage devient un compte de stockage localement redondant (LRS) dans la nouvelle région primaire. Vous pouvez réactiver le stockage géoredondant (GRS) ou le stockage géographiquement redondant avec accès en lecture (RA-GRS) pour le compte. Notez que la conversion de LRS en GRS ou RA-GRS entraîne un coût supplémentaire. Le coût est dû aux frais de sortie du réseau pour répliquer à nouveau les données dans la nouvelle région secondaire. Pour plus d'informations, consultez [Détails de la tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Une fois que vous avez réactivé GRS pour votre compte de stockage, Microsoft commence à répliquer les données de votre compte dans la nouvelle région secondaire. Le temps de réplication dépend de la quantité de données répliquées.  
+Une fois que vous avez réactivé GRS pour votre compte de stockage, Microsoft commence à répliquer les données de votre compte dans la nouvelle région secondaire. La durée de la réplication dépend de nombreux facteurs, notamment :
 
+- Le nombre et la taille des objets du compte de stockage. De nombreux petits objets peuvent prendre plus de temps que des objets moins nombreux et plus volumineux.
+- Les ressources disponibles pour la réplication en arrière-plan, telles que l’UC, la mémoire, le disque et la capacité WAN. Le trafic en direct est prioritaire sur la géoréplication.
+- Si vous utilisez Stockage Blob, le nombre d’instantanés par blob.
+- Si vous utilisez Stockage Table, la [stratégie de partitionnement des données](/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage). Le processus de réplication ne peut pas évoluer au-delà du nombre de clés de partition que vous utilisez.
+  
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Récupération d'urgence et basculement de compte de stockage](storage-disaster-recovery-guidance.md)

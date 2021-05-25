@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/11/2021
-ms.openlocfilehash: 2d247f9e1529b7667e52f33a4a22841b8933fbaf
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: a1181af6bf7f8c734d7cb90c7e9bb28c22e00b08
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108163064"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517979"
 ---
 # <a name="how-to-index-data-available-through-cosmos-db-gremlin-api-using-an-indexer-preview"></a>Comment indexer les données disponibles via l’API Gremlin Cosmos DB à l’aide d’un indexeur (préversion)
 
@@ -24,9 +24,9 @@ ms.locfileid: "108163064"
 > Pour cette préversion, nous vous recommandons d’utiliser la [version 2020-06-30-Preview de l’API REST](search-api-preview.md). La prise en charge du portail est actuellement limitée, et le Kit de développement logiciel (SDK) .NET n’est pas pris en charge.
 
 > [!WARNING]
-> Pour que Recherche cognitive Azure puisse indexer les données dans Cosmos DB via l’API Gremlin, l’[indexation propre à Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview) doit également être activée et définie sur [Cohérent](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode). Il s’agit de la configuration par défaut de Cosmos DB. L’indexation de Recherche cognitive Azure ne fonctionnera pas si l’indexation de Cosmos DB n’est pas déjà activée.
+> Pour que Recherche cognitive Azure puisse indexer les données dans Cosmos DB via l’API Gremlin, l’[indexation propre à Cosmos DB](../cosmos-db/index-overview.md) doit également être activée et définie sur [Cohérent](../cosmos-db/index-policy.md#indexing-mode). Il s’agit de la configuration par défaut de Cosmos DB. L’indexation de Recherche cognitive Azure ne fonctionnera pas si l’indexation de Cosmos DB n’est pas déjà activée.
 
-L’[indexation Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview) et l’[indexation Recherche cognitive Azure](search-what-is-an-index.md) sont des opérations distinctes, propres à chaque service. Avant de commencer l’indexation Recherche cognitive Azure, votre base de données Azure Cosmos DB doit déjà exister.
+L’[indexation Azure Cosmos DB](../cosmos-db/index-overview.md) et l’[indexation Recherche cognitive Azure](search-what-is-an-index.md) sont des opérations distinctes, propres à chaque service. Avant de commencer l’indexation Recherche cognitive Azure, votre base de données Azure Cosmos DB doit déjà exister.
 
 Cet article explique comment configurer Recherche cognitive Azure pour indexer le contenu d’Azure Cosmos DB à l’aide de l’API Gremlin. Ce workflow crée un index Recherche cognitive Azure et le charge avec du texte existant extrait d’Azure Cosmos DB à l’aide de l’API Gremlin.
 
@@ -147,6 +147,7 @@ Assurez-vous que le schéma de votre index cible est compatible avec votre graph
 Pour les collections partitionnées, la clé de document par défaut est la propriété `_rid` d’Azure Cosmos DB, que Recherche cognitive Azure renomme automatiquement en `rid`, car les noms de champ ne peuvent pas commencer par un trait de soulignement. De même, les valeurs `_rid` d’Azure Cosmos DB contiennent des caractères non valides dans les clés de Recherche cognitive Azure. Pour cette raison, les valeurs `_rid` doivent être codées en base64 si vous souhaitez en faire votre clé de document.
 
 ### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>Mappage entre les types de données JSON et les types de données Azure Search
+
 | Type de données JSON | Types de champs d’index cible compatibles |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
@@ -292,5 +293,6 @@ Notez que le mappage de champs de sortie commence par `/document` et n’inclut 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur l’API Gremlin Azure Cosmos DB, consultez [Présentation d’Azure Cosmos DB : API Gremlin](https://docs.microsoft.com/azure/cosmos-db/graph-introduction).
-* Pour en savoir plus sur la Recherche cognitive Azure, consultez la [page du service Recherche](https://azure.microsoft.com/services/search/).
++ Pour en savoir plus sur l’API Gremlin Azure Cosmos DB, consultez [Présentation de la base de données Azure Cosmos : API Gremlin]()../cosmos-db/graph-introduction.md).
+
++ Pour plus d’informations sur les scénarios et les tarifs de la Recherche cognitive Azure, consultez la [page du service Search sur azure.microsoft.com](https://azure.microsoft.com/services/search/).

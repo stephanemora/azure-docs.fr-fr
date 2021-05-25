@@ -1,16 +1,16 @@
 ---
-title: Configurer vRealize Operations pour Azure VMware Solution (AVS)
+title: Configurer vRealize Operations pour Azure VMware Solution
 description: Découvrez comment configurer vRealize Operations pour le cloud privé de votre solution VMware Azure.
 ms.topic: how-to
 ms.date: 01/26/2021
-ms.openlocfilehash: 8015bb61a7401b4c97807e0256e06d4967c39026
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 127280d22e26a88b81016aeb53432dade45dc010
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104802486"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769306"
 ---
-# <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Configurer vRealize Operations pour Azure VMware Solution (AVS)
+# <a name="configure-vrealize-operations-for-azure-vmware-solution"></a>Configurer vRealize Operations pour Azure VMware Solution
 
 
 vRealize Operations Manager est une plateforme de gestion des opérations qui permet aux administrateurs de l’infrastructure VMware de surveiller les ressources système. Ces ressources système peuvent être des objets au niveau de l’application ou de l’infrastructure (tant physiques que virtuels). La plupart des administrateurs VMware ont utilisé vRealize Operations pour surveiller et gérer les composants de cloud privé VMware : vCenter, ESXi, NSX-T, vSAN et VMware HCX.  Chaque cloud privé Azure VMware Solution approvisionné contient un déploiement dédié de vCenter, NSX-T, vSAN et HCX. 

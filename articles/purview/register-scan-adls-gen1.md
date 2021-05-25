@@ -6,13 +6,13 @@ ms.author: sandeepshah
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 11/30/2020
-ms.openlocfilehash: a831681f892de9f6aae50fa9a2fcf71e883fe6ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: 98de0156eca9269b2a274aa3ca2027112b7b4043
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97693713"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109655482"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen1"></a>Inscrire et analyser Azure Data Lake Storage Gen1
 
@@ -128,10 +128,12 @@ Pour inscrire un nouveau compte ADLS Gen1 dans votre catalogue de données, proc
 Dans l’écran Inscrire des sources (Azure Data Lake Storage Gen1), procédez comme suit :
 
 1. Entrez un **nom** avec lequel la source de données sera répertoriée dans le catalogue.
-2. Choisissez votre abonnement pour filtrer les comptes de stockage
-3. Sélectionner un compte de stockage
-4. Sélectionnez une collection ou créez-en une (facultatif)
-5. Terminez pour inscrire la source de données.
+2. Choisissez votre abonnement pour filtrer les comptes de stockage.
+3. Sélectionnez un compte de stockage.
+4. Sélectionnez une collection ou créez-en une (facultatif).
+5. Sélectionnez **Inscrire** pour inscrire la source de données.
+
+:::image type="content" source="media/register-scan-adls-gen1/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 

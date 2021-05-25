@@ -7,12 +7,12 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 6cadadfb3623d05dd3ae3851acd5eaca13860023
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ded1007cd5d0268d68bcdbff87a3b703da247876
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96929841"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764042"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Utilisation de points de terminaison privés pour Azure App Configuration
 
@@ -33,11 +33,11 @@ Bien qu’App Configuration ne prenne pas en charge les points de terminaison de
 
 Quand vous créez un point de terminaison privé pour un service dans votre réseau virtuel, une demande de consentement est envoyée pour approbation au propriétaire du compte de service. Si l’utilisateur qui demande la création du point de terminaison privé est également propriétaire du compte, cette demande de consentement est automatiquement approuvée.
 
-Les propriétaires de comptes de service peuvent gérer les demandes de consentement et les points de terminaison privés via l’onglet `Private Endpoints` du magasin de configuration dans le [portail Azure](https://portal.azure.com).
+Les propriétaires de comptes de service peuvent gérer les demandes de consentement et les points de terminaison privés via l’onglet `Private Endpoints` du magasin App Configuration dans le [portail Azure](https://portal.azure.com).
 
 ### <a name="private-endpoints-for-app-configuration"></a>Points de terminaison privés pour App Configuration 
 
-Lorsque vous créez un point de terminaison privé, vous devez spécifier le magasin App Configuration auquel il se connecte. Si vous avez plusieurs instances App Configuration dans un compte, vous avez besoin d’un point de terminaison privé distinct pour chaque magasin.
+Lorsque vous créez un point de terminaison privé, vous devez spécifier le magasin App Configuration auquel il se connecte. Si vous avez plusieurs magasins App Configuration, vous avez besoin d’un point de terminaison privé distinct pour chaque magasin.
 
 ### <a name="connecting-to-private-endpoints"></a>Connexion à des points de terminaison privés
 
@@ -46,13 +46,20 @@ Azure s’appuie sur la résolution DNS pour router les connexions du réseau vi
 > [!IMPORTANT]
 > Pour vous connecter à votre magasin App Configuration à l’aide de points de terminaison privés, utilisez la chaîne de connexion que vous utiliseriez pour un point de terminaison public. Ne vous connectez pas au magasin à l’aide de son URL de sous-domaine `privatelink`.
 
+> [!NOTE]
+> Par défaut, lorsqu’un point de terminaison privé est ajouté à votre magasin App Configuration, toutes les requêtes pour vos données App Configuration sur le réseau public sont refusées. Vous pouvez activer l’accès au réseau virtuel à l’aide de la commande Azure CLI suivante. Il est important de prendre en compte les implications en matière de sécurité de l’activation de l’accès au réseau public dans ce scénario.
+>
+> ```azurecli-interactive
+> az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
+> ```
+
 ## <a name="dns-changes-for-private-endpoints"></a>Modifications DNS pour les points de terminaison privés
 
 Quand vous créez un point de terminaison privé, l’enregistrement de ressource CNAME DNS pour le magasin de configuration est remplacé par un alias dans un sous-domaine avec le préfixe `privatelink`. Azure crée également une [zone DNS privée](../dns/private-dns-overview.md) correspondant au sous-domaine `privatelink`, avec les enregistrements de ressources DNS A pour les points de terminaison privés.
 
 Quand vous résolvez l’URL du point de terminaison à partir du réseau virtuel hébergeant le point de terminaison privé, elle correspond au point de terminaison privé du magasin. En cas de résolution depuis l’extérieur du réseau virtuel, l’URL du point de terminaison correspond au point de terminaison public. Quand vous créez un point de terminaison privé, le point de terminaison public est désactivé.
 
-Si vous utilisez un serveur DNS personnalisé sur votre réseau, les clients doivent pouvoir résoudre le nom de domaine complet (FQDN) du point de terminaison de service en l’adresse IP du point de terminaison privé. Configurez votre serveur DNS pour déléguer votre sous-domaine de liaison privée à la zone DNS privée du réseau virtuel, ou configurer les enregistrements A pour `AppConfigInstanceA.privatelink.azconfig.io` avec l’adresse IP du point de terminaison privé.
+Si vous utilisez un serveur DNS personnalisé sur votre réseau, les clients doivent pouvoir résoudre le nom de domaine complet (FQDN) du point de terminaison de service en l’adresse IP du point de terminaison privé. Configurez votre serveur DNS pour déléguer votre sous-domaine de liaison privée à la zone DNS privée du réseau virtuel, ou configurer les enregistrements A pour `[Your-store-name].privatelink.azconfig.io` avec l’adresse IP du point de terminaison privé.
 
 > [!TIP]
 > Lorsque vous utilisez un serveur DNS personnalisé ou local, vous devez configurer votre serveur DNS pour résoudre le nom du magasin dans le sous-domaine `privatelink` en l’adresse IP du point de terminaison privé. Pour ce faire, vous pouvez déléguer le sous-domaine `privatelink` à la zone DNS privée du réseau virtuel, ou configurer la zone DNS sur votre serveur DNS et ajouter les enregistrements A DNS.

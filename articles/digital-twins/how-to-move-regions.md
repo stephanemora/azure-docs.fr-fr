@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: b21915b6cf0cd018ccbf7b79fc9a5ab8dc222925
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 301e4d4fe3efa9821c2f63948bc3d3c528de4254
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076080"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772798"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Déplacer une instance Azure Digital Twins vers une autre région Azure
 
@@ -52,7 +52,7 @@ Voici quelques questions à considérer :
     - Service Azure IoT Hub Device Provisioning
 * Quelles autres *applications personnelles ou d’entreprise* se connectent à mon instance ?
 
-Vous pouvez collecter ces informations en utilisant le [portail Azure](https://portal.azure.com), les [API et SDK Azure Digital Twins](how-to-use-apis-sdks.md), les [commandes CLI Azure Digital Twins](how-to-use-cli.md) ou l’exemple [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+Vous pouvez collecter ces informations en utilisant le [portail Azure](https://portal.azure.com), les [API et SDK Azure Digital Twins](concepts-apis-sdks.md), les [commandes CLI Azure Digital Twins](concepts-cli.md) ou l’exemple [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 ## <a name="prepare"></a>Préparation
 
@@ -74,14 +74,14 @@ Cet exemple n’est pas un outil complet. Il n’a fait l’objet d’aucun test
 
 Si l’exemple n’est pas en mesure de gérer la taille de votre graphe, vous pouvez exporter et importer ce dernier à l’aide d’autres outils de développement Azure Digital Twins :
 
-* [Commandes CLI Azure Digital Twins](how-to-use-cli.md)
-* [API et SDK Azure Digital Twins](how-to-use-apis-sdks.md)
+* [Commandes CLI Azure Digital Twins](concepts-cli.md)
+* [API et SDK Azure Digital Twins](concepts-apis-sdks.md)
 
 ### <a name="set-up-the-azure-digital-twins-explorer-application"></a>Configurer l’application Azure Digital Twins Explorer
 
 Pour continuer avec Azure Digital Twins Explorer, commencez par télécharger l’exemple de code d’application, puis configurez-le pour qu’il s’exécute sur votre machine.
 
-Pour obtenir l’exemple, accédez à [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Sélectionnez le bouton **Parcourir le code** sous le titre afin d’accéder au référentiel GitHub de l’exemple. Sélectionnez le bouton **Code** et **Télécharger ZIP** pour télécharger l’exemple sous forme de fichier *.ZIP* sur votre machine.
+Pour obtenir l’exemple, accédez à [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Sélectionnez le bouton **Parcourir le code** sous le titre afin d’accéder au référentiel GitHub de l’exemple. Sélectionnez le bouton **Code** et **Télécharger ZIP** pour télécharger l’exemple sous forme de fichier .zip sur votre machine.
 
 :::image type="content" source="media/how-to-move-regions/download-repo-zip.png" alt-text="Capture d’écran du référentiel digital-twins-explorer sur GitHub. Le bouton Code est sélectionné et une petite boîte de dialogue s’ouvre, dans laquelle le bouton Télécharger ZIP est mis en évidence." lightbox="media/how-to-move-regions/download-repo-zip.png":::
 
@@ -229,9 +229,9 @@ Les ressources exactes que vous devez modifier varient en fonction de votre scé
 Pour confirmer que votre nouvelle instance a été correctement configurée, utilisez les outils suivants :
 
 * [Portail Azure](https://portal.azure.com). Le portail est une bonne solution pour vérifier que votre nouvelle instance existe et qu’elle se trouve dans la bonne région cible. Il permet aussi de vérifier les points de terminaison, les routes et les connexions à d’autres services Azure.
-* [Commandes CLI Azure Digital Twins](how-to-use-cli.md). Ces commandes sont une bonne solution pour vérifier que votre nouvelle instance existe et qu’elle se trouve dans la bonne région cible. Elles peuvent aussi servir à vérifier les données d’instance.
+* [Commandes CLI Azure Digital Twins](concepts-cli.md). Ces commandes sont une bonne solution pour vérifier que votre nouvelle instance existe et qu’elle se trouve dans la bonne région cible. Elles peuvent aussi servir à vérifier les données d’instance.
 * [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Azure Digital Twins Explorer s’avère pratique pour vérifier des données d’instance, comme les modèles, les jumeaux et les graphes.
-* [API et SDK Azure Digital Twins](how-to-use-apis-sdks.md). Ces ressources s’avèrent pratiques pour vérifier des données d’instance, comme les modèles, les jumeaux et les graphes. Elles s’avèrent aussi utiles pour vérifier les points de terminaison et les routes.
+* [API et SDK Azure Digital Twins](concepts-apis-sdks.md). Ces ressources s’avèrent pratiques pour vérifier des données d’instance, comme les modèles, les jumeaux et les graphes. Elles s’avèrent aussi utiles pour vérifier les points de terminaison et les routes.
 
 Vous pouvez aussi essayer d’exécuter les applications personnalisées ou les flux de bout en bout que vous avez exécutés avec votre instance d’origine, pour mieux vérifier que leur fonctionnement est correct avec la nouvelle instance.
 
@@ -239,7 +239,7 @@ Vous pouvez aussi essayer d’exécuter les applications personnalisées ou les 
 
 Maintenant que votre nouvelle instance est configurée dans la région cible, avec une copie des données et des connexions de l’instance originale, vous pouvez supprimer l’instance d’origine.
 
-Vous pouvez utiliser le [portail Azure](https://portal.azure.com), [Azure CLI](how-to-use-cli.md) ou les [API du plan de contrôle](how-to-use-apis-sdks.md#overview-control-plane-apis).
+Vous pouvez utiliser le [portail Azure](https://portal.azure.com), [Azure CLI](concepts-cli.md) ou les [API du plan de contrôle](concepts-apis-sdks.md#overview-control-plane-apis).
 
 Pour supprimer l’instance à l’aide du portail Azure, [ouvrez le portail](https://portal.azure.com) dans une fenêtre de navigateur et accédez à votre instance Azure Digital Twins d’origine en recherchant son nom dans la barre de recherche du portail.
 
