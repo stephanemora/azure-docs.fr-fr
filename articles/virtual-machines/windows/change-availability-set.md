@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 3/8/2021
 ms.author: cynthn
 ms.reviewer: mimckitt
-ms.openlocfilehash: 99985d0bb2294c538efa712e477cc6f8a2eb4938
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d88970d05a002248f1b477cfabffc5febd027ef1
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102498470"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753000"
 ---
 # <a name="change-the-availability-set-for-a-vm-using-azure-powershell"></a>Modification du groupe à haute disponibilité d’une machine virtuelle avec Azure PowerShell    
 Les étapes suivantes décrivent comment modifier le groupe à haute disponibilité d’une machine virtuelle à l’aide d’Azure PowerShell. Une machine virtuelle ne peut être ajoutée à un groupe à haute disponibilité que lors de sa création. Pour modifier le groupe à haute disponibilité, vous devez supprimer, puis recréer la machine virtuelle. 
@@ -21,7 +21,7 @@ Cet article s’applique aux machines virtuelles Linux et Windows.
 
 Cet article a été testé pour la dernière fois le 12/02/2019 à l’aide d’[Azure Cloud Shell](https://shell.azure.com/powershell) et du [module Az PowerShell](/powershell/azure/install-az-ps) version 1.2.0.
 
-Cet exemple ne vérifie pas si la machine virtuelle est attachée à un équilibreur de charge. Si votre machine virtuelle est attachée à un équilibreur de charge, vous devez mettre à jour le script pour gérer ce cas. 
+Cet exemple ne vérifie pas si la machine virtuelle est attachée à un équilibreur de charge. Si votre machine virtuelle est attachée à un équilibreur de charge, vous devez mettre à jour le script pour gérer ce cas. Au terme de ce processus, certaines extensions peuvent devoir être réinstallées.
 
 
 ## <a name="change-the-availability-set"></a>Changer le groupe à haute disponibilité 

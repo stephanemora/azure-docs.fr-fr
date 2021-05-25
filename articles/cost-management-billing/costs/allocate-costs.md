@@ -3,17 +3,17 @@ title: Affecter des coûts Azure
 description: Cet article explique comment créer des règles d'affectation des coûts pour répartir les coûts des abonnements, des groupes de ressources ou des étiquettes.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/23/2021
+ms.date: 05/10/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: e7afef7e0a10bb4be3c30112fc207467167e4a17
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: b837e5819318707b44932f5915746479e27646ec
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726517"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734873"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Créer et gérer des règles d'affectation des coûts Azure (préversion)
 
@@ -76,6 +76,10 @@ Le traitement de la règle d'affectation démarre. Lorsque la règle est active,
 > [!NOTE] 
 > Le traitement de la nouvelle règle peut prendre jusqu'à deux heures.
 
+Voici une vidéo qui montre comment créer une règle d’affectation des coûts.
+
+>[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
+
 ## <a name="verify-the-cost-allocation-rule"></a>Vérifier la règle d'affectation des coûts
 
 Lorsque la règle d'affectation des coûts est active, les coûts des sources sélectionnées sont répartis entre les cibles d'affectation spécifiées. Utilisez les informations suivantes pour vérifier que les coûts sont correctement affectés aux cibles.
@@ -96,10 +100,17 @@ Sur le portail Azure, accédez à **Gestion des coûts + facturation** > **Gesti
 
 :::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Exemple illustrant les coûts liés aux éléments marqués" lightbox="./media/allocate-costs/tagged-costs.png" :::
 
-Voici une vidéo qui montre comment créer une règle d’affectation des coûts.
+### <a name="view-cost-allocation-in-the-downloaded-usage-details-and-in-exports-csv-files"></a>Afficher l’allocation des coûts dans le fichier CSV des exportations et le fichier des détails d’utilisation téléchargé
 
->[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
+Les règles d’allocation des coûts sont également disponibles dans les données exportées et dans le fichier des détails d’utilisation téléchargé. Les fichiers de données ont le nom de colonne `costAllocationRuleName`. Si une règle d’allocation des coûts s’applique à une entrée dans le fichier des détails d’utilisation ou le fichier des exportations, la ligne est remplie avec le nom de la règle d’allocation des coûts. L’exemple d’image suivant montre des frais négatifs avec une entrée pour l’abonnement source. Il s’agit des frais à partir desquels le coût est alloué. Il existe également des frais positifs pour la cible de la règle d’attribution de coût.
 
+:::image type="content" source="./media/allocate-costs/rule-costs-allocated.png" alt-text="Capture d’écran montrant les coûts alloués dans le fichier des détails d’utilisation" lightbox="./media/allocate-costs/rule-costs-allocated.png" :::
+
+#### <a name="azure-invoice-reconciliation"></a>Rapprochement des factures Azure 
+
+Le fichier des détails d’utilisation est également utilisé pour le rapprochement des factures Azure. L’affichage des coûts alloués internes au cours du rapprochement peut prêter à confusion. Pour réduire les risques de confusion et vous aligner sur les données affichées sur la facture, vous pouvez filtrer toutes les règles d’allocation de coûts pour les exclure. Une fois que vous avez supprimé les règles d’allocation des coûts, votre fichier de détails d’utilisation doit correspondre au coût indiqué par la facture des abonnements facturés.
+
+:::image type="content" source="./media/allocate-costs/rule-name-filtered.png" alt-text="Capture d’écran montrant les coûts alloués avec le nom de la règle filtré" lightbox="./media/allocate-costs/rule-name-filtered.png" :::
 
 ## <a name="edit-an-existing-cost-allocation-rule"></a>Modifier une règle d'affectation de coûts existante
 
@@ -111,7 +122,6 @@ Actuellement, dans Cost Management, la fonctionnalité d'affectation des coûts 
 
 Les éléments suivants ne sont actuellement pas pris en charge par la préversion publique de la fonctionnalité d'affectation des coûts :
 
-- Exportations [planifiées](tutorial-export-acm-data.md)
 - Données exposées par l'API [Détails d'utilisation](/rest/api/consumption/usagedetails/list)
 - Zone des abonnements de facturation
 - [Application Power BI Cost Management](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)

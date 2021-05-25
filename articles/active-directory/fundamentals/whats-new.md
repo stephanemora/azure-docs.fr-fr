@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/31/2021
+ms.date: 4/30/2021
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab14df388579f46d9467c9d4d68146450691270c
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 3b918cc2b692ed3d5e6594cd6b888b55eb54e5aa
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108180389"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109733349"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -36,6 +36,126 @@ Azure AD bénéficie d’améliorations en continu. Pour vous informer des déve
 - Modifications planifiées
 
 Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement. Si vous recherchez des éléments antérieurs aux six derniers mois, vous les trouverez dans l’[Archive des Nouveautés d’Azure Active Directory](whats-new-archive.md).
+
+---
+
+## <a name="april-2021"></a>Avril 2021
+
+### <a name="bug-fixed---azure-ad-will-no-longer-double-encode-the-state-parameter-in-responses"></a>Résolution de bogue : Azure AD n’encodera plus en double le paramètre d’état dans les réponses.
+
+**Type :** Résolution  
+**Catégorie de service :** Authentifications (connexions)  
+**Fonctionnalité de produit :** Authentification utilisateur
+ 
+Azure AD a identifié, testé et publié un correctif pour un bogue dans la réponse `/authorize` à une application cliente.  Azure AD n’a pas pu correctement encoder l’URL du paramètre `state` lors du renvoi de réponses au client.  Ainsi, une application cliente peut rejeter la requête en raison d’une incompatibilité des paramètres d’état. [Plus d’informations](../develop/reference-breaking-changes.md#bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice) 
+
+---
+
+### <a name="users-can-only-create-security-and-microsoft-365-groups-in-azure-portal-being-deprecated"></a>Les utilisateurs peuvent uniquement créer des groupes de sécurité et Microsoft 365 dans le portail Azure (déconseillé)
+
+**Type :** Modification planifiée  
+**Catégorie de service :** Gestion des groupes  
+**Fonctionnalité de produit :** Répertoire
+ 
+Les utilisateurs ne sont plus tenus de créer des groupes de sécurité et Microsoft 365 uniquement dans le portail Azure. Le nouveau paramètre permettra aux utilisateurs de créer des groupes de sécurité dans le portail Azure, PowerShell et l’API. Les utilisateurs doivent vérifier et mettre à jour le nouveau paramètre. [Plus d’informations](../enterprise-users/groups-self-service-management.md)
+
+---
+
+### <a name="public-preview---external-identities-self-service-sign-up-in-aad-using-email-one-time-passcode-accounts"></a>Préversion publique - Inscription en libre service External Identities dans AAD à l’aide des comptes e-mail à code secret à usage unique
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** B2B  
+**Fonctionnalité de produit :** B2B/B2C
+ 
+Les utilisateurs externes peuvent désormais utiliser des comptes e-mail à code secret à usage unique pour s’inscrire ou se connecter aux applications internes Azure AD et métier. [Plus d’informations](../external-identities/one-time-passcode.md)
+
+---
+
+### <a name="general-availability---external-identities-self-service-sign-up"></a>Disponibilité générale - Inscription en libre-service des identités externes
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** B2B  
+**Fonctionnalité de produit :** B2B/B2C
+ 
+L’inscription en libre-service des utilisateurs externes est désormais en disponibilité générale. Cette nouvelle fonctionnalité permet aux utilisateurs externes de s’inscrire en libre-service à une application. 
+
+Vous pouvez créer des expériences personnalisées pour ces utilisateurs externes, notamment la collecte d’informations les concernant lors du processus d’inscription et l’autorisation de fournisseurs d’identité externes tels que Facebook et Google. Vous pouvez également intégrer des fournisseurs de cloud tiers pour diverses fonctionnalités telles que la vérification des identités ou l’approbation des utilisateurs. [Plus d’informations](../external-identities/self-service-sign-up-overview.md)
+ 
+---
+
+### <a name="general-availability---azure-ad-b2c-phone-sign-up-and-sign-in-using-built-in-policy"></a>Disponibilité générale : inscription et connexion par téléphone à Azure AD B2C à l’aide d’une stratégie intégrée
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** B2C - Gestion des identités consommateurs  
+**Fonctionnalité de produit :** B2B/B2C
+ 
+L’inscription et la connexion par téléphone B2C à l’aide d’une stratégie intégrée permettent aux administrateurs informatiques et aux développeurs de l’organisation d’autoriser leurs utilisateurs finaux à s’inscrire et à se connecter à l’aide d’un numéro de téléphone dans les flux d’utilisateurs. Avec cette fonctionnalité, des liens d’exclusion de responsabilité tels que la politique de confidentialité et les conditions d’utilisation peuvent être personnalisés et affichés sur la page avant que l’utilisateur final ne reçoive le code secret à usage unique par SMS. [Plus d’informations](../../active-directory-b2c/phone-authentication-user-flows.md)
+ 
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-application-gallery---april-2021"></a>Nouvelles applications fédérées disponibles dans la galerie d’applications Azure AD - Avril 2021
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité de produit :** Intégration tierce
+
+En avril 2021, nous avons ajouté les 31 applications suivantes à notre galerie d’applications avec prise en charge de la fédération :
+
+[Zii Travel Azure AD Connect](http://ziitravel.com/), [Cerby](../saas-apps/cerby-tutorial.md), [Selflessly](https://app.selflessly.io/sign-in), [Apollo CX](https://apollo.cxlabs.de/sso/aad), [Pedagoo](https://account.pedagoo.com/), [Measureup](https://account.measureup.com/), [Wistec Education](https://wisteceducation.fi/login/index.php), [ProcessUnity](../saas-apps/processunity-tutorial.md), [Cisco Intersight](../saas-apps/cisco-intersight-tutorial.md), [Codility](../saas-apps/codility-tutorial.md), [H5mag](https://account.h5mag.com/auth/request-access/ms365), [Check Point Identity Awareness](../saas-apps/check-point-identity-awareness-tutorial.md), [Jarvis](https://jarvis.live/login), [desknet's NEO](../saas-apps/desknets-neo-tutorial.md), [SDS & Chemical Information Management](../saas-apps/sds-chemical-information-management-tutorial.md), [Wúru App](../saas-apps/wuru-app-tutorial.md), [Holmes](../saas-apps/holmes-tutorial.md), [Tide Multi Tenant](https://gallery.tideapp.co.uk/), [Telenor](https://admin.smartansatt.telenor.no/), [Yooz US](https://us1.getyooz.com/?kc_idp_hint=microsoft), [Mooncamp](https://app.mooncamp.com/#/login), [inwise SSO](https://app.inwise.com/defaultsso.aspx), [Ecolab Digital Solutions](https://ecolabb2c.b2clogin.com/account.ecolab.com/oauth2/v2.0/authorize?p=B2C_1A_Connect_OIDC_SignIn&client_id=01281626-dbed-4405-a430-66457825d361&nonce=defaultNonce&redirect_uri=https://jwt.ms&scope=openid&response_type=id_token&prompt=login), [Taguchi Digital Marketing System](https://login.taguchi.com.au/), [XpressDox EU Cloud](https://test.xpressdox.com/Authentication/Login.aspx), [EZSSH](https://docs.keytos.io/getting-started/registering-a-new-tenant/registering_app_in_tenant/), [EZSSH Client](https://portal.ezssh.io/signup), [Verto 365](https://www.vertocloud.com/Login/), [KPN Grip](https://www.grip-on-it.com/), [AddressLook](https://portal.bbsonlineservices.net/Manage/AddressLook), [Cornerstone Single Sign-On](../saas-apps/cornerstone-ondemand-tutorial.md)
+
+Pour accéder à la documentation de ces applications, cliquez https://aka.ms/AppsTutorial
+
+Pour référencer votre application dans la Galerie d’applications Azure AD, lisez les informations détaillées ici : https://aka.ms/AzureADAppRequest
+
+---
+
+### <a name="new-provisioning-connectors-in-the-azure-ad-application-gallery---april-2021"></a>Nouveaux connecteurs de provisionnement dans la galerie d’applications Azure AD - Avril 2021
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Provisionnement d’applications  
+**Fonctionnalité de produit :** Intégration tierce
+ 
+Vous pouvez désormais automatiser la création, la mise à jour et la suppression de comptes d’utilisateur pour ces applications nouvellement intégrées :
+
+- [Bentley - Automatic User Provisioning](../saas-apps/bentley-automatic-user-provisioning-tutorial.md)
+- [Boxcryptor](../saas-apps/boxcryptor-provisioning-tutorial.md)
+- [BrowserStack Single Sign-on](../saas-apps/browserstack-single-sign-on-provisioning-tutorial.md)
+- [Eletive](../saas-apps/eletive-provisioning-tutorial.md)
+- [Jostle](../saas-apps/jostle-provisioning-tutorial.md)
+- [Olfeo SAAS](../saas-apps/olfeo-saas-provisioning-tutorial.md)
+- [Proware](../saas-apps/proware-provisioning-tutorial.md)
+- [Segment](../saas-apps/segment-provisioning-tutorial.md)
+
+Pour découvrir comment sécuriser plus efficacement votre organisation à l’aide de l’approvisionnement automatique de comptes utilisateur, consultez [Automatisation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure AD](../app-provisioning/user-provisioning.md).
+ 
+---
+
+### <a name="introducing-new-versions-of-page-layouts-for-b2c"></a>Présentation des nouvelles versions des mises en page pour B2C
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** B2C - Gestion des identités consommateurs  
+**Fonctionnalité de produit :** B2B/B2C
+ 
+Les [mises en page](../../active-directory-b2c/page-layout.md) pour les scénarios B2C sur Azure AD B2C ont été mises à jour pour réduire les risques de sécurité en introduisant les nouvelles versions de jQuery and Handlebars JS.
+ 
+---
+
+### <a name="updates-to-sign-in-diagnostic"></a>Mises à jour du diagnostic de connexion
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** Signalement  
+**Fonctionnalité de produit :** Monitoring et création de rapports
+ 
+L’outil Diagnostic de connexion couvre un plus grand nombre de scénarios. 
+
+Avec cette mise à jour, les scénarios liés aux événements suivants sont désormais inclus dans les résultats du diagnostic de connexion : 
+- Événements liés aux problèmes de configuration des applications d’entreprise.
+- Événements du fournisseur de services d’applications d’entreprise (côté application).
+- Événements d’informations d’identification incorrectes. 
+
+Ces résultats affichent des informations contextuelles et pertinentes sur l’événement et les mesures à prendre pour remédier aux problèmes. En outre, en l’absence de diagnostics contextuels détaillés, le diagnostic de connexion propose un contenu plus descriptif sur l’événement d’erreur.
+
+Pour plus d’informations, consultez [Qu’est-ce que le diagnostic de connexion dans Azure Active Directory ?](../reports-monitoring/overview-sign-in-diagnostics.md)
 
 ---
 
@@ -59,7 +179,7 @@ Les environnements affectés sont les suivants :
 - Azure Commercial Cloud
 - Office 365 GCC et WW
 
-Pour obtenir des instructions supplémentaires, consultez [Activer la prise en charge de TLS 1.2 dans votre environnement en vue de la dépréciation de TLS 1.1 et 1.0 dans Azure AD](/troubleshoot/azure/active-directory/enable-support-tls-environment).
+Pour plus d’informations, consultez [Activer la prise en charge de TLS 1.2 dans votre environnement en vue de la dépréciation de TLS 1.1 et 1.0 dans Azure AD](/troubleshoot/azure/active-directory/enable-support-tls-environment).
 
 ---
 
@@ -221,6 +341,16 @@ Pour découvrir comment sécuriser plus efficacement votre organisation à l’a
 **Fonctionnalité de produit :** Contrôle d’accès
  
 La prise en charge native par le proxy d’application Azure AD de l’authentification basée sur l’en-tête est désormais en disponibilité générale. Avec cette fonctionnalité, vous pouvez configurer les attributs utilisateur requis en tant qu’en-têtes HTTP pour l’application sans avoir besoin de composants supplémentaires pour le déploiement. [Plus d’informations](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md)
+
+---
+
+### <a name="azure-ad-connect-cloud-sync-general-availability-refresh"></a>Actualisation de la disponibilité générale de la synchronisation cloud Azure AD Connect 
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** synchronisation cloud Azure AD Connect **Fonctionnalité produit :** Directory
+
+La synchronisation cloud Azure AD Connect dispose désormais d’un agent mis à jour (version# - 1.1.359). Pour plus d’informations sur les mises à jour de l’agent, y compris les correctifs de bogues, consultez l'[historique des versions](../cloud-sync/reference-version-history.md). Avec l’agent mis à jour, les clients de la synchronisation cloud peuvent utiliser des cmdlets GMSA pour définir et réinitialiser leur autorisation gMSA à un niveau granulaire. En outre, nous avons modifié la limite de synchronisation des membres à l’aide du filtrage d’étendue de groupe de 1 499 à 50 000 membres. 
+
+Découvrez le nouveau [générateur d’expressions](../cloud-sync/how-to-expression-builder.md#deploy-the-expression) pour la synchronisation cloud, qui vous aide à créer des expressions simples et complexes lorsque vous effectuez des transformations de valeurs d’attribut d’Active directory vers Azure AD à l’aide du mappage d’attributs.
 
 ---
 
@@ -766,8 +896,6 @@ Les environnements affectés sont les suivants :
 - Azure Commercial Cloud
 - Office 365 GCC et WW
 
-Annonce : toutes les combinaisons client-serveur et navigateur-serveur doivent utiliser TLS 1.2 et des suites de chiffrement modernes afin de maintenir une connexion sécurisée à Azure Active Directory pour les services Azure, Office 365 et Microsoft 365. Cette modification est liée à l’article [Azure Active Directory TLS 1.0 & 1.1, and 3DES Cipher Suite Deprecation in US Gov Cloud](whats-new.md#azure-active-directory-tls-10-tls-11-and-3des-deprecation-in-us-gov-cloud).
-
 Pour obtenir des conseils sur la suppression des dépendances envers les protocoles dépréciés, consultez [Activer la prise en charge de TLS 1.2 dans votre environnement en vue de la dépréciation de TLS 1.1 et 1.0 dans Azure AD](/troubleshoot/azure/active-directory/enable-support-tls-environment).
 
 ---
@@ -930,270 +1058,4 @@ Le service Groupe dynamique amélioré est maintenant en préversion publique. L
 
 Le nouveau service vise également à finaliser en quelques minutes l’ajout et la suppression de membres en raison de modifications d’attributs. En outre, les échecs de traitement uniques ne bloquent pas le traitement du locataire. Pour en savoir plus sur la création de groupes dynamiques, consultez notre [documentation](../enterprise-users/groups-create-rule.md).
  
----
-## <a name="october-2020"></a>Octobre 2020
-
-### <a name="azure-ad-on-premises-hybrid-agents-impacted-by-azure-tls-certificate-changes"></a>Agents hybrides locaux Azure AD impactés par les changements des certificats Azure TLS
-
-**Type :** Modification planifiée  
-**Catégorie de service :** N/A  
-**Fonctionnalité de produit :** plateforme
-
-Microsoft met à jour les services Azure pour qu’ils utilisent des certificats TLS issus d’un autre ensemble d’autorités de certification racines. Cette mise à jour est due au fait que les certificats d’autorité de certification actuels ne sont pas conformes à l’une des réglementations de référence du CA/Browser Forum. Ce changement a un impact sur les agents hybrides Azure AD installés localement qui ont des environnements renforcés disposant d’une liste fixe de certificats racines. Ils devront être mis à jour pour approuver les nouveaux émetteurs de certificats.
-
-Ce changement entraîne une interruption du service si vous n’agissez pas tout de suite. Ces agents comprennent les [connecteurs de proxy d’application](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AppProxy) pour l’accès à distance à un site local, les agents d’[authentification directe](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) qui permettent à vos utilisateurs de se connecter aux applications à l’aide des mêmes mots de passe, et les agents de la [préversion du provisionnement cloud](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) qui effectuent la synchronisation d’AD vers Azure AD. 
-
-Si vous disposez d’un environnement avec des règles de pare-feu définies pour autoriser les appels sortants uniquement vers un téléchargement de liste de révocation de certificats spécifique, vous devez autoriser les URL de liste de révocation de certificats et OCSP suivantes. Pour plus d’informations sur le changement d’URL de liste de révocation de certificats et OCSP afin de permettre l’accès, consultez [Changements des certificats Azure TLS](../../security/fundamentals/tls-certificate-changes.md).
-
----
-
-### <a name="provisioning-events-will-be-removed-from-audit-logs-and-published-solely-to-provisioning-logs"></a>Les événements de provisionnement sont supprimés des journaux d’audit et publiés uniquement dans les journaux de provisionnement
-
-**Type :** Modification planifiée  
-**Catégorie de service :** Signalement  
-**Fonctionnalité de produit :** Monitoring et création de rapports
- 
-L’activité effectuée par le [service de provisionnement](../app-provisioning/user-provisioning.md) SCIM est journalisée à la fois dans les journaux d’audit et dans les journaux de provisionnement. Cela comprend les activités comme la création d’un utilisateur dans ServiceNow, la création d’un groupe dans GSuite ou l’importation d’un rôle à partir d’AWS. À l’avenir, ces événements seront publiés uniquement dans les journaux de provisionnement. Ce changement est implémenté pour éviter les événements en double dans les journaux et les coûts supplémentaires liés à l’utilisation de journaux dans Log Analytics par les clients. 
-
-Nous fournirons une mise à jour quand une date de fin sera atteinte. Cette dépréciation n’est pas prévue pour l’année 2020. 
-
-> [!NOTE]
-> Cela n’affecte pas les événements figurant dans les journaux d’audit en dehors des événements de synchronisation émis par le service de provisionnement. Les événements comme la création d’une application, d’une stratégie d’accès conditionnel, d’un utilisateur dans l’annuaire, etc., continueront d’être émis dans les journaux d’audit. [Plus d’informations](../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context)
- 
-
----
-
-### <a name="azure-ad-on-premises-hybrid-agents-impacted-by-azure-transport-layer-security-tls-certificate-changes"></a>Agents hybrides locaux Azure AD impactés par les changements des certificats Azure TLS (Transport Layer Security)
-
-**Type :** Modification planifiée  
-**Catégorie de service :** N/A  
-**Fonctionnalité de produit :** plateforme
- 
-Microsoft met à jour les services Azure pour qu’ils utilisent des certificats TLS issus d’un autre ensemble d’autorités de certification racines. Il y aura une mise à jour parce que les certificats d’autorité de certification actuels ne respectent pas l’une des réglementations de référence du CA/Browser Forum. Ce changement a un impact sur les agents hybrides Azure AD installés localement qui ont des environnements renforcés disposant d’une liste fixe de certificats racines. Ces agents devront être mis à jour pour approuver les nouveaux émetteurs de certificats.
-
-Ce changement entraîne une interruption du service si vous n’agissez pas tout de suite. Ces agents sont notamment les suivants : 
-- [Connecteurs de proxy d’application](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AppProxy) pour l’accès à distance à des applications locales 
-- Agents d’[authentification directe](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) qui permettent à vos utilisateurs de se connecter à des applications à l’aide des mêmes mots de passe
-- Agents de la [préversion du provisionnement cloud](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) qui effectuent la synchronisation d’AD vers Azure AD. 
-
-Si vous disposez d’un environnement avec des règles de pare-feu définies pour autoriser les appels sortants uniquement vers un téléchargement de liste de révocation de certificats spécifique, vous devez autoriser les URL de liste de révocation de certificats et OCSP. Pour plus d’informations sur le changement d’URL de liste de révocation de certificats et OCSP afin de permettre l’accès, consultez [Changements des certificats Azure TLS](../../security/fundamentals/tls-certificate-changes.md).
- 
----
-
-### <a name="azure-active-directory-tls-10-tls-11-and-3des-deprecation-in-us-gov-cloud"></a>Dépréciation d’Azure Active Directory TLS 1.0, TLS 1.1 et 3DES dans le cloud du secteur public des États-Unis
-
-**Type :** Modification planifiée  
-**Catégorie de service :** Toutes les applications Azure AD  
-**Fonctionnalité de produit :** Standards
- 
-Azure Active Directory dépréciera les protocoles suivants à compter du 31 mars 2021 :
-- TLS 1.0
-- TLS 1.1
-- Suite de chiffrement 3DES (TLS_RSA_WITH_3DES_EDE_CBC_SHA)
-
-Toutes les combinaisons client-serveur et navigateur-serveur doivent utiliser TLS 1.2 et des suites de chiffrement modernes afin de maintenir une connexion sécurisée à Azure Active Directory pour les services Azure, Office 365 et Microsoft 365.
-
-Les environnements affectés sont les suivants :
-- Azure US Gov
-- [Office 365 GCC High et DoD](/microsoft-365/compliance/tls-1-2-in-office-365-gcc)
-
-Pour obtenir des conseils sur la suppression des dépendances envers les protocoles dépréciés, consultez [Activer la prise en charge de TLS 1.2 dans votre environnement en vue de la dépréciation de TLS 1.1 et 1.0 dans Azure AD](/troubleshoot/azure/active-directory/enable-support-tls-environment).
- 
----
-
-### <a name="assign-applications-to-roles-on-administrative-unit-and-object-scope"></a>Attribuer des applications à des rôles sur l’étendue de l’unité administrative et de l’objet
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** RBAC  
-**Fonctionnalité de produit :** Contrôle d’accès
- 
-Cette fonctionnalité permet d’attribuer une application (SPN) à un rôle administrateur sur l’étendue de l’unité administrative. Pour en savoir plus, reportez-vous à [Attribuer des rôles dont l’étendue est délimitée à une unité administrative](../roles/admin-units-assign-roles.md).
-
----
-
-### <a name="now-you-can-disable-and-delete-guest-users-when-theyre-denied-access-to-a-resource"></a>Vous pouvez maintenant désactiver et supprimer des utilisateurs invités quand l’accès à une ressource leur est refusé
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Révisions d’accès  
-**Fonctionnalité de produit :** Gouvernance des identités
- 
-Désactiver et supprimer est un contrôle avancé dans les révisions d’accès Azure AD pour permettre aux organisations de mieux gérer les invités externes dans des groupes et des applications. Si des invités sont refusés dans une révision d’accès, **la désactivation et la suppression** les empêchent automatiquement de se connecter pendant 30 jours. Au bout de 30 jours, ils sont complètement retirés du locataire.
-
-Pour plus d’informations sur cette fonctionnalité, consultez [Désactiver et supprimer des identités externes à l’aide des révisions d’accès Azure AD](../governance/access-reviews-external-users.md#disable-and-delete-external-identities-with-azure-ad-access-reviews).
- 
----
-
-### <a name="access-review-creators-can-add-custom-messages-in-emails-to-reviewers"></a>Les créateurs de révision d’accès peuvent ajouter des messages personnalisés dans les e-mails envoyés aux réviseurs
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Révisions d’accès  
-**Fonctionnalité de produit :** Gouvernance des identités
- 
-Dans les révisions d’accès Azure AD, les administrateurs qui créent des révisions peuvent désormais écrire un message personnalisé aux réviseurs. Les réviseurs voient le message dans l’e-mail qu’ils reçoivent, les invitant à effectuer la révision. Pour en savoir plus sur l’utilisation de cette fonctionnalité, consultez l’étape 14 de la section [Créer une ou plusieurs révisions d’accès](../governance/create-access-review.md#create-one-or-more-access-reviews).
-
----
-
-### <a name="new-provisioning-connectors-in-the-azure-ad-application-gallery---october-2020"></a>Nouveaux connecteurs de provisionnement dans la galerie d’applications Azure AD - Octobre 2020
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Provisionnement d’applications  
-**Fonctionnalité de produit :** Intégration tierce
- 
-Vous pouvez désormais automatiser la création, la mise à jour et la suppression de comptes d’utilisateur pour ces applications nouvellement intégrées :
-
-- [Apple Business Manager](../saas-apps/apple-business-manager-provision-tutorial.md)
-- [Apple School Manager](../saas-apps/apple-school-manager-provision-tutorial.md)
-- [Code42](../saas-apps/code42-provisioning-tutorial.md)
-- [AlertMedia](../saas-apps/alertmedia-provisioning-tutorial.md)
-- [OpenText Directory Services](../saas-apps/open-text-directory-services-provisioning-tutorial.md)
-- [Cinode](../saas-apps/cinode-provisioning-tutorial.md)
-- [Global Relay Identity Sync](../saas-apps/global-relay-identity-sync-provisioning-tutorial.md)
-
-Pour découvrir comment sécuriser plus efficacement votre organisation à l’aide de l’approvisionnement automatique de comptes utilisateur, voir [Automatisation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure AD](../app-provisioning/user-provisioning.md).
- 
----
-
-### <a name="integration-assistant-for-azure-ad-b2c"></a>Assistant d’intégration pour Azure AD B2C
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** B2C - Gestion des identités consommateurs  
-**Fonctionnalité de produit :** B2B/B2C
- 
-L’expérience de l’Assistant d’intégration (préversion) est maintenant disponible pour les inscriptions d’applications Azure AD B2C. Cette expérience vous guide dans la configuration de votre application pour les scénarios courants. Découvrez-en plus sur les [Bonnes pratiques et recommandations sur la plateforme d’identité Microsoft](../develop/identity-platform-integration-checklist.md).
- 
----
-
-### <a name="view-role-template-id-in-azure-portal-ui"></a>Afficher l’ID de modèle de rôle dans l’interface utilisateur du portail Azure
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Rôles Azure  
-**Fonctionnalité de produit :** Contrôle d’accès
- 
-
-Vous pouvez maintenant afficher l’ID de modèle de chaque rôle Azure AD dans le portail Azure. Dans Azure AD, sélectionnez la **description** du rôle sélectionné. 
-
-Il est recommandé aux clients d’utiliser des ID de modèle de rôle dans leur code et leur script PowerShell plutôt que le nom complet. L’utilisation d’ID de modèle de rôle est prise en charge dans les objets [directoryRoles](/graph/api/resources/directoryrole) et [roleDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta&preserve-view=true). Pour plus d’informations sur les ID de modèle de rôle, consultez [Rôles intégrés d’Azure AD](../roles/permissions-reference.md).
-
----
-
-### <a name="api-connectors-for-azure-ad-b2c-sign-up-user-flows-is-now-in-public-preview"></a>Les connecteurs d’API pour Azure AD B2C flux d’utilisateurs d’inscription sont maintenant en préversion publique
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** B2C - Gestion des identités consommateurs  
-**Fonctionnalité de produit :** B2B/B2C
- 
-
-Les connecteurs d’API peuvent désormais être utilisés avec Azure Active Directory B2C. Les connecteurs d’API vous permettent d’utiliser des API web pour personnaliser vos flux d’utilisateurs d’inscription et les intégrer à des systèmes cloud externes. Vous pouvez utiliser des connecteurs d’API pour :
-
-- Effectuer une intégration à des workflows d’approbation personnalisés
-- Valider des données d’entrée utilisateur
-- Remplacer des attributs utilisateur 
-- Exécuter une logique métier personnalisée 
-
- Pour en savoir plus, consultez la documentation [Utiliser des connecteurs d’API pour personnaliser et étendre les flux d’utilisateurs d’inscription](../../active-directory-b2c/api-connectors-overview.md).
-
----
-
-### <a name="state-property-for-connected-organizations-in-entitlement-management"></a>Propriété État pour les organisations connectées dans la gestion des droits d’utilisation
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Gestion des annuaires **Fonctionnalité produit :** Gestion des droits d’utilisation
- 
-
- Toutes les organisations connectées auront désormais une propriété supplémentaire appelée « État ». L’état contrôle la manière dont l’organisation connectée sera utilisée dans les stratégies qui font référence à « toutes les organisations connectées configurées ». La valeur est soit « configurée » (ce qui signifie que l’organisation est dans l’étendue des stratégies qui utilisent la clause « Tout »), soit « proposée » (ce qui signifie que l’organisation n’est pas dans l’étendue).  
-
-Les organisations connectées créées manuellement auront le paramètre par défaut « configuré ». En attendant, celles créées automatiquement (par le biais de stratégies qui autorisent les utilisateurs d’Internet à demander l’accès) sont définies par défaut sur « proposé ».  Toutes les organisations connectées créées avant le 9 septembre 2020 seront définies sur « configuré ». Les administrateurs peuvent mettre à jour cette propriété si nécessaire. [Plus d’informations](../governance/entitlement-management-organization.md#managing-a-connected-organization-programmatically)
- 
-
----
-
-### <a name="azure-active-directory-external-identities-now-has-premium-advanced-security-settings-for-b2c"></a>Les identités externes Azure Active Directory ont désormais des paramètres de sécurité avancés Premium pour B2C
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** B2C - Gestion des identités consommateurs  
-**Fonctionnalité de produit :** B2B/B2C
- 
-L’accès conditionnel basé sur les risques et les fonctionnalités de détection des risques d’Identity Protection sont désormais disponibles dans [Azure AD B2C](../..//active-directory-b2c/conditional-access-identity-protection-overview.md). Grâce à ces fonctionnalités de sécurité avancées, les clients peuvent :
-- Tirer parti d’insights intelligents pour évaluer les risques liés aux applications B2C et aux comptes d’utilisateur final. Les détections incluent les déplacements atypiques, les adresses IP anonymes, les adresses IP liées aux programmes malveillants et à Azure AD Threat Intelligence. Des rapports sur le portail et les API sont également disponibles.
-- Gérez automatiquement les risques en configurant des stratégies d’authentification adaptative pour les utilisateurs B2C. Les développeurs d’applications et les administrateurs peuvent réduire les risques en temps réel en exigeant l’authentification multifacteur (MFA, Multi-Factor Authentication) ou le blocage de l’accès en fonction du niveau de risque utilisateur détecté, avec des contrôles supplémentaires disponibles suivant la localisation, le groupe et l’application.
-- Effectuer une intégration à des flux d’utilisateurs Azure AD B2C et à des stratégies personnalisées. Les conditions peuvent être déclenchées à partir de flux d’utilisateurs intégrés dans Azure AD B2C ou peuvent être incorporées dans des stratégies personnalisées B2C. Comme avec d’autres aspects du flux d’utilisateurs B2C, la messagerie de l’expérience utilisateur final peut être personnalisée. La personnalisation dépend des alternatives de voix, de marque et d’atténuation de l’organisation.
- 
----
-
-### <a name="new-federated-apps-available-in-azure-ad-application-gallery---october-2020"></a>Nouvelles applications fédérées disponibles dans la galerie d’applications Azure AD - Octobre 2020
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Applications d’entreprise  
-**Fonctionnalité de produit :** Intégration tierce
- 
-En octobre 2020, nous avons ajouté à notre galerie d’applications les 27 nouvelles applications suivantes qui prennent en charge la fédération :
-
-[Sentry](../saas-apps/sentry-tutorial.md), [Bumblebee - Productivity Superapp](https://app.yellowmessenger.com/user/login), [ABBYY FlexiCapture Cloud](../saas-apps/abbyy-flexicapture-cloud-tutorial.md), [EAComposer](../saas-apps/eacomposer-tutorial.md), [Genesys Cloud Integration pour Azure](https://apps.mypurecloud.com/msteams-integration/), [Portail Zone Technologie](https://portail.zonetechnologie.com/signin), [Beautiful.ai](../saas-apps/beautiful.ai-tutorial.md), [Datawiza Access Broker](https://console.datawiza.com/), [ZOKRI](https://app.zokri.com/), [CheckProof](../saas-apps/checkproof-tutorial.md), [Ecochallenge.org](https://events.ecochallenge.org/users/login), [atSpoke](http://atspoke.com/login), [Appointment Reminder](https://app.appointmentreminder.co.nz/account/login), [Cloud.Market](https://cloud.market/), [TravelPerk](../saas-apps/travelperk-tutorial.md), [Greetly](https://app.greetly.com/), [OrgVitality SSO](../saas-apps/orgvitality-sso-tutorial.md), [Web Cargo Air](../saas-apps/web-cargo-air-tutorial.md), [Loop Flow CRM](../saas-apps/loop-flow-crm-tutorial.md), [Starmind](../saas-apps/starmind-tutorial.md), [Workstem](https://hrm.workstem.com/login), [Retail Zipline](../saas-apps/retail-zipline-tutorial.md), [Hoxhunt](../saas-apps/hoxhunt-tutorial.md), [MEVISIO](../saas-apps/mevisio-tutorial.md), [Samsara](../saas-apps/samsara-tutorial.md), [Nimbus](../saas-apps/nimbus-tutorial.md), [Pulse Secure virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
-
-La documentation de toutes ces applications est disponible ici https://aka.ms/AppsTutorial
-
-Pour référencer votre application dans la galerie d’applications Azure AD, lisez les informations détaillées ici : https://aka.ms/AzureADAppRequest
-
----
-
-### <a name="provisioning-logs-can-now-be-streamed-to-log-analytics"></a>Les journaux de provisionnement peuvent désormais être envoyés en streaming vers Log Analytics
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Signalement  
-**Fonctionnalité de produit :** Monitoring et création de rapports
- 
-
-Publiez vos journaux de provisionnement dans Log Analytics afin d’effectuer les opérations suivantes :
-- Stocker les journaux de provisionnement pendant plus de 30 jours
-- Définir des alertes et des notifications personnalisées
-- Générer des tableaux de bord pour visualiser les journaux
-- Exécuter des requêtes complexes pour analyser les journaux 
-
-Pour découvrir comment utiliser la fonctionnalité, consultez [Découvrir comment le provisionnement s’intègre aux journaux Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md).
- 
----
-
-### <a name="provisioning-logs-can-now-be-viewed-by-application-owners"></a>Les journaux de provisionnement peuvent désormais être consultés par les propriétaires d’applications
-
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** Signalement  
-**Fonctionnalité de produit :** Monitoring et création de rapports
- 
-Vous pouvez désormais autoriser les propriétaires d’applications à superviser l’activité effectuée par le service de provisionnement et à résoudre les problèmes sans leur fournir un rôle privilégié ou faire du service informatique un goulot d’étranglement. [Plus d’informations](../reports-monitoring/concept-provisioning-logs.md)
- 
----
-
-### <a name="renaming-10-azure-active-directory-roles"></a>Renommage de 10 rôles Azure Active Directory
-
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** Rôles Azure  
-**Fonctionnalité de produit :** Contrôle d’accès
- 
-Certains rôles intégrés Azure Active Directory (AD) ont des noms qui diffèrent de ceux qui apparaissent dans le Centre d’administration Microsoft 365, le portail Azure AD et Microsoft Graph. Cette incohérence peut entraîner des problèmes dans les processus automatisés. Avec cette mise à jour, nous renommons 10 noms de rôles pour les rendre cohérents. Le tableau suivant contient les nouveaux noms de rôles :
-
-![Tableau répertoriant les noms de rôles dans MS API Graph et le portail Azure, ainsi que le nouveau nom de rôle proposé dans le centre d’administration M365, le portail Azure et l’API.](media/whats-new/azure-role.png)
-
----
-
-### <a name="azure-ad-b2c-support-for-auth-code-flow-for-spas-using-msal-js-2x"></a>Prise en charge d’Azure Active Directory B2C pour le flux de code d’authentification pour les applications monopages (SPA) utilisant MSAL.js 2.x
-
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** B2C - Gestion des identités consommateurs  
-**Fonctionnalité de produit :** B2B/B2C
- 
-MSAL.js version 2.x prend désormais en charge le flux de code d’autorisation pour les applications web monopages (SPA). Azure AD B2C prend désormais en charge l’utilisation du type d’application SPA sur le portail Azure et l’utilisation du flux de code d’autorisation MSAL.js avec PKCE pour les applications monopages. Cela permettra aux applications monopages utilisant Azure AD B2C de maintenir l’authentification unique avec les navigateurs les plus récents et de respecter les dernières recommandations concernant les protocoles d’authentification. Commencez avec le tutoriel [Inscrire une application monopage (SPA) dans Azure Active Directory B2C](../../active-directory-b2c/tutorial-register-spa.md).
-
----
-
-### <a name="updates-to-remember-multi-factor-authentication-mfa-on-a-trusted-device-setting"></a>Mises à jour pour mémoriser Multi-Factor Authentication (MFA) sur un paramètre d’appareil approuvé
-
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** MFA  
-**Fonctionnalité de produit :** Protection et sécurité des identités
- 
-
-Nous avons récemment mis à jour la [mémorisation de Multi-Factor Authentication (MFA)](../authentication/howto-mfa-mfasettings.md#remember-multi-factor-authentication) sur une fonctionnalité d’appareil approuvé pour étendre l’authentification jusqu’à 365 jours. Les licences Azure Active Directory (Azure AD) Premium peuvent également utiliser la [stratégie de fréquence de connexion pour l’accès conditionnel](../conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency) qui offre plus de souplesse pour les paramètres de réauthentification.
-
-Pour une expérience utilisateur optimale, nous vous recommandons d’utiliser la fréquence de connexion pour l’accès conditionnel afin d’étendre les durées de vie des sessions sur les appareils approuvés, les localisations ou les sessions à faible risque comme alternative à la mémorisation de Multi-Factor Authentication (MFA) sur un paramètre d’appareil approuvé. Pour commencer, consultez nos [dernières instructions sur l’optimisation de l’expérience de réauthentification](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
-
 ---

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 2eb6bcb2fcaeb3afddfb8605b9065766fa0af5ee
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 677ce4e66a3d9f870e21785327f382b9974b2cdf
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130563"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748652"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-holmes"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Holmes
 
@@ -36,8 +36,6 @@ Pour commencer, vous devez disposer de ce qui suit :
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
-
-* Holmes prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
 
 ## <a name="adding-holmes-from-the-gallery"></a>Ajout de Holmes à partir de la galerie
 
@@ -74,18 +72,20 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+2. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<WorkspaceID>.holmescloud.com`
+   1. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
 
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
-
-    Dans la zone de texte **URL de connexion**, tapez l’URL : `https://www.holmescloud.com/login`
+      `https://<WorkspaceID>.holmescloud.com`
+      
+   1. Dans la zone de texte **URL de réponse (URL Assertion Consumer Service)** , entrez `https://holmescloud.com/sso/acs`.
+   
+   1. Dans la zone de texte **URL de déconnexion**, entrez `https://holmescloud.com/sso/logout`.
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour cette valeur avec l’identificateur réel. Pour obtenir la valeur, contactez l’[équipe de support technique de Holmes](mailto:team-dev@holmescloud.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Mettez à jour la valeur avec l’identificateur réel, qui fait référence à la page d’administration de Holmes. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+3. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
@@ -103,7 +103,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
    1. Dans le champ **Nom**, entrez `B.Simon`.  
    1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
-   1. Cliquez sur **Créer**.
+   1. Sélectionnez **Create** (Créer).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
@@ -115,15 +115,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
-1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+1. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
 
 ## <a name="configure-holmes-sso"></a>Configurer l’authentification unique Holmes
 
-Pour configurer l’authentification unique côté **Holmes**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique de Holmes](mailto:team-dev@holmescloud.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Holmes**, vous devez inscrire le **certificat (Base64)** téléchargé et les URL appropriées copiées à partir du portail Azure dans la page d’administration de Holmes. 
 
 ### <a name="create-holmes-test-user"></a>Créer un utilisateur de test Holmes
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Holmes. Contactez l’[équipe du support technique de Holmes](mailto:team-dev@holmescloud.com) pour ajouter des utilisateurs à la plateforme Holmes. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Holmes. Vous pouvez créer/inviter un utilisateur dans la page de gestion des membres Holmes. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

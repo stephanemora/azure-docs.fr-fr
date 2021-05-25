@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 04/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: e410e5de529bde122fe42d21b593a6fc483dcbc0
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: c190af2532f28bd183a92b37b814210cb794501d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726672"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748490"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Guide pratique pour déployer des mises à jour et voir les résultats
 
@@ -61,6 +61,9 @@ Pour planifier un nouveau déploiement de mises à jour, procédez comme suit. E
 
     > [!NOTE]
     > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur Azure Arc. La machine est automatiquement ciblée pour le déploiement planifié.
+
+   > [!IMPORTANT]
+   > Lors de la création d’un groupe dynamique de machines virtuelles Azure, Update Management prend en charge un maximum de 500 requêtes combinant des abonnements ou des groupes de ressources dans l’étendue du groupe.
 
 6. Dans la section **Machines à mettre à jour**, sélectionnez une recherche enregistrée, un groupe importé, ou choisissez **Machines** dans la liste déroulante et sélectionnez des machines spécifiques. Avec cette option, vous pouvez voir la préparation de l’agent Log Analytics pour chaque machine. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../../azure-monitor/logs/computer-groups.md). Vous pouvez inclure jusqu’à 1000 machines dans un déploiement planifié de mises à jour.
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 05/11/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f451d08dfbde643d91705f54296e9757a51c9d88
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 2865138aeca012d30692e708a61e459492f03ccc
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798391"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750696"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuration d’un flux de réinitialisation de mot de passe dans Azure Active Directory B2C.
 
@@ -61,17 +61,17 @@ Pour activer la réinitialisation du mot de passe en libre-service pour le flux 
 1. Sélectionnez **Flux d’utilisateurs**.
 1. Sélectionnez un flux d’utilisateur d’inscription ou de connexion (de type **Recommandé**) que vous souhaitez personnaliser.
 1. Dans le menu de gauche, sous **Paramètres**, sélectionnez **Propriétés**.
-1. Sous **Complexité du mot de passe**, sélectionnez **Réinitialisation du mot de passe en libre-service**.
+1. Sous **Configuration du mot de passe**, sélectionnez **Réinitialisation du mot de passe en libre-service**.
 1. Sélectionnez **Enregistrer**.
 1. Dans le menu de gauche, sous **Personnaliser**, sélectionnez **Mises en page**.
-1. Dans la **version de mise en page**, choisissez **2.1.2 - Actuel** ou une version ultérieure.
+1. Dans la **version de mise en page**, choisissez **2.1.3** ou une version ultérieure.
 1. Sélectionnez **Enregistrer**.
 
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
-Les sections suivantes décrivent comment ajouter une expérience de mot de passe libre-service à une stratégie personnalisée. L’exemple est basé sur les fichiers de stratégie inclus dans le [pack de démarrage sur les stratégies personnalisées](./custom-policy-get-started.md). 
+Les sections suivantes décrivent comment ajouter une expérience de mot de passe libre-service à une stratégie personnalisée. L’exemple est basé sur les fichiers de stratégie inclus dans le [pack de démarrage sur les stratégies personnalisées](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack). 
 
 > [!TIP]
 > Vous trouverez un exemple complet de la stratégie « inscription ou connexion avec réinitialisation de mot de passe » sur [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/embedded-password-reset).
@@ -316,7 +316,7 @@ Pour permettre aux utilisateurs de votre application de réinitialiser leur mot 
 
 ### <a name="create-a-password-reset-policy"></a>Création d’une stratégie de réinitialisation du mot de passe
 
-Les stratégies personnalisées sont un ensemble de fichiers XML que vous téléchargez vers votre locataire Azure AD B2C pour définir des parcours utilisateur. Nous fournissons des packs de démarrage avec plusieurs stratégies prédéfinies, par exemple l’inscription et la connexion, la réinitialisation du mot de passe et la stratégie de modification de profil. Pour plus d’informations, consultez [Démarrage avec les stratégies personnalisées dans Azure AD B2C](custom-policy-get-started.md).
+Les stratégies personnalisées sont un ensemble de fichiers XML que vous téléchargez vers votre locataire Azure AD B2C pour définir des parcours utilisateur. Nous fournissons des packs de démarrage avec plusieurs stratégies prédéfinies, par exemple l’inscription et la connexion, la réinitialisation du mot de passe et la stratégie de modification de profil. Pour plus d’informations, consultez [Démarrage avec les stratégies personnalisées dans Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
 

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 ms.date: 03/04/2021
-ms.topic: conceptual
-ms.custom: how-to, synapse-azureml
-ms.openlocfilehash: 2c69ec853cdeeed6f9e28fb9f2884053580ce08e
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.topic: how-to
+ms.custom: synapse-azureml
+ms.openlocfilehash: 6541cc008c479d8836f90ea99874d24713adb434
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576378"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746852"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Guide pratique pour utiliser Apache Spark (alimenté par Azure Synapse Analytics) dans votre pipeline Machine Learning (préversion)
 
@@ -65,7 +65,7 @@ for service in LinkedService.list(ws) :
 linked_service = LinkedService.get(ws, 'synapselink1')
 ```
 
-Tout d’abord, `Workspace.from_config()` accède à votre espace de travail Azure Machine Learning à l’aide de la configuration définie dans `config.json` (voir [Didacticiel : Bien démarrer avec Azure Machine Learning dans votre environnement de développement](tutorial-1st-experiment-sdk-setup-local.md)). Ensuite, le code affiche tous les services liés disponibles dans l’espace de travail. Enfin, `LinkedService.get()` récupère un service lié nommé `'synapselink1'`. 
+Tout d’abord, `Workspace.from_config()` accédez à votre espace de travail Azure Machine Learning à l’aide de la configuration dans `config.json` (consultez [Créer un fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace)). Ensuite, le code affiche tous les services liés disponibles dans l’espace de travail. Enfin, `LinkedService.get()` récupère un service lié nommé `'synapselink1'`. 
 
 ## <a name="attach-your-apache-spark-pool-as-a-compute-target-for-azure-machine-learning"></a>Attacher votre pool Apache Spark en tant que cible de calcul pour Azure Machine Learning
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: e33dd4a6578c22cf0ce002db6a5bcc456643a305
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 22e5a2f648993cbe24266702ce33f81e35bfaea3
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888203"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751362"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Créer et utiliser des environnements logiciels dans Azure Machine Learning
 
@@ -85,6 +85,12 @@ for env in envs:
 > [!WARNING]
 >  N'utilisez pas le préfixe _AzureML_ devant le nom de votre propre environnement. Celui-ci est réservé aux environnements organisés.
 
+Pour personnaliser un environnement organisé, clonez et renommez cet environnement. 
+```python 
+env = Environment.get(workspace=ws, name="AzureML-Minimal")
+curated_clone = env.clone("customize_curated")
+```
+
 ### <a name="use-conda-dependencies-or-pip-requirements-files"></a>Utiliser des dépendances Conda ou des fichiers de spécifications PIP
 
 Vous pouvez créer un environnement à partir d’une spécification Conda ou d’un fichier d’exigences pip. Utilisez la méthode [`from_conda_specification()`](/python/api/azureml-core/azureml.core.environment.environment#from-conda-specification-name--file-path-) ou [`from_pip_requirements()`](/python/api/azureml-core/azureml.core.environment.environment#from-pip-requirements-name--file-path-). Dans l'argument de la méthode, indiquez le nom de votre environnement et le chemin d'accès du fichier souhaité. 
@@ -127,6 +133,7 @@ myenv.docker.base_image_registry="your_registry_location"
 > * Ubuntu 16.04 ou ultérieur.
 > * Conda 4.5.# ou ultérieur.
 > * Python 3.6+.
+> * Un interpréteur de commandes compatible POSIX disponible sous /bin/sh est nécessaire dans toute image conteneur utilisée pour l’apprentissage. 
 
 #### <a name="use-your-own-dockerfile"></a>Utiliser votre propre Dockerfile 
 

@@ -3,18 +3,18 @@ title: Créer un modèle de générateur d’images Azure (préversion)
 description: Découvrez comment créer un modèle à utiliser avec le générateur d’images Azure.
 author: danielsollondon
 ms.author: danis
-ms.date: 03/02/2021
+ms.date: 05/04/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: 77460d1675b806e04c72e5f46da0ec4274d99d41
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 94083c8811d92d05a68295f9ac75f38123b3f771
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762530"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732593"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -38,6 +38,7 @@ Voici le format de modèle de base :
         "vmProfile": 
             {
             "vmSize": "<vmSize>",
+        "proxyVmSize": "<vmSize>",
             "osDiskSizeGB": <sizeInGB>,
             "vnetConfig": {
                 "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
@@ -72,19 +73,43 @@ L’emplacement est la région dans laquelle l’image personnalisée sera cré�
 - USA Ouest 2
 - Europe Nord
 - Europe Ouest
+- États-Unis - partie centrale méridionale
 
+Prochainement (mi-2021) :
+- Asie Sud-Est
+- Sud-Australie Est
+- Australie Est
+- Sud du Royaume-Uni
+- Ouest du Royaume-Uni
 
 ```json
     "location": "<region>",
 ```
-## <a name="vmprofile"></a>vmProfile
-Par défaut, Image Builder utilise une machine virtuelle de build « Standard_D1_v2 » mais vous pouvez modifier cela. Par exemple, si vous souhaitez personnaliser une image pour une machine virtuelle GPU, vous avez besoin d’une taille de machine virtuelle GPU. Ce paramètre est facultatif.
 
+### <a name="data-residency"></a>Résidence des données
+Le service Azure VM Image Builder ne stocke pas/ne traite pas les données client en dehors des régions qui imposent des exigences strictes en matière de résidence des données dans une seule région lorsqu'un client demande une build dans cette région. En cas d'interruption de service pour les régions qui présentent des exigences en matière de résidence des données, vous devrez créer des modèles dans une région et une zone géographique différentes.
+
+ 
+## <a name="vmprofile"></a>vmProfile
+## <a name="buildvm"></a>buildVM
+Par défaut, Image Builder utilise une machine virtuelle de build « Standard_D1_v2 », qui est créée à partir de l'image que vous spécifiez dans la `source`. Vous pouvez contourner cette règle, notamment pour les raisons suivantes :
+1. Personnalisations nécessitant davantage de mémoire, une augmentation de la capacité du processeur et la gestion de fichiers volumineux (Go)
+2. Exécution de builds Windows nécessitant l'utilisation de « Standard_D2_v2 » ou d'une taille de machine virtuelle équivalente
+3. Exigence d'[isolement de la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/isolation)
+4. Personnalisation d'une image nécessitant du matériel spécifique ; par exemple pour une machine virtuelle GPU, une taille de machine virtuelle GPU est nécessaire 
+5. Exigence de chiffrement de bout en bout au repos de la machine virtuelle de build ; vous devez spécifier la [taille de la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/azure-vms-no-temp-disk) de build de prise en charge qui n'utilise pas de disques temporaires locaux
+ 
+Cette étape est facultative.
+
+
+## <a name="proxy-vm-size"></a>Taille de la machine virtuelle proxy
+La machine virtuelle proxy est utilisée pour envoyer des commandes entre le service Azure Image Builder et la machine virtuelle de build ; elle n'est déployée que lors de la spécification d'un réseau virtuel existant. Pour plus d'informations, consultez la [documentation](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking#why-deploy-a-proxy-vm) relative aux options de mise en réseau.
 ```json
  {
-    "vmSize": "Standard_D1_v2"
+    "proxyVmSize": "Standard A1_v2"
  },
 ```
+Ce paramètre est facultatif.
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 

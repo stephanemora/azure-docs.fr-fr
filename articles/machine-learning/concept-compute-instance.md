@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: a3677e50d9dab99eaedc88cdd61e8e2ed9a3761b
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 9cb46ef11ab7cc86efa0842fe5952b92170aa648
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321750"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737399"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -39,7 +39,9 @@ Une instance de calcul est une station de travail cloud complètement managée q
 |Préconfiguré&nbsp;pour&nbsp;ML|Gagnez du temps sur les tâches d’installation grâce à des packages ML préconfigurés et à jour, des infrastructures de Deep Learning et des pilotes GPU.|
 |Entièrement personnalisable|Les scénarios avancés deviennent un jeu d’enfant grâce à la prise en charge étendue des types de machines virtuelles Azure, y compris les GPU et la personnalisation de bas niveau persistante, comme l’installation de packages et de pilotes. |
 
-Vous pouvez [créer une instance de calcul](how-to-create-manage-compute-instance.md?tabs=python#create) vous-même ou un administrateur peut [créer une instance de calcul pour vous](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview).
+Vous pouvez [créer une instance de calcul](how-to-create-manage-compute-instance.md?tabs=python#create) vous-même ou un administrateur peut **[créer une instance de calcul en votre nom](how-to-create-manage-compute-instance.md?tabs=python#on-behalf)** .
+
+Vous pouvez également **[utiliser un script de configuration (préversion)](how-to-create-manage-compute-instance.md#setup-script)** pour une méthode automatisée de personnalisation et de configuration de l’instance de calcul en fonction de vos besoins.
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>Outils et environnements
 
@@ -84,7 +86,7 @@ Les outils et environnements suivants sont déjà installés sur l’instance de
 |Packages ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Exemples de SDK Azure Machine Learning pour Python et R||
 
-Les packages Python sont tous installés dans l’environnement **Python 3.6 – AzureML**.  
+Les packages Python sont tous installés dans l’environnement **Python 3.8 - AzureML**. L’instance de calcul dispose d’Ubuntu 18.04 comme système d’exploitation de base.
 
 ## <a name="accessing-files"></a>Accès aux fichiers
 
@@ -98,7 +100,7 @@ Vous pouvez également cloner les exemples les plus récents d’Azure Machine L
 
 L’écriture de petits fichiers peut être plus lente sur des lecteurs réseau que sur le disque local de l’instance de calcul.  Si vous écrivez de nombreux petits fichiers, essayez d’utiliser un répertoire directement sur l’instance de calcul, par exemple un répertoire `/tmp`. Notez que ces fichiers ne seront pas accessibles à partir d’autres instances de calcul. 
 
-Vous pouvez utiliser le répertoire `/tmp` sur l’instance de calcul pour vos données temporaires.  Toutefois, n’écrivez pas de fichiers de données très volumineux sur le disque du système d’exploitation de l’instance de calcul. Le disque du système d’exploitation sur l’instance de calcul a une capacité de 128 Go. En outre, ne stockez pas de données de formation volumineuses sur le partage de fichiers de notebook. Utilisez plutôt des [magasins de données et des jeux de données](concept-azure-machine-learning-architecture.md#datasets-and-datastores). 
+Ne stockez pas de données de formation sur le partage de fichiers de notebook. Vous pouvez utiliser le répertoire `/tmp` sur l’instance de calcul pour vos données temporaires.  Toutefois, n’écrivez pas de fichiers de données très volumineux sur le disque du système d’exploitation de l’instance de calcul. Le disque du système d’exploitation sur l’instance de calcul a une capacité de 128 Go. Vous pouvez également stocker des données de formation temporaires sur un disque temporaire monté sur /mnt. La taille du disque temporaire peut être configurée en fonction de la taille de la machine virtuelle choisie, et peut stocker d’importantes quantités de données si une machine virtuelle de taille supérieure est sélectionnée. Vous pouvez également monter [des magasins de données et des jeux de données](concept-azure-machine-learning-architecture.md#datasets-and-datastores). 
 
 ## <a name="managing-a-compute-instance"></a>Gestion d’une instance de calcul
 
@@ -106,41 +108,18 @@ Dans votre espace de travail dans Azure Machine Learning Studio, sélectionnez *
 
 ![Gérer une instance de calcul](./media/concept-compute-instance/manage-compute-instance.png)
 
-Vous pouvez effectuer les actions suivantes :
-
-* [Créer une instance de calcul](#create). 
-* Actualiser l’onglet des instances de calcul.
-* Démarrer, arrêter et redémarrer une instance de calcul.  Vous payez l’instance chaque fois qu’elle s’exécute. Quand vous n’utilisez pas l’instance de calcul, arrêtez-la pour réduire les coûts. L’arrêt d’une instance de calcul a pour effet de la libérer. Ensuite, redémarrez-la quand vous en avez besoin. Veuillez noter que l’arrêt de l’instance de calcul met fin à la facturation des heures de calcul, mais que le disque, l’adresse IP publique et l’équilibreur de charge standard vous seront toujours facturés.
-* Supprimer une instance de calcul.
-* Filtrer la liste des instances de calcul pour afficher uniquement celles que vous avez créées.
-
-Pour chaque instance de calcul de votre espace de travail que vous pouvez utiliser, vous pouvez :
-
-* Accéder à Jupyter, JupyterLab et RStudio sur l’instance de calcul.
-* Ajouter un accès SSH à une instance de calcul. L’accès SSH est désactivé par défaut, mais il peut être activé au moment de la création de l’instance de calcul. L’accès SSH s’effectue par le biais d’un mécanisme de clé publique/privée. L’onglet vous donne des informations sur la connexion SSH, telles que l’adresse IP, le nom d’utilisateur et le numéro de port.
-* Obtenir des informations sur une instance de calcul spécifique, telles que l’adresse IP et la région.
-
-Le [contrôle d'accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) vous permet de contrôler les utilisateurs de l'espace de travail qui peuvent créer, supprimer, démarrer ou arrêter une instance de calcul. Tous les utilisateurs ayant les rôles Contributeur et Propriétaire dans l’espace de travail sont autorisés à créer, supprimer, démarrer, arrêter et redémarrer des instances de calcul dans tout l’espace de travail. Toutefois, seul le créateur d’une instance de calcul spécifique, ou l’utilisateur affecté si elle a été créée en son nom, est autorisé à accéder à Jupyter, JupyterLab et RStudio sur cette instance de calcul. Une instance de calcul est dédiée à un seul utilisateur disposant d’un accès racine et peut accéder au terminal par le biais de Jupyter/JupyterLab/RStudio. L'instance de calcul utilisera une connexion mono-utilisateur et toutes les actions utiliseront l'identité de cet utilisateur pour le contrôle d'accès en fonction du rôle Azure (Azure RBAC) et l'attribution des exécutions d'expériences. L’accès SSH est contrôlé par le biais d’un mécanisme de clé publique/privée.
-
-Ces actions peuvent être contrôlées par Azure RBAC :
-* *Microsoft.MachineLearningServices/workspaces/computes/read*
-* *Microsoft.MachineLearningServices/workspaces/computes/write*
-* *Microsoft.MachineLearningServices/workspaces/computes/delete*
-* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
-
-Pour créer une instance de calcul, vous avez besoin d’autorisations pour les actions suivantes :
-* *Microsoft.MachineLearningServices/workspaces/computes/write*
-* *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
-
+Pour plus d’informations sur la gestion de l’instance de calcul, consultez [Créer et gérer une instance de calcul Azure Machine Learning](how-to-create-manage-compute-instance.md).
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>Créer une instance de calcul
 
-Dans votre espace de travail dans Azure Machine Learning Studio, [créez une instance de calcul](how-to-create-attach-compute-studio.md#compute-instance) à partir de la section **Calcul** ou de la section **Notebooks** lorsque vous êtes prêt à exécuter l’un de vos notebooks. 
+En tant qu’administrateur, vous pouvez **[créer une instance de calcul pour d’autres utilisateurs de l’espace de travail (préversion)](how-to-create-manage-compute-instance.md#on-behalf)** .  
+
+Vous pouvez également **[utiliser un script de configuration (préversion)](how-to-create-manage-compute-instance.md#setup-script)** pour personnaliser et configurer automatiquement l’instance de calcul.
+
+Pour créer votre instance de calcul, utilisez votre espace de travail dans Azure Machine Learning Studio, [créez une instance de calcul](how-to-create-attach-compute-studio.md#compute-instance) à partir de la section **Calcul** ou de la section **Notebooks** lorsque vous êtes prêt à exécuter l’un de vos notebooks. 
 
 Vous pouvez également créer une instance
-* Directement à partir de l’[expérience de blocs-notes intégrés](tutorial-1st-experiment-sdk-setup.md#azure)
+* Directement à partir de l’[expérience de blocs-notes intégrés](tutorial-train-models-with-aml.md#azure)
 * Dans le portail Azure
 * À partir d’un modèle Azure Resource Manager. Pour un exemple de modèle, consultez [Créer un modèle d’instance de calcul Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
 * Avec le [Kit de développement logiciel (SDK) Azure Machine Learning](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md)
@@ -150,24 +129,6 @@ Le quota de cœurs dédiés par région par famille de machine virtuelle et le q
 
 L’instance de calcul est fournie avec le disque du système d’exploitation P10. Le type de disque temporaire dépend de la taille de machine virtuelle choisie. Actuellement, il n’est pas possible de modifier le type de disque du système d’exploitation.
 
-
-### <a name="create-on-behalf-of-preview"></a>Créer au nom de (préversion)
-
-En tant qu’administrateur, vous pouvez créer une instance de calcul au nom d’un scientifique des données et lui affecter l’instance avec :
-* [Modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)  Pour plus d’informations sur la façon de trouver les valeurs TenantID et ObjectID nécessaires dans ce modèle, consultez [Rechercher des ID d’objet d’identité pour la configuration de l’authentification](../healthcare-apis/fhir/find-identity-object-ids.md).  Vous pouvez également trouver ces valeurs dans le portail Azure Active Directory.
-* API REST
-
-Le Scientifique Données pour lequel vous créez l'instance de calcul doit disposer des autorisations Azure RBAC suivantes : 
-* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
-
-Le scientifique des données peut démarrer, arrêter et redémarrer l’instance de calcul. Il peut utiliser l’instance de calcul pour :
-* Jupyter
-* JupyterLab
-* RStudio
-* Notebooks intégrés
 
 ## <a name="compute-target"></a>Cible de calcul
 
@@ -182,7 +143,7 @@ Une instance de calcul :
 Vous pouvez utiliser une instance de calcul en tant que cible de déploiement d’inférence locale dans des scénarios de test ou de débogage.
 
 > [!TIP]
-> L’instance de calcul a un disque de système d’exploitation de 120 Go. Si vous ne disposez pas de suffisamment d’espace disque et qu’il en découle un état inutilisable, effacez au moins 5 Go d’espace sur le disque du système d’exploitation (/dev/sda1/ filesystem mounted on /) via le terminal JupyterLab en supprimant des fichiers/dossiers, puis en effectuant un redémarrage sudo. Pour accéder au terminal JupyterLab, accédez à https://ComputeInstanceName.AzureRegion.instances.azureml.ms/lab en remplaçant le nom de l’instance de calcul et la région Azure, puis cliquez sur Fichier->Nouveau->Terminal. Effacez au moins 5 Go avant d'[arrêter ou de redémarrer](how-to-create-manage-compute-instance.md#manage) l’instance de calcul. Vous pouvez vérifier l’espace disque disponible en exécutant df-h sur le terminal.
+> L’instance de calcul a un disque de système d’exploitation de 120 Go. Si vous ne disposez pas de suffisamment d’espace disque et qu’il en découle un état inutilisable, effacez au moins 5 Go d’espace sur le disque du système d’exploitation (monté sur /) via le terminal d’instance de calcul en supprimant des fichiers/dossiers, puis en effectuant un `sudo reboot`. Pour accéder au terminal, accédez à la page des listes de calcul ou à la page des détails de l’instance de calcul, puis cliquez sur le lien **Terminal** . Vous pouvez vérifier l’espace disque disponible en exécutant `df -h` sur le terminal. Libérez au moins 5 Go d’espace avant d’effectuer `sudo reboot`. N’arrêtez pas ou ne redémarrez pas l’instance de calcul via Studio tant qu’un espace disque de 5 Go n’a pas été libéré.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

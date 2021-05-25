@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Créer un blueprint avec Azure CLI'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts avec Azure CLI.
 ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: df21354f1ce60c23a5a6e232422fc03c105b9715
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 2b5f9fe3ff8d2c43d3e0744e358c52240006e830
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323444"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747680"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec Azure CLI
 
@@ -130,7 +130,7 @@ La première étape de la définition d’un modèle standard à des fins de con
       --description 'Contains the resource template deployment and a role assignment.'
    ```
 
-1. Ajoutez une attribution de rôle au niveau de l’abonnement. Dans l’exemple ci-dessous, les identités de principal ayant reçu le rôle spécifié sont configurées avec un paramètre qui est défini durant l’affectation du blueprint. Cet exemple utilise le rôle intégré _Contributeur_ avec le GUID `b24988ac-6180-42a0-ab88-20f7382dd24c`.
+1. Ajoutez une attribution de rôle au niveau de l’abonnement. Dans l’exemple suivant, les identités de principal ayant reçu le rôle spécifié sont configurées avec un paramètre qui est défini durant l’affectation du blueprint. Cet exemple utilise le rôle intégré _Contributeur_ avec le GUID `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
    ```azurecli-interactive
    az blueprint artifact role create \

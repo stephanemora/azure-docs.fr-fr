@@ -2,17 +2,17 @@
 title: Protection des zones DNS privées et des enregistrements - Azure DNS
 description: Dans ce parcours d’apprentissage, vous allez voir comment protéger des zones DNS privées et des jeux d’enregistrements dans Microsoft Azure DNS.
 services: dns
-author: asudbring
 ms.service: dns
+author: twooley
+ms.author: twooley
 ms.topic: how-to
-ms.date: 02/18/2020
-ms.author: allensu
-ms.openlocfilehash: a68b40852750e124749ac838c50acae2212c4732
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/07/2021
+ms.openlocfilehash: 076b4cbbb511102c9814403a387d83267aa03752
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785851"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732395"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Protéger les zones DNS privées et les enregistrements
 
@@ -36,7 +36,7 @@ La façon la plus simple d’attribuer des autorisations Azure RBAC consiste à 
 
 Ouvrez **Contrôle d’accès (IAM)** pour le groupe de ressources, sélectionnez **Ajouter**, puis sélectionnez le rôle **Collaborateur de zone DNS privée**. Sélectionnez les utilisateurs ou les groupes auxquels accorder des autorisations.
 
-![Azure RBAC au niveau groupe de ressources via le portail Azure](./media/dns-protect-private-zones-recordsets/rbac1.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/resource-group-rbac.png" alt-text="Capture d’écran de RBAC pour le groupe de ressources DNS privé.":::
 
 Vous pouvez également [accorder des autorisations à l’aide d’Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) :
 
@@ -69,7 +69,7 @@ Par exemple, le groupe de ressources *myPrivateDNS* contient la zone *private.co
 
 Vous pouvez accorder les autorisations Azure RBAC au niveau de la zone via le portail Azure.  Ouvrez **Contrôle d’accès (IAM)** pour la zone, sélectionnez **Ajouter**, puis sélectionnez le rôle **Collaborateur de zone DNS privée**. Sélectionnez les utilisateurs ou les groupes auxquels accorder des autorisations.
 
-![Azure RBAC au niveau de la zone DNS via le Portail Azure](./media/dns-protect-private-zones-recordsets/rbac2.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/zone-rbac.png" alt-text="Capture d’écran de RBAC pour la zone DNS privée.":::
 
 Vous pouvez également [accorder des autorisations à l’aide d’Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) :
 
@@ -100,13 +100,13 @@ az role assignment create \
 
 Les autorisations sont appliquées au niveau du jeu d’enregistrements.  L’utilisateur peut contrôler les entrées dont il a besoin et ne peut apporter aucune autre modification.
 
-Vous pouvez configurer les autorisations Azure RBAC au niveau du jeu d’enregistrements via le Portail Azure à l’aide du bouton **Contrôle d’accès (IAM)** situé dans la page du jeu d’enregistrements :
+Vous pouvez configurer les autorisations Azure RBAC au niveau du jeu d’enregistrements via le portail Azure à l’aide du bouton **Contrôle d’accès (IAM)** situé dans la page du jeu d’enregistrements :
 
-![Capture d’écran montrant le bouton Access Control (IAM).](./media/dns-protect-private-zones-recordsets/rbac3.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/record-set-rbac-1.png" alt-text="Capture d’écran de RBAC pour le jeu d’enregistrements DNS privé.":::
 
-![Capture d’écran montrant Access Control avec l’option Ajouter une attribution de rôle sélectionnée.](./media/dns-protect-private-zones-recordsets/rbac4.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/record-set-rbac-2.png" alt-text="Capture d’écran de l’attribution de rôle pour le jeu d’enregistrements DNS privé.":::
 
-Vous pouvez également accorder les autorisations Azure RBAC au niveau du jeu d’enregistrements en utilisant [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) :
+Vous pouvez également accorder les autorisations Azure RBAC au niveau jeu d’enregistrements en utilisant [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) :
 
 ```azurepowershell-interactive
 # Grant permissions to a specific record set
@@ -202,7 +202,7 @@ Pour empêcher toute modification, appliquez à la zone un verrou ReadOnly. Le v
 
 Vous pouvez créer des verrous de ressources au niveau zone via le portail Azure.  Dans la page des zones DNS, sélectionnez **Verrous**, puis **+Ajouter** :
 
-![Verrous de ressources au niveau zone via le portail Azure](./media/dns-protect-private-zones-recordsets/locks1.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/zone-locks.png" alt-text="Capture d’écran des verrous pour la zone DNS privée.":::
 
 Vous pouvez également créer des verrous de ressources au niveau d’une zone via [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock) :
 

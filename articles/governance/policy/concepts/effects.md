@@ -3,12 +3,12 @@ title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
 ms.date: 04/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5d819c20c27a2c2f4a316e60da1c0fdb7c8bb859
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: a1f7d8584aada19e565aa4eff40c44f94b1bbaba
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896889"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752972"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -36,12 +36,12 @@ Les effets suivants sont _déconseillés_ :
 
 Les demandes de création ou de mise à jour d’une ressource sont évaluées en premier par Azure Policy. Azure Policy répertorie toutes les affectations qui s’appliquent à la ressource, puis évalue la ressource en fonction de chaque définition. Pour un [mode Fournisseur de ressources](./definition-structure.md#resource-manager-modes), Azure Policy traite plusieurs des effets avant de transmettre la demande au fournisseur de ressources approprié. Cet ordre empêche un fournisseur de ressources d’effectuer un traitement inutile d’une ressource quand elle ne satisfait pas aux contrôles de gouvernance d’Azure Policy. Avec un [mode Fournisseur de ressources](./definition-structure.md#resource-provider-modes), le fournisseur de ressources gère l’évaluation et le résultat, et renvoie les résultats à Azure Policy.
 
-- **Désactivé** est vérifié en premier pour déterminer si la règle de stratégie doit être évaluée.
+- **Disabled** est coché en premier pour déterminer si la règle de stratégie doit être évaluée.
 - **Append** et **Modify** sont ensuite évalués. Puisque l’un comme l’autre peuvent modifier la requête, une modification peut empêcher le déclenchement d’un effet Audit ou Deny. Ces effets sont disponibles uniquement avec un mode Gestionnaire des ressources.
 - **Deny** est ensuite évalué. L’évaluation de Deny avant Audit empêche la double journalisation d’une ressource indésirable.
 - L’**audit** est évalué en dernier.
 
-Une fois que le fournisseur de ressources a retourné un code de réussite sur une demande en mode Gestionnaire des ressources, **AuditIfNotExists** et **DeployIfNotExists** effectuent une évaluation pour déterminer si une journalisation ou une action de conformité supplémentaire est nécessaire.
+Une fois que le fournisseur de ressources a retourné un code de réussite sur une requête en mode Gestionnaire des ressources, **AuditIfNotExists** et **DeployIfNotExists** effectuent une évaluation pour déterminer si une journalisation ou une action de conformité supplémentaire est nécessaire.
 
 En outre, les demandes `PATCH` qui modifient uniquement `tags` champs associés limitent l’évaluation de la stratégie aux stratégies contenant des conditions qui inspectent `tags` champs associés.
 
@@ -181,7 +181,7 @@ La propriété **details** des effets AuditIfNotExists possède toutes les sous-
 
 ### <a name="auditifnotexists-example"></a>Exemple AuditIfNotExists
 
-Exemple : évalue les Machines virtuelles Microsoft Azure pour déterminer si l’extension Antimalware existe, puis effectue un audit si l’extension est absente.
+Exemple : évalue les machines virtuelles pour déterminer si l’extension Antimalware existe, puis effectue un audit si l’extension est absente.
 
 ```json
 {
@@ -314,7 +314,8 @@ La propriété **details** de l’effet DeployIfNotExists comprend toutes les so
 
 ### <a name="deployifnotexists-example"></a>Exemple DeployIfNotExists
 
-Exemple : évalue les bases de données SQL Server pour déterminer si transparentDataEncryption est activée. Sinon, un déploiement destiné à l’activer est exécuté.
+Exemple : évalue les bases de données SQL Server pour déterminer si transparentDataEncryption est activé.
+Sinon, un déploiement destiné à l’activer est exécuté.
 
 ```json
 "if": {
@@ -391,7 +392,7 @@ La propriété **details** de l’effet EnforceOPAConstraint contient les sous-p
 - **constraintTemplate** (obligatoire)
   - Modèle de contrainte CustomResourceDefinition (CRD) qui définit de nouvelles contraintes. Le modèle définit la logique Rego, le schéma de contrainte et les paramètres de contrainte transmis via des objets **values** (valeurs) d’Azure Policy.
 - **constraint** (obligatoire)
-  - Implémentation CRD du modèle de contrainte. Utilise des paramètres transmis via des **valeurs** telles que `{{ .Values.<valuename> }}`. Dans l’exemple ci-dessous, ces valeurs sont `{{ .Values.cpuLimit }}` et `{{ .Values.memoryLimit }}`.
+  - Implémentation CRD du modèle de contrainte. Utilise des paramètres transmis via des **valeurs** telles que `{{ .Values.<valuename> }}`. Dans l'exemple suivant, ces valeurs sont `{{ .Values.cpuLimit }}` et `{{ .Values.memoryLimit }}`.
 - **values** (facultatif)
   - Définit des paramètres et valeurs à transmettre à la contrainte. Chaque valeur doit exister dans le modèle de contrainte CRD.
 
@@ -540,7 +541,7 @@ La propriété **details** de l’effet Modify comporte toutes les sous-proprié
 
 ### <a name="modify-operations"></a>Opérations Modify
 
-Le tableau de propriétés **operations** permet de modifier plusieurs étiquettes de différentes façons à partir d’une même définition de stratégie. Chaque opération est constituée des propriétés **operation**, **field** et **value**. La propriété operation détermine ce que fait la tâche de correction aux étiquettes, la propriété field détermine l’étiquette qui est modifiée et la propriété value définit le nouveau paramètre de l’étiquette. Voici des exemples de modifications d’étiquette :
+Le tableau de propriétés **operations** permet de modifier plusieurs étiquettes de différentes façons à partir d’une même définition de stratégie. Chaque opération est constituée des propriétés **operation**, **field** et **value**. La propriété operation détermine ce que fait la tâche de correction aux étiquettes, la propriété field détermine l’étiquette qui est modifiée et la propriété value définit le nouveau paramètre de l’étiquette. L’exemple suivant effectue les modifications de balises suivantes :
 
 - Définit l’étiquette `environment` sur « Test », même si elle a déjà une valeur.
 - Supprime l’étiquette `TempResource`.
@@ -647,7 +648,7 @@ Exemple 3 : Assurez-vous qu’un compte de stockage n’autorise pas l’accès
 
 ## <a name="layering-policy-definitions"></a>Superposition de définitions de stratégie
 
-Une ressource peut subir les effets de plusieurs affectations. Ces affectations peuvent se situer dans la même portée ou dans des portées différentes. Chaque affectation est également susceptible d’avoir un effet différent. La condition et l’effet de chaque stratégie sont évalués indépendamment. Par exemple :
+Une ressource peut être affectée par plusieurs affectations. Ces affectations peuvent se situer dans la même portée ou dans des portées différentes. Chaque affectation est également susceptible d’avoir un effet différent. La condition et l’effet de chaque stratégie sont évalués indépendamment. Par exemple :
 
 - Stratégie 1
   - Restreint l’emplacement de la ressource à 'westus'
@@ -657,7 +658,7 @@ Une ressource peut subir les effets de plusieurs affectations. Ces affectations 
   - Restreint l’emplacement de la ressource à 'eastus'
   - Affectée au groupe de ressources B de l’abonnement A
   - Effet Audit
-  
+
 Cette configuration génère le résultat suivant :
 
 - Toute ressource figurant déjà dans le groupe de ressources B dans 'eastus' est marquée comme conforme à la stratégie 2 et comme non conforme à la stratégie 1

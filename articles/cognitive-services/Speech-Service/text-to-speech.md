@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversion de texte par synthèse vocale
-ms.openlocfilehash: 73e37fde4b3c2dd1aeb6ab171c3726f1b4353949
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: edde973b8b3abf2ef370195d4903927fa9eba9fb
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106086"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732863"
 ---
 # <a name="what-is-text-to-speech"></a>Qu’est-ce que la synthèse vocale ?
 
@@ -46,10 +46,7 @@ Cette documentation contient les types d’articles suivants :
 
 * Ajuster les styles de voix avec SSML : SSML (Speech Synthesis Markup Language) est un langage de balisage basé sur XML, utilisé pour personnaliser les résultats de la reconnaissance vocale. Avec SSML, vous pouvez ajuster la tonalité, ajouter des pauses, améliorer la prononciation, accélérer ou ralentir le débit des paroles, augmenter ou réduire le volume, et attribuer plusieurs voix à un même document. Consultez [cet article](speech-synthesis-markup.md) pour savoir comment ajuster les styles de voix.
 
-* Visèmes : Les [visèmes](how-to-speech-synthesis-viseme.md) sont les principaux éléments de parole observés, y compris la position des lèvres, de la mâchoire et de la langue lors de la production d’un phonème particulier. Les visèmes ont une corrélation forte avec les voix et les phonèmes. À l’aide des événements de visème dans le kit de développement logiciel (SDK) Speech, vous pouvez générer des données d’animation faciale qui peuvent être utilisées pour animer des visages dans la communication, l’enseignement, le divertissement et le service à la clientèle.
-
-> [!NOTE]
-> Les événements de visème sont actuellement pris en charge uniquement pour la voix `en-US-AriaNeural`.
+* Visèmes : Les [visèmes](how-to-speech-synthesis-viseme.md) sont les principaux éléments de parole observés, y compris la position des lèvres, de la mâchoire et de la langue lors de la production d’un phonème particulier. Les visèmes ont une corrélation forte avec les voix et les phonèmes. À l’aide des événements de visème dans le kit de développement logiciel (SDK) Speech, vous pouvez générer des données d’animation faciale qui peuvent être utilisées pour animer des visages dans la communication, l’enseignement, le divertissement et le service à la clientèle. Visème est actuellement pris en charge uniquement pour les `en-US` [voix neuronales](language-support.md#text-to-speech) en anglais (États-Unis).
 
 ## <a name="get-started"></a>Prise en main
 

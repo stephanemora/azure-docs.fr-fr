@@ -2,13 +2,13 @@
 title: Nouveautés de Sauvegarde Azure
 description: En savoir plus sur les nouvelles fonctionnalités de Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 04/22/2021
-ms.openlocfilehash: 09a1008871df61cdf38097b692b99237f97057b9
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.date: 05/05/2021
+ms.openlocfilehash: 23ef0a063eac051e40f01361e526fca96be3e3ef
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326502"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745574"
 ---
 # <a name="whats-new-in-azure-backup"></a>Nouveautés de Sauvegarde Azure
 
@@ -18,6 +18,8 @@ Pour en savoir plus sur les nouvelles versions, vous pouvez créer un signet sur
 
 ## <a name="updates-summary"></a>Résumé des mises à jour
 
+- Mai 2021
+  - [La sauvegarde pour les objets BLOB Azure est désormais en disponibilité générale](#backup-for-azure-blobs-is-now-generally-available)
 - Avril 2021
   - [Améliorations apportées au chiffrement à l’aide de clés gérées par le client pour Sauvegarde Azure (préversion)](#enhancements-to-encryption-using-customer-managed-keys-for-azure-backup-in-preview)
 - Mars 2021
@@ -42,6 +44,16 @@ Pour en savoir plus sur les nouvelles versions, vous pouvez créer un signet sur
   - [Sauvegarde SAP HANA sur des machines virtuelles RHEL Azure (en préversion)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Stockage redondant interzone (ZRS) pour les données de sauvegarde (en préversion)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Suppression réversible pour les charges de travail SQL Server et SAP HANA dans les machines virtuelles Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="backup-for-azure-blobs-is-now-generally-available"></a>La sauvegarde pour les objets BLOB Azure est désormais en disponibilité générale
+
+La sauvegarde opérationnelle des objets BLOB Azure est une solution gérée de protection des données qui permet de protéger les données de vos objets BLOB de blocs contre différentes situations de perte de données, telles que les altérations, la suppression d’objets BLOB et la suppression accidentelle de comptes de stockage.
+
+En tant que solution de sauvegarde opérationnelle, les données de sauvegarde sont stockées localement dans le compte de stockage source et peuvent être récupérées à partir d’un point dans le temps sélectionné, ce qui vous donne un moyen simple et économique de protéger vos données BLOB. Pour ce faire, la solution utilise la fonctionnalité de restauration à un instant dans le passé des objets BLOB disponible dans le stockage d’objets BLOB.
+
+La sauvegarde opérationnelle pour les objets BLOB s’intègre aux outils de gestion de Sauvegarde Azure, notamment le centre de sauvegarde, pour vous aider à gérer la protection de vos données BLOB efficacement et à grande échelle. Outre les fonctionnalités précédemment disponibles, vous pouvez maintenant configurer et gérer la sauvegarde opérationnelle des objets BLOB à l’aide de la vue **Protection des données** des comptes de stockage, ou [via PowerShell](backup-blobs-storage-account-ps.md). La sauvegarde vous offre également une expérience améliorée pour la gestion des attributions de rôle requises pour la configuration de la sauvegarde opérationnelle.
+
+Pour plus d’informations, consultez [Vue d’ensemble de la sauvegarde opérationnelle pour les objets BLOB Azure](blob-backup-overview.md).
 
 ## <a name="azure-disk-backup-is-now-generally-available"></a>La sauvegarde des disques Azure est désormais en disponibilité générale
 

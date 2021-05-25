@@ -5,16 +5,16 @@ ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: fddf208a51254d70fb8cc2aa1c9322a22506003a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: b01bc4ceefd1d0c645ed584648a34851d741aed1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324272"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751766"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph
 
-Vous pouvez accéder à la puissance d’Azure Resource Graph directement dans le portail Azure via l’Explorateur Azure Resource Graph. L’Explorateur Resource Graph fournit des informations parmi lesquelles vous pouvez naviguer à propos des propriétés et types de ressource Azure Resource Manager que vous pouvez interroger. L’Explorateur Resource Graph fournit également une interface épurée qui vous permet d’utiliser plusieurs requêtes, d’évaluer les résultats et même de convertir les résultats de certaines requêtes sous forme de graphique que vous pouvez épingler à un tableau de bord Azure.
+Vous pouvez accéder à la puissance d’Azure Resource Graph directement dans le portail Azure par le biais de l’Explorateur Azure Resource Graph. L’Explorateur Resource Graph fournit des informations parmi lesquelles vous pouvez naviguer à propos des propriétés et types de ressource Azure Resource Manager que vous pouvez interroger. L’Explorateur Resource Graph fournit également une interface épurée qui vous permet d’utiliser plusieurs requêtes, d’évaluer les résultats et même de convertir les résultats de certaines requêtes sous forme de graphique que vous pouvez épingler à un tableau de bord Azure.
 
 À la fin de ce guide de démarrage rapide, vous aurez utilisé le portail Azure et l’Explorateur Resource Graph pour exécuter votre première requête Resource Graph, et vous aurez épinglé les résultats à un tableau de bord.
 
@@ -115,7 +115,7 @@ Si vous souhaitez supprimer les exemples de tableaux de bord Resource Graph de l
 
 1. Sélectionnez **Tableau de bord** dans le volet gauche.
 
-1. Dans le menu déroulant de tableau de bord, sélectionnez l’exemple de tableau de bord Resource Graph à supprimer.
+1. Dans la liste déroulante du tableau de bord, sélectionnez l’exemple de tableau de bord Resource Graph à supprimer.
 
 1. Sélectionnez **Supprimer** dans le menu déroulant de tableau de bord en haut du tableau de bord, puis sélectionnez **OK** pour confirmer.
 

@@ -1,22 +1,21 @@
 ---
-title: Guide pratique pour redimensionner une machine virtuelle Linux avec Azure CLI
-description: Comment augmenter ou diminuer les capacités d’une machine virtuelle Linux, en en modifiant la taille.
-author: DavidCBerry13
+title: Procédure de redimensionnement d’une machine virtuelle avec Azure CLI
+description: Procédure d’exécution d’un scale-up ou d’un scale-down d’une machine virtuelle en en modifiant la taille.
+author: mimckitt
 ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 02/10/2017
-ms.author: daberry
-ms.collection: linux
-ms.openlocfilehash: 290c42cadd840e5a292201247b1555059b5b4381
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: mimckitt
+ms.openlocfilehash: 9361814a12e2f3c0d8c57852c89299e477f43dcb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556636"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738140"
 ---
-# <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Redimensionner une machine virtuelle Linux avec Azure CLI 
+# <a name="resize-a-virtual-machine-using-azure-cli"></a>Redimensionner une machine virtuelle à l’aide d’Azure CLI 
 
-Après avoir provisionné une machine virtuelle, vous pouvez la mettre à l’échelle en modifiant sa [taille][vm-sizes]. Dans certains cas, vous devez commencer par libérer la machine virtuelle. C’est le cas notamment lorsque la taille souhaitée n’est pas disponible sur le cluster matériel qui héberge la machine virtuelle. Cet article explique comment redimensionner une machine virtuelle Linux avec Azure CLI. 
+Après avoir provisionné une machine virtuelle, vous pouvez la mettre à l’échelle en modifiant sa [taille][vm-sizes]. Dans certains cas, vous devez commencer par libérer la machine virtuelle. C’est le cas notamment lorsque la taille souhaitée n’est pas disponible sur le cluster matériel qui héberge la machine virtuelle. Cet article explique la procédure de redimensionnement d’une machine virtuelle avec Azure CLI. 
 
 ## <a name="resize-a-vm"></a>Redimensionner une machine virtuelle
 Pour redimensionner une machine virtuelle, vous devez installer la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec [az login](/cli/azure/reference-index).
@@ -47,7 +46,7 @@ Pour redimensionner une machine virtuelle, vous devez installer la dernière ver
    > Le fait de libérer la machine virtuelle libère également toutes les adresses IP dynamiques affectées à la machine virtuelle. Les disques de données et du système d’exploitation ne sont pas affectés.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour une évolutivité supplémentaire, exécutez plusieurs instances de machine virtuelle et effectuez un scale-out. Pour plus d’informations, consultez [Mettre automatiquement à l’échelle des machines Linux dans un groupe identique de machines virtuelles][scale-set]. 
+Pour une scalabilité supplémentaire, exécutez plusieurs instances de machine virtuelle et effectuez un scale-out. Pour plus d’informations, consultez [Mettre automatiquement à l’échelle des machines dans un groupe de machines virtuelles identiques][scale-set]. 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/

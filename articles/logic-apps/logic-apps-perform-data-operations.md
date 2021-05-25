@@ -3,15 +3,15 @@ title: Effectuer des opérations sur des données
 description: Convertir, gérer et manipuler des sorties de données et des formats dans Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 09/20/2019
-ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/11/2021
+ms.openlocfilehash: cc4952acd8d5949485b9bd1fe5fac91296839493
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84710369"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753648"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Effectuer des opérations sur les données dans Azure Logic Apps
 
@@ -22,33 +22,6 @@ Cet article vous explique comment travailler avec des données dans vos applicat
 * Créez des jetons conviviaux à partir des propriétés d’objet JavaScript Objet Notation (JSON) afin de pouvoir facilement utiliser ces propriétés dans votre flux de travail.
 
 Si vous ne trouvez pas l’action souhaitée ici, parcourez les nombreuses [fonctions de manipulation de données](../logic-apps/workflow-definition-language-functions-reference.md) fournies par Azure Logic Apps.
-
-Ces tables résument les opérations sur les données que vous pouvez utiliser. Elles sont organisées selon les types de données source sur lesquelles elles fonctionnent, mais chaque description s’affiche par ordre alphabétique.
-
-**Actions de tableau** 
-
-Ces actions vous permettent de travailler avec les données de tableaux.
-
-| Action | Description |
-|--------|-------------|
-| [**Créer une table CSV**](#create-csv-table-action) | Créez une table CSV (valeurs séparées par des virgules) à partir d’un tableau. |
-| [**Créer une table HTML**](#create-html-table-action) | Créez une table HTML à partir d’un tableau. |
-| [**Filtrer le tableau**](#filter-array-action) | Créez un sous-ensemble de tableau à partir d’un tableau en fonction du filtre ou de la condition que vous spécifiez. |
-| [**Joindre**](#join-action) | Créez une chaîne à partir de tous les éléments d’un tableau et séparez chaque élément à l’aide du caractère spécifié. |
-| [**Sélectionner**](#select-action) | Créez un tableau à partir des propriétés spécifiées pour tous les éléments dans un tableau différent. |
-||| 
-
-**Actions JSON**
-
-Ces actions vous permettent d’utiliser des données au format JavaScript Objet Notation (JSON).
-
-| Action | Description |
-|--------|-------------|
-| [**Composer**](#compose-action) | Créez un message ou une chaîne à partir de plusieurs entrées qui peuvent avoir différents types de données. Vous pouvez ensuite utiliser cette chaîne comme une entrée unique au lieu d’entrer plusieurs fois les mêmes entrées. Par exemple, vous pouvez créer un message JSON unique à partir de diverses entrées. |
-| [**Analyser JSON**](#parse-json-action) | Créez des jetons de données conviviaux pour les propriétés au format JSON afin de pouvoir utiliser plus facilement les propriétés dans vos applications logiques. |
-|||
-
-Pour créer des transformations JSON plus complexes, consultez [Effectuer des transformations JSON avancées avec des modèles Liquid](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -61,6 +34,35 @@ Pour créer des transformations JSON plus complexes, consultez [Effectuer des tr
 * Un [déclencher](../logic-apps/logic-apps-overview.md#logic-app-concepts) en tant que première étape de votre application logique 
 
   Les opérations sur les données sont disponibles uniquement en tant qu’actions. Ainsi, avant de pouvoir utiliser ces actions, démarrez votre application logique avec un déclencheur et incluez toutes les actions nécessaires à la création des sorties souhaitées.
+
+## <a name="data-operation-actions"></a>Actions d’opérations de données
+
+Ces tables résument les opérations sur les données que vous pouvez utiliser. Elles sont organisées selon les types de données source sur lesquelles elles fonctionnent, mais chaque description s’affiche par ordre alphabétique.
+
+### <a name="array-actions"></a>Actions de tableau
+
+Ces actions vous permettent de travailler avec les données de tableaux.
+
+| Action | Description |
+|--------|-------------|
+| [**Créer une table CSV**](#create-csv-table-action) | Créez une table CSV (valeurs séparées par des virgules) à partir d’un tableau. |
+| [**Créer une table HTML**](#create-html-table-action) | Créez une table HTML à partir d’un tableau. |
+| [**Filtrer le tableau**](#filter-array-action) | Créez un sous-ensemble de tableau à partir d’un tableau en fonction du filtre ou de la condition que vous spécifiez. |
+| [**Joindre**](#join-action) | Créez une chaîne à partir de tous les éléments d’un tableau et séparez chaque élément à l’aide du caractère spécifié. |
+| [**Sélectionner**](#select-action) | Créez un tableau à partir des propriétés spécifiées pour tous les éléments dans un tableau différent. |
+||| 
+
+### <a name="json-actions"></a>Actions JSON
+
+Ces actions vous permettent d’utiliser des données au format JavaScript Objet Notation (JSON).
+
+| Action | Description |
+|--------|-------------|
+| [**Composer**](#compose-action) | Créez un message ou une chaîne à partir de plusieurs entrées qui peuvent avoir différents types de données. Vous pouvez ensuite utiliser cette chaîne comme une entrée unique au lieu d’entrer plusieurs fois les mêmes entrées. Par exemple, vous pouvez créer un message JSON unique à partir de diverses entrées. |
+| [**Analyser JSON**](#parse-json-action) | Créez des jetons de données conviviaux pour les propriétés au format JSON afin de pouvoir utiliser plus facilement les propriétés dans vos applications logiques. |
+|||
+
+Pour créer des transformations JSON plus complexes, consultez [Effectuer des transformations JSON avancées avec des modèles Liquid](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
 
 <a name="compose-action"></a>
 
@@ -273,6 +275,9 @@ Pour vérifier si l’action **Créer une table CSV** produit les résultats att
 
    ![Champs « Sortie » pour l’action « Créer une table CSV »](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
 
+   > [!NOTE]
+    > Si votre table est renvoyée avec une mise en forme incorrecte, consultez [Vérifier la mise en forme de vos données de table](#format-table-data).
+
 1. À présent, exécutez manuellement votre application logique. Dans la barre d’outils du concepteur, sélectionnez **Exécuter**.
 
    Selon le connecteur de messagerie électronique que vous avez utilisé, voici les résultats que vous obtenez :
@@ -426,6 +431,9 @@ Pour vérifier si l’action **Créer une table HTML** produit les résultats at
 
    > [!NOTE]
    > Lorsque vous incluez la sortie de table HTML dans une action d’envoi d’un e-mail, assurez-vous que vous avez défini la propriété **Est HTML** sur **Oui** dans les options avancées de cette action. De cette façon, l’action d’envoi d’un e-mail formate correctement la table HTML.
+
+   > [!NOTE]
+   > Si votre table est renvoyée avec une mise en forme incorrecte, consultez [Vérifier la mise en forme de vos données de table](#format-table-data).
 
 1. À présent, exécutez manuellement votre application logique. Dans la barre d’outils du concepteur, sélectionnez **Exécuter**.
 
@@ -707,6 +715,51 @@ Pour vérifier si l’action **Sélectionner** produit les résultats attendus, 
 
    ![Message électronique avec les résultats de l’action « Sélectionner »](./media/logic-apps-perform-data-operations/select-email-results.png)
 
+## <a name="troubleshooting"></a>Résolution des problèmes
+
+### <a name="format-table-data"></a>Mettre en forme les données de table
+
+Si la mise en forme de votre [table CSV](#create-csv-table-action) ou de votre [table HTML](#create-html-table-action) est incorrecte, assurez-vous que vos données d’entrée comportent des sauts de ligne entre les lignes. 
+
+Mise en forme incorrecte :
+
+```text
+Fruit,Number Apples,1 Oranges,2
+```
+
+Mise en forme correcte :
+
+```text
+Fruit,Number
+Apples,1
+Oranges,2
+```
+
+Pour ajouter des sauts de ligne entre les lignes, ajoutez l’une des expressions suivantes à votre table :
+
+```text
+replace(body('Create_CSV_table'),'','<br/>')
+```
+
+```text
+replace(body('Create_HTML_table'),'','<br/>')
+```
+
+Par exemple : 
+
+```json
+{
+    "Send_an_email_": {
+        "inputs": {
+            "body": {
+                "Body": "<p>Results from Create CSV table action:<br/>\n<br/>\n<br/>\n@{replace(body('Create_CSV_table'),'\r\n','<br/>')}</p>",
+                "Subject": "Create CSV table results",
+                "To": "sophia.owen@fabrikam.com"
+            }
+        }
+    }
+}
+```
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur les [connecteurs Logic Apps](../connectors/apis-list.md)

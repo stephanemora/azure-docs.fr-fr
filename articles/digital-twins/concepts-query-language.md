@@ -8,12 +8,12 @@ ms.date: 4/22/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 13bf3b8b8756fcc83211b02379980972629d9438
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: e311a39a68a5fb03c68a1685996a8e0fbde206e8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290539"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734342"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>À propos du langage de requête pour Azure Digital Twins
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser le langage de requête Azure Digital Twins pour récupérer
 * relationships
   - leurs propriétés des relations
 
-Pour soumettre une requête au service à partir d’une application cliente, vous allez utiliser l [’API de requête](/rest/api/digital-twins/dataplane/query) Azure Digital Twins. L’une des façons d’utiliser l’API consiste à utiliser l’un des [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) pour Azure Digital Twins.
+Pour soumettre une requête au service à partir d’une application cliente, vous allez utiliser l [’API de requête](/rest/api/digital-twins/dataplane/query) Azure Digital Twins. L’une des façons d’utiliser l’API consiste à utiliser l’un des [SDK](concepts-apis-sdks.md#overview-data-plane-apis) pour Azure Digital Twins.
 
 [!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
 
@@ -42,6 +42,8 @@ Quand vous écrivez des requêtes pour Azure Digital Twins, gardez à l’esprit
 * **Placer les guillemets simples dans une séquence d’échappement** : si le texte de votre requête comprend un guillemet simple dans les données, celui-ci doit être placé dans une séquence d’échappement avec le caractère `\`. Voici un exemple qui traite une valeur de propriété *D'Souza* :
 
   :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="EscapedSingleQuote":::
+
+* **Prévoir une latence éventuelle** : quand vous apportez des modifications aux données de votre graphe, leur répercussion dans les requêtes peut faire l’objet d’une latence jusqu’à 10 secondes. Ce délai ne s’applique pas à l’[API GetDigitalTwin](how-to-manage-twin.md#get-data-for-a-digital-twin) : si vous avez besoin d’une réponse instantanée, utilisez l’appel d’API au lieu d’une interrogation pour que vos modifications soient répercutées immédiatement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,12 +3,12 @@ title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes liés à la création de définitions de stratégie, aux divers kits de développement logiciel (SDK) et au module complémentaire pour Kubernetes.
 ms.date: 04/19/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: c4feae11c6d8d78a43bae9882405e292a18e90bd
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 6f369b16755c09468dbdae2076cc7828a53c8a17
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725059"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752162"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Résolution des erreurs liées à Azure Policy
 
@@ -67,7 +67,7 @@ La ressource ne se trouve pas dans la bonne étendue de l’attribution de strat
 
 Pour résoudre les problèmes liés à votre définition de stratégie, procédez comme suit :
 
-1. Tout d’abord, attendez le temps nécessaire pour qu’une évaluation se termine et que les résultats de conformité soient disponibles sur le Portail Azure ou dans le kit SDK. 
+1. Tout d’abord, attendez le temps nécessaire pour qu’une évaluation se termine et que les résultats de conformité soient disponibles sur le portail Azure ou dans le Kit de développement logiciel (SDK).
 
 1. Pour commencer une nouvelle analyse d’évaluation avec Azure PowerShell ou l’API REST, consultez [Analyse d’évaluation à la demande](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 1. Vérifiez que les paramètres et l’étendue d’attribution sont correctement définis.
@@ -98,7 +98,7 @@ Si **enforcementMode** est désactivé, l’effet de stratégie n’est pas appl
 
 Pour résoudre les problèmes liés à la mise en œuvre de l’attribution de votre stratégie, procédez comme suit :
 
-1. Tout d’abord, attendez le temps nécessaire pour qu’une évaluation se termine et que les résultats de conformité soient disponibles sur le Portail Azure ou dans le kit SDK. 
+1. Tout d’abord, attendez le temps nécessaire pour qu’une évaluation se termine et que les résultats de conformité soient disponibles sur le Portail Azure ou dans le kit SDK.
 
 1. Pour commencer une nouvelle analyse d’évaluation avec Azure PowerShell ou l’API REST, consultez [Analyse d’évaluation à la demande](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 1. Vérifiez que les paramètres et l’étendue d’attribution sont correctement définis et que **enforcementMode** est _Activé_.
@@ -238,7 +238,7 @@ Vérifiez que les domaines et les ports mentionnés dans les articles suivants s
 
 Le module complémentaire ne parvient pas à joindre le point de terminaison de service Azure Policy et retourne l’une des erreurs suivantes :
 
-- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
+- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
 - `adal: Refresh request failed. Status Code = '404'. Response body: getting assigned identities for pod kube-system/azure-policy-8c785548f-r882p in CREATED state failed after 16 attempts, retry duration [5]s, error: <nil>`
 
 #### <a name="cause"></a>Cause

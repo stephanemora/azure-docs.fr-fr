@@ -8,18 +8,18 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 56198cf661001bcfcec45d483d0f691234851894
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2d11051bee2a1e5960ba0756c0b067efcd26f9d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99832281"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749930"
 ---
 # <a name="what-are-the-iot-central-retail-solutions"></a>Présentation des solutions de vente au détail IoT Central
 
 Azure IoT Central est une plateforme d’application IoT qui réduit les charges et les coûts associés au développement, à la gestion et à la maintenance de solutions IoT de qualité professionnelle. Le fait de créer avec Azure IoT Central vous offre la possibilité de consacrer du temps, de l’argent et de l’énergie à transformer votre activité avec des données IoT, plutôt qu’à simplement gérer et mettre à jour une infrastructure IoT complexe et en constante évolution.
 
-Cet article décrit plusieurs modèles d’application IoT Central propres à la vente au détail. En tant que créateur de solutions, vous pouvez utiliser ces modèles pour créer des solutions IoT qui optimisent la chaîne logistique, améliorent l’expérience en magasin des clients et permettent de suivre les stocks plus efficacement.
+Cet article décrit plusieurs modèles d’application IoT Central propres à la vente au détail. Vous pouvez utiliser ces modèles pour créer des solutions IoT qui optimisent la chaîne logistique, améliorent l’expérience en magasin des clients et permettent de suivre les stocks plus efficacement.
 
 :::image type="content" source="media/overview-iot-central-retail/retail-app-templates.png" alt-text="Présentation d’Azure IoT Retail":::
 
@@ -72,7 +72,7 @@ Pour plus d’informations, consultez le tutoriel [Déployer et parcourir un mod
 
 Pour de nombreux détaillants, les bonnes conditions ambiantes dont bénéficient leurs magasins est ce qui les distingue de leurs concurrents. Les détaillants ont intérêt à maintenir des conditions ambiantes agréables dans leurs magasins pour le bien-être de leurs clients.  
 
-En tant que créateur de solutions, vous pouvez utiliser le modèle d’application « Analytique dans le magasin – Surveillance des conditions » d’IoT Central afin de créer une solution de bout en bout. Le modèle d’application vous permet de connecter et de superviser numériquement l’environnement d’un magasin de détail en utilisant différentes sortes de capteurs. Ces capteurs génèrent des données de télémétrie que vous pouvez convertir en insights métier afin d’aider le détaillant à réduire ses coûts d’exploitation et à fournir une expérience optimale pour ses clients.
+Vous pouvez utiliser le modèle d’application « Analytique dans le magasin – Surveillance des conditions » d’IoT Central afin de créer une solution de bout en bout. Le modèle d’application vous permet de connecter et de superviser numériquement l’environnement d’un magasin de détail en utilisant différentes sortes de capteurs. Ces capteurs génèrent des données de télémétrie que vous pouvez convertir en insights métier afin d’aider le détaillant à réduire ses coûts d’exploitation et à fournir une expérience optimale pour ses clients.
 
 Utilisez le modèle d’application pour :
 
@@ -94,7 +94,7 @@ Pour plus d’information, consultez le tutoriel [Créer une application d’ana
 
 Pour certains détaillants, c’est l’expérience de paiement en magasin qui les distingue de la concurrence. Les détaillants veulent offrir une expérience simplifiée de paiement en magasin afin d’inciter les clients à revenir.  
 
-En tant que créateur de solutions, vous pouvez utiliser le modèle d’application « Analytique dans le magasin – Paiement » d’IoT Central afin de créer une solution qui fournit aux vendeurs des insights concernant les caisses. Par exemple, les capteurs peuvent fournir des informations sur la longueur des files d’attente et les temps d’attente moyens pour chaque caisse.
+Vous pouvez utiliser le modèle d’application « Analytique dans le magasin – Paiement » d’IoT Central afin de créer une solution qui fournit aux vendeurs des insights concernant les caisses. Par exemple, les capteurs peuvent fournir des informations sur la longueur des files d’attente et les temps d’attente moyens pour chaque caisse.
 
 Utilisez le modèle d’application pour :
 
@@ -136,7 +136,7 @@ Pour plus d’informations, consultez le tutoriel [Déployer et découvrir un mo
 
 En raison d’une concurrence de plus en plus accrue, les détaillants se doivent de répondre le plus rapidement possible à la demande. Une nouvelle tendance est apparue pour répondre à la demande croissante des consommateurs. Celle-ci consiste à héberger un stock proche des clients finaux et des magasins dans lesquels ils se rendent.
 
-Le modèle d’application Centre de microtraitement d’IoT Central permet aux créateurs de solutions de superviser et de gérer tous les aspects de leurs centres de traitement entièrement automatisés. Ce modèle comprend des capteurs pour la supervision des conditions ambiantes, ainsi que des robots de transport pour accélérer le processus de développement de la solution. Ces capteurs collectent des signaux significatifs qui peuvent être convertis en insights métier permettant aux détaillants de réduire leurs coûts d’exploitation et d’offrir des expériences appréciées des clients.
+Le modèle d’application Centre de microtraitement d’IoT Central vous permet de superviser et de gérer tous les aspects de vos centres de traitement entièrement automatisés. Ce modèle comprend des capteurs pour la supervision des conditions ambiantes, ainsi que des robots de transport pour accélérer le processus de développement de la solution. Ces capteurs collectent des signaux significatifs qui peuvent être convertis en insights métier permettant aux détaillants de réduire leurs coûts d’exploitation et d’offrir des expériences appréciées des clients.
 
 Ce modèle d’application vous permet de : 
 

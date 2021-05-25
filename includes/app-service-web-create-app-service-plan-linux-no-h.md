@@ -1,20 +1,7 @@
 ---
-title: Fichier include
-description: Fichier include
-services: app-service
-author: cephalin
-ms.service: app-service
-ms.topic: include
-ms.date: 04/27/2021
-ms.author: cephalin
-ms.custom: include file
-ms.openlocfilehash: 4bc789435d99c5faed80ffdb13a8bbf4ac6d48a4
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108121285"
+title: "include file" description: "include file" services: app-service author: cephalin ms.service: app-service ms.topic: "include" ms.date: 04/27/2021 ms.author: cephalin ms.custom: "include file", devx-track-azurecli
 ---
+
 Dans Cloud Shell, créez un plan App Service avec la commande [`az appservice plan create`](/cli/azure/appservice/plan).
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan.md)] -->

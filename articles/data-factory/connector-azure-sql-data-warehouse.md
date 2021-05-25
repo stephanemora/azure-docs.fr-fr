@@ -1,17 +1,17 @@
 ---
 title: Copier et transformer des données dans Azure Synapse Analytics
 description: Découvrez comment copier des données depuis et vers Azure Synapse Analytics et comment transformer des données dans Azure Synapse Analytics à l’aide de Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.openlocfilehash: 9c843ededd1fa863cc5eb4dc0db3a6da3478466d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 05/10/2021
+ms.openlocfilehash: b4c90f8fa7efb002e9bcc243a55ba903002855c8
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597519"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736967"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Synapse Analytics à l’aide d’Azure Data Factory
 
@@ -48,7 +48,7 @@ Pour l’activité de copie, ce connecteur Azure Synapse Analytics prend en char
 > [!TIP]
 > Pour obtenir le meilleur niveau de performance possible, utilisez PolyBase ou l’instruction COPY quand vous chargez des données dans Azure Synapse Analytics. Pour plus d’informations, consultez les sections [Chargement de données dans Azure Synapse Analytics avec PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) et [Chargement de données dans Azure Synapse Analytics avec l’instruction COPY](#use-copy-statement). Consultez [Charger 1 To dans Azure Synapse Analytics en moins de 15 minutes avec Azure Data Factory](load-azure-sql-data-warehouse.md) pour obtenir une procédure pas à pas avec un cas d’utilisation.
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés qui définissent les entités Data Factory propres à un connecteur Azure Synapse Analytics.
 
@@ -832,6 +832,24 @@ Les paramètres spécifiques à Azure Synapse Analytics sont disponibles dans l�
 **Pré et post-scripts SQL** : Entrez des scripts SQL multilignes qui s’exécutent avant (prétraitement) et après (post-traitement) l’écriture de données dans votre base de données de réception.
 
 ![Pré et post-scripts de traitement SQL](media/data-flow/prepost1.png "Scripts de traitement SQL")
+
+### <a name="error-row-handling"></a>Gestion des lignes d’erreur
+
+Lors de l’écriture dans Azure Synapse Analytics, certaines lignes de données peuvent échouer en raison de contraintes définies par la destination. Quelques exemples d’erreurs courantes :
+
+*    Les données binary ou String seront tronquées dans le tableau
+*    Impossible d’insérer la valeur NULL dans la colonne
+*    Échec de conversion de la valeur en type de données
+
+Par défaut, l’exécution d’un flux de données échouera à la première erreur rencontrée. Vous pouvez choisir de **Continuer en cas d’erreur**, ce qui permet à votre flux de données de se terminer, même si des lignes individuelles comportent des erreurs. Azure Data Factory offre différentes options qui vous permettent de gérer ces lignes d’erreur.
+
+**Valider une transaction :** Indiquez si vos données sont écrites dans une seule transaction ou par lots. Une transaction unique offre de meilleures performances et aucune donnée écrite n’est visible des autres utilisateurs tant que la transaction n’est pas terminée. Les transactions par lots présentent de moins bonnes performances, mais peuvent fonctionner pour des jeux de données volumineux.
+
+**Données de sortie rejetées :** Si cette option est activée, vous pouvez générer les lignes d’erreur dans un fichier CSV dans le stockage Blob Azure ou dans un compte Azure Data Lake Storage Gen2 de votre choix. Cela écrira les lignes d’erreur avec trois colonnes supplémentaires : l’opération SQL comme INSERT ou UPDATE, le code d’erreur de flux de données et le message d’erreur sur la ligne.
+
+**Réussite signalée malgré l’erreur :** S’il est activé, le flux de données est marqué comme ayant réussi, même si des lignes d’erreur sont détectées. 
+
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Capture d’écran montrant la gestion des lignes d’erreur" border="false":::
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 

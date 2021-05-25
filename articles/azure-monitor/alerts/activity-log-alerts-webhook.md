@@ -3,12 +3,12 @@ title: Comprendre le schéma Webhook utilisé dans les alertes du journal d’ac
 description: Découvrez le schéma du JSON publié sur une URL de Webhook en cas d’activation d’une alerte du journal d’activité.
 ms.topic: conceptual
 ms.date: 03/31/2017
-ms.openlocfilehash: 31b9f4b41d741475a031efd4392c7df2fd2260c4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e3b8c435eb1b8572a1accbcef7a5b9e7889186c4
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034334"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736031"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook des alertes du journal d’activité Azure
 Dans le cadre de la définition d’un groupe d’actions, vous pouvez configurer des points de terminaison Webhook pour qu’ils reçoivent des notifications d’alerte du journal d’activité. Grâce aux Webhooks, vous pouvez acheminer ces notifications vers d’autres systèmes à des fins de post-traitement ou d’exécution d’actions personnalisées. Cet article montre également à quoi ressemble la charge utile d’une requête HTTP POST pour un webhook.
@@ -30,13 +30,13 @@ La charge utile JSON contenue dans l’opération POST varie en fonction de cham
 > [!NOTE]
 > Actuellement, la description faisant partie de l’événement du journal d’activité est copiée dans la propriété **« Description de l’alerte »** déclenchée.
 >
-> Afin d’aligner la charge utile du journal d’activité avec d’autres types d’alertes, à partir du 1er avril 2021, la propriété d’alerte déclenchée **« Description »** contiendra la description de la règle d’alerte.
+> Afin d’aligner la charge utile du journal d’activité avec d’autres types d’alertes, à partir du 1er avril 2021, la propriété d’alerte déclenchée **« Description »** contiendra la description de la règle d’alerte.
 >
-> En vue de cette modification, nous avons créé une nouvelle propriété **« Description de l’événement du journal d’activité »** pour l’alerte du journal d’activité déclenchée. Cette nouvelle propriété sera remplie avec la propriété **« Description »** qui est déjà disponible. Cela signifie que le nouveau champ **« Description de l’événement du journal d’activité »** contient la description qui fait partie de l’événement du journal d’activité.
+> En vue de cette modification, nous avons créé une nouvelle propriété **« Description de l’événement du journal d’activité »** pour l’alerte de journal d’activité déclenchée. Cette nouvelle propriété sera remplie avec la propriété **« Description »** qui est déjà disponible. Cela signifie que le nouveau champ **« Description de l’événement du journal d’activité »** contient la description qui fait partie de l’événement du journal d’activité.
 >
-> Passez en revue vos règles d’alerte, règles d’action, webhooks, application logique ou toute autre configuration dans laquelle vous pouvez utiliser la propriété **« Description »** de l’alerte déclenchée et remplacez-la par la propriété **« Description de l’événement du journal d’activité »** .
+> Passez en revue vos règles d’alerte, vos règles d’action, vos Webhooks, votre application logique ou toute autre configuration dans laquelle vous pouvez utiliser la propriété **« Description »** de l’alerte déclenchée et remplacez-la par la propriété **« Description de l’événement du journal d’activité »** .
 >
-> Si votre condition (dans vos règles d’action, webhooks, application logique ou toute autre configuration) est actuellement basée sur la propriété **« Description »** pour les alertes de journal d’activité, vous devrez peut-être la modifier pour qu’elle soit basée sur la propriété **« Description de l’événement du journal d’activité »** .
+> Si votre condition (dans vos règles d’action, vos Webhooks, votre application logique ou toute autre configuration) est actuellement basée sur la propriété **« Description »** pour les alertes de journal d’activité, vous devrez peut-être la modifier pour qu’elle soit basée sur la propriété **« Description de l’événement du journal d’activité »** .
 >
 > Pour remplir la nouvelle propriété **« Description »** , vous pouvez ajouter une description dans la définition de la règle d’alerte.
 > ![Alertes du journal d’activité déclenchées](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
@@ -102,42 +102,42 @@ La charge utile JSON contenue dans l’opération POST varie en fonction de cham
 
 ```json
 {
-    "schemaId":"Microsoft.Insights/activityLogs",
-    "data":{"status":"Activated",
-        "context":{
-            "activityLog":{
-                "channels":"Operation",
-                "correlationId":"2518408115673929999",
-                "description":"Failed SSH brute force attack. Failed brute force attacks were detected from the following attackers: [\"IP Address: 01.02.03.04\"].  Attackers were trying to access the host with the following user names: [\"root\"].",
-                "eventSource":"Security",
-                "eventTimestamp":"2017-06-25T19:00:32.607+00:00",
-                "eventDataId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
-                "level":"Informational",
-                "operationName":"Microsoft.Security/locations/alerts/activate/action",
-                "operationId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
-                "properties":{
-                    "attackers":"[\"IP Address: 01.02.03.04\"]",
-                    "numberOfFailedAuthenticationAttemptsToHost":"456",
-                    "accountsUsedOnFailedSignInToHostAttempts":"[\"root\"]",
-                    "wasSSHSessionInitiated":"No","endTimeUTC":"06/25/2017 19:59:39",
-                    "actionTaken":"Detected",
-                    "resourceType":"Virtual Machine",
-                    "severity":"Medium",
-                    "compromisedEntity":"LinuxVM1",
-                    "remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)]",
-                    "attackedResourceType":"Virtual Machine"
-                },
-                "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/Microsoft.Security/locations/centralus/alerts/Sec-07f2-4d74-aaf0-03d2f53d5a33",
-                "resourceGroupName":"contoso",
-                "resourceProviderName":"Microsoft.Security",
-                "status":"Active",
-                "subscriptionId":"12345-5645-123a-9867-123b45a6789",
-                "submissionTimestamp":"2017-06-25T20:23:04.9743772+00:00",
-                "resourceType":"MICROSOFT.SECURITY/LOCATIONS/ALERTS"
-            }
+  "schemaId":"Microsoft.Insights/activityLogs",
+  "data":{"status":"Activated",
+    "context":{
+      "activityLog":{
+        "channels":"Operation",
+        "correlationId":"2518408115673929999",
+        "description":"Failed SSH brute force attack. Failed brute force attacks were detected from the following attackers: [\"IP Address: 01.02.03.04\"].  Attackers were trying to access the host with the following user names: [\"root\"].",
+        "eventSource":"Security",
+        "eventTimestamp":"2017-06-25T19:00:32.607+00:00",
+        "eventDataId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
+        "level":"Informational",
+        "operationName":"Microsoft.Security/locations/alerts/activate/action",
+        "operationId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
+        "properties":{
+          "attackers":"[\"IP Address: 01.02.03.04\"]",
+          "numberOfFailedAuthenticationAttemptsToHost":"456",
+          "accountsUsedOnFailedSignInToHostAttempts":"[\"root\"]",
+          "wasSSHSessionInitiated":"No","endTimeUTC":"06/25/2017 19:59:39",
+          "actionTaken":"Detected",
+          "resourceType":"Virtual Machine",
+          "severity":"Medium",
+          "compromisedEntity":"LinuxVM1",
+          "remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)]",
+          "attackedResourceType":"Virtual Machine"
         },
-        "properties":{}
-    }
+        "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/Microsoft.Security/locations/centralus/alerts/Sec-07f2-4d74-aaf0-03d2f53d5a33",
+        "resourceGroupName":"contoso",
+        "resourceProviderName":"Microsoft.Security",
+        "status":"Active",
+        "subscriptionId":"12345-5645-123a-9867-123b45a6789",
+        "submissionTimestamp":"2017-06-25T20:23:04.9743772+00:00",
+        "resourceType":"MICROSOFT.SECURITY/LOCATIONS/ALERTS"
+      }
+    },
+    "properties":{}
+  }
 }
 ```
 
@@ -145,42 +145,42 @@ La charge utile JSON contenue dans l’opération POST varie en fonction de cham
 
 ```json
 {
-    "schemaId":"Microsoft.Insights/activityLogs",
-    "data":{
-        "status":"Activated",
-        "context":{
-            "activityLog":{
-                "channels":"Operation",
-                "claims":"{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress\":\"Microsoft.Advisor\"}",
-                "caller":"Microsoft.Advisor",
-                "correlationId":"123b4c54-11bb-3d65-89f1-0678da7891bd",
-                "description":"A new recommendation is available.",
-                "eventSource":"Recommendation",
-                "eventTimestamp":"2017-06-29T13:52:33.2742943+00:00",
-                "httpRequest":"{\"clientIpAddress\":\"0.0.0.0\"}",
-                "eventDataId":"1bf234ef-e45f-4567-8bba-fb9b0ee1dbcb",
-                "level":"Informational",
-                "operationName":"Microsoft.Advisor/recommendations/available/action",
-                "properties":{
-                    "recommendationSchemaVersion":"1.0",
-                    "recommendationCategory":"HighAvailability",
-                    "recommendationImpact":"Medium",
-                    "recommendationName":"Enable Soft Delete to protect your blob data",
-                    "recommendationResourceLink":"https://portal.azure.com/#blade/Microsoft_Azure_Expert/RecommendationListBlade/recommendationTypeId/12dbf883-5e4b-4f56-7da8-123b45c4b6e6",
-                    "recommendationType":"12dbf883-5e4b-4f56-7da8-123b45c4b6e6"
-                },
-                "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/microsoft.storage/storageaccounts/contosoStore",
-                "resourceGroupName":"CONTOSO",
-                "resourceProviderName":"MICROSOFT.STORAGE",
-                "status":"Active",
-                "subStatus":"",
-                "subscriptionId":"12345-5645-123a-9867-123b45a6789",
-                "submissionTimestamp":"2017-06-29T13:52:33.2742943+00:00",
-                "resourceType":"MICROSOFT.STORAGE/STORAGEACCOUNTS"
-            }
+  "schemaId":"Microsoft.Insights/activityLogs",
+  "data":{
+    "status":"Activated",
+    "context":{
+      "activityLog":{
+        "channels":"Operation",
+        "claims":"{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress\":\"Microsoft.Advisor\"}",
+        "caller":"Microsoft.Advisor",
+        "correlationId":"123b4c54-11bb-3d65-89f1-0678da7891bd",
+        "description":"A new recommendation is available.",
+        "eventSource":"Recommendation",
+        "eventTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+        "httpRequest":"{\"clientIpAddress\":\"0.0.0.0\"}",
+        "eventDataId":"1bf234ef-e45f-4567-8bba-fb9b0ee1dbcb",
+        "level":"Informational",
+        "operationName":"Microsoft.Advisor/recommendations/available/action",
+        "properties":{
+          "recommendationSchemaVersion":"1.0",
+          "recommendationCategory":"HighAvailability",
+          "recommendationImpact":"Medium",
+          "recommendationName":"Enable Soft Delete to protect your blob data",
+          "recommendationResourceLink":"https://portal.azure.com/#blade/Microsoft_Azure_Expert/RecommendationListBlade/recommendationTypeId/12dbf883-5e4b-4f56-7da8-123b45c4b6e6",
+          "recommendationType":"12dbf883-5e4b-4f56-7da8-123b45c4b6e6"
         },
-        "properties":{}
-    }
+        "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/microsoft.storage/storageaccounts/contosoStore",
+        "resourceGroupName":"CONTOSO",
+        "resourceProviderName":"MICROSOFT.STORAGE",
+        "status":"Active",
+        "subStatus":"",
+        "subscriptionId":"12345-5645-123a-9867-123b45a6789",
+        "submissionTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+        "resourceType":"MICROSOFT.STORAGE/STORAGEACCOUNTS"
+      }
+    },
+    "properties":{}
+  }
 }
 ```
 
@@ -302,6 +302,6 @@ Pour obtenir des informations spécifiques au sujet des schémas de toutes les a
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur le journal d’activité](../essentials/platform-logs-overview.md).
 * [Exécuter des scripts Azure Automation (Runbooks) sur des alertes Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
-* [Utiliser une application logique pour envoyer un SMS par le biais de Twilio à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Cet exemple s’applique aux alertes de métrique, mais il peut être modifié pour fonctionner avec une alerte du journal d’activité.
+* [Utiliser une application logique pour envoyer un SMS par le biais de Twilio à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app). Cet exemple s’applique aux alertes de métrique, mais il peut être modifié pour fonctionner avec une alerte du journal d’activité.
 * [Utiliser une application logique pour envoyer un message Slack à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Cet exemple s’applique aux alertes de métrique, mais il peut être modifié pour fonctionner avec une alerte du journal d’activité.
-* [Utiliser une application logique pour envoyer un message à une file d’attente Azure à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Cet exemple s’applique aux alertes de métrique, mais il peut être modifié pour fonctionner avec une alerte du journal d’activité.
+* [Utiliser une application logique pour envoyer un message à une file d’attente Azure à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app). Cet exemple s’applique aux alertes de métrique, mais il peut être modifié pour fonctionner avec une alerte du journal d’activité.

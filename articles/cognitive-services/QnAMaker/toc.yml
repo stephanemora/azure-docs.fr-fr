@@ -16,10 +16,14 @@
           href: Quickstarts/quickstart-sdk.md
 - name: Tutoriels
   items:
-    - name: Intégrer à l’agent virtuel Power BI
-      href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
     - name: Créer un bot de Forum aux questions avec Azure Bot Service
       href: Tutorials/create-faq-bot-with-azure-bot-service.md
+    - name: Personnaliser votre bot
+      items:
+        - name: Ajouter plusieurs domaines au bot FAQ
+          href: Tutorials/create-faq-bot-for-multiple-domains.md
+    - name: Intégrer à l’agent virtuel Power BI
+      href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
 - name: Concepts
   items:
     - name: Planifier votre base de connaissances

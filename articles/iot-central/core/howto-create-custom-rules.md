@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: a65d9dbaed4d197c2e0843e73ff3f45b8678017e
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 2eb776add1e4a53edc6f4f57983074af31d8f52d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107864214"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750038"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Étendre Azure IoT Central avec des règles personnalisées à l’aide de Stream Analytics, d’Azure Functions et de SendGrid
 
-Ce guide pratique vous montre comment étendre votre application IoT Central en tant que développeur de solutions avec des notifications et des règles personnalisées. L’exemple montre l’envoi d’une notification à un opérateur lorsqu’un appareil cesse d’envoyer des données de télémétrie. La solution utilise une requête [Azure Stream Analytics](../../stream-analytics/index.yml) pour détecter le moment où un appareil a arrêté d’envoyer des données de télémétrie. Le travail Stream Analytics utilise [Azure Functions](../../azure-functions/index.yml) pour envoyer des notifications par e-mail via [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
+Ce guide pratique vous montre comment étendre votre application IoT Central avec des notifications et des règles personnalisées. L’exemple montre l’envoi d’une notification à un opérateur lorsqu’un appareil cesse d’envoyer des données de télémétrie. La solution utilise une requête [Azure Stream Analytics](../../stream-analytics/index.yml) pour détecter le moment où un appareil a arrêté d’envoyer des données de télémétrie. Le travail Stream Analytics utilise [Azure Functions](../../azure-functions/index.yml) pour envoyer des notifications par e-mail via [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
 
 Ce guide pratique vous montre comment étendre IoT Central au-delà de ce qu’il peut déjà faire avec les actions et règles intégrées.
 
