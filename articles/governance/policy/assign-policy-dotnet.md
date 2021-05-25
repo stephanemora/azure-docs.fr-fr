@@ -4,12 +4,12 @@ description: Dans ce démarrage rapide, vous allez utiliser .NET Core pour crée
 ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b89a0db419b1e7213e9742e4a39d073445d05189
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 8ed5fd2013f3efd02961c486363042b30c7ad98f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091784"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773986"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-net-core"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier des ressources non conformes avec .NET Core
 
@@ -55,7 +55,7 @@ Pour permettre à .NET Core de gérer Azure Resource Graph, créez une applicati
    using Microsoft.Rest;
    using Microsoft.Azure.Management.ResourceManager;
    using Microsoft.Azure.Management.ResourceManager.Models;
-   
+
    namespace policyAssignment
    {
        class Program
@@ -71,7 +71,7 @@ Pour permettre à .NET Core de gérer Azure Resource Graph, créez une applicati
                string strPolicyDefID = args[6];
                string strDescription = args[7];
                string strScope = args[8];
-   
+
                var authContext = new AuthenticationContext($"https://login.microsoftonline.com/{strTenant}");
                var authResult = await authContext.AcquireTokenAsync(
                    "https://management.core.windows.net",
@@ -128,7 +128,7 @@ Les commandes précédentes utilisent les informations suivantes :
 - Remplacer `{subscriptionId}` par votre ID d’abonnement
 - **name** : nom unique de l’objet d’attribution de stratégie. L’exemple ci-dessus utilise _audit-vm-manageddisks_.
 - **displayName** – Nom complet pour l’attribution de stratégie. Dans ce cas, nous allons utiliser l’affectation _Audit VMs without managed disks_ (Auditer les machines virtuelles sans disques managés).
-- **policyDefID** – Chemin de la définition de stratégie, sur lequel vous vous basez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_.
+- **policyDefID** : chemin de la définition de la stratégie, basé sur celui que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_.
 - **description** : explication plus détaillée de ce que fait la stratégie ou de la raison pour laquelle elle est attribuée à cette étendue.
 - **scope** : une étendue détermine les ressources ou le groupe de ressources sur lesquels l'attribution de stratégie est appliquée. Cette étendue peut aller d'un groupe d'administration à une ressource individuelle. Veillez à remplacer `{scope}` par l’un des modèles suivants :
   - Groupe d’administration : `/providers/Microsoft.Management/managementGroups/{managementGroup}`
@@ -168,7 +168,7 @@ Maintenant que votre attribution de stratégie est créée, vous pouvez identifi
    using Microsoft.Rest;
    using Microsoft.Azure.Management.PolicyInsights;
    using Microsoft.Azure.Management.PolicyInsights.Models;
-   
+
    namespace policyAssignment
    {
        class Program
@@ -180,12 +180,12 @@ Maintenant que votre attribution de stratégie est créée, vous pouvez identifi
                string strClientSecret = args[2];
                string strSubscriptionId = args[3];
                string strName = args[4];
-   
+
                var authContext = new AuthenticationContext($"https://login.microsoftonline.com/{strTenant}");
                var authResult = await authContext.AcquireTokenAsync(
                    "https://management.core.windows.net",
                    new ClientCredential(strClientId, strClientSecret));
-   
+
                using (var client = new PolicyInsightsClient(new TokenCredentials(authResult.AccessToken)))
                {
                    var policyQueryOptions = new QueryOptions
@@ -193,7 +193,7 @@ Maintenant que votre attribution de stratégie est créée, vous pouvez identifi
                        Filter = $"IsCompliant eq false and PolicyAssignmentId eq '{strName}'",
                        Apply = "groupby(ResourceId)"
                    };
-   
+
                    var response = await client.PolicyStates.ListQueryResultsForSubscriptionAsync(
                        "latest", strSubscriptionId, policyQueryOptions);
                    Console.WriteLine(response.Odatacount);

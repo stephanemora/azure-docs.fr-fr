@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: ceb39893327af82e8dff3e82ef570727b3bdfa33
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1b66397fcc6ed32c7630aea1287c8f6865ebcbc5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141947"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749750"
 ---
 # <a name="glossary-of-iot-terms"></a>Glossaire IoT
 
@@ -48,7 +48,7 @@ La gestion automatique des appareils dans Azure IoT Hub automatise une grande pa
 
 ### <a name="azure-digital-twins"></a>Azure Digital Twins
 
-Azure Digital Twins est une offre de plateforme en tant que service (PaaS) pour la création de représentations numériques d’objets, de lieux, de processus métier et de personnes réels. Créez des graphiques de connaissances représentant des environnements entiers, et utilisez-les pour obtenir des insights permettant d’améliorer les produits, d’optimiser les opérations et les coûts, et de créer des expériences client exceptionnelles. Pour en savoir plus, consultez [Azure Digital Twins](../digital-twins/index.yml).
+Azure Digital Twins est une offre de plateforme en tant que service (PaaS) pour la création de représentations numériques d’objets, de lieux, de processus métier et de personnes réels. Créez des graphes de jumeaux qui représentent des environnements entiers, et servez-vous-en pour obtenir des insights permettant d’améliorer les produits, d’optimiser les opérations et les coûts et de créer des expériences client exceptionnelles. Pour en savoir plus, consultez [Azure Digital Twins](../digital-twins/index.yml).
 
 ### <a name="azure-digital-twins-instance"></a>Instance Azure Digital Twins
 

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 03/02/2021
+ms.date: 05/05/2021
 ms.topic: how-to
-ms.openlocfilehash: 329df78bb5829695b95fcca5b7ed7e1439ced821
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85a5c9f08304c98b544fef2ccb7818d96613b3d4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688363"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748130"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Créer le contrôleur de données Azure Arc
 
@@ -57,7 +57,7 @@ Quelle que soit l'option choisie, pendant le processus de création, vous devez 
 - **Mode de connectivité** : le mode de connectivité détermine le degré de connectivité de votre environnement de services de données avec Azure Arc vers Azure. L’aperçu ne prend actuellement en charge que les modes connectés indirectement et connectés directement.  Pour plus d’informations, consultez [mode de connectivité](./connectivity.md). 
 - **ID d'abonnement Azure** : GUID de l'abonnement Azure dans lequel vous souhaitez que soit créée la ressource de contrôleur de données dans Azure.
 - **Nom du groupe de ressources Azure** : nom du groupe de ressources dans lequel vous souhaitez que soit créée la ressource de contrôleur de données dans Azure.
-- **Emplacement Azure** : emplacement Azure où les métadonnées de la ressource de contrôleur de données seront stockées. Pour obtenir la liste des régions disponibles, consultez [Infrastructure globale Azure / Produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
+- **Emplacement Azure** : emplacement Azure où les métadonnées de la ressource de contrôleur de données seront stockées. Pour obtenir la liste des régions disponibles, consultez [Infrastructure globale Azure / Produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc). Les métadonnées et les informations de facturation relatives aux ressources Azure gérées par le contrôleur de données que vous déployez sont stockées uniquement à l’emplacement dans Azure que vous spécifiez comme paramètre d’emplacement. Si vous déployez en mode connecté directement, le paramètre d’emplacement du contrôleur de données sera le même que l’emplacement de la ressource d’emplacement personnalisée que vous ciblez.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

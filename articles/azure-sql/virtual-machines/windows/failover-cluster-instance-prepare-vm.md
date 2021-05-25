@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 10f01fd5943928eda1f1e4518f30c8e3ccf56b46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 608f9bb63082be132769964a14142996eb9b3564
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737793"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755564"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Préparer des machines virtuelles pour une instance FCI (SQL Server sur des machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -26,6 +26,9 @@ ms.locfileid: "98737793"
 Cet article explique comment préparer des machines virtuelles Azure pour les utiliser avec une instance de cluster de basculement SQL Server (FCI). Les paramètres de configuration varient en fonction de la solution de stockage FCI. Par conséquent, vérifiez que vous avez choisi la configuration adaptée à votre environnement et à votre entreprise. 
 
 Pour plus d’informations, consultez une présentation de [l’instance FCI avec SQL Server sur les machines virtuelles Azure](failover-cluster-instance-overview.md) et [les meilleures pratiques de cluster](hadr-cluster-best-practices.md). 
+
+> [!NOTE]
+> Il est maintenant possible de déplacer votre solution d’instance de cluster de basculement vers SQL Server sur des machines virtuelles Azure à l’aide d’Azure Migrate. Pour en savoir plus, consultez [Migrer une instance de cluster de basculement](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md). 
 
 ## <a name="prerequisites"></a>Prérequis 
 

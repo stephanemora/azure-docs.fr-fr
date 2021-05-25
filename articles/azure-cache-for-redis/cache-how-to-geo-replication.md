@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 0be2bb59b46dc827001d89f8e0f1be23f35a714d
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 5ffb6c1796431e4f04274a74cfc777adc6e60f1c
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536085"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108804139"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Configurer la géoréplication pour les instances Azure Cache pour Redis Premium
 
@@ -42,7 +42,7 @@ Certaines fonctionnalités ne sont pas prises en charge par la géoréplication�
 
 Une fois la géoréplication configurée, les restrictions suivantes s’appliquent à votre paire de caches liés :
 
-- Le cache lié secondaire est en lecture seule. Il n’est pas possible d’y écrire des données. Si vous choisissez de lire à partir de l’instance géographique secondaire, il est important de noter qu’à chaque fois qu’une synchronisation complète des données se produit entre les instances principale et secondaire (lors de la mise à jour de l’instance géographique principale ou secondaire et lors de certains scénarios de redémarrage), l’instance géographique secondaire lèvera des erreurs (indiquant qu’une synchronisation complète des données est en cours) sur toute opération Redis, jusqu’à la fin de la synchronisation complète des données. Les applications qui lisent depuis une instance géographique secondaire doivent être générées pour revenir à l’instance géographique principale chaque fois que l’instance géographique secondaire lève de telles erreurs. 
+- Le cache lié secondaire est en lecture seule. Il n’est pas possible d’y écrire des données. Si vous choisissez de lire à partir de l’instance géographique secondaire, il est important de noter qu’à chaque fois qu’une synchronisation complète des données se produit entre les instances principale et secondaire (lors de la mise à jour de l’instance géographique principale ou secondaire et lors de certains scénarios de redémarrage), l’instance géographique secondaire lèvera des erreurs (indiquant qu’une synchronisation complète des données est en cours) sur toute opération Redis, jusqu’à la fin de la synchronisation complète des données. Les applications qui lisent depuis une instance géographique secondaire doivent être générées pour revenir à l’instance géographique principale chaque fois que l’instance géographique secondaire génère de telles erreurs. 
 - Toutes les données présentes dans le cache lié secondaire avant l’ajout du lien sont supprimées. Toutefois, en cas de suppression ultérieure de la géoréplication, les données répliquées restent dans le cache lié secondaire.
 - Vous ne pouvez pas procéder à la [mise à l'échelle](cache-how-to-scale.md) d'un seul des deux caches lorsque ceux-ci sont liés.
 - Vous ne pouvez pas [modifier le nombre de partitions](cache-how-to-premium-clustering.md) si le clustering est activé pour le cache.

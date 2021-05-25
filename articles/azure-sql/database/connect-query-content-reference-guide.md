@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/17/2021
-ms.openlocfilehash: 96b52c80fa06be8c157ad39fd65be4e491e0cbe3
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 548d7ee7495d579557cfff89f415298326807338
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107874852"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803725"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Articles sur la connexion et l’interrogation dans Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -78,6 +78,20 @@ Nous vous recommandons également de désactiver les protocoles TLS 1.1 et 1.0 s
 
 Les pilotes autres que Microsoft peuvent ne pas utiliser le protocole TLS par défaut. Cela peut être un facteur à prendre en compte lors de la connexion à Azure SQL Database ou Azure SQL Managed Instance. Il se peut que les applications présentent des pilotes incorporés qui ne permettent pas de contrôler ces paramètres de connexion. Nous vous recommandons d’examiner la sécurité de ces pilotes et applications avant de les utiliser sur les systèmes qui interagissent avec des données sensibles.
 
+## <a name="drivers"></a>Pilotes
+
+Les versions minimales suivantes des outils et des pilotes sont recommandées si vous voulez vous connecter à une base de données Azure SQL :
+
+| Pilote/outil | Version |
+| --- | --- |
+|.NET Framework | 4.6.1 (ou .NET Core) |
+|Pilote ODBC| v17 |
+|Pilote PHP| 5.2.0 |
+|Pilote JDBC| 6.4.0 |
+|Pilote Node.js| 2.1.1 |
+|Pilote OLEDB| 18.0.2.0 |
+|[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou ultérieur |
+
 ## <a name="libraries"></a>Bibliothèques
 
 Vous avez le choix entre plusieurs frameworks et bibliothèques pour la connexion à Azure SQL Database ou Azure SQL Managed Instance. Découvrez nos [didacticiels de démarrage](https://aka.ms/sqldev) pour commencer rapidement à utiliser des langages de programmation comme C#, Java, Node.js, PHP et Python. Ensuite, créez une application à l’aide de SQL Server sur Linux, Windows ou Docker sur macOS.
@@ -93,6 +107,8 @@ Le tableau suivant répertorie les bibliothèques de connectivité ou *pilotes* 
 | Python | Windows, Linux, macOS | [Pilote Python SQL](/sql/connect/python/python-driver-for-sql-server/) | Choix d’installation : <br/> \* [pymssql](/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \* [pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |  [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
 | Ruby | Windows, Linux, macOS | [Pilote Ruby pour SQL Server](/sql/connect/ruby/ruby-driver-for-sql-server/) | [Installer](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development/) | [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [Pilote Microsoft ODBC pour SQL Server](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) | [Télécharger](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) |  
+
+### <a name="data-access-frameworks"></a>Frameworks d’accès aux données
 
 Le tableau suivant répertorie des exemples de frameworks de mappage relationnel objet (ORM) et de frameworks web que les applications clientes peuvent utiliser avec SQL Server, Azure SQL Database, Azure SQL Managed Instance ou Azure Synapse Analytics. Vous pouvez utiliser les frameworks sur Linux, Windows ou Docker.
 

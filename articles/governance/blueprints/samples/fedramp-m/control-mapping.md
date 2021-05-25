@@ -3,12 +3,12 @@ title: Exemples de contrôles de blueprint FedRAMP Moderate
 description: Mappage des contrôles de l’exemple de blueprint FedRAMP Moderate Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 7c8b2524958be1a4b5e49ff870c7c01a8f89f305
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 27db1fdc8fc6f1c51f2cf708fe2e5cfc8a2c4026
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386667"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757292"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint FedRAMP Moderate
 
@@ -102,19 +102,19 @@ Ces définitions de stratégie vérifient et appliquent le déploiement de l’a
 
 ## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM-7 (2) Fonctionnalités essentielles | Empêcher l’exécution d’un programme
 
-Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle des applications peut s’exécuter dans un mode de mise en conformité qui empêche l’exécution d’applications non approuvées. Ce blueprint attribue une définition Azure Policy qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
+Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle des applications peut s’exécuter dans un mode de mise en conformité qui empêche l’exécution d’applications non approuvées. Ce blueprint affecte une définition Azure Policy qui vous aide à superviser les machines virtuelles pour lesquelles une liste d’autorisation d’applications est recommandée mais n’a pas encore été configurée.
 
 - Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) Fonctionnalités essentielles | Logiciels autorisés / Mise sur liste verte
 
-Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications vous permet de créer des listes d’applications approuvées pour vos machines virtuelles. Ce blueprint attribue une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
+Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications vous permet de créer des listes d’applications approuvées pour vos machines virtuelles. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste d’autorisation d’applications est recommandée mais n’a pas encore été configurée.
 
 - Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
 
 ## <a name="cm-11-user-installed-software"></a>CM-11 Logiciels installés par l’utilisateur
 
-Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications peut vous aider à appliquer et à superviser la conformité à des stratégies de restriction logicielle. Ce blueprint attribue une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste verte d’applications est recommandée mais n’a pas encore été configurée.
+Le contrôle d’application adaptatif dans Azure Security Center est une solution intelligente et automatisée de filtrage des applications de bout en bout qui peut bloquer ou empêcher l’exécution de logiciels spécifiques sur vos machines virtuelles. Le contrôle d’applications peut vous aider à appliquer et à superviser la conformité à des stratégies de restriction logicielle. Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous aide à superviser les machines virtuelles pour lesquelles une liste d’autorisation d’applications est recommandée mais n’a pas encore été configurée.
 
 - Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
 
@@ -276,7 +276,7 @@ Ce blueprint vous aide à superviser votre système en auditant et en appliquant
 - Déployer la détection de menaces sur les serveurs SQL
 
 > [!NOTE]
-> La disponibilité des définitions Azure Policy peut varier dans Azure Government et dans d’autres clouds nationaux. 
+> La disponibilité des définitions Azure Policy peut varier dans Azure Government et dans d’autres clouds nationaux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

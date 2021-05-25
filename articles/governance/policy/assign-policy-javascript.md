@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous utilisez JavaScript pour c
 ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: d42156e68747b66778ea1cf2001d2b4bfc901bb0
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: c0ff6ec2457c0669d055ef2da50032a99b0029c6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106090157"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772564"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-javascript"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier les ressources non conformes à l’aide de JavaScript
 
@@ -70,14 +70,14 @@ Dans ce démarrage rapide, vous allez créer une attribution de stratégie et at
    const argv = require("yargs").argv;
    const authenticator = require("@azure/ms-rest-nodeauth");
    const policyObjects = require("@azure/arm-policy");
-   
+
    if (argv.subID && argv.name && argv.displayName && argv.policyDefID && argv.scope && argv.description) {
-   
+
        const createAssignment = async () => {
            const credentials = await authenticator.interactiveLogin();
            const client = new policyObjects.PolicyClient(credentials, argv.subID);
            const assignments = new policyObjects.PolicyAssignments(client);
-   
+
            const result = await assignments.create(
                argv.scope,
                argv.name,
@@ -89,7 +89,7 @@ Dans ce démarrage rapide, vous allez créer une attribution de stratégie et at
            );
            console.log(result);
        };
-   
+
        createAssignment();
    }
    ```
@@ -111,7 +111,7 @@ Les commandes précédentes utilisent les informations suivantes :
 - **subID** – ID d’abonnement du contexte d’authentification. Veillez à remplacer `{subscriptionId}` par votre abonnement.
 - **name** – Nom unique de l’objet d’attribution de stratégie. L’exemple ci-dessus utilise _audit-vm-manageddisks_.
 - **displayName** – Nom complet pour l’attribution de stratégie. Dans ce cas, nous allons utiliser l’affectation _Audit VMs without managed disks_ (Auditer les machines virtuelles sans disques managés).
-- **policyDefID** – Chemin de la définition de stratégie, sur lequel vous vous basez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_.
+- **policyDefID** : chemin de la définition de la stratégie, basé sur celui que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_.
 - **description** : explication plus détaillée de ce que fait la stratégie ou de la raison pour laquelle elle est attribuée à cette étendue.
 - **scope** : une étendue détermine les ressources ou le groupe de ressources sur lesquels l'attribution de stratégie est appliquée. Cette étendue peut aller d'un groupe d'administration à une ressource individuelle. Veillez à remplacer `{scope}` par l’un des modèles suivants :
   - Groupe d’administration : `/providers/Microsoft.Management/managementGroups/{managementGroup}`
@@ -131,11 +131,11 @@ Maintenant que votre attribution de stratégie est créée, vous pouvez identifi
    const argv = require("yargs").argv;
    const authenticator = require("@azure/ms-rest-nodeauth");
    const policyInsights = require("@azure/arm-policyinsights");
-   
+
    if (argv.subID && argv.name) {
-   
+
        const getStates = async () => {
-   
+
            const credentials = await authenticator.interactiveLogin();
            const client = new policyInsights.PolicyInsightsClient(credentials);
            const policyStates = new policyInsights.PolicyStates(client);
@@ -151,7 +151,7 @@ Maintenant que votre attribution de stratégie est créée, vous pouvez identifi
            );
            console.log(result);
        };
-   
+
        getStates();
    }
    ```

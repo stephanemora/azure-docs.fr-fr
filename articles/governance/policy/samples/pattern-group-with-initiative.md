@@ -3,12 +3,12 @@ title: 'Modèle : Grouper des définitions de stratégie avec des initiatives'
 description: Ce modèle Azure Policy fournit un exemple de regroupement des définitions de stratégie dans une initiative.
 ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 7bbb2efdd27ead942fa0ef48f7785eec8bce9378
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: a2cc89954c34f22d5dba0ecce710a7db152ec665
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106092855"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752342"
 ---
 # <a name="azure-policy-pattern-group-policy-definitions"></a>Modèle Azure Policy : Grouper des définitions de stratégie
 
@@ -32,7 +32,7 @@ Dans cet exemple, **costCenterValue** et **productNameValue** sont définis en t
 
 #### <a name="includes-policy-definitions"></a>Définitions de stratégie incluses
 
-Chaque définition de stratégie incluse doit fournir le **policyDefinitionId** et un tableau **parameters** si la définition de stratégie accepte des paramètres. Dans l’extrait de code ci-dessous, la définition de stratégie incluse accepte deux paramètres : **tagName** et **tagValue**. **tagName** est défini avec un littéral, mais **tagValue** utilise le paramètre **costCenterValue** défini par l’initiative. Ce relais de valeurs améliore la réutilisation.
+Chaque définition de stratégie incluse doit fournir le **policyDefinitionId** et un tableau **parameters** si la définition de stratégie accepte des paramètres. Dans l’extrait de code suivant, la définition de stratégie incluse accepte deux paramètres : **tagName** et **tagValue**. **tagName** est défini avec un littéral, mais **tagValue** utilise le paramètre **costCenterValue** défini par l’initiative. Ce relais de valeurs améliore la réutilisation.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-group-with-initiative.json" range="30-40":::
 

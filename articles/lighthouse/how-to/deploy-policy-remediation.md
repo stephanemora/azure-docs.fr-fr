@@ -1,18 +1,18 @@
 ---
 title: Déployer une stratégie pouvant être corrigée
 description: Pour déployer des stratégies qui utilisent une tâche de correction via Azure Lighthouse, vous devez créer une identité managée dans le locataire client.
-ms.date: 01/14/2021
+ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 01070133241117596bdf2b8e1e7c3fa101fc656c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65fb11ff98d51ca6ee9f9280bdd50997e6eeef26
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98233880"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788658"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Déployer une stratégie pouvant être corrigée dans un abonnement délégué
 
-[Azure Lighthouse](../overview.md) permet aux fournisseurs de services de créer et de modifier des définitions de stratégies au sein d’un abonnement délégué. Toutefois, pour déployer des stratégies qui utilisent une [tâche de correction](../../governance/policy/how-to/remediate-resources.md) (autrement dit, des stratégies avec l'effet [deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) ou [modify](../../governance/policy/concepts/effects.md#modify)), vous devez créer une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) dans le locataire du client. Cette identité managée peut être utilisée par Azure Policy pour déployer le modèle dans la stratégie. Il existe des étapes à suivre pour activer ce scénario, à la fois quand vous intégrez le client pour la gestion des ressources déléguées Azure et quand vous déployez la stratégie elle-même.
+[Azure Lighthouse](../overview.md) permet aux fournisseurs de services de créer et de modifier des définitions de stratégies au sein d’un abonnement délégué. Toutefois, pour déployer des stratégies qui utilisent une [tâche de correction](../../governance/policy/how-to/remediate-resources.md) (autrement dit, des stratégies avec l'effet [deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) ou [modify](../../governance/policy/concepts/effects.md#modify)), vous devez créer une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) dans le locataire du client. Cette identité managée peut être utilisée par Azure Policy pour déployer le modèle dans la stratégie. Il existe des étapes à suivre pour activer ce scénario, à la fois quand vous intégrez le client pour Azure Lighthouse et quand vous déployez la stratégie elle-même.
 
 > [!TIP]
 > Même si nous faisons référence aux fournisseurs de services et aux clients dans cette rubrique, les [entreprises gérant plusieurs locataires](../concepts/enterprise.md) peuvent utiliser les mêmes processus.

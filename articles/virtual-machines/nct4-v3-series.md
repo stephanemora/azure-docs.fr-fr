@@ -7,12 +7,12 @@ author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: 2e10177de1a40bf7ece7acde43a91686bd4c98e5
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e023eacd173ce23e3f88fa97f8c0127132c953ea
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306447"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108744530"
 ---
 # <a name="ncast4_v3-series"></a>NCasT4_v3-series 
 
@@ -28,7 +28,7 @@ Les machines virtuelles de la série NCasT4_v3 sont alimentées par [processeurs
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1 et 2<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
-[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge ([en préversion](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 Interconnexion Nvidia/NVLink : Non pris en charge<br>
 <br>
 
