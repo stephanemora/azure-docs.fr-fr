@@ -4,15 +4,15 @@ description: Cet article décrit les considérations sur les prix, la facturatio
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 04/14/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: b17041f25fdd26bd0f8328a206267ef1c4984672
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: da0a216842ddbd10728f3ff4c3b0eee2df200ee7
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144742"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633426"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Fonctionnalités de transaction de la place de marché commerciale
 
@@ -73,7 +73,7 @@ Selon l’option Transaction choisie, les frais d’abonnement se présentent ai
 > [!NOTE]
 > Les offres qui sont facturées en fonction de la consommation après l’utilisation d’une solution ne sont pas éligibles à un remboursement.
 
-Les éditeurs qui souhaitent modifier les frais d’utilisation associés à une offre doivent tout d’abord supprimer l’offre (ou le plan spécifique de l’offre) de la place de marché commerciale. Cette suppression doit se faire conformément aux dispositions du [Contrat d’Éditeur Microsoft](/legal/marketplace/msft-publisher-agreement). L’éditeur peut ensuite publier une nouvelle offre (ou un plan intégré à une offre) avec les nouveaux frais d’utilisation. Pour plus d’informations sur la suppression d’une offre ou d’un plan, consultez [Arrêter la vente d’une offre ou d’un plan](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
+Les éditeurs qui souhaitent modifier les frais d’utilisation associés à une offre doivent tout d’abord supprimer l’offre (ou le plan spécifique de l’offre) de la place de marché commerciale. Cette suppression doit se faire conformément aux dispositions du [Contrat d’Éditeur Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560). L’éditeur peut ensuite publier une nouvelle offre (ou un plan intégré à une offre) avec les nouveaux frais d’utilisation. Pour plus d’informations sur la suppression d’une offre ou d’un plan, consultez [Déprécier une offre ou un plan](./partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan) (« déprécier » était auparavant « arrêter la vente »).
 
 ### <a name="free-contact-me-and-bring-your-own-license-byol-pricing"></a>Options tarifaires Gratuit, Me contacter et BYOL (apportez votre propre licence)
 

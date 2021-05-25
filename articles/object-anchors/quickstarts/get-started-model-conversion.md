@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/22/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 69d23b9d02eb176a2e42985ef5c3673e83d9bb7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb2de2c9076ae17598b761ba7dc2c17286d1352d
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102607898"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750786"
 ---
 # <a name="quickstart-create-an-object-anchors-model-from-a-3d-model"></a>Démarrage rapide : Créer un modèle Object Anchors à partir d’un modèle 3D
 
@@ -125,6 +125,9 @@ Vous pouvez maintenant continuer et convertir votre modèle 3D.
    Prenez note de l’**ID de travail** pour référence ultérieure. Cela peut être utile lors du débogage ou de la résolution des problèmes.
 
 4. Une fois le travail terminé, vous devriez voir un fichier au format `<Model-Filename-Without-Extension>_<JobID>.ou` dans l’emplacement de sortie spécifié. Par exemple, si le nom de fichier de votre modèle 3D est `chair.ply` et que l’ID de votre travail est `00000000-0000-0000-0000-000000000000`, le nom de fichier généré par le service sera `chair_00000000-0000-0000-0000-000000000000.ou` .
+
+## <a name="error-codes"></a>Codes d’erreur
+Pour plus d’informations sur les différents codes d’erreur résultant d’un échec d’un travail de conversion de ressource et sur la façon de les gérer, consultez la [page des codes d’erreur de conversion](..\model-conversion-error-codes.md).
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

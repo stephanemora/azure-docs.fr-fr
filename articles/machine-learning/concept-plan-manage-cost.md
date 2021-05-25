@@ -1,5 +1,5 @@
 ---
-title: Prévoir et gérer les coûts
+title: Planifier la gestion des coûts
 titleSuffix: Azure Machine Learning
 description: Planifiez et gérez les coûts d’Azure Machine Learning avec l’analyse des coûts dans le portail Azure. Découvrez d’autres conseils permettant de réduire vos coûts lors de la création de modèles ML.
 author: sdgilley
@@ -9,15 +9,15 @@ ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: a52bcc9a2649592bef7b6f8d09cdde96226b77ea
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.date: 05/07/2021
+ms.openlocfilehash: 0ad5c432cb9ba5742ae4fa2ee2e41dc2ff2b5936
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107886115"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713497"
 ---
-# <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planifier et gérer les coûts d’Azure Machine Learning
+# <a name="plan-to-manage-costs-for-azure-machine-learning"></a>Planifier la gestion des coûts d’Azure Machine Learning
 
 Cet article explique comment planifier et gérer les coûts d’Azure Machine Learning. Tout d’abord, vous devez utiliser la calculatrice de prix Azure pour planifier les coûts avant d’ajouter des ressources. Ensuite, lorsque vous ajoutez les ressources Azure, passez en revue les coûts estimés. Enfin, utilisez des conseils de réduction des coûts lorsque vous entraînez votre modèle avec des clusters de calcul Azure Machine Learning gérés.
 
@@ -35,17 +35,18 @@ Lorsque vous entraînez vos modèles Machine Learning, utilisez des clusters de 
 
 ## <a name="prerequisites"></a>Prérequis
 
-L’analyse des coûts prend en charge différents types de comptes Azure. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). Pour afficher les données de coût, vous avez au minimum besoin d’un accès en lecture pour votre compte Azure. 
+Analyse des coûts dans Cost Management prend en charge la plupart des types de compte Azure, mais pas tous. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). 
 
-Pour plus d’informations sur l’attribution de l’accès aux données Azure Cost Management, consultez [Assigner l’accès aux données](../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Pour afficher les données de coût, vous avez au minimum besoin d’un accès en lecture pour un compte Azure. Pour plus d’informations sur l’attribution de l’accès aux données Azure Cost Management, consultez [Assigner l’accès aux données](../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 ## <a name="estimate-costs-before-using-azure-machine-learning"></a>Estimer les coûts avant d’utiliser Azure Machine Learning
 
-Utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) pour estimer les coûts avant de créer les ressources dans un compte Azure Machine Learning. Sur la gauche, sélectionnez **AI + Machine Learning**, puis sélectionnez **Azure Machine Learning** pour commencer.  
+- Utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) pour estimer les coûts avant de créer les ressources dans un espace de travail Azure Machine Learning.
+Sur la gauche, sélectionnez **AI + Machine Learning**, puis sélectionnez **Azure Machine Learning** pour commencer.  
 
 La capture d’écran suivante montre l’estimation des coûts effectuée par la calculatrice :
 
-:::image type="content" source="media/concept-plan-manage-cost/capacity-calculator-cost-estimate.png" alt-text="Estimation des coûts dans la calculatrice Azure":::
+:::image type="content" source="media/concept-plan-manage-cost/capacity-calculator-cost-estimate.png" alt-text="Exemple d’estimation de coûts dans la calculatrice de prix Azure.":::
 
 À mesure que vous ajoutez de nouvelles ressources dans votre espace de travail, revenez à cette calculatrice et ajoutez la même ressource ici pour mettre à jour vos estimations de coûts.
 
@@ -54,6 +55,11 @@ Pour plus d’informations, consultez [Tarifs Azure Machine Learning](https://az
 ## <a name="understand-the-full-billing-model-for-azure-machine-learning"></a>Comprendre le modèle de facturation complet pour Azure Machine Learning
 
 Azure Machine Learning s’exécute sur l’infrastructure Azure qui accumule les coûts avec Azure Machine Learning lorsque vous déployez la nouvelle ressource. Il est important de comprendre qu’une infrastructure supplémentaire peut accumuler des frais. Vous devez gérer ce coût lorsque vous apportez des modifications aux ressources déployées. 
+
+
+
+
+
 
 ### <a name="costs-that-typically-accrue-with-azure-machine-learning"></a>Coûts qui s’accumulent généralement avec Azure Machine Learning
 
@@ -66,7 +72,7 @@ Lorsque vous créez des ressources pour un espace de travail Azure Machine Learn
  
 ### <a name="costs-might-accrue-after-resource-deletion"></a>Coûts qui peuvent s’accumuler après la suppression de la ressource
 
-Lorsque vous supprimez un espace de travail Azure Machine Learning dans le portail Azure ou avec l’interface de ligne de commande Azure, les ressources suivantes continuent d’exister. Les coûts continueront de s’accumuler jusqu’à ce que vous supprimiez ces ressources.
+Quand vous supprimez un espace de travail Azure Machine Learning dans le portail Azure ou avec l’interface de ligne de commande Azure, les ressources suivantes continuent d’exister. Les coûts continueront de s’accumuler jusqu’à ce que vous supprimiez ces ressources.
 
 * Azure Container Registry
 * Stockage d'objets blob de blocs Azure
@@ -83,9 +89,58 @@ Si vous créez le service Azure Kubernetes (AKS) dans votre espace de travail, o
 
 ### <a name="using-azure-prepayment-credit-with-azure-machine-learning"></a>Utilisation du crédit Paiement anticipé Azure avec Azure Machine Learning
 
-Vous pouvez payer les frais Azure Machine Learning avec votre crédit Paiement anticipé Azure (anciennement appelé « engagement financier »). Il n’est cependant pas possible d’utiliser le Paiement anticipé Azure pour régler des frais liés à des produits et services tiers, y compris de la Place de marché Azure.
+Vous pouvez payer les frais d’Azure Machine Learning avec votre crédit de paiement anticipé Azure. Vous ne pouvez cependant pas utiliser le crédit Paiement anticipé Azure pour payer des frais pour des produits et services tiers, notamment ceux de la Place de marché Azure.
+
+## <a name="review-estimated-costs-in-the-azure-portal"></a>Vérifiez l’estimation du coût dans le portail Azure
+
+<!-- Note for Azure service writer: If your service shows estimated costs when a user is creating resources in the Azure portal, at a minimum, insert this section as a brief walkthrough that steps through creating a Azure Machine Learning resource where the estimated cost is shown to the user, updated for your service. Add a screenshot where the estimated costs or subscription credits are shown.
+
+If your service doesn't show costs as they create a resource or if estimated costs aren't shown to users before they use your service, then omit this section.
+
+For example, you might start with the following (modify for your service):
+-->
+
+Vous voyez une estimation des coûts à mesure que vous créez des ressources de calcul pour Azure Machine Learning.
+
+Pour créer une *instance de calcul * et voir le prix estimé :
+
+1. Connectez-vous au [studio Azure Machine Learning](https://ml.azure.com).
+1. Sur la gauche, sélectionnez **Calcul**.
+1. Dans la barre d’outils supérieure, sélectionnez **+ Nouveau**.
+1. Consultez l’estimation du prix indiqué pour chaque taille de machine virtuelle disponible.
+1. Finalisez la création de la ressource.
 
 
+:::image type="content" source="media/concept-plan-manage-cost/create-resource.png" alt-text="Exemple d’estimation des coûts durant la création d’une instance de calcul." lightbox="media/concept-plan-manage-cost/create-resource.png" :::
+
+Si votre abonnement Azure a une limite de dépense, Azure vous empêche de dépenser au-delà que le montant de votre crédit. À mesure que vous créez et utilisez des ressources Azure, vos crédits sont utilisés. Quand vous atteignez votre limite de crédit, les ressources que vous avez déployées sont désactivées pour le reste de cette période de facturation. Vous ne pouvez pas changer votre limite de crédit, mais vous pouvez la supprimer. Pour plus d’informations sur les limites de dépense, consultez [Limite de dépense Azure](../cost-management-billing/manage/spending-limit.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+
+## <a name="monitor-costs"></a>Superviser les coûts
+
+À mesure que vous utilisez des ressources Azure avec Azure Machine Learning, vous générez des coûts. Les coûts unitaires d’utilisation des ressources Azure varient selon les intervalles de temps (secondes, minutes, heures et jours) et selon l’utilisation d’unités (octets, mégaoctets, etc.). Dès que l’utilisation d’Azure Machine Learning démarre, des coûts sont générés, que vous pouvez voir dans l’[analyse du coût](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+
+Quand vous utilisez l’analyse du coût, vous pouvez voir les coûts d’Azure Machine Learning dans des graphes et des tableaux pour différents intervalles de temps. Par exemple, par jour, par année ou pour le mois en cours ou le mois précédent. Vous pouvez aussi afficher les coûts par rapport aux budgets et aux coûts prévus. Passez à des vues pour des périodes plus longues pour identifier les tendances des dépenses. Ceci vous permet de voir où des dépassements ont pu se produire. Si vous avez créé des budgets, vous pouvez aussi facilement voir à quel moment ils ont été dépassés.
+
+Pour voir les coûts d’Azure Machine Learning dans l’analyse du coût :
+
+1. Connectez-vous au portail Azure.
+2. Ouvrez l’étendue dans le portail Azure et sélectionnez **Analyse des coûts** dans le menu. Par exemple, accédez à **Abonnements**, sélectionnez un abonnement dans la liste, puis sélectionnez **Analyse du coût** dans le menu. Sélectionnez **Étendue** pour passer à une autre étendue dans l’analyse des coûts.
+3. Par défaut, le coût des services est affiché dans le premier graphique en anneau. Dans le graphique, sélectionnez la zone intitulée Azure Machine Learning.
+
+Les coûts mensuels réels s’affichent lors de l’ouverture initiale de l’analyse des coûts. Voici un exemple qui montre tous les coûts d’utilisation mensuelle.
+
+:::image type="content" source="media/concept-plan-manage-cost/all-costs.png" alt-text="Exemple montrant les coûts cumulés pour un abonnement." lightbox="media/concept-plan-manage-cost/all-costs.png" :::
+
+
+Pour limiter les coûts à un seul service, par exemple Azure Machine Learning, sélectionnez **Ajouter un filtre**, puis **Nom du service**. Sélectionnez ensuite **Azure Machine Learning**.
+
+Voici un exemple montrant les coûts d’Azure Machine Learning uniquement.
+
+:::image type="content" source="media/concept-plan-manage-cost/vm-specific-cost.png" alt-text="Exemple montrant les coûts cumulés pour Nom du service." lightbox="media/concept-plan-manage-cost/vm-specific-cost.png" :::
+
+<!-- Note to Azure service writer: The image shows an example for Azure Storage. Replace the example image with one that shows costs for your service. -->
+
+Dans l’exemple précédent, vous avez pu voir le coût actuel du service. Les coûts par région Azure (localisations) et les coûts d’Azure Machine Learning par groupe de ressources sont également présentés. À partir de là, vous pouvez explorer les coûts par vous-même.
 ## <a name="create-budgets"></a>Créer des budgets
 
 Vous pouvez créer des [budgets](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) pour gérer les coûts et des [alertes](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) permettant d’avertir automatiquement des parties prenantes en cas d’anomalies de dépenses et de risques de dépenses excessives. Les alertes sont basées sur les dépenses par rapport aux seuils de budget et de coût. Les budgets et les alertes sont créés pour les abonnements et les groupes de ressources Azure : ils sont donc utiles dans le cadre d’une stratégie globale de supervision des coûts. 
@@ -163,5 +218,5 @@ La capacité de calcul Azure Machine Learning prend en charge les instances rés
 
 - Découvrez [comment optimiser votre investissement cloud avec Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Apprenez-en davantage sur la gestion des coûts avec l’[analyse du coût](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Découvrez comment [éviter des coûts imprévus](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Découvrez comment [éviter des coûts imprévus](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Suivez le cours d’apprentissage guidé [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

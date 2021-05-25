@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 04/21/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c9f59c5c4410bbb3a8f53a53b0febaa2b04ba2aa
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: dff35243db327d2b224855e1f65e8e98296d8c8e
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315988"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752262"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clé gérée par le client dans Azure Monitor 
 
@@ -275,7 +275,7 @@ La rotation des clés propose deux modes :
 
 Toutes vos données restent accessibles après l’opération de rotation de clé, car les données sont toujours chiffrées avec la clé de chiffrement de compte (AEK, Account Encryption Key), tandis que celle-ci est désormais chiffrée avec votre nouvelle version de clé de chiffrement de clé (KEK, Key Encryption Key) dans Key Vault.
 
-## <a name="customer-managed-key-for-saved-queries"></a>Clé gérée par le client pour les requêtes enregistrées
+## <a name="customer-managed-key-for-saved-queries-and-log-alerts"></a>Clé gérée par le client pour les requêtes enregistrées et les alertes de journal
 
 Le langage de requête utilisé dans Log Analytics est expressif et peut contenir des informations sensibles dans les commentaires que vous ajoutez aux requêtes ou dans la syntaxe de requête. Certaines organisations requièrent que ces informations soient protégées dans le cadre de la stratégie de clé gérée par le client, et vous devez sauvegarder vos requêtes en les chiffrant avec votre clé. Azure Monitor vous permet de stocker des requêtes de *recherches enregistrées* et d’*alertes de journal* chiffrées avec votre clé dans votre propre compte de stockage lorsque vous êtes connecté à votre espace de travail. 
 
@@ -292,6 +292,7 @@ Lorsque vous apportez votre propre stockage (BYOS) et que vous le liez à votre 
 * L’historique des requêtes n’est pas pris en charge et vous ne pouvez pas voir les requêtes que vous avez exécutées.
 * Vous pouvez lier un seul compte de stockage à l’espace de travail pour l’enregistrement des requêtes, mais il peut être utilisé pour les requêtes de *recherches enregistrées* et d’*alertes de journal*.
 * L’action d’épingler au tableau de bord n’est pas prise en charge.
+* Les alertes de journal déclenchées ne contiennent pas de résultats de recherche ou de requête d’alerte. Vous pouvez utiliser les [dimensions d’alerte](../alerts/alerts-unified-log.md#split-by-alert-dimensions) pour obtenir du contexte dans les alertes déclenchées.
 
 **Configurer BYOS pour les requêtes de recherches enregistrées**
 

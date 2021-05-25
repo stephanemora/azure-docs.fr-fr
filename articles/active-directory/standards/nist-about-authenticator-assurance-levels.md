@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08660ae2d9f3b3561665489e10b29b51a9c2d512
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 34cf1b096963c5b83c359c6583573c709655bc1c
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293971"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517723"
 ---
 # <a name="about-authenticator-assurance-levels"></a>À propos des niveaux d’assurance de l’authentificateur
 
@@ -55,7 +55,7 @@ La norme comprend des exigences AAL pour 11 catégories d’exigence :
 
 En général, le niveau AAL1 n’est pas recommandé, car il accepte les solutions par mot de passe seulement, et les mots de passe sont la forme d’authentification la plus facile à compromettre. Consultez [Votre mot de pa$$e n’a pas d’importance](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984). 
 
-Bien que le NIST n’exige pas la résistance à l’emprunt d’identité du vérificateur (également connu sous le nom d’hameçonnage des informations d’identification) jusqu’au niveau AAL3, nous vous recommandons vivement de traiter cette menace à tous les niveaux. Vous pouvez sélectionner des authentificateurs qui fournissent une résistance à l’emprunt d’identité du vérificateur, par exemple en exigeant des appareils à jonction Azure AD ou à jonction hybride Azure AD. Si vous utilisez Office 365, vous pouvez vous servir d’Office 365 - Protection avancée contre les menaces, et plus particulièrement des [stratégies anti-hameçonnage](https://docs.microsoft.com/microsoft-365/security/office-365-security/set-up-anti-phishing-policies?view=o365-worldwide).
+Bien que le NIST n’exige pas la résistance à l’emprunt d’identité du vérificateur (également connu sous le nom d’hameçonnage des informations d’identification) jusqu’au niveau AAL3, nous vous recommandons vivement de traiter cette menace à tous les niveaux. Vous pouvez sélectionner des authentificateurs qui fournissent une résistance à l’emprunt d’identité du vérificateur, par exemple en exigeant des appareils à jonction Azure AD ou à jonction hybride Azure AD. Si vous utilisez Office 365, vous pouvez vous servir d’Office 365 - Protection avancée contre les menaces, et plus particulièrement des [stratégies anti-hameçonnage](/microsoft-365/security/office-365-security/set-up-anti-phishing-policies).
 
 À mesure que vous évaluez le niveau NIST AAL approprié pour votre organisation, vous pouvez déterminer si l’ensemble de votre organisation doit respecter les normes du NIST, ou si des groupes spécifiques d’utilisateurs et de ressources peuvent être formés, en n’appliquant les configurations du niveau NIST AAL qu’à un groupe particulier d’utilisateurs et de ressources. 
 
@@ -73,15 +73,15 @@ De plus, Microsoft s’engage pleinement à [protéger et à gérer les données
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-[Présentation de NIST](nist-overview.md)
+[Présentation du NIST](nist-overview.md)
 
-[En savoir plus sur les AAL](nist-about-authenticator-assurance-levels.md)
+[En savoir plus sur les niveaux AAL](nist-about-authenticator-assurance-levels.md)
 
 [Principes fondamentaux de l’authentification](nist-authentication-basics.md)
 
-[Types d’authentificateurs NIST](nist-authenticator-types.md)
+[Types d'authentificateurs NIST](nist-authenticator-types.md)
 
-[Obtention du niveau NIST AAL1 avec Azure AD](nist-authenticator-assurance-level-1.md)
+[Atteindre le niveau AAL1 NIST avec Azure AD](nist-authenticator-assurance-level-1.md)
 
 [Obtention du niveau NIST AAL2 avec Azure AD](nist-authenticator-assurance-level-2.md)
 

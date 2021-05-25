@@ -4,18 +4,18 @@ description: Foire aux questions sur les clusters managés Service Fabric, notam
 ms.topic: troubleshooting
 ms.author: pepogors
 author: peterpogorski
-ms.date: 02/15/2021
+ms.date: 5/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: aa77896ba88d0ffd0a6f94a84603b5f4a1803357
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 377e71c7fdf1f6750ae9529db2cf62fa329d18be
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100633085"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684664"
 ---
 # <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur les clusters Service Fabric managés
 
-Voici quelques questions fréquentes (FAQ) et des réponses sur les clusters managés Service Fabric (préversion).
+Voici quelques questions fréquentes (FAQ) et des réponses sur les clusters managés Service Fabric.
 
 ## <a name="general"></a>Général
 
@@ -23,13 +23,13 @@ Voici quelques questions fréquentes (FAQ) et des réponses sur les clusters man
 
 Les clusters managés Service Fabric sont une évolution du modèle de ressource de cluster Service Fabric qui est conçu pour faciliter le déploiement et la gestion des clusters. Un cluster managé Service Fabric utilise le modèle d’encapsulation Azure Resource Manager, de sorte qu’un utilisateur n’a besoin de définir et de déployer qu’une seule ressource de cluster par rapport aux nombreuses ressources indépendantes qu’il doit déployer aujourd’hui (groupe de machines virtuelles identiques, équilibreur de charge, IP, etc.).
 
-### <a name="what-regions-are-supported-in-the-preview"></a>Quelles sont les régions prises en charge dans la préversion ?
+### <a name="what-regions-are-supported"></a>Quelles sont les régions prises en charge ?
 
-Les régions prises en charge pour les clusters managés Service Fabric en préversion incluent `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus` et `eastus2`.
+Les clusters managés Service Fabric sont pris en charge dans toutes les régions du cloud public.
 
 ### <a name="can-i-do-an-in-place-migration-of-my-existing-service-fabric-cluster-to-a-managed-cluster-resource"></a>Puis-je effectuer une migration sur place de mon cluster Service Fabric existant vers une ressource de cluster managé ?
 
-Non. À ce stade, vous devez créer une ressource de cluster Service Fabric pour utiliser le nouveau type de ressource de cluster managé Service Fabric.
+Non. Vous devrez créer une ressource de cluster Service Fabric pour utiliser le nouveau type de ressource de cluster managé Service Fabric.
 
 ### <a name="is-there-an-additional-cost-for-service-fabric-managed-clusters"></a>Les clusters managés Service Fabric engendrent-ils un coût supplémentaire ?
 
@@ -55,15 +55,19 @@ Non. Il n’est actuellement pas possible d’avoir un équilibreur de charge in
 
 ### <a name="can-i-autoscale-my-cluster"></a>Puis-je mettre automatiquement mon cluster à l’échelle ?
 
-La mise à l’échelle automatique n’est pas disponible actuellement dans la préversion.
+La mise à l'échelle automatique n'est actuellement pas prise en charge.
 
 ### <a name="can-i-deploy-my-cluster-across-availability-zones"></a>Puis-je déployer mon cluster sur plusieurs zones de disponibilité ?
 
-Les clusters dans plusieurs zones de disponibilité ne sont pas disponibles actuellement dans la préversion.
+Oui, les clusters managés Service Fabric couvrant les zones de disponibilité sont pris en charge dans les régions Azure qui prennent en charge les zones de disponibilité. Pour plus d'informations, consultez [Clusters managés Service Fabric dans les zones de disponibilité](.\service-fabric-cross-availability-zones.md).
+
+### <a name="can-i-deploy-stateless-node-types-on-a-service-fabric-managed-cluster"></a>Puis-je déployer des types de nœud sans état sur un cluster managé Service Fabric ? 
+
+Oui, les clusters managés Service Fabric prennent en charge les types de nœud sans état pour tous les types de nœuds secondaires. Pour plus d'informations, consultez [Types de nœud sans état sur un cluster managé Service Fabric](./how-to-managed-cluster-stateless-node-type.md).
 
 ### <a name="can-i-select-between-automatic-and-manual-upgrades-for-my-cluster-runtime"></a>Puis-je choisir entre des mises à niveau automatiques et manuelles pour mon runtime de cluster ?
 
-Dans la préversion, toutes les mises à niveau du runtime sont effectuées automatiquement.
+Oui, vous pouvez choisir des mises à niveau automatiques ou manuelles. Pour plus d'informations, consultez [Mises à niveau de clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade).
 
 ## <a name="applications"></a>Applications
 
@@ -74,3 +78,7 @@ L’expérience de développement locale reste inchangée par rapport aux cluste
 ### <a name="can-i-deploy-my-applications-as-an-azure-resource-manager-resource"></a>Puis-je déployer mes applications en tant que ressource Azure Resource Manager ?
 
 Oui. Une prise en charge a été ajoutée pour déployer des applications en tant que ressource Azure Resource Manager (en plus du déploiement utilisant PowerShell et l’interface CLI). Pour commencer, consultez [Déployer une application de cluster managé Service Fabric à l’aide d’un modèle ARM](how-to-managed-cluster-app-deployment-template.md).
+
+### <a name="can-i-deploy-applications-with-managed-identities"></a>Puis-je déployer des applications avec identités managées ?
+
+ Oui, vous pouvez déployer des applications avec identités managées sur un cluster managé Service Fabric. Pour plus d'informations, consultez [Identités managées par les applications](.\concepts-managed-identity.md).

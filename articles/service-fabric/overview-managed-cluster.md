@@ -1,16 +1,16 @@
 ---
-title: Clusters managés Service Fabric (préversion)
+title: Clusters managés Service Fabric
 description: Les clusters managés Service Fabric sont une évolution du modèle de ressource de cluster Azure Service Fabric qui simplifie le déploiement et la gestion de cluster.
 ms.topic: overview
-ms.date: 02/15/2021
-ms.openlocfilehash: 271852214097ee96ba6b10de7a94904981cd8ef8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 5/10/2021
+ms.openlocfilehash: a412899f4aa37ce2257a3351c3e27da4d5d3add2
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041227"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685258"
 ---
-# <a name="service-fabric-managed-clusters-preview"></a>Clusters managés Service Fabric (préversion)
+# <a name="service-fabric-managed-clusters"></a>Clusters managés Service Fabric
 
 Les clusters gérés Service Fabric sont une évolution du modèle de ressource de cluster Azure Service Fabric qui simplifie votre expérience de déploiement et de gestion de cluster.
 
@@ -47,7 +47,10 @@ Les clusters managés Service Fabric offrent un certain nombre d’avantages par
 **Meilleures pratiques par défaut**
 - Paramètres de fiabilité et de durabilité simplifiés
 
-Il n’y a aucun coût supplémentaire pour les clusters managés Service Fabric au-delà du coût des ressources sous-jacentes requises pour le cluster.
+Il n’y a aucun autre coût pour les clusters managés Service Fabric que celui des ressources sous-jacentes nécessaires au cluster, et le même contrat SLA Service Fabric s’applique aux clusters managés.
+
+> [!NOTE]
+> Il n’existe aucun chemin de migration entre les clusters Service Fabric existants et les clusters managés. Vous avez besoin de créer un cluster managé Service Fabric pour utiliser ce nouveau type de ressource.
 
 ## <a name="service-fabric-managed-cluster-skus"></a>SKU de cluster managé Service Fabric
 
@@ -62,30 +65,26 @@ Les clusters managés Service Fabric sont disponibles la fois dans les SKU de ba
 | Ajouter/supprimer des types de nœuds | Non | Oui |
 | Redondance de zone | Non | Oui |
 
-## <a name="whats-new-for-service-fabric-managed-clusters"></a>Nouveautés des clusters managés Service Fabric
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
 
-Les dernières fonctionnalités de la préversion des clusters managés Service Fabric incluent la prise en charge des éléments suivants :
+Les fonctionnalités des clusters managés vont continuer à évoluer. Actuellement, elles prennent en charge ce qui suit :
 
-* [Déploiement d’applications à l’aide de modèles ARM](how-to-managed-cluster-app-deployment-template.md)
-* [Mises à niveau automatiques des systèmes d’exploitation](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
-* [Chiffrement de disque](how-to-enable-managed-cluster-disk-encryption.md)
-* [Application de règles NSG](how-to-managed-cluster-networking.md)
-
-Les fonctionnalités qui seront ajoutées dans les prochaines versions comprennent :
-
-* Déploiement d’applications à l’aide de Visual Studio
-* Prise en charge des identités managées
-* Zones de disponibilité
-* Proxy inversé
-* Mise à l’échelle automatique
+* [Déploiement d’applications à l’aide de modèles ARM](how-to-managed-cluster-app-deployment-template.md)
+* [Secrets de l’application](how-to-managed-cluster-application-secrets.md)
+* [Mises à niveau automatiques de l’image du système d’exploitation](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
+* [Répartition des zones de disponibilité](how-to-managed-cluster-availability-zones.md)
+* Sélection du [chiffrement de disque](how-to-enable-managed-cluster-disk-encryption.md) et du [type de disque managé](how-to-managed-cluster-managed-disk.md)
+* Prise en charge des identités managées pour les [types de nœuds](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) de cluster managés et l’[authentification des applications](how-to-managed-cluster-application-managed-identity.md)
+* [Règles NSG et autres options réseau](how-to-managed-cluster-networking.md)
+* [Types de nœuds sans état uniquement](how-to-managed-cluster-stateless-node-type.md)
+* [Extensions de groupes de machines virtuelles identiques](how-to-managed-cluster-vmss-extension.md) pour les types de nœuds
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour commencer à utiliser des clusters managés Service Fabric, essayez le démarrage rapide :
 
 > [!div class="nextstepaction"]
-> [Créer un cluster managé Service Fabric (préversion)](quickstart-managed-cluster-template.md)
-
+> [Créer un cluster managé Service Fabric](quickstart-managed-cluster-template.md)
 
 [sf-composition]: ./media/overview-managed-cluster/sfrp-composition-resource.png
 [sf-encapsulation]: ./media/overview-managed-cluster/sfrp-encapsulated-resource.png

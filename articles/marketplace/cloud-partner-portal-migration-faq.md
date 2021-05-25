@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
-ms.openlocfilehash: 7c1e908b5b113c5a2eff81105b1f0cd622c57b5e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 04/14/2021
+ms.openlocfilehash: af648b24d1fb5006a6dbfae33030e4c064646aeb
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127512"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634254"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Questions fréquentes (FAQ) sur la transition du portail Cloud Partner vers l’Espace partenaires
 
@@ -170,11 +170,14 @@ Votre ID d’offre est maintenant affiché dans la barre de navigation gauche de
 
 ![Affiche l’emplacement de l’ID de l’offre de l’Espace partenaires](media/cpp-pc-faq/offer-id.png)
 
-### <a name="stop-selling-an-offer"></a>Arrêter la vente d’une offre
+### <a name="deprecate-an-offer"></a>Déprécier une offre
 
-Vous pouvez demander à [arrêter la vente d’une offre](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan) sur la Place de marché directement à partir du portail de l’Espace partenaires. L’option est disponible dans la page **Vue d’ensemble de l’offre** de votre offre.
+> [!IMPORTANT]
+> L'option Arrêter la vente a changé pour devenir Déprécier.
 
-[![Screenshot shows the Partner Center page to stop selling an offer.](media/cpp-pc-faq/stop-sell.png "Affiche la page de l’Espace partenaires pour arrêter la vente d’une offre")](media/cpp-pc-faq/stop-sell.png#lightbox)
+Vous pouvez demander à [déprécier une offre (en arrêter officiellement la vente)](partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan) sur la Place de marché à partir du portail Espace partenaires. L’option est disponible dans la page **Vue d’ensemble de l’offre** de votre offre.
+
+[![Capture d'écran illustrant la page de l'Espace partenaires permettant de déprécier une offre (anciennement Arrêter la vente).](media/cpp-pc-faq/stop-sell.png "Affiche la page de l'Espace partenaires qui permet de déprécier une offre")](media/cpp-pc-faq/stop-sell.png#lightbox)
 <br><br>
 
 ## <a name="are-the-cloud-partner-portal-rest-apis-still-supported"></a>Les API REST du portail Cloud Partner sont-elles toujours prises en charge ?

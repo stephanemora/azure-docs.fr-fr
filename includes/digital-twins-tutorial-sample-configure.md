@@ -5,28 +5,28 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 67a2799a93141ad84f458642d8499a58784cc19c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1eceb842947abd8975036c3145c1da755ef59526
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463766"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766749"
 ---
 ## <a name="configure-the-sample-project"></a>Configurer l’exemple de projet
 
 Ensuite, configurez un exemple d’application cliente qui interagit avec votre instance Azure Digital Twins.
 
-Sur votre ordinateur, accédez au fichier que vous avez téléchargé précédemment à partir des [*exemples Azure Digital Twins de bout en bout*](/samples/azure-samples/digital-twins-samples/digital-twins-samples) (et décompressez-le si vous ne l’avez pas déjà fait).
+Sur votre ordinateur, accédez au fichier que vous avez téléchargé précédemment à partir des [exemples Azure Digital Twins de bout en bout](/samples/azure-samples/digital-twins-samples/digital-twins-samples) (et décompressez-le si vous ne l’avez pas déjà fait).
 
 Une fois dans le dossier, accédez à _AdtSampleApp_. Ouvrez _**AdtE2ESample.sln**_ dans Visual Studio 2019. 
 
 Dans Visual Studio, sélectionnez le fichier _SampleClientApp > **appsettings.json**_ pour l’ouvrir dans la fenêtre d’édition. Il s’agit d’un fichier JSON prédéfini avec les variables de configuration nécessaires pour exécuter le projet.
 
-Dans le corps du fichier, remplacez `instanceUrl` par l’*URL hostName* de votre instance Azure Digital Twins (en ajoutant **_https://_** devant *hostName*, comme indiqué ci-dessous).
+Dans le corps du fichier, remplacez `instanceUrl` par l’*URL de nom d’hôte* de votre instance d’Azure Digital Twins (en ajoutant **_https://_** devant le *nom d’hôte*, comme indiqué ci-dessous).
 
 ```json
 {
-  "instanceUrl": "https://<your-Azure-Digital-Twins-instance-hostName>"
+  "instanceUrl": "https://<your-Azure-Digital-Twins-instance-host-name>"
 }
 ```
 

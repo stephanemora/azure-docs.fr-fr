@@ -4,15 +4,15 @@ description: Découvrez comment configurer un chiffrement basé sur l’hôte da
 services: container-service
 ms.topic: article
 ms.date: 03/03/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7eb3215aeb1f7c6508092d18fbebd90f852efe63
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 3d5009c164ab09d3977bb15d85b166a31c1f1a0b
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772916"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754314"
 ---
-# <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Activer le chiffrement basé sur l’hôte sur Azure Kubernetes Service (AKS) (préversion)
+# <a name="host-based-encryption-on-azure-kubernetes-service-aks"></a>Chiffrement basé sur l’hôte sur Azure Kubernetes Service (AKS)
 
 Avec le chiffrement basé sur l’hôte, les données stockées sur l’hôte de machine virtuelle des machines virtuelles de vos nœuds d’agent AKS sont chiffrées au repos et les flux sont chiffrés dans le service de stockage. Cela signifie que les disques temporaires sont chiffrés au repos avec des clés gérées par la plateforme. Le cache du système d’exploitation et des disques de données est chiffré au repos avec des clés gérées par le client ou par la plateforme, selon le type de chiffrement défini sur ces disques. Par défaut, lorsque vous utilisez AKS, le système d’exploitation et les disques de données sont chiffrés au repos avec des clés gérées par la plateforme, ce qui signifie que les caches de ces disques sont également chiffrés au repos par défaut avec des clés gérées par la plateforme.  Vous pouvez spécifier vos propres clés gérées à l’aide de [Bring your own keys (BYOK) avec des disques Azure dans Azure Kubernetes service](azure-disk-customer-managed-keys.md). Le cache de ces disques sera également chiffré à l’aide de la clé que vous spécifiez au cours de cette étape.
 
@@ -26,33 +26,7 @@ Cette fonctionnalité ne peut être définie qu’au moment de la création du c
 
 ### <a name="prerequisites"></a>Prérequis
 
-- Vérifiez que l'extension CLI `aks-preview` version 0.4.73 ou ultérieure est installée.
-- Vérifiez que l’indicateur de fonctionnalité `EnableEncryptionAtHostPreview` sous `Microsoft.ContainerService` est activé.
-
-Vous devez activer la fonctionnalité pour votre abonnement avant d’utiliser la propriété EncryptionAtHost pour votre cluster Azure Kubernetes Service. Suivez les étapes ci-dessous pour activer la fonctionnalité pour votre abonnement :
-
-1. Exécutez la commande suivante pour inscrire la fonctionnalité pour votre abonnement
-
-```azurecli-interactive
-Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
-```
-2. Vérifiez que l’état de l’inscription est Inscrit (cela prend quelques minutes) à l’aide de la commande ci-dessous avant d’essayer la fonctionnalité.
-
-```azurecli-interactive
-Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
-```
-
-### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
-
-Pour créer un cluster AKS qui héberge le chiffrement basé sur l’hôte, vous avez besoin de la dernière extension CLI *aks-preview*. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], ou recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+- Azure CLI version 2.23.0 ou ultérieure
 
 ### <a name="limitations"></a>Limites
 
@@ -60,7 +34,7 @@ az extension update --name aks-preview
 - Ne peut être activé que dans les [régions Azure][supported-regions] qui prennent en charge le chiffrement côté serveur des disques managés Azure et uniquement avec des [tailles de machine virtuelle spécifiques prises en charge][supported-sizes].
 - Requiert un cluster AKS et un pool de nœuds basés sur Virtual Machine Scale Sets (VMSS) comme *type d’ensemble de machines virtuelles*.
 
-## <a name="use-host-based-encryption-on-new-clusters-preview"></a>Utiliser le chiffrement basé sur l’hôte sur les nouveaux clusters (préversion)
+## <a name="use-host-based-encryption-on-new-clusters"></a>Utiliser le chiffrement basé sur l’hôte sur les nouveaux clusters
 
 Configurez les nœuds de l’agent de cluster pour utiliser le chiffrement basé sur l’hôte lorsque le cluster est créé. 
 
@@ -70,7 +44,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D
 
 Si vous souhaitez créer des clusters sans chiffrement basé sur l'hôte, vous pouvez le faire en omettant le paramètre `--enable-encryption-at-host`.
 
-## <a name="use-host-based-encryption-on-existing-clusters-preview"></a>Utiliser le chiffrement basé sur l’hôte sur les clusters existants (préversion)
+## <a name="use-host-based-encryption-on-existing-clusters"></a>Utiliser le chiffrement basé sur l’hôte sur les clusters existants
 
 Vous pouvez activer le chiffrement basé sur l’hôte sur les clusters existants en ajoutant un nouveau pool de nœuds à votre cluster. Configurez un nouveau pool de nœuds pour utiliser le chiffrement basé sur l'hôte à l'aide du paramètre `--enable-encryption-at-host`.
 

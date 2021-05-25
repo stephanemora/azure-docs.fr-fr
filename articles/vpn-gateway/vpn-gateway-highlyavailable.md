@@ -6,14 +6,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 05/06/2021
 ms.author: yushwang
-ms.openlocfilehash: f7b36b65ee14e66de7b35d38d835fb5f2d5dd229
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 4d06393d2974a2100219c539e3d3a3bc477c238e
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205464"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482468"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Configuration haute disponibilité pour la connectivité entre les réseaux locaux et la connectivité entre deux réseaux virtuels
 Cet article fournit une vue d’ensemble des options de configuration haute disponibilité dont vous pouvez tirer parti pour la connectivité entre vos réseaux locaux et la connectivité entre deux réseaux virtuels en utilisant des passerelles VPN Azure.
@@ -54,7 +54,7 @@ Vous pouvez maintenant créer une passerelle VPN Azure dans une configuration ac
 
 Dans cette configuration, chaque instance de passerelle Azure aura une adresse IP publique unique et chacune va établir un tunnel VPN S2S IPsec/IKE sur votre périphérique VPN local spécifié dans votre passerelle et votre connexion de réseau local. Notez que les deux tunnels VPN font en fait partie de la même connexion. Vous devez toujours configurer votre périphérique VPN local pour accepter ou établir deux tunnels VPN S2S sur ces deux adresses IP publiques de passerelle VPN Azure.
 
-Étant donné que les instances de passerelle Azure sont en configuration actif-actif, le trafic qui transite entre votre réseau virtuel Azure et votre réseau local sera routé simultanément via les deux tunnels, même si votre périphérique VPN local peut privilégier un tunnel plutôt qu’un autre. Notez que le même flux TCP ou UDP traversera toujours le même tunnel ou le même chemin, sauf si un événement de maintenance se produit sur l’une des instances.
+Étant donné que les instances de passerelle Azure sont en configuration actif-actif, le trafic qui transite entre votre réseau virtuel Azure et votre réseau local sera routé simultanément via les deux tunnels, même si votre périphérique VPN local peut privilégier un tunnel plutôt qu’un autre. Notez également qu’il n’est pas garanti que le même flux TCP ou UDP traverse toujours le même tunnel ou le même chemin d’accès.
 
 Lorsqu’une instance de passerelle est affectée par une maintenance planifiée ou un événement imprévu, le tunnel IPsec entre votre périphérique VPN local et cette instance est déconnecté. Les itinéraires correspondants sur vos périphériques VPN doivent être supprimés ou retirés automatiquement afin de permettre le basculement du trafic sur l’autre tunnel IPsec actif. Côté Azure, le basculement se produit automatiquement de l’instance affectée vers l’instance active.
 

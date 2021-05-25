@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 61993df77b0831926f16339a741a2553e80c2a0d
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: b9b8c97f7b87fc96bb0ea9e60958e5579a27d89c
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713837"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484664"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Questions fréquentes (FAQ) sur les accélérateurs de solution IoT
 
@@ -24,19 +24,18 @@ Consultez également les [questions fréquentes (FAQ) spécifiques à l’usine 
 Le code source est stocké dans les référentiels GitHub suivants :
 
 * [Accélérateur de solution Usine connectée](https://github.com/Azure/azure-iot-connected-factory)
-* [Accélérateur de solution de simulation d’appareil](https://github.com/Azure/azure-iot-pcs-device-simulation)
 
 ### <a name="where-can-i-find-the-remote-monitoring-and-predictive-maintenance-solution-accelerators"></a>Où trouver les accélérateurs de solutions de maintenance prédictive et de supervision à distance ?
 
 Depuis le 10 décembre 2020, les accélérateurs de maintenance prédictive et de supervision à distance ont été supprimés du site des [accélérateurs de solutions Azure IoT](https://www.azureiotsolutions.com/Accelerators) et ne sont plus disponibles pour les nouveaux déploiements. Les dépôts GitHub pour les deux accélérateurs ont été archivés. Le code est toujours disponible et accessible à tous, mais les dépôts ne prennent pas de nouvelles contributions.
 
+### <a name="where-can-i-find-the-device-simulation-solution-accelerator"></a>Où trouver l’accélérateur de solution de simulation d’appareil ?
+
+Le référentiel GitHub pour l’accélérateur a été archivé. Le code est toujours disponible et accessible à tous, mais les dépôts ne prennent pas de nouvelles contributions.
+
 ### <a name="what-happens-to-my-existing-remote-monitoring-and-predictive-maintenance-deployments"></a>Que deviennent mes déploiements de maintenance prédictive et de supervision à distance existants ?
 
 Les déploiements existants ne sont pas affectés par la suppression des accélérateurs de solutions de maintenance prédictive et de supervision à distance et continuent de fonctionner. Les dépôts dupliqués ne sont pas non plus affectés. Les dépôts principaux sur GitHub ont été archivés.
-
-### <a name="how-do-i-deploy-device-simulation-solution-accelerator"></a>Comment déployer l’accélérateur de solution de simulation d’appareil ?
-
-Pour déployer l’accélérateur de solution de simulation d’appareil, reportez-vous au dépôt GitHub de la [simulation d’appareil](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md).
 
 ### <a name="where-can-i-find-information-about-the-removed-solution-accelerators"></a>Où trouver des informations sur les accélérateurs de solutions supprimés ?
 
@@ -44,6 +43,7 @@ Consultez les pages suivantes sur le site des versions précédentes :
 
 * [Surveillance à distance](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
 * [Maintenance prédictive](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
+* [Simulation d’appareil](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
 
 ### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-solution-accelerators"></a>Quels SDK puis-je utiliser afin de développer des clients d’appareils pour les accélérateurs de solution ?
 

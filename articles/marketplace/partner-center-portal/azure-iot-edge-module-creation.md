@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 08/07/2020
-ms.openlocfilehash: 12600cadaa84ae116818eec06459d5db0c05304a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/14/2021
+ms.openlocfilehash: dd8d72d9ea223650fa4a641834e98e3837abb46d
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773417"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634164"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Créer une offre de module Azure IoT Edge
 
@@ -51,7 +51,7 @@ La page **Vue d’ensemble de l’offre** affiche une représentation visuelle d
 Cette page contient des liens permettant d’effectuer des opérations sur cette offre en fonction de la sélection que vous effectuez. Par exemple :
 
 - Si l’offre est un brouillon : Supprimer le brouillon de l’offre
-- Si l’offre est publiée : [Arrêter de vendre l’offre](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Si l'offre est en ligne : [Déprécier l'offre (anciennement Arrêter la vente)](update-existing-offer.md#deprecate-an-offer-or-plan)
 - Si l’offre est disponible en préversion : [Mise en service](../review-publish-offer.md#previewing-and-approving-your-offer)
 - Si vous n’avez pas complété Déconnexion de l’éditeur : [Annuler la publication](../review-publish-offer.md#cancel-publishing)
 
@@ -306,7 +306,7 @@ Une fois que vous avez créé vos plans, l’onglet **Vue d’ensemble du plan**
 Les actions disponibles dans Vue d’ensemble du plan varient selon l’état actuel de votre plan. Ils comprennent :
 
 - **Supprimer le brouillon** : si l’état du plan est Brouillon.
-- **Arrêter la vente du plan** : si l’état du plan est « publié en ligne ».
+- **Déprécier le plan** (anciennement Arrêter la vente) : si l'état du plan est « publié en ligne ». 
 
 ### <a name="create-new-plan"></a>Créer un plan
 

@@ -1,24 +1,24 @@
 ---
-title: Ignorer la suppression des utilisateurs qui sortent de l’étendue
-description: Découvrez comment remplacer le comportement par défaut de déprovisionnement des utilisateurs hors étendue.
+title: Ignorer la suppression des utilisateurs hors étendue dans l’approvisionnement d’applications Azure Active Directory
+description: Découvrez comment remplacer le comportement par défaut de la suppression des privilèges d’accès des utilisateurs hors étendue dans Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: celested
-ms.openlocfilehash: a6cbabe35b223020528d1cf48aa9e0ef9b9f7c05
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.reviewer: arvinh
+ms.openlocfilehash: 37196dafd094f997bc5fe2ea165cefb9099562a0
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99256117"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784878"
 ---
-# <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue
+# <a name="skip-deletion-of-user-accounts-that-go-out-of-scope-in-azure-active-directory"></a>Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue dans Azure Active Directory
 
 Par défaut, le moteur de provisionnement Azure AD supprime de manière réversible ou désactive les utilisateurs qui sortent de l’étendue. Cependant, dans certains scénarios, comme le provisionnement entrant d’utilisateurs de Workday vers AD, ce comportement par défaut peut ne pas convenir et vous pouvez souhaiter le remplacer.  
 

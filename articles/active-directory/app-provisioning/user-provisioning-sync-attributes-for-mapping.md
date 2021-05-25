@@ -3,21 +3,22 @@ title: Synchroniser les attributs avec Azure Active Directory pour le mappage
 description: Lors de la configuration de l’attribution d’utilisateurs pour les applications Azure Active Directory et SaaS, servez-vous de la fonctionnalité d’extension de répertoire pour ajouter des attributs sources qui ne sont pas synchronisés par défaut.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 03/31/2021
 ms.author: kenwith
-ms.openlocfilehash: f7a2429161cebe867d844b4ca7aa08ec3613edcd
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.reviewer: arvinh
+ms.openlocfilehash: 2cc6c3ec2b58a64491b0741658db325e808f0fa5
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388208"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784644"
 ---
-# <a name="syncing-extension-attributes-for-app-provisioning"></a>Synchronisation des attributs d’extension pour l’approvisionnement d’applications
+# <a name="syncing-extension-attributes-for-azure-active-directory-application-provisioning"></a>Synchronisation des attributs d’extension pour l’approvisionnement d’applications Azure Active Directory
 
 Azure Active Directory (Azure AD) doit contenir toutes les données (attributs) nécessaires pour créer un profil utilisateur lors de l’attribution de comptes d’utilisateur d’Azure AD vers une [application SaaS](../saas-apps/tutorial-list.md). Lors de la personnalisation des mappages d’attributs pour l’attribution d’utilisateurs, vous constaterez peut-être que l’attribut à mapper n’apparaît pas dans la liste **Attribut source**. Cet article explique comment ajouter l’attribut manquant.
 

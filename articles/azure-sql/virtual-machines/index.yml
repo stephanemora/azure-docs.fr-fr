@@ -4,20 +4,18 @@ summary: Découvrez les concepts, les guides de démarrage rapide, les tutoriels
 metadata:
   title: Documentation SQL Server sur machines virtuelles Azure
   description: Découvrez la documentation sur SQL Server installé sur des machines virtuelles Azure, à la fois Windows et Linux.
-  services: sql-database
-  ms.service: sql-database
-  ms.subservice: single-database
+  services: virtual-machines-sql
+  ms.service: virtual-machines-sql
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer: sstein
   ms.date: 05/27/2020
-  ms.openlocfilehash: ef1f0d64d078d729d97bee3ad7e5fb63cbda095c
-  ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+  ms.openlocfilehash: 5b93139b896c3b2868db8b9f03c8eb84df7ca834
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/28/2021
-  ms.locfileid: "108129870"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110064375"
 landingContent:
 - title: SQL Server sur une machine virtuelle Azure
   linkLists:

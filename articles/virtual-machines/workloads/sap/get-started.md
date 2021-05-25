@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/27/2021
+ms.date: 04/30/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 322b39f6f0356086c770efb4ef940ae0fbb85eca
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cc65fb99eebc5493331fed1b68b534a424f52b4b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130986"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768082"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utiliser Azure pour héberger et exécuter des scénarios de charge de travail SAP
 
@@ -80,6 +80,7 @@ Dans cette section, vous trouvez des informations sur la configuration de l’au
 Cette section contient des documents concernant l’intégration de Microsoft Power BI dans des sources de données SAP, ainsi que l’intégration d’Azure Data Factory dans SAP BW.
 
 ## <a name="change-log"></a>Journal des modifications
+- 30 avril 2021 : Modification de la [configuration de Pacemaker sur SLES dans Azure](./high-availability-guide-suse-pacemaker.md) pour inclure un avertissement en cas de modification incompatible avec l’agent Azure Fence dans une version du package python3-azure-mgmt-compute (SLES 15)  
 - 27 avril 2021 : Modification de l'[instance SAP ASCS/SCS avec WSFC et partage de fichiers](./sap-high-availability-guide-wsfc-file-share.md) pour ajouter des liens vers des notes SAP importantes dans la section des conditions préalables
 - 27 avril 2021 : Ajout de nouvelles machines virtuelles Msv2, Mdsv2 à la configuration de stockage HANA dans les [configuration de stockage de machine virtuelle Azure SAP HANA](./hana-vm-operations-storage.md)
 - 27 avril 2021 : Ajout d’une exigence liée à l’utilisation de types de stockage identiques dans la réplication de système HAN sur toutes les machines virtuelles de configuration HSR dans les [configurations de stockage de machine virtuelle Azure SAP HANA](./hana-vm-operations-storage.md)

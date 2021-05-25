@@ -10,18 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 7cf0d31895eaeaa41c23f9f07664b27bed1d3126
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 13b1e22f1e1e5f51d524e80d0bf102b744fbec3d
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96006385"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684592"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Connecter un capteur RuuviTag à votre application Azure IoT Central
 
-*Cet article s’applique aux créateurs de solutions.*
-
-Cet article vous explique comment, en tant que concepteur de solutions, vous pouvez connecter un capteur RuuviTag à votre application Microsoft Azure IoT Central.
+Cet article explique comment connecter un capteur RuuviTag à une application Microsoft Azure IoT Central.
 
 Qu'est-ce qu'une balise Ruuvi ?
 
@@ -35,9 +33,12 @@ Suivez les [instructions disponibles ici](./howto-connect-rigado-cascade-500.md)
 
 Pour connecter des capteurs RuuviTag, vous devez disposer des ressources suivantes :
 
-* Un capteur RuuviTag. Pour plus d'informations, consultez le site de [RuuviTag](https://ruuvi.com/).
-* Un appareil Rigado Cascade 500 ou une autre passerelle BLE. Pour plus d’informations, veuillez visiter [Rigado](https://www.rigado.com/).
-* Une application Azure IoT Central. Pour plus d'informations, consultez [Créer une application](./quick-deploy-iot-central.md).
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
+
+- Un capteur RuuviTag. Pour plus d'informations, consultez le site de [RuuviTag](https://ruuvi.com/).
+
+- Un appareil Rigado Cascade 500 ou une autre passerelle BLE. Pour plus d’informations, veuillez visiter [Rigado](https://www.rigado.com/).
+
 
 ## <a name="add-a-ruuvitag-device-template"></a>Ajouter un modèle d'appareil RuuviTag
 
@@ -76,7 +77,7 @@ Pour créer un RuuviTag simulé :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous êtes un développeur d’appareils, les étapes suivantes suggérées sont les suivantes :
+Voici quelques suggestions pour continuer :
 
 - En savoir plus sur la [connectivité des appareils dans Azure IoT Central](./concepts-get-connected.md)
 - Découvrez comment [superviser la connectivité des appareils à l’aide d’Azure CLI](./howto-monitor-devices-azure-cli.md)

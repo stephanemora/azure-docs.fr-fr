@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: 0b7f0427708eece75b5d418b68dd1c7a2e90853f
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 5ee6d89d19e0981c0a0ae705536b2f6f3b767730
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108691"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790736"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Forum Aux Questions sur Video Indexer
 
@@ -133,10 +133,12 @@ Selon les [Conditions d’utilisation des services en ligne Azure](https://www.m
 ### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>Les modèles personnalisés que je crée dans sur mon compte Video Indexer sont-ils disponibles pour d'autres comptes ?
 
  Non, les modèles personnalisés que vous créez sur votre compte ne sont disponibles pour aucun autre compte. Actuellement, Video Indexer vous permet de créer les modèles personnalisés suivants sur votre compte : [marques](customize-brands-model-overview.md), [langue](customize-language-model-overview.md) et [personne](customize-person-model-overview.md). Ces modèles sont uniquement disponibles sur le compte sur lequel vous les avez créés.
-  
+    
 ### <a name="is-the-content-indexed-by-video-indexer-kept-within-the-azure-region-where-i-am-using-video-indexer"></a>Le contenu indexé par Video Indexer est-il conservé au sein de la région Azure où j’utilise Video Indexer ?
 
-Oui. Le contenu et les insights associés sont conservés dans la région Azure, sauf s’il existe une configuration manuelle dans votre abonnement Azure qui utilise plusieurs régions Azure. 
+Oui. Le contenu et les insights associés sont conservés dans la région Azure (à l’exception des régions Singapour et Brésil Sud), sauf s’il existe une configuration manuelle dans votre abonnement Azure qui utilise plusieurs régions Azure.
+
+Les données client d’une région sont répliquées pour des raisons de continuité d’activité et reprise d’activité dans la [région jumelée](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs).
 
 ### <a name="what-is-the-privacy-policy-for-video-indexer"></a>Quelle est la politique de confidentialité Video Indexer ?
 

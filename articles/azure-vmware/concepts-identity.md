@@ -2,13 +2,13 @@
 title: Concepts - Identité et accès
 description: Découvrir les concepts d’identité et d’accès de Azure VMware Solution
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: 352daaec87c2df7a0bc062abd38a96ad0285180a
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.date: 05/11/2021
+ms.openlocfilehash: cd04cc6265faf480d80903ea65ba9886a413e356
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108069828"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788268"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Concepts d’identité d’Azure VMware Solution
 
@@ -31,8 +31,10 @@ L’utilisateur de cloud privé n’a pas accès et ne peut pas configurer de co
 
 Vous pouvez afficher les privilèges accordés au rôle CloudAdmin d’Azure VMware Solution sur votre instance vCenter de cloud privé Azure VMware Solution.
 
-1. Connectez-vous au client SDDC vSphere et accédez à **Menu** > **Administration**.
+1. Connectez-vous au client vSphere et accédez à **Menu** > **Administration**.
+
 1. Sous **Access Control**, sélectionnez **Rôles**.
+
 1. Dans la liste des rôles, sélectionnez **CloudAdmin**, puis **Privilèges**. 
 
    :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="Comment afficher les privilèges du rôle CloudAdmin dans le client vSphere":::
@@ -64,31 +66,38 @@ Le rôle CloudAdmin dans Azure VMware Solution dispose des privilèges suivants 
 
 Azure VMware Solution prend en charge l’utilisation de rôles personnalisés avec des privilèges égaux ou inférieurs à ceux du rôle CloudAdmin. 
 
-Le rôle CloudAdmin peut créer, modifier ou supprimer des rôles personnalisés qui ont des privilèges inférieurs ou égaux à leur rôle actuel. Vous pouvez créer des rôles qui possèdent des privilèges supérieurs à CloudAdmin, mais vous ne pouvez alors pas attribuer le rôle à des utilisateurs ou à des groupes, ni supprimer le rôle.
+Vous allez utiliser le rôle CloudAdmin pour créer, modifier ou supprimer des rôles personnalisés avec des privilèges inférieurs ou égaux à leur rôle actuel. Vous pouvez créer des rôles avec des privilèges supérieurs à CloudAdmin, mais vous ne pouvez pas attribuer le rôle à des utilisateurs ou à des groupes, ni le supprimer.
 
-Pour empêcher la création de rôles qui ne peuvent pas être attribués ni supprimés, Azure VMware Solution recommande de cloner le rôle CloudAdmin comme base pour la création de nouveaux rôles personnalisés.
+Pour empêcher la création de rôles qui ne peuvent pas être attribués ou supprimés, clonez le rôle CloudAdmin comme base pour la création d’autres rôles personnalisés.
 
 #### <a name="create-a-custom-role"></a>Créer un rôle personnalisé
 1. Connectez-vous à vCenter avec cloudadmin\@vsphere.local ou un utilisateur avec le rôle CloudAdmin.
-2. Accédez à la section de configuration **Rôles** et sélectionnez **Menu** > **Administration** > **Contrôle d’accès** > **Rôles**.
-3. Sélectionnez le rôle **CloudAdmin** et l’icône d’action **Cloner le rôle**.
 
-   > [!NOTE] 
-   > Ne clonez pas le rôle **Administrateur**. Ce rôle ne peut pas être utilisé et le rôle personnalisé créé ne peut pas être supprimé par cloudadmin\@vsphere.local.
+1. Accédez à la section de configuration **Rôles** et sélectionnez **Menu** > **Administration** > **Contrôle d’accès** > **Rôles**.
 
-4. Indiquez le nom de votre choix pour le rôle cloné.
-5. Ajoutez ou supprimez des privilèges pour le rôle, puis sélectionnez **OK**. Le rôle cloné doit maintenant être visible dans la liste des **rôles**.
+1. Sélectionnez le rôle **CloudAdmin** et l’icône d’action **Cloner le rôle**.
+
+   >[!NOTE] 
+   >Ne clonez pas le rôle **Administrateur**, car vous ne pouvez pas l’utiliser. En outre, le rôle personnalisé créé ne peut pas être supprimé par cloudadmin\@vsphere.local.
+
+1. Indiquez le nom de votre choix pour le rôle cloné.
+
+1. Ajoutez ou supprimez des privilèges pour le rôle, puis sélectionnez **OK**. Le rôle cloné est visible dans la liste **Rôles**.
 
 
-#### <a name="use-a-custom-role"></a>Utiliser un rôle personnalisé
+#### <a name="apply-a-custom-role"></a>Appliquer un rôle personnalisé
 
-1. Accédez à l’objet qui requiert l’autorisation ajoutée. Par exemple, pour appliquer l’autorisation à un dossier, accédez à **Menu** > **Ordinateurs virtuels et modèles** > **Nom du dossier**
+1. Accédez à l’objet qui requiert l’autorisation ajoutée. Par exemple, pour appliquer l’autorisation à un dossier, accédez à **Menu** > **Ordinateurs virtuels et modèles** > **Nom du dossier**.
+
 1. Cliquez avec le bouton droit sur l’objet et sélectionnez **Ajouter une autorisation**.
+
 1. Dans la fenêtre **Ajouter une autorisation**, sélectionnez la source d’identité dans la liste déroulante **Utilisateur** où se trouve le groupe ou l’utilisateur.
+
 1. Recherchez l’utilisateur ou le groupe après avoir sélectionné la source d’identité dans la section **Utilisateur**. 
+
 1. Sélectionnez le rôle qui sera appliqué à l’utilisateur ou au groupe.
-1. Activez la case à cocher **Se propager aux enfants** si nécessaire, puis sélectionnez **OK**.
-   L’autorisation ajoutée s’affiche dans la section **Autorisations** de l’objet.
+
+1. Activez la case à cocher **Se propager aux enfants** si nécessaire, puis sélectionnez **OK**. L’autorisation ajoutée s’affiche dans la section **Autorisations**.
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Identité et accès du gestionnaire NSX-T
 
@@ -96,9 +105,6 @@ Pour empêcher la création de rôles qui ne peuvent pas être attribués ni sup
 >NSX-T 2.5 est actuellement pris en charge pour tous les nouveaux clouds privés.
 
 Utilisez le compte *Administrateur* pour accéder à NSX-T Manager. Ce compte dispose de privilèges complets et vous permet de créer et de gérer des passerelles de niveau 1 (T1), des segments (commutateurs logiques) et tous les services. Les privilèges vous permettent d’accéder à la passerelle de niveau 0 (T0) de NSX-T. Une modification apportée à la passerelle T0 peut entraîner une dégradation des performances réseau ou une perte de l’accès à un cloud privé. Ouvrez une demande de support dans le portail Azure pour demander toute modification de votre passerelle NSX-T T0.
-
->[!TIP]
->Vous pouvez utiliser la [fonctionnalité NSX simplifiée dans le portail Azure](configure-nsx-network-components-azure-portal.md) comme alternative à l’utilisation de NSX-T Manager.
 
  
 ## <a name="next-steps"></a>Étapes suivantes
@@ -108,7 +114,7 @@ Maintenant que vous avez abordé les concepts d’accès et d’identité d’Az
 - [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md)
 - [Détails de chaque privilège](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
 - [Surveillance et réparation des clouds privés Azure VMware Solution](/azure/azure-vmware/concepts-private-clouds-clusters#host-monitoring-and-remediation)
-- [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md)
+
 
 
 <!-- LINKS - external-->

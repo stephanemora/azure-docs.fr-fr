@@ -398,14 +398,20 @@
   items:
     - name: Utiliser des clusters managés Service Fabric
       items:
+        - name: Configurer votre cluster managé
+          href: how-to-managed-cluster-configuration.md
         - name: Ajouter une extension de groupe de machines virtuelles identiques à un type de nœud de cluster managé
           href: how-to-managed-cluster-vmss-extension.md
         - name: Ajouter des règles NSG et autres options réseau de cluster managé
           href: how-to-managed-cluster-networking.md
         - name: Configurer la répartition des zones de disponibilité d’un cluster managé
           href: how-to-managed-cluster-availability-zones.md
-        - name: Configurer votre cluster managé
-          href: how-to-managed-cluster-configuration.md
+        - name: Activer le chiffrement de disque pour des nœuds de cluster managés
+          href: how-to-enable-managed-cluster-disk-encryption.md
+        - name: Sélectionner des types de disques managés pour des nœuds de clusters managés
+          href: how-to-managed-cluster-managed-disk.md
+        - name: Configurer les options de mise à niveau de cluster managé
+          href: how-to-managed-cluster-upgrades.md
         - name: Déployer des secrets d’application de cluster managé
           href: how-to-managed-cluster-application-secrets.md
         - name: "Déployer des applications de cluster managé avec un modèle\_ARM"
@@ -414,10 +420,6 @@
           href: how-to-managed-cluster-application-managed-identity.md
         - name: Déployer des types de nœuds sans état uniquement sur un cluster managé
           href: how-to-managed-cluster-stateless-node-type.md
-        - name: Activer le chiffrement de disque pour des nœuds de cluster managés
-          href: how-to-enable-managed-cluster-disk-encryption.md
-        - name: Sélectionner des types de disques managés pour des nœuds de clusters managés
-          href: how-to-managed-cluster-managed-disk.md
         - name: Utiliser une identité managée pour les nœuds de clusters managés
           href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Configurer l''environnement de développement
@@ -954,13 +956,11 @@
       href: release-notes.md
     - name: Exemple de code
       href: /samples/browse/?products=azure
-    - name: Options de support
-      href: service-fabric-support.md
     - name: Versions de Service Fabric
       href: service-fabric-versions.md
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=service-fabric'
-    - name: Guides de résolution des problèmes
-      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
     - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'
+- name: Support et résolution des problèmes
+  href: service-fabric-support.md

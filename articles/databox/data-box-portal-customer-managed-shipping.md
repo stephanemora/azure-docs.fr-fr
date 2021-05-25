@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 05/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 07529b18191c71776a9a36edbfa4cfd8ded5af4f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 75e5737f8ad7b0f40e8480c17e150669220007ff
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99524547"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753684"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Utilisez l’expédition autogérée pour Azure Data Box dans le Portail Azure
 
@@ -32,6 +32,7 @@ L’expédition autogérée est disponible comme option lorsque vous [commandez 
 * Inde
 * Afrique du Sud
 * Australie
+* Brésil
 
 ## <a name="use-self-managed-shipping"></a>Utiliser l’expédition autogérée
 
@@ -59,36 +60,72 @@ Quand vous passez une commande de Data Box, vous pouvez choisir l’option d’e
 
    ![Instructions pour Planifier la collecte pour Azure](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-email-01.png)
 
+   **Instructions pour le Brésil :** si vous planifiez un enlèvement d’appareil au Brésil, incluez les informations suivantes dans votre e-mail. Le centre de données planifie l’enlèvement après réception d’une entrée `Nota Fiscal`, ce qui peut prendre jusqu’à 4 jours ouvrables.
+
+   ```
+   Subject: Request Azure Data Box Disk pickup for order: <ordername>
+
+   - Order name
+   - Company name
+   - Company legal name (if different) 
+   - Tax ID 
+   - Address 
+   - Country 
+   - Phone number 
+   - Contact name of the person who will pick up the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.)   
+   ```
+
 6. Une fois que vous avez planifié la collecte de votre appareil, vous pouvez afficher le code d’autorisation de votre appareil dans le volet **Planifier la collecte pour Azure**.
 
    ![Affichage du code d’autorisation de votre appareil](media\data-box-portal-customer-managed-shipping\data-box-portal-auth-01b.png)
 
-   Notez ce **code d’autorisation**. Conformément aux exigences de sécurité, il est nécessaire d’indiquer, au moment de la planification de la collecte, le nom de la personne qui se présentera pour la collecte.
+   Notez ce **code d’autorisation**. La personne chargée de l’enlèvement de l’appareil devra le fournir.
 
-   Vous devez également fournir des détails sur les personnes qui se rendront au centre de données pour l’enlèvement. Vous ou le point de contact devez posséder une pièce d’identité avec photo approuvée par le gouvernement qui sera validé par le centre de donnée.
+   Conformément aux exigences de sécurité, au moment de la planification de l’enlèvement, il est nécessaire de fournir le nom et les détails de la personne qui sera présente lors de l’enlèvement. Vous ou le point de contact devez avoir une pièce d’identité avec photo approuvée par le gouvernement qui sera validée par le centre de données.
 
-   En outre, la personne qui viendra enlever l’appareil doit également avoir le **code d’autorisation**. Le code d’autorisation est validé par le centre de données au moment de l’enlèvement.
+7. Procédez à l’enlèvement de la Data Box dans le centre de données à l’heure planifiée.
 
-7. Votre commande passe automatiquement à l’état **Récupérée** une fois l’appareil enlevé au centre de données.
+   La personne chargée de l’enlèvement de l’appareil doit fournir ce qui suit :
+
+   * Une copie de la confirmation par e-mail fournie par Microsoft Operations autorisant la visite du centre de données.
+
+   * Le code d’autorisation. Le numéro de référence pour un enlèvement ou un dépôt est unique et validé dans le centre de données.
+
+   * Une photo d’identité approuvée par le gouvernement. L’identité sera validée au centre de données, et le nom et les coordonnées de la personne chargée de l’enlèvement de l’appareil doivent être fournis lors de la planification de l’enlèvement.
+
+   > [!NOTE]
+   > Si un rendez-vous planifié est manqué, vous devez planifier un nouveau rendez-vous.
+
+8. Votre commande passe automatiquement à l’état **Récupérée** une fois l’appareil enlevé au centre de données.
 
     ![Commande dans l’état Collecté](media\data-box-portal-customer-managed-shipping\data-box-portal-picked-up-boxed-01.png)
 
-8. Après avoir enlevé l’appareil, copiez les données vers le ou les Data Box sur votre site. Une fois la copie des données terminée, vous pouvez préparer l’expédition du Data Box. Pour plus d’informations, consultez [Préparer l’expédition](data-box-deploy-picked-up.md#prepare-to-ship).
+9. Après avoir enlevé l’appareil, copiez les données vers le ou les Data Box sur votre site. Une fois la copie des données terminée, vous pouvez préparer l’expédition du Data Box. Pour plus d’informations, consultez [Préparer l’expédition](data-box-deploy-picked-up.md#prepare-to-ship).
 
    L’étape **Préparer l’expédition** doit s’effectuer sans erreur critique. Dans le cas contraire, vous devrez réexécuter cette étape après avoir appliqué les corrections nécessaires. Une fois l’étape **Préparer l’expédition** terminée, vous pouvez afficher le code d’autorisation pour le dépôt dans l’interface utilisateur locale de l’appareil.
 
    > [!NOTE]
    > Ne partagez pas le code d’autorisation par e-mail. Il doit uniquement être vérifié au centre de données lors du dépôt.
 
-9. Si vous avez reçu une date de rendez-vous pour le dépôt, l’état de la commande doit être **Prêt pour la réception au centre de données Azure** dans le portail Azure. Suivez les instructions sous **Planifier le dépôt** pour renvoyer l’appareil.
+   **Instructions pour le Brésil :** pour planifier un retour de l’appareil au Brésil, envoyez un e-mail à [adbops@microsoft.com](mailto:adbops@microsoft.com) avec les informations suivantes :
 
-   ![Instructions pour le dépôt d’appareil](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
+   ```
+   Subject: Request Azure Data Box Disk drop-off for order: <ordername>
 
-10. Une fois que votre identité et votre code d’autorisation ont été vérifiés et que vous avez déposé l’appareil au centre de données, l’état de la commande passe à **Reçu**.
+   - Order name
+   - Contact name of the person who will drop off the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.) 
+   - Inbound Nota Fiscal (A copy of the inbound Nota Fiscal will be required at drop-off.)   
+   ```
+
+10. Si vous avez reçu une date de rendez-vous pour le dépôt, l’état de la commande doit être **Prêt pour la réception au centre de données Azure** dans le portail Azure. Suivez les instructions sous **Planifier le dépôt** pour renvoyer l’appareil.
+
+    ![Instructions pour le dépôt d’appareil](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
+
+11. Une fois que votre identité et votre code d’autorisation ont été vérifiés et que vous avez déposé l’appareil au centre de données, l’état de la commande passe à **Reçu**.
 
     ![Commande dans l’état Reçu](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-01.png)
 
-11. Une fois l’appareil reçu, la copie des données se poursuit. Lorsque la copie est finie, la commande est terminée.
+12. Une fois l’appareil reçu, la copie des données se poursuit. Lorsque la copie est finie, la commande est terminée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
