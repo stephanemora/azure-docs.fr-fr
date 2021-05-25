@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 500833d1bb4fc492942c08239bd488c2d2c16d30
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: d0fdc9e322d2aec76b04c96a75e727b84f95cb10
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107484317"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770728"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>Connexion d’un appareil IoT Edge en aval à une passerelle Azure IoT Edge
 
@@ -87,6 +87,11 @@ La commande `create` comprend des paramètres relatifs à l’ajout d’appareil
 D’autres commandes device-identity, notamment `add-children`, `list-children` et `remove-children`, ou `get-parent` et `set-parent`, permettent de gérer les relations parent/enfant d’appareils existants.
 
 ---
+
+>[!NOTE]
+>Si vous souhaitez établir des relations parent-enfant par programme, vous pouvez utiliser le [Kit de développement logiciel IOT Hub servic ](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) C#, Java ou Node.js.
+>
+>Voici un [exemple d’affectation d’un appareil enfant](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) avec le SDK C#. La tâche `RegistryManager_AddAndRemoveDeviceWithScope()` montre comment créer par programmation une hiérarchie à trois couches. Un appareil IoT Edge se trouve dans la couche 1 en tant que parent. Un autre appareil IoT Edge se trouve dans la couche 2, qui sert à la fois d’enfant et de parent. Enfin, un appareil IoT se trouve dans la couche 3, en tant qu’appareil enfant de la couche enfant la plus basse.
 
 ## <a name="prepare-certificates"></a>Préparer les certificats
 

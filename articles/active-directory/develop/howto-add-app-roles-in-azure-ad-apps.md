@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 05/06/2021
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: fce963bd9ffdc6f768d7b3de4a9e4870add06136
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf1ca72d7afaace847fb1b8321723f57fbe133f6
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104244"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802164"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Procédure : ajouter des rôles d’application dans votre application et les recevoir dans le jeton
 
@@ -37,15 +37,12 @@ Vous définissez des rôles d’application à l’aide du [portail Azure](https
 
 Il existe deux façons de déclarer des rôles d’application à l’aide du portail Azure :
 
-* [Interface utilisateur des rôles d’application](#app-roles-ui--preview) | Préversion
-* [Éditeur de manifeste d’application](#app-manifest-editor)
+- [Interface utilisateur des rôles d'application](#app-roles-ui)
+- [Éditeur de manifeste d’application](#app-manifest-editor)
 
 Le nombre de rôles que vous ajoutez est compté pour les limites définies pour un manifeste d’application par Azure Active Directory. Pour plus d’informations sur ces limites, consultez la section [Limites du manifeste](./reference-app-manifest.md#manifest-limits) de [Référence du manifeste d’application Azure Active Directory](reference-app-manifest.md).
 
-### <a name="app-roles-ui--preview"></a>Interface utilisateur des rôles d’application | Préversion
-
-> [!IMPORTANT]
-> Fonctionnalité de l’interface utilisateur du portail des rôles d’application [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+### <a name="app-roles-ui"></a>Interface utilisateur des rôles d'application
 
 Pour créer un rôle d’application à l’aide de l’interface utilisateur du portail Azure :
 
@@ -53,20 +50,21 @@ Pour créer un rôle d’application à l’aide de l’interface utilisateur du
 1. Sélectionnez le filtre **répertoire + abonnement** dans le menu supérieur, puis choisissez l’abonné Azure Active Directory qui contient l’inscription de l’application à laquelle vous souhaitez ajouter un rôle d’application.
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications**, puis sélectionnez l’application dans laquelle vous souhaitez définir des rôles d’application.
-1. Sélectionnez **Rôles d’application | Aperçu**, puis **Créer un rôle d’application**.
+1. Sélectionnez **Rôles d’application**, puis **Créer un rôle d’application**.
 
    :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-overview-pane.png" alt-text="Volet Rôles d’application d’une inscription d’application dans le portail Azure":::
+
 1. Dans le volet **Créer un rôle d’application** , entrez les paramètres du rôle. Le tableau qui suit l’image décrit chaque réglage et leurs paramètres.
 
-    :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-create-context-pane.png" alt-text="Volet contextuel de création de rôles d’application d’une inscription d’application dans le portail Azure":::
+   :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-create-context-pane.png" alt-text="Volet contextuel de création de rôles d’application d’une inscription d’application dans le portail Azure":::
 
-    | Champ | Description | Exemple |
-    |-------|-------------|---------|
-    | **Nom complet** | Nom d'affichage du rôle d’application qui apparaît lors du consentement de l'administrateur et de l'affectation de l'application. Cette valeur peut contenir des espaces. | `Survey Writer` |
-    | **Types de membres autorisés** | Spécifie si ce rôle d’application peut être attribué aux utilisateurs, aux applications ou aux deux.<br/><br/>Lorsqu’ils sont disponibles pour `applications`, les rôles d’application s’affichent en tant que permissions d’application sous la section **Gérer** > **Autorisations d’API > Ajouter une autorisation > Mes API > Choisir une API > Permissions d’application**, lors de l’inscription d’une application. | `Users/Groups` |
-    | **Valeur** | Spécifie la valeur de la revendication des rôles que l'application doit attendre dans le jeton. La valeur doit correspondre exactement à la chaîne référencée dans le code de l’application. La valeur ne peut pas contenir d’espaces. | `Survey.Create` |
-    | **Description** | Description plus détaillée du rôle d’application affiché pendant les expériences d’affectation et de consentement des applications d’administration. | `Writers can create surveys.` |
-    | **Voulez-vous activer ce rôle d'application ?** | Spécifie si le rôle d’application est activé. Pour supprimer un rôle d’application, décochez cette case et appliquez la modification avant de tenter l’opération de suppression. | *Activée* |
+   | Champ                                    | Description                                                                                                                                                                                                                                                                                                       | Exemple                       |
+   | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+   | **Nom complet**                         | Nom d'affichage du rôle d’application qui apparaît lors du consentement de l'administrateur et de l'affectation de l'application. Cette valeur peut contenir des espaces.                                                                                                                                                                                    | `Survey Writer`               |
+   | **Types de membres autorisés**                 | Spécifie si ce rôle d’application peut être attribué aux utilisateurs, aux applications ou aux deux.<br/><br/>Lorsqu’ils sont disponibles pour `applications`, les rôles d’application s’affichent en tant que permissions d’application sous la section **Gérer** > **Autorisations d’API > Ajouter une autorisation > Mes API > Choisir une API > Permissions d’application**, lors de l’inscription d’une application. | `Users/Groups`                |
+   | **Valeur**                                | Spécifie la valeur de la revendication des rôles que l'application doit attendre dans le jeton. La valeur doit correspondre exactement à la chaîne référencée dans le code de l’application. La valeur ne peut pas contenir d’espaces.                                                                                                          | `Survey.Create`               |
+   | **Description**                          | Description plus détaillée du rôle d’application affiché pendant les expériences d’affectation et de consentement des applications d’administration.                                                                                                                                                                                                        | `Writers can create surveys.` |
+   | **Voulez-vous activer ce rôle d'application ?** | Spécifie si le rôle d’application est activé. Pour supprimer un rôle d’application, décochez cette case et appliquez la modification avant de tenter l’opération de suppression.                                                                                                                                                             | _Activée_                     |
 
 1. Sélectionnez **Appliquer** pour enregistrer vos modifications.
 
@@ -154,7 +152,7 @@ Vérifiez que les utilisateurs et les groupes ajoutés figurent dans la liste **
 
 Une fois que vous avez ajouté des rôles d’application dans votre application, vous pouvez attribuer un rôle d’application à une application cliente à l’aide du portail Azure ou par programmation à l’aide de [Microsoft Graph](/graph/api/user-post-approleassignments).
 
-Lorsque vous attribuez des rôles d’application à une application, vous créez des *autorisations d’application*. Les autorisations d’application sont généralement utilisées par les applications démon ou les services back-end qui doivent s’authentifier et effectuer des appels d’API autorisés de façon autonome, sans interaction d’un utilisateur.
+Lorsque vous attribuez des rôles d’application à une application, vous créez des _autorisations d’application_. Les autorisations d’application sont généralement utilisées par les applications démon ou les services back-end qui doivent s’authentifier et effectuer des appels d’API autorisés de façon autonome, sans interaction d’un utilisateur.
 
 Pour attribuer des rôles d’application à une application à l’aide du portail Azure :
 
@@ -172,7 +170,7 @@ Les nouveaux rôles ajoutés doivent apparaître dans le volet **Autorisations d
 
 #### <a name="grant-admin-consent"></a>Accorder un consentement administrateur
 
-Étant donné qu’il s’agit *d’autorisations d’application*, et non d’autorisations déléguées, un administrateur doit accorder l’autorisation d’utiliser les rôles d’application attribués à l’application.
+Étant donné qu’il s’agit _d’autorisations d’application_, et non d’autorisations déléguées, un administrateur doit accorder l’autorisation d’utiliser les rôles d’application attribués à l’application.
 
 1. Dans le volet **Autorisations des API** lors de l’inscription de l’application, sélectionnez **Accorder un consentement d’administrateur pour \<tenant name\>** .
 1. Sélectionnez **Oui** quand vous êtes invité à accorder un consentement pour les autorisations demandées.
@@ -189,11 +187,11 @@ Pour savoir comment ajouter une autorisation à votre API web, consultez [API we
 
 Même si vous pouvez utiliser des rôles ou des groupes d’application pour l’autorisation, les principales différences entre ces deux options peuvent influencer votre choix pour votre scénario.
 
-| Rôles d'application                                                                          | Groupes                                                      |
-|------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| Rôles d'application                                                                                                    | Groupes                                                      |
+| ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
 | Les groupes sont spécifiques à une application et définis dans l’inscription de l’application. Ils suivent l’application. | Ils ne sont pas spécifiques à une application, mais à un locataire Azure AD. |
-| Les rôles d’application sont supprimés lorsque leur inscription d’application est supprimée.                      | Les groupes restent intacts même si l’application est supprimée.            |
-| Fournis dans la revendication `roles`.                                                     | Fournis dans la revendication `groups`.                                 |
+| Les rôles d’application sont supprimés lorsque leur inscription d’application est supprimée.                                                | Les groupes restent intacts même si l’application est supprimée.            |
+| Fournis dans la revendication `roles`.                                                                               | Fournis dans la revendication `groups`.                                 |
 
 Les développeurs peuvent utiliser des rôles d’application pour contrôler si un utilisateur peut se connecter à une application ou si une application peut obtenir un jeton d’accès pour une API web. Pour étendre ce contrôle de sécurité aux groupes, les développeurs et les administrateurs peuvent également attribuer des groupes de sécurité à des rôles d’application.
 
@@ -203,12 +201,12 @@ Les rôles d’application sont préférés par les développeurs lorsqu’ils s
 
 Pour en savoir plus sur les rôles des applications, consultez les ressources suivantes.
 
-* Exemples de code sur GitHub
-  * [Ajouter une autorisation à une application web ASP.NET Core à l’aide de groupes et revendications de groupes](https://aka.ms/groupssample)
-  * [Application monopage Angular (SPA) appelant une API web .NET Core et utilisant des rôles d’application et des groupes de sécurité](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups/blob/master/README.md)
-* Documentation de référence
-  * [Manifeste de l’application Azure AD](./reference-app-manifest.md)
-  * [Jetons d’accès Azure AD](access-tokens.md)
-  * [Jetons d’ID Azure AD](id-tokens.md)
-  * [Fournir des revendications facultatives à votre application](active-directory-optional-claims.md)
-* Vidéo : [Implémenter l’autorisation dans vos applications avec la plateforme d’identité Microsoft (vidéo)](https://www.youtube.com/watch?v=LRoc-na27l0) (1:01:15)
+- Exemples de code sur GitHub
+  - [Ajouter une autorisation à une application web ASP.NET Core à l’aide de groupes et revendications de groupes](https://aka.ms/groupssample)
+  - [Application monopage Angular (SPA) appelant une API web .NET Core et utilisant des rôles d’application et des groupes de sécurité](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups/blob/master/README.md)
+- Documentation de référence
+  - [Manifeste de l’application Azure AD](./reference-app-manifest.md)
+  - [Jetons d’accès Azure AD](access-tokens.md)
+  - [Jetons d’ID Azure AD](id-tokens.md)
+  - [Fournir des revendications facultatives à votre application](active-directory-optional-claims.md)
+- Vidéo : [Implémenter l’autorisation dans vos applications avec la plateforme d’identité Microsoft (vidéo)](https://www.youtube.com/watch?v=LRoc-na27l0) (1:01:15)
