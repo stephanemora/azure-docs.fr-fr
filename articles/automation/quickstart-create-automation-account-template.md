@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 50a8c057a6fdf6350a18225cd2dc538942d6686d
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: effdb8ec511a6060fffb571864273a1f84901ab6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538408"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081295"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Démarrage rapide : Créer un compte Automation à l’aide d’un modèle ARM
 
@@ -26,7 +26,7 @@ Azure Automation offre un service d’automatisation et de configuration cloud p
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-automation%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,7 +48,7 @@ Une fois ces étapes accomplies, vous devez [configurer des paramètres de diagn
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-automation/).
 
-:::code language="json" source="~/quickstart-templates/101-automation/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.automation/101-automation/azuredeploy.json":::
 
 ### <a name="api-versions"></a>Versions d’API
 
@@ -92,7 +92,7 @@ Si vous ne connaissez pas encore Azure Automation et Azure vous devez bien compr
 
 1. Cliquez sur l’image ci-après pour vous connecter à Azure et ouvrir un modèle. Le modèle crée un compte Azure Automation, un espace de travail Log Analytics et lie le compte Automation à cet espace de travail.
 
-    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-automation%2Fazuredeploy.json)
+    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
 
 2. Entrez les valeurs.
 
@@ -104,7 +104,7 @@ Si vous ne connaissez pas encore Azure Automation et Azure vous devez bien compr
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le portail Azure, ouvrez le compte Automation que vous venez de créer. 
+2. Dans le portail Azure, ouvrez le compte Automation que vous venez de créer.
 
 3. Dans le volet gauche, sélectionnez **Runbooks**. Dans la page **Runbooks**, trois runbooks de tutoriel créés avec le compte Automation sont répertoriés.
 

@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e9c989131a4d2df37bb957f5da964354ce9d47b
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 59ea778009400e73b13eee8a1987bd39f22493fe
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788941"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078991"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Intégrer Azure Digital Twins avec le service Azure SignalR
 
@@ -111,7 +111,7 @@ Dans le [portail Azure](https://portal.azure.com/), accédez à votre rubrique E
 Dans la page *Créer un abonnement aux événements*, renseignez les champs comme suit (les champs remplis par défaut ne sont pas mentionnés) :
 * *DÉTAILS DE L’ABONNEMENT AUX ÉVÉNEMENTS* > **Nom** : Donnez un nom à votre abonnement aux événements.
 * *DÉTAILS DU POINT DE TERMINAISON* > **Type de point de terminaison** : Sélectionnez *Fonction Azure* dans les options de menu.
-* *DÉTAILS DU POINT DE TERMINAISON* > **Point de terminaison** : Sélectionnez le lien *Sélectionner un point de terminaison*. Une fenêtre *Sélectionner une fonction Azure* s’ouvre :
+* *DÉTAILS DU POINT DE TERMINAISON* > **Point de terminaison** : sélectionnez le lien *Sélectionner un point de terminaison*. Une fenêtre *Sélectionner une fonction Azure* s’ouvre :
     - Renseignez vos **Abonnement**, **Groupe de ressources**, **Application de fonction** et **Fonction** (*broadcast*). Il est possible que certaines de ces informations soient automatiquement renseignées une fois que vous avez sélectionné l’abonnement.
     - Sélectionnez **Confirmer la sélection**.
 
@@ -189,7 +189,7 @@ Cela ouvre une fenêtre de navigateur exécutant l’exemple d’application, qu
 
 Si vous n’avez plus besoin des ressources créées dans cet article, effectuez les étapes suivantes pour les supprimer. 
 
-Dans Azure Cloud Shell ou Azure CLI en local, vous pouvez supprimer toutes les ressources Azure d’un groupe de ressources avec la commande [az group delete](/cli/azure/group#az_group_delete). La suppression du groupe de ressources entraînera également la suppression...
+Dans Azure Cloud Shell ou Azure CLI en local, vous pouvez supprimer toutes les ressources Azure d’un groupe de ressources avec la commande [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete). La suppression du groupe de ressources entraînera également la suppression...
 * de l’instance Azure Digital Twins (du tutoriel de bout en bout)
 * du IoT Hub et de l’inscription de l’appareil Hub (du tutoriel de bout en bout)
 * de la rubrique Event Grid et des abonnements associés

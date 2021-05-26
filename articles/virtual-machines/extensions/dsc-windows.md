@@ -8,12 +8,12 @@ author: bobbytreed
 ms.author: robreed
 ms.collection: windows
 ms.date: 03/26/2018
-ms.openlocfilehash: 5d2591fa3b6d69e403935faeca075a2c747026c1
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: a782d94b40be7fb07009f46cc69883cc529d91c6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734735"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081511"
 ---
 # <a name="powershell-dsc-extension"></a>Extension de configuration d’état souhaité PowerShell
 
@@ -125,7 +125,7 @@ L’extrait JSON suivant montre le schéma de la section des paramètres de l’
 
 Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager.
 Les modèles sont idéaux lorsque vous déployez une ou plusieurs machines virtuelles nécessitant une configuration post-déploiement.
-Un exemple de modèle Resource Manager incluant l’extension DSC pour Windows est disponible dans la [galerie de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/automation-configuration/automation-configuration/nested/provisionServer.json#L91).
+Un exemple de modèle Resource Manager incluant l’extension DSC pour Windows est disponible dans la [galerie de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.automation/automation-configuration/nested/provisionServer.json#L91).
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 

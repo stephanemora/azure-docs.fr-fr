@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 05/20/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f964b6035c3438517b78ed4d2a52b7069d1ef47
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 34a43212e8883e1ae727d18c53d5c28f873d9e94
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732809"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110458078"
 ---
 # <a name="preview-login-to-a-linux-virtual-machine-in-azure-with-azure-active-directory-using-ssh-certificate-based-authentication"></a>Préversion : Se connecter à une machine virtuelle Linux dans Azure avec Azure Active Directory à l’aide de l’authentification par certificat SSH
 
@@ -359,7 +359,7 @@ az ssh vm --ip 10.11.123.456
 Pour les clients qui utilisent une version précédente de la connexion Azure AD pour Linux basée sur le flux de code d’appareil, procédez comme suit.
 
 1. Désinstallez l’extension AADLoginForLinux sur la machine virtuelle.
-   1. En utilisant Azure CLI : `az vm extension delete -g MyResourceGroup -n MyVm -n AADLoginForLinux`
+   1. En utilisant Azure CLI : `az vm extension delete -g MyResourceGroup --vm-name MyVm -n AADLoginForLinux`
 1. Activez l’identité managée affectée par le système sur votre machine virtuelle.
    1. En utilisant Azure CLI : `az vm identity assign -g myResourceGroup -n myVm`
 1. Installez l’extension AADSSHLoginForLinux sur la machine virtuelle.

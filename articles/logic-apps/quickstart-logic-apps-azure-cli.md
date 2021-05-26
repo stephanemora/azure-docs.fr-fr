@@ -1,20 +1,20 @@
 ---
-title: Créer et gérer des applications logiques avec Azure CLI
-description: Utilisez Azure CLI pour créer une application logique, puis gérez votre application logique à l’aide de commandes comme list, show (get), update et delete.
+title: Démarrage rapide – Créer et gérer des flux de travail avec le service Azure Logic Apps mutualisé et Azure CLI
+description: À l’aide de l’interface de ligne de commande, créez des flux de travail d’application logique avec le service Azure Logic Apps mutualisé, et gérez la logique avec des opérations telles que list, show (get), update, et delete.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
-ms.date: 04/23/2021
-ms.openlocfilehash: 48d71d3736737e88825bbae19e0a5274bacd21a1
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 05/25/2021
+ms.openlocfilehash: 4a848b560fd0302690f1e52661b165182082dd9b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161084"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375926"
 ---
-# <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Démarrage rapide : Créer et gérer des applications logiques à l’aide d’Azure CLI
+# <a name="quickstart-create-and-manage-workflows-in-multi-tenant-azure-logic-apps-using-the-azure-cli"></a>Démarrage rapide – Créer et gérer des flux de travail dans le service Azure Logic Apps mutualisé à l’aide d’Azure CLI
 
 Ce guide de démarrage rapide montre comment créer et gérer des applications logiques à l’aide de l’extension [Logic Apps d’Azure CLI](/cli/azure/logic) (`az logic`). À partir de la ligne de commande, vous pouvez créer une application logique à l’aide du fichier JSON pour une définition de flux de travail d’application logique. Vous pouvez ensuite gérer votre application logique en exécutant des commandes telles que `list`, `show` (`get`), `update` et `delete` à partir de la ligne de commande.
 
@@ -82,7 +82,7 @@ az logic workflow create --definition
 
 Votre commande doit inclure les [paramètres obligatoires](/cli/azure/logic/workflow#az_logic_workflow_create-required-parameters) suivants :
 
-| Paramètre | Valeur | Description |
+| Paramètre | Value | Description |
 | --------- | ----- | ----------- |
 | Définition de flux de travail | `--definition` | Fichier JSON avec la [définition de flux de travail](#workflow-definition) de votre application logique. |
 | Emplacement | `--location -l` | Région Azure dans laquelle se trouve votre application logique. |
@@ -137,7 +137,7 @@ Vous pouvez supprimer le flux de travail d’une application logique d’Azure C
 
 Votre commande doit inclure les [paramètres requis](/cli/azure/logic/workflow#az_logic_workflow_delete-required-parameters) suivants :
 
-| Paramètre | Valeur | Description |
+| Paramètre | Value | Description |
 | --------- | ----- | ----------- |
 | Nom | `--name -n` | Nom de votre application logique. |
 | Nom de groupe ressources | `-resource-group -g` | Groupe de ressources dans lequel se trouve votre application logique. |
@@ -175,7 +175,7 @@ Voici de quelles manières la suppression d’une application logique affecte le
 
 * Le service Logic Apps met tout en œuvre pour annuler les exécutions en cours et en attente.
 
-  Même avec un gros volume ou un backlog important, la plupart des exécutions sont annulées avant qu’elles ne finissent ou ne démarrent. Toutefois, le processus d’annulation peut prendre du temps. Pendant ce temps, il peut arriver que certaines exécutions soient lancées.
+  Même avec un gros volume ou un backlog important, la plupart des exécutions sont annulées avant qu’elles ne finissent ou ne démarrent. Toutefois, le processus d’annulation peut prendre du temps. Il peut arriver que certaines exécutions soient lancées dans l’intervalle.
 
 * Le service Logic Apps ne crée pas ni n’exécute de nouvelles instances de workflow.
 
@@ -192,7 +192,7 @@ az logic workflow show --name
 
 Votre commande doit inclure les [paramètres obligatoires](/cli/azure/logic/workflow#az_logic_workflow_show-required-parameters) suivants.
 
-| Paramètre | Valeur | Description |
+| Paramètre | Value | Description |
 | --------- | ----- | ----------- |
 | Nom | `--name -n` | Nom de votre application logique. |
 | Nom de groupe ressources | `--resource-group -g` | Nom du groupe de ressources dans lequel se trouve votre application logique. |
@@ -212,7 +212,7 @@ Vous pouvez répertorier vos applications logiques par abonnement à l’aide de
 
 Vous pouvez filtrer vos résultats à l’aide des [paramètres facultatifs](/cli/azure/logic/workflow#az_logic_workflow_list-optional-parameters) suivants :
 
-| Paramètre | Valeur | Description |
+| Paramètre | Value | Description |
 | --------- | ----- | ----------- |
 | Nom de groupe ressources | `--resource-group -g` | Nom du groupe de ressources sur lequel vous souhaitez filtrer les résultats. |
 | Nombre d’éléments | `--top` | Nombre d’éléments inclus dans vos résultats. |
@@ -251,7 +251,7 @@ Expecting value: line 1 column 1 (char 0)
 
 Vous pouvez utiliser les paramètres Azure CLI globaux facultatifs suivants avec vos commandes `az logic` :
 
-| Paramètre | Valeur | Description |
+| Paramètre | Value | Description |
 | --------- | ----- | ----------- |
 | Format de sortie | `--output -o` | Modifiez le [format de sortie](/cli/azure/format-output-azure-cli) à partir du JSON par défaut. |
 | Afficher uniquement les erreurs | `--only-show-errors` | Supprimer les avertissements et n’afficher que les erreurs. |

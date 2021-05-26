@@ -10,12 +10,12 @@ ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d5ef85d947ae999fd94ba5a6e9cdb00baec9786
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 7e951de46b5220e5c2edde2fcd84673c9a16cebc
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106555849"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477703"
 ---
 # <a name="manage-and-restore-soft-deleted-blobs"></a>Gérer et restaurer des objets blob supprimés de manière réversible
 
@@ -70,7 +70,7 @@ Vous pouvez utiliser les bibliothèques de client de Stockage Azure pour restaur
 
 ### <a name="restore-soft-deleted-objects-when-versioning-is-disabled"></a>Restaurer des objets supprimés de manière réversible quand le contrôle de version est désactivé
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Pour restaurer des objets blob supprimés lorsque le contrôle de version n’est pas activé, appelez l’opération [Annuler la suppression d’un objet blob](/rest/api/storageservices/undelete-blob) sur ces objets blob. L’opération **Annuler la suppression d’un objet blob** a pour effet de restaurer les objets blob supprimés de manière réversible et les captures instantanées associées à ceux-ci.
 
@@ -82,7 +82,7 @@ Pour restaurer une version spécifique, commencez par appeler l’opération **A
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobSnapshot":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 Pour restaurer des objets blob supprimés lorsque le contrôle de version n’est pas activé, appelez l’opération [Annuler la suppression d’un objet blob](/rest/api/storageservices/undelete-blob) sur ces objets blob. L’opération **Annuler la suppression d’un objet blob** a pour effet de restaurer les objets blob supprimés de manière réversible et les captures instantanées associées à ceux-ci.
 
@@ -118,11 +118,11 @@ blockBlob.StartCopy(copySource);
 
 Pour restaurer un objet blob supprimé de manière réversible lorsque le contrôle de version est activé, copiez une version antérieure sur l’objet blob de base avec une opération [Copier un objet blob](/rest/api/storageservices/copy-blob) ou [Copier un objet blob à partir d’une URL](/rest/api/storageservices/copy-blob-from-url).  
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RestorePreviousVersion":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 Non applicable. Le contrôle de version des objets blob n’est pris en charge que dans les bibliothèques de client de Stockage Azure versions 12.x et ultérieures.
 

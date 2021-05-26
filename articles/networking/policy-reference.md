@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour les services de mise en réseau Azure
 description: Répertorie les définitions de stratégie intégrées d’Azure Policy pour les services de mise en réseau Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.topic: reference
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 6b30fbf185aeb04127133df5add893bff6ab32a6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b54a98f6a0c780667234fc9ed70f11a893dbb8ee
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740630"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110088502"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-networking-services"></a>Définitions intégrées d’Azure Policy pour les services de mise en réseau Azure
 

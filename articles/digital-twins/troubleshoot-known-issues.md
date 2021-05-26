@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 0b70ac8f6262b6f4e44a868269af9cfb7561783d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b53afb530cc49ad72ebfcbe7659fab787cc51995
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763322"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069937"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problèmes connus dans Azure Digital Twins
 
@@ -37,7 +37,7 @@ Cet article fournit des informations sur les problèmes connus associés à Azur
 
 ## <a name="issue-with-interactive-browser-authentication-on-azureidentity-120"></a>Problème avec l’authentification interactive du navigateur sur Azure.Identity 1.2.0
 
-**Description du problème :** Lorsque vous écrivez du code d’authentification dans vos applications Azure Digital Twins avec la version **1.2.0** de la bibliothèque [Azure.Identity](/dotnet/api/azure.identity), vous risquez de rencontrer des problèmes avec la méthode [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential). Cela se présente comme une réponse d’erreur « Azure.Identity.AuthenticationFailedException » lors de la tentative d’authentification dans une fenêtre du navigateur. La fenêtre du navigateur peut ne pas démarrer complètement ou sembler réussir à authentifier l’utilisateur, alors que l’application cliente échoue toujours avec l’erreur.
+**Description du problème :** Lorsque vous écrivez du code d’authentification dans vos applications Azure Digital Twins avec la version **1.2.0** de la bibliothèque [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true), vous risquez de rencontrer des problèmes avec la méthode [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true). Cela se présente comme une réponse d’erreur « Azure.Identity.AuthenticationFailedException » lors de la tentative d’authentification dans une fenêtre du navigateur. La fenêtre du navigateur peut ne pas démarrer complètement ou sembler réussir à authentifier l’utilisateur, alors que l’application cliente échoue toujours avec l’erreur.
 
 | Cela me concerne-t-il ? | Cause | Résolution |
 | --- | --- | --- |
@@ -45,7 +45,7 @@ Cet article fournit des informations sur les problèmes connus associés à Azur
 
 ## <a name="issue-with-default-azure-credential-authentication-on-azureidentity-130"></a>Problème d’authentification avec les informations d’identification Azure par défaut sur Azure.Identity 1.3.0
 
-**Description du problème :** Lorsque vous écrivez du code d’authentification avec la version **1.3.0** de la bibliothèque [Azure.Identity](/dotnet/api/azure.identity), vous risquez de rencontrer des problèmes avec la méthode [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) utilisée dans de nombreux exemples de ces documents Azure Digital Twins. Ces problèmes se présentent sous la forme d’une réponse d’erreur « Azure.Identity.AuthenticationFailedException : Échec de l’authentification SharedTokenCacheCredential » lorsque le code tente de s’authentifier.
+**Description du problème :** Lorsque vous écrivez du code d’authentification avec la version **1.3.0** de la bibliothèque [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true), vous risquez de rencontrer des problèmes avec la méthode [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) utilisée dans de nombreux exemples de ces documents Azure Digital Twins. Ces problèmes se présentent sous la forme d’une réponse d’erreur « Azure.Identity.AuthenticationFailedException : Échec de l’authentification SharedTokenCacheCredential » lorsque le code tente de s’authentifier.
 
 | Cela me concerne-t-il ? | Cause | Résolution |
 | --- | --- | --- |

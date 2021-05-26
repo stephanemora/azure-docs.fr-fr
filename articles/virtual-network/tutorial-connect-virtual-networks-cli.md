@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: df1b90a638052de7b56854060badfb8e3483d4c2
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 8d3913d367adf9863f82e65883c8820bcd6bc179
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065427"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "110079315"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Connecter des réseaux virtuels à l’aide du peering de réseaux virtuels en utilisant Azure CLI
 
@@ -168,6 +168,8 @@ La création de la machine virtuelle ne nécessite que quelques minutes. Une foi
 ```
 
 Veuillez noter **publicIpAddress**. Cette adresse sera utilisée pour accéder à la machine virtuelle à partir d’Internet dans une prochaine étape.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="communicate-between-vms"></a>Établir une communication entre les machines virtuelles
 

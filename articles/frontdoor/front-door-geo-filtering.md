@@ -13,21 +13,21 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: amsriva
-ms.openlocfilehash: ceacd210fa02594ff8b54996c1d87d560f244a7f
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 0ab6dfb61800bba91b52edd5b07fa918c85ba73b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634614"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085002"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtrage géographique sur un domaine pour Azure Front Door
 
-Par défaut, Azure Front Door répond aux demandes de l’utilisateur, quel que soit l’emplacement d’origine de la demande. Dans certains scénarios, vous devrez peut-être limiter l’accès à votre applications web en fonction du pays/de la région. Le service de pare-feu d’applications web (WAF) au niveau de Front Door vous permet de définir une stratégie à l’aide de règles d’accès personnalisées pour un chemin d’accès spécifique à votre point de terminaison. Cette stratégie autorisera ou bloquera l’accès à partir de pays/régions spécifiés. 
+Par défaut, Azure Front Door répond aux demandes de l’utilisateur, quel que soit l’emplacement d’origine de la demande. Dans certains scénarios, vous devrez peut-être limiter l’accès à votre applications web en fonction du pays/de la région. Le service de pare-feu d’applications web (WAF) au niveau de Front Door vous permet de définir une stratégie à l’aide de règles d’accès personnalisées pour un chemin d’accès spécifique à votre point de terminaison. Cette stratégie autorisera ou bloquera l’accès à partir de pays/régions spécifiés.
 
-Une stratégie WAF contient un ensemble de règles personnalisées. La règle se compose de conditions de correspondance, d’une action et d’une priorité. Dans une condition de correspondance, vous pourrez définir une variable de correspondance, un opérateur et une valeur de correspondance. Pour une règle de filtrage géographique, la variable de correspondance est REMOTE_ADDR, l’opérateur est GeoMatch, et la valeur correspond à un indicatif à deux lettres du pays/région d’intérêt. Code pays « ZZ » ou pays « Inconnu » capture des adresses IP qui ne sont pas encore mappées à un pays dans notre jeu de données. Vous pouvez ajouter ZZ à votre condition de correspondance pour éviter les faux positifs. Vous pouvez combiner une condition GeoMatch et une condition de correspondance de chaîne REQUEST_URI pour créer une règle de filtrage géographique basé sur le chemin d’accès. 
+Une stratégie WAF contient un ensemble de règles personnalisées. La règle se compose de conditions de correspondance, d’une action et d’une priorité. Dans une condition de correspondance, vous pourrez définir une variable de correspondance, un opérateur et une valeur de correspondance. Pour une règle de filtrage géographique, la variable de correspondance est REMOTE_ADDR, l’opérateur est GeoMatch, et la valeur correspond à un indicatif à deux lettres du pays/région d’intérêt. Code pays « ZZ » ou pays « Inconnu » capture des adresses IP qui ne sont pas encore mappées à un pays dans notre jeu de données. Vous pouvez ajouter ZZ à votre condition de correspondance pour éviter les faux positifs. Vous pouvez combiner une condition GeoMatch et une condition de correspondance de chaîne REQUEST_URI pour créer une règle de filtrage géographique basé sur le chemin d’accès.
 
 
-Vous pouvez configurer une stratégie de filtrage géographique pour votre porte d’entrée à l’aide d’[Azure PowerShell](front-door-tutorial-geo-filtering.md) ou de notre [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+Vous pouvez configurer une stratégie de filtrage géographique pour votre porte d’entrée à l’aide d’[Azure PowerShell](front-door-tutorial-geo-filtering.md) ou de notre [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-geo-filtering).
 
 ## <a name="countryregion-code-reference"></a>Référence du code pays ou région
 

@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 87dff97f6e086803413cb86b8374793361f77008
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: fae722934f22503cd37f7d48569fd52667fa5e0c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732701"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457922"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Tutoriel : Générer une application web Spring Boot Java avec Azure App Service sur Linux et Azure Cosmos DB
 
@@ -80,7 +80,7 @@ Suivez ces étapes pour créer une base de données Azure Cosmos DB dans votre a
 4. Obtenez votre clé d’Azure Cosmos DB pour vous connecter à l’application. Conservez `primaryMasterKey` et `documentEndpoint` à proximité, car vous en aurez besoin à l’étape suivante.
 
     ```azurecli
-    az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
+    az cosmosdb keys list -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
     ```
 
 ## <a name="configure-the-todo-app-properties"></a>Configurer les propriétés de l’application de liste de tâches
@@ -193,12 +193,12 @@ Ouvrez le fichier `pom.xml` dans le répertoire `initial/spring-boot-todo` et aj
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
-
+            <pricingTier>P1V2</princingTier>
             <!-- Java Runtime Stack for Web App on Linux-->
             <runtime>
                  <os>linux</os>
-                 <javaVersion>jre8</javaVersion>
-                 <webContainer>jre8</webContainer>
+                 <javaVersion>Java 8</javaVersion>
+                 <webContainer>Java SE</webContainer>
              </runtime>
              <deployment>
                  <resources>
@@ -299,9 +299,9 @@ az appservice plan update --number-of-workers 2 \
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous n’avez pas besoin de ces ressources pour un autre tutoriel (voir [Étapes suivantes](#next)), vous pouvez les supprimer en exécutant la commande suivante dans Cloud Shell : 
+Si vous n’avez pas besoin de ces ressources pour un autre didacticiel (voir [Étapes suivantes](#next)), vous pouvez les supprimer en exécutant la commande suivante dans Cloud Shell :
 ```azurecli
-az group delete --name <your-azure-group-name>
+az group delete --name <your-azure-group-name> --yes
 ```
 
 <a name="next"></a>

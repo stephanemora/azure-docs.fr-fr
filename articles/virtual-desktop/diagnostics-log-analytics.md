@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 0775df0d5ca1061bff127ba5491040a90ddb8597
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 98f9ffdfa7addd8689b01332b88261311a525c81
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447010"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469326"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utiliser Log Analytics pour la fonctionnalité de diagnostic
 
@@ -134,7 +134,7 @@ Accédez à des exemples de requêtes par le biais de l’interface utilisateur 
 1. Sélectionnez **Windows Virtual Desktop** pour examiner les requêtes disponibles.
 1. Sélectionnez **Exécuter** pour exécuter la requête sélectionnée.
 
-Pour plus d’informations sur l’interface de l’exemple de requête, consultez [Requêtes enregistrées dans Azure Monitor Log Analytics](../azure-monitor/logs/example-queries.md).
+Pour plus d’informations sur l’interface de l’exemple de requête, consultez [Requêtes enregistrées dans Azure Monitor Log Analytics](../azure-monitor/logs/queries.md).
 
 La liste de requêtes suivante vous permet de consulter les informations ou les problèmes de connexion pour un seul utilisateur. Vous pouvez exécuter ces requêtes dans l’[éditeur de requête Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query). Pour chaque requête, remplacez `userupn` par l’UPN de l’utilisateur que vous souhaitez rechercher.
 

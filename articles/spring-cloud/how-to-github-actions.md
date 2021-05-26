@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: caf70a005711decae794b02d4a2ccbaf3c2c32f4
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 9ebfe1d4bba7b9b0629f800ec311dfb80770a4d6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135002"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087811"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>CI/CD Azure Spring Cloud avec GitHub Actions
 
@@ -26,14 +26,14 @@ Cet exemple nécessite [Azure CLI](/cli/azure/install-azure-cli).
 ## <a name="set-up-github-repository-and-authenticate"></a>Configurer le référentiel GitHub et s’authentifier
 Vous avez besoin des informations d’identification du principal de service Azure pour autoriser une action de connexion Azure. Pour récupérer des informations d’identification Azure, exécutez les commandes suivantes sur votre ordinateur local :
 
-```
+```azurecli
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 
 ```
 
 Pour accéder à un groupe de ressources spécifique, vous pouvez réduire l’étendue :
 
-```
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
 ```
 
@@ -148,12 +148,12 @@ jobs:
 ::: zone pivot="programming-language-java"
 ## <a name="set-up-github-repository-and-authenticate"></a>Configurer le référentiel GitHub et s’authentifier
 Vous avez besoin des informations d’identification du principal de service Azure pour autoriser une action de connexion Azure. Pour récupérer des informations d’identification Azure, exécutez les commandes suivantes sur votre ordinateur local :
-```
+```azurecli
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 
 ```
 Pour accéder à un groupe de ressources spécifique, vous pouvez réduire l’étendue :
-```
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
 ```
 La commande doit générer un objet JSON :
@@ -192,7 +192,7 @@ Le workflow est défini à l’aide des options suivantes.
 La commande `az spring-cloud app create` n’est pas idempotente actuellement.  Nous vous recommandons d’utiliser ce workflow sur les applications et les instances Azure Spring Cloud existantes.
 
 Utilisez les commandes suivantes dans l’interface de ligne de commande Azure pour la préparation :
-```
+```azurecli
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 az spring-cloud app create --name gateway
@@ -203,7 +203,7 @@ az spring-cloud app create --name account-service
 ### <a name="deploy-with-azure-cli-directly"></a>Déployer avec Azure CLI directement
 Créez le fichier `.github/workflow/main.yml` dans le référentiel :
 
-```
+```yaml
 name: AzureSpringCloud
 on: push
 
@@ -250,7 +250,7 @@ La commande az `run` utilise la version la plus récente d’Azure CLI. En cas d
 > Cette commande s’exécute dans un nouveau conteneur, de sorte que `env` ne fonctionne pas, et l’accès aux fichiers d’action croisée peut présenter des restrictions supplémentaires.
 
 Créez le fichier .github/workflow/main.yml dans le référentiel :
-```
+```yaml
 name: AzureSpringCloud
 on: push
 
@@ -291,7 +291,7 @@ jobs:
 ## <a name="deploy-with-maven-plugin"></a>Déployer avec le plug-in Maven
 Une autre option consiste à utiliser le [plug-in Maven](./quickstart.md) pour déployer le fichier jar et mettre à jour les paramètres de l’application. La commande `mvn azure-spring-cloud:deploy` est idempotente et crée automatiquement des applications si nécessaire. Vous n’avez pas besoin de créer des applications correspondantes à l’avance.
 
-```
+```yaml
 name: AzureSpringCloud
 on: push
 

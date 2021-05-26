@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 39db32a7ee7eb8fed1da9ac8c9eb609efcf57c74
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 5feb16227653bdc7e51925b7a327c3eb50c88491
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070818"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453807"
 ---
 # <a name="call-the-image-analysis-api"></a>Appeler l’API Analyse d’image
 
@@ -71,7 +71,7 @@ Une URL remplie peut se présenter comme suit :
 > [!NOTE]
 > **Appels d’API étendues**
 >
-> Certaines des fonctionnalités de l’Analyse d’image peuvent être appelées directement, ainsi que par le biais d’un appel de l’API Analyser. Par exemple, vous pouvez effectuer une analyse étendue des étiquettes d’image uniquement en effectuant une requête à `https://{endpoint}/vision/v3.2-preview.3/tag`. Consultez la [documentation de référence](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) pour découvrir d’autres fonctionnalités qui peuvent être appelées séparément.
+> Certaines des fonctionnalités de l’Analyse d’image peuvent être appelées directement, ainsi que par le biais d’un appel de l’API Analyser. Par exemple, vous pouvez effectuer une analyse étendue des étiquettes d’image uniquement en effectuant une requête à `https://{endpoint}/vision/v3.2/tag`. Consultez la [documentation de référence](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) pour découvrir d’autres fonctionnalités qui peuvent être appelées séparément.
 
 ## <a name="get-results-from-the-service"></a>Obtenir les résultats du service
 

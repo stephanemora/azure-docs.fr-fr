@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 05/14/2021
 ms.author: genli
-ms.openlocfilehash: ed250e3f32965fc450102fb14b93b93d6753ab3e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d793dddcfd51c9d9bd2527298d958482a9216b88
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98222783"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110080616"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Affichage et modification des noms d'hôtes
 Pour permettre le référence par nom d’hôte de vos instances de rôle, vous devez définir la valeur de nom d’hôte dans le fichier de configuration de service associé à chaque rôle. Pour ce faire, ajoutez le nom d’hôte souhaité à l’attribut **vmName** de l’élément **Role**. La valeur de l’attribut **vmName** est utilisée comme base de nom d’hôte pour chaque instance de rôle. Par exemple, si **vmName** est *webrole* et qu’il existe trois instances de ce rôle, les hôtes des instances s’intitulent *webrole0*, *webrole1* et *webrole2*. Il n’est pas nécessaire de définir un nom d’hôte pour les machines virtuelles dans le fichier de configuration, car ces noms sont renseignés en fonction du nom de la machine virtuelle. Pour en savoir plus sur la configuration d’un service Microsoft Azure, consultez la section [Schéma de configuration du service Azure (fichier .cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100))
@@ -41,7 +41,7 @@ Une fois que vous avez activé le Bureau à distance (Windows), l’accès dist
 
 1. Assurez-vous de disposer d’un certificat client pour vous connecter au portail Azure. Pour obtenir un certificat client, effectuez les étapes décrites dans [Guide pratique pour télécharger et importer les paramètres de publication et les informations d’abonnement](/previous-versions/dynamicsnav-2013/dn385850(v=nav.70)). 
 2. Définissez une entrée d’en-tête intitulée x-ms-version , présentant une valeur de 2013-11-01.
-3. Envoyez une requête au format suivant : https:\//management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
+3. Envoyez une requête au format suivant : `https://management.core.windows.net/<subscription-id>/services/hostedservices/<service-name>?embed-detail=true`
 4. Recherchez l’élément **HostName** associé à chaque élément **RoleInstance**.
 
 > [!WARNING]

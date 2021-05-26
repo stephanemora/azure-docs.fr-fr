@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: edc1ebe53969ceac0452818bee016e35de1e9322
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: e3e2de040c80692824c648ee15f6ae0c97e2786c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167836"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110453315"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Créer une porte d’entrée avec redirection de HTTP vers HTTPS à l’aide du portail Microsoft Azure
 
@@ -29,7 +29,7 @@ Vous pouvez utiliser le portail Azure afin de [créer une instance Front Door](q
 1. Choisissez un *abonnement*, puis utilisez un groupe de ressources existant ou créez-en un. Sélectionnez **Suivant** pour accéder à l’onglet de configuration.
 
     > [!NOTE]
-    > L’emplacement demandé dans l’interface utilisateur est pour le groupe de ressources uniquement. Votre configuration de porte d’entrée va être déployée sur l’ensemble des [emplacements POP d’Azure Front Door](front-door-faq.yml#what-are-the-pop-locations-for-azure-front-door-).
+    > L’emplacement demandé dans l’interface utilisateur est pour le groupe de ressources uniquement. Votre configuration de porte d’entrée va être déployée sur l’ensemble des [emplacements POP d’Azure Front Door](front-door-faq.yml#where-are-the-edge-locations-for-azure-front-door-).
 
     :::image type="content" source="./media/front-door-url-redirect/front-door-create-basics.png" alt-text="Configurer les paramètres de base pour la nouvelle porte d’entrée":::
 
