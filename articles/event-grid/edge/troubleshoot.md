@@ -5,14 +5,15 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: 0196522618d4b61f615f7cc6faeacbe9a8c7c5b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b8e5b95b0d1853d81de5a4ec603a3a59563da9d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86171344"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379797"
 ---
 # <a name="common-issues"></a>Problèmes courants
 
@@ -20,7 +21,7 @@ Si vous rencontrez des problèmes lors de l’utilisation d’Azure Event Grid d
 
 ## <a name="view-event-grid-module-logs"></a>Afficher les journaux du module Event Grid
 
-Pour détecter des problèmes, il se peut que vous deviez accéder aux journaux du module Event Grid. Pour ce faire, sur la machine virtuelle où le module est déployé, exécutez la commande suivante :
+Pour détecter des problèmes, il se peut que vous deviez accéder aux journaux du module Event Grid. Sur la machine virtuelle où le module est déployé, exécutez la commande suivante :
 
 Sur Windows,
 
@@ -38,7 +39,7 @@ sudo docker logs eventgridmodule
 
 * Tout d’abord, assurez-vous que le module Event Grid a **inbound:serverAuth:tlsPolicy** défini sur **strict** ou **activé**.
 
-* Si les communications se font de module à module, assurez-vous que vous effectuez l’appel sur le port **4438** et que le nom du module correspond à ce qui est déployé. 
+* Dans le cas de communications de module à module, vérifiez que vous effectuez l’appel sur le port **4438** et que le nom du module correspond à ce qui est déployé. 
 
   Par exemple, si le module Event Grid a été déployé avec le nom **eventgridmodule**, votre URL doit être **https://eventgridmodule:4438** . Assurez-vous que la casse et le numéro de port sont corrects.
     
@@ -60,7 +61,7 @@ sudo docker logs eventgridmodule
 
 * Commencez par vous assurer que le module Event Grid a **inbound:serverAuth:tlsPolicy** défini sur **activé** ou **désactivé**.
 
-* Si les communications se font de module à module, assurez-vous que vous effectuez l’appel sur le port **5888** et que le nom du module correspond à ce qui est déployé. 
+* Dans le cas de communications de module à module, vérifiez que vous effectuez l’appel sur le port **5888** et que le nom du module correspond à ce qui est déployé. 
 
   Par exemple, si le module Event Grid a été déployé avec le nom **eventgridmodule**, votre URL doit être **http://eventgridmodule:5888** . Assurez-vous que la casse et le numéro de port sont corrects.
     
@@ -84,13 +85,13 @@ Par défaut, le module Event Grid module est configuré pour authentifier des cl
 
 La classe **IoTSecurity** dans [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) montre comment récupérer des certificats à partir du démon de sécurité IoT Edge et les utiliser pour configurer des appels sortants.
 
-S’il ne s’agit pas d’un environnement de production, vous avez la possibilité de désactiver l’authentification du client. Pour plus d’informations sur la façon de procéder, voir [Sécurité et authentification](security-authentication.md).
+S’il ne s’agit pas d’un environnement de production, vous avez la possibilité de désactiver l’authentification du client. Pour en savoir plus, consultez la page [Sécurité et authentification](security-authentication.md).
 
 ## <a name="debug-events-not-received-by-subscriber"></a>Événements de débogage non reçus par l’abonné
 
 Les raisons typiques sont les suivantes :
 
-* L’événement n’a jamais été publié avec succès. Un statusCode HTTP de 200(OK) doit avoir été reçu lors de la publication d’un événement dans le module Event Grid.
+* L’événement n’a jamais été publié avec succès. Le client doit avoir reçu un StatusCode HTTP « 200 (OK) » lors de la publication d’un événement sur le module Event Grid.
 
 * Vérifiez dans l’abonnement aux événements les points suivants :
     * L’URL de point de terminaison est valide

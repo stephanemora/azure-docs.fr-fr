@@ -5,19 +5,19 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: a7d65d7c65dabde3834458a36b50216878f7cf8d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e15b3f81cf5f29efa739939fe29df25f338187cc
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031291"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475255"
 ---
 # <a name="optimizing-log-alert-queries"></a>Optimisation des requêtes d’alerte de journal
 Cet article explique comment écrire et convertir des requêtes d’[alerte de journal](./alerts-unified-log.md) pour obtenir des performances optimales. Les requêtes optimisées réduisent la latence et la charge des alertes qui s’exécutent fréquemment.
 
 ## <a name="how-to-start-writing-an-alert-log-query"></a>Comment commencer à écrire une requête de journal d’alerte
 
-Les requêtes d’alerte commencent en [interrogeant les données du journal dans Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) qui indiquent le problème. Vous pouvez utiliser la [rubrique des exemples de requêtes d’alerte](../logs/example-queries.md) pour comprendre ce que vous pouvez découvrir. Vous pouvez également [commencer à écrire votre propre requête](../logs/log-analytics-tutorial.md). 
+Les requêtes d’alerte commencent en [interrogeant les données du journal dans Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) qui indiquent le problème. Vous pouvez utiliser la [rubrique des exemples de requêtes d’alerte](../logs/queries.md) pour comprendre ce que vous pouvez découvrir. Vous pouvez également [commencer à écrire votre propre requête](../logs/log-analytics-tutorial.md). 
 
 ### <a name="queries-that-indicate-the-issue-and-not-the-alert"></a>Requêtes qui indiquent le problème et non l’alerte
 

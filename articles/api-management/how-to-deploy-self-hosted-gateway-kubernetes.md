@@ -8,17 +8,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
-ms.date: 04/23/2020
-ms.openlocfilehash: 023c2c89b90d6ddc71abc95db325dcdeb7684a2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/25/2021
+ms.openlocfilehash: fa62dc3470ef4d4ab79045379a8b76b057b44628
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89500128"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379214"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Déployer une passerelle auto-hébergée sur Kubernetes
 
 Cet article explique comment déployer la passerelle auto-hébergée de la Gestion des API Azure sur un cluster Kubernetes.
+
+> [!NOTE]
+> Vous pouvez également déployer une passerelle auto-hébergée sur un [cluster Kubernetes avec Azure Arc](how-to-deploy-self-hosted-gateway-azure-arc.md) en tant qu’[extension de cluster](../azure-arc/kubernetes/extensions.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -130,3 +133,4 @@ Il est conseillé de [configurer une supervision locale](how-to-configure-local-
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur la passerelle auto-hébergée, consultez [Vue d’ensemble de la passerelle auto-hébergée](self-hosted-gateway-overview.md).
+* Découvrez [comment déployer une passerelle auto-hébergée Gestion des API sur des clusters Kubernetes avec Azure Arc](how-to-deploy-self-hosted-gateway-azure-arc.md).

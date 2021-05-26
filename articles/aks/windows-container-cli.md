@@ -4,12 +4,12 @@ description: Découvrez comment créer rapidement un cluster Kubernetes et dépl
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 1093020bb0a98745ca47176fb5eaa6ddc4736295
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 50b5d0a46c97cfd816b80c3fb7c8f8667e3e89d7
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789890"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379368"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Créer un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide d’Azure CLI
 
@@ -93,6 +93,7 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
+    --kubernetes-version 1.20.2 \
     --network-plugin azure
 ```
 
@@ -118,7 +119,67 @@ az aks nodepool add \
     --node-count 1
 ```
 
-La commande ci-dessus crée un pool de nœuds nommé *npwin* et l’ajoute à *myAKSCluster*. Lorsque vous créez un pool de nœuds pour exécuter des conteneurs Windows Server, la valeur par défaut de *node-vm-size* est *Standard_D2s_v3*. Si vous choisissez de définir le paramètre *node-vm-size*, veuillez consulter la liste des [tailles de machines virtuelles limitées][restricted-vm-sizes]. La taille minimale recommandée est *Standard_D2s_v3*. La commande ci-dessus utilise également le sous-réseau par défaut dans le réseau virtuel par défaut créé lors de l’exécution de `az aks create`.
+La commande ci-dessus crée un pool de nœuds nommé *npwin* et l’ajoute à *myAKSCluster*. La commande ci-dessus utilise également le sous-réseau par défaut dans le réseau virtuel par défaut créé lors de l’exécution de `az aks create`.
+
+### <a name="add-a-windows-server-node-pool-with-containerd-preview"></a>Ajouter un pool de nœuds Windows Server avec `containerd` (préversion)
+
+Depuis Kubernetes version 1.20, vous pouvez spécifier `containerd` comme runtime de conteneur pour des pools de nœuds Windows Server 2019.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Vous aurez besoin de l’extension Azure CLI *aks-preview*. Installez l’extension d’Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add]. Ou installez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update].
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+Inscrivez l’indicateur de fonctionnalité `UseCustomizedWindowsContainerRuntime` à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
+
+```azurecli
+az feature register --namespace "Microsoft.ContainerService" --name "UseCustomizedWindowsContainerRuntime"
+```
+
+Vous pouvez vérifier l’état de l’enregistrement à l’aide de la commande [az feature list][az-feature-list] :
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedWindowsContainerRuntime')].{Name:name,State:properties.state}"
+```
+
+Quand vous êtes prêt, actualisez l’inscription du fournisseur de ressources Microsoft.ContainerService à l’aide de la commande [az provider register][az-provider-register] :
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+Utilisez la commande `az aks nodepool add` pour ajouter un pool de nœuds pouvant exécuter des conteneurs Windows Server avec le runtime `containerd`.
+
+> [!NOTE]
+> Si vous ne spécifiez pas l’en-tête personnalisé *WindowsContainerRuntime=containerd*, le pool de nœuds utilise Docker comme runtime de conteneur.
+
+```azurecli
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --os-type Windows \
+    --name npwcd \
+    --node-vm-size Standard_D4s_v3 \
+    --kubernetes-version 1.20.2 \
+    --aks-custom-headers WindowsContainerRuntime=containerd \
+    --node-count 1
+```
+
+La commande ci-dessus crée un pool de nœuds Windows Server en utilisant `containerd` en tant que runtime nommé *npwcd*, et l’ajoute à *myAKSCluster*. La commande ci-dessus utilise également le sous-réseau par défaut dans le réseau virtuel par défaut créé lors de l’exécution de `az aks create`.
+
+> [!IMPORTANT]
+> Lors de l’utilisation `containerd` de avec des pools de nœuds Windows Server 2019 :
+> - Le plan de contrôle et les pools de nœuds Windows Server 2019 doivent utiliser Kubernetes version 1.20 ou ultérieure.
+> - Il est impossible de mettre à niveau des pools de nœuds Windows Server 2019 existants utilisant Docker en tant que runtime de conteneur de façon à ce qu’ils utilisent `containerd`. Vous devez créer un pool de nœuds.
+> - Lors de la création d’un pool de nœuds pour exécuter des conteneurs Windows Server, la valeur par défaut de *node-vm-size* est *Standard_D2s_v3*, soit la taille minimale recommandée pour des pools de nœuds Windows Server 2019 antérieurs à Kubernetes version 1.20. La taille minimale recommandée pour des pools de nœuds Windows Server 2019 utilisant `containerd` est *Standard_D4s_v3*. Si vous définissez le paramètre *node-vm-size*, consultez la liste des [tailles de machines virtuelles limitées][restricted-vm-sizes].
+> - Il est fortement recommandé d’utiliser [des teintes ou des étiquettes][aks-taints] avec vos pools de nœuds Windows Server 2019 exécutant `containerd`, et des tolérances ou des sélecteurs de nœud avec vos déploiements pour garantir que vos charges de travail sont correctement planifiées.
 
 ## <a name="connect-to-the-cluster"></a>Se connecter au cluster
 
@@ -137,16 +198,21 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get][kubectl-get] pour retourner une liste des nœuds du cluster.
 
 ```console
-kubectl get nodes
+kubectl get nodes -o wide
 ```
 
 L’exemple de sortie suivant montre tous les nœuds du cluster. Vérifiez que l’état de tous les nœuds est *Prêt* :
 
 ```output
-NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.9
-aksnpwin987654                      Ready    agent   108s   v1.16.9
+NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION     CONTAINER-RUNTIME
+aks-nodepool1-12345678-vmss000000   Ready    agent   34m    v1.20.2   10.240.0.4    <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
+aks-nodepool1-12345678-vmss000001   Ready    agent   34m    v1.20.2   10.240.0.35   <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
+aksnpwcd123456                      Ready    agent   9m6s   v1.20.2   10.240.0.97   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    containerd://1.4.4+unknown
+aksnpwin987654                      Ready    agent   25m    v1.20.2   10.240.0.66   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    docker://19.3.14
 ```
+
+> [!NOTE]
+> Le runtime de conteneur pour chaque pool de nœuds est affiché sous *CONTAINER-RUNTIME*. Notez que *aksnpwin987654* commence par `docker://`, ce qui signifie qu’il utilise Docker pour le runtime de conteneur. Notez que *aksnpwcd123456* commence par `containerd://`, ce qui signifie qu’il utilise `containerd` pour le runtime de conteneur.
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
@@ -277,6 +343,7 @@ Pour en savoir plus sur AKS et parcourir le code complet de l’exemple de dépl
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [aks-monitor]: ../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
+[aks-taints]:  use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
 [az-aks-browse]: /cli/azure/aks#az_aks_browse
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials

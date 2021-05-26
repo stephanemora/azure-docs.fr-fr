@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 09/18/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 687c3d49f98fe6832d23dc1529a9761d862e0666
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: f6a32bdef2269e1235534ca99144a61c5ea023db
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830877"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463369"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Activer Update Management à l’aide d’un modèle Azure Resource Manager
 
@@ -22,8 +22,6 @@ Vous pouvez utiliser un [modèle Azure Resource Manager](../../azure-resource-ma
 * Lie le compte Automation à l’espace de travail Log Analytics.
 * Ajoute des exemples de runbooks Automation au compte.
 * Active la fonctionnalité Gestion des mises à jour.
-
-Le modèle n’automatise pas l’activation d’Update Management sur une ou plusieurs machines virtuelles Azure ou non-Azure.
 
 Si vous disposez déjà d’un espace de travail Log Analytics et d’un compte Automation déployés dans une région prise en charge dans votre abonnement, ils ne sont pas liés. Ce modèle permet de créer le lien et de déployer Update Management.
 

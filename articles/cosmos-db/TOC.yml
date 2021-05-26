@@ -628,6 +628,14 @@
               href: stored-procedures-triggers-udfs.md
             - name: API de requête JavaScript
               href: javascript-query-api.md
+        - name: Cache intégré
+          items:
+            - name: Vue d’ensemble de la passerelle dédiée
+              href: dedicated-gateway.md
+            - name: Vue d’ensemble du cache intégré
+              href: integrated-cache.md
+            - name: Forum aux questions sur le cache intégré
+              href: integrated-cache-faq.md
         - name: Sécurité
           items:
             - name: Sécuriser l’accès aux données
@@ -718,6 +726,8 @@
                   href: performance-tips-async-java.md
                 - name: Kit SDK Java synchrone v2
                   href: performance-tips-java.md
+            - name: Configurer le cache intégré
+              href: how-to-configure-integrated-cache.md
             - name: Test de performances - application exemple
               href: performance-testing.md
             - name: Écritures et lectures rentables
@@ -850,6 +860,8 @@
               displayName: 'msi, managed service identity, aad, azure active directory, identity'
             - name: Utiliser des certificats pour accéder aux données
               href: certificate-based-authentication.md
+            - name: Utiliser Always Encrypted
+              href: how-to-always-encrypted.md
         - name: Intégrer à d’autres services Azure
           items:
             - name: Solution e-commerce de flux de modification
@@ -1348,6 +1360,9 @@
           href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: Guides pratiques
   items:
+    - name: Niveau gratuit
+      href: free-tier.md
+      displayName: free tier
     - name: Gérer les ressources Azure Cosmos DB
       items:
         - name: Gérer un compte Azure Cosmos
@@ -1369,6 +1384,12 @@
           items:
             - name: Installer et utiliser l’émulateur
               href: local-emulator.md
+            - name: Exécuter l’émulateur sur Docker
+              items:
+                - name: Exécuter l’émulateur sur Docker pour Linux
+                  href: linux-emulator.md
+                - name: Exécuter l’émulateur sur Docker pour Windows
+                  href: local-emulator-on-docker-windows.md
             - name: Exporter les certificats de l’émulateur
               href: local-emulator-export-ssl-certificates.md
             - name: Paramètres de ligne de commande de l’émulateur
