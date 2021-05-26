@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 79ccd1f8107eb5d287cf74084978b92715b936fa
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7362c134ce25341a9ce53659c3a1f7ff2889e7fa
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133742"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083581"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices"></a>Tutoriel : Créer une hiérarchie d’appareils IoT Edge
 
@@ -66,7 +66,7 @@ Pour créer une hiérarchie d’appareils IoT Edge, vous aurez besoin des élém
 
    Remplacez le texte de l’espace réservé dans la commande suivante et exécutez-le à deux reprises, une fois pour chaque machine virtuelle. Chaque machine virtuelle a besoin d’un préfixe DNS unique, qui lui sert également de nom. Le préfixe DNS doit être conforme à l’expression régulière suivante : `[a-z][a-z0-9-]{1,61}[a-z0-9]`.
 
-   ```bash
+   ```azurecli
    az deployment group create \
     --resource-group <REPLACE_WITH_YOUR_RESOURCE_GROUP> \
     --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json" \
@@ -278,7 +278,7 @@ Pour découvrir comment créer un déploiement comme celui-ci via le portail Azu
 
 Vous pouvez voir l’état des modules à l’aide de la commande :
 
-   ```bash
+   ```azurecli
    az iot hub module-twin show --device-id <edge_device_id> --module-id '$edgeAgent' --hub-name <iot_hub_name> --query "properties.reported.[systemModules, modules]"
    ```
 

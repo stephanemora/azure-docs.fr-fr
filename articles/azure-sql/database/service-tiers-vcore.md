@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 01/15/2021
-ms.openlocfilehash: 3bd617f052d52339ae35e5a088c6ee85b797fb48
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/01/2021
+ms.openlocfilehash: 29ce9430d43ed663be8d888dc2388551659c873c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779180"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468884"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Vue d’ensemble du modèle vCore – Azure SQL Database et SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -112,12 +112,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 
 La série DC est uniquement prise en charge pour le calcul provisionné (le mode serverless n’est pas pris en charge) et ne prend pas en charge la redondance de zone. Pour connaître les régions dans lesquelles la série DC est disponible, voir [Disponibilité de la série DC](#dc-series-1).
 
-#### <a name="azure-offer-types-supported-by-dc-series"></a>Types d’offres Azure pris en charge par la série DC
-
-Pour accéder à la série DC, l’abonnement doit être un type d’offre payante comme Paiement à l’utilisation ou Contrat Entreprise (EA).  Pour obtenir la liste complète des types d’offres Azure pris en charge par la série DC, consultez [offres actuelles sans limites de dépense](https://azure.microsoft.com/support/legal/offer-details).
-
 ### <a name="compute-and-memory-specifications"></a>Spécifications de calcul et de mémoire
-
 
 |Génération du matériel  |Calcul  |Mémoire  |
 |:---------|:---------|:---------|

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: 2bc0017d71e159ac490041494bcf37db035ef421
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 978afe3d15db15a2cbb1f136eb0c05343e20f6dd
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "75649505"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083689"
 ---
 # <a name="reference-deployment-template-artifact"></a>Référence : Artefact de modèle de déploiement
 
@@ -53,7 +53,7 @@ Le fichier JSON suivant montre un exemple de fichier *mainTemplate.json* pour le
     },
     "zipFileBlobUri": {
       "type": "string",
-      "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
+      "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.customproviders/custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
       "metadata": {
         "description": "The Uri to the uploaded function zip file"
       }

@@ -1,14 +1,14 @@
 ---
 title: Intégrer Azure Event Hubs au service Azure Private Link
 description: Découvrir comment intégrer Azure Event Hubs au service Azure Private Link
-ms.date: 08/22/2020
+ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: f5c01788044f3c3a5d875a24172e7222ff195f81
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: d19060f96a1a6912dd0f1c8791689a61cd2b2293
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960841"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371361"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Autoriser l’accès aux espaces de noms Azure Event Hubs via des points de terminaison privés 
 Le service Azure Private Link vous permet d’accéder aux services Azure (par exemple, Azure Event Hubs, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaire ou de client hébergés par Azure via un **point de terminaison privé** dans votre réseau virtuel.
@@ -18,7 +18,7 @@ Un point de terminaison privé est une interface réseau qui vous permet de vous
 Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link ?](../private-link/private-link-overview.md)
 
 ## <a name="important-points"></a>Points importants
-- Cette fonctionnalité est prise en charge pour les niveaux **standard** et **dédié**. Il ne sont pas pris en charge dans le niveau **De base**.
+- Cette fonctionnalité n’est pas prise en charge dans le niveau **De base**.
 - L’activation des points de terminaison privés peut empêcher d’autres services Azure d’interagir avec Event Hubs.  Les demandes qui sont bloquées comprennent les demandes émanant d’autres services Azure, du portail Azure, des services de journalisation et de métriques, etc. En guise d’exception, vous pouvez autoriser l’accès aux ressources Event Hubs à partir de certains **services approuvés**, même lorsque les points de terminaison privés sont activés. Pour obtenir la liste des services approuvés, consultez [Services approuvés](#trusted-microsoft-services).
 - Spécifiez **au moins une règle d’adresse IP ou une règle de réseau virtuel** pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel. S’il n’existe aucune règle d’adresse IP et de réseau virtuel, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès). 
 
@@ -44,9 +44,6 @@ Si vous avez déjà un espace de noms Event Hubs, vous pouvez créer une connexi
 2. Dans la barre de recherche, tapez **event hubs**.
 3. Dans la liste, sélectionnez l’**espace de noms** auquel vous voulez ajouter un point de terminaison privé.
 4. Sous **Paramètres** sur le menu de gauche, sélectionnez **Mise en réseau**.
-
-    > [!NOTE]
-    > L’onglet **Réseau** s’affiche uniquement pour les espaces de noms **standard** ou **dédiés**. 
 
     :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Onglet Réseaux - Option Réseaux sélectionnée" lightbox="./media/private-link-service/selected-networks-page.png":::    
 

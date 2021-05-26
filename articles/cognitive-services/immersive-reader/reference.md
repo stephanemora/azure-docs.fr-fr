@@ -1,6 +1,6 @@
 ---
 title: Référence du kit de développement logiciel (SDK) du lecteur immersif
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Le kit SDK du Lecteur immersif contient une bibliothèque JavaScript qui vous permet d’intégrer le Lecteur immersif à votre application.
 services: cognitive-services
 author: metanMSFT
@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metang
-ms.openlocfilehash: f2f5c8193454a3b7fa6be1cea7a1236b613d6c8f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 852e3d91b9d90d79bc45b4478ee433fbbd13255b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92636525"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370785"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Référence SDK JavaScript du lecteur immersif (v1.1)
 

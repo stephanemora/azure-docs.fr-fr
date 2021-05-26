@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: dc156afa2c5b5143e1543ef58203d6dea5d046c3
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3f94b22d4f439769b27d38943603f7c726bfc40d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144994"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468405"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
 Vous avez publié une offre sur le marketplace commercial de Microsoft, et vous souhaitez maintenant qu’elle se vende bien. Nous vous proposons les avantages (commerciaux, techniques et marketing) dont vous avez besoin pour accélérer la croissance de votre offre.
 
-Une fois que votre offre est active sur Microsoft AppSource ou Place de marché Azure, accédez à [Espace partenaires](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) pour accéder à vos avantages marketing, commerciaux et techniques éligibles et les activer. Pour une vue d’ensemble de l’inscription aux Récompenses de la Place de marché et l’activation des avantages dans l’Espace partenaires, consultez la [vidéo de démonstration](https://partner.microsoft.com/asset/detail/marketplace-rewards-demo-mp4) sur les Récompenses de la Place de marché. Les avantages de la place de marché se cumulent en fonction de l’engagement et des ventes de votre place de marché commerciale. Plus vous vous engagez, plus vous recevez en retour.
+Une fois que votre offre est active sur Microsoft AppSource ou Place de marché Azure, accédez à [Espace partenaires](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) pour accéder à vos avantages marketing, commerciaux et techniques éligibles et les activer. Les avantages de la place de marché se cumulent en fonction de l’engagement et des ventes de votre place de marché commerciale. Plus vous vous engagez, plus vous recevez en retour.
 
 ## <a name="marketplace-rewards"></a>Récompenses de la place de marché
 

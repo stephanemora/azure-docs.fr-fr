@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c164b52682d6f4aef2db70a5724f3f74db68c53f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ba71fb0dd543780ebfb8783ed937a14e2afbe417
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108746443"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467304"
 ---
 # <a name="enable-passwordless-security-key-sign-in"></a>Activer la connexion par clé de sécurité sans mot de passe 
 
@@ -107,9 +107,6 @@ Si vous souhaitez partager des commentaires ou si vous rencontrez des problèmes
 
 L’approvisionnement et déprovisionnement de clés de sécurité par l’administrateur ne sont pas disponibles.
 
-### <a name="cached-logon-on-hybrid-azure-ad-joined-devices"></a>Ouverture de session mise en cache sur des appareils avec jointure hybride Azure AD
-
-L’ouverture de session mise en cache avec des clés FIDO2 échoue sur les appareils avec jointure hybride Azure AD sur Windows 10, version 20H2. Par conséquent, les utilisateurs ne peuvent pas se connecter lorsque la ligne de vue du contrôleur de domaine local n’est pas disponible. Ce problème est actuellement en cours d’investigation.
 
 ### <a name="upn-changes"></a>Modifications de l’UPN
 
