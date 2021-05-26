@@ -8,18 +8,21 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 05/25/2021
 ms.author: apimpm
-ms.openlocfilehash: 02962e9c5be2c4b73d121a53a7b595c573ad6cd0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 366b0fa70fd5229310d0f999acd07a49c45f0da0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87015219"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375439"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Déployer sur Azure Kubernetes Service
 
-Cet article explique comment déployer la passerelle auto-hébergée de la Gestion des API Azure sur [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/). Pour déployer la passerelle auto-hébergée sur un cluster Kubernetes, consultez [ce document](how-to-deploy-self-hosted-gateway-kubernetes.md).
+Cet article explique comment déployer la passerelle auto-hébergée de la Gestion des API Azure sur [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/). 
+
+> [!NOTE]
+> Vous pouvez également déployer une passerelle auto-hébergée sur un [cluster Kubernetes avec Azure Arc](how-to-deploy-self-hosted-gateway-azure-arc.md) en tant qu’[extension de cluster](../azure-arc/kubernetes/extensions.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -62,7 +65,8 @@ contosogateway   NodePort    10.110.230.87   <none>        80:32504/TCP,443:3004
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la passerelle auto-hébergée, consultez [Vue d’ensemble de la passerelle auto-hébergée Gestion des API](self-hosted-gateway-overview.md)
-* En savoir plus sur [Azure Kubernetes Service](../aks/intro-kubernetes.md)
+* Pour en savoir plus sur la passerelle auto-hébergée, consultez [Vue d’ensemble de la passerelle auto-hébergée Gestion des API](self-hosted-gateway-overview.md).
+* Découvrez [comment déployer une passerelle auto-hébergée Gestion des API sur des clusters Kubernetes avec Azure Arc](how-to-deploy-self-hosted-gateway-azure-arc.md).
+* En savoir plus sur [Azure Kubernetes Service](../aks/intro-kubernetes.md).
 * Découvrez comment [configurer et conserver les journaux dans le cloud](how-to-configure-cloud-metrics-logs.md).
-* * Découvrez comment [configurer et conserver les journaux localement](how-to-configure-local-metrics-logs.md).
+* Découvrez comment [configurer et conserver les journaux localement](how-to-configure-local-metrics-logs.md).

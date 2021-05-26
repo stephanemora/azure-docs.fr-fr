@@ -1,26 +1,27 @@
 ---
 title: 'Démarrage rapide : Bibliothèque de client Form Recognizer pour Java'
-description: Utilisez la bibliothèque de client Form Recognizer pour Java afin de créer une application de traitement des formulaires qui extrait des paires clé/valeur et des données de table de vos documents personnalisés.
+description: Utilisez la bibliothèque de client Java Form Recognizer afin de créer une application de traitement des formulaires qui extrait des paires clé/valeur et des données de table de vos documents personnalisés.
 services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 05/12/2021
 ms.custom: devx-track-java
 ms.author: lajanuar
-ms.openlocfilehash: cd5e6383e71e3f37a26b866156b64c86302f6990
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: fa98977d25f6c1c406b95d0817e841d25c28394f
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516408"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374170"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
+
 > [!IMPORTANT]
 > Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité.
 
@@ -60,7 +61,7 @@ Ce guide de démarrage rapide utilise le gestionnaire de dépendances Gradle. Vo
 
 Dans le fichier *build.gradle.kts* de votre projet, incluez la bibliothèque de client sous la forme d’une instruction `implementation`, avec les plug-ins et les paramètres obligatoires.
 
-#### <a name="v21-preview"></a>[v2.1 (préversion)](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 ```kotlin
 plugins {
@@ -81,7 +82,7 @@ dependencies {
 > [!NOTE]
 > Le SDK Form Recognizer 3.1.0-beta.3 reflète la _version 2.1-preview.3 de l’API_.
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 ```kotlin
 plugins {
@@ -106,7 +107,6 @@ dependencies {
 
 ### <a name="create-a-java-file"></a>Créer un fichier Java
 
-
 Entrez la commande suivante à partir de votre répertoire de travail :
 
 ```console
@@ -119,7 +119,6 @@ Accédez au nouveau dossier et créez un fichier sous le nom *FormRecognizer.jav
 
 > [!TIP]
 > Vous voulez voir l’intégralité du fichier de code de démarrage rapide à la fois ? Vous le trouverez sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/FormRecognizer.java), qui contient les exemples de code utilisés dans ce guide de démarrage rapide.
-
 
 Dans la classe **FormRecognizer** de l’application, créez des variables pour la clé et le point de terminaison de votre ressource.
 
@@ -138,13 +137,13 @@ Dans la méthode **main** de l’application, ajoutez des appels pour les métho
 * Pour obtenir l’URL d’un formulaire à tester, vous pouvez utiliser les étapes ci-dessus pour obtenir l’URL SAS d’un document individuel dans le stockage d’objets blob. Vous pouvez aussi prendre l’URL d’un document situé ailleurs.
 * Employez également la méthode ci-dessus pour obtenir l’URL d’une image de ticket de caisse.
 <!-- markdownlint-disable MD024 -->
-#### <a name="v21-preview"></a>[v2.1 (préversion)](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
 
@@ -154,7 +153,7 @@ Dans la méthode **main** de l’application, ajoutez des appels pour les métho
 
 ## <a name="object-model"></a>Modèle objet
 
-Avec Form Recognizer, vous pouvez créer deux types de client différents. Le premier, `FormRecognizerClient`, sert à interroger le service pour reconnaître les champs et le contenu de formulaires. Le deuxième, `FormTrainingClient`, sert à créer et gérer des modèles personnalisés que vous pouvez utiliser pour améliorer la reconnaissance.
+Avec Form Recognizer, vous pouvez créer deux types de client différents. Le premier, `FormRecognizerClient`, sert à interroger le service pour reconnaître les champs et le contenu de formulaires. Le deuxième, `FormTrainingClient`, sert à créer et à gérer des modèles personnalisés que vous pouvez utiliser pour améliorer la reconnaissance.
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 
@@ -174,13 +173,13 @@ Avec Form Recognizer, vous pouvez créer deux types de client différents. Le pr
 * Copier un modèle personnalisé d’une ressource Form Recognizer vers une autre.
 
 > [!NOTE]
-> Les modèles peuvent aussi être entraînés à partir d’une interface graphique utilisateur comme l’[outil d’étiquetage Form Recognizer](../../quickstarts/label-tool.md).
+> Les modèles peuvent aussi être entraînés à partir d’une interface graphique utilisateur comme l’[outil d’étiquetage Form Recognizer](../../label-tool.md).
 
 ## <a name="code-examples"></a>Exemples de code
 
 Ces extraits de code montrent comment effectuer les tâches suivantes avec la bibliothèque de client Form Recognizer pour Java :
 <!-- markdownlint-disable MD001 -->
-#### <a name="v21-preview"></a>[v2.1 (préversion)](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 * [Authentifier le client](#authenticate-the-client)
 * [Analyser la disposition](#analyze-layout)
@@ -190,16 +189,16 @@ Ces extraits de code montrent comment effectuer les tâches suivantes avec la bi
 * [Analyser les documents d’identité](#analyze-identity-documents)
 * [Entraîner un modèle personnalisé](#train-a-custom-model)
 * [Analyser les formulaires avec un modèle personnalisé](#analyze-forms-with-a-custom-model)
-* [Gérer vos modèles personnalisés](#manage-your-custom-models)
+* [Gérer des modèles personnalisés](#manage-custom-models)
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 * [Authentifier le client](#authenticate-the-client)
 * [Analyser la disposition](#analyze-layout)
 * [Analyser les reçus](#analyze-receipts)
 * [Entraîner un modèle personnalisé](#train-a-custom-model)
 * [Analyser les formulaires avec un modèle personnalisé](#analyze-forms-with-a-custom-model)
-* [Gérer vos modèles personnalisés](#manage-your-custom-models)
+* [Gérer des modèles personnalisés](#manage-custom-models)
 
 ---
 
@@ -223,6 +222,7 @@ Pour analyser le contenu d’un fichier à une URL donnée, utilisez la méthode
 La valeur retournée est une collection d’objets **FormPage** : un pour chaque page du document envoyé. Le code suivant itère au sein de ces objets et imprime les paires clé/valeur extraites et les données de table.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_print)]
+
 ### <a name="output"></a>Output
 
 ```console
@@ -241,6 +241,7 @@ Cell has text 4/16/2018.
 Cell has text $89,024.34.
 Cell has text ET.
 ```
+
 ## <a name="analyze-receipts"></a>Analyser les reçus
 
 Cette section montre comment analyser et extraire les champs communs de tickets de caisse émis aux États-Unis à l’aide d’un modèle de ticket préentraîné. Pour plus d’informations sur l’analyse des tickets de caisse, consultez le [guide conceptuel des tickets de caisse](../../concept-receipts.md).
@@ -279,7 +280,7 @@ Total Price: null, confidence: 0.93
 
 ## <a name="analyze-business-cards"></a>Analyser les cartes de visite
 
-#### <a name="v21-preview"></a>[v2.1 (préversion)](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 Cette section montre comment analyser et extraire les champs courants des cartes de visite en anglais en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des cartes de visite, consultez le [guide conceptuel des cartes de visite](../../concept-business-cards.md).
 
@@ -294,7 +295,7 @@ La valeur retournée est une collection d’objets **RecognizedForm** : un pour
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > Cette fonctionnalité n’est pas disponible dans la version de l’API sélectionnée.
@@ -303,7 +304,7 @@ La valeur retournée est une collection d’objets **RecognizedForm** : un pour
 
 ## <a name="analyze-invoices"></a>Analyser les factures
 
-#### <a name="v21-preview"></a>[v2.1 (préversion)](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 Cette section montre comment analyser et extraire les champs communs de factures de vente en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des factures, consultez le [guide conceptuel des factures](../../concept-invoices.md).
 
@@ -318,7 +319,7 @@ La valeur retournée est une collection d’objets **RecognizedForm** : un pour
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_print)]
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > Cette fonctionnalité n’est pas disponible dans la version de l’API sélectionnée.
@@ -327,9 +328,9 @@ La valeur retournée est une collection d’objets **RecognizedForm** : un pour
 
 ## <a name="analyze-identity-documents"></a>Analyser les documents d’identité
 
-#### <a name="v21-preview"></a>[v2.1 (préversion)](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
-Cette section montre comment analyser et extraire des informations clés à partir de documents d’identité officiels (passeports internationaux et permis de conduire émis aux États-Unis) à l’aide du modèle d’ID prédéfini de Form Recognizer. Pour plus d’informations sur l’analyse des documents d’identité, consultez notre [guide conceptuel sur le modèle d’identification prédéfini](../../concept-identification-cards.md).
+Cette section montre comment analyser et extraire des informations clés de documents d’identité gouvernementaux (passeports internationaux et permis de conduire émis aux États-Unis) à l’aide du modèle de document d’identification prédéfini Form Recognizer. Pour plus d’informations sur l’analyse des documents d’identité, consultez notre [guide conceptuel sur le modèle de document d’identification prédéfini](../../concept-identification-cards.md).
 
 Pour analyser des documents d’identité à partir d’un URI, utilisez la méthode `beginRecognizeIdDocumentsFromUrl`.
 
@@ -338,11 +339,11 @@ Pour analyser des documents d’identité à partir d’un URI, utilisez la mét
 > [!TIP]
 > Vous pouvez également analyser les images de documents d’identité locaux. Consultez les méthodes [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), par exemple, **beginRecognizeInvoices**. Vous pouvez aussi consulter l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) pour les scénarios impliquant des images locales.
 
-Le code suivant traite le document d’identité sur l’URI donné et imprime les champs principaux et leurs valeurs dans la console.
+Le code suivant traite le document d’identité à l’URI donné et affiche les champs principaux et leurs valeurs sur la console.
 
 :::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_print":::
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > Cette fonctionnalité n’est pas disponible dans la version de l’API sélectionnée.
@@ -354,7 +355,7 @@ Le code suivant traite le document d’identité sur l’URI donné et imprime l
 Cette section montre comment entraîner un modèle avec vos propres données. Un modèle entraîné peut restituer des données structurées qui incluent les relations clé/valeur du document de formulaire d’origine. Une fois que le modèle est entraîné, vous pouvez le tester, le réentraîner et l’utiliser ensuite pour extraire de manière fiable des données d’autres formulaires, en fonction de vos besoins.
 
 > [!NOTE]
-> Vous pouvez aussi entraîner des modèles à l’aide d’une interface graphique utilisateur telle que l’[outil d’étiquetage des exemples Form Recognizer](../../quickstarts/label-tool.md).
+> Vous pouvez aussi entraîner des modèles à l’aide d’une interface graphique utilisateur telle que l’[outil d’étiquetage des exemples Form Recognizer](../../label-tool.md).
 
 ### <a name="train-a-model-without-labels"></a>Entraîner un modèle sans étiquettes
 
@@ -394,15 +395,13 @@ The model found field 'field-6' with label: VAT ID
 
 ### <a name="train-a-model-with-labels"></a>Entraîner un modèle avec des étiquettes
 
-Vous pouvez aussi entraîner les modèles personnalisés en étiquetant manuellement les documents d’entraînement. L’entraînement avec étiquettes offre de meilleures performances dans certains scénarios. Pour entraîner avec des étiquettes, vous devez disposer de fichiers d’informations spéciaux sur les étiquettes ( *\<filename\>.pdf.labels.json*) dans votre conteneur de stockage d’objets blob, en même temps que les documents d’entraînement. L’[outil d’étiquetage des exemples Form Recognizer](../../quickstarts/label-tool.md) propose une interface utilisateur qui facilite la création de ces fichiers d’étiquettes. Une fois ceux-ci à disposition, vous pouvez appeler la méthode **beginTraining** avec le paramètre *useTrainingLabels* défini sur `true`.
+Vous pouvez aussi entraîner les modèles personnalisés en étiquetant manuellement les documents d’entraînement. L’entraînement avec étiquettes offre de meilleures performances dans certains scénarios. Pour entraîner avec des étiquettes, vous devez disposer de fichiers d’informations spéciaux sur les étiquettes ( *\<filename\>.pdf.labels.json*) dans votre conteneur de stockage d’objets blob, en même temps que les documents d’entraînement. L’[outil d’étiquetage des exemples Form Recognizer](../../label-tool.md) propose une interface utilisateur qui facilite la création de ces fichiers d’étiquettes. Une fois ceux-ci à disposition, vous pouvez appeler la méthode **beginTraining** avec le paramètre *useTrainingLabels* défini sur `true`.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_call)]
-
 
 Le **CustomFormModel** retourné indique les champs que le modèle peut extraire ainsi qu’une estimation de sa justesse dans chaque champ. Le bloc de code suivant imprime ces informations dans la console.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_print)]
-
 
 ### <a name="output"></a>Output
 
@@ -442,7 +441,6 @@ La valeur retournée est une collection d’objets **RecognizedForm** : un pour
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_print)]
 
-
 ### <a name="output"></a>Output
 
 ```console
@@ -458,21 +456,17 @@ Field 'field-5' has label 'Charges' with a confidence score of 1.00.
 Field 'field-6' has label 'VAT ID' with a confidence score of 1.00.
 ```
 
-
-
 ## <a name="manage-custom-models"></a>Gérer des modèles personnalisés
 
 Cette section explique comment gérer les modèles personnalisés stockés dans votre compte. Le code suivant effectue toutes les tâches de gestion de modèles dans une même méthode, à titre d’exemple. Commencez par copier la signature de méthode ci-dessous :
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage)]
 
-
 ### <a name="check-the-number-of-models-in-the-formrecognizer-resource-account"></a>Vérifier le nombre de modèles dans le compte de ressource FormRecognizer
 
 Le bloc de code suivant vérifie le nombre de modèles que vous avez enregistrés dans votre compte Form Recognizer et le compare à la limite du compte.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_count)]
-
 
 #### <a name="output"></a>Output
 
@@ -485,7 +479,6 @@ The account has 12 custom models, and we can have at most 250 custom models
 Le bloc de code suivant liste les modèles actifs dans votre compte et imprime leurs détails dans la console.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_list)]
-
 
 #### <a name="output"></a>Output
 

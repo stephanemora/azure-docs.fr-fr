@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 03/08/2021
-ms.openlocfilehash: 4334166f435612370e7e0b7b380814fe85075f78
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 75efcbd5a037729570da6912d7929951aa5b73e0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046621"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376149"
 ---
 # <a name="cognitive-services-docs-whats-new-for-february-1-2021---february-28-2021"></a>Documentation de Cognitive Services : Nouveautés pour la période du 1er février 2021 au 28 février 2021
 
@@ -40,7 +40,7 @@ Bienvenue dans l’article consacré aux nouveautés de la documentation de Cogn
 
 - [Déployer l’outil d’étiquetage des exemples](./form-recognizer/deploy-label-tool.md)
 - [Qu’est-ce que Form Recognizer ?](./form-recognizer/overview.md)
-- [Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples](./form-recognizer/quickstarts/label-tool.md)
+- [Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples](./form-recognizer/label-tool.md)
 
 ## <a name="text-analytics"></a>Analyse de texte
 

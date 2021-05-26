@@ -299,6 +299,9 @@
             - name: Modèle ARM
               displayName: Resource Manager
               href: database/single-database-create-arm-template-quickstart.md
+            - name: Avec le registre et le stockage de synthèses
+              displayName: Create Azure SQL Database with ledger
+              href: database/ledger-create-a-single-database-with-ledger-enabled.md
         - name: Configurer
           items:
             - name: Règles de pare-feu IP au niveau du serveur
@@ -434,14 +437,32 @@
               href: database/auditing-overview.md
             - name: Format du journal d’audit
               href: database/audit-log-format.md
-            - name: Contrôles d’accès réseau
-              href: database/network-access-controls-overview.md
             - name: Alias DNS
               href: database/dns-alias-overview.md
+            - name: Registre
+              items:
+                - name: Registre
+                  href: database/ledger-landing.yml
+                - name: Vue d’ensemble du registre
+                  href: database/ledger-overview.md
+                - name: Registre de base de données
+                  href: database/ledger-database-ledger.md
+                - name: Tables de registre pouvant être mises à jour
+                  href: database/ledger-updatable-ledger-tables.md
+                - name: Tables de registre avec ajout uniquement
+                  href: database/ledger-append-only-ledger-tables.md
+                - name: Gestion des synthèses et vérification de base de données
+                  href: database/ledger-digest-management-and-database-verification.md
+                - name: Audit du registre
+                  href: database/ledger-audit.md
+                - name: Limitations du registre
+                  href: database/ledger-limits.md
+            - name: Contrôles d’accès réseau
+              href: database/network-access-controls-overview.md
+            - name: Liaison privée
+              href: database/private-endpoint-overview.md
             - name: Points de terminaison de réseau virtuel
               href: database/vnet-service-endpoint-rule-overview.md
-            - name: Private Link
-              href: database/private-endpoint-overview.md
         - name: Partitionnement de base de données
           items:
             - name: Partitionnement de base de données
@@ -522,6 +543,17 @@
               href: database/dynamic-data-masking-configure-portal.md
             - name: Pare-feu basé sur IP
               href: database/firewall-configure.md
+            - name: Registre
+              items:
+                - name: Créer des tables de registre en ajout seul
+                  href: database/ledger-how-to-append-only-ledger-tables.md
+                - name: Créer des tables de registre pouvant être mises à jour
+                  href: database/ledger-how-to-updatable-ledger-tables.md
+                - name: Accéder à une synthèse du Registre confidentiel Azure
+                  displayName: Access Azure Confidential Ledger digest
+                  href: database/ledger-how-to-access-acl-digest.md
+                - name: Vérifier la présence de falsifications dans la base de données du registre
+                  href: database/ledger-verify-database.md
             - name: Points de terminaison de réseau virtuel - PowerShell
               href: database/scripts/vnet-service-endpoint-rule-powershell-create.md
         - name: Continuité de l’activité

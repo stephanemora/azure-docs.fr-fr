@@ -270,6 +270,8 @@
           href: move-custom-topics-across-regions.md
         - name: Déplacer les domaines d’une région à l’autre
           href: move-domains-across-regions.md
+        - name: Déplacer les espaces de noms de partenaires d’une région à l’autre
+          href: move-partner-namespaces-across-regions.md
     - name: Sécuriser
       items:
         - name: Publier des événements de façon sécurisée via une liaison privée

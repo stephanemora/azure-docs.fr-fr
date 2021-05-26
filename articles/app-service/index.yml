@@ -7,12 +7,12 @@ metadata:
   ms.topic: landing-page
   ms.service: app-service
   ms.date: 08/06/2020
-  ms.openlocfilehash: 2709081bd38acb1cc3aab1ae7b9c35e58e97b16f
-  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+  ms.openlocfilehash: 9ed958c7656d6101824a14ed8e39f41df2ce63e5
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/26/2021
-  ms.locfileid: "110461584"
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110375230"
 landingContent:
 - title: À propos d’App Service
   linkLists:
@@ -196,11 +196,11 @@ landingContent:
     links:
     - text: App Service, Functions et Logic Apps sur Azure Arc (préversion)
       url: overview-arc-integration.md
-  - linkListType: quickstart
-    links:
-    - text: Créer une application App Service sur Azure Arc (préversion)
-      url: quickstart-arc.md
   - linkListType: tutorial
     links:
     - text: Configurer un cluster Kubernetes avec Azure Arc pour exécuter App Service, Functions et Logic Apps (préversion)
       url: manage-create-arc-environment.md
+  - linkListType: quickstart
+    links:
+    - text: Créer une application App Service sur Azure Arc (préversion)
+      url: quickstart-arc.md

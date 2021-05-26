@@ -133,6 +133,8 @@
           href: zone-redundancy.md
         - name: Approvisionner une passerelle auto-hébergée
           href: api-management-howto-provision-self-hosted-gateway.md
+        - name: "Déployer une passerelle Azure API Management sur Azure\_Arc"
+          href: how-to-deploy-self-hosted-gateway-azure-arc.md
         - name: Déployer une passerelle auto-hébergée sur Azure Kubernetes Service
           href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
         - name: Déployer une passerelle auto-hébergée sur Kubernetes
