@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 08/31/2020
+ms.date: 05/24/2020
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 0435b99525c34eb72d7cc5315ccb4359859cd528
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b38a0d4c5baf0f19140f2a210959b4904bf130a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90033045"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466369"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Inscrire votre appareil personnel sur le réseau de votre organisation
 Inscrivez votre appareil personnel (généralement un téléphone ou une tablette) sur le réseau de votre organisation. Une fois votre appareil inscrit, il peut accéder aux ressources restreintes de votre organisation.
@@ -45,24 +45,27 @@ Suivez ces étapes pour inscrire votre appareil personnel sur votre réseau.
 
     ![Comptes dans l’écran Paramètres](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Sélectionnez **Accès Professionnel ou Scolaire**, puis sélectionnez **Connexion** à partir de l’écran **Accès Professionnel ou Scolaire**.
+1. Sélectionnez **Accès Professionnel ou Scolaire**, puis sélectionnez **Connexion** à partir de l’écran **Accès Professionnel ou Scolaire**.
 
     ![Écran Accès Professionnel ou Scolaire avec l’option Connexion mise en évidence](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. Dans l’écran **Ajouter un compte professionnel ou scolaire**, tapez votre adresse e-mail pour votre compte professionnel ou scolaire, puis sélectionnez **Suivant**. Par exemple : alain@contoso.com.
+1. Dans l’écran **Ajouter un compte professionnel ou scolaire**, tapez votre adresse e-mail pour votre compte professionnel ou scolaire, puis sélectionnez **Suivant**. Par exemple : alain@contoso.com.
 
-4. Connectez-vous à votre compte professionnel ou scolaire, puis sélectionnez **Se connecter**.
+1. Connectez-vous à votre compte professionnel ou scolaire, puis sélectionnez **Se connecter**.
 
-5. Effectuez le reste du processus d’inscription, y compris l’approbation de votre demande de vérification d’identité (si vous utilisez la vérification en deux étapes) et la configuration de Windows Hello (si nécessaire).
+1. Effectuez le reste du processus d’inscription, y compris l’approbation de votre demande de vérification d’identité (si vous utilisez la vérification en deux étapes) et la configuration de Windows Hello (si nécessaire).
+
+1. Redémarrez l’appareil.
 
 ## <a name="to-verify-that-youre-registered"></a>Pour vérifier que vous êtes inscrit
+
 Vous pouvez vérifier que vous êtes inscrit en examinant vos paramètres.
 
 1. Ouvrez **Paramètres**, puis sélectionnez **Comptes**.
 
     ![Comptes dans l’écran Paramètres](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Sélectionnez **Accès Professionnel ou Scolaire** et vérifiez que vous voyez votre compte professionnel ou scolaire.
+1. Sélectionnez **Accès Professionnel ou Scolaire** et vérifiez que vous voyez votre compte professionnel ou scolaire.
 
     ![Écran Accès Professionnel ou Scolaire avec compte contoso connecté](./media/user-help-register-device-on-network/register-device-setup-verify.png)
 

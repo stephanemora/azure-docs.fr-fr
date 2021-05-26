@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 5b4854183e345124048e8e06456fedbc4b1b8e5e
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: e5bf54426f3aeedbeeaae7ff4a232e46a1ebf3e3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715391"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064645"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -236,7 +236,7 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Attribuée par le système | ![Disponible][check] | ![Disponible][check] | Non disponible | ![Disponible][check] |
-| Attribuée par l'utilisateur | ![Disponible][check] | ![Disponible][check] | Non disponible | ![Disponible][check] |
+| Attribuée par l'utilisateur | ![Disponible][check] | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous à la liste suivante pour configurer l’identité managée du service Azure IoT Hub (dans les régions où il est disponible) :
 
