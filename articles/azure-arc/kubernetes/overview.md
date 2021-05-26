@@ -2,19 +2,19 @@
 title: Vue d’ensemble de Kubernetes avec Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/03/2021
+ms.date: 05/25/2021
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
 description: Cet article offre une vue d’ensemble de Kubernetes avec Azure Arc.
 keywords: Kubernetes, Arc, Azure, conteneurs
 ms.custom: references_regions
-ms.openlocfilehash: 69e9886f214d0076c8e66231fd6ad15bb060828f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 74db1dda9ffdf40ec7e6a571a63986d4ab75c193
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449645"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375351"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>Qu’est-ce que Kubernetes avec Azure Arc ?
 
@@ -48,6 +48,8 @@ Kubernetes avec Azure Arc prend en charge les scénarios suivants :
 * Appliquer une protection contre les menaces à l'aide d'Azure Defender pour Kubernetes.
 
 * Appliquer des stratégies à l’aide d’Azure Policy pour Kubernetes.
+
+* Créer des [emplacements personnalisés](./custom-locations.md) comme emplacements cibles où déployer Data Services avec Azure Arc, [App Services sur Azure Arc](../../app-service/overview-arc-integration.md) (y compris les applications web, de fonction et logiques) et [Event Grid sur Kubernetes](/azure/event-grid/kubernetes/overview).
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

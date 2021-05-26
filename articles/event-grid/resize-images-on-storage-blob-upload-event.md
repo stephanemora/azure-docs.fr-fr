@@ -3,12 +3,12 @@ title: 'Tutoriel : Utiliser Azure Event Grid pour automatiser le redimensionnem
 description: 'Tutoriel : Azure Event Grid peut être déclenché en cas de chargement d’objets blob dans le stockage Azure. Vous pouvez utiliser cette fonctionnalité pour envoyer des fichiers image chargés dans le stockage Azure vers d’autres services, tels qu’Azure Functions, en vue de les redimensionner ou de leur apporter d’autres améliorations.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: e88dff9dcf06ad5eb120c11c4c17c3ef318e4418
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 5b5630fe969f248f10065f1fb5049112da03e391
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897124"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457749"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutoriel : Automatiser le redimensionnement des images chargées à l’aide d’Event Grid
 
@@ -22,7 +22,7 @@ Pour ajouter la fonctionnalité de redimensionnement à une application existant
 
 ![Capture d’écran montrant une application web publiée dans un navigateur pour le SDK \.NET v12.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
-# <a name="nodejs-v10-sdk"></a>[SDK Node.js V10](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[SDK Node.js v10](#tab/nodejsv10)
 
 ![Capture d’écran montrant une application web publiée dans un navigateur pour le SDK \.NET v10.](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
@@ -163,7 +163,7 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
   THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
 ```
 
-# <a name="nodejs-v10-sdk"></a>[SDK Node.js V10](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[SDK Node.js v10](#tab/nodejsv10)
 
 ```bash
 blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName \
@@ -217,7 +217,7 @@ az functionapp deployment source config --name $functionapp --resource-group $re
   --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
-# <a name="nodejs-v10-sdk"></a>[SDK Node.js V10](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[SDK Node.js v10](#tab/nodejsv10)
 
 La fonction d’exemple de redimensionnement Node.js est disponible sur [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10). Déployez ce projet de code de fonction dans l’application de fonction à l’aide de la commande [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
@@ -245,7 +245,7 @@ Ce projet utilise `EventGridTrigger` pour le type de déclencheur. Il est préf�
 
 Pour en savoir plus sur cette fonction, consultez les [fichiers function.json et run.csx](https://github.com/Azure-Samples/function-image-upload-resize/tree/master/ImageFunctions).
 
-# <a name="nodejs-v10-sdk"></a>[SDK Node.js V10](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[SDK Node.js v10](#tab/nodejsv10)
 
 Pour plus d’informations sur cette fonction, consultez les [fichiers function.json et index.js files](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10/tree/master/Thumbnail).
 
@@ -303,7 +303,7 @@ Notez que, lorsque l’image chargée disparaît, une copie de celle-ci est affi
 
 ![Capture d’écran montrant une application web publiée intitulée « ImageResizer » dans un navigateur pour le SDK \.NET v12.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
-# <a name="nodejs-v10-sdk"></a>[SDK Node.js V10](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[SDK Node.js v10](#tab/nodejsv10)
 
 Cliquez sur **Choisir un fichier** pour sélectionner un fichier, puis cliquez sur **Charger une image**. Lorsque le chargement est terminé, le navigateur accède à une page de confirmation. Cliquez sur le lien pour revenir à la page d’accueil. Une copie de l’image chargée s’affiche dans la zone **Miniatures générées**. (si l’image ne s’affiche pas, essayez de recharger la page). Cette image a été redimensionnée par la fonction, ajoutée au conteneur *thumbnails* et téléchargée par le client web.
 

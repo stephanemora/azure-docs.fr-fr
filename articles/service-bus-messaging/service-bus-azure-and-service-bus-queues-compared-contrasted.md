@@ -3,12 +3,12 @@ title: Comparer les files d’attente de stockage Azure et les files d’attente
 description: Analyse les différences et les similitudes entre les deux types de files d'attente proposés par Azure.
 ms.topic: article
 ms.date: 04/12/2021
-ms.openlocfilehash: 1c3b0fda12d5e301b17a342c5d5ed11ab76c76da
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: a63ed276981a692b96b7e7369093af221b3d3a5f
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304356"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190128"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
 Cet article analyse les différences et les similitudes entre les deux types de files d’attente proposés par Microsoft Azure : Files d’attente de stockage et files d’attente Service Bus. À l’aide de ces informations, vous pouvez prendre une décision plus éclairée sur la solution qui répond le mieux à vos besoins.
@@ -100,7 +100,7 @@ Cette section compare les fonctionnalités avancées des files d’attente Azure
 | Prise en charge des messages incohérents |**Oui** |**Oui** |
 | Mise à jour sur place |**Oui** |**Oui** |
 | Journal des transactions côté serveur |**Oui** |**Non** |
-| Métriques de stockage |**Oui**<br/><br/>Les **métriques par minute** fournissent des métriques en temps réel pour la disponibilité, le TPS, le nombre d’appels d’API, le nombre d’erreurs, etc. Elles sont toutes en temps réel, agrégées par minute et signalées dans les quelques minutes qui suivent ce qui vient de se passer en production. Pour plus d’informations, voir la page [À propos des mesures Storage Analytics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Oui**<br/><br/>Pour plus d’informations sur les métriques prises en charge par Azure Service Bus, consultez [Métriques de message](service-bus-metrics-azure-monitor.md#message-metrics). |
+| Métriques de stockage |**Oui**<br/><br/>Les **métriques par minute** fournissent des métriques en temps réel pour la disponibilité, le TPS, le nombre d’appels d’API, le nombre d’erreurs, etc. Elles sont toutes en temps réel, agrégées par minute et signalées dans les quelques minutes qui suivent ce qui vient de se passer en production. Pour plus d’informations, voir la page [À propos des mesures Storage Analytics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Oui**<br/><br/>Pour plus d’informations sur les métriques prises en charge par Azure Service Bus, consultez [Métriques de message](monitor-service-bus-reference.md#message-metrics). |
 | Gestion de l'état |**Non** |**Oui** (Active, Disabled, SendDisabled, ReceiveDisabled. Pour plus d’informations sur ces états, consultez [État de la file d’attente](entity-suspend.md#queue-status).) |
 | Transfert automatique de messages |**Non** |**Oui** |
 | Fonction de purge de la file d'attente |**Oui** |**Non** |

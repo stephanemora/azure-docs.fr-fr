@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5740c1c299e8a6a2e8874bd13aae76b0353cc6a2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3937e0a6c00de78acfa774ab6446d2b3d8e68206
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775867"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377121"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurer un cluster AKS
 
@@ -74,11 +74,9 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 
 ## <a name="container-runtime-configuration"></a>Configuration du runtime de conteneur
 
-Un runtime de conteneur est un logiciel qui exécute des conteneurs et gère des images conteneur sur un nœud. Le runtime permet d’abstraire les appels système ou les fonctionnalités spécifiques au système d’exploitation pour exécuter des conteneurs sous Linux ou Windows. Les clusters AKS utilisant des pools de nœuds Kubernetes version 1.19 et ultérieure utilisent`containerd` comme runtime de conteneur. Les clusters AKS utilisant une version de Kubernetes antérieure à v1.19 pour les pools de nœuds utilisent [Moby](https://mobyproject.org/) (Docker en amont) comme runtime de conteneur.
+Un runtime de conteneur est un logiciel qui exécute des conteneurs et gère des images conteneur sur un nœud. Le runtime permet d’abstraire les appels système ou les fonctionnalités spécifiques au système d’exploitation pour exécuter des conteneurs sous Linux ou Windows. Pour des pools de nœuds Linux, `containerd` est utilisé pour les pools de nœuds utilisant Kubernetes version 1.19 ou ultérieure, et Docker est utilisé pour les pools de nœuds utilisant Kubernetes version 1.18 ou antérieure. Pour des pools de nœuds Windows Server 2019, `containerd` est disponible en préversion et peut être utilisé dans les pools de nœuds utilisant Kubernetes version 1.20 ou ultérieure, mais Docker est toujours utilisé par défaut.
 
-![CRI Docker 1](media/cluster-configuration/docker-cri.png)
-
-[`Containerd`](https://containerd.io/) est un runtime de conteneur principal conforme à la norme [OCI](https://opencontainers.org/) (Open Container Initiative) qui fournit l’ensemble minimal de fonctionnalités requises pour exécuter des conteneurs et gérer des images sur un nœud. Il a été [remis gracieusement](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) à la Cloud Native Compute Foundation (CNCF) en mars 2017. La version actuelle de Moby utilisée par AKS s’appuie déjà sur `containerd`, comme indiqué ci-dessus.
+[`Containerd`](https://containerd.io/) est un runtime de conteneur principal conforme à la norme [OCI](https://opencontainers.org/) (Open Container Initiative) qui fournit l’ensemble minimal de fonctionnalités requises pour exécuter des conteneurs et gérer des images sur un nœud. Il a été [remis gracieusement](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) à la Cloud Native Compute Foundation (CNCF) en mars 2017. La version actuelle de Moby (Docker amont) qu’utilise AKS s’appuie déjà sur `containerd`, comme indiqué ci-dessus.
 
 Grâce à un nœud et à des pools de nœuds `containerd`, au lieu de communiquer avec le `dockershim`, le kubelet communique directement avec `containerd` via le plug-in CRI (interface du runtime de conteneur), ce qui supprime les tronçons additionnels sur le flux par rapport à l’implémentation de la CRI Docker. Ainsi, vous constaterez une meilleure latence au démarrage du pod et une moindre utilisation des ressources (processeur et mémoire).
 
@@ -89,21 +87,21 @@ En utilisant `containerd` pour les nœuds AKS, la latence au démarrage du pod 
 `Containerd` fonctionne sur chaque version GA de Kubernetes dans AKS et dans chaque version de Kubernetes en amont ultérieure à v1.19 et prend en charge toutes les fonctionnalités Kubernetes et AKS.
 
 > [!IMPORTANT]
-> Les clusters avec des pools de nœuds créés sur Kubernetes v1.19 ou version ultérieure ont par défaut `containerd` comme runtime de conteneur. Les clusters avec des pools de nœuds sur une version de Kubernetes prise en charge antérieure à v1.19 reçoivent `Moby` comme runtime de conteneur, mais seront mis à jour vers `ContainerD` une fois la version de Kubernetes du pool de nœuds mise à jour vers la version 1.19 ou ultérieure. Vous pouvez toujours utiliser les clusters et les pools de nœuds `Moby` sur des versions antérieures tant qu’elles sont prises en charge.
+> Les clusters avec des pools de nœuds Linux créés sur Kubernetes version 1.19 ou ultérieure ont par défaut `containerd` comme runtime de conteneur. Les clusters avec des pools de nœuds sur des versions antérieures de Kubernetes prises en charge reçoivent Docker comme runtime de conteneur. Les pools de nœuds Linux sont mis à jour en `containerd` une fois la version de Kubernetes du pool de nœuds mise à jour vers une version prenant en charge `containerd`. Vous pouvez toujours utiliser des clusters et pools de nœuds Docker sur des versions antérieures tant qu’elles sont prises en charge.
 > 
-> Il est vivement recommandé de tester vos charges de travail sur les pools de nœuds AKS avec `containerD` avant d’utiliser des clusters sur la version 1.19 ou ultérieure.
+> L’utilisation de `containerd` avec des pools de nœuds Windows Server 2019 est actuellement en préversion. Pour plus d’informations, consultez [Ajouter un pool de nœuds Windows Server avec `containerd`][aks-add-np-containerd].
+> 
+> Il est vivement recommandé de tester vos charges de travail sur des pools de nœuds AKS avec `containerd` avant d’utiliser des clusters avec une version de Kubernetes prenant en charge `containerd` pour vos pools de nœuds.
 
 ### <a name="containerd-limitationsdifferences"></a>Limitations/différences de `Containerd`
 
-* Pour utiliser `containerd` comme runtime de conteneur, vous devez utiliser AKS Ubuntu 18.04 comme image de système d’exploitation de base.
-* Alors que le jeu d’outils Docker est toujours présent sur les nœuds, Kubernetes utilise `containerd` comme runtime de conteneur. Par conséquent, étant donné que Moby/Docker ne gère pas les conteneurs créés par Kubernetes sur les nœuds, vous ne pouvez pas visualiser vos conteneurs ni interagir avec eux à l’aide des commandes Docker (par exemple, `docker ps`) ou de l’API Docker.
 * Pour `containerd`, nous vous recommandons d’utiliser [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) comme interface CLI de remplacement au lieu de l’interface de ligne de commande Docker pour **résoudre des problèmes** relatifs aux pods, aux containers et aux images conteneur sur les nœuds Kubernetes (par exemple, `crictl ps`). 
    * Elle n’offre pas toutes les fonctionnalités de l’interface de ligne de commande Docker. Elle est uniquement destinée à la résolution des problèmes.
    * `crictl` offre une vue des conteneurs plus adaptée à Kuberbetes, avec des concepts tels que les pods, etc.
 * `Containerd` configure la journalisation en utilisant le format de journalisation `cri` standardisé (qui diffère de ce que vous obtenez actuellement du pilote JSON de Docker). Votre solution de journalisation doit prendre en charge le format de journalisation `cri` (par exemple, [Azure Monitor pour les conteneurs](../azure-monitor/containers/container-insights-enable-new-cluster.md)).
 * Vous ne pouvez plus accéder au moteur Docker, `/var/run/docker.sock`, ni utiliser Docker-in-Docker (DinD).
   * Si vous extrayez actuellement des journaux d’applications ou des données de surveillance à partir du moteur Docker, utilisez plutôt une fonctionnalité telle qu’[Azure Monitor pour les conteneurs](../azure-monitor/containers/container-insights-enable-new-cluster.md). En outre, AKS ne prend pas en charge l’exécution de commandes hors bande sur les nœuds d’agent qui pourraient provoquer une instabilité.
-  * Même en cas d’utilisation de Moby/Docker, il est fortement déconseillé de créer des images et d’utiliser directement le moteur Docker via les méthodes ci-dessus. Kubernetes ne connaît pas pleinement les ressources consommées, et ces approches présentent de nombreux problèmes détaillés [ici](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) et [ici](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), par exemple.
+  * Même en cas d’utilisation de Docker, il est fortement déconseillé de créer des images et d’utiliser directement le moteur Docker via les méthodes ci-dessus. Kubernetes ne connaît pas pleinement les ressources consommées, et ces approches présentent de nombreux problèmes détaillés [ici](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) et [ici](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), par exemple.
 * Création d’images : vous pouvez continuer à utiliser votre workflow de génération Docker actuel comme d’habitude, sauf si vous générez des images dans votre cluster AKS. Dans ce cas, envisagez de passer à l’approche recommandée pour la création d’images à l’aide de [tâches ACR](../container-registry/container-registry-quickstart-task-cli.md) ou d’une option de cluster plus sécurisée comme [Docker buildx](https://github.com/docker/buildx).
 
 ## <a name="generation-2-virtual-machines"></a>Ordinateurs virtuels de génération 2
@@ -124,7 +122,7 @@ En revanche, les disques de système d’exploitation éphémères sont stockés
 À l’instar du disque temporaire, un disque de système d’exploitation éphémère est inclus dans le prix de la machine virtuelle, ce qui signifie que vous n’encourez aucun coût de stockage supplémentaire.
 
 > [!IMPORTANT]
->Lorsqu’un utilisateur ne demande pas explicitement de disques managés pour le système d’exploitation, AKS utilise par défaut le système d’exploitation éphémère si possible pour une configuration de pool de nœuds donnée.
+>Quand un utilisateur ne demande pas explicitement de disques managés pour le système d’exploitation, si possible, AKS utilise par défaut le système d’exploitation éphémère pour une configuration de pool de nœuds donnée.
 
 Lorsque vous utilisez le système d’exploitation éphémère, le disque de système d’exploitation doit tenir dans le cache de la machine virtuelle. Les tailles du cache de la machine virtuelle sont disponibles dans la [documentation Azure](../virtual-machines/dv3-dsv3-series.md) entre parenthèses à côté du débit d’E/S (« taille du cache en Gio »).
 
@@ -197,3 +195,4 @@ Lorsque vous travaillez avec le groupe de ressources de nœud, n’oubliez pas q
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd-preview

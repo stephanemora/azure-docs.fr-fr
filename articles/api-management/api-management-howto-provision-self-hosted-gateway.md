@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: e79248e16ca21ae84022f8ac7f280d93f489c6a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d75ec1bcb9abd41a1d02c80afec8837f25d3234
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87050349"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370409"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Approvisionner une passerelle auto-hébergée dans Gestion des API Azure
 
@@ -50,4 +50,5 @@ La ressource de passerelle a maintenant été approvisionnée dans votre instanc
 
 * Pour en savoir plus sur la passerelle auto-hébergée, consultez [Vue d’ensemble de la passerelle auto-hébergée Gestion des API](self-hosted-gateway-overview.md)
 * Apprenez-en davantage pour [Déployer une passerelle auto-hébergée sur Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
+- Découvrez comment [Déployer une passerelle auto-hébergée sur des clusters Kubernetes avec Azure Arc](how-to-deploy-self-hosted-gateway-azure-arc.md)
 * Apprenez-en davantage sur [Déployer une passerelle auto-hébergée sur Docker](how-to-deploy-self-hosted-gateway-docker.md)

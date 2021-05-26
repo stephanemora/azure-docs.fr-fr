@@ -3,20 +3,23 @@ title: Récupération d’urgence et géodistribution - Azure Durable Functions
 description: En savoir plus sur la récupération d’urgence et la géodistribution dans Durable Functions.
 author: MS-Santi
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 05/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 01c400f51cce85ef39e9d39bcad1221253c6942d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18919b56ffdc9368f2593f2384b3d7a8e836afd0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89071208"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375961"
 ---
 # <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Récupération d’urgence et géodistribution dans Azure Durable Functions
 
 Microsoft s’efforce de faire en sorte que les services Azure soient toujours disponibles. Toutefois, des interruptions de service non planifiées peuvent se produire. Si votre application a besoin de résilience, Microsoft recommande de configurer votre application pour la géoredondance. De plus, les clients doivent disposer d’un plan de reprise d’activité après sinistre afin de gérer toute interruption de service régionale. La préparation du basculement vers le réplica secondaire de votre application et de votre stockage au cas où le réplica principal deviendrait indisponible compte pour part importante du plan de reprise d’activité.
 
 Dans Durable Functions, tous les états sont conservés par défaut dans Stockage Azure. Un [hub de tâches](durable-functions-task-hubs.md) est un conteneur logique réservé aux ressources Stockage Azure utilisées pour les [orchestrations](durable-functions-types-features-overview.md#orchestrator-functions) et les [entités](durable-functions-types-features-overview.md#entity-functions). Les fonctions d’orchestrateur, d’activité et d’entité ne peuvent interagir que si elles appartiennent au même hub de tâches. Ce document fait référence aux hubs de tâches pour la description de scénarios visant à assurer une haute disponibilité de ces ressources Stockage Azure.
+
+> [!NOTE]
+> Les instructions de cet article supposent que vous utilisez le fournisseur Stockage Azure par défaut pour stocker l’état du runtime Durable Functions. Toutefois, il est possible de configurer d’autres fournisseurs de stockage qui stockent l’état ailleurs, par exemple une base de données SQL Server. Différentes stratégies de récupération d’urgence et de géo-distribution peuvent être requises pour les autres fournisseurs de stockage. Pour plus d’informations sur les autres fournisseurs de stockage, consultez la documentation sur les [fournisseurs de stockage Durable Functions](durable-functions-storage-providers.md).
 
 Les orchestrations et les entités peuvent être déclenchées à l’aide de [fonctions clientes](durable-functions-types-features-overview.md#client-functions) qui sont elles-mêmes déclenchées via HTTP ou l’un des autres types de déclencheurs Azure Functions pris en charge. Ils peuvent aussi être déclenchés à l’aide des [API HTTP intégrées](durable-functions-http-features.md#built-in-http-apis). Par souci de simplicité, cet article porte essentiellement sur les scénarios impliquant des déclencheurs de fonctions basées sur Stockage Azure et HTTP ainsi que sur les options permettant d’accroître la disponibilité et de limiter les temps d’arrêt pendant les opérations de reprise d’activité. D’autres types de déclencheurs, tels que les déclencheurs Service Bus ou Cosmos DB, ne sont pas explicitement abordés.
 

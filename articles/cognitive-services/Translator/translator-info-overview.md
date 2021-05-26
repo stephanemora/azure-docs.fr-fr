@@ -12,34 +12,32 @@ ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: traducteur, traduction de texte, traduction automatique, service de traduction
-ms.openlocfilehash: ec76aa7554110b7440eb825f2d5e86ae2da6baa2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8ece17a0f1452c7ea7f90fc5e14758c03ac36651
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657720"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076507"
 ---
 # <a name="what-is-the-translator-service"></a>Qu’est-ce que le service Translator ?
 
 Translator est un service de traduction automatique basé sur le cloud qui fait partie de la famille [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) des API cognitives utilisées pour créer des applications intelligentes. Il est facile d’intégrer Translator à vos applications, sites web, outils et solutions. Cette interface vous permet d’ajouter des expériences utilisateur multilingues dans [plus de 90 langues et dialectes](./language-support.md). Elle peut être utilisée pour la traduction de texte avec n’importe quel système d’exploitation.
 
-Cette documentation contient les types d’articles suivants :  
+Cette documentation contient les types d’articles suivants :
 
-* Les [**Démarrages rapides**](quickstart-translator.md) sont des instructions de prise en main qui vous guident dans la formulation de vos requêtes au service.  
-* Les [**Guides pratiques**](translator-how-to-signup.md) contiennent des instructions sur l’utilisation du service de manière plus spécifique ou personnalisée.  
-* Les [**Concepts**](character-counts.md) fournissent des explications approfondies sur les fonctions et fonctionnalités du service.  
-* Les [**Tutoriels**](tutorial-wpf-translation-csharp.md) sont des guides plus longs qui montrent comment utiliser le service en tant que composant dans des solutions métier élargies.  
-
+* Les [**Démarrages rapides**](quickstart-translator.md) sont des instructions de prise en main qui vous guident dans la formulation de vos requêtes au service.
+* Les [**Guides pratiques**](translator-how-to-signup.md) contiennent des instructions sur l’utilisation du service de manière plus spécifique ou personnalisée.
+* Les [**Tutoriels**](tutorial-wpf-translation-csharp.md) sont des guides plus longs qui montrent comment utiliser le service en tant que composant dans des solutions métier élargies.
 
 ## <a name="about-microsoft-translator"></a>À propos de Microsoft Translator
 
 Translator alimente de nombreux produits et services Microsoft. Il est utilisé par des milliers d’entreprises à travers le monde au sein d’applications et de workflows.
 
-La traduction vocale, technologie de Translator, est également disponible par le biais du [service Azure Speech](../speech-service/index.yml). Il combine les fonctionnalités de l’API Traduction de conversation Translator Speech et du Custom Speech Service en un service unifié et entièrement personnalisable. 
+La traduction vocale, technologie de Translator, est également disponible par le biais du [service Azure Speech](../speech-service/index.yml). Il combine les fonctionnalités de l’API Traduction de conversation Translator Speech et du Custom Speech Service en un service unifié et entièrement personnalisable.
 
 ## <a name="language-support"></a>Support multilingue
 
-Translator fournit une prise en charge multilingue pour la traduction de texte, la translittération, la détection de la langue et les dictionnaires. Consultez [Prise en charge de la langue](language-support.md) pour obtenir une liste complète, ou accéder à la liste par programmation avec l’[API REST](./reference/v3-0-languages.md).  
+Translator fournit une prise en charge multilingue pour la traduction de texte, la translittération, la détection de la langue et les dictionnaires. Consultez [Prise en charge de la langue](language-support.md) pour obtenir une liste complète, ou accéder à la liste par programmation avec l’[API REST](./reference/v3-0-languages.md).
 
 ## <a name="microsoft-translator-neural-machine-translation"></a>Traduction automatique neuronale Microsoft Translator
 
@@ -49,7 +47,7 @@ La NMT fournit de meilleures traductions que la SMT, non seulement en termes de 
 
 Les modèles NMT sont au cœur de l’API et ne sont pas visibles aux utilisateurs finaux. La seule différence notable réside dans l’amélioration de la qualité des traductions, en particulier pour les langues telles que le chinois, le japonais et l’arabe.
 
-Découvrez-en plus sur le [fonctionnement de la traduction automatique neuronale](https://www.microsoft.com/en-us/translator/mt.aspx#nnt).
+Découvrez-en plus sur le [fonctionnement de la traduction automatique neuronale](https://www.microsoft.com/translator/mt.aspx#nnt).
 
 ## <a name="improve-translations-with-custom-translator"></a>Améliorer les traductions avec Custom Translator
 
@@ -59,7 +57,7 @@ Avec Custom Translator, vous pouvez créer des systèmes de traduction qui prenn
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créez une ressource de service Translator](./translator-how-to-signup.md) pour obtenir vos clés d’accès et votre point de terminaison.
-- Essayez notre [guide de démarrage rapide](quickstart-translator.md) pour appeler rapidement le service Translator.
-- Les [informations de référence sur les API](./reference/v3-0-reference.md) constituent leur documentation technique.
-- [Détails de la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
+* [Créez une ressource de service Translator](./translator-how-to-signup.md) pour obtenir vos clés d’accès et votre point de terminaison.
+* Essayez notre [guide de démarrage rapide](quickstart-translator.md) pour appeler rapidement le service Translator.
+* Les [informations de référence sur les API](./reference/v3-0-reference.md) constituent leur documentation technique.
+* [Détails de la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

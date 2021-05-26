@@ -1,26 +1,43 @@
 ---
 title: Nouveautés de Form Recognizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Comprenez les dernières modifications apportées à l’API Form Recognizer.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
-ms.topic: conceptual
-ms.date: 04/28/2021
+ms.topic: overview
+ms.date: 04/14/2021
 ms.author: lajanuar
-ms.openlocfilehash: 58430c94fa1b22954ca640188ced5bfb1fb197d0
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 691094164a9aa57ab9b029455b5e3a0e9fefd63f
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293318"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373968"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
 # <a name="whats-new-in-form-recognizer"></a>Nouveautés de Form Recognizer
 
-Le service Form Recognizer est régulièrement mis à jour. Lisez cet article pour vous tenir informé des améliorations de fonctionnalités, des correctifs et des mises à jour de la documentation.
+Le service Form Recognizer est régulièrement mis à jour. Ajoutez cette page aux favoris pour rester informé des mises à jour des notes de publication, des améliorations apportées aux fonctionnalités et des mises à jour de la documentation.
+
+## <a name="may-2021"></a>Mai 2021
+
+### <a name="form-recognizer-21-ga"></a>Form Recognizer 2.1 (GA)
+
+Form Recognizer 2.1 est en disponibilité générale. Cette version vous permet de détecter et d’extraire des informations et des données dans des :
+
+* [Documents](concept-layout.md)
+* [Reçus](concept-receipts.md)
+* [Cartes de visite](concept-business-cards.md)
+* [Factures](concept-invoices.md)
+* [Documents d’identité](concept-identification-cards.md)
+* [Formulaires personnalisés](concept-custom.md)
+
+### <a name="layout-adds-table-headers"></a>Ajout d’en-têtes de table dans Layout
+
+La fonctionnalité de table de l’API Layout mise à jour ajoute à la reconnaissance des en-têtes les en-têtes de colonnes pouvant s’étendre sur plusieurs lignes. Chaque cellule de table possède un attribut qui indique si elle fait partie d’un en-tête ou non. Cet ajout peut servir à identifier les lignes qui composent l’en-tête de table.
 
 ## <a name="april-2021"></a>Avril 2021
 <!-- markdownlint-disable MD029 -->
@@ -258,7 +275,7 @@ La version **v2.0** inclut la mise à jour suivante :
 De **nouveaux exemples** sont disponibles sur GitHub.
 
 * Le manuel [Recettes d’extraction de connaissances – Playbook de formulaires](https://github.com/microsoft/knowledge-extraction-recipes-forms) recueille les meilleures pratiques d’engagement des clients de Form Recognizer, et fournit des exemples de code utilisables, des listes de contrôle et des exemples de pipelines utilisés dans le développement de ces projets.
-* L’[exemple d’outil d’étiquetage](https://github.com/microsoft/OCR-Form-Tools) a été mis à jour pour prendre en charge la nouvelle fonctionnalité v2.1. Consultez ce [démarrage rapide](quickstarts/label-tool.md) pour bien démarrer avec l’outil.
+* L’[exemple d’outil d’étiquetage](https://github.com/microsoft/OCR-Form-Tools) a été mis à jour pour prendre en charge la nouvelle fonctionnalité v2.1. Consultez ce [démarrage rapide](label-tool.md) pour bien démarrer avec l’outil.
 * L’exemple de Form Recognizer de [Kiosque intelligent](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) kiosque montre comment intégrer `Analyze Receipt` et `Train Custom Model` - _Effectuer l’entraînement sans étiquettes_.
 
 ## <a name="july-2020"></a>Juillet 2020
@@ -322,7 +339,7 @@ De **nouveaux exemples** sont disponibles sur GitHub.
   * `time`
   * `integer`
 
-  Pour savoir comment utiliser cette fonctionnalité, consultez le guide de l’[outil d’étiquetage des exemples](./quickstarts/label-tool.md#specify-tag-value-types).
+  Pour savoir comment utiliser cette fonctionnalité, consultez le guide de l’[outil d’étiquetage des exemples](label-tool.md#specify-tag-value-types).
 
 * **Visualisation des tables** : l’outil d’étiquetage des exemples affiche désormais les tables reconnues dans le document. Cette fonctionnalité vous permet de visualiser les tables qui ont été reconnues et extraites du document, avant l’étiquetage et l’analyse. Cette fonctionnalité peut être activée/désactivée à l'aide de l'option couches.
 

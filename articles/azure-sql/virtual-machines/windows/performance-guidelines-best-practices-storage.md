@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: 23e006c637285ad484e98b23b2a9f506156f519c
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 9a9cfc444c101b603b5287fa862c36d5befef91a
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389721"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110189653"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>Stockage : Meilleures pratiques sur les performances de SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,8 +51,6 @@ Consultez la liste de contrôle suivante pour obtenir une vue d’ensemble des m
     - Arrêtez toujours le service SQL Server avant de modifier les paramètres de cache de votre disque.
 - Pour les charges de travail de développement et de test, et l’archivage de sauvegarde à long terme, pensez à utiliser le stockage standard. Il n’est pas recommandé d’utiliser HDD/SDD Standard pour les charges de travail de production.
 - Le [bursting de disque basé sur les crédits](../../../virtual-machines/disk-bursting.md#credit-based-bursting) (P1-P20) ne doit être pris en compte que pour les charges de travail de dev/test et les systèmes départementaux plus petits.
-- Configurez le compte de stockage dans la même région que la machine virtuelle SQL Azure. 
-- Désactivez le stockage géoredondant Azure (géoréplication) et utilisez LRS (stockage local redondant) sur le compte de stockage.
 - Formatez votre disque de données afin d’utiliser une taille de bloc (taille d’unité d’allocation) de 64 Ko pour tous les fichiers de données placés sur un lecteur autre que le lecteur `D:\` temporaire (dont la valeur par défaut est de 4 Ko). Les machines virtuelles SQL Server déployées via la Place de marché Azure sont fournies avec des disques de données formatés selon une taille de bloc et un entrelacement pour le pool de stockage de 64 Ko. 
 
 Pour comparer la liste de contrôle de stockage avec les autres, consultez la [Liste de contrôle des meilleures pratiques relatives aux performances](performance-guidelines-best-practices-checklist.md). 
@@ -163,7 +161,7 @@ Par exemple, la documentation de la [série M](../../../virtual-machines/m-serie
 
 De même, vous pouvez voir que la machine virtuelle Standard_M32ts prend en charge 20 000 IOPS de disque sans mise en cache et un débit de disque de 500 Mbits/s sans mise en cache. Cette limite est régie par le niveau de la machine virtuelle, quel que soit le stockage sur disque Premium sous-jacent.
 
-Pour plus d’informations, consultez les [limitations avec et sans mise en cache](../../../virtual-machines/linux/disk-performance-linux.md#virtual-machine-uncached-vs-cached-limits).
+Pour plus d’informations, consultez les [limitations avec et sans mise en cache](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits).
 
 
 ### <a name="cached-and-temp-storage-throughput"></a>Débit de stockage temporaire et mis en cache max
@@ -231,7 +229,7 @@ Pour plus d’informations sur les limitations de l’encapsulation de disque et
 
 ## <a name="write-acceleration"></a>Accélération d’écriture
 
-L’accélération d’écriture est une fonctionnalité de disque qui est uniquement disponible pour les machines virtuelles de la [série M](https://docs.microsoft.com/azure/virtual-machines/m-series). L’objectif de l’accélération d’écriture est d’améliorer la latence d’E/S des écritures sur le stockage Premium Azure lorsque vous avez besoin d’une latence d’E/S à un chiffre en raison de charges de travail OLTP critiques ou d’environnements d’entrepôts de données de grande envergure. 
+L’accélération d’écriture est une fonctionnalité de disque qui est uniquement disponible pour les machines virtuelles de la [série M](../../../virtual-machines/m-series.md). L’objectif de l’accélération d’écriture est d’améliorer la latence d’E/S des écritures sur le stockage Premium Azure lorsque vous avez besoin d’une latence d’E/S à un chiffre en raison de charges de travail OLTP critiques ou d’environnements d’entrepôts de données de grande envergure. 
 
 Utilisez l’accélération d’écriture pour améliorer la latence d’écriture sur le lecteur qui héberge les fichiers journaux. N’utilisez pas l’accélération d’écriture pour les fichiers de données SQL Server. 
 

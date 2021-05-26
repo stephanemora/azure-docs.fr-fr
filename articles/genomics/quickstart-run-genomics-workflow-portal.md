@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 6daec7658c6db6c18bd198b9aff0b8993f27ac22
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c02ed16208338edce7e29f5a516ec5af13ab07aa
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102177245"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477860"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Démarrage rapide : Exécuter un workflow par le biais du service Microsoft Genomics
 
@@ -35,7 +35,7 @@ Configurez votre compte Genomics avec les informations suivantes, tel que repré
 
  |**Paramètre**          |  **Valeur suggérée**  | **Description du champ** |
  |:-------------       |:-------------         |:----------            |
- |Abonnement         | Votre nom d’abonnement|Il s’agit de l’unité de facturation de vos services Azure. Pour plus de détails sur votre abonnement, consultez la section [Abonnements](https://account.azure.com/Subscriptions) |      
+ |Abonnement         | Votre nom d’abonnement|Il s’agit de l’unité de facturation de vos services Azure. Pour plus de détails sur votre abonnement, consultez la section [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) |      
  |Resource group       | myResourceGroup       |  Les groupes de ressources vous permettent de rassembler plusieurs ressources Azure (compte de stockage, compte Genomics, etc.) dans un groupe unique, pour une gestion simplifiée. Pour plus d’informations, consultez [Groupes de ressources](../azure-resource-manager/management/overview.md#resource-groups). Pour connaître les noms valides de groupes de ressources, consultez la page [Règles d’affectation des noms](/azure/architecture/best-practices/resource-naming). |
  |Nom du compte         | MyGenomicsAccount     |Choisissez un identifiant de compte unique. Pour connaître les noms valides, consultez la page [Règles d’affectation des noms](/azure/architecture/best-practices/resource-naming). |
  |Emplacement                   | USA Ouest 2                    |    Le service est disponible dans les régions USA Ouest 2, Europe Ouest et Asie Sud-Est. |
@@ -94,7 +94,7 @@ Configurez votre compte de stockage avec les informations suivantes, tel que rep
 
  |**Paramètre**          |  **Valeur suggérée**  | **Description du champ** |
  |:-------------------------       |:-------------         |:----------            |
- |Abonnement         | Votre abonnement Azure |Pour plus d’informations sur votre abonnement, consultez [Abonnements](https://account.azure.com/Subscriptions). |      
+ |Abonnement         | Votre abonnement Azure |Pour plus d’informations sur votre abonnement, consultez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). |      
  |Resource group       | myResourceGroup       |  Vous pouvez sélectionner le même groupe de ressources en tant que compte Genomics. Pour connaître les noms valides de groupes de ressources, consultez la page [Règles d’affectation des noms](/azure/architecture/best-practices/resource-naming). |
  |Nom du compte de stockage         | MyStorageAccount     |Choisissez un identifiant de compte unique. Pour connaître les noms valides, consultez la page [Règles d’affectation des noms](/azure/architecture/best-practices/resource-naming). |
  |Emplacement                  | USA Ouest 2                  | Utilisez l’emplacement de votre compte Genomics, afin de réduire les frais de sortie ainsi que la latence.  | 
