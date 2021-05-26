@@ -4,12 +4,12 @@ description: En savoir plus sur les étapes requises pour activer les nouvelles 
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: a84a9de854123b70ca96531942debc00afb2d6c6
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 0ae01212eaa73deeac4774f7e13f5b46976ee7e2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754494"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075589"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Ressources Application Insights basées sur l’espace de travail
 
@@ -68,7 +68,7 @@ Pour obtenir une documentation détaillée sur la configuration d’un Kit de d�
 - [ASP.NET Core](./asp-net-core.md)
 - [Tâches en arrière-plan et applications console modernes (.NET/.NET Core)](./worker-service.md)
 - [Applications console classiques (.NET)](./console.md) 
-- [Java](./java-get-started.md?tabs=maven)
+- [Java](./java-in-process-agent.md)
 - [JavaScript](./javascript.md)
 - [Node.JS](./nodejs.md)
 - [Python](./opencensus-python.md)

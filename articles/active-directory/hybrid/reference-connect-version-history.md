@@ -12,12 +12,12 @@ ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89fb411a7f985e47fc4f8650dec0ef2ef3d45ad8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 30d36836bf0a0803573f930b0f352a6179be962f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128484"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451475"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -263,7 +263,6 @@ Ce correctif logiciel résout un problème dans la build 1.5.20.0 si vous avez c
 ### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 - Nous avons mis à jour la synchronisation du hachage de mot de passe pour Azure AD Domain Services afin de prendre en compte le remplissage dans les hachages Kerberos.  Cela permet d’améliorer les performances pendant la synchronisation du mot de passe d’Azure AD avec Azure AD Domain Services.
 - Nous avons ajouté la prise en charge de sessions fiables entre l’agent d’authentification et Service Bus.
-- Cette version applique TLS 1.2 pour la communication entre l’agent d’authentification et les services cloud.
 - Nous avons ajouté un cache DNS pour les connexions WebSocket entre l’agent d’authentification et les services cloud.
 - Nous avons ajouté la possibilité de cibler un agent spécifique à partir du cloud pour tester la connectivité de l’agent.
 

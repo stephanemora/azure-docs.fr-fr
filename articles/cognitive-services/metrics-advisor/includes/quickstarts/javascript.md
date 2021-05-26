@@ -9,12 +9,12 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 11/09/2020
 ms.author: mbullwin
-ms.openlocfilehash: f34720697e545a4d8a5119605db2db70dff6c233
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 6ed565c624e542771bdb4f205e618f8fb2b53ed5
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445261"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109844438"
 ---
 [Documentation de référence](/java/api/overview/azure/ai-metricsadvisor-readme) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/README.md) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-metrics-advisor) | [Exemples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples)
 
@@ -60,7 +60,7 @@ Le fichier `package.json` de votre application sera mis à jour avec les dépend
 Créez un fichier nommé `index.js` et importez les bibliothèques suivantes :
 
 > [!TIP]
-> Vous voulez voir l’intégralité du fichier de code de démarrage rapide à la fois ? Vous le trouverez sur [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples/javascript), qui contient les exemples de code utilisés dans ce guide de démarrage rapide.
+> Vous voulez voir l’intégralité du fichier de code de démarrage rapide à la fois ? Vous le trouverez sur [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples/v1/javascript), qui contient les exemples de code utilisés dans ce guide de démarrage rapide.
 
 Créez des variables pour le point de terminaison et la clé Azure de votre ressource. 
 

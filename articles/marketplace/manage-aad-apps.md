@@ -8,12 +8,12 @@ ms.date: 04/06/2021
 author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: be527647466ad76455585e16baabb26e39e42193
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 77f6b2ec71df63da1fe5ff52f948ded9502c5edb
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107879"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076273"
 ---
 # <a name="add-and-manage-azure-ad-applications"></a>Ajouter et gérer des applications Azure AD
 
@@ -41,7 +41,7 @@ Si vous souhaitez accorder l’accès à l’Espace partenaires à un tout nouve
 1. Depuis la page **Utilisateurs** (sous **Paramètres de compte**), sélectionnez **Ajouter des applications Azure AD**.
 1. Sur la page suivante, sélectionnez **Nouvelle application Azure AD**.
 1. Entrez l’**URL de réponse** pour la nouvelle application Azure AD. Il s’agit de l’URL grâce à laquelle les utilisateurs peuvent se connecter et utiliser votre application Azure AD (parfois également appelée URL de l’application ou URL de connexion). L’*URL de réponse* ne peut pas dépasser 256 caractères et doit être unique dans votre répertoire.
-1. Entrez l’**URI ID d’application** pour la nouvelle application Azure AD. Il s’agit d’un identificateur logique de l’application Azure AD qui est présenté lorsqu’une demande d’authentification unique est envoyée à Azure AD. L’*URI ID d’application* doit être unique pour chaque application Azure AD figurant dans votre annuaire. Il ne doit pas comporter plus de 256 caractères. Pour plus d’informations sur l’URI ID d’application, consultez [Intégration d’applications dans Azure Active Directory](/azure/active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts).
+1. Entrez l’**URI ID d’application** pour la nouvelle application Azure AD. Il s’agit d’un identificateur logique de l’application Azure AD qui est présenté lorsqu’une demande d’authentification unique est envoyée à Azure AD. L’*URI ID d’application* doit être unique pour chaque application Azure AD figurant dans votre annuaire. Il ne doit pas comporter plus de 256 caractères. Pour plus d’informations sur l’URI ID d’application, consultez [Intégration d’applications dans Azure Active Directory](/azure/active-directory/develop/howto-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
 1. Dans la section **Rôles**, spécifiez le(s) rôle(s) ou les autorisations personnalisées pour l’application Azure AD.
 1. Sélectionnez **Enregistrer**.
 

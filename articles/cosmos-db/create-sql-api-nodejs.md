@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/07/2021
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: ead4004813cf6415dfa1c7da3d308d93ea49a773
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: a46978e55e41cb05bb4a270c8c241c244e3c5021
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365907"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110100429"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Utiliser Node.js pour se connecter à un compte d’API SQL Azure Cosmos DB et interroger ses données
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -57,26 +57,7 @@ L’option « Essayer Azure Cosmos DB gratuitement » ne nécessite pas d’ab
 
 ## <a name="add-a-container"></a>Ajouter un conteneur
 
-Vous pouvez désormais utiliser l’outil Explorateur de données dans le portail Azure pour créer une base de données et un conteneur.
-
-1. Sélectionnez **Explorateur de données** > **Nouveau conteneur**.
-
-   La zone **Ajouter un conteneur** s’affiche à l’extrême droite : il peut donc être nécessaire de faire défiler à droite pour l’afficher.
-
-   :::image type="content" source="./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png" alt-text="Explorateur de données du portail Azure, volet Ajouter un conteneur":::
-
-2. Dans la page **Ajouter un conteneur**, entrez les paramètres du nouveau conteneur.
-
-   | Paramètre           | Valeur suggérée | Description                                                                                                                                                                                                                                                                                                                                                                           |
-   | ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **ID de base de données**   | Tâches           | Entrez _Tasks_ comme nom pour la nouvelle base de données. Les noms de base de données doivent comporter entre 1 et 255 caractères, et ne peuvent pas contenir les caractères `/, \\, #, ?`, ni un espace de fin. Cochez l’option **Provisionner le débit de base de données** qui vous permet de partager le débit provisionné pour la base de données entre tous les conteneurs au sein de la base de données. Cette option permet également de réduire les coûts. |
-   | **Débit**    | 400             | Laissez le débit sur 400 unités de requête par seconde (RU/s). Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite.                                                                                                                                                                                                                                                    |
-   | **ID de conteneur**  | Éléments           | Entrez _Éléments_ comme nom de votre nouveau conteneur. Les ID de conteneur sont soumis aux mêmes exigences en termes de caractères que les noms de base de données.                                                                                                                                                                                                                                                               |
-   | **Clé de partition** | /category       | L’exemple décrit dans cet article utilise _/category_ comme clé de partition.                                                                                                                                                                                                                                                                                                           |
-
-   Outre les paramètres précédents, vous pouvez ajouter des **clés uniques** pour le conteneur. Laissez le champ vide dans cet exemple. Les clés uniques permettent aux développeurs d’ajouter une couche d’intégrité des données à la base de données. En créant une stratégie de clé unique durant la création d’un conteneur, vous garantissez l’unicité d’une ou de plusieurs valeurs par clé de partition. Pour en savoir plus, référez-vous à l’article [Clés uniques dans Azure Cosmos DB](unique-keys.md).
-
-   Sélectionnez **OK**. L’Explorateur de données affiche la nouvelle base de données et le nouveau conteneur.
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="add-sample-data"></a>Ajouter un exemple de données
 

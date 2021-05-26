@@ -1,6 +1,6 @@
 ---
 title: Cartes d’identité – Form Recognizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Découvrez les concepts liés à l’extraction de données à partir de documents d’identité à l’aide de l’API Pre-built IDs de Form Recognizer.
 services: cognitive-services
 author: laujan
@@ -10,16 +10,35 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: d59df677fda920be5ed9547bee3855d4c9511187
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 9ab936f90fb890d50e6e476e216b327ed26fc4f5
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330833"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374848"
 ---
 # <a name="form-recognizer-prebuilt-identification-id-document-model"></a>Modèle de document d’identification (ID) prédéfini de Form Recognizer
 
-Azure Form Recognizer peut analyser et extraire des informations des documents d’identification gouvernementaux à l’aide de son modèle d’ID prédéfini. Il combine nos puissantes fonctionnalités de [reconnaissance optique de caractères (OCR)](../computer-vision/overview-ocr.md) avec des fonctionnalités de reconnaissance d’identités pour extraire des informations clés de passeports internationaux et de permis de conduire émis aux États-Unis (50 États + Washington D.C.). L’API des cartes d’identité extrait les informations clés de ces documents d’identité, telles que le prénom, le nom, la date de naissance, le numéro du document, etc. Cette API est disponible dans la préversion de Form Recognizer v2.1 en tant que service cloud et comme conteneur local.
+Azure Form Recognizer peut analyser et extraire des informations des documents d’identification gouvernementaux à l’aide de son modèle d’ID prédéfini. Il combine nos puissantes fonctionnalités de [reconnaissance optique de caractères (OCR)](../computer-vision/overview-ocr.md) avec des fonctionnalités de reconnaissance d’identités pour extraire des informations clés de passeports internationaux et de permis de conduire émis aux États-Unis (50 États + Washington D.C.). L’API des cartes d’identité extrait les informations clés de ces documents d’identité, telles que le prénom, le nom, la date de naissance, le numéro du document, etc. Cette API est disponible dans Form Recognizer v2.1 sous forme de service cloud. 
+
+## <a name="customer-scenarios"></a>Scénarios clients
+
+Les données extraites avec l’API Cartes d’identité peuvent être utilisées pour effectuer diverses tâches dans des scénarios visant à identifier la clientèle dans des secteurs comme ceux de la finance, de la santé, de l’assurance, de la fonction publique, etc. Voici quelques exemples :
+
+* Intégration numérique : L’utilisateur final peut utiliser une application mobile pour scanner ses cartes d’identité et s’inscrire à divers services. La vérification du client distant est facilitée par l’extraction des données des cartes d’identité. 
+
+* Validation et mise en correspondance des cartes d’identité : L’utilisateur final peut remplir une demande et attacher des images de cartes d’identité. Les cartes d’identité prédéfinies permettent à une banque de vérifier que les informations correspondent aux données disponibles.
+
+* Préremplissage de formulaires : Dans le cadre d’une déclaration de sinistre à son assureur, l’utilisateur final soumet ses cartes d’identité et les champs sont préremplis dans les documents en ligne, ce qui lui permet de gagner du temps.
+
+L’API Cartes d’identité alimente également la [fonctionnalité de lecture de cartes d’identité AI Builder](/ai-builder/prebuilt-id-reader).
+
+## <a name="try-it-out"></a>Faire un essai
+
+Pour tester le service Form Recognizer relatif aux pièces d’identité, accédez à l’outil d’exemple d’interface utilisateur en ligne :
+
+> [!div class="nextstepaction"]
+> [Essayer des modèles prédéfinis](https://aka.ms/fott-2.1-ga)
 
 ## <a name="what-does-the-id-service-do"></a>Comment le service des pièces d’identité fonctionne-t-il ?
 
@@ -35,7 +54,7 @@ Le service des identités extrait les valeurs clés des passeports internationau
 
 ### <a name="fields-extracted"></a>Champs extraits
 
-|Nom| Type | Description | Valeur |
+|Nom| Type | Description | Value |
 |:-----|:----|:----|:----|
 |  Pays ou région | country | Code pays conforme à la norme ISO 3166 | « USA » |
 |  DateOfBirth | Date | Date de naissance au format AAAA-MM-JJ | « 1980-01-01 » |
@@ -48,14 +67,14 @@ Le service des identités extrait les valeurs clés des passeports internationau
 |  MachineReadableZone | object | MRZ du passeport extraite, y compris 2 lignes de 44 caractères chacun | « P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816 » |
 |  DocumentType ; | string | Type de document, par exemple, passeport ou permis de conduire | « passeport » |
 |  Adresse | string | Adresse extraite (permis de conduire uniquement) | « 123 STREET ADDRESS YOUR CITY WA 99999-1234 »|
-|  Region | string | Région, État, province et autres informations extraites (permis de conduire uniquement) | « Washington » |
+|  Région | string | Région, État, province et autres informations extraites (permis de conduire uniquement) | « Washington » |
 
 ### <a name="additional-features"></a>Fonctionnalités supplémentaires
 
 L’API des cartes d’identité renvoie également les informations suivantes :
 
 * Niveau de confiance de champ (chaque champ retourne une valeur de confiance associée)
-* Texte brut OCR (sortie texte extraite par OCR pour l’intégralité du ticket de caisse)
+* Texte brut OCR (sortie texte extraite par OCR pour l’intégralité du document d’identité)
 * Cadre englobant de chaque champ extrait des permis de conduire émis aux États-Unis
 * Cadre englobant pour la zone lisible par ordinateur (MRZ) sur les passeports
 
@@ -64,24 +83,17 @@ L’API des cartes d’identité renvoie également les informations suivantes 
   >
   > Pre-built IDs de Form Recognizer extrait les données de clé des données d’identification. Toutefois, l’API ne détecte pas la validité ni l’authenticité de la pièce d’identité originale.
 
-## <a name="try-it-out"></a>Faire un essai
-
-Pour tester le service Form Recognizer relatif aux pièces d’identité, accédez à l’outil d’exemple d’interface utilisateur en ligne :
-
-> [!div class="nextstepaction"]
-> [Essayer des modèles prédéfinis](https://fott-preview.azurewebsites.net/)
-
 ## <a name="input-requirements"></a>Critères des entrées
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="supported-locales"></a>Paramètres régionaux pris en charge
 
- **Pre-built ID v2.1-preview.3** (préversion) prend en charge les documents d’identité dans les paramètres régionaux **en-us**.
+ **Pre-built ID v2.1** prend en charge les documents d’identité dans les paramètres régionaux **en-us**.
 
 ## <a name="supported-identity-document-types"></a>Types de documents d’identité pris en charge
 
-* **Pre-built IDs v2.1-preview.3** Extrait les valeurs clés de passeports internationaux et de permis de conduire émis aux États-Unis.
+* **Pre-built IDs v2.1** extrait les valeurs clés de passeports internationaux et de permis de conduire émis aux États-Unis.
 
   > [!NOTE]
   > Types de pièces d’identité pris en charge
@@ -90,19 +102,19 @@ Pour tester le service Form Recognizer relatif aux pièces d’identité, accéd
 
 ## <a name="post-analyze-id-document"></a>POST Analyze ID Document
 
-L’opération [Analyze ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7daad1f2612c46f5822) prend une image ou un fichier PDF d’une pièce d’identité en entrée, puis en extrait les valeurs intéressantes. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
+L’opération [Analyze ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7daad1f2612c46f5822) prend une image ou un fichier PDF d’une pièce d’identité en entrée, puis en extrait les valeurs intéressantes. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
 
 |En-tête de réponse| URL de résultat |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/idDocument/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/prebuilt/idDocument/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
-## <a name="get-analyze-id-document-result"></a>GET Analyze Id Document Result
+## <a name="get-analyze-id-document-result"></a>GET Analyze ID Document Result
 
 <!---
 Need to update this with updated APIM links when available
 -->
 
-La seconde étape consiste à appeler l’opération [**Get Analyze idDocument Result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7738978e467c5fb8707). Cette opération prend en entrée la pièce d’identité de résultat créée par l’opération Analyze ID. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded**. Utilisez un intervalle de 3 à 5 secondes pour éviter de dépasser le taux de demandes par seconde (RPS).
+La seconde étape consiste à appeler l’opération [**Get Analyze idDocument Result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707). Cette opération prend en entrée la pièce d’identité de résultat créée par l’opération Analyze ID. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded**. Utilisez un intervalle de 3 à 5 secondes pour éviter de dépasser le taux de demandes par seconde (RPS).
 
 |Champ| Type | Valeurs possibles |
 |:-----|:----:|:----|
@@ -253,10 +265,7 @@ Voici un exemple de réponse JSON correcte : le nœud `readResults` contient t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Essayez vos propres pièces d’identité et exemples dans l’[exemple d’interface utilisateur de Form Recognizer](https://fott-preview.azurewebsites.net/).
+* Essayez vos propres pièces d’identité et exemples dans l’[exemple d’interface utilisateur de Form Recognizer](https://aka.ms/fott-2.1-ga).
 * Suivez un [démarrage rapide de Form Recognizer](quickstarts/client-library.md) pour commencer à écrire une application de traitement des pièces d’identité avec Form Recognizer dans le langage de développement de votre choix.
 
-## <a name="see-also"></a>Voir aussi
 
-* [**Qu’est-ce que Form Recognizer ?**](./overview.md)
-* [**Documentation de référence sur l’API REST**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)

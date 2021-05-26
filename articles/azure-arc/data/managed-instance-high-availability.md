@@ -10,12 +10,12 @@ ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.openlocfilehash: bd4541f8c8471c68ed539f407d9ff79684ccb3bf
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: a847eb04745895fb903385715296a2c5c5d8898e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109733497"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061513"
 ---
 # <a name="azure-arc-enabled-managed-instance-high-availability"></a>Haute disponibilité Managed Instance avec Azure Arc
 
@@ -79,7 +79,7 @@ Fonctionnalités activées par les groupes de disponibilité :
 
 - Toutes les bases de données sont automatiquement ajoutées au groupe de disponibilité, y compris toutes les bases de données utilisateur et système telles que `master` et `msdb`. Cette fonctionnalité fournit une vue monosystème sur les réplicas des groupes de disponibilité. Notez les bases de données `containedag_master` et `containedag_msdb` si vous vous connectez directement à l’instance. Les bases de données `containedag_*` représentent `master` et `msdb` au sein du groupe de disponibilité.
 
-- Un point de terminaison externe est automatiquement provisionné pour la connexion aux bases de données au sein du groupe de disponibilité. Ce point de terminaison `<managed_instance_name>-svc-external` joue le rôle de l’écouteur du groupe de disponibilité.
+- Un point de terminaison externe est automatiquement provisionné pour la connexion aux bases de données au sein du groupe de disponibilité. Ce point de terminaison `<managed_instance_name>-external-svc` joue le rôle de l’écouteur du groupe de disponibilité.
 
 ### <a name="deploy"></a>Déployer
 

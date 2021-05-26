@@ -3,14 +3,14 @@ title: Orchestrations durables - Azure Functions
 description: Introduction à la fonctionnalité d’orchestration pour Azure Durable Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 09/08/2019
+ms.date: 05/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: ba314963058389e171601407ff00411049eecd45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9820f22e92bfc6f4743b205fc4cf36a1baa580d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97845418"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375908"
 ---
 # <a name="durable-orchestrations"></a>Orchestrations durables
 
@@ -43,12 +43,12 @@ L’ID d’instance d’une orchestration est un paramètre obligatoire pour la 
 
 Les fonctions d’orchestrateur conservent de façon fiable leur état d’exécution à l’aide du modèle de conception [approvisionnement d’événements](/azure/architecture/patterns/event-sourcing). Au lieu de stocker directement l’état actuel d’une orchestration, le framework Durable Task utilise un magasin d’ajout uniquement pour enregistrer toute la série d’actions effectuées par l’orchestration de fonction. Un magasin d’ajout uniquement présente de nombreux avantages par rapport au « vidage » de l’état d’exécution complet. Ces avantages incluent l’amélioration des performances, de l’extensibilité et de la réactivité. Vous bénéficiez aussi de la cohérence finale des données transactionnelles, ainsi que de pistes d’audit et d’un historique complets. Les pistes d’audit permettent des actions de compensation fiables.
 
-Durable Functions utilise l’approvisionnement d’événements en toute transparence. En coulisse, l’opérateur `await` (C#) ou `yield` (JavaScript/Python) d’une fonction d’orchestrateur repasse le contrôle du thread orchestrateur au répartiteur Durable Task Framework. Le répartiteur valide ensuite dans le stockage toutes les actions que la fonction d’orchestrateur a planifiées (par exemple, l’appel d’une ou plusieurs fonctions enfant ou la planification d’un minuteur durable). L’action de validation transparente s’ajoute à l’historique d’exécution de l’instance d’orchestration. L’historique est stocké dans une table de stockage. L’action de validation ajoute ensuite des messages à une file d’attente pour planifier le travail réel. À ce stade, la fonction d’orchestrateur peut être déchargée de la mémoire.
+Durable Functions utilise l’approvisionnement d’événements en toute transparence. En coulisse, l’opérateur `await` (C#) ou `yield` (JavaScript/Python) d’une fonction d’orchestrateur repasse le contrôle du thread orchestrateur au répartiteur Durable Task Framework. Le répartiteur valide ensuite dans le stockage toutes les actions que la fonction d’orchestrateur a planifiées (par exemple, l’appel d’une ou plusieurs fonctions enfant ou la planification d’un minuteur durable). L’action de validation transparente met à jour l’historique d’exécution de l’instance d’orchestration en ajoutant tous les nouveaux événements au stockage, comme dans le cas d’un journal d’ajout uniquement. De même, l’action de validation crée des messages dans le stockage pour planifier le travail réel. À ce stade, la fonction d’orchestrateur peut être déchargée de la mémoire. Par défaut, l’extension Durable Functions utilise le service Stockage Azure pour stocker l’état d’exécution, mais d’autres [fournisseurs de stockage sont également pris en charge](durable-functions-storage-providers.md).
 
 Lorsqu’une fonction d’orchestration reçoit plus de tâches à effectuer (par exemple, un message de réponse est reçu ou un minuteur durable expire), l’orchestrateur sort à nouveau de veille et réexécute toute la fonction depuis le début afin de reconstruire l’état local. Si, au cours de la réexécution, le code tente d’appeler une fonction (ou effectue toute autre tâche asynchrone), l’infrastructure Durable Task Framework consulte l’historique d’exécution de l’orchestration en cours. Si elle constate que la [fonction d’activité](durable-functions-types-features-overview.md#activity-functions) a déjà été exécutée et a produit un résultat, elle réexécute le résultat de cette fonction, et le code d’orchestrateur continue de s’exécuter. La réexécution se poursuit jusqu’à ce que le code de la fonction s’achève ou jusqu’à ce qu’il ait planifié une nouvelle tâche asynchrone.
 
 > [!NOTE]
-> Pour que le modèle de relecture fonctionne correctement et de manière fiable, le code de fonction orchestrator doit être *déterministe*. Pour plus d’informations sur les restrictions de code pour les fonctions orchestrator, consultez la rubrique [Contraintes du code des fonctions](durable-functions-code-constraints.md).
+> Pour que le modèle de relecture fonctionne correctement et de manière fiable, le code de fonction orchestrator doit être *déterministe*. Un code d’orchestrateur non déterministe peut entraîner des erreurs d’exécution ou des comportements inattendus. Pour plus d’informations sur les restrictions de code pour les fonctions d’orchestrateur, consultez la documentation [Contraintes de code des fonctions d’orchestrateur](durable-functions-code-constraints.md).
 
 > [!NOTE]
 > Si une fonction orchestrator émet des messages de journal, le comportement de relecture peut provoquer l’émission de messages de journal en double. Consultez la rubrique [Journalisation](durable-functions-diagnostics.md#app-logging) pour découvrir les causes de ce comportement et le techniques pour le contourner.
@@ -105,43 +105,57 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$output = @()
+
+$output += Invoke-DurableActivity -FunctionName 'SayHello' -Input 'Tokyo'
+$output += Invoke-DurableActivity -FunctionName 'SayHello' -Input 'Seattle'
+$output += Invoke-DurableActivity -FunctionName 'SayHello' -Input 'London'
+
+$output
+```
 ---
 
-À chaque instruction `await` (C#) ou `yield` (JavaScript/Python), Durable Task Framework crée un point de contrôle de l’état d’exécution de la fonction dans un back-end de stockage durable (généralement le Stockage Table Azure). Cet état est appelé *historique d’orchestration*.
+À chaque instruction `await` (C#) ou `yield` (JavaScript/Python), Durable Task Framework contrôle de l’état d’exécution de la fonction dans un back-end de stockage durable (par défaut, le Stockage Table Azure). Cet état est appelé *historique d’orchestration*.
 
 ### <a name="history-table"></a>Table d’historique
 
 En règle générale, Durable Task Framework réalise les tâches suivantes à chaque point de contrôle :
 
-1. Il enregistre l’historique d’exécution dans des tables de stockage Azure.
+1. Enregistre l’historique d’exécution dans un stockage durable.
 2. Il empile les messages pour les fonctions que l’orchestrateur souhaite appeler.
 3. Il empile les messages pour l’orchestrateur lui-même &mdash; par exemple, les messages d’un minuteur durable.
 
 Une fois le point de contrôle terminé, la fonction d’orchestrateur peut être supprimée de la mémoire jusqu'à ce qu’elle ait de nouvelles tâches à réaliser.
 
 > [!NOTE]
-> Le stockage Azure ne fournit aucune garantie transactionnelle entre l’enregistrement des données dans le stockage de tables et les files d’attente. Pour gérer les erreurs, le fournisseur de stockage Fonctions durables utilise les modèles de *cohérence éventuelle*. Ces modèles évitent la perte de données en cas d’incident ou de perte de connectivité au cours d’un point de contrôle.
+> Le stockage Azure ne fournit aucune garantie transactionnelle entre l’enregistrement des données dans le stockage de tables et les files d’attente. Pour gérer les défaillances, le fournisseur de *Stockage Azure Durable Functions* utilise des modèles de [cohérence éventuelle](durable-functions-storage-providers.md#azure-storage). Ces modèles évitent la perte de données en cas d’incident ou de perte de connectivité au cours d’un point de contrôle. D’autres fournisseurs de stockage, tel le [fournisseur de stockage MSSQL Durable Functions](durable-functions-storage-providers.md#mssql), peuvent offrir des garanties de cohérence plus fortes.
 
 Une fois que vous avez terminé, l’historique de la fonction présentée précédemment ressemble au tableau suivant dans le Stockage Table Azure (présentation raccourcie à des fins d’illustration) :
 
 | PartitionKey (InstanceId)                     | Type d’événement             | Timestamp               | Entrée | Nom             | Résultats                                                    | Statut |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201Z |       |                  | """Hello Tokyo!"""                                        |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.435Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763Z |       |                  | """Hello Seattle!"""                                      |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Completed           |
+| eaee885b | ExecutionStarted      | 2021-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2021-05-05T18:45:32.362Z |       |                  |                                                           |                     |
+| eaee885b | TaskScheduled         | 2021-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2021-05-05T18:45:32.670Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2021-05-05T18:45:34.201Z |       |                  | """Hello Tokyo!"""                                        |                     |
+| eaee885b | OrchestratorStarted   | 2021-05-05T18:45:34.232Z |       |                  |                                                           |                     |
+| eaee885b | TaskScheduled         | 2021-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2021-05-05T18:45:34.435Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2021-05-05T18:45:34.763Z |       |                  | """Hello Seattle!"""                                      |                     |
+| eaee885b | OrchestratorStarted   | 2021-05-05T18:45:34.857Z |       |                  |                                                           |                     |
+| eaee885b | TaskScheduled         | 2021-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2021-05-05T18:45:34.857Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2021-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
+| eaee885b | OrchestratorStarted   | 2021-05-05T18:45:35.032Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2021-05-05T18:45:35.044Z |       |                  |                                                           |                     |
+| eaee885b | ExecutionCompleted    | 2021-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Completed           |
 
 Quelques remarques sur les valeurs de colonne :
 
@@ -278,6 +292,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     if res.status_code >= 400:
         # handing of error code goes here
 ```
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Cette fonctionnalité n’est pas actuellement prise en charge dans PowerShell.
+
 ---
 
 En plus de prendre en charge les modèles de requête/réponse de base, la méthode prend en charge la gestion automatique des modèles d’interrogation HTTP 202 asynchrones courants ainsi que l’authentification avec des services externes en utilisant des [identités managées](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -388,6 +406,33 @@ def main(location: Location) -> str:
     return f"Hello {city}, {state}!"
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+#### <a name="orchestrator"></a>Un orchestrateur
+
+```powershell
+param($Context)
+
+$output = @()
+
+$location = @{
+    City = 'Seattle'
+    State  = 'WA'
+}
+
+Invoke-ActivityFunction -FunctionName 'GetWeather' -Input $location
+
+# ...
+
+```
+#### <a name="getweather-activity"></a>`GetWeather` Activité
+
+```powershell
+param($location)
+
+"Hello $($location.City), $($location.State)!"
+# ...
+```
 ---
 
 ## <a name="next-steps"></a>Étapes suivantes

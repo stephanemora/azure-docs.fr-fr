@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 718ed77d00c574de891a1d015072a7c1db0ab0eb
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f04dbd73d8bc5222de7bfccb095854586b9da1b2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753859"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071437"
 ---
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -25,7 +25,7 @@ ms.locfileid: "108753859"
 |[Configurer des serveurs SQL pour activer l’audit](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4c68484-132f-41f9-9b6d-3e4b1cb55036) |Pour vous assurer que les opérations effectuées sur vos ressources SQL sont capturées, l’audit doit être activé sur les serveurs SQL. Cela est parfois nécessaire pour la conformité aux normes réglementaires. |DeployIfNotExists, Désactivé |[1.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Deploy.json) |
 |[Déployer : configurer les paramètres de diagnostic pour les bases de données SQL pour l’envoi à un espace de travail Log Analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb79fa14e-238a-4c2d-b376-442ce508fc84) |Déploie les paramètres de diagnostic pour des bases de données SQL afin de diffuser les journaux de ressources vers un espace de travail Log Analytics en cas de création ou de mise à jour de toute base de données SQL n’ayant pas ces paramètres de diagnostic. |DeployIfNotExists, Désactivé |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/DataConnectosSqlLogs_PolicyAssignment.json) |
 |[Déployer Advanced Data Security sur des serveurs SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6134c3db-786f-471e-87bc-8f479dc890f6) |Cette stratégie active Advanced Data Security sur les serveurs SQL. (ce qui entraîne l’activation de la détection des menaces et de l’évaluation des vulnérabilités). Elle crée automatiquement un compte de stockage dans la même région et le même groupe de ressources que le serveur SQL pour stocker les résultats de l’analyse, avec le préfixe « sqlva ». |DeployIfNotExists |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAdvancedDataSecurity_Deploy.json) |
-|[Déployer les paramètres de diagnostic d’Azure SQL Database sur Event Hub](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9a7c7a7d-49e5-4213-bea8-6a502b6272e0) |Déploie les paramètres de diagnostic d’Azure SQL Database pour les envoyer en streaming dans un hub d’événements régional sur une base de données Azure SQL nouvelle ou mise à jour pour laquelle les paramètres de diagnostic sont manquants. |DeployIfNotExists |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDB_DiagnosticsLog_Deploy.json) |
+|[Déployer les paramètres de diagnostic d’Azure SQL Database sur Event Hub](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9a7c7a7d-49e5-4213-bea8-6a502b6272e0) |Déploie les paramètres de diagnostic d’Azure SQL Database pour les envoyer en streaming dans un hub d’événements régional sur une base de données Azure SQL nouvelle ou mise à jour pour laquelle les paramètres de diagnostic sont manquants. |DeployIfNotExists |[1.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDB_DiagnosticsLog_Deploy.json) |
 |[Déployer le chiffrement transparent des données sur les bases de données SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86a912f6-9a06-4e26-b447-11b16ba8659f) |Active Transparent Data Encryption sur les bases de données SQL |DeployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDBEncryption_Deploy.json) |
 |[Déployer la détection de menaces sur les serveurs SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F36d49e87-48c4-4f2e-beed-ba4ed02b71f5) |Cette stratégie vérifie que la détection des menaces est activée sur les serveurs SQL Server. |DeployIfNotExists |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/DeployTdOnSqlServers_Deploy.json) |
 |[La sauvegarde géoredondante à long terme doit être activée pour les bases de données Azure SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd38fc420-0735-4ef3-ac11-c806f651a570) |Cette stratégie permet d’effectuer un audit d’une base de données Azure SQL Database si la sauvegarde géoredondante à long terme n’est pas activée. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_SQLDatabase_AuditIfNotExists.json) |

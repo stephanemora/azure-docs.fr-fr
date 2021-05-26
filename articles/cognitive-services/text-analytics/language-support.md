@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 05/18/2021
 ms.author: aahi
-ms.openlocfilehash: 38fda578a2151d1d5cf306095b3be49cb916977b
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b1af4e147f960e8e241a2d49ac94b7fb2594207f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287425"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078199"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Prise en charge linguistique de l’API Analyse de texte v3 
 
@@ -233,9 +233,17 @@ Si vous avez du contenu exprimé dans une langue moins fréquemment utilisée, v
 |Tonga|`to`|✓|2020-09-01|
 |Turc|`tr`|✓|05-01-2021|
 |Turkmène|`tk`|✓|05-01-2021|
+|Ukrainien|`uk`|✓||
+|Ourdou|`ur`|✓||
+|Ouzbek|`uz`|✓||
+|Vietnamien|`vi`|✓||
+|Gallois|`cy`|✓|| 
 |Xhosa|`xh`|✓|05-01-2021|
+|Yiddish|`yi`|✓||
 |Yoruba|`yo`|✓|05-01-2021|
+|Yucatec Maya| `yua` | ✓| |
 |Zoulou|`zu`|✓|05-01-2021|
+
 
 ---
 

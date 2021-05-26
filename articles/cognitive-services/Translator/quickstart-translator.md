@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: traducteur, service de traduction, traduire du texte, translittérer du texte, détection de la langue
-ms.openlocfilehash: 7cb3eb259cc21a5a10b426e4da53513d1f42fb56
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 87e67e5c62180c9120aaf7a426a4195960d9bcf8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488696"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076525"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Démarrage rapide : Bien démarrer avec Translator
 
@@ -2833,10 +2833,5 @@ Si vous rencontrez des problèmes de connexion, il est possible que votre certif
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrir comment l’API compte le nombre de caractères](character-counts.md)
-* [Personnaliser et améliorer la traduction](customization.md)
-
-## <a name="see-also"></a>Voir aussi
-
-* [Informations de référence sur l’API Translator v3](reference/v3-0-reference.md)
-* [Prise en charge linguistique](language-support.md)
+> [!div class="nextstepaction"]
+> [Personnaliser et améliorer la traduction](customization.md)
