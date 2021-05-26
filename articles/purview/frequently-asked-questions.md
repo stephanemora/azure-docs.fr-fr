@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 05/08/2021
-ms.openlocfilehash: eb835fad0f051098b1689ed6d165dc712a73f908
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 5926add3b4affffeb532c1b10cd81edc866f7f14
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109655261"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059551"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-purview"></a>Forum Aux Questions (FAQ) sur Azure Purview
 
@@ -150,4 +150,4 @@ Oui, Azure Purview prend en charge la suppression réversible du point de vue d
 
 Non, Azure Purview ne fournit pas de capacités de protection contre la perte de données à ce stade. 
 
-Consultez la section [Protection contre la perte de données dans Microsoft Information Protection](https://docs.microsoft.com/microsoft-365/compliance/information-protection?view=o365-worldwide#prevent-data-loss) si vous êtes intéressé par les fonctionnalités de protection contre la perte de données dans Microsoft 365.
+Consultez la section [Protection contre la perte de données dans Microsoft Information Protection](/microsoft-365/compliance/information-protection#prevent-data-loss) si vous êtes intéressé par les fonctionnalités de protection contre la perte de données dans Microsoft 365.

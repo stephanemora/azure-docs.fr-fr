@@ -3,12 +3,12 @@ title: Configurer les paramètres réseau pour les clusters Service Fabric manag
 description: Découvrez comment configurer votre cluster Service Fabric géré pour les règles de groupe de sécurité réseau, l’accès aux ports RDP, les règles d’équilibrage de charge, etc.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 2b31e62bdd7f18ea866c69566ffea80e77df145f
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 67bcdccbd3a54fc0e05b2516aaf5633ddddb1f00
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685276"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110060973"
 ---
 # <a name="configure-network-settings-for-service-fabric-managed-clusters"></a>Configurer les paramètres réseau pour les clusters Service Fabric managés
 
@@ -26,7 +26,7 @@ Tenez compte de ces considérations lors de la création de règles de groupe de
 
 ## <a name="apply-nsg-rules"></a>Application de règles NSG
 
-Avec des clusters Service Fabric classiques (non gérés), vous devez déclarer et gérer une ressource *Microsoft.Network/networkSecurityGroups* distincte pour [appliquer des règles NSG à votre cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-nsg-cluster-65-node-3-nodetype). Les clusters Service Fabric gérés vous permettent d’affecter des règles NSG directement dans la ressource de cluster de votre modèle de déploiement.
+Avec des clusters Service Fabric classiques (non gérés), vous devez déclarer et gérer une ressource *Microsoft.Network/networkSecurityGroups* distincte pour [appliquer des règles NSG à votre cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicefabric/service-fabric-secure-nsg-cluster-65-node-3-nodetype). Les clusters Service Fabric gérés vous permettent d’affecter des règles NSG directement dans la ressource de cluster de votre modèle de déploiement.
 
 Utilisez la propriété [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) de votre ressource *Microsoft.ServiceFabric/managedclusters* (version `2021-05-01` ou ultérieure) pour affecter des règles NSG. Par exemple :
 
@@ -46,7 +46,7 @@ Utilisez la propriété [networkSecurityRules](/azure/templates/microsoft.servic
                         "destinationPortRange": "33000-33499",
                         "access": "Allow",
                         "priority": 2001,
-                        "direction": "Inbound" 
+                        "direction": "Inbound"
                     },
                     {
                         "name": "AllowARM",
@@ -57,7 +57,7 @@ Utilisez la propriété [networkSecurityRules](/azure/templates/microsoft.servic
                         "destinationPortRange": "33500-33699",
                         "access": "Allow",
                         "priority": 2002,
-                        "direction": "Inbound" 
+                        "direction": "Inbound"
                     },
                     {
                         "name": "DenyCustomers",
@@ -94,14 +94,14 @@ Utilisez la propriété [networkSecurityRules](/azure/templates/microsoft.servic
 Par défaut, les clusters Service Fabric gérés n’autorisent pas l’accès aux ports RDP. Vous pouvez ouvrir des ports RDP sur Internet en définissant la propriété suivante sur une ressource de cluster Service Fabric géré.
 
 ```json
-"allowRDPAccess": true 
+"allowRDPAccess": true
 ```
 
-Lorsque la propriété allowRDPAccess est définie sur true, la règle NSG suivante est ajoutée au déploiement de cluster.  
+Lorsque la propriété allowRDPAccess est définie sur true, la règle NSG suivante est ajoutée au déploiement de cluster.
 
 ```json
 {
-    "name": "SFMC_AllowRdpPort", 
+    "name": "SFMC_AllowRdpPort",
     "type": "Microsoft.Network/networkSecurityGroups/securityRules",
     "properties": {
         "description": "Optional rule to open RDP ports.",
@@ -128,59 +128,59 @@ Une règle NSG par défaut est ajoutée pour permettre au fournisseur de ressour
 >Cette règle est toujours ajoutée et ne peut pas être remplacée.
 
 ```json
-{ 
-    "name": "SFMC_AllowServiceFabricGatewayToSFRP", 
-    "type": "Microsoft.Network/networkSecurityGroups/securityRules", 
-    "properties": { 
-        "description": "This is required rule to allow SFRP to connect to the cluster. This rule cannot be overridden.", 
-        "protocol": "TCP", 
-        "sourcePortRange": "*", 
-        "sourceAddressPrefix": "ServiceFabric", 
-        "destinationAddressPrefix": "VirtualNetwork", 
-        "access": "Allow", 
-        "priority": 500, 
-        "direction": "Inbound", 
-        "sourcePortRanges": [], 
-        "destinationPortRanges": [ 
-            "19000", 
-            "19080" 
-        ] 
-    } 
+{
+    "name": "SFMC_AllowServiceFabricGatewayToSFRP",
+    "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+    "properties": {
+        "description": "This is required rule to allow SFRP to connect to the cluster. This rule cannot be overridden.",
+        "protocol": "TCP",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "ServiceFabric",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "access": "Allow",
+        "priority": 500,
+        "direction": "Inbound",
+        "sourcePortRanges": [],
+        "destinationPortRanges": [
+            "19000",
+            "19080"
+        ]
+    }
 }
 ```
 
 ### <a name="nsg-rule-sfmc_allowservicefabricgatewayports"></a>Règle NSG : SFMC_AllowServiceFabricGatewayPorts
 
-Il s’agit d’une règle NSG facultative permettant d’autoriser l’accès à clientConnectionPort et à httpGatewayPort à partir d’Internet. Elle permet aux clients d’accéder à SFX, de se connecter au cluster avec PowerShell et d’utiliser les points de terminaison d’API du cluster Service Fabric depuis l’extérieur. 
+Il s’agit d’une règle NSG facultative permettant d’autoriser l’accès à clientConnectionPort et à httpGatewayPort à partir d’Internet. Elle permet aux clients d’accéder à SFX, de se connecter au cluster avec PowerShell et d’utiliser les points de terminaison d’API du cluster Service Fabric depuis l’extérieur.
 
 >[!NOTE]
->Cette règle n’est pas ajoutée s’il existe une règle personnalisée avec les mêmes valeurs d’accès, de direction et de protocole pour le même port. Vous pouvez remplacer cette règle par des règles NSG personnalisées. 
+>Cette règle n’est pas ajoutée s’il existe une règle personnalisée avec les mêmes valeurs d’accès, de direction et de protocole pour le même port. Vous pouvez remplacer cette règle par des règles NSG personnalisées.
 
 ```json
-{ 
-    "name": "SFMC_AllowServiceFabricGatewayPorts", 
-    "type": "Microsoft.Network/networkSecurityGroups/securityRules", 
-    "properties": { 
-        "description": "Optional rule to open SF cluster gateway ports. To override add a custom NSG rule for gateway ports in priority range 1000-3000.", 
-        "protocol": "tcp", 
-        "sourcePortRange": "*", 
-        "sourceAddressPrefix": "*", 
-        "destinationAddressPrefix": "VirtualNetwork", 
-        "access": "Allow", 
-        "priority": 3001, 
-        "direction": "Inbound", 
-        "sourcePortRanges": [], 
-        "destinationPortRanges": [ 
-            "19000", 
-            "19080" 
-        ] 
-    } 
+{
+    "name": "SFMC_AllowServiceFabricGatewayPorts",
+    "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+    "properties": {
+        "description": "Optional rule to open SF cluster gateway ports. To override add a custom NSG rule for gateway ports in priority range 1000-3000.",
+        "protocol": "tcp",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "access": "Allow",
+        "priority": 3001,
+        "direction": "Inbound",
+        "sourcePortRanges": [],
+        "destinationPortRanges": [
+            "19000",
+            "19080"
+        ]
+    }
 }
 ```
 
 ## <a name="load-balancer-ports"></a>Ports d’équilibreur de charge
 
-Les clusters Service Fabric gérés créent une règle NSG dans la plage de priorités par défaut pour tous les ports d’équilibrage de charge configurés dans la section « loadBalancingRules » sous les propriétés *ManagedCluster*. Cette règle ouvre les ports d’équilibrage de charge pour le trafic entrant à partir d’Internet.  
+Les clusters Service Fabric gérés créent une règle NSG dans la plage de priorités par défaut pour tous les ports d’équilibrage de charge configurés dans la section « loadBalancingRules » sous les propriétés *ManagedCluster*. Cette règle ouvre les ports d’équilibrage de charge pour le trafic entrant à partir d’Internet.
 
 >[!NOTE]
 >Cette règle est ajoutée dans la plage de priorités facultative et peut être remplacée en ajoutant des règles NSG personnalisées.
@@ -191,7 +191,7 @@ Les clusters Service Fabric gérés créent une règle NSG dans la plage de prio
     "type": "Microsoft.Network/networkSecurityGroups/securityRules",
     "properties": {
         "description": "Optional rule to open LB ports",
-        "protocol": "*", 
+        "protocol": "*",
         "sourcePortRange": "*",
         "sourceAddressPrefix": "*",
         "destinationAddressPrefix": "VirtualNetwork",
@@ -211,58 +211,58 @@ Les clusters Service Fabric gérés créent une règle NSG dans la plage de prio
 Les clusters Service Fabric gérés créent automatiquement des sondes d’équilibreur de charge pour les ports de passerelle de l’infrastructure, ainsi que tous les ports configurés dans la section « loadBalancingRules » des propriétés du cluster géré.
 
 ```json
-{ 
-  "value": [ 
-    { 
-        "name": "FabricTcpGateway", 
-        "properties": { 
-            "provisioningState": "Succeeded", 
-            "protocol": "Tcp", 
-            "port": 19000, 
-            "intervalInSeconds": 5, 
-            "numberOfProbes": 2, 
-            "loadBalancingRules": [ 
-                { 
+{
+  "value": [
+    {
+        "name": "FabricTcpGateway",
+        "properties": {
+            "provisioningState": "Succeeded",
+            "protocol": "Tcp",
+            "port": 19000,
+            "intervalInSeconds": 5,
+            "numberOfProbes": 2,
+            "loadBalancingRules": [
+                {
                     "id": "<>"
-                } 
-            ] 
-        }, 
-        "type": "Microsoft.Network/loadBalancers/probes" 
-    }, 
-    { 
-        "name": "FabricHttpGateway", 
-        "properties": { 
-            "provisioningState": "Succeeded", 
-            "protocol": "Tcp", 
-            "port": 19080, 
-            "intervalInSeconds": 5, 
-            "numberOfProbes": 2, 
-            "loadBalancingRules": [ 
-                { 
-                    "id": "<>" 
-                } 
+                }
             ]
         },
-        "type": "Microsoft.Network/loadBalancers/probes" 
+        "type": "Microsoft.Network/loadBalancers/probes"
     },
     {
-        "name": "probe1_tcp_8080", 
-        "properties": { 
-            "provisioningState": "Succeeded", 
-            "protocol": "Tcp", 
-            "port": 8080, 
-            "intervalInSeconds": 5, 
-            "numberOfProbes": 2, 
-            "loadBalancingRules": [ 
-            { 
-                "id": "<>" 
-            } 
-        ] 
-      }, 
-      "type": "Microsoft.Network/loadBalancers/probes" 
-    } 
-  ] 
-} 
+        "name": "FabricHttpGateway",
+        "properties": {
+            "provisioningState": "Succeeded",
+            "protocol": "Tcp",
+            "port": 19080,
+            "intervalInSeconds": 5,
+            "numberOfProbes": 2,
+            "loadBalancingRules": [
+                {
+                    "id": "<>"
+                }
+            ]
+        },
+        "type": "Microsoft.Network/loadBalancers/probes"
+    },
+    {
+        "name": "probe1_tcp_8080",
+        "properties": {
+            "provisioningState": "Succeeded",
+            "protocol": "Tcp",
+            "port": 8080,
+            "intervalInSeconds": 5,
+            "numberOfProbes": 2,
+            "loadBalancingRules": [
+            {
+                "id": "<>"
+            }
+        ]
+      },
+      "type": "Microsoft.Network/loadBalancers/probes"
+    }
+  ]
+}
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

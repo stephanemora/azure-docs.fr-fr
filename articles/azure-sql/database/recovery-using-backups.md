@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 670176d7478ddab3d17e15526df512dfa7e99fd4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 800fa34901ee63434d3f4798ec4c16dd52479fa6
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762062"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191843"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Récupération à l’aide de sauvegardes de bases de données automatisées - Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -191,7 +191,7 @@ Pour obtenir un script PowerShell qui illustre comment effectuer une géorestaur
 
 ### <a name="geo-restore-considerations"></a>Considérations en matière de géorestauration
 
-Vous ne pouvez pas effectuer une limite de restauration dans le temps sur une base de données géosecondaire. Vous ne pouvez le faire que sur une base de données primaire. Pour plus d’informations sur l’utilisation de la géorestauration pour la récupération suite à une panne, voir [Récupération après une panne](../../key-vault/general/disaster-recovery-guidance.md).
+Vous ne pouvez pas effectuer une limite de restauration dans le temps sur une base de données géosecondaire. Vous ne pouvez le faire que sur une base de données primaire. Pour plus d’informations sur l’utilisation de la géorestauration pour la récupération suite à une panne, voir [Récupération après une panne](disaster-recovery-guidance.md#recover-using-geo-restore).
 
 > [!IMPORTANT]
 > La géorestauration est la solution de récupération d’urgence la plus basique disponible dans SQL Database et SQL Managed Instance. Elle s’appuie sur des sauvegardes géorépliquées créées automatiquement, dont l’objectif de point de récupération (RPO) est jusqu’à 1 heure et la durée estimée de récupération jusqu’à 12 heures. Elle ne garantit pas que la région cible aura la capacité de restaurer les bases de données après une panne régionale, car il se produira probablement un pic de demande. Si votre application utilise des bases de données relativement petites et qu’elle n’est pas vitale pour l’entreprise, la géorestauration est une solution de reprise d’activité adaptée. 

@@ -1,18 +1,18 @@
 ---
 title: Contrôles de conformité réglementaire d’Azure Policy pour les services de réseau Azure
 description: Liste les contrôles de conformité réglementaire d’Azure Policy disponibles pour les services de réseau Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: fbee17841b12e6b634f2a94f322719451acbba72
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9775b5b7c0a405b4391b830e10bd00feeaaf24c3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108746659"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083496"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-networking-services"></a>Contrôles de conformité réglementaire d’Azure Policy pour les services de réseau Azure
 

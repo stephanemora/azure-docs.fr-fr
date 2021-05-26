@@ -1,18 +1,18 @@
 ---
 title: Comment effectuer une recherche personnalisée dans l’API Azure pour FHIR
 description: Cet article explique comment vous pouvez définir vos propres paramètres de recherche personnalisés à utiliser dans la base de données.
-author: stevewohl
+author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 05/03/2021
 ms.author: cavoeg
-ms.openlocfilehash: d61e886771fb3bc667ff9e219de736c03e591ba7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5453b11cb49bb48c48e6c949a00654a797c89202
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108765194"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476662"
 ---
 # <a name="defining-custom-search-parameters"></a>Définition des paramètres de recherche personnalisés
 

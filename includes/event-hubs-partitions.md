@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/15/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 1dd78ba3799573e05e4ebbf55887bae3d9674b7c
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 05a54a5e240f528ca5662b05e37127741ce4722e
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310073"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367084"
 ---
 Event Hubs organise les séquences d’événements envoyés à un hub d’événements dans une ou plusieurs partitions. Les événements les plus récents sont ajoutés à la fin de cette séquence. 
 
@@ -32,7 +32,7 @@ Event Hubs est conçu pour faciliter le traitement de gros volumes d’événeme
 ### <a name="number-of-partitions"></a>Nombre de partitions
 Le nombre de partitions est spécifié lors de la création, et il doit être compris entre 1 et 32 dans Event Hubs Standard. Le nombre de partitions peut aller jusqu’à 2000 partitions par unité de capacité dans Event Hubs Dedicated. 
 
-Nous vous recommandons de choisir au moins autant de partitions que vous pensez devoir être nécessaires en [unités de débit (TU)](../articles/event-hubs/event-hubs-faq.yml#what-are-event-hubs-throughput-units-) soutenues pendant la charge maximale de votre application pour ce hub d’événements particulier. Vous devez calculer avec une partition unique ayant une capacité de débit de 1 TU (1 Mo en entrée, 2 Mo en sortie). Vous pouvez mettre à l’échelle les TU sur votre espace de noms ou les unités de capacité de votre cluster indépendamment du nombre de partitions. Un hub d’événements avec 32 partitions et un hub d’événements avec 1 partition entraînent exactement le même coût lorsque l’espace de noms est défini sur une capacité de 1 TU. 
+Nous vous recommandons de choisir au moins autant de partitions que vous pensez devoir être nécessaires en [unités de débit (TU)](../articles/event-hubs/event-hubs-scalability.md#throughput-units) soutenues pendant la charge maximale de votre application pour ce hub d’événements particulier. Vous devez calculer avec une partition unique ayant une capacité de débit de 1 TU (1 Mo en entrée, 2 Mo en sortie). Vous pouvez mettre à l’échelle les TU sur votre espace de noms ou les unités de capacité de votre cluster indépendamment du nombre de partitions. Un hub d’événements avec 32 partitions et un hub d’événements avec 1 partition entraînent exactement le même coût lorsque l’espace de noms est défini sur une capacité de 1 TU. 
 
 Dans un [cluster Event Hubs dédié](../articles/event-hubs/event-hubs-dedicated-overview.md), le nombre de partitions d’un hub d’événements peut être [augmenté](../articles/event-hubs/dynamically-add-partitions.md) après sa création, mais dans ce cas, la distribution des flux entre les partitions changera à mesure que le mappage des clés de partition aux partitions changera. Vous devez donc tenter d’éviter de telles modifications si l’ordre relatif des événements est important dans votre application.
 

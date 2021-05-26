@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Documentation Event Grid sur Kubernetes avec Azure Arc (préversion)
+summary: Découvrez comment utiliser Event Grid sur Kubernetes pour réagir aux événements pertinents générés sur des clusters Kubernetes connectés à Azure Arc en quasi-temps réel.
+metadata:
+  title: Documentation Event Grid sur Kubernetes avec Azure Arc (préversion)
+  description: Découvrez comment utiliser Event Grid sur Kubernetes pour réagir aux événements pertinents générés sur des clusters Kubernetes connectés à Azure Arc en quasi-temps réel.
+  services: event-grid
+  ms.service: event-grid
+  ms.subservice: kubernetes
+  ms.topic: landing-page
+  ms.collection: collection
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 05/25/2021
+  ms.openlocfilehash: 6403b71a1b29a41b47915e8d76cff75535a92066
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110383467"
+landingContent:
+- title: À propos d’Event Grid sur Kubernetes
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Event Grid sur Kubernetes ?
+      url: overview.md
+    - text: Fonctionnalités
+      url: features.md
+- title: Concepts
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Concepts d’Event Grid sur Kubernetes
+      url: concepts.md
+    - text: Gestionnaires d’événements
+      url: event-handlers.md
+    - text: Schémas d’événement
+      url: event-schemas.md
+    - text: Schémas d’événement
+      url: event-schemas.md
+    - text: Livraison d’événements par lot
+      url: batch-event-delivery.md
+    - text: Livraison d’événements par lot
+      url: delivery-retry.md
+    - text: Filtrer les événements
+      url: filter-events.md
+- title: Démarrage rapide et procédure
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Créer une rubrique et un abonnement
+      url: create-topic-subscription.md
+    - text: Installer l’extension Event Grid sur un cluster Kubernetes
+      url: install-k8s-extension.md
+    - text: Obtenir un support
+      url: get-support.md

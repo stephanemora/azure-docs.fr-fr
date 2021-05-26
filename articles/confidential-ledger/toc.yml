@@ -1,0 +1,48 @@
+- name: Registre confidentiel Azure
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: À propos du Registre confidentiel Azure
+      href: overview.md
+- name: Démarrages rapides
+  items:
+    - name: Python
+      href: quickstart-python.md
+    - name: Modèle ARM
+      href: quickstart-template.md
+- name: Concepts
+  items:
+    - name: Architecture
+      href: architecture.md
+    - name: Authentification des nœuds de registre
+      href: authenticate-ledger-nodes.md
+- name: Guides pratiques
+  items:
+    - name: Créer un certificat client
+      href: create-client-certificate.md
+    - name: Inscrire un principal de service de registre
+      href: register-ledger-service-principal.md
+    - name: Inscrire le fournisseur de ressources du Registre confidentiel
+      href: register-ledger-resource-provider.md
+- name: References
+  items:
+    - name: Questions fréquentes (FAQ)
+      href: faq.md
+    - name: Bibliothèque de client .NET
+      href: /dotnet/api/overview/azure/storage.confidentialledger-readme-pre
+    - name: Bibliothèque cliente Java en préversion
+      href: /java/api/overview/azure/data-confidentialledger-readme?view=azure-java-preview
+- name: Ressources
+  items:
+    - name: Développer vos compétences avec Microsoft Learn
+      href: /learn/browse/
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing'
+    - name: Disponibilité des régions
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Contrat de Niveau de Service (SLA)
+      href: 'https://azure.microsoft.com/support/legal/sla/'
+    - name: État du service
+      href: 'https://azure.microsoft.com/status/'
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/'

@@ -1,0 +1,84 @@
+### YamlMime:Landing
+title: Documentation Azure Video Analyzer
+summary: Apprendre à utiliser Azure Video Analyzer
+metadata:
+  title: Documentation Azure Video Analyzer
+  description: Apprendre à utiliser Azure Video Analyzer
+  services: azure-video-analyzer
+  ms.service: azure-video-analyzer
+  ms.topic: landing-page
+  ms.collection: collection
+  author: Juliako
+  ms.author: juliako
+  ms.date: 03/11/2021
+  ms.openlocfilehash: 9b4418aa8ff0d0cf3fb6d43d52d5b8991f403515
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110383417"
+landingContent:
+- title: Vue d’ensemble de Video Analyzer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: À propos d’Azure Video Analyzer (préversion)
+      url: overview.md
+    - text: À propos d’Azure Video Analyzer for Media
+      url: ../video-analyzer-for-media-docs/video-indexer-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Commencer avec Azure Video Analyzer
+      url: get-started-detect-motion-emit-events.md
+- title: Enregistrer des vidéos basées sur des événements
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Enregistrement de vidéo continu
+      url: event-based-video-recording-concept.md
+  - linkListType: quickstart
+    links:
+    - text: Détecter les mouvements et enregistrer des vidéos sur des appareils périphériques
+      url: detect-motion-record-video-edge-devices.md
+    - text: Détecter les mouvements, enregistrez des vidéos dans le cloud
+      url: detect-motion-record-video-clips-cloud.md
+  - linkListType: tutorial
+    links:
+    - text: Enregistrement et lecture de vidéos basées sur des événements
+      url: record-event-based-live-video.md
+- title: Analyse de vidéos en direct sans enregistrement
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Analyser des vidéos en direct sans enregistrement
+      url: analyze-live-video-without-recording.md
+  - linkListType: quickstart
+    links:
+    - text: Détecter les événements de mouvement et d’émission
+      url: detect-motion-emit-events-quickstart.md
+    - text: Suivre des objets dans des vidéos en direct
+      url: track-objects-live-video.md
+  - linkListType: tutorial
+    links:
+    - text: Analyser des vidéos en direct avec OVMS via une extension HTTP
+      url: use-intel-openvino-tutorial.md
+    - text: Analyser des vidéos en direct avec OV DL Streamer via une extension gRPC
+      url: use-intel-grpc-video-analytics-serving-tutorial.md
+    - text: Analyser des vidéos en direct avec une analyse spatiale
+      url: computer-vision-for-spatial-analysis.md
+    - text: Analyser des vidéos en direct avec Custom Vision
+      url: analyze-live-video-custom-vision.md
+- title: References
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: FAQ
+      url: faq-edge.md
+    - text: SDK
+      url: sdk.md
+    - text: Extension de pipeline
+      url: pipeline-extension.md
+    - text: Méthodes directes
+      url: direct-methods.md
+    - text: Quotas et limitations
+      url: quotas-limitations.md

@@ -8,16 +8,18 @@ ms.custom:
 - references_regions
 - devx-track-azurepowershell
 - mode-api
-ms.openlocfilehash: 9087bda9c1979a98f4bbf9f8343d012c4cf3098c
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 82451b94c83c0883beed66fac1f8e1b6b7132d3a
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529632"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "110094183"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-powershell"></a>Démarrage rapide : Créer un membre blockchain dans Azure Blockchain Service à l’aide d’Azure PowerShell
 
 Dans ce guide de démarrage rapide, vous allez déployer un nouveau membre blockchain et un nouveau consortium dans Azure Blockchain Service à l’aide d’Azure PowerShell.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

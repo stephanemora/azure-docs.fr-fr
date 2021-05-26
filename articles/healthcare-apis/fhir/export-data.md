@@ -5,14 +5,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 5/17/2021
+ms.date: 5/25/2021
 ms.author: cavoeg
-ms.openlocfilehash: 50f79d8b73b6c716e14504d6d763d900a7bed488
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 54dadb47018b474bb7651ddb17b0170a2c07e29a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078654"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477842"
 ---
 # <a name="how-to-export-fhir-data"></a>Comment exporter des données FHIR
 
@@ -67,7 +67,7 @@ L’API Azure pour FHIR prend en charge les paramètres de requête suivants. To
 | \_since | Oui | Vous permet d’exporter uniquement les ressources qui ont été modifiées depuis l’heure indiquée. |
 | \_type | Oui | Vous permet de spécifier les types de ressources qui seront inclus. Par exemple, \_type=Patient retournera uniquement des ressources relatives aux patients.|
 | \_typefilter | Oui | Pour demander un filtrage plus affiné, vous pouvez utiliser \_typefilter avec le paramètre \_type. La valeur du paramètre _typeFilter est une liste séparée par des virgules de requêtes FHIR qui limitent davantage les résultats. |
-| \_container | Non |  Spécifie le conteneur dans le compte de stockage configuré où les données doivent être exportées. Si un conteneur est spécifié, les données sont exportées vers celui-ci dans un nouveau dossier portant son nom. Si le conteneur n’est pas spécifié, elles sont exportées vers un nouveau conteneur utilisant le timestamp et l’ID de travail. |
+| \_container | Non |  Spécifie le conteneur dans le compte de stockage configuré où les données doivent être exportées. Si un conteneur est spécifié, les données sont exportées dans un dossier dans ce conteneur. Si le conteneur n’est pas spécifié, les données sont exportées vers un nouveau conteneur. |
 
 > [!Note]
 > Seuls les comptes de stockage dans le même abonnement que pour l’API Azure pour FHIR peuvent être enregistrés comme destination pour les opérations de $export.
@@ -140,7 +140,7 @@ Le processus de configuration est le même que précédemment à ceci près qu�
     
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à exporter des ressources FHIR à l’aide de la commande $export. Ensuite, pour savoir comment exporter des données déidentifiées, consultez :
+Dans cet article, vous avez appris à exporter des ressources FHIR à l’aide de $export commande. Ensuite, pour savoir comment exporter des données déidentifiées, consultez :
  
 >[!div class="nextstepaction"]
 >[Exporter des données anonymisées](de-identified-export.md)

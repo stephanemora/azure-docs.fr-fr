@@ -4,12 +4,12 @@ description: Découvrez comment développer des fonctions à l’aide de Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 1ffbd760ae75605d75652b29d379420d6946aa8f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82e40fbe3be88754ce7196f61c971c7a002998ca
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96326452"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095101"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guide des développeurs Java sur Azure Functions
 
@@ -195,7 +195,7 @@ L’exemple suivant montre le paramètre de système d’exploitation dans la se
  
 ## <a name="jdk-runtime-availability-and-support"></a>Disponibilité et prise en charge du runtime JDK 
 
-Pour le développement local d’applications de fonction Java, téléchargez et utilisez les JDK Java [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) nécessaires sur [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) . Azure Functions utilise un runtime JDK Java Azul lors du déploiement de l’application de fonction sur le cloud.
+Pour le développement local d’applications de fonction Java, téléchargez et utilisez les JDK Java Azul Zulu Enterprise for Azure nécessaires sur [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) . Azure Functions utilise un runtime JDK Java Azul lors du déploiement de l’application de fonction sur le cloud.
 
 Le [support Azure](https://azure.microsoft.com/support/) des problèmes avec les JDK et les applications de fonction est disponible avec dans un [plan de support qualifié](https://azure.microsoft.com/support/plans/).
 

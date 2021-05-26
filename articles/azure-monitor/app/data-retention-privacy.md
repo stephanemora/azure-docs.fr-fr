@@ -4,12 +4,12 @@ description: Retention and privacy policy statement
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6a7545d4d927418e6153ce3bf439fc8c3e2dc702
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56c86387ab06bf0fe94900e654853e74d3ee2603
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104774913"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059407"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -43,7 +43,7 @@ Il existe trois sources de données :
   
   * Chaque Kit SDK comporte un certain nombre de [modules](./configuration-with-applicationinsights-config.md), utilisant diverses techniques pour collecter différents types de données de télémétrie.
   * Si vous installez le Kit SDK pendant le développement, vous pouvez utiliser ses API pour envoyer votre propre télémétrie, ainsi que les modules standards. Ces données de télémétrie personnalisées peuvent inclure toutes les données que vous souhaitez envoyer.
-* Sur certains serveurs web, il existe également des agents qui s’exécutent en même temps que l’application et qui envoient des données de télémétrie concernant l’UC, la mémoire et l’occupation du réseau. Par exemple, les machines virtuelles Azure, les hôtes Docker et [les serveurs Java EE](./java-agent.md) peuvent disposer de ces agents.
+* Sur certains serveurs web, il existe également des agents qui s’exécutent en même temps que l’application et qui envoient des données de télémétrie concernant l’UC, la mémoire et l’occupation du réseau. Par exemple, les machines virtuelles Azure, les hôtes Docker et [les serveurs Java EE](java-2x-agent.md) peuvent disposer de ces agents.
 * [Les tests de disponibilité](./monitor-web-app-availability.md) sont des processus exécutés par Microsoft qui envoient des requêtes à votre application web à intervalles réguliers. Les résultats sont envoyés au service Application Insights.
 
 ### <a name="what-kinds-of-data-are-collected"></a>Quel genre de données est collecté ?
@@ -311,7 +311,7 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponibles sur 
 [client]: ./javascript.md
 [config]: ./configuration-with-applicationinsights-config.md
 [greenbrown]: ./asp-net.md
-[java]: ./java-get-started.md
+[java]: ./java-in-process-agent.md
 [platforms]: ./platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ./monitor-performance-live-website-now.md

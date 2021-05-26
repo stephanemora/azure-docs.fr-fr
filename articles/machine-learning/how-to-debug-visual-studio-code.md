@@ -9,12 +9,12 @@ ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: d3c4438cdfa8ddd41cb306e84623ccd569ac1680
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 49954224fbdb2d100a809ea5c1d975e1b2e46f56
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885575"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372927"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Débogage interactif avec Visual Studio Code
 
@@ -28,7 +28,7 @@ Utilisez l’extension Azure Machine Learning pour valider, exécuter et débogu
 
 ### <a name="prerequisites"></a>Prérequis
 
-* Extension VS Code Azure Machine Learning (préversion). Pour plus d’informations, consultez [Configurer l’extension VS Code Azure Machine Learning](tutorial-setup-vscode-extension.md).
+* Extension VS Code Azure Machine Learning (préversion). Pour plus d’informations, consultez [Configurer l’extension VS Code Azure Machine Learning](how-to-setup-vs-code.md).
 * [Docker](https://www.docker.com/get-started)
   * Docker Desktop pour Mac et Windows
   * Moteur Docker pour Linux.

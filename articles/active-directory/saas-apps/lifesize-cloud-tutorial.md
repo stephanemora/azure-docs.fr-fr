@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 483377d0376a5a98d822392af1fa2d84ad8498e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37a116752062e722f65acb6ca01431b5176ea60e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92458589"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085471"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Didacticiel : Intégration d’Azure Active Directory à Lifesize Cloud
 
@@ -115,7 +115,7 @@ Pour configurer l’authentification unique Azure AD avec Lifesize Cloud, effect
     d. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://webapp.lifesizecloud.com/?ent=<identifier>`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’état de relais réels. Pour obtenir les valeurs d’URL de connexion et d’identificateur, contactez l’[équipe du support technique Lifesize Cloud](https://www.lifesize.com/en/support). Vous pouvez également obtenir la valeur de l’état de relais à partir de la configuration SSO, expliquée plus loin dans ce tutoriel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’état de relais réels. Pour obtenir les valeurs d’URL de connexion et d’identificateur, contactez l’[équipe du support technique Lifesize Cloud](https://legacy.lifesize.com/en/support). Vous pouvez également obtenir la valeur de l’état de relais à partir de la configuration SSO, expliquée plus loin dans ce tutoriel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 

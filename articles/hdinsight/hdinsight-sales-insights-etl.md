@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: f41f202ede49892608e1ca3c5fdfbe703b6a5293
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 8fc2654dfb41ef4b9e1e2491f6c130229b856682
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074940"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091698"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutoriel : Créer un pipeline de données de bout en bout pour dériver des insights de ventes dans Azure HDInsight
 
@@ -168,7 +168,7 @@ ADLSGen2StorageName=$(cat resourcesoutputs_storage.json | jq -r '.properties.out
 Ce script effectue les opérations suivantes :
 
 1. Il crée un principal de service avec des autorisations `Storage Blob Data Contributor` sur le compte de stockage Data Lake Storage Gen2.
-1. Il obtient un jeton d’authentification pour autoriser les requêtes POST à l’[API REST de système de fichiers Data Lake Storage Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/filesystem/create).
+1. Il obtient un jeton d’authentification pour autoriser les requêtes POST à l’[API REST de système de fichiers Data Lake Storage Gen2](/rest/api/storageservices/datalakestoragegen2/filesystem/create).
 1. Il renseigne le nom réel de votre compte de stockage Data Lake Storage Gen2 dans les fichiers `sparktransform.py` et `query.hql`.
 1. Il obtient les clés de stockage pour le compte Data Lake Storage Gen2 et le compte de stockage Blob.
 1. Il crée un autre déploiement de ressources pour créer un pipeline Azure Data Factory, avec ses services liés et ses activités associés. Il transmet les clés de stockage en tant que paramètres au fichier de modèle pour que les services liés puissent accéder correctement aux comptes de stockage.
@@ -265,8 +265,8 @@ Pour découvrir d’autres façons de transformer des données avec HDInsight, c
 
 1. Dans **Navigateur**, sélectionnez `sales` et/ou `sales_raw` pour afficher un aperçu des données. Une fois les données chargées, vous pouvez faire des essais avec le tableau de bord que vous souhaitez créer. Pour bien démarrer avec les tableaux de bord Power BI, consultez les liens suivants :
 
-* [Introduction aux tableaux de bord pour les concepteurs Power BI](https://docs.microsoft.com/power-bi/service-dashboards)
-* [Tutoriel : Bien démarrer avec le service Power BI](https://docs.microsoft.com/power-bi/service-get-started)
+* [Introduction aux tableaux de bord pour les concepteurs Power BI](/power-bi/service-dashboards)
+* [Tutoriel : Bien démarrer avec le service Power BI](/power-bi/service-get-started)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

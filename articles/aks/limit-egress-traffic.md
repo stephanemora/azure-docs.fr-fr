@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: bf006c6ade92cc2d1286dc1173d09efea0294f50
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e5f71566d3e31858a60f805bf45fe95793dd9b20
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754466"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094255"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)
 
@@ -178,26 +178,6 @@ Les noms de domaine complets/règles d’application suivants sont requis pour l
 | *.ods.opinsights.azure.com    | **`HTTPS:443`**    | Ce point de terminaison est utilisé par Azure Monitor pour l’ingestion des données Log Analytics. |
 | *.oms.opinsights.azure.com | **`HTTPS:443`** | Ce point de terminaison est utilisé par omsagent, qui sert à authentifier le service Log Analytics. |
 | *.monitoring.azure.com | **`HTTPS:443`** | Ce point de terminaison est utilisé pour envoyer des données de métriques à Azure Monitor. |
-
-### <a name="azure-dev-spaces"></a>Azure Dev Spaces
-
-Mettez à jour la configuration de votre pare-feu ou votre configuration de la sécurité de façon à autoriser le trafic réseau à destination et en provenance de tous les noms FQDN ci-dessous et des [services d’infrastructure Azure Dev Spaces][dev-spaces-service-tags].
-
-#### <a name="required-network-rules"></a>Règles de réseau requises
-
-| Point de terminaison de destination                                                             | Protocol | Port    | Utilisation  |
-|----------------------------------------------------------------------------------|----------|---------|------|
-| [Balise de service](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureDevSpaces`**  | TCP           | 443      | Ce point de terminaison est utilisé pour envoyer les données de métriques et des journaux à Azure Monitor et à Log Analytics. |
-
-#### <a name="required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises
-
-Les règles de nom de domaine complet/d’application suivantes sont requises pour les clusters AKS avec Azure Dev Spaces activé :
-
-| FQDN                                    | Port      | Utilisation      |
-|-----------------------------------------|-----------|----------|
-| `cloudflare.docker.com` | **`HTTPS:443`** | Cette adresse est utilisée pour extraire des images Linux Alpine et d’autres Azure Dev Spaces Alpine |
-| `gcr.io` | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les images Helm/Tiller |
-| `storage.googleapis.com` | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les images Helm/Tiller |
 
 ### <a name="azure-policy"></a>Azure Policy
 
@@ -802,4 +782,3 @@ Si vous souhaitez limiter la communication entre les pods et le trafic Est-Ouest
 [aks-upgrade]: upgrade-cluster.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[dev-spaces-service-tags]: ../dev-spaces/configure-networking.md#virtual-network-or-subnet-configurations

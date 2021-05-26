@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 4/8/2021
-ms.openlocfilehash: 7d04b98014abbf6bf732da292df3b7bb9172f281
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 59d2d561945ed55f3140099117c2f8dc9d8cc766
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203574"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084553"
 ---
 # <a name="authentication-failed"></a>Échec de l'authentification.
 
@@ -27,7 +27,7 @@ Lors de la configuration et de l’exécution de l’application Azure Digital T
 
 ### <a name="cause-1"></a>Cause no 1
 
-L’application Azure Digital Twins Explorer utilise [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) (qui fait partie de la bibliothèque `Azure.Identity`), qui recherche les informations d’identification dans votre environnement local.
+L’application Azure Digital Twins Explorer utilise [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) (qui fait partie de la bibliothèque `Azure.Identity`), qui recherche les informations d’identification dans votre environnement local.
 
 Comme l’indique le texte de l’erreur, cette erreur peut se produire si vous n’avez pas fourni d’informations d’identification locales que `DefaultAzureCredential` puisse récupérer.
 
