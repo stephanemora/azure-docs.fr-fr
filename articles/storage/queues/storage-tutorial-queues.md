@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 40d54d9e495efef4b0e1ddb8dc8b8c7114421414
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: c7d960735ee3ebd056858b93576d219ade514a00
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165566"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459698"
 ---
 # <a name="tutorial-work-with-azure-queue-storage-queues-in-net"></a>Tutoriel : Utiliser des files d’attente Stockage File d’attente Azure dans .NET
 
@@ -101,7 +101,7 @@ Créez une application .NET Core nommée `QueueApp`. Par souci pratique, cette a
 
 1. Ajoutez les bibliothèques clientes du stockage Azure au projet à l’aide de la commande `dotnet add package`.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
    Exécutez la commande suivante à partir du dossier du projet dans la fenêtre de console.
 
@@ -109,7 +109,7 @@ Créez une application .NET Core nommée `QueueApp`. Par souci pratique, cette a
    dotnet add package Azure.Storage.Queues
    ```
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
    Exécutez les commandes suivantes à partir du dossier du projet dans la fenêtre de console.
 
@@ -129,11 +129,11 @@ Créez une application .NET Core nommée `QueueApp`. Par souci pratique, cette a
 
 1. Ouvrez le fichier source `Program.cs` et ajoutez les espaces de noms suivants juste après l’instruction `using System;`. Cette application utilise des types provenant de ces espaces de noms pour se connecter à Stockage Azure et pour utiliser des files d’attente.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_UsingStatements":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_UsingStatements":::
 
@@ -165,21 +165,21 @@ Ajoutez la chaîne de connexion à l’application afin qu’elle puisse accéde
 
 1. Dans la méthode `Main`, remplacez le code `Console.WriteLine("Hello, World");` par la ligne suivante qui récupère la chaîne de connexion de la variable d’environnement.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_DeclareConnectionString":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_DeclareConnectionString":::
 
 1. Ajoutez le code suivant à `Main` pour créer un objet de file d’attente, qui sera passé plus tard dans les méthodes d’envoi et de réception.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_CreateQueueClient":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_CreateQueueClient":::
 
@@ -191,13 +191,13 @@ Créez une méthode pour envoyer un message dans la file d’attente.
 
 1. Ajoutez la méthode `InsertMessageAsync` suivante dans votre classe `Program`.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
    Une référence de file d’attente est passée à cette méthode. Si elle n’existe pas déjà, une nouvelle file d’attente est créée en appelant [`CreateIfNotExistsAsync`](/dotnet/api/azure.storage.queues.queueclient.createifnotexistsasync). Ensuite, elle ajoute `newMessage` à la file d’attente en appelant [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync).
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_InsertMessage":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
    Une référence de file d’attente est passée à cette méthode. Si elle n’existe pas déjà, une nouvelle file d’attente est créée en appelant [`CreateIfNotExistsAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Ensuite, elle ajoute `newMessage` à la file d’attente en appelant [`AddMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
@@ -205,13 +205,13 @@ Créez une méthode pour envoyer un message dans la file d’attente.
 
 1. **Facultatif :** Par défaut, la durée de vie maximale d’un message est définie sur sept jours. Vous pouvez spécifier n’importe quel nombre positif pour la durée de vie du message. L’extrait de code suivant ajoute un message qui n’expire **jamais**.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
     Pour ajouter un message qui n’expire pas, utilisez `Timespan.FromSeconds(-1)` dans votre appel à `SendMessageAsync`.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_SendNonExpiringMessage":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
     Pour ajouter un message qui n’expire pas, utilisez `Timespan.FromSeconds(-1)` dans votre appel à `AddMessageAsync`.
 
@@ -227,7 +227,7 @@ Créez une méthode pour récupérer un message de la file d’attente. Une fois
 
 1. Ajoutez une nouvelle méthode appelée `RetrieveNextMessageAsync` à votre classe `Program`.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
    Cette méthode reçoit un message de la file d’attente en appelant [`ReceiveMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), en passant `1` dans le premier paramètre pour ne récupérer que le message suivant dans la file d’attente. Une fois le message reçu, supprimez-le de la file d’attente en appelant [`DeleteMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
 
@@ -235,7 +235,7 @@ Créez une méthode pour récupérer un message de la file d’attente. Une fois
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
    Cette méthode reçoit un message de la file d’attente en appelant [`GetMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). Une fois le message reçu, supprimez-le de la file d’attente en appelant [`DeleteMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
 
@@ -249,11 +249,11 @@ C’est une bonne pratique à la fin d’un projet que de déterminer si vous av
 
 1. Développez la méthode `RetrieveNextMessageAsync` pour y inclure une invite de suppression de la file d’attente vide.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_RetrieveMessage":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_RetrieveMessage":::
 
@@ -269,11 +269,11 @@ Enfin, attendez une entrée utilisateur avant de quitter en appelant `Console.Re
 
 1. Développez la méthode `Main` pour vérifier les arguments de la ligne de commande et attendre une entrée d’utilisateur.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_Main":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_Main":::
 
@@ -283,11 +283,11 @@ Enfin, attendez une entrée utilisateur avant de quitter en appelant `Console.Re
 
 Voici le code complet pour ce projet.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_AllCode":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_AllCode":::
    ---

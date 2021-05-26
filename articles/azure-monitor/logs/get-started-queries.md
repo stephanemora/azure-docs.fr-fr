@@ -5,17 +5,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: c87b70c74a5de9cc4b6c48935b93fdd13295f0f8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6e389cf58b5761d4069cf8a8b1e336d58db7a787
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052328"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459293"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Bien démarrer avec les requêtes de journal dans Azure Monitor
 
 > [!NOTE]
-> Vous pouvez effectuer cet exercice dans votre propre environnement si vous collectez des données à partir d’au moins une machine virtuelle. Si ce n’est pas le cas, utilisez notre [environnement de démonstration](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), qui comporte de nombreux exemples de données.  Si vous savez déjà comment interroger dans KQL, mais que vous devez simplement créer rapidement des requêtes utiles basées sur le ou les types de ressources, consultez le [volet des exemples de requêtes enregistrées](../logs/example-queries.md).
+> Vous pouvez effectuer cet exercice dans votre propre environnement si vous collectez des données à partir d’au moins une machine virtuelle. Si ce n’est pas le cas, utilisez notre [environnement de démonstration](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), qui comporte de nombreux exemples de données.  Si vous savez déjà comment interroger dans KQL, mais que vous devez simplement créer rapidement des requêtes utiles basées sur le ou les types de ressources, consultez le [volet des exemples de requêtes enregistrées](../logs/queries.md).
 
 Dans ce didacticiel, vous allez apprendre à écrire des requêtes de journal dans Azure Monitor. Au terme du tutoriel, vous saurez :
 

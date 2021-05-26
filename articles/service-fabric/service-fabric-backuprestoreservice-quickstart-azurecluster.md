@@ -3,23 +3,23 @@ title: Sauvegarde et restauration périodiques dans Azure Service Fabric
 description: Utilisez la fonctionnalité de sauvegarde et de restauration périodiques de Service Fabric pour activer la sauvegarde périodique des données de votre application.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: 42097b50277e78b3f0e8f5e61a2bf70cc08dbc02
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dbbeac5e5efad4e19561ba5f812e29d029de8317
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103198724"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059767"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Sauvegarde et restauration périodiques dans un cluster Azure Service Fabric
 > [!div class="op_single_selector"]
-> * [Clusters sur Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
+> * [Clusters sur Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 > * [Clusters autonomes](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
-> 
+>
 
 Service Fabric est une plateforme de systèmes distribués qui facilite le développement et la gestion d’applications cloud basées sur des microservices distribués et fiables. Il permet l’exécution de microservices avec et sans état. Les services avec état peuvent conserver un état mutable faisant autorité au-delà de la demande et la réponse ou d’une transaction complète. Si un service avec état tombe en panne pendant un long moment ou perd des informations en raison d’un sinistre, il doit peut-être être restauré à l’état qu’il avait lors d’une sauvegarde récente afin de continuer à assurer le service une fois redevenu opérationnel.
 
 Service Fabric réplique l’état sur plusieurs nœuds afin de garantir une haute disponibilité du service. Même si un nœud du cluster échoue, le service continue d’être disponible. Toutefois, dans certains cas, il est toujours souhaitable que les données de service soient fiables par rapport à des défaillances plus importantes.
- 
+
 Par exemple, le service peut souhaiter sauvegarder ses données afin de les protéger contre les scénarios suivants :
 - Perte définitive de la totalité d’un cluster Service Fabric.
 - Perte définitive de la majorité des réplicas d’une partition de service.
@@ -29,7 +29,7 @@ Par exemple, le service peut souhaiter sauvegarder ses données afin de les prot
 
 Service Fabric fournit une API intégrée pour effectuer des opérations de [sauvegarde et restauration](service-fabric-reliable-services-backup-restore.md) dans le temps. Les développeurs d’applications peuvent utiliser ces API pour sauvegarder régulièrement l’état du service. De plus, si les administrateurs de service souhaitent déclencher une sauvegarde depuis l’extérieur du service à un moment donné, comme avant la mise à niveau de l’application, les développeurs doivent exposer la sauvegarde (et la restauration) en tant qu’API du service. La maintenance des sauvegardes constitue un coût supplémentaire. Par exemple, vous souhaitez effectuer cinq sauvegardes incrémentielles toutes les demi-heures, suivies d’une sauvegarde complète. Après la sauvegarde complète, vous pouvez supprimer les sauvegardes incrémentielles précédentes. Cette approche nécessite du code supplémentaire, ce qui entraîne un coût supplémentaire durant le développement d’applications.
 
-Le service de sauvegarde et de restauration de Service Fabric permet de sauvegarder facilement et automatiquement les informations stockées dans les services avec état. Une sauvegarde périodique des données d’application est essentielle pour éviter la perte de données et l’indisponibilité du service. Service Fabric fournit un service de sauvegarde et restauration facultatif, ce qui vous permet de configurer une sauvegarde périodique des services fiables (Reliable Services) avec état (dont les services d’acteur) sans avoir à écrire du code supplémentaire. Il facilite également la restauration des sauvegardes précédemment effectuées. 
+Le service de sauvegarde et de restauration de Service Fabric permet de sauvegarder facilement et automatiquement les informations stockées dans les services avec état. Une sauvegarde périodique des données d’application est essentielle pour éviter la perte de données et l’indisponibilité du service. Service Fabric fournit un service de sauvegarde et restauration facultatif, ce qui vous permet de configurer une sauvegarde périodique des services fiables (Reliable Services) avec état (dont les services d’acteur) sans avoir à écrire du code supplémentaire. Il facilite également la restauration des sauvegardes précédemment effectuées.
 
 
 Service Fabric fournit un ensemble d’API pour obtenir les fonctions suivantes associées à la fonctionnalité de sauvegarde et restauration périodiques :
@@ -63,7 +63,7 @@ Service Fabric fournit un ensemble d’API pour obtenir les fonctions suivantes 
 
 ```powershell
 
-    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 
 ```
 
@@ -77,7 +77,7 @@ Cochez la case `Include backup restore service` sous `+ Show optional settings` 
 
 
 ### <a name="using-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
-Vous devez d’abord activer le _service de sauvegarde et de restauration_ dans votre cluster. Récupérez le modèle approprié pour le cluster que vous souhaitez déployer. Vous pouvez soit utiliser les [exemples de modèles](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype), soit créer un modèle Resource Manager. Activez le _service de sauvegarde et de restauration_ en effectuant les étapes suivantes :
+Vous devez d’abord activer le _service de sauvegarde et de restauration_ dans votre cluster. Récupérez le modèle approprié pour le cluster que vous souhaitez déployer. Vous pouvez soit utiliser les [exemples de modèles](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype), soit créer un modèle Resource Manager. Activez le _service de sauvegarde et de restauration_ en effectuant les étapes suivantes :
 
 1. Vérifiez si `apiversion` a la valeur **`2018-02-01`** pour la ressource `Microsoft.ServiceFabric/clusters` et, si ce n’est pas le cas, procédez à une mise à jour, comme indiqué dans l’extrait de code suivant :
 
@@ -91,7 +91,7 @@ Vous devez d’abord activer le _service de sauvegarde et de restauration_ dans 
     }
     ```
 
-2. À présent, activez le _service de sauvegarde et de restauration_ en ajoutant la section `addonFeatures` suivante sous la section `properties`, comme indiqué dans l’extrait de code ci-après : 
+2. À présent, activez le _service de sauvegarde et de restauration_ en ajoutant la section `addonFeatures` suivante sous la section `properties`, comme indiqué dans l’extrait de code ci-après :
 
     ```json
         "properties": {
@@ -102,7 +102,7 @@ Vous devez d’abord activer le _service de sauvegarde et de restauration_ dans 
         }
 
     ```
-3. Configurez un certificat X.509 pour le chiffrement des informations d’identification. Ceci est important afin de vous assurer que les informations d’identification fournies pour vous connecter au stockage sont chiffrées avant d’être rendues persistantes. Configurez le certificat de chiffrement en ajoutant la section `BackupRestoreService` suivante sous la section `fabricSettings`, comme indiqué dans l’extrait de code ci-après : 
+3. Configurez un certificat X.509 pour le chiffrement des informations d’identification. Ceci est important afin de vous assurer que les informations d’identification fournies pour vous connecter au stockage sont chiffrées avant d’être rendues persistantes. Configurez le certificat de chiffrement en ajoutant la section `BackupRestoreService` suivante sous la section `fabricSettings`, comme indiqué dans l’extrait de code ci-après :
 
     ```json
     "properties": {
@@ -119,7 +119,7 @@ Vous devez d’abord activer le _service de sauvegarde et de restauration_ dans 
     }
     ```
 
-4. Après avoir mis à jour votre modèle de cluster avec les modifications précédentes, appliquez-les et laissez le déploiement/la mise à niveau s’accomplir. Une fois l’opération terminée, le _service de sauvegarde et de restauration_ commence à s’exécuter dans votre cluster. L’URI de ce service est `fabric:/System/BackupRestoreService` et le service peut être situé sous la section du service système dans Service Fabric Explorer. 
+4. Après avoir mis à jour votre modèle de cluster avec les modifications précédentes, appliquez-les et laissez le déploiement/la mise à niveau s’accomplir. Une fois l’opération terminée, le _service de sauvegarde et de restauration_ commence à s’exécuter dans votre cluster. L’URI de ce service est `fabric:/System/BackupRestoreService` et le service peut être situé sous la section du service système dans Service Fabric Explorer.
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Activation de la sauvegarde périodique pour le service avec état fiable et les acteurs fiables (Reliable Actors)
 Examinons la procédure pour activer la sauvegarde périodique pour le service avec état fiable et les acteurs fiables (Reliable Actors). Cette procédure suppose les éléments suivants :
@@ -129,7 +129,7 @@ Examinons la procédure pour activer la sauvegarde périodique pour le service a
 
 ### <a name="create-backup-policy"></a>Créer la stratégie de sauvegarde
 
-La première étape consiste à créer la stratégie de sauvegarde qui décrit la planification de la sauvegarde, le stockage cible pour les données de sauvegarde, le nom de la stratégie, les sauvegardes incrémentielles maximales autorisées avant le déclenchement de la sauvegarde complète et la stratégie de conservation pour le stockage des sauvegardes. 
+La première étape consiste à créer la stratégie de sauvegarde qui décrit la planification de la sauvegarde, le stockage cible pour les données de sauvegarde, le nom de la stratégie, les sauvegardes incrémentielles maximales autorisées avant le déclenchement de la sauvegarde complète et la stratégie de conservation pour le stockage des sauvegardes.
 
 Pour le stockage de sauvegarde, utilisez le compte de stockage Azure créé ci-dessus. Le conteneur `backup-container` est configuré pour stocker des sauvegardes. Lors du téléchargement de la sauvegarde, un conteneur portant ce nom est créé s’il n’existe pas déjà. Remplissez `ConnectionString` avec une chaîne de connexion valide pour le compte de stockage Azure, en remplaçant `account-name` par le nom de votre compte de stockage et `account-key` par la clé de votre compte de stockage.
 
@@ -159,7 +159,7 @@ $ScheduleInfo = @{
     ScheduleKind = 'FrequencyBased'
 }
 
-$RetentionPolicy = @{ 
+$RetentionPolicy = @{
     RetentionPolicyType = 'Basic'
     RetentionDuration =  'P10D'
 }
@@ -212,10 +212,10 @@ $body = (ConvertTo-Json $BackupPolicyReference)
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/EnableBackup?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
-``` 
+```
 
 #### <a name="using-service-fabric-explorer"></a>Utiliser Service Fabric Explorer
-Assurez-vous que le [mode avancé](service-fabric-visualizing-your-cluster.md#backup-and-restore) de Service Fabric Explorer est activé 
+Assurez-vous que le [mode avancé](service-fabric-visualizing-your-cluster.md#backup-and-restore) de Service Fabric Explorer est activé
 
 1. Sélectionnez une application et accédez à Action. Cliquez sur Activer/Mettre à jour la sauvegarde de l’application.
 
@@ -228,7 +228,7 @@ Assurez-vous que le [mode avancé](service-fabric-visualizing-your-cluster.md#ba
 
 ### <a name="verify-that-periodic-backups-are-working"></a>Vérifier le fonctionnement des sauvegardes périodiques
 
-Après avoir activé la sauvegarde au niveau de l’application, toutes les partitions appartenant à des services avec état fiables et des acteurs fiables (Reliable Actors) sous l’application commencent à être sauvegardées régulièrement conformément à la stratégie de sauvegarde associée. 
+Après avoir activé la sauvegarde au niveau de l’application, toutes les partitions appartenant à des services avec état fiables et des acteurs fiables (Reliable Actors) sous l’application commencent à être sauvegardées régulièrement conformément à la stratégie de sauvegarde associée.
 
 ![Événement d’intégrité de partition sauvegardée][0]
 
@@ -239,7 +239,7 @@ Les sauvegardes associées à toutes les partitions appartenant à des services 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell avec le module Microsoft.ServiceFabric.Powershell.Http
 
 ```powershell
-    
+
 Get-SFApplicationBackupList -ApplicationId WordCount
 ```
 
@@ -269,7 +269,7 @@ BackupType              : Full
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3334
 CreationTimeUtc         : 2018-04-06T20:55:16Z
-FailureError            : 
+FailureError            :
 
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
 BackupChainId           : b9577400-1131-4f88-b309-2bb1e943322c
@@ -281,7 +281,7 @@ BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3552
 CreationTimeUtc         : 2018-04-06T21:10:27Z
-FailureError            : 
+FailureError            :
 
 BackupId                : 69436834-c810-4163-9386-a7a800f78359
 BackupChainId           : b9577400-1131-4f88-b309-2bb1e943322c
@@ -293,7 +293,7 @@ BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3764
 CreationTimeUtc         : 2018-04-06T21:25:36Z
-FailureError            : 
+FailureError            :
 ```
 
 #### <a name="using-service-fabric-explorer"></a>Utiliser Service Fabric Explorer

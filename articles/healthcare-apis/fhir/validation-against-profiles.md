@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 05/06/2021
 ms.author: ginle
-ms.openlocfilehash: 679d8b2ac86ec63d33fcd5cd069a3135d33ab981
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 2c367dbed14e0dba9a8a95a3ce2709d2415c7cd6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109657042"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466698"
 ---
 # <a name="how-to-validate-fhir-resources-against-profiles"></a>Comment valider des ressources FHIR par rapport à des profils
 
@@ -66,6 +66,93 @@ Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
 
 ## <a name="accessing-profiles-and-storing-profiles"></a>Accès aux profils et stockage des profils
 
+### <a name="storing-profiles"></a>Stockage des profils
+
+Pour stocker des profils sur le serveur, vous pouvez effectuer une `POST` requête :
+
+```rest
+POST http://<your FHIR service base URL>/{Resource}
+```
+
+Dans laquelle le champ `{Resource}` sera remplacé par `StructureDefinition` , et vous auriez la `StructureDefinition` ressource `POST` Ed sur le serveur au `JSON` `XML` format ou. Par exemple, si vous souhaitez stocker le `us-core-allergyintolerance` profil, procédez comme suit :
+
+```rest
+POST http://my-fhir-server.azurewebsites.net/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
+```
+
+Emplacement de stockage et de récupération du profil d’intolérance aux allergies de base US :
+
+```json
+{
+    "resourceType" : "StructureDefinition",
+    "id" : "us-core-allergyintolerance",
+    "text" : {
+        "status" : "extensions"
+    },
+    "url" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance",
+    "version" : "3.1.1",
+    "name" : "USCoreAllergyIntolerance",
+    "title" : "US  Core AllergyIntolerance Profile",
+    "status" : "active",
+    "experimental" : false,
+    "date" : "2020-06-29",
+        "publisher" : "HL7 US Realm Steering Committee",
+    "contact" : [
+    {
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.healthit.gov"
+        }
+      ]
+    }
+  ],
+    "description" : "Defines constraints and extensions on the AllergyIntolerance resource for the minimal set of data to query and retrieve allergy information.",
+
+...
+```
+
+La plupart des profils ont le type `StructureDefinition` de ressource, mais ils peuvent également être des types `ValueSet` et `CodeSystem` , qui sont des ressources [terminologiques](http://hl7.org/fhir/terminologies.html) . Par exemple, si vous avez `POST` un `ValueSet` Profil dans un formulaire JSON, le serveur retourne le profil stocké avec le affecté `id` pour le profil, comme c’est le cas avec `StructureDefinition` . Voici un exemple que vous pouvez obtenir lorsque vous chargez un profil de [gravité de condition](https://www.hl7.org/fhir/valueset-condition-severity.html) , qui spécifie les critères pour une gravité de condition/de diagnostic :
+
+```json
+{
+    "resourceType": "ValueSet",
+    "id": "35ab90e5-c75d-45ca-aa10-748fefaca7ee",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-05-07T21:34:28.781+00:00",
+        "profile": [
+            "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+        ]
+    },
+    "text": {
+        "status": "generated"
+    },
+    "extension": [
+        {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+            "valueCode": "pc"
+        }
+    ],
+    "url": "http://hl7.org/fhir/ValueSet/condition-severity",
+    "identifier": [
+        {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:2.16.840.1.113883.4.642.3.168"
+        }
+    ],
+    "version": "4.0.1",
+    "name": "Condition/DiagnosisSeverity",
+    "title": "Condition/Diagnosis Severity",
+    "status": "draft",
+    "experimental": false,
+    "date": "2019-11-01T09:29:23+11:00",
+    "publisher": "FHIR Project team",
+...
+```
+
+Vous pouvez voir que `resourceType` est un `ValueSet` et que le du `url` Profil spécifie également qu’il s’agit d’un type `ValueSet` : `"http://hl7.org/fhir/ValueSet/condition-severity"` .
+
 ### <a name="viewing-profiles"></a>Affichage des profils
 
 Vous pouvez accéder à vos profils personnalisés existants sur le serveur à l’aide d’une `GET` demande. Tous les profils valides, tels que les profils avec des URL canoniques valides dans les guides d’implémentation, doivent être accessibles en interrogeant :
@@ -115,55 +202,6 @@ Notre serveur FHIR ne retourne pas `StructureDefinition` d’instances pour les 
 - `http://hl7.org/fhir/Observation.profile.json.html`
 - `http://hl7.org/fhir/Patient.profile.json.html`
 
-### <a name="storing-profiles"></a>Stockage des profils
-
-Pour stocker des profils sur le serveur, vous pouvez effectuer une `POST` requête :
-
-```rest
-POST http://<your FHIR service base URL>/{Resource}
-```
-
-Dans laquelle le champ `{Resource}` sera remplacé par `StructureDefinition` , et vous auriez la `StructureDefinition` ressource `POST` Ed sur le serveur au `JSON` `XML` format ou.
-
-La plupart des profils ont le type `StructureDefinition` de ressource, mais ils peuvent également être des types `ValueSet` et `CodeSystem` , qui sont des ressources [terminologiques](http://hl7.org/fhir/terminologies.html) . Par exemple, si vous avez `POST` un `ValueSet` Profil dans un formulaire JSON, le serveur retourne le profil stocké avec le affecté `id` pour le profil, comme c’est le cas avec `StructureDefinition` . Voici un exemple que vous pouvez obtenir lorsque vous chargez un profil de [gravité de condition](https://www.hl7.org/fhir/valueset-condition-severity.html) , qui spécifie les critères pour une gravité de condition/de diagnostic :
-
-```json
-{
-    "resourceType": "ValueSet",
-    "id": "35ab90e5-c75d-45ca-aa10-748fefaca7ee",
-    "meta": {
-        "versionId": "1",
-        "lastUpdated": "2021-05-07T21:34:28.781+00:00",
-        "profile": [
-            "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
-        ]
-    },
-    "text": {
-        "status": "generated",
-        "div": "<div>!-- Snipped for Brevity --></div>"
-    },
-    "extension": [
-        {
-            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-            "valueCode": "pc"
-        }
-    ],
-    "url": "http://hl7.org/fhir/ValueSet/condition-severity",
-    "identifier": [
-        {
-            "system": "urn:ietf:rfc:3986",
-            "value": "urn:oid:2.16.840.1.113883.4.642.3.168"
-        }
-    ],
-    "version": "4.0.1",
-    "name": "Condition/DiagnosisSeverity",
-    "title": "Condition/Diagnosis Severity",
-    "status": "draft",
-    "experimental": false,
-    "date": "2019-11-01T09:29:23+11:00",
-    "publisher": "FHIR Project team",
-...
-```
 
 ### <a name="profiles-in-the-capability-statement"></a>Profils dans l’instruction Capability
 

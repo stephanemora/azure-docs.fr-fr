@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 04/08/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: f394b6b44b2030253f7b78ec68459819c82c3c27
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 43b3332629922bb60eefb68782b84e996b692848
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480900"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461479"
 ---
 # <a name="change-contact-information-for-an-azure-billing-account"></a>Modifier les informations de contact d’un compte de facturation Azure
 
@@ -79,6 +79,20 @@ Pour ajouter ou changer le numéro de BDC pour un profil de facturation, effect
 1. Dans le menu de gauche, sous **Paramètres**, sélectionnez **Propriétés**.
 1. Sélectionnez **Mettre à jour le numéro de BDC**.
 1. Entrez un numéro de bon de commande, puis sélectionnez **Mettre à jour**.
+
+## <a name="update-your-tax-id"></a>Mettre à jour votre numéro d’identification de contribuable
+
+Veillez à mettre à jour votre numéro d’identification de contribuable après le déplacement de vos abonnements. Il est utilisé pour les calculs d’exonération fiscale et figure sur votre facture.
+
+**Pour mettre à jour les informations relatives au compte de facturation**
+
+1. Connectez-vous au [Microsoft Store pour Entreprises](https://businessstore.microsoft.com/) ou au [Microsoft Store pour Éducation](https://educationstore.microsoft.com/).
+1. Sélectionnez **Gérer**, puis **Comptes de facturation**.
+1. Sous **Vue d’ensemble**, sélectionnez **Modifier les informations de compte de facturation**.
+1. Effectuez la mise à jour, puis sélectionnez **Enregistrer**.
+
+[Explorez en détail comment mettre à jour les paramètres de votre compte de facturation](/microsoft-store/update-microsoft-store-for-business-account-settings).
+
 
 ## <a name="service-and-marketing-emails"></a>E-mails marketing et de service
 

@@ -1,6 +1,6 @@
 ---
 title: Comment utiliser des étiquettes de tableau pour effectuer l’apprentissage de votre module de formulaire personnalisé – Form Recognizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Apprenez à utiliser efficacement l’étiquetage supervisé des tableaux.
 author: laujan
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 5422520c6a863876091d7820a5c07fa2413346c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6cbf96a050124fe0d72bb0fc24be4ad7ea265fed
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467944"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374049"
 ---
 # <a name="use-table-tags-to-train-your-custom-form-model"></a>Utiliser des étiquettes de tableau pour effectuer l’apprentissage de votre modèle de formulaire personnalisé
 
@@ -47,7 +47,7 @@ Voici quelques exemples de cas où l’utilisation d’étiquettes de tableau se
 Suivez notre démarrage rapide pour effectuer l’apprentissage de votre modèle Form Recognizer personnalisé et l’utiliser :
 
 > [!div class="nextstepaction"]
-> [Entraînement avec des étiquettes à l’aide de l’outil Exemple d’étiquetage](quickstarts/label-tool.md)
+> [Entraînement avec des étiquettes à l’aide de l’outil Exemple d’étiquetage](label-tool.md)
 
 ## <a name="see-also"></a>Voir aussi
 

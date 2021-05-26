@@ -5,14 +5,14 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/03/2021
+ms.date: 05/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 33dcd9ace7af6d4ff820654fef20aa0a5aa3ff9d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6e3a074c24305209047fbd3e741fdb81256374e5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756788"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460100"
 ---
 # <a name="fhir-search-examples"></a>Exemples de recherche FHIR
 
@@ -22,7 +22,7 @@ Voici quelques exemples d’utilisation des opérations de recherche FHIR, y com
 
 ### <a name="_include"></a>_include
 
-`_include` recherche parmi les ressources celles qui incluent le paramètre spécifié de la ressource. Par exemple, vous pouvez effectuer une recherche dans l’ensemble des `MedicationRequest` ressources pour rechercher uniquement celles qui incluent des informations sur les préscriptions pour un patient spécifique, qui est le `reference` paramètre `patient` :
+`_include` recherche parmi les ressources celles qui incluent le paramètre spécifié de la ressource. Par exemple, vous pouvez effectuer une recherche dans l’ensemble des `MedicationRequest` ressources pour rechercher uniquement celles qui incluent des informations sur les préscriptions pour un patient spécifique, qui est le `reference` paramètre `patient` . Dans l’exemple ci-dessous, cela permet d’extraire tous les `MedicationRequests` patients qui sont référencés à partir de `MedicationRequests` :
 
 ```rest
  GET [your-fhir-server]/MedicationRequest?_include=MedicationRequest:patient
@@ -34,10 +34,10 @@ Voici quelques exemples d’utilisation des opérations de recherche FHIR, y com
 
 ### <a name="_revinclude"></a>_revinclude
 
-`_revinclude` est une recherche supplémentaire sur `_include` , qui recherche dans les ressources qui référencent les résultats de la recherche à partir de `_include` . Par exemple, vous pouvez rechercher des `MedicationRequest` ressources. Pour chaque ressource retournée, recherchez les `DetectedIssue` ressources qui présentent les problèmes cliniques avec les `patient` éléments suivants :
+`_revinclude` vous permet d’effectuer une recherche dans la direction opposée `_include` . Par exemple, vous pouvez rechercher des patients, puis inverser tous les rencontres qui font référence aux patients :
 
 ```rest
-GET [your-fhir-server]/MedicationRequest?_revinclude=DetectedIssue:patient
+GET [your-fhir-server]/Patient?_revinclude=Encounter:subject
 
 ```
 ### <a name="_elements"></a>_elements
@@ -69,7 +69,7 @@ En guise de valeur de retour, vous obtiendriez toutes les entrées patients pour
 `:missing` retourne toutes les ressources qui n’ont pas de valeur pour l’élément spécifié lorsque la valeur est `true` , et retourne toutes les ressources qui contiennent l’élément spécifié lorsque la valeur est `false` . Pour les éléments de type de données simples, `:missing=true` correspond à toutes les ressources où l’élément est présent avec les extensions, mais a une valeur vide. Par exemple, si vous souhaitez rechercher toutes les `Patient` ressources qui contiennent des informations sur la date de naissance, vous pouvez effectuer les opérations suivantes :
 
 ```rest
-GET [your-fhir-server]/Patient?birthDate:missing=true
+GET [your-fhir-server]/Patient?birthdate:missing=true
 
 ```
 
@@ -104,7 +104,7 @@ Pour effectuer une série d’opérations de recherche couvrant plusieurs param�
 
 Cette demande retourne toutes les ressources avec l’objet du patient nommé « Sarah ». Le point `.` après le champ `Patient` effectue la recherche chaînée sur le paramètre de référence du `subject` paramètre.
 
-Une autre utilisation courante de la recherche chaînée consiste à rechercher tous les rencontres pour un patient spécifique. `Patient`les s comportent souvent un ou plusieurs `Encounter` s avec un objet. Pour rechercher toutes les `Encounter` ressources pour un `Patient` avec le fourni `id` :
+Une autre utilisation courante d’une recherche régulière (et non une recherche chaînée) consiste à rechercher tous les rencontres pour un patient spécifique. `Patient`les s comportent souvent un ou plusieurs `Encounter` s avec un objet. Pour rechercher toutes les `Encounter` ressources pour un `Patient` avec le fourni `id` :
 
 ```rest
 GET [your-fhir-server]/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e6619399f
@@ -114,7 +114,7 @@ GET [your-fhir-server]/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e661
 À l’aide de la recherche chaînée, vous pouvez rechercher toutes les `Encounter` ressources qui correspondent à une information particulière `Patient` , par exemple `birthdate` :
 
 ```rest
-GET [your-fhir-server]/Encounter?subject:Patient.birthDate=1987-02-20
+GET [your-fhir-server]/Encounter?subject:Patient.birthdate=1987-02-20
 
 ```
 

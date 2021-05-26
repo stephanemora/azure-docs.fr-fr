@@ -7,14 +7,14 @@ author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
-ms.date: 04/26/2021
+ms.date: 05/25/2021
 tags: connectors
-ms.openlocfilehash: 80ff8508caefd355f00a0407df0d9a65c76c999a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e852f0ce1584a0858f9523c1ea055d4f2cd616d2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742076"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376252"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-a-workflow-in-azure-logic-apps"></a>Se connecter à un serveur IBM MQ depuis un workflow dans Azure Logic Apps
 
@@ -30,11 +30,9 @@ Ce connecteur inclut un client Microsoft MQ qui communique avec un serveur MQ di
 
 ## <a name="available-operations"></a>Opérations disponibles
 
-Le connecteur IBM MQ fournit des actions mais pas de déclencheurs.
+* Azure Logic Apps multilocataire : quand vous créez une ressource d’*application logique (consommation)* , vous pouvez vous connecter à un serveur MQ seulement en utilisant le connecteur MQ **managé**. Le connecteur fournit seulement des actions, et non pas des déclencheurs.
 
-* Azure Logic Apps mutualisées : lorsque vous créez un workflow d’application logique basé sur la consommation, vous pouvez vous connecter à un serveur MQ à l’aide du connecteur MQ *géré*.
-
-* Azure Logic Apps à un seul locataire (préversion) : lorsque vous créez un workflow d’application logique en préversion, vous pouvez vous connecter à un serveur MQ à l’aide du connecteur MQ géré ou des opérations MQ *intégrées* (préversion).
+* Azure Logic Apps monolocataire : quand vous créez un workflow d’application logique monolocataire, vous pouvez vous connecter à un serveur MQ en utilisant le connecteur MQ managé, qui inclut *seulement* des actions, ou en utilisant les opérations MQ *intégrées*, qui incluent des déclencheurs *et* des actions.
 
 Pour plus d’informations sur la différence entre un connecteur géré et les opérations intégrées, consultez les [termes clés dans Logic Apps](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
@@ -49,14 +47,17 @@ La liste suivante décrit uniquement certaines des opérations managées disponi
 
 Pour toutes les opérations du connecteur managé et autres informations techniques, telles que les propriétés, les limites, etc., consultez la [page de référence du connecteur MQ](/connectors/mq/).
 
-#### <a name="built-in-preview"></a>[Intégré (préversion)](#tab/built-in)
+#### <a name="built-in"></a>[Intégrée](#tab/built-in)
 
 La liste suivante décrit uniquement certaines des opérations intégrées disponibles pour MQ :
 
-* Recevoir un seul message ou un tableau de messages du serveur MQ. Pour plusieurs messages, vous pouvez spécifier le nombre maximal de messages à renvoyer par lot et la taille de lot maximale en ko.
+* Quand un message est disponible dans une file d’attente, effectuez une action.
+* Quand un ou plusieurs messages sont reçus d’une file d’attente (saisie semi-automatique), effectuez une action.
+* Quand un ou plusieurs messages sont reçus d’une file d’attente (Peek-lock), effectuez une action.
+* Recevoir un seul message ou un tableau de messages d’une file d’attente. Pour plusieurs messages, vous pouvez spécifier le nombre maximal de messages à renvoyer par lot et la taille de lot maximale en ko.
 * Envoyer un seul message ou un tableau de messages au serveur MQ.
 
-Ces opérations MQ intégrées offrent également les fonctionnalités suivantes, ainsi que les avantages de toutes les autres fonctionnalités de Logic Apps dans le [service Logic Apps à un seul locataire](../logic-apps/logic-apps-overview-preview.md) :
+Ces opérations MQ intégrées offrent également les fonctionnalités suivantes, ainsi que les avantages de toutes les autres fonctionnalités de Logic Apps dans le [service Logic Apps à un seul locataire](../logic-apps/single-tenant-overview-compare.md) :
 
 * Chiffrement TLS (Transport Layer Security) pour les données en transit
 * Encodage de message pour les opérations d’envoi et de réception
@@ -125,7 +126,7 @@ Lorsque vous ajoutez une action MQ pour la première fois, vous êtes invité à
 
 1. Sélectionnez **Créer** lorsque vous avez terminé.
 
-#### <a name="built-in-preview"></a>[Intégré (préversion)](#tab/built-in)
+#### <a name="built-in"></a>[Intégrée](#tab/built-in)
 
 1. Fournissez les informations de connexion pour votre serveur MQ.
 

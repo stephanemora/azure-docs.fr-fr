@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 05/17/2021
 ms.author: banders
-ms.openlocfilehash: 37ce1a292b6ff2efe0abecdb2ab934f096689f87
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: b98e9af17b20482a1c5c3178aa183198e936bef7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "105560662"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069199"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Afficher et télécharger votre facture Microsoft Azure
 
@@ -116,7 +116,7 @@ Pour télécharger une facture :
 
 ## <a name="get-mosp-subscription-invoice-in-email"></a>Recevoir la facture d’un abonnement MOSP par e-mail
 
-Vous devez être titulaire d’un rôle d’administrateur de compte sur un abonnement ou un plan de support pour recevoir une facture par e-mail. L’envoi de factures par e-mail est uniquement disponible pour les abonnements et les plans de support. Les réservations et les achats réalisés dans la Place de marché Azure ne proposent pas cette option. Après avoir choisi cette option, vous pouvez ajouter des destinataires qui recevront également la facture par e-mail.
+Vous devez être titulaire d’un rôle d’administrateur de compte sur un abonnement ou un plan de support pour recevoir une facture par e-mail. Après avoir choisi cette option, vous pouvez ajouter des destinataires qui recevront également la facture par e-mail.
 
 1.  Connectez-vous au [portail Azure](https://portal.azure.com).
 2.  Recherchez **Gestion des coûts + facturation**.  

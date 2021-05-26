@@ -5,14 +5,14 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: helohr
-ms.reviewer: sefriend
+ms.reviewer: denisgun
 manager: femila
-ms.openlocfilehash: cb2bd4ddb553380a037f58cf8c51e80247e9c055
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 7928c86375eb66a6518326bfcadfb1278193cfc3
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108077651"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454068"
 ---
 # <a name="proxy-server-guidelines-for-windows-virtual-desktop"></a>Instructions relatives au serveur proxy pour Windows Virtual Desktop
 
@@ -111,8 +111,8 @@ Le tableau suivant répertorie les clients Windows Virtual Desktop qui prennent 
 | Windows Desktop | Oui |
 | Client web | Oui |
 | Android | Non |
-| iOS | Non |
-| macOS | Non |
+| iOS | Oui |
+| macOS | Oui |
 | Windows Store | Oui |
 
 Pour plus d’informations sur la prise en charge des proxys sur les clients dynamiques basés sur Linux, consultez [Prise en charge des clients dynamiques](linux-overview.md).

@@ -2,16 +2,16 @@
 title: 'Tutoriel : Ajouter des nœuds à un cluster Azure FXT Edge Filer'
 description: Découvrez comment ajouter des nœuds de cluster au cache de stockage Azure FXT Edge Filer et activer la fonctionnalité Haute disponibilité.
 author: ekpgh
-ms.author: rohogue
+ms.author: v-erkel
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 85ad78eeb095b427b1a6334f57c351e926022dff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fedb412f2edf991dab5abe5ee74441582abbe535
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96021875"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456373"
 ---
 # <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Tutoriel : Ajouter des nœuds de cluster à un cluster Azure FXT Edge Filer
 

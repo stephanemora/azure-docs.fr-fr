@@ -3,12 +3,12 @@ title: Versions d’Azure Service Fabric
 description: En savoir plus sur les versions de cluster dans Azure Service Fabric et les versions de plateforme activement prises en charge
 ms.topic: troubleshooting
 ms.date: 04/12/2021
-ms.openlocfilehash: 0afe2a70b6eb2e01e44ceea92032f7c93354262f
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: f8979d83934234379a61cb8fab606cf5f37cf7e5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795219"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110080684"
 ---
 # <a name="service-fabric-supported-versions"></a>Versions de Service Fabric prises en charge
 Les tableaux de cet article décrivent les versions Service Fabric et des plateformes qui sont activement prises en charge.
@@ -75,7 +75,14 @@ Le support de Service Fabric sur un système d’exploitation spécifique se ter
 | Ubuntu 18.04 | Avril 2028 | <a href="https://wiki.ubuntu.com/Releases">Cycle de vie Ubuntu</a>|
 | Ubuntu 16.04 | Avril 2024 | <a href="https://wiki.ubuntu.com/Releases">Cycle de vie Ubuntu</a>|
 
-<br>
+## <a name="supported-net-runtimes"></a>Runtimes .NET pris en charge
+
+Le tableau suivant répertorie les runtimes .NET pris en charge par Service Fabric :
+
+| Runtime Service Fabric | Runtimes .NET pris en charge pour Windows |Runtimes .NET pris en charge pour Linux |
+| --- | --- | --- |
+| 8.0 CU1 | .NET 5.0, >= .NET Core 2.1, Tous >= .NET Framework 4.5 | >= .NET Core 2.1|
+| 8.0 RTO | .NET 5.0, >= .NET Core 2.1, Tous >= .NET Framework 4.5 | >= .NET Core 2.1|
 
 ## <a name="service-fabric-version-name-and-number-reference"></a>Nom et référence de la version de Service Fabric
 Le tableau suivant répertorie les noms de version de Service Fabric et leurs numéros de version correspondants.
@@ -87,15 +94,6 @@ Le tableau suivant répertorie les noms de version de Service Fabric et leurs nu
 | 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |
 | 7.2 CU6 | 7.2.457.9590 | 7.2.456.1 |
 | 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |
-
-## <a name="supported-net-runtimes"></a>Runtimes .NET pris en charge
-
-Le tableau suivant répertorie les runtimes .NET pris en charge par Service Fabric :
-
-| Runtime Service Fabric | Runtimes .NET pris en charge pour Windows |Runtimes .NET pris en charge pour Linux |
-| --- | --- | --- |
-| 8.0 CU1 | .NET 5.0, >= .NET Core 2.1, Tous >= .NET Framework 4.5 | >= .NET Core 2.1|
-| 8.0 RTO | .NET 5.0, >= .NET Core 2.1, Tous >= .NET Framework 4.5 | >= .NET Core 2.1|
 | 7.2 CU5 | 7.2.452.9590 | 7.2.454.1 |
 | 7.2 CU4 | 7.2.445.9590 | 7.2.447.1 |
 | 7.2 CU3 | 7.2.433.9590 | NA |

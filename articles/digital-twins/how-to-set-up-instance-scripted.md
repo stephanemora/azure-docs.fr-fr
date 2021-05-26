@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 5b6b2a2c8fdee17cef6c74ebfab758fe2fdb7bc0
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8d23fd6b1b16f794e504b68f3b88d50b04922ba9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766822"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068029"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurer une instance Azure Digital Twins et l’authentification (procédure scriptée)
 
@@ -125,8 +125,8 @@ Si la vérification a échoué, vous pouvez également refaire votre propre attr
 ## <a name="next-steps"></a>Étapes suivantes
 
 Testez les appels d’API REST individuels sur votre instance à l’aide des commandes CLI d’Azure Digital Twins : 
-* [az dt reference](/cli/azure/dt)
-* [Concepts : Ensemble de commandes CLI Azure Digital Twins](concepts-cli.md)
+* [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
+* [Concepts : Ensemble de commandes CLI Azure Digital Twins](concepts-cli.md)
 
 Vous pouvez également découvrir comment connecter une application cliente à votre instance avec un code d’authentification :
 * [Guide pratique : Écrire le code d’authentification de l’application](how-to-authenticate-client.md)

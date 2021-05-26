@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Nouvelle attribution de stratégie à l’aide de T
 description: Dans ce guide de démarrage rapide, vous allez utiliser Terraform et la syntaxe HCL pour créer une attribution de stratégie dans le but d’identifier les ressources non conformes.
 ms.date: 03/31/2021
 ms.topic: quickstart
-ms.openlocfilehash: 7530ad1c4e87fb2df00e1fa81e324bb9bd0c4034
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c9e33fc8070adc2685e26272565d95716c0df8db
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763034"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094759"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-terraform"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier les ressources non conformes à l'aide de Terraform
 
@@ -85,7 +85,7 @@ Initialisez ensuite Terraform pour télécharger les fournisseurs nécessaires, 
 
 1. Authentifiez-vous auprès de Terraform à l’aide d’[Azure CLI](/cli/azure/). Pour plus d’informations, consultez [Fournisseur Azure : Authentification à l’aide d’Azure CLI](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html).
 
-   ```bash
+   ```azurecli
    az login
    ```
 
