@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 947a958b7cce6909332ebdb1832be168bfdd0bde
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 3a37476af2c8082785308f4bc18a02fae3f31295
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801806"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376896"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Exemples Python pour Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,7 +39,7 @@ Le référentiel GitHub [azure-documentdb-python](https://github.com/Azure/azure
     * Au sein d’un abonnement Azure actif :
         * [Créer un compte Azure gratuit](https://azure.microsoft.com/free) ou utiliser votre abonnement existant 
         * [Crédits mensuels Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Niveau gratuit d’Azure Cosmos DB](./optimize-dev-test.md#azure-cosmos-db-free-tier)
+        * [Niveau gratuit d’Azure Cosmos DB](free-tier.md)
     * Sans abonnement Azure actif :
         * [Essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/), un environnement de tests pendant 30 jours.
         * [Émulateur Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) 

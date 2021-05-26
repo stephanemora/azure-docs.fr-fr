@@ -5,14 +5,15 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: ea36c40f2038d016afb0c45944a98d4d90df6240
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de328fb70f8abc32a89b8d5b54b0cb40a12f9356
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86171565"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370375"
 ---
 # <a name="event-schemas"></a>Schémas d’événement
 
@@ -54,14 +55,14 @@ Tous les événements contiennent les données de niveau supérieur suivantes :
 
 | Propriété | Type | Obligatoire | Description |
 | -------- | ---- | ----------- |-----------
-| topic | string | Non | Doit correspondre à la rubrique sur laquelle il est publié. S’il n’est pas spécifié, Event Grid le remplit avec le nom de la rubrique sur laquelle il est publié. |
+| topic | string | No | Doit correspondre à la rubrique sur laquelle il est publié. S’il n’est pas spécifié, Event Grid le remplit avec le nom de la rubrique sur laquelle il est publié. |
 | subject | string | Oui | Chemin de l’objet de l’événement, défini par le serveur de publication. |
 | eventType | string | Oui | Type d’événement de cette source d’événements, par exemple, BlobCreated. |
 | eventTime | string | Oui | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
-| id | string | Non | Identificateur unique de l’événement. |
+| id | string | No | Identificateur unique de l’événement. |
 | data | object | Non | Permet de capturer les données d’événement propres à l’entité de publication. |
 | dataVersion | string | Oui | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
-| metadataVersion | string | Non | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
+| metadataVersion | string | No | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
 ### <a name="example--eventgrid-schema-event"></a>Exemple – Événement de schéma EventGrid
 
