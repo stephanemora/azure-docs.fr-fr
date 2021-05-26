@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 1ddc1579686fae1f37b4bf3aed5225b87625dfd9
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 53fb43a2ca45bf6c599f23ffc9a2fdc492bbdc68
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632724"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068521"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Utilisation du proxy d’application Azure AD pour publier des applications locales pour les utilisateurs distants
 
@@ -184,7 +184,7 @@ Pour plus d’informations sur l’endroit où installer vos connecteurs et l’
 
 * **Publier des API REST de manière sécurisée**. Quand vous avez une logique métier ou des API s’exécutant localement ou hébergées sur des machines virtuelles dans le cloud, le proxy d’application fournit un point de terminaison public pour accéder à l’API. L’accès du point de terminaison d’API vous permet de contrôler l’authentification et l’autorisation sans ports entrants. Il fournit une sécurité supplémentaire grâce à des fonctionnalités Azure AD Premium, comme l’authentification multifacteur et l’accès conditionnel basé sur l’appareil, pour tous les appareils de bureau, iOS, MAC et Android qui utilisent Intune. Pour plus d’informations, consultez [Comment permettre aux applications clientes natives d’interagir avec des applications de proxy](../manage-apps/application-proxy-configure-native-client-application.md) et [Protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et la gestion des API](../../api-management/api-management-howto-protect-backend-with-aad.md).
 * **Services Bureau à distance** **(RDS)** . Les déploiements de services Bureau à distance standard nécessitent des connexions entrantes ouvertes. Toutefois, le [déploiement de services Bureau à distance avec le proxy d’application](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md) a une connexion sortante permanente à partir du serveur qui exécute le service du connecteur. De cette façon, vous pouvez proposer plus d’applications aux utilisateurs finaux en publiant des applications locales via les services Bureau à distance. Vous pouvez aussi réduire la surface d’attaque du déploiement avec un ensemble limité de contrôles (vérification en deux étapes et accès conditionnel) sur les services Bureau à distance.
-* **Publier des applications qui se connectent avec WebSocket**. La prise en charge de [Qlik Sense](../manage-apps/application-proxy-qlik.md) est en préversion publique et sera étendue à d’autres applications par la suite.
+* **Publier des applications qui se connectent avec WebSocket**. La prise en charge de [Qlik Sense](/azure/active-directory/app-proxy/application-proxy-qlik) est en préversion publique et sera étendue à d’autres applications par la suite.
 * **Autorisez les applications clientes natives à interagir avec des applications de proxy**. Vous pouvez utiliser le proxy d’application Azure AD pour publier des applications web, mais aussi pour publier des [applications clientes natives](../manage-apps/application-proxy-configure-native-client-application.md) configurées avec la bibliothèque d’authentification Azure AD (ADAL). Les applications clientes natives sont différentes des applications web parce qu’elles sont installées sur un appareil alors que les applications web sont accessibles via un navigateur.
 
 ## <a name="conclusion"></a>Conclusion

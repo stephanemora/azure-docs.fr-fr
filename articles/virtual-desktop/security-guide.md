@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: fb0935ca2ffcad93ba47ccd207603dd870dc26b0
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: c7d7b5ec4d35cd2bd1be1b6b34c374e949114a16
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445701"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070333"
 ---
 # <a name="security-best-practices"></a>Bonnes pratiques de sécurité
 
@@ -98,24 +98,6 @@ Surveillez l’utilisation et la disponibilité de votre service Windows Virtual
 ## <a name="session-host-security-best-practices"></a>Meilleures pratiques pour la sécurité de l’hôte de session
 
 Les hôtes de session sont des machines virtuelles qui s’exécutent au sein d’un abonnement Azure et d’un réseau virtuel. La sécurité globale de votre déploiement Windows Virtual Desktop dépend des contrôles de sécurité que vous placez sur vos hôtes de session. Cette section décrit les meilleures pratiques pour assurer la sécurité de vos hôtes de session.
-
-### <a name="enable-screen-capture-protection-preview"></a>Activer la protection contre la capture d’écran (préversion)
-
-La fonctionnalité de protection contre la capture d’écran empêche la capture d’informations sensibles sur les points de terminaison clients. Lorsque vous activez cette fonctionnalité, le contenu distant est automatiquement bloqué ou masqué dans les captures d’écran et les partages d’écran. Il est également caché des logiciels malveillants qui peuvent capturer en permanence le contenu de votre écran. Nous vous recommandons de désactiver la redirection du Presse-papiers pour empêcher la copie du contenu distant vers les points de terminaison lors de l’utilisation de cette fonctionnalité.
-
-Cette stratégie est appliquée au niveau de l’hôte en configurant une clé de Registre. Pour activer cette stratégie, ouvrez PowerShell et définissez la clé de Registre **fEnableScreenCaptureProtection** en exécutant la cmdlet suivante :
-
-```powershell
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableScreenCaptureProtection /t REG_DWORD /d 1
-```
-
-Pour tester cette nouvelle fonctionnalité :
-
-- Assurez-vous que vos pools d’hôtes sont configurés dans l’environnement de validation.
-- Vérifiez que vous avez téléchargé et installé le client Windows Desktop, version 1.2.1526 ou ultérieure.
-
->[!NOTE]
->Pendant la préversion, seules les connexions de bureau complètes à partir de points de terminaison Windows 10 prennent en charge cette fonctionnalité.
 
 ### <a name="enable-endpoint-protection"></a>Activer Endpoint Protection
 

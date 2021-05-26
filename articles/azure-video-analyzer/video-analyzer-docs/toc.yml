@@ -1,0 +1,159 @@
+- name: Documentation d’Azure Video Analyzer (préversion)
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: À propos d’Azure Video Analyzer
+      href: overview.md
+    - name: À propos d’Azure Video Analyzer for Media
+      href: ../video-analyzer-for-media-docs/video-indexer-overview.md
+    - name: Terminologie de Video Analyzer
+      href: terminology.md
+    - name: Nouveautés
+      items:
+        - name: Notes de publication
+          href: release-notes.md
+- name: Démarrages rapides
+  items:
+    - name: Bien démarrer avec Azure Video Analyzer
+      href: get-started-detect-motion-emit-events.md
+    - name: Extension Visual Studio Code pour Azure Video Analyzer
+      href: create-pipeline-vs-code-extension.md
+    - name: Détecter les événements de mouvement et d’émission
+      href: detect-motion-emit-events-quickstart.md
+    - name: 'Détecter le mouvement, enregistrer une vidéo'
+      items:
+        - name: À la périphérie
+          href: detect-motion-record-video-edge-devices.md
+        - name: Dans le cloud
+          href: detect-motion-record-video-clips-cloud.md
+    - name: Analyser la vidéo en direct
+      items:
+        - name: avec votre propre modèle gRPC
+          displayName: analyze live video
+          href: analyze-live-video-use-your-model-grpc.md
+        - name: avec votre propre modèle HTTP
+          displayName: analyze live video
+          href: analyze-live-video-use-your-model-http.md
+    - name: Suivre des objets dans des vidéos en direct
+      href: track-objects-live-video.md
+- name: Tutoriels
+  items:
+    - name: Utiliser l’enregistrement vidéo en continu
+      href: use-continuous-video-recording.md
+    - name: Utiliser l’enregistrement vidéo basé sur un événement
+      href: record-event-based-live-video.md
+    - name: Enregistrer et diffuser en streaming des données d’inférence avec une vidéo
+      href: record-stream-inference-data-with-video.md
+    - name: Utiliser le franchissement de ligne
+      href: use-line-crossing.md
+    - name: Analyser la vidéo en direct
+      items:
+        - name: Avec OVMS via l’extension HTTP
+          displayName: 'analyze live video, intel, OpenVINO'
+          href: use-intel-openvino-tutorial.md
+        - name: Avec OV DL Streamer via l’extension gRPC
+          displayName: 'analyze live video, intel, OpenVINO, DL Streamer, VAS'
+          href: use-intel-grpc-video-analytics-serving-tutorial.md
+        - name: Avec Custom Vision
+          displayName: analyze live video
+          href: analyze-live-video-custom-vision.md
+        - name: Avec l’analyse spatiale
+          href: computer-vision-for-spatial-analysis.md
+- name: "Exemples\_GitHub"
+  items:
+    - name: Exemple de dépôt C#
+      href: 'https://go.microsoft.com/fwlink/?linkid=2163551'
+    - name: Exemple de dépôt Python
+      href: 'https://go.microsoft.com/fwlink/?linkid=2163454'
+- name: Concepts
+  items:
+    - name: Pipeline
+      href: pipeline.md
+    - name: Enregistrement de vidéo
+      href: video-recording.md
+    - name: Scénarios
+      items:
+        - name: Extension de pipeline
+          href: pipeline-extension.md
+        - name: Enregistrement de vidéo basé sur les événements
+          href: event-based-video-recording-concept.md
+        - name: Enregistrement de vidéo continu
+          href: continuous-video-recording.md
+        - name: Analyser des vidéos en direct sans enregistrement
+          href: analyze-live-video-without-recording.md
+- name: Guides pratiques
+  items:
+    - name: Programme d’installation
+      items:
+        - name: Créer un nouveau compte
+          href: create-video-analyzer-account.md
+        - name: Identité managée
+          href: managed-identity.md
+        - name: Clés gérées par le client
+          href: customer-managed-keys.md
+    - name: Déployer
+      items:
+        - name: Déployer sur un appareil IoT Edge
+          href: deploy-iot-edge-device.md
+        - name: Déployer sur IoT Edge pour Linux sur Windows
+          href: deploy-iot-edge-linux-on-windows.md
+    - name: Lecture
+      items:
+        - name: Lecture d’un enregistrement
+          href: playback-recordings-how-to.md
+        - name: Utilisation du widget de lecteur Azure Video Analyzer
+          href: player-widget.md
+        - name: Utiliser des stratégies d’accès pour la lecture
+          href: access-policies.md
+    - name: Enregistrement
+      items:
+        - name: Gérer une stratégie d’enregistrement
+          href: manage-recording-policy.md
+        - name: Configurer une porte de signal
+          href: configure-signal-gate.md
+    - name: Appliquer l’IA
+      items:
+        - name: Développer et déployer un serveur d’inférence gRPC
+          href: develop-deploy-grpc-inference-srv.md
+    - name: Portail
+      items:
+        - name: Appeler des méthodes directes avec le portail
+          href: use-azure-portal-to-invoke-direct-methods.md
+    - name: Opérer
+      items:
+        - name: Supervision et journalisation
+          href: monitor-log-edge.md
+    - name: Dépanner
+      href: troubleshoot.md
+- name: Informations de référence
+  items:
+    - name: Stratégies d'accès
+      href: access-policies.md
+    - name: Kits de développement logiciel pour développeur
+      href: sdk.md
+    - name: Méthodes directes
+      href: direct-methods.md
+    - name: Protocole d’extension gRPC
+      href: grpc-extension-protocol.md
+    - name: Protocole d’extension HTTP
+      href: http-extension-protocol.md
+    - name: Schéma des métadonnées d’inférence
+      href: inference-metadata-schema.md
+    - name: Schéma de configuration de jumeau de module
+      href: module-twin-configuration-schema.md
+    - name: Préparation à la production et bonnes pratiques
+      href: production-readiness.md
+    - name: Transparence et principes d’une IA responsable
+      href: 'https://go.microsoft.com/fwlink/?linkid=2163476'
+    - name: Extension de Visual Studio Code
+      href: visual-studio-code-extension.md
+- name: Ressources
+  items:
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/updates/?category=media'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/services/media-services/live-video-analytics/'
+    - name: FAQ
+      href: faq-edge.md
+    - name: Quotas et limitations
+      href: quotas-limitations.md

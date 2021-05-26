@@ -1,22 +1,22 @@
 ---
-title: 'Démarrage rapide : Créer un workflow d’intégration dans le portail Azure'
-description: Créez votre premier workflow d’intégration automatisé à l’aide d’Azure Logic Apps dans le portail Azure.
+title: Démarrage rapide - Créer des workflows d’intégration avec Azure Logic Apps dans le portail Azure
+description: Créez votre premier workflow d’intégration automatisé avec Azure Logic Apps multilocataire dans le portail Azure.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: contperf-fy21q4
-ms.date: 04/28/2021
-ms.openlocfilehash: 1ff7ba5e3835fccb2f67fa56cf3737adb9d36b45
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.date: 05/25/2021
+ms.openlocfilehash: b7419986137632561cae71b91dd55a2af64912a7
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738893"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373282"
 ---
-# <a name="quickstart-create-an-integration-workflow-using-azure-logic-apps-in-the-azure-portal"></a>Démarrage rapide : Créer un workflow d’intégration automatisé avec Azure Logic Apps dans le portail Azure
+# <a name="quickstart-create-an-integration-workflow-with-multi-tenant-azure-logic-apps-and-the-azure-portal"></a>Démarrage rapide - Créer un workflow d’intégration avec Azure Logic Apps multilocataire et le portail Azure
 
-Ce guide de démarrage rapide montre comment créer un exemple de workflow automatisé qui intègre deux services, un flux RSS pour un site web et un compte de messagerie, quand vous utilisez [Azure Logic Apps](logic-apps-overview.md). Bien que cet exemple soit basé sur le cloud, Logic Apps prend en charge les workflows qui connectent des applications, des données, des services et des systèmes dans le cloud, localement et dans des environnements hybrides.
+Ce guide de démarrage rapide montre comment créer un exemple de workflow automatisé qui intègre deux services, un flux RSS pour un site web et un compte de messagerie quand vous utilisez [Azure Logic Apps](logic-apps-overview.md) *multilocataire*. Bien que cet exemple soit basé sur le cloud, Azure Logic Apps prend en charge les workflows qui connectent des applications, des données, des services et des systèmes dans le cloud, localement et dans des environnements hybrides. Pour plus d’informations sur le modèle multilocataire par rapport au modèle monolocataire, consultez [Architecture monolocataire ou multilocataire et environnement de service d’intégration](single-tenant-overview-compare.md).
 
 Dans cet exemple, vous créez un workflow qui utilise le connecteur RSS et le connecteur Office 365 Outlook. Le connecteur RSS dispose d’un déclencheur qui vérifie un flux RSS en fonction d’une planification. Le connecteur Office 365 Outlook comporte une action qui envoie un e-mail pour chaque nouvel élément. Les connecteurs de cet exemple sont uniquement deux des [centaines de connecteurs](/connectors/connector-reference/connector-reference-logicapps-connectors) que vous pouvez utiliser dans un workflow.
 
@@ -71,7 +71,7 @@ Pour créer et gérer une application logique à l’aide d’autres outils, pas
 
 1. Dans le volet **Logic Apps**, entrez les détails de base et les paramètres de votre application logique. Créez un [groupe de ressources](../azure-resource-manager/management/overview.md#terminology) pour cet exemple d’application logique.
 
-   | Propriété | Valeur | Description |
+   | Propriété | Value | Description |
    |----------|-------|-------------|
    | **Abonnement** | <*Azure-subscription-name*> | Nom de votre abonnement Azure. |
    | **Groupe de ressources** | <*nom-groupe-de-ressources-Azure*> | Nom du [groupe de ressources Azure](../azure-resource-manager/management/overview.md#terminology), qui doit être unique entre les régions. Cet exemple utilise « My-First-LA-RG ». |

@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: badc6b6f1b45938e950ffadeefe30d81ed383440
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 27e17fd6cc9f50a5a46bf3de9bf2603209894bf3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762440"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368245"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Guide pratique pour utiliser des identités managées pour App Service et Azure Functions
 
@@ -20,6 +20,9 @@ Cette rubrique vous montre comment créer une identité managée pour les applic
 
 > [!Important] 
 > Si vous migrez votre application entre différents abonnements/locataires, les identités managées pour App Service et Azure Functions présentent un comportement anormal. L’application doit obtenir une nouvelle identité, ce qu’elle fait en désactivant, puis réactivant la fonctionnalité. Consultez [Suppression d’une identité](#remove) ci-dessous. Les ressources en aval doivent également disposer de stratégies d’accès mises à jour pour utiliser la nouvelle identité.
+
+> [!NOTE]
+> Les identités managées ne sont pas disponibles pour les [applications déployées dans Azure Arc](overview-arc-integration.md).
 
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 

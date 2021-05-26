@@ -5,17 +5,17 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 05/13/2021
 ms.author: mjbrown
-ms.openlocfilehash: 1c8c766208132aec115e1fbeb15af3a057c3de3e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6cf6d0f3bc7982f8ac41c12cfd6bf394f763348
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94636688"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094795"
 ---
 # <a name="prevent-azure-cosmos-db-resources-from-being-deleted-or-changed"></a>Empêcher la suppression ou la modification des ressources Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 En tant qu’administrateur, vous pouvez avoir besoin de verrouiller un compte, une base de données ou un conteneur Azure Cosmos afin d’empêcher les utilisateurs de votre organisation de supprimer ou de modifier de manière accidentelle des ressources critiques. Vous pouvez définir le niveau de verrouillage sur CanNotDelete ou ReadOnly.
 
@@ -37,7 +37,7 @@ Les verrous Resource Manager s'appliquent uniquement aux opérations qui se prod
 
 ### <a name="powershell"></a>PowerShell
 
-```powershell
+```powershell-interactive
 $resourceGroupName = "myResourceGroup"
 $accountName = "my-cosmos-account"
 $lockName = "$accountName-Lock"
@@ -57,7 +57,7 @@ New-AzResourceLock `
 
 ### <a name="azure-cli"></a>Azure CLI
 
-```bash
+```azurecli-interactive
 resourceGroupName='myResourceGroup'
 accountName='my-cosmos-account'
 $lockName="$accountName-Lock"
