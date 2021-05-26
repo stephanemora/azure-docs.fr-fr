@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ee95f272b57ac4ed1219c682ce0eb97cc965ea3
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 0f895744ed589e32c86348b17ddc57b5820b14fc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108157487"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110164935"
 ---
 Ce guide montre comment installer le [kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour [Xamarin](/xamarin/get-started/what-is-xamarin), une plateforme open source pour la création d’applications modernes et performantes pour iOS, Android et Windows avec .NET. Si vous voulez simplement le nom du package pour commencer seul, exécutez `Install-Package Microsoft.CognitiveServices.Speech` dans la console NuGet.
 
@@ -37,8 +37,6 @@ Ce démarrage rapide nécessite :
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-xamarin-create-proj.md)]
 
 Le kit de développement logiciel (SDK) Speech est maintenant installé. Vous pouvez maintenant supprimer ou réutiliser le projet « HelloWorld » que vous avez créé au cours des étapes précédentes.
-
-Vous pouvez maintenant passer aux [étapes suivantes](#next-steps) ci-dessous.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

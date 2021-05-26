@@ -1,14 +1,14 @@
 ---
 title: Comprendre le langage de requête
 description: Décrit les tables Resource Graph et les fonctions, opérateurs et types de données Kusto disponibles, utilisables avec Azure Resource Graph.
-ms.date: 03/10/2021
+ms.date: 05/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: a980e285061e986e55920fc4558b44daf552f102
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 3a0e6c1e824016dbfdef4a1e351972a34ea2daa5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790754"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099187"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Présentation du langage de requête Azure Resource Graph
 
@@ -40,7 +40,7 @@ Resource Graph fournit plusieurs tables contenant les données qu’il stocke su
 |PatchInstallationResources|Non |Comprend des ressources _associées_ à l’installation de correctifs de machines virtuelles Azure. |
 |PolicyResources |Non |Inclut les ressources _associées_ à `Microsoft.PolicyInsights`. (**Préversion**) |
 |RecoveryServicesResources |Partielle, joindre _à_ uniquement. (préversion) |Comprend des ressources _associées_ à `Microsoft.DataProtection` et `Microsoft.RecoveryServices`. |
-|SecurityResources |Partielle, joindre _à_ uniquement. (préversion) |Inclut les ressources _associées_ à `Microsoft.Security`. |
+|SecurityResources |Oui (préversion) |Inclut les ressources _associées_ à `Microsoft.Security`. |
 |ServiceHealthResources |Non |Inclut les ressources _associées_ à `Microsoft.ResourceHealth`. |
 |WorkloadMonitorResources |Non |Inclut les ressources _associées_ à `Microsoft.WorkloadMonitor`. |
 

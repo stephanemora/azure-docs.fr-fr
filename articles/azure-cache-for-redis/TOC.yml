@@ -102,7 +102,7 @@
           href: cache-private-link.md
         - name: Activer la redondance de zone
           href: cache-how-to-zone-redundancy.md
-        - name: Configurer la géoréplication OSS
+        - name: Configurer la géoréplication
           href: cache-how-to-geo-replication.md
         - name: Configurer la géoréplication active de l’entreprise
           href: cache-how-to-active-geo-replication.md

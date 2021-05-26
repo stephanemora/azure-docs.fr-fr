@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: a8df14dc5fbd3f69f9c4e1b29ddb04c1a04073d9
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b965a4b8ee83765de8eceeb9c2a27ecca558a3ea
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108793195"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110163087"
 ---
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -37,7 +37,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 *Si vous disposez déjà d’un coffre de clés, vous pouvez passer à [Définir des stratégies d’accès avancé au coffre de clés](#set-key-vault-advanced-access-policies).*
 
-Créez un coffre de clés à l’aide de la commande Azure CLI [az keyvault create](/cli/azure/keyvault#az_keyvault_create), de la commande Azure PowerShell [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault), du [portail Azure](https://portal.azure.com) ou d’un [modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
+Créez un coffre de clés à l’aide de la commande Azure CLI [az keyvault create](/cli/azure/keyvault#az_keyvault_create), de la commande Azure PowerShell [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault), du [portail Azure](https://portal.azure.com) ou d’un [modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.keyvault/key-vault-create).
 
 >[!WARNING]
 > Votre coffre de clés et vos machines virtuelles doivent se trouver dans le même abonnement. De plus, pour garantir que les secrets de chiffrement ne franchissent pas les limites régionales, Azure Disk Encryption exige que le coffre de clés se trouve dans la même région que les machines virtuelles. Créez et utilisez un coffre de clés situé dans les mêmes abonnement et région que les machines virtuelles à chiffrer. 
@@ -61,7 +61,7 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 ```
 ### <a name="resource-manager-template"></a>Modèle Resource Manager
 
-Vous pouvez aussi créer un coffre de clés à l’aide du [modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
+Vous pouvez aussi créer un coffre de clés à l’aide du [modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.keyvault/key-vault-create).
 
 1. Dans le modèle de démarrage rapide Azure, cliquez sur **Déployer sur Azure**.
 2. Sélectionnez l’abonnement, le groupe de ressources, l’emplacement du groupe de ressources, le nom du coffre de clés, l’ID d’objet, les conditions juridiques et le contrat, puis cliquez sur **Acheter**. 
