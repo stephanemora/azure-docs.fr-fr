@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b4f0182c6214f500d10904760087be5c89a07acd
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ffae474f6de5de7715585f0606a9630b136a2c37
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203556"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092131"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Dépannage d’Azure Digital Twins : Mesures
 
@@ -78,7 +78,7 @@ Métriques en rapport avec la facturation :
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Opérations de l’API de facturation | Count | Total | Métrique de facturation pour le nombre total des demandes d’API adressées au service Azure Digital Twins. | Meter ID |
 | BillingMessagesProcessed | Messages de facturation traités | Count | Total | Métrique de facturation pour le nombre de messages envoyés à partir d’Azure Digital Twins vers des points de terminaison externes.<br><br>Pour être considérée comme un message unique à des fins de facturation, une charge utile ne doit pas dépasser 1 Ko. Les charges utiles supérieures à cette taille sont comptabilisées en tant que messages supplémentaires par incréments de 1 Ko (par conséquent, un message d’une taille comprise entre 1 et 2 Ko sera comptabilisé comme 2 messages, d’une taille comprise entre 2 et 3 Ko comme 3 messages, et ainsi de suite).<br>Cette restriction s’applique également aux réponses. Par exemple, un appel retournant 1,5 Ko dans le corps de la réponse est facturé comme s’il s’agissait de 2 opérations. | Meter ID |
-| BillingQueryUnits | Unités de requête de facturation | Count | Total | Nombre d’unités de requête, mesure calculée en interne de l’utilisation des ressources des services, consommées pour exécuter des requêtes. Une API d’assistance est également disponible pour mesurer les unités de requête : [Classe QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper) | Meter ID |
+| BillingQueryUnits | Unités de requête de facturation | Count | Total | Nombre d’unités de requête, mesure calculée en interne de l’utilisation des ressources des services, consommées pour exécuter des requêtes. Une API d’assistance est également disponible pour mesurer les unités de requête : [Classe QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet&preserve-view=true) | Meter ID |
 
 Pour plus d’informations sur la façon dont Azure Digital Twins est facturé, consultez [Tarification Azure Digital Twins](https://azure.microsoft.com/pricing/details/digital-twins/).
 

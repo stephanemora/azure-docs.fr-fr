@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 13f8e12944349bea667110585af71ea078ef7656
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 93a3e6aca050c6fcf74008e7fac23c6f146c984f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784104"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090187"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Comment utiliser Postman pour envoyer des demandes aux API Azure Digital Twins
 
@@ -56,7 +56,7 @@ Dans le cas contraire, vous pouvez ouvrir une fenêtre [Azure Cloud Shell](https
     az login
     ```
 
-2. Ensuite, utilisez la commande [az account get-access-token](/cli/azure/account#az_account_get_access_token) pour obtenir un jeton du porteur ayant accès au service Azure Digital Twins. Dans cette commande, vous allez transmettre l’ID de ressource pour le point de terminaison de service Azure Digital Twins afin d’obtenir un jeton d’accès permettant d’accéder aux ressources Azure Digital Twins. 
+2. Ensuite, utilisez la commande [az account get-access-token](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_get_access_token) pour obtenir un jeton du porteur ayant accès au service Azure Digital Twins. Dans cette commande, vous allez transmettre l’ID de ressource pour le point de terminaison de service Azure Digital Twins afin d’obtenir un jeton d’accès permettant d’accéder aux ressources Azure Digital Twins. 
 
     Le contexte requis pour le jeton dépend de l’ensemble API que vous utilisez. Utilisez donc les onglets ci-dessous pour choisir entre les API de plan de [données](concepts-apis-sdks.md#overview-data-plane-apis) et de [plan de contrôle](concepts-apis-sdks.md#overview-control-plane-apis) .
 

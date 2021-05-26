@@ -3,12 +3,12 @@ title: Effectuer la rotation des informations d’identification cloudadmin pour
 description: Découvrez comment effectuer la rotation des informations d’identification de vCenter Server et de NSX-T Manager pour votre cloud privé Azure VMware Solution.
 ms.topic: how-to
 ms.date: 05/11/2021
-ms.openlocfilehash: 6e7a37a1c262548e49952ed162cf725b1a7d6ed1
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: fbfed495fd904b67ce283934791cee516349dfa6
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789747"
+ms.locfileid: "109814948"
 ---
 # <a name="rotate-the-cloudadmin-credentials-for-azure-vmware-solution"></a>Effectuer la rotation des informations d’identification cloudadmin pour Azure VMware Solution
 
@@ -51,7 +51,7 @@ Dans cette étape, vous allez vérifier que le connecteur HCX dispose des inform
 
 2. Dans le tableau de bord VMware HCX, sélectionnez **Site Pairing (Jumelage de sites)** .
     
-   :::image type="content" source="media/reset-vsphere-credentials/hcx-site-pairing.png" alt-text="Capture d’écran du tableau de bord VMware HCX avec l’option Site Pairing mise en surbrillance.":::
+   :::image type="content" source="media/rotate-cloudadmin-credentials/hcx-site-pairing.png" alt-text="Capture d’écran du tableau de bord VMware HCX avec l’option Site Pairing mise en surbrillance.":::
  
 3. Sélectionnez la connexion à Azure VMware Solution qui convient, puis **Modifier la connexion**.
  

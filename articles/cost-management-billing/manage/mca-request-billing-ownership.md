@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: banders
-ms.openlocfilehash: c3294c09012339cb19f04327f1933688b05ae077
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 1e9e5582c95183a5e832950c5ac0b154cdef8362
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321462"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110088117"
 ---
 # <a name="transfer-azure-subscription-billing-ownership-for-a-microsoft-customer-agreement"></a>Transférer la propriété de la facturation des abonnements Azure pour un Contrat client Microsoft
 
@@ -157,7 +157,7 @@ Vous pouvez accéder aux factures de votre ancien compte Contrat d’abonnement 
 
 Vous devez utiliser les informations d’identification d’administrateur de votre ancien compte si les informations d’identification sont différentes de celles utilisées pour accéder à votre nouveau compte Contrat client Microsoft.
 
-1.  Connectez-vous au portail Azure sur https://azure.portal.com.
+1.  Connectez-vous au portail Azure sur https://portal.azure.com/.
 1.  Accédez à **Cost Management + facturation**.
 1.  Sélectionnez **Étendues de facturation** dans le volet gauche.
 1.  Sélectionnez le compte de facturation associé à votre compte Contrat d’abonnement à Microsoft Online.

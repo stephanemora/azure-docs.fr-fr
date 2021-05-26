@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: 259d430c79cccef3cd5c581c9a60fa00edf159ec
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 393b8857b3602d914143787cc9ea46074ff59c05
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108162272"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813899"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Tutoriel : Publier Azure Static Web Apps avec Azure DevOps
 
@@ -52,7 +52,7 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 1. Recherchez **Static Web Apps**.
 
-1. Sélectionnez **Static Web Apps (Préversion)** .
+1. Sélectionnez **Static Web Apps**.
 
 1. Sélectionnez **Create** (Créer).
 

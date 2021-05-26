@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 4e682615ae4807611711307b5c9181c14d5c1dc4
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 667174fbf36b7113d49ea5c5d700e2e3a7f41949
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885467"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367217"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Déployer un modèle sur Azure Container Instances
 
@@ -38,7 +38,7 @@ Pour plus d’informations sur les quotas et la disponibilité d’ACI en foncti
 
 - Un modèle Machine Learning inscrit dans votre espace de travail. Si vous n’avez pas de modèle inscrit, consultez la section [Comment et où déployer des modèles](how-to-deploy-and-where.md).
 
-- L’[extension Azure CLI pour Machine Learning service](reference-azure-machine-learning-cli.md), le [SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro) ou l’[extension Azure Machine Learning pour Visual Studio Code](tutorial-setup-vscode-extension.md).
+- L’[extension Azure CLI pour Machine Learning service](reference-azure-machine-learning-cli.md), le [SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro) ou l’[extension Azure Machine Learning pour Visual Studio Code](how-to-setup-vs-code.md).
 
 - Les extraits de code __Python__ de cet article partent du principe que les variables suivantes sont définies :
 
@@ -98,7 +98,7 @@ Pour plus d’informations, consultez les informations de référence sur [az ml
 
 ## <a name="using-vs-code"></a>Avec VS Code
 
-Consultez la section[Déployer vos modèles avec VS Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
+Consultez le [guide pratique pour gérer les ressources dans VS Code](how-to-manage-resources-vscode.md).
 
 > [!IMPORTANT]
 > Vous n’avez pas besoin de créer un conteneur ACI à tester à l’avance. Les conteneurs ACI sont créés en fonction des besoins.

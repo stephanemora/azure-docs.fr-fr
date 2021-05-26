@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: a7283ad4c4c61ecc293a55ffc4cb9626bb28d630
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5e83da902fd200ae0d915d4a0e58c3e26ff6da5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92108726"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089107"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Créer un cluster HDInsight avec Data Lake Storage Gen1 à l’aide d’un modèle Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
     **Si vous n’êtes pas administrateur Azure AD**, vous ne pouvez pas effectuer les étapes nécessaires à la création d’un principal du service. Dans ce cas, votre administrateur Azure AD doit d’abord créer un principal de service. Vous pourrez ensuite créer un cluster HDInsight avec Data Lake Storage Gen1. En outre, le principal du service doit être créé à l’aide d’un certificat, comme décrit dans [Create a service principal with certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority) (Créer un principal du service avec certificat).
 
 ## <a name="create-an-hdinsight-cluster-with-data-lake-storage-gen1"></a>Créer un cluster HDInsight avec Data Lake Storage Gen1
-Le modèle Resource Manager et les prérequis pour l’utiliser sont disponibles sur GitHub à la page [Déployer un cluster HDInsight Linux avec un nouveau compte Data Lake Storage Gen1](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage). Suivez les instructions de ce lien pour créer un cluster HDInsight avec Azure Data Lake Storage Gen1 comme stockage supplémentaire.
+Le modèle Resource Manager et les prérequis pour l’utiliser sont disponibles sur GitHub à la page [Déployer un cluster HDInsight Linux avec un nouveau compte Data Lake Storage Gen1](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-datalake-store-azure-storage). Suivez les instructions de ce lien pour créer un cluster HDInsight avec Azure Data Lake Storage Gen1 comme stockage supplémentaire.
 
 Les instructions du lien mentionné ci-dessus requièrent PowerShell. Avant de commencer à suivre ces instructions, vérifiez que vous vous connectez à votre compte Azure. Sur votre bureau, ouvrez une nouvelle fenêtre Azure PowerShell et entrez les extraits de code suivants. À l’invite de connexion, vérifiez que vous vous connectez en tant qu’administrateur/propriétaire de l’abonnement :
 

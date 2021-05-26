@@ -3,12 +3,12 @@ title: Créer une bibliothèque de contenu pour déployer des machines virtuelle
 description: Créez une bibliothèque de contenu pour déployer une machine virtuelle dans un cloud privé Azure VMware Solution.
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: bfac0e0353d1338d38d56b2fbf611ac3f0fb7e9b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f8a45ce301d250aa30ec08617e0ae11bcbfbafaf
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753746"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110086875"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Créer une bibliothèque de contenu pour déployer des machines virtuelles dans Azure VMware Solution
 
@@ -18,7 +18,7 @@ Dans cet article, nous allons parcourir la procédure de création d’une bibli
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce tutoriel, un segment de commutateur logique NSX-T et un service DHCP managé.  Pour plus d’informations, consultez l’article [Comment gérer le protocole DHCP dans Azure VMWare Solution](manage-dhcp.md).
+Pour suivre ce tutoriel, un segment de commutateur logique NSX-T et un service DHCP managé.  Pour plus d’informations, consultez l’article [Comment gérer le protocole DHCP dans Azure VMWare Solution](configure-dhcp-azure-vmware-solution.md).
 
 ## <a name="create-a-content-library"></a>Créer une bibliothèque de contenu
 

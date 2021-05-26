@@ -1,29 +1,25 @@
 ---
-title: Activer la redondance de zone pour Azure Cache pour Redis (préversion)
+title: Activer la redondance de zone pour Azure Cache pour Redis
 description: Découvrez comment configurer la redondance de zone pour vos instances Azure Cache pour Redis de niveau Premium et Entreprise.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 0623f47528d0530838f62c28cf5546e1e66c187b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c355939191e6da9a9408edde02deac97d69c9bbf
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508263"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084427"
 ---
-# <a name="enable-zone-redundancy-for-azure-cache-for-redis-preview"></a>Activer la redondance de zone pour Azure Cache pour Redis (préversion)
+# <a name="enable-zone-redundancy-for-azure-cache-for-redis"></a>Activer la redondance de zone pour Azure Cache pour Redis
 Dans cet article, vous allez apprendre à configurer une instance Azure Cache redondante interzone à l’aide du portail Azure.
 
 Les niveaux Standard, Premium et Entreprise d’Azure Cache pour Redis offrent une redondance intégrée en hébergeant chaque cache sur deux machines virtuelles dédiées. Même si ces machines virtuelles se trouvent dans des [domaines d’erreur et de mise à jour Azure](../virtual-machines/availability.md) distincts et hautement disponibles, elles sont sensibles aux défaillances au niveau du centre de données. Azure Cache pour Redis prend également en charge la redondance de zone dans ses niveaux Premium et Entreprise. Un cache redondant interzone s’exécute sur des machines virtuelles distribuées dans plusieurs [zones de disponibilité](../availability-zones/az-overview.md). Il offre une plus grande résilience et disponibilité.
 
 ## <a name="prerequisites"></a>Prérequis
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
-
-> [!NOTE]
-> Cette fonctionnalité est actuellement disponible en préversion - [contactez-nous](mailto:azurecache@microsoft.com) si vous êtes intéressé.
->
 
 ## <a name="create-a-cache"></a>Création d'un cache
 Pour créer un cache, procédez comme suit :

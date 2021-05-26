@@ -3,12 +3,12 @@ title: Définir l’ordre de déploiement des ressources
 description: Décrit la procédure permettant de définir une ressource Azure comme dépendante d’une autre ressource au cours du déploiement. Les dépendances garantissent que le déploiement des ressources s’effectue dans l’ordre adéquat.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 009f5731e871c47aba418fca0937ae7aa195919e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 723344a4619325eb29a481a42f7dd2de5094a7b0
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737060"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814061"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Définir l’ordre de déploiement des ressources dans les modèles ARM
 
@@ -20,7 +20,7 @@ Azure Resource Manager évalue les dépendances entre les ressources et les dép
 
 Dans votre modèle Azure Resource Manager (modèle ARM), l’élément `dependsOn` vous permet de définir une ressource comme dépendante d’une ou de plusieurs ressources. Sa valeur est un tableau JavaScript Object Notation (JSON) de chaînes, chacune d’elles représentant un nom ou un ID de ressource. Le tableau peut inclure des ressources [déployées de manière conditionnelle](conditional-resource-deployment.md). Quand une ressource conditionnelle n’est pas déployée, Azure Resource Manager la supprime automatiquement des dépendances nécessaires.
 
-L’exemple suivant montre une interface réseau qui dépend d’un réseau virtuel, d’un groupe de sécurité réseau et d’une adresse IP publique. Pour obtenir le modèle complet, consultez le [modèle de démarrage rapide pour une machine virtuelle Linux](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-linux/azuredeploy.json).
+L’exemple suivant montre une interface réseau qui dépend d’un réseau virtuel, d’un groupe de sécurité réseau et d’une adresse IP publique. Pour obtenir le modèle complet, consultez le [modèle de démarrage rapide pour une machine virtuelle Linux](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-simple-linux/azuredeploy.json).
 
 ```json
 {

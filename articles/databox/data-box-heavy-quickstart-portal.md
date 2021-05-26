@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 3a7f9179822720b0e5ffc21bc560b4c6ccad9463
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 8c418f7cbeb56b94b7a85b12e833301b979bff32
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347420"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871543"
 ---
 ::: zone target = "docs"
 
@@ -89,7 +89,7 @@ Utilisez ces commandes Azure CLI pour créer un travail Data Box Heavy.
    az storage account create --resource-group databox-rg --name databoxtestsa
    ```
 
-1. Exécutez la commande [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) pour créer un travail Data Box avec la valeur **--sku** `DataBoxHeavy` :
+1. Exécutez la commande [az databox job create](/cli/azure/databox/job#az_databox_job_create) pour créer un travail Data Box avec la valeur **--sku** `DataBoxHeavy` :
 
    ```azurecli
    az databox job create --resource-group databox-rg --name databoxheavy-job \
@@ -102,37 +102,37 @@ Utilisez ces commandes Azure CLI pour créer un travail Data Box Heavy.
    > [!NOTE]
    > Vérifiez que votre abonnement prend en charge Data Box Heavy.
 
-1. Exécutez la commande [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update) pour mettre à jour un travail, comme dans cet exemple, où vous changez le nom et l’adresse e-mail du contact :
+1. Exécutez la commande [az databox job update](/cli/azure/databox/job#az_databox_job_update) pour mettre à jour un travail, comme dans cet exemple, où vous changez le nom et l’adresse e-mail du contact :
 
    ```azurecli
    az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
    ```
 
-   Exécutez la commande [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) pour obtenir des informations sur le travail :
+   Exécutez la commande [az databox job show](/cli/azure/databox/job#az_databox_job_show) pour obtenir des informations sur le travail :
 
    ```azurecli
    az databox job show --resource-group databox-rg --name databox-job
    ```
 
-   Utilisez la commande [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list) pour voir tous les travaux Data Box liés à un groupe de ressources :
+   Utilisez la commande [az databox job list]( /cli/azure/databox/job#az_databox_job_list) pour voir tous les travaux Data Box liés à un groupe de ressources :
 
    ```azurecli
    az databox job list --resource-group databox-rg
    ```
 
-   Exécutez la commande [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) pour annuler un travail :
+   Exécutez la commande [az databox job cancel](/cli/azure/databox/job#az_databox_job_cancel) pour annuler un travail :
 
    ```azurecli
    az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
    ```
 
-   Exécutez la commande [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) pour supprimer un travail :
+   Exécutez la commande [az databox job delete](/cli/azure/databox/job#az_databox_job_delete) pour supprimer un travail :
 
    ```azurecli
    az databox job delete –resource-group databox-rg --name databox-job
    ```
 
-1. Pour lister les informations d’identification d’un travail Data Box, utilisez la commande [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) :
+1. Pour lister les informations d’identification d’un travail Data Box, utilisez la commande [az databox job list-credentials]( /cli/azure/databox/job#az_databox_job_list_credentials) :
 
    ```azurecli
    az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"

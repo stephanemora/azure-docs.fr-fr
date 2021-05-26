@@ -4,12 +4,12 @@ description: Gestion des performances et suivi de l’utilisation de votre appli
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: f25a53cb227d6894aaabaf82033178f15f61c173
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: a3f8ef90dc7c62bd710a918e16af17e8309a9f6e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076205"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082663"
 ---
 # <a name="what-is-application-insights"></a>Présentation d’Application Insights
 Application Insights, fonctionnalité d’[Azure Monitor](../overview.md), est un service extensible de gestion des performances des applications (APM) destiné aux développeurs et aux professionnels de DevOps. Utilisez-le pour superviser vos applications en temps réel. Ce service détecte automatiquement les anomalies de performances et intègre de puissants outils analytiques conçus pour vous aider à diagnostiquer les problèmes et à comprendre l’usage que les utilisateurs font de votre application.  Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité. Il fonctionne avec des applications sur un large éventail de plateformes, notamment .NET, Node.js, Java et Python, qu’elles soient hébergées localement, de manière hybride ou dans n’importe quel cloud public. Il s’intègre à votre processus DevOps et offre des points de connexion à un large éventail d’outils de développement. Il peut surveiller et analyser les données de télémétrie des applications mobiles en s’intégrant à Visual Studio App Center.
@@ -100,7 +100,7 @@ Il existe plusieurs façons de démarrer avec Application Insights. Commencez pa
   * [Applications ASP.NET](./asp-net.md)
   * [Applications ASP.NET Core](./asp-net-core.md)
   * [Applications de console .NET](./console.md)
-  * [Java](./java-get-started.md)
+  * [Java](./java-in-process-agent.md)
   * [Node.JS](./nodejs.md)
   * [Python](./opencensus-python.md)
   * [autres plateformes](./platforms.md)
@@ -119,7 +119,7 @@ Prise en main pendant le développement avec :
 
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Java](./java-get-started.md)
+* [Java](./java-in-process-agent.md)
 * [Node.JS](./nodejs.md)
 * [Python](./opencensus-python.md)
 * [JavaScript](./javascript.md)
@@ -143,7 +143,7 @@ Prise en main pendant le développement avec :
 [desktop]: ./windows-desktop.md
 [greenbrown]: ./asp-net.md
 [ios]: ../app/mobile-center-quickstart.md
-[java]: ./java-get-started.md
+[java]: ./java-in-process-agent.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: ./platforms.md
 [portal]: https://portal.azure.com/

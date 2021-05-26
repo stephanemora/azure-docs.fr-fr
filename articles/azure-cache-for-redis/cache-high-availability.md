@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 6c44c87221442797f063877385ac5eb7f8585850
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 576c1f0b087775ee3784229147b3715b22135217
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719094"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090673"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Haute disponibilité pour Azure Cache pour Redis
 
@@ -22,7 +22,7 @@ Azure Cache pour Redis implémente la haute disponibilité en utilisant plusieur
 | Option | Description | Disponibilité | standard | Premium | Enterprise |
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
 | [Réplication standard](#standard-replication)| Configuration répliquée à deux nœuds dans un centre de données avec basculement automatique | 99.9 % (voir les [détails](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |✔|✔|-|
-| [Redondance de zone](#zone-redundancy) | Configuration répliquée à plusieurs nœuds dans les zones de disponibilité, avec basculement automatique | Jusqu’à 99,99 % (voir les [détails](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|PRÉVERSION|✔|
+| [Redondance de zone](#zone-redundancy) | Configuration répliquée à plusieurs nœuds dans les zones de disponibilité, avec basculement automatique | Jusqu’à 99,99 % (voir les [détails](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|✔|✔|
 | [Géoréplication](#geo-replication) | Instances de cache liées dans deux régions, avec basculement contrôlé par l’utilisateur | Jusqu’à 99,999 % (voir les [détails](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|✔|PRÉVERSION|
 
 ## <a name="standard-replication"></a>Réplication standard
@@ -40,11 +40,6 @@ Si le nœud principal d’un cache Redis n’est pas disponible, le réplica se 
 
 Un nœud principal peut être mis hors service dans le cadre d’une activité de maintenance planifiée, telle que la mise à jour du système d’exploitation ou du logiciel Redis. Il peut également cesser de fonctionner en raison d’événements imprévus tels que des défaillances du matériel, du logiciel ou du réseau sous-jacent. L’article [Basculement et mise à jour corrective pour Azure Cache pour Redis](cache-failover.md) fournit une explication détaillée sur les types de basculements de Redis. Une instance Azure Cache pour Redis connaîtra de nombreux basculements pendant sa durée de vie. L’architecture de haute disponibilité est conçue pour rendre ces modifications à l’intérieur d’un cache aussi transparente que possible pour ses clients.
 
->[!NOTE]
->Les éléments suivants sont disponibles en préversion.
->
->
-
 En outre, Azure Cache pour Redis autorise des nœuds de réplica supplémentaires dans le niveau Premium. Un [cache à réplicas multiples](cache-how-to-multi-replicas.md) peut être configuré avec un maximum de trois nœuds de réplica. Le fait de disposer d’un plus grand nombre de réplicas améliore généralement la résilience en raison des nœuds supplémentaires qui viennent en renfort du nœud principal. Même avec davantage de réplicas, une instance Azure Cache pour Redis peut toujours subir les conséquences d’une panne du centre de données ou de la zone de disponibilité. Vous pouvez augmenter la disponibilité du cache en utilisant des réplicas multiples conjointement avec la [redondance de zone](#zone-redundancy).
 
 ## <a name="zone-redundancy"></a>Redondance de zone
@@ -52,11 +47,6 @@ En outre, Azure Cache pour Redis autorise des nœuds de réplica supplémentaire
 Azure Cache pour Redis prend en charge les configurations redondantes interzones dans les niveaux Premium et Entreprise. Un [cache redondant interzone](cache-how-to-zone-redundancy.md) peut placer ses nœuds dans différentes [Zones de disponibilité Azure](../availability-zones/az-overview.md) au sein de la même région. Ainsi, les pannes du centre de donnée ou de la zone de disponibilité ne constituent plus un point de défaillance unique et la disponibilité globale de votre cache en est accrue.
 
 ### <a name="premium-tier"></a>Niveau Premium
-
->[!NOTE]
->Cette option est disponible en préversion.
->
->
 
 Le diagramme suivant illustre la configuration redondante interzone pour le niveau Premium :
 

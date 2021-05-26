@@ -1,17 +1,17 @@
 ---
 title: Disponibilité des fonctionnalités cloud des services Azure pour les clients du secteur public américain
 description: Présente la disponibilité des fonctionnalités des services de sécurité Azure, comme Azure Sentinel pour les clients du secteur public américain
-author: batami
-ms.author: bagol
+author: TerryLanfear
+ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 04/29/2021
-ms.openlocfilehash: d545d406bc914eaf634ff2c47698df7c1206a5cb
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: f9ce2ab9df2febc4dcc5d79e5937b97ef498aebe
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109655513"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109845021"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>Disponibilité des fonctionnalités cloud pour les clients du secteur public américain
 

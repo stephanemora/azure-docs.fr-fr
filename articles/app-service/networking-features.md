@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/26/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9ba85ecfe2b57ceb1eed5c51929107a95f5a4669
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 7410793a429395b7f1b1e826c66cb2647eb77cd2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889142"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367707"
 ---
 # <a name="app-service-networking-features"></a>Fonctionnalités de mise en réseau App Service
 
@@ -23,6 +23,9 @@ Il existe deux types de déploiement principaux pour Azure App Service :
 - L’environnement Azure App Service Environment (ASE) de locataire unique héberge les plans App Service de référence SKU Isolé directement dans votre réseau virtuel Azure. 
 
 Les fonctionnalités que vous utilisez varient selon que vous êtes dans le service mutualisé ou dans un environnement ASE. 
+
+> [!NOTE]
+> Les fonctionnalités de réseau ne sont pas disponibles pour les [applications déployées dans Azure Arc](overview-arc-integration.md).
 
 ## <a name="multitenant-app-service-networking-features"></a>Fonctionnalités réseau App Service mutualisées 
 

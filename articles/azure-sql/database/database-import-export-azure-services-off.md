@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: 3a02876234d43df2e98a3a4e60453fc3f1f74ef6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b649c8e51224043b02be791eee217bed98c7130
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724167"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838552"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importer ou exporter une instance Azure SQL Database sans autoriser les services Azure à accéder au serveur
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,9 +34,9 @@ Créez une machine virtuelle Azure en sélectionnant le bouton **Déployer sur A
 Ce modèle vous permet de déployer une machine virtuelle Windows simple à partir de différentes options de version de Windows intégrant les derniers correctifs. La machine virtuelle ainsi déployée présente une taille A2 à l’emplacement du groupe de ressources et le nom de domaine complet de la machine virtuelle est retourné.
 <br><br>
 
-[![Image affichant le bouton intitulé « Déployer sur Azure ».](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
+[![Image affichant le bouton intitulé « Déployer sur Azure ».](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-simple-windows%2Fazuredeploy.json)
 
-Pour plus d’informations, consultez [Very simple deployment of Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows).
+Pour plus d’informations, consultez [Very simple deployment of Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows).
 
 ## <a name="connect-to-the-virtual-machine"></a>Connectez-vous à la machine virtuelle.
 
@@ -44,13 +44,13 @@ Les étapes suivantes vous montrent comment vous connecter à votre machine virt
 
 1. Une fois le déploiement terminé, accédez à la ressource de machine virtuelle.
 
-   ![Capture d'écran représentant la page de présentation d'une machine virtuelle avec un bouton Se connecter.](./media/database-import-export-azure-services-off/vm.png)  
+   ![Capture d'écran représentant la page de présentation d'une machine virtuelle avec un bouton Se connecter.](./media/database-import-export-azure-services-off/vm.png)
 
 2. Sélectionnez **Connecter**.
 
    Un formulaire de fichier .rdp (Remote Desktop Protocol) s’affiche avec l’adresse IP publique et le numéro de port de la machine virtuelle.
 
-   ![Formulaire RDP](./media/database-import-export-azure-services-off/rdp.png)  
+   ![Formulaire RDP](./media/database-import-export-azure-services-off/rdp.png)
 
 3. Sélectionnez **Télécharger le fichier RDP**.
 

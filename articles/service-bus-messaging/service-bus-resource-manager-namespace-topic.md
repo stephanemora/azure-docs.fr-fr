@@ -10,12 +10,12 @@ ms.tgt_pltfrm: dotnet
 ms.custom:
 - devx-track-azurepowershell
 - mode-arm
-ms.openlocfilehash: aa0435e1d88c960429bb53087599e98e22e17154
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 48f9f90cf5bf32beefa6b30fb01a73990d620941
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738875"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809433"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Démarrage rapide : créer un espace de noms Service Bus par rubrique et abonnement à l’aide d’un modèle Azure Resource Manager
 
@@ -161,4 +161,4 @@ Maintenant que vous avez créé et déployé des ressources à l’aide d’Azur
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/management/manage-resources-powershell.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/management/manage-resources-cli.md
-[Service Bus namespace with topic and subscription]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/
+[Service Bus namespace with topic and subscription]: https://azure.microsoft.com/resources/templates/201-servicebus-create-topic-and-subscription/

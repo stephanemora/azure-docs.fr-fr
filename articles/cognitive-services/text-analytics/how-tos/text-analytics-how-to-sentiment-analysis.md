@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 03/29/2021
+ms.date: 04/14/2021
 ms.author: aahi
-ms.openlocfilehash: 7cd2b0a6b943ceb32420ef119a7fc5eddefa2e19
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 59518b1117a566f9bc238a70a6bcaff6f1e05197
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276992"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085418"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procédure : Analyse des sentiments et Exploration des opinions
 
@@ -74,7 +74,7 @@ Créez une requête POST. Vous pouvez [utiliser Postman](text-analytics-how-to-c
 
 #### <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
 
-[Informations de référence sur Analyse des sentiments v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
+[Informations de référence sur Analyse des sentiments v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Sentiment)
 
 #### <a name="version-30"></a>[Version 3.0](#tab/version-3)
 
@@ -93,13 +93,13 @@ Définissez le point de terminaison HTTPS pour l’analyse des sentiments à l�
 
 **Analyse des sentiments**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/sentiment`
 
 **Exploration des opinions**
 
 Pour obtenir les résultats de l’Exploration des opinions, vous devez inclure le paramètre `opinionMining=true`. Par exemple :
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/sentiment?opinionMining=true`
 
 La valeur par défaut de ce paramètre est `false`. 
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: dec025273ddfe9abf6a7588ad09a6a08a9ff872d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: fa434d28b064d69f9c1f81759f6289eae0291f01
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762818"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814871"
 ---
-# <a name="accessing-user-information-in-azure-static-web-apps-preview"></a>Accès aux informations utilisateur dans Azure Static Web Apps - Préversion
+# <a name="accessing-user-information-in-azure-static-web-apps"></a>Accès aux informations utilisateur dans Azure Static Web Apps
 
 Azure Static Web Apps fournit des informations utilisateur relatives à l’authentification via un [point de terminaison à accès direct](#direct-access-endpoint) et à l’[API Functions](#api-functions).
 

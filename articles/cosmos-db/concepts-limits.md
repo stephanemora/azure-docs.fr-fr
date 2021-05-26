@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: f6740363396bcf6f9bd61e383810465fb5d76f51
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 7f7e6cb896d5284a7bc4ff54c7396600463260c9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108794679"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367621"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -200,7 +200,7 @@ Azure Cosmos DB gère les métadonnées système pour chaque compte. Ces métado
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Limites du débit approvisionné en mode de mise à l’échelle automatique
 
-Pour plus de détails sur le débit et les limites de stockage avec mise à l’échelle automatique, consultez l’article [Mise à l’échelle automatique](provision-throughput-autoscale.md#autoscale-limits) et le [FAQ](autoscale-faq.md#lowering-the-max-rus).
+Pour plus de détails sur le débit et les limites de stockage avec mise à l’échelle automatique, consultez l’article [Mise à l’échelle automatique](provision-throughput-autoscale.md#autoscale-limits) et le [FAQ](autoscale-faq.yml#lowering-the-max-ru-s).
 
 | Ressource | Limite par défaut |
 | --- | --- |
@@ -266,15 +266,12 @@ Le tableau suivant liste les limites des [comptes du niveau gratuit d’Azure Co
 | --- | --- |
 | Nombre de comptes du niveau gratuit par abonnement Azure | 1 |
 | Durée de la remise du niveau gratuit | Durée de vie du compte. Acceptation requise au cours de la création du compte. |
-| Nombre maximal de RU/s gratuites | 400 RU/s |
-| Stockage maximal gratuit | 5 Go |
+| Nombre maximal de RU/s gratuites | 1 000 RU/s |
+| Stockage maximal gratuit | 25 Go |
 | Nombre maximal de bases de données à débit partagé | 5 |
 | Nombre maximal de conteneurs dans une base de données à débit partagé | 25 <br>Dans les comptes du niveau gratuit, le nombre minimal de RU/s pour une base de données à débit partagé comptant jusqu’à 25 conteneurs est de 400 RU/s. |
 
-En plus de ce qui précède, les [Limites par compte](#per-account-limits) s’appliquent également aux comptes du niveau gratuit.
-
-> [!NOTE]
-> Le niveau Gratuit d’Azure Cosmos DB est différent du compte gratuit Azure. Le compte gratuit Azure offre des crédits et des ressources Azure gratuitement pendant une durée limitée. Lorsque vous utilisez Azure Cosmos DB dans le cadre de ce compte gratuit, vous bénéficiez d’un stockage de 25 G  et de 400 RU/s de débit approvisionné pendant 12 mois.
+En plus de ce qui précède, les [Limites par compte](#per-account-limits) s’appliquent également aux comptes du niveau gratuit. Pour plus d’informations, consultez l’article sur le [compte de niveau gratuit](free-tier.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
