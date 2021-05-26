@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Créer une application iOS qui prend une photo et la lance dans le Lecteur immersif (Swift)'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Dans ce tutoriel, vous allez générer une application iOS à partir de zéro et ajouter la fonctionnalité Photo avec le lecteur immersif.
 services: cognitive-services
 author: metanMSFT
@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metang
-ms.openlocfilehash: 23e9fd586882d25aed646b984e17c5885145ccff
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 096f28f2940fdac8463106928207f28549c405a0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284632"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370819"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Tutoriel : Créer une application iOS qui lance le Lecteur immersif avec le contenu d'une photo (Swift)
 

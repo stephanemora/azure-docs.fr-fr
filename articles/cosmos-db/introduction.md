@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 05/07/2021
-ms.openlocfilehash: 4432de4bb5f156ed1be0230759fcf3cd86adfe60
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: f435ed599e39b2dd0c204ef8c2cdcbb23146bc08
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634308"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367864"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenue dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -23,7 +23,7 @@ Azure Cosmos DB est une base de données NoSQL complètement managée pour le d
 > [!NOTE]
 > Voulez-vous contribuer à améliorer la documentation Azure Cosmos DB en participant à une enquête utilisateur ? Merci de prendre quelques minutes pour répondre à cette [enquête de présélection](https://aka.ms/cosmosdb-documentation-screener-survey) de 5 minutes. Si vous êtes éligible, vous accéderez à un outil de planification dans lequel vous pourrez réserver un créneau pour rejoindre une session de recherche interactive. Aucune donnée personnelle n’est collectée au cours de ce processus, conformément à notre [déclaration de confidentialité](https://go.microsoft.com/fwlink/?LinkId=521839).
 
-Vous pouvez [essayer gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, sans frais ni engagement, ou utiliser le [niveau gratuit d’Azure Cosmos DB](optimize-dev-test.md#azure-cosmos-db-free-tier) pour obtenir un compte avec les 400 premières RU/s (unités de requête par seconde) et les 5 premiers Go de stockage gratuits.
+Vous pouvez [essayer gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, sans frais ni engagement, ou utiliser le [niveau gratuit d’Azure Cosmos DB](free-tier.md) pour obtenir un compte avec les 1000 premières RU/s (unités de requête par seconde) et les 25 premiers Go de stockage gratuits.
 
 > [!div class="nextstepaction"]
 > [Essayer gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)

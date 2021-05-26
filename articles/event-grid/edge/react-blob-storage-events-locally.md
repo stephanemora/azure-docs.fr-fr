@@ -5,14 +5,15 @@ author: arduppal
 manager: brymat
 ms.author: arduppal
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 461e8c20b70abe3b6b5361de95451a72ea8a0996
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96005059"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378298"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutoriel : Réagir aux événements du module Stockage Blob sur IoT Edge (préversion)
 Cet article explique comment déployer le Stockage Blob Azure sur le module IoT, qui agirait en tant que serveur de publication Event Grid pour envoyer des événements lors de la création et de la suppression d’objets Blob à Event Grid.  

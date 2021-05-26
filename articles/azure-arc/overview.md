@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble d’Azure Arc
 description: Découvrez ce qu’est le service Azure Arc et comment il permet aux clients d’activer la gestion et la gouvernance de leurs ressources hybrides avec d’autres services et fonctionnalités Azure.
-ms.date: 03/02/2021
+ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: 33c9d6ca87c3d8d2d8920ff429902f5876bbdc59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57b483fd64004680d2feffa1e0a6c2843b819c19
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101650190"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369077"
 ---
 # <a name="azure-arc-overview"></a>Vue d’ensemble d’Azure Arc
 
@@ -16,7 +16,12 @@ Aujourd’hui, les entreprises éprouvent des difficultés à contrôler et à g
 
 En parallèle, il est difficile d’implémenter de nouveaux modèles opérationnels DevOps et ITOps, car les outils existants ne prennent pas en charge les nouveaux modèles cloud natifs.
 
-Azure Arc simplifie la gouvernance et la gestion en proposant une plateforme de gestion multicloud et locale cohérente. Azure Arc vous permet de gérer l’ensemble de votre environnement, avec un volet unique, en projetant vos ressources existantes dans Azure Resource Manager. Vous pouvez maintenant gérer les machines virtuelles, les clusters Kubernetes et les bases de données comme s’ils s’exécutaient dans Azure. Quel que soit l’endroit où ils résident, vous pouvez utiliser des services et des fonctionnalités de gestion connus d’Azure. Azure Arc vous permet de continuer à utiliser des opérateurs informatiques (ITOps) traditionnels, tout en introduisant des pratiques DevOps pour prendre en charge de nouveaux modèles cloud natifs dans votre environnement.
+Azure Arc simplifie la gouvernance et la gestion en proposant une plateforme de gestion multicloud et locale cohérente. Azure Arc vous permet de faire ce qui suit :
+* Gérer l’ensemble de votre environnement, avec un volet unique, en projetant vos ressources non Azure, locales ou cloud existantes dans Azure Resource Manager. 
+* Gérer les machines virtuelles, les clusters Kubernetes et les bases de données comme s’ils s’exécutaient dans Azure. 
+* Utiliser des services et des fonctionnalités de gestion connus d’Azure quel que soit l’endroit où ils résident. 
+* Continuer à utiliser des opérateurs informatiques (ITOps) traditionnels, tout en introduisant des pratiques DevOps pour prendre en charge de nouveaux modèles cloud natifs dans votre environnement.
+* Configurer des emplacements personnalisés sous la forme d’une couche d’abstraction sur des extensions de cluster, une connexion au cluster et un cluster Kubernetes avec Azure Arc.  
 
 :::image type="content" source="./media/overview/azure-arc-control-plane.png" alt-text="Diagramme du plan de contrôle de gestion d’Azure Arc" border="false":::
 
@@ -40,7 +45,9 @@ Les fonctionnalités clés d’Azure Arc sont les suivantes :
 
 *  Conformité et configuration sans intervention pour vos clusters Kubernetes à l’aide d’Azure Policy.
 
-* Exécuter les services de données Azure sur n’importe quel environnement Kubernetes comme s’ils s’exécutaient dans Azure (en particulier Azure SQL Managed Instance et Azure Database pour PostgreSQL Hyperscale, avec des avantages tels que les mises à niveau et mises à jour, la sécurité et la supervision). Utiliser la mise à l’échelle élastique, appliquer des mises à jour sans temps d’arrêt de l’application, même sans connexion continue à Azure
+* Exécuter les [services de données Azure](../azure-arc/kubernetes/custom-locations.md) sur n’importe quel environnement Kubernetes comme s’ils s’exécutaient dans Azure (en particulier Azure SQL Managed Instance et Azure Database pour PostgreSQL Hyperscale, avec des avantages tels que les mises à niveau et mises à jour, la sécurité et la supervision). Utiliser la mise à l’échelle élastique, appliquer des mises à jour sans temps d’arrêt de l’application, même sans connexion continue à Azure.
+
+* Créer des [emplacements personnalisés](./kubernetes/custom-locations.md) en plus de vos clusters [Kubernetes avec Azure Arc](./kubernetes/overview.md), en les utilisant comme emplacements cibles pour le déploiement des instances de services Azure. Déployer vos extensions de cluster de service Azure pour [Data Services avec Azure Arc](./data/deploy-data-controller-direct-mode.md), [App Services sur Azure Arc](../app-service/overview-arc-integration.md) (y compris les applications web, de fonction et logiques) et [Event Grid sur Kubernetes](/azure/event-grid/kubernetes/overview).
 
 * Une expérience unifiée de l’affichage de vos ressources Azure Arc activées, que vous utilisiez le portail Azure, l’interface Azure CLI, Azure PowerShell ou l’API REST Azure.
 
@@ -60,7 +67,7 @@ Les fonctionnalités suivantes du plan de contrôle Azure Arc sont proposées sa
 
 * Environnements et automatisation avec des modèles et des extensions
 
-* Gestion des mises à jour
+* Gestion des mises à jour.
 
 Tout service Azure utilisé sur des serveurs avec Arc, par exemple Azure Security Center ou Azure Monitor, sera facturé sur la base des tarifs de ce service. Pour plus d’informations, consultez la [page des tarifs Azure](https://azure.microsoft.com/pricing/).
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0d4454e18c993aa412daa0570a6e60550caf35cb
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 50bf5f3188728db41f74b6fefe5946ef2127efe3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783619"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062305"
 ---
 # <a name="localization-string-ids"></a>ID de chaînes de localisation
 
@@ -258,46 +258,46 @@ L’exemple suivant illustre l’utilisation de certains des éléments d’inte
 
 Voici les ID pour une définition de contenu avec un ID `api.phonefactor` et un [profil technique de facteur de forme de téléphone](phone-factor-technical-profile.md).
 
-| id | Valeur par défaut |
-| -- | ------------- |
-| **button_verify** | M’appeler |
-| **country_code_label** | Indicatif de pays |
-| **cancel_message** | L'utilisateur a annulé l'authentification multifacteur |
-| **text_button_send_second_code** | envoyer un nouveau code |
-| **code_pattern** | \\d{6} |
-| **intro_mixed** | Nous avons le numéro suivant en mémoire pour vous. Nous pouvons envoyer un code par SMS ou nous pouvons appeler pour vous authentifier. |
-| **intro_mixed_p** | Nous avons les numéros suivants en mémoire pour vous. Choisissez un numéro que nous pouvons appeler ou auquel envoyer un code par SMS afin de vous authentifier. |
-| **button_verify_code** | Vérifier le code |
-| **requiredField_code** | Entrez le code de vérification que vous avez reçu |
-| **invalid_code** | Entrez le code à 6 chiffres que vous avez reçu |
-| **button_cancel** | Annuler |
-| **local_number_input_placeholder_text** | Numéro de téléphone |
-| **button_retry** | Recommencer |
-| **alternative_text** | Je n'ai pas mon téléphone |
-| **intro_phone_p** | Nous avons les numéros suivants en mémoire pour vous. Choisissez un numéro que nous pouvons appeler pour vous authentifier. |
-| **intro_phone** | Nous avons le numéro suivant en mémoire pour vous. Nous allons appeler afin de vous authentifier. |
-| **enter_code_text_intro** | Entrez votre code de vérification ci-dessous, ou  |
-| **intro_entry_phone** | Entrez un numéro ci-dessous que nous pouvons appeler pour vous authentifier. |
-| **intro_entry_sms** | Entrez un numéro ci-dessous auquel nous pouvons envoyer un code par SMS pour vous authentifier. |
-| **button_send_code** | Envoyer le code |
-| **invalid_number** | Entrez un numéro de téléphone valide |
-| **intro_sms** | Nous avons le numéro suivant en mémoire pour vous. Nous enverrons un code par SMS afin de vous authentifier. |
-| **intro_entry_mixed** | Entrez un numéro ci-dessous auquel nous pouvons envoyer un code par SMS ou que nous pouvons appeler pour vous authentifier. |
-| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ |
-| **intro_sms_p** |Nous avons les numéros suivants en mémoire pour vous. Choisissez un numéro auquel nous pouvons envoyer un code par SMS afin de vous authentifier. |
-| **requiredField_countryCode** | Sélectionnez le code de votre pays |
-| **requiredField_number** | Entrez votre numéro de téléphone |
-| **country_code_input_placeholder_text** |Pays ou région |
-| **number_label** | Numéro de téléphone |
-| **error_tryagain** | Le numéro de téléphone que vous avez fourni est occupé ou non disponible. Veuillez vérifier le numéro et réessayer. |
-| **error_sms_throttled** | Vous avez atteint la limite du nombre de SMS. Réessayez sous peu. |
-| **error_phone_throttled** | Vous avez atteint la limite du nombre de tentatives d’appel. Réessayez sous peu. |
-| **error_throttled** | Vous avez atteint la limite du nombre de tentatives de vérification. Réessayez sous peu. |
-| **error_incorrect_code** | Le code de vérification que vous avez entré ne correspond pas à nos enregistrements. Réessayez ou demandez un nouveau code. |
-| **countryList** | Consultez [la liste des pays](#phone-factor-authentication-page-example). |
-| **error_448** | Le numéro de téléphone que vous avez fourni n'est pas accessible. |
-| **error_449** | L'utilisateur a dépassé le nombre de nouvelles tentatives. |
-| **verification_code_input_placeholder_text** | Code de vérification |
+| id | Valeur par défaut | Version de mise en page |
+| -- | ------------- | ------ |
+| **button_verify** | M’appeler | `All` |
+| **country_code_label** | Indicatif de pays | `All` |
+| **cancel_message** | L'utilisateur a annulé l'authentification multifacteur | `All` |
+| **text_button_send_second_code** | envoyer un nouveau code | `All` |
+| **code_pattern** | \\d{6} | `All` |
+| **intro_mixed** | Nous avons le numéro suivant en mémoire pour vous. Nous pouvons envoyer un code par SMS ou nous pouvons appeler pour vous authentifier. | `All` |
+| **intro_mixed_p** | Nous avons les numéros suivants en mémoire pour vous. Choisissez un numéro que nous pouvons appeler ou auquel envoyer un code par SMS afin de vous authentifier. | `All` |
+| **button_verify_code** | Vérifier le code | `All` |
+| **requiredField_code** | Entrez le code de vérification que vous avez reçu | `All` |
+| **invalid_code** | Entrez le code à 6 chiffres que vous avez reçu | `All` |
+| **button_cancel** | Annuler | `All` |
+| **local_number_input_placeholder_text** | Numéro de téléphone | `All` |
+| **button_retry** | Recommencer | `All` |
+| **alternative_text** | Je n'ai pas mon téléphone | `All` |
+| **intro_phone_p** | Nous avons les numéros suivants en mémoire pour vous. Choisissez un numéro que nous pouvons appeler pour vous authentifier. | `All` |
+| **intro_phone** | Nous avons le numéro suivant en mémoire pour vous. Nous allons appeler afin de vous authentifier. | `All` |
+| **enter_code_text_intro** | Entrez votre code de vérification ci-dessous, ou  | `All` |
+| **intro_entry_phone** | Entrez un numéro ci-dessous que nous pouvons appeler pour vous authentifier. | `All` |
+| **intro_entry_sms** | Entrez un numéro ci-dessous auquel nous pouvons envoyer un code par SMS pour vous authentifier. | `All` |
+| **button_send_code** | Envoyer le code | `All` |
+| **invalid_number** | Entrez un numéro de téléphone valide | `All` |
+| **intro_sms** | Nous avons le numéro suivant en mémoire pour vous. Nous enverrons un code par SMS afin de vous authentifier. | `All` |
+| **intro_entry_mixed** | Entrez un numéro ci-dessous auquel nous pouvons envoyer un code par SMS ou que nous pouvons appeler pour vous authentifier. | `All` |
+| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ | `All` |
+| **intro_sms_p** |Nous avons les numéros suivants en mémoire pour vous. Choisissez un numéro auquel nous pouvons envoyer un code par SMS afin de vous authentifier. | `All` |
+| **requiredField_countryCode** | Sélectionnez le code de votre pays | `All` |
+| **requiredField_number** | Entrez votre numéro de téléphone | `All` |
+| **country_code_input_placeholder_text** |Pays ou région | `All` |
+| **number_label** | Numéro de téléphone | `All` |
+| **error_tryagain** | Le numéro de téléphone que vous avez fourni est occupé ou non disponible. Veuillez vérifier le numéro et réessayer. | `All` |
+| **error_sms_throttled** | Vous avez atteint la limite du nombre de SMS. Réessayez sous peu. | `>= 1.2.3` |
+| **error_phone_throttled** | Vous avez atteint la limite du nombre de tentatives d’appel. Réessayez sous peu. | `>= 1.2.3` |
+| **error_throttled** | Vous avez atteint la limite du nombre de tentatives de vérification. Réessayez sous peu. | `>= 1.2.3` |
+| **error_incorrect_code** | Le code de vérification que vous avez entré ne correspond pas à nos enregistrements. Réessayez ou demandez un nouveau code. | `All` |
+| **countryList** | Consultez [la liste des pays](#phone-factor-authentication-page-example). | `All` |
+| **error_448** | Le numéro de téléphone que vous avez fourni n'est pas accessible. | `All` |
+| **error_449** | L'utilisateur a dépassé le nombre de nouvelles tentatives. | `All` |
+| **verification_code_input_placeholder_text** | Code de vérification | `All` |
 
 L’exemple suivant illustre l’utilisation de certains des éléments d’interface utilisateur dans la page d’inscription MFA :
 

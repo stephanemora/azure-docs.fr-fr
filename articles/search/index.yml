@@ -11,25 +11,27 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 03/02/2021
-  ms.openlocfilehash: f514b33bb39db2732053102bd69cb853477f67f1
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: 6203e20f007fc170447d0c145bbaab942834d907
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101677823"
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110378366"
 landingContent:
 - title: À propos de la recherche cognitive
   linkLists:
   - linkListType: overview
     links:
-    - text: Qu’est-ce que la Recherche cognitive Azure
+    - text: Qu’est-ce que Recherche cognitive Azure ?
       url: search-what-is-azure-search.md
-    - text: Présentation de la recherche sémantique
+    - text: Qu’est-ce que la recherche sémantique ?
       url: semantic-search-overview.md
-    - text: Qu’est-ce que l’enrichissement par IA
+    - text: Qu’est-ce que l’enrichissement par IA ?
       url: cognitive-search-concept-intro.md
-    - text: Qu’est-ce qu’un indexeur
+    - text: Qu’est-ce qu’un indexeur ?
       url: search-indexer-overview.md
+    - text: Que sont les services Azure Applied AI Services ?
+      url: ../applied-ai-services/what-are-applied-ai-services.md
   - linkListType: video
     links:
     - text: Utiliser l’IA dans les solutions de recherche

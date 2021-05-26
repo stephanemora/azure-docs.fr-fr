@@ -3,15 +3,15 @@ title: Modèles de tarification et de facturation
 description: Vue d’ensemble du fonctionnement des modèles de tarification et de facturation dans Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 03/24/2021
-ms.openlocfilehash: a3c20dd85c94c359259cf69e25bb9083d56857fc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/25/2021
+ms.openlocfilehash: 629b7a4a52dcc5749941de695eec4558085263df
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777146"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372702"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modèles de tarification et de facturation pour Azure Logic Apps
 
@@ -19,9 +19,9 @@ ms.locfileid: "107777146"
 
 <a name="consumption-pricing"></a>
 
-## <a name="multi-tenant-pricing"></a>Tarification multilocataire
+## <a name="consumption-pricing-multi-tenant"></a>Tarification de la consommation (mutualisée)
 
-Un modèle de tarification de la consommation par paiement à l’utilisation s’applique aux applications logiques qui s’exécutent dans le service Logic Apps multilocataire, « mondial » et public. Toutes les exécutions réussies et infructueuses sont comptabilisées et facturées.
+Un modèle de tarification de la consommation par paiement à l’utilisation s’applique aux applications logiques qui s’exécutent dans l’environnement Logic Apps multilocataire, « mondial » et public. Toutes les exécutions réussies et infructueuses sont comptabilisées et facturées.
 
 Par exemple, la demande d’un déclencheur d’interrogation est toujours comptabilisée comme une exécution, même si ce déclencheur est ignoré, et aucune instance de workflow d’application logique n’est créée.
 
@@ -29,7 +29,7 @@ Par exemple, la demande d’un déclencheur d’interrogation est toujours compt
 |-------|-------------|
 | Déclencheurs et actions [intégrés](../connectors/built-in.md) | Exécutés en mode natif dans le service Logic Apps et sont comptabilisés selon le tarif [**Actions**](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>Par exemple, le déclencheur HTTP et le déclencheur Requête sont des déclencheurs intégrés, tandis que l’action HTTP et l’action Réponse sont des actions intégrées. Les opérations de données, les opérations de traitement par lots, les opérations de variables et les [actions de contrôle de workflow](../connectors/built-in.md), telles que les boucles, les conditions, les basculements, les branches parallèles, etc., sont également des actions intégrées. |
 | Déclencheurs et actions de [connecteur standard](../connectors/managed.md) <p><p>Déclencheurs et actions de [connecteur personnalisé](../connectors/apis-list.md#custom-apis-and-connectors) | Comptabilisés selon le [tarif du connecteur standard](https://azure.microsoft.com/pricing/details/logic-apps/). |
-| Déclencheurs et actions de [connecteur entreprise](../connectors/managed.md) | Comptabilisés selon le [tarif du connecteur entreprise](https://azure.microsoft.com/pricing/details/logic-apps/). Toutefois, durant la préversion publique, les connecteurs entreprise sont comptabilisés selon le [tarif du connecteur *standard*](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| Déclencheurs et actions de [connecteur entreprise](../connectors/managed.md) | Comptabilisés selon le [tarif du connecteur entreprise](https://azure.microsoft.com/pricing/details/logic-apps/). Toutefois, durant la préversion du connecteur, les connecteurs entreprise sont comptabilisés selon le [tarif du connecteur *standard*](https://azure.microsoft.com/pricing/details/logic-apps/). |
 | Actions dans des [boucles](logic-apps-control-flow-loops.md) | Chaque action qui s’exécute dans une boucle est comptabilisée pour chaque cycle de boucle qui s’exécute. <p><p>Par exemple, supposons que vous ayez une boucle « for each » qui comprend des actions qui traitent une liste. Le service Logic Apps comptabilise chaque action qui s’exécute dans cette boucle en multipliant le nombre d’éléments dans la liste par le nombre d’actions dans la boucle, puis ajoute l’action qui démarre la boucle. Le calcul pour une liste de 10 éléments est donc (10 * 1) + 1, ce qui donne 11 exécutions d’action. |
 | Nouvelles tentatives | Pour gérer les exceptions et les erreurs les plus simples, vous pouvez configurer une [stratégie de nouvelles tentatives](logic-apps-exception-handling.md#retry-policies) sur les déclencheurs et les actions qui sont pris en charge. Ces nouvelles tentatives, ainsi que la demande initiale, sont facturées à des tarifs qui varient selon que le déclencheur ou l’action est de type intégré, Standard ou Entreprise. Par exemple, une action qui s’exécute avec deux nouvelles tentatives est facturée pour trois exécutions d’action. |
 | [Conservation des données et consommation du stockage](#data-retention) | Comptabilisée selon le tarif de conservation des données, que vous pouvez trouver sur la [page de tarification de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/), sous le tableau **Détails des prix**. |
@@ -64,11 +64,47 @@ Pour vous aider à estimer plus précisément les coûts de consommation, consul
 
   Par exemple, imaginons que vous configuriez un déclencheur qui vérifie un point de terminaison par jour. Lorsqu’il vérifie le point de terminaison et trouve 15 événements qui répondent aux critères, il se lance et exécute le workflow correspondant 15 fois. Le service Logic Apps mesure toutes les actions réalisées par ces 15 workflows, dont les requêtes du déclencheur.
 
+<a name="standard-pricing"></a>
+
+## <a name="standard-pricing-single-tenant"></a>Tarification standard (monolocataire)
+
+Quand vous créez la ressource **Logic App (Standard)** dans le Portail Azure ou que vous le déployez à partir de Visual Studio Code, vous devez choisir un plan d’hébergement ou un niveau tarifaire pour votre application logique. Ces choix déterminent la tarification qui s’applique lors de l’exécution de vos workflows dans des applications Azure Logic Apps monolocataires.
+
+<a name="hosting-plans"></a>
+
+### <a name="hosting-plans-and-pricing-tiers"></a>Plans d’hébergement et niveaux tarifaires
+
+Pour les applications logiques monolocataire, utilisez le plan d’hébergement **Workflow standard**. La liste suivante répertorie les niveaux tarifaires disponibles que vous pouvez sélectionner :
+
+| Niveau tarifaire | Cœurs | Mémoire | Stockage |
+|--------------|-------|--------|---------|
+| **WS1** | 1 | 3,5 Go | 250 Go |
+| **WS2** | 2 | 7 Go | 250 Go |
+| **WS3** | 2 | 14 Go | 250 Go |
+|||||
+
+<a name="storage-transactions"></a>
+
+### <a name="storage-transactions"></a>Transactions de stockage
+
+Azure Logic Apps utilise [Stockage Azure](/storage) pour toutes les opérations de stockage. Avec Azure Logic Apps multilocataire, toute utilisation de stockage et tout coût sont attachés à l’application logique. Avec Azure Logic Apps monolocataire, vous pouvez utiliser votre propre [compte de stockage](../azure-functions/storage-considerations.md#storage-account-requirements) Azure. Cette possibilité vous offre davantage de contrôle et de flexibilité sur vos données Logic Apps.
+
+Quand des workflows *avec état* exécutent leurs opérations, le runtime Azure Logic Apps effectue les transactions de stockage. Par exemple, des files d’attente sont utilisées pour la planification, tandis que des tables et blobs sont utilisés pour stocker les états de flux de travail. Les coûts de stockage changent en fonction du contenu de votre workflow. Les différents déclencheurs, actions et charges utiles entraînent des opérations et des besoins de stockage différents. Les transactions de stockage suivent le [modèle de tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/). Ces coûts de stockage sont répertoriés séparément dans votre facture Azure.
+
+### <a name="tips-for-estimating-storage-needs-and-costs"></a>Conseils pour l’estimation des besoins et des coûts de stockage
+
+Pour vous faire une idée du nombre d’opérations de stockage qu’un workflow pourrait exécuter et de leur coût, essayez d’utiliser la [calculatrice de stockage Logic Apps](https://logicapps.azure.com/calculator). Vous pouvez sélectionner un exemple de workflow ou utiliser une définition de workflow existante. Le premier calcul estime le nombre d’opérations de stockage dans votre workflow. Vous pouvez ensuite utiliser ces numéros pour estimer les coûts possibles à l’aide de la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/).
+
+Pour plus d’informations, consultez la documentation suivante :
+
+* [Estimer les besoins et coûts de stockage des workflows dans des applications Azure Logic Apps monolocataires](estimate-storage-costs.md)
+* [Détails de tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/)
+
 <a name="fixed-pricing"></a>
 
-## <a name="ise-pricing"></a>Tarification d’un ISE
+## <a name="ise-pricing-dedicated"></a>Tarification ISE (dédiée)
 
-Un modèle de tarification fixe s’applique aux applications logiques qui s’exécutent dans un [*environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Un ISE est facturé selon la [tarification d’un environnement de service d’intégration](https://azure.microsoft.com/pricing/details/logic-apps), qui dépend du [niveau ISE ou *niveau tarifaire*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) que vous créez. Cette tarification diffère de la tarification multilocataire, car vous payez pour la capacité de réserve et les ressources dédiées, que vous les utilisiez ou non.
+Un modèle de tarification fixe s’applique aux applications logiques qui s’exécutent dans l’[*environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) dédié. Un ISE est facturé selon la [tarification d’un environnement de service d’intégration](https://azure.microsoft.com/pricing/details/logic-apps), qui dépend du [niveau ISE ou *niveau tarifaire*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) que vous créez. Cette tarification diffère de la tarification multilocataire, car vous payez pour la capacité de réserve et les ressources dédiées, que vous les utilisiez ou non.
 
 | Référence (SKU) de l’environnement de service d’intégration | Description |
 |---------|-------------|
@@ -81,7 +117,7 @@ Un modèle de tarification fixe s’applique aux applications logiques qui s’e
 | Éléments | Description |
 |-------|-------------|
 | Déclencheurs et actions [intégrés](../connectors/built-in.md) | Affichent l’étiquette **Core** et s’exécutent dans le même ISE que vos applications logiques. |
-| [Connecteurs standard](../connectors/managed.md) <p><p>[Connecteurs d’entreprise](../connectors/managed.md#enterprise-connectors) | – Les connecteurs managés qui comportent l’étiquette **ISE** sont spécialement conçus pour fonctionner sans la passerelle de données locale et s’exécutent dans le même ISE que vos applications logiques. La tarification d’un ISE comprend autant de connexions entreprise que vous le souhaitez. <p><p>– Les connecteurs qui ne portent pas l’étiquette ISE s’exécutent dans le service Logic Apps multilocataire. Toutefois, la tarification d’un ISE comprend ces exécutions pour les applications logiques qui s’exécutent dans un ISE. |
+| [Connecteurs standard](../connectors/managed.md) <p><p>[Connecteurs d’entreprise](../connectors/managed.md#enterprise-connectors) | – Les connecteurs managés qui comportent l’étiquette **ISE** sont spécialement conçus pour fonctionner sans la passerelle de données locale et s’exécutent dans le même ISE que vos applications logiques. La tarification d’un ISE comprend autant de connexions entreprise que vous le souhaitez. <p><p>– Les connecteurs qui ne portent pas l’étiquette ISE s’exécutent dans le service Azure Logic Apps monolocataire. Toutefois, la tarification d’un ISE comprend ces exécutions pour les applications logiques qui s’exécutent dans un ISE. |
 | Actions dans des [boucles](logic-apps-control-flow-loops.md) | La tarification d’un ISE comprend chaque action qui s’exécute dans une boucle pour chaque cycle de boucle qui s’exécute. <p><p>Par exemple, supposons que vous ayez une boucle « for each » qui comprend des actions qui traitent une liste. Pour connaître le nombre total d’exécutions d’action, multipliez le nombre d’éléments dans la liste par le nombre d’actions dans la boucle, puis ajoutez l’action qui démarre la boucle. Le calcul pour une liste de 10 éléments est donc (10 * 1) + 1, ce qui donne 11 exécutions d’action. |
 | Nouvelles tentatives | Pour gérer les exceptions et les erreurs les plus simples, vous pouvez configurer une [stratégie de nouvelles tentatives](logic-apps-exception-handling.md#retry-policies) sur les déclencheurs et les actions qui sont pris en charge. La tarification d’un ISE comprend les nouvelles tentatives, ainsi que la demande initiale. |
 | [Conservation des données et consommation du stockage](#data-retention) | Les applications logiques dans un ISE n’entraînent pas de coûts de rétention ni de stockage. |

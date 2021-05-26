@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: beb77517a953163c9d1dd34b59fa429b5d58cdd2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3e0bcef30d13403d8067c41568b7ee321fb46995
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110478033"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377189"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
@@ -396,20 +396,20 @@ Pour déterminer les langues parlées prises en charge pour chaque voix neuronal
 
 | Voix                            | Langue des paramètres régionaux           | Description                                                 |
 |----------------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-JennyMultilingualNeural`  | `lang="en-US"`            | Parler la langue des paramètres régionaux en-US, qui correspond aux paramètres régionaux principaux de cette voix |
-|                                  | `lang="en-CA"`            | Parler la langue des paramètres régionaux en-CA                                  |
-|                                  | `lang="en-AU"`            | Parler la langue des paramètres régionaux en-AU                                  |
-|                                  | `lang="en-GB"`            | Parler la langue des paramètres régionaux en-GB                                  |
-|                                  | `lang="de-DE"`            | Parler la langue des paramètres régionaux de-DE                                  |
-|                                  | `lang="fr-FR"`            | Parler la langue des paramètres régionaux fr-FR                                  |
-|                                  | `lang="fr-CA"`            | Parler la langue des paramètres régionaux fr-CA                                  |
-|                                  | `lang="es-ES"`            | Parler la langue des paramètres régionaux es-ES                                  |
-|                                  | `lang="es-MX"`            | Parler la langue des paramètres régionaux es-MX                                  |
-|                                  | `lang="zh-CN"`            | Parler la langue des paramètres régionaux zh-CN                                  |
-|                                  | `lang="ko-KR"`            | Parler la langue des paramètres régionaux ko-KR                                  |
-|                                  | `lang="ja-JP"`            | Parler la langue des paramètres régionaux ja-JP                                  |
-|                                  | `lang="it-IT"`            | Parler la langue des paramètres régionaux it-IT                                  |
-|                                  | `lang="pt-BR"`            | Parler la langue des paramètres régionaux pt-BR                                  |
+| `en-US-JennyMultilingualNeural`  | `lang="en-us"`            | Parler la langue des paramètres régionaux en-US, qui correspond aux paramètres régionaux principaux de cette voix |
+|                                  | `lang="en-ca"`            | Parler la langue des paramètres régionaux en-CA                                  |
+|                                  | `lang="en-au"`            | Parler la langue des paramètres régionaux en-AU                                  |
+|                                  | `lang="en-gb"`            | Parler la langue des paramètres régionaux en-GB                                  |
+|                                  | `lang="de-de"`            | Parler la langue des paramètres régionaux de-DE                                  |
+|                                  | `lang="fr-fr"`            | Parler la langue des paramètres régionaux fr-FR                                  |
+|                                  | `lang="fr-ca"`            | Parler la langue des paramètres régionaux fr-CA                                  |
+|                                  | `lang="es-es"`            | Parler la langue des paramètres régionaux es-ES                                  |
+|                                  | `lang="es-mx"`            | Parler la langue des paramètres régionaux es-MX                                  |
+|                                  | `lang="zh-cn"`            | Parler la langue des paramètres régionaux zh-CN                                  |
+|                                  | `lang="ko-kr"`            | Parler la langue des paramètres régionaux ko-KR                                  |
+|                                  | `lang="ja-jp"`            | Parler la langue des paramètres régionaux ja-JP                                  |
+|                                  | `lang="it-it"`            | Parler la langue des paramètres régionaux it-IT                                  |
+|                                  | `lang="pt-br"`            | Parler la langue des paramètres régionaux pt-BR                                  |
 
 **Exemple**
 
@@ -420,10 +420,10 @@ Cet extrait de code SSML montre comment utiliser `<lang xml:lang>` pour changer 
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
     <voice name="en-US-JennyMultilingualNeural">
         I am looking forward to the exciting things.
-        <lang xml:lang="es-MX">
+        <lang xml:lang="es-mx">
             Estoy deseando que lleguen las cosas emocionantes.
         </lang>
-        <lang xml:lang="de-DE">
+        <lang xml:lang="de-de">
             Ich freue mich auf die spannenden Dinge.
         </lang>
     </voice>

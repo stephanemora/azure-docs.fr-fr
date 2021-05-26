@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: aacf57206895c73055c624b8a5d80e68cc73f38e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3eb0c54fda14711e45af3974638d53807994df91
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099205"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459597"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Créer une fonction sur Linux avec un conteneur personnalisé
 
@@ -58,10 +58,6 @@ Vous pouvez suivre ce tutoriel sur n’importe quel ordinateur exécutant Window
 + [Docker](https://docs.docker.com/install/)  
 
 + Un [ID Docker](https://hub.docker.com/signup)
-
-[!INCLUDE [functions-cli-verify-prereqs](../../includes/functions-cli-verify-prereqs.md)]
-
-+ Exécutez `docker login` pour vous connecter à Docker. Cette commande échoue si Docker n’est pas en cours d’exécution, auquel cas démarrez Docker et réessayez la commande.
 
 [!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
 

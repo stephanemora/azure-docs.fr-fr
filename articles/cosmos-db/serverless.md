@@ -5,15 +5,15 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/08/2021
-ms.openlocfilehash: 3ee8d5f36977a5a9f20c7e636118ffa9f6ee0b6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/25/2021
+ms.openlocfilehash: 146a1dba3e13ac594e3b4d9edc358d46b0d54201
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100570999"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378488"
 ---
-# <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB serverless (préversion)
+# <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB serverless
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB serverless vous permet d’utiliser votre compte Azure Cosmos sur la base de la consommation ; dans ce cas, vous êtes facturé uniquement pour les unités de requête consommées par vos opérations de base de données et le stockage consommé par vos données. Les conteneurs serverless peuvent traiter des milliers de demandes par seconde sans aucun frais minimum et aucune planification de capacité requise.
@@ -45,9 +45,6 @@ Le serverless est un nouveau type de compte Azure Cosmos, ce qui signifie que vo
 
 Tout conteneur créé dans un compte serverless est un conteneur serverless. Les conteneurs serverless exposent les mêmes fonctionnalités que les conteneurs créés en mode de débit approvisionné, ce qui vous permet de lire, d’écrire et d’interroger vos données exactement de la même façon. Toutefois, les comptes et les conteneurs serverless ont également des caractéristiques spécifiques :
 
-> [!IMPORTANT]
-> Certaines de ces limitations peuvent être atténuées ou supprimées lorsque le serverless sera mis à la disposition générale, et **vos commentaires** nous aideront à décider ! Contactez-nous pour partager vos remarques sur votre expérience serverless : [azurecosmosdbserverless@service.microsoft.com](mailto:azurecosmosdbserverless@service.microsoft.com).
-
 - Un compte serverless ne peut s’exécuter que dans une seule région Azure. Il n’est pas possible d’ajouter des régions Azure supplémentaires à un compte serverless après l’avoir créé.
 - Il n’est pas possible d’activer la [fonctionnalité en préversion Synapse Link](synapse-link.md) sur un compte serverless.
 - L’approvisionnement de débit n’est pas requis sur les conteneurs serverless ; les instructions suivantes sont donc applicables :
@@ -68,7 +65,7 @@ Vous pouvez trouver le même graphique lorsque vous utilisez Azure Monitor, comm
 
 ## <a name="performance"></a><a id="performance"></a>Niveau de performance
 
-Les ressources serverless offrent des caractéristiques de performances spécifiques qui diffèrent de celles fournies par les ressources de débit provisionné. Une fois que l’offre serverless sera en disponibilité générale, la latence des conteneurs serverless est couverte par un objectif de niveau de service (SLO) de 10 millisecondes ou moins pour les lectures de point et de 30 millisecondes ou moins pour les écritures. Une opération de lecture de point consiste à extraire un seul élément par son ID et sa valeur de clé de partition.
+Les ressources serverless offrent des caractéristiques de performances spécifiques qui diffèrent de celles fournies par les ressources de débit provisionné. Ma latence des conteneurs serverless est couverte par un objectif de niveau de service (SLO) de 10 millisecondes ou moins pour les lectures de points, et de 30 millisecondes ou moins pour les écritures. Une opération de lecture de point consiste à extraire un seul élément par son ID et sa valeur de clé de partition.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

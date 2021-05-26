@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe42b98813f1687c78827b355a707b0147d6d2a4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 8553da2ff1ff80dcaba8c6ff782c31602820a2ec
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067280"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378332"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 
@@ -60,7 +60,7 @@ La version 3 offre les avantages suivants :
  
 - Prise en charge des événements en direct 24 h/24, 7 j/7
 - API REST ARM, SDK clients pour .NET core, Node.js, Python, Java, Go et Ruby.
-- Clés managées par le client, intégration du stockage approuvé, prise en charge des liaisons privées et [bien plus encore](https://review.docs.microsoft.com/en-us/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Clés managées par le client, intégration du stockage approuvé, prise en charge des liaisons privées et [bien plus encore](../latest/migrate-v-2-v-3-migration-benefits.md)
 
 #### <a name="action-required"></a>Action obligatoire :
 
@@ -89,7 +89,7 @@ Certains Processeurs multimédias Analytics seront mis hors service. Pour conna�
 
 ### <a name="deprecation-of-media-processors"></a>Dépréciation des processeurs multimédias
 
-Nous annonçons la dépréciation d’*Azure Media Indexer* et d’*Azure Media Indexer 2 Preview*. [Azure Media Services Video Indexer](../video-indexer/index.yml) remplace ces processeurs multimédias hérités.
+Nous annonçons la dépréciation d’*Azure Media Indexer* et d’*Azure Media Indexer 2 Preview*. Azure Media Services Video Indexer remplace ces processeurs multimédias hérités.
 
 Pour connaître les dates de mise hors service, consultez la rubrique [Composants hérités](legacy-components.md).
 
@@ -444,7 +444,7 @@ Plusieurs bogues ont été résolus pour le gestionnaire de package et le chiffr
 
 ## <a name="may-2014-release"></a><a id="may_changes_14"></a>Version de mai 2014
 ### <a name="general-media-services-updates"></a><a id="may_14_changes"></a>Mises à jour générales de Media Services
-Vous pouvez maintenant utiliser [l’empaquetage dynamique] pour le streaming HLS version 3. Pour le streaming HLS version 3, ajoutez le format suivant au chemin du localisateur d’origine : * .ism/manifest(format=m3u8-aapl-v3). Pour plus d’informations, consultez [ce forum](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
+Vous pouvez maintenant utiliser [l’empaquetage dynamique] pour le streaming HLS version 3. Pour le streaming HLS version 3, ajoutez le format suivant au chemin du localisateur d’origine : * .ism/manifest(format=m3u8-aapl-v3). Pour plus d’informations, consultez [ce forum](https://social.msdn.microsoft.com/Forums/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
 
 Désormais, l’empaquetage dynamique prend également en charge la transmission du format HLS (version 3 et version 4) chiffré avec PlayReady sur la base du Smooth Streaming statiquement chiffré avec PlayReady. Pour plus d’informations sur la façon de chiffrer Smooth Streaming avec PlayReady, consultez [Protéger Smooth Streaming avec PlayReady](/previous-versions/azure/dn189154(v=azure.100)).
 

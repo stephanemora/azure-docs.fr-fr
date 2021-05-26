@@ -4,15 +4,15 @@ description: Envoyer des requêtes HTTP ou HTTPS sortantes aux points de termina
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
-ms.date: 02/18/2021
+ms.topic: how-to
+ms.date: 05/25/2021
 tags: connectors
-ms.openlocfilehash: dab5b755347e46d8d509e8014bba8f496ca9c900
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45c6945818016618252e69554c62391691d2fb6a
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719438"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368853"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Appeler des points de terminaison HTTP ou HTTPS à partir d'Azure Logic Apps
 
@@ -194,6 +194,41 @@ Par défaut, dans Azure Logic Apps, toutes les actions HTTP suivent le [modèle
 
 * La définition JSON sous-jacente de l’action HTTP suit implicitement le modèle d’opération asynchrone.
 
+<a name="tsl-ssl-certificate-authentication"></a>
+
+## <a name="tslssl-certificate-authentication"></a>Authentification par certificat TSL/SSL
+
+Si vous avez une ressource **Logic Apps (Standard)** dans un service Azure Logic Apps monolocataire, et tentez d’appeler un point de terminaison HTTPS à partir de votre flux de travail à l’aide de l’opération HTTP et d’un certificat TSL/SSL pour l’authentification, l’appel échoue, sauf si vous suivez également les étapes suivantes :
+
+1. Dans les paramètres d’application de votre ressource d’application logique, [ajoutez ou mettez à jour le paramètre d’application](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings) `WEBSITE_LOAD_ROOT_CERTIFICATES`.
+
+1. Pour la valeur de paramètre, fournissez l’empreinte de votre certificat TSL/SSL en tant que certificat racine à approuver.
+
+   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
+
+Par exemple, si vous travaillez dans Visual Studio Code, procédez comme suit :
+
+1. Ouvrez le fichier **local.settings.js** de votre projet d’application logique.
+
+1. Dans l’objet JSON `Values`, ajoutez ou mettez à jour le paramètre `WEBSITE_LOAD_ROOT_CERTIFICATES` :
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         <...>
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>",
+         <...>
+      }
+   }
+   ```
+
+Pour plus d’informations, consultez la documentation suivante :
+
+* [Modifier les paramètres de l’hôte et de l’application pour les applications logiques dans un service Azure Logic Apps à un seul locataire](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
+* [Certificats clients privés – Azure App Service](../app-service/environment/certificates.md#private-client-certificate)
+
 <a name="disable-asynchronous-operations"></a>
 
 ## <a name="disable-asynchronous-operations"></a>Désactiver les opérations asynchrones
@@ -233,7 +268,7 @@ Les requêtes HTTP ont un [délai d’expiration](../logic-apps/logic-apps-limi
 
 ## <a name="disable-checking-location-headers"></a>Désactiver la vérification des en-têtes d’emplacement
 
-Certains points de terminaison, services, systèmes ou API retournent une réponse « 202 ACCEPTED » qui ne comporte pas d’en-tête `location`. Pour éviter qu’une action HTTP vérifie continuellement l’état de la requête en l’absence d’un en-tête `location`, vous pouvez utiliser les options suivantes :
+Certains points de terminaison, services, systèmes ou API retournent une réponse `location` dépourvue d’en-tête `202 ACCEPTED`. Pour éviter qu’une action HTTP vérifie continuellement l’état de la requête en l’absence d’un en-tête `location`, vous pouvez utiliser les options suivantes :
 
 * [Désactivez le modèle d’opération asynchrone de l’action HTTP](#disable-asynchronous-operations) afin que l’action n’interroge pas ou ne vérifie pas continuellement l’état de la requête. Au lieu d’un tel comportement, l’action attend que le récepteur lui réponde en indiquant l’état et les résultats à la fin du traitement de la requête.
 
@@ -262,7 +297,7 @@ Si Logic Apps ne vous empêche pas d’enregistrer des applications logiques aya
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour en savoir plus sur les paramètres des déclencheurs et des actions, consultez les sections suivantes :
+Pour des informations techniques sur les paramètres de déclencheur et d’action, consultez les sections suivantes :
 
 * [Paramètres de déclencheurs HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [Paramètres d’actions HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)

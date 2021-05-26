@@ -2,13 +2,13 @@
 title: Résoudre les problèmes liés à Azure Event Hubs pour Apache Kafka
 description: Cet article explique comment résoudre les problèmes liés à Azure Event Hubs pour Apache Kafka
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: a9d4a93f0074f206cd4627913505c66eb6480cbd
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 05/10/2021
+ms.openlocfilehash: ee2e598cff140ebfd16c5acd10eca545a29f5b2b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107314080"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378161"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Guide de dépannage Apache Kafka pour Event Hubs
 Cet article fournit des conseils de dépannage pour les problèmes que vous pouvez rencontrer lors de l’utilisation d’Event Hubs pour Apache Kafka. 
@@ -49,7 +49,7 @@ Vérifiez les éléments suivants si vous rencontrez des problèmes lors de l’
 - **Pare-feu bloquant le trafic** : assurez-vous que le port **9093** n’est pas bloqué par votre pare-feu.
 - **TopicAuthorizationException** : les causes les plus courantes de cette exception sont les suivantes :
     - Une faute de frappe dans la chaîne de connexion de votre fichier de configuration, ou
-    - Une tentative d’utilisation d’Event Hubs pour Kafka sur un espace de noms de niveau de base. La fonctionnalité Event Hubs pour Kafka est [prise en charge uniquement pour les espaces de noms de niveau Standard et Dedicated](https://azure.microsoft.com/pricing/details/event-hubs/).
+    - Une tentative d’utilisation d’Event Hubs pour Kafka sur un espace de noms de niveau de base. La fonctionnalité Event Hubs pour Kafka n’est pas prise en charge dans le niveau de base.
 - **Non-concordance des versions Kafka** : Event Hubs pour les écosystèmes Kafka prend en charge Kafka versions 1.0 et ultérieures. Certaines applications utilisant Kafka version 0.10 et ultérieures peuvent parfois fonctionner en raison de la compatibilité descendante du protocole Kafka, mais nous vous recommandons fortement d’utiliser les anciennes versions de l’API. Les versions Kafka 0.9 et antérieures ne prennent pas en charge les protocoles SASL requis et ne peuvent pas se connecter à Event Hubs.
 - **Encodages étranges sur les en-têtes AMQP lors de l’utilisation de Kafka** : lors de l’envoi d’événements à un hub d’événements via AMQP, tous les en-têtes de charge utile AMQP sont sérialisés avec un encodage AMQP. Les consommateurs Kafka ne désérialisent pas les en-têtes à partir de AMQP. Pour lire les valeurs d’en-tête, décodez manuellement les en-têtes AMQP. Vous pouvez également éviter d’utiliser des en-têtes AMQP si vous savez que vous allez consommer via le protocole Kafka. Pour plus d’informations, consultez [ce problème GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56).
 - **Authentification SASL** : faire coopérer votre infrastructure avec le protocole d’authentification SASL requis par Event Hubs peut être plus difficile que prévu. Vérifiez si vous pouvez résoudre les problèmes de configuration à l’aide des ressources de votre infrastructure sur l’authentification SASL. 

@@ -6,12 +6,12 @@ ms.subservice: ''
 ms.date: 04/16/2019
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 91c4780981851b62027fecf18da2c3b78625f272
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 5fe977851011bdfa4f7bbf2bde24e5e4b6fd480d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831201"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457854"
 ---
 # <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Résoudre des problèmes liés à Azure Automation State Configuration
 
@@ -90,7 +90,7 @@ Cette erreur est habituellement due à un pare-feu, la machine se trouvant derri
 
 Vérifiez que votre machine a accès aux points de terminaison appropriés pour DSC et réessayez. Pour obtenir la liste des ports et adresses nécessaires, consultez [Planification réseau](../automation-dsc-overview.md#network-planning).
 
-## <a name="a-nameunauthorizedscenario-status-reports-return-the-response-code-unauthorized"></a><a name="unauthorized"><a/>Scénario : Les rapports d’état retournent le code de réponse « Non autorisé »
+## <a name="scenario-status-reports-return-the-response-code-unauthorized"></a><a name="unauthorized"></a>Scénario : Les rapports d’état retournent le code de réponse « Non autorisé »
 
 ### <a name="issue"></a>Problème
 

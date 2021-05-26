@@ -1,22 +1,22 @@
 ---
-title: Automatiser des tâches et des workflows avec Visual Studio
-description: Créer, planifier et exécuter des workflows automatisés pour l’intégration d’entreprise avec Azure Logic Apps et Visual Studio
+title: Démarrage rapide – Créer des flux de travail d’intégration avec le service Azure Logic Apps mutualisé dans Visual Studio
+description: Créez des flux de travail d’intégration automatisés avec le service Azure Logic Apps mutualisé et Visual Studio Code.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/24/2021
-ms.openlocfilehash: 5ae67e5708a7298385a4e27d612566008884b972
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/25/2021
+ms.openlocfilehash: 8aa96455eba49dd624f1ced469d34f0cf0f48757
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790056"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372495"
 ---
-# <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Démarrage rapide : Créer des tâches, des processus et des workflows automatisés avec Azure Logic Apps - Visual Studio
+# <a name="quickstart-create-automated-integration-workflows-with-multi-tenant-azure-logic-apps-and-visual-studio"></a>Démarrage rapide – Créer des flux de travail d’intégration automatisés avec le service Azure Logic Apps mutualisé et Visual Studio
 
-Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et Visual Studio, vous pouvez créer des workflows pour automatiser des tâches et des processus qui intègrent des applications, des données, des systèmes et des services dans les entreprises et organisations. Ce guide de démarrage rapide montre comment vous pouvez concevoir et générer ces workflows en créant des applications logiques dans Visual Studio et en déployant ces applications sur Azure. Bien que vous puissiez effectuer ces tâches dans le portail Azure, Visual Studio vous permet d’ajouter vos applications logiques pour le contrôle de code source, la publication de différentes versions et la création de modèles Azure Resource Manager pour divers environnements de déploiement.
+Ce démarrage rapide montre comment concevoir, développer et déployer des flux de travail automatisés qui intègrent des applications, des données, des systèmes et des services dans des entreprises et organisations en utilisant le service [Azure Logic Apps](../logic-apps/logic-apps-overview.md) mutualisé et Visual Studio. Bien que vous puissiez effectuer ces tâches dans le portail Azure, Visual Studio vous permet d’ajouter vos applications logiques pour le contrôle de code source, la publication de différentes versions et la création de modèles Azure Resource Manager pour divers environnements de déploiement. Pour plus d’informations sur le modèle mutualisé (à plusieurs locataires) par rapport au modèle à un seul locataire, consultez [Architecture monolocataire ou multilocataire et environnement de service d’intégration](single-tenant-overview-compare.md).
 
 Si vous êtes débutant avec Azure Logic Apps et si vous souhaitez seulement connaître les concepts de base, essayez le [guide de démarrage rapide pour créer une application logique dans le portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md). Le Concepteur d’application logique fonctionne de façon similaire dans le portail Azure et dans Visual Studio.
 
