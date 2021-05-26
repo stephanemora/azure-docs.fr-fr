@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
-ms.openlocfilehash: 2d0152f18660716a641766327eaaa36829d7fafc
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 7fb44b13456598abc7181ba5258ba73ed0512820
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073608"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110058543"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Exécuter Azure IoT Edge sur des Machines virtuelles Ubuntu
 
@@ -80,9 +80,10 @@ Le bouton [Déployer sur Azure](../azure-resource-manager/templates/deploy-to-az
 ## <a name="deploy-from-azure-cli"></a>Effectuer un déploiement sur Azure CLI
 
 1. Assurez-vous que vous avez installé l’extension iot Azure CLI IOT avec :
-    ```azurecli-interactive
-    az extension add --name azure-iot
-    ```
+
+   ```azurecli-interactive
+   az extension add --name azure-iot
+   ```
 
 1. Ensuite, si vous utilisez Azure CLI sur votre ordinateur de bureau, commencez par vous connecter :
 

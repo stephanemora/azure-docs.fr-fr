@@ -6,15 +6,15 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
-ms.openlocfilehash: 8e510cf2e6fed9f9ffdec1dcc4dacf16a866d66b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c0e8ae9e642caad0486b862b48d94ba392256a45
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102049013"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839488"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Azure Resource Manager pour une machine virtuelle Windows
-Les données de performance du système d’exploitation invité des machines virtuelles Azure ne sont pas collectées automatiquement comme d’autres [métriques de la plateforme](./monitor-azure-resource.md#monitoring-data). Installez l’[extension Diagnostics](../agents/diagnostics-extension-overview.md) d’Azure Monitor pour collecter les métriques du système d’exploitation invité dans la base de données de mesures, afin qu’elles soient utilisables avec toutes les fonctionnalités des Métriques Azure Monitor, dont les alertes en quasi temps réel, les graphiques, le routage et l’accès à partir d’une API REST. Cet article décrit le processus permettant d’envoyer les mesures de performances du système d’exploitation invité d’une machine virtuelle Windows à la base de données des métriques à l’aide d’un modèle Resource Manager. 
+Les données de performance du système d’exploitation invité des machines virtuelles Azure ne sont pas collectées automatiquement comme d’autres [métriques de la plateforme](./monitor-azure-resource.md#monitoring-data). Installez l’[extension Diagnostics](../agents/diagnostics-extension-overview.md) d’Azure Monitor pour collecter les métriques du système d’exploitation invité dans la base de données de mesures, afin qu’elles soient utilisables avec toutes les fonctionnalités des Métriques Azure Monitor, dont les alertes en quasi temps réel, les graphiques, le routage et l’accès à partir d’une API REST. Cet article décrit le processus permettant d’envoyer les mesures de performances du système d’exploitation invité d’une machine virtuelle Windows à la base de données des métriques à l’aide d’un modèle Resource Manager.
 
 > [!NOTE]
 > Pour plus d’informations sur la configuration de l’extension Diagnostics pour collecter les métriques du système d’exploitation invité à l’aide du portail Azure, consultez [Installer et configurer l’extension Diagnostics Azure pour Windows (WAD)](../agents/diagnostics-extension-windows-install.md).
@@ -28,14 +28,14 @@ Si vous découvrez les modèles Resource Manager, obtenez plus d’informations 
 
 - Vous devez avoir installé [Azure PowerShell](/powershell/azure) ou [Azure Cloud Shell](../../cloud-shell/overview.md).
 
-- Votre ressource de machine virtuelle doit se trouver dans une région [ prenant en charge les métriques personnalisées](./metrics-custom-overview.md#supported-regions). 
+- Votre ressource de machine virtuelle doit se trouver dans une région [ prenant en charge les métriques personnalisées](./metrics-custom-overview.md#supported-regions).
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurer Azure Monitor en tant que récepteur de données
 L’extension Diagnostics Azure utilise une fonctionnalité appelée « récepteurs de données » pour acheminer les métriques et les journaux vers différents emplacements. Les étapes suivantes montrent comment utiliser un modèle Resource Manager et PowerShell pour déployer une machine virtuelle à l’aide du nouveau récepteur de données « Azure Monitor ».
 
 ## <a name="author-resource-manager-template"></a>Créer un modèle Resource Manager
-Pour cet exemple, vous pouvez utiliser un exemple de modèle rendu public. Les modèles de démarrage se trouvent dans https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows.
+Pour cet exemple, vous pouvez utiliser un exemple de modèle rendu public. Les modèles de démarrage se trouvent dans https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows.
 
 - **Azuredeploy.json** est un modèle Resource Manager préconfiguré pour le déploiement d’une machine virtuelle.
 

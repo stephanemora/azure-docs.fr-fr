@@ -2,21 +2,21 @@
 title: Créer un registre de schémas Azure Event Hubs
 description: Cet article explique comment créer un registre de schémas dans un espace de noms Azure Event Hubs.
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 05/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 45791cd69772be97ca6768184ed17179e04ad9dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9794d1521b8b16b99a108517bfd19a3c9e29b21
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96576806"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373613"
 ---
 # <a name="create-an-azure-event-hubs-schema-registry-preview"></a>Créer un registre de schémas Azure Event Hubs (préversion)
 Cet article explique comment créer un groupe de schémas avec des schémas dans un registre de schémas hébergé par Azure Event Hubs. Pour obtenir une vue d’ensemble de la fonctionnalité Registre de schémas d’Azure Event Hubs, consultez [Azure Schema Registry dans Event Hubs](schema-registry-overview.md).
 
 > [!NOTE]
 > - La fonctionnalité **Registre de schémas** est actuellement en **préversion** et n’est pas recommandée pour les charges de travail de production.
-> - Cette fonctionnalité est disponible uniquement pour les niveaux **standard** et **dédié** et non pour le niveau **de base**.
+> - La fonctionnalité n’est pas disponible au niveau **de base**.
 > - Si l'instance d'Event Hub se trouve dans un **réseau virtuel**, vous ne pouvez pas créer de schémas sur le portail Azure, sauf si vous accédez au portail à partir d'une machine virtuelle du même réseau virtuel. 
 
 ## <a name="prerequisites"></a>Prérequis

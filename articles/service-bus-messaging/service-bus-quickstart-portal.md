@@ -7,12 +7,12 @@ ms.date: 08/12/2020
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: e38d32c93453737060f654add58f09902b05ee45
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f73a2b79c4bb74dc5c10171cfd3e4a7bf6098b64
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537196"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479056"
 ---
 # <a name="use-azure-portal-to-create-a-service-bus-namespace-and-a-queue"></a>Utiliser le portail Azure pour créer un espace de noms Service Bus ainsi qu’une file d'attente
 Ce guide de démarrage rapide vous montre comment créer un espace de noms Service Bus et une file d’attente à l’aide du [portail Azure][Azure portal]. Il vous montre également comment obtenir les informations d’autorisation qu’une application cliente peut utiliser pour envoyer/recevoir des messages à/de la file d'attente. 
@@ -35,7 +35,6 @@ Dans cet article, vous avez créé un espace de noms Service Bus ainsi qu’une 
 - [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 - [Python](service-bus-python-how-to-use-queues.md)
 - [PHP](service-bus-php-how-to-use-queues.md)
-- [Ruby](service-bus-ruby-how-to-use-queues.md)
 
 [compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Azure portal]: https://portal.azure.com/

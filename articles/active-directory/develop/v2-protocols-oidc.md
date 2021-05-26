@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5d64a6e6a4dcd1d7b1917720152e2738bf6476e9
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 82e9901c4bea8de7e5fee37ff4f2b7374f67e0ca
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108063978"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467234"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plateforme d’identités Microsoft et protocole OpenID Connect
 
@@ -188,7 +188,7 @@ La seule réception du jeton id_token ne suffit pas toujours à authentifier l�
 
 Les applications ne bénéficient pas toutes de la vérification du jeton d’ID ; pour les applications natives et à page unique, par exemple, il est rarement avantageux de valider ce jeton.  Une personne disposant d’un accès physique à l’appareil (ou au navigateur) peut contourner la validation de nombreuses façons, de la modification du trafic web vers l’appareil à la fourniture de jetons et de clés factices, en passant par le débogage pur et simple de l’application, afin d’ignorer la logique de validation.  En revanche, les applications web et les API utilisant un jeton d’ID pour l’autorisation doivent valider le jeton d’ID avec soin, car ils régulent l’accès aux données.
 
-Une fois que vous avez validé la signature du jeton id_token, il vous faudra vérifier quelques revendications. Pour plus d’informations, consultez la page de [référence `id_token`](id-tokens.md), notamment les sections [Validation des jetons](id-tokens.md#validating-an-id_token) et [Informations importantes sur la substitution des clés de signature](active-directory-signing-key-rollover.md). Nous vous recommandons d’utiliser une bibliothèque pour analyser et valider les jetons. Il en existe au moins une pour la plupart des langages et plateformes.
+Une fois que vous avez validé la signature du jeton id_token, il vous faudra vérifier quelques revendications. Pour plus d’informations, consultez la page de [référence `id_token`](id-tokens.md), notamment les sections [Validation des jetons](id-tokens.md#validating-an-id-token) et [Informations importantes sur la substitution des clés de signature](active-directory-signing-key-rollover.md). Nous vous recommandons d’utiliser une bibliothèque pour analyser et valider les jetons. Il en existe au moins une pour la plupart des langages et plateformes.
 
 En fonction de votre scénario, vous pouvez également valider des revendications supplémentaires. Voici quelques validations courantes :
 
@@ -275,7 +275,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Pour obtenir une description des codes d’erreur éventuels et connaître les réponses client recommandées associées, consultez [Codes d’erreur pour les erreurs de point de terminaison d’autorisation](#error-codes-for-authorization-endpoint-errors).
 
-Une fois que vous avez obtenu un code d'autorisation et un jeton d'ID, vous pouvez connecter l’utilisateur et obtenir des jetons d’accès pour son compte. Pour connecter l’utilisateur, vous devez valider le jeton d'ID [exactement comme décrit](id-tokens.md#validating-an-id_token). Pour obtenir des jetons d’accès, suivez la procédure décrite dans la [documentation du flux de code OAuth](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token).
+Une fois que vous avez obtenu un code d'autorisation et un jeton d'ID, vous pouvez connecter l’utilisateur et obtenir des jetons d’accès pour son compte. Pour connecter l’utilisateur, vous devez valider le jeton d'ID [exactement comme décrit](id-tokens.md#validating-an-id-token). Pour obtenir des jetons d’accès, suivez la procédure décrite dans la [documentation du flux de code OAuth](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token).
 
 ### <a name="calling-the-userinfo-endpoint"></a>Appel du point de terminaison UserInfo
 

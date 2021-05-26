@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: 7950bfb4a57db812da87f4e5f76f3075d50a8293
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aacf57206895c73055c624b8a5d80e68cc73f38e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782267"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099205"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Créer une fonction sur Linux avec un conteneur personnalisé
 
@@ -251,7 +251,7 @@ Dans *host.json*, modifiez la section `customHandler` pour configurer la command
 Pour tester la fonction localement, démarrez l’hôte du runtime Azure Functions local à la racine du dossier du projet : 
 ::: zone pivot="programming-language-csharp"  
 ```console
-func start --build  
+func start  
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"   

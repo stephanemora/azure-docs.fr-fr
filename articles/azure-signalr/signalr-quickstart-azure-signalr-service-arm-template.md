@@ -9,12 +9,12 @@ ms.service: signalr
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 622b681121f742ba8de0f92adbcce1c7e1fa8f7a
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: dedc265a6f7dec38d2f46b641631276ad25a8d72
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070404"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813305"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>Démarrage rapide : Utiliser un modèle ARM pour déployer Azure SignalR Service
 
@@ -24,7 +24,7 @@ Ce guide de démarrage rapide décrit comment utiliser un modèle Azure Resource
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure une fois que vous êtes connecté.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Bouton permettant de déployer Azure SignalR Service sur Azure à l’aide d’un modèle ARM dans le portail Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Bouton permettant de déployer Azure SignalR Service sur Azure à l’aide d’un modèle ARM dans le portail Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.signalrservice%2fsignalr%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -50,7 +50,7 @@ Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-signalr/).
 
-:::code language="json" source="~/quickstart-templates/101-signalr/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.signalrservice/signalr/azuredeploy.json":::
 
 Le modèle définit une ressource Azure :
 
@@ -62,7 +62,7 @@ Le modèle définit une ressource Azure :
 
 Sélectionnez le lien suivant afin de déployer Azure SignalR Service en utilisant le modèle ARM dans le portail Azure :
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Bouton permettant de déployer Azure SignalR Service sur Azure à l’aide du modèle ARM dans le portail Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Bouton permettant de déployer Azure SignalR Service sur Azure à l’aide du modèle ARM dans le portail Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.signalrservice%2fsignalr%2fazuredeploy.json)
 
 Dans la page **Déployer un service Azure SignalR** :
 
@@ -129,7 +129,7 @@ $paramObjHashTable = @{
 Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure SignalR Service using an ARM template" -Verbose
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
     -TemplateParameterObject $paramObjHashTable `
-    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-signalr/azuredeploy.json
+    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.signalrservice/signalr/azuredeploy.json
 Read-Host "Press [ENTER] to continue"
 ```
 
@@ -160,7 +160,7 @@ params='name='$serviceName' location='$serviceLocation' pricingTier='$priceTier'
 echo "CREATE RESOURCE GROUP:  az group create --name $resourceGroupName --location $resourceGroupRegion" &&
 az group create --name $resourceGroupName --location $resourceGroupRegion &&
 echo "RUN az deployment group create, which creates an Azure SignalR Service using an ARM template" &&
-az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-signalr/azuredeploy.json &&
+az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.signalrservice/signalr/azuredeploy.json &&
 read -p "Press [ENTER] to continue: "
 ```
 

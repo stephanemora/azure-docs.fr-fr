@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 9a7fb228763870792765c954589b347a18c560b5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a32e5a417dc54ae77785adfa46610d1fbf83f470
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108758966"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110455690"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -54,6 +54,7 @@ Ces API REST BLOB ne sont pas prises en charge :
 * [Obtenir les portées de page](/rest/api/storageservices/get-page-ranges)
 * [Copie incrémentielle BLOB](/rest/api/storageservices/incremental-copy-blob)
 * [Placer la page à partir de l’URL](/rest/api/storageservices/put-page-from-url)
+* [Put Block List](/rest/api/storageservices/put-block-list)
 
 Les disques de machine virtuelle non gérés ne sont pas pris en charge dans les comptes qui ont un espace de noms hiérarchique. Si vous souhaitez activer un espace de noms hiérarchique sur un compte de stockage, placez les disques de machine virtuelle non gérés dans un compte de stockage pour lequel la fonctionnalité espace de noms hiérarchique n’est pas activée.
 
@@ -85,7 +86,8 @@ Les ACL ne sont pas encore prises en charge.
 
 ## <a name="third-party-applications"></a>Applications tierces
 
-Les applications tierces qui utilisent les API REST continueront à fonctionner si vous les utilisez avec Data Lake Storage Gen2. Les applications qui appellent des API Blob fonctionneront probablement.
+Les applications tierces qui utilisent l’API REST continueront à fonctionner si vous les utilisez avec Data Lake Storage Gen2.
+Les applications qui appellent des API Blob ont de grandes chances de fonctionner.
 
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>Listes de contrôle d’accès (ACL) et accès en lecture anonyme
 

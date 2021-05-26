@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: feb84e408c5f5339c6195b87a3ecc38791eaa90a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2233e6f40c1023f1b02543f4e234b00422f6f77f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760928"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077191"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Connecter des appareils Azure IoT Edge à une application Azure IoT Central
 
@@ -195,8 +195,6 @@ Le manifeste de déploiement n’inclut pas d’informations sur la télémétri
 Pour en savoir plus, consultez [Tutoriel : Ajouter un appareil Azure IoT Edge à votre application Azure IoT Central](tutorial-add-edge-as-leaf-device.md).
 
 ### <a name="update-a-deployment-manifest"></a>Mettre à jour un manifeste de déploiement
-
-Si vous créez une nouvelle [version](howto-version-device-template.md) du modèle d’appareil, vous pouvez remplacer le manifeste de déploiement par une nouvelle version.
 
 Lorsque vous remplacez le manifeste de déploiement, tous les appareils IoT Edge connectés téléchargent le nouveau manifeste et mettent à jour leurs modules. Toutefois, IoT Central ne met pas à jour les interfaces dans le modèle d’appareil avec des modifications apportées à la configuration du module. Par exemple, si vous remplacez le manifeste présenté dans l’extrait de code précédent par le manifeste suivant, vous ne voyez pas automatiquement la propriété **SendUnits** dans l’interface **gestion** dans le modèle d’appareil. Ajoutez manuellement la nouvelle propriété à l’interface **gestion** afin qu’IoT Central la reconnaisse :
 

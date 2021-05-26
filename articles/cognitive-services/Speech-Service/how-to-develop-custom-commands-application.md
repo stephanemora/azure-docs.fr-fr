@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
-ms.openlocfilehash: ddf36530e52703ab1033b8e2e787b42b6dc60332
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 84253f897e8b85029ea4425a7919be4bf71028ed
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553275"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451942"
 ---
 # <a name="develop-custom-commands-applications"></a>Développer des applications de commandes personnalisées
 
@@ -42,7 +42,7 @@ Commencez par créer une application de commandes personnalisées vide. Pour plu
 
 ### <a name="update-luis-resources-optional"></a>Mettre à jour les ressources LUIS (facultatif)
 
-Vous pouvez mettre à jour la ressource de création que vous avez sélectionnée dans la fenêtre **Nouveau projet**. Vous pouvez également définir une ressource de prédiction. 
+Vous pouvez mettre à jour la ressource de création que vous avez sélectionnée dans la fenêtre **Nouveau projet**. Vous pouvez également définir une ressource de prédiction.
 
 La ressource de prédiction est utilisée pour la reconnaissance quand votre application de commandes personnalisées est publiée. Aucune ressource de prédiction n’est nécessaire pendant les phases de développement et de test.
 
@@ -54,7 +54,7 @@ Dans l’application de commandes personnalisées Smart-Room-Lite vide que vous 
 1. Dans le champ **Nom**, spécifiez la valeur `TurnOn`.
 1. Sélectionnez **Create** (Créer).
 
-Le volet central liste les propriétés de la commande. 
+Le volet central liste les propriétés de la commande.
 
 Le tableau suivant décrit les paramètres de configuration de la commande. Pour plus d’informations, consultez [Concepts et définitions de commandes personnalisées](./custom-commands-references.md).
 
@@ -86,13 +86,13 @@ Vous n’avez pas encore de paramètres ; vous pouvez donc passer à la section 
 
 #### <a name="add-a-completion-rule"></a>Ajouter une règle d’exécution
 
-La commande doit ensuite avoir une règle d’exécution. Cette règle indique à l’utilisateur qu’une action d’exécution est en cours. 
+La commande doit ensuite avoir une règle d’exécution. Cette règle indique à l’utilisateur qu’une action d’exécution est en cours.
 
 Pour plus d’informations sur les règles et les règles d’exécution, consultez [Concepts et définitions de commandes personnalisées](./custom-commands-references.md).
 
 1. Sélectionnez la règle d’exécution par défaut **Terminé**. Modifiez-la ensuite comme suit :
 
-    
+
     | Paramètre    | Valeur suggérée                          | Description                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Nom**       | `ConfirmationResponse`                  | Nom décrivant l’objectif de la règle          |
@@ -103,7 +103,7 @@ Pour plus d’informations sur les règles et les règles d’exécution, consul
    > ![Capture d'écran montrant où créer une réponse vocale.](media/custom-commands/create-speech-response-action.png)
 
 1. Sélectionnez **Enregistrer** pour enregistrer l’action.
-1. Revenez à la section **Règles d'exécution** et sélectionnez **Enregistrer** pour enregistrer toutes les modifications apportées. 
+1. Revenez à la section **Règles d'exécution** et sélectionnez **Enregistrer** pour enregistrer toutes les modifications apportées.
 
     > [!NOTE]
     > Il n’est pas nécessaire d’utiliser la règle d’exécution par défaut fournie avec la commande. Vous pouvez supprimer la règle d’exécution par défaut et ajouter votre propre règle.
@@ -138,10 +138,10 @@ Sélectionnez **Enregistrer** pour enregistrer toutes les modifications apporté
 
 ### <a name="try-it-out"></a>Faites un essai
 
-Testez le comportement de l’application à l’aide du volet de test : 
+Testez le comportement de l’application à l’aide du volet de test :
 
-1. Dans l’angle supérieur droit du volet, sélectionnez l’icône **Effectuer l'apprentissage**. 
-1. Une fois la formation terminée, sélectionnez **Test**. 
+1. Dans l’angle supérieur droit du volet, sélectionnez l’icône **Effectuer l'apprentissage**.
+1. Une fois la formation terminée, sélectionnez **Test**.
 
 Essayez les exemples d’énoncés suivants à l’aide de la voix ou du texte :
 
@@ -168,7 +168,7 @@ Commencez par modifier la commande `TurnOn` existante pour activer et désactive
 
 1. Maintenant que la commande pourra gérer un scénario d’activation et de désactivation, renommez-la *TurnOnOff*.
    1. Dans le volet de gauche, sélectionnez la commande **TurnOn**. Ensuite, en regard de **Nouvelle commande** en haut du volet, sélectionnez le bouton représentant des points de suspension ( **...** ).
-   
+
    1. Sélectionnez **Renommer**. Dans la fenêtre **Renommer la commande**, remplacez le nom par *TurnOnOff*.
 
 1. Ajoutez un nouveau paramètre à la commande. Le paramètre indique si l’utilisateur souhaite activer ou désactiver l’appareil.
@@ -179,9 +179,9 @@ Commencez par modifier la commande `TurnOn` existante pour activer et désactive
 
        > [!div class="mx-imgBorder"]
        > ![Capture d’écran qui montre la section « Ajouter une réponse pour un paramètre requis » avec l’onglet « Éditeur simple » sélectionné.](media/custom-commands/add-required-on-off-parameter-response.png)
-   
+
    1. Configurez les propriétés du paramètre à l’aide du tableau suivant. Pour plus d’informations sur toutes les propriétés de configuration d’une commande, consultez [Concepts et définitions de commandes personnalisées](./custom-commands-references.md).
-      
+
 
        | Configuration      | Valeur suggérée     | Description                                                      |
        | ------------------ | ----------------| ---------------------------------------------------------------------|
@@ -192,15 +192,15 @@ Commencez par modifier la commande `TurnOn` existante pour activer et désactive
        | **Type**               | **Chaîne**          | Type du paramètre, par exemple Nombre, Chaîne, Date/heure ou Zone géographique.   |
        | **Configuration**      | **Accepter les valeurs d’entrée prédéfinies d’un catalogue interne** | Pour les chaînes, ce paramètre limite les entrées à un ensemble de valeurs possibles. |
        | **Valeurs d’entrée prédéfinies**     | `on`, `off`           | Ensemble de valeurs possibles et leurs alias.         |
-       
-        
+
+
    1. Pour ajouter des valeurs d’entrée prédéfinies, sélectionnez **Ajouter une entrée prédéfinie**. Dans la fenêtre **Nouvel élément**, tapez *Nom* comme indiqué dans le tableau précédent. Dans ce cas, vous n’utilisez pas d’alias. Vous pouvez donc laisser ce champ vide.
-   
+
       > [!div class="mx-imgBorder"]
       > ![Capture d’écran montrant comment créer un paramètre.](media/custom-commands/create-on-off-parameter.png)
 
    1. Sélectionnez **Enregistrer** pour enregistrer toutes les configurations du paramètre.
- 
+
 #### <a name="add-a-subjectdevice-parameter"></a>Ajouter un paramètre SubjectDevice
 
 1. Pour ajouter un second paramètre représentant le nom des appareils qui peuvent être contrôlés avec cette commande, sélectionnez **Ajouter**. Utilisez la configuration suivante.
@@ -251,7 +251,6 @@ Modifiez la règle d’exécution `ConfirmationResponse` existante.
 
 1. Dans la section **Conditions**, sélectionnez **Ajouter une condition**.
 1. Dans la fenêtre **Nouvelle condition**, dans la liste **Type**, sélectionnez **Paramètres requis**. Dans la liste qui suit, sélectionnez à la fois **OnOff** et **SubjectDevice**.
-1. Laissez **IsGlobal** désélectionné.
 1. Sélectionnez **Create** (Créer).
 1. Dans la section **Actions**, modifiez l’action **Envoyer une réponse vocale** en pointant l’action et en sélectionnant le bouton de modification. Cette fois-ci, utilisez les nouveaux paramètres `OnOff` et `SubjectDevice` :
 
@@ -260,7 +259,7 @@ Modifiez la règle d’exécution `ConfirmationResponse` existante.
     ```
 1. Sélectionnez **Enregistrer**.
 
-Essayez les modifications en sélectionnant l’icône **Effectuer l'apprentissage** en haut du volet de droite. 
+Essayez les modifications en sélectionnant l’icône **Effectuer l'apprentissage** en haut du volet de droite.
 
 Une fois la formation terminée, sélectionnez **Tester**. Une fenêtre **Tester votre application** apparaît. Essayez les interactions suivantes :
 
@@ -307,11 +306,11 @@ Modifiez les règles d’exécution existantes. Utilisez la configuration suivan
 
 Ajoutez un paramètre nommé `DateTime`. Utilisez la configuration suivante.
 
-   | Paramètre                           | Valeur suggérée                     | 
+   | Paramètre                           | Valeur suggérée                     |
    | --------------------------------- | ----------------------------------------|
    | **Nom**                              | `DateTime`                               |
    | **Obligatoire**                          | Volumes sélectionnés                                 |
-   | **Réponse pour le paramètre obligatoire**   | **Éditeur simple** > `For what time?`            | 
+   | **Réponse pour le paramètre obligatoire**   | **Éditeur simple** > `For what time?`            |
    | **Type**                              | **DateTime**                                |
    | **Date par défaut**                     | Si la date n’est pas indiquée, utilisez aujourd’hui.            |
    | **Heure par défaut**                     | Si l’heure n’est pas indiquée, utilisez le début de la journée.     |
@@ -369,7 +368,7 @@ Pour déplacer le contenu, commencez par ajouter un nouveau point de terminaison
 
 
 Si la valeur suggérée pour l’URL ne fonctionne pas dans votre cas, configurez et hébergez un point de terminaison web qui retourne un fichier JSON composé de la liste des appareils qui peuvent être contrôlés. Le point de terminaison web doit retourner un fichier au format JSON comme suit :
-    
+
 ```json
 {
     "fan" : [],
@@ -466,13 +465,13 @@ Pour ajouter une confirmation, utilisez la commande `SetTemperature` . Pour obte
         1. Ajouter une nouvelle condition : **Paramètres obligatoires** > **Température**.
         1. Ajouter une nouvelle action : **Type** > **Envoyer une réponse vocale** > **Voulez-vous vraiment définir la température sur {Temperature} degrés ?**
         1. Dans la section **Attentes**, conservez la valeur par défaut **Attente de confirmation de l'utilisateur**.
-      
+
          > [!div class="mx-imgBorder"]
          > ![Capture d'écran montrant comment créer la réponse pour le paramètre obligatoire.](media/custom-speech-commands/add-validation-set-temperature.png)
-    
+
 
     1. Modifiez la règle d'interaction **Confirmation réussie** pour gérer une confirmation réussie (l’utilisateur a répondu oui).
-      
+
           1. Remplacez le nom par **Confirmation de la température réussie**.
           1. Conservez la condition existante **Confirmation réussie**.
           1. Ajouter une nouvelle condition : **Type** > **Paramètres obligatoires** > **Température**.
@@ -488,7 +487,7 @@ Pour ajouter une confirmation, utilisez la commande `SetTemperature` . Pour obte
 
 > [!IMPORTANT]
 > Dans cet article, vous utilisez la fonction de confirmation intégrée. Vous pouvez également ajouter manuellement des règles d’interaction une par une.
-   
+
 Essayez les modifications en sélectionnant **Effectuer l'apprentissage**. Une fois la formation terminée, sélectionnez **Tester**.
 
 - **Entrée**: *Règle la température sur 80 degrés*
@@ -505,7 +504,7 @@ Essayez les modifications en sélectionnant **Effectuer l'apprentissage**. Une f
 Dans cette section, vous allez configurer une correction en une étape. Cette correction est utilisée après l’exécution de l’action d’exécution. Vous verrez également un exemple de la façon dont une correction est activée par défaut si la commande n’est pas encore exécutée. Pour ajouter une correction lorsque la commande n’est pas terminée, ajoutez le nouveau paramètre `AlarmTone`.
 
 Dans le volet de gauche, sélectionnez la commande **SetAlarm**. Ajoutez ensuite le nouveau paramètre **AlarmTone**.
-        
+
 - **Nom** > `AlarmTone`
 - **Type** > **Chaîne**
 - **Valeur par défaut** > **Carillon**
@@ -524,7 +523,7 @@ Ensuite, mettez à jour la réponse pour le paramètre **DateTime** sur **Prêt 
 
 #### <a name="implement-a-correction-when-a-command-is-finished"></a>Implémenter une correction lorsqu’une commande est terminée
 
-La plateforme Commandes personnalisées permet d’effectuer une correction en une étape même lorsque la commande est terminée. Cette fonctionnalité n’est pas activée par défaut. Elle doit être configurée de manière explicite. 
+La plateforme Commandes personnalisées permet d’effectuer une correction en une étape même lorsque la commande est terminée. Cette fonctionnalité n’est pas activée par défaut. Elle doit être configurée de manière explicite.
 
 Procédez comme suit pour configurer une correction en une étape :
 
@@ -553,7 +552,7 @@ Les modèles de génération de langage vous permettent de personnaliser les ré
 * des modèles de génération de langage ;
 * des expressions adaptatives.
 
-Les modèles de commandes personnalisés sont basés sur les [modèles de génération de langage](/azure/bot-service/file-format/bot-builder-lg-file-format#templates) BotFramework. Dans la mesure où les commandes personnalisées créent un nouveau modèle de génération de langage quand cela est nécessaire (pour les réponses vocales dans les paramètres ou les actions), vous n’avez pas besoin de spécifier le nom du modèle de génération de langage. 
+Les modèles de commandes personnalisés sont basés sur les [modèles de génération de langage](/azure/bot-service/file-format/bot-builder-lg-file-format#templates) BotFramework. Dans la mesure où les commandes personnalisées créent un nouveau modèle de génération de langage quand cela est nécessaire (pour les réponses vocales dans les paramètres ou les actions), vous n’avez pas besoin de spécifier le nom du modèle de génération de langage.
 
 Vous n’avez donc pas besoin de définir votre modèle de la façon suivante :
 
@@ -572,7 +571,7 @@ Au lieu de cela, vous pouvez définir le corps du modèle sans le nom, comme sui
 
 Cette modification introduit une variation aux réponses vocales envoyées au client. Pour un énoncé, la réponse vocale correspondante est choisie de manière aléatoire parmi les options fournies.
 
-Les modèles de génération de langage vous permettent également de définir des réponses vocales complexes pour les commandes à l’aide d’expressions adaptatives. Pour plus d’informations, consultez le [format de modèles de génération de langage](/azure/bot-service/file-format/bot-builder-lg-file-format#templates). 
+Les modèles de génération de langage vous permettent également de définir des réponses vocales complexes pour les commandes à l’aide d’expressions adaptatives. Pour plus d’informations, consultez le [format de modèles de génération de langage](/azure/bot-service/file-format/bot-builder-lg-file-format#templates).
 
 Par défaut, la fonctionnalité de commandes personnalisées prend en charge toutes les fonctionnalités, avec les différences mineures suivantes :
 
@@ -585,14 +584,14 @@ Par défaut, la fonctionnalité de commandes personnalisées prend en charge tou
 
 Modifiez la commande `TurnOnOff` pour ajouter un nouveau paramètre. Utilisez la configuration suivante.
 
-| Paramètre            | Valeur suggérée       | 
-| ------------------ | --------------------- | 
-| **Nom**               | `SubjectContext`         | 
-| **Est global**          | Non sélectionné             | 
-| **Obligatoire**           | Non sélectionné               | 
+| Paramètre            | Valeur suggérée       |
+| ------------------ | --------------------- |
+| **Nom**               | `SubjectContext`         |
+| **Est global**          | Non sélectionné             |
+| **Obligatoire**           | Non sélectionné               |
 | **Type**               | **Chaîne**                |
 | **Valeur par défaut**      | `all` |
-| **Configuration**      | **Accepter les valeurs d’entrée prédéfinies du catalogue interne** | 
+| **Configuration**      | **Accepter les valeurs d’entrée prédéfinies du catalogue interne** |
 | **Valeurs d’entrée prédéfinies** | `room`, `bathroom`, `all`|
 
 #### <a name="modify-a-completion-rule"></a>Modifier une règle d’exécution
@@ -642,5 +641,4 @@ L’application répond à présent avec la voix sélectionnée, et non plus ave
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez comment [intégrer votre application de commandes personnalisées](how-to-custom-commands-setup-speech-sdk.md) avec une application cliente à l’aide du kit de développement logiciel (SDK) Speech.
-* [Configurez un déploiement continu](how-to-custom-commands-deploy-cicd.md) pour votre application de commandes personnalisées à l’aide d’Azure DevOps. 
-                      
+* [Configurez un déploiement continu](how-to-custom-commands-deploy-cicd.md) pour votre application de commandes personnalisées à l’aide d’Azure DevOps.

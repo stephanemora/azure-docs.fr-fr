@@ -4,12 +4,12 @@ description: Application Insights collecte et visualise automatiquement les dép
 ms.topic: reference
 ms.custom: devx-track-dotnet
 ms.date: 05/06/2020
-ms.openlocfilehash: aa4d39ca8964e95ca787d236223e2b475a9597c1
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: c81be9762af658d0149dd6547f50aa9a7503601d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107873826"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097279"
 ---
 # <a name="dependency-auto-collection"></a>Collecte automatique de dépendance
 
@@ -61,7 +61,7 @@ Voici la liste des appels de dépendance actuellement pris en charge qui sont au
 
 > [!NOTE]
 > \* Sauf prise en charge de programmation réactive.
-> <br>† Installation de [Agent JVM](./java-agent.md#install-the-application-insights-agent-for-java) requise.
+> <br>† Installation de [Agent JVM](java-2x-agent.md#install-the-application-insights-agent-for-java) requise.
 
 ## <a name="nodejs"></a>Node.js
 
@@ -88,7 +88,7 @@ Voici la liste des appels de dépendance actuellement pris en charge qui sont au
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Configurez le suivi des dépendances personnalisé pour [.NET](./asp-net-dependencies.md).
-- Configurez le suivi des dépendances personnalisé pour [Java](./java-agent.md).
+- Configurez le suivi des dépendances personnalisé pour [Java](java-2x-agent.md).
 - Configurez le suivi personnalisé des dépendances pour [OpenCensus Python](./opencensus-python-dependency.md).
 - [Écrire des données de télémétrie des dépendances personnalisées](./api-custom-events-metrics.md#trackdependency)
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](./data-model.md).

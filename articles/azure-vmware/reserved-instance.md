@@ -2,13 +2,13 @@
 title: Instances réservées d’Azure VMware Solution
 description: Découvrez comment acheter une instance réservée pour Azure VMware Solution. L’instance réservée couvre uniquement la partie calcul de votre utilisation et inclut les coûts liés aux licences logicielles.
 ms.topic: how-to
-ms.date: 04/09/2021
-ms.openlocfilehash: fb30ae2fcf06abfa25770aff85f2668d7aaca770
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 05/13/2021
+ms.openlocfilehash: 2ec43374561db9b0de39f4d1c571b85a75df13ba
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753728"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110063097"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Économiser grâce à Azure VMware Solution
 
@@ -20,7 +20,7 @@ Les instances réservées sont disponibles avec quelques exceptions près :
 
 -   **Clouds** : les réservations sont disponibles uniquement dans les régions répertoriées sur la page [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware).
 
--   **Quota insuffisant** : une réservation étendue à un abonnement unique/partagé doit avoir un quota d’hôtes disponible dans l’abonnement pour la nouvelle instance réservée. Pour résoudre ce problème, vous pouvez [créer une demande d’augmentation de quota](enable-azure-vmware-solution.md).
+-   **Quota insuffisant** : une réservation étendue à un abonnement unique/partagé doit avoir un quota d’hôtes disponible dans l’abonnement pour la nouvelle instance réservée. Pour résoudre ce problème, vous pouvez [créer une demande d’augmentation de quota](request-host-quota-azure-vmware-solution.md).
 
 -   **Éligibilité de l’offre** : vous aurez besoin d’un [Contrat Entreprise (EA) Azure](../cost-management-billing/manage/ea-portal-agreements.md) avec Microsoft.
 
@@ -138,6 +138,6 @@ Les CSP peuvent annuler, échanger ou rembourser, avec certaines restrictions, l
 Maintenant que vous avez abordé une instance réservée d’Azure VMware Solution, vous pouvez en apprendre davantage sur les sujets suivants :
 
 - [Création d’une évaluation Azure VMware Solution](../migrate/how-to-create-azure-vmware-solution-assessment.md).
-- [Gestion du protocole DHCP pour Azure VMware Solution](manage-dhcp.md).
+- [Gestion du protocole DHCP pour Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).
 - [Surveiller et gérer des machines virtuelles Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md).
  

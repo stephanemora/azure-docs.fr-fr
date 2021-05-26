@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 14892b114f3bb8a0bb6c07f7cdd01a174b931cf9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73457e6b2e210bd7db91165e97ce73591d921be4
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95810630"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479020"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>Utiliser Azure CLI pour créer un espace de noms Service Bus ainsi qu’une file d'attente
 Ce guide de démarrage rapide vous montre comment créer un espace de noms Service Bus et une file d’attente à l’aide d’Azure CLI. Il vous montre également comment obtenir les informations d’autorisation qu’une application cliente peut utiliser pour envoyer/recevoir des messages à/de la file d'attente. 
@@ -59,7 +59,6 @@ Dans cet article, vous avez créé un espace de noms Service Bus ainsi qu’une 
 - [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 - [Python](service-bus-python-how-to-use-queues.md)
 - [PHP](service-bus-php-how-to-use-queues.md)
-- [Ruby](service-bus-ruby-how-to-use-queues.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 
