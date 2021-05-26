@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 04/20/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: d6a2b6c30d4ff6212a905e454ff56e844e423d22
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e6841afabe36667070ca595810c423c61db03837
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124632"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377036"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connecteurs pour Azure Logic Apps
 
@@ -44,7 +44,7 @@ Une *action* est une opération qui suit le déclencheur et effectue un certain 
 
 ## <a name="connector-categories"></a>Catégories de connecteurs
 
-Dans Logic Apps, la plupart des déclencheurs et des actions sont disponibles dans une version *intégrée* ou une version de *connecteur managé* . Un petit nombre de déclencheurs et d’actions sont disponibles dans les deux versions. Les versions disponibles varient selon que vous créez une application logique multilocataire ou une application logique à locataire unique, qui n’est actuellement disponible que dans la [préversion de Logic Apps](../logic-apps/logic-apps-overview-preview.md).
+Dans Logic Apps, la plupart des déclencheurs et des actions sont disponibles dans une version *intégrée* ou une version de *connecteur managé* . Un petit nombre de déclencheurs et d’actions sont disponibles dans les deux versions. Les versions disponibles varient selon que vous créez une application logique multilocataire ou une application logique à locataire unique, qui n’est actuellement disponible que dans la [Azure Logic Apps monolocataire](../logic-apps/single-tenant-overview-compare.md).
 
 Les [déclencheurs et actions intégrés](built-in.md) s’exécutent en mode natif sur le runtime Logic Apps, ne nécessitent pas la création de connexions, et effectuent ces types de tâches :
 
@@ -184,4 +184,4 @@ Le tableau suivant répertorie les problèmes connus liés aux connecteurs Logic
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer des API personnalisées que vous pouvez appeler à partir de Logic Apps](/logic-apps/logic-apps-create-api-app)
+> [Créer des API personnalisées que vous pouvez appeler à partir de Logic Apps](/logic-apps/logic-apps-create-api-app)

@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bddb03094b73dbd6d3b8d44c76ab242caa515dc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: efd71944d0c29b9e796c4e5508f6b5116df99ec2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727856"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092815"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Vue d’ensemble du contrôle d’accès en fonction du rôle dans Azure Active Directory
 
@@ -79,9 +79,9 @@ Une définition de rôle, ou rôle, est une collection d’autorisations. Une d�
 
 Une étendue est la restriction des actions autorisées à une ressource Azure AD particulière dans le cadre d’une attribution de rôle. Lorsque vous attribuez un rôle, vous pouvez spécifier une étendue qui limite l’accès de l’administrateur à une ressource spécifique. Par exemple, si vous souhaitez accorder à un développeur un rôle personnalisé, mais uniquement pour gérer une inscription d’application spécifique, vous pouvez inclure l’inscription d’application spécifique en tant qu’étendue dans l’attribution de rôle.
 
-## <a name="required-license-plan"></a>Plan de licence obligatoire
+## <a name="license-requirements"></a>Conditions de licence :
 
-L’utilisation de rôles intégrés dans Azure AD est gratuite, par contre les rôles personnalisés nécessitent une licence Azure AD Premium P1. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des éditions gratuite, de base et Premium](https://azure.microsoft.com/pricing/details/active-directory).
+L’utilisation de rôles intégrés dans Azure AD est gratuite, par contre les rôles personnalisés nécessitent une licence Azure AD Premium P1. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des éditions Gratuite et Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

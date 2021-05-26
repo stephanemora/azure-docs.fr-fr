@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/15/2021
-ms.openlocfilehash: 536b9092a7bddd353b58874e7aa97291839bafcc
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 613a537dc01262a111c8db70a5013b3346c7aab0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589531"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091609"
 ---
 # <a name="getting-started-with-azure-iot-embedded-device-development"></a>Prise en main du développement d’appareils intégrés Azure IoT
 
@@ -35,7 +35,6 @@ Les tutoriels suivants sont inclus dans le guide de prise en main :
 |[Prise en main du kit d’évaluation de NXP MIMXRT1060-EVK](https://go.microsoft.com/fwlink/p/?linkid=2129821) |[NXP MIMXRT1060-EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1060-evk-i-mx-rt1060-evaluation-kit:MIMXRT1060-EVK)|
 |[Prise en main du kit d’évaluation de NXP MIMXRT1050-EVKB](https://github.com/azure-rtos/getting-started/tree/master/NXP/MIMXRT1050-EVKB) |[NXP MIMXRT1050-EVKB](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/i-mx-rt1050-evaluation-kit:MIMXRT1050-EVK)|
 |[Prise en main du kit d’évaluation de Microchip ATSAME54-XPRO](https://go.microsoft.com/fwlink/p/?linkid=2129537) |[Microchip ATSAME54-XPRO](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro)|
-|[Prise en main de MXChip AZ3166 IoT DevKit](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166) |[MXChip AZ3166 IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/)|
 |[Prise en main de Renesas Starter Kit+ for RX65N-2MB](https://github.com/azure-rtos/getting-started/tree/master/Renesas/RSK_RX65N_2MB) |[Renesas Starter Kit+ for RX65N-2MB](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rx-32-bit-performance-efficiency-mcus/rx65n-2mb-starter-kit-plus-renesas-starter-kit-rx65n-2mb)|
 
 ## <a name="next-steps"></a>Étapes suivantes

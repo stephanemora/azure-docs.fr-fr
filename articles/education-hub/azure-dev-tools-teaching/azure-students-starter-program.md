@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: 87f44c1529055458f341fa6c4c5285560d878d2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d29fb34fd16293eee014c28cbbc39ec9a0ab7813
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92674964"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064933"
 ---
 # <a name="azure-for-students-starter"></a>Microsoft Azure for Students Starter
 
@@ -23,9 +23,9 @@ Microsoft Azure for Students Starter vous permet de vous familiariser avec les p
 - Azure Notification Hubs
 - Azure Database pour MySQL
 - Application Insights
-- Azure DevOps Server (anciennement Visual Studio Team Services)
+- Azure DevOps Server (anciennement Visual Studio Team Foundation Server)
 
-Azure for Students Starter est disponible pour les étudiants vérifiés, et ce gratuitement, sans engagement ou limite de temps. Consultez l’[Offre Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) pour connaître les conditions d’utilisation détaillées.
+Azure for Students Starter est disponible pour les étudiants vérifiés, et ce gratuitement, sans engagement ni limite de temps. Consultez l’[Offre Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) pour connaître les conditions d’utilisation détaillées.
 
 Cette offre n’est pas disponible pour une utilisation dans un cours en ligne ouvert à tous (MOOC) ou d’autres formations professionnelles proposée par des organisations à but lucratif.
 

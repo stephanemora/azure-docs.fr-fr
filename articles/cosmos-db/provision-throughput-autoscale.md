@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.custom: seo-nov-2020
-ms.openlocfilehash: ba0dd347c4ee2cb41b34c2fc34f1848a7295dc3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 675cd12c905a65cec0dd2fbb4209b5e2cc3a59ac
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97368662"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110065257"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Créer des conteneurs et des bases de données Azure Cosmos en débit de mise à l’échelle automatique
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -59,7 +59,7 @@ Le point d’entrée pour le débit maximal de mise à l’échelle automatique 
 
 ## <a name="enable-autoscale-on-existing-resources"></a>Activer la mise à l’échelle automatique sur les ressources existantes
 
-Utilisez le [portail Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), le [modèle Azure Resource Manager](how-to-provision-autoscale-throughput.md#azure-resource-manager), [CLI](how-to-provision-autoscale-throughput.md#azure-cli) ou [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) pour activer la mise à l’échelle automatique sur une base de données ou un conteneur existant. Vous pouvez basculer entre la mise à l’échelle automatique et le débit approvisionné standard (manuel) à tout moment. Pour plus d’informations, consultez [cette documentation](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work).
+Utilisez le [portail Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), le [modèle Azure Resource Manager](how-to-provision-autoscale-throughput.md#azure-resource-manager), [CLI](how-to-provision-autoscale-throughput.md#azure-cli) ou [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) pour activer la mise à l’échelle automatique sur une base de données ou un conteneur existant. Vous pouvez basculer entre la mise à l’échelle automatique et le débit approvisionné standard (manuel) à tout moment. Pour plus d’informations, consultez [cette documentation](autoscale-faq.yml#how-does-the-migration-between-autoscale-and-standard--manual--provisioned-throughput-work-).
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Limites de débit et de stockage pour la mise à l’échelle automatique
 
@@ -67,7 +67,7 @@ Pour toute valeur de `Tmax`, la base de données ou le conteneur peut stocker un
 
 Par exemple, si vous démarrez avec une unité de requête/s maximale de 50 000 RU/s (avec une mise à l’échelle de 5 000 à 50 000 RU/s), vous pouvez stocker jusqu’à 500 Go de données. Si vous dépassez 500 Go, par exemple, si le stockage est à présent de 600 Go, la nouvelle unité de requête/s maximale sera de 60 000 RU/s (les mises à l’échelle entre 6 000 et 60 000 RU/s).
 
-Lorsque vous utilisez le débit au niveau de la base de données avec la mise à l’échelle automatique, vous pouvez faire en sorte que les 25 premiers conteneurs partagent une unité de requête/s maximale de 4 000 (échelle entre 400 et 4 000 RU/s), à condition que vous ne dépassiez pas 40 Go de stockage. Pour plus d’informations, consultez [cette documentation](autoscale-faq.md#can-i-change-the-max-rus-on-the-database-or-container).
+Lorsque vous utilisez le débit au niveau de la base de données avec la mise à l’échelle automatique, vous pouvez faire en sorte que les 25 premiers conteneurs partagent une unité de requête/s maximale de 4 000 (échelle entre 400 et 4 000 RU/s), à condition que vous ne dépassiez pas 40 Go de stockage. Pour plus d’informations, consultez [cette documentation](autoscale-faq.yml#can-i-change-the-max-ru-s-on-the-database-or-container--).
 
 ## <a name="comparison--containers-configured-with-manual-vs-autoscale-throughput"></a>Comparaison : conteneurs configurés en mode manuel contre débit de mise à l’échelle automatique
 Pour plus d’informations, consultez cette [documentation](how-to-choose-offer.md) sur la façon de choisir entre le débit standard (manuel) et le débit de mise à l’échelle automatique.  
@@ -82,7 +82,7 @@ Pour plus d’informations, consultez cette [documentation](how-to-choose-offer.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Examinez le [FAQ sur la mise à l’échelle automatique](autoscale-faq.md).
+* Examinez le [FAQ sur la mise à l’échelle automatique](autoscale-faq.yml).
 * Découvrez comment [choisir entre le débit manuel et de mise à l’échelle automatique](how-to-choose-offer.md).
 * Découvrez comment [approvisionner le débit de mise à l’échelle automatique sur une base de données ou un conteneur Azure Cosmos](how-to-provision-autoscale-throughput.md).
 * En savoir plus sur le [partitionnement](partitioning-overview.md) dans Azure Cosmos DB.

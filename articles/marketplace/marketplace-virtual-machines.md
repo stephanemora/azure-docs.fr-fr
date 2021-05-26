@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 6e391ca79c9dcf9ab533a7e67961c654b5f8630b
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 25cfca98857d33a90b2c1f11692d83ae30911bb7
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103366"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480866"
 ---
 # <a name="plan-a-virtual-machine-offer"></a>Planifier une offre de machine virtuelle
 
@@ -59,12 +59,7 @@ Pour obtenir des instructions détaillées sur la préparation de vos ressources
 
 ## <a name="preview-audience"></a>Public de préversion
 
-Un public de préversion peut accéder à votre offre de machine virtuelle avant sa publication sur la Place de marché Azure, afin de tester sa fonctionnalité de bout en bout avant la publication en ligne. Dans la page **Public de la préversion**, vous pouvez définir un public de préversion limité. 
-
-> [!NOTE]
-> Le public d’une préversion diffère de celui d’un plan privé. Un plan privé est un plan que vous mettez à la disposition d’un public spécifique que vous choisissez. Cela vous permet de négocier un plan personnalisé avec des clients spécifiques. Pour plus d’informations, consultez la section suivante : Plans.
-
-Vous pouvez envoyer des invitations à des adresses e-mail de Compte Microsoft (MSA) ou d’Azure Active Directory (Azure AD). Ajoutez jusqu’à 10 adresses e-mail manuellement, ou importez-en jusqu’à 20 à l’aide d’un fichier .csv. Si votre offre est déjà publiée, vous pouvez toujours définir un public pour la préversion en vue de tester d’éventuels changements ou mises à jour.
+[!INCLUDE [Test drives section](includes/preview-audience.md)]
 
 ## <a name="plans-and-pricing"></a>Plans et tarifs
 
@@ -77,7 +72,7 @@ Les machines virtuelles sont entièrement commercialisables à l’aide des mod�
 
 ### <a name="licensing-options"></a>Options de licence
 
-Lors de la préparation de la publication d’une nouvelle offre de machine virtuelle, vous devez choisir une option de licence. Celle-ci détermine les informations supplémentaires que vous devrez fournir lors de la création de votre offre dans l’Espace partenaires.
+Lorsque vous vous préparez à publier une nouvelle offre, vous devez choisir une option de licence. Cela détermine les informations supplémentaires que vous devrez fournir lors de la création de l’offre dans Espace partenaires.
 
 Voici les options de licence disponibles pour les offres de machines virtuelles :
 
@@ -102,27 +97,20 @@ Vous pouvez limiter la découverte et le déploiement de votre machine virtuelle
 
 Pour plus d’informations, consultez [Plans et tarification pour les offres du marketplace commercial](plans-pricing.md) et [Offres privées sur le marketplace commercial de Microsoft](private-offers.md).
 
-## <a name="test-drive"></a>Version d'évaluation
+## <a name="test-drive"></a>Test drive
 
 Vous pouvez choisir d’activer une version d’évaluation pour votre machine virtuelle. Les versions d’évaluation permettent aux clients d’accéder à un environnement préconfiguré pendant un nombre d’heures fixe. Vous pouvez activer des versions d’évaluation pour n’importe quelle option de publication, mais cette fonctionnalité est assortie d’exigences supplémentaires. Pour en savoir plus sur les versions d’évaluation, consultez [Qu’est-ce qu’une version d’évaluation ?](what-is-test-drive.md). Pour plus d’informations sur la configuration de différents types de versions d’évaluation, consultez [Configuration technique de la version d’évaluation](test-drive-technical-configuration.md).
 
-> [!TIP]
-> Une version d’évaluation n’est pas un [essai gratuit](plans-pricing.md#free-trials). Vous pouvez proposer une version d’évaluation, un essai gratuit ou les deux. Dans les deux cas, vos clients disposent de votre solution pendant une période fixe. Cependant, une version d’évaluation propose en outre une visite autoguidée concrète des principales fonctionnalités de votre produit, ainsi qu’une démonstration des avantages de celui-ci au travers d’un scénario d’implémentation réel.
+[!INCLUDE [Test drives section](includes/test-drives.md)]
 
 ## <a name="customer-leads"></a>Prospects
 
-Vous devez connecter votre offre à votre système de gestion des relations avec la clientèle (Customer Relationship Management, CRM) pour collecter des informations sur les clients. Le client devra autoriser le partage de ses informations. Ces détails du client, ainsi que le nom de l’offre, son ID et le magasin en ligne dans lequel il a trouvé votre offre, seront envoyés au système CRM que vous avez configuré. La place de marché commerciale prend en charge un vaste éventail de systèmes CRM, ainsi que la possibilité d’utiliser une table Azure ou de configurer un point de terminaison HTTPS à l’aide de Power Automate.
-
-Vous pouvez ajouter ou modifier une connexion CRM à tout moment pendant ou après la création de l’offre. Pour obtenir des instructions détaillées, consultez [Prospects de votre offre de marketplace commercial](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+[!INCLUDE [Customer leads section](includes/customer-leads.md)]
 
 ## <a name="legal-contracts"></a>Contrats juridiques
 
-Pour simplifier le processus d’approvisionnement pour les clients et réduire la complexité juridique pour les éditeurs de logiciels, Microsoft propose un contrat Standard que vous pouvez utiliser pour vos offres dans la place de marché commerciale. Lorsque vous proposez votre logiciel dans le cadre du contrat standard, les clients ne doivent lire et accepter ce contrat qu’une seule fois, et vous n’avez pas besoin d’élaborer des conditions générales personnalisées.
-
-Si vous choisissez d’utiliser le contrat standard, vous avez la possibilité d’ajouter à celui-ci des conditions d’avenant universel et jusqu’à 10 avenants personnalisés. Vous pouvez également utiliser vos propres conditions générales à la place du contrat standard. Vous devez gérer ces détails dans la page **Propriétés**. Pour plus d’informations, consultez [Contrat Standard pour la place de marché commerciale de Microsoft](standard-contract.md).
-
-> [!NOTE]
-> Après avoir publié une offre à l’aide du contrat standard pour la place de marché commerciale, vous ne pouvez pas utiliser vos propres conditions générales personnalisées. Vous devez faire un choix entre les deux. Vous proposez votre solution avec le contrat standard ou vos propres conditions générales. Si vous souhaitez modifier les conditions du contrat standard, vous le pouvez par le biais d’avenants au contrat standard.
+[!INCLUDE [Legal contracts section](includes/legal-contracts-intro.md)]
+[!INCLUDE [Legal section for Standard contracts](includes/legal-contracts-standard.md)]
 
 ## <a name="cloud-solution-providers"></a>Fournisseurs de solutions cloud
 

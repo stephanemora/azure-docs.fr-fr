@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 02/28/2020
 ms.topic: how-to
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 4a045d7475c2380c9e591e18a37c4f9e99501097
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 22b8126ffcb573f2ec276e589a261ac14ec72c99
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107951933"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191599"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Utiliser le ML automatisé dans un pipeline Azure Machine Learning dans Python
 
@@ -248,7 +248,7 @@ Comparaison des deux techniques :
 |`OutputTabularDatasetConfig`| Performances accrues | 
 || Itinéraire naturel à partir des `OutputFileDatasetConfig` | 
 || Les données ne sont pas conservées après l’exécution du pipeline |
-|| [Bloc-notes présentant la technique`OutputTabularDatasetConfig`](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
+||  |
 | `Dataset` inscrit | Moins bonnes performances |
 | | Peut être généré de nombreuses façons | 
 | | Les données sont conservées et visibles dans l’espace de travail |

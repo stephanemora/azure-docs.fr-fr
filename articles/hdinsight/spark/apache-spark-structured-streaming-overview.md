@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: fd65177fb6202b0396545043c2e63a87c7f01bbb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ac4e44a3bb21c746865b4aa3d86a75501f9cde0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864599"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064897"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Présentation d’Apache Spark Structured Streaming
 
@@ -73,7 +73,7 @@ Ces fichiers JSON sont stockés dans le sous-dossier `temps`, sous le conteneur 
 
 Commencez par configurer une trame de données qui décrit la source des données et tous les paramètres dont a besoin cette source. Cet exemple extrait des données à partir des fichiers JSON dans le stockage Azure et leur applique un schéma au moment de la lecture.
 
-```sql
+```scala
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.functions._
 
@@ -91,7 +91,7 @@ val streamingInputDF = spark.readStream.schema(jsonSchema).json(inputPath)
 
 Appliquez ensuite une requête qui contient les opérations souhaitées sur la trame de données de diffusion en continu. Dans ce cas, une agrégation regroupe toutes les lignes dans des fenêtres de 1 heure, puis calcule les températures minimales, maximales et moyennes dans cette fenêtre de 1 heure.
 
-```sql
+```scala
 val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min($"temp"), avg($"temp"), max($"temp"))
 ```
 
@@ -99,7 +99,7 @@ val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min
 
 Définissez ensuite la destination des lignes qui sont ajoutées à la table de résultats dans chaque intervalle de déclencheur. Cet exemple envoie simplement toutes les lignes à une table en mémoire `temps` que vous pourrez interroger plus tard avec SparkSQL. Avec le mode de sortie Complet, vous avez la garantie que toutes les lignes de toutes les fenêtres seront générées à chaque fois.
 
-```sql
+```scala
 val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temps").outputMode("complete")
 ``` 
 
@@ -107,7 +107,7 @@ val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temp
 
 Démarrez la requête de diffusion en continu et exécutez-la jusqu’à la réception d’un signal d’arrêt.
 
-```sql
+```scala
 val query = streamingOutDF.start() 
 ``` 
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 04/30/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d6fd782020957222fbf56f197abc40b45eaa47be
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: d3e081d4a60b5e4f26e5163d55f2df682b042bca
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788779"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110066518"
 ---
 # <a name="azure-digital-twins-cli-command-set"></a>Ensemble de commandes CLI Azure Digital Twins
 
@@ -25,7 +25,7 @@ En plus de gérer votre instance Azure Digital Twins dans le portail Azure, vous
 * Gestion des [routes](concepts-route-events.md)
 * Configuration de la [sécurité](concepts-security.md) via le contrôle d’accès en fonction du rôle Azure (Azure RBAC)
 
-Le jeu de commandes est appelé **az dt** et fait partie de l’[extension Azure IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension). Vous pouvez afficher la liste complète des commandes et leur utilisation dans le cadre de la documentation de référence pour l’ensemble de commandes `az iot` : [az dt, informations de référence sur la commande](/cli/azure/dt).
+Le jeu de commandes est appelé **az dt** et fait partie de l’[extension Azure IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension). Vous pouvez afficher la liste complète des commandes et leur utilisation dans le cadre de la documentation de référence pour l’ensemble de commandes `az iot` : [az dt, informations de référence sur la commande](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="uses-deploy-and-validate"></a>Utilisations (déployer et valider)
 
@@ -61,4 +61,4 @@ az extension add --upgrade --name azure-iot
 ## <a name="next-steps"></a>Étapes suivantes
 
 Explorez l’interface CLI et son ensemble complet de commandes via les documents de référence :
-* [az dt, informations de référence sur les commandes](/cli/azure/dt)
+* [az dt, informations de référence sur les commandes](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)

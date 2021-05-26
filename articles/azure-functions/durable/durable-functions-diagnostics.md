@@ -3,14 +3,14 @@ title: Diagnostics dans Fonctions durables - Azure
 description: Découvrez comment gérer diagnostiquer les problèmes avec l’extension Fonctions durables pour Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 05/12/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 62cc5e1762a2a54b26cbebae5aa7cfbf64204ba5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1125c2de0f548f1a6086819573acf1a2ac9c3c9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584626"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370889"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostics de Durable Functions dans Azure
 
@@ -154,10 +154,12 @@ Le résultat est une liste d’ID d’instances et leur actuel état d’exécut
 
 Les journaux d’extension Durable sont utiles pour comprendre le comportement de votre logique d’orchestration. Toutefois, ces journaux ne contiennent pas toujours assez d’informations pour déboguer les problèmes de performances et de fiabilité au niveau de l’infrastructure. À partir de la version **2.3.0** de l’extension Durable, les journaux émis par l’infrastructure Durable Task Framework (DTFx) sous-jacentes sont également disponibles pour la collecte.
 
-Lorsque vous examinez les journaux émis par l’infrastructure DTFx, il est important de comprendre que le moteur DTFx est doté de deux composants : le moteur de distribution principal (`DurableTask.Core`) et l’un des nombreux fournisseurs de stockage pris en charge (Durable Functions utilise `DurableTask.AzureStorage` par défaut).
+Lorsque vous examinez les journaux émis par l’infrastructure DTFx, il est important de comprendre que le moteur DTFx est doté de deux composants : le moteur de distribution principal (`DurableTask.Core`) et l’un des nombreux fournisseurs de stockage pris en charge (Durable Functions utilise `DurableTask.AzureStorage` par défaut, mais d’[autres options sont disponibles](durable-functions-storage-providers.md)).
 
-* **DurableTask.Core** : contient des informations sur l’exécution de l’orchestration et la planification de bas niveau.
-* **DurableTask.AzureStorage** : contient des informations relatives aux interactions avec les artefacts de Stockage Azure, y compris les files d’attente internes, les objets blob et les tables de stockage utilisées pour stocker et extraire l’état de l’orchestration interne.
+* **DurableTask.Core** : exécution de l’orchestration principale et des journaux de planification et de la télémétrie de bas niveau.
+* **DurableTask.AzureStorage** : journaux principaux spécifiques au fournisseur d’état de stockage Azure. Ces journaux incluent des interactions détaillées avec les files d’attente internes, les objets blob et les tables de stockage utilisés pour stocker et récupérer l’état d’orchestration interne.
+* **DurableTask.Netherite** : journaux principaux spécifiques au [fournisseur de stockage Netherite](https://microsoft.github.io/durabletask-netherite), s’ils sont activés.
+* **DurableTask.SqlServer** : journaux principaux spécifiques au [fournisseur de stockage Microsoft SQL (MSSQL)](https://microsoft.github.io/durabletask-mssql), s’ils sont activés.
 
 Vous pouvez activer ces journaux en mettant à jour la section `logging/logLevel` du fichier **host.json** de votre application de fonction. L’exemple suivant montre comment activer les journaux d’avertissement et d’erreur depuis `DurableTask.Core` et `DurableTask.AzureStorage` :
 
@@ -176,7 +178,7 @@ Vous pouvez activer ces journaux en mettant à jour la section `logging/logLevel
 Si Application Insights est activé, ces journaux sont automatiquement ajoutés à la collecte `trace`. Vous pouvez les rechercher de la même façon que vous recherchez d’autres journaux `trace` à l’aide de requêtes Kusto.
 
 > [!NOTE]
-> Pour les applications de production, il est recommandé d’activer les journaux `DurableTask.Core` et `DurableTask.AzureStorage` à l’aide du filtre `"Warning"`. Des filtres plus détaillés, tels que `"Information"` , sont très utiles pour le débogage des problèmes de performances. Toutefois, ces événements de journaux sont volumineux et peuvent considérablement augmenter les coûts de stockage de données Application Insights.
+> Pour les applications de production, il est recommandé d’activer `DurableTask.Core` et le fournisseur de stockage approprié (par exemple, les journaux `DurableTask.AzureStorage`) à l’aide du filtre `"Warning"`. Des filtres plus détaillés, tels que `"Information"` , sont très utiles pour le débogage des problèmes de performances. Toutefois, ces événements de journaux peuvent être volumineux et considérablement augmenter les coûts de stockage de données Application Insights.
 
 La requête Kusto suivante montre comment interroger les journaux DTFx. La partie la plus importante de la requête est `where customerDimensions.Category startswith "DurableTask"` dans la mesure où celle-ci filtre les résultats dans les journaux des catégories `DurableTask.Core` et `DurableTask.AzureStorage`.
 
@@ -471,6 +473,13 @@ Cet outil est utile pour le débogage car il vous permet de visualiser exactemen
 
 > [!WARNING]
 > Même s’il est pratique d’afficher l’historique d’exécution dans le stockage de table, évitez de créer une dépendance sur cette table. Elle peut changer à mesure que l’extension Fonctions durables évolue.
+
+> [!NOTE]
+> D’autres fournisseurs de stockage peuvent être configurés à la place du fournisseur Stockage Azure par défaut. Selon le fournisseur de stockage configuré pour votre application, vous devrez peut-être utiliser différents outils pour inspecter l’état sous-jacent. Pour plus d’informations, consultez la documentation sur les [fournisseurs de stockage Durable Functions](durable-functions-storage-providers.md).
+
+## <a name="3rd-party-tools"></a>Outils tiers
+
+La communauté Durable Functions publie de nombreux outils qui peuvent être utiles pour le débogage, les diagnostics ou la surveillance. L’un de ces outils est le [moniteur Durable Functions](https://github.com/scale-tone/DurableFunctionsMonitor#durable-functions-monitor) open source, un outil graphique permettant de surveiller, gérer et déboguer vos instances d’orchestration.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

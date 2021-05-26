@@ -1,43 +1,40 @@
 ---
-title: 'Tutoriel : Entraîner et déployer des modèles : VS Code (préversion)'
+title: 'Tutoriel : Entraîner un modèle de classification d’images : VS Code (préversion)'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment entraîner et déployer un modèle de classification d’images à l’aide de TensorFlow et de l’extension Azure Machine Learning de Visual Studio Code.
+description: Découvrez comment entraîner et déployer un modèle de classification d’images en utilisant TensorFlow et l’extension Visual Studio Code d’Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 07/09/2020
+ms.date: 05/25/2021
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 937b5ebb13bfbf27ff04b6944f2de7e32e7e656c
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: efe19d39914e2efc4ac4dcc39d9b0f036ac626b3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185850"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371009"
 ---
-# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Entraîner et déployer un modèle de classification d’images TensorFlow à l’aide de l’extension Azure Machine Learning de Visual Studio Code (préversion)
+# <a name="train-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Entraîner un modèle de classification d’images TensorFlow en utilisant l’extension Visual Studio Code d’Azure Machine Learning (préversion)
 
-Découvrez comment entraîner et déployer un modèle de classification d’images pour reconnaître des chiffres manuscrits à l’aide de TensorFlow et de l’extension Azure Machine Learning de Visual Studio Code.
+Découvrez comment entraîner un modèle de classification d’images pour reconnaître des chiffres écrits à la main à l’aide de TensorFlow et de l’extension Azure Machine Learning de Visual Studio Code.
 
 Dans ce tutoriel, vous allez apprendre à effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Comprendre le code
 > * Créer un espace de travail
-> * Créer une expérience
-> * Configurer des cibles de calcul
-> * Utiliser un fichier de configuration
+> * Créer un cluster GPU pour l’entraînement
 > * Effectuer l’apprentissage d’un modèle
-> * Inscrivez un modèle
-> * Déployer un modèle
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Abonnement Azure. Si vous n’en avez pas, inscrivez-vous ou essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree)
 - Installez [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), éditeur de code léger et multiplateforme
-- Extension Azure Machine Learning de Visual Studio Code. Pour obtenir des instructions d’installation, consultez le tutoriel [Configurer l’extension Azure Machine Learning de Visual Studio Code](./tutorial-setup-vscode-extension.md)
+- Extension Azure Machine Learning de Visual Studio Code. Pour obtenir des instructions d’installation, consultez le guide [Configurer l’extension Visual Studio Code d’Azure Machine Learning](./how-to-setup-vs-code.md)
+- Interface CLI 2.0 (préversion). Pour obtenir des instructions d’installation, consultez [Installer, configurer et utiliser l’interface CLI 2.0 (préversion)](how-to-configure-cli.md).
 
 ## <a name="understand-the-code"></a>Comprendre le code
 
@@ -45,372 +42,122 @@ Le code de ce tutoriel utilise TensorFlow pour entraîner un modèle Machine Lea
 
 ![Chiffres MNIST](./media/tutorial-train-deploy-image-classification-model-vscode/digits.png)
 
-Pour obtenir le code de ce tutoriel, téléchargez et décompressez le [dépôt VS Code Tools for AI](https://github.com/microsoft/vscode-tools-for-ai/archive/master.zip) n’importe où sur votre ordinateur.
+Pour obtenir le code de ce tutoriel, téléchargez et décompressez le [dépôt d’exemples Azure ML](https://github.com/Azure/azureml-examples/archive/refs/heads/main.zip) n’importe où sur votre ordinateur.
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail
 
-La première chose à faire pour générer une application dans Azure Machine Learning consiste à créer un espace de travail. Un espace de travail contient les ressources nécessaires pour entraîner des modèles ainsi que les modèles entraînés proprement dits. Pour plus d’informations, consultez [Qu’est-ce qu’un espace de travail ?](./concept-workspace.md). 
+La première chose à faire pour générer une application dans Azure Machine Learning consiste à créer un espace de travail. Un espace de travail contient les ressources nécessaires pour entraîner des modèles ainsi que les modèles entraînés proprement dits. Pour plus d’informations, consultez [Qu’est-ce qu’un espace de travail ?](./concept-workspace.md).
 
+1. Ouvrez le répertoire *azureml-examples-main/cli/jobs/train/tensorflow/mnist* dans Visual Studio Code.
 1. Dans la barre d’activité Visual Studio Code, sélectionnez l’icône **Azure** pour ouvrir la vue Azure Machine Learning.
-1. Cliquez avec le bouton droit sur votre abonnement Azure et sélectionnez **Créer un espace de travail**. 
+1. Dans la vue Azure Machine Learning, cliquez avec le bouton droit sur le nœud de votre abonnement et sélectionnez **Créer un espace de travail**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Create workspace](./media/tutorial-train-deploy-image-classification-model-vscode/create-workspace.png)
+
+1. Un fichier de spécifications apparaît. Configurez le fichier de spécifications avec les options suivantes. 
+
+    ```yml
+    $schema: https://azuremlschemas.azureedge.net/latest/workspace.schema.json
+    name: TeamWorkspace
+    location: WestUS2
+    friendly_name: team-ml-workspace
+    description: A workspace for training machine learning models
+    tags:
+      purpose: training
+      team: ml-team
+    ```
+
+    Le modèle crée un espace de travail appelé `TeamWorkspace` dans la région `WestUS2`. Le reste des options définies dans le modèle fournissent un nom convivial, des descriptions et des étiquettes pour l’espace de travail.
+
+1. Cliquez avec le bouton droit sur le fichier de modèle, puis sélectionnez **Azure ML : Créer une ressource**. La création d’une ressource utilise les options de configuration définies dans le fichier de spécifications YAML et envoie un travail en utilisant l’interface CLI 2.0. À ce stade, une demande est envoyée à Azure pour créer un nouvel espace de travail et ses ressources dépendantes dans votre compte. Après quelques minutes, le nouvel espace de travail apparaît dans votre nœud d’abonnement.
+1. Définissez `TeamWorkspace` comme votre espace de travail par défaut. Cela place les ressources et les travaux que vous créez dans l’espace de travail par défaut. Sélectionnez le bouton **Définir l’espace de travail Azure ML** dans la barre d’état de Visual Studio Code, puis suivez les invites pour définir `TeamWorkspace` comme votre espace de travail par défaut.
+
+Pour plus d’informations sur les espaces de travail, consultez [Comment gérer des ressources dans VS Code](how-to-manage-resources-vscode.md).
+
+## <a name="create-a-gpu-cluster-for-training"></a>Créer un cluster GPU pour l’entraînement
+
+Une cible de calcul est la ressource ou l’environnement informatique où vous exécutez des travaux d’entraînement. Pour plus d’informations, consultez la [documentation sur les cibles de calcul Azure Machine Learning](./concept-compute-target.md).
+
+1. Dans la vue Azure Machine Learning, développez le nœud de votre espace de travail.
+1. Cliquez avec le bouton droit sur le nœud **Clusters de calcul** à l’intérieur du nœud **Calcul** de votre espace de travail, puis sélectionnez **Créer un calcul**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Créer un cluster de calcul d’entraînement](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
+
+1. Un fichier de spécifications apparaît. Configurez le fichier de spécifications avec les options suivantes.
+
+    ```yml
+    $schema: https://azuremlschemas.azureedge.net/latest/compute.schema.json
+    name: gpu-cluster
+    type: amlcompute
+    size: Standard_NC12
     
-    > [!div class="mx-imgBorder"]
-    > ![Créer un espace de travail](./media/tutorial-train-deploy-image-classification-model-vscode/create-workspace.png)
-
-1. Par défaut, un nom est généré, indiquant la date et l’heure de création. Dans la zone d’entrée, remplacez le nom par « TeamWorkspace », puis appuyez sur **Entrée**.
-1. Sélectionnez **Créer un groupe de ressources**. 
-1. Nommez votre groupe de ressources « TeamWorkspace-rg » et appuyez sur **Entrée**. 
-1. Choisissez un emplacement pour votre espace de travail. Nous vous recommandons de choisir un emplacement le plus proche possible de celui où vous comptez déployer votre modèle. Par exemple, « USA Ouest 2 ».
-1. Lorsque vous êtes invité à sélectionner le type d’espace de travail, choisissez **De base**.
-
-À ce stade, une demande est envoyée à Azure afin de créer un nouvel espace de travail dans votre compte. Après quelques minutes, le nouvel espace de travail apparaît dans votre nœud d’abonnement. 
-
-## <a name="create-an-experiment"></a>Créer une expérience
-
-Vous pouvez créer une ou plusieurs expériences dans votre espace de travail pour suivre et analyser individuellement les exécutions d’entraînement du modèle. Les exécutions peuvent être effectuées dans le cloud Azure ou sur votre machine locale.
-
-1. Dans la barre d’activités Visual Studio Code, sélectionnez l’icône **Azure**. La vue Azure Machine Learning apparaît.
-1. Développez votre nœud d’abonnement.
-1. Développez le nœud **TeamWorkspace**. 
-1. Cliquez avec le bouton droit sur le nœud **Expériences**.
-1. Sélectionnez **Créer une expérience** dans le menu contextuel.
-
-    > [!div class="mx-imgBorder"]
-    > ![Création d'une expérience](./media/tutorial-train-deploy-image-classification-model-vscode/create-experiment.png)
-
-1. Nommez votre expérience « Tutorial-VSCode-MNIST » et appuyez sur **Entrée** pour la créer. 
-
-Comme pour l’espace de travail, une demande est envoyée à Azure afin de créer une expérience avec les configurations fournies. Après quelques minutes, la nouvelle expérience apparaît dans le nœud *Expériences* de votre espace de travail. 
-
-## <a name="configure-compute-targets"></a>Configurer les cibles de calcul
-
-Une cible de calcul est la ressource ou l’environnement informatique où vous exécutez des scripts et déployez des modèles entraînés. Pour plus d’informations, consultez la [documentation sur les cibles de calcul Azure Machine Learning](./concept-compute-target.md).
-
-Pour créer une cible de calcul :
-
-1. Dans la barre d’activités Visual Studio Code, sélectionnez l’icône **Azure**. La vue Azure Machine Learning apparaît. 
-1. Développez votre nœud d’abonnement. 
-1. Développez le nœud **TeamWorkspace**. 
-1. Sous le nœud de l’espace de travail, cliquez avec le bouton droit sur le nœud **Clusters de calcul**, puis choisissez **Créer un calcul**. 
-
-    > [!div class="mx-imgBorder"]
-    > ![Créer une cible de calcul](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
-
-1. Sélectionnez **Capacité de calcul Azure Machine Learning (AmlCompute)** . Capacité de calcul Azure Machine Learning est une infrastructure de capacité de calcul managée qui permet à l’utilisateur de créer facilement une capacité de calcul à un ou plusieurs nœuds pouvant être utilisée par d’autres utilisateurs dans votre espace de travail.
-1. Choisissez une taille de machine virtuelle. Sélectionnez **Standard_F2s_v2** dans la liste d’options. La taille de votre machine virtuelle a un impact sur la durée nécessaire à l’entraînement de vos modèles. Pour plus d’informations sur les tailles de machine virtuelle, consultez [Tailles des machines virtuelles Linux dans Azure](../virtual-machines/sizes.md).
-1. Nommez votre calcul « TeamWkspc-com » et appuyez sur **Entrée** pour le créer.
-
-    Un fichier s’affiche dans VS Code avec un contenu similaire à celui ci-dessous :
-
-    ```json
-    {
-        "location": "westus2",
-        "tags": {},
-        "properties": {
-            "computeType": "AmlCompute",
-            "description": "",
-            "properties": {
-                "vmSize": "Standard_F2s_v2",
-                "vmPriority": "dedicated",
-                "scaleSettings": {
-                    "maxNodeCount": 4,
-                    "minNodeCount": 0,
-                    "nodeIdleTimeBeforeScaleDown": "PT120S"
-                }
-            }
-        }
-    }
+    min_instances: 0
+    max_instances: 3
+    idle_time_before_scale_down: 120
     ```
 
-1. Quand vous êtes satisfait de la configuration, ouvrez la palette de commandes en sélectionnant **Affichage > Palette de commandes**.
-1. Entrez la commande suivante dans la palette de commandes pour enregistrer votre fichier de configuration de série de tests.
+    Le modèle crée un cluster GPU appelé `gpu-cluster` avec au plus 3 nœuds de machines virtuelles Standard_NC12 qui font automatiquement l’objet d’un scale-down à 0 nœuds après 120 secondes d’inactivité.
 
-    ```text
-    Azure ML: Save and Continue
-    ```
+    Pour plus d’informations sur les tailles de machine virtuelle, consultez [Tailles des machines virtuelles Linux dans Azure](../virtual-machines/sizes.md).
 
-Après quelques minutes, la nouvelle cible de calcul s’affiche dans le nœud *Clusters de calcul* de votre espace de travail.
+1. Cliquez avec le bouton droit sur le fichier de modèle, puis sélectionnez **Azure ML : Créer une ressource**.
 
-## <a name="create-a-run-configuration"></a>Créer une configuration de série de tests
+Après quelques minutes, la nouvelle cible de calcul apparaît dans le nœud *Calcul > Clusters de calcul* de votre espace de travail.
 
-Quand vous soumettez une série d’entraînement à une cible de calcul, vous soumettez également la configuration nécessaire pour exécuter le travail d’entraînement, par exemple le script qui contient le code d’entraînement et les dépendances Python nécessaires à son exécution.
+## <a name="train-image-classification-model"></a><a name="train-the-model"></a> Entraîner un modèle de classification d’images
 
-Pour créer une configuration de série de tests
+Lors du processus d’entraînement, un modèle TensorFlow est entraîné en traitant les données d’entraînement et les patterns d’entraînement incorporés pour chacun des chiffres classifiés.
 
-1. Dans la barre d’activités Visual Studio Code, sélectionnez l’icône **Azure**. La vue Azure Machine Learning apparaît. 
-1. Développez votre nœud d’abonnement. 
-1. Développez le nœud **TeamWorkspace > Clusters de calcul**. 
-1. Sous le nœud Calcul, cliquez avec le bouton droit sur le nœud de calcul **TeamWkspc-com** et choisissez **Créer une configuration d’exécution**.
+Comme les espaces de travail et les cibles de calcul, les travaux d’entraînement sont définis avec des modèles de ressources. Pour cet exemple, le modèle est défini dans le fichier *job.yml* qui se présente comme suit :
 
-    > [!div class="mx-imgBorder"]
-    > ![Créer une configuration de série de tests](./media/tutorial-train-deploy-image-classification-model-vscode/create-run-configuration.png)
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+code: 
+    local_path: src
+command: >
+    python train.py
+environment: azureml:AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36:1
+compute:
+    target: azureml:gpu-cluster
+experiment_name: tensorflow-mnist-example
+description: Train a basic neural network with TensorFlow on the MNIST dataset.
+```
 
-1. Nommez votre configuration d’exécution « MNIST-rc » et appuyez sur **Entrée** pour la créer.
-1. Ensuite, sélectionnez **Créer un environnement Azure ML**. Les environnements définissent les dépendances nécessaires pour exécuter vos scripts.
-1. Nommez votre environnement « MNIST-env » et appuyez sur **Entrée**.
-1. Sélectionnez **Fichier de dépendances Conda** dans la liste.
-1. Appuyez sur **Entrée** pour parcourir le fichier de dépendances Conda. En l’occurrence, le fichier de dépendances est le fichier `env.yml` dans le répertoire `vscode-tools-for-ai/mnist-vscode-docs-sample`.
+Ce modèle soumet un travail d’entraînement appelé `tensorflow-mnist-example` à la cible de calcul `gpu-cluster` récemment créée qui exécute le code dans le script Python *train.py*. L’environnement utilisé est un des environnements organisés fournis par Azure Machine Learning qui contient TensorFlow et d’autres dépendances logicielles nécessaires pour exécuter le script d’entraînement. Pour plus d’informations sur les environnements organisés, consultez [Environnements organisés Azure Machine Learning](resource-curated-environments.md).
 
-    Un fichier s’affiche dans VS Code avec un contenu similaire à celui ci-dessous :
+Pour soumettre le travail d’entraînement :
 
-    ```json
-    {
-        "name": "MNIST-env",
-        "version": "1",
-        "python": {
-            "interpreterPath": "python",
-            "userManagedDependencies": false,
-            "condaDependencies": {
-                "name": "vs-code-azure-ml-tutorial",
-                "channels": [
-                    "defaults"
-                ],
-                "dependencies": [
-                    "python=3.6.2",
-                    "tensorflow=1.15.0",
-                    "pip",
-                    {
-                        "pip": [
-                            "azureml-defaults"
-                        ]
-                    }
-                ]
-            },
-            "baseCondaEnvironment": null
-        },
-        "environmentVariables": {},
-        "docker": {
-            "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
-            "baseDockerfile": null,
-            "baseImageRegistry": {
-                "address": null,
-                "username": null,
-                "password": null
-            },
-            "enabled": false,
-            "arguments": []
-        },
-        "spark": {
-            "repositories": [],
-            "packages": [],
-            "precachePackages": true
-        },
-        "inferencingStackVersion": null
-    }
-    ```
+1. Ouvrez le fichier *job.yml*.
+1. Cliquez avec le bouton droit sur le fichier dans l’éditeur de texte et sélectionnez **Azure ML : Créer une ressource**.
 
-1. Une fois satisfait de votre configuration, enregistrez-la en ouvrant la palette de commandes et en entrant la commande suivante :
+> [!div class="mx-imgBorder"]
+> ![Exécuter une expérience](./media/tutorial-train-deploy-image-classification-model-vscode/run-experiment.png)
 
-    ```text
-    Azure ML: Save and Continue
-    ```
+À ce stade, une demande est envoyée à Azure pour exécuter votre expérience sur la cible de calcul sélectionnée dans votre espace de travail. Cette opération prend plusieurs minutes. La durée d’exécution du travail d’entraînement est influencée par plusieurs facteurs tels que le type de calcul et la taille des données d’entraînement. Pour suivre la progression de votre expérience, cliquez avec le bouton droit sur le nœud d’exécution actif et sélectionnez **Afficher l’exécution dans le portail Azure**.
 
-1. Cet exemple n’utilise pas un jeu de données inscrit dans Azure Machine Learning. En effet, le jeu de données est chargé lors de l’exécution de *train.py*. Lorsque vous êtes invité à créer une référence de données pour votre exécution d’entraînement, entrez « n » dans l’invite et appuyez sur **Entrée**.
-1. Appuyez sur **Entrée** pour naviguer jusqu’au fichier de script à exécuter sur le calcul. En l’occurrence, le script pour l’entraînement du modèle est le fichier `train.py` dans le répertoire `vscode-tools-for-ai/mnist-vscode-docs-sample`.
+Quand la boîte de dialogue vous invitant à ouvrir un site web externe s’affiche, sélectionnez **Ouvrir**.
 
-    Un fichier nommé `MNIST-rc.runconfig` s’affiche dans VS Code avec un contenu similaire à celui ci-dessous :
-
-    ```json
-    {
-        "script": "train.py",
-        "arguments": [],
-        "framework": "Python",
-        "communicator": "None",
-        "target": "TeamWkspc-com",
-        "environment": {
-            "name": "MNIST-env",
-            "version": "1",
-            "python": {
-                "interpreterPath": "python",
-                "userManagedDependencies": false,
-                "condaDependencies": {
-                    "name": "vs-code-azure-ml-tutorial",
-                    "channels": [
-                        "defaults"
-                    ],
-                    "dependencies": [
-                        "python=3.6.2",
-                        "tensorflow=1.15.0",
-                        "pip",
-                        {
-                            "pip": [
-                                "azureml-defaults"
-                            ]
-                        }
-                    ]
-                },
-                "baseCondaEnvironment": null
-            },
-            "environmentVariables": {},
-            "docker": {
-                "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
-                "baseDockerfile": null,
-                "baseImageRegistry": {
-                    "address": null,
-                    "username": null,
-                    "password": null
-                },
-                "enabled": false,
-                "arguments": []
-            },
-            "spark": {
-                "repositories": [],
-                "packages": [],
-                "precachePackages": true
-            },
-            "inferencingStackVersion": null
-        },
-        "history": {
-            "outputCollection": true,
-            "snapshotProject": false,
-            "directoriesToWatch": [
-                "logs"
-            ]
-        }
-    }
-    ```
-
-1. Une fois satisfait de votre configuration, enregistrez-la en ouvrant la palette de commandes et en entrant la commande suivante :
-
-    ```text
-    Azure ML: Save and Continue
-    ```
-
-La configuration d’exécution de `MNIST-rc` est ajoutée sous le nœud de calcul *TeamWkspc-com* et la configuration de l’environnement `MNIST-env` est ajoutée sous le nœud *Environnements*.
-
-## <a name="train-the-model"></a>Effectuer l’apprentissage du modèle
-
-Pendant le processus d’entraînement, un modèle TensorFlow est créé en traitant les données d’entraînement et les patterns d’entraînement incorporés pour chacun des chiffres classifiés. 
-
-Pour exécuter une expérience Azure Machine Learning :
-
-1. Dans la barre d’activités Visual Studio Code, sélectionnez l’icône **Azure**. La vue Azure Machine Learning apparaît. 
-1. Développez votre nœud d’abonnement. 
-1. Développez le nœud **TeamWorkspace > Expériences**. 
-1. Cliquez avec le bouton droit sur l’expérience **MNIST**.
-1. Sélectionnez **Run Experiment** (Exécuter l’expérience).
-
-    > [!div class="mx-imgBorder"]
-    > ![Exécuter une expérience](./media/tutorial-train-deploy-image-classification-model-vscode/run-experiment.png)
-
-1. Dans la liste des options de cible de calcul, sélectionnez la cible de calcul **TeamWkspc-com**.
-1. Ensuite, sélectionnez la configuration de série de tests **MNIST-rc**.
-1. À ce stade, une demande est envoyée à Azure pour exécuter votre expérience sur la cible de calcul sélectionnée dans votre espace de travail. Cette opération prend plusieurs minutes. La durée d’exécution du travail d’entraînement est influencée par plusieurs facteurs tels que le type de calcul et la taille des données d’entraînement. Pour suivre la progression de votre expérience, cliquez avec le bouton droit sur le nœud d’exécution actif et sélectionnez **Afficher l’exécution dans le portail Azure**.
-1. Quand la boîte de dialogue vous invitant à ouvrir un site web externe s’affiche, sélectionnez **Ouvrir**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Suivre la progression d’une expérience](./media/tutorial-train-deploy-image-classification-model-vscode/track-experiment-progress.png)
+> [!div class="mx-imgBorder"]
+> ![Suivre la progression d’une expérience](./media/tutorial-train-deploy-image-classification-model-vscode/track-experiment-progress.png)
 
 Une fois l’entraînement du modèle terminé, l’étiquette d’état en regard du nœud d’exécution est mise à jour avec la valeur « Terminé ».
 
-## <a name="register-the-model"></a>Inscrire le modèle
-
-Maintenant que vous avez effectué l’apprentissage de votre modèle, vous pouvez l’inscrire dans votre espace de travail. 
-
-Pour enregistrer votre modèle :
-
-1. Dans la barre d’activités Visual Studio Code, sélectionnez l’icône **Azure**. La vue Azure Machine Learning apparaît.
-1. Développez votre nœud d’abonnement. 
-1. Développez le nœud **TeamWorkspace > Expériences > MNIST**.
-1. Obtenez les sorties de modèle générées à partir de l’entraînement du modèle. Cliquez avec le bouton droit sur le nœud d’exécution **Exécution 1**, puis sélectionnez **Télécharger les sorties**. 
-
-    > [!div class="mx-imgBorder"]
-    > ![Télécharger les sorties du modèle](./media/tutorial-train-deploy-image-classification-model-vscode/download-outputs.png)
-
-1. Sélectionnez le répertoire où enregistrer les sorties téléchargées. Par défaut, les sorties sont placées dans le répertoire actuellement ouvert dans Visual Studio Code.
-1. Cliquez avec le bouton droit sur le nœud **Modèles** et choisissez **Inscrire un modèle**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Inscrire un modèle](./media/tutorial-train-deploy-image-classification-model-vscode/register-model.png)
-
-1. Nommez votre modèle « MNIST-TensorFlow-model » et appuyez sur **Entrée**.
-1. Un modèle TensorFlow est constitué de plusieurs fichiers. Sélectionnez **Dossier de modèle** comme format de chemin de modèle dans la liste d’options. 
-1. Sélectionner le répertoire `azureml_outputs/Run_1/outputs/outputs/model`.
-
-    Un fichier contenant vos configurations de modèle apparaît dans Visual Studio Code, avec du contenu similaire à celui ci-dessous :
-
-    ```json
-    {
-        "modelName": "MNIST-TensorFlow-model",
-        "tags": {
-            "": ""
-        },
-        "modelPath": "c:\\Dev\\vscode-tools-for-ai\\mnist-vscode-docs-sample\\azureml_outputs\\Run_1\\outputs\\outputs\\model",
-        "description": ""
-    }
-    ```
-
-1. Une fois satisfait de votre configuration, enregistrez-la en ouvrant la palette de commandes et en entrant la commande suivante :
-
-    ```text
-    Azure ML: Save and Continue
-    ```
-
-Après quelques minutes, le modèle apparaît sous le nœud *Modèles*.
-
-## <a name="deploy-the-model"></a>Déployer le modèle
-
-Dans Visual Studio Code, vous pouvez déployer votre modèle en tant que service web sur :
-
-+ Azure Container Instances (ACI).
-+ Azure Kubernetes Service (AKS).
-
-Vous n’avez pas besoin de créer un conteneur ACI en vue de le tester au préalable, car les conteneurs ACI sont créés au fur et à mesure des besoins. Toutefois, vous devez configurer les clusters AKS à l’avance. Pour plus d’informations sur les options de déploiement, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
-
-Pour déployer un service web en tant qu’ACI :
-
-1. Dans la barre d’activités Visual Studio Code, sélectionnez l’icône **Azure**. La vue Azure Machine Learning apparaît.
-1. Développez votre nœud d’abonnement. 
-1. Développez le nœud **TeamWorkspace > Modèles**. 
-1. Cliquez avec le bouton droit sur **MNIST-TensorFlow-model**, puis sélectionnez **Déployer le service à partir d’un modèle inscrit**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Déployer le modèle](./media/tutorial-train-deploy-image-classification-model-vscode/deploy-model.png)
-
-1. Sélectionnez **Azure Container Instances**.
-1. Nommez votre service « mnist-tensorflow-svc » et appuyez sur **Entrée**.
-1. Sélectionnez le script à exécuter dans le conteneur en appuyant sur **Entrée** dans la zone d’entrée et en accédant au fichier `score.py` dans le répertoire `mnist-vscode-docs-sample`.
-1. Spécifiez les dépendances nécessaires pour exécuter le script en appuyant sur **Entrée** dans la zone d’entrée et en accédant au fichier `env.yml` dans le répertoire `mnist-vscode-docs-sample`.
-
-    Un fichier contenant vos configurations de modèle apparaît dans Visual Studio Code, avec du contenu similaire à celui ci-dessous :
-
-    ```json
-    {
-        "name": "mnist-tensorflow-svc",
-        "imageConfig": {
-            "runtime": "python",
-            "executionScript": "score.py",
-            "dockerFile": null,
-            "condaFile": "env.yml",
-            "dependencies": [],
-            "schemaFile": null,
-            "enableGpu": false,
-            "description": ""
-        },
-        "deploymentConfig": {
-            "cpu_cores": 1,
-            "memory_gb": 10,
-            "tags": {
-                "": ""
-            },
-            "description": ""
-        },
-        "deploymentType": "ACI",
-        "modelIds": [
-            "MNIST-TensorFlow-model:1"
-        ]
-    }
-    ```
-
-1. Une fois satisfait de votre configuration, enregistrez-la en ouvrant la palette de commandes et en entrant la commande suivante :
-
-    ```text
-    Azure ML: Save and Continue
-    ```
-
-À ce stade, une demande est envoyée à Azure pour déployer votre service web. Cette opération prend plusieurs minutes. Une fois déployé, le nouveau service apparaît sous le nœud *Points de terminaison*.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour une procédure détaillée sur l’apprentissage automatique avec Azure Machine Learning en dehors de Visual Studio Code, consultez le [tutoriel : Former des modèles avec Azure Machine Learning](tutorial-train-models-with-aml.md).
+Dans ce tutoriel, vous allez apprendre à effectuer les tâches suivantes :
+
+> [!div class="checklist"]
+> * Comprendre le code
+> * Créer un espace de travail
+> * Créer un cluster GPU pour l’entraînement
+> * Effectuer l’apprentissage d’un modèle
+
+Pour les étapes suivantes, consultez :
+
+* [Créer et gérer des ressources Azure Machine Learning en utilisant Visual Studio Code](how-to-set-up-vs-code-remote.md).
+* [Connectez Visual Studio Code à une instance de calcul](how-to-set-up-vs-code-remote.md) pour bénéficier d’une expérience de développement complète.
 * Pour une procédure détaillée sur la modification, l’exécution et le débogage de code localement, consultez le [tutoriel Python Hello World](https://code.visualstudio.com/docs/Python/Python-tutorial).
+* [Exécutez des notebooks Jupyter dans Visual Studio Code](how-to-manage-resources-vscode.md) en utilisant un serveur Jupyter distant.
+* Pour une procédure détaillée sur l’apprentissage automatique avec Azure Machine Learning en dehors de Visual Studio Code, consultez le [tutoriel : Former des modèles avec Azure Machine Learning](tutorial-train-models-with-aml.md).

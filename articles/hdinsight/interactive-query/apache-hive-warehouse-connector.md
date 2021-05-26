@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 7d90e874f22b6eaf43a99f4465b88aedbff2659c
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 989b59d6cf8a12a5ddb8079fe04be8023dd672a2
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064608"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190053"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Intégrer Apache Spark et Apache Hive à Hive Warehouse Connector dans Azure HDInsight
 
@@ -58,9 +58,9 @@ Hive Warehouse Connector a besoin de clusters distincts pour les charges de trav
 
 1. À partir d’un navigateur web, accédez à `https://LLAPCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE`, où LLAPCLUSTERNAME est le nom de votre cluster Interactive Query.
 
-1. Accédez à **Summary** > **HiveServer2 Interactive JDBC URL** et notez la valeur. La valeur peut être similaire à : `jdbc:hive2://zk0-iqgiro.rekufuk2y2ce.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2ce.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2ce.bx.internal.cloudapp.net:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2-interactive`.
+1. Accédez à **Summary** > **HiveServer2 Interactive JDBC URL** et notez la valeur. La valeur peut être similaire à : `jdbc:hive2://<zookeepername1>.rekufuk2y2ce.bx.internal.cloudapp.net:2181,<zookeepername2>.rekufuk2y2ce.bx.internal.cloudapp.net:2181,<zookeepername3>.rekufuk2y2ce.bx.internal.cloudapp.net:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2-interactive`.
 
-1. Accédez à **Configs** > **Advanced** > **Advanced hive-site** > **hive.zookeeper.quorum** et notez la valeur. La valeur peut être similaire à : `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
+1. Accédez à **Configs** > **Advanced** > **Advanced hive-site** > **hive.zookeeper.quorum** et notez la valeur. La valeur peut être similaire à : `<zookeepername1>.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,<zookeepername2>.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,<zookeepername3>.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
 
 1. Accédez à **Configs** > **Advanced** > **General** > **hive.metastore.uris** et notez la valeur. La valeur peut être similaire à : `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn*.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
 

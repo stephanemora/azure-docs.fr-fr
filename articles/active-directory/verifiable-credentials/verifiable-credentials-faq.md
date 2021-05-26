@@ -3,17 +3,17 @@ title: Forum aux questions – Justificatifs vérifiables Azure (préversion)
 description: Trouvez des réponses aux questions les plus fréquentes sur les Justificatifs vérifiables Azure
 author: barclayn
 manager: davba
-ms.service: identity
+ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 3c43cfb537c84fb25a6bf879d32a8034342ff605
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c9253ce81b64b45d0ab8a72605eeba4c0d49f3f6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280715"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457888"
 ---
 # <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
 
@@ -81,4 +81,4 @@ Une licence Azure AD P2 est nécessaire pour utiliser la préversion des Justifi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comment personnaliser vos Justificatifs vérifiables Azure Active Directory](credential-design.md)
+- [Comment personnaliser vos justificatifs vérifiables Azure Active Directory](credential-design.md)

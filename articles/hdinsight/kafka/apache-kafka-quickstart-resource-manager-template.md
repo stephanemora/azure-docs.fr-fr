@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: c3c99ea746baef2c9569277c1816a9740e217d29
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 4b90d02d5cef2e43f08916889cf4ba99bee0160c
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279673"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190195"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-arm-template"></a>Démarrage rapide : Créer un cluster Apache Kafka dans Azure HDInsight à l’aide d’un modèle Resource Manager
 
@@ -108,7 +108,7 @@ Dans cette section, vous allez récupérer les informations sur l’hôte grâce
 
     Cette commande retourne des informations semblables au texte suivant :
 
-    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
+    `<zookeepername1>.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,<zookeepername2>.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
 1. Pour définir une variable d’environnement avec les informations de l’hôte broker Kafka, utilisez la commande suivante :
 
@@ -126,7 +126,7 @@ Dans cette section, vous allez récupérer les informations sur l’hôte grâce
 
     Cette commande retourne des informations semblables au texte suivant :
 
-    `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
+    `<brokername1>.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,<brokername2>.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
 ## <a name="manage-apache-kafka-topics"></a>Gérer les rubriques Apache Kafka
 
