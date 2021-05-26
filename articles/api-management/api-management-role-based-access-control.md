@@ -11,15 +11,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 05/18/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ef71591d6d5a26aa737db4e7cb547c8b2c39d92a
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 407defa76b5677e3e5136a5e28a64eb4a78c3cd2
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812171"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191225"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Comment utiliser le contrôle d’accès en fonction du rôle dans Gestion des API Azure
 
@@ -38,14 +38,10 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Vou
 | Contributeur du service de gestion des API | ✓ | ✓ | ✓ | ✓ | Super utilisateur. A un accès CRUD complet aux services et entités Gestion des API (par exemple les API et les stratégies). Dispose d’un accès au portail de publication hérité. |
 | Lecteur du service Gestion des API | ✓ | | || Dispose d’un accès en lecture seule aux services et entités Gestion des API. |
 | Opérateur du service Gestion des API | ✓ | | ✓ | | Peut gérer les services Gestion des API, mais pas les entités.|
-| Éditeur du service Gestion des API<sup>*</sup> | ✓ | ✓ | |  | Peut gérer les entités Gestion des API, mais pas les services.|
-| Gestionnaire de contenu Gestion des API<sup>*</sup> | ✓ | | | ✓ | Peut gérer le portail des développeurs. Accès en lecture seule aux services et aux entités.|
 
 <sup>[1] Accès en lecture aux services et entités Gestion des API (par exemple les API et les stratégies)</sup>
 
 <sup>[2] Accès en écriture aux services et entités Gestion des API à l’exception des opérations suivantes : création, suppression et mise à l’échelle d’instances, configuration de VPN et configuration de domaine personnalisé.</sup>
-
-<sup>\* Le rôle Éditeur de service sera disponible une fois que nous aurons migré toutes les interfaces utilisateur d’administration du portail de publication existant vers le portail Azure. Le rôle Gestionnaire de contenu sera disponible une fois que le portail de publication aura été refactorisé pour ne contenir que les fonctionnalités relatives à la gestion du portail des développeurs.</sup>  
 
 ## <a name="custom-roles"></a>Rôles personnalisés
 

@@ -1,16 +1,16 @@
 ---
-title: Publication de Fonctions durables sur Azure Event Grid (version préliminaire)
+title: Publication de Durable Functions sur Azure Event Grid
 description: Découvrez comment configurer la publication automatique de l’extension Fonctions durables sur Azure Event Grid.
 ms.topic: conceptual
-ms.date: 04/25/2020
-ms.openlocfilehash: 44df100a5c794abf918a09dea0f94d30ddf916d3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 05/11/2020
+ms.openlocfilehash: 51069504bef29d9761d5c36be77fef33fd3d1ca6
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175955"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377550"
 ---
-# <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publication de Fonctions durables sur Azure Event Grid (version préliminaire)
+# <a name="durable-functions-publishing-to-azure-event-grid"></a>Publication de Durable Functions sur Azure Event Grid
 
 Cet article explique comment configurer Durable Functions de façon à publier les événements de cycle de vie d’orchestration (création, achèvement, échec, etc.) sur une [Rubrique Azure Event Grid](../../event-grid/overview.md) personnalisée.
 
@@ -25,7 +25,7 @@ Voici certains scénarios pour lesquels cette fonctionnalité est utile :
 ## <a name="prerequisites"></a>Prérequis
 
 * Installez [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) dans votre projet Durable Functions.
-* Installez l’[émulateur de Stockage Azure](../../storage/common/storage-use-emulator.md) (Windows uniquement) ou utilisez un compte de Stockage Azure existant.
+* Installez l’[émulateur de Stockage Azure](../../storage/common/storage-use-emulator.md) ou utilisez un compte de Stockage Azure existant.
 * Installez [Azure CLI](/cli/azure/) ou utilisez [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ## <a name="create-a-custom-event-grid-topic"></a>Créer une rubrique Event Grid personnalisée
@@ -103,22 +103,21 @@ Ajoutez une section `notifications` à la propriété `durableTask` du fichier, 
 
 Les propriétés de configuration d’Azure Event Grid disponibles se trouvent dans la [documentation host.json](../functions-host-json.md#durabletask). Une fois le fichier `host.json` configuré, votre application de fonction envoie des événements de cycle de vie à la rubrique Event Grid. Cette action démarre quand vous exécutez votre application de fonction tant localement que dans Azure.
 
-Définissez le paramètre d’application pour la clé de rubrique dans l’application Function App et `local.settings.json`. Le fichier JSON suivant est un exemple de l’instance `local.settings.json` pour le débogage local. Remplacez `<topic_key>` par la clé de rubrique.  
+Définissez le paramètre d’application pour la clé de rubrique dans l’application Function App et `local.settings.json`. Le JSON suivant est un exemple de `local.settings.json` pour le débogage local à l’aide d’un émulateur Stockage Azure. Remplacez `<topic_key>` par la clé de rubrique.  
 
 ```json
 {
     "IsEncrypted": false,
     "Values": {
         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-        "AzureWebJobsDashboard": "UseDevelopmentStorage=true",
         "EventGridKey": "<topic_key>"
     }
 }
 ```
 
-Si vous utilisez l’[émulateur de stockage](../../storage/common/storage-use-emulator.md) (Windows uniquement), assurez-vous qu’il fonctionne. Il est judicieux d’exécuter la commande `AzureStorageEmulator.exe clear all` avant l’exécution.
+Si vous utilisez l’[émulateur de stockage](../../storage/common/storage-use-emulator.md) au lieu d’un compte de stockage Azure réel, assurez-vous qu’il est en cours d’exécution. Il est recommandé d’effacer toutes les données de stockage existantes avant de l’exécuter.
 
-Si vous utilisez un compte de Stockage Azure existant, remplacez `UseDevelopmentStorage=true` dans `local.settings.json` par sa chaîne de connexion.
+Si vous utilisez un compte de Stockage Azure réel, remplacez `UseDevelopmentStorage=true` dans `local.settings.json` par sa chaîne de connexion.
 
 ## <a name="create-functions-that-listen-for-events"></a>Créer des fonctions qui écoutent les événements
 

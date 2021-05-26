@@ -4,12 +4,12 @@ description: Cet article explique comment déplacer des rubriques personnalisée
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
-ms.openlocfilehash: d0656a4f6ec1c7431cf7111f786b0f1d779166e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a8e4283b0b9ed2a6bb7080e9a0fa05bf8f409cc
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89145335"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472212"
 ---
 # <a name="move-azure-event-grid-custom-topics-to-another-region"></a>Déplacer des rubriques personnalisées Azure Event Grid vers une autre région
 Vous pouvez être amené à déplacer vos ressources vers une autre région pour diverses raisons. Par exemple, pour tirer parti d’une nouvelle région Azure, pour répondre à des exigences de stratégie et de gouvernance internes ou pour respecter des exigences de planification de la capacité. 
@@ -106,7 +106,6 @@ Pour supprimer le groupe de ressources qui contient la rubrique personnalisée �
 Vous avez appris à déplacer une rubrique Event Grid personnalisée d’une région vers une autre. Consultez les articles suivants pour déplacer des rubriques système, des domaines et des espaces de noms de partenaires parmi différentes régions.
 
 - [Déplacer des rubriques système d’une région à une autre](move-system-topics-across-regions.md). 
-- [Déplacer des domaines d’une région à une autre](move-domains-across-regions.md). 
-- [Déplacer des espaces de noms de partenaires d’une région à une autre](move-partner-namespaces-across-regions.md).
+- [Déplacer les domaines d’une région à une autre](move-domains-across-regions.md). 
 
-Pour plus d’informations sur le déplacement de ressources entre régions et la récupération d’urgence dans Azure, consultez l’article suivant : [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Pour plus d’informations sur le déplacement de ressources entre régions et la récupération d’urgence dans Azure, consultez l’article suivant : [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).
