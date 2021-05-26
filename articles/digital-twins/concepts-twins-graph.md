@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e0591d9897b1ea20978afc663e63e74af7153832
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 29430671cd5879f140127c94541dd50d765fa87e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788507"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460273"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendre les jumeaux numériques et leur graphique de jumeaux
 
@@ -75,17 +75,17 @@ Lorsqu’il est représenté sous la forme d’un objet JSON, un jumeau numériq
 | `$dtId` | Chaîne fournie par l’utilisateur représentant l’ID du jumeau numérique |
 | `$etag` | Champ HTTP standard attribué par le serveur web |
 | `$conformance` | Énumération qui contient l’état de conformité de ce jumeau numérique (*conforme*, *non conforme*, *inconnu*) |
-| `{propertyName}` | Valeur d’une propriété au format JSON (`string`, type de nombre ou objet) |
+| `<property-name>` | Valeur d’une propriété au format JSON (`string`, type de nombre ou objet) |
 | `$relationships` | URL du chemin de la collection des relations. Ce champ est absent si le jumeau numérique n’a pas de périphéries de relations sortantes. |
 | `$metadata.$model` | [Facultatif] l’ID de l’interface de modèle qui caractérise ce jumeau numérique |
-| `$metadata.{propertyName}.desiredValue` | [Uniquement pour les propriétés accessibles en écriture] Valeur souhaitée de la propriété spécifiée |
-| `$metadata.{propertyName}.desiredVersion` | [Uniquement pour les propriétés accessibles en écriture] Version de la valeur souhaitée |
-| `$metadata.{propertyName}.ackVersion` | Version reconnue par l’application d’appareil qui implémente le jumeau numérique |
-| `$metadata.{propertyName}.ackCode` | [Uniquement pour les propriétés accessibles en écriture] Code `ack` retourné par l’application d’appareil qui implémente le jumeau numérique |
-| `$metadata.{propertyName}.ackDescription` | [Uniquement pour les propriétés accessibles en écriture] Description `ack` retournée par l’application d’appareil qui implémente le jumeau numérique |
-| `{componentName}` | Objet JSON contenant les valeurs de propriété et les métadonnées du composant, similaires à celles de l’objet racine. Cet objet existe même si le composant n’a pas de propriétés. |
-| `{componentName}.{propertyName}` | Valeur de la propriété du composant au format JSON (`string`, type de nombre ou objet) |
-| `{componentName}.$metadata` | Informations de métadonnées pour le composant, similaires aux `$metadata` au niveau de la racine |
+| `$metadata.<property-name>.desiredValue` | [Uniquement pour les propriétés accessibles en écriture] Valeur souhaitée de la propriété spécifiée |
+| `$metadata.<property-name>.desiredVersion` | [Uniquement pour les propriétés accessibles en écriture] Version de la valeur souhaitée |
+| `$metadata.<property-name>.ackVersion` | Version reconnue par l’application d’appareil qui implémente le jumeau numérique |
+| `$metadata.<property-name>.ackCode` | [Uniquement pour les propriétés accessibles en écriture] Code `ack` retourné par l’application d’appareil qui implémente le jumeau numérique |
+| `$metadata.<property-name>.ackDescription` | [Uniquement pour les propriétés accessibles en écriture] Description `ack` retournée par l’application d’appareil qui implémente le jumeau numérique |
+| `<component-name>` | Objet JSON contenant les valeurs de propriété et les métadonnées du composant, similaires à celles de l’objet racine. Cet objet existe même si le composant n’a pas de propriétés. |
+| `<component-name>.<property-name>` | Valeur de la propriété du composant au format JSON (`string`, type de nombre ou objet) |
+| `<component-name>.$metadata` | Informations de métadonnées pour le composant, similaires aux `$metadata` au niveau de la racine |
 
 Voici un exemple de jumeau numérique sous la forme d’un objet JSON :
 
@@ -144,7 +144,7 @@ Lorsqu’elle est représentée sous la forme d’un objet JSON, une relation d�
 | `$sourceId` | ID du jumeau numérique source |
 | `$targetId` | ID du jumeau numérique cible |
 | `$relationshipName` | Nom de la relation |
-| `{propertyName}` | [Facultatif] Valeur d’une propriété de cette relation, au format JSON (`string`, type de nombre ou objet) |
+| `<property-name>` | [Facultatif] Valeur d’une propriété de cette relation, au format JSON (`string`, type de nombre ou objet) |
 
 Voici un exemple de relation sous la forme d’un objet JSON :
 

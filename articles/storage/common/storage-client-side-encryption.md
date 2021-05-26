@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 02607c219cf39a20a40854632e961b3ce199d0d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eca43b43606828ebb514f3f22e1839d96db4e0fa
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588254"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461791"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage
 
@@ -125,7 +125,7 @@ La bibliothèque cliente de stockage utilise les interfaces Key Vault dans la bi
 
 ### <a name="interface-and-dependencies"></a>Interfaces et dépendances
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Il existe deux packages nécessaires pour l’intégration du coffre de clés :
 
@@ -134,7 +134,7 @@ Il existe deux packages nécessaires pour l’intégration du coffre de clés :
 
 Le coffre de clés est conçu pour les clés principales de valeur élevée et les seuils de limitation par coffre de clés sont définies avec cela à l’esprit. À compter de la version 4.1.0 d’Azure.Security.KeyVault.Keys, il n’existe pas d’implémentation `IKeyEncryptionKeyResolver` qui prenne en charge la mise en cache de clés. Si la mise en cache est nécessaire en raison de limitations, [cet exemple](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) peut être suivi pour injecter une couche de mise en cache dans une instance `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver`.
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 Il existe trois packages de coffre de clés :
 
@@ -179,7 +179,7 @@ Les utilisateurs peuvent éventuellement activer un mode de fonctionnement dans 
 
 ### <a name="blob-service-encryption"></a>Chiffrement du service BLOB
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Créez un objet **ClientSideEncryptionOptions** et définissez-le sur la création du client à l’aide de **SpecializedBlobClientOptions**. Vous ne pouvez pas définir des options de chiffrement par API. Tout le reste est géré par la bibliothèque cliente en interne.
 
@@ -229,7 +229,7 @@ ClientSideEncryptionOptions encryptionOptions;
 BlobClient clientSideEncryptionBlob = plaintextBlob.WithClientSideEncryptionOptions(encryptionOptions);
 ```
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 Créez un objet **BlobEncryptionPolicy** et définissez-le dans les options de requête (par API ou au niveau client à l’aide de **DefaultRequestOptions**). Tout le reste est géré par la bibliothèque cliente en interne.
 
@@ -255,7 +255,7 @@ blob.DownloadToStream(outputStream, null, options, null);
 
 ### <a name="queue-service-encryption"></a>Chiffrement du service de File d’attente
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Créez un objet **ClientSideEncryptionOptions** et définissez-le sur la création du client à l’aide de **SpecializedQueueClientOptions**. Vous ne pouvez pas définir des options de chiffrement par API. Tout le reste est géré par la bibliothèque cliente en interne.
 
@@ -333,7 +333,7 @@ QueueMessage[] messages = queue.ReceiveMessages(maxMessages: 5).Value;
 Debug.Assert(messages.Length == 4)
 ```
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 Créez un objet **QueueEncryptionPolicy** et définissez-le dans les options de requête (par API ou au niveau client à l’aide de **DefaultRequestOptions**). Tout le reste est géré par la bibliothèque cliente en interne.
 

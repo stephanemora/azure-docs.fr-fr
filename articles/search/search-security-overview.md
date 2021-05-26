@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 46f2035e5f8409cd38faeb9c327b88b06fc7d7a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4310c724707548cd55df5591504736d8f3c3857
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100097634"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460049"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Vue d’ensemble de la sécurité dans Recherche cognitive Azure
 
@@ -109,7 +109,7 @@ Les opérations de management des services sont autorisées via un [contrôle d�
 
 Dans Recherche cognitive Azure , Resource Manager est utilisé pour créer ou supprimer le service, gérer les clés API et mettre à l’échelle le service. Ainsi, les attributions de rôles Azure déterminent qui peut effectuer ces tâches, qu’elles utilisent le [portail](search-manage.md), [PowerShell](search-manage-powershell.md) ou les [API REST de gestion](/rest/api/searchmanagement/search-howto-management-rest-api).
 
-[Trois rôles de base](search-security-rbac.md#management-tasks-by-role) sont définis pour l’administration du service de recherche. Les attributions de rôles peuvent être effectuées à l’aide de toute méthodologie prise en charge (portail, PowerShell, etc.) et sont honorées dans l’ensemble du service. Les rôles Propriétaire et Contributeur peuvent exercer toute une série de fonctions d’administration. Vous pouvez attribuer le rôle Lecteur à des utilisateurs qui ne voient que des informations essentielles.
+[Trois rôles de base](search-security-rbac.md) sont définis pour l’administration du service de recherche. Les attributions de rôles peuvent être effectuées à l’aide de toute méthodologie prise en charge (portail, PowerShell, etc.) et sont honorées dans l’ensemble du service. Les rôles Propriétaire et Contributeur peuvent exercer toute une série de fonctions d’administration. Vous pouvez attribuer le rôle Lecteur à des utilisateurs qui ne voient que des informations essentielles.
 
 > [!Note]
 > En utilisant des mécanismes à l’échelle d’Azure, vous pouvez verrouiller un abonnement ou une ressource pour empêcher la suppression accidentelle ou non autorisée de votre service de recherche par les utilisateurs disposant de droits d’administration. Pour plus d’informations, consultez [Verrouiller les ressources pour en empêcher la suppression](../azure-resource-manager/management/lock-resources.md).

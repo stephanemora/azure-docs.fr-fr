@@ -2,13 +2,13 @@
 title: Authentifier une application pour accéder aux ressources Azure Event Hubs
 description: Cet article fournit des informations sur l’authentification d’une application avec Azure Active Directory pour accéder aux ressources Azure Event Hubs
 ms.topic: conceptual
-ms.date: 10/21/2020
-ms.openlocfilehash: 25ec5f11ca7b5e801e18155f1a3da6474c8e66e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: 1db8ec57145f619cc71e2fb78d64ace23761073a
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92913311"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378212"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Authentifier une application avec Azure Active Directory pour accéder aux ressources Azure Event Hubs
 Microsoft Azure offre la gestion du contrôle d’accès intégré pour les ressources et les applications basées sur Azure Active Directory (Azure AD). L’un des principaux avantages de l’utilisation d’Azure AD avec Azure Event Hubs est que vous n’avez plus besoin de stocker vos informations d’identification dans le code. Au lieu de cela, vous pouvez demander un jeton d’accès OAuth 2.0 à partir de la Plateforme d’identité Microsoft. Le nom de la ressource pour demander un jeton est `https://eventhubs.azure.net/`. Il est identique pour tous les clouds/locataires (pour les clients Kafka, il s’agit de `https://<namespace>.servicebus.windows.net`). Azure AD authentifie le principal de sécurité (un utilisateur, un groupe ou un principal de service) qui exécute l’application. Si l’authentification réussit, Azure AD retourne un jeton d’accès à l’application et l’application peut ensuite l’utiliser pour autoriser les demandes vers les ressources Azure Event Hubs.
@@ -68,7 +68,7 @@ L’application a besoin d’une clé secrète client pour prouver son identité
 
 
 ## <a name="assign-azure-roles-using-the-azure-portal"></a>Attribuer des rôles Azure à l’aide du portail Azure  
-Après avoir inscrit l'application, vous devez attribuer un rôle Azure AD Event Hubs au principal de service de l'application, comme décrit dans la section [Rôles intégrés pour Azure Event Hubs](#built-in-roles-for-azure-event-hubs). 
+Après avoir inscrit l’application, vous devez attribuer un rôle Azure AD Event Hubs au principal de service de l’application, comme décrit dans la section [Rôles intégrés pour Azure Event Hubs](#built-in-roles-for-azure-event-hubs). 
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre espace de noms Event Hubs.
 2. Dans la page **Vue d’ensemble**, sélectionnez le hub d’événements auquel vous souhaitez attribuer un rôle.

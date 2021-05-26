@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: c362603771744cf94f3e1d70a9f636f31bbd399a
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 03c6697f07f66cd1d12cae55ddc5f4c73db70505
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750966"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461687"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor
 
@@ -35,7 +35,7 @@ Pour commencer à écrire des requêtes pour les alertes, procédez comme suit 
 
 1. Accédez à la ressource pour laquelle vous souhaitez créer une alerte. Vous pouvez définir des règles d’alerte sur plusieurs ressources en sélectionnant un abonnement ou une étendue de groupe de ressources, lorsque cela est possible. La génération d’alertes sur plusieurs ressources réduit les coûts et la nécessité de gérer plusieurs règles d’alerte.
 1. Sous **Surveiller**, sélectionnez **Journaux**.
-1. Interrogez les données de journal qui peuvent indiquer le problème. Pour savoir ce que vous pouvez découvrir ou [commencer à écrire votre propre requête](../logs/log-analytics-tutorial.md), vous pouvez utiliser la [rubrique d’exemples de requêtes d’alerte](../logs/example-queries.md). En outre, [découvrez comment créer des requêtes d’alerte optimisées](alerts-log-query.md).
+1. Interrogez les données de journal qui peuvent indiquer le problème. Pour savoir ce que vous pouvez découvrir ou [commencer à écrire votre propre requête](../logs/log-analytics-tutorial.md), vous pouvez utiliser la [rubrique d’exemples de requêtes d’alerte](../logs/queries.md). En outre, [découvrez comment créer des requêtes d’alerte optimisées](alerts-log-query.md).
 1. Appuyez sur le bouton « + Nouvelle règle d’alerte » pour démarrer le flux de création d’alerte.
 
     ![Log Analytics - Définir l’alerte](media/alerts-log/AlertsAnalyticsCreate.png)

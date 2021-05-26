@@ -152,7 +152,7 @@
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/updates/?category=media'
     - name: Tarifs
-      href: 'https://azure.microsoft.com/services/media-services/live-video-analytics/'
+      href: 'https://azure.microsoft.com/pricing/details/video-analyzer/'
     - name: FAQ
       href: faq-edge.md
     - name: Quotas et limitations

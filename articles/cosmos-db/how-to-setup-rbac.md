@@ -4,20 +4,17 @@ description: Découvrez comment configurer le contrôle d’accès en fonction d
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 05/25/2021
 ms.author: thweiss
-ms.openlocfilehash: 9de41835e33d50a670a44089cb10d44cc57e92a7
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 35e3d4668fc3a5eb260bc187ec1cb6177f91911b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107818695"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378471"
 ---
-# <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configurer le contrôle d’accès en fonction du rôle avec Azure Active Directory pour votre compte Azure Cosmos DB (préversion)
+# <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account"></a>Configurer le contrôle d’accès en fonction du rôle avec Azure Active Directory pour votre compte Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
-
-> [!IMPORTANT]
-> Le contrôle d’accès en fonction du rôle d’Azure Cosmos DB est actuellement en préversion. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
 > Cet article concerne le contrôle d’accès en fonction du rôle pour les opérations de plan de données dans Azure Cosmos DB. Si vous utilisez des opérations de plan de gestion, consultez l’article [Contrôle d’accès en fonction du rôle](role-based-access-control.md) appliqué à vos opérations de plan de gestion.
@@ -40,14 +37,11 @@ Le contrôle d’accès en fonction du rôle (RBAC) de plan de données Azure Co
 
   :::image type="content" source="./media/how-to-setup-rbac/concepts.png" alt-text="Concepts du contrôle d’accès en fonction du rôle (RBAC)":::
 
-> [!NOTE]
-> Le contrôle d’accès en fonction du rôle (RBAC) d’Azure Cosmos DB n’expose actuellement aucune définition de rôle intégrée.
-
 ## <a name="permission-model"></a><a id="permission-model"></a> Modèle d’autorisation
 
 > [!IMPORTANT]
 > Ce modèle d’autorisation couvre seulement les opérations de base de données qui vous permettent de lire et d’écrire des données. Il **ne couvre aucun** type d’opération de gestion, comme la création de conteneurs ou la modification de leur débit. Cela signifie que **vous ne pouvez pas utiliser de kit de développement logiciel (SDK) de plan de données Azure Cosmos DB** pour authentifier les opérations de gestion avec une identité AAD. Au lieu de cela, vous devez utiliser [Azure RBAC](role-based-access-control.md) via un des éléments suivants :
-> - [Modèles ARM](manage-with-templates.md)
+> - [Modèles Azure Resource Manager (ARM)](manage-with-templates.md)
 > - [Scripts Azure PowerShell](manage-with-powershell.md),
 > - [Scripts Azure CLI](manage-with-cli.md),
 > - Bibliothèques de gestion Azure disponibles pour
@@ -95,13 +89,22 @@ Les demandes de métadonnées réelles autorisées par l’action `Microsoft.Doc
 | Base de données | - Lire les métadonnées de la base de données<br>- Lister les conteneurs sous la base de données<br>- Pour chaque conteneur sous la base de données, les actions autorisées au niveau de l’étendue du conteneur |
 | Conteneur | - Lire les métadonnées du conteneur<br>- Lister les partitions physiques sous le conteneur<br>- Résoudre l’adresse de chaque partition physique |
 
-## <a name="create-role-definitions"></a><a id="role-definitions"></a> Créer des définitions de rôle
+## <a name="built-in-role-definitions"></a>Définitions de rôle intégré
 
-Quand vous créez une définition de rôle, vous devez fournir les éléments suivants :
+Azure Cosmos DB expose 2 définitions de rôles intégrées :
+
+| id | Nom | Actions incluses |
+|---|---|---|
+| 00000000-0000-0000-0000-000000000001 | Lecteur de données intégré Cosmos DB | `Microsoft.DocumentDB/databaseAccounts/readMetadata`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` |
+| 00000000-0000-0000-0000-000000000002 | Contributeur de données intégré Cosmos DB | `Microsoft.DocumentDB/databaseAccounts/readMetadata`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*` |
+
+## <a name="create-custom-role-definitions"></a><a id="role-definitions"></a> Créer des définitions de rôle personnalisé
+
+Quand vous créez une définition de rôle personnalisé, vous devez fournir les éléments suivants :
 
 - Le nom de votre compte Azure Cosmos DB.
 - Le groupe de ressources contenant votre compte.
-- Le type de la définition de rôle ; seul `CustomRole` est actuellement pris en charge.
+- Le type de la définition de rôle : `CustomRole`.
 - Le nom de la définition de rôle.
 - Une liste des [actions](#permission-model) que vous voulez autoriser pour le rôle.
 - Une ou plusieurs étendues auxquelles la définition de rôle peut être affectée ; les étendues prises en charge sont :
@@ -273,9 +276,13 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 ]
 ```
 
+### <a name="using-azure-resource-manager-templates"></a>Utilisation de modèles Azure Resource Manager
+
+Pour obtenir une référence et des exemples d’utilisation de modèles Azure Resource Manager afin de créer des définitions de rôle, consultez [cette page](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlresources2/createupdatesqlroledefinition).
+
 ## <a name="create-role-assignments"></a><a id="role-assignments"></a> Créer des attributions de rôle
 
-Une fois que vous avez créé vos définitions de rôle, vous pouvez les associer à vos identités AAD. Lors de la création d’une attribution de rôle, vous devez fournir :
+Vous pouvez associer des définitions de rôle intégré ou personnalisé à vos identités Azure AD. Lors de la création d’une attribution de rôle, vous devez fournir :
 
 - Le nom de votre compte Azure Cosmos DB.
 - Le groupe de ressources contenant votre compte.
@@ -324,6 +331,10 @@ principalId = '<aadPrincipalId>'
 az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
+### <a name="using-azure-resource-manager-templates"></a>Utilisation de modèles Azure Resource Manager
+
+Pour obtenir une référence et des exemples d’utilisation de modèles Azure Resource Manager afin de créer des attributions de rôle, consultez [cette page](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlresources2/createupdatesqlroleassignment).
+
 ## <a name="initialize-the-sdk-with-azure-ad"></a>Initialiser le SDK avec Azure AD
 
 Pour utiliser le contrôle RBAC d’Azure Cosmos DB dans votre application, vous devez mettre à jour la façon dont vous initialisez le SDK Azure Cosmos DB. Au lieu de passer la clé principale de votre compte, vous devez passer une instance d’une classe `TokenCredential`. Cette instance fournit le SDK Azure Cosmos DB avec le contexte nécessaire pour extraire un jeton AAD pour le compte de l’identité que vous souhaitez utiliser.
@@ -333,7 +344,6 @@ La façon dont vous créez une instance de `TokenCredential` dépasse le cadre d
 - [Dans .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [Dans Java](/java/api/overview/azure/identity-readme#credential-classes)
 - [En JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
-- Dans l’API REST
 
 Les exemples ci-dessous utilisent un principal de service avec une instance de `ClientSecretCredential`.
 
@@ -381,13 +391,20 @@ const client = new CosmosClient({
 });
 ```
 
-### <a name="in-rest-api"></a>Dans l’API REST
+## <a name="authenticate-requests-on-the-rest-api"></a>Authentifier des demandes sur l’API REST
 
-Azure Cosmos DB RBAC est actuellement pris en charge avec la version 2021-03-15 de l’API REST. Lors de la construction de l’[en-tête d’autorisation](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), définissez le paramètre **type** sur **aad** et la signature de hachage **(sig)** sur le **jeton OAuth**, comme indiqué dans l’exemple suivant :
+Le RBAC Azure Cosmos DB est actuellement pris en charge avec la version `2021-03-15` de l’API REST. Lors de la construction de l’[en-tête d’autorisation](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), définissez le paramètre **type** sur **aad** et la signature de hachage **(sig)** sur le **jeton OAuth**, comme indiqué dans l’exemple suivant :
 
 `type=aad&ver=1.0&sig=<token-from-oauth>`
 
-## <a name="auditing-data-requests"></a>Audit des demandes de données
+## <a name="use-data-explorer"></a>Utiliser l’explorateur de données
+
+> [!NOTE]
+> L’explorateur de données exposé dans le portail Azure ne prend pas encore en charge le RBAC Azure Cosmos DB. Pour utiliser votre identité Azure AD lors de l’exploration de vos données, vous devez utiliser l’[Explorateur Azure Cosmos DB](https://cosmos.azure.com/) à la place.
+
+Lors du parcours des données stockées dans votre compte, l’[Explorateur Azure Cosmos DB](https://cosmos.azure.com/) tente d’abord d’extraire la clé primaire de votre compte au nom de l’utilisateur connecté, et d’utiliser cette clé pour accéder aux données. Si cet utilisateur n’est pas autorisé à extraire la clé primaire, son identité Azure AD est utilisée à la place pour accéder aux données.
+
+## <a name="audit-data-requests"></a>Auditer les demandes de données
 
 Lors de l’utilisation du contrôle RBAC d’Azure Cosmos DB, les [journaux de diagnostic](cosmosdb-monitor-resource-logs.md) contiennent en plus les informations d’identité et d’autorisation pour chaque opération de données. Ceci vous permet d’effectuer un audit détaillé et de récupérer l’identité AAD utilisée pour chaque demande de données envoyée à votre compte Azure Cosmos DB.
 
@@ -402,7 +419,6 @@ Ces informations supplémentaires appartiennent à la catégorie de journalisati
 - Vous pouvez uniquement affecter des définitions de rôles aux identités Azure AD appartenant au même locataire Azure AD que votre compte Azure Cosmos DB.
 - La résolution de groupe Azure AD n’est actuellement pas prise en charge pour les identités qui appartiennent à plus de 200 groupes.
 - Le jeton Azure AD est actuellement transmis en tant qu’en-tête avec chaque requête individuelle envoyée au service Azure Cosmos DB, ce qui augmente la taille globale de la charge utile.
-- L'accès à vos données à l'aide d'Azure AD via l'[Explorateur Azure Cosmos DB](data-explorer.md) n'est pas encore pris en charge. Actuellement, pour utiliser l'Explorateur Azure Cosmos DB, l'utilisateur doit avoir accès à la clé primaire du compte.
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
@@ -416,15 +432,15 @@ La prise en charge de portail Azure pour la gestion des rôles n’est pas encor
 
 ### <a name="which-sdks-in-azure-cosmos-db-sql-api-support-rbac"></a>Quels SDK de l’API SQL d’Azure Cosmos DB prennent en charge RBAC ?
 
-Les SDK [.NET V3](sql-api-sdk-dotnet-standard.md) et [Java V4](sql-api-sdk-java-v4.md) sont actuellement pris en charge.
+Les kits de développement logiciel (SDK) [.NET v3](sql-api-sdk-dotnet-standard.md), [Java v4](sql-api-sdk-java-v4.md) et [JavaScript v3](sql-api-sdk-node.md) sont actuellement pris en charge.
 
 ### <a name="is-the-azure-ad-token-automatically-refreshed-by-the-azure-cosmos-db-sdks-when-it-expires"></a>Le jeton Azure AD est-il actualisé automatiquement par les SDK Azure Cosmos DB quand il expire ?
 
 Oui.
 
-### <a name="is-it-possible-to-disable-the-usage-of-the-account-primary-key-when-using-rbac"></a>Est-il possible de désactiver l’utilisation de la clé principale du compte lors de l’utilisation de RBAC ?
+### <a name="is-it-possible-to-disable-the-usage-of-the-account-primarysecondary-keys-when-using-rbac"></a>Est-il possible de désactiver l’utilisation des clé primaire et secondaire du compte lors de l’utilisation du RBAC ?
 
-La désactivation de la clé principale du compte n’est pas possible actuellement.
+La désactivation des clé primaire et secondaire du compte n’est pas possible actuellement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
