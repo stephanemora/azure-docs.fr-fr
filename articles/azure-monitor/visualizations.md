@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2021
-ms.openlocfilehash: b90d628f0d24e43d7b9f2e3fa87e74d426648c6e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1da3f75fb95488d45a3f29284bdc8c7424b6bc9a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048571"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459102"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisation des données à partir d’Azure Monitor
 Cet article récapitule les méthodes disponibles pour visualiser les métriques et les données de journal stockées dans Azure Monitor.
@@ -29,10 +29,6 @@ Les [classeurs](./visualize/workbooks-overview.md) sont des documents interactif
 - Possibilité de définir des classeurs personnels ou partagés.
 - Expérience de création simple et conviviale.
 - Les modèles prennent en charge la galerie de modèles publique basée sur GitHub.
-
-### <a name="limitations"></a>Limites
-- Aucune actualisation automatique.
-- Les classeurs présentant une disposition moins dense que les tableaux de bord, ils n’offrent pas la même vision panoramique. Conviennent davantage pour fournir des insights plus approfondis.
 
 
 ## <a name="azure-dashboards"></a>Tableaux de bord Azure

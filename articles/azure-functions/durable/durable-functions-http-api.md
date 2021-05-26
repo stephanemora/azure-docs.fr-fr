@@ -3,14 +3,14 @@ title: API HTTP dans Durable Functions - Azure Functions
 description: Découvrez comment implémenter des API HTTP dans l’extension Fonctions durables d’Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 05/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 0ab9f33616547c073e8e3a2128a441238bf3a17d
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: eff6a44734600a6399f76fc7be331835ae395593
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220451"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377447"
 ---
 # <a name="http-api-reference"></a>Référence sur l'API HTTP
 
@@ -21,10 +21,10 @@ Toutes les API HTTP implémentées par l’extension requièrent les paramètres
 | Paramètre        | Type de paramètre  | Description |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Chaîne de requête    | Le nom du [hub de tâches](durable-functions-task-hubs.md). S’il n’est pas spécifié, le nom de hub de tâches de l’application de fonction en cours est supposé. |
-| **`connection`** | Chaîne de requête    | Le **nom** de la chaîne de connexion du compte de stockage. Si elle n’est pas spécifiée, la chaîne de connexion par défaut pour l’application de la fonction est supposée. |
+| **`connection`** | Chaîne de requête    | Le **nom** du paramètre d’application de connexion pour le fournisseur de stockage principal. Si elle n’est pas spécifiée, la configuration de connexion par défaut pour l’application de la fonction est supposée. |
 | **`systemKey`**  | Chaîne de requête    | La clé d’autorisation requise pour appeler l’API. |
 
-`systemKey` est une clé d’autorisation automatiquement générée par l’hôte Azure Functions. Elle accorde l’accès aux API de l’extension Tâche durable et peut être gérée de la même façon que les [autres clés d’autorisation](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Vous pouvez générer des URL qui contiennent les valeurs de chaîne de requête `taskHub`, `connection` et `systemKey` correctes à l’aide des API de [liaison du client d’orchestration](durable-functions-bindings.md#orchestration-client), telles que les API `CreateCheckStatusResponse` et `CreateHttpManagementPayload` dans .NET ou les API `createCheckStatusResponse` et `createHttpManagementPayload` dans JavaScript.
+`systemKey` est une clé d’autorisation automatiquement générée par l’hôte Azure Functions. Elle accorde l’accès aux API de l’extension Tâche durable et peut être gérée de la même façon que les [autres clés d’accès Azure Functions](../security-concepts.md#function-access-keys). Vous pouvez générer des URL qui contiennent les valeurs de chaîne de requête `taskHub`, `connection` et `systemKey` correctes à l’aide des API de [liaison du client d’orchestration](durable-functions-bindings.md#orchestration-client), telles que les API `CreateCheckStatusResponse` et `CreateHttpManagementPayload` dans .NET, les API `createCheckStatusResponse` et `createHttpManagementPayload` dans JavaScript, etc.
 
 Les quelques sections suivantes présentent les API HTTP spécifiques prises en charge par l’extension et fournissent des exemples d’utilisation.
 
@@ -240,9 +240,6 @@ La réponse **HTTP 202** inclut également un en-tête de réponse **Location** 
 
 Vous pouvez également interroger l’état de toutes les instances en supprimant l’élément `instanceId` de la demande « Obtenir l’état de l’instance ». Dans le cas présent, les paramètres de base sont les mêmes que ceux de « Obtenir l’état de l’instance ». Les paramètres de chaîne de requête dédiés au filtrage sont également pris en charge.
 
-Une chose à retenir est que `connection` et `code` sont facultatifs. Si vous disposez d’une authentification anonyme sur la fonction, le paramètre `code` n’est pas nécessaire.
-Si vous ne souhaitez pas utiliser une autre chaîne de connexion de stockage que celle définie dans le paramètre d’application AzureWebJobsStorage, vous pouvez ignorer en toute sécurité le paramètre de chaîne de requête de connexion.
-
 ### <a name="request"></a>Requête
 
 Pour la version 1.x du runtime Functions, la demande est mise en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
@@ -340,8 +337,7 @@ Voici un exemple de charges utiles de réponse incluant l’état de l’orchest
 ```
 
 > [!NOTE]
-> Cette opération peut être très gourmande en E/S pour le stockage Azure s’il y a un grand nombre de lignes dans la table d’instances. Vous trouverez plus d’informations sur la table d’instances dans la documentation [Performances et mise à l’échelle dans Fonctions durables (Azure Functions)](durable-functions-perf-and-scale.md#instances-table).
->
+> Cette opération peut être très coûteuse en termes d’E/S de stockage Azure si vous utilisez le [fournisseur Stockage Azure par défaut](durable-functions-storage-providers.md#azure-storage) et s’il y a beaucoup de lignes dans la table Instances. Vous trouverez plus d’informations sur la table d’instances dans la documentation [Performances et mise à l’échelle dans Fonctions durables (Azure Functions)](durable-functions-perf-and-scale.md#instances-table).
 
 Si vous obtenez plus de résultats, un jeton de continuation est retourné dans l’en-tête de réponse.  Le nom de l’en-tête est `x-ms-continuation-token`.
 
@@ -437,7 +433,7 @@ Les paramètres de requête pour cette API incluent l’ensemble par défaut men
 | **`runtimeStatus`**   | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances vidées selon l’état de leur runtime. Pour obtenir la liste des valeurs d’état d’exécution possibles, consultez l’article [Interrogation des instances](durable-functions-instance-management.md). |
 
 > [!NOTE]
-> Cette opération peut être très gourmande en E/S pour le stockage Azure s’il y a un grand nombre de lignes dans les instances et/ou les tables d’historique. Vous trouverez plus d’informations sur ces tables dans la documentation [Performances et diminution de la taille des instances dans Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table).
+> Cette opération peut être très coûteuse en termes d’E/S de stockage Azure si vous utilisez le [fournisseur Stockage Azure par défaut](durable-functions-storage-providers.md#azure-storage) et s’il y a beaucoup de lignes dans les table Instances et History. Vous trouverez plus d’informations sur ces tables dans la documentation [Performances et diminution de la taille des instances dans Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table).
 
 ### <a name="response"></a>response
 

@@ -8,14 +8,14 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 05/25/2021
 ms.author: apimpm
-ms.openlocfilehash: 48abce693ca22163c0a1742ba71faf36fc6156a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 946a2707e68e2f3ce6f78df997d102eeb0c7c450
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99989091"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376967"
 ---
 # <a name="self-hosted-gateway-overview"></a>Vue d’ensemble de la passerelle auto-hébergée
 
@@ -43,7 +43,7 @@ Le déploiement de passerelles auto-hébergées dans les mêmes environnements o
 
 ## <a name="packaging-and-features"></a>Empaquetage et caractéristiques
 
-La passerelle auto-hébergée est une version conteneurisée, fonctionnellement équivalente de la passerelle managée déployée sur Azure pour chaque service Gestion des API. La passerelle auto-hébergée est disponible sous la forme d’un [conteneur](https://aka.ms/apim/sputnik/dhub) Docker basé sur Linux à partir de Microsoft Container Registry. Elle peut être déployée sur Docker, Kubernetes ou toute autre solution d’orchestration de conteneurs s’exécutant sur un cluster de serveurs local, sur une infrastructure cloud ou, à des fins d’évaluation et de développement, sur un ordinateur personnel.
+La passerelle auto-hébergée est une version conteneurisée, fonctionnellement équivalente de la passerelle managée déployée sur Azure pour chaque service Gestion des API. La passerelle auto-hébergée est disponible sous la forme d’un [conteneur](https://aka.ms/apim/sputnik/dhub) Docker basé sur Linux à partir de Microsoft Container Registry. Elle peut être déployée sur Docker, Kubernetes ou toute autre solution d’orchestration de conteneurs s’exécutant sur un cluster de serveurs local, sur une infrastructure cloud ou, à des fins d’évaluation et de développement, sur un ordinateur personnel. Vous pouvez également déployer la passerelle auto-hébergée en tant qu’extension de cluster sur un [cluster Kubernetes avec Azure Arc](./how-to-deploy-self-hosted-gateway-azure-arc.md).
 
 Les fonctionnalités suivantes, présentes dans les passerelles gérées, **ne sont pas disponibles** dans les passerelles auto-hébergées :
 
@@ -85,3 +85,4 @@ Lorsque la connectivité est restaurée, chaque passerelle auto-hébergée affec
 -   [Lire un livre blanc pour plus d’informations sur cette rubrique](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   [Déployer une passerelle auto-hébergée sur Docker](how-to-deploy-self-hosted-gateway-docker.md)
 -   [Déployer une passerelle auto-hébergée sur Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
+-   [Déployer une passerelle auto-hébergée sur un cluster Kubernetes avec Azure Arc](how-to-deploy-self-hosted-gateway-azure-arc.md)

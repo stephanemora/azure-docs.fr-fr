@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/09/2020
-ms.openlocfilehash: 529fc432bf8777ef7e2b527f08e9cb59e42bf156
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cb4f074cb9487c22fc340b2e7b2941cd7b69ca98
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041023"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459050"
 ---
 # <a name="log-queries-in-azure-monitor"></a>Requêtes de journal dans Azure Monitor
 Azure Monitor Logs repose sur Azure Data Explorer, et les requêtes de journal sont écrites à l’aide du même langage de requête Kusto (KQL). Il s’agit d’un langage riche conçu pour être facile à lire et écrire. Vous pourrez donc commencer écrire des requêtes avec un minimum de conseils.
@@ -30,7 +30,7 @@ La meilleure façon de commencer à apprendre à écrire des requêtes de journa
 
 - [Tutoriel Log Analytics](./log-analytics-tutorial.md) : tutoriel sur l’utilisation des fonctionnalités Log Analytics, l’outil que vous utiliserez dans le portail Azure pour modifier et exécuter des requêtes. Il vous permet également d’écrire des requêtes simples sans utiliser directement le langage de requête. Si vous n’avez jamais utilisé Log Analytics, commencez ici pour découvrir l’outil que vous utiliserez avec les autres tutoriels et exemples.
 - [Tutoriel KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor) : procédure pas à pas présentant les concepts de base et les opérateurs courants KQL. C’est le meilleur endroit pour commencer à vous familiariser avec le langage lui-même et la structure des requêtes de journal. 
-- [Exemples de requêtes](../logs/example-queries.md) : description des exemples de requêtes disponibles dans Log Analytics. Vous pouvez utiliser les requêtes sans modification, ou les utiliser comme exemples pour apprendre KQL.
+- [Exemples de requêtes](../logs/queries.md) : description des exemples de requêtes disponibles dans Log Analytics. Vous pouvez utiliser les requêtes sans modification, ou les utiliser comme exemples pour apprendre KQL.
 - [Exemples de requêtes](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor) : exemples de requêtes illustrant différents concepts.
 
 

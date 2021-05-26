@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 079ac41f8b138bccbe4d435a79836d3acee71b7d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2cf201c17b97464386ce52f4d689c2c1006d0970
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728621"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377413"
 ---
 # <a name="azure-functions-hosting-options"></a>Options d’hébergement Azure Functions
 
@@ -22,7 +22,10 @@ Le plan d’hébergement que vous choisissez détermine les comportements suivan
 * Les ressources disponibles pour chaque instance de Function App.
 * La prise en charge des fonctionnalités avancées, notamment la connectivité du réseau virtuel Azure.
 
-Cet article fournit une comparaison détaillée entre les différents plans d’hébergement, ainsi que l’hébergement basé sur Kubernetes.
+Cet article présente une comparaison détaillée entre les différents plans d’hébergement, ainsi que l’[hébergement basé sur Kubernetes](functions-kubernetes-keda.md).
+
+> [!NOTE]
+> Si vous choisissez d’héberger vos fonctions dans un cluster Kubernetes, utilisez un [cluster Kubernetes avec Azure Arc](../azure-arc/kubernetes/overview.md). L’hébergement sur un cluster Kubernetes avec Azure Arc est actuellement disponible en préversion. Pour en savoir plus, consultez [App Service, Functions et Logic Apps sur Azure Arc](../app-service/overview-arc-integration.md).  
 
 ## <a name="overview-of-plans"></a>Vue d’ensemble des plans
 
@@ -39,7 +42,7 @@ Les tableaux de comparaison de cet article incluent également les options d’h
 | Option d’hébergement | Détails |
 | --- | --- |  
 |**[ASE](dedicated-plan.md)** | App Service Environment(ASE) est une fonctionnalité d’App Service qui fournit un environnement totalement isolé et dédié pour l’exécution sécurisée de vos applications App Service à grande échelle.<br/><br/>Les environnements ASE conviennent aux charges de travail d’application qui nécessitent : <br/><br/>✔ Une très grande échelle.<br/>✔ Une isolation totale du calcul et un accès réseau sécurisé.<br/>✔ Utilisation élevée de la mémoire.|  
-| **[Kubernetes](functions-kubernetes-keda.md)** | Kubernetes offre un environnement totalement isolé et dédié qui s’exécute sur la plateforme Kubernetes.<br/><br/> Kubernetes convient aux charges de travail d’application qui nécessitent : <br/>✔ Des exigences matérielles personnalisées.<br/>✔ Une isolation et un accès réseau sécurisé.<br/>✔ Une possibilité d’exécution dans un environnement hybride ou multi-cloud.<br/>✔ Une exécution en parallèle de services et d’applications Kubernetes existants.|  
+| **Kubernetes**<br/>([Direct](functions-kubernetes-keda.md) ou<br/>[Azure Arc](../app-service/overview-arc-integration.md)) | Kubernetes offre un environnement totalement isolé et dédié qui s’exécute sur la plateforme Kubernetes.<br/><br/> Kubernetes convient aux charges de travail d’application qui nécessitent : <br/>✔ Des exigences matérielles personnalisées.<br/>✔ Une isolation et un accès réseau sécurisé.<br/>✔ Une possibilité d’exécution dans un environnement hybride ou multi-cloud.<br/>✔ Une exécution en parallèle de services et d’applications Kubernetes existants.|  
 
 Les autres tableaux de cet article comparent les plans sur des fonctionnalités et des comportements différents. Pour une comparaison des coûts entre les plans d’hébergement dynamique (Consommation et Premium), consultez la [page de tarification d’Azure Functions](https://azure.microsoft.com/pricing/details/functions/). Pour obtenir la tarification des différentes options de plan Dedicated, consultez la [page de tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/windows/). 
 
@@ -53,7 +56,8 @@ Le tableau suivant indique le système d’exploitation et le langage d’exécu
 | **[Plan Premium](functions-premium-plan.md)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python  | 
 | **[Plan dédié](dedicated-plan.md)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
 | **[ASE](dedicated-plan.md)** | .NET Core<br/>Node.js<br/>Java<br/>Python |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core  |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python | 
-| **[Kubernetes](functions-kubernetes-keda.md)** | n/a | n/a |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
+| **[Kubernetes (direct)](functions-kubernetes-keda.md)** | n/a | n/a |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
+| **[Azure Arc (préversion)](../app-service/overview-arc-integration.md)** | .NET Core<br/>Node.js<br/>Java<br/>Python | n/a |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
 
 <sup>1</sup> Linux est le seul système d’exploitation pris en charge pour votre pile d’exécution Python. <br/>
 <sup>2</sup> Windows est le seul système d’exploitation pris en charge pour votre pile d’exécution PowerShell.<br/>

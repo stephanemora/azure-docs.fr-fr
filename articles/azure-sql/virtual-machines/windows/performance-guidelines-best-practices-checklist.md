@@ -15,12 +15,12 @@ ms.date: 05/06/2021
 ms.author: dpless
 ms.custom: contperf-fy21q3
 ms.reviewer: jroth
-ms.openlocfilehash: a30c9e3da8d7f64fd2cfec4480fc157d5bcac399
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 3649c593fcc7a0d27ed7326efa03b1325763649d
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632490"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190899"
 ---
 # <a name="checklist-performance-best-practices-for-sql-server-on-azure-vms"></a>Check-list : Bonnes pratiques relatives aux performances pour SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -69,8 +69,6 @@ Voici une check-list rapide des bonnes pratiques relatives à la configuration d
     - Arrêtez toujours le service SQL Server avant de modifier les paramètres de cache de votre disque.
 - Pour les charges de travail de développement et test, utilisez le service Stockage Standard. Il n’est pas recommandé d’utiliser HDD/SDD Standard pour les charges de travail de production.
 - Le [bursting de disque basé sur les crédits](../../../virtual-machines/disk-bursting.md#credit-based-bursting) (P1-P20) ne doit être pris en compte que pour les charges de travail de dev/test et les systèmes départementaux plus petits.
-- Configurez le compte de stockage dans la même région que la machine virtuelle SQL Azure. 
-- Désactivez le stockage géoredondant Azure (géoréplication) et utilisez LRS (stockage local redondant) sur le compte de stockage.
 - Formatez votre disque de données de façon à utiliser une taille d’unité d’allocation de 64 Ko pour tous les fichiers de données placés sur un lecteur autre que le lecteur temporaire `D:\` (dont la taille par défaut est de 4 Ko). Les machines virtuelles SQL Server déployées via la Place de marché Azure sont fournies avec des disques de données formatés avec une taille d’unité d’allocation et un entrelacement pour le pool de stockage défini sur 64 Ko. 
 
 Pour en savoir plus, consultez les [bonnes pratiques relatives au stockage](performance-guidelines-best-practices-storage.md). 

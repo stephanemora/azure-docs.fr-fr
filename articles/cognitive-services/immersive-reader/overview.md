@@ -1,6 +1,6 @@
 ---
-title: Qu’est-ce que le Lecteur immersif ?
-titleSuffix: Azure Cognitive Services
+title: Qu’est-ce que le Lecteur immersif Azure ?
+titleSuffix: Azure Applied AI Services
 description: Le Lecteur immersif est un outil conçu pour aider les personnes ayant des besoins en apprentissage différents, qui viennent d’apprendre à lire ou qui apprennent une langue avec une compréhension à la lecture.
 services: cognitive-services
 author: metanMSFT
@@ -12,16 +12,16 @@ ms.date: 01/4/2020
 ms.author: metang
 ms.custom: cog-serv-seo-aug-2020
 keywords: lecteurs, personnes apprenant une langue, afficher des images, améliorer la lecture, lire du contenu, traduire
-ms.openlocfilehash: 1911d3ce62434f1dc24966798e9ace259ae072bc
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: a8a8f26f6b79d5a687b3adf5d68bdfd89cc837d4
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801568"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377636"
 ---
-# <a name="what-is-immersive-reader"></a>Qu’est-ce que le lecteur immersif ?
+# <a name="what-is-azure-immersive-reader"></a>Qu’est-ce que le Lecteur immersif Azure ?
 
-Le [Lecteur immersif](https://www.onenote.com/learningtools) est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage, comme la dyslexie. Avec la bibliothèque de client Lecteur immersif, vous pouvez tirer parti de la même technologie que celle utilisée dans Microsoft Word et Microsoft One Note pour améliorer vos applications web. 
+Le [Lecteur immersif](https://www.onenote.com/learningtools) s’inscrit dans [Azure Applied AI Services](../../applied-ai-services/what-are-applied-ai-services.md), et est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage, comme la dyslexie. Avec la bibliothèque de client Lecteur immersif, vous pouvez tirer parti de la même technologie que celle utilisée dans Microsoft Word et Microsoft One Note pour améliorer vos applications web. 
 
 Cette documentation contient les types d’articles suivants :  
 
