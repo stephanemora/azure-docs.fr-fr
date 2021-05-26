@@ -1,33 +1,25 @@
 ---
-title: Ajouter des réplicas à Azure Cache pour Redis (Préversion)
+title: Ajouter des réplicas à Azure Cache pour Redis
 description: Découvrez comment ajouter des réplicas à vos instances Azure Cache pour Redis de niveau Premium
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 87b5ec5eb13f2bc53bdf993547ce3da1c74404bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aef8055d289ada8a62078185517c3ba129972488
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91566786"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099852"
 ---
-# <a name="add-replicas-to-azure-cache-for-redis-preview"></a>Ajouter des réplicas à Azure Cache pour Redis (Préversion)
+# <a name="add-replicas-to-azure-cache-for-redis"></a>Ajouter des réplicas à Azure Cache pour Redis
 Dans cet article, vous allez apprendre à configurer une instance Azure Cache avec des réplicas supplémentaires à l’aide du portail Azure.
 
 Les niveaux Standard et Premium d’Azure Cache pour Redis offrent une redondance en hébergeant chaque cache sur deux machines virtuelles dédiées. Ces machines virtuelles sont configurées en tant que machine virtuelle principale et réplica. Lorsque la machine virtuelle principale devient indisponible, le réplica la détecte et prend le relais automatiquement comme nouveau réplica principal. Vous pouvez maintenant augmenter le nombre de réplicas dans un cache Premium jusqu’à trois, ce qui vous donne un total de quatre machines virtuelles pour assurer la sauvegarde d’un cache. Le fait de disposer de plusieurs réplicas entraîne une résilience supérieure à celle fournie par un seul réplica.
 
-> [!IMPORTANT]
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’utilisation supplémentaires des Préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> 
-
 ## <a name="prerequisites"></a>Prérequis
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
-
-> [!NOTE]
-> Cette fonctionnalité est actuellement disponible en préversion - [contactez-nous](mailto:azurecache@microsoft.com) si vous êtes intéressé.
->
 
 ## <a name="create-a-cache"></a>Création d'un cache
 Pour créer un cache, procédez comme suit :

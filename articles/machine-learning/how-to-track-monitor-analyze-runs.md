@@ -11,12 +11,12 @@ ms.reviewer: sgilley
 ms.date: 04/19/2021
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d50820e954c1a34f1ccffe133a338538bf0abd18
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: f61e1a604c9296f85bbfd508f39dcbc74e256caf
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888527"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098719"
 ---
 # <a name="start-monitor-and-track-run-history"></a>Démarrer, surveiller et suivre l’historique des exécutions
 
@@ -194,11 +194,11 @@ Pour afficher vos exécutions dans Studio :
 Dans la page **Toutes les exécutions**, vous pouvez filtrer la liste des exécutions en fonction des étiquettes, des expériences, de la cible de calcul et d’autres valeurs. Cela vous permet de mieux organiser et définir l’étendue de votre travail.  
     
 1. Personnalisez la page en sélectionnant les exécutions que vous souhaitez comparer, en ajoutant des graphiques ou en appliquant des filtres. Ces modifications peuvent être enregistrées sous la forme d’un **affichage personnalisé** afin que vous puissiez facilement revenir à votre travail. Les utilisateurs disposant d’autorisations d’espace de travail peuvent modifier ou consulter l’affichage personnalisé. Partagez également la vue personnalisée avec les membres de l’équipe pour une meilleure collaboration en sélectionnant **Partager l’affichage**.   
-    
+
+1. Pour afficher les journaux d’exécution, sélectionnez une exécution spécifique. Vous trouverez les journaux de diagnostic et d’erreurs de votre exécution sous l’onglet **Sorties + journaux**.    
+
 :::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views.gif" alt-text="Capture d’écran : créer un affichage personnalisé":::
     
-1. Pour afficher les journaux d’exécution, sélectionnez une exécution spécifique. Vous trouverez les journaux de diagnostic et d’erreurs de votre exécution sous l’onglet **Sorties + journaux**.
-
 ## <a name="run-description"></a>Description de l’exécution 
 
 Une description de l’exécution peut être ajoutée à une exécution pour fournir davantage de contexte et d’informations relatifs à l’exécution. Vous pouvez également rechercher ces descriptions à partir de la liste des exécutions et ajouter la description de l’exécution en tant que colonne dans la liste des exécutions. 

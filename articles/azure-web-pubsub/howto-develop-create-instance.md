@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 03/17/2021
-ms.openlocfilehash: 9f13f0f62a9bd3b26b4c855110fbc97971ecfea8
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 0ed91129f2093018ff34a2b3eef505eded9483cf
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166925"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110060703"
 ---
 # <a name="how-to-create-azure-web-pubsub-instance"></a>Comment créer une instance Azure Web PubSub
 
@@ -33,7 +33,7 @@ Le [portail Azure](https://docs.microsoft.com/azure/azure-portal/) est une conso
     | **Abonnement** | Abonnement Azure sous lequel cette instance de service Web PubSub est créée. | 
     | **[Groupe de ressources](../azure-resource-manager/management/overview.md)** |  Nom du groupe de ressources, nouveau ou existant, dans lequel créer l’instance de service Web PubSub. | 
     | **Lieu** | Sélectionnez une [région](https://azure.microsoft.com/regions/) proche de chez vous. |
-    | **Niveau tarifaire** | En savoir plus sur les [niveaux tarifaires du service Azure Web PubSub](https://azure.microsoft.com/pricing/details/web-[pubsub]). |
+    | **Niveau tarifaire** | En savoir plus sur les [niveaux tarifaires du service Azure Web PubSub](https://azure.microsoft.com/pricing/details/web-pubsub/). |
     | **Nombre d’unité** |  Le nombre d’unité spécifie le nombre de connexions que votre instance de service Web PubSub peut accepter. Chaque unité prend en charge 1 000 connexions simultanées au maximum. Ceci n’est configurable que dans le niveau Standard. |
 
 1. Sélectionnez **Créer** pour commencer le déploiement de l’instance de service Web PubSub.

@@ -2,15 +2,15 @@
 title: Déployer Start/Stop VMs v2 (préversion)
 description: Cet article explique comment déployer la fonctionnalité Start/Stop VMs v2 (préversion) pour vos machines virtuelles Azure dans votre abonnement Azure.
 services: azure-functions
-ms.subservice: ''
+ms.subservice: start-stop-vms
 ms.date: 03/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9ca808fffbd26c8837ad9a43447f60e99f89d922
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 726af0d36c543936076d1fa529e5527d166d5bbc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111045"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073231"
 ---
 # <a name="deploy-startstop-vms-v2-preview"></a>Déployer Start/Stop VMs v2 (préversion)
 

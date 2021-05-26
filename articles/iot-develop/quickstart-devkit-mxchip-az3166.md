@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 03/17/2021
-ms.openlocfilehash: 160797367e2daf0cb6fe708d626cbf217c9992c8
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 66ddc9f080383dac7703b00e62878df7714c4201
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448596"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061259"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-central"></a>Démarrage rapide : Connecter un devkit MXCHIP AZ3166 à IoT Central
 
@@ -76,51 +76,7 @@ Pour installer les outils :
     cmake --version
     ```
 
-## <a name="create-the-cloud-components"></a>Créer les composants cloud
-
-### <a name="create-the-iot-central-application"></a>Créer l’application IoT Central
-
-Il existe plusieurs méthodes pour connecter des appareils à Azure IoT. Dans cette section, vous allez apprendre à connecter un appareil à l’aide d’Azure IoT Central. IoT Central est une plateforme d’application IoT qui réduit le coût et la complexité de la création et de la gestion de solutions IoT.
-
-Pour créer une application :
-1. Dans le [portail Azure IoT Central](https://apps.azureiotcentral.com/), sélectionnez **Mes applications** dans le menu de navigation latéral.
-1. Sélectionnez **+ Nouvelle application**.
-1. Sélectionnez **Applications personnalisées**.
-1. Ajoutez le nom de l’application et une URL.
-1. Choisissez le plan de tarification **Gratuit** pour activer une version d’évaluation de 7 jours.
-
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-create-custom.png" alt-text="Créer une application Azure IoT Central personnalisée":::
-
-1. Sélectionnez **Create** (Créer).
-
-    Après avoir approvisionné l’application, IoT Central vous redirige automatiquement vers le tableau de bord de la nouvelle application.
-
-    > [!NOTE]
-    > Si vous disposez d’une application IoT Central existante, vous pouvez l’utiliser pour exécuter la procédure de cet article au lieu de créer une application.
-
-### <a name="create-a-new-device"></a>Créer un appareil
-
-Dans cette section, vous utilisez le tableau de bord de l’application IoT Central pour créer un appareil. Vous allez utiliser les informations de connexion de l’appareil que vous venez de créer pour connecter votre appareil physique en toute sécurité dans une section ultérieure.
-
-Pour créer un appareil :
-1. Dans le tableau de bord de l’application, sélectionnez **Appareils** dans le menu de navigation latéral.
-1. Sélectionnez **+ Nouveau** pour ouvrir la fenêtre **Créer un appareil**.
-1. Laissez Modèle d’appareil défini sur **Non attribué**.
-1. Renseignez le nom de l’appareil et l’ID de l’appareil souhaités.
-
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-create-device.png" alt-text="Créer un appareil dans Azure IoT Central":::
-
-1. Cliquez sur le bouton **Créer**.
-1. L’appareil que vous venez de créer s’affiche dans la liste **Tous les appareils**.  Sélectionnez sur le nom de l’appareil pour afficher les détails.
-1. Sélectionnez **Connecter** dans la barre de menus en haut à droite pour afficher les informations de connexion utilisées pour configurer l’appareil dans la section suivante.
-
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-connection-info.png" alt-text="Consulter les détails de connexion de l’appareil":::
-
-1. Notez les valeurs de connexion pour les paramètres de chaîne de connexion suivants affichés dans la boîte de dialogue **Connexion**. Vous allez ajouter ces valeurs à un fichier de configuration à l’étape suivante :
-
-    > * `ID scope`
-    > * `Device ID`
-    > * `Primary key`
+[!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
 ## <a name="prepare-the-device"></a>Préparer l’appareil
 

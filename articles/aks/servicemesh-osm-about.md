@@ -7,12 +7,12 @@ ms.date: 3/12/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: e3bf6748157e53093cc848ffaff37df7c711e64c
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 606151084d399f605f12012ab5b3e323c705199d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209262"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468128"
 ---
 # <a name="open-service-mesh-aks-add-on-preview"></a>Module complémentaire Open Service Mesh AKS (préversion)
 
@@ -51,6 +51,12 @@ OSM peut aider vos déploiements AKS dans les scénarios suivants :
 - Configuration de contrôles du trafic pondéré entre deux services ou plus pour les déploiements A/B ou Canary
 
 - Collecte et visualisation des indicateurs de performance clés du trafic d’application
+
+## <a name="prerequisites"></a>Prérequis
+
+- Azure CLI, version 2.20.0 ou ultérieure
+- L’extension `aks-preview` version 0.5.5 ou ultérieure
+- OSM, version 0.8.0 ou ultérieure
 
 ## <a name="osm-service-quotas-and-limits-preview"></a>Quotas et limites de service d’OSM (préversion)
 

@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 08/10/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: edd02085abe63b124082255247362f096248ba82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fac3ad13f34620bb2ec817601041001ccf393d4e
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91317257"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369059"
 ---
 # <a name="create-your-first-durable-function-in-powershell"></a>Créer votre première fonction durable dans PowerShell
 
@@ -90,7 +90,7 @@ Vous utilisez un modèle pour créer le code de fonction durable dans votre proj
 
     | Prompt | Valeur | Description |
     | ------ | ----- | ----------- |
-    | Sélectionner un modèle pour votre fonction | Orchestrateur Durable Functions (préversion) | Créer une orchestration Durable Functions |
+    | Sélectionner un modèle pour votre fonction | Orchestrateur Durable Functions | Créer une orchestration Durable Functions |
     | Fournir un nom de fonction | HelloOrchestrator | Nom de votre fonction durable |
 
 Vous avez ajouté un orchestrateur pour coordonner les fonctions d’activité. Ouvrez *HelloOrchestrator/run.ps1* pour voir la fonction d’orchestrateur. Chaque appel à la cmdlet `Invoke-ActivityFunction` appelle une fonction d’activité nommée `Hello`.
@@ -105,7 +105,7 @@ Ajoutez maintenant la fonction d’activité `Hello` référencée.
 
     | Prompt | Valeur | Description |
     | ------ | ----- | ----------- |
-    | Sélectionner un modèle pour votre fonction | Activité Durable Functions (préversion) | Créer une fonction d’activité |
+    | Sélectionner un modèle pour votre fonction | Activité Durable Functions | Créer une fonction d’activité |
     | Fournir un nom de fonction | Hello | Nom de votre fonction d’activité |
 
 Vous avez ajouté la fonction d’activité `Hello` qui est appelée par l’orchestrateur. Ouvrez *Hello/run.ps1* pour voir qu’elle accepte un nom comme entrée et retourne un message d’accueil. Une fonction d’activité vous permet d’effectuer des actions, telles que le lancement d’un appel de base de données ou l’exécution d’un calcul.
@@ -120,7 +120,7 @@ Pour terminer, vous ajouterez une fonction déclenchée par HTTP qui démarrera 
 
     | Prompt | Valeur | Description |
     | ------ | ----- | ----------- |
-    | Sélectionner un modèle pour votre fonction | Démarrage HTTP Durable Functions (préversion) | Créer une fonction de démarrage HTTP |
+    | Sélectionner un modèle pour votre fonction | Démarrage HTTP Durable Functions | Créer une fonction de démarrage HTTP |
     | Fournir un nom de fonction | HttpStart | Nom de votre fonction d’activité |
     | Niveau d’autorisation | Anonyme | À des fins de démonstration, autorisez l’appel sans authentification à la fonction |
 

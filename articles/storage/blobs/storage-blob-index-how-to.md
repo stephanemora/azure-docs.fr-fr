@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6f7ae7af0f2764bd3f157ad5ca3166c9989cd9bf
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 63f06b9cab7896bcd98b6b6cd9c037b7ee83b47f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276788"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451766"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Utiliser des balises d’index de blob (préversion) pour gérer et rechercher des données sur Stockage Blob Azure
 
@@ -32,7 +32,7 @@ Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et li
 - Un abonnement Azure inscrit et approuvé pour l’accès à la préversion de l’index de blob
 - Un accès au [portail Azure](https://portal.azure.com/)
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/net)
 
 L’index de blob étant disponible en préversion, le package de stockage .NET est publié dans le flux NuGet de préversion. Cette bibliothèque est susceptible d’être modifiée au cours de la période de préversion.
 
@@ -76,7 +76,7 @@ Cette tâche peut être effectuée par un [Propriétaire des données Blob du st
 
 :::image type="content" source="media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png" alt-text="Capture d’écran du portail Azure montrant comment charger un blob avec des balises d’index.":::
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/net)
 
 L’exemple suivant montre comment créer un objet blob d’ajout avec des balises définies lors de la création.
 
@@ -136,7 +136,7 @@ La définition et la mise à jour de balises d’index blob peuvent être effect
 
 :::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Capture d’écran du portail Azure montrant comment récupérer, définir, mettre à jour et supprimer des balises d’index sur des blobs.":::
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/net)
 
 ```csharp
 static async Task BlobIndexTagsExample()
@@ -213,7 +213,7 @@ Dans le portail Azure, le filtre des balises d’index de blobs applique automat
 
 :::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Capture d’écran du portail Azure montrant comment filtrer et rechercher des blobs balisés à l’aide de balises d’index.":::
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/net)
 
 ```csharp
 static async Task FindBlobsByTagsExample()
@@ -313,7 +313,7 @@ static async Task FindBlobsByTagsExample()
 
 6. Sélectionnez **Ajouter** pour appliquer la nouvelle règle à la stratégie de gestion du cycle de vie.
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/net)
 
 Des stratégies de [gestion du cycle de vie](storage-lifecycle-management-concepts.md) sont appliquées pour chaque compte de stockage au niveau du plan de contrôle. Pour .NET, installez la [bibliothèque de stockage de gestion Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) version 16.0.0 ou ultérieure.
 
