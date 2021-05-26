@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: wellee
 Customer intent: As someone with a networking background using Virtual WAN, I want to perform a packet capture on my Site-to-site VPN Gateway.
-ms.openlocfilehash: dbe7e06484797063ed4122ee3fdde625dc66c41f
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: bb31d6d9c19df7a914593213e98af1d7a54825a4
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107878996"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809523"
 ---
 # <a name="perform-packet-capture-on-the-azure-virtual-wan-site-to-site-vpn-gateway"></a>Effectuer une capture de paquets sur la passerelle VPN site à site Azure Virtual WAN 
 
@@ -69,7 +69,7 @@ Exécutez ensuite les commande suivantes. Pour rechercher le nom de la passerell
 :::image type="content" source="./media/virtual-wan-pcap-screenshots/vpn-gateway-name.png" alt-text="Image du nom de la passerelle Virtual WAN." lightbox="./media/virtual-wan-pcap-screenshots/vpn-gateway-name.png":::
 
    ```azurepowershell-interactive
-Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gateway>" -Sasurl $sasurl
+Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gateway>"
    ```
 
 ### <a name="packet-capture-on-specific-site-to-site-vpn-connections"></a>Capture de paquets sur des connexions VPN site à site spécifiques
@@ -87,7 +87,7 @@ Pour rechercher le nom des liens connectés à un site VPN spécifique, cliquez 
 :::image type="content" source="./media/virtual-wan-pcap-screenshots/link-name-sample.png" alt-text="Image montrant comment rechercher le nom du lien VPN." lightbox="./media/virtual-wan-pcap-screenshots/link-name-sample.png":::
 
    ```azurepowershell-interactive
-Start-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name "<name of the VPN connection>" -ParentResourceName “<name of the Gateway>” -LinkConnection “<comma separated list of links eg. "link1,link2">” -Sasurl $sasurl 
+Start-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name "<name of the VPN connection>" -ParentResourceName “<name of the Gateway>” -LinkConnection “<comma separated list of links eg. "link1,link2">”
    ```
 
 ## <a name="optional-specifying-filters"></a>Facultatif : spécification de filtres
@@ -116,7 +116,7 @@ Voici un exemple de capture de paquets utilisant une chaîne de filtrage. Vous p
 $filter="{`"TracingFlags`":11,`"MaxPacketBufferSize`":120,`"MaxFileSize`":500,`"Filters`":[{`"SourceSubnets`":[`"10.19.0.4/32`",`"10.20.0.4/32`"],`"DestinationSubnets`":[`"10.20.0.4/32`",`"10.19.0.4/32`"],`"TcpFlags`":9,`"CaptureSingleDirectionTrafficOnly`":true}]}"
 Start-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name "<name of the VPN connection>" -ParentResourceName “<name of the Gateway>” -LinkConnection “<comma separated list of links>” -Sasurl $sasurl -FilterData $filter
 
-Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gateway>" -Sasurl $sasurl -FilterData $filter
+Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gateway>" -FilterData $filter
    ```
 
 ## <a name="stopping-the-packet-capture"></a>Arrêt de la capture de paquets

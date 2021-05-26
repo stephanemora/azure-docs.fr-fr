@@ -3,22 +3,22 @@ title: Activer TLS avec un conteneur side-car
 description: Créer un point de terminaison SSL ou TLS pour un groupe de conteneurs exécuté sur Azure Container Instances en exécutant Nginx dans un conteneur side-car
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 906a1f239d7050ea17fd7d1425138049ebf045c1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 17467cab93f3a930c8290f73c5f4c971b53f12b5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790974"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090529"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Activer un point de terminaison TLS dans un conteneur side-car
 
 Cet article montre comment créer un [groupe de conteneurs](container-instances-container-groups.md) avec un conteneur d’application et un conteneur side-car exécutant un fournisseur SSL/TLS. En configurant un groupe de conteneurs avec un point de terminaison TLS distinct, vous activez les connexions TLS pour votre application sans modifier votre code d’application.
 
 Vous configurez un exemple de groupe de conteneurs composé de deux conteneurs :
-* Un conteneur d’applications qui exécute une application web simple à l’aide de l’image [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) Microsoft publique. 
-* Un conteneur side-car exécutant l’image [Nginx](https://hub.docker.com/_/nginx) publique, configuré pour utiliser TLS. 
+* Un conteneur d’applications qui exécute une application web simple à l’aide de l’image [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) Microsoft publique.
+* Un conteneur side-car exécutant l’image [Nginx](https://hub.docker.com/_/nginx) publique, configuré pour utiliser TLS.
 
-Dans cet exemple, le groupe de conteneurs expose uniquement le port 443 pour Nginx avec son adresse IP publique. Nginx achemine les requêtes HTTPS vers l’application web, qui écoute en interne sur le port 80. Vous pouvez adapter l’exemple pour les applications de conteneur qui écoutent sur les autres ports. 
+Dans cet exemple, le groupe de conteneurs expose uniquement le port 443 pour Nginx avec son adresse IP publique. Nginx achemine les requêtes HTTPS vers l’application web, qui écoute en interne sur le port 80. Vous pouvez adapter l’exemple pour les applications de conteneur qui écoutent sur les autres ports.
 
 Consultez la section [Étapes suivantes](#next-steps) pour découvrir d’autres approches d’activation du protocole TLS dans un groupe de conteneurs.
 
@@ -112,7 +112,7 @@ http {
 
         location / {
             proxy_pass http://localhost:80; # TODO: replace port if app listens on port other than 80
-            
+
             proxy_set_header Connection "";
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
@@ -242,4 +242,4 @@ Si vous déployez votre groupe de conteneurs sur un [réseau virtuel Azure](cont
 
 * [Azure Functions Proxies](../azure-functions/functions-proxies.md)
 * [Gestion des API Azure](../api-management/api-management-key-concepts.md)
-* [Azure Application Gateway](../application-gateway/overview.md) : consultez un exemple de [modèle de déploiement](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).
+* [Azure Application Gateway](../application-gateway/overview.md) : consultez un exemple de [modèle de déploiement](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/wordpress/aci-wordpress-vnet).

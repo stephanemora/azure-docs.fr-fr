@@ -7,12 +7,12 @@ ms.topic: guide
 author: kriti-ms
 ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: 2975d1f1558bc7f9e4a12c18882e43a163b97982
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 867b9dfefd47e38b5bcfd54ae54aab607e7acea5
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593422"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814907"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Questions courantes sur les machines virtuelles dans Place de marché Azure
 
@@ -474,8 +474,8 @@ New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgNa
 ## <a name="how-do-i-test-a-hidden-preview-image"></a>Comment tester une image d’aperçu masquée ?
 
 Vous pouvez déployer des images d’aperçu masquées à l’aide de modèles de démarrage rapide.
-Pour déployer une image d’aperçu, 
-1. Accédez au modèle de démarrage rapide approprié pour [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) ou [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows), puis sélectionnez « Déployer sur Azure ». Cela devrait vous amener au portail Azure.
+Pour déployer une image d’aperçu,
+1. Accédez au modèle de démarrage rapide approprié pour [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-linux/) ou [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows), puis sélectionnez « Déployer sur Azure ». Cela devrait vous amener au portail Azure.
 2. Sur le Portail Azure, sélectionnez « Modifier le modèle ».
 3. Dans le modèle JSON, recherchez imageReference et mettez à jour les valeurs publisherid, offerid, skuid, et version de l’image. Pour tester l’image d’aperçu, ajoutez « -PREVIEW » à offerid.
  ![image](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)

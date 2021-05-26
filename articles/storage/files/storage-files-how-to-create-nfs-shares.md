@@ -4,16 +4,16 @@ description: Découvrez comment créer un partage de fichiers Azure qui peut êt
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 05/11/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: b549c625f0a6ff0480eafc38f84d292e66350950
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 4b49d8a0fce3dac1c5558d4784d1bb7ddb33b734
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717124"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810549"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Comment créer un partage NFS
 Les partages de fichiers Azure sont des partages de fichiers entièrement gérés qui résident dans le cloud. Cet article explique comment créer un partage de fichiers qui utilise le protocole NFS. Pour plus d’informations sur les deux protocoles, voir [Protocoles de partage de fichiers Azure](storage-files-compare-protocols.md).

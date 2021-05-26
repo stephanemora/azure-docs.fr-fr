@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 23615daf4a07e02b01bbd5a9cdf57ec9a81a2b76
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 241b7c0c07d1fbaa6a43c6be4b264424612f538a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347390"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869038"
 ---
 ::: zone target="docs"
 
@@ -52,11 +52,11 @@ Connectez-vous au portail Azure sur [https://aka.ms/azuredataboxfromdiskdocs](ht
 
 > [!div class="checklist"]
 >
-> - **Passer en revue les prérequis**  : Vérifiez le nombre de disques et de câbles, le système d’exploitation et les logiciels nécessaires.
-> - **Connecter et déverrouiller**  : Connectez l’appareil et déverrouillez le disque pour copier les données.
-> - **Copier les données sur le disque et valider l’opération**  : Copiez les données sur les disques dans les dossiers créés au préalable.
-> - **Retourner les disques**  : Retournez les disques au centre de données Azure où les données sont chargées sur votre compte de stockage.
-> - **Vérifier les données dans Azure**  : Vérifiez que vos données ont été chargées sur votre compte de stockage avant de les supprimer du serveur de données sources.
+> - **Passer en revue les prérequis** : Vérifiez le nombre de disques et de câbles, le système d’exploitation et les logiciels nécessaires.
+> - **Connecter et déverrouiller** : Connectez l’appareil et déverrouillez le disque pour copier les données.
+> - **Copier les données sur le disque et valider l’opération** : Copiez les données sur les disques dans les dossiers créés au préalable.
+> - **Retourner les disques** : Retournez les disques au centre de données Azure où les données sont chargées sur votre compte de stockage.
+> - **Vérifier les données dans Azure** : Vérifiez que vos données ont été chargées sur votre compte de stockage avant de les supprimer du serveur de données sources.
 
 ::: zone-end
 
@@ -94,7 +94,7 @@ Utilisez ces commandes Azure CLI pour créer un travail Data Box Disk.
    az storage account create --resource-group databox-rg --name databoxtestsa
    ```
 
-1. Exécutez la commande [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) pour créer un travail Data Box avec la référence SKU DataBoxDisk :
+1. Exécutez la commande [az databox job create](/cli/azure/databox/job#az_databox_job_create) pour créer un travail Data Box avec la référence SKU DataBoxDisk :
 
    ```azurecli
    az databox job create --resource-group databox-rg --name databoxdisk-job \
@@ -104,37 +104,37 @@ Utilisez ces commandes Azure CLI pour créer un travail Data Box Disk.
        --storage-account databoxtestsa --expected-data-size 1
    ```
 
-1. Exécutez la commande [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update) pour mettre à jour un travail, comme dans cet exemple, où vous changez le nom et l’adresse e-mail du contact :
+1. Exécutez la commande [az databox job update](/cli/azure/databox/job#az_databox_job_update) pour mettre à jour un travail, comme dans cet exemple, où vous changez le nom et l’adresse e-mail du contact :
 
    ```azurecli
    az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
    ```
 
-   Exécutez la commande [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) pour obtenir des informations sur le travail :
+   Exécutez la commande [az databox job show](/cli/azure/databox/job#az_databox_job_show) pour obtenir des informations sur le travail :
 
    ```azurecli
    az databox job show --resource-group databox-rg --name databox-job
    ```
 
-   Utilisez la commande [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list) pour voir tous les travaux Data Box liés à un groupe de ressources :
+   Utilisez la commande [az databox job list]( /cli/azure/databox/job#az_databox_job_list) pour voir tous les travaux Data Box liés à un groupe de ressources :
 
    ```azurecli
    az databox job list --resource-group databox-rg
    ```
 
-   Exécutez la commande [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) pour annuler un travail :
+   Exécutez la commande [az databox job cancel](/cli/azure/databox/job#az_databox_job_cancel) pour annuler un travail :
 
    ```azurecli
    az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
    ```
 
-   Exécutez la commande [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) pour supprimer un travail :
+   Exécutez la commande [az databox job delete](/cli/azure/databox/job#az_databox_job_delete) pour supprimer un travail :
 
    ```azurecli
    az databox job delete –resource-group databox-rg --name databox-job
    ```
 
-1. Pour lister les informations d’identification d’un travail Data Box, utilisez la commande [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) :
+1. Pour lister les informations d’identification d’un travail Data Box, utilisez la commande [az databox job list-credentials]( /cli/azure/databox/job#az_databox_job_list_credentials) :
 
    ```azurecli
    az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
@@ -170,7 +170,7 @@ Cette étape prend environ 5 minutes.
 
 Le temps nécessaire à cette opération dépend de la taille de vos données.
 
-1. Le lecteur contient les dossiers *PageBlob* , *BlockBlob* , *AzureFile* , *ManagedDisk* et *DataBoxDiskImport*. Effectuez un glisser-déplacer pour copier les données qui doivent être importées en tant qu’objets blob de blocs dans le dossier *BlockBlob*. De même, glissez-déplacez des données telles que VHD/VHDX vers le dossier *PageBlob* et les données vers *AzureFile*. Copiez les disques durs virtuels que vous souhaitez charger en tant que disques managés dans un dossier sous *ManagedDisk*.
+1. Le lecteur contient les dossiers *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk* et *DataBoxDiskImport*. Effectuez un glisser-déplacer pour copier les données qui doivent être importées en tant qu’objets blob de blocs dans le dossier *BlockBlob*. De même, glissez-déplacez des données telles que VHD/VHDX vers le dossier *PageBlob* et les données vers *AzureFile*. Copiez les disques durs virtuels que vous souhaitez charger en tant que disques managés dans un dossier sous *ManagedDisk*.
 
     Un conteneur est créé dans le compte de stockage Azure de chaque sous-dossier sous les dossiers *BlockBlob* et *PageBlob*. Un partage de fichiers est créé pour un sous-dossier sous *AzureFile*.
 

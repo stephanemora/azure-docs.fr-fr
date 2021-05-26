@@ -8,13 +8,13 @@ ms.custom: seodec18, devx-track-js
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 09/05/2019
-ms.openlocfilehash: 58eb92f4d0bc3de4671ca2ece14a178a876e4a6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/17/2021
+ms.openlocfilehash: cce44bde0985be1943b44e0e7edd34ca62f50fe5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91541037"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090727"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Créer une application LUIS par programmation à l’aide de Node.js
 
@@ -24,7 +24,7 @@ LUIS fournit une API de programmation qui fait tout ce que le site web [LUIS](lu
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Connectez-vous au site web [LUIS](luis-reference-regions.md) et recherchez votre [clé de création](luis-how-to-azure-subscription.md#authoring-key) dans les paramètres du compte. Cette clé vous permet d’appeler les API de création.
+* Connectez-vous au site web [LUIS](luis-reference-regions.md) et recherchez votre [clé de création](luis-how-to-azure-subscription.md) dans les paramètres du compte. Cette clé vous permet d’appeler les API de création.
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 * Cet article commence par un volume partagé de cluster pour les fichiers journaux d’une société fictive de requêtes d’utilisateurs. Téléchargez-le [ici](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Installez la dernière version de Node.js avec NPM. Téléchargez-la [ici](https://nodejs.org/en/download/).

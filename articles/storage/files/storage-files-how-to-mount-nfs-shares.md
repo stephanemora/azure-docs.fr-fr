@@ -4,16 +4,16 @@ description: Apprenez à monter un partage NFS (Network File System).
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 05/11/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 4369619cd83dffe36cf156f523a951e1360438db
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 9b537509d83c680fc9edb014acc13b41a8ca1466
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717070"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810518"
 ---
 # <a name="how-to-mount-an-nfs-file-share"></a>Monter un partage de fichiers NFS
 

@@ -3,12 +3,12 @@ title: Exporter vers SQL à partir d’Application Insights | Microsoft Docs
 description: Exportez de façon continue les données Application Insights vers SQL à l’aide de Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 25d28bb0fc35ef76231c085dc1d9d8a1234a264c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7627ae6dabb75782549ed17fc6e590b7bc7da77d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587752"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092743"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procédure pas à pas : exporter vers SQL à partir d’Application Insights à l’aide de Stream Analytics
 Cet article explique comment déplacer vos données de télémétrie d’[Azure Application Insights][start] vers Azure SQL Database à l’aide de l’[Exportation continue][export] et d’[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -26,7 +26,7 @@ Pour commencer :
 
 1. [Configurer Application Insights pour vos pages web](./javascript.md). 
    
-    (Dans cet exemple, nous allons nous concentrer sur le traitement des données d’affichage de page dans les navigateurs clients, mais vous pouvez également configurer Application Insights pour le côté serveur de votre application [Java](./java-get-started.md) ou [ASP.NET](./asp-net.md) et traiter la demande, les dépendances et d’autres données de télémétrie du serveur.)
+    (Dans cet exemple, nous allons nous concentrer sur le traitement des données d’affichage de page dans les navigateurs clients, mais vous pouvez également configurer Application Insights pour le côté serveur de votre application [Java](./java-in-process-agent.md) ou [ASP.NET](./asp-net.md) et traiter la demande, les dépendances et d’autres données de télémétrie du serveur.)
 2. Publiez votre application et surveillez les données de télémétrie apparaissant dans votre ressource Application Insights.
 
 ## <a name="create-storage-in-azure"></a>Création d’un stockage dans Azure

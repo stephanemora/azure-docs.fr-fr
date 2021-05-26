@@ -2,13 +2,13 @@
 title: Concepts - Identité et accès
 description: Découvrir les concepts d’identité et d’accès de Azure VMware Solution
 ms.topic: conceptual
-ms.date: 05/11/2021
-ms.openlocfilehash: cd04cc6265faf480d80903ea65ba9886a413e356
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.date: 05/13/2021
+ms.openlocfilehash: d5d4b7f09df86315553e4716ef38cdbb67a883f4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788268"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089575"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Concepts d’identité d’Azure VMware Solution
 
@@ -111,7 +111,7 @@ Utilisez le compte *Administrateur* pour accéder à NSX-T Manager. Ce compte d
 
 Maintenant que vous avez abordé les concepts d’accès et d’identité d’Azure VMware Solution, vous pouvez en apprendre davantage sur les sujets suivants :
 
-- [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md)
+- [Comment activer la ressource Azure VMware Solution](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
 - [Détails de chaque privilège](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
 - [Surveillance et réparation des clouds privés Azure VMware Solution](/azure/azure-vmware/concepts-private-clouds-clusters#host-monitoring-and-remediation)
 

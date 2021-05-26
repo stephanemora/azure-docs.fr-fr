@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/14/2020
-ms.openlocfilehash: 3ff48ff5a3f46d8ec0fbf81b4cd20d20c217344b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54c0d8aa8ba17beb5a2f5a51c4a19795f767733a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98787635"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089432"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Effectuer une migration vers une clé de ressource de création Azure
 
@@ -33,7 +33,7 @@ La migration est le processus consistant à passer d’un compte e-mail à une r
 La migration doit être effectuée à partir du [portail LUIS](https://www.luis.ai). Si vous créez les clés de création à l’aide de l’interface de ligne de commande LUIS, vous devrez effectuer le processus de migration dans le portail LUIS. Après la migration, vous pouvez toujours avoir des coauteurs associés à vos applications, mais ceux-ci sont ajoutés au niveau de la ressource Azure plutôt qu’au niveau de l’application. La migration de votre compte ne peut pas être inversée.
 
 > [!Note]
-> * Si vous avez besoin de créer un runtime de prédiction, [un processus distinct](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) permet de le faire.
+> * Si vous avez besoin de créer un runtime de prédiction, [un processus distinct](luis-how-to-azure-subscription.md#create-luis-resources) permet de le faire.
 > * Consultez la section [Notes de migration](#migration-notes) ci-dessous pour obtenir des informations sur la façon dont vos applications et contributeurs sont affectés. 
 > * La création de votre application LUIS est gratuite, comme indiqué par le niveau F0. Découvrez [plus d’informations sur les niveaux tarifaires](luis-limits.md#key-limits).
 
