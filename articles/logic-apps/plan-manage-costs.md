@@ -5,13 +5,13 @@ ms.service: logic-apps
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 03/24/2021
-ms.openlocfilehash: ec2e1098df4c21704ee7c17852b893630cd3fd27
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/25/2021
+ms.openlocfilehash: 5fbf0d8f713785c7ec37e48fbf78e6d95a21ca4b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107761814"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379574"
 ---
 # <a name="plan-and-manage-costs-for-azure-logic-apps"></a>Prévoir et gérer les coûts d’Azure Logic Apps
 
@@ -39,9 +39,11 @@ Azure Logic Apps s’exécute sur l’infrastructure Azure qui [accumule les co�
 
 ### <a name="costs-that-typically-accrue-with-azure-logic-apps"></a>Coûts qui s’accumulent généralement avec Azure Logic Apps
 
-Le service Logic Apps applique différents modèles de tarification, en fonction des ressources que vous créez et utilisez :
+Le service Azure Logic Apps applique différents modèles de tarification, en fonction des ressources que vous créez et utilisez :
 
-* Les ressources d’application logique que vous créez et exécutez dans le service Logic Apps multilocataire utilisent un [modèle de tarification de la consommation](../logic-apps/logic-apps-pricing.md#consumption-pricing).
+* Les ressources d’application logique que vous créez et exécutez dans Azure Logic Apps multilocataire utilisent un [modèle de tarification à la consommation (paiement à l’utilisation)](../logic-apps/logic-apps-pricing.md#consumption-pricing).
+
+* Les ressources d’application logique que vous créez et exécutez dans Azure Logic Apps monolocataire utilisent un [modèle de tarification de plan d’hébergement](../logic-apps/logic-apps-pricing.md#standard-pricing).
 
 * Les ressources d’application logique que vous créez et exécutez dans un [environnement ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) utilisent un [modèle de tarification fixe](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 
@@ -49,13 +51,19 @@ Voici d’autres ressources qui entraînent des coûts lorsque vous les créez p
 
 * Un [compte d’intégration](../logic-apps/logic-apps-pricing.md#integration-accounts) est une ressource distincte que vous créez et liez à une application logique pour créer des intégrations B2B. Les comptes d’intégration utilisent un [modèle de tarification fixe](../logic-apps/logic-apps-pricing.md#integration-accounts) où le tarif est basé sur le type de compte d’intégration ou le *niveau* que vous utilisez.
 
-* Un [environnement ISE](../logic-apps/logic-apps-pricing.md#fixed-pricing) est une ressource distincte que vous créez en tant qu’emplacement de déploiement pour les applications logiques qui ont besoin d’un accès direct aux ressources dans un réseau virtuel. Les environnements ISE utilisent un [modèle de tarification fixe](../logic-apps/logic-apps-pricing.md#fixed-pricing) où le taux est basé sur la référence SKU de l’environnement ISE que vous créez, ainsi que d’autres paramètres.
+* Un [environnement ISE](../logic-apps/logic-apps-pricing.md#fixed-pricing) est une ressource distincte que vous créez en tant qu’emplacement de déploiement pour les applications logiques qui ont besoin d’un accès direct aux ressources dans un réseau virtuel. Les environnements ISE utilisent un [modèle de tarification fixe](../logic-apps/logic-apps-pricing.md#fixed-pricing) où le taux est basé sur la référence SKU de l’environnement ISE que vous créez, ainsi que d’autres paramètres. Cependant, la conservation des données et la consommation du stockage n’entraînent pas de coûts.
 
 * Un [connecteur personnalisé](../logic-apps/logic-apps-pricing.md#consumption-pricing) est une ressource distincte que vous créez pour une API REST qui n’a aucun connecteur prédéfini que vous pouvez utiliser dans vos applications logiques. Les exécutions de connecteur personnalisé utilisent un [modèle de tarification de la consommation](../logic-apps/logic-apps-pricing.md#consumption-pricing) sauf lorsque vous les utilisez dans un environnement ISE.
 
-* Dans le service Logic Apps multilocataire, [la conservation des données et la consommation du stockage](../logic-apps/logic-apps-pricing.md#data-retention) accumulent les coûts à l’aide d’un [modèle de tarification fixe](../logic-apps/logic-apps-pricing.md#fixed-pricing). Par exemple, les entrées et les sorties de l’historique des exécutions sont conservées dans un stockage en arrière-plan, qui diffère des ressources de stockage que vous créez, gérez et auxquelles vous accédez indépendamment à partir de votre application logique.
+<a name="storage-operations-costs"></a>
 
-  Dans un environnement ISE, la conservation des données et la consommation du stockage n’entraînent pas de coûts.
+#### <a name="storage-operations-and-costs"></a>Opérations et coûts de stockage
+
+Azure Logic Apps utilise [Stockage Azure](/storage) pour toutes les opérations de stockage. Avec Azure Logic Apps multilocataire, l’utilisation et les coûts du stockage sont attachés à l’application logique. [La conservation des données et la consommation du stockage](../logic-apps/logic-apps-pricing.md#data-retention) accumulent les coûts selon un [modèle de tarification fixe](../logic-apps/logic-apps-pricing.md#fixed-pricing). Par exemple, les entrées et les sorties de l’historique des exécutions sont conservées dans un stockage en arrière-plan, qui diffère des ressources de stockage que vous créez, gérez et auxquelles vous accédez indépendamment à partir de votre application logique.
+
+Avec Azure Logic Apps monolocataire, vous pouvez utiliser votre propre [compte de stockage](../azure-functions/storage-considerations.md#storage-account-requirements) Azure. Cette possibilité vous offre davantage de contrôle et de flexibilité sur vos données Logic Apps. Quand des workflows *avec état* exécutent leurs opérations, le runtime Azure Logic Apps effectue les transactions de stockage. Par exemple, des files d’attente sont utilisées pour la planification, tandis que des tables et blobs sont utilisés pour stocker les états de flux de travail. Les coûts de stockage changent en fonction du contenu de votre workflow. Les différents déclencheurs, actions et charges utiles entraînent des opérations et des besoins de stockage différents. Les transactions de stockage suivent le [modèle de tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/). Les coûts de stockage sont listés séparément dans votre facture Azure.
+
+Pour Azure Logic Apps monolocataire, vous pouvez vous faire une idée du nombre d’opérations de stockage qu’un workflow pourrait exécuter et de leur coût en utilisant la [calculatrice de stockage Logic Apps](https://logicapps.azure.com/calculator). Vous pouvez sélectionner un exemple de workflow ou utiliser la définition d’un workflow existant. Le premier calcul estime le nombre d’opérations de stockage dans votre workflow. Vous pouvez ensuite utiliser ces nombres pour estimer les coûts potentiels en utilisant la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/). Pour plus d’informations, consultez [Estimer les besoins et coûts de stockage des workflows dans des applications Azure Logic Apps monolocataires](estimate-storage-costs.md).
 
 <a name="costs-after-resource-deletion"></a>
 

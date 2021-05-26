@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6cd6147fbe38710bcefd580e71be1d6f5d446a21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a68697d6dffad6aad857bb59d66beeb42dec62d2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89010747"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475393"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>Créer une stratégie d’accès stockée avec .NET
 
@@ -42,7 +42,7 @@ L’opération REST sous-jacente pour créer une stratégie d’accès stockée 
 
 Les exemples de code suivants créent une stratégie d’accès stockée sur un conteneur. Vous pouvez utiliser la stratégie d’accès pour spécifier des contraintes pour une SAP de service sur le conteneur ou sur ses objets blob.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Pour créer une stratégie d’accès stockée sur un conteneur avec la version 12 de la bibliothèque de client .NET pour Stockage Azure, appelez l’une des méthodes suivantes :
 
@@ -93,7 +93,7 @@ async static Task CreateStoredAccessPolicyAsync(string containerName)
 }
 ```
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 Pour créer une stratégie d’accès stockée sur un conteneur avec la version 12 de la bibliothèque de client .NET pour Stockage Azure, appelez l’une des méthodes suivantes :
 

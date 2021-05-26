@@ -1,22 +1,22 @@
 ---
-title: Automatiser des tâches et des workflows avec Visual Studio Code
-description: Créer ou modifier des définitions de workflow d’applications logiques avec Visual Studio Code (VS Code)
+title: 'Démarrage rapide : créer des workflows d’intégration avec Azure Logic Apps dans Visual Studio Code'
+description: Créez et gérez des définitions de workflow avec des Azure Logic Apps mutualisées dans Visual Studio Code.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, deli, logicappspm
+ms.reviewer: azla
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/23/2021
-ms.openlocfilehash: 0163b58017599ceb26f52f0e47cbc87e161f6ed2
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 05/25/2021
+ms.openlocfilehash: 41ed5f3e85390a51fa30316bc9f95c8b320c4468
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161234"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474457"
 ---
-# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Démarrage rapide : Créer et gérer des définitions de workflow d’applications logiques avec Visual Studio Code
+# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-with-multi-tenant-azure-logic-apps-and-visual-studio-code"></a>Démarrage rapide : créer et gérer des définitions de workflow d’application logique avec plusieurs locataires Azure Logic Apps et Visual Studio Code
 
-Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et Visual Studio Code, vous pouvez créer et gérer des applications logiques qui vous permettent d’automatiser tâches, workflows et processus liés à l’intégration d’applications, de données, de systèmes et de services dans les entreprises et les organisations. Ce guide de démarrage rapide montre comment vous pouvez créer et modifier les définitions de workflow sous-jacentes, qui utilisent JavaScript Object Notation (JSON), pour des applications logiques via une expérience basée sur le code. Vous pouvez également travailler sur les applications logiques existantes qui sont déjà déployées dans Azure.
+Ce guide de démarrage rapide montre comment créer et gérer des workflows d’application logique qui vous aident à automatiser des tâches et des processus intégrant des applications, des données, des systèmes et des services dans les organisations et les entreprises à l’aide d’[Azure Logic Apps](../logic-apps/logic-apps-overview.md) et de Visual Studio Code mutualisés. Vous pouvez créer et modifier les définitions de workflow sous-jacentes, qui utilisent JavaScript Object Notation (JSON), pour des applications logiques via une expérience basée sur le code. Vous pouvez également travailler sur les applications logiques existantes qui sont déjà déployées dans Azure. Pour plus d’informations sur le modèle mutualisé par rapport au modèle monolocataire, passez en revue les [environnements monolocataires ou multilocataires et les services d’intégration](single-tenant-overview-compare.md).
 
 Même si vous pouvez effectuer ces tâches dans le [portail Azure](https://portal.azure.com) et dans Visual Studio, vous démarrez plus rapidement dans Visual Studio Code lorsque vous êtes familier avec les définitions d’application logique et choisissez de travailler directement avec du code. Par exemple, vous pouvez désactiver, activer, supprimer et actualiser des applications logiques déjà créées. En outre, vous pouvez travailler sur des applications logiques et des comptes d’intégration à partir de n’importe quelle plateforme de développement où Visual Studio Code s’exécute, comme Linux, Windows et Mac.
 
@@ -303,11 +303,11 @@ Dans Visual Studio Code, si vous modifiez une application logique publiée et qu
 >
 > * Le service Logic Apps ne crée pas ni n’exécute de nouvelles instances de workflow.
 >
-> * Le déclencheur ne se déclenche pas la prochaine fois que ses conditions sont remplies. Toutefois, l’état du déclencheur mémorise le point auquel l’application logique a été arrêtée. Ainsi, si vous réactivez l’application logique, le déclencheur se met en œuvre pour tous les éléments non traités depuis la dernière exécution.
+> * Le déclencheur ne se déclenche pas la prochaine fois que ses conditions sont remplies. Toutefois, l’état du déclencheur mémorise le point auquel l’application logique a été arrêtée. Ainsi, si vous la réactivez, le déclencheur se met en œuvre pour tous les éléments non traités depuis la dernière exécution.
 >
 >   Pour empêcher le déclencheur de se mettre en œuvre pour les éléments non traités depuis la dernière exécution, effacez l’état du déclencheur avant de réactiver l’application logique :
 >
->   1. Dans l’application logique, modifiez toute partie du déclencheur du workflow.
+>   1. Dans l’application logique, modifiez n’importe quelle partie du déclencheur du workflow.
 >   1. Enregistrez vos modifications. Cette étape réinitialise l’état actuel de votre déclencheur.
 >   1. Réactivez votre application logique.
 
@@ -331,11 +331,11 @@ Voici de quelles manières la suppression d’une application logique affecte le
 
 * Le service Logic Apps met tout en œuvre pour annuler les exécutions en cours et en attente.
 
-  Même avec un grand volume ou backlog, la plupart des exécutions sont annulées avant qu’elles ne finissent ou ne démarrent. Toutefois, le processus d’annulation peut prendre du temps. Pendant ce temps, certaines exécutions peuvent être récupérées pour être exécutées.
+  Même avec un gros volume ou un backlog important, la plupart des exécutions sont annulées avant qu’elles ne finissent ou ne démarrent. Toutefois, le processus d’annulation peut prendre du temps. Il peut arriver que certaines exécutions soient lancées dans l’intervalle.
 
 * Le service Logic Apps ne crée pas ni n’exécute de nouvelles instances de workflow.
 
-* Si, après avoir supprimé un workflow, vous recréez le même workflow, les métadonnées de ce dernier sont différentes de celles du workflow supprimé. Vous devez réenregistrer les workflows qui ont appelé le workflow supprimé. L’appelant obtiendra ainsi les informations adéquates du workflow recréé. Dans le cas contraire, les appels au workflow recréé échoueront avec une erreur `Unauthorized`. Ce comportement s’applique aussi aux workflows qui utilisent des artefacts dans les comptes d’intégration et les workflows qui appellent des fonctions Azure.
+* Si, après avoir supprimé un workflow, vous recréez le même, les métadonnées de ce dernier sont différentes de celles du workflow supprimé. Vous devez enregistrer de nouveau les workflows qui ont appelé le workflow supprimé. L’appelant obtient ainsi les bonnes informations sur le workflow recréé. Dans le cas contraire, les appels au workflow recréé échouent avec une erreur `Unauthorized`. Ce comportement s’applique aussi aux workflows qui utilisent des artefacts dans les comptes d’intégration et les workflows qui appellent des fonctions Azure.
 
 1. Si vous n’êtes pas encore connecté à votre compte et à votre abonnement Azure depuis Visual Studio Code, suivez les [étapes précédentes pour vous y connecter maintenant](#access-azure).
 
@@ -348,4 +348,4 @@ Voici de quelles manières la suppression d’une application logique affecte le
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer des applications logiques avec et sans état dans Visual Studio Code (préversion)](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)
+> [Créer des workflows d’application logique monolocataires dans Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)

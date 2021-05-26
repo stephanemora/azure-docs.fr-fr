@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: fc317345155a6807a20d342e2cefd0701b20f180
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4721598961ae912e8f0a9ef2f61022e5feb39e6c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86257051"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462247"
 ---
 # <a name="sfctl"></a>sfctl
 Commandes permettant de gérer les clusters et entités Service Fabric. Cette version est compatible avec le runtime Service Fabric 7.0.
@@ -27,7 +27,6 @@ Les commandes suivent le modèle nom-verbe. Pour plus d’informations, consulte
 | [container](service-fabric-sfctl-container.md) | Exécutez des commandes relatives à un conteneur sur un nœud de cluster. |
 | [events](service-fabric-sfctl-events.md) | Récupérez les événements du magasin d’événements (si le service EventStore est déjà installé). |
 | [is](service-fabric-sfctl-is.md) | Interroge et envoie des commandes vers le service d’infrastructure. |
-| [mesh](service-fabric-sfctl-mesh.md) | Permet de supprimer et de gérer les applications Service Fabric Mesh. |
 | [node](service-fabric-sfctl-node.md) | Permet de gérer les nœuds qui forment un cluster. |
 | [partition](service-fabric-sfctl-partition.md) | Interroge et gère des partitions pour tout service. |
 | [property](service-fabric-sfctl-property.md) | Stocke et interroge des propriétés avec des noms Service Fabric. |

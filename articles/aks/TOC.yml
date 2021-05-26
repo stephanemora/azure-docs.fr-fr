@@ -393,8 +393,6 @@
       items:
         - name: Problèmes courants
           href: troubleshooting.md
-        - name: Vérification des meilleures pratiques
-          href: kube-advisor-tool.md
         - name: Accès au nœud SSH
           href: ssh.md
         - name: Outils de performance Linux

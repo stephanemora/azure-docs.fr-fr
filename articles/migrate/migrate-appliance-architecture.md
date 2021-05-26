@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 4fc71f3242cc5607acebc68b62c5c0565b8f8e56
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 88ed92f4db7037753e93386eea329ab560f0847b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107715007"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110464213"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architecture de l’appliance Azure Migrate
 
@@ -51,7 +51,7 @@ L’appliance offre les services suivants :
 - **Agent de découverte et d’évaluation SQL** : envoie les métadonnées de configuration et de performances des instances et bases de données SQL Server à Azure.
 
 > [!Note]
-> Les trois derniers services ne sont disponibles que dans l’appliance utilisée pour la découverte et l’évaluation des serveurs s’exécutant dans votre environnement VMware.<br/> La découverte et l’évaluation d’instances et de bases de données SQL Server s’exécutant dans votre environnement VMware sont actuellement en préversion. Pour tester cette fonctionnalité, utilisez [**ce lien**](https://aka.ms/AzureMigrate/SQL) afin de créer un projet dans la région **Australie Est**. Si vous avez déjà un projet en Australie Est et si vous souhaitez tester cette fonctionnalité, vérifiez que vous avez effectué ces [**prérequis**](how-to-discover-sql-existing-project.md) dans le portail.
+> Les trois derniers services ne sont disponibles que dans l’appliance utilisée pour la découverte et l’évaluation des serveurs s’exécutant dans votre environnement VMware.
 
 ## <a name="discovery-and-collection-process"></a>Processus de découverte et de collecte
 
