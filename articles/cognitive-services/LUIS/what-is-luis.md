@@ -5,14 +5,14 @@ keywords: Azure, intelligence artificielle, ia, traitement en langage naturel, t
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 04/16/2021
+ms.date: 05/17/2021
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 3a7484269f16cc55fa16597e74b1d0671d16d980
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: d48d80170e3f1b9db83e12b34610a8b6736f42ca
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290593"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095821"
 ---
 # <a name="what-is-language-understanding-luis"></a>Qu’est-ce que le service Language Understanding (LUIS) ?
 
@@ -49,7 +49,7 @@ Cette documentation contient les types d’articles suivants :
 -   **Planifier** : Identifiez les scénarios pour lesquels les utilisateurs sont susceptibles d’utiliser votre application. Définissez les actions et les informations pertinentes qui doivent être reconnues.
 -   **Générer** : Utilisez votre ressource de création pour développer votre application. Commencez par définir des [intentions](luis-concept-intent.md) et des [entités](luis-concept-entity-types.md). Ajoutez ensuite des [énoncés](luis-concept-utterance.md) d’entraînement pour chaque intention. 
 -   **Tester et améliorer** : Commencez à tester votre modèle avec d’autres énoncés pour avoir une idée de la façon dont l’application se comporte, et décidez ensuite si une amélioration est nécessaire. Vous pouvez améliorer votre application en appliquant ces [bonnes pratiques](luis-concept-best-practices.md). 
--   **Publier** : Déployez votre application pour la prédiction et interrogez le point de terminaison à l’aide de votre ressource de prédiction. Apprenez-en davantage sur les ressources de création et de prédiction [ici](luis-how-to-azure-subscription.md#luis-resources). 
+-   **Publier** : Déployez votre application pour la prédiction et interrogez le point de terminaison à l’aide de votre ressource de prédiction. Apprenez-en davantage sur les ressources de création et de prédiction [ici](luis-how-to-azure-subscription.md). 
 -   **Se connecter** : Connectez-vous à d’autres services tels que [Microsoft Bot Framework](/composer/tutorial/tutorial-luis), [QnA Maker](../QnAMaker/choose-natural-language-processing-service.md) et le [service Speech](../speech-service/get-started-intent-recognition.md). 
 -   **Affiner** : [Passez en revue les énoncés de point de terminaison](luis-concept-review-endpoint-utterances.md) pour améliorer votre application avec des exemples concrets.
 

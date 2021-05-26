@@ -1,27 +1,21 @@
 ---
 title: Charger ou copier une machine virtuelle Linux personnalisée avec Azure CLI
 description: Charger ou copier une machine virtuelle personnalisée en utilisant le modèle de déploiement Resource Manager et Azure CLI
-services: virtual-machines
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: imaging
 ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: ecad48592ecfb6723548a27997cfe1b81545b24a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 63c78cd7fc9fea15eb2fd5452101aa2377e94b06
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107759596"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109808911"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI
 

@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
 ms.custom: devx-track-python, contperf-fy21q3
-ms.openlocfilehash: 5c08eba46c79f22d6796472177880e8f4716e8ba
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 65ff353469b884948e3de83e4b3ecafd1272cca5
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785634"
+ms.locfileid: "109809505"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-2-of-3"></a>Tutoriel : Entraîner votre premier modèle Machine Learning (partie 2 sur 3)
 
@@ -182,6 +182,9 @@ if __name__ == "__main__":
     aml_url = run.get_portal_url()
     print(aml_url)
 ```
+
+> [!TIP]
+> Si vous avez utilisé un autre nom quand vous avez créé le cluster de calcul, veillez à modifier également ce nom dans le code `compute_target='cpu-cluster'`.
 
 ### <a name="understand-the-code-changes"></a>Comprendre les modifications du code
 

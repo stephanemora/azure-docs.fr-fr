@@ -9,9 +9,9 @@
         - name: Migrer des charges de travail
           tocHref: /azure/migrate/
           topicHref: /azure/azure-vmware/
-        - name: Récupération de site
+        - name: Azure Site Recovery
           tocHref: /azure/site-recovery/
           topicHref: /azure/azure-vmware/
-        - name: Azure Backup Server
+        - name: Serveur de sauvegarde Azure
           tocHref: /azure/backup/
           topicHref: /azure/azure-vmware/

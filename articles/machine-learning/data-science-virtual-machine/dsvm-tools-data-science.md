@@ -5,16 +5,16 @@ description: Découvrez les outils et les frameworks de Machine Learning préins
 keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
 services: machine-learning
 ms.service: data-science-vm
-author: lobrien
-ms.author: laobri
+author: timoklimmer
+ms.author: tklimmer
 ms.topic: conceptual
-ms.date: 12/12/2019
-ms.openlocfilehash: d78b106464bfbd3c86b9899a5c3543eed5dc0924
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.date: 05/12/2021
+ms.openlocfilehash: 03ab10c4ee4ab4db1054650630ba347abbc7f25e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888955"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068839"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Outils d’apprentissage automatique et de science des données sur les machines virtuelles de science des données (DSVM) Azure
 Les machines virtuelles DSVM (Data Science Virtual Machine) offrent un ensemble complet d’outils et de bibliothèques de Machine Learning disponibles dans des langages courants tels que Python, R et Julia.
@@ -33,7 +33,6 @@ Consultez la référence complète du [Kit de développement logiciel (SDK) Azur
 | Comment fonctionne la configuration ou l’installation ?      |  Installé avec prise en charge GPU   |
 | Comment l’utiliser ou l’exécuter      | Comme kit SDK Python et dans Azure CLI. Activez pour l’environnement conda `AzureML` sur l’édition Windows *ou* pour `py36` sur l’édition Linux.      |
 | Liens vers des exemples      | Des exemples de blocs-notes Jupyter sont inclus dans le répertoire `AzureML` sous blocs-notes.  |
-| Outils associés      | Visual Studio Code, Jupyter   |
 
 ## <a name="h2o"></a>H2O
 
@@ -45,7 +44,6 @@ Consultez la référence complète du [Kit de développement logiciel (SDK) Azur
 | Comment fonctionne la configuration ou l’installation ?      | H2O est installé dans `/dsvm/tools/h2o`.      |
 | Comment l’utiliser ou l’exécuter      | Connectez-vous à la machine virtuelle à l’aide de X2Go. Démarrez un nouveau terminal et exécutez `java -jar /dsvm/tools/h2o/current/h2o.jar`. Ensuite, démarrez un navigateur web et connectez-vous à `http://localhost:54321`.      |
 | Liens vers des exemples      | Des exemples sont disponibles sur la machine virtuelle dans Jupyter sous le répertoire `h2o`.      |
-| Outils associés      | Apache Spark, MXNet, XGBoost, Sparkling Water, Deep Water    |
 
 Il existe plusieurs autres bibliothèques de Machine Learning sur des machines virtuelles DSVM, notamment le package `scikit-learn` très prisé qui fait partie de la distribution Anaconda Python pour les machines virtuelles DSVM. Pour consulter la liste des packages disponibles dans Julia, Python et R, exécutez les gestionnaires de package correspondants.
 
@@ -58,7 +56,6 @@ Il existe plusieurs autres bibliothèques de Machine Learning sur des machines v
 | Utilisations classiques      | Framework de boosting de gradient à usage général      |
 | Comment fonctionne la configuration ou l’installation ?      | Sur Windows, LightGBM est installé en tant que package Python. Sur Linux, le fichier exécutable de ligne de commande se trouve dans `/opt/LightGBM/lightgbm`, le package R est installé et des packages Python sont installés.     |
 | Liens vers des exemples      | [Guide LightGBM](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
-| Outils associés      | MXNet, XgBoost  |
 
 ## <a name="rattle"></a>Rattle
 | Category | Valeur |
@@ -68,7 +65,6 @@ Il existe plusieurs autres bibliothèques de Machine Learning sur des machines v
 | Utilisations classiques      | Outil général d’exploration de données doté d’une interface utilisateur pour R    |
 | Comment l’utiliser ou l’exécuter      | En tant qu’outil d’interface utilisateur. Sur Windows, démarrez une invite de commandes, exécutez R, puis exécutez `rattle()` dans R. Sur Linux, connectez-vous avec X2Go, démarrez un terminal, exécutez R, puis dans R, exécutez `rattle()`. |
 | Liens vers des exemples      | [Rattle](https://togaware.com/onepager/) |
-| Outils associés      |LightGBM, Weka, XGBoost   |
 
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
 | Category | Valeur |
@@ -79,8 +75,6 @@ Il existe plusieurs autres bibliothèques de Machine Learning sur des machines v
 | Comment fonctionne la configuration ou l’installation ?      |  Windows : programme d’installation MSI<br/>Linux : apt-get |
 | Comment l’utiliser ou l’exécuter      | En tant qu’outil en ligne de commande de chemin (`C:\Program Files\VowpalWabbit\vw.exe` sur Windows, `/usr/bin/vw` sur Linux)    |
 | Liens vers des exemples      | [Exemples VowPal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
-| Outils associés      |LightGBM, MXNet, XGBoost   |
-
 
 ## <a name="weka"></a>Weka
 | Category | Valeur |
@@ -90,7 +84,6 @@ Il existe plusieurs autres bibliothèques de Machine Learning sur des machines v
 | Utilisations classiques      | Outil de Machine Learning général     |
 | Comment l’utiliser ou l’exécuter      | Sur Windows, recherchez Weka dans le menu **Démarrer**. Sur Linux, connectez-vous avec X2Go, puis accédez à **Applications** > **Développement** > **Weka**. |
 | Liens vers des exemples      | [Exemples Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| Outils associés      |LightGBM, Rattle, Xgboost   |
 
 ## <a name="xgboost"></a>XGBoost 
 | Category | Valeur |
@@ -101,14 +94,3 @@ Il existe plusieurs autres bibliothèques de Machine Learning sur des machines v
 | Comment fonctionne la configuration ou l’installation ?      |  Installé avec prise en charge GPU   |
 | Comment l’utiliser ou l’exécuter      | Comme bibliothèque Python (2.7 et 3.6+), package R et outil en ligne de commande sur le chemin (`C:\dsvm\tools\xgboost\bin\xgboost.exe` pour Windows et `/dsvm/tools/xgboost/xgboost` pour Linux)    |
 | Liens vers des exemples      | Des exemples sont fournis sur la machine virtuelle, dans `/dsvm/tools/xgboost/demo` sur Linux et `C:\dsvm\tools\xgboost\demo` sur Windows.   |
-| Outils associés      | LightGBM, MXNet   |
-
-## <a name="apache-drill"></a>Apache Drill
-| Category | Valeur |
-| ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Moteur de requête SQL open source sur le Big Data    |
-| Versions DSVM prises en charge      | Windows 2019, Linux  |
-| Comment est-il configuré et installé sur la machine virtuelle DSVM ?      |  Installé dans `/dsvm/tools/drill*` en mode incorporé uniquement   |
-| Utilisations classiques      |  Pour l’exploration de données sur place sans nécessiter une opération d’extraction, de transformation et de chargement (ETL). Interroger différents formats et sources de données, notamment CSV, JSON, les tables relationnelles et Hadoop.     |
-| Comment l’utiliser et l’exécuter ?      | Raccourci sur le Bureau  <br/> [Prendre en main Drill en 10 minutes](https://drill.apache.org/docs/drill-in-10-minutes/)  |
-| Outils connexes sur la machine virtuelle DSVM      |   Rattle, Weka, SQL Server Management Studio      |

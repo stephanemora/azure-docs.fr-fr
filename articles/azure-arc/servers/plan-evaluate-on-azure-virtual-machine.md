@@ -3,12 +3,12 @@ title: Comment évaluer des serveurs avec Azure Arc avec une machine virtuelle A
 description: Découvrez comment évaluer des serveurs avec Azure Arc à l’aide d’une machine virtuelle Azure.
 ms.date: 05/06/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3c8318775c37c8cb3ed8171c00666bbcdd280a9c
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 1e49b2d29b21f6ded72d1b22e946743f27e7d160
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486068"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109837832"
 ---
 # <a name="evaluate-arc-enabled-servers-on-an-azure-virtual-machine"></a>Évaluer les serveurs avec Arc sur une machine virtuelle Azure
 
@@ -19,8 +19,8 @@ Bien que vous ne soyez pas en mesure d’installer des serveurs avec Azure Arc s
 ## <a name="prerequisites"></a>Prérequis
 
 * Votre compte est affecté au rôle [Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
-* La machine virtuelle Azure exécute un [système d’exploitation pris en charge par les serveurs avec Arc](agent-overview.md#supported-operating-systems). Si vous n’avez pas de machine virtuelle Azure, vous pouvez déployer une [machine virtuelle Windows simple](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json) ou une [machine virtuelle Ubuntu Linux 18.04 LTS simple](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json).
-* Votre machine virtuelle Azure peut communiquer en sortie pour télécharger le package d’agent Azure Connected Machine pour Windows à partir du [Centre de téléchargement Microsoft](https://aka.ms/AzureConnectedMachineAgent), et pour Linux à partir du [dépôt de packages](https://packages.microsoft.com/) Microsoft. Si la connectivité sortante à Internet est limitée à la suite de votre stratégie de sécurité informatique, vous devez télécharger le package de l’agent manuellement et le copier dans un dossier sur la machine virtuelle Azure. 
+* La machine virtuelle Azure exécute un [système d’exploitation pris en charge par les serveurs avec Arc](agent-overview.md#supported-operating-systems). Si vous n’avez pas de machine virtuelle Azure, vous pouvez déployer une [machine virtuelle Windows simple](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json) ou une [machine virtuelle Ubuntu Linux 18.04 LTS simple](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json).
+* Votre machine virtuelle Azure peut communiquer en sortie pour télécharger le package d’agent Azure Connected Machine pour Windows à partir du [Centre de téléchargement Microsoft](https://aka.ms/AzureConnectedMachineAgent), et pour Linux à partir du [dépôt de packages](https://packages.microsoft.com/) Microsoft. Si la connectivité sortante à Internet est limitée à la suite de votre stratégie de sécurité informatique, vous devez télécharger le package de l’agent manuellement et le copier dans un dossier sur la machine virtuelle Azure.
 * Un compte avec des privilèges élevés (c’est-à-dire un administrateur ou root) sur la machine virtuelle, et un accès RDP ou SSH à la machine virtuelle.
 * Pour inscrire et gérer la machine virtuelle Azure avec des serveurs avec Arc, vous êtes membre du rôle [Administrateur de ressources Azure Connected Machine](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator) ou [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) dans le groupe de ressources.
 
@@ -34,9 +34,9 @@ Pour commencer à gérer votre machine virtuelle Azure en tant que serveur avec 
 
 3. Créez une règle de sécurité pour refuser l’accès à Azure Instance Metadata Service (IMDS). IMDS est une API REST que les applications peuvent appeler pour obtenir des informations sur la représentation des machines virtuelles dans Azure, y compris son ID de ressource et son emplacement. IMDS fournit également l’accès à toutes les identités managées affectées à la machine. Les serveurs avec Azure Arc fournissent leur propre implémentation d’IMDS et retournent des informations sur la représentation Azure Arc de la machine virtuelle. Pour éviter les situations où les deux points de terminaison IMDS sont disponibles et que les applications doivent choisir entre les deux, vous bloquez l’accès à IMDS des machines virtuelles Azure afin que l’implémentation IMDS du serveur avec Azure Arc soit la seule disponible.
 
-Une fois ces modifications effectuées, votre machine virtuelle Azure se comporte comme n’importe quelle machine ou n’importe quel serveur en dehors d’Azure, et se trouve au point de départ nécessaire pour installer et évaluer les serveurs avec Azure Arc. 
+Une fois ces modifications effectuées, votre machine virtuelle Azure se comporte comme n’importe quelle machine ou n’importe quel serveur en dehors d’Azure, et se trouve au point de départ nécessaire pour installer et évaluer les serveurs avec Azure Arc.
 
-Lorsque les serveurs avec Arc sont configurés sur la machine virtuelle, vous voyez deux représentations de ceux-ci dans Azure. L’une est la ressource de machine virtuelle Azure, avec un type de ressource `Microsoft.Compute/virtualMachines`, et l’autre est une ressource Azure Arc, avec un type de ressource `Microsoft.HybridCompute/machines`. En raison de la prévention de la gestion du système d’exploitation invité à partir du serveur hôte physique partagé, la meilleure façon de voir les deux ressources est de considérer la ressource de machine virtuelle Azure comme le matériel virtuel de votre machine virtuelle, et vous permet de contrôler l’état de l’alimentation et d’afficher des informations sur ses configurations de référence SKU, de réseau et de stockage. La ressource Azure Arc de son côté gère le système d’exploitation invité de cette machine virtuelle et peut être utilisée pour installer des extensions, afficher les données de conformité pour Azure Policy et effectuer toute autre tâche prise en charge par les serveurs avec Arc.  
+Lorsque les serveurs avec Arc sont configurés sur la machine virtuelle, vous voyez deux représentations de ceux-ci dans Azure. L’une est la ressource de machine virtuelle Azure, avec un type de ressource `Microsoft.Compute/virtualMachines`, et l’autre est une ressource Azure Arc, avec un type de ressource `Microsoft.HybridCompute/machines`. En raison de la prévention de la gestion du système d’exploitation invité à partir du serveur hôte physique partagé, la meilleure façon de voir les deux ressources est de considérer la ressource de machine virtuelle Azure comme le matériel virtuel de votre machine virtuelle, et vous permet de contrôler l’état de l’alimentation et d’afficher des informations sur ses configurations de référence SKU, de réseau et de stockage. La ressource Azure Arc de son côté gère le système d’exploitation invité de cette machine virtuelle et peut être utilisée pour installer des extensions, afficher les données de conformité pour Azure Policy et effectuer toute autre tâche prise en charge par les serveurs avec Arc.
 
 ## <a name="reconfigure-azure-vm"></a>Reconfigurer une machine virtuelle Azure
 
@@ -68,10 +68,10 @@ Lorsque les serveurs avec Arc sont configurés sur la machine virtuelle, vous vo
    Tout en étant toujours connecté au serveur, exécutez les commandes suivantes pour bloquer l’accès au point de terminaison Azure IMDS. Pour Windows, exécutez la commande PowerShell suivante :
 
    ```powershell
-   New-NetFirewallRule -Name BlockAzureIMDS -DisplayName "Block access to Azure IMDS" -Enabled True -Profile Any -Direction Outbound -Action Block -RemoteAddress 169.254.169.254 
+   New-NetFirewallRule -Name BlockAzureIMDS -DisplayName "Block access to Azure IMDS" -Enabled True -Profile Any -Direction Outbound -Action Block -RemoteAddress 169.254.169.254
    ```
 
-   Pour Linux, consultez la documentation de votre distribution pour la meilleure façon de bloquer l’accès sortant à `169.254.169.254/32` sur le port TCP 80. Normalement, vous bloquez l’accès sortant avec le pare-feu intégré, mais vous pouvez également le bloquer temporairement avec **iptables** ou **nftables**. 
+   Pour Linux, consultez la documentation de votre distribution pour la meilleure façon de bloquer l’accès sortant à `169.254.169.254/32` sur le port TCP 80. Normalement, vous bloquez l’accès sortant avec le pare-feu intégré, mais vous pouvez également le bloquer temporairement avec **iptables** ou **nftables**.
 
    Si votre machine virtuelle Azure exécute Ubuntu, procédez comme suit pour configurer Uncomplicated Firewall (UFW) :
 
@@ -86,7 +86,7 @@ Lorsque les serveurs avec Arc sont configurés sur la machine virtuelle, vous vo
    Pour configurer une configuration iptables générique, exécutez la commande suivante :
 
    ```bash
-   iptables -A OUTPUT -d 169.254.169.254 -j DROP 
+   iptables -A OUTPUT -d 169.254.169.254 -j DROP
    ```
 
    > [!NOTE]
@@ -97,7 +97,7 @@ Lorsque les serveurs avec Arc sont configurés sur la machine virtuelle, vous vo
    La machine virtuelle est maintenant prête pour que vous commenciez à évaluer les serveurs avec Arc. Pour installer et configurer l’agent des serveurs avec Arc, consultez [Connecter des machines hybrides à l’aide du portail Azure](onboard-portal.md) et suivez les étapes pour générer un script d’installation et installer à l’aide de la méthode avec script.
 
    > [!NOTE]
-   > Si la connectivité sortante à Internet est restreinte pour votre machine virtuelle Azure, vous devez télécharger le package de l’agent manuellement. Copiez le package de l’agent sur la machine virtuelle Azure, puis modifiez le script d’installation des serveurs avec Arc pour référencer le dossier source. 
+   > Si la connectivité sortante à Internet est restreinte pour votre machine virtuelle Azure, vous devez télécharger le package de l’agent manuellement. Copiez le package de l’agent sur la machine virtuelle Azure, puis modifiez le script d’installation des serveurs avec Arc pour référencer le dossier source.
 
 Si vous avez manqué l’une des étapes, le script d’installation détecte qu’il s’exécute sur une machine virtuelle Azure et se conclut sur une erreur. Vérifiez que vous avez terminé les étapes 1-3, puis réexécutez le script.
 

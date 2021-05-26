@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24ec646c2928570c67a7f71481f2ca0191f1c8b9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: ae18548c8344e5fe874d3c4c1d99742d7f8a8b43
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280205"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451715"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gérer les propriétés et les métadonnées blob avec .NET
 
@@ -35,13 +35,13 @@ En plus des données qu’ils contiennent, les blobs prennent en charge des prop
 
 L’exemple de code suivant définit les propriétés système `ContentType` et `ContentLanguage` sur un blob.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Pour définir des propriétés sur un objet blob, appelez [SetHttpHeaders](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheaders) ou [SetHttpHeadersAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheadersasync). Toutes les propriétés qui ne sont pas explicitement définies sont effacées. L’exemple de code suivant obtient d’abord les propriétés existantes sur l’objet blob, puis les utilise pour remplir les en-têtes qui ne sont pas mis à jour.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_SetBlobProperties":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 ```csharp
 public static async Task SetBlobPropertiesAsync(CloudBlob blob)
@@ -72,11 +72,11 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
 
 L’exemple de code suivant obtient les propriétés système d’un blob et affiche certaines des valeurs suivantes.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobProperties":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 La récupération des valeurs des propriétés et des métadonnées d’une ressource de stockage blob se déroule en deux étapes. Pour pouvoir lire ces valeurs, vous devez les extraire explicitement en appelant la méthode `FetchAttributes` ou `FetchAttributesAsync`. L’exception à cette règle est que les méthodes `Exists` et `ExistsAsync` appellent la méthode `FetchAttributes` appropriée en coulisses. Lorsque vous appelez une de ces méthodes, vous n’avez pas besoin d’appeler `FetchAttributes`.
 
@@ -115,12 +115,12 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
 
 Vous pouvez indiquer des métadonnées sous la forme de paires nom-valeur sur une ressource d’objet blob ou de conteneur. Pour définir des métadonnées, ajoutez des paires nom-valeur à la collection `Metadata` sur la ressource. Appelez alors une des méthodes suivantes pour écrire les valeurs :
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 - [SetMetadata](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.setmetadata)
 - [SetMetadataAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.setmetadataasync)
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
@@ -132,11 +132,11 @@ Le nom de vos métadonnées doit respecter la convention d’affectation de noms
 
 L’exemple de code suivant définit les métadonnées d’un blob. Une valeur est définie à l’aide de la méthode `Add` de la collection. L’autre valeur est définie à l’aide d’une syntaxe implicite clé/valeur.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_AddBlobMetadata":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 ```csharp
 public static async Task AddBlobMetadataAsync(CloudBlob blob)
@@ -166,13 +166,13 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
 
 L’exemple de code suivant lit les métadonnées d’un blob.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Pour récupérer des métadonnées, appelez l’une des méthodes [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) ou [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) sur votre objet blob ou votre conteneur pour remplir la collection [Metadata](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata), puis lisez les valeurs, comme indiqué dans l’exemple suivant. Les méthodes **GetProperties** récupèrent les propriétés et les métadonnées des objets blob en un seul appel. Ce qui n'est pas le cas des API REST pour lesquelles des appels distincts sont nécessaires afin d'[Obtenir les propriétés des objets blob](/rest/api/storageservices/get-blob-properties) et d'[Obtenir les métadonnées des objets blob](/rest/api/storageservices/get-blob-metadata).
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 Pour récupérer des métadonnées, appelez la méthode `FetchAttributes` ou `FetchAttributesAsync` sur votre blob ou votre conteneur pour alimenter la collection `Metadata`, puis lisez les valeurs, comme indiqué dans l’exemple suivant.
 

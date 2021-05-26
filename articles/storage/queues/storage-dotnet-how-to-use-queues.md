@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e32779e75480d365ec10e8c7f849fddd27c891c
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: bec9ea1e01edc3e8289eb7212d3c5fecd673faaa
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275989"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477358"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Bien démarrer avec le Stockage File d’attente Azure en utilisant .NET
 
@@ -60,7 +60,7 @@ Vous pouvez utiliser les bibliothèques de client du Stockage Azure dans n’imp
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Utiliser NuGet pour installer les packages requis
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Pour terminer ce didacticiel, vous devez référencer les quatre packages suivants dans votre projet :
 
@@ -76,7 +76,7 @@ Vous pouvez utiliser NuGet pour obtenir ces packages. Procédez comme suit :
 1. Recherchez `Azure.Storage.Queues` sur Internet, puis sélectionnez **Installer** pour installer la bibliothèque de client Stockage Azure et ses dépendances. Cela aura également pour effet d’installer les bibliothèques Azure.Storage.Common et Azure.Core, qui sont des dépendances de la bibliothèque de file d’attente.
 1. Recherchez `System.Configuration.ConfigurationManager` sur Internet, puis sélectionnez **Installer** pour installer Configuration Manager.
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
 Pour terminer ce didacticiel, vous devez référencer les trois packages suivants dans votre projet :
 
@@ -152,11 +152,11 @@ Pour cibler l’émulateur de stockage Azurite, vous pouvez utiliser un raccourc
 
 Ajoutez les directives `using` suivantes au fichier `Program.cs` :
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_UsingStatements":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
 ```csharp
 using System; // Namespace for Console output
@@ -169,13 +169,13 @@ using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
 
 ### <a name="create-the-queue-storage-client"></a>Créer le client du Stockage File d’attente
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 La classe [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) vous permet de récupérer des files d’attente stockées dans le Stockage File d’attente. Voici un moyen de créer le client du service :
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_CreateClient":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
 La classe [`CloudQueueClient`](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy&preserve-view=true) vous permet de récupérer des files d’attente stockées dans le Stockage File d’attente. Voici un moyen de créer le client du service :
 
@@ -196,11 +196,11 @@ Vous êtes maintenant prêt à écrire du code qui lit et écrit des données da
 
 Cet exemple montre comment créer une file d’attente :
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_CreateQueue":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
 ```csharp
 // Retrieve storage account from connection string
@@ -221,13 +221,13 @@ queue.CreateIfNotExists();
 
 ## <a name="insert-a-message-into-a-queue"></a>Insertion d'un message dans une file d'attente
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Pour insérer un message dans une file d’attente existante, appelez la méthode [`SendMessage`](/dotnet/api/azure.storage.queues.queueclient.sendmessage). Un message peut être une chaîne (au format UTF-8) ou un tableau d'octets. Le code suivant crée une file d’attente (si elle n’existe pas) et insère un message :
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_InsertMessage":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
 Pour insérer un message dans une file d’attente existante, commencez par créer un nouveau [`CloudQueueMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). Ensuite, appelez la méthode [`AddMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true). Vous pouvez créer un `CloudQueueMessage` à partir d’une chaîne (au format UTF-8) ou d’un tableau d’octets. Voici le code qui crée une file d’attente (si elle n’existe pas déjà) et insère le message `Hello, World` : Pour insérer un message dans une file d’attente existante, commencez par créer un nouveau [`CloudQueueMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). Ensuite, appelez la méthode [`AddMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true). Vous pouvez créer un `CloudQueueMessage` à partir d’une chaîne (au format UTF-8) ou d’un tableau d’octets. Voici le code qui crée une file d’attente (si elle n’existe pas déjà) et insère le message `Hello, World` :
 
@@ -254,13 +254,13 @@ queue.AddMessage(message);
 
 ## <a name="peek-at-the-next-message"></a>Lecture furtive du message suivant
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Vous pouvez lire furtivement le message dans la file d’attente sans l’enlever de la file d’attente en appelant la méthode [`PeekMessages`](/dotnet/api/azure.storage.queues.queueclient.peekmessages). Si vous ne transmettez pas de valeur pour le paramètre `maxMessages`, la valeur par défaut consiste à afficher un aperçu d’un message.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_PeekMessage":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
 Vous pouvez lire furtivement le message au début de la file d’attente sans l’enlever de la file d’attente en appelant la méthode [`PeekMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy&preserve-view=true).
 
@@ -288,11 +288,11 @@ Console.WriteLine(peekedMessage.AsString);
 
 Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Si le message représente une tâche, vous pouvez utiliser cette fonctionnalité pour mettre à jour l'état de la tâche. Le code suivant met à jour le message de la file d'attente avec un nouveau contenu et ajoute 60 secondes au délai d'expiration de la visibilité. Cette opération enregistre l'état de la tâche associée au message et accorde une minute supplémentaire au client pour traiter le message. Vous pouvez utiliser cette technique pour suivre des workflows à plusieurs étapes sur les messages de file d’attente, sans devoir reprendre du début si une étape du traitement échoue à cause d’une défaillance matérielle ou logicielle. Normalement, vous conservez aussi un nombre de nouvelles tentatives et si le message est retenté plus de *n* fois, vous le supprimez. Cela protège du déclenchement d'une erreur d'application par un message chaque fois qu'il est traité.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_UpdateMessage":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -317,13 +317,13 @@ queue.UpdateMessage(message,
 
 ## <a name="dequeue-the-next-message"></a>Suppression du message suivant de la file d’attente
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Supprimez un message d’une file d’attente en deux étapes. Lorsque vous appelez [`ReceiveMessages`](/dotnet/api/azure.storage.queues.queueclient.receivemessages), vous obtenez le message suivant dans une file d’attente. Un message renvoyé par `ReceiveMessages` devient invisible par les autres codes lisant les messages de cette file d'attente. Par défaut, ce message reste invisible pendant 30 secondes. Pour finaliser la suppression du message de la file d’attente, vous devez aussi appeler [`DeleteMessage`](/dotnet/api/azure.storage.queues.queueclient.deletemessage). Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle `DeleteMessage` juste après le traitement du message.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_DequeueMessage":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
 Votre code enlève un message d'une file d'attente en deux étapes. Lorsque vous appelez [`GetMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy&preserve-view=true), vous obtenez le message suivant dans une file d’attente. Un message renvoyé par `GetMessage` devient invisible par les autres codes lisant les messages de cette file d'attente. Par défaut, ce message reste invisible pendant 30 secondes. Pour finaliser la suppression du message de la file d’attente, vous devez aussi appeler [`DeleteMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy&preserve-view=true). Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle `DeleteMessage` juste après le traitement du message.
 
@@ -353,11 +353,11 @@ queue.DeleteMessage(retrievedMessage);
 
 Cet exemple décrit comment utiliser le modèle Async-Await avec les API Stockage File d’attente communes. L’exemple appelle la version asynchrone de chacune des méthodes spécifiées, comme l’indique le suffixe `Async` de chaque méthode. Quand une méthode asynchrone est utilisée, le modèle Async-Await suspend l’exécution locale jusqu’à la fin de l’appel. Ce comportement permet au thread actuel d’effectuer d’autres tâches afin d’éviter les goulots d’étranglement au niveau des performances et d’améliorer la réactivité globale de votre application. Pour plus d’informations sur l’utilisation du modèle Async-Await dans .NET, consultez l’article [Async et Await (C# et Visual Basic)](/previous-versions/hh191443(v=vs.140))
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_AsyncQueue":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
 ```csharp
 // Create the queue if it doesn't already exist
@@ -392,13 +392,13 @@ Console.WriteLine("Deleted message");
 
 Il existe deux façons de personnaliser la récupération des messages à partir d'une file d'attente. Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 L’exemple de code suivant utilise la méthode [`ReceiveMessages`](/dotnet/api/azure.storage.queues.queueclient.receivemessages) pour obtenir 20 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle `foreach`. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message. Notez que le délai de 5 minutes démarre en même temps pour tous les messages. Par conséquent, une fois les 5 minutes écoulées après l’appel de `ReceiveMessages`, tous les messages n’ayant pas été supprimés redeviennent visibles.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_DequeueMessages":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
 L’exemple de code suivant utilise la méthode [`GetMessages`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) pour obtenir 20 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle `foreach`. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message. Notez que le délai de 5 minutes démarre en même temps pour tous les messages. Par conséquent, une fois les 5 minutes écoulées après l’appel de `GetMessages`, tous les messages n’ayant pas été supprimés redeviennent visibles.
 
@@ -424,13 +424,13 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 
 ## <a name="get-the-queue-length"></a>Obtention de la longueur de la file d'attente
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode [`GetProperties`](/dotnet/api/azure.storage.queues.queueclient.getproperties) retourne les propriétés de file d’attente, y compris le nombre de messages. La propriété [`ApproximateMessagesCount`](/dotnet/api/azure.storage.queues.models.queueproperties.approximatemessagescount) contient le nombre approximatif de messages dans la file d’attente. Ce nombre n’est pas inférieur au nombre réel de messages dans la file d’attente, mais peut être supérieur.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_GetQueueLength":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
 Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode [`FetchAttributes`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy&preserve-view=true) retourne les attributs de file d’attente, y compris le nombre de messages. La propriété [`ApproximateMessageCount`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy&preserve-view=true) retourne la dernière valeur récupérée par la méthode `FetchAttributes`, sans appeler le Stockage File d’attente.
 
@@ -459,13 +459,13 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## <a name="delete-a-queue"></a>Suppression d'une file d'attente
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode [`Delete`](/dotnet/api/azure.storage.queues.queueclient.delete) sur l’objet file d’attente.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_DeleteQueue":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
 Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode [`Delete`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy&preserve-view=true) sur l’objet file d’attente.
 

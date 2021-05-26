@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ad6d006157424c995ea94e89163d69a0db242ce1
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 513b6ca963535cefe72caf1f7c98c130be99e45d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789679"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475859"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendre les modèles de jumeau dans Azure Digital Twins
 
@@ -126,7 +126,7 @@ Les champs du modèle sont les suivants :
 
 | Champ | Description |
 | --- | --- |
-| `@id` | Identificateur pour le modèle. Doit être au format `dtmi:<domain>:<unique model identifier>;<model version number>`. |
+| `@id` | Identificateur pour le modèle. Doit être au format `dtmi:<domain>:<unique-model-identifier>;<model-version-number>`. |
 | `@type` | Identifie le type des informations décrites. Pour une interface, le type est *interface*. |
 | `@context` | Définit le [contexte](https://niem.github.io/json/reference/json-ld/context/) pour le document JSON. Les modèles doivent utiliser `dtmi:dtdl:context;2`. |
 | `displayName` | [facultatif] Vous permet, le cas échéant, d’attribuer au modèle un nom convivial. |

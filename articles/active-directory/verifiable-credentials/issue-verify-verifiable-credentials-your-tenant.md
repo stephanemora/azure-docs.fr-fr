@@ -4,18 +4,18 @@ description: Modifiez l’exemple de code de justificatifs vérifiables pour qu�
 documentationCenter: ''
 author: barclayn
 manager: daveba
-ms.service: identity
+ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 310c821bf102d267d0b5f77dbf206b896ab2f1c7
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: c73c6ce641e5e8386d636f87253cb111c17ae69c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739221"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466075"
 ---
 # <a name="tutorial---issue-and-verify-verifiable-credentials-using-your-tenant-preview"></a>Tutoriel - Émettre et vérifier des justificatifs vérifiables à l’aide de votre locataire (préversion)
 

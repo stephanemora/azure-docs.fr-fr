@@ -4,16 +4,20 @@ description: Utiliser Blockchain Data Manager pour Azure Blockchain Service pour
 ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 69790787bc888448f2f40178bd12ee7058cc5892
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b054688fb524d82e758f2ac1a9ff643293bc3b29
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91283449"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "110465745"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Tutoriel : Utiliser Blockchain Data Manager pour envoyer des données à Azure Cosmos DB
 
-Dans ce didacticiel, vous utilisez Blockchain Data Manager pour Azure Blockchain Service afin d’enregistrer des données de transaction blockchain dans Azure Cosmos DB. Blockchain Data Manager capture, transforme et fournit des données de registre blockchain à des rubriques Azure Event Grid. Depuis Azure Event Grid, utilisez un connecteur d’application logique Azure pour créer des documents dans une base de données Azure Cosmos DB. Lorsque vous aurez terminé ce didacticiel, vous pourrez parcourir les données de transaction blockchain dans l’Explorateur de données Azure Cosmos DB.
+Dans ce didacticiel, vous utilisez Blockchain Data Manager pour Azure Blockchain Service afin d’enregistrer des données de transaction blockchain dans Azure Cosmos DB.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+Blockchain Data Manager capture, transforme et fournit des données de registre blockchain à des rubriques Azure Event Grid. Depuis Azure Event Grid, utilisez un connecteur d’application logique Azure pour créer des documents dans une base de données Azure Cosmos DB. Lorsque vous aurez terminé ce didacticiel, vous pourrez parcourir les données de transaction blockchain dans l’Explorateur de données Azure Cosmos DB.
 
 [![Capture d’écran montrant les détails de la transaction blockchain.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 

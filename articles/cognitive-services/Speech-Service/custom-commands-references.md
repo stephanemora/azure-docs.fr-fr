@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 98510132b2341736664dfafa52e9567df95652be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0694e7d136b7fd339362145179939d350eb23ef
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94561095"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475962"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Concepts et définitions de commandes personnalisées
 
@@ -25,7 +25,7 @@ Cet article sert de référence pour les concepts et définitions des applicatio
 Les commandes représentent les blocs de construction de base d’une application Commandes personnalisées. Une commande est un ensemble de configurations requises pour effectuer une tâche spécifique définie par un utilisateur.
 
 ### <a name="example-sentences"></a>Exemples de phrases
-Les exemples d’énoncés sont des exemples définis que l’utilisateur peut prononcer pour déclencher une commande particulière. Vous devez fournir uniquement un échantillon d’énoncés et non une liste exhaustive. 
+Les exemples d’énoncés sont des exemples définis que l’utilisateur peut prononcer pour déclencher une commande particulière. Vous devez fournir uniquement un échantillon d’énoncés et non une liste exhaustive.
 
 ### <a name="parameters"></a>Paramètres
 Les paramètres constituent des informations requises par les commandes pour effectuer une tâche. Dans des scénarios complexes, les paramètres peuvent également servir à définir des conditions qui déclenchent des actions personnalisées.
@@ -42,9 +42,6 @@ Les paramètres constituent des informations requises par les commandes pour eff
 
 ### <a name="name"></a>Nom
 Un paramètre est identifié par la propriété de nom. Vous devez toujours attribuer un nom descriptif à un paramètre. Un paramètre peut être référencé dans différentes sections, par exemple, lors de la construction de conditions, de réponses vocales ou d’autres actions.
- 
-### <a name="isglobal"></a>IsGlobal
-Cette case à cocher indique si la portée de ce paramètre est partagée entre toutes les commandes dans l’application. Si un paramètre est global, sa valeur peut éventuellement être fournie à partir de n’importe quelle portée de commande. Une fois qu’une valeur est attribuée, elle peut être référencée à partir de l’une des commandes. 
 
 ### <a name="required"></a>Obligatoire
 Cette case à cocher indique si une valeur de ce paramètre est requise pour exécuter la commande. Vous devez configurer les réponses pour inviter l’utilisateur à fournir une valeur si un paramètre est marqué comme étant obligatoire.
@@ -82,7 +79,7 @@ Une règle dans Commandes personnalisées est définie par un ensemble de *condi
 ### <a name="types"></a>Types
 Les commandes personnalisées prennent en charge les catégories de règles suivantes :
 
-* **Règles d’exécution** : ces règles doivent être exécutées lors de l’exécution de la commande. Toutes les règles configurées dans cette section pour lesquelles les conditions sont vraies seront exécutées. 
+* **Règles d’exécution** : ces règles doivent être exécutées lors de l’exécution de la commande. Toutes les règles configurées dans cette section pour lesquelles les conditions sont vraies seront exécutées.
 * **Règles d’interaction** : ces règles peuvent être utilisées pour configurer d’autres validations personnalisées, des confirmations et une correction en une étape ou pour appliquer toute autre logique de dialogue personnalisée. Les règles d’interaction sont évaluées à chaque étape de traitement et permettent de déclencher des règles d’exécution.
 
 Les différentes actions configurées dans le cadre d’une règle sont exécutées dans l’ordre dans lequel elles apparaissent dans le portail de création.
