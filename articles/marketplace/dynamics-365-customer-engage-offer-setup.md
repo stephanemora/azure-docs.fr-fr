@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: 550ae815933fd79e0cf6dc411aaddc8a8f564202
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 5a6adc0ad4f515e98f4393266bf71565359b3e0a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314514"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110473378"
 ---
 # <a name="how-to-create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Comment créer une offre Dynamics 365 pour Customer Engagement et Power Apps
 
@@ -82,7 +82,7 @@ Pour activer une version d’évaluation, cochez la case **Activer une version d
 
 ## <a name="customer-leads"></a>Prospects
 
-[!INCLUDE [Connect lead management](partner-center-portal/includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](includes/customer-leads.md)]
 
 Pour plus d’informations, consultez [Prospects de votre offre de marketplace commercial](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 

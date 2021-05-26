@@ -4,12 +4,12 @@ description: Didacticiel - Découvrez comment configurer des stratégies Apache 
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: bab3df857dfdac3ca3b9193bda1caea0040a4cbb
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 2c8a34728c37aa015159b89d82284a7156befd48
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104866979"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190175"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutoriel : Configurer des stratégies Apache Kafka dans HDInsight avec le Pack Sécurité Entreprise (préversion)
 
@@ -134,7 +134,7 @@ En fonction des stratégies Ranger configurées, **sales_user** peut produire/co
    export KAFKABROKERS=<brokerlist>:9092
    ```
 
-   Exemple : `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
+   Exemple : `export KAFKABROKERS=<brokername1>.contoso.com:9092,<brokername2>.contoso.com:9092`
 
 3. Suivez l’étape 3 de la section **Générer et déployer l’exemple** dans [Tutoriel : Utiliser les API de producteur et de consommateur Apache Kafka](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) pour vérifier que `kafka-producer-consumer.jar` est également accessible à **sales_user**.
 

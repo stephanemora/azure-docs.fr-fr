@@ -2,19 +2,19 @@
 title: Configurer votre propre clé pour chiffrer les données Azure Event Hubs au repos
 description: Cet article vous explique comment configurer votre propre clé pour chiffrer les données Azure Event Hubs au repos.
 ms.topic: conceptual
-ms.date: 02/01/2021
-ms.openlocfilehash: 33587812121051d93aa8b939c3df70530ba65c5e
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 05/04/2021
+ms.openlocfilehash: 89d12079195406e4b3c6da77105dc359cc1dacae
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812441"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377240"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Event Hubs au repos via le portail Azure
 Azure Event Hubs fournit une fonctionnalité de chiffrement des données au repos avec Azure Storage Service Encryption (Azure SSE). Le service Azure Event Hubs utilise Stockage Azure pour stocker les données. Toutes les données stockées avec Stockage Azure sont chiffrées à l'aide de clés gérées par Microsoft. Si vous utilisez votre propre clé (méthode également appelée Bring Your Own Key (BYOK) ou clé gérée par le client), les données sont toujours chiffrées à l'aide de la clé gérée par Microsoft, mais, en outre, la clé gérée par Microsoft est chiffrée à l'aide de la clé gérée par le client. Cette fonctionnalité vous permet de créer, de faire tourner, de désactiver et de révoquer l'accès aux clés gérées par le client et utilisées pour chiffrer les clés gérées par Microsoft. L'activation de la fonctionnalité BYOK sur votre espace de noms ne s'effectue qu'une seule fois.
 
-> [!NOTE]
-> - La fonctionnalité BYOK est prise en charge par les clusters [Event Hubs Dedicated à un seul locataire](event-hubs-dedicated-overview.md). Elle ne peut pas être activée pour les espaces de noms Event Hubs standard.
+> [!IMPORTANT]
+> - La fonctionnalité BYOK est prise en charge par les niveaux **Premium** et **dédié** d’Event Hubs.
 > - Le chiffrement ne peut être activé que pour les espaces de noms nouveaux ou vides. Si l'espace de noms contient des concentrateurs d'événements, l'opération de chiffrement échoue.
 
 Vous pouvez utiliser Azure Key Vault pour gérer vos clés et effectuer un audit sur leur utilisation. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés. Pour plus d’informations sur le coffre de clés Azure, consultez la page [Présentation du coffre de clés Azure](../key-vault/general/overview.md)
@@ -25,9 +25,8 @@ Cet article explique comment configurer un coffre de clés à l'aide de clés g�
 > Pour utiliser des clés gérées par le client avec Azure Event Hubs, le coffre de clés doit contenir deux propriétés requises configurées. Il s'agit de :  **Suppression réversible** et **Ne pas vider**. Ces propriétés sont activées par défaut lorsque vous créez un coffre de clés dans le portail Azure. Toutefois, si vous devez activer ces propriétés sur un coffre de clés existant, vous devez utiliser PowerShell ou Azure CLI.
 
 ## <a name="enable-customer-managed-keys"></a>Activer des clés gérées par le client
-Pour activer des clés gérées par le client dans le portail Azure, procédez comme suit :
+Pour activer des clés gérées par le client dans le portail Azure, procédez comme suit. Si vous utilisez le niveau dédié, commencez par accéder à votre cluster Event Hubs Dedicated.
 
-1. Accédez à votre cluster Event Hubs Dedicated.
 1. Sélectionnez l'espace de noms sur lequel vous souhaitez activer la fonctionnalité BYOK.
 1. Sur la page **Paramètres** de votre espace de noms Event Hubs, sélectionnez **Chiffrement**. 
 1. Sélectionnez **Clé gérée par le client**, comme indiqué sur l'illustration suivante. 

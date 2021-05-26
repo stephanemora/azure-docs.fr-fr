@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 55522324dc69fe0a433f012d28cbbde077b5ef04
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 332be773bca07acf178bd0754d3dad12f4879f51
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754170"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371133"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -22,28 +22,54 @@ Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obte
 
 __Flux RSS__ : Recevez une notification quand cette page est mise à jour en copiant et collant l’URL suivante dans votre lecteur de flux : `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## <a name="2021-05-25"></a>2021-05-25
+
+### <a name="announcing-the-20-cli-preview-for-azure-machine-learning"></a>Annonce de l’interface CLI 2.0 (préversion) pour Azure Machine Learning
+
+L’extension `ml` d’Azure CLI est l’interface de nouvelle génération d’Azure Machine Learning. Elle permet d’entraîner et de déployer des modèles à partir de la ligne de commande, avec des fonctionnalités qui accélèrent le scale-up et le scale-out pour la science des données tout en assurant le suivi du cycle de vie des modèles. [Installez l’extension et commencez](how-to-configure-cli.md).
+
+### <a name="azure-machine-learning-sdk-for-python-v1290"></a>SDK Azure Machine Learning pour Python v1.29.0
++ **Résolutions de bogue et améliorations**
+  + **Dernières modifications**
+    + Prise en charge de Python 3.5. abandonnée.
+  + **azureml-automl-runtime**
+    + Correction d’un bogue faisant échouer le STLFeaturizer si la longueur de la série chronologique est inférieure à la saisonnalité. Cette erreur se manifestait comme IndexError. Cette situation est maintenant gérée sans erreur. Cependant, la composante saisonnière du STL sera alors simplement constituée de zéros.
+  + **azureml-contrib-automl-dnn-vision**
+    + Ajout d’une méthode pour l’inférence par lot avec des chemins de fichier.
+  + **azureml-contrib-gbdt**
+    + Le package azureml-contrib-gbdt est déprécié. Il ne recevra peut-être pas les mises à jour ultérieures et sera supprimé complètement de la distribution.
+  + **azureml-core**
+    + Correction de l’explication du paramètre create_if_not_exists dans Datastore.register_azure_blob_container.
+    + Ajout d’un exemple de code à la classe DatasetConsumptionConfig.
+    + Ajout de la prise en charge de l’étape comme axe alternatif pour les valeurs de métrique dans run.log()
+  + **azureml-dataprep**
+    + Limitation de la taille de partition acceptée dans `_with_partition_size()` à 2 Go
+  + **azureml-interpret**
+    + Mise à jour d’azureml-interpret avec la version la plus récente du package interpret-core
+    + Arrêt de la prise en charge de SHAP DenseData, qui a été déprécié dans SHAP 0.36.0.
+    + Possibilité de charger `ExplanationClient` vers un magasin de données spécifié par l’utilisateur.
+  + **azureml-mlflow**
+    + Déplacement d’azureml-mlflow vers mlflow-skinny pour réduire l’ampleur des dépendances tout en conservant la prise en charge complète du plug-in
+  + **azureml-pipeline-core**
+    + Mise à jour de l’exemple de code PipelineParameter dans le document de référence pour utiliser le paramètre correct.
+
 
 ## <a name="2021-05-10"></a>2021-05-10
 
 ### <a name="azure-machine-learning-sdk-for-python-v1280"></a>SDK Azure Machine Learning pour Python v1.28.0
 + **Résolutions de bogue et améliorations**
-  + **azureml-automl-core**
-    + Ajout de la prise en charge de la version 2 du script de scoring AutoML qui gère les améliorations et est conforme à la spécification du concepteur
   + **azureml-automl-runtime**
-    + Ajout de la prise en charge de la version 2 du script de scoring AutoML qui gère les améliorations et est conforme à la spécification du concepteur
-  + **azureml-contrib-automl-dnn-forecasting**
-    + Ajout de la prise en charge de la version 2 du script de scoring AutoML qui gère les améliorations et est conforme à la spécification du concepteur
+    + Amélioration du script de scoring AutoML pour le rendre cohérent avec le concepteur
+    + Correction du bogue suivant : la prévision avec le modèle Prophet générait une erreur de « colonne manquante » quand l’entraînement était effectué sur une version antérieure du SDK.
+    + Ajout du modèle ARIMAX aux listes de modèles public-facing et forecasting-supported du SDK AutoML. Ici, ARIMAX est une régression avec des erreurs ARIMA et un cas particulier des modèles de fonction de transfert développés par Box et Jenkins. Pour plus d’informations sur les différences entre les deux approches, consultez [The ARIMAX model muddle](https://robjhyndman.com/hyndsight/arimax/) (Confusion liée au modèle ARIMAX). Contrairement aux autres modèles multivariés qui utilisent des fonctionnalités générées automatiquement, dépendantes des heures/dates (heure de la journée, jour de l’année, etc.), dans AutoML, ce modèle utilise uniquement des fonctionnalités fournies par l’utilisateur et simplifie l’interprétation des coefficients.
   + **azureml-contrib-dataset**
     + Description de la documentation mise à jour indiquant que libfuse doit être installé lors de l’utilisation du montage.
   + **azureml-core**
-    +  Image de processeur par défaut mise à jour vers mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04 - Image de processeur par défaut mise à jour vers mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04
+    + L’image processeur organisée par défaut est maintenant mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04. L’image GPU par défaut est maintenant mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04.
     + Run.fail() est maintenant déprécié ; utilisez Run.tag() pour marquer l’exécution comme ayant échoué, ou utilisez Run.cancel() pour marquer l’exécution comme annulée.
-    + Description de la documentation mise à jour indiquant que libfuse doit être installé lors de l’utilisation du montage.
-    + Activation de l’audience dans l’authentification msi
-    +  Ajout de la prise en charge expérimentale de register_dask_dataframe () au jeu de données tabulaire.
+    + Documentation mise à jour avec une remarque indiquant que libfuse doit être installé quand un jeu de données de fichier est monté.
+    + Ajout de la prise en charge expérimentale de register_dask_dataframe () au jeu de données tabulaire.
     + Prise en charge de DatabricksStep avec Azure Blob/ADL-S comme entrées/sorties et exposition des paramètres permit_cluster_restart pour permettre au client de décider si AML peut redémarrer le cluster lorsque la configuration d’accès aux E/S doit être ajoutée au cluster
-  + **azureml-dataprep**
-    + azureml-dataset-runtime prend désormais en charge les versions de pyarrow < 4.0.0
   + **azureml-dataset-runtime**
     + azureml-dataset-runtime prend désormais en charge les versions de pyarrow < 4.0.0
   + **azureml-mlflow**

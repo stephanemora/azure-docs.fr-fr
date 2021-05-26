@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: df71c1a92840ae0e7fa263e2ababcf5b3e059789
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 11761a7ec3716703d6714b515957d3a085791354
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832533"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068245"
 ---
 # <a name="create-an-app-service-app-and-deploy-a-private-endpoint-by-using-an-azure-resource-manager-template"></a>Créer une application App Service et déployer un point de terminaison privé en utilisant un modèle Azure Resource Manager
 
@@ -32,13 +32,13 @@ Ce modèle crée un point de terminaison privé pour une application web Azure.
 
 ### <a name="review-the-template"></a>Vérifier le modèle
 
-:::code language="json" source="~/quickstart-templates/101-private-endpoint-webapp/azuredeploy.json" :::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/private-endpoint-webapp/azuredeploy.json" :::
 
 ### <a name="deploy-the-template"></a>Déployer le modèle
 
 Voici comment déployer le modèle Azure Resource Manager sur Azure :
 
-1. Pour vous connecter à Azure et ouvrir le modèle, sélectionnez ce lien :  [Déploiement vers Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-webapp%2Fazuredeploy.json). Le modèle crée le réseau virtuel, l’application web, le point de terminaison privé et la zone DNS privée.
+1. Pour vous connecter à Azure et ouvrir le modèle, sélectionnez ce lien :  [Déploiement vers Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fprivate-endpoint-webapp%2Fazuredeploy.json). Le modèle crée le réseau virtuel, l’application web, le point de terminaison privé et la zone DNS privée.
 2. Sélectionnez ou créez votre groupe de ressources.
 3. Entrez le nom de votre application web, du plan App Service et du point de terminaison privé.
 5. Lisez la politique des conditions générales. Si vous acceptez, sélectionnez **J’accepte les conditions générales mentionnées ci-dessus** > **Acheter**. Le déploiement peut prendre plusieurs minutes.

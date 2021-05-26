@@ -1,5 +1,5 @@
 ---
-title: Créer et gérer des ressources avec l’extension VS Code (préversion)
+title: Créer et gérer des ressources avec l’extension VS Code (préversion)
 titleSuffix: Azure Machine Learning
 description: Découvrez comment créer et gérer des ressources Azure Machine Learning à l’aide de l’extension Visual Studio Code pour Azure Machine Learning.
 services: machine-learning
@@ -9,13 +9,13 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 11/16/2020
-ms.openlocfilehash: a968f50b1a867e17659195a53e7aa4383628500a
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.date: 05/25/2021
+ms.openlocfilehash: e0922d4b32162660e5ede7501eb4a23db519b9b2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888941"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377160"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gérer les ressources Azure Machine Learning avec l’extension VS Code (préversion)
 
@@ -27,9 +27,37 @@ Découvrez comment gérer les ressources Azure Machine Learning avec l’extensi
 
 - Abonnement Azure. Si vous n’en avez pas, inscrivez-vous ou essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree)
 - Visual Studio Code. [Installez-le](https://code.visualstudio.com/docs/setup/setup-overview) si ce n’est déjà fait.
-- Extension VS Code Azure Machine Learning. Suivez le [Guide d’installation de l’extension VS Code Azure Machine Learning](tutorial-setup-vscode-extension.md#install-the-extension) pour installer l’extension.
+- Extension Azure Machine Learning. Suivez le [Guide d’installation de l’extension VS Code Azure Machine Learning](how-to-setup-vs-code.md) pour configurer l’extension.
 
-Toutes les procédures ci-dessous partent du principe que vous êtes dans la vue Azure Machine Learning dans Visual Studio Code. Pour lancer l’extension, sélectionnez l’icône **Azure** dans la barre d’activité de VS Code.
+## <a name="create-resources"></a>Créer des ressources
+
+La façon la plus rapide de créer des ressources consiste à utiliser la barre d’outils de l’extension.
+
+1. Ouvrez la vue Azure Machine Learning.
+1. Sélectionnez **+** dans la barre d’activité.
+1. Choisissez votre ressource dans la liste déroulante.
+1. Configurez le fichier de spécification. Les informations requises dépendent du type de ressource que vous souhaitez créer.
+1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+
+Vous pouvez également créer une ressource à l’aide de la palette de commandes :
+
+1. Ouvrez la palette de commandes **Affichage > Palette de commandes**.
+1. Entrez `> Azure ML: Create <RESOURCE-TYPE>` dans la zone de texte. Remplacez `RESOURCE-TYPE` par le type de ressource que vous souhaitez créer.
+1. Configurez le fichier de spécification.
+1. Ouvrez la palette de commandes **Affichage > Palette de commandes**.
+1. Entrez `> Azure ML: Create Resource` dans la zone de texte.
+
+## <a name="version-resources"></a>Ressources de version
+
+Certaines ressources, telles que les environnements, les jeux de données et les modèles, vous permettent d’apporter des modifications à une ressource et de stocker les différentes versions.
+
+Pour créer une version d’une ressource :
+
+1. Utilisez le fichier de spécification existant qui a créé la ressource ou suivez le processus de création de ressources pour créer un nouveau fichier de spécification.
+1. Incrémentez le numéro de version dans le modèle.
+1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+
+Tant que le nom de la ressource mise à jour est identique à la version précédente, Azure Machine Learning récupère les modifications et crée une nouvelle version.
 
 ## <a name="workspaces"></a>Workspaces
 
@@ -38,19 +66,12 @@ Pour plus d’informations, consultez [Espaces de travail](concept-workspace.md)
 ### <a name="create-a-workspace"></a>Créer un espace de travail
 
 1. Dans la vue Azure Machine Learning, cliquez avec le bouton droit sur le nœud de votre abonnement et sélectionnez **Créer un espace de travail**.
-1. À l’invite :
-    1. Spécifiez un nom pour votre espace de travail.
-    1. Choisir votre abonnement Azure
-    1. Choisissez ou créez un groupe de ressources dans lequel provisionner l’espace de travail.
-    1. Sélectionnez l’emplacement où vous souhaitez provisionner l’espace de travail.
+1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
+1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
 
-Les autres méthodes de création d’un espace de travail sont les suivantes :
+Vous pouvez aussi utiliser la commande `> Azure ML: Create Workspace` dans la palette de commandes.
 
-- Ouvrez la palette de commandes **Afficher > Palette de commandes** et entrez dans l’invite de texte **Azure ML : Créez un espace de travail**.
-- Cliquez sur l’icône `+` en haut de la vue Azure Machine Learning.
-- Créez un espace de travail quand vous êtes invité à en sélectionner un lors du provisionnement d’autres ressources.
-
-### <a name="remove-a-workspace"></a>Supprimer un espace de travail
+### <a name="remove-workspace"></a>Supprimer l’espace de travail
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Cliquez avec le bouton doit sur l’espace de travail que vous souhaitez supprimer.
@@ -58,14 +79,16 @@ Les autres méthodes de création d’un espace de travail sont les suivantes :
     - *Uniquement l’espace de travail* : cette option supprime **uniquement** la ressource Azure de l’espace de travail. Le groupe de ressources, les comptes de stockage et toute autre ressource à laquelle l’espace de travail a été attaché sont toujours dans Azure.
     - *Avec les ressources associées* : cette option supprime l’espace de travail **et** toutes les ressources qui lui sont associées.
 
+Vous pouvez aussi utiliser la commande `> Azure ML: Remove Workspace` dans la palette de commandes.
+
 ## <a name="datastores"></a>Magasins de données
 
-L’extension VS Code prend actuellement en charge les magasins de données des types suivants :
+L’extension prend actuellement en charge les magasins de données des types suivants :
 
-- Partage de fichiers Azure
-- Stockage Blob Azure
-
-Quand vous créez un espace de travail, un magasin de données est créé pour chacun de ces types.
+- Objets blob Azure
+- Azure Data Lake Storage Gen1
+- Azure Data Lake Storage Gen2
+- Fichier Azure
 
 Pour plus d’informations, consultez [Magasins de données](concept-data.md#datastores).
 
@@ -73,29 +96,29 @@ Pour plus d’informations, consultez [Magasins de données](concept-data.md#dat
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud d’espace de travail sous lequel vous souhaitez créer le magasin de données.
-1. Cliquez avec le bouton droit sur le nœud **Magasins de données** et sélectionnez **Inscrire le magasin de données**.
-1. À l’invite :
-    1. Spécifiez un nom pour votre magasin de données.
-    1. Choisissez le type de magasin de données.
-    1. Sélectionnez votre ressource de stockage. Vous pouvez choisir une ressource de stockage qui est associée à votre espace de travail ou sélectionner parmi les ressources de stockage valides dans vos abonnements Azure.
-    1. Choisissez le conteneur où se trouvent vos données à l’intérieur de la ressource de stockage sélectionnée précédemment.
-1. Un fichier de configuration s’affiche dans VS Code. Si vous êtes satisfait de votre fichier de configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
+1. Cliquez avec le bouton droit sur le nœud **Magasins de données** et sélectionnez **Créer un magasin de données**.
+1. Choisissez le type de magasin de données.
+1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
+1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+
+Vous pouvez aussi utiliser la commande `> Azure ML: Create Datastore` dans la palette de commandes.
 
 ### <a name="manage-a-datastore"></a>Gérer un magasin de données
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud de votre espace de travail.
 1. Développez le nœud **Magasins de données** à l’intérieur de votre espace de travail.
-1. Sélectionnez le magasin de données de votre choix pour les options suivantes :
-    - *Définir par défaut*. Chaque fois que vous exécuterez des expériences, c’est ce magasin de données qui sera utilisé.
-    - *Inspecter les paramètres en lecture seule*.
-    - *Modifier*. Changez le type d’authentification et les informations d’identification. Les types d’authentification pris en charge sont la clé de compte et le jeton SAS.
+1. Cliquez avec le bouton droit sur le magasin de données de votre choix pour :
+    - *Désinscrire le magasin de données*. Supprime le magasin de données de votre espace de travail.
+    - *Afficher le magasin de données*. Afficher les paramètres de magasin de données en lecture seule
+
+Vous pouvez également utiliser les commandes `> Azure ML: Unregister Datastore` et `> Azure ML: View Datastore` dans la palette de commandes.
 
 ## <a name="datasets"></a>Groupes de données
 
 L’extension prend actuellement en charge les types de jeux de données suivants :
 
-- *Tabulaire* : vous permet de matérialiser des données dans un DataFrame (Pandas ou PySpark).
+- *Tabulaire* : Vous permet de matérialiser des données dans un DataFrame.
 - *Fichier* : fichier ou collection de fichiers. Vous permet de télécharger ou de monter des fichiers dans votre capacité de calcul.
 
 Pour plus d’informations, consultez [Jeux de données](concept-data.md#datasets).
@@ -103,48 +126,24 @@ Pour plus d’informations, consultez [Jeux de données](concept-data.md#dataset
 ### <a name="create-dataset"></a>Créer un jeu de données
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
-1. Développez le nœud d’espace de travail sous lequel vous souhaitez créer le magasin de données.
+1. Développez le nœud d’espace de travail sous lequel vous souhaitez créer le jeu de données.
 1. Cliquez avec le bouton droit sur le nœud **Jeux de données** et sélectionnez **Créer un jeu de données**.
-1. À l’invite :
-    1. Choisissez le type de jeu de données.
-    1. Précisez si les données se trouvent sur votre PC ou sur le web.
-    1. Spécifiez l’emplacement de vos données. Il peut s’agir d’un seul fichier ou d’un répertoire contenant vos fichiers de données.
-    1. Choisissez le magasin de données vers lequel vous souhaitez charger vos données.
-    1. Fournissez un préfixe qui permet d’identifier votre jeu de données dans le magasin de données.
+1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
+1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
 
-### <a name="version-datasets"></a>Jeux de données avec version
+Vous pouvez aussi utiliser la commande `> Azure ML: Create Dataset` dans la palette de commandes.
 
-Lors de la génération de modèles Machine Learning, à mesure que les données changent, vous souhaiterez peut-être affecter une version à votre jeu de données. Pour cela, dans l’extension VS Code, effectuez les étapes suivantes :
+### <a name="manage-a-dataset"></a>Gérer un jeu de données
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud de votre espace de travail.
 1. Développez le nœud **Jeux de données**.
-1. Cliquez avec le bouton droit sur le jeu de données dont vous souhaitez gérer les versions, puis sélectionnez **Créer une nouvelle version**.
-1. À l’invite :
-    1. Sélectionnez le type de jeu de données.
-    1. Précisez si les données se trouvent sur votre PC ou sur le web.
-    1. Spécifiez l’emplacement de vos données. Il peut s’agir d’un seul fichier ou d’un répertoire contenant vos fichiers de données.
-    1. Choisissez le magasin de données vers lequel vous souhaitez charger vos données.
-    1. Fournissez un préfixe qui permet d’identifier votre jeu de données dans le magasin de données.
+1. Cliquez avec le bouton droit sur le jeu de données de votre choix pour :
+    - **Afficher les propriétés du jeu de données**. Vous permet d’afficher les métadonnées associées à un jeu de données spécifique. Si vous avez plusieurs versions d’un jeu de données, vous pouvez choisir d’afficher uniquement les propriétés de jeu de données d’une version spécifique en développant le nœud du jeu de données et en effectuant les étapes décrites dans cette section sur la version qui vous intéresse.
+    - **Afficher l’aperçu d’un jeu de données**. Affichez votre jeu de données directement dans la visionneuse de données VS Code. Notez que cette option n’est disponible que pour les jeux de données tabulaires.
+    - **Désinscrire le jeu de données**. Supprime un jeu de données et toutes ses versions de votre espace de travail.
 
-### <a name="view-dataset-properties"></a>Afficher les propriétés d’un jeu de données
-
-Cette option vous permet d’afficher les métadonnées associées à un jeu de données spécifique. Pour cela, dans l’extension VS Code, effectuez les étapes suivantes :
-
-1. Développez le nœud de votre espace de travail.
-1. Développez le nœud **Jeux de données**.
-1. Cliquez avec le bouton droit sur le jeu de données que vous souhaitez inspecter, puis sélectionnez **Afficher les propriétés du jeu de données**. Un fichier de configuration s’affiche, avec les propriétés de la dernière version du jeu de données.
-
-> [!NOTE]
-> Si vous avez plusieurs versions de votre jeu de données, vous pouvez choisir d’afficher uniquement les propriétés d’une version spécifique en développant le nœud du jeu de données et en effectuant les mêmes étapes que celles décrites dans cette section sur la version qui vous intéresse.
-
-### <a name="unregister-datasets"></a>Désinscrire des jeux de données
-
-Pour supprimer un jeu de données et toutes ses versions, annulez son inscription. Pour cela, dans l’extension VS Code, effectuez les étapes suivantes :
-
-1. Développez le nœud de votre espace de travail.
-1. Développez le nœud **Jeux de données**.
-1. Cliquez avec le bouton droit sur le jeu de données dont vous souhaitez annuler l’inscription, puis sélectionnez **Désinscrire le jeu de données**.
+Vous pouvez également utiliser les commandes `> Azure ML: View Dataset Properties` et `> Azure ML: Unregister Dataset` dans la palette de commandes.
 
 ## <a name="environments"></a>Environnements
 
@@ -155,15 +154,10 @@ Pour plus d’informations, consultez [Environnements](concept-environments.md).
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud d’espace de travail sous lequel vous souhaitez créer le magasin de données.
 1. Cliquez avec le bouton droit sur le nœud **Environnements** et sélectionnez **Créer un environnement**.
-1. À l’invite :
-    1. Donnez un nom à votre environnement.
-    1. Définissez la configuration de votre environnement :
-        - *Environnements organisés* : environnements préconfigurés dans Azure Machine Learning. Vous pouvez personnaliser davantage l’environnement en modifiant la propriété `dependencies` dans le fichier JSON. Apprenez-en davantage sur les [environnements organisés](resource-curated-environments.md).
-        - *Fichier de dépendances Conda* : pour les environnements Anaconda, vous pouvez fournir le fichier contenant la définition de votre environnement.
-        - *Fichier de spécifications pip* : pour les environnements pip, vous pouvez fournir le fichier contenant la définition de votre environnement.
-        - *Environnement Conda existant* : cette option recherche les environnements Conda sur votre PC local et tente de créer un environnement à partir de l’environnement sélectionné.
-        - *Personnalisé* : définissez vos propres canaux et dépendances.
-    1. Un fichier de configuration s’ouvre dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
+1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
+1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+
+Vous pouvez aussi utiliser la commande `> Azure ML: Create Environment` dans la palette de commandes.
 
 ### <a name="view-environment-configurations"></a>Afficher les configurations de l’environnement
 
@@ -174,74 +168,60 @@ Pour afficher les dépendances et les configurations d’un environnement spéci
 1. Développez le nœud **Environnements**.
 1. Cliquez avec le bouton droit sur l’environnement que vous souhaitez afficher et sélectionnez **Afficher l’environnement**.
 
-### <a name="edit-environment-configurations"></a>Modifier des configurations d’environnement
-
-Pour modifier les dépendances et les configurations d’un environnement spécifique dans l’extension :
-
-1. Développez le nœud d’abonnement qui contient votre espace de travail.
-1. Développez le nœud **Environnements** à l’intérieur de votre espace de travail.
-1. Cliquez avec le bouton droit sur l’environnement que vous souhaitez afficher, puis sélectionnez **Modifier l’environnement**.
-1. Après avoir effectué les modifications, si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
+Vous pouvez aussi utiliser la commande `> Azure ML: View Environment` dans la palette de commandes.
 
 ## <a name="experiments"></a>Expériences
 
 Pour plus d’informations, consultez [Expériences](concept-azure-machine-learning-architecture.md#experiments).
 
-### <a name="create-experiment"></a>Créer une expérience
+### <a name="create-job"></a>Créer un travail
+
+Le moyen le plus rapide de créer un travail consiste à cliquer sur l’icône **Créer un travail** dans la barre d’activité de l’extension.
+
+En utilisant les nœuds de ressource dans la vue Azure Machine Learning :
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud de votre espace de travail.
-1. Cliquez avec le bouton droit sur le nœud **Expériences** dans votre espace de travail, puis sélectionnez **Créer une expérience**.
-1. À l’invite, spécifiez un nom pour votre expérience.
+1. Cliquez avec le bouton droit sur le nœud **Expériences** dans votre espace de travail et sélectionnez **Créer un travail**.
+1. Choisissez le type de votre travail.
+1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
+1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
 
-### <a name="run-experiment"></a>Exécuter une expérience
+Vous pouvez aussi utiliser la commande `> Azure ML: Create Job` dans la palette de commandes.
 
-1. Développez le nœud d’abonnement qui contient votre espace de travail.
-1. Développez le nœud **Expériences** à l’intérieur de votre espace de travail.
-1. Cliquez avec le bouton droit sur l’expérience que vous souhaitez exécuter.
-1. Sélectionnez l’icône **Exécuter l’expérience** dans la barre d’activité.
-1. Indiquez si vous souhaitez exécuter votre expérience localement ou à distance. Pour plus d’informations sur l’exécution et le débogage des expériences localement, consultez le [Guide de débogage](how-to-debug-visual-studio-code.md).
-1. Choisissez votre abonnement.
-1. Choisissez l’espace de travail ML Azure sous lequel exécuter l’expérience.
-1. Choisissez votre expérience.
-1. Choisissez ou créez une capacité de calcul sur laquelle exécuter l’expérience.
-1. Choisissez ou créez une configuration d’exécution pour votre expérience.
+### <a name="view-job"></a>Afficher le travail
 
-Vous pouvez aussi sélectionner le bouton **Exécuter l’expérience** en haut de l’extension et configurer votre exécution d’expérience à l’invite.
-
-### <a name="view-experiment"></a>Afficher une expérience
-
-Pour afficher votre expérience dans Azure Machine Learning Studio
+Pour afficher votre travail dans le studio Azure Machine Learning :
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud **Expériences** à l’intérieur de votre espace de travail.
-1. Cliquez avec le bouton droit sur l’expérience que vous souhaitez afficher et sélectionnez **Afficher l’expérience**. 
+1. Cliquez avec le bouton droit sur l’expérience que vous souhaitez afficher et sélectionnez **Afficher l’expérience dans le studio**.
 1. Un message s’affiche pour vous inviter à ouvrir l’URL d’expérience dans Azure Machine Learning Studio. Sélectionnez **Ouvrir**.
+
+Vous pouvez également utiliser la commande `> Azure ML: View Experiment in Studio` dans la palette de commandes.
 
 ### <a name="track-run-progress"></a>Suivre la progression d’une exécution
 
-Vous souhaiterez peut-être voir la progression de l’exécution de votre expérience. Pour suivre la progression d’une exécution dans Azure Machine Learning Studio à partir de l’extension :
+Vous souhaiterez peut-être voir la progression de l’exécution de votre travail. Pour suivre la progression d’une exécution dans Azure Machine Learning Studio à partir de l’extension :
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud **Expériences** à l’intérieur de votre espace de travail.
-1. Développez le nœud de l’expérience dont vous souhaitez suivre la progression.
-1. Cliquez avec le bouton droit sur l’exécution, puis sélectionnez **Afficher l’exécution dans le portail Azure**.
+1. Développez le nœud du travail dont vous souhaitez suivre la progression.
+1. Cliquez avec le bouton droit sur l’exécution et sélectionnez **Afficher l’exécution dans le studio**.
 1. Un message s’affiche pour vous inviter à ouvrir l’URL d’exécution dans Azure Machine Learning Studio. Sélectionnez **Ouvrir**.
 
 ### <a name="download-run-logs--outputs"></a>Télécharger les journaux et les sorties d’exécution
 
-Une fois l’exécution terminée, vous souhaiterez peut-être télécharger les journaux et des ressources telles que le modèle généré dans le cadre d’une exécution d’expérience.
+Une fois qu’une exécution est terminée, vous souhaiterez peut-être télécharger les journaux et des ressources telles que le modèle généré dans le cadre d’une exécution.
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud **Expériences** à l’intérieur de votre espace de travail.
-1. Développez le nœud de l’expérience dont vous souhaitez suivre la progression.
+1. Développez le nœud du travail pour lequel vous souhaitez télécharger des journaux et des sorties.
 1. Cliquez avec le bouton droit sur l’exécution :
     - Pour télécharger les sorties, sélectionnez **Télécharger les sorties**.
     - Pour télécharger les journaux, sélectionnez **Télécharger les journaux**.
 
-### <a name="view-run-metadata"></a>Afficher les métadonnées d’une exécution
-
-Dans l’extension, vous pouvez inspecter des métadonnées telles que la configuration d’exécution utilisée pour l’exécution ainsi que les détails de l’exécution.
+Vous pouvez également utiliser les commandes `> Azure ML: Download Outputs` et `> Azure ML: Download Logs` dans la palette de commandes.
 
 ## <a name="compute-instances"></a>Instances de calcul
 
@@ -250,113 +230,130 @@ Pour plus d’informations, consultez [Instances de calcul](concept-compute-inst
 ### <a name="create-compute-instance"></a>Créer une instance de calcul
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
-1. Développez le nœud d’espace de travail sous lequel vous souhaitez créer l’instance de calcul.
-1. Cliquez avec le bouton droit sur le nœud **Instances de calcul**, puis sélectionnez **Créer une instance de calcul**.
-1. À l’invite :
-    1. Donnez un nom à votre instance de calcul.
-    1. Sélectionnez une taille de machine virtuelle dans la liste.
-    1. Indiquez si vous souhaitez activer l’accès SSH.
-        1. Si vous activez l’accès SSH, vous devez également fournir la clé SSH publique ou le fichier contenant la clé. Pour plus d’informations, consultez le [guide sur la création et l’utilisation de clés SSH sur Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+1. Développez le nœud de votre espace de travail.
+1. Développez le nœud de **calcul**.
+1. Cliquez avec le bouton droit sur le nœud **Instances de calcul** dans votre espace de travail et sélectionnez **Créer un calcul**.
+1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
+1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+
+Vous pouvez aussi utiliser la commande `> Azure ML: Create Compute` dans la palette de commandes.
+
+### <a name="connect-to-compute-instance"></a>Se connecter à une instance de calcul
+
+Pour utiliser une instance de calcul comme un environnement de développement ou serveur Jupyter distant, consultez [Se connecter à une instance de calcul](how-to-set-up-vs-code-remote.md?tabs=extension).
 
 ### <a name="stop-or-restart-compute-instance"></a>Arrêter ou redémarrer une instance de calcul
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
-1. Développez le nœud **Instance de calcul** à l’intérieur de votre espace de travail.
+1. Développez le nœud de votre espace de travail.
+1. Développez le nœud **Instances de calcul** à l’intérieur de votre nœud de **calcul**.
 1. Cliquez avec le bouton droit sur l’instance de calcul que vous souhaitez arrêter ou redémarrer, puis sélectionnez **Arrêter l’instance de calcul** ou **Redémarrer l’instance de calcul**.
+
+Vous pouvez également utiliser les commandes `> Azure ML: Stop Compute instance` et `Restart Compute instance` dans la palette de commandes.
 
 ### <a name="view-compute-instance-configuration"></a>Afficher la configuration d’instances de calcul
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
-1. Développez le nœud **Instance de calcul** à l’intérieur de votre espace de travail.
+1. Développez le nœud de votre espace de travail.
+1. Développez le nœud **Instances de calcul** à l’intérieur de votre nœud de **calcul**.
 1. Cliquez avec le bouton droit sur l’instance de calcul que vous souhaitez inspecter, puis sélectionnez **Afficher les propriétés de l’instance de calcul**.
+
+Vous pouvez aussi utiliser la commande `Azure ML: View Compute instance Properties` dans la palette de commandes.
 
 ### <a name="delete-compute-instance"></a>Supprimer une instance de calcul
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
-1. Développez le nœud **Instance de calcul** à l’intérieur de votre espace de travail.
-1. Cliquez avec le bouton droit sur l’instance de calcul à supprimer, puis sélectionnez **Supprimer l’instance de calcul**.
+1. Développez le nœud de votre espace de travail.
+1. Développez le nœud **Instances de calcul** à l’intérieur de votre nœud de **calcul**.
+1. Cliquez avec le bouton droit sur l’instance de calcul à supprimer et sélectionnez **Supprimer l’instance de calcul**.
+
+Vous pouvez aussi utiliser la commande `Azure ML: Delete Compute instance` dans la palette de commandes.
 
 ## <a name="compute-clusters"></a>Clusters de calcul
 
-L’extension prend en charge les types de capacité de calcul suivants :
+Pour plus d’informations, consultez [Cibles de calcul d’entraînement](concept-compute-target.md#train).
 
-- Cluster de calcul Azure Machine Learning
-- Azure Kubernetes Service
-
-Pour plus d’informations, consultez [Cibles de calcul](concept-compute-target.md#train).
-
-### <a name="create-compute"></a>Créer une capacité de calcul
+### <a name="create-compute-cluster"></a>Créer un cluster de calcul
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
-1. Développez le nœud d’espace de travail sous lequel vous souhaitez créer le cluster de calcul.
-1. Cliquez avec le bouton droit sur le nœud **Clusters de calcul**, puis sélectionnez **Créer un calcul**.
-1. À l’invite :
-    1. Choisissez un type de capacité de calcul.
-    1. Choisissez une taille de machine virtuelle. Apprenez-en davantage sur les [tailles de machines virtuelles](../virtual-machines/sizes.md).
-    1. Entrez un nom pour votre capacité de calcul.
+1. Développez le nœud de votre espace de travail.
+1. Développez le nœud de **calcul**.
+1. Cliquez avec le bouton droit sur le nœud **Clusters de calcul** dans votre espace de travail et sélectionnez **Créer un calcul**.
+1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
+1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+
+Vous pouvez aussi utiliser la commande `> Azure ML: Create Compute` dans la palette de commandes.
 
 ### <a name="view-compute-configuration"></a>Afficher une configuration de calcul
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
-1. Développez le nœud **Clusters de calcul** à l’intérieur de votre espace de travail.
+1. Développez le nœud de votre espace de travail.
+1. Développez le nœud **Clusters de calcul** à l’intérieur de votre nœud de **calcul**.
 1. Cliquez avec le bouton droit sur la capacité de calcul que vous souhaitez afficher, puis sélectionnez **Afficher les propriétés du calcul**.
 
-### <a name="edit-compute-scale-settings"></a>Modifier les paramètres d’échelle de calcul
+Vous pouvez aussi utiliser la commande `> Azure ML: View Compute Properties` dans la palette de commandes.
 
-1. Développez le nœud d’abonnement qui contient votre espace de travail.
-1. Développez le nœud **Clusters de calcul** à l’intérieur de votre espace de travail.
-1. Cliquez avec le bouton droit sur la capacité de calcul à modifier, puis sélectionnez **Modifier le calcul**.
-1. Un fichier de configuration pour votre capacité de calcul s’ouvre dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
-
-### <a name="delete-compute"></a>Supprimer une capacité de calcul
-
-1. Développez le nœud d’abonnement qui contient votre espace de travail.
-1. Développez le nœud **Clusters de calcul** à l’intérieur de votre espace de travail.
-1. Cliquez avec le bouton droit sur la capacité de calcul à supprimer, puis sélectionnez **Supprimer le calcul**.
-
-### <a name="create-run-configuration"></a>Créer une configuration d’exécution
-
-Pour créer une configuration d’exécution dans l’extension
-
-1. Développez le nœud d’abonnement qui contient votre espace de travail.
-1. Développez le nœud **Clusters de calcul** à l’intérieur de votre espace de travail.
-1. Cliquez avec le bouton droit sur la cible de calcul sous laquelle vous souhaitez créer la configuration d’exécution, puis sélectionnez **Créer une configuration d’exécution**.
-1. À l’invite :
-    1. Donnez un nom à votre cible de calcul.
-    1. Choisissez ou créez un environnement.
-    1. Tapez le nom du script que vous souhaitez exécuter, ou appuyez sur **Entrée** pour naviguer jusqu’au script sur votre ordinateur local.
-    1. (Facultatif) Précisez si vous souhaitez créer une référence de données pour votre exécution d’entraînement. Vous serez alors invité à définir un jeu de données dans votre configuration d’exécution.
-        1. Sélectionnez l’un de vos jeux de données inscrits afin de le lier à la configuration d’exécution. Un fichier de configuration pour votre jeu de données s’ouvre dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
-    1. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
-
-### <a name="edit-run-configuration"></a>Modifier une configuration d’exécution
-
-1. Développez le nœud d’abonnement qui contient votre espace de travail.
-1. Développez votre nœud de cluster de calcul dans le nœud **Clusters de calcul** de votre espace de travail.
-1. Cliquez avec le bouton droit sur la configuration d’exécution que vous souhaitez modifier, puis sélectionnez **Modifier la configuration d’exécution**.
-1. Un fichier de configuration pour votre configuration d’exécution s’ouvre dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
-
-### <a name="delete-run-configuration"></a>Supprimer une configuration d’exécution
+### <a name="delete-compute-cluster"></a>Supprimer un cluster de calcul
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud de votre espace de travail.
-1. Développez le nœud de cluster de calcul qui vous intéresse dans le nœud **Clusters de calcul**.
-1. Cliquez avec le bouton droit sur la configuration d’exécution que vous souhaitez modifier, puis sélectionnez **Supprimer la configuration d’exécution**.
+1. Développez le nœud **Clusters de calcul** à l’intérieur de votre nœud de **calcul**.
+1. Cliquez avec le bouton droit sur le calcul à supprimer et sélectionnez **Supprimer le calcul**.
+
+Vous pouvez aussi utiliser la commande `> Azure ML: Remove Compute` dans la palette de commandes.
+
+## <a name="inference-clusters"></a>Clusters d’inférence
+
+Pour plus d’informations, consultez [Cibles de calcul pour l’inférence](concept-compute-target.md#deploy).
+
+### <a name="manage-inference-clusters"></a>Gérer les clusters d’inférence
+
+1. Développez le nœud d’abonnement qui contient votre espace de travail.
+1. Développez le nœud de votre espace de travail.
+1. Développez le nœud **Clusters d’inférence** à l’intérieur de votre nœud de **calcul**.
+1. Cliquez avec le bouton droit sur le calcul de votre choix pour :
+    - **Afficher les propriétés du calcul**. Affiche les données de configuration en lecture seule relatives à votre calcul attaché.
+    - **Détacher le calcul**. Détache le calcul de votre espace de travail.
+
+Vous pouvez également utiliser les commandes `> Azure ML: View Compute Properties` et `> Azure ML: Detach Compute` dans la palette de commandes.
+
+### <a name="delete-inference-clusters"></a>Supprimer des clusters d’inférence
+
+1. Développez le nœud d’abonnement qui contient votre espace de travail.
+1. Développez le nœud de votre espace de travail.
+1. Développez le nœud **Calculs attachés** à l’intérieur de votre nœud de **calcul**.
+1. Cliquez avec le bouton droit sur le calcul à supprimer et sélectionnez **Supprimer le calcul**.
+
+Vous pouvez aussi utiliser la commande `> Azure ML: Remove Compute` dans la palette de commandes.
+
+## <a name="attached-compute"></a>Calcul attaché
+
+Pour plus d’informations, consultez [Calcul non managé](concept-compute-target.md#unmanaged-compute).
+
+### <a name="manage-attached-compute"></a>Gérer le calcul attaché
+
+1. Développez le nœud d’abonnement qui contient votre espace de travail.
+1. Développez le nœud de votre espace de travail.
+1. Développez le nœud **Calculs attachés** à l’intérieur de votre nœud de **calcul**.
+1. Cliquez avec le bouton droit sur le calcul de votre choix pour :
+    - **Afficher les propriétés du calcul**. Affiche les données de configuration en lecture seule relatives à votre calcul attaché.
+    - **Détacher le calcul**. Détache le calcul de votre espace de travail.
+
+Vous pouvez également utiliser les commandes `> Azure ML: View Compute Properties` et `> Azure ML: Detach Compute` dans la palette de commandes.
 
 ## <a name="models"></a>Modèles
 
 Pour plus d’informations, consultez [Modèles](concept-azure-machine-learning-architecture.md#models).
 
-### <a name="register-model"></a>Inscrire le modèle
+### <a name="create-model"></a>Créer un modèle
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud de votre espace de travail.
-1. Cliquez avec le bouton droit sur le nœud **Modèles** et sélectionnez **Inscrire un modèle**.
-1. À l’invite :
-    1. Donnez un nom à votre modèle.
-    1. Choisissez si votre modèle est un fichier ou un dossier.
-    1. Recherchez le modèle sur votre PC local.
-    1. Un fichier de configuration pour votre modèle s’ouvre dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
+1. Cliquez avec le bouton droit sur le nœud **Modèles** dans votre espace de travail et sélectionnez **Créer un modèle**.
+1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
+1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+
+Vous pouvez aussi utiliser la commande `> Azure ML: Create Model` dans la palette de commandes.
 
 ### <a name="view-model-properties"></a>Afficher les propriétés d’un modèle
 
@@ -364,64 +361,59 @@ Pour plus d’informations, consultez [Modèles](concept-azure-machine-learning-
 1. Développez le nœud **Modèles** à l’intérieur de votre espace de travail.
 1. Cliquez avec le bouton droit sur le modèle dont vous souhaitez afficher les propriétés, puis sélectionnez **Afficher les propriétés du modèle**. Un fichier contenant les propriétés de votre modèle s’ouvre dans l’éditeur.
 
+Vous pouvez aussi utiliser la commande `> Azure ML: View Model Properties` dans la palette de commandes.
+
 ### <a name="download-model"></a>Télécharger un modèle
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud **Modèles** à l’intérieur de votre espace de travail.
 1. Cliquez avec le bouton droit sur le modèle que vous souhaitez télécharger, puis sélectionnez **Télécharger le fichier de modèle**.
 
+Vous pouvez aussi utiliser la commande `> Azure ML: Download Model File` dans la palette de commandes.
+
 ### <a name="delete-a-model"></a>Supprimer un modèle
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud **Modèles** à l’intérieur de votre espace de travail.
 1. Cliquez avec le bouton droit sur le modèle à supprimer, puis sélectionnez **Supprimer le modèle**.
+1. Un message s’affiche pour vous inviter à confirmer la suppression du modèle. Sélectionnez **OK**.
+
+Vous pouvez aussi utiliser la commande `> Azure ML: Remove Model` dans la palette de commandes.
 
 ## <a name="endpoints"></a>Points de terminaison
 
-L’extension VS Code prend en charge les cibles de déploiement suivantes :
+Pour plus d’informations, consultez [Point de terminaison](concept-azure-machine-learning-architecture.md#endpoints).
 
-- Azure Container Instances
-- Azure Kubernetes Service
-
-Pour plus d’informations, consultez [Points de terminaison de service web](concept-azure-machine-learning-architecture.md#web-service-endpoint).
-
-### <a name="create-deployments"></a>Créer des déploiements
-
-> [!NOTE]
-> Actuellement, la création de déploiement fonctionne uniquement avec les environnements Conda.
+### <a name="create-endpoint"></a>Création d’un point de terminaison
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud de votre espace de travail.
-1. Cliquez avec le bouton droit sur le nœud **Points de terminaison** et sélectionnez **Déployer le service**.
-1. À l’invite :
-    1. Précisez si vous souhaitez utiliser un modèle déjà inscrit ou un fichier de modèle local.
-    1. Sélectionnez votre modèle.
-    1. Choisissez la cible de déploiement vers laquelle vous souhaitez déployer votre modèle.
-    1. Donnez un nom à votre modèle.
-    1. Fournissez le script à exécuter lors du scoring du modèle.
-    1. Spécifiez un fichier de dépendances Conda.
-    1. Un fichier de configuration pour votre déploiement s’affiche dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
+1. Cliquez avec le bouton droit sur le nœud **Modèles** dans votre espace de travail et sélectionnez **Créer un point de terminaison**.
+1. Choisissez votre type de point de terminaison.
+1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
+1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
 
-> [!NOTE]
-> Vous pouvez également cliquer avec le bouton droit sur un modèle inscrit dans le nœud *Modèles* et sélectionner **Déployer le service à partir du modèle inscrit**.
+Vous pouvez aussi utiliser la commande `> Azure ML: Create Endpoint` dans la palette de commandes.
 
-### <a name="delete-deployments"></a>Supprimer des déploiements
+### <a name="delete-endpoint"></a>Supprimer le point de terminaison
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud **Points de terminaison** à l’intérieur de votre espace de travail.
-1. Cliquez avec le bouton droit sur le déploiement que vous souhaitez supprimer, puis sélectionnez **Supprimer le service**.
+1. Cliquez avec le bouton droit sur le déploiement que vous souhaitez supprimer et sélectionnez **Supprimer le service**.
 1. Un message s’affiche pour vous inviter à confirmer la suppression du service. Sélectionnez **OK**.
 
-### <a name="manage-deployments"></a>Gérer les déploiements
+Vous pouvez aussi utiliser la commande `> Azure ML: Remove Service` dans la palette de commandes.
+
+### <a name="view-service-properties"></a>Afficher les propriétés du service
 
 Vous pouvez également afficher et modifier les paramètres associés au déploiement.
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud **Points de terminaison** à l’intérieur de votre espace de travail.
 1. Cliquez avec le bouton droit sur le déploiement que vous souhaitez gérer :
-    - Pour modifier des paramètres, sélectionnez **Modifier le service**.
-        - Un fichier de configuration pour votre déploiement s’affiche dans l’éditeur. Si vous êtes satisfait de votre configuration, sélectionnez **Enregistrer et continuer** ou ouvrez la palette de commandes VS Code (**Affichage > Palette de commandes**) et tapez **Azure ML : Enregistrer et continuer**.
     - Pour afficher les paramètres de configuration du déploiement, sélectionnez **Afficher les propriétés du service**.
+
+Vous pouvez aussi utiliser la commande `> Azure ML: View Service Properties` dans la palette de commandes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,16 +3,16 @@ title: Adresse IP statique pour un groupe de conteneurs
 description: Créer un groupe de conteneurs dans un réseau virtuel et utiliser une passerelle d’application Azure pour exposer une adresse IP front-end statique à une application web conteneurisée
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: de9e06b457a9ea5485fe268bd2b7cf206f0a6c0e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c0401c0b6ec4aae124ee1954762d22c16cacb994
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790938"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084220"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Exposer une adresse IP statique pour un groupe de conteneurs
 
-Cet article illustre une façon d’exposer une adresse IP publique statique pour un [groupe de conteneurs](container-instances-container-groups.md) à l’aide d’une [passerelle d’application](../application-gateway/overview.md) Azure. Procédez ainsi quand vous avez besoin d’un point d’entrée statique pour une application conteneurisée externe qui s’exécute dans Azure Container Instances. 
+Cet article illustre une façon d’exposer une adresse IP publique statique pour un [groupe de conteneurs](container-instances-container-groups.md) à l’aide d’une [passerelle d’application](../application-gateway/overview.md) Azure. Procédez ainsi quand vous avez besoin d’un point d’entrée statique pour une application conteneurisée externe qui s’exécute dans Azure Container Instances.
 
 Dans cet article, vous utilisez Azure CLI pour créer les ressources de ce scénario :
 
@@ -69,9 +69,9 @@ az network public-ip create \
 
 ## <a name="create-container-group"></a>Créer un groupe de conteneurs
 
-Exécutez la commande [az container create][az-container-create] suivante pour créer un groupe de conteneurs dans le réseau virtuel que vous avez configuré à l’étape précédente. 
+Exécutez la commande [az container create][az-container-create] suivante pour créer un groupe de conteneurs dans le réseau virtuel que vous avez configuré à l’étape précédente.
 
-Le groupe est déployé sur le sous-réseau *myACISubnet* et contient une instance unique nommée *appcontainer* qui extrait l’image `aci-helloworld`. Comme indiqué dans d’autres articles de la documentation, cette image contient une petite application web écrite en Node.js qui sert une page HTML statique. 
+Le groupe est déployé sur le sous-réseau *myACISubnet* et contient une instance unique nommée *appcontainer* qui extrait l’image `aci-helloworld`. Comme indiqué dans d’autres articles de la documentation, cette image contient une petite application web écrite en Node.js qui sert une page HTML statique.
 
 ```azurecli
 az container create \
@@ -119,14 +119,14 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress \
   --vnet-name myVNet \
   --subnet myAGSubnet \
-  --servers "$ACI_IP" 
+  --servers "$ACI_IP"
 ```
 
 
-La création de la passerelle d’application par Azure peut prendre jusqu’à 15 minutes. 
+La création de la passerelle d’application par Azure peut prendre jusqu’à 15 minutes.
 
 ## <a name="test-public-ip-address"></a>Tester l’adresse IP publique
-  
+
 Vous pouvez maintenant tester l’accès à l’application web qui s’exécute dans le groupe de conteneurs derrière la passerelle d’application.
 
 Exécutez la commande [az network public-ip show][az-network-public-ip-show] pour récupérer l’adresse IP publique front-end de la passerelle :
@@ -147,7 +147,7 @@ Si la configuration est correcte, vous pouvez afficher l’application web en co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez un [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) pour créer un groupe de conteneurs avec une instance de conteneur WordPress en tant que serveur back-end derrière une passerelle d’application.
+* Consultez un [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/wordpress/aci-wordpress-vnet) pour créer un groupe de conteneurs avec une instance de conteneur WordPress en tant que serveur back-end derrière une passerelle d’application.
 * Vous pouvez également configurer une passerelle d’application avec un certificat pour la terminaison SSL. Consultez la [vue d’ensemble](../application-gateway/ssl-overview.md) et le [tutoriel](../application-gateway/create-ssl-portal.md).
 * Selon votre scénario, envisagez d’utiliser d’autres solutions Azure d’équilibrage de charge avec Azure Container Instances. Par exemple, utilisez [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) pour répartir le trafic entre plusieurs instances de conteneur et entre plusieurs régions. Consultez ce [billet de blog](https://aaronmsft.com/posts/azure-container-instances/).
 

@@ -2,14 +2,14 @@
 title: Azure Schema Registry dans Event Hubs (préversion)
 description: Cet article fournit une vue d’ensemble de la prise en charge du registre de schémas par Azure Event Hubs (version préliminaire).
 ms.topic: overview
-ms.date: 04/28/2021
+ms.date: 05/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: 578bb082cf439d48b186461742ed51c39ce85e80
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 43380ccd4f20616676f4eeb53fb2231b4f76f4e9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226441"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371202"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Azure Schema Registry dans Event Hubs (préversion)
 Dans de nombreux scénarios de diffusion en continu d’événements et de messagerie, l’événement ou la charge utile de message contient des données structurées qui sont en cours de sérialisation ou de désérialisation à l’aide d’un format piloté par schéma comme Apache Avro. Les expéditeurs et les destinataires peuvent être amenés à valider l’intégrité des données avec un document de schéma comme avec le schéma JSON. Pour les formats pilotés par schéma, le fait de rendre le schéma disponible pour le consommateur du message est une condition préalable pour que le consommateur puisse désérialiser les données. 
@@ -18,7 +18,7 @@ Le **Registre de schéma Azure** est une fonctionnalité de Event Hubs, qui four
 
 > [!NOTE]
 > - La fonctionnalité **Registre de schémas** est actuellement en **préversion** et n’est pas recommandée pour les charges de travail de production.
-> - Cette fonctionnalité est disponible uniquement pour les niveaux **standard** et **dédié** et non pour le niveau **de base**.
+> - La fonctionnalité n’est pas disponible au niveau **de base**.
 
 Avec les infrastructures de sérialisation basées sur des schémas comme Apache Avro, l’externalisation des métadonnées de sérialisation dans des schémas partagés peut également réduire considérablement la surcharge par message des informations sur le type et des noms de champs inclus avec chaque jeu de données, comme c’est le cas avec des formats étiquetés tels que JSON. Le fait de disposer de schémas stockés avec les événements et à l’intérieur de l’infrastructure d’événements permet de s’assurer que les métadonnées requises pour la sérialisation/désérialisation sont toujours accessibles et que les schémas ne peuvent pas être mal placés. 
 
@@ -47,8 +47,8 @@ L’illustration suivante montre le flux d’informations du registre de schéma
 
 :::image type="content" source="./media/schema-registry-overview/flow-diagram.png" alt-text="Diagramme de flux":::
 
-## <a name="standard-vs-dedicated-limits"></a>Limites standard et limites dédiées
-Pour connaître les limites (par exemple, le nombre de groupes de schémas dans un espace de noms) qui sont identiques et différents pour les niveaux standard et dédiés d’Event Hubs, consultez [Quotas et limites d’Azure Event Hubs](event-hubs-quotas.md).
+## <a name="limits"></a>limites
+Pour connaître les limites (par exemple, le nombre de groupes de schémas dans un espace de noms) d’Event Hubs, consultez [Quotas et limites d’Azure Event Hubs](event-hubs-quotas.md)
 
 ## <a name="azure-role-based-access-control"></a>Contrôle d'accès en fonction du rôle Azure
 Quand vous accédez au registre de schémas programmatiquement, vous devez inscrire une application dans Azure Active Directory (Azure AD) et ajouter le principal de sécurité de l’application à l’un des rôles de contrôle d’accès en fonction du rôle Azure (Azure RBAC) :

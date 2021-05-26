@@ -4,12 +4,12 @@ description: Effectuer une recherche dans les journaux d’activité générés 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: 083ddbd06561550f89e414d6c679cdc6433fa338
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f94920d44e37aae17c484be4f8e74a4f351e1b1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98937564"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082771"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Découvrir les journaux des traces .NET/.NET Core et Python dans Application Insights
 
@@ -195,7 +195,7 @@ Vous pouvez par exemple :
 ### <a name="how-do-i-do-this-for-java"></a>Comment faire pour Java ?
 Dans l’instrumentation sans code Java (recommandé), les journaux sont collectés directement, à l’aide de l’[agent Java 3.0](./java-in-process-agent.md).
 
-Si vous utilisez le Kit de développement logiciel (SDK) Java, utilisez les [adaptateurs de journaux Java](./java-trace-logs.md).
+Si vous utilisez le Kit de développement logiciel (SDK) Java, utilisez les [adaptateurs de journaux Java](java-2x-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Le menu contextuel du projet ne contient aucune option Application Insights
 * Assurez-vous que Developer Analytics Tools est installé sur l’ordinateur de développement. Dans Visual Studio, sélectionnez **Outils** > **Extensions et mises à jour**, puis recherchez **Developer Analytics Tools**. S’il n’est pas dans l’onglet **Installé**, ouvrez l’onglet **En ligne** et installez-le.

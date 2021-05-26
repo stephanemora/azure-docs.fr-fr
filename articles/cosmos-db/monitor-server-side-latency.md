@@ -6,12 +6,12 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
-ms.openlocfilehash: ec6a9db63504958640137fcd0fcfc904eb01afa5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af58b0810ef45a9fff766b73188f66555ba6bc6c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93074727"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470985"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Comment surveiller la latence côté serveur pour les opérations dans un conteneur ou compte Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -24,21 +24,21 @@ Vous pouvez surveiller la latence côté serveur si vous constatez une latence a
 * Une opération de lecture ou d'écriture, ou
 * Une requête
 
-Vous pouvez consulter le journal de diagnostic pour connaître la taille des données retournées. Si vous constatez une latence élevée soutenue pour les opérations de requête, vous devez parcourir le journal de diagnostic à la recherche d’un [débit (ou RU/seconde)](cosmosdb-monitor-resource-logs.md#diagnostic-queries) supérieur. La latence côté serveur indique le temps passé sur l’infrastructure principale avant que les données ne soient retournées au client. Il est important d’examiner cette mesure pour éliminer les éventuels problèmes de latence du serveur principal.
+Vous pouvez consulter le journal de diagnostic pour connaître la taille des données retournées. Si vous constatez une latence élevée soutenue pour les opérations de requête, vous devez parcourir le journal de diagnostic à la recherche d’un [débit (ou RU/seconde)](cosmosdb-monitor-logs-basic-queries.md) supérieur. La latence côté serveur indique le temps passé sur l’infrastructure principale avant que les données ne soient retournées au client. Il est important d’examiner cette mesure pour éliminer les éventuels problèmes de latence du serveur principal.
 
 ## <a name="view-the-server-side-latency-metric"></a>Voir les métriques de latence côté serveur
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-
-1. Sélectionnez **Surveillance** dans la barre de navigation gauche, puis sélectionnez **Métriques**.
+   
+2. Sélectionnez **Surveillance** dans la barre de navigation gauche, puis sélectionnez **Métriques**.
 
    :::image type="content" source="./media/monitor-server-side-latency/monitor-metrics-blade.png" alt-text="Volet Métriques dans Azure Monitor":::
 
-1. À partir du volet **Métriques** > **Sélectionner une ressource** > choisissez l’**abonnement** exigé, puis **Groupe de ressources**. Pour le **type de ressource**, sélectionnez **Comptes Azure Cosmos DB**, choisissez une de vos comptes Azure Cosmos existants, puis sélectionnez **Appliquer**.
+3. À partir du volet **Métriques** > **Sélectionner une ressource** > choisissez l’**abonnement** exigé, puis **Groupe de ressources**. Pour le **type de ressource**, sélectionnez **Comptes Azure Cosmos DB**, choisissez une de vos comptes Azure Cosmos existants, puis sélectionnez **Appliquer**.
    
    :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Choisir le compte Azure Cosmos DB pour voir les métriques":::
 
-1. Sélectionnez ensuite la métrique **Latence côté serveur** dans la liste des métriques disponibles. Pour découvrir de plus près toutes les métriques disponibles dans cette liste, consultez l’article [Métriques par catégorie](monitor-cosmos-db-reference.md). Dans cet exemple, nous allons sélectionner **Latence côté serveur** et **Moy** comme valeur d’agrégation. En plus de ces détails, vous pouvez également sélectionner l’**intervalle de temps** et la **granularité temporelle** des métriques. Au maximum, vous pouvez voir les métriques des 30 derniers jours.  Une fois que vous avez appliqué le filtre, un graphique s’affiche. Vous pouvez voir la latence côté serveur par minute pour la période sélectionnée.  
+4. Sélectionnez ensuite la métrique **Latence côté serveur** dans la liste des métriques disponibles. Pour découvrir de plus près toutes les métriques disponibles dans cette liste, consultez l’article [Métriques par catégorie](monitor-cosmos-db-reference.md). Dans cet exemple, nous allons sélectionner **Latence côté serveur** et **Moy** comme valeur d’agrégation. En plus de ces détails, vous pouvez également sélectionner l’**intervalle de temps** et la **granularité temporelle** des métriques. Au maximum, vous pouvez voir les métriques des 30 derniers jours.  Une fois que vous avez appliqué le filtre, un graphique s’affiche. Vous pouvez voir la latence côté serveur par minute pour la période sélectionnée.  
 
    :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-metric.png" alt-text="Choisir la métrique Latence côté serveur à partir du portail Azure":::
 

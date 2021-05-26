@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: afb63b76666f47217f9c19376d81aa4ed73991bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ffbe207109143956f6c5a56d8560925d93661bf
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98572559"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459067"
 ---
 # <a name="azure-signalr-service-internals"></a>Éléments internes Azure SignalR Service
 
@@ -57,21 +57,21 @@ L’établissement de connexions persistantes entre le client et SignalR Service
 
 1. Le client envoie une demande de négociation au serveur d’applications. Avec le SDK Azure SignalR Service, le serveur d’applications retourne une réponse de redirection avec l’URL et le jeton d’accès de SignalR Service.
 
-- Pour ASP.NET Core SignalR, une réponse de redirection standard ressemble à ceci :
-    ```
-    {
-        "url":"https://test.service.signalr.net/client/?hub=chat&...",
-        "accessToken":"<a typical JWT token>"
-    }
-    ```
-- Pour ASP.NET SignalR, une réponse de redirection standard ressemble à ceci :
-    ```
-    {
-        "ProtocolVersion":"2.0",
-        "RedirectUrl":"https://test.service.signalr.net/aspnetclient",
-        "AccessToken":"<a typical JWT token>"
-    }
-    ```
+    - Pour ASP.NET Core SignalR, une réponse de redirection standard ressemble à ceci :
+        ```
+        {
+            "url":"https://test.service.signalr.net/client/?hub=chat&...",
+            "accessToken":"<a typical JWT token>"
+        }
+        ```
+    - Pour ASP.NET SignalR, une réponse de redirection standard ressemble à ceci :
+        ```
+        {
+            "ProtocolVersion":"2.0",
+            "RedirectUrl":"https://test.service.signalr.net/aspnetclient",
+            "AccessToken":"<a typical JWT token>"
+        }
+        ```
 
 1. Après avoir reçu la réponse de redirection, le client utilise la nouvelle URL et le nouveau jeton d’accès pour démarrer le processus normal de connexion à SignalR Service.
 

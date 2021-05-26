@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 925eb2aee84b135663f80dedd713151ff70898ed
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 540631db87807312f96c96ddd5b8144d4e22ff91
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207912"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095569"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Acheminer des événements à l’intérieur et à l’extérieur d’Azure Digital Twins
 
@@ -73,7 +73,7 @@ Les API de point de terminaison disponibles dans le plan de contrôle sont les s
  
 Pour créer une route d'événement, vous pouvez utiliser les [API REST, les commandes CLI](how-to-manage-routes-apis-cli.md#create-an-event-route) ou le [portail Azure](how-to-manage-routes-portal.md#create-an-event-route) avec Azure Digital Twins.
 
-Voici un exemple de création d’une route d’événement dans une application cliente à l’aide de l’appel `CreateOrReplaceEventRouteAsync`du [Kit de développement logiciel (SDK) .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) : 
+Voici un exemple de création d’une route d’événement dans une application cliente à l’aide de l’appel `CreateOrReplaceEventRouteAsync`du [Kit de développement logiciel (SDK) .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) : 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="CreateEventRoute":::
 
