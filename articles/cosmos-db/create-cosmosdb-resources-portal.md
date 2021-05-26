@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/10/2020
-ms.openlocfilehash: 041b930a0c2fa82727216b4ca0c8367387d0d801
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/19/2021
+ms.openlocfilehash: c73701ae5ada23ed20aaaaa7554a6c714f5dab26
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100367251"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456989"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Démarrage rapide : Créer un compte, une base de données, un conteneur et des éléments Azure Cosmos à partir du portail Azure
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,72 +41,31 @@ Un abonnement Azure ou un compte d’essai gratuit Azure Cosmos DB
 <a id="create-account"></a>
 ## <a name="create-an-azure-cosmos-db-account"></a>Création d’un compte Azure Cosmos DB
 
-Accédez au [portail Azure](https://portal.azure.com/) pour créer un compte Azure Cosmos DB. Recherchez et sélectionnez **Azure Cosmos DB**.
-
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png" alt-text="Volet Bases de données du portail Azure":::
-
-1. Sélectionnez **Ajouter**.
-1. Dans la page **Créer un compte Azure Cosmos DB**, entrez les paramètres de base du nouveau compte Azure Cosmos. 
-
-    |Paramètre|Valeur|Description |
-    |---|---|---|
-    |Abonnement|Nom d’abonnement|Sélectionnez l’abonnement Azure à utiliser pour ce compte Azure Cosmos. |
-    |Groupe de ressources|Nom de groupe ressources|Sélectionnez un groupe de ressources ou sélectionnez **Créer**, puis entrez un nom unique pour le nouveau groupe de ressources. |
-    |Nom du compte|Un nom unique|Entrez un nom pour identifier votre compte Azure Cosmos. Étant donné que *documents.azure.com* est ajouté au nom que vous fournissez pour créer votre URI, utilisez un nom unique.<br><br>Le nom peut uniquement contenir des lettres minuscules, des chiffres et le caractère de trait d’union (-). Sa longueur doit être comprise entre 3 et 31 caractères.|
-    |API|Type de compte à créer|Sélectionnez **Core (SQL)** pour créer une base de données orientée document et effectuez des requêtes à l’aide de la syntaxe SQL. <br><br>L’API détermine le type de compte à créer. Azure Cosmos DB fournit cinq API : Core (SQL) et MongoDB pour les données de document, Gremlin pour les données de graphe, Table Azure et Cassandra. Actuellement, vous devez créer un compte distinct pour chaque API. <br><br>[En savoir plus sur l’API SQL](introduction.md).|
-    |Mode de capacité|Débit approvisionné ou serverless|Sélectionnez **Débit approvisionné** pour créer un compte dans mode de [débit approvisionné](set-throughput.md). Sélectionnez **serverless** pour créer un compte en mode [serverless](serverless.md).|
-    |Appliquer la remise de niveau gratuit Azure Cosmos DB|Appliquer ou ne pas appliquer|Avec Azure Cosmos DB niveau gratuit, vous recevrez 400 RU/s et 5 Go de stockage dans un compte, sans frais. Découvrez-en plus sur le [niveau gratuit](https://azure.microsoft.com/pricing/details/cosmos-db/).|
-    |Emplacement|La région la plus proche de vos utilisateurs|Sélectionnez la zone géographique dans laquelle héberger votre compte Azure Cosmos DB. Utilisez l’emplacement le plus proche de vos utilisateurs pour leur donner l’accès le plus rapide possible aux données.|
-    |Type de compte|Production ou non-production|Sélectionnez **Production** si le compte sera utilisé pour une charge de travail de production. Sélectionnez **Hors production** si le compte sera utilisé hors production, par exemple pour le développement, les tests, l’assurance qualité ou la préproduction. Il s’agit d’un paramètre d’étiquette de ressource Azure qui permet d’ajuster l’expérience du portail sans affecter le compte Azure Cosmos DB sous-jacent. Vous pouvez modifier cette valeur à tout moment.|
-    |Géoredondance|Activer ou désactiver|Activez ou désactivez la diffusion mondiale sur votre compte en appairant votre région avec une région correspondante. Vous pourrez ajouter d’autres régions à votre compte ultérieurement.|
-    |Écritures multirégions|Activer ou désactiver|La fonctionnalité d’écritures multirégions vous permet de tirer parti du débit provisionné pour vos bases de données et conteneurs à travers le monde.|
-    |Zones de disponibilité|Activer ou désactiver|Les zones de disponibilité vous permettent d’accroître la disponibilité et d’améliorer la résilience de votre application.|
-
-> [!NOTE]
-> Vous pouvez avoir un seul compte Azure Cosmos DB de niveau gratuit par abonnement Azure et vous devez vous inscrire lors de la création du compte. Si vous ne voyez pas l’option permettant d’appliquer la remise de niveau gratuit, cela signifie qu’un autre compte dans l’abonnement a déjà été activé avec le niveau gratuit.
-
-> [!NOTE]
-> Les options suivantes ne sont pas disponibles si vous sélectionnez **Serverless** comme **Mode de capacité** :
-> - Appliquer la remise de niveau gratuit
-> - Géo-redondance
-> - Écritures multirégions
-   
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail-2.png" alt-text="Page de nouveau compte pour Azure Cosmos DB":::
-
-1. Sélectionnez **Revoir + créer**. Vous pouvez ignorer les sections **Réseau** et **Balises**.
-
-1. Passez en revue les paramètres du compte, puis sélectionnez **Créer**. La création du compte prend quelques minutes. Attendez que la page du portail affiche **Votre déploiement est terminé**. 
-
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Volet Notifications du portail Azure":::
-
-1. Sélectionnez **Accéder à la ressource** pour accéder à la page du compte Azure Cosmos DB. 
-
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="Page du compte Azure Cosmos DB":::
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <a id="create-container-database"></a>
 ## <a name="add-a-database-and-a-container"></a>Ajouter une base de données et un conteneur 
 
-Vous pouvez utiliser l’Explorateur de données du portail Azure pour créer une base de données et un conteneur. 
+Vous pouvez utiliser l’Explorateur de données du portail Azure pour créer une base de données et un conteneur.
 
-1.  Dans la page de votre compte Azure Cosmos DB, sur la gauche, sélectionnez **Explorateur de données**, puis **Nouveau conteneur**. 
-    
+1. Dans la page de votre compte Azure Cosmos DB, sur la gauche, sélectionnez **Explorateur de données**, puis **Nouveau conteneur**. 
+
     Vous devrez peut-être faire défiler vers la droite pour voir la fenêtre **Ajouter un conteneur**.
-    
-    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Explorateur de données du portail Azure, volet Ajouter un conteneur":::
-    
-1.  Dans le volet **Ajouter un conteneur**, entrez les paramètres du nouveau conteneur.
-    
+
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/add-database-container.png" alt-text="Explorateur de données du portail Azure, volet Ajouter un conteneur":::
+
+1. Dans le volet **Ajouter un conteneur**, entrez les paramètres du nouveau conteneur.
+
     |Paramètre|Valeur suggérée|Description
     |---|---|---|
-    |**ID de base de données**|ToDoList|Entrez *ToDoList* pour le nom de la nouvelle base de données. Les noms de base de données doivent comporter entre 1 et 255 caractères, et ne peuvent pas contenir les caractères `/, \\, #, ?`, ni un espace de fin. Cochez l’option **Provisionner le débit de base de données** qui vous permet de partager le débit provisionné pour la base de données entre tous les conteneurs au sein de la base de données. Cette option permet également de réduire les coûts. |
-    |**Débit**|400|Laissez le débit sur 400 unités de requête par seconde (RU/s). Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite.<br><br>**Remarque** : Ce paramètre n’est pas disponible lors de la création d’un nouveau conteneur dans un compte serverless.| 
+    |**ID de base de données**|ToDoList|Entrez *ToDoList* pour le nom de la nouvelle base de données. Les noms de base de données doivent comporter entre 1 et 255 caractères, et ne peuvent pas contenir les caractères `/, \\, #, ?`, ni un espace de fin. Cochez l’option **Partager le débit entre les conteneurs** qui vous permet de partager le débit provisionné sur la base de données entre tous les conteneurs au sein de la base de données. Cette option permet également de réduire les coûts. |
+    | **Débit de la base de données**| Vous pouvez provisionner un débit **Mise à l’échelle automatique** ou **Manuel**. Le débit Manuel vous permet de mettre à l’échelle les RU/s vous-même, tandis que le débit Mise à l’échelle automatique permet au système d’adapter les RU/s en fonction de l’utilisation. Sélectionnez **Manuel** pour cet exemple. <br><br> Laissez le débit sur 400 unités de requête par seconde (RU/s). Si vous voulez réduire la latence, vous pouvez effectuer un scale-up du débit plus tard en estimant les RU/s avec la [calculatrice de capacité](estimate-ru-with-capacity-planner.md).<br><br>**Remarque** : Ce paramètre n’est pas disponible lors de la création d’un nouveau conteneur dans un compte serverless. |
     |**ID de conteneur**|Éléments|Entrez *Éléments* comme nom de votre nouveau conteneur. Les ID de conteneur sont soumis aux mêmes exigences en termes de caractères que les noms de base de données.|
     |**Clé de partition**| /category| L’exemple décrit dans cet article utilise */category* comme clé de partition.|
 
-    
-    Pour cet exemple, n’ajoutez pas de **Clés uniques**. Les clés uniques vous permettent d’ajouter une couche d’intégrité des données à la base de données en garantissant que chaque clé de partition contient des valeurs uniques. Pour plus d’informations, consultez [Clés uniques dans Azure Cosmos DB](unique-keys.md).
-    
-1.  Sélectionnez **OK**. L’Explorateur de données présente la nouvelle base de données et le conteneur que vous avez créé.
+    Pour cet exemple, n’ajoutez pas de **clés uniques** et n’activez pas le **Magasin analytique**. Les clés uniques vous permettent d’ajouter une couche d’intégrité des données à la base de données en garantissant que chaque clé de partition contient des valeurs uniques. Pour plus d’informations, consultez [Clés uniques dans Azure Cosmos DB](unique-keys.md). Le [Magasin analytique](analytical-store-introduction.md) permet d’effectuer des analyses à grande échelle sur des données opérationnelles sans aucun impact sur vos charges de travail transactionnelles.
+
+1. Sélectionnez **OK**. L’Explorateur de données présente la nouvelle base de données et le conteneur que vous avez créé.
 
 ## <a name="add-data-to-your-database"></a>Ajouter des données à votre base de données
 
