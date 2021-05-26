@@ -7,12 +7,12 @@ ms.reviewer: logicappspm, azla
 ms.topic: conceptual
 ms.date: 02/10/2021
 tags: connectors
-ms.openlocfilehash: 98d2ee8a85d25065c0021841a9b99a6d616a35d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb8e97dfd929be96d51c761ff91c91cc033d5127
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100367416"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847832"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Échanger des messages dans le cloud en utilisant Azure Logic Apps et Azure Service Bus
 
@@ -33,11 +33,11 @@ Vous pouvez utiliser des déclencheurs afin d’obtenir des réponses de Service
 
 * Un compte et un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-* Un espace de noms et une entité de messagerie Service Bus, telle une file d’attente. Ces éléments et votre application logique doivent utiliser le même abonnement Azure. Si vous ne disposez pas de ces éléments, découvrez comment [créer votre espace de noms Service Bus et une file d’attente](../service-bus-messaging/service-bus-create-namespace-portal.md).
+* Un espace de noms et une entité de messagerie Service Bus, telle une file d’attente. Si vous ne disposez pas de ces éléments, découvrez comment [créer votre espace de noms Service Bus et une file d’attente](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* L’application logique dans laquelle vous utilisez l’espace de noms Service Bus et l’entité de messagerie. Votre application logique et Service Bus doivent utiliser le même abonnement Azure. Pour démarrer votre workflow avec un déclencheur Service Bus, [créez une application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour utiliser une action Service Bus dans votre workflow, démarrez votre application logique avec un autre déclencheur, par exemple, le [déclencheur Périodicité](../connectors/connectors-native-recurrence.md).
+* L’application logique dans laquelle vous utilisez l’espace de noms Service Bus et l’entité de messagerie. Pour démarrer votre workflow avec un déclencheur Service Bus, [créez une application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour utiliser une action Service Bus dans votre workflow, démarrez votre application logique avec un autre déclencheur, par exemple, le [déclencheur Périodicité](../connectors/connectors-native-recurrence.md).
 
 <a name="permissions-connection-string"></a>
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-python
-ms.openlocfilehash: 5a9eff1ef012e66f661ee99852a8d82f117a45c4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c1393b599b990cce055740c1ae55079168c36a86
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350515"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479405"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Démarrage rapide : Utiliser Python pour appeler l'API Recherche Web Bing  
 
@@ -49,7 +49,7 @@ Cet exemple est exécuté en tant que bloc-notes Jupyter sur [MyBinder](https://
 2. Déclarez le point de terminaison de l’API Recherche Web Bing. Vous pouvez utiliser le point de terminaison global dans le code suivant, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
 
    ```python
-   search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
+   search_url = "https://api.bing.microsoft.com/v7.0/search"
    ```
 
 3. Si vous le souhaitez, vous pouvez personnaliser la requête de recherche en remplaçant la valeur de `search_term`.
