@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 576c1f0b087775ee3784229147b3715b22135217
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1d7c017b2be76a7b5df1e92658a848d209218138
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090673"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465900"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Haute disponibilité pour Azure Cache pour Redis
 
@@ -21,9 +21,9 @@ Azure Cache pour Redis implémente la haute disponibilité en utilisant plusieur
 
 | Option | Description | Disponibilité | standard | Premium | Enterprise |
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
-| [Réplication standard](#standard-replication)| Configuration répliquée à deux nœuds dans un centre de données avec basculement automatique | 99.9 % (voir les [détails](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |✔|✔|-|
-| [Redondance de zone](#zone-redundancy) | Configuration répliquée à plusieurs nœuds dans les zones de disponibilité, avec basculement automatique | Jusqu’à 99,99 % (voir les [détails](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|✔|✔|
-| [Géoréplication](#geo-replication) | Instances de cache liées dans deux régions, avec basculement contrôlé par l’utilisateur | Jusqu’à 99,999 % (voir les [détails](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|✔|PRÉVERSION|
+| [Réplication standard](#standard-replication)| Configuration répliquée à deux nœuds dans un centre de données avec basculement automatique | 99.9 % (voir les [détails](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |✔|✔|-|
+| [Redondance de zone](#zone-redundancy) | Configuration répliquée à plusieurs nœuds dans les zones de disponibilité, avec basculement automatique | Jusqu’à 99,99 % (voir les [détails](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |-|✔|✔|
+| [Géoréplication](#geo-replication) | Instances de cache liées dans deux régions, avec basculement contrôlé par l’utilisateur | Jusqu’à 99,999 % (voir les [détails](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |-|✔|PRÉVERSION|
 
 ## <a name="standard-replication"></a>Réplication standard
 

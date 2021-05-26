@@ -3,15 +3,15 @@ title: Déploiement sans temps d’arrêt pour Durable Functions
 description: Apprenez à activer l’orchestration Durable Functions pour les déploiements sans temps d’arrêt.
 author: tsushi
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 05/11/2021
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 707d624c47c536e00e98910a8902772703733515
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab3c9db7cc06add6019be7a92faf3f523e50f039
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558761"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368055"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Déploiement sans temps d’arrêt pour Durable Functions
 
@@ -29,6 +29,11 @@ Le tableau suivant compare les trois stratégies principales qui permettent d’
 | [Vérification de l’état sur un emplacement](#status-check-with-slot) | Système qui n’a pas d’orchestrations de longue durée de plus de 24 heures ou qui se chevauchent fréquemment. | Code base simple.<br/>Ne nécessite pas de gestion d’application de fonction supplémentaire. | Nécessite un compte de stockage supplémentaire ou une gestion du hub de tâches.<br/>Nécessite des périodes pendant lesquelles aucune orchestration n’est en cours d’exécution. |
 | [Routage d’applications](#application-routing) | Système qui n’a pas de périodes pendant lesquelles les orchestrations ne sont pas exécutées, par exemple les périodes ayant des orchestrations de plus de 24 heures ou dont les orchestrations se chevauchent fréquemment. | Prend en charge les nouvelles versions des systèmes dont les orchestrations s’exécutent en permanence et comportent des changements cassants. | Nécessite un routeur d’applications intelligent.<br/>Peut atteindre la limite du nombre d’applications de fonction autorisées par votre abonnement. La valeur par défaut est 100. |
 
+Le reste de ce document décrit ces stratégies plus en détail.
+
+> [!NOTE]
+> Les descriptions de ces stratégies de déploiement sans interruption de service supposent que vous utilisez le fournisseur Stockage Azure par défaut pour Durable Functions. Les instructions peuvent ne pas être appropriées si vous utilisez un fournisseur de stockage autre que le fournisseur Stockage Azure par défaut. Pour plus d’informations sur les différentes options du fournisseur de stockage et leur comparaison, consultez la documentation sur les [fournisseurs de stockage Durable Functions](durable-functions-storage-providers.md).
+
 ## <a name="versioning"></a>Contrôle de version
 
 Définissez de nouvelles versions de vos fonctions, et laissez les anciennes versions dans votre application de fonction. Comme vous pouvez le voir dans le diagramme, la version d’une fonction devient partie intégrante de son nom. Dans la mesure où les versions précédentes des fonctions sont conservées, les instances d’orchestration actives peuvent continuer à les référencer. Pendant ce temps, les demandes de nouvelles instances d’orchestration appellent la dernière version, que votre fonction cliente d’orchestration peut référencer à partir d’un paramètre d’application.
@@ -37,8 +42,8 @@ Définissez de nouvelles versions de vos fonctions, et laissez les anciennes ver
 
 Dans cette stratégie, chaque fonction doit être copiée, et ses références à d’autres fonctions doivent être mises à jour. Vous pouvez faciliter la tâche en écrivant un script. Voici un [exemple de projet](https://github.com/TsuyoshiUshio/DurableVersioning) avec un script de migration.
 
->[!NOTE]
->Cette stratégie utilise des emplacements de déploiement pour éviter les temps d’arrêt durant le déploiement. Pour plus d’informations sur la création d’emplacements de déploiement et sur leur utilisation, consultez [Emplacements de déploiement Azure Functions](../functions-deployment-slots.md).
+> [!NOTE]
+> Cette stratégie utilise des emplacements de déploiement pour éviter les temps d’arrêt durant le déploiement. Pour plus d’informations sur la création d’emplacements de déploiement et sur leur utilisation, consultez [Emplacements de déploiement Azure Functions](../functions-deployment-slots.md).
 
 ## <a name="status-check-with-slot"></a>Vérification de l’état sur un emplacement
 
@@ -50,7 +55,7 @@ Utilisez la procédure suivante pour mettre en œuvre ce scénario.
 
 1. [Ajoutez des emplacements de déploiement](../functions-deployment-slots.md#add-a-slot) à votre application de fonction pour la préproduction et la production.
 
-1. Pour chaque emplacement, affectez au [paramètre d’application AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) la chaîne de connexion d’un compte de stockage partagé. Cette chaîne de connexion de compte de stockage est utilisée par le runtime Azure Functions. Ce compte est utilisé par le runtime d’Azure Functions. Il gère les clés de la fonction.
+1. Pour chaque emplacement, affectez au [paramètre d’application AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) la chaîne de connexion d’un compte de stockage partagé. Cette chaîne de connexion de compte de stockage est utilisée par le runtime Azure Functions pour stocker en toute sécurité les [clés d’accès des fonctions](../security-concepts.md#function-access-keys).
 
 1. Pour chaque emplacement, créez un paramètre d’application, par exemple, `DurableManagementStorage`. Définissez sa valeur en fonction de la chaîne de connexion de différents comptes de stockage. Ces comptes de stockage sont utilisés par l’extension Durable Functions pour l’[exécution fiable](./durable-functions-orchestrations.md). Utilisez un compte de stockage distinct pour chaque emplacement. Ne marquez pas ce paramètre en tant que paramètre d’emplacement de déploiement.
 

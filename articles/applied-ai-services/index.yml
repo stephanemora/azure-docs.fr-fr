@@ -1,0 +1,85 @@
+### YamlMime:Hub
+title: "Documentation Azure Applied\_AI Services"
+summary: 'Famille de services d’IA qui accélèrent le développement de solutions pour les processus métier courants '
+brand: azure
+metadata:
+  title: "Documentation Azure Applied\_AI Services"
+  description: "Découvrez de quelle manière utiliser Azure Applied\_AI Services et ses fonctionnalités d’intelligence artificielle\_(IA) pour répondre aux besoins de vos scénarios d’entreprise."
+  ms.service: applied-ai-services
+  ms.topic: hub-page
+  author: nitinme
+  ms.author: nitinme
+  manager: nitinme
+  ms.custom: custom-portals-hub
+  ms.date: 05/05/2021
+highlightedContent:
+  items:
+    - title: "En quoi consiste Applied\_AI Services\_?"
+      itemType: overview
+      url: ./what-are-applied-ai-services.md
+    - title: "Pourquoi utiliser Applied\_AI Services?"
+      itemType: concept
+      url: ./why-applied-ai-services.md
+    - title: Clients à la une avec des cas d’usage
+      itemType: learn
+      url: ./applied-ai-services-customer-spotlight-use-cases.md
+productDirectory:
+  items:
+    - title: Azure Form Recognizer
+      imageSrc: ./media/form-recognizer.svg
+      summary: Transformer des documents en données exploitables en un rien de temps et à moindre coût
+      url: ../cognitive-services/form-recognizer/index.yml
+    - title: Azure Immersive Reader
+      imageSrc: ./media/immersive-reader.svg
+      summary: Aider les utilisateurs à lire et à comprendre le texte
+      url: ../cognitive-services/immersive-reader/index.yml
+    - title: Azure Metrics Advisor
+      imageSrc: ./media/metrics-advisor.svg
+      summary: Surveiller les mesures de manière proactive et diagnostiquer les problèmes
+      url: ../cognitive-services/metrics-advisor/index.yml
+    - title: Recherche cognitive Azure
+      imageSrc: ./media/cognitive-search.svg
+      summary: Intégrer la recherche dans le cloud basée sur l’IA à vos applications mobiles et web
+      url: ../search/index.yml
+    - title: Azure Video Analyzer
+      imageSrc: ./media/video-analytics.svg
+      summary: Extraire des insights actionnables de vos vidéos
+      url: 'https://aka.ms/video-analyzer-hub'
+    - title: Azure Bot Service
+      imageSrc: ./media/bot-services.svg
+      summary: Créer des bots et les connecter entre les canaux
+      url: 'https://docs.microsoft.com/composer/'
+additionalContent:
+  sections:
+    - title: Ressources supplémentaires
+      items:
+        - title: Support et aide
+          links:
+            - text: Envoyer des commentaires sur UserVoice
+              url: 'https://aka.ms/AppliedAIUserVoice'
+            - text: "Poser des questions sur Microsoft\_Q&A"
+              url: 'https://aka.ms/AppliedAIMSFTQandA'
+            - text: Résoudre les problèmes sur StackOverflow
+              url: 'https://aka.ms/AppliedAIStackOverflow'
+        - title: Apprendre le codage avec les guides de démarrage rapide
+          links:
+            - text: Azure Form Recognizer
+              url: ../cognitive-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md
+            - text: Azure Metrics Advisor
+              url: ../cognitive-services/metrics-advisor/quickstarts/web-portal.md
+            - text: Azure Immersive Reader
+              url: ../cognitive-services/immersive-reader/quickstarts/client-libraries.md
+            - text: Recherche cognitive Azure
+              url: ../search/search-get-started-portal.md
+            - text: Azure Video Analyzer
+              url: 'https://aka.ms/video-analytics-qs'
+            - text: Azure Bot Service
+              url: 'https://docs.microsoft.com/composer/quickstart-create-bot'
+            - text: Démarrer gratuitement
+              url: 'https://azure.microsoft.com/free/ai'
+        - title: "Explorer d’autres services Azure\_AI"
+          links:
+            - text: Azure Cognitive Services
+              url: 'https://docs.microsoft.com/en-us/azure/cognitive-services/'
+            - text: Azure Machine Learning
+              url: 'https://docs.microsoft.com/en-us/azure/machine-learning/'

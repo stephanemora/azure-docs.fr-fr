@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: c0fa311f03de1805d2487fe469d9305c0e01af78
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: a3c07457a193e4a1285dc8a2b3c7197f6151a984
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751866"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077599"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Réseaux virtuels et machines virtuelles dans Azure
 
@@ -50,7 +50,7 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer une in
 | Portail Azure | Lorsque vous créez une machine virtuelle dans le portail Azure, une interface réseau est automatiquement créée pour vous (vous ne pouvez pas utiliser une carte d’interface réseau que vous créez séparément). Le portail crée une machine virtuelle avec une seule carte d’interface réseau. Si vous souhaitez créer une machine virtuelle avec plusieurs cartes d’interface réseau, vous devez la créer en suivant une autre méthode. |
 | [Azure PowerShell](./windows/multiple-nics.md) | Utilisez [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) avec le paramètre **-PublicIpAddressId** pour fournir l’identificateur de l’adresse IP publique que vous avez créée précédemment. |
 | [Azure CLI](./linux/multiple-nics.md) | Pour fournir l’identificateur de l’adresse IP publique que vous avez créée précédemment, utilisez [az network nic create](/cli/azure/network/nic) avec le paramètre **--public-ip-address**. |
-| [Modèle](../virtual-network/template-samples.md) | Utilisez [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) comme guide pour le déploiement d’une interface réseau à l’aide d’un modèle. |
+| [Modèle](../virtual-network/template-samples.md) | Utilisez [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/nic-publicip-dns-vnet) comme guide pour le déploiement d’une interface réseau à l’aide d’un modèle. |
 
 ## <a name="ip-addresses"></a>Adresses IP
 
@@ -114,7 +114,7 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un gro
 | [Azure portal](../virtual-network/tutorial-filter-network-traffic.md) | Lorsque vous créez une machine virtuelle dans le portail Azure, un groupe de sécurité réseau est automatiquement créé et associé à la carte d’interface réseau créée par le portail. Le nom du groupe de sécurité réseau est une combinaison du nom de la machine virtuelle et de **-nsg**. Ce groupe de sécurité réseau contient une règle de trafic entrant avec une priorité de 1000, un service défini sur RDP, le protocole défini sur TCP, le port défini sur 3389 et l’action définie sur Allow. Si vous souhaitez autoriser tout autre trafic entrant vers la machine virtuelle, vous devez ajouter des règles supplémentaires pour le groupe de sécurité réseau. |
 | [Azure PowerShell](../virtual-network/tutorial-filter-network-traffic.md) | Utilisez [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) et fournissez les informations de la règle requise. Utilisez [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) pour créer le groupe de sécurité réseau. Utilisez [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) pour configurer le groupe de sécurité réseau du sous-réseau. Utilisez [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) pour ajouter le groupe de sécurité réseau au réseau virtuel. |
 | [Azure CLI](../virtual-network/tutorial-filter-network-traffic-cli.md) | Utilisez [az network nsg create](/cli/azure/network/nsg) pour créer initialement le groupe de sécurité réseau. Utilisez [az network nsg rule create](/cli/azure/network/nsg/rule) pour ajouter des règles à un groupe de sécurité réseau. Utilisez [az network vnet subnet update](/cli/azure/network/vnet/subnet) pour ajouter le groupe de sécurité réseau au sous-réseau. |
-| [Modèle](../virtual-network/template-samples.md) | Utilisez [Create a Network Security Group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) comme guide pour le déploiement d’un groupe de sécurité réseau à l’aide d’un modèle. |
+| [Modèle](../virtual-network/template-samples.md) | Utilisez [Create a Network Security Group](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/security-group-create) comme guide pour le déploiement d’un groupe de sécurité réseau à l’aide d’un modèle. |
 
 ## <a name="load-balancers"></a>Équilibreurs de charge
 
@@ -138,7 +138,7 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un éq
 | Portail Azure |  Vous pouvez [équilibrer la charge du trafic Internet sur les machines virtuelles avec le portail Azure](../load-balancer/quickstart-load-balancer-standard-public-portal.md). |
 | [Azure PowerShell](../load-balancer/quickstart-load-balancer-standard-public-powershell.md) | Utilisez [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) avec le paramètre **-PublicIpAddress** pour fournir l’identificateur de l’adresse IP publique que vous avez créée précédemment. Utilisez [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) pour créer la configuration du pool d’adresses principal. Utilisez [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) pour créer des règles NAT de trafic entrant associées à la configuration IP frontale que vous avez créée. Utilisez [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) pour créer les sondes dont vous avez besoin. Utilisez [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) pour créer la configuration d’équilibrage de charge. Utilisez [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) pour créer l’équilibrage de charge.|
 | [Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md) | Utilisez [az network lb create](/cli/azure/network/lb) pour créer la configuration d’équilibrage de charge initiale. Utilisez [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) pour ajouter l’adresse IP publique que vous avez créée précédemment. Utilisez [az network lb address-pool create](/cli/azure/network/lb/address-pool) pour ajouter la configuration du pool d’adresses principal. Utilisez [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) pour ajouter des règles de traduction d’adresses réseau. Utilisez [az network lb rule create](/cli/azure/network/lb/rule) pour ajouter les règles d’équilibrage de charge. Utilisez [az network lb probe create](/cli/azure/network/lb/probe) pour ajouter les sondes. |
-| [Modèle](../load-balancer/quickstart-load-balancer-standard-public-template.md) | Utilisez [3 machines virtuelles dans un équilibreur de charge](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create) comme guide pour le déploiement d’un équilibrage de charge à l’aide d’un modèle. |
+| [Modèle](../load-balancer/quickstart-load-balancer-standard-public-template.md) | Utilisez [3 machines virtuelles dans un équilibreur de charge](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-standard-create) comme guide pour le déploiement d’un équilibrage de charge à l’aide d’un modèle. |
 
 Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un équilibrage de charge interne.
 
@@ -168,7 +168,7 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer une ma
 | [Azure portal](./windows/quick-create-portal.md) | Utilise les paramètres de réseau par défaut qui ont été mentionnés précédemment pour créer une machine virtuelle avec une seule carte d’interface réseau. Pour créer une machine virtuelle avec plusieurs cartes d’interface réseau, vous devez utiliser une autre méthode. |
 | [Azure PowerShell](./windows/tutorial-manage-vm.md) | Inclut l’utilisation de [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) pour ajouter la carte d’interface réseau que vous avez créée précédemment pour la configuration de la machine virtuelle. |
 | [Azure CLI](./linux/create-cli-complete.md) | Créez et connectez une machine virtuelle à un réseau virtuel, un sous-réseau et une carte réseau selon différentes étapes. |
-| [Modèle](./windows/ps-template.md) | Utilisez [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) comme guide pour le déploiement d’une machine virtuelle à l’aide d’un modèle. |
+| [Modèle](./windows/ps-template.md) | Utilisez [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows) comme guide pour le déploiement d’une machine virtuelle à l’aide d’un modèle. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour connaître les étapes spécifiques aux machines virtuelles concernant la gestion des réseaux virtuels Azure pour les machines virtuelles, consultez les didacticiels [Windows](../virtual-machines/windows/tutorial-virtual-network.md) ou [Linux](../virtual-machines/linux/tutorial-virtual-network.md).

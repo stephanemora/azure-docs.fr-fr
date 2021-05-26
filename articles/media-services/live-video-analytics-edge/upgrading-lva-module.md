@@ -5,14 +5,16 @@ author: naiteeks
 ms.topic: how-to
 ms.author: naiteeks
 ms.date: 12/14/2020
-ms.openlocfilehash: 49c17946203bc6c3655b1aaf7b04a1ee3ea67388
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2ade7eca6f9e4e41641de7470445fc9ffd43e0a2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955647"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368489"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>Mise à niveau de Live Video Analytics sur IoT Edge de 1.0 à 2.0
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Cet article aborde les différences et les différents aspects à prendre en compte lors de la mise à niveau du module Live Video Analytics (LVA) sur Azure IoT Edge.
 

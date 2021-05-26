@@ -1,18 +1,18 @@
 ---
 title: Comment exécuter un travail de réindexation dans l’API Azure pour FHIR
 description: Cet article explique comment exécuter un travail de réindexation pour indexer les paramètres de recherche ou de tri qui n’ont pas encore été indexés dans votre base de données.
-author: stevewohl
+author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/23/2021
 ms.author: cavoeg
-ms.openlocfilehash: 5285de1a8481f37238ce3e3f3038d0d4f4c3d54a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 905d9381ac93e38575e9d0ff5c6f5571122b2990
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078534"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476644"
 ---
 # <a name="running-a-reindex-job"></a>Exécution d’un travail de réindexation
 

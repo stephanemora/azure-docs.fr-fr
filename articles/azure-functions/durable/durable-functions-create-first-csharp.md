@@ -1,17 +1,17 @@
 ---
 title: Créer votre première fonction durable dans Azure à l’aide de C#
 description: Créez et publiez une fonction durable Azure à l’aide de Visual Studio ou de Visual Studio Code.
-author: jeffhollan
+author: anthonychu
 ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: 36566baac2885c449e1eae762924357bf571b39f
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: da5819c6a40e1d5a513e9d742702d5435f4efbeb
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490214"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465969"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Créer votre première fonction durable dans C\#
 

@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 08/03/2020
+ms.date: 05/13/2021
 ms.author: alkohli
-ms.openlocfilehash: b3d4ec54d6db88a04f7aca46c0c96fa2d4d17ac7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 45a82d85510bd432efa93211ffc9dba8b911c557
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101730623"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070744"
 ---
 Connectez-vous à la machine virtuelle à l’aide de l’adresse IP privée que vous avez transmise lors de sa création.
 
@@ -64,11 +64,3 @@ Connectez-vous à la machine virtuelle à l’aide de l’adresse IP privée qu
     
     Administrator@mylinuxvm:
     ```
-
-1. Si vous avez utilisé une adresse IP publique lors de la création de la machine virtuelle, vous pouvez l’utiliser pour vous connecter à la machine virtuelle. Pour obtenir l’adresse IP publique, exécutez la commande suivante : 
-
-   ```powershell
-   $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
-   ```
-
-   Dans cet exemple, l’adresse IP publique est identique à l’adresse IP privée que vous avez transmise lors de la création de l’interface du réseau virtuel.

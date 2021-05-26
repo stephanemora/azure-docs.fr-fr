@@ -15,12 +15,12 @@ ms.date: 05/06/2021
 ms.author: dpless
 ms.custom: contperf-fy21q3
 ms.reviewer: jroth
-ms.openlocfilehash: 3649c593fcc7a0d27ed7326efa03b1325763649d
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 7e22da62570a1689f5113f41710006698469fa6a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190899"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452184"
 ---
 # <a name="checklist-performance-best-practices-for-sql-server-on-azure-vms"></a>Check-list : Bonnes pratiques relatives aux performances pour SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -108,7 +108,7 @@ Voici une liste de vérification rapide des meilleures pratiques pour obtenir un
 - Tirer parti de la meilleure [stratégie de sauvegarde et de restauration](backup-restore.md#decision-matrix) pour votre charge de travail SQL Server.
 - S’assurer que les [performances réseau accélérées sont activées](../../../virtual-network/create-vm-accelerated-networking-cli.md#portal-creation) sur la machine virtuelle.
 - Tirer parti d’[Azure Security Center](../../../security-center/index.yml) pour améliorer la posture de sécurité globale de votre déploiement.
-- Tirer parti d’[Azure Defender](../../../security-center/azure-defender.md), intégré à [Azure Security Center](https://azure.microsoft.com/services/security-center/), pour une [couverture spécifique des machines virtuelles SQL Server](../../../security-center/defender-for-sql-introduction.md), notamment des évaluations des vulnérabilités et un accès juste-à-temps, ce qui réduit la surface d’attaque tout en permettant aux utilisateurs légitimes d’accéder aux machines virtuelles, le cas échéant. Pour plus d’informations, consultez [Évaluation des vulnérabilités](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md), [Activer l’évaluation des vulnérabilités pour les machines virtuelles SQL Server](sql-vulnerability-assessment-enable.md) et [Accès juste-à-temps](../../../security-center/just-in-time-explained.md). 
+- Tirer parti d’[Azure Defender](../../../security-center/azure-defender.md), intégré à [Azure Security Center](https://azure.microsoft.com/services/security-center/), pour une [couverture spécifique des machines virtuelles SQL Server](../../../security-center/defender-for-sql-introduction.md), notamment des évaluations des vulnérabilités et un accès juste-à-temps, ce qui réduit la surface d’attaque tout en permettant aux utilisateurs légitimes d’accéder aux machines virtuelles, le cas échéant. Pour plus d’informations, consultez [Évaluation des vulnérabilités](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md), [Activer l’évaluation des vulnérabilités pour les machines virtuelles SQL Server](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md) et [Accès juste-à-temps](../../../security-center/just-in-time-explained.md). 
 - Tirer parti d’[Azure Advisor](../../../advisor/advisor-overview.md) pour répondre aux recommandations en matière de [performances](../../../advisor/advisor-performance-recommendations.md), de [coûts](../../../advisor/advisor-cost-recommendations.md), de [fiabilité](../../../advisor/advisor-high-availability-recommendations.md), d’[excellence opérationnelle](../../../advisor/advisor-operational-excellence-recommendations.md) et de[ sécurité](../../../advisor/advisor-security-recommendations.md).
 - Tirer parti d’[Azure Monitor](../../../azure-monitor/vm/quick-monitor-azure-vm.md) pour collecter les données de télémétrie de votre environnement SQL Server, les analyser et agir en conséquence. Cela comprend l’identification des problèmes d’infrastructure avec [VM insights](../../../azure-monitor/vm/vminsights-overview.md) et la surveillance des données avec [Log Analytics](../../../azure-monitor/logs/log-query-overview.md) pour des diagnostics plus approfondis.
 - Activer l’[arrêt automatique](../../../automation/automation-solution-vm-management.md) pour les environnements de développement et de test. 

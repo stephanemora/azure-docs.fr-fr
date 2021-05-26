@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 7656efeb26a8a8b3c752ea996c8e644c68a48626
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dc73ac91320e1860c5c30f1b31962ad826a1038f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043998"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076795"
 ---
 # <a name="deploy-azure-monitor"></a>Déployer Azure Monitor
 L’activation d’Azure Monitor pour surveiller toutes vos ressources Azure consiste en une combinaison de configuration de composants Azure Monitor et de configuration des ressources Azure pour générer des données d’analyse collectées par Azure Monitor. Cet article décrit les différentes étapes requises pour une implémentation complète d’Azure Monitor avec une configuration commune afin de surveiller toutes les ressources de votre abonnement Azure. Les descriptions de base de chaque étape sont fournies avec des liens vers d’autres documents pour des exigences de configuration détaillées.
@@ -137,7 +137,7 @@ Pour activer l’analyse pour une application, vous devez décider si vous allez
 - [Applications ASP.NET](app/asp-net.md)
 - [Applications ASP.NET Core](app/asp-net-core.md)
 - [Applications de console .NET](app/console.md)
-- [Java](app/java-get-started.md)
+- [Java](app/java-in-process-agent.md)
 - [Node.JS](app/nodejs.md)
 - [Python](app/opencensus-python.md)
 - [autres plateformes](app/platforms.md)

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 12d78846f5892e71388de6e6e76b868f9b14d4de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0a912a3023ba6d8504d5856d5a45a93d0dc9488
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88008914"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809397"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Résoudre les problèmes côté serveur liés à Azure Cache pour Redis
 
@@ -33,7 +33,7 @@ La saturation de la mémoire sur le serveur génère toutes sortes de problèmes
 - Le cache contient beaucoup de données et il est sur le point d’atteindre sa capacité maximale.
 - Redis constate une importante fragmentation de mémoire. Cette fragmentation est plus souvent provoquée par le stockage d’objets volumineux, car Redis est optimisé pour les petits objets.
 
-Redis expose deux statistiques via la commande [INFO](https://redis.io/commands/info) qui peuvent vous aider à identifier ce problème : « used_memory » et « used_memory_rss ». Vous pouvez [afficher ces métriques](cache-how-to-monitor.md#view-metrics-with-azure-monitor) à l’aide du portail.
+Redis expose deux statistiques via la commande [INFO](https://redis.io/commands/info) qui peuvent vous aider à identifier ce problème : « used_memory » et « used_memory_rss ». Vous pouvez [afficher ces métriques](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) à l’aide du portail.
 
 Vous pouvez apporter plusieurs modifications pour maintenir une utilisation correcte de la mémoire :
 
@@ -47,7 +47,7 @@ Vous pouvez apporter plusieurs modifications pour maintenir une utilisation corr
 
 Une charge serveur ou une utilisation du processeur élevées signifie que le serveur ne peut pas traiter les requêtes en temps voulu. Le serveur peut être lent et ne pas être capable de répondre aux requêtes en temps voulu.
 
-[Supervisez les métriques](cache-how-to-monitor.md#view-metrics-with-azure-monitor) comme l’utilisation du processeur ou la charge serveur. Regardez les pics d’utilisation du processeur qui correspondent à des délais d’expiration.
+[Supervisez les métriques](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) comme l’utilisation du processeur ou la charge serveur. Regardez les pics d’utilisation du processeur qui correspondent à des délais d’expiration.
 
 Plusieurs modifications sont possibles pour réduire la charge serveur :
 
@@ -65,7 +65,7 @@ Avec la commande [SLOWLOG](https://redis.io/commands/slowlog), vous pouvez mesur
 
 La capacité de la bande passante réseau varie selon la taille du cache. Si le serveur dépasse la bande passante disponible, les données ne sont pas envoyées au client aussi rapidement. Les requêtes du client risquent d’expirer, car le serveur ne peut pas envoyer (push) les données au client suffisamment rapidement.
 
-Vous pouvez vous servir des métriques « Lecture du cache » et « Écriture dans le cache » pour voir la quantité de bande passante qui est utilisée côté serveur. Vous pouvez [afficher ces métriques](cache-how-to-monitor.md#view-metrics-with-azure-monitor) dans le portail.
+Vous pouvez vous servir des métriques « Lecture du cache » et « Écriture dans le cache » pour voir la quantité de bande passante qui est utilisée côté serveur. Vous pouvez [afficher ces métriques](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) dans le portail.
 
 Pour réduire une utilisation de la bande passante réseau proche de la capacité maximale :
 

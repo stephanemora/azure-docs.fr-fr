@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: ed6edeadfb1c6f73cc10771d4a5328e7bddb3642
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 921a2c6425010dbf98c170d8435267e440883aa5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835161"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075139"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Aide au déploiement d’applications web avec des modèles Azure Resource Manager
 
@@ -53,7 +53,7 @@ Déployez des ressources dans l’ordre suivant :
 
 En règle générale, votre solution inclut uniquement une partie de ces ressources et niveaux. Pour les niveaux manquants, mappez les ressources de niveau inférieur sur le niveau immédiatement supérieur.
 
-L’exemple suivant montre une partie d’un modèle. La valeur de configuration de la chaîne de connexion dépend de l’extension MSDeploy. L’extension MSDeploy dépend de l’application web et de la base de données. 
+L’exemple suivant montre une partie d’un modèle. La valeur de configuration de la chaîne de connexion dépend de l’extension MSDeploy. L’extension MSDeploy dépend de l’application web et de la base de données.
 
 ```json
 {
@@ -82,7 +82,7 @@ L’exemple suivant montre une partie d’un modèle. La valeur de configuration
 }
 ```
 
-Pour un exemple prêt à exécuter incluant le code ci-dessus, consultez [Modèle : Créer une application web Umbraco simple](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
+Pour un exemple prêt à exécuter incluant le code ci-dessus, consultez [Modèle : Créer une application web Umbraco simple](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/umbraco/umbraco-webapp-simple).
 
 ## <a name="find-information-about-msdeploy-errors"></a>Rechercher des informations sur les erreurs MSDeploy
 

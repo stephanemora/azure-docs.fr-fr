@@ -4,12 +4,12 @@ description: Modèle de données Application Insights pour la télémétrie des
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 8fea4bbf590816b2ef168a2ed16f197389ee282e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb298812b9970882c4bb3c7d2562bb5cbbf69b2d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87320542"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098899"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Télémétrie des traces : modèle de données Application Insights
 
@@ -32,7 +32,7 @@ Niveau de gravité de trace. La valeur peut être `Verbose`, `Information`, `War
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Exploration des journaux d’activité .NET dans Application Insights](./asp-net-trace-logs.md).
-- [Exploration du suivi des journaux d’activité Java dans Application Insights](./java-trace-logs.md).
+- [Exploration du suivi des journaux d’activité Java dans Application Insights](java-2x-trace-logs.md).
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](data-model.md).
 - [Écrire des données de télémétrie de trace personnalisées](./api-custom-events-metrics.md#tracktrace)
 - Découvrez quelles [plateformes](./platforms.md) sont prises en charge par Application Insights.
