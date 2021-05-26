@@ -4,12 +4,12 @@ description: Cet article explique comment déplacer des rubriques système Azure
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
-ms.openlocfilehash: eb6029b206e7d47789371ee81e75c4e05c69ee65
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b8db19b1ef99d81f47ec19254e1f6622c6a4ba2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89081615"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481047"
 ---
 # <a name="move-azure-event-grid-system-topics-to-another-region"></a>Déplacer des rubriques système Azure Event Grid vers une autre région
 Vous pouvez être amené à déplacer vos ressources vers une autre région pour diverses raisons. Par exemple, pour tirer parti d’une nouvelle région Azure, pour répondre à des exigences de stratégie et de gouvernance internes ou pour respecter des exigences de planification de la capacité. 
@@ -118,6 +118,5 @@ Vous avez appris à déplacer une source d’événement Azure et sa rubrique sy
 
 - [Déplacer les rubriques personnalisées d’une région à une autre](move-custom-topics-across-regions.md). 
 - [Déplacer les domaines d’une région à une autre](move-domains-across-regions.md). 
-- [Déplacer des espaces de noms de partenaires d’une région à une autre](move-partner-namespaces-across-regions.md). 
 
-Pour plus d’informations sur le déplacement de ressources entre régions et la récupération d’urgence dans Azure, consultez l’article suivant : [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Pour plus d’informations sur le déplacement de ressources entre régions et la récupération d’urgence dans Azure, consultez l’article suivant : [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).

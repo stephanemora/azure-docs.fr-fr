@@ -5,12 +5,12 @@ description: Consultez la foire aux questions lorsque vous exécutez des pools d
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: e9b2072ddcb688cd320700d47bb5f5f3670e6543
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 192306d2aeb9abddef641c0b55adaacaf8442de2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790070"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110065707"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Foire aux questions relative aux pools de nœuds Windows Server dans AKS
 
@@ -116,10 +116,6 @@ Kubenet n’est actuellement pas pris en charge sur les nœuds Windows.
 ## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>Puis-je exécuter des contrôleurs d’entrée sur des nœuds Windows ?
 
 Oui, un contrôleur d’entrée prenant en charge les conteneurs Windows Server peut s’exécuter sur des nœuds Windows dans AKS.
-
-## <a name="can-i-use-azure-dev-spaces-with-windows-nodes"></a>Puis-je utiliser Azure Dev Spaces avec des nœuds Windows ?
-
-Azure Dev Spaces est actuellement uniquement disponible pour les pools de nœuds Linux.
 
 ## <a name="can-my-windows-server-containers-use-gmsa"></a>Mes conteneurs Windows Server peuvent-ils utiliser gMSA ?
 

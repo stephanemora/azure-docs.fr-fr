@@ -7,12 +7,12 @@ ms.date: 06/23/2020
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 25b0579f05c1f7669a8dfc1df02e9a1f575ea066
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 48a2ee6b817a16cf85768ab047dd9e1c361a79df
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537143"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466473"
 ---
 # <a name="use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique
 Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer une rubrique Service Bus, puis des abonnements à cette rubrique. 
@@ -41,4 +41,3 @@ Dans cet article, vous avez créé un espace de noms Service Bus, une rubrique d
 - [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 - [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 - [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
-- [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)

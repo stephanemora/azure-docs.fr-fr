@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 174f177080a421ec65f4ba79c550292737284de4
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: d6d497d241a91c0125f5ebe1c8437e90679768b8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734789"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064987"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Surveiller l’état d’exécution, examiner l’historique du déclencheur et configurer des alertes pour Azure Logic Apps
 
@@ -193,7 +193,7 @@ Pour recevoir des alertes basées sur des métriques spécifiques ou des dépass
 > [!TIP]
 > Pour exécuter une application logique à partir d’une alerte, vous pouvez inclure le [déclencheur de demande](../connectors/connectors-native-reqres.md) dans votre flux de travail, ce qui vous permet d’effectuer des tâches telles que les exemples suivants :
 >
-> * [Publier sur Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+> * [Publier sur Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-slack-with-logic-app)
 > * [Envoyer un texte](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app)
 > * [Ajouter un message à une file d'attente](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app)
 

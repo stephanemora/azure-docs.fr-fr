@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: cc6ce30855d17f45636e0df04978fed88dcecff7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07ce54e796cdda3cf7661036ba62ee2b6c5a826a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549139"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454032"
 ---
 # <a name="dv4-and-dsv4-series"></a>Séries Dv4 et Dsv4
 
@@ -33,7 +33,7 @@ Le stockage sur disque de données à distance est facturé séparément des mac
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Non pris en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
-[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
+[Prise en charge de la génération de machine virtuelle](generation-2.md) : Générations 1 et 2<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
 <br>
@@ -53,7 +53,7 @@ Le stockage sur disque de données à distance est facturé séparément des mac
 Les tailles de la série Dsv4 s’exécutent sur Intel &reg;​​Xeon&reg; Platinum 8272CL (Cascade Lake). Elles offrent une combinaison de processeur virtuel, de mémoire et d’options de stockage distant adaptée à la plupart des charges de travail de production. Les machines virtuelles de série Dsv4 sont dotées de la technologie Hyper-Threading d’[Intel&reg;](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html). Le stockage sur disque de données à distance est facturé séparément des machines virtuelles.
 
 [ACU](acu.md) : 195-210<br>
-[Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>

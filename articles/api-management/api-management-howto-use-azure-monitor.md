@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 1cb902c4b59193c46dbeca47bb355f0695a0f2c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f70a43efd0b56f76ee4b68e8fede3ce4e255063d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100572805"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466021"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Tutoriel : Surveiller les API publiées
 
@@ -32,7 +32,7 @@ Vous pouvez également utiliser l’[analytique](howto-use-analytics.md) intégr
 ## <a name="prerequisites"></a>Prérequis
 
 + Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
-+ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -151,7 +151,7 @@ Si vous activez la collecte du journal GatewayLogs ou des métriques dans un esp
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Capture d’écran de l’élément Journaux dans le menu Supervision":::
 
-Exécutez des requêtes pour afficher les données. Plusieurs [exemples de requêtes](../azure-monitor/logs/example-queries.md) sont fournis, ou exécutez les vôtres. Par exemple, la requête suivante récupère les 24 heures de données les plus récentes à partir de la table GatewayLogs :
+Exécutez des requêtes pour afficher les données. Plusieurs [exemples de requêtes](../azure-monitor/logs/queries.md) sont fournis, ou exécutez les vôtres. Par exemple, la requête suivante récupère les 24 heures de données les plus récentes à partir de la table GatewayLogs :
 
 ```kusto
 ApiManagementGatewayLogs

@@ -3,14 +3,14 @@ title: Fonctionnalités HTTP dans Durable Functions - Azure Functions
 description: Découvrez les fonctionnalités HTTP intégrées dans l’extension Durable Functions pour Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 05/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 64d40de50f21811a56318971de1836abc8fbf8c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67a28bccf3353ed7e33826b0ef5b82fc1cc5f981
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93027259"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376879"
 ---
 # <a name="http-features"></a>Fonctionnalités HTTP
 
@@ -106,6 +106,48 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 }
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+**run.ps1**
+
+```powershell
+$FunctionName = $Request.Params.FunctionName
+$InstanceId = Start-NewOrchestration -FunctionName $FunctionName
+Write-Host "Started orchestration with ID = '$InstanceId'"
+
+$Response = New-OrchestrationCheckStatusResponse -Request $Request -InstanceId $InstanceId
+Push-OutputBinding -Name Response -Value $Response
+```
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "Request",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{FunctionName}",
+      "methods": [
+        "post",
+        "get"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "in"
+    }
+  ]
+}
+```
 ---
 
 Le démarrage d’une fonction d’orchestrateur à l’aide des fonctions de déclencheur HTTP présentées précédemment peut être effectué à l’aide d’un client HTTP quelconque. La commande curl suivante démarre une fonction d’orchestrateur nommée `DoWork` :
@@ -216,6 +258,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Cette fonctionnalité est actuellement prise en charge dans PowerShell.
+
 ---
 
 L’action « call HTTP » vous permet d’effectuer les actions suivantes dans vos fonctions d’orchestrateur :
@@ -313,6 +359,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell) 
+
+Cette fonctionnalité est actuellement prise en charge dans PowerShell.
+
 ---
 
 Dans l’exemple précédent, le paramètre `tokenSource` est configuré pour acquérir des jetons Azure AD pour [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Les jetons sont identifiés par l’URI de ressource `https://management.core.windows.net/.default`. Cet exemple part du principe que l’application de fonction actuelle s’exécute localement ou a été déployée en tant qu’application de fonction avec une identité managée. L’identité locale ou l’identité managée est supposée avoir l’autorisation de gérer des machines virtuelles dans le groupe de ressources spécifié `myRG`.
@@ -331,10 +381,10 @@ Les identités managées ne sont pas limitées à la gestion des ressources Azur
 
 La prise en charge intégrée de l’appel des API HTTP est une fonctionnalité de commodité. Elle ne convient pas pour tous les scénarios.
 
-Les requêtes HTTP envoyées par les fonctions d’orchestrateur et leurs réponses sont sérialisées et conservées en tant que messages en file d’attente. Ce comportement de mise en file d’attente garantit [la fiabilité et la sécurité des appels HTTP pour la relecture d’orchestration](durable-functions-orchestrations.md#reliability). Toutefois, le comportement de mise en file d’attente présente également des limitations :
+Les requêtes HTTP envoyées par les fonctions d’orchestrateur et leurs réponses sont [sérialisées et conservées](durable-functions-serialization-and-persistence.md) en tant que messages dans le fournisseur de stockage Durable Functions. Ce comportement persistant de mise en file d’attente garantit [la fiabilité et la sécurité des appels HTTP pour la relecture d’orchestration](durable-functions-orchestrations.md#reliability). Toutefois, le comportement persistant de mise en file d’attente présente également des limitations :
 
 * Chaque requête HTTP implique une latence supplémentaire par rapport à un client HTTP natif.
-* Les messages de demande ou de réponse volumineux qui ne peuvent pas tenir dans un message de file d’attente peuvent nuire considérablement aux performances de l’orchestration. La surcharge liée au déchargement des charges utiles des messages peut entraîner une détérioration des performances.
+* Selon le [fournisseur de stockage configuré](durable-functions-storage-providers.md), les messages de requête ou de réponse volumineux peuvent nuire considérablement aux performances de l’orchestration. Par exemple, lorsque vous utilisez Stockage Azure, les charges utiles HTTP qui sont trop volumineuses pour être contenues dans les messages de la file d’attente Azure sont compressées et stockées dans le stockage d’objets blob Azure.
 * Les charges utiles de streaming, segmentées et binaires ne sont pas prises en charge.
 * La possibilité de personnaliser le comportement du client HTTP est limitée.
 

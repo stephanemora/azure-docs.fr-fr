@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: c7bd85a3cf02196216b63c3ad29eba7f425fb0c5
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 0ada06e5b96ed5344347f5de1baf006c8682ff87
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795003"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480215"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -74,7 +74,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Anglais (Afrique du Sud)             | `en-ZA` | Texte                                   |                           |
 | Anglais (Tanzanie)                 | `en-TZ` | Texte                                   |                           |
 | Anglais (Royaume-Uni)           | `en-GB` | Audio (20201019)<br>Texte<br>Prononcer| Oui                          |
-| Anglais (États-Unis)            | `en-US` | Audio (20201019)<br>Texte<br>Prononcer| Oui                          |
+| Anglais (États-Unis)            | `en-US` | Audio (20201019, 20210223)<br>Texte<br>Prononcer| Oui                          |
 | Estonien (Estonie)                  | `et-EE` | Texte                                   |                           |
 | Filipino (Philippines)             | `fil-PH`| Texte                                   |                           |
 | Finnois (Finlande)                  | `fi-FI` | Texte                                   |     Oui                      |
@@ -168,8 +168,13 @@ Les voix neurales peuvent être utilisées pour rendre les interactions avec les
 | Chinois (cantonais, traditionnel) | `zh-HK` | Male | `zh-HK-WanLungNeural` | Général |
 | Chinois (mandarin, simplifié) | `zh-CN` | Female | `zh-CN-XiaoxiaoNeural` | Général, plusieurs styles de voix disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinois (mandarin, simplifié) | `zh-CN` | Female | `zh-CN-XiaoyouNeural` | Voix d’enfant, optimisée pour la narration |
+| Chinois (mandarin, simplifié) | `zh-CN` | Female | `zh-CN-XiaomoNeural` | Général, plusieurs jeux de rôle et styles disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinois (mandarin, simplifié) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` | Général, plusieurs jeux de rôle et styles disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinois (mandarin, simplifié) | `zh-CN` | Female | `zh-CN-XiaohanNeural` | Général, plusieurs styles disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinois (mandarin, simplifié) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` | Voix de senior, plusieurs styles disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinois (mandarin, simplifié) | `zh-CN` | Male | `zh-CN-YunyangNeural` | Optimisée pour la lecture de bulletins d’informations,<br /> plusieurs styles de voix disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinois (mandarin, simplifié) | `zh-CN` | Male | `zh-CN-YunyeNeural` | Optimisée pour raconter des histoires |
+| Chinois (mandarin, simplifié) | `zh-CN` | Male   | `zh-CN-YunxiNeural` | Général, plusieurs styles disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinois (mandarin, taïwanais) | `zh-TW` | Female | `zh-TW-HsiaoChenNeural` | Général |
 | Chinois (mandarin, taïwanais) | `zh-TW` | Female | `zh-TW-HsiaoYuNeural` | Général |
 | Chinois (mandarin, taïwanais) | `zh-TW` | Male | `zh-TW-YunJheNeural` | Général |
@@ -179,8 +184,8 @@ Les voix neurales peuvent être utilisées pour rendre les interactions avec les
 | Tchèque (Tchéquie) | `cs-CZ` | Male | `cs-CZ-AntoninNeural` | Général |
 | Danois (Danemark) | `da-DK` | Female | `da-DK-ChristelNeural` | Général |
 | Danois (Danemark) | `da-DK` | Male | `da-DK-JeppeNeural` | Général |
-| Néerlandais (Belgique) | `nl-BE` | Female | `nl-BE-DenaNeural` <sup>Nouveau</sup> | Général | 
-| Néerlandais (Belgique) | `nl-BE` | Male | `nl-BE-ArnaudNeural` <sup>Nouveau</sup> | Général | 
+| Néerlandais (Belgique) | `nl-BE` | Female | `nl-BE-DenaNeural` | Général | 
+| Néerlandais (Belgique) | `nl-BE` | Male | `nl-BE-ArnaudNeural` | Général | 
 | Néerlandais (Pays-Bas) | `nl-NL` | Female | `nl-NL-ColetteNeural` | Général |
 | Néerlandais (Pays-Bas) | `nl-NL` | Female | `nl-NL-FennaNeural` | Général |
 | Néerlandais (Pays-Bas) | `nl-NL` | Male | `nl-NL-MaartenNeural` | Général |
@@ -188,12 +193,20 @@ Les voix neurales peuvent être utilisées pour rendre les interactions avec les
 | Anglais (Australie) | `en-AU` | Male | `en-AU-WilliamNeural` | Général |
 | Anglais (Canada) | `en-CA` | Female | `en-CA-ClaraNeural` | Général |
 | Anglais (Canada) | `en-CA` | Male | `en-CA-LiamNeural` | Général |
+| Anglais (Hong Kong) | `en-HK` | Female | `en-HK-YanNeural` <sup>Nouveau</sup> | Général |
+| Anglais (Hong Kong) | `en-HK` | Male | `en-HK-SamNeural` <sup>Nouveau</sup> | Général |
 | Anglais (Inde) | `en-IN` | Female | `en-IN-NeerjaNeural` | Général |
 | Anglais (Inde) | `en-IN` | Male | `en-IN-PrabhatNeural` | Général |
 | Anglais (Irlande) | `en-IE` | Female | `en-IE-EmilyNeural` | Général |
 | Anglais (Irlande) | `en-IE` | Male | `en-IE-ConnorNeural` | Général |
-| Anglais (Philippines) | `en-PH` | Female | `en-PH-RosaNeural` <sup>Nouveau</sup> | Général | 
-| Anglais (Philippines) | `en-PH` | Male | `en-PH-JamesNeural` <sup>Nouveau</sup> | Général | 
+| Anglais (Nouvelle-Zélande) | `en-NZ` | Female | `en-NZ-MollyNeural` <sup>Nouveau</sup> | Général |
+| Anglais (Nouvelle-Zélande) | `en-NZ` | Male | `en-NZ-MitchellNeural` <sup>Nouveau</sup> | Général |
+| Anglais (Philippines) | `en-PH` | Female | `en-PH-RosaNeural` | Général | 
+| Anglais (Philippines) | `en-PH` | Male | `en-PH-JamesNeural` | Général | 
+| Anglais (Singapour) | `en-SG` | Female | `en-SG-LunaNeural` <sup>Nouveau</sup> | Général |
+| Anglais (Singapour) | `en-SG` | Male | `en-SG-WayneNeural` <sup>Nouveau</sup> | Général |
+| Anglais (Afrique du Sud) | `en-ZA` | Female | `en-ZA-LeahNeural` <sup>Nouveau</sup> | Général |
+| Anglais (Afrique du Sud) | `en-ZA` | Male | `en-ZA-LukeNeural` <sup>Nouveau</sup> | Général |
 | Anglais (Royaume-Uni) | `en-GB` | Female | `en-GB-LibbyNeural` | Général |
 | Anglais (Royaume-Uni) | `en-GB` | Female | `en-GB-MiaNeural` | Général |
 | Anglais (Royaume-Uni) | `en-GB` | Male | `en-GB-RyanNeural` | Général |
@@ -205,8 +218,8 @@ Les voix neurales peuvent être utilisées pour rendre les interactions avec les
 | Finnois (Finlande) | `fi-FI` | Female | `fi-FI-NooraNeural` | Général |
 | Finnois (Finlande) | `fi-FI` | Female | `fi-FI-SelmaNeural` | Général |
 | Finnois (Finlande) | `fi-FI` | Male | `fi-FI-HarriNeural` | Général |
-| Français (Belgique) | `fr-BE` | Female | `fr-BE-CharlineNeural` <sup>Nouveau</sup> | Général | 
-| Français (Belgique) | `fr-BE` | Male | `fr-BE-GerardNeural` <sup>Nouveau</sup> | Général | 
+| Français (Belgique) | `fr-BE` | Female | `fr-BE-CharlineNeural` | Général | 
+| Français (Belgique) | `fr-BE` | Male | `fr-BE-GerardNeural` | Général | 
 | Français (Canada) | `fr-CA` | Female | `fr-CA-SylvieNeural` | Général |
 | Français (Canada) | `fr-CA` | Male | `fr-CA-AntoineNeural` | Général |
 | Français (Canada) | `fr-CA` | Male | `fr-CA-JeanNeural` | Général |
@@ -222,6 +235,8 @@ Les voix neurales peuvent être utilisées pour rendre les interactions avec les
 | Allemand (Suisse) | `de-CH` | Male | `de-CH-JanNeural` | Général |
 | Grec (Grèce) | `el-GR` | Female | `el-GR-AthinaNeural` | Général |
 | Grec (Grèce) | `el-GR` | Male | `el-GR-NestorasNeural` | Général |
+| Goudjrati (Inde) | `gu-IN` | Female | `gu-IN-DhwaniNeural` <sup>Nouveau</sup> | Général |
+| Goudjrati (Inde) | `gu-IN` | Male | `gu-IN-NiranjanNeural` <sup>Nouveau</sup> | Général |
 | Hébreu (Israël) | `he-IL` | Female | `he-IL-HilaNeural` | Général |
 | Hébreu (Israël) | `he-IL` | Male | `he-IL-AvriNeural` | Général |
 | Hindi (Inde) | `hi-IN` | Female | `hi-IN-SwaraNeural` | Général |
@@ -247,6 +262,8 @@ Les voix neurales peuvent être utilisées pour rendre les interactions avec les
 | Malais (Malaisie) | `ms-MY` | Male | `ms-MY-OsmanNeural` | Général |
 | Maltais (Malte) | `mt-MT` | Female | `mt-MT-GraceNeural` | Général |
 | Maltais (Malte) | `mt-MT` | Male | `mt-MT-JosephNeural` | Général |
+| Marathi (Inde) | `mr-IN` | Female | `mr-IN-AarohiNeural` <sup>Nouveau</sup> | Général |
+| Marathi (Inde) | `mr-IN` | Male | `mr-IN-ManoharNeural` <sup>Nouveau</sup> | Général |
 | Norvégien (bokmål, Norvège) | `nb-NO` | Female | `nb-NO-IselinNeural` | Général |
 | Norvégien (bokmål, Norvège) | `nb-NO` | Female | `nb-NO-PernilleNeural` | Général |
 | Norvégien (bokmål, Norvège) | `nb-NO` | Male | `nb-NO-FinnNeural` | Général |
@@ -267,10 +284,18 @@ Les voix neurales peuvent être utilisées pour rendre les interactions avec les
 | Slovaque (Slovaquie) | `sk-SK` | Male | `sk-SK-LukasNeural` | Général |
 | Slovène (Slovénie) | `sl-SI` | Female | `sl-SI-PetraNeural` | Général |
 | Slovène (Slovénie) | `sl-SI` | Male | `sl-SI-RokNeural` | Général |
+| Espagnol (Argentine) | `es-AR` | Female | `es-AR-ElenaNeural` <sup>Nouveau</sup> | Général |
+| Espagnol (Argentine) | `es-AR` | Male | `es-AR-TomasNeural` <sup>Nouveau</sup> | Général |
+| Espagnol (Colombie) | `es-CO` | Female | `es-CO-SalomeNeural` <sup>Nouveau</sup> | Général |
+| Espagnol (Colombie) | `es-CO` | Male | `es-CO-GonzaloNeural` <sup>Nouveau</sup> | Général |
 | Espagnol (Mexique) | `es-MX` | Female | `es-MX-DaliaNeural` | Général |
 | Espagnol (Mexique) | `es-MX` | Male | `es-MX-JorgeNeural` | Général |
 | Espagnol (Espagne) | `es-ES` | Female | `es-ES-ElviraNeural` | Général |
 | Espagnol (Espagne) | `es-ES` | Male | `es-ES-AlvaroNeural` | Général |
+| Espagnol (États-Unis) | `es-US` | Female | `es-US-PalomaNeural` <sup>Nouveau</sup> | Général |
+| Espagnol (États-Unis) | `es-US` | Male | `es-US-AlonsoNeural` <sup>Nouveau</sup> | Général |
+| Swahili (Kenya) | `sw-KE` | Female | `sw-KE-ZuriNeural` <sup>Nouveau</sup> | Général |
+| Swahili (Kenya) | `sw-KE` | Male | `sw-KE-RafikiNeural` <sup>Nouveau</sup> | Général |
 | Suédois (Suède) | `sv-SE` | Female | `sv-SE-HilleviNeural` | Général |
 | Suédois (Suède) | `sv-SE` | Female | `sv-SE-SofieNeural` | Général |
 | Suédois (Suède) | `sv-SE` | Male | `sv-SE-MattiasNeural` | Général |
@@ -283,14 +308,14 @@ Les voix neurales peuvent être utilisées pour rendre les interactions avec les
 | Thaï (Thaïlande) | `th-TH` | Male | `th-TH-NiwatNeural` | Général |
 | Turc (Turquie) | `tr-TR` | Female | `tr-TR-EmelNeural` | Général |
 | Turc (Turquie) | `tr-TR` | Male | `tr-TR-AhmetNeural` | Général |
-| Ukrainien (Ukraine) | `uk-UA` | Female | `uk-UA-PolinaNeural` <sup>Nouveau</sup> | Général | 
-| Ukrainien (Ukraine) | `uk-UA` | Male | `uk-UA-OstapNeural` <sup>Nouveau</sup> | Général | 
-| Ourdou (Pakistan) | `ur-PK` | Female | `ur-PK-UzmaNeural` <sup>Nouveau</sup>  | Général | 
-| Ourdou (Pakistan) | `ur-PK` | Male | `ur-PK-AsadNeural` <sup>Nouveau</sup> | Général | 
+| Ukrainien (Ukraine) | `uk-UA` | Female | `uk-UA-PolinaNeural` | Général | 
+| Ukrainien (Ukraine) | `uk-UA` | Male | `uk-UA-OstapNeural` | Général | 
+| Ourdou (Pakistan) | `ur-PK` | Female | `ur-PK-UzmaNeural`  | Général | 
+| Ourdou (Pakistan) | `ur-PK` | Male | `ur-PK-AsadNeural` | Général | 
 | Vietnamien (Vietnam) | `vi-VN` | Female | `vi-VN-HoaiMyNeural` | Général |
 | Vietnamien (Vietnam) | `vi-VN` | Male | `vi-VN-NamMinhNeural` | Général |
-| Gallois (Royaume-Uni) | `cy-GB` | Female | `cy-GB-NiaNeural` <sup>Nouveau</sup> | Général | 
-| Gallois (Royaume-Uni) | `cy-GB` | Male | `cy-GB-AledNeural` <sup>Nouveau</sup> | Général | 
+| Gallois (Royaume-Uni) | `cy-GB` | Female | `cy-GB-NiaNeural` | Général | 
+| Gallois (Royaume-Uni) | `cy-GB` | Male | `cy-GB-AledNeural` | Général | 
 
 #### <a name="neural-voices-in-preview"></a>Voix neuronales en préversion
 
@@ -298,14 +323,24 @@ Les voix neuronales ci-dessous sont en préversion publique.
 
 | Langage                         | Paramètres régionaux  | Sexe | Nom de la voix                             | Prise en charge du style |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| Chinois (mandarin, simplifié) | `zh-CN` | Female | `zh-CN-XiaohanNeural` | Général, plusieurs styles disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chinois (mandarin, simplifié) | `zh-CN` | Female | `zh-CN-XiaomoNeural` | Général, plusieurs jeux de rôle et styles disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chinois (mandarin, simplifié) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` | Voix de senior, plusieurs styles disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chinois (mandarin, simplifié) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` | Général, plusieurs jeux de rôle et styles disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chinois (mandarin, simplifié) | `zh-CN` | Male   | `zh-CN-YunxiNeural` | Général, plusieurs styles disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Anglais (États-Unis) | `en-US` | Female | `en-US-AmberNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Female | `en-US-AshleyNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Female | `en-US-CoraNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Female | `en-US-ElizabethNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Female | `en-US-JennyMultilingualNeural` <sup>Nouveau</sup> | Fonctionnalités multilingues générales disponibles [avec SSML](speech-synthesis-markup.md#create-an-ssml-document) |
+| Anglais (États-Unis) | `en-US` | Female | `en-US-MichelleNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Female | `en-US-MonicaNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Kid | `en-US-AnaNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Male | `en-US-BrandonNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Male | `en-US-ChristopherNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Male | `en-US-JacobNeural` <sup>Nouveau</sup> | Général |
+| Anglais (États-Unis) | `en-US` | Male | `en-US-EricNeural` <sup>Nouveau</sup> | Général |
 
 > [!IMPORTANT]
 > Les voix en préversion publique sont uniquement disponibles dans 3 régions de service : USA Est, Europe Ouest et Asie Sud-Est.
+
+> [!TIP]
+> `en-US-JennyNeuralMultilingual` prend en charge plusieurs langues. Vérifiez la liste des langues prises en charge par l’[API voices/list](rest-text-to-speech.md#get-a-list-of-voices).
 
 Pour plus d’informations sur la disponibilité régionale, consultez [régions](regions.md#neural-and-standard-voices).
 
@@ -542,7 +577,18 @@ Consultez le tableau suivant qui répertorie les langues prises en charge pour l
 |Japonais     | ja-JP | n/a     | Oui     | Oui|
 |Portugais (Brésil) | pt-br |     n/a |     Oui |     Oui|
 |Espagnol (Mexique)     | es-MX     | n/a |     Oui |     Oui|
-|Espagnol (Espagne)     | es-ES | n/a     | Oui |     Oui|
+|Espagnol (Espagne)     | es-ES | n/a     | Oui |     oui|
+
+## <a name="custom-keyword-and-keyword-verification"></a>Vérification par mot clé et mot clé personnalisé
+
+Le tableau suivant décrit les langues prises en charge pour la vérification par mot clé et mot clé personnalisé.
+
+| Langage | Paramètres régionaux (BCP-47) | Mot clé personnalisé | Vérification du mot clé |
+| -------- | --------------- | -------------- | -------------------- |
+| Chinois (mandarin, simplifié) | zh-CN | Oui | Oui |
+| Anglais (États-Unis) | fr-FR | Oui | Oui |
+| Japonais (Japon) | ja-JP | Non | Oui |
+| Portugais (Brésil) | pt-br | Non | Oui |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

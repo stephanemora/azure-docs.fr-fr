@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f1136676002a737f4e860e33e8b3b855712d3928
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 31c99fbac936ab6ec96d6e24bc824d9cb2069e0f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789818"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078775"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gérer un graphique de jumeaux numériques à l’aide de relations
 
@@ -95,7 +95,7 @@ Vous pouvez utiliser les relations récupérées pour accéder à d’autres jum
 Azure Digital Twins dispose également d’une API permettant de rechercher toutes les relations **entrantes** avec un jumeau donné. Cela s’avère souvent utile pour la navigation inverse ou lors de la suppression d’un jumeau.
 
 >[!NOTE]
-> Les appels à `IncomingRelationship` ne retournent pas le corps complet de la relation. Pour plus d’informations sur la classe `IncomingRelationship`, consultez sa [documentation de référence](/dotnet/api/azure.digitaltwins.core.incomingrelationship).
+> Les appels à `IncomingRelationship` ne retournent pas le corps complet de la relation. Pour plus d’informations sur la classe `IncomingRelationship`, consultez sa [documentation de référence](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true).
 
 L’exemple de code de la section précédente s’est concentré sur la recherche des relations sortantes d’un jumeau. L’exemple suivant est structuré de la même façon, mais il recherche des relations *entrantes*. Cet exemple utilise également l’appel du kit SDK (en surbrillance) dans une méthode personnalisée pouvant apparaître au sein d’un programme plus volumineux.
 
@@ -182,7 +182,7 @@ Puis, **copiez le code suivant** de l’exemple exécutable dans votre projet :
 Ensuite, effectuez les étapes ci-après pour configurer votre code de projet :
 1. Ajoutez les fichiers **Room.json** et **Floor.json** précédemment téléchargés à votre projet et remplacez les espaces réservés `<path-to>` dans le code pour indiquer à votre programme où les trouver.
 1. Remplacez l’espace réservé `<your-instance-hostname>` par le nom d’hôte de votre instance Azure Digital Twins.
-1. Ajoutez deux dépendances à votre projet. Elles seront nécessaires pour travailler avec Azure Digital Twins. La première correspond au package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client), et la seconde fournit des outils facilitant l’authentification auprès d’Azure.
+1. Ajoutez deux dépendances à votre projet. Elles seront nécessaires pour travailler avec Azure Digital Twins. La première correspond au package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), et la seconde fournit des outils facilitant l’authentification auprès d’Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
