@@ -4,12 +4,12 @@ description: Les dernières mises à jour du Kits de développement logiciel (SD
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 07/27/2020
-ms.openlocfilehash: 0f5cebcb2711ca63833b6c7e285483f4e3ca6eb1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e8ce1f3a15351f295dc8a8f08418239e8aafc97
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88934274"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072313"
 ---
 # <a name="release-notes---application-insights"></a>Notes de publication – Application Insights
 
@@ -42,7 +42,7 @@ Prise en main de la surveillance basée sur du code :
 
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Java](./java-get-started.md)
+* [Java](./java-in-process-agent.md)
 * [Node.JS](./nodejs.md)
 * [Python](./opencensus-python.md)
 

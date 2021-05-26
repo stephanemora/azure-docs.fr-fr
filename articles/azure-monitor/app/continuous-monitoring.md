@@ -3,12 +3,12 @@ title: Analyse continue de votre pipeline de mise en production DevOps avec Azur
 description: Fournit des instructions permettant de configurer rapidement une analyse continue avec Application Insights
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: fd7cd6a107ed45adb60167a57661b60be5dc8212
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: faa2dc0918756587ccf9093e8c9cc5d4379c6883
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86517125"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846785"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Ajouter l’analyse continue à votre pipeline de mise en production
 
@@ -45,7 +45,7 @@ Avec l’analyse continue, les pipelines de mise en production peuvent incorpore
 
 1. Pour enregistrer le pipeline avec les paramètres de règle d’ alerte par défaut, sélectionnez **Enregistrer** en haut à droite dans la fenêtre Azure DevOps. Entrez un commentaire descriptif, puis sélectionnez **OK**.
 
-## <a name="modify-alert-rules"></a>Modifier les règles d’alerte
+## <a name="modify-alert-rules&quot;></a>Modifier les règles d’alerte
 
 Prêt à l’emploi, le modèle de **déploiement avec analyse continue Azure App Service** comporte quatre règles d’alerte : **Disponibilité**, **Requêtes ayant échoué**, **Temps de réponse du serveur** et **Exceptions du serveur**. Vous pouvez ajouter d’autres règles ou modifier les paramètres de règle en fonction de vos besoins de niveau de service. 
 
@@ -55,8 +55,8 @@ Dans le volet gauche de la page pipeline de mise en production, sélectionnez **
 
 Les quatre règles d’alerte par défaut sont créées à l’aide d’un script inline :
 
-```bash
-$subscription = az account show --query "id";$subscription.Trim("`"");$resource="/subscriptions/$subscription/resourcegroups/"+"$(Parameters.AppInsightsResourceGroupName)"+"/providers/microsoft.insights/components/" + "$(Parameters.ApplicationInsightsResourceName)";
+```azurecli
+$subscription = az account show --query &quot;id&quot;;$subscription.Trim(&quot;`&quot;");$resource="/subscriptions/$subscription/resourcegroups/"+"$(Parameters.AppInsightsResourceGroupName)"+"/providers/microsoft.insights/components/" + "$(Parameters.ApplicationInsightsResourceName)";
 az monitor metrics alert create -n 'Availability_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg availabilityResults/availabilityPercentage < 99' --description "created from Azure DevOps";
 az monitor metrics alert create -n 'FailedRequests_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count requests/failed > 5' --description "created from Azure DevOps";
 az monitor metrics alert create -n 'ServerResponseTime_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg requests/duration > 5' --description "created from Azure DevOps";

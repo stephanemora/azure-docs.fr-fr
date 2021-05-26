@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Créer une application de traitement de formulaires avec AI Builder - Form Recognizer'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Dans ce tutoriel, vous allez utiliser AI Builder pour créer et entraîner une application de traitement de formulaires.
 author: laujan
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: lajanuar
-ms.openlocfilehash: 30c44ac60783132344cc018135d2c248f91f46bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7c89bf9211bbd67fcd413cb5061f27f9e88c0a0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467117"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374013"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Tutoriel : Créer une application de traitement de formulaires avec AI Builder
 

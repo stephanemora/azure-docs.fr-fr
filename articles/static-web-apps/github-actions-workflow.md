@@ -7,14 +7,14 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: b20a1670c13a272ed48088567a205d854ac99179
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f47ad3d63ca99ffbe095498d2db7646e8a4a3ae7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791244"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072475"
 ---
-# <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flux de travail GitHub Actions pour Azure Static Web Apps - Préversion
+# <a name="github-actions-workflows-for-azure-static-web-apps"></a>Flux de travail GitHub Actions pour Azure Static Web Apps
 
 Lorsque vous créez une ressource d’application Azure Static Web Apps, Azure génère un workflows GitHub Actions pour contrôler le déploiement continu de l’application. Le flux de travail est piloté par un fichier YAML. Cet article décrit en détail la structure et les options du fichier de flux de travail.
 
@@ -58,7 +58,7 @@ jobs:
           submodules: true
       - name: Build And Deploy
         id: builddeploy
-        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
@@ -76,7 +76,7 @@ jobs:
     steps:
       - name: Close Pull Request
         id: closepullrequest
-        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
           action: 'close'
@@ -180,19 +180,6 @@ with:
 > [!NOTE]
 > Vous ne pouvez ignorer la génération que pour l’application front-end. Si votre application a une API, elle sera quand même générée par l’action GitHub Static Web Apps.
 
-## <a name="route-file-location"></a>Emplacement du fichier de routage
-
-Vous pouvez personnaliser le flux de travail pour rechercher le fichier [routes.json](routes.md) dans n’importe quel dossier de votre référentiel. La propriété suivante peut être définie dans la section `with` d’un travail.
-
-| Propriété          | Description                                                                                                                                 |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `routes_location` | Définit l’emplacement du répertoire où se trouve le fichier _routes.json_. Cet emplacement est relatif par rapport à la racine du référentiel. |
-
-L’emplacement de votre fichier de _routes.json_ est particulièrement important si l’étape de compilation de votre framework frontal ne déplace pas ce fichier vers `output_location` par défaut.
-
-> [!IMPORTANT]
-> La fonctionnalité définie dans le fichier _routes.json_ est désormais dépréciée. Pour plus d’informations sur _staticwebapp.config.js_, consultez le [fichier de configuration](./configuration.md) Azure Static Web Apps.
-
 ## <a name="environment-variables"></a>Variables d'environnement
 
 Vous pouvez définir des variables d’environnement pour votre build via la section `env` de la configuration d’un travail.
@@ -209,7 +196,7 @@ jobs:
           submodules: true
       - name: Build And Deploy
         id: builddeploy
-        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}

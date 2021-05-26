@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: d8a6471d53ad4b2428504f9c53cbec6bc1967c49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1cf5d2cd191b787b6981c8c54950ad341e9d3dad
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93089636"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073663"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Comment choisir entre le débit approvisionné standard (manuel) et le débit approvisionné avec mise à l’échelle automatique 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -139,4 +139,4 @@ Lorsque vous utilisez la mise à l’échelle automatique, utilisez Azure Monito
 * Utilisez la [calculatrice d’unités de requête](https://cosmos.azure.com/capacitycalculator/) pour estimer le débit de vos nouvelles charges de travail.
 * Utilisez [Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) pour surveiller vos charges de travail existantes.
 * Découvrez comment [approvisionner le débit avec mise à l’échelle automatique sur un conteneur ou une base de données Azure Cosmos](how-to-provision-autoscale-throughput.md).
-* Examinez le [FAQ sur la mise à l’échelle automatique](autoscale-faq.md).
+* Examinez le [FAQ sur la mise à l’échelle automatique](autoscale-faq.yml).

@@ -1,6 +1,6 @@
 ---
 title: Guide pratique pour déployer l’outil d’étiquetage des exemples Form Recognizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Découvrez les différentes façons de déployer l’outil d’étiquetage des exemples Form Recognizer pour faciliter l’apprentissage supervisé.
 author: laujan
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: lajanuar
-ms.openlocfilehash: 0f5f0714235ee23624b3a199eac744155d2bbdd1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 66edf7dbe7bc32cffcc5c4adad6e04d81f8a21ac
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101093396"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374592"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Déployer l’outil d’étiquetage des exemples
 
@@ -28,7 +28,7 @@ L’outil d’étiquetage des exemples Form Recognizer est une application qui f
 
 Le moyen le plus rapide de commencer à étiqueter des données consiste à exécuter l’outil d’étiquetage des exemples localement. Le guide de démarrage rapide suivant utilise l’API REST Form Recognizer et l’outil d’étiquetage des exemples pour entraîner un modèle personnalisé avec des données étiquetées manuellement. 
 
-* [Démarrage rapide : Étiqueter des formulaires, entraîner un modèle et analyser un formulaire à l’aide de l’outil d’étiquetage des exemples](./quickstarts/label-tool.md).
+* [Démarrage rapide : Étiqueter des formulaires, entraîner un modèle et analyser un formulaire à l’aide de l’outil d’étiquetage des exemples](label-tool.md).
 
 ## <a name="deploy-with-azure-container-instances-aci"></a>Déployer avec Azure Container Instances (ACI)
 
@@ -70,14 +70,14 @@ Suivez ces étapes pour créer une nouvelle ressource à partir du portail Azure
 
 6. Nous allons maintenant configurer votre conteneur Docker. Sauf indication contraire, tous les champs sont obligatoires :
 <!-- markdownlint-disable MD025 -->
-# <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)
+# <a name="v21"></a>[v2.1](#tab/v2-1)
 
 * Options : sélectionnez **Conteneur unique**
 * Source d’image : sélectionnez **Registre privé** 
 * URL du serveur : définissez cette valeur sur `https://mcr.microsoft.com`
 * Nom d’utilisateur (facultatif) : créez un nom d’utilisateur. 
 * Mot de passe (facultatif) : créez un mot de passe sécurisé dont vous vous souviendrez.
-* Image et étiquette : définissez cette valeur sur `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
+* Image et étiquette : définissez cette valeur sur `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
 * Déploiement continu : définissez cette valeur sur **Activé** si vous souhaitez recevoir des mises à jour automatiques lorsque l’équipe de développement apporte des modifications à l’outil d’étiquetage des exemples.
 * Commande de démarrage : définissez cette option sur `./run.sh eula=accept`
 
@@ -119,7 +119,7 @@ Voici quelques éléments que vous devez savoir à propos de cette commande :
 À partir d’Azure CLI, exécutez cette commande pour créer une ressource d’application web pour l’outil d’étiquetage des exemples :
 
 <!-- markdownlint-disable MD024 -->
-# <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)
+# <a name="v21"></a>[v2.1](#tab/v2-1)
 
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
@@ -127,7 +127,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \
@@ -168,4 +168,4 @@ OCR Form Labeling Tool est également disponible en tant que projet open source 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Utilisez le guide de démarrage rapide [Effectuer l’entraînement avec des étiquettes](./quickstarts/label-tool.md) afin d’apprendre à utiliser l’outil pour étiqueter manuellement les données d’entraînement et effectuer un apprentissage supervisé.
+Utilisez le guide de démarrage rapide [Effectuer l’entraînement avec des étiquettes](label-tool.md) afin d’apprendre à utiliser l’outil pour étiqueter manuellement les données d’entraînement et effectuer un apprentissage supervisé.

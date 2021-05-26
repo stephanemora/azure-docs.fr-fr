@@ -1,6 +1,6 @@
 ---
 title: Chiffrement Form Recognizer des données au repos
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Microsoft propose des clés de chiffrement gérées par Microsoft et vous permet également de gérer vos abonnements Cognitive Services à l’aide de vos propres clés, appelées clés gérées par le client (CMK). Cet article traite du chiffrement des données au repos pour Form Recognizer et de l’activation et de la gestion de CMK.
 author: erindormier
 manager: venkyv
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 7a8b331c1295ed19afa64e95318bfa14414e6d9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 16da5e11db26f416950852b0d9f5378ca2df6fab
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100524036"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374541"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>Chiffrement Form Recognizer des données au repos
 
