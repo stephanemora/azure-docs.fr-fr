@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: cd26034b0049e2eeceb2526bbb6f89e9eb70d236
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 8fcc7b4f7f23c33450bdc00c53e97b0081ad1035
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905831"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109848040"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Conception de réseaux virtuels avec des ressources de passerelle NAT
 
@@ -72,13 +72,13 @@ L’exemple suivant est un extrait de code tiré d’un modèle Azure Resource M
 
 Le nombre total d’adresses IP fournies par toutes les ressources d’adresse IP et de préfixe ne peut pas dépasser 16 adresses IP. Tout nombre d’adresses IP compris entre 1 et 16 est autorisé.
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="81-96":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/nat-gateway-vnet/azuredeploy.json" range="81-96":::
 
 Quand la ressource de passerelle NAT est créée, elle peut être utilisée sur un ou plusieurs sous-réseaux d’un réseau virtuel. Spécifiez les sous-réseaux qui utilisent cette ressource de passerelle NAT. Une passerelle NAT ne peut pas s’étendre sur plusieurs réseaux virtuels. Il n’est pas nécessaire d’attribuer la même passerelle NAT à tous les sous-réseaux d’un réseau virtuel. Les sous-réseaux individuels peuvent être configurés avec différentes ressources de passerelle NAT.
 
 Les scénarios qui n’utilisent pas de zones de disponibilité sont régionaux (aucune zone spécifiée). Si vous utilisez des zones de disponibilité, vous pouvez spécifier une zone pour isoler la traduction d’adresses réseau dans une zone spécifique. La redondance dans une zone n’est pas prise en charge. Examinez les [zones de disponibilité](#availability-zones) NAT.
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="1-146" highlight="81-96":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/nat-gateway-vnet/azuredeploy.json" range="1-146" highlight="81-96":::
 
 Les passerelles NAT sont définies avec une propriété sur un sous-réseau au sein d’un réseau virtuel. Les flux créés par des machines virtuelles sur le sous-réseau **subnetname** du réseau virtuel **vnetname** utilisent la passerelle NAT. Toute la connectivité sortante utilise les adresses IP associées à **natgatewayname** comme adresse IP source.
 

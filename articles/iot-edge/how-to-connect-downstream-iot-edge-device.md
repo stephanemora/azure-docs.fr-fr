@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: d0fdc9e322d2aec76b04c96a75e727b84f95cb10
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: cdc7ce9fbb24dc593ebd4dedc7c2c4ce82afa3f0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770728"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094816"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>Connexion d’un appareil IoT Edge en aval à une passerelle Azure IoT Edge
 
@@ -89,7 +89,7 @@ D’autres commandes device-identity, notamment `add-children`, `list-children` 
 ---
 
 >[!NOTE]
->Si vous souhaitez établir des relations parent-enfant par programme, vous pouvez utiliser le [Kit de développement logiciel IOT Hub servic ](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) C#, Java ou Node.js.
+>Si vous souhaitez établir des relations parent-enfant par programme, vous pouvez utiliser le [Kit de développement logiciel IOT Hub servic ](../iot-hub/iot-hub-devguide-sdks.md) C#, Java ou Node.js.
 >
 >Voici un [exemple d’affectation d’un appareil enfant](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) avec le SDK C#. La tâche `RegistryManager_AddAndRemoveDeviceWithScope()` montre comment créer par programmation une hiérarchie à trois couches. Un appareil IoT Edge se trouve dans la couche 1 en tant que parent. Un autre appareil IoT Edge se trouve dans la couche 2, qui sert à la fois d’enfant et de parent. Enfin, un appareil IoT se trouve dans la couche 3, en tant qu’appareil enfant de la couche enfant la plus basse.
 
@@ -421,7 +421,7 @@ Le module proxy d’API a été conçu pour être personnalisé afin de gérer l
 
 1. Entrez la commande suivante pour créer un déploiement sur un appareil IoT Edge :
 
-   ```bash
+   ```azurecli
    az iot edge set-modules --device-id <device_id> --hub-name <iot_hub_name> --content ./<deployment_file_name>.json
    ```
 

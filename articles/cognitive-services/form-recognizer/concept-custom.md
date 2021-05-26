@@ -1,6 +1,6 @@
 ---
 title: Modèles personnalisés – Form Recognizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Découvrez les concepts liés aux modèles personnalisés de l’API Form Recognizer – utilisation et limites.
 services: cognitive-services
 author: laujan
@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 9d339d02310fddc3e5fd463f7d37e253614dba17
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 329176e40b1a8cf187a4b2154a26b1adbbca4233
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067586"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374729"
 ---
 # <a name="form-recognizer-custom-models"></a>Modèles personnalisés Form Recognizer
 
@@ -46,7 +46,7 @@ Vous devez charger votre jeu de données d’apprentissage dans un conteneur de 
 > [!div class="nextstepaction"]
 >[&#120785;. Entraîner votre modèle personnalisé](quickstarts/client-library.md#train-a-custom-model)
 
-Vous pouvez effectuer l’apprentissage de votre modèle [sans](quickstarts/client-library.md#train-a-model-without-labels) ou [avec](quickstarts/client-library.md#train-a-model-with-labels) des jeux de données étiquetés. Les jeux de données sans étiquette reposent uniquement sur l’API de disposition pour détecter et identifier les informations clés sans intervention humaine supplémentaire. Les jeux de données étiquetés s’appuient également sur l’API de disposition, mais une autre intervention humaine est incluse, comme vos étiquettes spécifiques et l’emplacement des champs. Pour utiliser à la fois des données avec et sans étiquettes, commencez avec au moins cinq formulaires remplis du même type pour les données d’apprentissage avec étiquettes, puis ajoutez des données sans étiquettes au jeu de données requis.  
+Vous pouvez [entraîner votre modèle](quickstarts/client-library.md#train-a-custom-model) avec des jeux de données étiquetés ou sans. Les jeux de données sans étiquette reposent uniquement sur l’API de disposition pour détecter et identifier les informations clés sans intervention humaine supplémentaire. Les jeux de données étiquetés s’appuient également sur l’API de disposition, mais une autre intervention humaine est incluse, comme vos étiquettes spécifiques et l’emplacement des champs. Pour utiliser à la fois des données avec et sans étiquettes, commencez avec au moins cinq formulaires remplis du même type pour les données d’apprentissage avec étiquettes, puis ajoutez des données sans étiquettes au jeu de données requis.  
 
 >[!div class="nextstepaction"]
 >[&#120786;. Analyser des documents avec votre modèle personnalisé](quickstarts/client-library.md#analyze-forms-with-a-custom-model)
@@ -63,5 +63,5 @@ Testez votre modèle nouvellement formé à l’aide d’un formulaire qui ne fa
 Pour en savoir plus sur la bibliothèque de client Form Recognizer, explorez notre documentation de référence sur les API.
 
 > [!div class="nextstepaction"]
-> [Informations de référence sur l’API Form Recognizer](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)
+> [Informations de référence sur l’API Form Recognizer](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
 >

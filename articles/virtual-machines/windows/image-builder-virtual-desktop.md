@@ -4,17 +4,17 @@ description: Créez une image de machine virtuelle Azure de Windows Virtual Desk
 author: danielsollondon
 ms.author: danis
 ms.reviewer: cynthn
-ms.date: 01/27/2021
+ms.date: 05/12/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: image-builder
-ms.openlocfilehash: 45f4cbea20d6e223738adf3bcb9782a0c939946d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a4bc152f2eb12008b942d3da8fdd1dfa1ba1aa74
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744134"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846479"
 ---
 # <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Créer une image Windows Virtual Desktop à l’aide d’Azure VM Image Builder et PowerShell
 
@@ -54,7 +54,7 @@ Cet article est conçu comme un exercice de copier-coller.
           "name": "installFsLogix",
           "runElevated": true,
           "runAsSystem": true,
-          "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/0_installConfFsLogix.ps1"
+          "scriptUri": "https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/14_Building_Images_WVD/0_installConfFsLogix.ps1"
     ```
 - Commentez votre code : Le journal de génération d’AIB (customization.log) est extrêmement détaillé. Si vous commentez vos scripts en utilisant la cmdlet « write-host », ces commentaires seront envoyés dans les journaux et faciliteront la résolution des problèmes.
 
@@ -150,7 +150,7 @@ $idenityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageRe
 Attribuez des autorisations à l’identité pour distribuer des images. Cette commande permet de télécharger et mettre à jour le modèle avec les paramètres spécifiés précédemment.
 
 ```azurepowershell-interactive
-$aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $aibRoleImageCreationPath = "aibRoleImageCreation.json"
 
 # download config
@@ -226,7 +226,7 @@ Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsDesktop -Offer
 Maintenant, vous devez télécharger le modèle et le configurer pour votre utilisation.
 
 ```azurepowershell-interactive
-$templateUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json"
+$templateUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json"
 $templateFilePath = "armTemplateWVD.json"
 
 Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
@@ -243,7 +243,7 @@ Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
 
 ```
 
-N’hésitez pas à consulter le [modèle](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json), tout le code est visible.
+N’hésitez pas à consulter le [modèle](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json), tout le code est visible.
 
 
 ## <a name="submit-the-template"></a>Envoyer le modèle
@@ -311,4 +311,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez essayer d’autres exemples [sur GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
+Vous pouvez essayer d’autres exemples [sur GitHub](https://github.com/azure/azvmimagebuilder/tree/master/quickquickstarts).

@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: e27923ff1f29163f5d3390c2c92a11f3adfa5c87
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3d7b88007a27b05119ebe93217c64279c8c541ff
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126612"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373401"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutoriel : Implémenter une CI/CD avec GitOps à l’aide de clusters Kubernetes avec Azure Arc
 
@@ -40,7 +40,7 @@ Ce tutoriel suppose que vous maîtrisez Azure DevOps, Azure Repos et Pipelines, 
 * Suivez le [tutoriel précédent](./tutorial-use-gitops-connected-cluster.md) pour apprendre à déployer GitOps pour votre environnement CI/CD.
 * Connaissez [les avantages et l’architecture](./conceptual-configurations.md) de cette fonctionnalité.
 * Vérifiez que vous disposez des éléments suivants :
-  * Un [cluster Kubernetes avec Azure Arc](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster) nommé **arc-cicd-cluster**.
+  * Un [cluster Kubernetes avec Azure Arc](./quickstart-connect-cluster.md#3-connect-an-existing-kubernetes-cluster) nommé **arc-cicd-cluster**.
   * Une instance d’Azure Container Registry connectée (ACR) connectée avec une [intégration AKS](../../aks/cluster-container-registry-integration.md) ou une [authentification de cluster non AKS](../../container-registry/container-registry-auth-kubernetes.md).
   * Des autorisations « Administrateur de build » et « Administrateur de projet » pour [Azure Repos](/azure/devops/repos/get-started/what-is-repos) et [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started).
 * Installez les extensions CLI de Kubernetes avec Azure Arc versions 1.0.0 et ultérieures :
@@ -181,14 +181,13 @@ Pour éviter d’avoir à définir un imagePullSecret pour chaque pod, envisagez
 | ENVIRONMENT_NAME | Dev |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_REPO | Chaîne de connexion Git pour votre référentiel GitOps |
-| Jeton d’accès personnel | Un [jeton d’accès personnel créé](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat) avec des autorisations sources en lecture/écriture. Enregistrez-le pour l’utiliser ultérieurement lors de la création du groupe de variables `stage` |
+| ORGANIZATION_NAME | Nom de votre organisation Azure DevOps |
+| PROJECT_NAME | Nom du projet GitOps dans Azure DevOps |
+| REPO_URL | URL complète pour le référentiel GitOps |
 | SRC_FOLDER | `azure-vote` | 
 | TARGET_CLUSTER | `arc-cicd-cluster` |
 | TARGET_NAMESPACE | `dev` |
 
-> [!IMPORTANT]
-> Marquez votre jeton d’accès personnel comme type de secret. Dans vos applications, pensez à lier les secrets d’un [coffre de clés Azure](/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault).
->
 ### <a name="stage-environment-variable-group"></a>Groupe de variables d’environnement stage
 
 1. Clonez le groupe de variables **az-vote-app-dev**.
@@ -201,6 +200,20 @@ Pour éviter d’avoir à définir un imagePullSecret pour chaque pod, envisagez
 | TARGET_NAMESPACE | `stage` |
 
 Vous êtes maintenant prêt à déployer sur les environnements `dev` et `stage`.
+
+## <a name="give-more-permissions-to-the-build-service"></a>Accorder des autorisations supplémentaires au service de build
+Le pipeline CD utilise le jeton de sécurité du build en cours d’exécution pour s’authentifier auprès du référentiel GitOps. Des autorisations supplémentaires sont nécessaires pour que le pipeline crée une branche, envoie des modifications et crée des demandes de tirage (pull).
+
+1. Accédez à `Project settings` à partir de la page principale du projet Azure DevOps.
+1. Sélectionnez `Repositories`.
+1. Sélectionnez `<GitOps Repo Name>`.
+1. Sélectionnez `Security`. 
+1. Pour `<Project Name> Build Service (<Organization Name>)`, autorisez `Contribute`, `Contribute to pull requests` et `Create branch`.
+
+Pour plus d'informations, consultez les pages suivantes :
+- [Accorder des autorisations VC au service de build](https://docs.microsoft.com/azure/devops/pipelines/scripts/git-commands?view=azure-devops&tabs=yaml&preserve-view=true#version-control )
+- [Gérer les autorisations du compte de service de build](https://docs.microsoft.com/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml&preserve-view=true#manage-build-service-account-permissions)
+
 
 ## <a name="deploy-the-dev-environment-for-the-first-time"></a>Déployer l’environnement dev pour la première fois
 Une fois les pipelines CI et CD créés, exécutez le pipeline CI pour déployer l’application pour la première fois.
@@ -219,6 +232,8 @@ Le pipeline CI :
 * Vérifie que l’image Docker a changé et que la nouvelle image est envoyée (push).
 
 ### <a name="cd-pipeline"></a>Pipeline de déploiement continu
+Pendant l’exécution du pipeline CD initial, vous êtes invité à accorder au pipeline l’accès au dépôt GitOps. Sélectionnez Afficher lorsque vous êtes invité à indiquer que le pipeline a besoin de l’autorisation d’accéder à une ressource. Sélectionnez ensuite Autoriser pour accorder l’autorisation d’utiliser le référentiel GitOps pour les exécutions actuelles et futures du pipeline.
+
 L’exécution réussie du pipeline CI déclenche le pipeline CD pour terminer le processus de déploiement. Le déploiement dans chaque environnement se fera de manière incrémentielle.
 
 > [!TIP]

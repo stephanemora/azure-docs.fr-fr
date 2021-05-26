@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 6b777c834917d2a5b1fba72d7c18ef536109675a
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 857bcba07b281f58d7c7c044a56763b61b5d4456
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929648"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810063"
 ---
 # <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool"></a>Conseils et astuces pour utiliser l’outil Azure Application Consistent Snapshot Tool
 
@@ -31,7 +31,7 @@ Il peut être nécessaire de limiter l’étendue du principal de service AzAcSn
 
 Voici un exemple de définition de rôle avec les actions minimales requises pour qu’AzAcSnap fonctionne.
 
-```bash
+```azurecli
 az role definition create --role-definition '{ \
   "Name": "Azure Application Consistent Snapshot tool", \
   "IsCustom": "true", \
@@ -50,7 +50,7 @@ az role definition create --role-definition '{ \
 
 Pour que les options de restauration fonctionnent correctement, le principal du service AzAcSnap doit également être en mesure de créer des volumes.  Dans ce cas, la définition de rôle nécessite une action supplémentaire. par conséquent, le principal de service complet doit ressembler à l’exemple suivant.
 
-```bash
+```azurecli
 az role definition create --role-definition '{ \
   "Name": "Azure Application Consistent Snapshot tool", \
   "IsCustom": "true", \

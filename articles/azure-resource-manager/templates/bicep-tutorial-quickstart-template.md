@@ -6,12 +6,12 @@ ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: cf655885e01fe6bca99a82c82d6bbbc4c1a080b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c20a8307fc61e180b378fee034e086a5f54ba03f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102632428"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089845"
 ---
 # <a name="tutorial-use-azure-quickstart-templates-for-azure-resource-manager-bicep-development"></a>Tutoriel : Utiliser des modèles de démarrage rapide Azure pour le développement de code Bicep Azure Resource Manager
 
@@ -39,7 +39,7 @@ Actuellement, les modèles de démarrage rapide Azure fournissent uniquement des
 
 1. Ouvrez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/).
 1. Dans **Rechercher**, entrez _deploy linux web app_ (déployer une application web Linux).
-1. Sélectionnez la vignette intitulée **Deploy a basic Linux web app** (Déployer une application web Linux de base). Si vous rencontrez des difficultés pour la trouver, voici le [lien direct](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
+1. Sélectionnez la vignette intitulée **Deploy a basic Linux web app** (Déployer une application web Linux de base). Si vous rencontrez des difficultés pour la trouver, voici le [lien direct](https://azure.microsoft.com/resources/templates/webapp-basic-linux/).
 1. Sélectionnez **Rechercher sur GitHub**.
 1. Sélectionnez _azuredeploy.json_. Il s’agit du modèle que vous pouvez utiliser.
 1. Sélectionnez **Raw** (Brut), puis faites une copie de l’URL.

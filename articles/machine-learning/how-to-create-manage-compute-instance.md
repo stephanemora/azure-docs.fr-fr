@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 5dd61207d3155c1279b8e8609b8aa8abf65e7ee2
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: db6414ecf4b1b5fcbdf52d59c0c79b72998e610a
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109518159"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375213"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Créer et gérer une instance de calcul Azure Machine Learning
 
@@ -26,25 +26,26 @@ Utilisez une instance de calcul comme environnement de développement complètem
 
 Dans cet article, vous apprendrez comment :
 
-* Créer une instance de calcul 
+* Créer une instance de calcul
 * Gérer (démarrer, arrêter, redémarrer, supprimer) une instance de calcul
-* Accéder à la fenêtre de terminal 
+* Accéder à la fenêtre de terminal
 * Installer des packages R ou Python
 * Créer des environnements ou des noyaux Jupyter
 
-Les instances de calcul peuvent exécuter des travaux en toute sécurité dans un [environnement de réseau virtuel](how-to-secure-training-vnet.md), sans qu’il soit nécessaire pour les entreprises d’ouvrir des ports SSH. Le travail s’exécute dans un environnement conteneurisé et empaquette les dépendances de votre modèle dans un conteneur Docker. 
+Les instances de calcul peuvent exécuter des travaux en toute sécurité dans un [environnement de réseau virtuel](how-to-secure-training-vnet.md), sans qu’il soit nécessaire pour les entreprises d’ouvrir des ports SSH. Le travail s’exécute dans un environnement conteneurisé et empaquette les dépendances de votre modèle dans un conteneur Docker.
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un espace de travail Azure Machine Learning. Pour plus d’informations, voir la page [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
-* L’[extension Azure CLI pour Machine Learning service](reference-azure-machine-learning-cli.md), le [SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro) ou l’[extension Azure Machine Learning pour Visual Studio Code](tutorial-setup-vscode-extension.md).
+* L’[extension Azure CLI pour Machine Learning service](reference-azure-machine-learning-cli.md), le [SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro) ou l’[extension Azure Machine Learning pour Visual Studio Code](how-to-setup-vs-code.md).
 
 ## <a name="create"></a>Créer
 
 > [!IMPORTANT]
 > Les éléments marqués (préversion) ci-dessous sont actuellement en préversion publique.
-> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 **Durée estimée** : 5 minutes environ.
 
@@ -107,7 +108,7 @@ Pour plus d’informations sur la création d’une instance de calcul dans le s
 
 ---
 
-Vous pouvez également créer une instance de calcul avec un [modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance). 
+Vous pouvez également créer une instance de calcul avec un [modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 
 
 
@@ -115,11 +116,11 @@ Vous pouvez également créer une instance de calcul avec un [modèle Azure Reso
 
 En tant qu’administrateur, vous pouvez créer une instance de calcul au nom d’un scientifique des données et lui affecter l’instance avec :
 
-* [Modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)  Pour plus d’informations sur la façon de trouver les valeurs TenantID et ObjectID nécessaires dans ce modèle, consultez [Rechercher des ID d’objet d’identité pour la configuration de l’authentification](../healthcare-apis/fhir/find-identity-object-ids.md).  Vous pouvez également trouver ces valeurs dans le portail Azure Active Directory.
+* [Modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance)  Pour plus d’informations sur la façon de trouver les valeurs TenantID et ObjectID nécessaires dans ce modèle, consultez [Rechercher des ID d’objet d’identité pour la configuration de l’authentification](../healthcare-apis/fhir/find-identity-object-ids.md).  Vous pouvez également trouver ces valeurs dans le portail Azure Active Directory.
 
 * API REST
 
-Le scientifique des données pour lequel vous créez l’instance de calcul doit disposer des [autorisations de contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) : 
+Le scientifique des données pour lequel vous créez l’instance de calcul doit disposer des [autorisations de contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) :
 * *Microsoft.MachineLearningServices/workspaces/computes/start/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
@@ -133,10 +134,7 @@ Le scientifique des données peut démarrer, arrêter et redémarrer l’instanc
 
 ## <a name="customize-the-compute-instance-with-a-script-preview"></a><a name="setup-script"></a> Personnalisation de l’instance de calcul avec un script (préversion)
 
-> [!TIP]
-> Cette préversion est actuellement disponible pour les espaces de travail des régions USA Centre-Ouest et USA Est.
-
-Utilisez un script de configuration pour personnaliser et configurer automatiquement l’instance de calcul au moment du provisionnement. En tant qu’administrateur, vous pouvez écrire un script de personnalisation visant à provisionner toutes les instances de calcul dans l’espace de travail en fonction de vos besoins. 
+Utilisez un script de configuration pour personnaliser et configurer automatiquement l’instance de calcul au moment du provisionnement. En tant qu’administrateur, vous pouvez écrire un script de personnalisation visant à provisionner toutes les instances de calcul dans l’espace de travail en fonction de vos besoins.
 
 Voici quelques exemples de ce que vous pouvez faire dans un script de configuration :
 
@@ -160,7 +158,7 @@ Le script de configuration est un script d’interpréteur de commandes qui s’
 
 Lorsque le script s’exécute, le répertoire de travail actif du script est le répertoire dans lequel il a été chargé. Par exemple, si vous chargez le script dans **Utilisateurs>Administrateur**, l’emplacement du script sur l’instance de calcul et le répertoire de travail actuel lorsque le script s’exécute est */home/azureuser/cloudfiles/code/Users/admin*. Cela vous permettrait d’utiliser des chemins d’accès relatifs dans le script.
 
-Les arguments de script peuvent être référencés dans le script sous la forme $1, $2, etc. 
+Les arguments de script peuvent être référencés dans le script sous la forme $1, $2, etc.
 
 Si votre script effectue une opération spécifique à azureuser, par exemple l’installation de l’environnement Conda ou du noyau Jupyter, vous devez le placer dans le bloc *sudo -u azureuser* comme suit.
 
@@ -182,7 +180,7 @@ Vous pouvez également utiliser les variables d’environnement suivantes dans v
 
 Une fois que vous avez stocké le script, spécifiez-le lors de la création de votre instance de calcul :
 
-1. Connectez-vous au [studio](https://ml.azureml.com) et sélectionnez votre espace de travail.
+1. Connectez-vous au [studio](https://ml.azure.com/) et sélectionnez votre espace de travail.
 1. Sur la gauche, sélectionnez **Calcul**.
 1. Sélectionnez **+ Créer** pour créer une instance de calcul.
 1. [Remplissez le formulaire](how-to-create-attach-compute-studio.md#compute-instance).
@@ -193,9 +191,11 @@ Une fois que vous avez stocké le script, spécifiez-le lors de la création de 
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Provisionnement d’une instance de calcul avec un script de configuration dans le studio.":::
 
+Notez que si le stockage d’espace de travail est attaché à un réseau virtuel, vous risquez de ne pas pouvoir accéder au fichier de script d’installation, sauf si vous accédez à Studio depuis le réseau virtuel.
+
 ### <a name="use-script-in-a-resource-manager-template"></a>Utilisation du script dans un modèle Resource Manager
 
-Dans un [modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance) Resource Manager, ajoutez `setupScripts` pour appeler le script de configuration lorsque l’instance de calcul est provisionnée. Par exemple :
+Dans un [modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance) Resource Manager, ajoutez `setupScripts` pour appeler le script de configuration lorsque l’instance de calcul est provisionnée. Par exemple :
 
 ```json
 "setupScripts":{
@@ -273,7 +273,7 @@ Dans les exemples ci-dessous, le nom de l’instance de calcul est **instance**.
 * Supprimer
 
     ```python
-    # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
+    # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name
     instance.delete(wait_for_completion=True, show_output=True)
     ```
 
@@ -289,7 +289,7 @@ Dans les exemples ci-dessous, le nom de l’instance de calcul est **instance**.
 
     Pour plus d’informations, consultez [az ml computetarget stop computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop).
 
-* Démarrer 
+* Démarrer
 
     ```azurecli-interactive
     az ml computetarget start computeinstance -n instance -v
@@ -297,7 +297,7 @@ Dans les exemples ci-dessous, le nom de l’instance de calcul est **instance**.
 
     Pour plus d’informations, consultez [az ml computetarget start computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_start).
 
-* Redémarrer 
+* Redémarrer
 
     ```azurecli-interactive
     az ml computetarget restart computeinstance -n instance -v
@@ -321,7 +321,7 @@ Dans votre espace de travail dans Azure Machine Learning Studio, sélectionnez *
 
 Vous pouvez effectuer les actions suivantes :
 
-* Créer une instance de calcul 
+* Créer une instance de calcul
 * Actualiser l’onglet des instances de calcul.
 * Démarrer, arrêter et redémarrer une instance de calcul.  Vous payez l’instance chaque fois qu’elle s’exécute. Quand vous n’utilisez pas l’instance de calcul, arrêtez-la pour réduire les coûts. L’arrêt d’une instance de calcul a pour effet de la libérer. Ensuite, redémarrez-la quand vous en avez besoin.
 * Supprimer une instance de calcul.

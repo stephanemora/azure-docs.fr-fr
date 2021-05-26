@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 05/11/2021
 ms.author: alkohli
-ms.openlocfilehash: a1f3966c8794b50f6ec369f1ea86905c4d8aaf3f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 609e12e2c39dcbc6b0213f7619541a83dc6ffde8
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059936"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839547"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-r"></a>Tutoriel : Configurer le réseau pour Azure Stack Edge Pro R
 
@@ -125,21 +125,16 @@ Procédez comme suit pour activer le calcul et configurer le réseau de calcul.
 Cette configuration est facultative.
 
 > [!IMPORTANT]
-> * Si vous activez le calcul et utilisez le module IoT Edge sur votre appareil Azure Stack Edge Pro R, nous vous recommandons de définir l’authentification du proxy web sur **Aucune**. NTLM n’est pas pris en charge.
->* Les fichiers PAC ne sont pas pris en charge. Un fichier PAC définit la manière dont les navigateurs web et les autres agents utilisateurs peuvent choisir automatiquement le serveur proxy approprié (méthode d’accès) pour récupérer une URL donnée. Les proxys qui tentent d’intercepter et de lire tout le trafic (puis de tout resigner avec leur propre certification) ne sont pas compatibles, car le certificat du proxy n’est pas approuvé. En général, les proxys transparents fonctionnent bien avec Azure Stack Edge Pro R, alors que les proxys web non transparents ne sont pas pris en charge.
+> Les fichiers PAC ne sont pas pris en charge. Un fichier PAC définit la manière dont les navigateurs web et les autres agents utilisateurs peuvent choisir automatiquement le serveur proxy approprié (méthode d’accès) pour récupérer une URL donnée. Les proxys qui tentent d’intercepter et de lire tout le trafic (puis de tout resigner avec leur propre certification) ne sont pas compatibles, car le certificat du proxy n’est pas approuvé. En général, les proxys transparents fonctionnent bien avec Azure Stack Edge Pro R, alors que les proxys web non transparents ne sont pas pris en charge.
 
 
 1. Dans la page **Paramètres du proxy web**, procédez comme suit :
 
-    1. Dans la zone **URL de proxy Web**, entrez l’URL dans ce format : `http://host-IP address or FQDN:Port number`. Les URL HTTPS ne sont pas prises en charge.
+   1. Dans la zone **URL de proxy Web**, entrez l’URL dans ce format : `http://host-IP address or FQDN:Port number`. Les URL HTTPS ne sont pas prises en charge.
 
-    2. Sous **Authentification**, sélectionnez **Aucune** ou **NTLM**. Si vous activez le calcul et utilisez le module IoT Edge sur votre appareil Azure Stack Edge Pro R, nous vous recommandons de définir l’authentification du proxy web sur **Aucune**. **NTLM** n’est pas pris en charge.
-
-    3. Si vous utilisez une authentification, entrez un nom d’utilisateur et un mot de passe.
-
-    4. Cliquez sur **Appliquer** pour valider et appliquer les paramètres du proxy web que vous avez configurés.
+   2. Cliquez sur **Appliquer** pour valider et appliquer les paramètres du proxy web que vous avez configurés.
     
-   ![Page 2 « Paramètres du proxy web » de l’interface utilisateur web locale](./media/azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy/web-proxy-2.png)
+   ![Page 2 « Paramètres du proxy web » de l’interface utilisateur web locale](./media/azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy/web-proxy-2.png)<!--UI text update for instruction text is needed.-->
 
 2. Une fois les paramètres appliqués, sélectionnez **Suivant : Appareil**.
 

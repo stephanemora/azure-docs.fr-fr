@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 05/17/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 495b4427fb7e456c60a489b9ce3d19c2a44bd918
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 68012cd27318822b8c18b281db967a26da3a15a2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680898"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095641"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb"></a>Tutoriel : Copier des données à partir d’Azure Data Box via SMB
 
@@ -56,7 +56,7 @@ Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suiva
 
 3. Pour accéder aux partages associés à votre compte de stockage (*exportbvtdataset2* dans l’exemple suivant) à partir de votre ordinateur hôte, ouvrez une fenêtre de commande. À l’invite de commandes, tapez :
 
-    `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
+    `net use \\<IP address of the device>\<share name>  /u:<IP address of the device>\<user name for the share>`
 
     En fonction du format de vos données, les chemins de partage sont les suivants :
     - Objet blob de blocs Azure - `\\169.254.143.85\exportbvtdataset2_BlockBlob`
@@ -66,7 +66,7 @@ Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suiva
 4. Lorsque vous y êtes invité, entrez le mot de passe du partage. L’exemple suivant illustre la connexion à un partage à l’aide de la commande précédente.
 
     ```
-    C:\Users\Databoxuser>net use \\169.254.143.85\exportbvtdataset2_BlockBlob /u:exportbvtdataset2
+    C:\Users\Databoxuser>net use \\169.254.143.85\exportbvtdataset2_BlockBlob /u:169.254.143.85\exportbvtdataset2
     Enter the password for 'exportbvtdataset2' to connect to '169.254.143.85':
     The command completed successfully.
     ```

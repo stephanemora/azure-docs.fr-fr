@@ -3,12 +3,12 @@ title: Utilisation de la recherche dans Azure Application Insights | Microsoft D
 description: Recherchez et filtrez la télémétrie brute envoyée par votre application web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: f7c2229a2e497fb052db79d61fcfeff140897798
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9da2acea857f2b295fd2333988507babd967c88
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579553"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059389"
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
 
@@ -128,7 +128,7 @@ La première fois que vous procédez ainsi, vous êtes invité à configurer un 
 
 En plus de la télémétrie fournie par le Kit de développement logiciel (SDK) Application Insights, vous pouvez :
 
-* Capturer le suivi du journal dans votre infrastructure de journalisation favorite dans [.NET](./asp-net-trace-logs.md) ou [Java](./java-trace-logs.md). Cela signifie que vous pouvez effectuer des recherches dans le suivi du journal et les mettre en corrélation avec les pages vues, les exceptions et autres événements.
+* Capturer le suivi du journal dans votre infrastructure de journalisation favorite dans [.NET](./asp-net-trace-logs.md) ou [Java](java-2x-trace-logs.md). Cela signifie que vous pouvez effectuer des recherches dans le suivi du journal et les mettre en corrélation avec les pages vues, les exceptions et autres événements.
 * [Écrire du code](./api-custom-events-metrics.md) pour envoyer des événements personnalisés, des affichages de page et des exceptions.
 
 [Découvrez comment envoyer les journaux d’activité et la télémétrie personnalisée à Application Insights](./asp-net-trace-logs.md).
