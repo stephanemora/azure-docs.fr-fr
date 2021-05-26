@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 74f891ba7f5b400b5782565e670539167f4e2464
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6657147d044d49ff72532ad270552a175c197c8f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97703430"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078217"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Procédure : Utiliser l’API Détecteur d’anomalies sur vos données de série chronologique  
 
@@ -41,7 +41,7 @@ En envoyant vos données de série chronologique en même temps, l’API génèr
 
 Pour détecter en continu les anomalies dans les données diffusées, utilisez l’URI de demande suivant avec votre dernier point de données : 
 
-`/timeseries/last/detect'`. 
+`/timeseries/last/detect`. 
 
 En envoyant les nouveaux points de données dès que vous les générez, vous pouvez surveiller vos données en temps réel. Un modèle est généré avec les points de données que vous envoyez et l’API détermine si le dernier point dans la série chronologique est une anomalie.
 

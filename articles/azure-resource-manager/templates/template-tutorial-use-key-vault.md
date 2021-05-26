@@ -6,12 +6,12 @@ ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 388996dc0054192f6d9f3c87e11ca1d15e8a85e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3bd0a0f70aa3ff983f87677219513aa56e051d89
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101703883"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838444"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutoriel : Intégrer Azure Key Vault à votre déploiement de modèle ARM
 
@@ -114,7 +114,7 @@ Le dépôt Modèles de démarrage rapide Azure contient les modèles ARM. Au lie
 1. Dans la zone **Nom de fichier**, collez l’URL suivante :
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json
     ```
 
 1. Sélectionnez **Ouvrir** pour ouvrir le fichier. Le scénario est identique à celui utilisé dans [Tutoriel : Créer des modèles ARM avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md).
@@ -134,7 +134,7 @@ Le dépôt Modèles de démarrage rapide Azure contient les modèles ARM. Au lie
 1. Répétez les étapes 1 à 3 pour accéder à l’URL ci-après, puis enregistrez le fichier sous le nom *azuredeploy.parameters.json*.
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.parameters.json
     ```
 
 ## <a name="edit-the-parameters-file"></a>Modifier le fichier de paramètres

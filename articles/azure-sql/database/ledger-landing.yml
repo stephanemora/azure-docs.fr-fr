@@ -1,0 +1,96 @@
+### YamlMime:Landing
+title: Documentation du registre Azure SQL Database
+summary: Trouver de la documentation sur le registre Azure SQL Database
+metadata:
+  title: Documentation du registre Azure SQL Database
+  description: Trouver de la documentation sur le registre pour Azure SQL Database
+  ms.service: sql-database
+  ms.subservice: security
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: landing-page
+  author: VanMSFT
+  ms.author: vanto
+  ms.reviewer: 
+  ms.date: 05/25/2021
+  ms.openlocfilehash: 18bbf2d2747d65cd177520c44d68fdda224f385c
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110402062"
+landingContent:
+- title: Vue d’ensemble du registre Azure SQL Database
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que le registre Azure SQL Database ?
+      url: ledger-overview.md
+- title: Concepts de registre
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Qu’est-ce que le registre de base de données ?
+      url: ledger-database-ledger.md
+    - text: Tables de registre avec ajout uniquement
+      url: ledger-append-only-ledger-tables.md
+    - text: Tables de registre pouvant être mises à jour
+      url: ledger-updatable-ledger-tables.md
+- title: Démarrages rapides du registre
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Créer une base de données Azure SQL Database avec un registre activé
+      url: ledger-create-a-single-database-with-ledger-enabled.md
+- title: Utilisation du registre
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Créer des tables de registre avec ajout uniquement
+      url: ledger-how-to-append-only-ledger-tables.md
+    - text: Créer des tables de registre pouvant être mises à jour
+      url: ledger-how-to-updatable-ledger-tables.md
+    - text: Comment accéder aux synthèses stockées dans le Registre confidentiel Azure (ACL)
+      url: ledger-how-to-access-acl-digest.md
+    - text: Comment vérifier une table du registre pour détecter la falsification
+      url: ledger-verify-database.md
+- title: Gestion, vérification et stockage de registre
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Gestion des synthèses et vérification de base de données
+      url: ledger-digest-management-and-database-verification.md
+    - text: Audit du registre
+      url: ledger-audit.md
+- title: Références du registre
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Limitations du registre actuel
+      url: ledger-limits.md
+    - text: Livre blanc sur le registre Azure SQL Database
+      url: https://aka.ms/sql-ledger-whitepaper
+- title: Affichages de catalogue système du registre
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: sys.database_ledger_blocks (Transact-SQL)
+      url: /sql/relational-databases/system-catalog-views/sys-database-ledger-blocks-transact-sql
+    - text: sys.database_ledger_transactions (Transact-SQL)
+      url: /sql/relational-databases/system-catalog-views/sys-database-ledger-transactions-transact-sql
+    - text: sys.database_ledger_digest_locations (Transact-SQL)
+      url: /sql/relational-databases/system-catalog-views/sys-database-ledger-digest-locations-transact-sql
+    - text: sys.ledger_table_history (Transact-SQL)
+      url: /sql/relational-databases/system-catalog-views/sys-ledger-table-history-transact-sql
+    - text: sys.ledger_column_history (Transact-SQL)
+      url: /sql/relational-databases/system-catalog-views/sys-ledger-column-history-transact-sql
+- title: Procédures du stockage du registre
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: sys.sp_generate_database_ledger_digest (Transact-SQL)
+      url: /sql/relational-databases/system-stored-procedures/sys-sp-generate-database-ledger-digest-transact-sql
+    - text: sys.sp_verify_database_ledger (Transact-SQL)
+      url: /sql/relational-databases/system-stored-procedures/sys-sp-verify-database-ledger-transact-sql
+    - text: sys.sp_verify_database_ledger_from_digest_storage (Transact-SQL)
+      url: /sql/relational-databases/system-stored-procedures/sys-sp-verify-database-ledger-from-digest-storage-transact-sql

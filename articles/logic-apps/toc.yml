@@ -63,14 +63,18 @@
           href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
 - name: Guides pratiques
   items:
-    - name: Environnement monolocataire Azure Logic Apps (préversion)
+    - name: Azure Logic Apps monolocataire
       items:
-        - name: Vue d’ensemble d’un environnement monolocataire (préversion)
+        - name: Vue d’ensemble d’un environnement monolocataire
           href: single-tenant-overview-compare.md
         - name: Créer des workflows monolocataires - Portail
           href: create-single-tenant-workflows-azure-portal.md
         - name: Créer des workflows monolocataires - Visual Studio Code
           href: create-single-tenant-workflows-visual-studio-code.md
+        - name: Modifier les paramètres de l’hôte et de l’application pour les applications logiques dans une instance monolocataire
+          href: edit-app-settings-host-settings.md
+        - name: Créer des paramètres pour les workflows monolocataires
+          href: parameterize-workflow-app.md
         - name: Déploiement DevOps pour workflow monolocataire
           href: devops-deployment-single-tenant-azure-logic-apps.md
         - name: Configurer le déploiement DevOps pour workflow monolocataire
@@ -79,6 +83,12 @@
           href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
         - name: Estimer les coûts de stockage pour les workflows monolocataires
           href: estimate-storage-costs.md
+    - name: Logic Apps avec Azure Arc
+      items:
+        - name: À propos de Logic Apps avec Azure Arc
+          href: azure-arc-enabled-logic-apps-overview.md
+        - name: Créer et déployer des applications logiques avec Arc
+          href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
     - name: Développer
       items:
         - name: Créer à partir de modèles prédéfinis

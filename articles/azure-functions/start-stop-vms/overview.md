@@ -3,14 +3,14 @@ title: Vue d’ensemble de la fonctionnalité Start/Stop VMs v2 (préversion)
 description: Cet article décrit la version 2 de la fonctionnalité Start/Stop VMs (préversion), qui démarre ou arrête les machines virtuelles Azure Resource Manager et les machines virtuelles classiques selon une planification.
 ms.topic: conceptual
 ms.service: azure-functions
-ms.subservice: ''
+ms.subservice: start-stop-vms
 ms.date: 03/29/2021
-ms.openlocfilehash: 44bfbaa8b18ebeab3b74bc696a16fc4cfb6c08ec
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 8df0f31b57d7cd82ed89c4f5f0df37535ad9678a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220932"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067273"
 ---
 # <a name="startstop-vms-v2-preview-overview"></a>Vue d’ensemble de la fonctionnalité Start/Stop VMs v2 (préversion)
 

@@ -13,10 +13,10 @@
       href: whats-new.md
 - name: Démarrages rapides
   items:
-    - name: Bibliothèques de client et API REST
-      href: quickstarts/client-library.md
     - name: Bien démarrer avec Form Recognizer
       href: quickstarts/get-started-with-form-recognizer.md
+    - name: Bibliothèques de client et API REST
+      href: quickstarts/client-library.md
 - name: Exemples
   items:
     - name: C#/.NET
@@ -83,8 +83,6 @@
       href: concept-identification-cards.md
 - name: Tutoriels
   items:
-    - name: Extraire des données de formulaire en bloc
-      href: tutorial-bulk-processing.md
     - name: Utiliser Form Recognizer avec Recherche cognitive
       href: ../../search/cognitive-search-custom-skill-form.md
     - name: Utiliser Form Recognizer avec AI Builder
@@ -93,7 +91,7 @@
       href: tutorial-azure-function.md
 - name: Informations de référence
   items:
-    - name: API Form Recognizer v2.1.3
+    - name: "API\_Form Recognizer\_v2.1"
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm'
     - name: API Form Recognizer v2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
