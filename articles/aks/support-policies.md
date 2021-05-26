@@ -4,12 +4,12 @@ description: Découvrez les stratégies de support Azure Kubernetes Service (AKS
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: d30e2aa5ab13c5d7676ca7cb455a2372981e4a46
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 3e4f5e4411eb81ab14d844adf03433e9de0d73b2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714473"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368107"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Stratégies de support pour Azure Kubernetes Service
 
@@ -92,7 +92,7 @@ Microsoft et les clients partagent la responsabilité relative aux nœuds d’ag
   * `Kube-proxy`
   * Tunnels de mise en réseau qui fournissent des chemins d’accès de communication vers les composants master Kubernetes
   * `Kubelet`
-  * `Moby` ou `ContainerD`
+  * Docker ou `containerd`
 
 > [!NOTE]
 > Si un nœud d’agent n’est pas opérationnel, AKS peut redémarrer des composants individuels ou l’intégralité du nœud de l’agent. Ces opérations de redémarrage sont automatisées et assurent une résolution automatique des problèmes courants. Si vous souhaitez en savoir plus sur les mécanismes de correction automatique, consultez [Réparation automatique des nœuds](node-auto-repair.md)

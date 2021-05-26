@@ -6,15 +6,15 @@ metadata:
   description: Utilisez Azure FXT Edge Filer comme couche de mise en cache pour les tâches de calcul haute performance (HPC) gourmandes en lecture.
   ms.service: fxt-edge-filer
   ms.topic: landing-page
-  author: ronhogue
-  ms.author: rohogue
+  author: ekpgh
+  ms.author: v-erkel
   ms.date: 03/20/2020
-  ms.openlocfilehash: ab36532f1f3f29fdd4156c2c65f07d761fa76bb4
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: ea13d3cbe49a5f1f0a043178822a50f6c37bf472
+  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "80276510"
+  ms.lasthandoff: 05/26/2021
+  ms.locfileid: "110455811"
 landingContent:
 - title: À propos d’Azure FXT Edge Filer
   linkLists:

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: 34993ad3d3d0494f89bd264a8b7194f52129ad7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1b66fcd8f4810e55de49bbc6fd085a60a64812f
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555055"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109815015"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Démarrage rapide : Créer un service de liaison privée à l’aide d’un modèle ARM
 
@@ -25,7 +25,7 @@ Vous pouvez également suivre ce guide de démarrage rapide en utilisant le [Por
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fprivatelink-service%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -37,7 +37,7 @@ Ce modèle crée un service de liaison privée.
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
 
-:::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/privatelink-service/azuredeploy.json":::
 
 Plusieurs ressources Azure sont définies dans le modèle :
 
@@ -56,7 +56,7 @@ Voici comment déployer le modèle ARM sur Azure :
 
 1. Pour vous connecter à Azure et ouvrir le modèle, sélectionnez **Déployer sur Azure**. Le modèle crée une machine virtuelle, un équilibreur de charge standard, un service de liaison privée, un point de terminaison privé, un réseau et une machine virtuelle à valider.
 
-   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
+   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fprivatelink-service%2Fazuredeploy.json)
 
 2. Sélectionnez ou créez votre groupe de ressources.
 3. Saisissez le nom d’utilisateur et le mot de passe administrateur de la machine virtuelle.
@@ -82,7 +82,7 @@ Connectez-vous à la machine virtuelle _myConsumerVm{uniqueid}_ via Internet com
     a. Si vous y êtes invité, sélectionnez **Connexion**.
 
     b. Entrez le nom d’utilisateur et le mot de passe spécifiés quand vous avez créé la machine virtuelle.
-    
+
     > [!NOTE]
     > Vous devrez peut-être sélectionner **Plus de choix** > **Utiliser un autre compte** pour spécifier les informations d’identification que vous avez entrées lors de la création de la machine virtuelle.
 

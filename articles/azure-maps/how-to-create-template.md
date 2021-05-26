@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 04/27/2021
 ms.topic: how-to
 ms.service: azure-maps
-ms.openlocfilehash: a2434494a769fb9a4695e698b3d9215dffc18974
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 262c6cb92f9c7327f13e357298242e281358253e
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326864"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109845831"
 ---
 # <a name="create-your-azure-maps-account-using-an-arm-template"></a>Créer votre compte Azure Maps à l’aide d’un modèle ARM
 
@@ -21,7 +21,7 @@ Vous pouvez créer votre compte Azure Maps à l’aide d’un modèle Azure Reso
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-maps-create%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.maps%2Fmaps-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,7 +33,7 @@ Pour effectuer ce qui est décrit dans cet article :
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-maps-create/).
 
-:::code language="json" source="~/quickstart-templates/101-maps-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.maps/maps-create/azuredeploy.json":::
 
 La ressource du compte Azure Maps est définie dans ce modèle :
 
@@ -43,7 +43,7 @@ La ressource du compte Azure Maps est définie dans ce modèle :
 
 1. Cliquez sur l’image ci-après pour vous connecter à Azure et ouvrir un modèle. Le modèle crée un compte Azure Maps.
 
-    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-maps-create%2Fazuredeploy.json)
+    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.maps%2Fmaps-create%2Fazuredeploy.json)
 
 2. Sélectionnez ou entrez les valeurs suivantes.
 
@@ -57,7 +57,7 @@ La ressource du compte Azure Maps est définie dans ce modèle :
     * **Nom du compte** : entrez un nom pour votre compte Azure Maps, qui doit être globalement unique.
     * **Niveau tarifaire** : sélectionnez le niveau tarifaire approprié ; la valeur par défaut du modèle est S0.
 
-3. Sélectionnez **Revoir + créer**. 
+3. Sélectionnez **Revoir + créer**.
 4. Confirmez vos paramètres sur la page de vérification, puis cliquez sur **Créer**. Une fois votre Azure Maps correctement déployé, vous recevez une notification :
 
     ![Notification du portail de déploiement du modèle ARM](./media/how-to-create-template/resource-manager-template-portal-deployment-notification.png)

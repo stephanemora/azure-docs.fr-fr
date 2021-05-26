@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: ''
 ms.topic: guide
-author: danimir
-ms.author: danil
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: sstein
-ms.date: 02/04/2019
-ms.openlocfilehash: fdcaabf98d4559ae6ec59a4ca7c1652329217032
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.date: 05/24/2021
+ms.openlocfilehash: 4c9cf08ad0a048c0c37f2c9943e455914ecc21fd
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754458"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456902"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Modèles Azure Resource Manager pour Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -38,9 +38,9 @@ Le tableau suivant inclut des liens vers des modèles Azure Resource Manager pou
 | [Audit pour Azure Event Hub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-auditing-server-policy-to-eventhub) | Ce modèle vous permet de déployer un serveur avec audit activé pour écrire des journaux d’audit dans un hub d’événements existant. Pour envoyer des événements d’audit à Event Hubs, définissez des paramètres d’audit avec `Enabled` `State`, et affectez à `IsAzureMonitorTargetEnabled` la valeur `true`. Configurez aussi des paramètres de diagnostic avec la catégorie de journal `SQLSecurityAuditEvents` sur la base de données `master` (pour l’audit au niveau du serveur). L’audit suit les événements de base de données et les écrit dans un journal d’audit que vous pouvez placer dans votre compte de stockage Azure, votre espace de travail OMS ou Event Hubs.|
 | [Application web Azure avec SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-sql-database) | Cet exemple crée une application web Azure gratuite et une base de données dans Azure SQL Database au niveau de service « De base ».|
 | [Application web Azure et Cache Redis avec SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | Ce modèle crée une application web, un cache Redis et une base de données dans le même groupe de ressources, puis il crée deux chaînes de connexion dans l’application web pour la base de données et le cache Redis.|
-| [Importer des données à partir de Stockage Blob avec ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/101-data-factory-v2-blob-to-sql-copy) | Ce modèle Azure Resource Manager crée une instance d’Azure Data Factory V2 qui copie des données de Stockage Blob Azure vers SQL Database.|
-| [Cluster HDInsight avec une base de données](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Ce modèle vous permet de créer un cluster HDInsight, un serveur SQL logique, une base de données et deux tables. Il est utilisé dans l’article [Utiliser Sqoop avec Hadoop dans HDInsight](../../hdinsight/hadoop/hdinsight-use-sqoop.md). |
-| [Application logique Azure qui exécute une procédure stockée SQL selon une planification](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Ce modèle vous permet de créer une application logique qui exécute une procédure stockée SQL selon une planification. Tous les arguments relatifs à la procédure peuvent être placés dans la section du corps du modèle.|
+| [Importer des données à partir de Stockage Blob avec ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | Ce modèle Azure Resource Manager crée une instance d’Azure Data Factory V2 qui copie des données de Stockage Blob Azure vers SQL Database.|
+| [Cluster HDInsight avec une base de données](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-linux-with-sql-database) | Ce modèle vous permet de créer un cluster HDInsight, un serveur SQL logique, une base de données et deux tables. Il est utilisé dans l’article [Utiliser Sqoop avec Hadoop dans HDInsight](../../hdinsight/hadoop/hdinsight-use-sqoop.md). |
+| [Application logique Azure qui exécute une procédure stockée SQL selon une planification](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-sql-proc) | Ce modèle vous permet de créer une application logique qui exécute une procédure stockée SQL selon une planification. Tous les arguments relatifs à la procédure peuvent être placés dans la section du corps du modèle.|
 
 ## <a name="azure-sql-managed-instance"></a>[Azure SQL Managed Instance](#tab/managed-instance)
 

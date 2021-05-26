@@ -1,6 +1,6 @@
 ---
 title: Définir la stratégie de cookie du lecteur immersif
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Cet article vous explique comment définir la stratégie de cookie pour le lecteur immersif.
 services: cognitive-services
 author: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: nitinme
 ms.custom: devx-track-js
-ms.openlocfilehash: 8b0a1f4a948aa6fec565130acb5267476a1d4401
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ad3b54d3350087c53adf8be1c2d78e06fc2744af
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048644"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373804"
 ---
 # <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>Guide pratique pour définir la stratégie de cookie pour le lecteur immersif
 

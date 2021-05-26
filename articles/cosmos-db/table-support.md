@@ -8,12 +8,12 @@ ms.date: 01/08/2021
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: c2b2a9a03a654e8ccba58e62a1d017cd11db5abc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c38ed9767f92eaaa53b7b95eba9e455130606b3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98050752"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110063931"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Développement avec l’API Table Azure Cosmos DB et Stockage Table Azure
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -38,7 +38,7 @@ L’API Table Azure Cosmos DB et Stockage Table Azure partagent le même modèle
 * [SDK Node.js](table-sdk-nodejs.md) : Ce kit de développement pour le stockage Azure a la possibilité de se connecter à des comptes Azure Cosmos DB à l’aide de l’API Table.
 
 
-Des informations supplémentaires sur l’utilisation de l’API Table sont disponibles dans l’article [FAQ : Développer avec l’API Table](table-api-faq.md).
+Des informations supplémentaires sur l’utilisation de l’API Table sont disponibles dans l’article [FAQ : Développer avec l’API Table](table-api-faq.yml).
 
 ## <a name="developing-with-azure-table-storage"></a>Développement avec Stockage de tables Azure
 

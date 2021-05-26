@@ -2,29 +2,33 @@
 title: Créer un membre Azure Blockchain Service à l’aide d’un modèle Azure Resource Manager
 description: Découvrez comment créer un membre Azure Blockchain Service à l’aide d’un modèle Azure Resource Manager.
 services: azure-resource-manager
-ms.date: 09/16/2020
+ms.date: 05/11/2021
 ms.topic: quickstart
 ms.service: azure-resource-manager
 ms.custom:
 - subject-armqs
 - references_regions
 - mode-arm
-ms.openlocfilehash: c49e45ae84d58d62460d493887e2a4e78e40ba32
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: b190020b079957337b197074637f5f65c9dc80ba
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536292"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "110059346"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>Démarrage rapide : Créer un membre d’Azure Blockchain Service à l’aide d’un modèle ARM
 
-Dans ce guide de démarrage rapide, vous allez déployer un nouveau membre blockchain et un nouveau consortium dans Azure Blockchain Service à l’aide d’un modèle ARM (Azure Resource Manager). Un membre Azure Blockchain Service est un nœud blockchain dans un réseau blockchain de consortium privé. Lors du provisionnement d’un membre, vous pouvez créer ou rejoindre un réseau de consortium. Vous avez besoin d’au moins un membre pour former un réseau de consortium. Le nombre de membres blockchain nécessaires par participant dépend de votre scénario. Les participants au consortium peuvent avoir un ou plusieurs membres blockchain ou ils peuvent partager des membres avec d’autres participants. Pour plus d’informations sur les consortiums, consultez [Consortium Azure Blockchain Service](consortium.md).
+Dans ce guide de démarrage rapide, vous allez déployer un nouveau membre blockchain et un nouveau consortium dans Azure Blockchain Service à l’aide d’un modèle ARM (Azure Resource Manager).
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+Un membre Azure Blockchain Service est un nœud blockchain dans un réseau blockchain de consortium privé. Lors du provisionnement d’un membre, vous pouvez créer ou rejoindre un réseau de consortium. Vous avez besoin d’au moins un membre pour former un réseau de consortium. Le nombre de membres blockchain nécessaires par participant dépend de votre scénario. Les participants au consortium peuvent avoir un ou plusieurs membres blockchain ou ils peuvent partager des membres avec d’autres participants. Pour plus d’informations sur les consortiums, consultez [Consortium Azure Blockchain Service](consortium.md).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
+[![Déployer sur Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.blockchain%2Fblockchain-asaservice%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,7 +38,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/201-blockchain-asaservice/).
 
-:::code language="json" source="~/quickstart-templates/201-blockchain-asaservice/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.blockchain/blockchain-asaservice/azuredeploy.json":::
 
 Ressources Azure définies dans le modèle :
 
@@ -44,7 +48,7 @@ Ressources Azure définies dans le modèle :
 
 1. Sélectionnez le lien suivant pour vous connecter à Azure et ouvrir un modèle.
 
-    [![Déployer sur Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
+    [![Déployer sur Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.blockchain%2Fblockchain-asaservice%2FFazuredeploy.json)
 
 1. Spécifiez les paramètres du membre Azure Blockchain Service.
 

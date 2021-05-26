@@ -15,12 +15,12 @@ ms.devlang: na
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: de8a592f6eecbb43b58a044096e8ba2e0f9b5973
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: db51e7ca844ee9d4e36b522e21d395bf9544acf3
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538997"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847451"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Démarrage rapide : Créer un service Front Door à l’aide d’un modèle Resource Manager
 
@@ -43,7 +43,7 @@ Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarr
 
 Dans ce guide de démarrage rapide, vous allez créer une configuration Front Door avec un seul back-end et un seul chemin par défaut correspondant à `/*`.
 
-:::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/front-door-create-basic/azuredeploy.json":::
 
 Une seule ressource Azure est définie dans le modèle :
 

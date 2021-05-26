@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 33d110f327a381241fd9dbf55996a6e3f9fd3a43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a894f8760ed3012b8bd46cc73eef1935850512e6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92057975"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094777"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>Démarrage rapide : Créer un pare-feu Azure avec plusieurs adresses IP publiques - Modèle ARM
 
@@ -25,7 +25,7 @@ Pour plus d’informations sur le pare-feu Azure avec plusieurs adresses IP pub
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ffw-docs-qs%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -37,7 +37,7 @@ Ce modèle crée un pare-feu Azure avec deux adresses IP publiques ainsi que le
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/fw-docs-qs).
 
-:::code language="json" source="~/quickstart-templates/fw-docs-qs/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/fw-docs-qs/azuredeploy.json":::
 
 Plusieurs ressources Azure sont définies dans le modèle :
 
@@ -57,20 +57,20 @@ Déployez le modèle ARM sur Azure :
 
 1. Sélectionnez **Déployer sur Azure** pour vous connecter à Azure et ouvrir le modèle. Le modèle crée un pare-feu Azure, l’infrastructure réseau et deux machines virtuelles.
 
-   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json)
+   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ffw-docs-qs%2Fazuredeploy.json)
 
 2. Dans le portail, affichez la page **Créer un pare-feu Azure avec plusieurs adresses IP publiques**, puis tapez ou sélectionnez les valeurs suivantes :
-   - Abonnement : sélectionnez à partir d’abonnements existants. 
+   - Abonnement : sélectionnez à partir d’abonnements existants.
    - Groupe de ressources :  sélectionnez à partir de groupe de ressources existants, ou sélectionnez **Créer**, puis **OK**.
    - Localisation : Sélectionner un emplacement
-   - Nom de l’utilisateur administrateur : tapez le nom d’utilisateur du compte de l’utilisateur administrateur. 
+   - Nom de l’utilisateur administrateur : tapez le nom d’utilisateur du compte de l’utilisateur administrateur.
    - Mot de passe administrateur : tapez une clé ou un mot de passe administrateur.
 
 3. Sélectionnez **J’accepte les conditions générales mentionnées ci-dessus**, puis **Acheter**. Le déploiement peut prendre 10 minutes ou plus.
 
 ## <a name="validate-the-deployment"></a>Valider le déploiement
 
-Dans le portail Azure, passez en revue les ressources déployées. Notez les adresses IP publiques du pare-feu.  
+Dans le portail Azure, passez en revue les ressources déployées. Notez les adresses IP publiques du pare-feu.
 
 Utilisez une connexion Bureau à distance pour vous connecter aux adresses IP publiques du pare-feu. Pour que les connexions réussissent, les règles NAT de pare-feu doivent autoriser la connexion aux serveurs back-end.
 

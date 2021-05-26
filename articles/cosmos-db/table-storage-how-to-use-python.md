@@ -10,12 +10,12 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.custom: devx-track-python
-ms.openlocfilehash: 055455c868438d421ef4f7e716657f96f2bbe1e6
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e03df1dceb840c7ccdf530201d2653349003de7b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142168"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064249"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec Python
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -249,7 +249,7 @@ table_service.delete_table('tasktable')
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [FAQ - Développer avec l’API Table](./faq.md)
+* [FAQ - Développer avec l’API Table](./faq.yml)
 * [Référence du kit de développement logiciel (SDK) Azure Cosmos DB pour l’API Python](/python/api/overview/azure/cosmosdb)
 * [Centre de développement Python](https://azure.microsoft.com/develop/python/)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) : une application gratuite et multiplateforme de Microsoft qui vous permet d’exploiter visuellement les données de stockage Azure sur Windows, macOS et Linux.

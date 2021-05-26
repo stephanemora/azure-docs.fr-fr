@@ -194,7 +194,11 @@
         - name: Emplacements POP par région
           href: cdn-pop-locations.md
         - name: Emplacements POP par abréviation
-          href: cdn-pop-abbreviations.md
+          items:
+            - name: Microsoft
+              href: microsoft-pop-abbreviations.md
+            - name: Verizon
+              href: cdn-pop-abbreviations.md
     - name: Facturation d’Azure Content Delivery Network
       href: cdn-billing.md
     - name: Feuille de route Azure

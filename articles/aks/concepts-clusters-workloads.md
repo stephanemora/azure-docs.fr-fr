@@ -4,12 +4,12 @@ description: Découvrez les composants de charge de travail et de cluster de bas
 services: container-service
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 5e505ed44d221b20178ea5ffb1d9125fb2bddd4c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: b8a342730a6f37a5498e59e883b0f77b8bfabbb2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105933"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372427"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -72,10 +72,9 @@ Pour exécuter vos applications et les services de prise en charge, vous avez be
 
 | Composant | Description |  
 | ----------------- | ------------- |  
-| `kubelet`                                                                                 | L’agent Kubernetes qui traite les requêtes d’orchestration du plan de contrôle et la planification de l’exécution des conteneurs demandés.                                                        |  
-| *kube-proxy* | Gère la mise en réseau virtuelle sur chaque nœud. Le proxy route le trafic réseau et gère l’adressage IP pour les services et les pods.                                      |  
-| *Runtime de conteneur*                                                                            | Permet aux applications en conteneur de s’exécuter et d’interagir avec d’autres ressources telles que le réseau virtuel et le stockage. Les clusters AKS utilisant des pools de nœuds Kubernetes version 1.19 utilisent `containerd` comme runtime de conteneur. Les clusters AKS utilisant une version de Kubernetes antérieure au pool de nœuds 1.19 pour les pools de nœuds utilisent [Moby](https://mobyproject.org/) (Docker en amont) comme runtime de conteneur.                                                                                    |  
-
+| `kubelet` | L’agent Kubernetes qui traite les requêtes d’orchestration du plan de contrôle et la planification de l’exécution des conteneurs demandés. |  
+| *kube-proxy* | Gère la mise en réseau virtuelle sur chaque nœud. Le proxy route le trafic réseau et gère l’adressage IP pour les services et les pods. |  
+| *Runtime de conteneur* | Permet aux applications en conteneur de s’exécuter et d’interagir avec d’autres ressources telles que le réseau virtuel et le stockage. Les clusters AKS utilisant des pools de nœuds Kubernetes version 1.19+ pour Linux utilisent `containerd` comme runtime de conteneur. Depuis les pools de nœuds Kubernetes version 1.20 pour Windows, `containerd` peut être utilisé en préversion pour le runtime du conteneur, mais Docker est toujours le runtime de conteneur par défaut. Les clusters AKS qui utilisent des versions antérieures de Kubernetes pour les pools de nœuds utilisent Docker comme runtime de conteneur. |  
 
 ![Ressources des machines virtuelles Azure et de prise en charge pour un nœud Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -83,7 +82,7 @@ La taille des machines virtuelles Azure pour vos nœuds détermine les UC, la m�
 
 Dans AKS, l’image de machine virtuelle pour les nœuds de votre cluster est basée sur Ubuntu Linux ou sur Windows Server 2019. Quand vous créez un cluster AKS ou augmentez le nombre de nœuds, la plateforme Azure crée et configure automatiquement le nombre demandé de machines virtuelles. Les nœuds agent étant facturés en tant que machines virtuelles standard, les remises dont vous bénéficiez sur la taille de machine virtuelle que vous utilisez (y compris les [réservations Azure][reservation-discounts]) sont automatiquement appliquées.
 
-Déployez votre propre cluster Kubernetes avec [aks-engine][aks-engine] si vous utilisez un autre système d’exploitation hôte, un autre runtime de conteneur ou d’autres packages personnalisés. Les versions en amont des fonctionnalités `aks-engine` fournissent des options de configuration avant la prise en charge des clusters AKS. Si vous souhaitez utiliser un runtime de conteneur autre que `containerd` ou [Moby](https://mobyproject.org/), vous pouvez exécuter `aks-engine` pour configurer et déployer un cluster Kubernetes qui répond à vos besoins actuels.
+Déployez votre propre cluster Kubernetes avec [aks-engine][aks-engine] si vous utilisez un autre système d’exploitation hôte, un autre runtime de conteneur ou d’autres packages personnalisés. Les versions en amont des fonctionnalités `aks-engine` fournissent des options de configuration avant la prise en charge des clusters AKS. Ainsi, si vous souhaitez utiliser un runtime de conteneur autre que `containerd` ou Docker, vous pouvez exécuter `aks-engine` pour configurer et déployer un cluster Kubernetes répondant à vos besoins actuels.
 
 ### <a name="resource-reservations"></a>Réservations de ressources
 
