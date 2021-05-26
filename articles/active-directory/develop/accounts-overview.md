@@ -13,12 +13,12 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
-ms.openlocfilehash: fac66e8f82ea4c04e866b28fed5f8d0860ab81ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b11b2591ad90111c7a2d96ae1f7bf7bdde0673d5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98755973"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471413"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Comptes et profils de locataire (Android)
 
@@ -118,7 +118,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> Pour afficher une liste des réclamations disponibles à partir de l'objet du compte, référez-vous à la section [Revendications dans un jeton id_token](./id-tokens.md#claims-in-an-id_token)
+> Pour afficher une liste des réclamations disponibles à partir de l'objet du compte, référez-vous à la section [Revendications dans un jeton id_token](./id-tokens.md#claims-in-an-id-token)
 
 > [!TIP]
 > Pour inclure d’autres revendications dans votre id_token, reportez-vous à la documentation sur les revendications facultatives dans [Procédure  : Fournir des revendications facultatives à votre application Azure AD](./active-directory-optional-claims.md)

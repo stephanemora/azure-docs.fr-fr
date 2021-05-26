@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 04/08/2021
-ms.openlocfilehash: 7199534fa581ccb235bc8091d9459c640d53b74f
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 534becdfcba1ccc992daadc5007e2eb56337a45e
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884621"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379265"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Se connecter à une instance de calcul Azure Machine Learning dans Visual Studio Code (préversion)
 
@@ -31,7 +31,7 @@ Il existe deux façons de se connecter à une instance de calcul à partir de Vi
 
 Pour configurer une instance de calcul distante pour le développement, vous devez respecter quelques conditions préalables.
 
-* Extension Azure Machine Learning de Visual Studio Code. Pour plus d’informations, consultez le [guide d’installation de l’extension Azure Machine Learning de Visual Studio Code](tutorial-setup-vscode-extension.md).
+* Extension Azure Machine Learning de Visual Studio Code. Pour plus d’informations, consultez le [guide d’installation de l’extension Azure Machine Learning de Visual Studio Code](how-to-setup-vs-code.md).
 * Espace de travail Azure Machine Learning. [Utilisez l’extension Azure Machine Learning de Visual Studio Code pour créer un espace de travail](how-to-manage-resources-vscode.md#create-a-workspace) si vous n’en avez pas déjà un.
 * Instance de calcul Azure Machine Learning. [Utilisez l’extension Azure Machine Learning Visual Studio Code pour créer une instance de calcul](how-to-manage-resources-vscode.md#create-compute-instance) si vous n’en avez pas.
 
@@ -98,7 +98,7 @@ Après vous être connecté à votre instance de calcul distante, utilisez l’�
 
 Pour configurer une instance de calcul en tant que serveur Jupyter Notebook distant, vous avez besoin de respecter quelques conditions préalables :
 
-* Extension Azure Machine Learning de Visual Studio Code. Pour plus d’informations, consultez le [guide d’installation de l’extension Azure Machine Learning de Visual Studio Code](tutorial-setup-vscode-extension.md).
+* Extension Azure Machine Learning de Visual Studio Code. Pour plus d’informations, consultez le [guide d’installation de l’extension Azure Machine Learning de Visual Studio Code](how-to-setup-vs-code.md).
 * Espace de travail Azure Machine Learning. [Utilisez l’extension Azure Machine Learning de Visual Studio Code pour créer un espace de travail](how-to-manage-resources-vscode.md#create-a-workspace) si vous n’en avez pas déjà un.
 
 Pour se connecter à une instance de calcul :

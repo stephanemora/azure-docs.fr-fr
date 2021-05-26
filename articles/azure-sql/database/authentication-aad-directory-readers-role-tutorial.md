@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: bc809cf02b827b7498890cb7d929c44bd360ab53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14f21939e53a284619f18049df84706cab6fd594
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99094707"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087056"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>Tutoriel : Attribuer le rôle Lecteurs d’annuaires à un groupe Azure AD et gérer les attributions de rôles
 
@@ -94,7 +94,7 @@ L’attribution du rôle **Lecteurs de répertoire** à l’identité du serveur
 ## <a name="directory-readers-role-assignment-using-powershell"></a>Attribution du rôle Lecteurs d’annuaires à l’aide de PowerShell
 
 > [!IMPORTANT]
-> Un [administrateur général](../../active-directory/roles/permissions-reference.md#global-administrator) ou un [administrateur de rôle privilégié](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) doit exécuter ces étapes initiales. En plus de PowerShell, Azure AD offre l’API Microsoft Graph pour [créer un groupe avec attribution de rôle dans Azure AD](../../active-directory/roles/groups-create-eligible.md#using-microsoft-graph-api).
+> Un [administrateur général](../../active-directory/roles/permissions-reference.md#global-administrator) ou un [administrateur de rôle privilégié](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) doit exécuter ces étapes initiales. En plus de PowerShell, Azure AD offre l’API Microsoft Graph pour [créer un groupe avec attribution de rôle dans Azure AD](../../active-directory/roles/groups-create-eligible.md#microsoft-graph-api).
 
 1. Téléchargez le module PowerShell Azure AD Preview à l’aide des commandes suivantes. Vous devrez peut-être exécuter PowerShell en tant qu’administrateur.
 

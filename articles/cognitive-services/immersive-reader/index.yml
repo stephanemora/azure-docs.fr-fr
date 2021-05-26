@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Documentation du lecteur immersif
+title: Documentation du Lecteur immersif Azure
 summary: Le lecteur immersif est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage. Vous pouvez utiliser le lecteur immersif dans votre application web à l’aide du SDK du lecteur immersif.
 metadata:
-  title: Documentation du lecteur immersif
+  title: Documentation du Lecteur immersif Azure
   description: Le lecteur immersif est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage. Vous pouvez utiliser le lecteur immersif dans votre application web à l’aide du SDK du lecteur immersif.
   services: service
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   author: IEvangelist
   ms.author: dapine
   ms.date: 01/23/2020
-  ms.openlocfilehash: 4cc05d3b99530e5ba923bfcbf7f749fbcd1c0f20
-  ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+  ms.openlocfilehash: dff95a1989d8ff55658227cf135d3e2fc687ec0f
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/10/2021
-  ms.locfileid: "102616636"
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110377725"
 landingContent:
 - title: À propos du lecteur immersif
   linkLists:
@@ -25,6 +25,8 @@ landingContent:
     links:
     - text: Qu’est-ce que le lecteur immersif ?
       url: overview.md
+    - text: Qu’est-ce qu’Azure Applied AI Services ?
+      url: ../../applied-ai-services/what-are-applied-ai-services.md
   - linkListType: video
     links:
     - text: Bien démarrer - petites vidéos techniques

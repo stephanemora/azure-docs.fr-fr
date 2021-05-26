@@ -4,12 +4,12 @@ description: Différentes exceptions OutOfMemoryError pour cluster Apache Spark 
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: dd33972810ab3b0d51bbd82282d0e6cf6cd9d96c
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 11a0f750f737fae60f860d4eef4916e53be39bb6
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868662"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190990"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Exceptions OutOfMemoryError pour Apache Spark dans Azure HDInsight
 
@@ -150,7 +150,7 @@ Impossible de démarrer Livy Server sur un Apache Spark [(Spark 2.1 sur Linux (
 17/07/27 17:52:50 INFO ZooKeeper: Client environment:user.name=livy
 17/07/27 17:52:50 INFO ZooKeeper: Client environment:user.home=/home/livy
 17/07/27 17:52:50 INFO ZooKeeper: Client environment:user.dir=/home/livy
-17/07/27 17:52:50 INFO ZooKeeper: Initiating client connection, connectString=zk2-kcspark.cxtzifsbseee1genzixf44zzga.gx.internal.cloudapp.net:2181,zk3-kcspark.cxtzifsbseee1genzixf44zzga.gx.internal.cloudapp.net:2181,zk6-kcspark.cxtzifsbseee1genzixf44zzga.gx.internal.cloudapp.net:2181 sessionTimeout=60000 watcher=org.apache.curator.ConnectionState@25fb8912
+17/07/27 17:52:50 INFO ZooKeeper: Initiating client connection, connectString=<zookeepername1>.cxtzifsbseee1genzixf44zzga.gx.internal.cloudapp.net:2181,<zookeepername2>.cxtzifsbseee1genzixf44zzga.gx.internal.cloudapp.net:2181,<zookeepername3>.cxtzifsbseee1genzixf44zzga.gx.internal.cloudapp.net:2181 sessionTimeout=60000 watcher=org.apache.curator.ConnectionState@25fb8912
 17/07/27 17:52:50 INFO StateStore$: Using ZooKeeperStateStore for recovery.
 17/07/27 17:52:50 INFO ClientCnxn: Opening socket connection to server 10.0.0.61/10.0.0.61:2181. Will not attempt to authenticate using SASL (unknown error)
 17/07/27 17:52:50 INFO ClientCnxn: Socket connection established to 10.0.0.61/10.0.0.61:2181, initiating session
@@ -210,13 +210,13 @@ Supprimez toutes les entrées en suivant les étapes décrites ci-dessous.
 1. La commande ci-dessus répertorie tous les Zookeepers pour mon cluster
 
     ```bash
-    /etc/hadoop/conf/core-site.xml:      <value>zk1-hwxspa.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,zk2-      hwxspa.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,zk4-hwxspa.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181</value>
+    /etc/hadoop/conf/core-site.xml:      <value><zookeepername1>.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,<zookeepername2>.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,<zookeepername3>.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181</value>
     ```
 
 1. Récupérez toutes les adresses IP des nœuds Zookeeper à l’aide de la commande ping ou vous pouvez également vous connecter à Zookeeper à partir du nœud principal à l’aide du nom ZK
 
     ```bash
-    /usr/hdp/current/zookeeper-client/bin/zkCli.sh -server zk2-hwxspa:2181
+    /usr/hdp/current/zookeeper-client/bin/zkCli.sh -server <zookeepername1>:2181
     ```
 
 1. Une fois que vous êtes connecté à Zookeeper, exécutez la commande suivante pour répertorier toutes les sessions qui ont tenté de redémarrer.
