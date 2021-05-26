@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 96a98f4441fca47d53dc9ee54a5586e2b535f96f
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 3dc511cfab72184b72a4794e6fee30af5219f6dd
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788388"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078811"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-cli"></a>Activer l’accès privé avec Private Link (préversion) : Azure CLI
 
@@ -41,7 +41,7 @@ Quand vous utilisez [Azure CLI](/cli/azure/what-is-azure-cli), vous pouvez confi
 
 ### <a name="add-a-private-endpoint-to-an-existing-instance"></a>Ajouter un point de terminaison privé à une instance existante
 
-Pour créer un point de terminaison privé et le lier à une instance d’Azure Digital Twins, utilisez la commande [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create). Identifiez l’instance d’Azure Digital Twins à l’aide de son ID complet dans le paramètre `--private-connection-resource-id`.
+Pour créer un point de terminaison privé et le lier à une instance d’Azure Digital Twins, utilisez la commande [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest&preserve-view=true#az_network_private_endpoint_create). Identifiez l’instance d’Azure Digital Twins à l’aide de son ID complet dans le paramètre `--private-connection-resource-id`.
 
 Voici un exemple qui utilise la commande pour créer un point de terminaison privé, avec uniquement les paramètres obligatoires.
 
@@ -49,25 +49,25 @@ Voici un exemple qui utilise la commande pour créer un point de terminaison pri
 az network private-endpoint create --connection-name {private_link_service_connection} --name {name_for_private_endpoint} --resource-group {resource_group} --subnet {subnet_ID} --private-connection-resource-id "/subscriptions/{subscription_ID}/resourceGroups/{resource_group}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{Azure_Digital_Twins_instance_name}" 
 ```
 
-Pour obtenir la liste complète des paramètres obligatoires et facultatifs ainsi que d’autres exemples de création de points de terminaison privés, consultez la documentation de référence relative à [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create).
+Pour obtenir la liste complète des paramètres obligatoires et facultatifs ainsi que d’autres exemples de création de points de terminaison privés, consultez la documentation de référence relative à [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest&preserve-view=true#az_network_private_endpoint_create).
 
 ### <a name="manage-private-endpoint-connections-on-the-instance"></a>Gérer les connexions de point de terminaison privé de l’instance
 
-Une fois qu’un point de terminaison privé a été créé pour votre instance d’Azure Digital Twins, vous pouvez utiliser les commandes [az dt network private-endpoint connection](/cli/azure/dt/network/private-endpoint/connection) pour continuer à gérer les **connexions** de point de terminaison privé de l’instance. Les opérations incluent :
+Une fois qu’un point de terminaison privé a été créé pour votre instance d’Azure Digital Twins, vous pouvez utiliser les commandes [az dt network private-endpoint connection](/cli/azure/dt/network/private-endpoint/connection?view=azure-cli-latest&preserve-view=true) pour continuer à gérer les **connexions** de point de terminaison privé de l’instance. Les opérations incluent :
 * Afficher une connexion de point de terminaison privé
 * Définir l’état de la connexion de point de terminaison privé
 * Supprimer la connexion de point de terminaison privé
 * Lister toutes les connexions de point de terminaison privé d’une instance
 
-Pour plus d’informations et d’exemples, consultez la documentation de référence relative à [az dt network private-endpoint](/cli/azure/dt/network/private-endpoint).
+Pour plus d’informations et d’exemples, consultez la documentation de référence relative à [az dt network private-endpoint](/cli/azure/dt/network/private-endpoint?view=azure-cli-latest&preserve-view=true).
 
 ### <a name="manage-other-private-link-information-on-an-azure-digital-twins-instance"></a>Gérer d’autres informations Private Link sur une instance d’Azure Digital Twins
 
-Vous pouvez obtenir des informations supplémentaires sur l’état de Private Link pour votre instance avec les commandes [az dt network private-link](/cli/azure/dt/network/private-link). Les opérations incluent :
+Vous pouvez obtenir des informations supplémentaires sur l’état de Private Link pour votre instance avec les commandes [az dt network private-link](/cli/azure/dt/network/private-link?view=azure-cli-latest&preserve-view=true). Les opérations incluent :
 * Lister les liens privés associés à une instance d’Azure Digital Twins
 * Afficher un lien privé associé à l’instance
 
-Pour plus d’informations et d’exemples, consultez la documentation de référence relative à [az dt network private-link](/cli/azure/dt/network/private-link).
+Pour plus d’informations et d’exemples, consultez la documentation de référence relative à [az dt network private-link](/cli/azure/dt/network/private-link?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="disable--enable-public-network-access-flags"></a>Activer/désactiver les indicateurs d’accès au réseau public
 
@@ -79,7 +79,7 @@ Cet article montre comment mettre à jour la valeur de l’indicateur réseau à
 
 ### <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
 
-Dans Azure CLI, vous pouvez désactiver ou activer l’accès réseau public en ajoutant un paramètre `--public-network-access` à la commande `az dt create`. Bien que cette commande permette également de créer une instance, vous pouvez l’utiliser pour modifier les propriétés d’une instance existante en lui fournissant le nom de cette dernière. (Pour plus d’informations sur cette commande, consultez sa [documentation de référence](/cli/azure/dt#az_dt_create) ou les [instructions générales relatives à la configuration d’une instance d’Azure Digital Twins](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
+Dans Azure CLI, vous pouvez désactiver ou activer l’accès réseau public en ajoutant un paramètre `--public-network-access` à la commande `az dt create`. Bien que cette commande permette également de créer une instance, vous pouvez l’utiliser pour modifier les propriétés d’une instance existante en lui fournissant le nom de cette dernière. (Pour plus d’informations sur cette commande, consultez sa [documentation de référence](/cli/azure/dt?view=azure-cli-latest&preserve-view=true#az_dt_create) ou les [instructions générales relatives à la configuration d’une instance d’Azure Digital Twins](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
 Pour **désactiver** l’accès réseau public d’une instance d’Azure Digital Twins, utilisez le paramètre `--public-network-access` comme ceci :
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 51a354bfc6df43938d8e2117a7d93f9bd6749225
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3229e8a3ee482067677cdd5af1fb98b120ef8dd0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140782"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082105"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Surveillance et alertes Azure Key Vault
 
@@ -26,7 +26,7 @@ Lorsque vous commencez à utiliser un coffre de clés pour stocker vos secrets d
 + Configurer les métriques et créer un tableau de bord
 + Créer des alertes lorsque les seuils spécifiés sont atteints
 
-Azure Monitor pour Key Vault combine les journaux d’activité et les métriques pour fournir une solution de supervision globale. [Apprenez-en davantage sur Azure Monitor pour Key Vault ici](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-azure-monitor-for-key-vault)
+Azure Monitor pour Key Vault combine les journaux d’activité et les métriques pour fournir une solution de supervision globale. [Apprenez-en davantage sur Azure Monitor pour Key Vault ici](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-key-vault-insights)
 
 ## <a name="basic-key-vault-metrics-to-monitor"></a>Métriques Key Vault de base à surveiller
 

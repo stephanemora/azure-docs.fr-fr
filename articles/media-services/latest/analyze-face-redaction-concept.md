@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4907a81fc8cb55499fa97f2b02a3e19e7117bbbc
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 2f9eca1600ffe9270ac2f02db38c815e92498afe
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286383"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110086209"
 ---
 # <a name="find-and-redact-blur-faces-with-the-face-detector-preset"></a>Rechercher et éditer (flouter) des visages avec le préréglage de Face Detector
 
@@ -29,10 +29,8 @@ L’API Azure Media Services v3 comprend un préréglage de Face Detector, qui 
 
 Cet article apporte des précisions sur le **préréglage de Face Detector**, et explique comment l’utiliser avec le kit SDK Azure Media Services pour .NET.
 
-[!INCLUDE [regulation](../video-indexer/includes/regulation.md)]
-
 ## <a name="compliance-privacy-and-security"></a>Conformité, confidentialité et sécurité
- 
+
 N’oubliez jamais que vous devez vous conformer à la réglementation applicable durant l’utilisation des analyses dans Azure Media Services. Vous ne devez pas utiliser Azure Media Services ou tout autre service Azure d’une manière qui ne respecte pas les droits d’autrui. Avant de charger des vidéos, en particulier des données biométriques, vers le service Azure Media Services à des fins de traitement et de stockage, vous devez disposer de tous les droits appropriés sur ces vidéos, notamment le consentement des personnes qui y figurent. Pour en savoir plus sur la conformité, la confidentialité et la sécurité dans Azure Media Services, consultez les [Conditions d’utilisation de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Pour connaître les obligations de Microsoft en matière de confidentialité et de traitement de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions des Services en Ligne](https://www.microsoft.com/licensing/product-licensing/products) (OST) et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations complémentaires sur la confidentialité, notamment sur la conservation, la suppression et la destruction des données, sont disponibles dans l’OST et [ici](../video-indexer/faq.md). En utilisant Azure Media Services, vous acceptez d’être lié par les Conditions d’utilisation de Cognitive Services, à l’OST, au DPA et à la Déclaration de confidentialité
 
 ## <a name="face-redaction-modes"></a>Modes de rédaction de face
@@ -55,7 +53,7 @@ Cela permet d’obtenir un fichier vidéo MP4 édité en une seule passe sans n�
 
 ### <a name="analyze-mode"></a>Mode Analyser
 
-La passe **Analyze** du workflow en deux passes accepte une entrée vidéo et produit un fichier JSON avec une liste des localisations de visage, des ID de visage et des images jpg de chaque visage détecté. 
+La passe **Analyze** du workflow en deux passes accepte une entrée vidéo et produit un fichier JSON avec une liste des localisations de visage, des ID de visage et des images jpg de chaque visage détecté.
 
 | Étape | Nom de fichier | Notes |
 | --- | --- | --- |
@@ -149,7 +147,6 @@ En mode **Combined** ou **Redact**, vous avez le choix entre cinq modes de flout
 
 Vous trouverez des exemples de types de flou ci-dessous.
 
-
 #### <a name="low"></a>Faible
 
 ![Exemple illustrant le paramètre de floutage de faible résolution.](./media/media-services-face-redaction/blur-1.png)
@@ -214,4 +211,3 @@ Cet exemple de code montre comment le préréglage est passé en objet Transform
 ## <a name="provide-feedback"></a>Fournir des commentaires
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

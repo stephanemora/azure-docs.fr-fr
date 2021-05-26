@@ -9,21 +9,21 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 413553165fcf74fa4590cb4661212b885a277579
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7340cde78f6be6853ec50163cfd68cc1fd2ceec
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550635"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087361"
 ---
-# <a name="azure-disk-encryption-sample-scripts"></a>Exemples de scripts Azure Disk Encryption 
+# <a name="azure-disk-encryption-sample-scripts"></a>Exemples de scripts Azure Disk Encryption
 
 Cet article fournit des exemples de scripts pour la préparation de disques durs virtuels préchiffrés et d’autres tâches.
 
 > [!NOTE]
 > Sauf mention contraire, tous les scripts font référence à la dernière version hors AAD d’ADE.
 
-## <a name="sample-powershell-scripts-for-azure-disk-encryption"></a>Exemples de scripts PowerShell pour Azure Disk Encryption 
+## <a name="sample-powershell-scripts-for-azure-disk-encryption"></a>Exemples de scripts PowerShell pour Azure Disk Encryption
 
 
 - **Répertorier toutes les machines virtuelles chiffrées dans votre abonnement**
@@ -39,9 +39,9 @@ Cet article fournit des exemples de scripts pour la préparation de disques durs
     ```
 
 - **Répertorier toutes les instances VMSS chiffrées de votre abonnement**
-    
+
     Vous pouvez rechercher toutes les instances VMSS chiffrées avec ADE et la version de l’extension, dans tous les groupes de ressources d’un abonnement, à l’aide de [ce script PowerShell](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VMSS.ps1).
- 
+
 - **Répertorier tous les secrets de chiffrement de disque utilisées pour chiffrer les machines virtuelles dans un coffre de clés**
 
 ```azurepowershell-interactive
@@ -50,9 +50,9 @@ Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('Disk
 
 ### <a name="using-the-azure-disk-encryption-prerequisites-powershell-script"></a>Utilisation du script PowerShell des prérequis Azure Disk Encryption
 
-Si vous êtes déjà familiarisé avec les prérequis d’Azure Disk Encryption, vous pouvez utiliser le [script PowerShell des prérequis d’Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Vous trouverez un exemple d’utilisation de ce script PowerShell dans [Démarrage rapide du chiffrement d’une machine virtuelle](disk-encryption-powershell-quickstart.md). Vous pouvez supprimer les commentaires d’une section du script, en commençant à la ligne 211, pour chiffrer tous les disques des machines virtuelles d’un groupe de ressources existant. 
+Si vous êtes déjà familiarisé avec les prérequis d’Azure Disk Encryption, vous pouvez utiliser le [script PowerShell des prérequis d’Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Vous trouverez un exemple d’utilisation de ce script PowerShell dans [Démarrage rapide du chiffrement d’une machine virtuelle](disk-encryption-powershell-quickstart.md). Vous pouvez supprimer les commentaires d’une section du script, en commençant à la ligne 211, pour chiffrer tous les disques des machines virtuelles d’un groupe de ressources existant.
 
-Le tableau suivant présente les paramètres pouvant être utilisés dans le script PowerShell : 
+Le tableau suivant présente les paramètres pouvant être utilisés dans le script PowerShell :
 
 |Paramètre|Description|Obligatoire ?|
 |------|------|------|
@@ -68,13 +68,13 @@ Le tableau suivant présente les paramètres pouvant être utilisés dans le scr
 
 ### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Chiffrer ou déchiffrer des machines virtuelles sans application Azure AD
 
-- [Activer le chiffrement de disque sur une machine virtuelle Windows existante ou en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)  
-- [Désactiver le chiffrement sur une machine virtuelle Windows en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) 
+- [Activer le chiffrement de disque sur une machine virtuelle Windows existante ou en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm-without-aad)
+- [Désactiver le chiffrement sur une machine virtuelle Windows en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad)
 
-### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Chiffrer ou déchiffrer des machines virtuelles avec une application Azure AD (version précédente) 
- 
-- [Activer le chiffrement de disque sur une machine virtuelle Windows existante ou en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)    
-- [Désactiver le chiffrement sur une machine virtuelle Windows en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
+### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Chiffrer ou déchiffrer des machines virtuelles avec une application Azure AD (version précédente)
+
+- [Activer le chiffrement de disque sur une machine virtuelle Windows existante ou en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
+- [Désactiver le chiffrement sur une machine virtuelle Windows en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm)
 - [Créer un disque managé chiffré à partir d’un disque dur virtuel/objet blob de stockage préchiffré](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
     - Crée un disque managé chiffré fourni par un disque dur virtuel préchiffré et ses paramètres de chiffrement correspondants
 
@@ -103,7 +103,7 @@ ServerManagerCmd -install BitLockers
 Pour compresser la partition du système d’exploitation et préparer la machine pour BitLocker, exécutez si nécessaire [bdehdcfg](/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) :
 
 ```console
-bdehdcfg -target c: shrink -quiet 
+bdehdcfg -target c: shrink -quiet
 ```
 
 ### <a name="protect-the-os-volume-by-using-bitlocker"></a>Protéger le volume du système d’exploitation à l’aide de BitLocker
@@ -126,16 +126,16 @@ Une fois le chiffrement DM-Crypt activé, le disque dur virtuel chiffré local d
 ## <a name="upload-the-secret-for-the-pre-encrypted-vm-to-your-key-vault"></a>Charger le secret pour la machine virtuelle préchiffrée dans votre coffre de clés
 Le secret de chiffrement de disque obtenu précédemment doit être chargé en tant que secret dans votre coffre de clés.  Pour ce faire, vous devez accorder l’autorisation de définition de secret et l’autorisation wrapkey au compte qui chargera les secrets.
 
-```powershell 
+```powershell
 # Typically, account Id is the user principal name (in user@domain.com format)
 $upn = (Get-AzureRmContext).Account.Id
 Set-AzKeyVaultAccessPolicy -VaultName $kvname -UserPrincipalName $acctid -PermissionsToKeys wrapKey -PermissionsToSecrets set
 
-# In cloud shell, the account ID is a managed service identity, so specify the username directly 
-# $upn = "user@domain.com" 
+# In cloud shell, the account ID is a managed service identity, so specify the username directly
+# $upn = "user@domain.com"
 # Set-AzKeyVaultAccessPolicy -VaultName $kvname -UserPrincipalName $acctid -PermissionsToKeys wrapKey -PermissionsToSecrets set
 
-# When running as a service principal, retrieve the service principal ID from the account ID, and set access policy to that 
+# When running as a service principal, retrieve the service principal ID from the account ID, and set access policy to that
 # $acctid = (Get-AzureRmContext).Account.Id
 # $spoid = (Get-AzureRmADServicePrincipal -ServicePrincipalName $acctid).Id
 # Set-AzKeyVaultAccessPolicy -VaultName $kvname -ObjectId $spoid -BypassObjectIdValidation -PermissionsToKeys wrapKey -PermissionsToSecrets set

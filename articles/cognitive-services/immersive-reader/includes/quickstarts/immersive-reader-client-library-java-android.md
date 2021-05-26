@@ -1,6 +1,6 @@
 ---
 title: Guide de démarrage rapide de la bibliothèque de client du lecteur immersif Java (Android)
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Dans ce guide de démarrage rapide, vous générez une application Android à partir de zéro et lui ajoutez les fonctions de l’API Lecteur immersif.
 services: cognitive-services
 author: dylankil
@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.custom: devx-track-java, devx-track-js
 ms.author: dylankil
-ms.openlocfilehash: 7119e1d029bb682f004e65323df5b50087c0634c
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 49420e073644f8884bdcc19ac55a9d7e0d987bac
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102619251"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376570"
 ---
 Le [Lecteur immersif](https://www.onenote.com/learningtools) est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage, comme la dyslexie. Vous pouvez utiliser le Lecteur immersif dans vos applications pour isoler du texte afin d’améliorer le focus, afficher des images pour les mots couramment utilisés, mettre en évidence des parties d’un discours, lire le texte sélectionné à voix haute, traduire des mots et des expressions en temps réel, etc.
 

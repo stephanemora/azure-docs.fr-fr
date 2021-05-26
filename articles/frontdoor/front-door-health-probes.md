@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 05/17/2021
 ms.author: duau
-ms.openlocfilehash: dd56740b7153cdbafdfa847a22d34b57f862cdf3
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6fb47cf8c3bea7080151d635620bde549070060d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550739"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084985"
 ---
 # <a name="health-probes"></a>Sondes d’intégrité
 
@@ -26,7 +26,7 @@ Pour déterminer l’intégrité et de la proximité de chaque serveur principal
 > Dans la mesure où le service Front Door a de nombreux environnements de périphérie, le volume de sonde d’intégrité adressées à vos serveurs principaux peut être conséquent, allant de 25 à 1 200 requêtes par minute, en fonction de la fréquence configurée de la sonde d’intégrité. À la fréquence de sonde par défaut de 30 secondes, le volume des requêtes de sonde sur votre serveur principal doit être d’environ 200 requêtes par minute.
 
 > [!NOTE]
-> Les sondes Front Door HTTP/HTTPS sont envoyées avec l’en-tête `User-Agent` défini sur la valeur : `Edge Health Probes`. 
+> Les sondes Front Door HTTP/HTTPS sont envoyées avec l’en-tête `User-Agent` défini sur la valeur : `Edge Health Probe`. 
 
 ## <a name="supported-protocols"></a>Protocoles pris en charge
 
@@ -46,7 +46,7 @@ Le service Front Door prend en charge les méthodes HTTP suivantes pour l’envo
 
 | Réponses  | Description | 
 | ------------- | ------------- |
-| Détermination de l’intégrité  |  Le code d’état 200 OK indique que le backend est sain. Tous les autres sont considérés comme un défaillance. Si, pour une raison quelconque (notamment une défaillance réseau), la réponse HTTP valide d’une sonde n’est pas reçue, la sonde est considérée comme défectueuse.|
+| Détermination de l’intégrité  | Le code d’état 200 OK indique que le backend est sain. Tous les autres sont considérés comme un défaillance. Si, pour une raison quelconque (notamment une défaillance réseau), la réponse HTTP valide d’une sonde n’est pas reçue, la sonde est considérée comme défectueuse.|
 | Mesure de la latence  | La latence est le temps horloge mesuré entre le moment qui précède immédiatement l’envoi de la demande d’analyse et le moment où le dernier octet de la réponse est reçu. Comme nous utilisons une nouvelle connexion TCP à chaque demande, cette mesure n’est pas orientée vers les backends ayant des connexions chaudes.  |
 
 ## <a name="how-front-door-determines-backend-health"></a>Comment une porte d’entrée détermine l’intégrité des backends

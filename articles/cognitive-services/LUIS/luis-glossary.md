@@ -4,13 +4,13 @@ description: Le glossaire explique les termes que vous pourriez rencontrer en ut
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/08/2020
-ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/17/2021
+ms.openlocfilehash: 15235ddd1ae6bfe3166b523004bc8fe80a5b5be9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98786942"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061459"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossaire Language Understanding des termes et concepts courants
 Ce glossaire décrit les termes que vous pourriez rencontrer lors de l’utilisation de LUIS (Language Understanding Intelligent Service).
@@ -44,7 +44,7 @@ La [clé de création](luis-how-to-azure-subscription.md) est utilisée pour cr�
 
 ### <a name="authoring-resource"></a>Ressource de création
 
-Votre [ressource de création](luis-how-to-azure-subscription.md#azure-resources-for-luis) LUIS est un élément gérable disponible via Azure. La ressource est votre accès aux capacités de création, de formation et de publication associées du service Azure. La ressource comprend les informations d’authentification, d’autorisation et de sécurité dont vous avez besoin pour accéder au service Azure associé.
+Votre [ressource de création](luis-how-to-azure-subscription.md) LUIS est un élément gérable disponible via Azure. La ressource est votre accès aux capacités de création, de formation et de publication associées du service Azure. La ressource comprend les informations d’authentification, d’autorisation et de sécurité dont vous avez besoin pour accéder au service Azure associé.
 
 La ressource de création correspond au « genre » Azure `LUIS-Authoring`.
 
@@ -70,7 +70,7 @@ Dans les tests par lots, les points de données représentent les énoncés dans
 
 Dans les tests par lots, les points de données représentent les énoncés dans lesquels votre application a mal prédit l’existence de l’intention/entité cible.
 
-### <a name="precision"></a>Précision
+### <a name="precision"></a>Precision
 Dans les tests par lots, la précision (également appelée coefficient de prévision d'un test positif) est la part d’énoncés pertinents parmi les énoncés récupérés.
 
 Si l’on prend un exemple dans le domaine de l’élevage, un test par lots correspond au nombre de moutons prédits divisé par le nombre total d’animaux (moutons et non-mouton).

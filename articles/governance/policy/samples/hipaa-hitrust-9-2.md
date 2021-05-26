@@ -1,15 +1,15 @@
 ---
 title: Détails de conformité réglementaire pour HIPAA HITRUST 9.2
 description: Détails de l’initiative intégrée de conformité réglementaire HIPAA HITRUST 9.2. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 5db40c10bbd7f2975737f2c6bdf5d968a69c85de
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 671ad6c85f5035e0f39b81653646f57489f5efe7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743594"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110088009"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Détails de l’initiative intégrée de conformité réglementaire HIPAA HITRUST 9.2
 
@@ -683,7 +683,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Azure Monitor doit collecter les journaux d’activité dans toutes les régions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41388f1c-2db0-4c25-95b2-35d7f5ccbfa9) |Cette stratégie effectue l’audit du profil de journal Azure Monitor qui n’exporte pas d’activités à partir de toutes les régions Azure prises en charge, notamment la région globale. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllRegions.json) |
+|[Azure Monitor doit collecter les journaux d’activité dans toutes les régions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41388f1c-2db0-4c25-95b2-35d7f5ccbfa9) |Cette stratégie effectue l’audit du profil de journal Azure Monitor qui n’exporte pas d’activités à partir de toutes les régions Azure prises en charge, notamment la région globale. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllRegions.json) |
 
 ### <a name="the-organization-monitors-the-information-system-to-identify-irregularities-or-anomalies-that-are-indicators-of-a-system-malfunction-or-compromise-and-help-confirm-the-system-is-functioning-in-an-optimal-resilient-and-secure-state"></a>L’organisation supervise le système d’information pour identifier les irrégularités ou les anomalies qui sont des indicateurs d’un dysfonctionnement ou d’une compromission du système et aident à vérifier que l’état de fonctionnement du système est optimal, résilient et sécurisé.
 
@@ -731,7 +731,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Azure Monitor doit collecter les journaux d’activité dans toutes les régions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41388f1c-2db0-4c25-95b2-35d7f5ccbfa9) |Cette stratégie effectue l’audit du profil de journal Azure Monitor qui n’exporte pas d’activités à partir de toutes les régions Azure prises en charge, notamment la région globale. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllRegions.json) |
+|[Azure Monitor doit collecter les journaux d’activité dans toutes les régions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41388f1c-2db0-4c25-95b2-35d7f5ccbfa9) |Cette stratégie effectue l’audit du profil de journal Azure Monitor qui n’exporte pas d’activités à partir de toutes les régions Azure prises en charge, notamment la région globale. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllRegions.json) |
 
 ### <a name="auditing-and-monitoring-systems-employed-by-the-organization-support-audit-reduction-and-report-generation"></a>Les systèmes d’audit et de supervision utilisés par l’organisation prennent en charge la réduction des audits et la génération de rapports.
 
