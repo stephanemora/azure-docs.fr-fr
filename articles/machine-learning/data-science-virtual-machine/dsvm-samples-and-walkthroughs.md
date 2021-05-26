@@ -5,16 +5,16 @@ description: Grâce à ces exemples et procédures pas à pas, découvrez commen
 keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
 services: machine-learning
 ms.service: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: timoklimmer
+ms.author: tklimmer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: cda5dfd936243602775e1f4f965032b9d746b0b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/12/2021
+ms.openlocfilehash: 5ce6b2d80341a9c6ebb8afcbbe8f7072b54ca93c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519760"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087901"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Exemples sur Data Science Virtual Machine
 
@@ -35,8 +35,6 @@ Pour exécuter ces exemples, vous devez avoir approvisionné une [Data Science V
 | Azure Machine Learning  | Générez des modèles Machine Learning et d’apprentissage profond avec Machine Learning. Déployez-les n’importe où. Utilisez le réglage intelligent des hyperparamètres et le réglage Machine Learning automatisé, ainsi que la gestion des modèles et la formation distribuée. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
 | Blocs-notes PyTorch  | Exemples Deep Learning qui utilisent des réseaux neuronaux basés sur PyTorch. La gamme des blocs-notes s’étend des scénarios pour débutants aux scénarios pour utilisateurs avancés.  <br/> [Blocs-notes PyTorch](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
 | TensorFlow  |  Variété d’exemples et techniques de réseau neuronal implémentés à l’aide de l’infrastructure TensorFlow. <br/> [TensorFlow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
-| Microsoft Cognitive Toolkit <br/>   | Exemples Deep Learning publiés par l’équipe Microsoft Cognitive Toolkit.  <br/> [Cognitive Toolkit](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux :<br/> `~notebooks/CNTK`<br/> <br/>|
-| Caffe2 | Exemples Deep Learning qui utilisent des réseaux neuronaux basés sur Caffe2. Plusieurs blocs-notes permettent de familiariser les utilisateurs avec l’infrastructure Caffe2 et d’apprendre à l’utiliser efficacement. Les exemples incluent la création de jeux de données et le prétraitement des images, ainsi que la régression et l’utilisation des modèles préentraînés. <br/> [Caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
 | H2O   | Exemples basés sur Python qui utilisent H2O pour des scénarios problématiques concrets. <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
 | Langage SparkML  | Exemples utilisant les fonctionnalités de la boîte à outils Apache Spark MLLib via pySpark et MMLSpark : Microsoft Machine Learning pour Apache Spark sur Apache Spark 2.x.  <br/> [Langage SparkML](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
 | XGBoost | Exemples d’apprentissage automatique standard dans XGBoost pour les scénarios tels que la classification et la régression. <br/> [XGBoost](#xgboost) | <br/>Windows :<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
@@ -77,14 +75,6 @@ Connectez-vous avec le mot de passe que vous utilisez pour vous connecter à la 
 ## <a name="tensorflow"></a>TensorFlow 
 <br/>![Exemples TensorFlow](./media/tensorflow-samples.png)<br/>
 
-
-## <a name="cntk"></a>CNTK (Computational Network Toolkit de Microsoft Research) 
-<br/>![Exemples CNTK](./media/cntk-samples.png)<br/>
-
-
-## <a name="caffe2"></a>Caffe2 
-<br/>![Exemples Caffe2](./media/caffe2-samples.png)<br/>
-
 ## <a name="h2o"></a>H2O 
 <br/>![Exemples H2O](./media/h2o-samples.png)<br/>
 
@@ -93,4 +83,3 @@ Connectez-vous avec le mot de passe que vous utilisez pour vous connecter à la 
 
 ## <a name="xgboost"></a>XGBoost 
 <br/>![Exemples XGBoost](./media/xgboost-samples.png)<br/>
-

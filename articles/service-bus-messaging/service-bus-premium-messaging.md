@@ -3,12 +3,12 @@ title: Niveaux de service Premium et Standard d’Azure Service Bus
 description: Cet article décrit les niveaux de service Standard et Premium d’Azure Service Bus. Compare ces niveaux de service et indique les différences techniques.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: b7117da6a959181704dd136c6d5be5ab62edef55
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: e0149f0ad1ee608179cc7dbdfaa61b498dd60ca0
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389483"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190742"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Couches messagerie Service Bus Premium et Standard
 
@@ -69,7 +69,7 @@ Le nombre d’unités de messagerie allouées à l’espace de noms Service Bus 
 Un certain nombre de facteurs doivent être pris en compte pour déterminer le nombre d’unités de messagerie pour votre architecture :
 
 - Commencez par ***1 ou 2 unités de messagerie*** allouées à votre espace de noms.
-- Étudiez les métriques d’utilisation du processeur dans les [métriques d’utilisation des ressources](service-bus-metrics-azure-monitor.md#resource-usage-metrics) pour votre espace de noms.
+- Étudiez les métriques d’utilisation du processeur dans les [métriques d’utilisation des ressources](monitor-service-bus-reference.md#resource-usage-metrics) pour votre espace de noms.
     - Si l’utilisation du processeur est **inférieure à 20 %** , vous pourrez peut-être *_réduire_* le nombre d’unités de messagerie allouées à votre espace de noms.
     - Si l’utilisation du processeur est **supérieure à 70 %** , votre application profitera d’une *_augmentation_* du nombre d’unités de messagerie allouées à votre espace de noms.
 

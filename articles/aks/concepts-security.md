@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: mlearned
-ms.openlocfilehash: 3fafbe3f4b1c53f929682f4ca160fb19a5e91918
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 7f754aa8d454949c74ccd31e3f52423f755b2fa4
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105304"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372391"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concepts de sécurité pour les applications et les clusters dans AKS (Azure Kubernetes Service)
 
@@ -45,15 +45,15 @@ Vous pouvez contrôler l’accès au serveur d’API avec des contrôles d’acc
 ## <a name="node-security"></a>Sécurité des nœuds
 
 Les nœuds AKS sont des machines virtuelles Azure dont vous assurez la gestion et la maintenance. 
-* Les nœuds Linux exécutent une distribution Ubuntu optimisée à l’aide de `containerd` ou du runtime de conteneur Moby. 
-* Les nœuds Windows Server exécutent une version Windows Server 2019 optimisée utilisant le `containerd` ou le runtime de conteneur Moby. 
+* Les nœuds Linux exécutent une distribution Ubuntu optimisée à l’aide de `containerd` ou du runtime de conteneur Docker. 
+* Les nœuds Windows Server exécutent une version Windows Server 2019 optimisée utilisant le `containerd` ou le runtime de conteneur Docker.
 
 Quand un cluster AKS est créé ou fait l’objet d’un scale-up, les nœuds sont déployés automatiquement avec les dernières configurations et mises à jour de sécurité du système d’exploitation.
 
 > [!NOTE]
 > Les clusters AKS utilisant :
-> * Des pools de nœuds Kubernetes version 1.19 et ultérieure utilisent `containerd` comme runtime de conteneur. 
-> * Une version de Kubernetes antérieure à v1.19 pour les pools de nœuds utilisent [Moby](https://mobyproject.org/) (Docker en amont) comme runtime de conteneur.
+> * Kubernetes version 1.19 et ultérieure pour les pools de nœuds Linux utilisent `containerd` comme runtime de conteneur. L’utilisation de `containerd` avec les pools de nœuds Windows Server 2019 est actuellement en préversion. Pour plus d’informations, consultez [Ajouter un pool de nœuds Windows Server avec `containerd`][aks-add-np-containerd].
+> * Une version de Kubernetes antérieure à la v1.19 pour les pools de nœuds Linux utilisent Docker comme runtime de conteneur. Pour les pools de nœuds Windows Server 2019, Docker est le runtime de conteneur par défaut.
 
 ### <a name="node-security-patches"></a>Correctifs de sécurité du nœud
 
@@ -123,7 +123,7 @@ Pour limiter le trafic réseau entre les pods de votre cluster, AKS propose la p
 
 Avec un *secret* Kubernetes, vous injectez des données sensibles dans des pods, telles que les clés ou les informations d’identification d’accès. 
 1. Créez un secret en vous servant de l’API Kubernetes. 
-1. Définissez votre pod ou déploiement et demander un secret spécifique. 
+1. Définissez votre pod ou déploiement et demandez un secret spécifique. 
     * Les secrets sont fournis uniquement aux nœuds avec un pod planifié qui en a besoin.
     * Le secret est stocké dans *tmpfs*, qui n’est pas écrit sur le disque. 
 1. Lorsque vous supprimez le dernier pod sur un nœud nécessitant un secret, ce dernier est supprimé du tmpfs du nœud. 
@@ -160,6 +160,7 @@ Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AK
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-aad.md
+[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd-preview
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

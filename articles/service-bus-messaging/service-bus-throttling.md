@@ -3,12 +3,12 @@ title: Vue d’ensemble de la limitation Azure Service Bus | Microsoft Docs
 description: Vue d’ensemble de la limitation Service Bus – Niveaux Standard et Premium.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 436f9a40269f7eea4e31b55b9657d38849876eb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95b03859b26d97c1089b6112b41511618abdcffe
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85340942"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191110"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Opérations de limitation dans Azure Service Bus
 
@@ -89,7 +89,7 @@ Si le nombre de demandes est supérieur à la capacité de traitement actuelle d
 ### <a name="how-will-i-know-that-im-being-throttled"></a>Comment savoir si je suis limité ?
 
 Il existe différentes façons d’identifier la limitation dans Azure Service Bus Premium – 
-  * Les **demandes limitées** figurent dans les [métriques des demandes d’Azure Monitor](service-bus-metrics-azure-monitor.md#request-metrics) pour identifier le nombre de demandes qui ont été limitées.
+  * Les **demandes limitées** figurent dans les [métriques des demandes d’Azure Monitor](monitor-service-bus-reference.md#request-metrics) pour identifier le nombre de demandes qui ont été limitées.
   * Une **utilisation du processeur** élevée indique que l’allocation de ressources actuelle est élevée et que les demandes risquent d’être limitées si la charge de travail actuelle ne diminue pas.
   * Une **utilisation de la mémoire** élevée indique que l’allocation de ressources actuelle est élevée et que les demandes risquent d’être limitées si la charge de travail actuelle ne diminue pas.
 

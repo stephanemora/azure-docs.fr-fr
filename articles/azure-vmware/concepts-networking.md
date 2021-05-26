@@ -2,13 +2,13 @@
 title: Concepts – Interconnexion de réseaux
 description: Découvrez des aspects clés et des cas d’utilisation de mise en réseau et d’interconnexion dans Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.openlocfilehash: 7222a9de7eb92b3cdd571ad70adf7ab107be73cd
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.date: 05/13/2021
+ms.openlocfilehash: b3107ff85302e24e3c047ef0ea08f7a4b879b3be
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107951165"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089593"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Concepts de réseau et d’interconnexion d’Azure VMware Solution
 
@@ -69,7 +69,7 @@ Maintenant que vous avez couvert les concepts de réseau et d’interconnexion d
 
 - [Concepts de stockage pour Azure VMware Solution](concepts-storage.md).
 - [Concepts d’identité d’Azure VMware Solution](concepts-identity.md)
-- [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md)
+- [Comment activer la ressource Azure VMware Solution](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

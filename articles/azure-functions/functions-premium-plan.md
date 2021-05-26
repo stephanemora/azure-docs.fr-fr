@@ -1,20 +1,20 @@
 ---
 title: Plan Premium Azure Functions
 description: Détails et options de configuration (VNet, pas de démarrage à froid, durée d’exécution illimitée) pour le plan Azure Functions Premium.
-author: jeffhollan
+author: cachai2
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.author: jehollan
+ms.author: cachai
 ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: 3061329ad9dcb368dab586acc2146e6fb4e23028
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e53089c2287d255fd3dbe6ca7961646e0e3de05a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708711"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457421"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Premium Azure Functions
 

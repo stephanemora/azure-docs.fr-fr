@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 11439afbe7bceb17dff5393d248c6c9f5d3f6b53
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 135c853236793088b10759cac5e86f72c8548df3
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767832"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459733"
 ---
 # <a name="monitoring-azure-table-storage"></a>Supervision du stockage Table Azure
 
@@ -333,7 +333,7 @@ Vous pouvez lire les valeurs des métriques de votre compte de stockage ou du se
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-### <a name="net"></a>[.NET](#tab/azure-portal)
+### <a name="net-sdk"></a>[Kit de développement logiciel (SDK) .NET](#tab/azure-portal)
 
 Azure Monitor fournit des [kits de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) pour lire des définitions et valeurs de mesures. L’[exemple de code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) montre comment utiliser le kit de développement logiciel (SDK) avec des paramètres différents. Vous devez utiliser `0.18.0-preview` ou une version ultérieure pour les mesures de stockage.
  

@@ -7,12 +7,12 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
-ms.openlocfilehash: cb283380487310165c646c8615d10a545d1a923b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c2690b625454c7767619ba756f61383fc8f509c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92675705"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481029"
 ---
 # <a name="frequently-asked-questions-about-the-education-hub"></a>Questions fréquentes à propos du Hub Education
 
@@ -22,7 +22,7 @@ Cet article donne des réponses aux questions fréquemment posées sur Azure for
 
 ### <a name="what-happens-after-i-use-my-100-credit-or-im-at-the-end-of-12-months"></a>Que se passe-t-il une fois que j’ai utilisé mon crédit de 100 USD ou que j’ai atteint la fin des 12 mois ?
 
-Une fois que vous avez épuisé votre crédit disponible ou atteint la fin des 12 mois, votre abonnement Azure est désactivé. Pour continuer à utiliser [Azure](https://account.azure.com/), vous pouvez effectuer une mise à niveau vers un abonnement avec paiement à l’utilisation dans le portail de compte Azure. Pour obtenir les conditions d’utilisation détaillées pour Azure for Students, consultez les [conditions de l’offre](https://azure.microsoft.com/offers/ms-azr-0170p/).
+Une fois que vous avez épuisé votre crédit disponible ou atteint la fin des 12 mois, votre abonnement Azure est désactivé. Pour continuer à utiliser Azure, vous pouvez effectuer une mise à niveau vers un abonnement avec paiement à l’utilisation dans le portail Azure. Pour obtenir les conditions d’utilisation détaillées pour Azure for Students, consultez les [conditions de l’offre](https://azure.microsoft.com/offers/ms-azr-0170p/).
 
 ### <a name="can-i-get-azure-for-students-again-next-year"></a>Puis-je participer à nouveau à Azure for Students l’année prochaine ?
 

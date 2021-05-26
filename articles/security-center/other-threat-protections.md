@@ -7,21 +7,18 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 04/29/2021
 ms.author: memildin
-ms.openlocfilehash: 656f38bb25a97a0a55b1d968e205907ca228a474
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: cd9c2d5547c3b5e9468432539c2b07d18f6fd3ab
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278359"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459907"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Protections supplémentaires contre les menaces dans Azure Security Center
 En plus des [protections Azure Defender](azure-defender.md) intégrées, Azure Security Center offre les fonctionnalités de protection contre les menaces suivantes.
 
 > [!TIP]
 > Pour activer les fonctionnalités de protection contre les menaces de Security Center, vous devez activer Azure Defender sur l’abonnement contenant les charges de travail applicables.
->
-> Vous pouvez activer la protection contre les menaces pour **Azure Database for MariaDB/MySQL/PostgreSQL** au niveau de la ressource uniquement.
-
 
 ## <a name="threat-protection-for-azure-network-layer"></a>Protection contre les menaces pour la couche réseau Azure <a name="network-layer"></a>
 L’analytique de la couche réseau de Security Center est basée sur des exemples de [données IPFIX](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), qui sont des en-têtes de paquets collectés par des routeurs de base Azure. En fonction de ce flux de données, les modèles Machine Learning de Security Center identifient et signalent les activités de trafic malveillantes. Security Center utilise également la base de données Microsoft Threat Intelligence pour enrichir les adresses IP.
