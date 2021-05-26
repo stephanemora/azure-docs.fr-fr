@@ -2,14 +2,14 @@
 title: Chiffrement dans la Sauvegarde Azure
 description: Découvrez comment les fonctionnalités de chiffrement de Sauvegarde Azure vous permettent de protéger vos données de sauvegarde et de répondre aux besoins de sécurité de votre entreprise.
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 05/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: 3163962bb1c7435c96bc46c2d7514561ca0bb37a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 0906ba078c04247122331bc41de11c871810877f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325478"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472419"
 ---
 # <a name="encryption-in-azure-backup"></a>Chiffrement dans la Sauvegarde Azure
 
@@ -25,9 +25,6 @@ Sauvegarde Azure inclut un chiffrement sur deux niveaux :
   - **Chiffrement au niveau de l’infrastructure** : En plus du chiffrement de vos données dans le coffre Recovery Services avec des clés gérées par le client, vous pouvez aussi demander à ce qu’une couche de chiffrement supplémentaire soit configurée sur l’infrastructure de stockage. Ce chiffrement de l’infrastructure est géré par la plateforme. Conjugué au chiffrement au repos basé sur les clés gérées par le client, il permet un chiffrement à deux couches de vos données de sauvegarde. Le chiffrement d’infrastructure ne peut être configuré que si vous choisissez d’abord d’utiliser vos propres clés pour le chiffrement au repos. Le chiffrement d’infrastructure utilise des clés gérées par la plateforme pour chiffrer les données.
 - **Chiffrement spécifique de la charge de travail en cours de sauvegarde**  
   - **Sauvegarde de machine virtuelle Azure** Le service Sauvegarde Azure prend en charge la sauvegarde de machines virtuelles avec des disques chiffrés à l’aide de clés [gérées par la plateforme](../virtual-machines/disk-encryption.md#platform-managed-keys), ainsi que de [clés gérées par le client](../virtual-machines/disk-encryption.md#customer-managed-keys) qui sont en votre possession. Par ailleurs, vous pouvez également sauvegarder vos machines virtuelles Azure dont le système d’exploitation ou les disques de données sont chiffrés à l’aide d’[Azure Disk Encryption](backup-azure-vms-encryption.md#encryption-support-using-ade). ADE utilise BitLocker pour les machines virtuelles Windows et DM-Crypt pour les machines virtuelles Linux afin d’effectuer un chiffrement dans l’invité.
-
->[!NOTE]
->Le chiffrement d’infrastructure est actuellement proposé en préversion limitée et n’est disponible que dans les régions USA Est, USA Ouest2, USA Centre Sud, US Gov Arizona et US Gov Virginie. Si vous souhaitez utiliser la fonctionnalité dans l’une de ces régions, complétez [ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) et envoyez-nous un e-mail à l’adresse [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

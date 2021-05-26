@@ -6,19 +6,16 @@ ms.author: vlvinogr
 ms.date: 02/18/2021
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 051bf4398555f318f613c66d58ec65be1d30e215
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d12945642e4a948df7f81da3ac89d5f8814fa4b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646807"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472731"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Stratégies d’intégration Dapr de Gestion des API
 
 Cette rubrique est une ressource de référence pour les stratégies de Gestion des API en matière d’intégration Dapr. Dapr est un runtime portable permettant de créer des applications avec et sans état basées sur des microservices, avec n’importe quel langage ou infrastructure. Il codifie les modèles de microservice courants, tels que la découverte et l’appel de service avec une logique de nouvelle tentative intégrée, la publication et l’abonnement avec une sémantique de remise au moins une fois, ou des ressources de liaison enfichables pour faciliter la composition à l’aide de services externes. Accédez à [dapr.io](https://dapr.io) pour obtenir des informations et instructions détaillées sur la prise en main de Dapr. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](api-management-howto-policies.md).
-
-> [!CAUTION]
-> Les stratégies référencées dans cette rubrique sont en préversion publique et peuvent faire l’objet d’un [Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!IMPORTANT]
 > Les stratégies référencées dans cette rubrique fonctionnent uniquement dans la [version auto-hébergée de la passerelle de Gestion des API](self-hosted-gateway-overview.md) avec prise en charge de Dapr activée.
