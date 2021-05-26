@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 05/19/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 444ca19732921b336cae32a9b1eb5755a08e4bd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1572b0a9822f340887c512c5cc20448fe0729109
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97028051"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461721"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutoriel : Activer la réécriture de la réinitialisation du mot de passe en libre-service Azure Active Directory dans un environnement local
 
@@ -87,7 +87,7 @@ Afin de configurer les autorisations appropriées pour l’écriture différée 
 
 Lorsque vous mettez à jour des autorisations, la réplication de ces autorisations pour tous les objets de l’annuaire peut durer une heure ou plus.
 
-Les stratégies de mot de passe dans l’environnement AD DS local peuvent empêcher le traitement correct des réinitialisations de mot de passe. Pour que la réécriture du mot de passe fonctionne le plus efficacement possible, la stratégie de groupe pour *Âge minimal du mot de passe* doit être définie sur 0. Ce paramètre se trouve sous **Configuration ordinateur > Stratégies > Paramètres Windows > Paramètres de sécurité > Stratégies de compte** dans `gpedit.msc`.
+Les stratégies de mot de passe dans l’environnement AD DS local peuvent empêcher le traitement correct des réinitialisations de mot de passe. Pour que la réécriture du mot de passe fonctionne le plus efficacement possible, la stratégie de groupe pour *Âge minimal du mot de passe* doit être définie sur 0. Ce paramètre se trouve sous **Configuration ordinateur > Stratégies > Paramètres Windows > Paramètres de sécurité > Stratégies de compte** dans `gpmc.msc`.
 
 Si vous mettez à jour la stratégie de groupe, attendez la réplication de la stratégie mise à jour ou utilisez la commande `gpupdate /force`.
 

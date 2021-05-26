@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 0ada06e5b96ed5344347f5de1baf006c8682ff87
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: fe3f3e49805d0702bfe0baf9ff0c6fa3d779208c
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480215"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379351"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -74,7 +74,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Anglais (Afrique du Sud)             | `en-ZA` | Texte                                   |                           |
 | Anglais (Tanzanie)                 | `en-TZ` | Texte                                   |                           |
 | Anglais (Royaume-Uni)           | `en-GB` | Audio (20201019)<br>Texte<br>Prononcer| Oui                          |
-| Anglais (États-Unis)            | `en-US` | Audio (20201019, 20210223)<br>Texte<br>Prononcer| Oui                          |
+| Anglais (États-Unis)            | `en-US` | Audio (20201019)<br>Texte<br>Prononcer| Oui                          |
 | Estonien (Estonie)                  | `et-EE` | Texte                                   |                           |
 | Filipino (Philippines)             | `fil-PH`| Texte                                   |                           |
 | Finnois (Finlande)                  | `fi-FI` | Texte                                   |     Oui                      |
@@ -565,19 +565,19 @@ Consultez le tableau suivant qui répertorie les langues prises en charge pour l
 
 | Langage | Paramètres régionaux (BCP-47) | Vérification dépendante du texte | Vérification indépendante du texte | Identification indépendante du texte |
 |----|----|----|----|----|
-|Anglais (US)  |  en-US  |  Oui  |  Oui  |  Oui |
-|Chinois (mandarin, simplifié) | zh-CN     |     n/a |     Oui |     Oui|
-|Anglais (Australie)     | en-AU     | n/a     | Oui     | Oui|
-|Anglais (Canada)     | en-CA     | n/a |     Oui |     Oui|
-|Anglais (Royaume-Uni)     | en-GB     | n/a     | Oui     | Oui|
-|Français (Canada)     | fr-CA     | n/a     | Oui |     Oui|
-|Français (France)     | fr-FR     | n/a     | Oui     | Oui|
-|Allemand (Allemagne)     | de-DE     | n/a     | Oui     | Oui|
-|Italien | it-IT     |     n/a     | Oui |     Oui|
-|Japonais     | ja-JP | n/a     | Oui     | Oui|
-|Portugais (Brésil) | pt-br |     n/a |     Oui |     Oui|
-|Espagnol (Mexique)     | es-MX     | n/a |     Oui |     Oui|
-|Espagnol (Espagne)     | es-ES | n/a     | Oui |     oui|
+|Anglais (US)  |  en-US  |  Oui  |  oui  |  Oui |
+|Chinois (mandarin, simplifié) | zh-CN     |     n/a |     oui |     Oui|
+|Anglais (Australie)     | en-AU     | n/a     | oui     | Oui|
+|Anglais (Canada)     | en-CA     | n/a |     oui |     Oui|
+|Anglais (Royaume-Uni)     | en-GB     | n/a     | oui     | Oui|
+|Français (Canada)     | fr-CA     | n/a     | oui |     Oui|
+|Français (France)     | fr-FR     | n/a     | oui     | Oui|
+|Allemand (Allemagne)     | de-DE     | n/a     | oui     | Oui|
+|Italien | it-IT     |     n/a     | oui |     Oui|
+|Japonais     | ja-JP | n/a     | oui     | Oui|
+|Portugais (Brésil) | pt-br |     n/a |     oui |     Oui|
+|Espagnol (Mexique)     | es-MX     | n/a |     oui |     Oui|
+|Espagnol (Espagne)     | es-ES | n/a     | oui |     oui|
 
 ## <a name="custom-keyword-and-keyword-verification"></a>Vérification par mot clé et mot clé personnalisé
 
