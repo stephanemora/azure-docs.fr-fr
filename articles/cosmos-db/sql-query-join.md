@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: tisande
-ms.openlocfilehash: cb7b2e62a9fabeeca675edb8e6aa356213e0999e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c792a967805bdda1e51ab3a0f5521c5b1baa1be2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98011386"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466874"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Jointures dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -76,11 +76,9 @@ Examinons la clause FROM suivante : `<from_source1> JOIN <from_source2> JOIN ...
   
 **Exemple 3** - 3 sources  
   
-- Laissez <from_source1> être étendu à un conteneur et représenter le jeu {A, B, C}.  
-  
 - Laissez `<from_source1>` être étendu à un conteneur et représenter le jeu {A, B, C}.  
   
-- Laissez <from_source2> être étendu à un document référençant input_source1 et représenter les jeux :  
+- Laissez `<from_source2>` être étendu à un document référençant input_`input_alias1` et représenter les jeux :  
   
     {1, 2} pour `input_alias1 = A,`  
   

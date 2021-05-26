@@ -4,12 +4,12 @@ description: Découvrir les bonnes pratiques de l’opérateur relatives aux fon
 services: container-service
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: 8c0f1d0cda61638abe03b92c627a5ea0455c31cb
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 034b7e18d3114804f846d77aa4feb001492c8883
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107104896"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467061"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités de base du planificateur dans Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,6 @@ Cet article traite des bonnes pratiques relatives aux fonctionnalités de planif
 > [!div class="checklist"]
 > * Utiliser des quotas d’utilisation de ressources pour fournir une quantité fixe de ressources à des équipes ou charges de travail
 > * Limiter l’impact de la maintenance planifiée à l’aide de budgets de perturbation de pod
-> * Rechercher les pods dépourvus de demandes et de limites de ressources à l’aide de l’outil `kube-advisor`
 
 ## <a name="enforce-resource-quotas"></a>Appliquer des quotas de ressources
 
@@ -134,18 +133,6 @@ Collaborez avec les propriétaires et développeurs d’application pour compren
 
 Pour plus d’informations sur l’utilisation de budgets de perturbation de pod, consultez [Spécifier un budget de perturbation pour votre application][k8s-pdbs].
 
-## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Rechercher régulièrement les problèmes liés au cluster avec kube-advisor
-
-> **Conseils sur les bonnes pratiques** 
->
-> Exécutez régulièrement la dernière version de l’`kube-advisor`outil open source pour détecter les problèmes dans votre cluster. Si vous appliquez des quotas de ressources sur un cluster AKS existant, exécutez d’abord `kube-advisor` pour rechercher les pods dont les demandes et limites de ressources ne sont pas définies.
-
-L’outil [kube-advisor][kube-advisor] est un projet open source AKS associé qui analyse un cluster Kubernetes et signale les problèmes trouvés. `kube-advisor` s’avère utile pour identifier les pods sans requête de ressources et sans limite en termes de place.
-
-Bien que l’outil `kube-advisor` puisse détecter des requêtes de ressources et des limites manquantes dans PodSpecs pour les applications Windows et Linux, il doit être planifié sur un pod Linux. Planifiez un pod pour qu’il s’exécute sur un pool de nœuds avec un système d’exploitation spécifique à l’aide d’un [sélecteur de nœud][k8s-node-selector] dans la configuration du pod.
-
-Le suivi des pods sans les requêtes de ressources et les limites définies dans un cluster AKS hébergeant plusieurs équipes de développement et d’applications peut être difficile. Une bonne pratique consiste à exécuter régulièrement `kube-advisor` sur vos clusters AKS, surtout si vous n’affectez pas de quotas de ressources aux espaces de noms.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, nous avons traité des fonctionnalités de base du planificateur Kubernetes. Pour plus d’informations sur les opérations liées aux clusters dans AKS, consultez les bonnes pratiques suivantes :
@@ -157,7 +144,6 @@ Dans cet article, nous avons traité des fonctionnalités de base du planificate
 <!-- EXTERNAL LINKS -->
 [k8s-resource-quotas]: https://kubernetes.io/docs/concepts/policy/resource-quotas/
 [configure-default-quotas]: https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
-[kube-advisor]: https://github.com/Azure/kube-advisor
 [k8s-pdbs]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
 
 <!-- INTERNAL LINKS -->

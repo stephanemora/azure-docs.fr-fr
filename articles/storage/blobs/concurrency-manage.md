@@ -11,12 +11,12 @@ ms.date: 12/01/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ea0bed0884a3a03e2cd15b274b2afb0f054b0cbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53005bffde698030221751ec0638a6cc6cbd98c7
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96523271"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478931"
 ---
 # <a name="managing-concurrency-in-blob-storage"></a>Gestion de l’accès concurrentiel dans Blob Storage
 
@@ -49,11 +49,11 @@ Ce processus se déroule comme suit :
 
 Les exemples de code suivants montrent comment construire une condition **If-Match** sur la demande d’écriture qui vérifie la valeur ETag pour un objet blob. Stockage Azure évalue si la valeur ETag actuelle de l’objet blob est identique à la valeur ETag fournie dans la demande, puis exécute l’opération d’écriture uniquement si les deux valeurs ETag correspondent. Si l’objet blob a été mis à jour entre-temps par un autre processus, Stockage Azure retourne un message d’état HTTP 412 (Échec de la condition préalable).  
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Concurrency.cs" id="Snippet_DemonstrateOptimisticConcurrencyBlob":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
 ```csharp
 public void DemonstrateOptimisticConcurrencyBlob(string containerName, string blobName)
@@ -116,11 +116,11 @@ Les baux permettent la prise en charge de différentes stratégies de synchronis
 
 Les exemples de code suivants montrent comment acquérir un bail exclusif sur un objet blob, mettre à jour le contenu de cet objet blob en fournissant l’ID de bail, puis libérer le bail. Si le bail est actif et que l’ID de bail n’est pas fourni dans une demande d’écriture, l’opération d’écriture échoue avec le code d’erreur 412 (échec de la précondition).  
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Concurrency.cs" id="Snippet_DemonstratePessimisticConcurrencyBlob":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnetv11)
 
 ```csharp
 public void DemonstratePessimisticConcurrencyBlob(string containerName, string blobName)

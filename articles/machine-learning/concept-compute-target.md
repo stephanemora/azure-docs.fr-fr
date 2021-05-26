@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: f421274513cc3d76f7e8c1119cf98e4e5d36b1f9
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: a0644342c417cb06c257372e526fff55df62f9b9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950265"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095425"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ?
 
@@ -56,7 +56,7 @@ Vous pouvez créer des instances de calcul Azure Machine Learning ou des cluster
     * [Instance de calcul](how-to-create-manage-compute-instance.md).
     * [Cluster de calcul](how-to-create-attach-compute-cluster.md).
 * Le [Kit de développement logiciel (SDK) R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (préversion).
-* Un modèle Azure Resource Manager. Pour obtenir un exemple de modèle, consultez [Créer un cluster de calcul Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
+* Un modèle Azure Resource Manager. Pour obtenir un exemple de modèle, consultez [Créer un cluster de calcul Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
 * Une [extension de Machine Learning pour l’interface de ligne de commande Azure](reference-azure-machine-learning-cli.md#resource-management).
 
 Une fois créées, ces ressources de calcul font automatiquement partie de votre espace de travail, contrairement à d’autres types de cibles de calcul.
@@ -103,11 +103,11 @@ Pour en savoir plus sur les séries prises en charge et les restrictions, consul
 | NC | Aucun. |  GPU | Clusters et instance de calcul |
 | NC Promo | Aucun. | GPU | Clusters et instance de calcul |
 | NCsv2 | Nécessite une approbation. | GPU | Clusters et instance de calcul |
-| NCsv3 | Nécessite une approbation. | GPU | Clusters et instance de calcul |  
-| NDs | Nécessite une approbation. | GPU | Clusters et instance de calcul | 
-| NDv2 | Nécessite une approbation. | GPU | Clusters et instance de calcul | 
-| NV | Aucun. | GPU | Clusters et instance de calcul | 
-| NVv3 | Nécessite une approbation. | GPU | Clusters et instance de calcul | 
+| NCsv3 | Nécessite une approbation. | GPU | Clusters et instance de calcul |
+| NDs | Nécessite une approbation. | GPU | Clusters et instance de calcul |
+| NDv2 | Nécessite une approbation. | GPU | Clusters et instance de calcul |
+| NV | Aucun. | GPU | Clusters et instance de calcul |
+| NVv3 | Nécessite une approbation. | GPU | Clusters et instance de calcul |
 
 
 Même si Azure Machine Learning prend en charge ces séries de machines virtuelles, elles peuvent ne pas être disponibles dans toutes les régions Azure. Pour vérifier si les séries de machines virtuelles sont disponibles, consultez [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).

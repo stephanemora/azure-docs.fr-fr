@@ -3,13 +3,13 @@ title: Planifier le déploiement d’Azure VMware Solution
 description: Cet article décrit un workflow de déploiement d’Azure VMware Solution.  Le résultat final est un environnement prêt pour la création et la migration des machines virtuelles.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
-ms.date: 04/27/2021
-ms.openlocfilehash: bc78830180f12c947b195b8525ea9b100b123836
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.date: 05/13/2021
+ms.openlocfilehash: 0b8826582957e02ec3f18d09dec7283cc92188a1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108179530"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097117"
 ---
 # <a name="plan-the-azure-vmware-solution-deployment"></a>Planifier le déploiement d’Azure VMware Solution
 
@@ -24,15 +24,15 @@ Les étapes décrites vous permettent d’obtenir un environnement prêt pour la
 ## <a name="request-a-host-quota"></a>Demander un quota d’hôte 
 
 Il est important de demander un quota d’hôte au plus tôt, quand vous vous préparez à créer votre ressource Azure VMware Solution. Comme vous pouvez demander un quota d’hôte maintenant, vous êtes prêt à déployer le cloud privé Azure VMware Solution dès lors que le processus de planification est terminé. Une fois que l’équipe du support technique a reçu votre demande de quota d’hôte, cela prend jusqu’à cinq jours ouvrés pour la confirmer et vous allouer des hôtes. Si vous avez un cloud privé Azure VMware Solution et que vous voulez que davantage d’hôtes vous soient alloués, suivez le même processus. Pour plus d’informations, consultez les liens suivants, en fonction du type d’abonnement que vous avez :
-- [Clients EA](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-ea-customers)
-- [Clients CSP](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-csp-customers)
+- [Clients EA](request-host-quota-azure-vmware-solution.md#request-host-quota-for-ea-customers)
+- [Clients CSP](request-host-quota-azure-vmware-solution.md#request-host-quota-for-csp-customers)
 
 ## <a name="identify-the-subscription"></a>Identifier l’abonnement
 
 Identifiez l’abonnement que vous prévoyez d’utiliser pour déployer Azure VMware Solution.  Vous pouvez soit créer un nouvel abonnement, soit réutiliser un abonnement existant.
 
 >[!NOTE]
->L’abonnement doit être associé à un Contrat Entreprise Microsoft ou à un plan Azure pour fournisseurs de solutions cloud. Pour plus d’informations, voir [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md).
+>L’abonnement doit être associé à un Contrat Entreprise Microsoft ou à un plan Azure pour fournisseurs de solutions cloud. Pour plus d’informations, voir [Comment activer la ressource Azure VMware Solution](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider).
 
 ## <a name="identify-the-resource-group"></a>Identifier le groupe de ressources
 

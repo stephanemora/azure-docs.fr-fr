@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2021
 ms.author: rolyon
-ms.openlocfilehash: fd13fa81d3b6081468bc4071ffe3c41bf3294c7a
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 7d7b8732cedc05759fe4aa343a58eb89a3cec3c9
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656653"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109844666"
 ---
 # <a name="add-or-edit-azure-role-assignment-conditions-using-the-azure-portal-preview"></a>Ajouter ou modifier des conditions d’attribution de rôle Azure à l’aide du portail Azure (préversion)
 
@@ -124,13 +124,13 @@ Une fois la page Ajouter une condition d’attribution de rôle ouverte, vous po
 
 1. Dans la zone Valeur, entrez une valeur pour le côté droit de l’expression.
 
-    ![Section Générer l’expression avec des valeurs pour les balises d’index d’objet blob.](./media/conditions-role-assignments-portal/condition-expressions.png)
+    ![Section Générer l’expression avec des valeurs pour les balises d’index d’objet blob.](./media/shared/condition-expressions.png)
 
 ## <a name="step-6-review-and-add-condition"></a>Étape 6 : Examiner et ajouter une condition
 
 1. Faites défiler la liste jusqu’à **Type d’éditeur**, puis cliquez sur **Code**.
 
-    La condition s’affiche sous forme de code. Vous pouvez apporter des changements à la condition dans cet éditeur de code. Pour revenir à l’éditeur visuel, cliquez sur **Visuel**.
+    La condition s’affiche sous forme de code. Vous pouvez apporter des modifications à la condition dans cet éditeur de code. Pour revenir à l’éditeur visuel, cliquez sur **Visuel**.
 
     ![Condition affichée dans l’éditeur de code avec des actions sélectionnées et une expression ajoutée.](./media/conditions-role-assignments-portal/condition-code.png)
 
@@ -159,5 +159,5 @@ Une fois la page Ajouter une condition d’attribution de rôle ouverte, vous po
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Exemples de conditions d’attribution de rôle Azure (préversion)](../storage/common/storage-auth-abac-examples.md)
-- [Tutoriel : Ajouter une condition d’attribution de rôle pour restreindre l’accès aux objets blob à l’aide du portail Azure (préversion)](../storage/common/storage-auth-abac-portal.md)
-- [Résoudre les problèmes liés aux de conditions d’attribution de rôle Azure (préversion)](conditions-troubleshoot.md)
+- [Tutoriel : Ajouter une condition d’attribution de rôle pour restreindre l’accès aux blobs à l’aide du portail Azure (préversion)](../storage/common/storage-auth-abac-portal.md)
+- [Résoudre les problèmes liés aux conditions d’attribution de rôle Azure (préversion)](conditions-troubleshoot.md)

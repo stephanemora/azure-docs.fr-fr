@@ -4,12 +4,12 @@ description: Apprenez à sécuriser votre cluster à l’aide d’une plage d’
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 9b6ee4a17c15b6ada39798db40408d1d26971dfe
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: e97ed38d3491ace658a92e2abfbc7cd417ca9cf1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108016344"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110100555"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Sécuriser l’accès au serveur d’API à l’aide de plages d’adresses IP autorisées dans Azure Kubernetes Service (AKS)
 
@@ -61,7 +61,6 @@ az aks create \
 > Vous devez ajouter ces plages à une liste verte :
 > - Adresse IP publique du pare-feu
 > - Toute plage qui représente les réseaux à partir desquels vous allez administrer le cluster
-> - Si vous utilisez Azure Dev Spaces sur votre cluster AKS, vous devez autoriser des [plages supplémentaires en fonction de votre région][dev-spaces-ranges].
 >
 > La limite supérieure du nombre de plages d’adresses IP que vous pouvez spécifier est 200.
 >

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: b2856c51ccc31b57ea567c5d0940cd260797f770
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d56f565dab1b83e0cf9572e6807577be32678fe7
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560750"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839110"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Démarrage rapide : Créer une machine virtuelle Windows à l’aide d’un modèle ARM
 
@@ -24,7 +24,7 @@ Ce guide de démarrage rapide montre comment utiliser un modèle Azure Resource 
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json)
+[![Déployer sur Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-:::code language="json" source="~/quickstart-templates/101-vm-simple-windows/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json":::
 
 
 Plusieurs ressources sont définies dans le modèle :
@@ -53,7 +53,7 @@ Plusieurs ressources sont définies dans le modèle :
 
 1. Cliquez sur l’image ci-après pour vous connecter à Azure et ouvrir un modèle. Le modèle crée un coffre de clés et un secret.
 
-    [![Déployer sur Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json)
+    [![Déployer sur Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json)
 
 1. Sélectionnez ou entrez les valeurs suivantes. Utilisez les valeurs par défaut, le cas échéant.
 
@@ -78,7 +78,7 @@ Vous pouvez utiliser le portail Azure pour vérifier la machine virtuelle et les
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand vous n’en avez plus besoin, supprimez le groupe de ressources, ce qui supprime également la machine virtuelle et toutes les ressources du groupe de ressources. 
+Quand vous n’en avez plus besoin, supprimez le groupe de ressources, ce qui supprime également la machine virtuelle et toutes les ressources du groupe de ressources.
 
 1. Sélectionnez le **groupe de ressources**.
 1. Dans la page du groupe de ressources, sélectionnez **Supprimer**.
