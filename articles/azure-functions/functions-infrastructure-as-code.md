@@ -5,16 +5,16 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: e5de54384d59423ac5e4b8ab851faf98070d027d
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 072aa17783382c7d46298b2757b3bda9390e5e29
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278845"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368748"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiser le déploiement de ressources pour votre application de fonction dans Azure Functions
 
-Vous pouvez utiliser un modèle Azure Resource Manager pour déployer une application de fonction. Cet article présente les ressources et paramètres nécessaires pour effectuer cette opération. Vous devrez peut-être déployer des ressources supplémentaires, selon les [déclencheurs et liaisons](functions-triggers-bindings.md) présents dans votre application de fonction.
+Vous pouvez utiliser un modèle Azure Resource Manager pour déployer une application de fonction. Cet article présente les ressources et paramètres nécessaires pour effectuer cette opération. Vous devrez peut-être déployer d’autres ressources, selon les [déclencheurs et liaisons](functions-triggers-bindings.md) présents dans votre application de fonction.
 
 Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
@@ -56,7 +56,7 @@ Un compte de stockage Azure est nécessaire pour une application de fonction. Vo
 }
 ```
 
-En outre, la propriété `AzureWebJobsStorage` doit être spécifiée comme paramètre d’application dans la configuration du site. Si l’application de fonction n’utilise pas Application Insights pour l’analyse, elle doit également spécifier `AzureWebJobsDashboard` comme paramètre d’application.
+Vous devez également spécifier la propriété `AzureWebJobsStorage` en tant que paramètre d’application dans la configuration du site. Si l’application de fonction n’utilise pas Application Insights pour l’analyse, elle doit également spécifier `AzureWebJobsDashboard` comme paramètre d’application.
 
 Le runtime d’Azure Functions utilise la chaîne de connexion `AzureWebJobsStorage` pour créer des files d’attente internes.  Lorsque Application Insights n’est pas activé, le runtime utilise la chaîne de connexion `AzureWebJobsDashboard` pour se connecter au stockage de table Azure et alimenter l’onglet **Surveiller** du portail.
 
@@ -181,21 +181,21 @@ Pour un exemple de modèle Azure Resource Manager, consultez [Function app on Co
 
 ### <a name="create-a-consumption-plan"></a>Créer un plan Consommation
 
-Un plan Consommation ne doit pas nécessairement être défini. Un tel plan est automatiquement créé ou sélectionné sur une base régionale lorsque vous créez la ressource d’application de fonction.
+Il n’est pas nécessaire de définir un plan Consommation. Un tel plan est automatiquement créé ou sélectionné sur une base régionale lorsque vous créez la ressource d’application de fonction.
 
 Le plan Consommation est un type spécial de ressource « serverfarm ». Pour Windows, vous pouvez le spécifier en utilisant la valeur `Dynamic` pour les propriétés `computeMode` et `sku` :
 
 ```json
-{  
+{
    "type":"Microsoft.Web/serverfarms",
    "apiVersion":"2016-09-01",
    "name":"[variables('hostingPlanName')]",
    "location":"[resourceGroup().location]",
-   "properties":{  
+   "properties":{
       "name":"[variables('hostingPlanName')]",
       "computeMode":"Dynamic"
    },
-   "sku":{  
+   "sku":{
       "name":"Y1",
       "tier":"Dynamic",
       "size":"Y1",
@@ -212,11 +212,11 @@ Si vous définissez explicitement votre plan Consommation, vous devez définir l
 
 ### <a name="create-a-function-app"></a>Créer une application de fonction
 
-Les paramètres que requiert une application de fonction s’exécutant dans un plan Consommation diffèrent entre Windows et Linux. 
+Les paramètres que requiert une application de fonction s’exécutant dans un plan Consommation diffèrent entre Windows et Linux.
 
 #### <a name="windows"></a>Windows
 
-Sous Windows, un plan Consommation nécessite un paramètre supplémentaire dans la configuration du site : [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). Cette propriété configure le compte de stockage dans lequel la configuration et le code de l’application de fonction sont stockés.
+Sur Windows, un plan Consommation nécessite un autre paramètre dans la configuration du site : [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). Cette propriété configure le compte de stockage dans lequel la configuration et le code de l’application de fonction sont stockés.
 
 ```json
 {
@@ -258,11 +258,11 @@ Sous Windows, un plan Consommation nécessite un paramètre supplémentaire dans
 ```
 
 > [!IMPORTANT]
-> Ne définissez pas le paramètre [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) tel qu’il est généré pour vous lors de la création du site.  
+> Ne définissez pas le paramètre [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) tel qu’il est généré pour vous lors de la création du site.
 
 #### <a name="linux"></a>Linux
 
-Sous Linux, l’application de fonction doit avoir son paramètre `kind` défini sur `functionapp,linux`, et la propriété `reserved` définie sur `true`. 
+Sous Linux, l’application de fonction doit avoir son paramètre `kind` défini sur `functionapp,linux`, et la propriété `reserved` définie sur `true`.
 
 ```json
 {
@@ -305,7 +305,7 @@ Les paramètres [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-setti
 <a name="premium"></a>
 ## <a name="deploy-on-premium-plan"></a>Déployer sur un plan Premium
 
-Le plan Premium offre la même mise à l’échelle que le plan Consommation, mais inclut des ressources dédiées et des fonctionnalités supplémentaires. Pour plus d’informations, consultez [Plan Premium Azure Functions](./functions-premium-plan.md).
+Le plan Premium offre la même mise à l’échelle que le plan Consommation, mais il inclut des ressources dédiées et des fonctionnalités en plus. Pour plus d’informations, consultez [Plan Premium Azure Functions](./functions-premium-plan.md).
 
 ### <a name="create-a-premium-plan"></a>Créer un plan Premium
 
@@ -334,7 +334,7 @@ Un plan Premium est un type spécial de ressource « serverfarm ». Vous pouvez 
 
 ### <a name="create-a-function-app"></a>Créer une application de fonction
 
-Une application de fonction sur un plan Premium doit avoir la propriété `serverFarmId` définie sur l’ID de ressource du plan créé précédemment. De plus, un plan Premium nécessite un paramètre supplémentaire dans la configuration du site : [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). Cette propriété configure le compte de stockage dans lequel la configuration et le code de l’application de fonction sont stockés.
+Une application de fonction sur un plan Premium doit avoir la propriété `serverFarmId` définie sur l’ID de ressource du plan créé précédemment. De plus, un plan Premium nécessite un autre paramètre dans la configuration du site : [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). Cette propriété configure le compte de stockage dans lequel la configuration et le code de l’application de fonction sont stockés.
 
 ```json
 {
@@ -342,7 +342,7 @@ Une application de fonction sur un plan Premium doit avoir la propriété `serve
     "type": "Microsoft.Web/sites",
     "name": "[variables('functionAppName')]",
     "location": "[resourceGroup().location]",
-    "kind": "functionapp",            
+    "kind": "functionapp",
     "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
@@ -377,7 +377,7 @@ Une application de fonction sur un plan Premium doit avoir la propriété `serve
 }
 ```
 > [!IMPORTANT]
-> Ne définissez pas le paramètre [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) tel qu’il est généré pour vous lors de la création du site.  
+> Ne définissez pas le paramètre [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) tel qu’il est généré pour vous lors de la création du site.
 
 <a name="app-service-plan"></a>
 
@@ -569,6 +569,109 @@ Si vous [déployez une image de conteneur personnalisé](./functions-create-func
 }
 ```
 
+## <a name="deploy-to-azure-arc"></a>Déployer sur Azure Arc
+
+Azure Functions peut être déployé sur [Kubernetes avec Azure Arc](../app-service/overview-arc-integration.md). Ce processus suit en grande partie les étapes du [déploiement sur un plan App Service](#deploy-on-app-service-plan), avec quelques différences à noter.
+
+Pour créer les ressources d’application et de plan, vous devez avoir déjà [créé un environnement App Service Kubernetes](../app-service/manage-create-arc-environment.md) pour un cluster Kubernetes avec Azure Arc. Ces exemples supposent que vous avez l’ID de ressource de l’emplacement personnalisé et de l’environnement App Service Kubernetes où vous effectuez le déploiement. Pour la plupart des modèles, vous pouvez fournir ces informations en tant que paramètres.
+
+```json
+{
+    "parameters": {
+        "kubeEnvironmentId" : {
+            "type": "string"
+        },
+        "customLocationId" : {
+            "type": "string"
+        }
+    }
+}
+```
+
+Les sites et les plans doivent référencer l’emplacement personnalisé par le biais d’un champ `extendedLocation`. Ce bloc se trouve en dehors de `properties`, avec `kind` et `location` :
+
+```json
+{
+    "extendedLocation": {
+        "type": "customlocation",
+        "name": "[parameters('customLocationId')]"
+    },
+}
+```
+
+La ressource de plan doit utiliser la référence SKU Kubernetes (K1) et son champ `kind` doit avoir la valeur « linux,kubernetes ». Dans `properties`, `reserved` doit avoir la valeur « true », et `kubeEnvironmentProfile.id` doit être défini sur l’ID de ressource de l’environnement App Service Kubernetes. Voici un exemple de plan :
+
+```json
+{
+    "type": "Microsoft.Web/serverfarms",
+    "name": "[variables('hostingPlanName')]",
+    "location": "[parameters('location')]",
+    "apiVersion": "2020-12-01",
+    "kind": "linux,kubernetes",
+    "sku": {
+        "name": "K1",
+        "tier": "Kubernetes"
+    },
+    "extendedLocation": {
+        "type": "customlocation",
+        "name": "[parameters('customLocationId')]"
+    },
+    "properties": {
+        "name": "[variables('hostingPlanName')]",
+        "location": "[parameters('location')]",
+        "workerSizeId": "0",
+        "numberOfWorkers": "1",
+        "kubeEnvironmentProfile": {
+            "id": "[parameters('kubeEnvironmentId')]"
+        },
+        "reserved": true
+    }
+}
+```
+
+Le champ `kind` de la ressource d’application de fonction doit avoir la valeur « functionapp,linux,kubernetes » ou « functionapp,linux,kubernetes,container », selon que le déploiement se fera par le biais de code ou d’un conteneur. Voici un exemple d’application de fonction :
+
+```json
+ {
+    "apiVersion": "2018-11-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('appName')]",
+    "kind": "kubernetes,functionapp,linux,container",
+    "location": "[parameters('location')]",
+    "extendedLocation": {
+        "type": "customlocation",
+        "name": "[parameters('customLocationId')]"
+    },
+    "dependsOn": [
+        "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+        "[variables('hostingPlanId')]"
+    ],
+    "properties": {
+        "serverFarmId": "[variables('hostingPlanId')]",
+        "siteConfig": {
+            "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice-quickstart",
+            "appSettings": [
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~3"
+                },
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+
+                },
+                {
+                    "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                    "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
+                }
+            ],
+            "alwaysOn": true
+        }
+    }
+}
+```
+
 ## <a name="customizing-a-deployment"></a>Personnalisation d’un déploiement
 
 Une application de fonction dispose de nombreuses ressources enfant que vous pouvez utiliser dans votre développement, notamment les paramètres de l’application et les options de contrôle de code source. Vous pouvez également choisir de supprimer la ressource enfant **sourcecontrols** et utiliser une autre [option de déploiement](functions-continuous-deployment.md) à la place.
@@ -697,4 +800,4 @@ En savoir plus sur le développement et la configuration d’Azure Functions.
 <!-- LINKS -->
 
 [Function app on Consumption plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json (Application de fonction dans le plan Consommation)
-[Function app on Azure App Service plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json (Application de fonction dans le plan Azure App Service)
+[Function app on Azure App Service plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/azuredeploy.json (Application de fonction dans le plan Azure App Service)

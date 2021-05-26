@@ -4,12 +4,12 @@ description: Apprenez à personnaliser les paramètres d’authentification et d
 ms.topic: article
 ms.date: 03/29/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 9335bb62e494fab50f7beadf3d7bbc423d80cf14
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7209f5176480577f14ba5b02fafc5a249c58fd1c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775724"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452219"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service
 
@@ -302,9 +302,6 @@ Les étapes suivantes vous permettront de migrer manuellement l’application ve
    ```azurecli
    # For Web Apps
    az webapp auth show -g <group_name> -n <site_name>
-
-   # For Azure Functions
-   az functionapp auth show -g <group_name> -n <site_name>
    ```
 
    Dans la charge utile JSON résultante, prenez note de la valeur de secret utilisée pour chaque fournisseur que vous avez configuré :
