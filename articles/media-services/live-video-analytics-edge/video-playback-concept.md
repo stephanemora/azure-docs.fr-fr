@@ -1,16 +1,18 @@
 ---
-title: Lecture de vidéo - Azure
-description: Espace réservé
+title: Lecture de vidéo avec Live Video Analytics – Azure
+description: Dans cet article, vous allez découvrir les étapes à suivre pour lire un actif multimédia à l’aide des fonctionnalités de streaming existantes d’Azure Media Services.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: be42b39c167798e4e288c77dbd48a8734eb71fdf
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 9669194f3dff8f64d54cb15c8cb6fee0d7a2667b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278590"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368384"
 ---
-# <a name="video-playback"></a>Lecture de vidéo 
+# <a name="video-playback-with-live-video-analytics"></a>Lecture de vidéo avec Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## <a name="suggested-pre-reading"></a>Lecture préalable suggérée 
 
@@ -20,7 +22,7 @@ ms.locfileid: "106278590"
 
 ## <a name="overview"></a>Vue d’ensemble  
 
-Vous pouvez utiliser des [graphes multimédias](media-graph-concept.md) pour enregistrer des vidéos dans un [actif multimédia](terminology.md#asset) Azure Media Services. Dans ce document, vous pouvez découvrir les étapes à suivre pour lire un actif multimédia à l’aide des fonctionnalités de streaming existantes d’Azure Media Services.
+Vous pouvez utiliser des [graphes multimédias](media-graph-concept.md) pour enregistrer des vidéos dans un [actif multimédia](terminology.md#asset) Azure Media Services. Dans cet article, vous allez découvrir les étapes à suivre pour lire un actif multimédia à l’aide des fonctionnalités de streaming existantes d’Azure Media Services.
 
 ## <a name="streaming-endpoint"></a>point de terminaison de diffusion en continu 
 

@@ -1,16 +1,18 @@
 ---
-title: Créer un rôle Azure Resource Manager personnalisé et l’affecter à un principal du service – Azure
-description: Cet article explique comment créer un rôle Azure Resource Manager personnalisé et l’affecter à un principal de service pour Live Video Analytics sur IoT Edge, à l’aide de Microsoft Azure CLI.
+title: Créer un rôle Azure Resource Manager personnalisé et l’attribuer à un principal de service avec Azure Live Video Analytics
+description: Cet article explique comment créer un rôle Azure Resource Manager personnalisé et l’affecter à un principal de service pour Azure Live Video Analytics sur IoT Edge en utilisant Azure CLI.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 6c33f6703522fc0b28237e22c16c96587467df40
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4cf819fdcdb0c046070e90dd9c2aa1a42a1d8a1b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788508"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373751"
 ---
-# <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Créer un rôle Azure Resource Manager personnalisé et l’affecter à un principal du service
+# <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal-with-live-video-analytics"></a>Créer un rôle Azure Resource Manager personnalisé et l’attribuer à un principal de service avec Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 L’instance de module Live Video Analytics sur IoT Edge nécessite un compte Azure Media Services actif pour fonctionner correctement. La relation entre le module Live Video Analytics sur IoT Edge et le compte Azure Media Services est établie via un ensemble de propriétés de jumeau de module. L’une de ces propriétés est un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) qui permet à l’instance de module de communiquer avec le compte Media Services et de déclencher les opérations nécessaires via ce dernier. Pour réduire le risque d’utilisation malveillante et/ou d’exposition accidentelle des données à partir du périphérique, ce principal de service doit avoir le moins de privilèges possible.
 

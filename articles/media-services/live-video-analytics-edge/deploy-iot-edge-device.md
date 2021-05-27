@@ -1,16 +1,18 @@
 ---
-title: Déployer Live Video Analytics sur un appareil IoT Edge - Azure
-description: Cet article répertorie les étapes permettant de déployer Live Video Analytics sur votre appareil IoT Edge. C’est utile si, par exemple, vous disposez d’un accès à un ordinateur local Linux et que vous avez déjà crée un compte Azure Media Services.
+title: Déployer Azure Live Video Analytics sur un appareil IoT Edge
+description: Cet article indique les étapes à suivre pour déployer Azure Live Video Analytics sur votre appareil IoT Edge. C’est utile si, par exemple, vous disposez d’un accès à un ordinateur local Linux et que vous avez déjà crée un compte Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 466cc236c1482b2ae6a31b40b6f3461a2c2fbfc1
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 75b91855ff8e46a45fac96e90be08a272ef52dfb
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280290"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367454"
 ---
-# <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Déployer Live Video Analytics sur un appareil IoT Edge
+# <a name="deploy-azure-live-video-analytics-on-an-iot-edge-device"></a>Déployer Azure Live Video Analytics sur un appareil IoT Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Cet article répertorie les étapes permettant de déployer Live Video Analytics sur votre appareil IoT Edge. C’est utile si, par exemple, vous disposez d’un accès à un ordinateur local Linux et que vous avez déjà crée un compte Azure Media Services.
 

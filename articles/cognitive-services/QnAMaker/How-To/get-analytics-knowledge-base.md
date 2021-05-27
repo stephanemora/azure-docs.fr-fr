@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 5f149dd6db82b66b45a4c995e2004936481af786
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 41477b99c6bb07ab836f6c4ef75a06b2f642f3a2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96352420"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375422"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obtenir des analyses sur votre base de connaissances
 
@@ -48,11 +48,11 @@ QnA Maker stocke tous les journaux d’activité de conversation et d’autres d
 
     [![Exécuter la requête pour déterminer les questions, les réponses et le score des utilisateurs](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
-QnA Maker managé (préversion) utilise la journalisation des diagnostics Azure pour stocker les données de télémétrie et les journaux de conversation. Suivez les étapes ci-dessous pour exécuter des exemples de requêtes afin d’analyser l’utilisation de votre base de connaissances QnA Maker.
+Le service Réponses aux questions personnalisées (préversion) utilise la journalisation des diagnostics Azure pour stocker les données de télémétrie et les journaux de conversation. Suivez les étapes ci-dessous pour exécuter des exemples de requêtes afin d’analyser l’utilisation de votre base de connaissances QnA Maker.
 
-1. [Activez la journalisation des diagnostics](../../diagnostic-logging.md) pour votre service QnA Maker managé (préversion).
+1. [Activez la journalisation des diagnostics](../../diagnostic-logging.md) pour votre service Analyse de texte avec la fonctionnalité Réponses aux questions personnalisées (préversion).
 
 2. À l’étape précédente, sélectionnez **Trace** en plus d’**Audit, RequestResponse et AllMetrics** pour la journalisation.
 
@@ -132,7 +132,7 @@ traces | extend id = operation_ParentId
 | order  by timestamp  desc
 ```
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
 ### <a name="all-qna-chat-log"></a>Tout le journal de conversation QnA
 

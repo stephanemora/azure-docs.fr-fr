@@ -1,16 +1,18 @@
 ---
 title: Enregistrement vidéo en continu et lecture vidéo dans le cloud - Azure
-description: Ce tutoriel va vous apprendre à utiliser Azure Live Video Analytics sur Azure IoT Edge pour enregistrer des vidéos en continu dans le cloud et diffuser toute partie de ces vidéos avec Azure Media Services.
+description: Dans ce tutoriel, vous verrez comment utiliser Azure Live Video Analytics sur Azure IoT Edge pour enregistrer des vidéos en continu dans le cloud et diffuser en streaming n’importe quelle partie de ces vidéos avec Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: d534fb174afa700671b6a3991a6aafa6357eb167
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 38a6afbae8f05bea4d165131eeab8cf97f48a465
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280341"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376688"
 ---
-# <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutoriel : Enregistrement vidéo en continu et lecture vidéo dans le cloud
+# <a name="tutorial-use-live-video-analytics-for-continuous-video-recording-and-playback-tofrom-the-cloud"></a>Tutoriel : Utiliser Live Video Analytics pour l’enregistrement et la lecture vidéo en continu dans le cloud
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Ce tutoriel va vous apprendre à utiliser Azure Live Video Analytics sur Azure IoT Edge pour effectuer des [enregistrements vidéo en continu](continuous-video-recording-concept.md) (CVR, Continuous Video Recording) dans le cloud et diffuser toute partie de ces vidéos avec Azure Media Services. Cette possibilité peut s’avérer utiles dans des scénarios de sécurité et de conformité où il est nécessaire de conserver une archive des images d’une caméra pendant plusieurs jours ou semaines. 
 

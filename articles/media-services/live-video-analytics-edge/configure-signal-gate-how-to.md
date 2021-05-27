@@ -1,16 +1,18 @@
 ---
-title: Configurer une porte de signal pour l’enregistrement vidéo basé sur les événements – Azure
-description: Cet article fournit des conseils sur la configuration d’une porte de signal dans un graphe multimédia.
+title: Configurer une porte de signal pour l’enregistrement vidéo basé sur les événements avec Live Video Analytics – Azure
+description: Cet article explique comment configurer une porte de signal dans un graphe multimédia avec Live Video Analytics.
 ms.topic: how-to
 ms.date: 11/3/2020
-ms.openlocfilehash: afcec7c03f1353f08b58311278f5a533e0c911bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fc36757c44ad69d61466b373756bdd9428dbab9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94410791"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367690"
 ---
-# <a name="configure-a-signal-gate-for-event-based-video-recording"></a>Configurer une porte de signal pour l’enregistrement vidéo basé sur les événements
+# <a name="configure-a-signal-gate-for-event-based-video-recording-with-live-video-analytics"></a>Configurer une porte de signal pour l’enregistrement vidéo basé sur les événements avec Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Dans un graphe multimédia, un [nœud processeur de porte de signal](media-graph-concept.md#signal-gate-processor) vous permet de transférer un média d’un nœud à un autre lorsque la porte est déclenchée par un événement. Une fois déclenchée, la porte s’ouvre, laissant le média circuler pendant une durée spécifiée. En l’absence d’événements pour déclencher la porte, celle-ci se ferme et le média cesse de circuler. Vous pouvez utiliser le processeur de porte de signal pour l’enregistrement vidéo basé sur les événements.
 

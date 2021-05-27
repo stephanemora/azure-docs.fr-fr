@@ -1,16 +1,18 @@
 ---
-title: Concept de graphe multimédia – Azure
-description: Un graphe multimédia vous permet de définir l’emplacement à partir duquel les médias doivent être capturés, la manière dont ils doivent être traités et où les résultats doivent être remis. Cet article fournit une description détaillée du concept de graphe multimédia.
+title: Concept de graphe multimédia Live Video Analytics – Azure
+description: Un graphe multimédia vous permet de définir l’emplacement à partir duquel les médias doivent être capturés, la manière dont ils doivent être traités et où les résultats doivent être remis. Cet article fournit une description détaillée du concept de graphe multimédia Live Video Analytics.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 83c51bc87321633339f75ac57b480116d450bca7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7be1bf485fd0641d96a51258f57818d9aa1692fc
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770602"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372444"
 ---
-# <a name="media-graph"></a>Graphe multimédia
+# <a name="live-video-analytics-media-graph"></a>Graphe multimédia Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## <a name="suggested-pre-reading"></a>Lecture préalable suggérée
 

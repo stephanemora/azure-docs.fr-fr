@@ -1,16 +1,18 @@
 ---
-title: Lecture d’enregistrements sur plusieurs jours - Azure
-description: Dans ce tutoriel, vous allez apprendre à utiliser les API Azure Media Services pour lire un enregistrement vidéo continu de plusieurs jours.
+title: Lecture d’enregistrements effectués sur plusieurs jours avec Live Video Analytics – Azure
+description: Dans ce tutoriel, vous allez voir comment utiliser les API Azure Media Services pour lire un enregistrement vidéo continu effectué sur plusieurs jours.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 81a778b40649c1318b3738a289f0db37fd35376a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7c224b6267dd7eac4df669a7ccbd6f59abeb8ef
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99492787"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372129"
 ---
-# <a name="tutorial-playback-of-multi-day-recordings"></a>Tutoriel : Lecture d’enregistrements sur plusieurs jours  
+# <a name="tutorial-playback-of-multi-day-recordings-with-live-video-analytics"></a>Tutoriel : Lecture d’enregistrements sur plusieurs jours avec Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Ce tutoriel se base sur le tutoriel [Enregistrement vidéo en continu](continuous-video-recording-concept.md) (CVR). Dans ce tutoriel, vous allez apprendre à utiliser les API Azure Media Services pour lire un enregistrement vidéo continu de plusieurs jours à partir du cloud. 
 

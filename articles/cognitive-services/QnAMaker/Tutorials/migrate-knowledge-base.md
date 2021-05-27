@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: c89ab375cb02824a08ff57e6b5278dd9299126ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e1cff5a82870c5491b262f5ced95f688d5ee4ac
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96350923"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369507"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrer une base de connaissances à l’aide des fonctions d’exportation-importation
 
@@ -27,12 +27,23 @@ La migration d’une base de connaissances nécessite son exportation d’une ba
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Avant de commencer, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/).
-* Configurer un nouveau [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
+> * Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+
+> * Une [ressource QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) créée dans le portail Azure. Rappelez-vous l’ID Azure Active Directory, l’abonnement et le nom de ressource QnA que vous avez sélectionnés au moment de créer la ressource.
+> * Configurer un nouveau [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
+
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
+
+> * Une [ressource Analyse de texte](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) avec la fonctionnalité de réponses aux questions personnalisées activée dans le Portail Azure. Rappelez-vous l’ID Azure Active Directory, l’abonnement et le nom de ressource Analyse de texte que vous avez sélectionnés au moment de créer la ressource.
+> * Configurer un nouveau [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
+
+---
 
 ## <a name="migrate-a-knowledge-base-from-qna-maker"></a>Migrer une base de connaissances à partir de QnA Maker
 1. Connectez-vous au [portail QnA Maker](https://qnamaker.ai).
-1. Sélectionnez la base de connaissances d'origine que vous souhaitez migrer.
+1. Sélectionnez la base de connaissances que vous souhaitez migrer.
 
 1. Sur la page **Paramètres**, sélectionnez **Exporter la base de connaissances** pour télécharger un fichier .tsv qui contient le contenu de votre base de connaissances : questions, réponses, métadonnées, invites de suivi et noms des sources de données à partir desquelles elles ont été extraites. Les ID QnA exportés avec les questions et réponses peuvent être utilisés pour mettre à jour une paire QnA spécifique à l’aide de l’[API de mise à jour](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). L’ID QnA d’une paire QnA spécifique reste inchangé après plusieurs opérations d’exportation.
 

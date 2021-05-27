@@ -1,17 +1,19 @@
 ---
-title: Analyser une vidéo en direct à l’aide de votre propre modèle HTTP – Azure
-description: Dans ce guide de démarrage rapide, vous allez appliquer la vision par ordinateur pour analyser le flux vidéo en direct à partir d’une caméra IP (simulée) à l’aide de votre propre modèle HTTP.
+title: Analyser une vidéo en direct avec votre propre modèle HTTP – Azure
+description: Dans ce guide de démarrage rapide, vous allez appliquer la vision par ordinateur pour analyser le flux vidéo en direct provenant d’une caméra IP (simulée) en utilisant votre propre modèle HTTP.
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: d3ba937abcc7bbfd9bb2afe7b15aec28ebb57446
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 685deddb9a55d024081acd0b7d4ff639d1eecd43
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99508487"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368541"
 ---
-# <a name="quickstart-analyze-live-video-by-using-your-own-http-model"></a>Démarrage rapide : Analyser une vidéo en direct à l’aide de votre propre modèle HTTP
+# <a name="quickstart-analyze-live-video-with-your-own-http-model"></a>Démarrage rapide : Analyser une vidéo en direct avec votre propre modèle HTTP
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Ce guide de démarrage rapide vous montre comment utiliser Live Video Analytics sur IoT Edge pour analyser un flux vidéo en direct à partir d’une caméra IP (simulée). Vous allez voir comment appliquer un modèle de vision par ordinateur pour détecter des objets. Un sous-ensemble d’images du flux vidéo en direct est envoyé à un service d’inférence. Les résultats sont envoyés à IoT Edge Hub. 
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e20679c3999f7ece1f6d3ed47a241cfd9dab9236
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 177c02da26ffcedd0453538bc32158cf2f014896
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102214743"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369283"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planifier votre application QnA Maker
 
@@ -29,23 +29,32 @@ Chaque [ressource Azure](azure-resources.md#resource-purposes) créée avec QnA�
 | [Ressource App Service et plan App Service](azure-resources.md#app-service-and-app-service-plan) | Interroger le point de terminaison de prédiction |
 | Ressource [Application Insights](azure-resources.md#application-insights) | Données de télémétrie concernant la prédiction des requêtes |
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
 | Ressource | Objectif |
 |--|--|
-| Ressource [QnA Maker](azure-resources.md#qna-maker-resource) | Création, point de terminaison de prédiction de requête et télémétrie|
+| Ressource [Analyse de texte](azure-resources.md#qna-maker-resource) | Création, point de terminaison de prédiction de requête et télémétrie|
 | Ressource [Recherche cognitive](azure-resources.md#cognitive-search-resource) | Stockage et recherche de données |
 
 ---
 ### <a name="resource-planning"></a>Planification des ressources
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+
 Le niveau gratuit, `F0`, de chaque ressource fonctionne et peut fournir une expérience de création et de prédiction de requêtes. Vous pouvez utiliser ce niveau pour apprendre à créer et à prédire des requêtes. Lorsque vous passez à un scénario de production ou à un scénario dynamique, vous devez réévaluer votre choix de ressources.
 
-#### <a name="qna-maker-resource"></a>Ressource QnA Maker
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
-Une même ressource QnA Maker peut héberger plusieurs bases de connaissances. Le nombre de bases de connaissances est déterminé par la quantité d’index pris en charge du niveau tarifaire Recherche cognitive. En savoir plus sur la [relation entre les index et les bases de connaissances](azure-resources.md#index-usage).
+Le service Réponses aux questions personnalisées (préversion) est une fonctionnalité gratuite. Son débit est actuellement limité à 10 transactions par seconde tant pour les API de gestion que pour les API de prédiction. Pour cibler 10 transactions par seconde pour votre service, nous vous recommandons d’utiliser la référence (SKU) S1 (une instance) du service Recherche cognitive Azure.
 
-#### <a name="knowledge-base-size-and-throughput"></a>Taille et débit des bases de connaissances
+### <a name="text-analytics-resource"></a>Ressource Analyse de texte
+
+Une seule ressource d’Analyse de texte avec la fonctionnalité Réponse aux questions personnalisées activée peut héberger plusieurs bases de connaissances. Le nombre de bases de connaissances est déterminé par la quantité d’index pris en charge du niveau tarifaire Recherche cognitive. En savoir plus sur la [relation entre les index et les bases de connaissances](azure-resources.md#index-usage).
+
+---
+
+### <a name="knowledge-base-size-and-throughput"></a>Taille et débit des bases de connaissances
 
 Lorsque vous créez une application réelle, vous devez prévoir des ressources suffisantes pour la taille de votre base de connaissances et pour la quantité de demandes de prédiction des requêtes auxquelles vous vous attendez.
 
@@ -81,24 +90,34 @@ C’est la première base de connaissances créée dans votre ressource QnA Mak
 
 Vous pouvez structurer vos ressources QnA Maker en fonction de la langue ou utiliser [Traducteur](../../translator/translator-info-overview.md) pour traduire une requête dans la langue de la base de connaissances avant de l’envoyer au point de terminaison de prédiction des requêtes.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
-Vous pouvez à présent avoir des bases de connaissances dans différentes langues au sein d’une même ressource QnA Maker. Quand vous créez la première base de connaissances, vous pouvez choisir d’utiliser la ressource pour des bases de connaissances dans une seule langue ou dans plusieurs langues.
+Vous pouvez désormais disposer de bases de connaissances dans différentes langues au sein d’une même ressource d’Analyse de texte, où la fonctionnalité Réponse aux questions personnalisées est activée. Quand vous créez la première base de connaissances, vous pouvez choisir d’utiliser la ressource pour des bases de connaissances dans une seule langue ou dans plusieurs langues.
 
-![Sélection de la base de connaissances multilingue QnA Maker managé (préversion)](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
+![Sélection de la base de connaissances multilingue QnA Maker managé (préversion)](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png)
 
 > [!NOTE]
-> Si vous activez des paramètres de langue par base de connaissances, vous ne pouvez pas créer autant de bases de connaissances dans votre ressource QnA Maker. Voici [plus d’informations sur les limitations relatives aux paramètres de langue](./azure-resources.md).
+> Si vous activez plusieurs langues par base de connaissances, vous ne pourrez pas créer autant de bases de connaissances dans votre ressource d’Analyse de texte. Voici [plus d’informations sur les limitations relatives aux paramètres de langue](./azure-resources.md).
 
 ---
 
 ### <a name="ingest-data-sources"></a>Ingestion de sources de données
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 Pour créer une base de connaissances, vous pouvez utiliser l’une des [sources de données](../Concepts/data-sources-and-content.md) ingérées suivantes :
 
 * Une URL publique
 * Une URL SharePoint privée
 * Fichier
+
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
+
+Le service Réponse aux questions personnalisées prend également en charge le contenu non structuré. Vous pouvez charger un fichier au contenu non structuré.
+
+Actuellement, nous ne prenons pas en charge les URL pour du contenu non structuré.
+
+---
 
 Le processus d’ingestion convertit les [types de contenu pris en charge](../reference-document-format-guidelines.md) en Markdown. Toutes les modifications apportées à la *réponse* sont effectuées avec Markdown. Après avoir créé votre base de connaissances, vous pouvez modifier les [paires question/réponse](question-answer-set.md) dans le portail QnA Maker à l’aide de la [création de texte enrichi](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
@@ -179,9 +198,9 @@ Il existe un [classement des réponses en deux phases](query-knowledge-base.md#h
 
 Appliquez les [dernières mises à jour du runtime](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates) pour gérer automatiquement les mises à jour de service.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
-Dans QnA Maker managé (préversion), le runtime est managé par le service QnA Maker lui-même. Les mises à jour de service ne sont donc pas applicables.
+Dans le service Réponses aux questions personnalisées (préversion), le runtime est managé par le service QnA Maker. Les mises à jour de service ne sont donc pas applicables.
 
 ---
 
@@ -195,9 +214,9 @@ La mise à l’échelle, le débit et la résilience sont déterminés par les [
 
 Toutes les requêtes de votre base de connaissances sont stockées dans Application Insights. Utilisez nos [requêtes les plus fréquentes](../how-to/get-analytics-knowledge-base.md) pour comprendre vos métriques.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
-Dans le déploiement manage, la télémétrie est proposée par le biais du [service Azure Monitor](../../../azure-monitor/index.yml). Utilisez nos [requêtes les plus fréquentes](../how-to/get-analytics-knowledge-base.md) pour comprendre vos métriques.
+Pour le service Réponses aux questions personnalisées, la télémétrie provient du [service Azure Monitor](../../../azure-monitor/index.yml). Utilisez nos [requêtes les plus fréquentes](../how-to/get-analytics-knowledge-base.md) pour comprendre vos métriques.
 
 
 ---

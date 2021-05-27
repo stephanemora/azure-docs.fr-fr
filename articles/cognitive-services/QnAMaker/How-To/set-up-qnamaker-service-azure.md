@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: b6ab131c0fa81609b956de53f2b15d445e8979dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67ba835237dac96a28aae124781bbb71b59323f2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102219265"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369376"
 ---
 # <a name="manage-qna-maker-resources"></a>Gérer les ressources QnA Maker
 
-Avant de pouvoir créer des bases de connaissances QnA Maker, vous devez tout d’abord configurer un service QnA Maker dans Azure. Toute personne disposant d’autorisations pour créer des ressources dans un abonnement peut configurer un service QnA Maker.
+Avant de pouvoir créer des bases de connaissances QnA Maker, vous devez tout d’abord configurer un service QnA Maker dans Azure. Toute personne disposant d’autorisations pour créer des ressources dans un abonnement peut configurer un service QnA Maker. Si vous essayez la fonctionnalité Réponses aux questions personnalisées, vous devez créer la ressource Analyse de texte, puis ajouter la fonctionnalité.
 
 Veillez à bien assimiler les concepts suivants avant de créer votre ressource :
 
@@ -63,35 +63,41 @@ Cette procédure permet de créer les ressources Azure nécessaires pour gérer 
 
     La ressource avec le type _Cognitive Services_ a vos clés _d’abonnement_.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (en préversion)](#tab/v2)
 
 Cette procédure permet de créer les ressources Azure nécessaires pour gérer le contenu de la base de connaissances. Une fois ces étapes terminées, vous trouverez les clés *d’abonnement* dans la page **Clés** de la ressource dans la portail Azure.
 
-1. Connectez-vous au portail Azure et [créez une ressource QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker).
+1.  Connectez-vous au portail Azure pour [créer une ressource Analyse de texte](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
 
-1. Sélectionnez **Créer** après avoir lu les conditions générales :
+2.  Sélectionnez la fonctionnalité Réponses aux questions personnalisées à ajouter à la ressource Analyse de texte. Cliquez sur **pour créer votre ressource**.
 
-    ![Créer un nouveau service QnA Maker](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
+> [!div class="mx-imgBorder"]
+> ![Ajouter QnA à Analyse de texte](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
 
-1. Dans **QnA Maker**, cochez la case Managé (préversion) et sélectionnez les niveaux et régions appropriés :
+3.  Sélectionnez les niveaux et régions appropriés pour la ressource Analyse de texte. Pour la fonctionnalité Réponses aux questions personnalisées, sélectionnez un emplacement de recherche et un niveau tarifaire.
 
-    ![Créer un service QnA Maker managé - Niveau tarifaire et régions](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png)
+> [!div class="mx-imgBorder"]
+> ![Créer un service Analyse de texte – Niveau tarifaire et régions](../media/qnamaker-how-to-setup-service/custom-qna-create-button.png)
 
-    * Choisissez **l’abonnement** dans lequel la ressource QnA Maker sera déployée.
-    * Créez un **groupe de ressources** (recommandé) ou utilisez-en un existant dans lequel déployer cette ressource QnA Maker managé (préversion). QnA Maker managé (préversion) crée quelques ressources Azure. Lorsque vous créez un groupe de ressources pour conserver ces ressources, vous pouvez facilement les rechercher, les gérer et les supprimer par le biais du nom du groupe de ressources.
-    * Dans le champ **Nom**, renseignez un nom unique pour identifier ce service QnA Maker managé (préversion). 
-    * Choisissez l’**emplacement** où vous voulez déployer le service QnA Maker managé (préversion). Les API de gestion et le point de terminaison de service seront hébergés à cet emplacement. 
-    * Sélectionnez le **niveau tarifaire** du service QnA Maker managé (préversion) (gratuit en préversion). Voir [plus d’informations sur la tarification des références SKU](https://aka.ms/qnamaker-pricing).
-    * Choisissez **l’emplacement de recherche** où vous souhaitez déployer les index du service Recherche cognitive Azure. Les restrictions relatives à l’emplacement de stockage des données client vous aideront à déterminer l’emplacement que vous choisissez pour la Recherche cognitive Azure.
-    * Choisissez le **Niveau tarifaire de recherche** du service Recherche cognitive Azure. Si l’option de niveau Gratuit est indisponible (semble grisée), cela signifie que vous disposez déjà d’un service gratuit déployé dans votre abonnement. Dans ce cas, vous devrez commencer par le niveau De base. Consultez les [Détails de la tarification du service Recherche cognitive Azure](https://azure.microsoft.com/pricing/details/search/).
+   * Choisissez l’**Abonnement** sous lequel la ressource Analyse de texte sera déployée.
+   * Créez un **Groupe de ressources** (recommandé) ou utilisez un groupe de ressources existant dans lequel déployer cette ressource Analyse de texte. L’activation de la fonctionnalité Réponses aux questions personnalisées avec une ressource Analyse de texte crée moins de ressources Azure. Lorsque vous créez un groupe de ressources pour conserver ces ressources, vous pouvez facilement les rechercher, les gérer et les supprimer par le biais du nom du groupe de ressources.
+   * Dans le champ **Nom**, entrez un nom unique pour identifier cette ressource Analyse de texte. 
+   * Choisissez l’**Emplacement** où vous souhaitez déployer la ressource Analyse de texte. Les API de gestion et le point de terminaison de service seront hébergés à cet emplacement. 
+   * Sélectionnez le **Niveau tarifaire** pour le service Analyse de texte. Voir [plus d’informations sur la tarification des références SKU](https://aka.ms/qnamaker-pricing).
+   * Choisissez **l’emplacement de recherche** où vous souhaitez déployer les index du service Recherche cognitive Azure. Les restrictions relatives à l’emplacement de stockage des données client vous aideront à déterminer l’emplacement que vous choisissez pour la Recherche cognitive Azure.
+   * Choisissez le **Niveau tarifaire de recherche** du service Recherche cognitive Azure. Si l’option de niveau Gratuit est indisponible (semble grisée), cela signifie que vous disposez déjà d’un service gratuit déployé dans votre abonnement. Dans ce cas, vous devrez commencer par le niveau De base. Consultez les [Détails de la tarification du service Recherche cognitive Azure](https://azure.microsoft.com/pricing/details/search/).
 
-1. Une fois tous les champs validés, sélectionnez **Vérifier + créer**. L’exécution de ce processus peut prendre plusieurs minutes.
+4.  Une fois tous les champs validés, sélectionnez **Vérifier + créer**. L’exécution de ce processus peut prendre plusieurs minutes.
 
-1. Une fois le déploiement terminé, vous verrez les ressources suivantes créées dans votre abonnement :
+> [!div class="mx-imgBorder"]
+> ![Examiner la ressource Analyse de texte](../media/qnamaker-how-to-setup-service/custom-qna-review-resource.png)
 
-    ![La ressource a créé un service QnA Maker managé (préversion)](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
+5.  Une fois le déploiement terminé, vous verrez les ressources suivantes créées dans votre abonnement :
 
-    La ressource avec le type _Cognitive Services_ a vos clés _d’abonnement_.
+> [!div class="mx-imgBorder"]
+> ![La ressource a créé un service QnA Maker managé (préversion)](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
+
+   La ressource avec le type _Cognitive Services_ a vos clés _d’abonnement_.
 
 ---
 
@@ -157,13 +163,13 @@ Si vous n’utilisez pas de ressource QnA Maker, vous devez supprimer toutes les
 
 Les ressources de recherche gratuites sont supprimées après 90 jours sans recevoir d’appel d’API.
     
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (en préversion)](#tab/v2)
 
 ### <a name="upgrade-the-azure-cognitive-search-service"></a>Mettre à niveau le service Recherche cognitive Azure
 
 Si vous prévoyez de disposer de plusieurs bases de connaissances, mettez à niveau votre niveau tarifaire du service Recherche cognitive Azure.
 
-Il n’est actuellement pas possible d’effectuer une mise à niveau sur place de la référence SKU de la recherche Azure. Toutefois, vous pouvez créer une ressource de recherche Azure avec la référence SKU souhaitée, restaurer les données vers la nouvelle ressource, puis la lier à la pile QnA Maker. Pour ce faire, procédez comme suit :
+Il n’est actuellement pas possible d’effectuer une mise à niveau sur place de la référence SKU de la recherche Azure. Toutefois, vous pouvez créer une ressource de recherche Azure avec la référence (SKU) souhaitée, restaurer les données vers la nouvelle ressource, puis lier celle-ci à la pile Réponses aux questions personnalisées. Pour ce faire, procédez comme suit :
 
 1. Créez une ressource de recherche Azure dans le portail Azure et sélectionnez la référence SKU souhaitée.
 
@@ -171,11 +177,11 @@ Il n’est actuellement pas possible d’effectuer une mise à niveau sur place 
 
 1. Restaurez les index de votre ressource de recherche Azure d’origine vers la nouvelle. Consultez [l’exemple de code de restauration de sauvegarde](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
-1. Pour lier la nouvelle ressource de recherche Azure au service QnA Maker managé (préversion), consultez la rubrique ci-dessous.
+1. Liez la nouvelle ressource de recherche Azure à la fonctionnalité Réponses aux questions personnalisées sous l’[onglet Fonctionnalités de la ressource Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/configure-qna-maker-resources?tabs=v2#configure-qna-maker-managed-preview-service-to-use-different-cognitive-search-resource).
 
 ### <a name="inactivity-policy-for-free-search-resources"></a>Stratégie d’inactivité pour les ressources de recherche gratuites
 
-Si vous n’utilisez pas de ressource QnA Maker, vous devez supprimer toutes les ressources. Si vous ne supprimez pas les ressources inutilisées, votre base de connaissances cessera de fonctionner si vous avez créé une ressource de recherche gratuite.
+Si vous n’utilisez pas de ressource QnA Maker ou Analyse de texte, vous devez supprimer toutes les ressources. Si vous ne supprimez pas les ressources inutilisées, votre base de connaissances cessera de fonctionner si vous avez créé une ressource de recherche gratuite.
 
 Les ressources de recherche gratuites sont supprimées après 90 jours sans recevoir d’appel d’API.
 
@@ -183,7 +189,7 @@ Les ressources de recherche gratuites sont supprimées après 90 jours sans rec
 
 ## <a name="delete-azure-resources"></a>Supprimer les ressources Azure
 
-Si vous supprimez l’une des ressources Azure utilisées pour vos bases de connaissances QnA Maker, celles-ci ne fonctionneront plus. Avant de supprimer des ressources, veillez à exporter vos bases de connaissances à partir de la page **Paramètres**.
+Si vous supprimez l’une des ressources Azure utilisées pour vos bases de connaissances, celles-ci ne fonctionneront plus. Avant de supprimer des ressources, veillez à exporter vos bases de connaissances à partir de la page **Paramètres**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

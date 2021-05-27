@@ -1,16 +1,18 @@
 ---
-title: Développer et déployer un serveur d’inférence gRPC - Azure
-description: Cet article fournit des conseils sur le développement et le déploiement d’un serveur d’inférence gRPC.
+title: Développer et déployer un serveur d’inférence gRPC avec Live Video Analytics – Azure
+description: Cet article explique comment développer et déployer un serveur d’inférence gRPC avec Live Video Analytics.
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: dbf46a26626a4143d76385968d092c4f238729da
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d7d636803ac49d78aae78dad256598d9de3e7448
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034858"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371571"
 ---
-# <a name="how-to-guide--develop-and-deploy-a-grpc-inference-server"></a>Guide pratique - Développer et déployer un serveur d’inférence gRPC
+# <a name="develop-and-deploy-a-grpc-inference-server-with-live-video-analytics"></a>Développer et déployer un serveur d’inférence gRPC avec Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## <a name="overview"></a>Vue d’ensemble
 

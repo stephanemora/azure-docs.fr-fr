@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 05/07/2021
-ms.openlocfilehash: 0547e6dbdddc5533642145e6a54a20d29ae240d1
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 827e860c0b25945339a9e1640b94863697e04f88
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109518375"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377138"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportation des données de l’espace de travail Log Analytics dans Azure Monitor (préversion)
 L’exportation des données de l’espace de travail Log Analytics dans Azure Monitor vous permet d’exporter en continu des données de tables sélectionnées dans votre espace de travail Log Analytics vers un compte de stockage Azure ou Azure Event Hubs à mesure qu’elles sont collectées. Cet article fournit des informations détaillées sur cette fonctionnalité et les étapes à suivre pour configurer l’exportation de données dans vos espaces de travail.
@@ -34,10 +34,10 @@ L’exportation des données d’espace de travail Log Analytics exporte en cont
 ## <a name="limitations"></a>Limites
 
 - Actuellement, la configuration peut être effectuée à l’aide d’une interface CLI ou de requêtes REST. Le Portail Azure ou PowerShell ne sont pas encore pris en charge.
-- L’option ```--export-all-tables``` dans l’interface CLI et REST n’est pas prise en charge et sera supprimée. Vous devez fournir explicitement la liste des tables dans les règles d’exportation.
-- Les tables prises en charge sont actuellement limitées à celles qui sont spécifiques à la section [tables prises en charge](#supported-tables) ci-dessous. Par exemple, les tables de journal personnalisées ne sont actuellement pas prises en charge.
+- L’option `--export-all-tables` dans l’interface CLI et REST n’est pas prise en charge et sera supprimée. Vous devez fournir explicitement la liste des tables dans les règles d’exportation.
+- Les tables prises en charge sont actuellement limitées à celles qui sont propres à la section [tables prises en charge](#supported-tables) ci-dessous. Par exemple, les tables de journal personnalisées ne sont actuellement pas prises en charge.
 - Si la règle d’exportation de données comprend une table non prise en charge, l’opération réussit, mais aucune donnée n’est exportée pour cette table tant qu’elle n’est pas prise en charge. 
-- Si la règle d’exportation de données comprend une table qui n’existe pas, elle échoue avec l’erreur ```Table <tableName> does not exist in the workspace```.
+- Si la règle d’exportation de données comprend une table qui n’existe pas, elle échoue avec l’erreur `Table <tableName> does not exist in the workspace`.
 - L'exportation des données sera disponible dans toutes les régions, mais elle n'est actuellement pas disponible dans les régions suivantes : régions Azure Government, Japon Ouest, Brésil Sud-Est, Norvège Est, Norvège Ouest, Émirats arabes unis Nord, Émirats arabes unis Centre, Australie Centre 2, Suisse Nord, Suisse Ouest, Allemagne Centre-Ouest, Inde Sud, France Sud, Japon Ouest
 - Vous pouvez définir l'activation d'un maximum de 10 règles dans votre espace de travail. Des règles supplémentaires sont autorisées mais à l'état désactivé. 
 - La destination doit être unique pour toutes les règles d’exportation de votre espace de travail.
@@ -70,11 +70,11 @@ Les données sont envoyées à votre Event Hub quasiment en temps réel à mesur
 > Le [nombre d’Event Hubs pris en charge par niveaux d’espaces de noms « De base » et « Standard » est de 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). Si vous exportez plus de 10 tables, fractionnez les tables entre plusieurs règles d’exportation vers différents espaces de noms d’Event Hubs, ou indiquez le nom de l’Event Hub dans la règle d’exportation et exportez toutes les tables vers cet Event Hub.
 
 Considérations :
-1. Le niveau « De base » de l’Event Hub prend en charge une [taille d’événement](../../event-hubs/event-hubs-quotas.md) inférieure, et certains journaux de votre espace de travail peuvent dépasser cette taille et être supprimés. Nous vous recommandons d’utiliser un Event Hub « Standard » ou « Dédié » comme destination de l’exportation.
+1. La référence SKU de l’Event Hub « De base » prend en charge une [limite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) de taille d’événement inférieure, et certains journaux de votre espace de travail peuvent dépasser cette taille et être supprimés. Nous vous recommandons d’utiliser un Event Hub « Standard » ou « Dédié » comme destination de l’exportation.
 2. Le volume des données exportées augmente souvent dans le temps, et la mise à l’échelle du Event Hub doit être augmentée pour gérer des taux de transfert plus importants et éviter les scénarios de limitation et de latence des données. Vous devez utiliser la fonctionnalité de majoration automatique d’Event Hubs pour augmenter ou diminuer automatiquement le nombre d’unités de débit pour répondre aux besoins d’utilisation. Pour plus d’informations, consultez [Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md).
 
 ## <a name="prerequisites"></a>Prérequis
-Voici les conditions préalables qui doivent être remplies avant de configurer l’exportation de données Log Analytics.
+Voici les conditions préalables qui doivent être remplies avant de configurer l’exportation de données Log Analytics :
 
 - Les destinations doivent être créées avant la configuration de la règle d’exportation et doivent se trouver dans la même région que votre espace de travail Log Analytics. Si vous devez répliquer vos données vers d’autres comptes de stockage, vous pouvez utiliser l’une des [options de redondance du stockage Azure](../../storage/common/storage-redundancy.md).  
 - Le compte de stockage doit être StorageV1 ou StorageV2. Le stockage classique n’est pas pris en charge  
@@ -643,7 +643,7 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | NWConnectionMonitorTestResult |  |
 | OfficeActivity | Prise en charge partielle : Certaines des données sont ingérées via des webhooks d’O365 vers LA. Cette partie est manquante dans l’exportation actuellement. |
 | Opération | Prise en charge partielle : Certaines des données sont ingérées par le biais de services internes qui ne sont pas pris en charge pour l’exportation. Cette partie est manquante dans l’exportation actuellement. |
-| Perf | Prise en charge partielle : Seules les données de performances Windows sont actuellement prises en charge. Les données de performances Linux sont actuellement manquantes dans l’exportation. |
+| Perf | Prise en charge partielle : seules les données de performances Windows sont actuellement prises en charge. Les données de performances Linux sont actuellement manquantes dans l’exportation. |
 | PowerBIDatasetsTenant |  |
 | PowerBIDatasetsWorkspace |  |
 | PowerBIDatasetsWorkspacePreview |  |

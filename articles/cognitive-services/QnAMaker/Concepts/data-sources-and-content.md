@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 82ae7e1bd0bf2a8bcd0ad18ee4db381f90f8db18
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ff1ce49395a5a7374a0dc739eb26fb7b4a6f72af
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743828"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372805"
 ---
 # <a name="importing-from-data-sources"></a>Importation depuis des sources de données
 
@@ -20,7 +20,9 @@ Une base de connaissances est constituée de paires question/réponse apportées
 
 Le contenu est placé dans une base de connaissances à partir d’une source de données. Les emplacements des sources de données sont des **URL ou fichiers publics**, qui ne requièrent pas d’authentification.
 
-Les [fichiers SharePoint](../how-to/add-sharepoint-datasources.md), sécurisés par une authentification, sont l’exception. Les ressources SharePoint doivent être des fichiers, et non des pages web. Si l’URL se termine par une extension web, telle que .ASPX, elle n’est pas importée dans QnA Maker à partir de SharePoint.
+Les [fichiers SharePoint](../how-to/add-sharepoint-datasources.md), sécurisés par une authentification, sont l’exception. Les ressources SharePoint doivent être des fichiers, et non des pages web. 
+
+QnA Maker prend en charge les URL publiques se terminant par une extension web .ASPX qui n’est pas sécurisée avec l’authentification.
 
 ## <a name="chit-chat-content"></a>Contenu des bavardages
 
@@ -62,6 +64,13 @@ Si vous ne savez pas comment représenter votre paire QnA dans le fichier `.tsv`
 * Utilisez cet [exemple téléchargeable à partir de GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true)
 * Ou créez la paire dans le portail QnA Maker, enregistrez, puis exportez la base de connaissances pour obtenir un exemple illustrant la façon de représenter la paire.
 
+## <a name="unstructured-data-format"></a>Format de données non structurées 
+
+Vous pouvez également créer une base de connaissances fondée sur du contenu non structuré importé par le biais d’un fichier. Actuellement, cette fonctionnalité est disponible uniquement via le téléchargement de documents pour les documents qui se trouvent dans l’un des formats de fichier pris en charge.
+
+> [!IMPORTANT]
+> La prise en charge du contenu non structuré via le téléchargement de fichiers est disponible uniquement dans Réponses aux questions personnalisées (préversion)
+
 ## <a name="content-types-of-documents-you-can-add-to-a-knowledge-base"></a>Types de contenu de documents que vous pouvez ajouter à une base de connaissances
 Les types de contenu incluent bon nombre de documents structurés standard tels que PDF, DOC et TXT.
 
@@ -71,8 +80,8 @@ Le tableau ci-dessous récapitule les types de contenu et formats de fichiers pr
 
 |Type de source|Type de contenu| Exemples|
 |--|--|--|
-|URL|FAQ<br> (plates, avec des sections ou une page d’accueil de rubriques)<br>Pages de support <br> (Articles sur les procédures d’une seule page, articles sur la résolution des problèmes, etc.)|[FAQ brut](../troubleshooting.md), <br>[Forum aux questions avec des liens](https://www.microsoft.com/en-us/software-download/faq),<br> [Forum aux questions avec une page d’accueil contenant des rubriques](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Article de support technique](./best-practices.md)|
-|PDF / DOC|FAQs,<br> Manuel de produit,<br> Brochures,<br> Article,<br> Stratégie de prospectus,<br> Guide de support,<br> Questions et réponses structurées,<br> , etc.|**Sans fonctionnalité multi-tour**<br>[Structured QnA.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br><br>**Fonctionnalité multi-tour** :<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso Benefits (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso Benefits (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)|
+|URL|FAQ<br> (plates, avec des sections ou une page d’accueil de rubriques)<br>Pages de support <br> (Articles sur les procédures d’une seule page, articles sur la résolution des problèmes, etc.)|[FAQ brut](../troubleshooting.md), <br>[Forum aux questions avec des liens](https://www.microsoft.com/software-download/faq),<br> [Forum aux questions avec une page d’accueil contenant des rubriques](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Article de support technique](./best-practices.md)|
+|PDF / DOC|FAQs,<br> Manuel de produit,<br> Brochures,<br> Article,<br> Stratégie de prospectus,<br> Guide de support,<br> Questions et réponses structurées,<br> , etc.|**Sans fonctionnalité multi-tour**<br>[Structured QnA.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br> [Unstructured blog.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Introducing-surface-laptop-4-and-new-access.pdf),<br> [Unstructured white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/sample-unstructured-paper.pdf)<br><br>**Fonctionnalité multi-tour** :<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso Benefits (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso Benefits (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)|
 |*Excel|Fichier QnA structuré<br> (y compris la prise en charge de RTF et HTML)|**Sans fonctionnalité multi-tour** :<br>[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)<br><br>**Fonctionnalité multi-tour** :<br>[Structured simple FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx)<br>[Surface laptop FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-Surface-Pro.xlsx)|
 |*TXT/TSV|Fichier QnA structuré|[Sample chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 

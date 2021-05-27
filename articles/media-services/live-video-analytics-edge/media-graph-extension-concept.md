@@ -1,16 +1,18 @@
 ---
-title: Présentation de l’extension de graphe multimédia – Azure
-description: Live Video Analytics sur IoT Edge vous permet d’étendre les fonctionnalités de traitement de graphe multimédia via un nœud d’extension de graphe.
+title: Présentation de l’extension de graphe multimédia Live Video Analytics – Azure
+description: Azure Live Video Analytics sur IoT Edge vous permet d’étendre les fonctionnalités de traitement de graphe multimédia via un nœud d’extension de graphe.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 4a7aea7cc60a67603d8a0376cf84228072659d6c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8f3165d948e636bda49128f080af00df7f30c977
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557613"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372409"
 ---
-# <a name="media-graph-extension"></a>Extension de graphe multimédia
+# <a name="live-video-analytics-media-graph-extension"></a>Extension de graphe multimédia Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Live Video Analytics sur IoT Edge vous permet d’étendre les fonctionnalités de traitement de graphe multimédia via un nœud d’extension de graphe. Votre plug-in d’extension Analytics peut utiliser des techniques de traitement d’image traditionnelles ou des modèles d’IA de vision par ordinateur. Les extensions de graphe sont activées en incluant un nœud de processeur d’extension dans un graphe multimédia. Le nœud de processeur d’extension relaie les images vidéo vers le point de terminaison configuré et agit en tant qu’interface de votre extension. La connexion peut être établie à un point de terminaison local ou distant. Elle peut être sécurisée par une authentification et un chiffrement TLS, si nécessaire. En outre, le nœud de processeur d’extension de graphe permet la mise à l’échelle et l’encodage facultatifs des images vidéo avant leur envoi à votre extension personnalisée. 
 

@@ -1,24 +1,24 @@
 ---
 title: Réduire les coûts d’Azure App Service avec une capacité réservée
-description: Découvrez comment faire des économies avec les instances réservées Azure App Service Premium v3 et les frais de timbre isolé.
+description: Découvrez comment économiser les coûts des instances réservées Azure App Service Premium v3 et Premium v2, ainsi que des Frais de timbre isolé.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 05/13/2021
 ms.author: banders
 ms.custom: references_regions
-ms.openlocfilehash: 92a315121ad8ae6fadcadbf6d531eb3e99ae69a9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f80619f1eeb7cdd970e4e3ee64491453c790149d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374539"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378523"
 ---
 # <a name="save-costs-with-azure-app-service-reserved-instances"></a>Réaliser des économies avec les instances réservées Azure App Service
 
-Cet article explique comment réaliser des économies avec les instances réservées Azure App Service Premium v3 et les frais de timbre isolé.
+Cet article explique comment réaliser des économies avec des instances réservées Azure App Service Premium v3 et Premium v2, ainsi que des Frais de timbre isolé.
 
 ## <a name="save-with-premium-v3-reserved-instances"></a>Réaliser des économies avec les instances réservées Premium v3
 
@@ -42,7 +42,6 @@ Vous pouvez utiliser les suggestions de réservation pour déterminer les réser
 Pour faciliter la détermination des réservations à acheter, vous devez analyser vos informations d’utilisation. Des données d’utilisation sont disponibles dans le fichier d’utilisation et les API. Combinez-les pour déterminer la réservation à acheter. Pour déterminer la quantité de réservations à acheter, identifiez des instances Premium v3 très utilisées quotidiennement.
 
 Votre fichier d’utilisation indique vos frais par période de facturation et l’utilisation quotidienne. Pour plus d’informations sur le téléchargement de votre fichier d’utilisation, consultez [Afficher et télécharger vos informations d’utilisation et vos frais Azure](../understand/download-azure-daily-usage.md). Ensuite, en utilisant les informations du fichier d’utilisation, vous pouvez [déterminer la réservation à acheter](determine-reservation-purchase.md).
-
 
 ## <a name="buy-a-premium-v3-reserved-instance"></a>Acheter une instance réservée Premium v3
 
@@ -69,6 +68,32 @@ Si vous avez un Accord Entreprise, vous pouvez utiliser l’option **Ajouter** p
 | Taille des instances réservées Premium v3 | Taille des instances réservées Premium v3. |
 | Terme | Une année ou trois ans. Une durée de 5 ans est également disponible uniquement pour les instances réservées Premium v3 HBv2. |
 | Quantité | Nombre d’instances achetées au sein de la réservation. La quantité correspond au nombre d’instances réservées Premium v3 en cours d’exécution pouvant bénéficier de la remise. Par exemple, si vous exécutez 10 instances réservées Premium v3 Standard\_D2 dans la région USA Est, vous devez spécifier 10 comme quantité afin d’optimiser l’avantage pour toutes les instances réservées Premium v3 en cours d’exécution. |
+
+## <a name="buy-an-isolated-v2-reserved-instance"></a>Acheter une instance réservée Isolé v2 isolée
+
+Vous pouvez acheter une instance Réservé v2 dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Payez la réservation [à l’avance ou par paiements mensuels](prepare-buy-reservation.md). Ces conditions s’appliquent à l’achat d’une instance réservée Isolé v2 :
+
+- Vous devez avoir le rôle Propriétaire pour au moins un abonnement EA ou un abonnement assorti d’un paiement à l’utilisation.
+- Pour les abonnements EA, l’option **Ajouter des instances réservées** doit être activée sur le [portail EA](https://ea.azure.com/). Ou, si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement.
+- Pour le programme CSP (Cloud Solution Provider), seuls les agents administrateurs ou les agents commerciaux peuvent acheter les réservations.
+
+Pour acheter une instance :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+2. Sélectionnez **Tous les services** > **Réservations**.
+3. Sélectionnez **Ajouter** pour acheter une nouvelle réservation, puis cliquez sur **Instance**.
+4. Complétez les champs obligatoires. Les instances réservées Isolé v2 en cours d’exécution qui correspondent aux attributs que vous avez sélectionnés peuvent bénéficier de la remise de réservation. Le nombre réel de vos instances réservées Isolé v2 qui bénéficient de la remise dépend de l’étendue et de la quantité sélectionnées.
+
+Si vous avez un Accord Entreprise, vous pouvez utiliser l’option **Ajouter** pour ajouter rapidement des instances supplémentaires. L’option n’est pas disponible pour les autres types d’abonnements.
+
+| **Champ** | **Description** |
+| --- | --- |
+| Abonnement | Abonnement utilisé pour payer la réservation. Les coûts de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P or MS-AZR-0148P) ou Microsoft Customer Agreement (MCA) ou un abonnement individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Les frais sont déduits du solde de l’engagement financier, si disponibles, ou facturés comme un dépassement. Pour un abonnement payable à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou facture défini sur l’abonnement. |
+| Étendue | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez :<UL><LI>**Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.</li><li>**Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li>**Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.</li> |
+| Région | Région Azure couverte par la réservation. |
+| Taille d’instance réservée Isolé v2 | Taille des instances réservées Isolé v2. |
+| Terme | Une année ou trois ans. Il y a également un terme de 5 ans disponible uniquement pour les instances réservées HBv2 Isolé v2. |
+| Quantité | Nombre d’instances achetées au sein de la réservation. La quantité correspond au nombre d’instances réservées Isolé v2 en cours d’exécution pouvant bénéficier de la remise. Par exemple, si vous exécutez 10 instances réservées Isolé v2 Standard\_D2 dans la région USA Est, vous devez spécifier 10 comme quantité afin d’optimiser l’avantage pour toutes les instances réservées Isolé v2 en cours d’exécution. |
 
 ## <a name="save-with-isolated-stamp-fees"></a>Réaliser des économies sur les frais de timbre isolé
 

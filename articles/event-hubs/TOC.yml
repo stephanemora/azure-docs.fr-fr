@@ -4,14 +4,6 @@
   items:
     - name: "Qu’est-ce qu’Event Hubs\_?"
       href: event-hubs-about.md
-    - name: Event Hubs pour Apache Kafka
-      href: event-hubs-for-kafka-ecosystem-overview.md
-    - name: Event Hubs Capture
-      href: event-hubs-capture-overview.md
-    - name: Event Hubs Dedicated
-      href: event-hubs-dedicated-overview.md
-    - name: Azure Schema Registry dans Event Hubs (préversion)
-      href: schema-registry-overview.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -81,6 +73,16 @@
   items:
     - name: Terminologie Event Hubs
       href: event-hubs-features.md
+    - name: Event Hubs Premium
+      href: event-hubs-premium-overview.md
+    - name: Event Hubs pour Apache Kafka
+      href: event-hubs-for-kafka-ecosystem-overview.md
+    - name: Event Hubs Capture
+      href: event-hubs-capture-overview.md
+    - name: Event Hubs Dedicated
+      href: event-hubs-dedicated-overview.md
+    - name: Azure Schema Registry dans Event Hubs (préversion)
+      href: schema-registry-overview.md
     - name: Hôte du processeur d’événements (SDK hérité)
       href: event-hubs-event-processor-host.md
     - name: Processeur d’événements (dernier SDK)

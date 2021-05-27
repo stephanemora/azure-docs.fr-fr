@@ -4,13 +4,13 @@ description: Ce document décrit les configurations avancées de vos ressources 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 48a56500646e4bd5e24cdcf3e076f46f1de94741
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 05/04/2021
+ms.openlocfilehash: 0eaff84368327da7ebef11d53338f13ee6f8cdb4
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743900"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376360"
 ---
 # <a name="configure-qna-maker-resources"></a>Configurer des ressources QnA Maker
 
@@ -19,6 +19,9 @@ L’utilisateur peut configurer QnA Maker pour utiliser une autre ressource Rech
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 ## <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>Configurer QnA Maker pour utiliser une autre ressource de Recherche cognitive
+
+> [!NOTE]
+> Si vous modifiez le service de recherche Azure associé à QnA Maker, vous allez perdre l’accès à toutes les bases de connaissances déjà présentes dans celui-ci. Veillez à exporter les bases de connaissances existantes avant de modifier le service de recherche Azure.
 
 Si vous créez un service QnA et ses dépendances (par exemple, la recherche) via le portail, un service de recherche est créé pour vous et lié au service QnA Maker. Une fois ces ressources créées, vous pouvez mettre à jour le paramètre App Service pour utiliser un service de recherche existant au préalable et supprimer celui que vous venez de créer.
 
@@ -47,7 +50,30 @@ Si vous créez un service QnA par le biais de modèles Azure Resource Manager, v
 
 En savoir plus sur la configuration des [paramètres de l’application](../../../app-service/configure-common.md#configure-app-settings) App Service .
 
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
+
+### <a name="configure-text-analytics-resource-with-custom-question-answering-feature-to-use-a-different-cognitive-search-resource"></a>Configurer une Analyse de texte avec une fonctionnalité de réponses aux questions personnalisées pour utiliser une autre ressource Recherche cognitive
+
+> [!NOTE]
+> Si vous modifiez le service de recherche Azure associé à Analyse de texte, vous allez perdre l’accès à toutes les bases de connaissances déjà présentes dans celui-ci. Veillez à exporter les bases de connaissances existantes avant de modifier le service de recherche Azure.
+
+
+Si vous créez une ressource Analyse de texte et ses dépendances (par exemple, la recherche) via le portail, un service de recherche est créé pour vous et lié à la ressource Analyse de texte. Une fois ces ressources créées, vous pouvez mettre à jour la ressource de recherche sous l’onglet **Configuration**.
+
+1.  Accédez à votre ressource Analyse de texte dans le portail Azure.
+
+2.  Sélectionnez **Fonctionnalités**, puis le service Recherche cognitive Azure à lier à votre ressource Analyse de texte.
+
+> [!div class="mx-imgBorder"]
+> ![Ajouter QnA à Analyse de texte](../media/qnamaker-how-to-upgrade-qnamaker/update-custom-qna-feature.png)
+
+3.  Cliquez sur **Enregistrer**.
+
+---
+
 ## <a name="get-the-latest-runtime-updates"></a>Téléchargement des dernières mises à jour du Runtime
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 Le runtime QnAMaker fait partie de l’instance Azure App Service, qui est déployé quand vous [créez un service QnAMaker](./set-up-qnamaker-service-azure.md) dans le portail Azure. Des mises à jour du runtime sont effectuées régulièrement. L’instance QnA Maker App Service est en mode de mise à jour automatique à partir de la publication de l’extension de site d’avril 2019 (version 5+). Cette mise à jour a déjà été conçue pour éviter le moindre temps d’arrêt pendant les mises à niveau.
 
@@ -67,8 +93,16 @@ Vous pouvez vérifier votre version actuelle à l’adresse https://www.qnamaker
 1. Redémarrez App Service. Le processus de mise à jour doit se terminer en quelques secondes. Les applications ou bots dépendants qui utilisent ce service QnAMaker ne sont pas disponibles pour les utilisateurs finaux durant le redémarrage.
 
     ![Redémarrage de l’instance d’App Service de QnAMaker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
+    
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
+
+App Service n’est pas déployé avec des réponses aux questions personnalisées.
+
+---
 
 ## <a name="configure-app-service-idle-setting-to-avoid-timeout"></a>Configurer le paramètre d’inactivité d’App Service pour éviter le délai d’expiration
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 Le service d’application, qui sert le runtime de prédiction QnA Maker d’une base de connaissances publiée, a une configuration de délai d’inactivité, laquelle utilise par défaut le délai d’expiration automatique si le service est inactif. Pour QnA Maker, cela signifie que votre API generateAnswer de runtime des prédictions expire parfois après des périodes sans trafic.
 
@@ -87,7 +121,15 @@ Pour que l’application de point de terminaison de prédiction soit chargée m�
 
 En savoir plus sur la configuration des [Paramètres généraux](../../../app-service/configure-common.md#configure-general-settings) de l’App Service .
 
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
+
+App Service n’est pas déployé avec des réponses aux questions personnalisées.
+
+---
+
 ## <a name="business-continuity-with-traffic-manager"></a>Continuité d'activité avec Traffic Manager
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 L’objectif principal du plan de continuité d’activité est de créer un point de terminaison de base de connaissances résilient qui garantit qu’il n’y a aucun temps d’arrêt du bot ou de l’application qui la consomme.
 
@@ -110,21 +152,8 @@ L’idée générale représentée plus haut est la suivante :
 
 1. Enfin, utilisez le point de terminaison du gestionnaire de trafic dans votre bot ou dans votre application.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
-## <a name="configure-qna-maker-managed-preview-service-to-use-different-cognitive-search-resource"></a>Configurer le service QnA Maker managé (préversion) pour utiliser une autre ressource Recherche cognitive
-
-Si vous créez un service QnA managé (préversion) et ses dépendances (par exemple, la recherche) par le biais du portail, un service de recherche est créé pour vous et lié au service QnA Maker managé (préversion). Une fois ces ressources créées, vous pouvez mettre à jour le service de recherche sous l’onglet **Configuration**.
-
-1. Accédez à votre service QnA Maker managé (préversion) dans le portail Azure.
-
-1. Sélectionnez **Configuration**, puis le service Recherche cognitive Azure à lier à votre service QnA Maker managé (préversion).
-
-    ![Capture d’écran de la page de configuration de QnA Maker managé (préversion)](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-configuration.png)
-
-1. Cliquez sur **Enregistrer**.
-
-> [!NOTE]
-> Si vous modifiez le service de recherche Azure associé à QnA Maker, vous allez perdre l’accès à toutes les bases de connaissances déjà présentes dans celui-ci. Veillez à exporter les bases de connaissances existantes avant de modifier le service de recherche Azure.
+App Service n’est pas déployé avec des réponses aux questions personnalisées.
 
 ---

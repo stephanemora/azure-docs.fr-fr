@@ -1,16 +1,18 @@
 ---
-title: Lecture d’enregistrements – Azure
-description: Vous pouvez utiliser Live Video Analytics sur IoT Edge pour l’enregistrement vidéo continu, qui permet d’enregistrer des vidéos dans le cloud pendant des semaines ou des mois. Vous pouvez également limiter votre enregistrement aux clips qui présentent un intérêt, par le biais de l’enregistrement basé sur les événements. Cet article explique comment lire des enregistrements.
+title: Lecture d’enregistrements avec Live Video Analytics – Azure
+description: Vous pouvez utiliser Azure Live Video Analytics sur IoT Edge pour l’enregistrement vidéo continu, qui permet d’enregistrer des vidéos dans le cloud pendant des semaines ou des mois. Vous pouvez également limiter votre enregistrement aux clips qui présentent un intérêt, par le biais de l’enregistrement basé sur les événements. Cet article explique comment lire des enregistrements.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 0351f10d9fac3ad7e3b4fdd5fd549eb7c0023694
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc8698fc9317421513677eb64403ac2cdc3905c3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99490892"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372077"
 ---
-# <a name="playback-of-recordings"></a>Lecture d’enregistrements 
+# <a name="playback-of-recordings-with-live-video-analytics"></a>Lecture d’enregistrements avec Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## <a name="pre-read"></a>Lecture préalable  
 

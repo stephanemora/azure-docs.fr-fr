@@ -1,17 +1,19 @@
 ---
-title: Analyser une vidéo en direct à l’aide de votre propre modèle gRPC – Azure
-description: Dans ce guide de démarrage rapide, vous allez appliquer la vision par ordinateur pour analyser le flux vidéo en direct à partir d’une caméra IP (simulée).
+title: Analyser une vidéo en direct à l’aide de votre propre modèle gRPC avec Live Video Analytics – Azure
+description: Dans ce guide de démarrage rapide, vous allez appliquer la vision par ordinateur pour analyser le flux vidéo en direct provenant d’une caméra IP (simulée) avec Live Video Analytics.
 ms.topic: quickstart
 ms.date: 08/14/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 907d402a4b0ef5d5e437322d02431a0ccd2d8da3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1079e374d34512e3054c4185302059ffd178c804
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89421519"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371729"
 ---
-# <a name="quickstart-analyze-live-video-by-using-your-own-grpc-model"></a>Démarrage rapide : Analyser une vidéo en direct à l’aide de votre propre modèle gRPC
+# <a name="quickstart-analyze-live-video-by-using-your-own-grpc-model-with-live-video-analytics"></a>Guide de démarrage rapide : Analyser une vidéo en direct à l’aide de votre propre modèle gRPC avec Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Ce guide de démarrage rapide vous montre comment utiliser Live Video Analytics sur IoT Edge pour analyser un flux vidéo en direct à partir d’une caméra IP (simulée). Vous allez voir comment appliquer un modèle de vision par ordinateur pour détecter des objets. Un sous-ensemble d’images du flux vidéo en direct est envoyé à un service d’inférence. Les résultats sont envoyés à IoT Edge Hub.
 

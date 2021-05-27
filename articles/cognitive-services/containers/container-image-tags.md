@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 04/12/2021
+ms.date: 05/13/2021
 ms.author: aahi
-ms.openlocfilehash: aeb5ba4145409db5b2884102d7e886222a37de7a
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 64beb8763c07178335d6fb3ac3356e730b88d9c7
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388361"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374952"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Étiquettes et notes de publication des images conteneur Azure Cognitive Services
 
@@ -161,20 +161,24 @@ L’image conteneur [Reconnaissance vocale personnalisée][sp-cstt] se trouve da
 
 # <a name="latest-version"></a>[Version la plus récente](#tab/current)
 
-Note de publication pour `2.11.0-amd64` :
+Note de publication pour `2.12.0-amd64` :
 
-**Correctifs**
-* Conserver les entrées utilisateur sensibles à la casse.
+Publication mensuelle régulière
 
 Notez qu’en raison de la fonctionnalité de listes d’expressions, la taille de cette image conteneur a augmenté.
 
 | Étiquettes d’image                    | Notes | Digest                                                                   |
 |-------------------------------|:------|:-------------------------------------------------------------------------|
-| `latest`                      |       | `sha256:bbf23ded55bf61421f673bffa7d97aca5724f782328a80efe43020c9979cd069`|
-| `2.11.0-amd64`                |       | `sha256:bbf23ded55bf61421f673bffa7d97aca5724f782328a80efe43020c9979cd069`|
+| `latest`                      |       | `sha256:22284b8e38f83a735fc59f466fb5ba138d5c56b9e8f446dc05cbb5ac63a9a31f`|
+| `2.12.0-amd64`                |       | `sha256:22284b8e38f83a735fc59f466fb5ba138d5c56b9e8f446dc05cbb5ac63a9a31f`|
 
 
 # <a name="previous-version"></a>[Version précédente](#tab/previous)
+
+Note de publication pour `2.11.0-amd64` :
+
+**Correctifs**
+* Conserver les entrées utilisateur sensibles à la casse.
 
 Note de publication pour `2.10.0-amd64` :
 
@@ -225,6 +229,7 @@ Note de publication pour `2.5.0-amd64` :
 
 | Étiquettes d’image                    | Notes               |
 |-------------------------------|:--------------------|
+| `2.11.0-amd64`                |                     |
 | `2.10.0-amd64`                |                     |
 | `2.9.0-amd64`                 |                     |
 | `2.7.0-amd64`                 |                     |
@@ -240,18 +245,22 @@ L’image conteneur [Synthèse vocale personnalisée][sp-ctts] se trouve dans le
 
 # <a name="latest-version"></a>[Version la plus récente](#tab/current)
 
+Note de publication pour `1.14.0-amd64` :
+
+Publication mensuelle régulière
+
+| Étiquettes d’image                    | Notes | Digest                                                                    |
+|-------------------------------|:------|:--------------------------------------------------------------------------|
+| `latest`                      |       | `sha256:1c5c56b76de5dd5ae56ad32aa094c5335b82bd4b78ad805767bf3cef68da674b` |
+| `1.14.0-amd64`                |       | `sha256:1c5c56b76de5dd5ae56ad32aa094c5335b82bd4b78ad805767bf3cef68da674b` |
+
+
+# <a name="previous-version"></a>[Version précédente](#tab/previous)
+
 Note de publication pour `1.13.0-amd64` :
 
 **Correctifs**
 * Conserver les entrées utilisateur sensibles à la casse.
-
-| Étiquettes d’image                    | Notes | Digest                                                                   |
-|-------------------------------|:------|:-------------------------------------------------------------------------|
-| `latest`                      |       | `sha256:390ff9e4981c798058058e7825cd1e6d173d9d54d66d8fdc450d157cf393aaec` |
-| `1.13.0-amd64`                |       | `sha256:390ff9e4981c798058058e7825cd1e6d173d9d54d66d8fdc450d157cf393aaec` |
-
-
-# <a name="previous-version"></a>[Version précédente](#tab/previous)
 
 Note de publication pour `1.12.0-amd64` :
 
@@ -278,6 +287,7 @@ Note de publication pour `1.7.0-amd64` :
 
 | Étiquettes d’image                    | Notes               |
 |-------------------------------|:--------------------|
+| `1.13.0-amd64`                |                     |
 | `1.12.0-amd64`                |                     |
 | `1.11.0-amd64`                |                     |
 | `1.9.0-amd64`                 |                     |
@@ -294,6 +304,108 @@ Depuis Reconnaissance vocale v2.5.0, les images sont prises en charge dans la r
 
 # <a name="latest-version"></a>[Version la plus récente](#tab/current)
 
+Note de publication pour `2.12.0-amd64-<locale>` :
+
+**Fonctionnalité**
+* Effectuez une mise à niveau vers les modèles les plus récents.
+
+Notez qu’en raison de la fonctionnalité de listes d’expressions, la taille de cette image conteneur a augmenté. 
+
+| Étiquettes d’image                    | Notes                                                                                                |
+|-------------------------------|:-----------------------------------------------------------------------------------------------------|
+| `latest`                      | Image conteneur avec les paramètres régionaux `en-US`.                                                             |
+| `2.12.0-amd64-<locale>`       | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `2.12.0-amd64-en-us`.|
+
+Les paramètres régionaux suivants sont disponibles pour ce conteneur.
+
+| Paramètres régionaux pour v2.12.0          | Notes                                    | Digest                                                                    |
+|-----------------------------|:-----------------------------------------|:--------------------------------------------------------------------------|
+| `ar-ae`                     | Image conteneur avec les paramètres régionaux `ar-AE`. | `sha256:064aac5ddd8344081961be631d8f21787ca031bfb7b80e539393464d7bb45778` |
+| `ar-bh`                     | Image conteneur avec les paramètres régionaux `ar-BH`. | `sha256:e85734b5563b909851f91ee0e6736c1dee90289f97018d594a026a1f29e0ed3e` |
+| `ar-eg`                     | Image conteneur avec les paramètres régionaux `ar-EG`. | `sha256:f4a1047fe225a16d515ab0818393114073979c9eff862ca01c1a8fec6cc5db06` |
+| `ar-iq`                     | Image conteneur avec les paramètres régionaux `ar-IQ`. | `sha256:422f18155a43817448b9db0dfdf87972ede8ffdd75c154251e00df20812da233` |
+| `ar-jo`                     | Image conteneur avec les paramètres régionaux `ar-JO`. | `sha256:6521a7ad179aed7c8305968613d8688afbc20224e9e12e88a90352a36d59f860` |
+| `ar-kw`                     | Image conteneur avec les paramètres régionaux `ar-KW`. | `sha256:064aac5ddd8344081961be631d8f21787ca031bfb7b80e539393464d7bb45778` |
+| `ar-lb`                     | Image conteneur avec les paramètres régionaux `ar-LB`. | `sha256:5aba99800db4709451f9d3cfdbfae38f4f9d33eb1ad582f3734db29adb1a9312` |
+| `ar-om`                     | Image conteneur avec les paramètres régionaux `ar-OM`. | `sha256:96493991234739d6af47b27e00da14b3b380936422d6b91c3c89fcd56252b54d` |
+| `ar-qa`                     | Image conteneur avec les paramètres régionaux `ar-QA`. | `sha256:064aac5ddd8344081961be631d8f21787ca031bfb7b80e539393464d7bb45778` |
+| `ar-sa`                     | Image conteneur avec les paramètres régionaux `ar-SA`. | `sha256:064aac5ddd8344081961be631d8f21787ca031bfb7b80e539393464d7bb45778` |
+| `ar-sy`                     | Image conteneur avec les paramètres régionaux `ar-SY`. | `sha256:5ca200a4f178c222833c425635e5e0bc6c1afe1fd8ed36d79c5057eddb2a896b` |
+| `bg-bg`                     | Image conteneur avec les paramètres régionaux `bg-BG`. | `sha256:20349f5cfdf5b494b7b99fd21919fb1293506af45cfa4deeebe86c685fe148fd` |
+| `ca-es`                     | Image conteneur avec les paramètres régionaux `ca-ES`. | `sha256:2c8157e92e43ef2da62cf0cbdc03789d9212af50e631dcb2f05b15da166ca98c` |
+| `cs-cz`                     | Image conteneur avec les paramètres régionaux `cs-CZ`. | `sha256:b7d7165585c42b71a10a59f56d697c976507d43dd7194497511e9454e30fab5e` |
+| `da-dk`                     | Image conteneur avec les paramètres régionaux `da-DK`. | `sha256:7dce8b535f20be8c950cf03ffa36d2a0596d82cb894d336933ff8e9fdff9a971` |
+| `de-de`                     | Image conteneur avec les paramètres régionaux `de-DE`. | `sha256:a129a9b671f79055d14a94150d47ed466c18c5d0a6309df7a2d3a805683a9cc3` |
+| `el-gr`                     | Image conteneur avec les paramètres régionaux `el-GR`. | `sha256:84d0fa507571051d6879e06882135ab3382b35ea6a28e175e665400047910086` |
+| `en-au`                     | Image conteneur avec les paramètres régionaux `en-AU`. | `sha256:c7901ee73bf87040f2b2f8d811007b6282070a72793214e7473b934b460004c9` |
+| `en-ca`                     | Image conteneur avec les paramètres régionaux `en-CA`. | `sha256:a26b8e87a5d9b0a6ef954770ce1ae6fc0d6bbbf97875274a5610be38e161f80b` |
+| `en-gb`                     | Image conteneur avec les paramètres régionaux `en-GB`. | `sha256:6ad9c80ba0e1f48ecce5112c685b576a4214671a39fd12749eb26c62c49f8e67` |
+| `en-hk`                     | Image conteneur avec les paramètres régionaux `en-HK`. | `sha256:82f8abb2396aede6ab16e67f1c705ef58bd71b269e832ce0c43f1769aad74469` |
+| `en-ie`                     | Image conteneur avec les paramètres régionaux `en-IE`. | `sha256:1daad42be533a5d284e4e7bf75e87b1a09943052e2bbe58e2f085b952c069882` |
+| `en-in`                     | Image conteneur avec les paramètres régionaux `en-IN`. | `sha256:a29eb8e6c72962096d8d281e6f329daacbd92200a2f9a970e522234a5b08ba54` |
+| `en-nz`                     | Image conteneur avec les paramètres régionaux `en-NZ`. | `sha256:9b1273d7610f585cbb1475d83837b671c43c05625b0c73828176dc93fd9982c1` |
+| `en-ph`                     | Image conteneur avec les paramètres régionaux `en-PH`. | `sha256:aacf6d9111493a6fee960b3fe5f87955a1eef04e56e2908e91a7b2ade5a17638` |
+| `en-sg`                     | Image conteneur avec les paramètres régionaux `en-SG`. | `sha256:d47f1fc3235734a4642875442ebef3d73e139d5699c42bee2c252c9534c0cd72` |
+| `en-us`                     | Image conteneur avec les paramètres régionaux `en-US`. | `sha256:3ad65ef9e0a0e496eb80eab187aa2d770c725d84d45689ad570511f5bbac0f2a` |
+| `en-za`                     | Image conteneur avec les paramètres régionaux `en-ZA`. | `sha256:8caba9bea8d794a77b6d674bad1e478d1cc925089bb4cc64f80f7b2a15f8a035` |
+| `es-ar`                     | Image conteneur avec les paramètres régionaux `es-AR`. | `sha256:145b10dddf8600b0ab8c6edc4e262ee0843b3c794ca6fc4fe943d5096597c506` |
+| `es-bo`                     | Image conteneur avec les paramètres régionaux `es-BO`. | `sha256:77475a986862bacbe78f86558771ae04e5a2bd4f2d49cab30151e5a8ba6965fb` |
+| `es-cl`                     | Image conteneur avec les paramètres régionaux `es-CL`. | `sha256:72ecd5fbed1138a433a8d4a4021209b3f481cba2c86e5c9b97bf25595cb52bc7` |
+| `es-co`                     | Image conteneur avec les paramètres régionaux `es-CO`. | `sha256:26d20e889edf08bf54ba2e7434793da41f8830c7a2e238f4e21f398f5a4ba054` |
+| `es-cr`                     | Image conteneur avec les paramètres régionaux `es-CR`. | `sha256:37ec3204a2527659c9bbd9c016eb06ce676f9703a579b4e428b49b3f34917157` |
+| `es-cu`                     | Image conteneur avec les paramètres régionaux `es-CU`. | `sha256:6880436e0d674942dcc38cba4a5fa63e05718959a5f51dcb7e529ecb25b66602` |
+| `es-do`                     | Image conteneur avec les paramètres régionaux `es-DO`. | `sha256:3adab6788008209afd34ccfee95a71cbc85f48ab976ae596dad51c5f8f954936` |
+| `es-ec`                     | Image conteneur avec les paramètres régionaux `es-EC`. | `sha256:50b89dbee77960eb9020bd38194c893cc54ab94edb4f93a0d4c8c9998ad731e2` |
+| `es-es`                     | Image conteneur avec les paramètres régionaux `es-ES`. | `sha256:a2d3f2e3d1c205f87b3ebf0c10d09f74529b658c01362b20889a2a0988c19936` |
+| `es-gt`                     | Image conteneur avec les paramètres régionaux `es-GT`. | `sha256:3c4d7495781eab151843a945a81086163b5db35338017eb232c99893bc14450a` |
+| `es-hn`                     | Image conteneur avec les paramètres régionaux `es-HN`. | `sha256:3289ebe6a3447cec9e66eaf508f2d10fcebba324164a96d85ed02f9bff5585b4` |
+| `es-mx`                     | Image conteneur avec les paramètres régionaux `es-MX`. | `sha256:5c8ac33806a34238e291b5ec55862429415a60883aaaea84a8bf9e3e67ff7963` |
+| `es-ni`                     | Image conteneur avec les paramètres régionaux `es-NI`. | `sha256:5e13ec7acf7160889035041d3237a1b2814749428516a2b3a1843f8d511eb30c` |
+| `es-pa`                     | Image conteneur avec les paramètres régionaux `es-PA`. | `sha256:9c34f23de138039354dc1e7d654bfef6d1290846b6da0136519cd1c77d8671c2` |
+| `es-pe`                     | Image conteneur avec les paramètres régionaux `es-PE`. | `sha256:d726750e523222f12908e7836ef9aa289873eb91026ed4ae08f138f2af279d88` |
+| `es-pr`                     | Image conteneur avec les paramètres régionaux `es-PR`. | `sha256:04b5ecd38ec30d21a55320dc0193c436484a5203a4b2dcf4ac3b75a2ff266eaf` |
+| `es-py`                     | Image conteneur avec les paramètres régionaux `es-PY`. | `sha256:23468dfddb63b20ba394e07841176c4d26d31626ee4e7d453a6ec9a2652f439e` |
+| `es-sv`                     | Image conteneur avec les paramètres régionaux `es-SV`. | `sha256:5a21ffe2d29f1e767634bb28035c44ef8284dd7320fdf22adf638603d6500b6d` |
+| `es-us`                     | Image conteneur avec les paramètres régionaux `es-US`. | `sha256:0c0904e6794e7d84e259923ca8ebe57cfaef7fb195f29e01f322701bb226afaf` |
+| `es-uy`                     | Image conteneur avec les paramètres régionaux `es-UY`. | `sha256:b08612341054b28621d0b462f340aeff03c7064328bbbc3f2dea9c07276bcb10` |
+| `es-ve`                     | Image conteneur avec les paramètres régionaux `es-VE`. | `sha256:96984115e3380c44929bf8cce4b295f9c05d0bf92c1b1d31a87e1a7aaf7eee38` |
+| `et-ee`                     | Image conteneur avec les paramètres régionaux `et-EE`. | `sha256:36f02ef75ce7f09b4ffbf06e5c61a59e9066a503017a7f845f0636bc139d2ac9` |
+| `fi-fi`                     | Image conteneur avec les paramètres régionaux `fi-FI`. | `sha256:05c16cd1d888c707e985d59f187621491c77a4cd5997ac71c49beaa6c86f39f8` |
+| `fr-ca`                     | Image conteneur avec les paramètres régionaux `fr-CA`. | `sha256:2e181fc9260f4c85b5dee67379b22bc8031a24d902a810367f4c13cb5282c9f9` |
+| `fr-fr`                     | Image conteneur avec les paramètres régionaux `fr-FR`. | `sha256:2a580f39f788e4459e0a3c544bca6724bc3f7b6e9aa64e9ddaf53675d211de7c` |
+| `ga-ie`                     | Image conteneur avec les paramètres régionaux `ga-IE`. | `sha256:70e820e105ce6897c22260af841ec4049afa83bae5ef1299cbf7b5f7bb820c3c` |
+| `gu-in`                     | Image conteneur avec les paramètres régionaux `gu-IN`. | `sha256:c7c2cfd2090c0658eba6e6da6bf1b4b2649873893c6efa5d0985b7ba6923353a` |
+| `hi-in`                     | Image conteneur avec les paramètres régionaux `hi-IN`. | `sha256:4cace269d6116cc2ca726239150651d2602ae33d95f91b5f76d75c8e9dcacce3` |
+| `hr-hr`                     | Image conteneur avec les paramètres régionaux `hr-HR`. | `sha256:aaf72098d1fa79438f79472470ea3399c29c32b948091a4689e13361c560a913` |
+| `hu-hu`                     | Image conteneur avec les paramètres régionaux `hu-HU`. | `sha256:122f2123913e5869801458cd1c89605c2caba15e02b8c66b61b48d47969c86bc` |
+| `it-it`                     | Image conteneur avec les paramètres régionaux `it-IT`. | `sha256:847c1b0b521c2382b1ca1fd2c50b12ba92e1336f8fb99627ef8e015b32865bac` |
+| `ja-jp`                     | Image conteneur avec les paramètres régionaux `ja-JP`. | `sha256:1b8c5e699197b7327dc027e2358ff04c97dbd3570d1523c8d64f3db18599c6ba` |
+| `ko-kr`                     | Image conteneur avec les paramètres régionaux `ko-KR`. | `sha256:38b722e2e4f6479f560af3da727dd29010e8d0d05d3f368cf2f55eb939b3155c` |
+| `lt-lt`                     | Image conteneur avec les paramètres régionaux `lt-LT`. | `sha256:5064a002072625b6277b479e3681ee305f567bffd16437ad631b60ba5646d494` |
+| `lv-lv`                     | Image conteneur avec les paramètres régionaux `lv-LV`. | `sha256:feed8608f89a233d01f1611144aa4619651ae34e7667938aebf91488f9f7c95d` |
+| `mr-in`                     | Image conteneur avec les paramètres régionaux `mr-IN`. | `sha256:51ccd73028e6fe0ea87e3fb16a1380079cc35e89817897ce05b4c3609d92cd1b` |
+| `mt-mt`                     | Image conteneur avec les paramètres régionaux `mt-MT`. | `sha256:ce8a8c0edf2a69f6f3cc1e97d55ca9780ddc693c23e4fddda07e15bdf5ae0325` |
+| `nb-no`                     | Image conteneur avec les paramètres régionaux `nb-NO`. | `sha256:48020e478248404af4353e6a1bcfd587362d347f82a26235b6074f24fa7bda94` |
+| `nl-nl`                     | Image conteneur avec les paramètres régionaux `nl-NL`. | `sha256:d6e95e09b39acff519e5a9cbacc4428b63099f09233e3ec4da4df0b2542691e0` |
+| `pl-pl`                     | Image conteneur avec les paramètres régionaux `pl-PL`. | `sha256:37f2514d5a6e92edc5b4e617a29f35081b19b007a5608b8ebfeb8cd73f396c46` |
+| `pt-br`                     | Image conteneur avec les paramètres régionaux `pt-BR`. | `sha256:99a610bf2011fba1a6019122bbe1e12a4f62fa83134d27bfbb8b29ebcafdf548` |
+| `pt-pt`                     | Image conteneur avec les paramètres régionaux `pt-PT`. | `sha256:14dff7b99958456911addc6cdbb2d949815d2f7f46379603cfbdb7b8a0fbb91b` |
+| `ro-ro`                     | Image conteneur avec les paramètres régionaux `ro-RO`. | `sha256:47bc1aa59c06d86dd23c1fc23522860ec36e598f8438e8212a1a1d2617918415` |
+| `ru-ru`                     | Image conteneur avec les paramètres régionaux `ru-RU`. | `sha256:4e414bcfef5014e280eb59a0f5b71c921fe3c555be73d94e4023682844178b52` |
+| `sk-sk`                     | Image conteneur avec les paramètres régionaux `sk-SK`. | `sha256:65dcb88c8cbaa9fdf2a0d7daf33e479db924448334f7cd0f17c542f9e8462313` |
+| `sl-si`                     | Image conteneur avec les paramètres régionaux `sl-SI`. | `sha256:8066547ed0a2571ba2d26b34b72691ad9c5cb66cf0fbe4464af971199abd9bf7` |
+| `sv-se`                     | Image conteneur avec les paramètres régionaux `sv-SE`. | `sha256:a9bb856066653abe1458ac7dae12c968a40834fb75d8047ad74d9c15f7df62ed` |
+| `ta-in`                     | Image conteneur avec les paramètres régionaux `ta-IN`. | `sha256:60339700f76a17d77753659c2895f9fe5c40574641d5530cb482ed4575c59ff1` |
+| `te-in`                     | Image conteneur avec les paramètres régionaux `te-IN`. | `sha256:8d05d03fb0fe03eb9ff499d81c1bbf8932848de6d723b66b32eb6ed970225ce6` |
+| `th-th`                     | Image conteneur avec les paramètres régionaux `th-TH`. | `sha256:5d02087aa366829162098d21efb084724d3a5b8d72a8815c45de5e2017f9368c` |
+| `tr-tr`                     | Image conteneur avec les paramètres régionaux `tr-TR`. | `sha256:0d7198cde7eba3500caa153e869d14ce0ad07568416dfd69108dc5793106e3ec` |
+| `zh-cn`                     | Image conteneur avec les paramètres régionaux `zh-CN`. | `sha256:27ad0c04c41eadb445bab067cb14f84ede08a09ac9ba44bca163f2af89b8a5c2` |
+| `zh-hk`                     | Image conteneur avec les paramètres régionaux `zh-HK`. | `sha256:7b816c7e753684e5f886de43ca7630c0b52f47e704e2c7e50581ff2bca138703` |
+| `zh-tw`                     | Image conteneur avec les paramètres régionaux `zh-TW`. | `sha256:fb3d06558c1a479377324ed689f13519f5df4a6283b2933401aec3e2a2b0b25a` |
+
+
+# <a name="previous-version"></a>[Version précédente](#tab/previous)
+
 Note de publication pour `2.11.0-amd64-<locale>` :
 
 **Fonctionnalité**
@@ -302,12 +414,78 @@ Note de publication pour `2.11.0-amd64-<locale>` :
 **Correctifs**
 * Conserver les entrées utilisateur sensibles à la casse.
 
-Notez qu’en raison de la fonctionnalité de listes d’expressions, la taille de cette image conteneur a augmenté. 
+Note de publication pour `2.10.0-amd64-<locale>` :
 
-| Étiquettes d’image                    | Notes                                                                                                |
-|-------------------------------|:-----------------------------------------------------------------------------------------------------|
-| `latest`                      | Image conteneur avec les paramètres régionaux `en-US`.                                                             |
-| `2.11.0-amd64-<locale>`       | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `2.11.0-amd64-en-us`.|
+**Fonctionnalité**
+* Effectuez une mise à niveau vers les modèles les plus récents.
+
+Note de publication pour `2.9.0-amd64-<locale>` :
+
+**Fonctionnalité**
+* Plus de détails sur les erreurs lors de la récupération de modèles personnalisés par ID.
+* L’hypothèse est prise en charge par défaut dans les résultats de conversation.
+
+Note de publication pour `2.7.0-amd64-<locale>` :
+
+**Caractéristiques**
+* Prise en charge des nouveaux paramètres régionaux suivants :
+    * ar-bh, ar-iq, ar-jo, ar-lb, ar-om, ar-sy
+    * bg-bg
+    * el-gr
+    * en-hk, en-ie, en-ph, en-sg, en-za
+    * es-ar, es-bo, es-cl, es-co, es-cr, es-cu, es-do, es-ec, es-gt, es-pa, es-pe, es-pr, es-py, es-sv, es-us, es-uy, es-ve
+    * et-ee
+    * ga-ie
+    * hr-hr
+    * hu-hu
+    * lt-lt
+    * lv-lv
+    * mt-mt
+    * ro-ro
+    * sk-sk
+    * sl-sl
+* La ponctuation est activée par défaut.
+
+Notez qu’en raison des listes d’expressions incluses, la taille de cette image conteneur a augmenté. 
+
+Note de publication pour `2.6.0-amd64-<locale>` :
+
+**Caractéristiques**
+* Mise à niveau vers les modèles les plus récents et migration complète vers .NET 3.1
+* Prise en charge de listes d’expressions v2
+* Les listes d’expressions sont prises en charge dans les paramètres régionaux suivants :
+    * en-au
+    * en-ca
+    * en-gb
+    * en-in
+    * fr-FR
+    * zh-cn
+* Prise en charge des paramètres régionaux `cs-CZ` 
+    * Les majuscules et les signes de ponctuation ne sont actuellement pas pris en charge.
+
+**Correctifs**
+* Résolution d’un problème lié aux scores de confiance toujours égaux à 1 en mode diarisation
+* Migration vers l’utilisation de l’API Analyse de texte 3.0
+
+Notez qu’en raison des listes d’expressions incluses, la taille de cette image conteneur a augmenté. 
+
+Note de publication pour `2.5.0-amd64-<locale>` :
+
+**Caractéristiques**
+* Prise en charge du cloud Azure US Government
+
+**Correctifs**
+* Résolution d’un problème lié à l’exécution en tant qu’utilisateur non-racine en mode diarisation
+
+| Étiquettes d’image                  | Notes                                    |
+|-----------------------------|:-----------------------------------------|
+| `2.11.0-amd64-<locale>`     | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `2.11.0-amd64-en-us`.|
+| `2.10.0-amd64-<locale>`     | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `2.10.0-amd64-en-us`.|
+| `2.9.0-amd64-<locale>`      | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `2.9.0-amd64-en-us`. |
+| `2.7.0-amd64-<locale>`      | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `2.7.0-amd64-en-us`. |
+| `2.6.0-amd64-<locale>`      | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `2.6.0-amd64-en-us`. |
+| `2.5.0-amd64-<locale>`      | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `2.5.0-amd64-en-us`. |
+
 
 Les paramètres régionaux suivants sont disponibles pour ce conteneur.
 
@@ -395,83 +573,6 @@ Les paramètres régionaux suivants sont disponibles pour ce conteneur.
 | `zh-cn`                     | Image conteneur avec les paramètres régionaux `zh-CN`. | `sha256:ae4a89a26768c978d91ed797e9ecb8035fdb61f12c1b1124c86939c79ddcb38e` |
 | `zh-hk`                     | Image conteneur avec les paramètres régionaux `zh-HK`. | `sha256:41bc980abe79cd69034a8ade2be203478b531a00f5e74b1f7b8f9c5267700261` |
 | `zh-tw`                     | Image conteneur avec les paramètres régionaux `zh-TW`. | `sha256:51a50a7fcd5a9db6422235a2df0e8fba360efcd3cefee9abe44ab2cdce62088f` |
-
-
-# <a name="previous-version"></a>[Version précédente](#tab/previous)
-
-Note de publication pour `2.10.0-amd64-<locale>` :
-
-**Fonctionnalité**
-* Effectuez une mise à niveau vers les modèles les plus récents.
-
-Note de publication pour `2.9.0-amd64-<locale>` :
-
-**Fonctionnalité**
-* Plus de détails sur les erreurs lors de la récupération de modèles personnalisés par ID.
-* L’hypothèse est prise en charge par défaut dans les résultats de conversation.
-
-Note de publication pour `2.7.0-amd64-<locale>` :
-
-**Caractéristiques**
-* Prise en charge des nouveaux paramètres régionaux suivants :
-    * ar-bh, ar-iq, ar-jo, ar-lb, ar-om, ar-sy
-    * bg-bg
-    * el-gr
-    * en-hk, en-ie, en-ph, en-sg, en-za
-    * es-ar, es-bo, es-cl, es-co, es-cr, es-cu, es-do, es-ec, es-gt, es-pa, es-pe, es-pr, es-py, es-sv, es-us, es-uy, es-ve
-    * et-ee
-    * ga-ie
-    * hr-hr
-    * hu-hu
-    * lt-lt
-    * lv-lv
-    * mt-mt
-    * ro-ro
-    * sk-sk
-    * sl-sl
-* La ponctuation est activée par défaut.
-
-Notez qu’en raison des listes d’expressions incluses, la taille de cette image conteneur a augmenté. 
-
-Note de publication pour `2.6.0-amd64-<locale>` :
-
-**Caractéristiques**
-* Mise à niveau vers les modèles les plus récents et migration complète vers .NET 3.1
-* Prise en charge de listes d’expressions v2
-* Les listes d’expressions sont prises en charge dans les paramètres régionaux suivants :
-    * en-au
-    * en-ca
-    * en-gb
-    * en-in
-    * fr-FR
-    * zh-cn
-* Prise en charge des paramètres régionaux `cs-CZ` 
-    * Les majuscules et les signes de ponctuation ne sont actuellement pas pris en charge.
-
-**Correctifs**
-* Résolution d’un problème lié aux scores de confiance toujours égaux à 1 en mode diarisation
-* Migration vers l’utilisation de l’API Analyse de texte 3.0
-
-Notez qu’en raison des listes d’expressions incluses, la taille de cette image conteneur a augmenté. 
-
-Note de publication pour `2.5.0-amd64-<locale>` :
-
-**Caractéristiques**
-* Prise en charge du cloud Azure US Government
-
-**Correctifs**
-* Résolution d’un problème lié à l’exécution en tant qu’utilisateur non-racine en mode diarisation
-
-| Étiquettes d’image                  | Notes                                    |
-|-----------------------------|:-----------------------------------------|
-| `2.10.0-amd64-<locale>`     | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `2.10.0-amd64-en-us`.|
-| `2.9.0-amd64-<locale>`      | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `2.9.0-amd64-en-us`. |
-| `2.7.0-amd64-<locale>`      | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `2.7.0-amd64-en-us`. |
-| `2.6.0-amd64-<locale>`      | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `2.6.0-amd64-en-us`. |
-| `2.5.0-amd64-<locale>`      | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `2.5.0-amd64-en-us`. |
-
-
-Les paramètres régionaux suivants sont disponibles pour ce conteneur.
 
 | Paramètres régionaux pour v2.10.0          | Notes                                    | Digest                                                                    |
 |-----------------------------|:-----------------------------------------|:--------------------------------------------------------------------------|
@@ -824,7 +925,7 @@ Les étiquettes suivantes sont disponibles pour cette image conteneur. Vous trou
 
 # <a name="latest-version"></a>[Version la plus récente](#tab/current)
 
-Note de publication pour `1.13.0-amd64-<locale-and-voice>` :
+Note de publication pour `1.14.0-amd64-<locale-and-voice>` :
 
 **Fonctionnalité**
 * Effectuez une mise à niveau vers les modèles les plus récents.
@@ -832,7 +933,134 @@ Note de publication pour `1.13.0-amd64-<locale-and-voice>` :
 | Étiquettes d’image                                  | Notes                                                                                                         |
 |---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
 | `latest`                                    | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-AriaRUS`.                                            | 
+| `1.14.0-amd64-<locale-and-voice>`           | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.14.0-amd64-en-us-ariarus`. |
+
+| Paramètres régionaux pour v1.14.0                         | Notes                                                                      | Digest                         |
+|---------------------------------------------|:---------------------------------------------------------------------------|:-------------------------------|
+| `ar-eg-hoda`                                | Image conteneur avec les paramètres régionaux `ar-EG` et la voix `ar-EG-Hoda`.            | `sha256:51042fcb326406ae8fc436ad1b33727767c6240f441bd9e0d92b3fe8cb9a0f71` |
+| `ar-sa-naayf`                               | Image conteneur avec les paramètres régionaux `ar-SA` et la voix `ar-SA-Naayf`.           | `sha256:568eabb3cb2de77a44945837d04c065d8b6401e703ce9280d956dcced9df6651` |
+| `bg-bg-ivan`                                | Image conteneur avec les paramètres régionaux `bg-BG` et la voix `bg-BG-Ivan`.            | `sha256:4c093284e6df02d7738e5c009f36ab13655c680bff4c00b3a4a2bd99bfa39a8b` |
+| `ca-es-herenarus`                           | Image conteneur avec les paramètres régionaux `ca-ES` et la voix `ca-ES-HerenaRUS`.       | `sha256:168f1431f162465bc4ece78bbe7f3a3687d9dba7f008a809cc3b5823c8d002c8` |
+| `cs-cz-jakub`                               | Image conteneur avec les paramètres régionaux `cs-CZ` et la voix `cs-CZ-Jakub`.           | `sha256:ee8d7392a81a0ba98537816ba5ceee0c6db2017ea49b33d7eace62a92967a6e8` |
+| `da-dk-hellerus`                            | Image conteneur avec les paramètres régionaux `da-DK` et la voix `da-DK-HelleRUS`.        | `sha256:36e90323b657d8e525d3b9c047522dc9837d582adf09b4761de9f191680f9a96` |
+| `de-at-michael`                             | Image conteneur avec les paramètres régionaux `de-AT` et la voix `de-AT-Michael`.         | `sha256:0b5a63f842ddfe0f67c9abc22caa749c6710b978d854bec605e1c0591160645b` |
+| `de-ch-karsten`                             | Image conteneur avec les paramètres régionaux `de-CH` et la voix `de-CH-Karsten`.         | `sha256:9a95dfc74a5f5f05ba12cb148ad31b7c02ea858faeb4a776fd65b5cc51643a9f` |
+| `de-de-heddarus`                            | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Hedda`.           | `sha256:6302ea75b945fe1772b096dbd2b29d3ec1cd98b13365031f2064b7b6ab43fe6e` |
+| `de-de-hedda`                               | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Hedda`.           | `sha256:6302ea75b945fe1772b096dbd2b29d3ec1cd98b13365031f2064b7b6ab43fe6e` |
+| `de-de-stefan-apollo`                       | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Stefan-Apollo`.   | `sha256:dea531d183eb4e6b6fdf7c09afe1b83f6af39f612f543975358b273b9a725297` |
+| `el-gr-stefanos`                            | Image conteneur avec les paramètres régionaux `el-GR` et la voix `el-GR-Stefanos`.        | `sha256:fe132ffc0c3688c9602d5d75038ce31a87fd3f98efe18dc05f55f16cbbaebc4a` |
+| `en-au-catherine`                           | Image conteneur avec les paramètres régionaux `en-AU` et la voix `en-AU-Catherine`.       | `sha256:47149b26fbdb4dabd6e605302ddbcb6682576d25e4f0d6cd35d55f264c22d8e9` |
+| `en-au-hayleyrus`                           | Image conteneur avec les paramètres régionaux `en-AU` et la voix `en-AU-HayleyRUS`.       | `sha256:0b817be772baba1cedcfa77a75d38c5eff6c846868f85eb0fe7504e4bd6cde92` |
+| `en-ca-heatherrus`                          | Image conteneur avec les paramètres régionaux `en-CA` et la voix `en-CA-HeatherRUS`.      | `sha256:d59bb06fed865ca7850c419612a4485379a59a1f8631284047654b763e1678b7` |
+| `en-ca-linda`                               | Image conteneur avec les paramètres régionaux `en-CA` et la voix `en-CA-Linda`.           | `sha256:bf2e142ab852622562e77135a5ef3b52ed0b5a23a62f8104d6f299a4f741b3f7` |
+| `en-gb-george-apollo`                       | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-George-Apollo`.   | `sha256:1e66a01f064f860879296173e69f9390c9d4e3a85ee303990df4b6fd9d3874ba` |
+| `en-gb-hazelrus`                            | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-HazelRUS`.        | `sha256:19e76f8b8b85262ad4dc5892a03cb973f48ed9914324e68985b66201726bb400` |
+| `en-gb-susan-apollo`                        | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-Susan-Apollo`.    | `sha256:4c4e2e5faf74cc0f55b7081f68c24d88206eb989e0ca4c416d0d9c6b24bbd1bc` |
+| `en-ie-sean`                                | Image conteneur avec les paramètres régionaux `en-IE` et la voix `en-IE-Sean`.            | `sha256:d771436bd543bd5500a94205cd047e084cb43081829fcc22ee67c285b0ac06f0` |
+| `en-in-heera-apollo`                        | Image conteneur avec les paramètres régionaux `en-IN` et la voix `en-IN-Heera-Apollo`.    | `sha256:bdbb8fedfb129cb5822f1442f9b6c3ccc1054660d33aba29caf464a2b8174423` |
+| `en-in-priyarus`                            | Image conteneur avec les paramètres régionaux `en-IN` et la voix `en-IN-PriyaRUS`.        | `sha256:b16a0f8e7af04af2f6c849cbcd8f7de75b105fce9d68c98e3038c9d93ab07767` |
+| `en-in-ravi-apollo`                         | Image conteneur avec les paramètres régionaux `en-IN` et la voix `en-IN-Ravi-Apollo`.     | `sha256:72a6cd4dee54518a1fdb02998861ca5b6c3cda74ceffce0929d911de98fa054b` |
+| `en-us-aria24krus`                          | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-Aria24kRUS`.      | `sha256:21be092ed49a687b86dec15349201b9cfab323a68879cfee4a70d063368c06d9` |
+| `en-us-ariarus`                             | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-AriaRUS`.         | `sha256:21be092ed49a687b86dec15349201b9cfab323a68879cfee4a70d063368c06d9` |
+| `en-us-benjaminrus`                         | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-BenjaminRUS`.     | `sha256:64aa702fdb963721dfbef0b425d400f2e10159b8e261048f7a81c962ed80acdc` |
+| `en-us-guy24krus`                           | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-Guy24kRUS`.       | `sha256:fefd0b03bc10493e99c2bd4a65b50aed0b585714fa3169dfe6ecfd63e2f41605` |
+| `en-us-zirarus`                             | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-ZiraRUS`.         | `sha256:65d8cc26d1b514a04adaf17d603edfa81fead9b456a6f5bef3cec80f09bef2f4` |
+| `es-es-helenarus`                           | Image conteneur avec les paramètres régionaux `es-ES` et la voix `es-ES-HelenaRUS`.       | `sha256:5e894da2609c367d97782c2e3cf0248dc83758bcebf2114106ba2465638e1beb` |
+| `es-es-laura-apollo`                        | Image conteneur avec les paramètres régionaux `es-ES` et la voix `es-ES-Laura-Apollo`.    | `sha256:6224461121515e5fa5668a93601b790a784c9ea049feae56c6ce4241a6ba9f5e` |
+| `es-es-pablo-apollo`                        | Image conteneur avec les paramètres régionaux `es-ES` et la voix `es-ES-Pablo-Apollo`.    | `sha256:1a15fac1dfcbca48381882e9b77c0728d080f48ca05eb441c92efb22f1b539e0` |
+| `es-mx-hildarus`                            | Image conteneur avec les paramètres régionaux `es-MX` et la voix `es-MX-HildaRUS`.        | `sha256:857d8d3c3f2117f7088b232413eecd188feb6d61cabfc068573c884de0c36cc4` |
+| `es-mx-raul-apollo`                         | Image conteneur avec les paramètres régionaux `es-MX` et la voix `es-MX-Raul-Apollo`.     | `sha256:4aabd28e70e24fe40c3957b62b8f303f29d9e314c2dab8e622b7488ff74965ee` |
+| `fi-fi-heidirus`                            | Image conteneur avec les paramètres régionaux `fi-FI` et la voix `fi-FI-HeidiRUS`.        | `sha256:191f7e12c71b6080d9e8bbd556cda66d2c41ac1f6cd795607e04d4f562978345` |
+| `fr-ca-caroline`                            | Image conteneur avec les paramètres régionaux `fr-CA` et la voix `fr-CA-Caroline`.        | `sha256:76203efca3906dc2a1e11382446b4f043ff522c43914fc45b67bb47266d924a0` |
+| `fr-ca-harmonierus`                         | Image conteneur avec les paramètres régionaux `fr-CA` et la voix `fr-CA-HarmonieRUS`.     | `sha256:6755c93fd4a71417884561089e8e3d1a0ea5162ff2b07cbe66c588040e6dd5bd` |
+| `fr-ch-guillaume`                           | Image conteneur avec les paramètres régionaux `fr-CH` et la voix `fr-CH-Guillaume`.       | `sha256:8fb69cd140aa39a93d0fd80dc714f00864b04be3179d5b48012bec5484465f11` |
+| `fr-fr-hortenserus`                         | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-HortenseRUS`.     | `sha256:37117f9c814bb4f1cb4e112bed9fbf9f1146e94043e51576fa0b05aa15601573` |
+| `fr-fr-julie-apollo`                        | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-Julie-Apollo`.    | `sha256:75978e6959445e02127505ec7972cc54aa504234326888a1bbff48d12e7672cb` |
+| `fr-fr-paul-apollo`                         | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-Paul-Apollo`.     | `sha256:e003ac4732053ee049c1429b149591499dcd4716d3aad23e2732355beb5a3058` |
+| `he-il-asaf`                                | Image conteneur avec les paramètres régionaux `he-IL` et la voix `he-IL-Asaf`.            | `sha256:8eb007717e34e47f812569893333d5a3e97a7fad53498432d4979a0e3824c1c3` |
+| `hi-in-hemant`                              | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Hemant`.          | `sha256:533b3d9a9f15419d906e78b92c9e6e2ec442c12e8e3d012e0801422d04b63709` |
+| `hi-in-kalpana-apollo`                      | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Kalpana-Apollo`.  | `sha256:2287a4963f0db435e7f4a0f85bc68ac17d8923bb6acd568153bb4e3181aa155a` |
+| `hi-in-kalpana`                             | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Kalpana`.         | `sha256:2287a4963f0db435e7f4a0f85bc68ac17d8923bb6acd568153bb4e3181aa155a` |
+| `hr-hr-matej`                               | Image conteneur avec les paramètres régionaux `hr-HR` et la voix `hr-HR-Matej`.           | `sha256:6ad69e9f8de0d76b7c899ed0524129aaa66c6227a8b4eb3fe1d2a42ce4e10515` |
+| `hu-hu-szabolcs`                            | Image conteneur avec les paramètres régionaux `hu-HU` et la voix `hu-HU-Szabolcs`.        | `sha256:a60f64d59b54fc1070db76ceaf583fa914cbc5a2806ba98f6d4fb2055c5a11b4` |
+| `id-id-andika`                              | Image conteneur avec les paramètres régionaux `id-ID` et la voix `id-ID-Andika`.          | `sha256:4ceb3fdb5ae32845b5d8d512b5042c54e83c00ab3eec0a605668c0dc03cadcd5` |
+| `it-it-cosimo-apollo`                       | Image conteneur avec les paramètres régionaux `it-IT` et la voix `it-IT-Cosimo-Apollo`.   | `sha256:7498b4a7b5eb2cd1a626e4adece8469b8eefc6b5f1efc43e7cd4f207938fca1f` |
+| `it-it-luciarus`                            | Image conteneur avec les paramètres régionaux `it-IT` et la voix `it-IT-LuciaRUS`.        | `sha256:8b4143c9d639aab14e000271cba0d1be87a0fb7f19b4c6cdcb37104d329f59c6` |
+| `ja-jp-ayumi-apollo`                        | Image conteneur avec les paramètres régionaux `ja-JP` et la voix `ja-JP-Ayumi-Apollo`.    | `sha256:aa3d365e1e5f4cdb52002589599d3e88b3298db8652b6cd9e63c7095838460ae` |
+| `ja-jp-harukarus`                           | Image conteneur avec les paramètres régionaux `ja-JP` et la voix `ja-JP-HarukaRUS`.       | `sha256:8c5f06028f97934a2022af3b30a8691038d3ad9173a5cb2298bb461b46c8a58a` |
+| `ja-jp-ichiro-apollo`                       | Image conteneur avec les paramètres régionaux `ja-JP` et la voix `ja-JP-Ichiro-Apollo`.   | `sha256:a1d84e27829a5e9f22c244ec181f6eda39db1ffeec0d78e5bcb128a012c0ab54` |
+| `ko-kr-heamirus`                            | Image conteneur avec les paramètres régionaux `ko-KR` et la voix `ko-KR-HeamiRUS`.        | `sha256:0ab1b70a226517a2d5547912a9d34865914b1271e9c7489e32aec5cf3d46489d` |
+| `ms-my-rizwan`                              | Image conteneur avec les paramètres régionaux `ms-MY` et la voix `ms-MY-Rizwan`.          | `sha256:95cea6795eb02919f742f09f591e5c670852ea4175e108f3c6c3b33cb2742694` |
+| `nb-no-huldarus`                            | Image conteneur avec les paramètres régionaux `nb-NO` et la voix `nb-NO-HuldaRUS`.        | `sha256:a179563ef1d0c562323e22cd9bdfcb932728f418beecc05207b0df2b8e95bad6` |
+| `nl-nl-hannarus`                            | Image conteneur avec les paramètres régionaux `nl-NL` et la voix `nl-NL-HannaRUS`.        | `sha256:d8932c474fd8b78a0c87a9827ae50eff2329c155e2dd33f52dfba582292ba1d2` |
+| `pl-pl-paulinarus`                          | Image conteneur avec les paramètres régionaux `pl-PL` et la voix `pl-PL-PaulinaRUS`.      | `sha256:5035ac81ee98cf5df695dbde623d5d7957d64cfaba9d0f3acd77204ef4b441ab` |
+| `pt-br-daniel-apollo`                       | Image conteneur avec les paramètres régionaux `pt-BR` et la voix `pt-BR-Daniel-Apollo`.   | `sha256:762463e1d6e51624558ca663702a92126f6d7faf2091b4af12ad0d3bbf703044` |
+| `pt-br-heloisarus`                          | Image conteneur avec les paramètres régionaux `pt-BR` et la voix `pt-BR-HeloisaRUS`.      | `sha256:c34ef2b1d489d9c695073884bfb59ae1e7c54944bfc1fb9b3a05476b9ca9f60a` |
+| `pt-pt-heliarus`                            | Image conteneur avec les paramètres régionaux `pt-PT` et la voix `pt-PT-HeliaRUS`.        | `sha256:88fb5d5c2f90bb07fe49dfa7779f4b559e5a738fe9819728ed4b01e03f029bd1` |
+| `ro-ro-andrei`                              | Image conteneur avec les paramètres régionaux `ro-RO` et la voix `ro-RO-Andrei`.          | `sha256:d24def1774d8cd5f2faaa223ce35e005c5ba664636b2cc7699e8ad490b3316b7` |
+| `ru-ru-ekaterinarus`                        | Image conteneur avec les paramètres régionaux `ru-RU` et la voix `ru-RU-EkaterinaRUS`.    | `sha256:d177af9d804bc956d2b7a9de707330cecb7895f5a32ade4d201e48477a479936` |
+| `ru-ru-irina-apollo`                        | Image conteneur avec les paramètres régionaux `ru-RU` et la voix `ru-RU-Irina-Apollo`.    | `sha256:12fe246c090bfc789b4622613a5835edc9e1c06b48c248252b0da4dbf996e864` |
+| `ru-ru-pavel-apollo`                        | Image conteneur avec les paramètres régionaux `ru-RU` et la voix `ru-RU-Pavel-Apollo`.    | `sha256:35418d54084bbd25101e1a7f0a6f4280b6d4aa2e8c1ba562b9a3c0a6acfa0410` |
+| `sk-sk-filip`                               | Image conteneur avec les paramètres régionaux `sk-SK` et la voix `sk-SK-Filip`.           | `sha256:256a25e505bda3c2f392471b3996a5f2d3cf2eb9d14421322c56223095bffd91` |
+| `sl-si-lado`                                | Image conteneur avec les paramètres régionaux `sl-SI` et la voix `sl-SI-Lado`.            | `sha256:8085a021a30be2e30d51a76b18e0f31be083deb0fb19883f7668ce56a5bcddb1` |
+| `sv-se-hedvigrus`                           | Image conteneur avec les paramètres régionaux `sv-SE` et la voix `sv-SE-HedvigRUS`.       | `sha256:1db0e26b958662ca2db3cc8129130d55f1ad289ab9a10d41ffac3ababc3bd7b4` |
+| `ta-in-valluvar`                            | Image conteneur avec les paramètres régionaux `ta-IN` et la voix `ta-IN-Valluvar`.        | `sha256:d1ed46e3db9888aad0a3399404ecba46738c4583d76b3522406e4f36d9065615` |
+| `te-in-chitra`                              | Image conteneur avec les paramètres régionaux `te-IN` et la voix `te-IN-Chitra`.          | `sha256:d927aed4c64e093f913471352df0d036c30eb7f72f743df75d7293e9eba88bef` |
+| `th-th-pattara`                             | Image conteneur avec les paramètres régionaux `th-TH` et la voix `th-TH-Pattara`.         | `sha256:2d830fe71c4f00642e62245b84849bda947d6702ddbab45e69c8f94c985e0c92` |
+| `tr-tr-sedarus`                             | Image conteneur avec les paramètres régionaux `tr-TR` et la voix `tr-TR-SedaRUS`.         | `sha256:6aa7fd59cff4b43ddaa8437d319f3e56ba8a8c24f9363c783aa6a7454d382a68` |
+| `vi-vn-an`                                  | Image conteneur avec les paramètres régionaux `vi-VN` et la voix `vi-VN-An`.              | `sha256:612963bbe3fb81907c6eac34ead489430a07d5c6389f30be5fc5c59143e228dd` |
+| `zh-cn-huihuirus`                           | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-HuihuiRUS`.       | `sha256:54a32e8ef08d57f841be6ee4c700a448bf80033e9931a6c7560e4f3fdb0ab6d0` |
+| `zh-cn-kangkang-apollo`                     | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-Kangkang-Apollo`. | `sha256:e9d8f52eae02bedbd0cbfdf2da02cf8dc63d4cf04bfea7d76c15fffe40d120a7` |
+| `zh-cn-yaoyao-apollo`                       | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-Yaoyao-Apollo`.   | `sha256:2c4a86a91913edd06eaf01d4b1145eeb429616ccb7496b0b4197d5a8f0b3793a` |
+| `zh-hk-danny-apollo`                        | Image conteneur avec les paramètres régionaux `zh-HK` et la voix `zh-HK-Danny-Apollo`.    | `sha256:140d2cc1a4ffe7b1911254c39870727916c1544776bb7c406a7b6d8d9fed0ad6` |
+| `zh-hk-tracy-apollo`                        | Image conteneur avec les paramètres régionaux `zh-HK` et la voix `zh-HK-Tracy-Apollo`.    | `sha256:98025d5a58b1b7c367d7be4c285b4b602eb2819a203b090f48a6869aa7367ce4` |
+| `zh-hk-tracyrus`                            | Image conteneur avec les paramètres régionaux `zh-HK` et la voix `zh-HK-TracyRUS`.        | `sha256:98025d5a58b1b7c367d7be4c285b4b602eb2819a203b090f48a6869aa7367ce4` |
+| `zh-tw-hanhanrus`                           | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-HanHanRUS`.       | `sha256:fc3ff023277fdc04cc879ba66e3daf9fdc4affcfdb79503597893e8227105c1a` |
+| `zh-tw-yating-apollo`                       | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-Yating-Apollo`.   | `sha256:365693135e6fcc62f68d7bfc92e1dca1662dce31901e5833f7062f517b8bd2b9` |
+| `zh-tw-zhiwei-apollo`                       | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-Zhiwei-Apollo`.   | `sha256:1a01b3470bd1298a6c323a121f4776de07e3747e6fe8e42af4be4845ab0a9b10` |
+
+
+# <a name="previous-version"></a>[Version précédente](#tab/previous)
+
+Note de publication pour `1.13.0-amd64-<locale-and-voice>` :
+
+**Fonctionnalité**
+* Effectuez une mise à niveau vers les modèles les plus récents.
+
+Note de publication pour `1.12.0-amd64-<locale-and-voice>` :
+
+**Fonctionnalité**
+* Effectuez une mise à niveau vers les modèles les plus récents.
+
+Note de publication pour `1.11.0-amd64-<locale-and-voice>` :
+
+**Fonctionnalité**
+* Plus de détails sur les erreurs lors de la récupération de modèles personnalisés par ID.
+
+Note de publication pour `1.9.0-amd64-<locale-and-voice>` :
+
+* Publication mensuelle régulière
+
+Note de publication pour `1.8.0-amd64-<locale-and-voice>` :
+
+**Fonctionnalité**
+
+* Migration complète vers .NET 3.1
+
+Note de publication pour `1.7.0-amd64-<locale-and-voice>` :
+
+**Fonctionnalité**
+
+* Composants mis à niveau vers .NET 3.1
+
+| Étiquettes d’image                                  | Notes                                                                                                         |
+|---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
 | `1.13.0-amd64-<locale-and-voice>`           | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.13.0-amd64-en-us-ariarus`. |
+| `1.12.0-amd64-<locale-and-voice>`           | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.12.0-amd64-en-us-ariarus`. |
+| `1.11.0-amd64-<locale-and-voice>`           | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.11.0-amd64-en-us-ariarus`. |
+| `1.9.0-amd64-<locale-and-voice>`            | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.9.0-amd64-en-us-ariarus`.  |
+| `1.8.0-amd64-<locale-and-voice>`            | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.8.0-amd64-en-us-ariarus`.  |
+| `1.7.0-amd64-<locale-and-voice>`            | 1ère version GA. Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.7.0-amd64-en-us-ariarus`.  |
 
 | Paramètres régionaux pour v1.13.0                         | Notes                                                                      | Digest                         |
 |---------------------------------------------|:---------------------------------------------------------------------------|:-------------------------------|
@@ -917,43 +1145,6 @@ Note de publication pour `1.13.0-amd64-<locale-and-voice>` :
 | `zh-tw-hanhanrus`                           | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-HanHanRUS`.       | `sha256:a3f68538088b5b07f4dc27239fa3a6308d949c2643638634c74f3ee132bca911` |
 | `zh-tw-yating-apollo`                       | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-Yating-Apollo`.   | `sha256:bb0696685f3a90fe6898ff1487cb0c5957e02f3c63cdb7d02394b5c061339bf3` |
 | `zh-tw-zhiwei-apollo`                       | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-Zhiwei-Apollo`.   | `sha256:1772b3bc8b166f429356b00d07ca438202c75d578b6d1655351b9c1e06ae1424` |
-
-
-# <a name="previous-version"></a>[Version précédente](#tab/previous)
-
-Note de publication pour `1.12.0-amd64-<locale-and-voice>` :
-
-**Fonctionnalité**
-* Effectuez une mise à niveau vers les modèles les plus récents.
-
-Note de publication pour `1.11.0-amd64-<locale-and-voice>` :
-
-**Fonctionnalité**
-* Plus de détails sur les erreurs lors de la récupération de modèles personnalisés par ID.
-
-Note de publication pour `1.9.0-amd64-<locale-and-voice>` :
-
-* Publication mensuelle régulière
-
-Note de publication pour `1.8.0-amd64-<locale-and-voice>` :
-
-**Fonctionnalité**
-
-* Migration complète vers .NET 3.1
-
-Note de publication pour `1.7.0-amd64-<locale-and-voice>` :
-
-**Fonctionnalité**
-
-* Composants mis à niveau vers .NET 3.1
-
-| Étiquettes d’image                                  | Notes                                                                                                         |
-|---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
-| `1.12.0-amd64-<locale-and-voice>`           | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.12.0-amd64-en-us-ariarus`. |
-| `1.11.0-amd64-<locale-and-voice>`           | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.11.0-amd64-en-us-ariarus`. |
-| `1.9.0-amd64-<locale-and-voice>`            | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.9.0-amd64-en-us-ariarus`.  |
-| `1.8.0-amd64-<locale-and-voice>`            | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.8.0-amd64-en-us-ariarus`.  |
-| `1.7.0-amd64-<locale-and-voice>`            | 1ère version GA. Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.7.0-amd64-en-us-ariarus`.  |
 
 | Paramètres régionaux pour v1.12.0                         | Notes                                                                      | Digest                         |
 |---------------------------------------------|:---------------------------------------------------------------------------|:-------------------------------|
@@ -1386,15 +1577,13 @@ Les étiquettes suivantes sont disponibles pour cette image conteneur. Vous trou
 
 # <a name="latest-version"></a>[Version la plus récente](#tab/current)
 
-Notes de publication pour `v1.5.0` :
+Notes de publication pour `v1.6.0` :
 * Mettez à niveau vers les derniers modèles avec des améliorations de qualité et des correctifs de bogues
-* Prise en charge de jusqu’à 38 voix neuronales
 
 | Étiquettes d’image                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-AriaNeural`.      |
-| `1.5.0-amd64-<locale-and-voice>`            | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.5.0-amd64-en-us-arianeural`. |
-
+| `1.6.0-amd64-<locale-and-voice>`            | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.6.0-amd64-en-us-arianeural`. |
 
 | Paramètres régionaux et voix pour v1.5.0           | Notes                                                                      |
 |-------------------------------------|:---------------------------------------------------------------------------|
@@ -1439,6 +1628,10 @@ Notes de publication pour `v1.5.0` :
 
 # <a name="previous-version"></a>[Version précédente](#tab/previous)
 
+Notes de publication pour `v1.5.0` :
+* Mettez à niveau vers les derniers modèles avec des améliorations de qualité et des correctifs de bogues
+* Prise en charge de jusqu’à 38 voix neuronales
+
 Notes de publication pour `v1.4.0` :
 * Effectuez une mise à niveau vers les modèles les plus récents. 
 * La latence et le coût de processeur ont été réduits.
@@ -1449,9 +1642,51 @@ Notes de publication pour `v1.3.0` :
 
 | Étiquettes d’image                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
+| `1.5.0-amd64-<locale-and-voice>`            | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.5.0-amd64-en-us-arianeural`. |
 | `1.4.0-amd64-<locale-and-voice>`            | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.4.0-amd64-en-us-arianeural`. |
 | `1.3.0-amd64-<locale-and-voice>-preview`    | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.3.0-amd64-en-us-arianeural-preview`. |
 | `1.2.0-amd64-<locale-and-voice>-preview`    | Remplacez `<locale>` par l’un des paramètres régionaux disponibles, listés ci-dessous. Par exemple, `1.2.0-amd64-en-us-arianeural-preview`. |
+
+| Paramètres régionaux et voix pour v1.5.0           | Notes                                                                      |
+|-------------------------------------|:---------------------------------------------------------------------------|
+| `de-de-conradneural`                | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-ConradNeural`.    |
+| `de-de-katjaneural`                 | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-KatjaNeural`.     |
+| `en-au-natashaneural`               | Image conteneur avec les paramètres régionaux `en-AU` et la voix `en-AU-NatashaNeural`.   |
+| `en-au-williamneural`               | Image conteneur avec les paramètres régionaux `en-AU` et la voix `en-AU-WilliamNeural`.   |
+| `en-ca-claraneural`                 | Image conteneur avec les paramètres régionaux `en-CA` et la voix `en-CA-ClaraNeural`.     |
+| `en-ca-liamneural`                  | Image conteneur avec les paramètres régionaux `en-CA` et la voix `en-CA-LiamNeural`.      |
+| `en-gb-libbyneural`                 | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-LibbyNeural`.     |
+| `en-gb-mianeural`                   | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-MiaNeural`.       |
+| `en-gb-ryanneural`                  | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-RyanNeural`.      |
+| `en-us-arianeural`                  | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-AriaNeural`.      |
+| `en-us-guyneural`                   | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-GuyNeural`.       |
+| `en-us-jennyneural`                 | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-JennyNeural`.     |
+| `es-es-alvaroneural`                | Image conteneur avec les paramètres régionaux `es-ES` et la voix `es-ES-AlvaroNeural`.    |
+| `es-es-elviraneural`                | Image conteneur avec les paramètres régionaux `es-ES` et la voix `es-ES-ElviraNeural`.    |
+| `es-mx-dalianeural`                 | Image conteneur avec les paramètres régionaux `es-MX` et la voix `es-MX-DaliaNeural`.     |
+| `es-mx-jorgeneural`                 | Image conteneur avec les paramètres régionaux `es-MX` et la voix `es-MX-JorgeNeural`.     |
+| `fr-ca-antoineneural`               | Image conteneur avec les paramètres régionaux `fr-CA` et la voix `fr-CA-AntoineNeural`.   |
+| `fr-ca-jeanneural`                  | Image conteneur avec les paramètres régionaux `fr-CA` et la voix `fr-CA-JeanNeural`.      |
+| `fr-ca-sylvieneural`                | Image conteneur avec les paramètres régionaux `fr-CA` et la voix `fr-CA-SylvieNeural`.    |
+| `fr-fr-deniseneural`                | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-DeniseNeural`.    |
+| `fr-fr-henrineural`                 | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-HenriNeural`.     |
+| `hi-in-madhurneural`                | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-MadhurNeural`.    |
+| `hi-in-swaraneural`                 | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Swaraneural`.     |
+| `it-it-diegoneural`                 | Image conteneur avec les paramètres régionaux `it-IT` et la voix `it-IT-DiegoNeural`.     |
+| `it-it-elsaneural`                  | Image conteneur avec les paramètres régionaux `it-IT` et la voix `it-IT-ElsaNeural`.      |
+| `it-it-isabellaneural`              | Image conteneur avec les paramètres régionaux `it-IT` et la voix `it-IT-IsabellaNeural`.  |
+| `ja-jp-keitaneural`                 | Image conteneur avec les paramètres régionaux `ja-JP` et la voix `ja-JP-KeitaNeural`.     |
+| `ja-jp-nanamineural`                | Image conteneur avec les paramètres régionaux `ja-JP` et la voix `ja-JP-NanamiNeural`.    |
+| `ko-kr-injoonneural`                | Image conteneur avec les paramètres régionaux `ko-KR` et la voix `ko-KR-InJoonNeural`.    |
+| `ko-kr-sunhineural`                 | Image conteneur avec les paramètres régionaux `ko-KR` et la voix `ko-KR-SunHiNeural`.     |
+| `pt-br-antonioneural`               | Image conteneur avec les paramètres régionaux `pt-BR` et la voix `pt-BR-AntonioNeural`.   |
+| `pt-br-franciscaneural`             | Image conteneur avec les paramètres régionaux `pt-BR` et la voix `pt-BR-FranciscaNeural`. |
+| `tr-tr-ahmetneural`                 | Image conteneur avec les paramètres régionaux `tr-TR` et la voix `tr-TR-AhmetNeural`.     |
+| `tr-tr-emelneural`                  | Image conteneur avec les paramètres régionaux `tr-TR` et la voix `tr-TR-EmelNeural`.      |
+| `zh-cn-xiaoxiaoneural`              | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-XiaoxiaoNeural`.  |
+| `zh-cn-xiaoyouneural`               | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-XiaoYouNeural`.   |
+| `zh-cn-yunyangneural`               | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-YunYangNeural`.   |
+| `zh-cn-yunyeneural`                 | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-YunYeNeural`.     |
 
 | Paramètres régionaux et voix pour v1.4.0           | Notes                                                                      |
 |-------------------------------------|:---------------------------------------------------------------------------|
@@ -1619,6 +1854,18 @@ Notes de publication pour `3.0.015490002-onprem-amd64` :
 | `latest`   |                                               |
 | `3.0.015490002-onprem-amd64`   |               |
 
+
+## <a name="translator"></a>Traducteur
+
+L’image conteneur [Traducteur][tr-containers] se trouve dans le syndicat du registre de conteneurs `mcr.microsoft.com`. Elle réside dans le référentiel `azure-cognitive-services/translator` et se nomme `text-translation`. Le nom complet de l’image conteneur est `mcr.microsoft.com/azure-cognitive-services/translator/text-translation`.
+
+Les étiquettes suivantes sont disponibles pour cette image conteneur.
+
+| Étiquettes d’image                    | Notes |
+|-------------------------------|:------|
+| `latest`                      |       |
+
+
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
 [fa-containers]: ../face/face-how-to-install-containers.md
@@ -1634,3 +1881,4 @@ Notes de publication pour `3.0.015490002-onprem-amd64` :
 [ta-la]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-se]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
 [ta-he]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare
+[tr-containers]: ../translator/containers/translator-how-to-install-container.md

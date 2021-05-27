@@ -1,16 +1,18 @@
 ---
-title: Notes de publication pour Live Video Analytics sur IoT Edge – Azure
-description: Cette rubrique fournit des notes de publication sur les versions, les améliorations, les correctifs de bogues et les problèmes connus de Live Video Analytics sur IoT Edge.
+title: Notes de publication pour Azure Live Video Analytics sur IoT Edge – Azure
+description: Cette rubrique fournit des notes de publication sur les versions, les améliorations, les correctifs de bogues et les problèmes connus d’Azure Live Video Analytics sur IoT Edge.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: f130b93b8d799c371a640f2b29c22c0d77834cba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67b30cfbcb374dbe8773023f67b77ef43b35f3ba
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98954393"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372043"
 ---
-# <a name="live-video-analytics-on-iot-edge-release-notes"></a>Notes de publication pour Live Video Analytics sur IoT Edge
+# <a name="azure-live-video-analytics-on-iot-edge-release-notes"></a>Notes de publication pour Azure Live Video Analytics sur IoT Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 >Soyez notifié de la disponibilité des mises à jour sur cette page en faisant un copier-coller de cette URL : `https://docs.microsoft.com/api/search/rss?search=%22Live+Video+Analytics+on+IoT+Edge+release+notes%22&locale=en-us` dans votre lecteur de flux RSS.
 

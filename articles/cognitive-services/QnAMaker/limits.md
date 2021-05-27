@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: ad498575b029f918538909a9b5b2d52c71c1389c
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: c654153340586004415b9d2fd8744fb539726960
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816365"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369404"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites de la base de connaissances QnA Maker
 
@@ -52,7 +52,7 @@ Les noms de fichiers ne peuvent pas inclure les caractères suivants :
 Le nombre maximal de fichiers qui peuvent être extraits et la taille de fichier maximale sont basés sur vos **[limites du niveau de tarification QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)** .
 
 > [!NOTE]
-> QnA Maker managé (préversion) est un service gratuit sans aucune limite quant au nombre de sources pouvant être ajoutées. Le débit est actuellement limité à 10 transactions par seconde pour à la fois les API de gestion et les API de prédiction.
+> Les réponses aux questions personnalisées (préversion) est un service gratuit sans aucune limite quant au nombre de sources pouvant être ajoutées. Le débit est actuellement limité à 10 transactions par seconde pour à la fois les API de gestion et les API de prédiction.
 
 ### <a name="maximum-number-of-deep-links-from-url"></a>Nombre maximal de liens ciblés à partir de l’URL
 
@@ -68,7 +68,7 @@ Le nombre maximal de champs de métadonnées par base de connaissances est basé
 
 |**Niveau de Recherche cognitive Azure** | **Gratuit** | **De base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Nombre maximal de champs de métadonnées par service QnA Maker (pour tous les Kbits/s)|1 000|100*|1 000|1 000|1 000|1 000|
+|Nombre maximal de champs de métadonnées par service QnA Maker (pour tous les Kbits/s)|1 000|100*|1 000|1 000|1 000|1 000|
 
 ### <a name="by-name-and-value"></a>Par nom et valeur
 
@@ -128,6 +128,9 @@ Voici les limites lorsque l’API prédéfinie est utilisée pour *générer une
 * Nombre de documents : 5
 * Taille maximale d’un seul document : 5 120 caractères
 * Maximum trois réponses par document
+
+> [!IMPORTANT]
+> La prise en charge des fichiers/contenus non structurés et des API prédéfinies n’est disponible que dans les réponses aux questions personnalisées (préversion)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

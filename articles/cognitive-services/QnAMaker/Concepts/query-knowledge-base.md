@@ -3,12 +3,12 @@ title: Interroger une base de connaissances – QnA Maker
 description: Une base de connaissances doit être publiée. Une fois publiée, la base de connaissances est interrogée au point de terminaison de prédiction du runtime à l’aide de l’API generateAnswer.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: c723d1446c90290929bc8cad066b4744e284f3f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d36e1feb0279eec638a3602c5188e8af1cb7c17
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008669"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369300"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Interroger la base de connaissances pour obtenir des réponses
 
@@ -39,7 +39,7 @@ Le processus est expliqué dans le tableau suivant.
 
 Les fonctionnalités utilisées incluent notamment la sémantique au niveau des mots, l’importance des termes dans un corpus et les modèles sémantiques ayant fait l’objet d’un apprentissage profond pour déterminer la similarité et la pertinence entre deux chaînes de texte.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
 Le base de connaissances QnA Maker entraînée et [publiée](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) reçoit une requête de l’utilisateur, à partir d’un robot ou d’une autre application cliente, au niveau de l’[API GenerateAnswer](../how-to/metadata-generateanswer-usage.md). Le diagramme suivant illustre le processus enclenché lors de la réception de la requête de l’utilisateur.
 

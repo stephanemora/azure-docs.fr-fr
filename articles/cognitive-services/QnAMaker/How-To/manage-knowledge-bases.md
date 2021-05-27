@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: c7bb79cbd67ba2fb151641ddeeb31b54e399b906
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62aab3e6941829ac8745e74b398aff559ce13953
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96938254"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376728"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Créer une base de connaissances et gérer les paramètres
 
@@ -18,11 +18,21 @@ QnA Maker vous permet de gérer vos bases de connaissances en donnant accès aux
 
 ## <a name="prerequisites"></a>Prérequis
 
-> [!div class="checklist"]
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+
 > * Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 > * Une [ressource QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) créée dans le portail Azure. Rappelez-vous l’ID Azure Active Directory, l’abonnement et le nom de ressource QnA que vous avez sélectionnés au moment de créer la ressource.
 
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (en préversion)](#tab/v2)
+
+> * Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
+> * Une [ressource Analyse de texte](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) avec la fonctionnalité Réponses aux questions personnalisées activée dans le portail Azure. Rappelez-vous l’ID Azure Active Directory, l’abonnement et le nom de ressource Analyse de texte que vous avez sélectionnés lors de la création de la ressource.
+
+---
+
 ## <a name="create-a-knowledge-base"></a>Créer une base de connaissances
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 1. Connectez-vous au portail [QnAMaker.ai](https://QnAMaker.ai) avec vos informations d’identification Azure.
 
@@ -30,7 +40,7 @@ QnA Maker vous permet de gérer vos bases de connaissances en donnant accès aux
 
 1. Dans la page **Créer**, ignorez l’**étape 1** si vous disposez déjà de votre ressource QnA Maker.
 
-    Si vous n’avez pas encore créé la ressource, sélectionnez **Créer un service QnA**. Vous êtes dirigé vers le [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) pour configurer un service QnA Maker dans votre abonnement. Rappelez-vous l’ID Azure Active Directory, l’abonnement et le nom de ressource QnA que vous avez sélectionnés au moment de créer la ressource.
+    Si vous n’avez pas encore créé la ressource, sélectionnez **Stable**, puis **Créer un service QnA**. Vous êtes dirigé vers le [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) pour configurer un service QnA Maker dans votre abonnement. Rappelez-vous l’ID Azure Active Directory, l’abonnement et le nom de ressource QnA que vous avez sélectionnés au moment de créer la ressource.
 
     Lorsque vous avez terminé de créer la ressource dans le portail Azure, revenez au portail QnA Maker, actualisez la page du navigateur et passez à l’**étape 2**.
 
@@ -41,19 +51,62 @@ QnA Maker vous permet de gérer vos bases de connaissances en donnant accès aux
 1. À l’**étape 3**, nommez votre base de connaissances `My Sample QnA KB`.
 
 1. À l’**étape 4**, configurez les paramètres à l’aide du tableau suivant :
-
+    
     |Paramètre|Valeur|
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Activer l’extraction multitour à partir d’URL, de fichier .pdf ou .docx)|Activé|
     |**Texte de réponse par défaut**| `Quickstart - default answer not found.`|
     |**+ Ajouter une URL**|`https://azure.microsoft.com/en-us/support/faq/`|
-    |**Échange de conversation (chit-chat)**|Sélectionnez **Professional**.|
+    |**Échange de conversation (chit-chat)**|Sélectionnez **Professional**.|  
+
 
 1. À l’**étape 5**, sélectionnez **Create your KB** (Créer votre base de connaissances).
 
     Le processus d’extraction prend quelques minutes pour lire le document et identifier les questions et réponses.
 
     Une fois que QnA Maker a créé la base de connaissances, la page **Knowledge base** (Base de connaissances) s’ouvre. Vous pouvez modifier le contenu de la base de connaissances dans cette page.
+
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (en préversion)](#tab/v2)
+
+1. Connectez-vous au portail [QnAMaker.ai](https://QnAMaker.ai) avec vos informations d’identification Azure.
+
+2. Dans le portail QnA Maker, sélectionnez **Créer une base de connaissances**.
+
+3. Dans la page **Créer**, ignorez l’**étape 1** si vous avez déjà ajouté Réponses aux questions personnalisées à un service Analyse de texte.
+
+    Si vous n’avez pas encore créé le service, sélectionnez **Préversion**, puis **Créer un service QnA**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la création d’un nouveau service QnA](../media/qnamaker-create-publish-knowledge-base/create-qna-service.png)
+
+    Vous êtes dirigé vers le [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) pour configurer un service Analyse de texte dans votre abonnement. Vous devez ajouter la fonctionnalité Réponse aux questions personnalisées au service lors de la création.
+
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la sélection de fonctionnalités supplémentaires](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
+    
+    Rappelez-vous l’ID Azure Active Directory, l’abonnement et le nom de ressource Analyse de texte que vous avez sélectionnés lors de la création de la ressource. Lorsque vous avez terminé de créer la ressource dans le portail Azure, revenez au portail QnA Maker, actualisez la page du navigateur et passez à l’étape 2.
+
+4. À l’**étape 2**, sélectionnez votre annuaire Active Directory, votre abonnement, votre service (ressource) et la langue de toutes les bases de connaissances créées dans le service.
+
+    ![Capture d’écran de la sélection d’un service Réponses aux questions personnalisées](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png)
+
+5. À l’**étape 2**, si vous créez la première base de connaissances pour votre service, vous pouvez activer la case à cocher de la propriété **Add knowledge bases in multiple languages to this service** (Ajouter des bases de connaissances en plusieurs langues à ce service) pour permettre à la fonctionnalité d’ajouter des bases de connaissances dans différentes langues au même service. Vous ne pourrez plus modifier cela par la suite.
+
+6. À l’ **étape 3**, nommez votre base de connaissances  **My Sample QnA KB**. 
+
+7. À l’**étape 4**, configurez les paramètres à l’aide du tableau suivant :
+
+    |Paramètre|Valeur|
+    |--|--|
+    |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Activer l’extraction multitour à partir d’URL, de fichier .pdf ou .docx)|Activé|
+    |**Texte de réponse par défaut**| `Quickstart - default answer not found.`|
+     |**+ Ajouter une URL**|`https://azure.microsoft.com/support/faq/`|
+    |**+ Ajouter un fichier**|Accéder à un fichier à charger.|
+     |**Contenu non structuré**|Activez cette case pour indiquer que le contenu du fichier en cours de est non structuré. L’activation de la case signifie que le document sera entièrement ingéré dans le service. Si vous laissez cette option désactivée, des paires QnA seront extraites du fichier. <br> L’image suivante montre l’aspect des fichiers non structurés après chargement.
+     | |[!div class="mx-imgBorder"] ![Screenshot of unstructured file upload](../media/qnamaker-create-publish-knowledge-base/add-unstructured-file.png)|
+    |**Échange de conversation (chit-chat)**|Sélectionnez **Professional**.|
+
+---
 
 ## <a name="edit-knowledge-base"></a>Modifier la base de connaissances
 
@@ -67,15 +120,31 @@ QnA Maker vous permet de gérer vos bases de connaissances en donnant accès aux
 
 1.  Sélectionnez **Paramètres**. La liste suivante contient des champs que vous pouvez modifier.
 
+     # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
        |Objectif|Action|
        |--|--|
        |Ajouter une URL|Vous pouvez ajouter de nouvelles URL pour ajouter du nouveau contenu de FAQ à la base de connaissances en cliquant sur le lien **Manage knowledge base -> '+ Add URL'** (Gérer la base de connaissances -> « + Ajouter une URL »).|
        |Supprimer une URL|Vous pouvez supprimer des URL existantes en sélectionnant l’icône supprimer, la corbeille.|
-       |Actualiser le contenu|Si vous souhaitez que la base de connaissances analyse le contenu le plus récent des URL existantes, cochez la case **Refresh** (Actualiser). Cela met à jour la base de connaissances avec le contenu d’URL le plus récent à une seule reprise. Cela ne revient pas à définir une planification régulière des mises à jour.|
+       |Actualiser le contenu|Si vous souhaitez que la base de connaissances analyse le contenu le plus récent des URL existantes, cochez la case **Refresh** (Actualiser). Cette action met à jour la base de connaissances avec le dernier contenu d’URL. Elle n’a pas pour effet de définir une planification régulière des mises à jour.|
        |Ajouter un fichier|Vous pouvez ajouter un document pris en charge pour qu’il fasse partie de la base de connaissances en sélectionnant **Manage knowledge base** (Gérer la base de connaissance), puis -> **+ Add File** (+ Ajouter un fichier).|
     |Importer|Vous pouvez également importer n’importe quelle base de connaissances existante en sélectionnant le bouton **Importer la base de connaissances**. |
     |Update|La mise à jour de la base de connaissances dépend du **niveau tarifaire de gestion** utilisé lors de la création du service QnA Maker associé à votre base de connaissances. Vous pouvez également mettre à jour le niveau de gestion à partir du portail Azure si nécessaire.
 
+    # <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
+       |Objectif|Action|
+       |--|--|
+       |Ajouter une URL|Vous pouvez ajouter de nouvelles URL pour ajouter du nouveau contenu de FAQ à la base de connaissances en cliquant sur le lien **Manage knowledge base -> '+ Add URL'** (Gérer la base de connaissances -> « + Ajouter une URL »).|
+       |Supprimer une URL|Vous pouvez supprimer des URL existantes en cliquant l’icône Supprimer représentant la corbeille.|
+       |Actualiser le contenu|Si vous souhaitez que la base de connaissances analyse le contenu le plus récent des URL existantes, cochez la case **Refresh** (Actualiser). Cette action met à jour la base de connaissances avec le dernier contenu d’URL. Elle n’a pas pour effet de définir une planification régulière des mises à jour.|
+       |Ajouter un fichier|Vous pouvez ajouter un document pris en charge pour qu’il fasse partie de la base de connaissances en sélectionnant **Manage knowledge base** (Gérer la base de connaissance), puis -> **+ Add File** (+ Ajouter un fichier).|
+       |Supprimer le fichier|Vous pouvez supprimer un fichier existante en cliquant l’icône Supprimer représentant la corbeille.|
+       |Marquer du contenu comme non structuré|Si vous souhaitez marquer le contenu du fichier chargé comme non structuré, activez la case à cocher **Contenu non structuré**.|
+       |Marquer du contenu non structuré comme structuré|Vous ne pouvez pas marquer un contenu non structuré chargé précédemment comme structuré.|
+    |Importer|Vous pouvez également importer n’importe quelle base de connaissances existante en sélectionnant le bouton **Importer la base de connaissances**. |
+    |Update|La mise à jour de la base de connaissances dépend du **niveau tarifaire de gestion** utilisé lors de la création du service QnA Maker associé à votre base de connaissances. Vous pouvez également mettre à jour le niveau de gestion à partir du portail Azure si nécessaire.
+
+
+    <br/>
   1. Une fois que vous avez fini d’apporter des modifications à la base de connaissances, sélectionnez **Enregistrer et entraîner** dans l’angle supérieur droit de la page afin de conserver les modifications.
 
        ![Enregistrer et former](../media/qnamaker-how-to-edit-kb/save-and-train.png)

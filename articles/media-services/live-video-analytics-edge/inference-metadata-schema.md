@@ -1,16 +1,18 @@
 ---
-title: Schéma des métadonnées d’inférence – Azure
-description: Dans cet article, vous allez découvrir le schéma de métadonnées d’inférence.
+title: Schéma des métadonnées d’inférence dans Live Video Analytics – Azure
+description: Dans cet article, vous allez découvrir le schéma des métadonnées d’inférence dans Live Video Analytics.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 2de437577dc00692fb98c46fec32bfaa6612dc99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c79071609c291b6d09fe9c83d90d2cac137241b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92019492"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376984"
 ---
-# <a name="inference-metadata-schema"></a>Schéma des métadonnées d’inférence 
+# <a name="inference-metadata-schema-in-live-video-analytics"></a>Schéma des métadonnées d’inférence dans Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Chaque objet d’inférence, qu’un contrat basé sur HTTP ou sur gRPC soit utilisé, suit le modèle objet décrit dans cette rubrique.
 
@@ -20,7 +22,7 @@ Chaque objet d’inférence, qu’un contrat basé sur HTTP ou sur gRPC soit uti
  
 |Définition de type|Description|
 |---|---|
-|Tag|Balise ou étiquette associée au résultat. Outre le balisage, vous obtenez même la valeur de confiance associée à la balise.|
+|Tag|Balise ou étiquette associée au résultat. En plus de l’étiquetage, vous obtenez même la valeur de confiance associée à l’étiquette.|
 |Attribut|Attributs supplémentaires associés au résultat. Vous pouvez ajouter de nouveaux attributs que vous recevez du moteur d’inférence à la valeur de confiance.|
 |Liste d’attributs|Liste des attributs facultatifs.|
 |Rectangle|Région rectangulaire relative à l’angle supérieur gauche de l’image. Les propriétés requises sont « length », « width », « height » et « top edge distance from the origin », qui correspondent aux longueur, largeur, hauteur et distance du bord supérieur à l’origine.|

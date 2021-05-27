@@ -1,16 +1,18 @@
 ---
-title: 'Tutoriel : Enregistrement vidéo basé sur les événements et lecture vidéo dans le cloud - Azure'
-description: Dans ce tutoriel, vous allez apprendre à utiliser Azure Live Video Analytics sur Azure IoT Edge pour effectuer un enregistrement vidéo basé sur les événements dans le cloud et le lire depuis le cloud.
+title: Enregistrement vidéo basé sur les événements et lecture vidéo dans le cloud - Azure
+description: Dans ce tutoriel, vous allez apprendre à utiliser Azure Live Video Analytics sur Azure IoT Edge pour effectuer un enregistrement vidéo basé sur les événements dans le cloud et le lire dans le cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: de1a4d423108ddb18af4f8478c9bac60672d6062
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: bf5bd39805aa581553bdf2e663f462251bf418d1
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279814"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371536"
 ---
-# <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutoriel : Enregistrement vidéo basé sur les événements et lecture vidéo dans le cloud
+# <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud-with-live-video-analytics"></a>Tutoriel : Enregistrement vidéo basé sur les événements et lecture vidéo dans le cloud avec Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Dans ce tutoriel, vous allez apprendre à utiliser Azure Live Video Analytics sur Azure IoT Edge pour enregistrer certaines parties d’une source vidéo live dans Azure Media Services, dans le cloud. Ici, nous désignerons ce cas d’usage par [enregistrement vidéo basé sur les événements](event-based-video-recording-concept.md) (EVR, Event-based Video Recording). Pour enregistrer certaines parties d’une vidéo live, vous allez utiliser un modèle d’intelligence artificielle de détection d’objets afin de rechercher des objets dans la vidéo et d’enregistrer des clips vidéo uniquement lorsqu’un certain type d’objet est détecté. Vous allez également découvrir comment lire les clips vidéo enregistrés à l’aide de Media Services. Cette possibilité s’avère utile pour un grand nombre de scénarios dans lesquels il est nécessaire de conserver une archive des clips vidéo d’intérêt. 
 

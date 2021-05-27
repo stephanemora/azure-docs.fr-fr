@@ -3,15 +3,15 @@ title: Capturer des événements de streaming - Azure Event Hubs | Microsoft Doc
 description: Cet article fournit une vue d’ensemble de la fonctionnalité Capture qui vous permet de capturer un streaming d’événements avec Azure Event Hubs.
 ms.topic: article
 ms.date: 02/16/2021
-ms.openlocfilehash: 9f0ec1223c06b908a9aa9f3ac5c5b19ead2fe962
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3153c4d82cfbdf232d1834db8f26462f893961b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100595955"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375091"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capturer des événements avec Azure Event Hubs dans le stockage Blob Azure ou Azure Data Lake Storage
-Azure Event Hubs vous permet de capturer automatiquement les données de streaming dans Event Hubs dans un compte [Stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/) ou [Azure Data Lake Store Gen 1 ou Gen 2](https://azure.microsoft.com/services/data-lake-store/) de votre choix, tout en vous permettant de spécifier un intervalle de temps ou de taille. La configuration de l’outil Capture est rapide : il n’existe aucun coût d’administration pour son exécution et il s’adapte automatiquement à vos [unités de débit](event-hubs-scalability.md#throughput-units) Event Hubs. Event Hubs Capture représente le moyen le plus simple de charger les données pour la diffusion en continu dans Azure et vous permet de vous concentrer sur le traitement des données plutôt que sur la capture de données.
+Azure Event Hubs vous permet de capturer automatiquement les données de streaming dans Event Hubs dans un compte [Stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/) ou [Azure Data Lake Store Gen 1 ou Gen 2](https://azure.microsoft.com/services/data-lake-store/) de votre choix, tout en vous permettant de spécifier un intervalle de temps ou de taille. La configuration de l’outil Capture est rapide : il n’existe aucun coût d’administration pour son exécution et il s’adapte automatiquement aux [unités de débit](event-hubs-scalability.md#throughput-units) Event Hubs dans le niveau Standard et aux [unités de traitement](event-hubs-scalability.md#processing-units) dans le niveau Premium. Event Hubs Capture représente le moyen le plus simple de charger les données pour la diffusion en continu dans Azure et vous permet de vous concentrer sur le traitement des données plutôt que sur la capture de données.
 
 > [!NOTE]
 > La configuration d’Event Hubs Capture pour utiliser Azure Data Lake Storage **Gen 2** est identique à celle pour utiliser un stockage de blobs Azure. Pour plus d’informations, consultez [Configurer Event Hubs Capture](event-hubs-capture-enable-through-portal.md). 
@@ -45,9 +45,9 @@ https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhu
 
 Si votre objet blob de stockage Azure est temporairement indisponible, Event Hubs Capture conservera vos données pendant la période de rétention de données configurée sur votre Event Hub et remplira les données une fois que votre compte de stockage sera à nouveau disponible.
 
-### <a name="scaling-to-throughput-units"></a>Mise à l’échelle des unités de débit
+### <a name="scaling-throughput-units-or-processing-units"></a>Mise à l’échelle des unités de débit ou des unités de traitement
 
-Le trafic Event Hubs est contrôlé par les [unités de débit](event-hubs-scalability.md#throughput-units). Une unité de débit autorise 1 Mo/s ou 1 000 événements par seconde d’entrée et 2 000 événements par seconde de sortie. Les concentrateurs d’événements Standard peuvent être configurés avec 1 à 20 unités de débit et vous pouvez en acheter d’autres en soumettant une [demande de support][support request] d’augmentation de quota. L’utilisation au-delà des unités de débit que vous avez achetées est limitée. Event Hubs Capture copie les données directement depuis le stockage Event Hubs interne, en contournant les quotas de sortie des unités de débit et en enregistrant votre sortie pour d’autres lecteurs de traitement tels que Stream Analytics ou Spark.
+Dans le niveau Standard d’Event Hubs, le trafic est contrôlé par les [unités de débit](event-hubs-scalability.md#throughput-units) et dans le niveau Premium d’Event Hubs, il est contrôlé par les [unités de traitement](event-hubs-scalability.md#processing-units). L’outil Capture dans Event Hubs copie les données directement depuis le stockage Event Hubs interne, en contournant les quotas de sortie des unités de débit ou des unités de traitement et en enregistrant votre sortie pour d’autres lecteurs de traitement tels que Stream Analytics ou Spark.
 
 Une fois configuré, Event Hubs Capture s’exécute automatiquement lorsque vous envoyez votre premier événement et continue de s’exécuter. Pour que votre traitement en aval sache plus facilement que le processus fonctionne, les Event Hubs écrivent des fichiers vides en l’absence de données. Ce processus fournit une cadence prévisible et un marqueur qui peuvent alimenter vos processeurs de traitement par lots.
 
@@ -124,7 +124,7 @@ Apache Avro propose des guides de mise en route complets pour [Java][Java]et [P
 
 ## <a name="how-event-hubs-capture-is-charged"></a>Chargement d’Azure Event Hubs Capture
 
-Event Hubs Capture est mesuré de la même façon que les unités de débit, au tarif horaire. La facturation est directement proportionnelle au nombre d’unités de débit achetées pour l’espace de noms. En même temps que les unités de débit augmentent et diminuent, Event Hubs Capture augmente et diminue pour fournir des performances adaptées. Les compteurs se produisent en même temps. Pour plus d’informations sur les prix appliqués, consultez [Tarification d’Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
+L’outil Capture dans Event Hubs est facturé de la même façon que les [unités de débit](event-hubs-scalability.md#throughput-units) (niveau Standard) ou les [unités de traitement](event-hubs-scalability.md#processing-units) (niveau Premium), c’est à dire par heure. La facturation est directement proportionnelle au nombre d’unités de débit ou d’unités de traitement achetées pour l’espace de noms. En même temps que les unités de débit ou unités de traitement augmentent et diminuent, les compteurs associés à l’outil Capture dans Event Hubs augmentent et diminuent pour fournir des performances adaptées. Les compteurs se produisent en même temps. Pour plus d’informations sur les prix appliqués, consultez [Tarification d’Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
 Capture n’utilise pas de quota de sortie puisque la fonctionnalité est facturée séparément. 
 
@@ -151,7 +151,7 @@ Découvrez comment activer cette fonctionnalité avec le portail Azure et un mod
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: ./event-hubs-about.md
-[HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage
+[HDInsight: Address files in Azure storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
 [Streaming at Scale: Event Hubs Capture]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture

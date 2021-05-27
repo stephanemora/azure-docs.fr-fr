@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: 5aab021ab5194b4af18e3ff1b2c154ed74710353
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: abc33a405975db9484d204c51df0a67697c2f8f8
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96346118"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370802"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>Modifier la réponse par défaut pour une ressource QnA Maker
 
@@ -27,11 +27,11 @@ Il existe deux types de réponses par défaut dans votre base de connaissances. 
 |Réponse de la base de connaissances lorsqu’aucune réponse n’est déterminée|`No good match found in KB.` : lorsque l’[API GenerateAnswer](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) ne trouve aucune réponse correspondante à la question, le paramètre `DefaultAnswer` du service d’application est retourné. Toutes les bases de connaissances de la même ressource QnA Maker partagent le même texte de réponse par défaut.<br>Vous pouvez gérer le paramètre dans le portail Azure, via le service d’application ou à l’aide des API REST pour [obtenir](/rest/api/appservice/webapps/listapplicationsettings) ou [mettre à jour](/rest/api/appservice/webapps/updateapplicationsettings) le paramètre.|
 |Texte d’instruction de l’invite de suivi|Lorsque vous utilisez une invite de suivi dans un flux de conversation, il se peut que vous n’ayez pas besoin d’une réponse dans la paire question/réponse, car vous souhaitez que l’utilisateur choisisse parmi les invites de suivi. Dans ce cas, paramétrez un texte spécifique en définissant le texte de réponse par défaut, qui est retourné avec chaque prédiction pour les invites de suivi. Le texte est destiné à s’afficher sous la forme d’un texte d’instruction pour la sélection des invites de suivi. Un exemple de ce texte de réponse par défaut est `Please select from the following choices`. Cette configuration est expliquée dans les sections suivantes de ce document. Peut également être défini dans le cadre de la définition de la base de connaissances de `defaultAnswerUsedForExtraction` à l’aide de l’[API REST](/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (en préversion)](#tab/v2)
 
 |Types de réponses par défaut|Description de la réponse|
 |--|--|
-|Réponse de la base de connaissances lorsqu’aucune réponse n’est déterminée|`No good match found in KB.` - Lorsque l’[API GenerateAnswer](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) ne trouve aucune réponse correspondante à la question, elle affiche une réponse texte par défaut. Dans QnA Maker managé (préversion), vous pouvez définir ce texte dans les **paramètres** de votre base de connaissances. <br><br> ![Définir la réponse par défaut dans QnA Maker managé (préversion)](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
+|Réponse de la base de connaissances lorsqu’aucune réponse n’est déterminée|`No good match found in KB.` - Lorsque l’[API GenerateAnswer](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) ne trouve aucune réponse correspondante à la question, elle affiche une réponse texte par défaut. Dans Réponses aux questions personnalisées (en préversion), vous pouvez définir ce texte dans les **paramètres** de votre base de connaissances. <br><br> ![Définir la réponse par défaut dans QnA Maker managé (préversion)](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
 |Texte d’instruction de l’invite de suivi|Lorsque vous utilisez une invite de suivi dans un flux de conversation, il se peut que vous n’ayez pas besoin d’une réponse dans la paire question/réponse, car vous souhaitez que l’utilisateur choisisse parmi les invites de suivi. Dans ce cas, paramétrez un texte spécifique en définissant le texte de réponse par défaut, qui est retourné avec chaque prédiction pour les invites de suivi. Le texte est destiné à s’afficher sous la forme d’un texte d’instruction pour la sélection des invites de suivi. Un exemple de ce texte de réponse par défaut est `Please select from the following choices`. Cette configuration est expliquée dans les sections suivantes de ce document. Vous pouvez aussi le définir dans le cadre d’une définition de base de connaissances avec `defaultAnswerUsedForExtraction` à l’aide de l’[API REST](/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
 ---

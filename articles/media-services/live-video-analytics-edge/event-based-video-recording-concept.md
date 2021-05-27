@@ -1,17 +1,19 @@
 ---
-title: Enregistrement de vidéo basé sur les événements – Azure
-description: Un enregistrement vidéo basé sur les événements est un enregistrement vidéo qui a été déclenché par un événement. L’événement en question peut provenir du traitement du signal vidéo lui-même (par exemple, la détection de mouvement) ou d’une source indépendante (par exemple, l’ouverture d’une porte).  Certains cas d’usage relatifs à l’enregistrement de vidéo basé sur les événements sont décrits dans cet article.
+title: Enregistrement vidéo basé sur les événements – Azure Live Video Analytics
+description: L’enregistrement vidéo basé sur les événements fait référence au processus d’enregistrement vidéo déclenché par un événement avec Live Video Analytics. L’événement en question peut provenir du traitement du signal vidéo lui-même (par exemple, la détection de mouvement) ou d’une source indépendante (par exemple, l’ouverture d’une porte).  Certains cas d’usage relatifs à l’enregistrement de vidéo basé sur les événements sont décrits dans cet article.
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 6a5f4873b2cfef8d9a6594916d82cd30a3bc1cc2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7970bc6e29a6fb9f914541a52188bf0b53b83b86
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97401597"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371484"
 ---
-# <a name="event-based-video-recording"></a>Enregistrement de vidéo basé sur les événements  
- 
+# <a name="event-based-video-recording-with-live-video-analytics"></a>Enregistrement vidéo basé sur les événements avec Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 ## <a name="suggested-pre-reading"></a>Lecture préalable suggérée  
 
 * [Enregistrement de vidéo continu](continuous-video-recording-concept.md)

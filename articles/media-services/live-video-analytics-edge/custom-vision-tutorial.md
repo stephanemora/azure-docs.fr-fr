@@ -1,17 +1,19 @@
 ---
-title: Analyser des vidéos en direct avec Live Video Analytics sur IoT Edge et Azure Custom Vision
-description: Découvrez comment utiliser Azure Custom Vision pour créer un modèle conteneurisé capable de détecter un camion jouet et d’utiliser la fonctionnalité d’extensibilité de l’IA d’Azure Live Video Analytics sur Azure IoT Edge pour déployer le modèle en périphérie et détecter des jouets à partir d’un flux vidéo en direct.
+title: Analyser des vidéos en direct avec Azure Live Video Analytics sur IoT Edge et Azure Custom Vision
+description: Découvrez comment utiliser Azure Custom Vision pour créer un modèle conteneurisé capable de détecter un camion jouet et d’utiliser la fonctionnalité d’extensibilité de l’IA de Live Video Analytics sur Azure IoT Edge pour déployer le modèle en périphérie et détecter des jouets à partir d’un flux vidéo en direct.
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 1abf123883a89bb41909e8aa67aedfadffc3d37e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d9718a8c7cf6f93af32a3bd33bcf1e8c75c6aa8
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561200"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378263"
 ---
-# <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutoriel : Analyser des vidéos en direct avec Live Video Analytics sur IoT Edge et Azure Custom Vision
+# <a name="tutorial-analyze-live-video-with-azure-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutoriel : Analyser des vidéos en direct avec Azure Live Video Analytics sur IoT Edge et Azure Custom Vision
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Dans ce tutoriel, vous allez voir comment utiliser Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) pour créer un modèle conteneurisé capable de détecter un camion jouet et d’utiliser la [fonctionnalité d’extensibilité de l’IA](analyze-live-video-concept.md#analyzing-video-using-a-custom-vision-model) d’Azure Live Video Analytics sur Azure IoT Edge pour déployer le modèle en périphérie et détecter des jouets à partir d’un flux vidéo en direct.
 

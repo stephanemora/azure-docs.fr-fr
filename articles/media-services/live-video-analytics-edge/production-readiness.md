@@ -1,16 +1,18 @@
 ---
-title: Préparation à la production et bonnes pratiques - Azure
-description: Cet article fournit des conseils sur la configuration et le déploiement du module Live Video Analytics sur IoT Edge dans des environnements de production.
+title: Préparation à la production et bonnes pratiques dans Live Video Analytics – Azure
+description: Cet article explique comment configurer et déployer le module Azure Live Video Analytics sur IoT Edge dans les environnements de production.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 56982d84b7ffac718072683076657d56a2691d6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7893750c1f835a95b5eba706f94679a41a424856
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97400554"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372060"
 ---
-# <a name="production-readiness-and-best-practices"></a>Préparation à la production et bonnes pratiques
+# <a name="production-readiness-and-best-practices-in-live-video-analytics"></a>Préparation à la production et bonnes pratiques dans Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Cet article fournit des conseils sur la configuration et le déploiement du module Live Video Analytics sur IoT Edge dans des environnements de production. Consultez également l'article [Préparer le déploiement en production d'une solution IoT Edge](../../iot-edge/production-checklist.md) consacré à la préparation d'une solution IoT Edge. 
 

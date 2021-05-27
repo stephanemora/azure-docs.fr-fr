@@ -1,16 +1,18 @@
 ---
-title: Gérer une stratégie d'enregistrement - Azure
-description: Cette rubrique explique comment gérer une stratégie d'enregistrement.
+title: Gérer la stratégie d’enregistrement avec Live Video Analytics – Azure
+description: Cette rubrique explique comment gérer la stratégie d’enregistrement avec Live Video Analytics.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: ec72f28496c1392b9d95134c343e1892998a0c28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52c9011e81c4e9d43aa32158d8577a7388dc20d2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99224987"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379043"
 ---
-# <a name="manage-recording-policy"></a>Gérer une stratégie d’enregistrement
+# <a name="manage-recording-policy-with-live-video-analytics"></a>Gérer la stratégie d’enregistrement avec Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Vous pouvez utiliser Live Video Analytics sur IoT Edge pour l'[enregistrement de vidéo continu](continuous-video-recording-concept.md), qui permet d'enregistrer des vidéos dans le cloud pendant des semaines ou des mois. Vous pouvez gérer la durée (en jours) de cet archivage dans le cloud à l'aide des [outils de gestion du cycle de vie](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) intégrés au service Stockage Azure.  
 

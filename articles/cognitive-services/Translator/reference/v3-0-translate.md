@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 08/06/2020
+ms.date: 05/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 7c92fb7f5de5542af08d1335bea745557a330f0d
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 431e42e422ecbaeb0e404928a505cf90180f6dd7
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107506004"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379334"
 ---
 # <a name="translator-30-translate"></a>Translator 3.0 : Translate
 
@@ -35,93 +35,41 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
 
 ### <a name="required-parameters"></a>Paramètres obligatoires
 
-<table width="100%">
-  <th width="20%">Paramètre de requête.</th>
-  <th>Description</th>
-  <tr>
-    <td>api-version</td>
-    <td><em>Paramètre obligatoire</em>.<br/>Version de l’API demandée par le client. La valeur doit être <code>3.0</code>.</td>
-  </tr>
-  <tr>
-    <td>to</td>
-    <td><em>Paramètre obligatoire</em>.<br/>Spécifie la langue du texte de sortie. La langue cible doit être l’une des <a href="./v3-0-languages.md">langues prises en charge</a> incluses dans l’étendue <code>translation</code>. Par exemple, utilisez <code>to=de</code> pour traduire en allemand.<br/>Il est possible de traduire en plusieurs langues simultanément en répétant le paramètre dans la chaîne de requête. Par exemple, utilisez <code>to=de&to=it</code> pour traduire en allemand et italien.</td>
-  </tr>
-</table>
+| Paramètre de requête. | Description |
+| --- | --- |
+| api-version | _Paramètre obligatoire_.  <br>Version de l’API demandée par le client. La valeur doit être `3.0`. |
+| to  | _Paramètre obligatoire_.  <br>Spécifie la langue du texte de sortie. La langue cible doit être l’une des [langues prises en charge](v3-0-languages.md) incluses dans l’étendue `translation`. Par exemple, utilisez `to=de` pour traduire en allemand.  <br>Il est possible de traduire en plusieurs langues simultanément en répétant le paramètre dans la chaîne de requête. Par exemple, utilisez `to=de&to=it` pour traduire en allemand et italien. |
 
 ### <a name="optional-parameters"></a>Paramètres facultatifs
 
-<table width="100%">
-  <th width="20%">Paramètre de requête.</th>
-  <th>Description</th>
-  <tr>
-    <td>de</td>
-    <td><em>Paramètre facultatif</em>.<br/>Spécifie la langue du texte d’entrée. Trouvez les langues disponibles pour la traduction en recherchant <a href="./v3-0-languages.md">langues prises en charge</a> à l’aide de l’étendue <code>translation</code>. Si le paramètre <code>from</code> n’est pas spécifié, une détection automatique de la langue est appliquée pour déterminer la langue source. <br/><br/>Vous devez utiliser le paramètre <code>from</code> au lieu de la détection automatique lors de l’utilisation de la fonctionnalité de <a href="/azure/cognitive-services/translator/dynamic-dictionary">dictionnaire dynamique</a>.</td>
-  </tr>  
-  <tr>
-    <td>textType</td>
-    <td><em>Paramètre facultatif</em>.<br/>Définit si le texte en cours de traduction est au format texte brut ou HTML. Tout code HTML doit être un élément bien formé et complet. Les valeurs possibles sont : <code>plain</code> (par défaut) ou <code>html</code>.</td>
-  </tr>
-  <tr>
-    <td>catégorie</td>
-    <td><em>Paramètre facultatif</em>.<br/>Chaîne spécifiant la catégorie (domaine) de la traduction. Ce paramètre est utilisé pour obtenir des traductions d’un système personnalisé créé avec <a href="../customization.md">Custom Translator</a>. Ajoutez l’ID de catégorie de vos <a href="/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">détails de projet</a> Custom Translator à ce paramètre pour utiliser votre système personnalisé déployé. La valeur par défaut est <code>general</code>.</td>
-  </tr>
-  <tr>
-    <td>ProfanityAction</td>
-    <td><em>Paramètre facultatif</em>.<br/>Spécifie comment les vulgarités doivent être traitées dans les traductions. Les valeurs possibles sont : <code>NoAction</code> (valeur par défaut), <code>Marked</code> ou <code>Deleted</code>. Pour comprendre comment traiter les vulgarités, voir <a href="#handle-profanity">Gestion de la vulgarité</a>.</td>
-  </tr>
-  <tr>
-    <td>ProfanityMarker</td>
-    <td><em>Paramètre facultatif</em>.<br/>Spécifie comment vulgarités doit être marquées dans les traductions. Les valeurs possibles sont : <code>Asterisk</code> (par défaut) ou <code>Tag</code>. Pour comprendre comment traiter les vulgarités, voir <a href="#handle-profanity">Gestion de la vulgarité</a>.</td>
-  </tr>
-  <tr>
-    <td>includeAlignment</td>
-    <td><em>Paramètre facultatif</em>.<br/>Spécifie s’il faut inclure une projection d’alignement du texte source vers le texte traduit. Les valeurs possibles sont <code>true</code> ou <code>false</code> (par défaut). </td>
-  </tr>
-  <tr>
-    <td>includeSentenceLength</td>
-    <td><em>Paramètre facultatif</em>.<br/>Spécifie s’il faut inclure des limites de longueur de phrase aux texte d’entrée et au texte traduit. Les valeurs possibles sont <code>true</code> ou <code>false</code> (par défaut).</td>
-  </tr>
-  <tr>
-    <td>suggestedFrom</td>
-    <td><em>Paramètre facultatif</em>.<br/>Spécifie une langue de base si la langue du texte d’entrée ne peut pas être identifiée. La détection automatique de la langue est appliquée en cas d’omission du paramètre <code>from</code>. Si la détection échoue, la langue <code>suggestedFrom</code> est présupposée.</td>
-  </tr>
-  <tr>
-    <td>fromScript</td>
-    <td><em>Paramètre facultatif</em>.<br/>Spécifie le script du texte d’entrée.</td>
-  </tr>
-  <tr>
-    <td>toScript</td>
-    <td><em>Paramètre facultatif</em>.<br/>Spécifie le script du texte traduit.</td>
-  </tr>
-  <tr>
-    <td>allowFallback</td>
-    <td><em>Paramètre facultatif</em>.<br/>Spécifie que le service est autorisé à revenir à un système général quand il n’existe pas de système personnalisé. Les valeurs possibles sont : <code>true</code> (par défaut) ou <code>false</code>.<br/><br/><code>allowFallback=false</code> spécifie que la traduction doit utiliser uniquement les systèmes entraînés pour le <code>category</code> spécifié par la requête. Si une traduction de langue X en langue Y exige un chaînage via une langue relais E, tous les systèmes présents dans la chaîne (X->E et E->Y) doivent être personnalisés et avoir la même catégorie. Si aucun système n’est trouvé avec une catégorie spécifique, la requête retourne le code d’état 400. <code>allowFallback=true</code> spécifie que le service est autorisé à revenir à un système général quand il n’existe pas de système personnalisé.
-</td>
-  </tr>
-</table> 
+
+
+| Paramètre de requête. | Description |
+| --- | --- |
+
+
+| Paramètre de requête. | Description |
+| --- | --- |
+| de | _Paramètre facultatif_.  <br>Spécifie la langue du texte d’entrée. Trouvez les langues disponibles pour la traduction en recherchant [langues prises en charge](../reference/v3-0-languages.md) à l’aide de l’étendue `translation`. Si le paramètre `from` n’est pas spécifié, une détection automatique de la langue est appliquée pour déterminer la langue source.  <br>  <br>Vous devez utiliser le paramètre `from` au lieu de la détection automatique lors de l’utilisation de la fonctionnalité de [dictionnaire dynamique](/azure/cognitive-services/translator/dynamic-dictionary). |
+| textType | _Paramètre facultatif_.  <br>Définit si le texte en cours de traduction est au format texte brut ou HTML. Tout code HTML doit être un élément bien formé et complet. Les valeurs possibles sont : `plain` (par défaut) ou `html`. |
+| catégorie | _Paramètre facultatif_.  <br>Chaîne spécifiant la catégorie (domaine) de la traduction. Ce paramètre est utilisé pour obtenir des traductions d’un système personnalisé créé avec [Custom Translator](../customization.md). Ajoutez l’ID de catégorie de vos [détails de projet](/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details) Custom Translator à ce paramètre pour utiliser votre système personnalisé déployé. La valeur par défaut est `general`. |
+| ProfanityAction | _Paramètre facultatif_.  <br>Spécifie comment les vulgarités doivent être traitées dans les traductions. Les valeurs possibles sont : `NoAction` (valeur par défaut), `Marked` ou `Deleted`. Pour comprendre comment traiter les vulgarités, voir [Gestion de la vulgarité](#handle-profanity). |
+| ProfanityMarker | _Paramètre facultatif_.  <br>Spécifie comment vulgarités doit être marquées dans les traductions. Les valeurs possibles sont : `Asterisk` (par défaut) ou `Tag`. Pour comprendre comment traiter les vulgarités, voir [Gestion de la vulgarité](#handle-profanity). |
+| includeAlignment | _Paramètre facultatif_.  <br>Spécifie s’il faut inclure une projection d’alignement du texte source vers le texte traduit. Les valeurs possibles sont `true` ou `false` (par défaut). |
+| includeSentenceLength | _Paramètre facultatif_.  <br>Spécifie s’il faut inclure des limites de longueur de phrase aux texte d’entrée et au texte traduit. Les valeurs possibles sont `true` ou `false` (par défaut). |
+| suggestedFrom | _Paramètre facultatif_.  <br>Spécifie une langue de base si la langue du texte d’entrée ne peut pas être identifiée. La détection automatique de la langue est appliquée en cas d’omission du paramètre `from`. Si la détection échoue, la langue `suggestedFrom` est présupposée. |
+| fromScript | _Paramètre facultatif_.  <br>Spécifie le script du texte d’entrée. |
+| toScript | _Paramètre facultatif_.  <br>Spécifie le script du texte traduit. |
+| allowFallback | _Paramètre facultatif_.  <br>Spécifie que le service est autorisé à revenir à un système général quand il n’existe pas de système personnalisé. Les valeurs possibles sont : `true` (par défaut) ou `false`.  <br>  <br>`allowFallback=false` spécifie que la traduction doit utiliser uniquement les systèmes entraînés pour le `category` spécifié par la requête. Si une traduction de langue X en langue Y exige un chaînage via une langue relais E, tous les systèmes présents dans la chaîne (X->E et E->Y) doivent être personnalisés et avoir la même catégorie. Si aucun système n’est trouvé avec une catégorie spécifique, la requête retourne le code d’état 400. `allowFallback=true` spécifie que le service est autorisé à revenir à un système général quand il n’existe pas de système personnalisé. |
 
 Les en-têtes de demande sont les suivants :
 
-<table width="100%">
-  <th width="20%">headers</th>
-  <th>Description</th>
-  <tr>
-    <td>En-tête(s) d’authentification</td>
-    <td><em>En-tête de demande obligatoire</em>.<br/>Voir les <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">options disponibles pour l’authentification</a>.</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td><em>En-tête de demande obligatoire</em>.<br/>Spécifie le type de contenu de la charge utile.<br/> La valeur acceptée est <code>application/json; charset=UTF-8</code>.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td><em>En-tête de demande obligatoire</em>.<br/>Longueur du corps de la demande.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td><em>Facultatif</em>.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête appelé <code>ClientTraceId</code>.</td>
-  </tr>
-</table> 
+| headers | Description |
+| --- | --- |
+| En-tête(s) d’authentification | _En-tête de demande obligatoire_.  <br>Voir les [options disponibles pour l’authentification](/azure/cognitive-services/translator/reference/v3-0-reference#authentication). |
+| Content-Type | _En-tête de demande obligatoire_.  <br>Spécifie le type de contenu de la charge utile.  <br>La valeur acceptée est `application/json; charset=UTF-8`. |
+| Content-Length | _En-tête de demande obligatoire_.  <br>Longueur du corps de la demande. |
+| X-ClientTraceId | _Facultatif_.  <br>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête appelé `ClientTraceId`. |
 
 ## <a name="request-body"></a>Corps de la demande
 
@@ -158,7 +106,7 @@ Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne 
 
     * `transliteration`: objet fournissant le texte traduit dans le script spécifié par le paramètre `toScript`.
 
-      * `script`: chaîne spécifiant le script cible.   
+      * `script`: chaîne spécifiant le script cible.
 
       * `text`: chaîne fournissant le texte traduit dans le script cible.
 
@@ -180,61 +128,22 @@ Des exemples de réponses JSON sont fournis dans la section [exemples](#examples
 
 ## <a name="response-headers"></a>En-têtes de réponse
 
-<table width="100%">
-  <th width="20%">headers</th>
-  <th>Description</th>
-    <tr>
-    <td>X-RequestId</td>
-    <td>Valeur générée par le service pour identifier la demande. Elle sert à des fins de dépannage.</td>
-  </tr>
-  <tr>
-    <td>X-MT-System</td>
-    <td>Spécifie le type de système qui a été utilisé pour la traduction pour chaque langue de destination (« to ») demandée pour la traduction. La valeur est une liste de chaînes séparées par des virgules. Chaque chaîne indique un type :<br/><ul><li>Personnalisé : la requête inclut un système personnalisé, et au moins un système personnalisé a été utilisé lors de la traduction.</li><li>Équipe : toutes les autres requêtes.</li></td>
-  </tr>
-</table> 
+| headers | Description |
+| --- | --- |
+| X-RequestId | Valeur générée par le service pour identifier la demande. Elle sert à des fins de dépannage. |
+| X-MT-System | Spécifie le type de système qui a été utilisé pour la traduction pour chaque langue de destination (« to ») demandée pour la traduction. La valeur est une liste de chaînes séparées par des virgules. Chaque chaîne indique un type :  <br><br>* Personnalisé : la requête inclut un système personnalisé, et au moins un système personnalisé a été utilisé lors de la traduction.<br>* Équipe : toutes les autres requêtes. |
 
 ## <a name="response-status-codes"></a>Codes d’état de réponse
 
-Voici les codes d’état HTTP qu’une demande peut retourner. 
+Voici les codes d’état HTTP qu’une demande peut retourner.
 
-<table width="100%">
-  <th width="20%">Code d’état</th>
-  <th>Description</th>
-  <tr>
-    <td>200</td>
-    <td>Réussite.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>L’un des paramètres de requête est manquant ou non valide. Corrigez les paramètres de demande avant de réessayer.</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td>Il n’a pas été possible d’authentifier la demande. Vérifiez que les informations d’identification sont spécifiées et valides.</td>
-  </tr>
-  <tr>
-    <td>403</td>
-    <td>La demande n’est pas autorisée. Vérifiez le message d’erreur détaillé. Cela indique souvent que toutes les traductions gratuites fournies avec un abonnement d’essai ont été utilisées.</td>
-  </tr>
-  <tr>
-    <td>408</td>
-    <td>La requête n’a pas pu être satisfaite car il manque une ressource. Vérifiez le message d’erreur détaillé. L’utilisation d’un <code>category</code> personnalisé indique souvent que le système de traduction personnalisée n’est pas encore disponible pour traiter des requêtes. La requête doit être retentée après un délai d’attente (par exemple, 1 minute).</td>
-  </tr>
-  <tr>
-    <td>429</td>
-    <td>Le serveur a rejeté la requête, car le client a dépassé les limites de requête.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>Une erreur inattendue s’est produite. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,<code>X-RequestId</code> et identificateur du client dans l’en-tête de demande <code>X-ClientTraceId</code>.</td>
-  </tr>
-  <tr>
-    <td>503</td>
-    <td>Serveur temporairement indisponible. Relancez la requête. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,<code>X-RequestId</code> et identificateur du client dans l’en-tête de demande <code>X-ClientTraceId</code>.</td>
-  </tr>
-</table> 
+| ProfanityAction | Action |
+| --- | --- |
+| `NoAction` |NoAction est le comportement par défaut. La vulgarité de la source est reflétée dans la cible.  <br>  <br>**Exemple de source (japonais)**  : 彼はジャッカスです。  <br>**Exemple de traduction (français)**  : Il est un imbécile. |
+| `Deleted` | Les mots vulgaires sont retirés de la cible sans remplacement.  <br>  <br>**Exemple de source (japonais)**  : 彼はジャッカスです。  <br>**Exemple de traduction (anglais)**  : Il est  |
+| `Marked` | Les mots vulgaires sont remplacés par un marqueur dans la sortie. Le marqueur varie selon le paramètre `ProfanityMarker`.  <br>  <br>Pour `ProfanityMarker=Asterisk`, les mots vulgaires sont remplacés par `***` :  <br>**Exemple de source (japonais)**  : 彼はジャッカスです。  <br>**Exemple de traduction (anglais)**  : il est un \\ *\\* \\*.  <br>  <br>Pour `ProfanityMarker=Tag`, les mots vulgaires sont entourés de balises XML &lt;profanity&gt; et &lt;/profanity&gt; :  <br>**Exemple de source (japonais)**  : 彼はジャッカスです。  <br>**Exemple de traduction (français)**  : C’est un &lt;profanity&gt;con&lt;/profanity&gt;. |
 
-Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la [page Référence de Translator v3](./v3-0-reference.md#errors). 
+Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la [page Référence de Translator v3](./v3-0-reference.md#errors).
 
 ## <a name="examples"></a>Exemples
 
@@ -260,7 +169,7 @@ Le corps de la réponse est le suivant :
 
 Le `translations` tableau inclut un élément qui fournit la traduction de l’élément de texte dans l’entrée.
 
-### <a name="translate-a-single-input-with-language-auto-detection"></a>Traduire une entrée unique avec détection automatique de la langue
+### <a name="translate-a-single-input-with-language-autodetection"></a>Traduire une entrée unique avec détection automatique de la langue
 
 Cet exemple montre comment traduire une phrase unique de l’anglais en chinois simplifié. La demande ne spécifie pas la langue d’entrée. La détection automatique de la langue source est utilisée à la place.
 
@@ -326,7 +235,7 @@ Le corps de la réponse est le suivant :
         "translations":[
             {"text":"你好, 你叫什么名字？","to":"zh-Hans"}
         ]
-    },            
+    },
     {
         "translations":[
             {"text":"我很好，谢谢你。","to":"zh-Hans"}
@@ -362,41 +271,19 @@ Le service Translator conserve normalement dans la traduction toute vulgarité p
 
 Si vous souhaitez éviter toute vulgarité dans la traduction, indépendamment de la présence de vulgarité dans le texte source, vous disposez d’une option de filtrage de la vulgarité. L’option vous permet de spécifier si vous souhaitez que la vulgarité soit supprimée, que les vulgarités soient marquées à l’aide de balises appropriées (ce qui vous offre la possibilité d’ajouter votre propre post-traitement), ou qu’aucune action ne soit appliquée. Les valeurs acceptées de `ProfanityAction` sont `Deleted`, `Marked` et `NoAction` (par défaut).
 
-<table width="100%">
-  <th width="20%">ProfanityAction</th>
-  <th>Action</th>
-  <tr>
-    <td><code>NoAction</code></td>
-    <td>Il s'agit du comportement par défaut. La vulgarité de la source est reflétée dans la cible.<br/><br/>
-    <strong>Exemple de source (japonais)</strong> : 彼はジャッカスです。<br/>
-    <strong>Exemple de traduction (français)</strong> : Il est un imbécile.
-    </td>
-  </tr>
-  <tr>
-    <td><code>Deleted</code></td>
-    <td>Les mots vulgaires sont retirés de la cible sans remplacement.<br/><br/>
-    <strong>Exemple de source (japonais)</strong> : 彼はジャッカスです。<br/>
-    <strong>Exemple de traduction (français)</strong> : C’est un.
-    </td>
-  </tr>
-  <tr>
-    <td><code>Marked</code></td>
-    <td>Les mots vulgaires sont remplacés par un marqueur dans la sortie. Le marqueur varie selon le paramètre <code>ProfanityMarker</code>.<br/><br/>
-Pour <code>ProfanityMarker=Asterisk</code>, les mots vulgaires sont remplacés par <code>***</code> :<br/>
-    <strong>Exemple de source (japonais)</strong> : 彼はジャッカスです。<br/>
-    <strong>Exemple de traduction (français)</strong> : C’est un \*\*\*.<br/><br/>
-Pour <code>ProfanityMarker=Tag</code>, les mots vulgaires sont entourés de balises XML &lt;profanity&gt; et &lt;/profanity&gt; :<br/>
-    <strong>Exemple de source (japonais)</strong> : 彼はジャッカスです。<br/>
-    <strong>Exemple de traduction (français)</strong> : C’est un &lt;profanity&gt;con&lt;/profanity&gt;.
-  </tr>
-</table> 
+
+| ProfanityAction | Action |
+| --- | --- |
+| `NoAction` | NoAction est le comportement par défaut. La vulgarité de la source est reflétée dans la cible.  <br>  <br>**Exemple de source (japonais)**  : 彼はジャッカスです。  <br>**Exemple de traduction (français)**  : Il est un imbécile. |
+| `Deleted` | Les mots vulgaires sont retirés de la cible sans remplacement.  <br>  <br>**Exemple de source (japonais)**  : 彼はジャッカスです。  <br>**Exemple de traduction (français)**  : C’est un. |
+| `Marked` | Les mots vulgaires sont remplacés par un marqueur dans la sortie. Le marqueur varie selon le paramètre `ProfanityMarker`.  <br>  <br>Pour `ProfanityMarker=Asterisk`, les mots vulgaires sont remplacés par `***` :  <br>**Exemple de source (japonais)**  : 彼はジャッカスです。  <br>**Exemple de traduction (anglais)**  : il est un \\ *\\* \\*.  <br>  <br>Pour `ProfanityMarker=Tag`, les mots vulgaires sont entourés de balises XML &lt;profanity&gt; et &lt;/profanity&gt; :  <br>**Exemple de source (japonais)**  : 彼はジャッカスです。  <br>**Exemple de traduction (français)**  : C’est un &lt;profanity&gt;con&lt;/profanity&gt;. |
 
 Par exemple :
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
-Cette demande renvoie :
+Cette requête retourne :
 
 ```
 [
@@ -494,8 +381,8 @@ L'obtention des informations d'alignement est une fonctionnalité expérimentale
 * L’alignement est renvoyé uniquement pour un sous-ensemble de paires de langues :
   - Anglais vers/depuis n’importe quelle autre langue, à l’exception du chinois traditionnel, du cantonais (traditionnel) ou du serbe (cyrillique).
   - du japonais au coréen ou inversement.
-  - du japonais au chinois simplifié et du chinois simplifié au japonais. 
-  - du chinois simplifié au chinois traditionnel et du chinois traditionnel au chinois simplifié. 
+  - du japonais au chinois simplifié et du chinois simplifié au japonais.
+  - du chinois simplifié au chinois traditionnel et du chinois traditionnel au chinois simplifié.
 * Vous ne recevrez pas d’alignement si la phrase est une traduction définie. Des traductions définies sont, par exemple, « Ceci est un test », « Je t’aime » et d’autres phrases extrêmement fréquentes.
 * L'alignement n'est pas possible lorsque vous appliquez l'une des approches visant à empêcher la traduction comme décrit [ici](../prevent-translation.md)
 
@@ -529,7 +416,7 @@ Si vous connaissez déjà la traduction que vous souhaitez appliquer à un mot o
 
 Le balisage à fournir utilise la syntaxe suivante.
 
-``` 
+```
 <mstrans:dictionary translation="translation of phrase">phrase</mstrans:dictionary>
 ```
 

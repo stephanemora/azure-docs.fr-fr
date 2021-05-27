@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 05/25/2021
-ms.openlocfilehash: e0922d4b32162660e5ede7501eb4a23db519b9b2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 4ebdb5d092a64213727bd35d923c335c8e82210b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377160"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479898"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gérer les ressources Azure Machine Learning avec l’extension VS Code (préversion)
 
@@ -37,7 +37,7 @@ La façon la plus rapide de créer des ressources consiste à utiliser la barre 
 1. Sélectionnez **+** dans la barre d’activité.
 1. Choisissez votre ressource dans la liste déroulante.
 1. Configurez le fichier de spécification. Les informations requises dépendent du type de ressource que vous souhaitez créer.
-1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+1. Cliquez avec le bouton droit sur le fichier de spécification et sélectionnez **Azure ML : Créer une ressource**.
 
 Vous pouvez également créer une ressource à l’aide de la palette de commandes :
 
@@ -55,7 +55,7 @@ Pour créer une version d’une ressource :
 
 1. Utilisez le fichier de spécification existant qui a créé la ressource ou suivez le processus de création de ressources pour créer un nouveau fichier de spécification.
 1. Incrémentez le numéro de version dans le modèle.
-1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+1. Cliquez avec le bouton droit sur le fichier de spécification et sélectionnez **Azure ML : Créer une ressource**.
 
 Tant que le nom de la ressource mise à jour est identique à la version précédente, Azure Machine Learning récupère les modifications et crée une nouvelle version.
 
@@ -67,7 +67,7 @@ Pour plus d’informations, consultez [Espaces de travail](concept-workspace.md)
 
 1. Dans la vue Azure Machine Learning, cliquez avec le bouton droit sur le nœud de votre abonnement et sélectionnez **Créer un espace de travail**.
 1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
-1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+1. Cliquez avec le bouton droit sur le fichier de spécification et sélectionnez **Azure ML : Créer une ressource**.
 
 Vous pouvez aussi utiliser la commande `> Azure ML: Create Workspace` dans la palette de commandes.
 
@@ -99,7 +99,7 @@ Pour plus d’informations, consultez [Magasins de données](concept-data.md#dat
 1. Cliquez avec le bouton droit sur le nœud **Magasins de données** et sélectionnez **Créer un magasin de données**.
 1. Choisissez le type de magasin de données.
 1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
-1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+1. Cliquez avec le bouton droit sur le fichier de spécification et sélectionnez **Azure ML : Créer une ressource**.
 
 Vous pouvez aussi utiliser la commande `> Azure ML: Create Datastore` dans la palette de commandes.
 
@@ -129,7 +129,7 @@ Pour plus d’informations, consultez [Jeux de données](concept-data.md#dataset
 1. Développez le nœud d’espace de travail sous lequel vous souhaitez créer le jeu de données.
 1. Cliquez avec le bouton droit sur le nœud **Jeux de données** et sélectionnez **Créer un jeu de données**.
 1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
-1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+1. Cliquez avec le bouton droit sur le fichier de spécification et sélectionnez **Azure ML : Créer une ressource**.
 
 Vous pouvez aussi utiliser la commande `> Azure ML: Create Dataset` dans la palette de commandes.
 
@@ -155,7 +155,7 @@ Pour plus d’informations, consultez [Environnements](concept-environments.md).
 1. Développez le nœud d’espace de travail sous lequel vous souhaitez créer le magasin de données.
 1. Cliquez avec le bouton droit sur le nœud **Environnements** et sélectionnez **Créer un environnement**.
 1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
-1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+1. Cliquez avec le bouton droit sur le fichier de spécification et sélectionnez **Azure ML : Créer une ressource**.
 
 Vous pouvez aussi utiliser la commande `> Azure ML: Create Environment` dans la palette de commandes.
 
@@ -185,7 +185,7 @@ En utilisant les nœuds de ressource dans la vue Azure Machine Learning :
 1. Cliquez avec le bouton droit sur le nœud **Expériences** dans votre espace de travail et sélectionnez **Créer un travail**.
 1. Choisissez le type de votre travail.
 1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
-1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+1. Cliquez avec le bouton droit sur le fichier de spécification et sélectionnez **Azure ML : Créer une ressource**.
 
 Vous pouvez aussi utiliser la commande `> Azure ML: Create Job` dans la palette de commandes.
 
@@ -234,7 +234,7 @@ Pour plus d’informations, consultez [Instances de calcul](concept-compute-inst
 1. Développez le nœud de **calcul**.
 1. Cliquez avec le bouton droit sur le nœud **Instances de calcul** dans votre espace de travail et sélectionnez **Créer un calcul**.
 1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
-1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+1. Cliquez avec le bouton droit sur le fichier de spécification et sélectionnez **Azure ML : Créer une ressource**.
 
 Vous pouvez aussi utiliser la commande `> Azure ML: Create Compute` dans la palette de commandes.
 
@@ -280,7 +280,7 @@ Pour plus d’informations, consultez [Cibles de calcul d’entraînement](conce
 1. Développez le nœud de **calcul**.
 1. Cliquez avec le bouton droit sur le nœud **Clusters de calcul** dans votre espace de travail et sélectionnez **Créer un calcul**.
 1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
-1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+1. Cliquez avec le bouton droit sur le fichier de spécification et sélectionnez **Azure ML : Créer une ressource**.
 
 Vous pouvez aussi utiliser la commande `> Azure ML: Create Compute` dans la palette de commandes.
 
@@ -351,7 +351,7 @@ Pour plus d’informations, consultez [Modèles](concept-azure-machine-learning-
 1. Développez le nœud de votre espace de travail.
 1. Cliquez avec le bouton droit sur le nœud **Modèles** dans votre espace de travail et sélectionnez **Créer un modèle**.
 1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
-1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+1. Cliquez avec le bouton droit sur le fichier de spécification et sélectionnez **Azure ML : Créer une ressource**.
 
 Vous pouvez aussi utiliser la commande `> Azure ML: Create Model` dans la palette de commandes.
 
@@ -391,7 +391,7 @@ Pour plus d’informations, consultez [Point de terminaison](concept-azure-machi
 1. Cliquez avec le bouton droit sur le nœud **Modèles** dans votre espace de travail et sélectionnez **Créer un point de terminaison**.
 1. Choisissez votre type de point de terminaison.
 1. Un fichier de spécifications apparaît. Configurez le fichier de spécification.
-1. Cliquez avec le bouton droit sur le fichier de modèle et sélectionnez **Azure ML : Créer une ressource**.
+1. Cliquez avec le bouton droit sur le fichier de spécification et sélectionnez **Azure ML : Créer une ressource**.
 
 Vous pouvez aussi utiliser la commande `> Azure ML: Create Endpoint` dans la palette de commandes.
 

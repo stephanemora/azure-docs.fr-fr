@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3de7a322d90f3a6a45a0965da72a1f53d5edc3a2
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 7528d1f29b293e1efadde84fac9fa8d95f8f5076
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751848"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371302"
 ---
 # <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Créer et utiliser des vues avec le pool SQL serverless dans Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Dans cette section, vous allez découvrir comment créer et utiliser des vues po
 
 La première étape consiste à créer une base de données dans laquelle la vue sera créée et à initialiser les objets nécessaires pour s’authentifier sur le stockage Azure en exécutant le [script d’installation](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) sur cette base de données. Toutes les requêtes de cet article seront exécutées sur votre exemple de base de données.
 
-## <a name="create-a-view"></a>Créer une vue
+## <a name="views-over-external-data"></a>Vues de données externes
 
 Vous pouvez créer des vues de la même façon que vous créez des vues SQL Server standard. La requête suivante crée une vue qui lit le fichier *population.csv*.
 
@@ -57,7 +57,31 @@ WITH (
 
 La vue utilise `EXTERNAL DATA SOURCE` avec une URL racine de votre stockage, en tant que `DATA_SOURCE` et ajoute un chemin de fichier relatif aux fichiers.
 
-## <a name="create-a-partitioned-view"></a>Créer une vue partitionnée
+### <a name="delta-lake-views"></a>Vues de Delta Lake
+
+Si vous créez les vues pour un dossier Delta Lake, vous devez spécifier l’emplacement du dossier racine après l’option `BULK` au lieu de spécifier le chemin d’accès du fichier.
+
+> [!div class="mx-imgBorder"]
+>![Dossier ECDC COVID-19 Delta Lake](./media/shared/covid-delta-lake-studio.png)
+
+La fonction `OPENROWSET` qui lit les données du dossier Delta Lake examine la structure de celui-ci et identifie automatiquement les emplacements des fichiers.
+
+```sql
+create or alter view CovidDeltaLake
+as
+select *
+from openrowset(
+           bulk 'covid',
+           data_source = 'DeltaLakeStorage',
+           format = 'delta'
+    ) with (
+           date_rep date,
+           cases int,
+           geo_id varchar(6)
+           ) as rows
+```
+
+## <a name="partitioned-views"></a>Vues partitionnées
 
 Si vous disposez d’un ensemble de fichiers partitionnés dans la structure de dossiers hiérarchique, vous pouvez décrire le modèle de partition à l’aide des caractères génériques dans le chemin du fichier. Utilisez la fonction `FILEPATH` pour exposer des parties du chemin de dossier en tant que colonnes de partitionnement.
 
@@ -74,11 +98,33 @@ FROM
 
 Les vues partitionnées effectuent une élimination des partitions de dossier si vous interrogez cette vue avec les filtres sur les colonnes de partitionnement. Cela peut améliorer les performances de vos requêtes.
 
+### <a name="delta-lake-partitioned-views"></a>Vues partitionnées de Delta Lake
+
+Si vous créez les vues partitionnées pour un stockage Delta Lake, vous pouvez spécifier uniquement un dossier Delta Lake. Vous n’avez pas besoin d’exposer explicitement les colonnes de partitionnement à l’aide de la fonction `FILEPATH` :
+
+```sql
+CREATE OR ALTER VIEW YellowTaxiView
+AS SELECT *
+FROM  
+    OPENROWSET(
+        BULK 'yellow',
+        DATA_SOURCE = 'DeltaLakeStorage',
+        FORMAT='DELTA'
+    ) nyc
+```
+
+La fonction `OPENROWSET` examine la structure du dossier Delta Lake sous-jacent, puis identifie et expose automatiquement les colonnes de partitionnement. L’élimination des partitions est effectuée automatiquement si vous placez la colonne de partitionnement dans la clause `WHERE` d’une requête.
+
+Le nom de dossier dans la fonction `OPENROWSET` (`yellow` dans cet exemple), qui est concaténé avec l’URI `LOCATION` défini dans la source de données `DeltaLakeStorage` doit référencer le dossier Delta Lake racine contenant un sous-dossier nommé `_delta_log`.
+
+> [!div class="mx-imgBorder"]
+>![Dossier Yellow Taxi Delta Lake](./media/shared/yellow-taxi-delta-lake.png)
+
 ## <a name="use-a-view"></a>Utiliser une vue
 
 Vous pouvez utiliser des vues dans vos requêtes, de la même façon que vous utilisez des vues dans les requêtes SQL Server.
 
-La requête suivante illustre l’utilisation de la vue *population_csv* que nous avons créée à la section [Créer une vue](#create-a-view). Elle retourne les noms des pays/régions avec leur population en 2019, dans l’ordre décroissant.
+La requête suivante illustre l’utilisation de la vue *population_csv* que nous avons créée à la section [Créer une vue](#views-over-external-data). Elle retourne les noms des pays/régions avec leur population en 2019, dans l’ordre décroissant.
 
 > [!NOTE]
 > Modifiez la première ligne de la requête, c’est-à-dire [mydbname], afin d’utiliser la base de données que vous avez créée.

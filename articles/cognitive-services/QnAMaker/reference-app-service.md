@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: da46084c8c2616284c31ef155927e8dbcbd19e0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a24045d38b594e09b931a885c60851109a108e3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102209357"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372685"
 ---
 # <a name="service-configuration"></a>Configuration de service
 
@@ -38,9 +38,9 @@ Vous pouvez définir un paramètre individuel via la liste des paramètres de l�
 
 Vous devez **redémarrer** le service à partir de la page **Vue d’ensemble** du Portail Azure, une fois que vous avez apporté des modifications.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
-Les personnalisations App Service ne s’appliquent pas à QnA Maker managé (préversion).
+Les personnalisations de App Service ne s’appliquent pas à la fonctionnalité de réponse à une question personnalisée (préversion).
 
 ---
 
@@ -64,9 +64,9 @@ Découvrez [comment changer le texte de vos réponses par défaut](How-To/change
 
 Application Insights est utilisé pour superviser la télémétrie avec QnA Maker GA. Il n’existe aucun paramètre de configuration propre à QnA Maker.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
-Découvrez [comment ajouter des données de télémétrie à votre service QnA Maker managé (préversion).](How-To/get-analytics-knowledge-base.md) 
+Découvrez [comment ajouter des données de télémétrie à votre service Réponses aux questions personnalisées (préversion)](How-To/get-analytics-knowledge-base.md). 
 
 ---
 
@@ -76,9 +76,9 @@ Découvrez [comment ajouter des données de télémétrie à votre service QnA M
 
 Plan App Service n’a aucun paramètre de configuration spécifique à QnA Maker.
 
-# <a name="qnamaker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
-Plan App Service n’est pas utilisé avec QnA Maker managé (préversion).
+Le plan App Service n’est pas utilisé avec les réponses aux questions personnalisées (préversion).
 
 ---
 

@@ -1,18 +1,20 @@
 ---
-title: Détecter les mouvements et enregistrer des vidéos sur des appareils de périphérie - Azure
-description: Ce guide de démarrage rapide vous montre comment utiliser Live Video Analytics sur IoT Edge pour analyser le flux vidéo en direct à partir d’une caméra IP (simulée), détecter la présence d’un mouvement et, le cas échéant, enregistrer un clip vidéo MP4 sur le système de fichiers local du périphérique.
+title: Détecter les mouvements et enregistrer des vidéos sur des appareils périphériques avec Live Video Analytics – Azure
+description: Ce guide de démarrage rapide vous montre comment utiliser Azure Live Video Analytics sur IoT Edge pour analyser le flux vidéo en direct provenant d’une caméra IP (simulée), détecter la présence d’un mouvement et, le cas échéant, enregistrer un clip vidéo MP4 sur le système de fichiers local de l’appareil périphérique.
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: e4334cdd14242337a2a870f31886606020654685
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d563aea803b92c10db1309365bb3ee3b29da57f
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96498351"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372008"
 ---
-# <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>Démarrage rapide : Détecter les mouvements et enregistrer des vidéos sur des appareils de périphérie
+# <a name="quickstart-detect-motion-and-record-video-on-edge-devices-with-live-video-analytics"></a>Guide de démarrage rapide : Détecter les mouvements et enregistrer des vidéos sur des appareils périphériques avec Live Video Analytics
  
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 Ce guide de démarrage rapide vous montre comment utiliser Live Video Analytics sur IoT Edge pour analyser le flux vidéo en direct à partir d’une caméra IP (simulée). Il montre comment détecter la présence d’un mouvement et, le cas échéant, enregistrer un clip vidéo MP4 sur le système de fichiers local de l’appareil de périphérie. Le guide de démarrage rapide utilise une machine virtuelle Azure comme appareil IoT Edge ainsi qu’un flux vidéo en direct simulé. 
 
 ::: zone pivot="programming-language-csharp"

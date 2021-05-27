@@ -1,23 +1,23 @@
 ---
 title: Remises sur les réservations pour Azure App Service
-description: Découvrez comment les remises de réservation s’appliquent aux instances Azure App Service Premium v3 et aux Timbres isolés.
+description: Découvrez comment les remises de réservation s’appliquent aux instances Azure App Service Premium v3 et Premium v2, ainsi qu’aux Timbres isolés.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 05/13/2021
 ms.author: banders
-ms.openlocfilehash: c599c64ce4b22bbf7bece77602b22fef6629d07c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b6230f86fc33dca290f6d61f923024c9352d8600
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369728"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378505"
 ---
-# <a name="how-reservation-discounts-apply-to-azure-app-service-premium-v3-instances-and-isolated-stamps"></a>Comment les remises de réservation s’appliquent aux instances Azure App Service Premium v3 et aux Timbres isolés
+# <a name="how-reservation-discounts-apply-to-azure-app-service"></a>Comment les remises de réservation s’appliquent à Azure App Service
 
-Cet article vous permet de comprendre comment les remises s’appliquent aux instances Azure App Service Premium v3 et aux Timbres isolés.
+Cet article vous permet de comprendre comment les remises s’appliquent aux instances Azure App Service Premium v3 et Premium v2, ainsi qu’aux Timbres isolés.
 
 ## <a name="how-reservation-discounts-apply-to-premium-v3-instances"></a>Comment les remises de réservation s’appliquent aux instances Premium v3
 
@@ -38,6 +38,20 @@ La remise de réservation Azure est appliquée aux instances Premium v3 en cours
 2.  Dans l’heure 1, l’instance 1 s’exécute pendant 0,75 heure, et l’instance 2 pendant 0,5 heure. L’utilisation totale de l’heure 1 est 1,25 heure. Vous payez 0,25 heure restante au tarif du paiement à l’utilisation.
 3.  Pour les heures 2 et 3, les deux instances se sont exécutées chacune pendant 1 heure. Une instance est couverte par la réservation, et l’autre est facturée au tarif du paiement à l’utilisation.
 4.  Pour l’heure 4, l’instance 1 s’exécute pendant 0,5 heure tandis que l’instance 2 s’exécute pendant 1 heure. L’instance 1 est entièrement couverte par la réservation, et la durée de 0,5 heure de l’instance 2 est couverte. Vous êtes facturé au tarif du paiement à l’utilisation pour cette durée de 0,5 heure restante.
+
+Pour comprendre et voir l’application de vos réservations Azure dans les rapports d’utilisation pour la facturation, voir [Comprendre l’utilisation des réservations](understand-reserved-instance-usage-ea.md).
+
+## <a name="how-reservation-discounts-apply-to-isolated-v2-instances"></a>Comment les remises de réservation s’appliquent aux instances Isolé v2
+
+Quand vous achetez une instance réservée Azure App Service Isolé v2, la remise de réservation est automatiquement appliquée aux instances App Service qui correspondent aux attributs et à la quantité de la réservation. Une réservation couvre le coût de vos instances Isolé v2.
+
+### <a name="how-the-discount-is-applied-to-azure-app-service"></a>Comment la remise s’applique à Azure App Service
+
+Une remise de réservation repose sur le principe de _capacité utilisée ou perdue_. Ainsi, si vous ne disposez pas des ressources correspondantes pour une heure donnée, vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas reporter les heures réservées inutilisées. Lorsque vous arrêtez une ressource, la remise de réservation s'applique automatiquement à une autre ressource correspondante dans l'étendue spécifiée. Si aucune ressource correspondante n’est trouvée dans l’étendue spécifiée, les heures réservées sont perdues.
+
+### <a name="reservation-discount-for-isolated-v2-instances"></a>Remise de réservation pour les instances Isolé v2
+
+La remise de réservation Azure est appliquée aux instances Isolé v2 en cours d’exécution sur une base horaire. Les réservations que vous avez achetées sont mises en correspondance avec l’utilisation émise par les instances Isolé v2 en cours d’exécution pour appliquer la remise de réservation. Pour les instances Isolé v2 qui ne s’exécutent pas pendant une heure entière, la réservation est complétée avec d’autres instances qui n’utilisent pas de réservation, dont des instances s’exécutant simultanément. À la fin de l’heure, l’application de la réservation aux instances dans l’heure est verrouillée. Quand une instance ne s’exécute pas pendant une heure ou quand des instances s’exécutant simultanément durant l’heure ne complètent pas l’heure de réservation, la réservation est sous-utilisée pour cette heure.
 
 Pour comprendre et voir l’application de vos réservations Azure dans les rapports d’utilisation pour la facturation, voir [Comprendre l’utilisation des réservations](understand-reserved-instance-usage-ea.md).
 

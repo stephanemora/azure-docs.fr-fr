@@ -1,16 +1,18 @@
 ---
-title: Protocole d’extension HTTP – Azure
-description: Dans cet article, vous allez apprendre à utiliser le protocole d’extension HTTP pour envoyer des messages entre le module Live Video Analytics et votre module d’IA ou de validation croisée (CV).
+title: Protocole d’extension HTTP dans Live Video Analytics – Azure
+description: Dans cet article, vous allez apprendre à utiliser le protocole d’extension HTTP pour envoyer des messages entre le module Azure Live Video Analytics et votre module d’IA ou de validation croisée (CV).
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 54b25894c60a39de9c0ec00cdc4982f691bf1ee3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3dbb329e1210ce27fa33f2b1e7ec8b0cf4f8b3e9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565739"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375473"
 ---
-# <a name="http-extension-protocol"></a>Protocole d’extension HTTP
+# <a name="http-extension-protocol-in-live-video-analytics"></a>Protocole d’extension HTTP dans Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Live Video Analytics sur IoT Edge vous permet d’étendre les fonctionnalités de traitement de graphe multimédia via un [nœud d’extension de graphe](./media-graph-extension-concept.md). Si vous utilisez le processeur d’extension HTTP comme nœud d’extension, la communication entre le module Live Video Analytics et votre module d’IA ou de validation croisée (CV) se fait sur HTTP
 

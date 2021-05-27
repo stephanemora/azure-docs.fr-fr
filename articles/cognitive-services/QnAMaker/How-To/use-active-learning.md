@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 87dde7662050794a24cf976a0bae6237b91d29b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d346610ecb4e0552a52775c086eeb16e6e11680
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102213706"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373013"
 ---
 # <a name="active-learning"></a>Apprentissage actif
 
@@ -130,9 +130,9 @@ Utilisez l’[API Train](/rest/api/cognitiveservices/qnamaker4.0/runtime/train) 
 
 L’apprentissage actif est pris en charge dans la version 4.4.0 du runtime et dans les versions ultérieures. Si votre base de connaissances a été créée dans une version antérieure, [mettez à niveau votre runtime](configure-QnA-Maker-resources.md#get-the-latest-runtime-updates) pour utiliser cette fonctionnalité.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
-Dans QnA Maker managé (préversion), étant donné que le runtime est hébergé par le service QnA Maker lui-même, il n’est pas nécessaire de mettre à niveau manuellement le runtime.
+Dans le cas de réponses aux questions personnalisées (préversion), il n’est pas nécessaire de mettre à niveau le runtime manuellement.
 
 ---
 
@@ -159,9 +159,9 @@ L’apprentissage actif est désactivé par défaut. Activez-le pour afficher le
 
     Une fois que la fonctionnalité **Apprentissage actif** est activée, la base de connaissances suggère de nouvelles questions à intervalles réguliers en fonction des questions soumises par l’utilisateur. Vous pouvez désactiver la stratégie **Apprentissage actif** en basculant de nouveau le paramètre.
     
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
-Par défaut, l’apprentissage actif est **activé** dans QnA Maker managé (préversion). Pour voir les autres questions suggérées, [utilisez les options Affichage](../How-To/improve-knowledge-base.md#view-suggested-questions) sur la page Modifier.
+Par défaut, la formation active est **activée** dans les réponse aux questions personnalisées (préversion). Pour voir les autres questions suggérées, [utilisez les options Affichage](../How-To/improve-knowledge-base.md#view-suggested-questions) sur la page Modifier.
 
 ---
 

@@ -1,16 +1,18 @@
 ---
-title: Supervision et journalisation - Azure
-description: Cet article fournit une vue d’ensemble de la supervision et de la journalisation dans Live Video Analytics sur IoT Edge.
+title: Supervision et journalisation dans Live Video Analytics – Azure
+description: Cet article offre une vue d’ensemble de la supervision et de la journalisation dans Azure Live Video Analytics sur IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 08b2f5cce80581d71ce73e97ab30900aa8957c77
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4bc69192d0d36d01755d625ee46cd77cd9eec1b9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564480"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372136"
 ---
-# <a name="monitoring-and-logging"></a>Surveillance et journalisation
+# <a name="monitoring-and-logging-in-live-video-analytics-on-iot-edge"></a>Supervision et journalisation dans Live Video Analytics sur IoT Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Dans cet article, vous allez apprendre à recevoir des événements pour la supervision à distance à partir du module Live Video Analytics sur IoT Edge. 
 

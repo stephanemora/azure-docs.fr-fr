@@ -1,16 +1,18 @@
 ---
-title: Enregistrement de vidéo - Azure
-description: Dans le contexte d’un système de gestion vidéo pour les caméras de surveillance, l’enregistrement vidéo fait référence au processus de capture des vidéos à partir des caméras et à l’enregistrement pour l’affichage via des applications mobiles et de navigateur. L’enregistrement vidéo peut être catégorisé comme enregistrement vidéo continu et enregistrement vidéo basé sur les événements.
+title: Enregistrement vidéo avec Live Video Analytics – Azure
+description: Dans le contexte d’un système de gestion vidéo pour les caméras de surveillance, l’enregistrement vidéo fait référence au processus de capture des vidéos à partir des caméras et à l’enregistrement pour l’affichage via des applications mobiles et de navigateur. L’enregistrement vidéo peut être catégorisé comme enregistrement vidéo continu et enregistrement vidéo basé sur les événements. L’article traite de l’enregistrement vidéo.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c03472f577e67d5b2705a2ebe3f53e85e0849819
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fea0d2daaa4724cf4d354c8ab16b6b6ba3e76bf5
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84260192"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368367"
 ---
-# <a name="video-recording"></a>Enregistrement de vidéo
+# <a name="video-recording-with-live-video-analytics"></a>Enregistrement vidéo avec Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Dans le contexte d’un système de gestion vidéo pour les caméras de surveillance, l’enregistrement vidéo fait référence au processus de capture des vidéos à partir des caméras et à l’enregistrement pour l’affichage via des applications mobiles et de navigateur. L’enregistrement vidéo peut être catégorisé comme enregistrement vidéo continu et enregistrement vidéo basé sur les événements. 
 

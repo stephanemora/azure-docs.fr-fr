@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 9c7b265118e395dde2b4b5f3959ba397d75ddac5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8c27ff08ba3fc75b7f8e7b2053ba5e6949c808fe
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232186"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379477"
 ---
 # <a name="precise-answering"></a>Réponse précise
 
-La fonctionnalité Réponse précise introduite dans QnA Maker managé (préversion) vous permet d’obtenir la réponse brève précise du meilleur passage candidat de la réponse présent dans la base de connaissances pour toute requête utilisateur. Cette fonctionnalité utilise un modèle deep learning qui, au moment de l’exécution, comprend l’intention de la requête utilisateur et détecte la réponse brève précise dans le passage de la réponse, s’il existe une réponse brève présente en tant que fait dans le passage de la réponse. 
+La fonctionnalité Réponse précise introduite dans le service Réponses aux questions personnalisées (préversion) vous permet d’obtenir la réponse brève précise du meilleur passage candidat de la réponse présent dans la base de connaissances pour toute requête utilisateur. Cette fonctionnalité utilise un modèle deep learning qui, au moment de l’exécution, comprend l’intention de la requête utilisateur et détecte la réponse brève précise dans le passage de la réponse, s’il existe une réponse brève présente en tant que fait dans le passage de la réponse. 
 
 Cette fonctionnalité est activée par défaut dans le volet de test, ce qui vous permet d’en tester le fonctionnement propre à votre scénario. Cette fonctionnalité est extrêmement précieuse pour les développeurs de contenus et les utilisateurs finaux. Maintenant, les développeurs de contenus n’ont pas besoin d’organiser manuellement des paires QnA spécifiques pour chaque fait présent dans la base de connaissances, et l’utilisateur final n’a pas besoin de parcourir l’ensemble du passage de la réponse retourné par le service pour trouver le fait réel qui répond à sa requête. Vous pouvez extraire [des réponses précises via l’API Génération de la réponse](How-To/metadata-generateanswer-usage.md#get-precise-answers-with-generateanswer-api).
 
@@ -28,7 +28,7 @@ Vous pouvez désélectionner l’option **Display short answer** (Afficher une r
 
 Le service retourne aussi le score de confiance de la réponse précise sous la forme d’un **score d’étendue des réponses** que vous pouvez vérifier en sélectionnant l’option **Inspecter** figurant juste en dessous de la requête dans le volet de test.
 
-![Score d’étendue des réponses managé](../QnAMaker/media/conversational-context/managed-answer-span-score.png)
+![Score d’étendue des réponses managé](../QnAMaker/media/conversational-context/inspect-precise-answer.png)
 
 ## <a name="publishing-a-qna-maker-bot"></a>Publication d’un bot QnA Maker
 

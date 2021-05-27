@@ -1,16 +1,18 @@
 ---
-title: Analyser des flux vidéo en direct avec le service Vision par ordinateur pour l’analyse spatiale - Azure
-description: Ce didacticiel explique comment utiliser Live Video Analytics avec la fonctionnalité IA d’analyse spatiale Vision par ordinateur d’Azure Cognitive Services pour analyser un flux vidéo en direct à partir d’une caméra IP (simulée).
+title: Analyser des flux vidéo en direct avec le service Vision par ordinateur pour l’analyse spatiale avec Live Video Analytics - Azure
+description: Ce tutoriel explique comment utiliser Azure Live Video Analytics avec la fonctionnalité IA d’analyse spatiale Vision par ordinateur d’Azure Cognitive Services pour analyser un flux vidéo en direct à partir d’une caméra IP (simulée).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 1c3fd411e60cabb504f01bece62d497ddeea31d8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 549c1405e7deb3531da65ff4425befa2d29aaeef
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561013"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373560"
 ---
-# <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analyser des flux vidéo en direct avec le service Vision par ordinateur pour l’analyse spatiale (préversion)
+# <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-and-live-video-analytics-preview"></a>Analyser des flux vidéo en direct avec le service Vision par ordinateur pour l’analyse spatiale et Live Video Analytics (préversion)
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Ce didacticiel explique comment utiliser Live Video Analytics avec le [service IA d’analyse spatiale Vision par ordinateur d’Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/computer-vision/) pour analyser un flux vidéo en direct à partir d’une caméra IP (simulée). Vous y verrez comment ce serveur d’inférence vous permet d’analyser du contenu vidéo diffusé en continu pour comprendre les relations spatiales entre les personnes et leur déplacement dans l’espace physique.  Un sous-ensemble d’images du flux vidéo est envoyé à ce serveur d’inférence, après quoi les résultats sont envoyés à IoT Edge Hub. Lorsque certaines conditions sont remplies, les clips vidéo sont alors enregistrés et stockés sous forme de ressources Azure Media Services.
 

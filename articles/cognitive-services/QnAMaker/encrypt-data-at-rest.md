@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.author: egeaney
-ms.openlocfilehash: 19dc0f3a676d5373b28e4b7055050477c426f847
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84f95e4c1d24ee100efbd0572dfe0dc88aca22d3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100524041"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369478"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>Chiffrement des données au repos de QnA Maker
 
@@ -28,9 +28,9 @@ Par défaut, votre abonnement utilise des clés de chiffrement gérées par Micr
 
 QnA Maker utilise la prise en charge de CMK à partir d’Azure Search. Configurez [CMK dans Recherche Azure à l’aide d’Azure Key Vault](../../search/search-security-manage-encryption-keys.md). Cette instance Azure doit être associée au service QnA Maker pour la rendre compatible avec CMK.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (en préversion)](#tab/v2)
 
-QnA Maker utilise la [prise en charge de CMK par Recherche Azure](../../search/search-security-manage-encryption-keys.md) et associe automatiquement la CMK fournie pour chiffrer les données stockées dans l’index de recherche Azure.
+La fonctionnalité Réponses aux questions personnalisées utilise la [prise en charge de CMK par Recherche Azure](../../search/search-security-manage-encryption-keys.md) et associe automatiquement la CMK fournie pour chiffrer les données stockées dans l’index de recherche Azure.
 
 ---
 
@@ -59,17 +59,18 @@ Le service QnA Maker utilise CMK à partir du service Azure Search. Procédez co
 
 4. Lorsque vous avez terminé, redémarrez le runtime. Votre service QnA Maker est désormais compatible CMK.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (en préversion)](#tab/v2)
 
-1.  Accédez à l’onglet **Chiffrement** de votre service QnA Maker managé (préversion).
+1.  Accédez à l’onglet **Chiffrement** de votre service Analyse de texte où la fonctionnalité Réponses aux questions personnalisées (préversion) est activée.
 2.  Sélectionnez l’option **Clés gérées par le client**. Fournissez les détails de vos [clés gérées par le client](../../storage/common/customer-managed-keys-configure-key-vault.md?tabs=portal), puis cliquez sur **Enregistrer**.
 
-     :::image type="content" source="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png" alt-text="Paramètre CMK de QnA Maker managé (préversion)" lightbox="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png":::
-
+> [!div class="mx-imgBorder"]
+> ![Réponses aux questions CMK](media/question-answering-cmk.png)
+   
 3.  Quand l’enregistrement aboutit, CMK est utilisé pour chiffrer les données stockées dans l’index de recherche Azure.
 
 > [!IMPORTANT]
-> Nous vous recommandons de définir votre CMK dans un nouveau service Recherche cognitive Azure avant de créer des bases de connaissances. Si vous définissez CMK dans un service QnA Maker avec des bases de connaissances existantes, vous risquez d’en perdre l’accès. Découvrez-en plus sur l’[utilisation de contenu chiffré](../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content) dans Recherche cognitive Azure.
+> Nous vous recommandons de définir votre CMK dans un nouveau service Recherche cognitive Azure avant de créer des bases de connaissances. Si vous définissez CMK dans un service Analyse de texte avec des bases de connaissances existantes, vous risquez d’en perdre l’accès. Découvrez-en plus sur l’[utilisation de contenu chiffré](../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content) dans Recherche cognitive Azure.
 
 > [!NOTE]
 > Pour demander la possibilité d’utiliser des clés gérées par le client, complétez et envoyez le [formulaire de demande de clé gérée par le client de Cognitive Services](https://aka.ms/cogsvc-cmk).

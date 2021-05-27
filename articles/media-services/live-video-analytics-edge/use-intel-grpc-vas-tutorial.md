@@ -1,19 +1,21 @@
 ---
-title: Analyser la vidéo en direct avec Intel OpenVINO™ DL Streamer - Edge IA Extension via gRPC
-description: Ce tutoriel montre comment utiliser Intel OpenVINO™ DL Streamer – Edge AI Extension pour analyser un flux vidéo en direct provenant d’une caméra IP (simulée).
+title: Analyser la vidéo en direct à l’aide de Live Video Analytics avec Intel OpenVINO™ DL Streamer - Edge IA Extension via gRPC
+description: Ce tutoriel montre comment utiliser Live Video Analytics avec Intel OpenVINO™ DL Streamer – Edge AI Extension pour analyser un flux vidéo en direct provenant d’une caméra IP (simulée).
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 07a7daf6363f0e528f84635ed6713ac462f89ca5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d6d842a59a184470720da50917726eae069c6b02
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562849"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368506"
 ---
-# <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutoriel : Analyser la vidéo en direct avec Intel OpenVINO™ DL Streamer - Edge IA Extension 
+# <a name="tutorial-analyze-live-video-by-using-live-video-analytics-with-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutoriel : Analyser la vidéo en direct à l’aide de Live Video Analytics avec Intel OpenVINO™ DL Streamer - Edge IA Extension 
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Ce tutoriel montre comment utiliser Intel OpenVINO™ DL Streamer – Edge AI Extension pour analyser un flux vidéo en direct provenant d’une caméra IP (simulée). Vous allez voir comment ce serveur d’inférence vous donne accès à différents modèles pour détecter des objets (une personne, un véhicule ou un vélo), classifier des objets (attributions de véhicule) et un modèle pour suivre des objets (personne, véhicule et vélo). L’intégration au module gRPC vous permet d’envoyer des images vidéo au serveur d’inférence IA. Les résultats sont alors envoyés au hub IoT Edge. Quand vous exécutez ce service d’inférence sur le même nœud de calcul que Live Video Analytics, vous pouvez profiter de l’envoi des données vidéo par le biais de la mémoire partagée. Ainsi, vous pouvez exécuter une inférence à la fréquence d’images du flux vidéo en direct (par exemple, 30 images/s). 
 
@@ -66,7 +68,7 @@ Dans ce tutoriel, vous allez :
 
 Le module OpenVINO™ DL Streamer - Edge AI Extension est un microservice basé sur Video Analytics Serving (VA Serving) d’Intel qui sert des pipelines d’analytique vidéo créés avec OpenVINO™ DL Streamer. Les développeurs peuvent envoyer des images vidéo décodées au module d’extension IA qui effectue la détection, la classification ou le suivi avant de retourner les résultats. Le module d’extension IA expose des API gRPC compatibles avec les plateformes d’analytique vidéo comme Live Video Analytics sur IoT Edge de Microsoft. 
 
-Pour créer des solutions d’analytique vidéo en direct complexes et à hautes performances, le module Live Video Analytics sur IoT Edge doit être associé à un moteur d’inférence puissant capable de tirer parti de l’échelle à la périphérie. Dans ce tutoriel, les requêtes d’inférence sont envoyées à [Intel OpenVINO™ DL Streamer – Edge AI Extension](), un module Edge conçu pour fonctionner avec Live Video Analytics sur IoT Edge. 
+Pour créer des solutions d’analytique vidéo en direct complexes et à hautes performances, le module Live Video Analytics sur IoT Edge doit être associé à un moteur d’inférence puissant capable de tirer parti de l’échelle à la périphérie. Dans ce tutoriel, les requêtes d’inférence sont envoyées à [Intel OpenVINO™ DL Streamer – Edge AI Extension](), un module Edge conçu pour fonctionner avec Live Video Analytics sur IoT Edge.
 
 Dans la version initiale de ce serveur d’inférence, vous avez accès aux [modèles](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options) suivants :
 

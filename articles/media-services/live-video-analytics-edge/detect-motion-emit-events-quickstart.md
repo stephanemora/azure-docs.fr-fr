@@ -1,17 +1,19 @@
 ---
-title: Détecter les événements de mouvement et d’émission - Azure
-description: Ce guide de démarrage rapide vous montre comment utiliser Live Video Analytics sur IoT Edge pour détecter les événements de mouvement et d’émission, en appelant par programmation des méthodes directes.
+title: Détecter les événements de mouvement et d’émission avec Azure Live Video Analytics
+description: Ce guide de démarrage rapide vous montre comment utiliser Azure Live Video Analytics sur IoT Edge pour détecter les événements de mouvement et d’émission, en appelant par programmation des méthodes directes.
 ms.topic: quickstart
 ms.date: 08/10/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 09a17712287c73fa165b4bec77682831a51edfa3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1119d6ab2295138b7c13ca19e36a48417e72b6cb
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98060570"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379591"
 ---
-# <a name="quickstart-detect-motion-and-emit-events"></a>Démarrage rapide : Détecter les événements de mouvement et d’émission
+# <a name="quickstart-detect-motion-and-emit-events-with-live-video-analytics"></a>Démarrage rapide : Détection les événements de mouvement et d’émission avec Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Ce guide de démarrage rapide vous guide tout au long des étapes de prise en main de Live Video Analytics sur IoT Edge. Il utilise une machine virtuelle Azure comme appareil IoT Edge et un flux vidéo en direct simulé. Une fois la procédure de configuration terminée, vous pourrez exécuter un flux vidéo en direct simulé par le biais d’un graphe multimédia qui détecte et signale tout mouvement dans ce flux. Le diagramme suivant montre une représentation graphique de ce graphe multimédia.
 

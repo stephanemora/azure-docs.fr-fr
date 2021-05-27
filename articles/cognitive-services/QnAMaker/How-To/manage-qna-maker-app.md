@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 49bfca118e53bbe3e4287b2ce25e5baffa717175
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc5de9ff694c1c5a3841c206334fb87d240a568c
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102217327"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378768"
 ---
 # <a name="manage-qna-maker-app"></a>Gérer une application QnA Maker
 
@@ -21,17 +21,35 @@ Découvrez-en plus sur les [concepts d'authentification des collaborateurs QnA M
 
 QnA Maker permet aux utilisateurs de collaborer sur toutes les bases de connaissances dans la même ressource QnA Maker. Cette fonctionnalité est fournie avec le [Contrôle d'accès en fonction du rôle Azure (Azure RBAC)](../../../role-based-access-control/role-assignments-portal.md).
 
-## <a name="access-at-the-qna-maker-resource-level"></a>Accès au niveau de la ressource QnA Maker
+## <a name="access-at-the-cognitive-resource-level"></a>Accès au niveau de la ressource cognitive
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 Vous ne pouvez pas partager une base de connaissances particulière dans un service QnA Maker. Si vous souhaitez que le contrôle d’accès soit plus granulaire, envisagez de répartir vos bases de connaissances sur différentes ressources QnA Maker, puis ajoutez des rôles à chaque ressource.
 
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (en préversion)](#tab/v2)
+
+Vous ne pouvez pas partager une base de connaissances particulière dans un service Analyse de texte. Si vous souhaitez que le contrôle d’accès soit plus granulaire, envisagez de répartir vos bases de connaissances sur différentes ressources Analyse de texte, puis ajoutez des rôles à chaque ressource.
+
+---
+
 ## <a name="add-a-role-to-a-resource"></a>Ajouter un rôle à une ressource
 
-### <a name="add-a-user-account-to-the-qna-maker-resource"></a>Ajouter un compte d’utilisateur à la ressource QnA Maker
+### <a name="add-a-user-account-to-the-cognitive-resource"></a>Ajouter un compte d’utilisateur à la ressource cognitive
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+
+Nous vous conseillons d’appliquer les contrôles RBAC à la ressource QnA Maker.
+
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (en préversion)](#tab/v2)
+
+Nous vous conseillons d’appliquer les contrôles RBAC à la ressource Analyse de texte avec Réponses aux questions personnalisées en tant que fonctionnalité.
+
+---
 
 Les étapes suivantes utilisent le rôle de collaborateur, cependant tous les rôles peuvent être ajoutés à l’aide de ces étapes
 
-1. Connectez-vous au portail [Microsoft Azure](https://portal.azure.com/) et accédez à votre ressource QnA Maker.
+1. Connectez-vous au portail [Azure](https://portal.azure.com/) et accédez à votre ressource cognitive.
 
     ![Liste des ressources QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.png)
 

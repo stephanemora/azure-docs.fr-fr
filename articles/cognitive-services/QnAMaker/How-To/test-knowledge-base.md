@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 273548ec095ce04772438a2d732b914d80d976cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c27ce8087020a43076ee3c4c8a99454a554554c
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96353151"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377479"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Tester votre base de connaissances dans QnA Maker
 
@@ -66,7 +66,7 @@ Sélectionnez **Enregistrer et former** pour conserver cette réponse. Une nouve
 > [!NOTE]
 > Toutes les modifications apportées à votre base de connaissances ne sont enregistrées que lorsque vous appuyez sur le bouton **Enregistrer et former**.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
 1. Accédez à votre base de connaissances en sélectionnant son nom dans la page **Mes bases de connaissances**.
 1. Pour accéder au panneau déroulant Test, sélectionnez **Test** dans le panneau supérieur de votre application. 
@@ -94,6 +94,7 @@ Vous inspectez les détails du résultat du test dans le panneau Inspecter.
 
 2.  Le panneau Inspection s’affiche. Le panneau inclut l’intention de score la plus élevée, ainsi que toutes les entités identifiées. Le panneau affiche le résultat de l’énoncé sélectionné.
 3. Le panneau indique le score de confiance du passage de la réponse et le score de l’étendue des réponses détectée.
+4. Le panneau affiche également la source de la base de connaissances pour le passage de la réponse.
 
 ### <a name="correct-the-top-scoring-answer"></a>Corriger la réponse avec le score le plus élevé
 

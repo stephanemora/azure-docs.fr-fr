@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: b09c36f1dce3c394ff24e3e601d773279a6ac510
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b3f12881bd0cb7114f32cab5b7a67d80a73f4fe
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102123307"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372839"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 
@@ -119,8 +119,8 @@ Les [métadonnées](../How-To/edit-knowledge-base.md) ajoutent à une applicatio
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 Les synonymes en langue anglaise sont pris en charge. Utilisez des variantes de mots (sans respect de la casse) avec [l’API Alterations](/rest/api/cognitiveservices/qnamaker/alterations/replace), afin d’ajouter des synonymes à des mots clés qui prennent différentes formes. Les synonymes sont ajoutés au niveau du service QnA Maker et **partagés par toutes les bases de connaissances du service**.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
-Les synonymes en langue anglaise sont pris en charge. Utilisez des variantes de mots (sans respect de la casse) avec [l’API Alterations](/rest/api/cognitiveservices/qnamaker/alterations/replace), afin d’ajouter des synonymes à des mots clés qui prennent différentes formes. Les synonymes dans QnA Maker managé (préversion) sont **ajoutés par base de connaissances**.
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (en préversion)](#tab/v2)
+Les synonymes en langue anglaise sont pris en charge. Utilisez des variantes de mots (sans respect de la casse) avec [l’API Alterations](/rest/api/cognitiveservices/qnamaker/alterations/replace), afin d’ajouter des synonymes à des mots clés qui prennent différentes formes. Les synonymes de la fonctionnalité Réponses aux questions personnalisées (préversion) sont **ajoutés pour chaque base de connaissances**.
 
 |Mot d’origine|Synonymes|
 |--|--|

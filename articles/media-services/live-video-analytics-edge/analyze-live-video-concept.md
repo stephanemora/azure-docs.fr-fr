@@ -1,16 +1,18 @@
 ---
-title: 'Analyse de la vidéo en direct sans enregistrement : Azure'
-description: Un graphique multimédia peut être utilisé pour extraire les analyses d’un flux vidéo en direct, sans avoir à les enregistrer en périphérie ou dans le cloud en toute simplicité. Cet article aborde ce concept.
+title: Analyser une vidéo en direct sans enregistrement avec Live Video Analytics – Azure
+description: Un graphique multimédia peut être utilisé pour extraire les analyses d’un flux vidéo en direct, sans avoir à les enregistrer en périphérie ou dans le cloud en toute simplicité. Cet article traite de ce concept et de la façon d’analyser une vidéo en direct sans enregistrement avec Live Video Analytics.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 25a7cadc47603b726542fa391d441e1fbca78908
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4f880646410ba77015663915575cdc32a7c188b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97398966"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378922"
 ---
-# <a name="analyzing-live-video-without-any-recording"></a>Analyse de la vidéo en direct sans enregistrement
+# <a name="analyze-live-video-without-any-recording-with-live-video-analytics"></a>Analyser une vidéo en direct sans enregistrement avec Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## <a name="suggested-pre-reading"></a>Lecture préalable suggérée 
 

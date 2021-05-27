@@ -1,5 +1,5 @@
 ---
-title: Configurer l’extension Visual Studio Code
+title: Configurer l’extension Visual Studio Code (préversion)
 titleSuffix: Azure Machine Learning
 description: Découvrir comment configurer l’extension Visual Studio Code d’Azure Machine Learning
 services: machine-learning
@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 05/25/2021
 ms.topic: how-to
-ms.openlocfilehash: 42553c51ef1d223486de9e29ad8991c7ae96e79d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 80f6849bb4989692e8cd29a3288f9b104bf250bb
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382552"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460083"
 ---
-# <a name="set-up-the-visual-studio-code-azure-machine-learning-extension"></a>Configurer l’extension Visual Studio Code d’Azure Machine Learning
+# <a name="set-up-the-visual-studio-code-azure-machine-learning-extension-preview"></a>Configurer l’extension Visual Studio Code d’Azure Machine Learning (préversion)
 
 Découvrez comment configurer l’extension Visual Studio Code d’Azure Machine Learning pour vos workflows de machine learning.
 
@@ -55,7 +55,7 @@ L’extension Azure Machine Learning pour VS Code fournit une interface utilisa
 Les autres étapes de ce tutoriel ont été testées avec la version la plus récente de l’extension.
 
 > [!NOTE]
-> L’extension utilise l’interface CLI 2.0 par défaut. Pour passer à une expérience différente de CLI 2.0, définissez le paramètre `azureML.experimental.V2Config` de Visual Studio Code sur `false`. Pour plus d’informations sur la modification de vos paramètres dans Visual Studio, consultez la [documentation sur les paramètres de l’utilisateur et de l’espace de travail](https://code.visualstudio.com/docs/getstarted/settings).
+> L’extension Azure Machine Learning pour VS Code utilise l’interface CLI 2.0 par défaut. Pour passer à la CLI 1.0, définissez le paramètre `azureML.CLI Compatibility Mode` de Visual Studio Code sur `1.0`. Pour plus d’informations sur la modification de vos paramètres dans Visual Studio, consultez la [documentation sur les paramètres de l’utilisateur et de l’espace de travail](https://code.visualstudio.com/docs/getstarted/settings).
 
 ## <a name="sign-in-to-your-azure-account"></a>Vous connecter à votre compte Azure
 
@@ -87,5 +87,5 @@ Vous pouvez aussi utiliser la commande `> Azure ML: Set Default Workspace` de la
 - [Gérer vos ressources Azure Machine Learning](how-to-manage-resources-vscode.md)
 - [Développer localement sur une instance de calcul distante](how-to-set-up-vs-code-remote.md)
 - [Utiliser une instance de calcul en tant que serveur Jupyter distant](how-to-set-up-vs-code-remote.md)
-- [Entraîner et déployer un modèle de classification d’images à l’aide de l’extension Visual Studio Code](tutorial-train-deploy-image-classification-model-vscode.md)
+- [Entraîner un modèle de classification d’images à l’aide de l’extension Visual Studio Code](tutorial-train-deploy-image-classification-model-vscode.md)
 - [Exécuter et déboguer des expériences de machine learning localement](how-to-debug-visual-studio-code.md)

@@ -1,17 +1,19 @@
 ---
-title: Analyser la vidéo en direct à l’aide de l’extension IA OpenVINO™ Model Server d’Intel
-description: Dans ce tutoriel, vous allez utiliser un serveur de modèles IA fourni par Intel pour analyser le flux vidéo en direct provenant d’une caméra IP (simulée).
+title: Analyser la vidéo en direct à l’aide de Live Video Analytics avec l’extension OpenVINO™ Model Server – AI d’Intel
+description: Dans ce tutoriel, vous allez utiliser un serveur de modèles IA fourni par Intel pour analyser le flux vidéo en direct provenant d’une caméra IP (simulée).
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 5751184493fffeeaf647507e9e9b00834f63ab5e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f6445a5bfffe6d359de66e8eda8b9ec82ea56dc0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557256"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368418"
 ---
-# <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutoriel : Analyser la vidéo en direct à l’aide de l’extension IA OpenVINO™ Model Server d’Intel 
+# <a name="tutorial-analyze-live-video-by-using-live-video-analytics-with-openvino-model-server--ai-extension-from-intel"></a>Tutoriel : Analyser la vidéo en direct à l’aide de Live Video Analytics avec l’extension OpenVINO™ Model Server – AI d’Intel 
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Ce tutoriel montre comment utiliser l’extension IA OpenVINO™ Model Server d’Intel pour analyser un flux vidéo en direct provenant d’une caméra IP (simulée). Vous verrez comment ce serveur d’inférence vous donne accès à des modèles pour la détection d’objets (une personne, un véhicule ou un vélo) et à un modèle pour la classification des véhicules. Un sous-ensemble d’images du flux vidéo en direct est envoyé à ce serveur d’inférence, et les résultats sont envoyés au hub IoT Edge.
 

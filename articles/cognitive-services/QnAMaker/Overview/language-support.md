@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
-ms.openlocfilehash: 1edd5ffc2578a27a53c7e9a46a4a5f1cf61331ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3718a4255e8b58202c723bccbbfb1aa3459e1ce2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97605057"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372315"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Prise en charge linguistique pour une ressource QnA Maker et bases de connaissances
 
@@ -25,11 +25,11 @@ La langue du service est sélectionnée lorsque vous créez la première base de
 
 La langue détermine la pertinence des résultats que QnA Maker fournit en réponse aux requêtes de l’utilisateur. La ressource QnA Maker et toutes les bases de connaissances à l’intérieur de celle-ci prennent en charge une seule langue. L’unilinguisme est nécessaire pour produire des résultats de réponse optimaux à une requête.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
-Dans QnA Maker managé, vous pouvez choisir de créer des paramètres de langue au niveau de la base de connaissances individuelle. Ce paramètre peut être activé uniquement avec la base de connaissances du service. Une fois vous avez défini les paramètres de langue, vous ne pouvez pas les changer pour le service. 
+Le service Réponses aux questions personnalisées vous permet d’ajouter des bases de connaissances dans différentes langues au sein du même service. Une fois que vous avez choisi d’activer le paramètre de langue par base de connaissances, vous ne pouvez le pas désactiver. Vous devrez choisir une langue pour chaque base de connaissances que vous créez au sein du service.
 
-Si vous choisissez des paramètres de langue spécifiques selon la base de connaissances, vous êtes autorisé à créer des bases de connaissances de différentes langues dans le service lui-même. 
+Ce paramètre permet aux utilisateurs d’avoir, au sein du même service, plusieurs bases de connaissances avec un paramètre de langue différent pour chacune d’elles.
 
 ---
 
@@ -45,15 +45,16 @@ Tenez compte des éléments suivants :
 * Il n’est pas possible de changer la langue pour d’autres bases de connaissances du service.
 * Les services Recherche cognitive (ranker n° 1) et QnA Maker (ranker n° 2) utilisent la langue pour générer la meilleure réponse à une requête.
 
-# <a name="qnamaker-managed-preview"></a>[QnA Maker managé (préversion)](#tab/v2)
-![Paramètre de langue dans QnA Maker managé](../media/language-support/language-setting-managed.png)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
+> [!div class="mx-imgBorder"]
+> ![Sélection de base de connaissances multilingue](../media/language-support/language-support-custom-qna.png)
 
-Si vous **ne cochez pas la case pour activer le paramètre de langue par base de connaissances**, prenez en compte les points suivants : 
-* Un service QnA Maker et toutes ses bases de connaissances ne prennent en charge qu’une seule langue.
+Si vous **n’activez pas la case à cocher pour activer des bases de connaissances dans plusieurs langues**, tenez compte de ce qui suit : 
+* Un service Analyse de texte et toutes ses bases de connaissances ne prennent en charge qu’une seule langue.
 * La langue est définie explicitement lors de la création de la première base de connaissances du service.
 * La langue est déterminée à partir des fichiers et URL ajoutés lors de la création de la base de connaissances.
 * Il n’est pas possible de modifier la langue pour d’autres bases de connaissances du service.
-* Les services Recherche cognitive (ranker #1) et QnA Maker (ranker #2) utilisent la langue pour générer la meilleure réponse à une requête.
+* Les services Recherche cognitive (ranker n°1) et Réponses aux questions personnalisées (ranker n°2) utilisent la langue pour générer la meilleure réponse à une requête.
 
 ---
 
@@ -62,12 +63,13 @@ Si vous **ne cochez pas la case pour activer le paramètre de langue par base de
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 Cette fonctionnalité n’est pas prise en charge dans notre version stable en disponibilité générale (GA). Consultez QnA Maker managé pour tester cette fonctionnalité. 
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
-* Quand vous créez la première base de connaissances dans votre service, vous pouvez choisir d’activer le paramètre de langue par base de connaissances. Cochez la case pour créer des bases de connaissances appartenant à des langues différentes au sein d’un même service.
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
+* Quand vous créez la première base de connaissances dans votre service, vous pouvez choisir d’activer plusieurs langues par service. Cochez la case pour créer des bases de connaissances appartenant à des langues différentes au sein d’un même service.
 * L’option du paramètre de langue n’est pas modifiable pour le service, une fois la première base de connaissances créée.
-* Si vous activez des paramètres de langue propres à chaque base de connaissances, au lieu d’avoir un seul index de test pour le service, vous aurez un index de test par base de connaissances. 
+* Si vous activez plusieurs langues pour la base de connaissances, au lieu d’avoir un seul index de test pour le service, vous aurez un index de test par base de connaissances. 
 
-![Paramètre de langue dans QnA Maker managé](../media/language-support/language-setting-managed.png)
+> [!div class="mx-imgBorder"]
+> ![Paramètre de base de connaissances multilingue](../media/language-support/language-support-custom-qna-chkd.png)
 
 ---
 

@@ -1,16 +1,18 @@
 ---
-title: Détecter les mouvements et enregistrer des vidéos sur Azure Media Services
-description: Ce guide de démarrage rapide illustre l’utilisation de Live Video Analytics sur IoT Edge en vue de détecter des mouvements dans un flux vidéo en direct et d’enregistrer des extraits vidéo sur Azure Media Services.
+title: Détecter les mouvements et enregistrer des vidéos sur Azure Media Services avec Live Video Analytics
+description: Ce guide de démarrage rapide montre comment utiliser Azure Live Video Analytics sur IoT Edge pour détecter des mouvements dans un flux vidéo en direct et enregistrer des clips vidéo sur Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 135e68e2630d74dace6c3a6b70bb3666f77aad89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 890d527eea0486bf42c1e5319d65e67dbeb05c06
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99575532"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378973"
 ---
-# <a name="quickstart-detect-motion-record-video-to-media-services"></a>Démarrage rapide : Détecter les mouvements et enregistrer des vidéos sur Media Services
+# <a name="quickstart-detect-motion-record-video-to-azure-media-services"></a>Guide de démarrage rapide : Détecter les mouvements et enregistrer des vidéos sur Azure Media Services
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Cet article vous guide dans la procédure d’utilisation de Live Video Analytics sur IoT Edge pour l’[l’enregistrement basé sur les événements](event-based-video-recording-concept.md). Il utilise une machine virtuelle Linux comme appareil IoT Edge et un flux vidéo en direct simulé. Ce flux vidéo est analysé en vue de détecter la présence d’objets en mouvement. Lors de la détection d’un mouvement, les événements sont envoyés à Azure IoT Hub et la partie pertinente du flux vidéo est enregistrée comme une ressource dans Azure Media Services.
 

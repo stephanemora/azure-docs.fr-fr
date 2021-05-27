@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f9626ebdcc52f9aeb2b9283dac6c5790e3df8cf
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 7503c0ffff064f0fee0352beb0955c964c7770b9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108179957"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368349"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Interroger des fichiers de stockage avec un pool SQL serverless dans Azure Synapse Analytics
 
@@ -34,6 +34,7 @@ Pour faciliter la prise en charge de l’interrogation sur place des données qu
 - [Interroger plusieurs fichiers ou dossiers](#query-multiple-files-or-folders)
 - [Format de fichier PARQUET](#query-parquet-files)
 - [Interroger un texte CSV et délimité (marque de fin de champ, marque de fin de ligne, caractère d’échappement)](#query-csv-files)
+- [Format DELTA LAKE](#query-delta-lake-format)
 - [Lire un sous-ensemble choisi de colonnes](#read-a-chosen-subset-of-columns)
 - [Inférence de schéma](#schema-inference)
 - [Fonction filename](#filename-function)
@@ -42,11 +43,11 @@ Pour faciliter la prise en charge de l’interrogation sur place des données qu
 
 ## <a name="query-parquet-files"></a>Interroger des fichiers PARQUET
 
-Pour interroger les données sources Parquet, utilisez FORMAT = 'PARQUET'
+Pour interroger les données sources Parquet, utilisez FORMAT = 'PARQUET' :
 
 ```syntaxsql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net//mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
@@ -67,6 +68,19 @@ Vous pouvez utiliser des options supplémentaires pour ajuster les règles d’a
 Le paramètre ESCAPE_CHAR est appliqué, que FIELDQUOTE soit ou non activé. Il ne sera pas utilisé comme caractère d’échappement devant le caractère de délimitation. Le caractère de délimitation doit être placé dans une séquence d’échappement avec un autre caractère de délimitation. Le caractère de délimitation peut apparaître dans la valeur de colonne seulement si la valeur est encapsulée avec des caractères de délimitation.
 - FIELDTERMINATOR = 'field_terminator' Spécifie la marque de fin de champ à utiliser. La virgule («  **,**  ») est la marque de fin de champ par défaut.
 - ROWTERMINATOR = 'row_terminator' Spécifie la marque de fin de ligne à utiliser. Par défaut, il s’agit d’un caractère de nouvelle ligne :  **\r\n**.
+
+
+## <a name="query-delta-lake-format"></a>Interroger le format DELTA LAKE
+
+Pour interroger les données sources Delta Lake, utilisez FORMAT = 'DELTA', puis référencez le dossier racine contenant vos fichiers Delta Lake.
+
+```syntaxsql
+SELECT * FROM
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder', FORMAT = 'DELTA') 
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
+```
+
+Le dossier racine doit contenir un sous-dossier appelé `_delta_log`. Pour obtenir des exemples d’utilisation, consultez l’article [Interroger le format Delta Lake](query-delta-lake-format.md).
 
 ## <a name="file-schema"></a>Schéma de fichier
 
@@ -101,7 +115,7 @@ SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 ```
 
-Assurez-vous que des [types de données déduits appropriés](./best-practices-serverless-sql-pool.md#check-inferred-data-types) sont utilisés pour des performances optimales. 
+Assurez-vous que des [types de données déduits appropriés](best-practices-sql-on-demand.md#check-inferred-data-types) sont utilisés pour des performances optimales. 
 
 ## <a name="query-multiple-files-or-folders"></a>Interroger plusieurs fichiers ou dossiers
 

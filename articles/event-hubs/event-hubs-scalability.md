@@ -3,12 +3,12 @@ title: Scalabilité - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit des informations sur la mise à l'échelle d'Azure Event Hubs à l'aide de partitions et d'unités de débit.
 ms.topic: article
 ms.date: 03/16/2021
-ms.openlocfilehash: f258ee2a3b4162dabf7a8e615db82b9b889d628b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: acfc300ff7e6bd77c570c68bda50a731df10409c
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601274"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367083"
 ---
 # <a name="scaling-with-event-hubs"></a>Mise à l’échelle avec Event Hubs
 
@@ -35,6 +35,14 @@ La fonctionnalité **Majoration automatique** d’Event Hubs augmente automatiqu
 Le service Event Hubs augmente le débit quand la charge dépasse le seuil minimal, sans qu’aucune demande échoue avec des erreurs ServerBusy. 
 
 Pour plus d’informations sur la fonctionnalité d’augmentation automatique, consultez [Mettre à l’échelle automatiquement les unités de débit](event-hubs-auto-inflate.md).
+
+## <a name="processing-units"></a>Unités de traitement
+
+ [Event hubs Premium](./event-hubs-premium-overview.md) offre des performances supérieures et une meilleure isolation dans un environnement PaaS multilocataire géré. Les ressources d’un niveau Premium sont isolées au niveau de l’UC et de la mémoire afin que chaque charge de travail locataire s’exécute de manière isolée. Ce conteneur de ressources est appelé *Unité de traitement*. Vous pouvez acheter 1, 2, 4, 8 ou 16 unités de traitement pour chaque espace de noms Event Hubs Premium. 
+
+La quantité de données qu’il est possible d’ingérer et de diffuser avec une unité de traitement dépend de nombreux facteurs, parmi lesquels vos producteurs, les consommateurs, la vitesse d’ingestion et de transformation, etc. Une unité de traitement peut approximativement offrir une capacité de base d’une entrée d’environ 5-10 Mo/s et une sortie de 10-20 Mo/s, étant donné que nous disposons de partitions suffisantes pour que le stockage ne soit pas un facteur de limitation.  
+
+
 
 ## <a name="partitions"></a>Partitions
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]

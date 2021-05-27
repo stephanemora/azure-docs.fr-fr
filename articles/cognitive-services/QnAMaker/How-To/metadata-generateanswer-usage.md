@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9d2100dbc2c5f24742a949778a1b7450bf303c5f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0daa44f0d901dc14541785f764d5ccf8f96fc737
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232203"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376671"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api"></a>Obtenir une réponse avec l’API GenerateAnswer
 
@@ -42,7 +42,7 @@ Pour obtenir les détails de votre point de terminaison :
 
     ![Capture d’écran des détails du point de terminaison](../media/qnamaker-how-to-metadata-usage/view-code.png)
 
-    # <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+    # <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (en préversion)](#tab/v2)
 
     ![Capture d’écran des détails du point de terminaison managés](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
 
@@ -180,9 +180,9 @@ Le JSON précédent a demandé uniquement des réponses à 30 % ou plus par rap
 
 Nous proposons la fonctionnalité de réponse précise uniquement dans la version managée de QnA Maker.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (en préversion)](#tab/v2)
 
-L’utilisateur peut activer les [réponses précises](../reference-precise-answering.md) lors de l’utilisation de la ressource managée QnA Maker. Le paramètre answerSpanRequest doit être mis à jour pareillement.
+L’utilisateur peut activer des [réponses précises](../reference-precise-answering.md) lors de l’utilisation de la ressource Analyse de texte avec la fonctionnalité de réponse à une question personnalisée. Le paramètre answerSpanRequest doit être mis à jour pareillement.
 
 ```json
 {

@@ -31,6 +31,8 @@
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
     - name: Utiliser le mode apprenti
       href: how-to-learning-behavior.md
+    - name: Utiliser plusieurs emplacements
+      href: how-to-multi-slot.md
     - name: Gérer les paramètres de modèle et d’apprentissage
       href: how-to-manage-model.md
     - name: Analyser avec une évaluation hors connexion
@@ -67,6 +69,9 @@
         - name: Récompenses
           href: concept-rewards.md
           displayName: 'reward, wait time, default reward'
+        - name: Personnalisation sur plusieurs emplacements
+          href: concept-multi-slot-personalization.md
+          displayName: 'multi-slot, multi slot, multi slot personalizer, multi-slot personalizer'
         - name: Apprentissage par renforcement
           href: concepts-reinforcement-learning.md
           displayName: 'RL, contextual bandits, Vowpal Wabbit'
@@ -77,6 +82,8 @@
       displayName: 'learning policy, Counterfactual, features'
     - name: Évaluation des fonctionnalités
       href: concept-feature-evaluation.md
+    - name: Optimisation automatique
+      href: concept-auto-optimization.md
     - name: Scalabilité et performance
       href: concepts-scalability-performance.md
 - name: Tutoriels
