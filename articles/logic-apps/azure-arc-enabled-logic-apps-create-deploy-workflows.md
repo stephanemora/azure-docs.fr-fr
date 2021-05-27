@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, ladolan, reylons, archidda, sopai, azla
 ms.topic: how-to
 ms.date: 05/25/2021
-ms.openlocfilehash: 46b5f12b005eaea36c96f183857311614ddba5bc
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 2eabd6462edd609d70fc302ce2d0d64cb99dbdc3
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385756"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475359"
 ---
 # <a name="create-and-deploy-single-tenant-based-logic-app-workflows-with-azure-arc-enabled-logic-apps-preview"></a>Créez et déployez des workflows d’application logique monolocataire avec Logic Apps avec Azure Arc (préversion)
 
@@ -392,7 +392,7 @@ Dans votre [modèle Azure Resource Manager (ARM)](../azure-resource-manager/temp
 | Élément | Propriété JSON | Description |
 |------|---------------|-------------|
 | Emplacement | `location` | Veillez à utiliser le même emplacement de ressources (région Azure) que votre emplacement personnalisé et votre environnement Kubernetes. Les emplacements de votre ressource d’application logique, de votre emplacement personnalisé et de votre environnement Kubernetes doivent tous être identiques. <p><p>**Remarque** : Cette valeur n’est pas la même que le *nom* de votre emplacement personnalisé. |
-| Genre d’application | `kind` | Le type d’application que vous déployez afin que la plateforme Azure puisse identifier votre application. Pour Azure Logic Apps, ces informations ressemblent à l’exemple suivant : `kubernetes,functionapp,logicapp,linux` |
+| Genre d’application | `kind` | Le type d’application que vous déployez afin que la plateforme Azure puisse identifier votre application. Pour Azure Logic Apps, ces informations ressemblent à l’exemple suivant : `kubernetes,functionapp,workflowapp,linux` |
 | Emplacement étendu | `extendedLocation` | Cet objet nécessite le `"name"` de votre *emplacement personnalisé* pour votre environnement Kubernetes et `"type"` doit être défini sur `"CustomLocation"`. |
 | ID de ressource du plan d’hébergement | `serverFarmId` | L’ID de ressource du plan App Service associé, mis en forme comme suit : <p><p>`"/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}"` |
 | Chaîne de connexion de stockage | `AzureWebJobsStorage` | La chaîne de connexion de votre compte de stockage <p><p>**Important** : Vous devez fournir la chaîne de connexion pour votre compte de stockage dans votre modèle ARM. Pour les scénarios ou environnements de production, veillez à protéger et à sécuriser ces secrets et informations sensibles, par exemple en utilisant un coffre de clés. |
@@ -408,7 +408,7 @@ L’exemple suivant décrit un exemple de définition de ressource Logic Apps av
    "apiVersion": "2020-12-01",
    "name": "[parameters('name')]",
    "location": "[parameters('location')]",
-   "kind": "kubernetes,functionapp,logicapp,linux",
+   "kind": "kubernetes,functionapp,workflowapp,linux",
    "extendedLocation": {
       "name": "[parameters('customLocationId')]",
       "type": "CustomLocation"
@@ -441,7 +441,7 @@ L’exemple suivant décrit un exemple de définition de ressource Logic Apps av
             },
             {
                "name": "APP_KIND",
-               "value": "logicapp"
+               "value": "workflowapp"
             }
          ],
          "use32BitWorkerProcess": "[parameters('use32BitWorkerProcess')]",
@@ -465,7 +465,7 @@ Dans votre [modèle Azure Resource Manager (ARM)](../azure-resource-manager/temp
 | Élément | Propriété JSON | Description |
 |------|---------------|-------------|
 | Emplacement | `location` | Veillez à utiliser le même emplacement de ressources (région Azure) que votre emplacement personnalisé et votre environnement Kubernetes. Les emplacements de ressources doivent tous être identiques pour votre application logique, votre emplacement personnalisé et votre environnement Kubernetes. <p><p>**Remarque** : Cette valeur n’est *pas la même* que le *nom* de votre emplacement personnalisé. |
-| Genre d’application | `kind` | Le type d’application que vous déployez afin que la plateforme Azure puisse identifier votre application. Pour Azure Logic Apps, ces informations ressemblent à l’exemple suivant : `kubernetes,functionapp,logicapp,container` |
+| Genre d’application | `kind` | Le type d’application que vous déployez afin que la plateforme Azure puisse identifier votre application. Pour Azure Logic Apps, ces informations ressemblent à l’exemple suivant : `kubernetes,functionapp,workflowapp,container` |
 | Emplacement étendu | `extendedLocation` | Cet objet nécessite le `"name"` de votre *emplacement personnalisé* pour votre environnement Kubernetes et `"type"` doit être défini sur `"CustomLocation"`. |
 | Nom du conteneur | `linuxFxVersion` | Nom de votre conteneur, mis en forme comme suit : `DOCKER\|<container-name>` |
 | ID de ressource du plan d’hébergement | `serverFarmId` | L’ID de ressource du plan App Service associé, mis en forme comme suit : <p><p>`"/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}"` |
@@ -491,7 +491,7 @@ L’exemple suivant décrit un exemple de définition de ressource Logic Apps av
    "apiVersion": "2020-12-01",
    "name": "[parameters('name')]",
    "location": "[parameters('location')]",
-   "kind": " kubernetes,functionapp,logicapp,container",
+   "kind": " kubernetes,functionapp,workflowapp,container",
    "extendedLocation": {
       "name": "[parameters('customLocationId')]",
       "type": "CustomLocation"
@@ -524,7 +524,7 @@ L’exemple suivant décrit un exemple de définition de ressource Logic Apps av
             },
             {
                "name": "APP_KIND",
-               "value": "logicapp"
+               "value": "workflowapp"
             }, 
             {
                "name": "DOCKER_REGISTRY_SERVER_URL",
