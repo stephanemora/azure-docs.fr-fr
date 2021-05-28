@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez apprendre à utiliser Azure Video Anal
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 05/12/2021
-ms.openlocfilehash: 38d47ec6f27984eb7cc204b8421cec9016d2db65
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7b1122c098fc30150699f6c878058d37f74a007f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386084"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465814"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>Tutoriel : Enregistrer et streamer des métadonnées d’inférence avec une vidéo
   
@@ -46,9 +46,9 @@ Le diagramme est une représentation graphique d’un [pipeline](pipeline.md) et
 * Un module de périphérie exécutant un modèle d’intelligence artificielle derrière un point de terminaison HTTP. Ce module d’intelligence artificielle utilise le modèle [YOLOv3](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions/yolo/yolov3), qui peut détecter de nombreux types d’objets.
 * Un [module de simulateur RTSP](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) pour simuler une caméra RTSP.
 
-Comme le montre le diagramme, vous allez utiliser un nœud [source RTSP](pipeline.md#rtsp-source) dans le pipeline pour capturer la simulation de la vidéo en direct du trafic d’une autoroute et envoyer cette vidéo vers deux chemins :
+Comme le montre le diagramme, vous allez utiliser un nœud de [source RTSP](pipeline.md#rtsp-source) dans le pipeline afin de capturer la simulation de vidéo en direct du trafic sur l’autoroute, puis envoyer cette vidéo vers deux chemins :
 
-* Le premier chemin mène à un nœud d’extension HTTP. Le nœud d’extension HTTP joue le rôle d’un proxy. Il convertit chaque dixième image vidéo dans le type d’image spécifié. Il relaie ensuite l’image sur HTTP vers un autre module périphérique qui exécute un modèle IA derrière un point de terminaison HTTP. Dans cet exemple, le module de périphérie est généré à l’aide du modèle YOLOv3, qui peut détecter de nombreux types d’objets. Le nœud processeur d’extension HTTP collecte les résultats de la détection et envoie ces résultats et toutes les images vidéo (pas seulement la dixième) au nœud traceur d’objets. Le nœud traceur d’objets utilise des techniques de flux optique pour suivre l’objet dans les 9 images sur lesquelles le modèle IA n’a pas été appliqué. Le nœud traceur publie ses résultats sur le nœud récepteur vidéo et le nœud récepteur IoT Hub. Le nœud [récepteur vidéo](pipeline.md#video-sink) utilise les métadonnées d’inférence du nœud traceur d’objets pour être lues avec la vidéo enregistrée. Le nœud [récepteur de messages IoT Hub](pipeline.md#iot-hub-message-sink) envoie ensuite ces événements au [hub IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
+* Le premier chemin mène à un nœud d’extension HTTP. Le nœud d’extension HTTP joue le rôle d’un proxy. Il convertit chaque dixième image vidéo en type d’image spécifié. Il relaie ensuite l’image sur HTTP vers un autre module périphérique qui exécute un modèle IA derrière un point de terminaison HTTP. Dans cet exemple, le module de périphérie est généré à l’aide du modèle YOLOv3, qui peut détecter de nombreux types d’objets. Le nœud processeur d’extension HTTP collecte les résultats de la détection et envoie ces résultats et toutes les images vidéo (pas seulement la dixième) au nœud traceur d’objets. Le nœud traceur d’objets utilise des techniques de flux optique pour suivre l’objet dans les 9 images sur lesquelles le modèle IA n’a pas été appliqué. Le nœud traceur publie ses résultats sur le nœud récepteur vidéo et le nœud récepteur IoT Hub. Le nœud [récepteur vidéo](pipeline.md#video-sink) utilise les métadonnées d’inférence du nœud traceur d’objets pour être lues avec la vidéo enregistrée. Le nœud [récepteur de messages IoT Hub](pipeline.md#iot-hub-message-sink) envoie ensuite ces événements au [hub IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
 * Le deuxième chemin va directement de la source RTSP vers le nœud récepteur vidéo pour effectuer l’enregistrement vidéo continu. La vidéo utilisée dans ce tutoriel est un [exemple de vidéo d’intersection d’autoroute](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv).
 
@@ -132,7 +132,7 @@ Ensuite, accédez au dossier src/cloud-to-device-console-app. Vous y voyez le fi
 1. Ensuite, sous les nœuds **livePipelineSet** et **pipelineTopologyDelete**, vérifiez que la valeur de **topologyName** correspond à celle de la propriété **name** dans la topologie de pipeline précédente :
 
     `"pipelineTopologyName" : "CVRHttpExtensionObjectTracking"`
-1. Ouvrez la [topologie de pipeline](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-objTracking/topology.json) dans un navigateur, puis examinez la valeur de videoName ; vous verrez qu’elle est codée en dur dans `sample-cvr-inferencing`. Ceci est acceptable pour un tutoriel. En production, vous devrez faire en sorte que chaque caméra RTSP soit enregistrée dans une ressource vidéo sous un nom unique.  
+1. Ouvrez la [topologie de pipeline](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-objTracking/topology.json) dans un navigateur, puis examinez la valeur de videoName ; vous verrez qu’elle est codée en dur dans `sample-cvr-with-inference-metadata`. C’est acceptable dans un tutoriel. En production, vous devrez faire en sorte que chaque caméra RTSP soit enregistrée dans une ressource vidéo sous un nom unique.  
 
 1. Examinez les paramètres du nœud d’extension HTTP.
 
@@ -300,7 +300,7 @@ Quand le nœud récepteur vidéo commence à enregistrer le média, il émet cet
 {
   "body": {
     "outputType": "videoName",
-    "outputLocation&quot;: &quot;sample-cvr-inferencing"
+    "outputLocation&quot;: &quot;sample-cvr-with-inference-metadata"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
@@ -325,7 +325,7 @@ Comme son nom l’indique, l’événement RecordingStarted est envoyé lorsque 
 {
   "body": {
     "outputType": "videoName",
-    "outputLocation&quot;: &quot;sample-cvr-inferencing"
+    "outputLocation&quot;: &quot;sample-cvr-with-inference-metadata"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
@@ -352,7 +352,7 @@ Quand vous désactivez le pipeline en direct, le nœud récepteur vidéo cesse d
 {
   "body": {
     "outputType": "videoName",
-    "outputLocation&quot;: &quot;sample-cvr-inferencing"
+    "outputLocation&quot;: &quot;sample-cvr-with-inference-metadata"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
@@ -377,7 +377,7 @@ Vous pouvez examiner la ressource vidéo Video Analyzer qui a été créée par 
 1. Ouvrez votre navigateur web pour accéder au [portail Azure](https://portal.azure.com/). Entrez vos informations d’identification pour vous connecter au portail. Il s’ouvre par défaut sur le tableau de bord des services.
 1. Localisez votre compte Video Analyzer parmi les ressources qui figurent dans votre abonnement, puis ouvrez le volet du compte.
 1. Sélectionnez **Vidéos** dans la liste **Video Analyzer**.
-1. Vous y trouvez une vidéo portant le nom `sample-cvr-inferencing`. Il s’agit du nom choisi dans votre fichier de topologie de pipeline.
+1. Vous y trouvez une vidéo portant le nom `sample-cvr-with-inference-metadata`. Il s’agit du nom choisi dans votre fichier de topologie de pipeline.
 1. Sélectionnez la vidéo.
 1. Dans la page d’informations de la vidéo, cliquez sur l’icône de **lecture**
 
