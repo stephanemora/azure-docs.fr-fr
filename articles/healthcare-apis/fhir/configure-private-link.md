@@ -6,14 +6,14 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 04/29/2021
+ms.date: 05/27/2021
 ms.author: zxue
-ms.openlocfilehash: 248d499d166c6e397ef422b5ff653709b8b075e9
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6b025c35c5faa64a2333710693c992a410cafecc
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733447"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652720"
 ---
 # <a name="configure-private-link"></a>Configurer une liaison privée
 
@@ -34,17 +34,14 @@ Avant de créer un point de terminaison privé, vous devez d’abord créer des 
 
 Pour plus d’informations, consultez [la documentation sur les liens privés](../../private-link/index.yml).
 
-## <a name="disable-public-network-access"></a>Désactiver l’accès au réseau public
-
-La création d’un point de terminaison privé pour votre ressource FHIR ne désactive pas automatiquement le trafic public vers celui-ci. Pour ce faire, vous devez mettre à jour votre ressource FHIR pour définir une nouvelle propriété « accès public » de « activé » sur « désactivé ». Soyez prudent lorsque vous désactivez l’accès public au réseau, car toutes les demandes adressées à votre service FHIR, qui ne proviennent pas d’un point de terminaison privé correctement configuré sont refusées. Seul le trafic provenant de vos points de terminaison privés est autorisé.
-
-:::image type="content" source="media/private-link/private-link-disable.png" alt-text="Désactivez l’accès au réseau public.":::
-
 ## <a name="create-private-endpoint"></a>Créer un point de terminaison privé
 
 Pour créer un point de terminaison privé, un développeur disposant d’autorisations de contrôle d’accès en fonction du rôle (RBAC) sur la ressource FHIR peut utiliser le Portail Azure, [Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)ou [Azure CLI](../../private-link/create-private-endpoint-cli.md). Cet article vous guide tout au long des étapes d’utilisation de Portail Azure. Il est recommandé d’utiliser le Portail Azure, car il automatise la création et la configuration de la zone de DNS privé. Pour plus d’informations, consultez [guides de démarrage rapide de liens privés](../../private-link/create-private-endpoint-portal.md).
 
 Vous pouvez créer un point de terminaison privé de deux façons. Le flux d’approbation automatique permet à un utilisateur disposant d’autorisations de RBAC sur la ressource FHIR de créer un point de terminaison privé sans avoir besoin d’approbation. Le flux d’approbation manuelle permet à un utilisateur dépourvu d’autorisation sur la ressource FHIR de demander l’approbation d’un point de terminaison privé par les propriétaires de la ressource FHIR.
+
+> [!NOTE]
+> Lorsqu’un point de terminaison privé approuvé est créé pour l’API Azure pour FHIR, le trafic public est automatiquement désactivé. 
 
 ### <a name="auto-approval"></a>Approbation automatique
 
