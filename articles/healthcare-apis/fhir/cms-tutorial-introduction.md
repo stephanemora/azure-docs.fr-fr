@@ -9,12 +9,12 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 05/27/2021
-ms.openlocfilehash: 837fdb74cbbeb976641b9ee86970d87b80134bc9
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: e7e0e89b1be822d13a577365bdc9ac277d55b4ce
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572101"
+ms.locfileid: "111562825"
 ---
 # <a name="centers-for-medicare-and-medicaid-services-cms-interoperability-and-patient-access-rule-introduction"></a>Présentation de l’interopérabilité et des règles d’accès des patients aux centres pour les services d’assurance maladie et Medicaid (CMS)
 
@@ -23,9 +23,9 @@ Dans cette série de didacticiels, nous aborderons une synthèse générale du C
 
 ## <a name="rule-overview"></a>Présentation de la règle
 
-Le CMS a publié l' [interopérabilité et la règle d’accès aux patients](https://www.cms.gov/Regulations-and-Guidance/Guidance/Interoperability/index) le 1er mai 2020. Cette règle nécessite un workflow de données gratuit et sécurisé entre toutes les parties impliquées dans les soins des patients (patients, fournisseurs et payeurs) pour permettre aux patients d’accéder à leurs informations d’intégrité lorsqu’ils en ont besoin. L’interopérabilité a submergé le secteur de la santé depuis des dizaines d’années, entraînant des données en silo provoquant des résultats d’intégrité négatifs avec des coûts plus élevés et imprévisibles. CMS utilise son autorité pour réglementer l’avantage de l’assurance maladie (MA), le Medicaid, le programme d’assurance maladie des enfants (CHIP) et les émetteurs du plan de santé qualifié (QHP) sur les échanges (FFEs) facilités pour appliquer cette règle. 
+Le CMS a publié l' [interopérabilité et la règle d’accès aux patients](https://www.cms.gov/Regulations-and-Guidance/Guidance/Interoperability/index) le 1er mai 2020. Cette règle garantit un flot de données libre et sécurisé entre toutes les parties impliquées dans les soins des patients (patients, fournisseurs et payeurs) pour permettre aux patients d’accéder à leurs informations de santé lorsqu’ils en ont besoin. L’interopérabilité a submergé le secteur de la santé depuis des dizaines d’années, entraînant des données en silo provoquant des résultats d’intégrité négatifs avec des coûts plus élevés et imprévisibles. CMS utilise son autorité pour réglementer l’avantage de l’assurance maladie (MA), le Medicaid, le programme d’assurance maladie des enfants (CHIP) et les émetteurs du plan de santé qualifié (QHP) sur les échanges (FFEs) facilités pour appliquer cette règle. 
 
-En août 2020, CMS détaille la façon dont les organisations peuvent respecter le mandat. Pour vous assurer que les données peuvent être échangées en toute sécurité et de manière standardisée, CMS a identifié la version FHIR version 4 (R4) comme norme de base requise pour l’échange de données. 
+En août 2020, CMS détaille la façon dont les organisations peuvent respecter le mandat. Pour vous assurer que les données peuvent être échangées en toute sécurité et de manière standardisée, CMS a identifié la version FHIR R4 comme norme de base requise pour l’échange de données. 
 
 Il existe trois éléments principaux à l’interopérabilité et à la décision d’accès aux patients :
 
@@ -37,14 +37,14 @@ Il existe trois éléments principaux à l’interopérabilité et à la décisi
 
 ## <a name="key-fhir-concepts"></a>Concepts clés de FHIR
 
-Comme indiqué ci-dessus, FHIR R4 est requis pour respecter ce mandat. En outre, plusieurs guides d’implémentation ont été développés pour fournir des conseils sur la règle. Les [guides d’implémentation](https://www.hl7.org/fhir/implementationguide.html) fournissent un contexte supplémentaire en plus de la spécification FHIR de base. Cela comprend la définition de paramètres de recherche supplémentaires, de profils, d’extensions, d’opérations, de jeux de valeurs et de systèmes de code.
+Comme indiqué ci-dessus, FHIR version R4 est nécessaire pour respecter ce mandat. En outre, plusieurs guides d’implémentation ont été développés pour fournir des conseils sur la règle. Les [guides d’implémentation](https://www.hl7.org/fhir/implementationguide.html) fournissent un contexte supplémentaire en plus de la spécification FHIR de base. Cela comprend la définition de paramètres de recherche supplémentaires, de profils, d’extensions, d’opérations, de jeux de valeurs et de systèmes de code.
 
 L’API Azure pour FHIR offre les fonctionnalités suivantes pour vous aider à configurer votre base de données pour les différents guides d’implémentation :
 
 * [Prise en charge des interactions RESTful](fhir-features-supported.md)
-* [Stockage et validation des profils](validation-against-profiles.md)
-* [Définition et indexation des paramètres de recherche personnalisés](how-to-do-custom-search.md)
-* [Conversion des données](convert-data.md)
+*  [Stockage et validation des profils](validation-against-profiles.md)
+*  [Définition et indexation des paramètres de recherche personnalisés](how-to-do-custom-search.md)
+*  [Conversion des données](convert-data.md)
 
 ## <a name="patient-access-api-implementation-guides"></a>Guides d’implémentation des API d’accès aux patients
 
@@ -80,7 +80,7 @@ Pour tester le respect des divers guides d’implémentation, [Touchstone](https
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez une connaissance élémentaire de la règle d’accès à l’interopérabilité et des patients, des guides d’implémentation et de l’outil de test disponible (Touchstone), nous allons vous guider dans la configuration de l’API Azure pour FHIR pour le bouton CARIN GI for Blue. 
+Maintenant que vous avez une compréhension de base de la règle d’accès à l’interopérabilité et des patients, des guides d’implémentation et de l’outil de test disponible (Touchstone), nous allons vous guider dans la configuration de l’API Azure pour FHIR pour le bouton bleu CARIN. 
 
 >[!div class="nextstepaction"]
->[Guide d’implémentation de CARIN pour le bouton bleu](carin-implementation-guide-blue-button-tutorial.md)  
+>[Guide d’implémentation de CARIN pour le bouton bleu](https://build.fhir.org/ig/HL7/carin-bb/index.html)  
