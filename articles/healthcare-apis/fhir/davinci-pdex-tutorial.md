@@ -9,12 +9,12 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 06/02/2021
-ms.openlocfilehash: 0e6ee8ba2288ae61eb1fe0d5e6b76ebc63a64897
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 3f9aa795a08aa027fd0cc9758e9479fa0ec81e09
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111562709"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592973"
 ---
 # <a name="davinci-pdex"></a>DaVinci PDex
 
@@ -25,13 +25,13 @@ Dans ce didacticiel, nous allons passer en revue la configuration de l’API Azu
 
 ## <a name="touchstone-capability-statement"></a>Instruction de fonctionnalité Touchstone
 
-Le premier ensemble de tests sur lequel nous allons nous concentrer consiste à tester l’API Azure pour FHIR à l’aide de l’instruction de fonctionnalité PDex GI. Ces tests ont trois processus de validation :
+Le premier ensemble de tests sur lequel nous allons nous concentrer consiste à tester l’API Azure pour FHIR à l’aide de l’instruction de fonctionnalité PDex GI. Cela comprend trois tests :
 
-* Le premier test valide simplement l’instruction de la fonctionnalité de base par rapport aux exigences de la GI et passera sans aucune mise à jour.
+* Le premier test valide l’instruction de fonctionnalité de base par rapport aux exigences de l’IG et passera sans aucune mise à jour.
 
 * Le deuxième test valide tous les profils qui ont été ajoutés pour le Centre des États-Unis. Ce test passera sans mises à jour, mais inclura un ensemble d’avertissements. Pour supprimer ces avertissements, vous devez [charger les profils de base US](validation-against-profiles.md). Nous avons créé un [exemple de fichier http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/USCore.http) qui vous guide dans la création de tous les profils. Vous pouvez également obtenir les [profils](http://hl7.org/fhir/us/core/STU3.1.1/profiles.html#profiles) directement à partir du site HL7, qui disposera des versions les plus récentes.
 
-* Le troisième test vérifie que l’opération patient-Everything est prise en charge. Pour le moment, ce test échouera. L’opération sera disponible en mi-juin 2021 dans l’API Azure pour FHIR et est disponible maintenant dans le serveur FHIR Open source sur Cosmos DB. Toutefois, il ne figure pas dans l’instruction de fonctionnalité. ce test échouera jusqu’à ce que nous puissions publier un correctif sur le bogue [1989](https://github.com/microsoft/fhir-server/issues/1989). 
+* Le troisième test vérifie que l' [opération $patient-Everything](patient-everything.md) est prise en charge. Pour le moment, ce test échouera. L’opération sera disponible en mi-juin 2021 dans l’API Azure pour FHIR et est disponible maintenant dans le serveur FHIR Open source sur Cosmos DB. Toutefois, il ne figure pas dans l’instruction de fonctionnalité. ce test échouera jusqu’à ce que nous puissions publier un correctif sur le bogue [1989](https://github.com/microsoft/fhir-server/issues/1989). 
 
  
 :::image type="content" source="media/cms-tutorials/davinci-pdex-test-script-failed.png" alt-text="Échec de l’exécution de DaVinci PDex.":::
