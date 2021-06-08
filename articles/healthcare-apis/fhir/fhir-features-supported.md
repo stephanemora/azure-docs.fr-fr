@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: b36937b61b5508dfc933ef15b316d1d1da7b7acc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: de99d6b5480a8e8262aba9d40826f69862630961
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078631"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592989"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -36,7 +36,7 @@ Versions antérieures également prises en charge : `3.0.2`
 | update (conditional)           | Oui       | Oui       | Oui       |                                                     |
 | patch                          | Non        | Non        | Non        |                                                     |
 | supprimer                         | Oui       | Oui       | Oui       |  Voir la remarque ci-dessous.                                   |
-| delete (conditional)           | Non        | Non        | Non        |                                                     |
+| delete (conditional)           | Oui       | Oui        | Oui        |                                                     |
 | history                        | Oui       | Oui       | Oui       |                                                     |
 | create                         | Oui       | Oui       | Oui       | Prend en charge POST et PUT                               |
 | create (conditional)           | Oui       | Oui       | Oui       | Problème [no 1382](https://github.com/microsoft/fhir-server/issues/1382) |
@@ -68,7 +68,9 @@ Toutes les opérations prises en charge qui étendent l’API RESTful.
 | Patient/$export        | Oui       | Oui       | Oui       |         |
 | Group/$export          | Oui       | Oui       | Oui       |         |
 | $convert-data          | Oui       | Oui       | Oui       |         |
-| $validate          | Oui       | Oui       | Oui       |         |
+| $validate              | Oui       | Oui       | Oui       |         |
+| $member-correspondance          | Oui       | Oui       | Oui       |         |
+| $patient-tout    | Non        | Non        | Oui       |         |
 
 ## <a name="persistence"></a>Persistance
 

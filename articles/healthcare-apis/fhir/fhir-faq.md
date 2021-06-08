@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 04/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: 14328179a297ebcc3994bf627b1690195774b2b1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: dbc03ccd235c456941e5f201b647215389fed92c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741128"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408224"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Forum aux questions sur l’API Azure pour FHIR
 
@@ -74,7 +74,7 @@ Nous n’autorisons pas les ressources FHIR personnalisées. Si vous avez besoin
 
 ### <a name="are-extensions-supported-on-azure-api-for-fhir"></a>Les [extensions](https://www.hl7.org/fhir/extensibility.html) sont-elles prises en charge sur l’API Azure pour FHIR ?
 
-Nous vous autorisons à charger toutes données JSON FHIR valides dans le serveur. Si vous souhaitez stocker la définition de structure qui définit l’extension, vous pouvez l’enregistrer en tant que ressource de définition de structure. Actuellement, vous ne pouvez pas effectuer de recherche sur les extensions.
+Nous vous autorisons à charger toutes données JSON FHIR valides dans le serveur. Si vous souhaitez stocker la définition de structure qui définit l’extension, vous pouvez l’enregistrer en tant que ressource de définition de structure. Pour rechercher des extensions, vous devez [définir vos propres paramètres de recherche](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fhealthcare-apis%2Ffhir%2Fhow-to-do-custom-search&data=04%7C01%7Cv-stevewohl%40microsoft.com%7Cc6a08c7f0c86433f248c08d925377d85%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637581742517376233%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=Ws%2FVQ2N33sMagzs393hmR67M9dNaL6WCLXyxXtor6PM%3D&reserved=0). 
 
 ### <a name="what-is-the-limit-on-_count"></a>Quelle est la limite de _count ?
 
