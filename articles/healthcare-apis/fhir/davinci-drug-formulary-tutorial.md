@@ -1,5 +1,5 @@
 ---
-title: Didacticiel-DaVinci médicament formulan-Azure API pour FHIR
+title: Didacticiel-da Vinci médicament Formula-Azure API pour FHIR
 description: Ce didacticiel vous guide dans la configuration de l’API Azure pour FHIR afin de transmettre les tests Touchstone au Guide de mise en œuvre de la formule du médicament DaVinci Drug.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -8,21 +8,21 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
-ms.date: 06/01/2021
-ms.openlocfilehash: feeccd8f194397e9c99f19920d09b8bb2056ff08
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 06/07/2021
+ms.openlocfilehash: fc66de13c02d6d04e8a156937de70775b9053da3
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592944"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751088"
 ---
-# <a name="davinci-drug-formulary"></a>DaVinci médicament Formulas
+# <a name="da-vinci-drug-formulary"></a>Formule de la drogue da Vinci
 
-Dans ce didacticiel, nous allons passer en revue la configuration de l’API Azure pour FHIR afin de transmettre les tests [Touchstone](https://touchstone.aegis.net/touchstone/) pour le Guide d’implémentation de la [formule du médicament DaVinci payer Data Exchange US](http://hl7.org/fhir/us/Davinci-drug-formulary/).
+Dans ce didacticiel, nous allons passer en revue la configuration de l’API Azure pour FHIR afin de transmettre les tests [Touchstone](https://touchstone.aegis.net/touchstone/) pour le Guide d’implémentation de la formule de données de l' [échange de médicaments US Vinci](http://hl7.org/fhir/us/Davinci-drug-formulary/).
 
 ## <a name="touchstone-capability-statement"></a>Instruction de fonctionnalité Touchstone
 
-Le premier test sur lequel nous allons nous concentrer consiste à tester l’API Azure pour FHIR à l’aide de la [déclaration de capacité de formule médicamenteuse](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). Si vous exécutez ce test sans aucune mise à jour, le test échoue en raison de paramètres de recherche manquants et de profils manquants.
+Le premier test sur lequel nous allons nous concentrer consiste à tester l’API Azure pour FHIR à l’aide de l’instruction de fonctionnalité de la formule de la [drogue da Vinci](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). Si vous exécutez ce test sans aucune mise à jour, le test échoue en raison de paramètres de recherche manquants et de profils manquants.
 
 ### <a name="define-search-parameters"></a>Définir les paramètres de recherche
 
@@ -45,13 +45,13 @@ En dehors de la définition des paramètres de recherche, la seule autre mise à
 
 Pour faciliter la création de ces paramètres de recherche et de ces profils, nous disposons de l’exemple de fichier HTTP [da Vinci](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary.http) sur le site Open source, qui comprend toutes les étapes décrites ci-dessus dans un fichier unique. Une fois que vous avez téléchargé tous les profils et paramètres de recherche nécessaires, vous pouvez exécuter le test d’instruction de fonctionnalité dans Touchstone. Vous devez obtenir une exécution réussie :
 
-:::image type="content" source="media/cms-tutorials/davinci-test-script-execution.png" alt-text="DaVinci exécution du script de test.":::
+:::image type="content" source="media/cms-tutorials/davinci-test-script-execution.png" alt-text="Exécution du script de test da Vinci.":::
 
 ## <a name="touchstone-query-test"></a>Test de requête Touchstone
 
-Le deuxième test est celui des [fonctionnalités de requête](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/01-Query&activeOnly=false&contentEntry=TEST_SCRIPTS). Ce test permet de vérifier que vous pouvez rechercher des `CoveragePlan` ressources et spécifiques `Drug` à l’aide de différents paramètres. Le meilleur chemin d’accès consiste à tester les ressources que vous avez déjà dans votre base de données, mais nous avons également le [DaVinciFormulary_Sample_Resources](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary_Sample_Resources.http) fichier http disponible avec les exemples de ressources tirés des exemples de la IG que vous pouvez utiliser pour créer les ressources et les tests.
+Le deuxième test est celui des [fonctionnalités de requête](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/01-Query&activeOnly=false&contentEntry=TEST_SCRIPTS). Ce test permet de vérifier que vous pouvez rechercher un plan de couverture spécifique et des ressources médicamenteuses à l’aide de différents paramètres. Le meilleur moyen consiste à effectuer des tests sur les ressources que vous avez déjà dans votre base de données, mais le fichier http [Da VinciFormulary_Sample_Resources](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary_Sample_Resources.http) est également disponible avec les exemples de ressources tirés des exemples de la IG que vous pouvez utiliser pour créer les ressources et les tests.
 
-:::image type="content" source="media/cms-tutorials/davinci-test-execution-results.png" alt-text="DaVinci résultats d’exécution des tests.":::
+:::image type="content" source="media/cms-tutorials/davinci-test-execution-results.png" alt-text="Résultats de l’exécution du test da Vinci.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

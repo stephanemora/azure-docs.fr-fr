@@ -1,5 +1,5 @@
 ---
-title: Didacticiel-DaVinci PDex-API Azure pour FHIR
+title: Didacticiel-da Vinci PDex-Azure API pour FHIR
 description: Ce didacticiel vous guide dans la configuration de l’API Azure pour FHIR afin de passer des tests pour le Guide d’implémentation de l’échange de données d’échange de données da Vinci.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 06/02/2021
-ms.openlocfilehash: 3f9aa795a08aa027fd0cc9758e9479fa0ec81e09
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 06/07/2021
+ms.openlocfilehash: 454b049a90bcf6e1d1793606a8759222698e5697
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592973"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751106"
 ---
-# <a name="davinci-pdex"></a>DaVinci PDex
+# <a name="da-vinci-pdex"></a>Da Vinci PDex
 
 Dans ce didacticiel, nous allons passer en revue la configuration de l’API Azure pour FHIR afin de transmettre les tests [Touchstone](https://touchstone.aegis.net/touchstone/) pour le Guide d’implémentation d’échange de données (PDex GI) du [payeur de Vinci](http://hl7.org/fhir/us/davinci-pdex/toc.html) .
 
@@ -34,7 +34,7 @@ Le premier ensemble de tests sur lequel nous allons nous concentrer consiste à 
 * Le troisième test vérifie que l' [opération $patient-Everything](patient-everything.md) est prise en charge. Pour le moment, ce test échouera. L’opération sera disponible en mi-juin 2021 dans l’API Azure pour FHIR et est disponible maintenant dans le serveur FHIR Open source sur Cosmos DB. Toutefois, il ne figure pas dans l’instruction de fonctionnalité. ce test échouera jusqu’à ce que nous puissions publier un correctif sur le bogue [1989](https://github.com/microsoft/fhir-server/issues/1989). 
 
  
-:::image type="content" source="media/cms-tutorials/davinci-pdex-test-script-failed.png" alt-text="Échec de l’exécution de DaVinci PDex.":::
+:::image type="content" source="media/cms-tutorials/davinci-pdex-test-script-failed.png" alt-text="Échec de l’exécution de l’PDex da Vinci.":::
 
 ## <a name="touchstone-member-match-test"></a>Touchstone $member-test de correspondance
 
@@ -42,13 +42,13 @@ Le [deuxième test](https://touchstone.aegis.net/touchstone/testdefinitions?sele
 
 Dans ce test, vous devrez charger des exemples de données pour que le test réussisse. Nous [disposons d’un fichier Rest](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/membermatch.http) avec le patient et la couverture dont vous aurez besoin pour le test. Une fois ces données chargées, vous serez en mesure de réussir ce test. Si les données ne sont pas chargées, vous recevrez une réponse 422 en raison de la non-correspondance exacte.
 
-:::image type="content" source="media/cms-tutorials/davinci-pdex-test-script-passed.png" alt-text="Le script de test DaVinci PDex a réussi.":::
+:::image type="content" source="media/cms-tutorials/davinci-pdex-test-script-passed.png" alt-text="Le script de test da Vinci PDex a réussi.":::
 
 ## <a name="touchstone-patient-by-reference"></a>Touchstone patient par référence
 
 Les tests suivants que nous allons examiner sont le [patient par des tests de référence](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PayerExchange/02-PatientByReference&activeOnly=false&contentEntry=TEST_SCRIPTS) . Cet ensemble de tests vous permet de vérifier que vous pouvez trouver un patient en fonction de différents critères de recherche. La meilleure façon de tester le patient par référence consiste à tester vos propres données, mais nous avons chargé un exemple de fichier de [ressources](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/PDex_Sample_Data.http) que vous pouvez charger pour utiliser également.
 
-:::image type="content" source="media/cms-tutorials/davinci-pdex-test-execution-passed.png" alt-text="Exécution de DaVinci PDex réussie.":::
+:::image type="content" source="media/cms-tutorials/davinci-pdex-test-execution-passed.png" alt-text="Exécution de da Vinci PDex réussie.":::
 
 ## <a name="touchstone-patienteverything-test"></a>Test TouchStone patient/$everything
 

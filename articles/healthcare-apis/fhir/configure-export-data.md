@@ -1,18 +1,18 @@
 ---
 title: Configurer les paramètres d’exportation dans API Azure pour FHIR
 description: Cet article décrit comment configurer les paramètres d’exportation dans API Azure pour FHIR
-author: matjazl
+author: CaitlinV39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 5/11/2021
-ms.author: matjazl
-ms.openlocfilehash: 20c08851d082702342b43bad12409cc71a0cae46
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: cavoeg
+ms.openlocfilehash: b245fcaecde13c4a751926e9b7bd639a43b36701
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062017"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111809043"
 ---
 # <a name="configure-export-setting-and-set-up-the-storage-account"></a>Configurer le paramètre d’exportation et le compte de stockage
 

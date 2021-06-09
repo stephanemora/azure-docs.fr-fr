@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 05/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 6e3a074c24305209047fbd3e741fdb81256374e5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 5be1be72e47af10868867e0dce8b747911509381
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460100"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111810803"
 ---
 # <a name="fhir-search-examples"></a>Exemples de recherche FHIR
 
@@ -102,7 +102,7 @@ Pour effectuer une série d’opérations de recherche couvrant plusieurs param�
 
 ```
 
-Cette demande retourne toutes les ressources avec l’objet du patient nommé « Sarah ». Le point `.` après le champ `Patient` effectue la recherche chaînée sur le paramètre de référence du `subject` paramètre.
+Cette requête renvoie toutes les `DiagnosticReport` ressources avec un sujet de patient nommé « Sarah ». Le point `.` après le champ `Patient` effectue la recherche chaînée sur le paramètre de référence du `subject` paramètre.
 
 Une autre utilisation courante d’une recherche régulière (et non une recherche chaînée) consiste à rechercher tous les rencontres pour un patient spécifique. `Patient`les s comportent souvent un ou plusieurs `Encounter` s avec un objet. Pour rechercher toutes les `Encounter` ressources pour un `Patient` avec le fourni `id` :
 
@@ -120,14 +120,14 @@ GET [your-fhir-server]/Encounter?subject:Patient.birthdate=1987-02-20
 
 Cela permet de ne pas simplement Rechercher `Encounter` des ressources pour un seul patient, mais sur tous les patients ayant la valeur de date de naissance spécifiée. 
 
-En outre, la recherche chaînée peut être effectuée plusieurs fois dans une demande à l’aide du symbole `&` , qui vous permet de Rechercher plusieurs conditions dans une demande. Dans ce cas, la recherche chaînée « indépendamment » recherche chaque paramètre, au lieu de rechercher les conditions qui répondent uniquement à toutes les conditions à la fois. Il s’agit d’une opération ou, et non d’une opération et. Par exemple, si vous souhaitez obtenir tous les patients ayant un praticien ayant un nom ou un état particulier :
+En outre, la recherche chaînée peut être effectuée plusieurs fois dans une demande à l’aide du symbole `&` , qui vous permet de Rechercher plusieurs conditions dans une demande. Dans ce cas, la recherche chaînée « indépendamment » recherche chaque paramètre, au lieu de rechercher les conditions qui répondent uniquement à toutes les conditions à la fois :
 
 ```rest
-GET [your-fhir-server]/Patient?general-practitioner.name=Sarah&general-practitioner.address-state=WA
+GET [your-fhir-server]/Patient?general-practitioner:Practitioner.name=Sarah&general-practitioner:Practitioner.address-state=WA
 
 ```
 
-Cela retourne toutes les `Patient` ressources qui ont « Sarah » comme `generalPractitioner` , et toutes les `Patient` ressources qui ont `generalPractitioner` l’adresse avec l’État wa. En d’autres termes, vous pouvez avoir Sarah de l’État NY et facturer à partir de l’État WA à la fois comme résultats renvoyés. La recherche chaînée n’a pas besoin de respecter toutes les conditions et est évaluée individuellement pour chaque paramètre.
+Cela retourne toutes les `Patient` ressources qui ont « Sarah » comme `generalPractitioner` et qui ont un `generalPractitioner` qui a l’adresse avec l’État wa. En d’autres termes, si un patient avait Sarah de l’État NY et facturer à partir de l’État WA tous deux référencés comme le patient `generalPractitioner` , le serait retourné.
 
 Pour les scénarios dans lesquels la recherche doit être une opération et qui couvre toutes les conditions en tant que groupe, reportez-vous à l’exemple de **recherche composite** ci-dessous.
 
@@ -145,12 +145,12 @@ Cette requête retourne les ressources patient qui sont référencées par `Obse
 En outre, la recherche de chaîne inverse peut avoir une structure récursive. Par exemple, si vous souhaitez rechercher tous les patients dont `Observation` l’observation est un événement d’audit d’un utilisateur spécifique `janedoe` , vous pouvez effectuer les opérations suivantes :
 
 ```rest
-GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:user=janedoe
+GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent:Practitioner.name=janedoe
 
 ``` 
 
 > [!NOTE]
-> Dans l’API Azure pour FHIR et le serveur FHIR Open source avec Cosmos, la recherche chaînée et la recherche chaînée par chaîne est une implémentation MVP. Pour effectuer une recherche chaînée sur Cosmos DB, l’implémentation parcourt l’expression de recherche et émet des sous-requêtes pour résoudre les ressources correspondantes. Cette opération est effectuée pour chaque niveau de l’expression. Si une requête retourne plus de 100 résultats, une erreur est générée. Par défaut, la recherche chaînée se trouve derrière un indicateur de fonctionnalité. Pour utiliser la recherche chaînée sur Cosmos DB, utilisez l’en-tête x-ms-Enable-chained-Search : true.
+> Dans l’API Azure pour FHIR et le serveur FHIR Open source avec Cosmos, la recherche chaînée et la recherche chaînée par chaîne est une implémentation MVP. Pour effectuer une recherche chaînée sur Cosmos DB, l’implémentation parcourt l’expression de recherche et émet des sous-requêtes pour résoudre les ressources correspondantes. Cette opération est effectuée pour chaque niveau de l’expression. Si une requête retourne plus de 100 résultats, une erreur est générée.
 
 ## <a name="composite-search"></a>Recherche composite
 

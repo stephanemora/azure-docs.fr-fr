@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 06/04/2021
 ms.author: cavoeg
-ms.openlocfilehash: fee544c318df318e09c75ebaf18fc0837cb4af0d
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: b02a2b582130c439298653d7c2a0512edbb8a23b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111562667"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756362"
 ---
 # <a name="patient-everything-in-fhir"></a>Patient-tout dans FHIR
 
@@ -29,7 +29,7 @@ L’API Azure pour FHIR valide qu’il peut trouver le patient correspondant à 
 * [Ressource patient](https://www.hl7.org/fhir/patient.html) 
 *  Ressources directement référencées par la ressource patient (à l’exception du lien) 
 *  Ressources dans le [compartiment](https://www.hl7.org/fhir/compartmentdefinition-patient.html) du patient
-*  [Ressources](https://www.hl7.org/fhir/device.html) de l’appareil qui font référence à la ressource patient  
+*  [Ressources](https://www.hl7.org/fhir/device.html) de l’appareil qui font référence à la ressource patient. Notez que cela est limité à 100 appareils. Si le patient a plus de 100 appareils qui y sont liés, seuls 100 sont retournés. 
 
  
 > [!Note]
