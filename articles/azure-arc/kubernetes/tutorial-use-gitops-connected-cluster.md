@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial , devx-track-azurecli
-ms.openlocfilehash: 66d00ae738cc693d46f1df333ce64accea4b12a8
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 9f6fe063faa9abfa59d7999da17940aae9ccd264
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107883937"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463177"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Tutoriel : Déployer des configurations à l’aide de GitOps sur un cluster Kubernetes avec Azure Arc 
 
@@ -149,7 +149,7 @@ Tout comme les clés privées, vous pouvez fournir le contenu known_hosts direct
 >[!NOTE]
 >* Le chart d’opérateur Helm version 1.2.0+ prend en charge l’authentification privée pour la version Helm HTTPS.
 >* La version Helm HTTPS n’est pas prise en charge pour les clusters managés AKS.
->* Si vous avez besoin de Flux pour accéder au dépôt Git via votre proxy, vous devez mettre à jour les agents Azure Arc avec les paramètres du proxy. Pour plus d’informations, consultez [Se connecter à l’aide d’un serveur proxy sortant](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
+>* Si vous avez besoin de Flux pour accéder au dépôt Git via votre proxy, vous devez mettre à jour les agents Azure Arc avec les paramètres du proxy. Pour plus d’informations, consultez [Se connecter à l’aide d’un serveur proxy sortant](./quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server).
 
 
 ## <a name="additional-parameters"></a>Paramètres supplémentaires
@@ -181,6 +181,9 @@ Personnalisez la configuration avec les paramètres facultatifs suivants :
 Si vous ne souhaitez pas que Flux écrive dans le dépôt, et si `--git-user` ou `--git-email` ne sont pas définis, `--git-readonly` est automatiquement défini.
 
 Pour plus d’informations, consultez la [documentation relative au flux](https://aka.ms/FluxcdReadme).
+
+>[!NOTE]
+> Valeurs Flux par défaut à synchroniser à partir de la branche `master` du dépôt git. Toutefois, les dépôts git plus récents ont la branche racine qui s’appelle `main`, donc vous devez définir `--git-branch=main` dans --operator-params. 
 
 > [!TIP]
 > Vous pouvez créer une configuration dans le portail Azure sous l’onglet **GitOps** de la ressource Kubernetes avec Azure Arc.

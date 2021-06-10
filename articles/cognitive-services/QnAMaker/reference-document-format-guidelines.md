@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 15ff2ec296cedc37b086a9ca2d0825fb20b4f05a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e45720543a5fc5f3293a2aae0c2740af1048384a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99549539"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465226"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Instructions relatives au format pour les documents et les URL importés
 
@@ -42,7 +42,8 @@ Un manuel comprend habituellement des supports d’orientation qui accompagnent 
 
 Voici un exemple de manuel avec une page d’index et du contenu hiérarchique
 
- ![Exemple de manuel de produit pour une base de connaissances](./media/qnamaker-concepts-datasources/product-manual.png)
+> [!div class="mx-imgBorder"]
+> ![Exemple de manuel de produit pour une base de connaissances](./media/qnamaker-concepts-datasources/product-manual.png)
 
 > [!NOTE]
 > L’extraction est plus efficace sur les manuels qui ont une table des matières et/ou une page d’index, mais aussi une structure clairement définie avec des en-têtes hiérarchiques.
@@ -53,7 +54,22 @@ De nombreux autres types de documents peuvent également être traités pour gé
 
 Voici un exemple de document semi-structuré, sans index :
 
- ![Document semi-structuré de Stockage d’objets blob Azure](./media/qnamaker-concepts-datasources/semi-structured-doc.png)
+> [!div class="mx-imgBorder"]
+> ![Document semi-structuré de Stockage d’objets blob Azure](./media/qnamaker-concepts-datasources/semi-structured-doc.png)
+
+### <a name="unstructured-document-support"></a>Prise en charge des documents non structurés
+
+Réponses aux questions personnalisées prend maintenant en charge les documents non structurés. Un document dont le contenu n’est pas organisé d’une manière hiérarchique bien définie, n’a pas de structure définie ou est libre de toute mise en forme peut être considéré comme un document non structuré.
+
+Voici ci-dessous un exemple de document PDF non structuré :
+
+> [!div class="mx-imgBorder"]
+> ![Exemple de document non structuré pour une base de connaissances](./media/qnamaker-concepts-datasources/unstructured-qna-pdf.png)
+
+ Actuellement, cette fonctionnalité est disponible uniquement via le chargement de documents et pour les formats de fichier PDF et DOC.
+
+> [!IMPORTANT]
+> La prise en charge des fichiers/contenus non structurés est disponible uniquement dans Réponses aux questions personnalisées (préversion)
 
 ### <a name="structured-qna-document"></a>Document QnA structuré
 
@@ -71,11 +87,12 @@ Answer2
 
 Voici un exemple de document Word QnA structuré :
 
- ![Exemple de document QnA structuré pour une base de connaissances](./media/qnamaker-concepts-datasources/structured-qna-doc.png)
+> [!div class="mx-imgBorder"]
+> ![Exemple de document QnA structuré pour une base de connaissances](./media/qnamaker-concepts-datasources/structured-qna-doc.png)
 
 ### <a name="structured-txt-tsv-and-xls-files"></a>Fichiers *TXT*, *TSV* et *XLS* structurés
 
-Les QnA sous forme de fichiers *.txt*, *.tsv* ou *.xls* structurés peuvent également être chargés vers QnA Maker pour créer ou augmenter une base de connaissances.  Il peuvent être en texte brut, ou peuvent avoir du contenu au format RTF ou HTML.
+Les QnA sous forme de fichiers *.txt*, *.tsv* ou *.xls* structurés peuvent également être chargés vers QnA Maker pour créer ou augmenter une base de connaissances.  Il peuvent être en texte brut, ou peuvent avoir du contenu au format RTF ou HTML. Les [paires QnA](/how-to/edit-knowledge-base#question-and-answer-pairs) ont un champ de métadonnées facultatif qui peut être utilisé pour regrouper des paires QnA en catégories.
 
 | Question  | Réponse  | Métadonnées (1 clé : 1 valeur) |
 |-----------|---------|-------------------------|
@@ -88,21 +105,24 @@ Toutes les autres colonnes du fichier source sont ignorées.
 
 Voici un exemple de fichier *.xls* QnA structuré, avec du contenu HTML :
 
- ![Exemple de feuille Excel QnA structurée pour une base de connaissances](./media/qnamaker-concepts-datasources/structured-qna-xls.png)
+> [!div class="mx-imgBorder"]
+> ![Exemple de feuille Excel QnA structurée pour une base de connaissances](./media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 #### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Exemple de questions multiples avec réponse unique dans un fichier Excel
 
 Voici un exemple de fichier *.xls* QnA structuré, avec plusieurs questions pour une réponse unique :
 
- ![Exemple de questions multiples avec réponse unique dans un fichier Excel](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+> [!div class="mx-imgBorder"]
+> ![Exemple de questions multiples avec réponse unique dans un fichier Excel](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
 
 Une fois le fichier importé, la paire question-réponse figure dans la base de connaissances, comme indiqué ci-dessous :
 
- ![Capture d’écran de questions multiples avec réponse unique importées dans la base de connaissances](./media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran de questions multiples avec réponse unique importées dans la base de connaissances](./media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ### <a name="structured-data-format-through-import"></a>Format de données structurées via l’importation
 
-L’importation d’une base de connaissances remplace le contenu de la base de connaissances existante. L’importation nécessite un fichier .tsv structuré qui contient des informations sur la source de données. Ces informations aident QnA Maker à regrouper les paires de question-réponse et à les attribuer à une source de données en particulier.
+L’importation d’une base de connaissances remplace le contenu de la base de connaissances existante. L’importation nécessite un fichier .tsv structuré qui contient des informations sur la source de données. Ces informations aident QnA Maker à regrouper les paires de question-réponse et à les attribuer à une source de données en particulier. Les [paires QnA](/how-to/edit-knowledge-base#question-and-answer-pairs) ont un champ de métadonnées facultatif qui peut être utilisé pour regrouper des paires QnA en catégories.
 
 | Question  | Réponse  | Source| Métadonnées (1 clé : 1 valeur) |
 |-----------|---------|----|---------------------|
@@ -133,7 +153,8 @@ Il s’agit du type le plus courant de page de FAQ, dans lequel les réponses su
 
 Voici un exemple d’une page de FAQ simple :
 
-![Exemple de page de FAQ simple pour une base de connaissances](./media/qnamaker-concepts-datasources/plain-faq.png)
+> [!div class="mx-imgBorder"]
+> ![Exemple de page de FAQ simple pour une base de connaissances](./media/qnamaker-concepts-datasources/plain-faq.png)
 
 
 ### <a name="faq-pages-with-links"></a>Pages de FAQ avec des liens
@@ -142,7 +163,8 @@ Dans ce type de page de FAQ, les questions sont regroupées puis associées à d
 
 Voici un exemple de page de FAQ avec des liens dans des sections qui se trouvent dans la même page :
 
- ![Exemple de page de FAQ avec liens de sections pour une base de connaissances](./media/qnamaker-concepts-datasources/sectionlink-faq.png)
+> [!div class="mx-imgBorder"]
+> ![Exemple de page de FAQ avec liens de sections pour une base de connaissances](./media/qnamaker-concepts-datasources/sectionlink-faq.png)
 
 
 ### <a name="parent-topics-page-links-to-child-answers-pages"></a>Liens de la page Rubriques parente vers les pages de réponses enfants
@@ -151,7 +173,8 @@ Ce type de FAQ comporte une page Rubriques sur laquelle chaque rubrique est lié
 
 Voici un exemple de page Rubriques comportant des liens vers des sections de FAQ sur d’autres pages.
 
- ![Exemple de page de FAQ avec liens profonds pour une base de connaissances](./media/qnamaker-concepts-datasources/topics-faq.png)
+> [!div class="mx-imgBorder"]
+> ![Exemple de page de FAQ avec liens profonds pour une base de connaissances](./media/qnamaker-concepts-datasources/topics-faq.png)
 
 ### <a name="support-urls"></a>URL de support technique
 
@@ -160,7 +183,8 @@ QnA Maker peut traiter des pages web de support semi-structurées, telles que de
 > [!NOTE]
 > L’extraction pour les articles de support est une nouvelle fonctionnalité à un stade de développement encore précoce. Il convient idéalement pour les pages simples, qui sont bien structurées et qui ne contiennent pas d’en-têtes ou pieds de page complexes.
 
-![QnA Maker prend en charge l’extraction à partir de pages web semi-structurées où une structure claire est présentée avec des titres hiérarchiques](./media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
+> [!div class="mx-imgBorder"]
+> ![QnA Maker prend en charge l’extraction à partir de pages web semi-structurées où une structure claire est présentée avec des titres hiérarchiques](./media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
 
 ## <a name="import-and-export-knowledge-base"></a>Importer et exporter une base de connaissances
 

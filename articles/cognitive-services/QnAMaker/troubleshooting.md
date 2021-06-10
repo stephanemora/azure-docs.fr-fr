@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/09/2020
-ms.openlocfilehash: 7b7ac20672ee653cbf6d2b82b7a9454c1d742b2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91feb714c6054fedcab556fc2e6ed218d7c7db25
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102612692"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476032"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Résolution des problèmes pour QnA Maker
 
@@ -49,7 +49,7 @@ Apprenez-en davantage sur les [niveaux tarifaires](Concepts/azure-resources.md).
 
 </details>
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
 <details>
 <summary><b>Comment améliorer les performances de débit pour les prédictions de requête ?</b></summary>
@@ -173,7 +173,7 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 
 </details>
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
 <details>
 <summary><b>Pourquoi mes URL/mes fichiers n’extraient-ils pas les paires de question-réponse ?</b></summary>
@@ -284,6 +284,13 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 </details>
 
 <details>
+<summary><b>Je reçois l’erreur suivante : Vérifiez si les paramètres CORS du service d’application QnA Maker autorisent https://www.qnamaker.ai ou s’il existe des restrictions réseau spécifiques à l’organisation. Comment la résoudre ?</b></summary>
+
+**Réponse** : Dans la section API du panneau du service d’application, mettez à jour le paramètre CORS avec * ou "https://www.qnamaker.ai". Si cela ne résout pas le problème, recherchez d’éventuelles restrictions spécifiques à l’organisation.
+
+</details>
+
+<details>
 <summary><b>Quand dois-je actualiser mes clés de point de terminaison ?</b></summary>
 
 **Réponse** : Actualisez vos clés de point de terminaison si vous pensez qu’elles ont été compromises.
@@ -349,7 +356,7 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 
 </details>
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
 
 <details>
@@ -432,7 +439,7 @@ La clé de point de terminaison de la base de connaissances est étiquetée `QnA
 
 </details>
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
 
 <details>
@@ -494,7 +501,7 @@ Lorsque vous avez créé votre service QnA Maker, vous avez sélectionné une r
 
 </details>
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
 <details>
 <summary><b>Où se trouve l’emplacement de stockage et quelles données sont stockées ?</b></summary>
