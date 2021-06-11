@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/04/2021
 ms.author: ginle
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 371b1286976a5f9dabfb82a5a706ff4a2672ceb2
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 0c32725d020043c3cd62828e4bdccfafef2f53aa
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110700476"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970188"
 ---
 # <a name="configure-customer-managed-keys-at-rest"></a>Configurer des clés gérées par le client au repos
 
@@ -48,7 +48,7 @@ Vous pouvez également entrer l’URI de la clé ici :
 :::image type="content" source="media/bring-your-own-key/bring-your-own-key-create.png" alt-text="Créer l’API Azure pour FHIR":::
 
 > [!Important]
-> Vérifiez que toutes les autorisations pour Azure Key Vault sont correctement définies. Pour plus d’informations, consultez [Ajouter une stratégie d’accès à votre instance de Azure Key Vault](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-access-policy). En outre, assurez-vous que la suppression réversible est activée dans les propriétés de l’Key Vault. Si vous n’effectuez pas ces étapes, une erreur de déploiement se produit. Pour plus d’informations, consultez [vérifier si la suppression réversible est activée sur un coffre de clés et activer la suppression réversible](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete).
+> Vérifiez que toutes les autorisations pour Azure Key Vault sont correctement définies. Pour plus d’informations, consultez [Ajouter une stratégie d’accès à votre instance de Azure Key Vault](../../cosmos-db/how-to-setup-cmk.md#add-access-policy). En outre, assurez-vous que la suppression réversible est activée dans les propriétés de l’Key Vault. Si vous n’effectuez pas ces étapes, une erreur de déploiement se produit. Pour plus d’informations, consultez [vérifier si la suppression réversible est activée sur un coffre de clés et activer la suppression réversible](../../key-vault/general/key-vault-recovery.md?tabs=azure-portal#verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete).
 
 Pour les comptes FHIR existants, vous pouvez afficher le choix de chiffrement à clé (clé **gérée** par le service ou **clé gérée** par le client) dans le panneau **de la base de données** , comme indiqué ci-dessous. L’option de configuration ne peut pas être modifiée une fois qu’elle est sélectionnée. Par contre, vous pouvez modifier et mettre à jour votre clé.
 

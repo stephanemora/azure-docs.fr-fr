@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 5/25/2021
 ms.author: cavoeg
-ms.openlocfilehash: 54dadb47018b474bb7651ddb17b0170a2c07e29a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 30e9b5cf5f296ac161301f27c82ac6a2f98f4611
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477842"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970157"
 ---
 # <a name="how-to-export-fhir-data"></a>Comment exporter des données FHIR
 
@@ -85,7 +85,7 @@ L’API Azure pour FHIR prend en charge l’exportation sécurisée. Choisissez 
 Sélectionnez un compte de stockage dans la Portail Azure, puis sélectionnez le panneau **mise en réseau** . Sélectionnez **réseaux sélectionnés** sous l’onglet **pare-feu et réseaux virtuels** .
 
 > [!IMPORTANT]
-> Vérifiez que vous disposez de l’autorisation d’accès au compte de stockage pour l’API Azure pour FHIR à l’aide de son identité gérée. Pour plus d’informations, consultez [configurer les paramètres d’exportation et configurer le compte de stockage](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-export-data).
+> Vérifiez que vous disposez de l’autorisation d’accès au compte de stockage pour l’API Azure pour FHIR à l’aide de son identité gérée. Pour plus d’informations, consultez [configurer les paramètres d’exportation et configurer le compte de stockage](./configure-export-data.md).
 
   :::image type="content" source="media/export-data/storage-networking.png" alt-text="Paramètres réseau de Stockage Azure." lightbox="media/export-data/storage-networking.png":::
 
@@ -129,7 +129,7 @@ Sélectionnez **Réseaux sélectionnés**. Dans la section pare-feu, spécifiez 
 | USA Ouest 2            | 40.64.135.77      |
 
 > [!NOTE]
-> Les étapes ci-dessus sont similaires aux étapes de configuration décrites dans le document Comment convertir des données en FHIR (version préliminaire). Pour plus d’informations, consultez [héberger et utiliser des modèles](https://docs.microsoft.com/azure/healthcare-apis/fhir/convert-data#host-and-use-templates)
+> Les étapes ci-dessus sont similaires aux étapes de configuration décrites dans le document Comment convertir des données en FHIR (version préliminaire). Pour plus d’informations, consultez [héberger et utiliser des modèles](./convert-data.md#host-and-use-templates)
 
 ### <a name="allowing-specific-ip-addresses-for-the-azure-storage-account-in-the-same-region"></a>Autoriser des adresses IP spécifiques pour le compte de stockage Azure dans la même région
 
