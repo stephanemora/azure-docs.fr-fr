@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 05/11/2021
 ms.author: ranku
-ms.openlocfilehash: 8d60cde14d52dceb58ea5c68383fad192a1e1ff3
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2d42cf0a59c3ff20078930559870f346efd7b6d9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078685"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970244"
 ---
 # <a name="how-to-convert-data-to-fhir-preview"></a>Comment convertir des données en FHIR (préversion)
 
@@ -120,7 +120,7 @@ Basculez l’état sur **Activé** afin d’activer Managed Identity dans API Az
 
 1. Sélectionnez **Ajouter**, puis sélectionnez **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
 
-1. Affectez le rôle [AcrPull](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#acrpull) . 
+1. Affectez le rôle [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) . 
 
    ![Page Ajouter une attribution de rôle](../../../includes/role-based-access-control/media/add-role-assignment-page.png) 
 
@@ -194,7 +194,7 @@ Dans le tableau ci-dessous, vous trouverez l’adresse IP de la région Azure da
 
 
 > [!NOTE]
-> Les étapes ci-dessus sont similaires aux étapes de configuration décrites dans le document Comment exporter des données FHIR. Pour plus d’informations, consultez [exportation sécurisée vers le stockage Azure](https://docs.microsoft.com/azure/healthcare-apis/fhir/export-data#secure-export-to-azure-storage) .
+> Les étapes ci-dessus sont similaires aux étapes de configuration décrites dans le document Comment exporter des données FHIR. Pour plus d’informations, consultez [exportation sécurisée vers le stockage Azure](./export-data.md#secure-export-to-azure-storage) .
 
 ### <a name="verify"></a>Vérification
 

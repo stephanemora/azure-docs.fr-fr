@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 5/11/2021
 ms.author: cavoeg
-ms.openlocfilehash: b245fcaecde13c4a751926e9b7bd639a43b36701
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 936728cba33a81f65a6607ca3d46aca9621145ee
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111809043"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970300"
 ---
 # <a name="configure-export-setting-and-set-up-the-storage-account"></a>Configurer le paramètre d’exportation et le compte de stockage
 
@@ -42,7 +42,7 @@ Une fois que vous avez créé un compte de stockage, accédez au **Access Contro
 
 Pour plus d’informations sur l’affectation de rôles dans le Portail Azure, consultez [rôles intégrés Azure](../../role-based-access-control/role-assignments-portal.md).
 
-C’est ici que vous allez ajouter le [contributeur de stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) de rôle à notre nom de service, puis sélectionnez **Enregistrer**.
+C’est ici que vous allez ajouter le [contributeur de stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) de rôle à notre nom de service, puis sélectionnez **Enregistrer**.
 
 ![Page Ajouter une attribution de rôle](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
