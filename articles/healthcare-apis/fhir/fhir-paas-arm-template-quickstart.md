@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: cavoeg
 ms.date: 05/10/2021
-ms.openlocfilehash: 97f57484c47bfc58f3a4cd30ed979ffb5b5d1c27
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 8048436c0ee5b74b1b30b581976cedefb133dd02
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110704925"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005714"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Démarrage rapide : Utiliser un modèle ARM pour déployer l’API Azure pour FHIR
 
@@ -47,7 +47,7 @@ Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-azure-api-for-fhir/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/azure-api-for-fhir/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.healthcareapis/azure-api-for-fhir/azuredeploy.json":::
 
