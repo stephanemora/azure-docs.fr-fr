@@ -1,6 +1,6 @@
 - name: Documentation sur le processus TDSP (Team Data Science Process)
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   href: overview.md
 - name: Cycle de vie
   href: lifecycle.md
@@ -105,17 +105,7 @@
             - name: Vue d’ensemble
               href: ingest-data.md
             - name: Déplacer depuis/vers le stockage d’objets blob
-              items:
-                - name: Vue d’ensemble
-                  href: move-azure-blob.md
-                - name: Utiliser l’Explorateur Stockage
-                  href: move-data-to-azure-blob-using-azure-storage-explorer.md
-                - name: Utiliser AzCopy
-                  href: ../../storage/common/storage-use-azcopy-v10.md
-                - name: Utiliser Python
-                  href: ../../storage/blobs/storage-quickstart-blobs-python.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
-                - name: Utiliser SSIS
-                  href: move-data-to-azure-blob-using-ssis.md
+              href: move-azure-blob.md
             - name: Déplacer vers SQL sur une machine virtuelle
               href: move-sql-server-virtual-machine.md
             - name: "Déplacer vers Azure\_SQL\_Database"

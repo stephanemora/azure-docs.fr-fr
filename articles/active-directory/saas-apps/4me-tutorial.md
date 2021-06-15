@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/06/2021
+ms.date: 06/09/2021
 ms.author: jeedes
-ms.openlocfilehash: c80915efe6c05b04beb424717a1181e1224c5e89
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ee9b326a43adb9c96fe6013eeecaabf955c78d45
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134498"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111986387"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-4me"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à 4me
 
@@ -32,6 +32,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement 4mepour lequel l’authentification unique est activée
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="scenario-description"></a>Description du scénario
 

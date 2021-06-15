@@ -7,13 +7,14 @@ ms.topic: how-to
 ms.date: 04/05/2021
 ms.author: rogarana
 ms.subservice: files
+ms.custom: devx-track-azurepowershell
 services: storage
-ms.openlocfilehash: a0dff310ce4a40b7a66cc548f3c77213f4a10e00
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 3687eeb09473a5281ddcde98f5b9b7b11472589f
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717001"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110666755"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Activer la suppression réversible sur les partages de fichiers Azure
 

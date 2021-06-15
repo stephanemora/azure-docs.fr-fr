@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: ec35917ca18064d58279d8ed2b3fb1f0e83a88fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 429215dbd35368c7a2c8681e480b5256813171a1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736932"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753626"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à InVision
 
@@ -154,7 +154,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     e. Dans la zone de texte **SAML Certificate** (Certificat SAML), ouvrez le fichier **Certificat (en base64)** téléchargé du portail Azure dans le Bloc-notes, copiez son contenu et collez-le dans la zone de texte SAML Certificate.
 
-    f. Dans la zone de texte **Name** **ID Format**, utilisez `Unspecified`.
+    f. Dans la zone de texte **Name** **ID Format**, utilisez `urn:oasis:names:tc:SAML:1.1:nameid-format:Unspecified`.
 
     g. Sélectionnez **SHA-256** dans la liste déroulante **HASH Algorithm** (Algorithme de hachage).
 

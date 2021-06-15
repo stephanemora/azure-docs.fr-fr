@@ -308,7 +308,7 @@
   items:
     - name: Créer des modèles
       displayName: ARM
-      href: ../azure-resource-manager/templates/template-syntax.md
+      href: ../azure-resource-manager/templates/syntax.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Modèles fournis par la communauté

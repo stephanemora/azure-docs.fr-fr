@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: L’article aborde les niveaux de service Usage général et Critique pour l’entreprise dans le modèle d’achat vCore utilisé par Azure SQL Database et Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: sashan, moslake
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
 ms.date: 12/14/2020
-ms.openlocfilehash: d4053628247cc01851aa19b66514398da0660a81
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 1ccf83fa98ec7024e74bd9829e241b8596b1fbf6
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107883559"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693206"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Niveaux de service Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

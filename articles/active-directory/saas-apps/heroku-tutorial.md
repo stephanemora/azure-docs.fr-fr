@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 34d6ad275b3a08a23411d5a79a676f9f8ad0bb2b
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: e2dcb9b534a67fdaf4ebc4be224f9e1f3bbb770a
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109733247"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111889001"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heroku"></a>Didacticiel : Intégration d’Azure Active Directory à Heroku
 
@@ -145,8 +145,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Heroku pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Heroku dans Mes applications, vous êtes redirigé vers l’URL de connexion de Heroku. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Heroku dans Mes applications, vous êtes redirigé vers l’URL de connexion de Heroku. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Heroku, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration de données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré Heroku, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration de données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

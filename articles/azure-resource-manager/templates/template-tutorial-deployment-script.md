@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7ecd31f6f788331071abbbe67d5460494d54de8d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 65c94346725123913cc2ea53be9b95a7c1bb0fda
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753980"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111889577"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Tutoriel : Utiliser des scripts de déploiement pour créer un certificat auto-signé
 
@@ -60,7 +60,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 Au lieu de créer un modèle à partir de zéro, ouvrez un modèle à partir de [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/). Le dépôt Modèles de démarrage rapide Azure contient les modèles ARM.
 
-Le modèle utilisé dans ce guide de démarrage rapide est appelé [Créer un coffre de clés et un secret Azure](https://azure.microsoft.com/resources/templates/101-key-vault-create/). Le modèle crée un coffre de clés, puis y ajoute un secret.
+Le modèle utilisé dans ce guide de démarrage rapide est appelé [Créer un coffre de clés et un secret Azure](https://azure.microsoft.com/resources/templates/key-vault-create/). Le modèle crée un coffre de clés, puis y ajoute un secret.
 
 1. À partir de Visual Studio Code, sélectionnez **Fichier** > **Ouvrir un fichier**.
 2. Collez l’URL suivante dans **Nom de fichier** :

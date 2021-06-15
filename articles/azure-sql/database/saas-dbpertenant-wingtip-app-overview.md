@@ -7,16 +7,16 @@ ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 0efc8105295ca7f97e6f465071c31b193173c5cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 563431de62ebbd790e9da357853c35757fcb193b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100588731"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110699100"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Présentation d’une application SaaS mutualisée qui utilise le modèle de base de données par locataire avec Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

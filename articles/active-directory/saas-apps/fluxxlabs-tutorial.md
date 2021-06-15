@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 8b0ec0709d714cda7eb714b13aa061147cd49b4b
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: a2e3f3969ce9d39dc8d7b2aa2cb5d0cb6db7ad7a
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109733455"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111886841"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fluxx-labs"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Fluxx Labs
 
@@ -191,8 +191,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur Tester cette application dans le portail Azure. Vous devez être connecté automatiquement à l’instance de Fluxx Labs pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Fluxx Labs dans Mes applications, vous devez être connecté automatiquement à l’application Fluxx Labs pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Fluxx Labs dans Mes applications, vous devez être connecté automatiquement à l’application Fluxx Labs pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Fluxx Labs, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré Fluxx Labs, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

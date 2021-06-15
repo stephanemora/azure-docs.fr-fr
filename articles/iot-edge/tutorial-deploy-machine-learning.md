@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: b3192c3ee8458623f3724da5f875cc09032a42bf
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 4fffb279ff9d2d0560dc722b9fa8de3bccb6cf19
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219414"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969303"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutoriel : Déployer Azure Machine Learning en tant que module IoT Edge (préversion)
 
@@ -50,7 +50,7 @@ Un appareil Azure IoT Edge :
 Ressources cloud :
 
 * Un niveau gratuit ou standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure.
-* Un espace de travail Azure Machine Learning. Pour savoir comment créer et utiliser un module Azure Machine Learning, suivez les instructions fournies dans [Utiliser le portail Azure pour bien démarrer avec Azure Machine Learning](../machine-learning/tutorial-1st-experiment-sdk-setup.md).
+* Un espace de travail Azure Machine Learning. Pour savoir comment créer et utiliser un module Azure Machine Learning, suivez les instructions fournies dans [Utiliser le portail Azure pour bien démarrer avec Azure Machine Learning](../machine-learning/quickstart-create-resources.md).
   * Notez le nom de l’espace de travail, le groupe de ressources et l’ID de l’abonnement. Ces valeurs sont toutes disponibles dans la vue d’ensemble de l’espace de travail, sur le portail Azure. Vous utiliserez ces valeurs plus tard dans ce tutoriel pour connecter un fichier Azure Notebooks aux ressources de votre espace de travail.
 
 ## <a name="create-and-deploy-azure-machine-learning-module"></a>Créer et déployer un module Azure Machine Learning

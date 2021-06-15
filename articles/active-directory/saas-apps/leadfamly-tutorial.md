@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 28f024c84023cccd99396716305d6b9624dca5e7
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: 9ab8d0ca9c6c44510f8cdf94bdbd43aadd8da2ad
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109665197"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111889055"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-leadfamly"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Leadfamly
 
@@ -157,8 +157,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Leadfamly, puis lancez le flux de connexion à partir de cet emplacement.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Leadfamly dans Mes applications, une redirection est effectuée vers l’URL de connexion à Leadfamly. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Leadfamly dans Mes applications, une redirection est effectuée vers l’URL de connexion à Leadfamly. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré Leadfamly, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Une fois que vous avez configuré Leadfamly, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

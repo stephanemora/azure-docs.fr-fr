@@ -2,14 +2,14 @@
 title: Fonctionnalités de haute disponibilité pour Oracle sur Azure BareMetal
 description: Découvrez les fonctionnalités disponibles dans BareMetal pour une base de données Oracle.
 ms.topic: overview
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/16/2021
-ms.openlocfilehash: 91ec416c6f7c98100bf8ee00af2c060219e54693
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 52bd9856b9203dfc515d5507fda310d567e1b588
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109518339"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579135"
 ---
 # <a name="high-availability-features-for-oracle-on-azure-baremetal"></a>Fonctionnalités de haute disponibilité pour Oracle sur Azure BareMetal
 

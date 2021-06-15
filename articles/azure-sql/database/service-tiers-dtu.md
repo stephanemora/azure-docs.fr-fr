@@ -3,20 +3,20 @@ title: Niveaux de service – Modèle d’achat DTU
 description: Découvrez les niveaux de service du modèle d'achat DTU d’Azure SQL Database pour la fourniture de tailles de calcul et de tailles de stockage.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
 ms.date: 5/4/2021
-ms.reviewer: ''
-ms.openlocfilehash: a800e30f73c73659ecf31da3f63f4ae78bfb8278
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c5413918923ebb4e613ecb48e86dbccfcc60889b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742370"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693285"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Les niveaux de service du modèle d'achat DTU se distinguent par une plage de ta
 
 Le choix d’un niveau de service dépend principalement des exigences de continuité d’activité, de stockage et de performance.
 
-||De base|standard|Premium|
+||De base|Standard|Premium|
 | :-- | --: |--:| --:|
 |**Charge de travail cible**|Développement et production|Développement et production|Développement et production|
 |**Contrat SLA de durée de fonctionnement**|99,99 %|99,99 %|99,99 %|
@@ -43,7 +43,7 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 |**IOPS (approximatif)** \* |1-4 IOPS par DTU| 1-4 IOPS par DTU | >25 IOPS par DTU|
 |**Latence d’E/S (approximative)**|5 ms (lecture), 10 ms (écriture)|5 ms (lecture), 10 ms (écriture)|2 ms (lecture/écriture)|
 |**Indexation Columnstore** |N/A|S3 et supérieur|Prise en charge|
-|**OLTP en mémoire**|N/A|NON APPLICABLE|Prise en charge|
+|**OLTP en mémoire**|N/A|N/A|Prise en charge|
 
 \* Tous les fichiers de données d’IOPS en lecture et écriture, notamment les E/S en arrière-plan (point de contrôle et écriture différée)
 
@@ -63,7 +63,7 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 
 Les tailles de calcul sont exprimées en unités de transaction de base de données (DTU) pour les bases de données uniques, et en unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour plus d’informations sur les DTU et les eDTU, consultez [Modèle d’achat DTU](purchasing-models.md#dtu-based-purchasing-model).
 
-||De base|standard|Premium|
+||De base|Standard|Premium|
 | :-- | --: | --: | --: |
 | **Taille de stockage maximale** | 2 Go | 1 To | 4 To  |
 | **DTU maximales** | 5 | 3000 | 4000 |
@@ -176,7 +176,7 @@ Le débit et le temps de réponse constituent les principaux indicateurs du test
 | Classe de service | Mesure du débit | Temps de réponse requis |
 | --- | --- | --- |
 | Premium |Transactions par seconde |95e centile à 0,5 seconde |
-| standard |Transactions par minute |90e centile à 1 seconde |
+| Standard |Transactions par minute |90e centile à 1 seconde |
 | De base |Transactions par heure |80e centile à 2 secondes |
 
 ## <a name="next-steps"></a>Étapes suivantes

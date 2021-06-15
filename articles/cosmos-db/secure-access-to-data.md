@@ -6,14 +6,14 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 05/27/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7a3d7a3892e5d90e4ee8cc4e5b80df768fc138d7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 696d8c1a775f67271a7c7b4fa81789e7b0775bb1
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378802"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110654259"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ Azure Cosmos DB offre trois moyens de contrôler l’accès à vos données.
 | Type de contrôle d’accès | Caractéristiques |
 |---|---|
 | [Clés primaires](#primary-keys) | Secret partagé autorisant toutes les opérations de gestion ou de données. Il offre des variantes en lecture-écriture et en lecture seule. |
-| [Contrôle d’accès en fonction du rôle](#rbac) (préversion) | Modèle d’autorisation précis basé sur les rôles, utilisant les identités Azure Active Directory (AAD) pour l’authentification. |
+| [Contrôle d’accès en fonction du rôle](#rbac) | Modèle d’autorisation précis basé sur les rôles, utilisant les identités Azure Active Directory (AAD) pour l’authentification. |
 | [Jetons de ressource](#resource-tokens)| Modèle d’autorisation précis basé sur les autorisations et les utilisateurs natifs d’Azure Cosmos DB. |
 
 ## <a name="primary-keys"></a><a id="primary-keys"></a> Clés principales

@@ -7,12 +7,13 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 8a6c6564391d9ba2722bfa9c637ee9d1e19d9e80
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b0e8857b057495c65fcb633fb7e62d15cfc2dbdf
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228997"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110661981"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Vue d’ensemble des configurations d’appareils VPN partenaires
 Cet article fournit une vue d’ensemble de la configuration des appareils VPN locaux pour une connexion à des passerelles VPN Azure. Un exemple de configuration de réseau virtuel Azure et de passerelle VPN est utilisé pour vous montrer comment établir une connexion à différentes configurations d’appareils VPN locaux en utilisant les mêmes paramètres.

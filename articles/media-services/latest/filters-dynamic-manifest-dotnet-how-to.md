@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 93634d8168d4870d6a97428ee538e465c6aad2cb
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: c81f6ed1517146efdd60c293d0c4840f6c61f7f5
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110955"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372586"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Créer des filtres à l’aide du kit SDK .NET Media Services
 
@@ -39,7 +39,7 @@ Cette rubrique explique comment utiliser le SDK .NET Media Services pour défini
 - Lire [Filtres et manifestes dynamiques](filters-dynamic-manifest-concept.md).
 - [Créer un compte Media Services](./account-create-how-to.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services. 
 - Obtenir les informations nécessaires pour [accéder aux API](./access-api-howto.md)
-- Lire la rubrique [Charger, encoder et transmettre en continu des vidéos à l’aide d’Azure Media Services](stream-files-tutorial-with-api.md) pour voir comment [démarrer avec le SDK .NET](stream-files-tutorial-with-api.md#start-using-media-services-apis-with-net-sdk)
+- Lire la rubrique [Charger, encoder et transmettre en continu des vidéos à l’aide d’Azure Media Services](stream-files-tutorial-with-api.md) pour voir comment [démarrer avec le SDK .NET](stream-files-tutorial-with-api.md#start-using-media-services-apis-with-the-net-sdk)
 
 ## <a name="define-a-filter"></a>Définir un filtre  
 

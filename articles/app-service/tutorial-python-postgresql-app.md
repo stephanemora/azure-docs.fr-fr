@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: be55a3fb07b35fccb0f71f9ca7bfd2c88a9d097c
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 97b24403d5472d2f9ae701a043d4cccbb2bf03cb
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017046"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617533"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutoriel : Déployer une application web Django avec PostgreSQL dans Azure App Service
 
@@ -238,15 +238,6 @@ Les migrations de base de données Django garantissent que le schéma de la base
 1. Dans la session SSH, exécutez les commandes suivantes (vous pouvez coller des commandes en utilisant la combinaison de touches **Ctrl**+**Maj**+**V**) :
 
     ```bash
-    # Change to the app folder
-    cd $APP_PATH
-    
-    # Activate the venv
-    source antenv/bin/activate
-
-    # Install requirements
-    pip install -r requirements.txt
-
     # Run database migrations
     python manage.py migrate
 
@@ -398,12 +389,9 @@ Vous rencontrez des problèmes ? Consultez d’abord le [Guide de résolution d
 
 Étant donné que vous avez apporté des changements au modèle de données, vous devez réexécuter les migrations de base de données dans App Service.
 
-Ouvrez une nouvelle session SSH dans le navigateur en accédant à `https://<app-name>.scm.azurewebsites.net/webssh/host`. Exécutez ensuite les commande suivantes :
+Ouvrez une nouvelle session SSH dans le navigateur en accédant à `https://<app-name>.scm.azurewebsites.net/webssh/host`. Exécutez ensuite la commande suivante :
 
 ```
-cd $APP_PATH
-source antenv/bin/activate
-pip install -r requirements.txt
 python manage.py migrate
 ```
 

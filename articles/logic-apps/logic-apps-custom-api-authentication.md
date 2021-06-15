@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: ab3b051a47a8ef2150848c73e612d366575560ce
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 47eb354a7840677ec13ff0342d7269f2a7b5b380
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753630"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537311"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Augmenter la sécurité des appels aux API personnalisées à partir d’Azure Logic Apps
 
@@ -194,7 +194,7 @@ Une fois que vous disposez de l’ID client et de l’ID de locataire, incluez-l
 ]
 ```
 
-Pour déployer automatiquement une application web et une application logique vides avec l’authentification Azure Active Directory, [consultez le modèle complet](https://azure.microsoft.com/resources/templates/quickstarts/microsoft.logic/logic-app-custom-api/) ou cliquez sur **Déploiement sur Azure** ici :
+Pour déployer automatiquement une application web et une application logique vides avec l’authentification Azure Active Directory, [consultez le modèle complet](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-custom-api) ou cliquez sur **Déploiement sur Azure** ici :
 
 [![Déployer sur Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.logic%2Flogic-app-custom-api%2Fazuredeploy.json)
 

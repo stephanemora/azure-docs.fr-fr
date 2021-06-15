@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp, mvc
 ms.date: 09/12/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 379ea9a0c2a49e92fa1c4882ea6e783b3b91e32f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 22a2f0a73992bd829d150243974701d07321f26b
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88163915"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613314"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Démarrage rapide : Configurer la connexion pour une application ASP.NET à l’aide d’Azure Active Directory B2C
 
@@ -92,7 +92,7 @@ Vous avez utilisé votre compte d’utilisateur Azure AD B2C pour effectuer un
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Vous pouvez utiliser votre locataire Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels ou démarrages rapides Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](faq.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+Vous pouvez utiliser votre locataire Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels ou démarrages rapides Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](faq.yml#how-do-i-delete-my-azure-ad-b2c-tenant-).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

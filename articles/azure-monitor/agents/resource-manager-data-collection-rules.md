@@ -5,15 +5,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: d241cb5d7ece260de42088eecfd669e5d3f40096
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5d146305a1bd5dcde80c29892ef5e7512eca74b7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104592283"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967096"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Exemples de modèles Resource Manager pour les règles de collecte de données dans Azure Monitor
-Cet article comprend des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour créer une association entre une [règle de collecte de données](data-collection-rule-overview.md) et l’[agent Azure Monitor](./azure-monitor-agent-overview.md). Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
+Cet article comprend des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) pour créer une association entre une [règle de collecte de données](data-collection-rule-overview.md) et l’[agent Azure Monitor](./azure-monitor-agent-overview.md). Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

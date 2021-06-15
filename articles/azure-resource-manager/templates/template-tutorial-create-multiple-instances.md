@@ -5,13 +5,13 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: ''
-ms.openlocfilehash: 2076c27a241be49082ac7a46603f6a578252c101
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b65e23b167e805f7c442b8867c8c335797af0664
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754124"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893027"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutoriel : Créer plusieurs instances de ressources grâce à des modèles ARM
 
@@ -38,7 +38,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
-[Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/) est un référentiel de modèles ARM. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce démarrage rapide se nomme [Créer un compte de stockage standard](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Le modèle définit une ressource de compte de stockage Azure.
+[Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/) est un référentiel de modèles ARM. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce démarrage rapide se nomme [Créer un compte de stockage standard](https://azure.microsoft.com/resources/templates/storage-account-create/). Le modèle définit une ressource de compte de stockage Azure.
 
 1. À partir de Visual Studio Code, sélectionnez **Fichier** > **Ouvrir un fichier**.
 1. Collez l’URL suivante dans **Nom de fichier** :

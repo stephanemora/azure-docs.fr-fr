@@ -11,12 +11,12 @@ ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance faciale, logiciel de reconnaissance faciale, analyse faciale, correspondance de visage, application de reconnaissance faciale, recherche de visage par image, recherche de reconnaissance faciale
-ms.openlocfilehash: 30707dd844769f730f135a451cd5306ca7e402cb
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: d135e97b4792d5c4b71d3758800223d238a6990c
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726985"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111810177"
 ---
 # <a name="what-is-the-azure-face-service"></a>Présentation du service Visage Azure
 
@@ -41,8 +41,6 @@ L’API Détecter détecte les visages humains dans une image et retourne les co
 
 > [!NOTE]
 > La fonctionnalité de détection des visages est également disponible par le biais du [service Vision par ordinateur](../computer-vision/overview.md). Toutefois, si vous voulez effectuer d’autres opérations de Visage, comme Identifier, Vérifier, Rechercher semblables ou Regrouper, vous devez utiliser ce service Visage à la place.
-
-![Une image d’une femme et d’un homme, avec des rectangles dessinés autour de leur visage, et un âge et un sexe affichés](./Images/Face.detection.jpg)
 
 Pour plus d’informations sur la détection de visage, consultez l’article sur les concepts de la [détection des visages](concepts/face-detection.md). Consultez également la documentation de référence de l’[API de détection](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 

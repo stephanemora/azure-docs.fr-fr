@@ -5,18 +5,18 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c3477d7658c538d870382333d5dd488a504eb6e8
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: 152494ef7d24d3e39af63fcb549a26c78bb27bc6
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839524"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959429"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutoriel : Créer des modèles ARM avec des ressources dépendantes
 
 Découvrez comment créer un modèle Azure Resource Manager (modèle ARM) pour déployer plusieurs ressources et configurer l’ordre de déploiement. Après avoir créé le modèle, vous déployez le modèle à l’aide de Cloud Shell à partir du portail Azure.
 
-Dans ce didacticiel, vous créez un compte de stockage, une machine virtuelle, un réseau virtuel et d’autres ressources dépendantes. Certaines ressources ne peuvent pas être déployées avant qu’une autre ressource n’existe. Par exemple, vous ne pouvez pas créer la machine virtuelle avant que son compte de stockage et son interface réseau n’existent. Vous définissez cette relation en rendant une seule ressource dépendante des autres ressources. Resource Manager évalue les dépendances entre les ressources et les déploie dans leur ordre dépendant. Quand les ressources ne dépendent pas les unes des autres, Resource Manager les déploie en parallèle. Pour plus d’informations, consultez [Définir l’ordre de déploiement des ressources dans les modèles ARM](./define-resource-dependency.md).
+Dans ce didacticiel, vous créez un compte de stockage, une machine virtuelle, un réseau virtuel et d’autres ressources dépendantes. Certaines ressources ne peuvent pas être déployées avant qu’une autre ressource n’existe. Par exemple, vous ne pouvez pas créer la machine virtuelle avant que son compte de stockage et son interface réseau n’existent. Vous définissez cette relation en rendant une seule ressource dépendante des autres ressources. Resource Manager évalue les dépendances entre les ressources et les déploie dans leur ordre dépendant. Quand les ressources ne dépendent pas les unes des autres, Resource Manager les déploie en parallèle. Pour plus d’informations, consultez [Définir l’ordre de déploiement des ressources dans les modèles ARM](./resource-dependency.md).
 
 ![Schéma de l’ordre de déploiement des ressources dépendant du modèle Resource Manager](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
@@ -46,7 +46,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
-Le référentiel Modèles de démarrage rapide Azure contient les modèles ARM. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce didacticiel se nomme [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Le référentiel Modèles de démarrage rapide Azure contient les modèles ARM. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce didacticiel se nomme [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/resources/templates/vm-simple-windows/).
 
 1. À partir de Visual Studio Code, sélectionnez **Fichier** > **Ouvrir un fichier**.
 2. Collez l’URL suivante dans **Nom de fichier** :

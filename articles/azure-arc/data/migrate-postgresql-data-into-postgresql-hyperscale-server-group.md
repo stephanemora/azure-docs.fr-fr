@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: d9cbfc30b10373ad2a4f4304987dac426b5dcabe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06860f9d09db7a9e9497431620e15cc5e3168206
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643573"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411626"
 ---
 # <a name="migrate-postgresql-database-to-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Migrer une base de données PostgreSQL vers un groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc
 
@@ -196,4 +196,4 @@ Au sein de votre configuration Arc, vous pouvez utiliser `psql` pour vous connec
 
 > *Dans ces documents, ignorez les sections **Connectez-vous au portail Azure** et **Créer un serveur Azure Database pour Postgres – Hyperscale (Citus)** . Implémentez les étapes restantes dans votre déploiement Azure Arc. Ces sections sont spécifiques à Azure Database pour PostgreSQL Hyperscale (Citus) proposé en tant que service PaaS dans le cloud Azure, mais les autres parties des documents s’appliquent directement à votre PostgreSQL Hyperscale activé pour Azure Arc.
 
-- [Effectuer un scale-out de votre groupe de serveurs Azure Database pour PostgreSQL Hyperscale](scale-out-postgresql-hyperscale-server-group.md)
+- [Effectuer un scale-out de votre groupe de serveurs Azure Database pour PostgreSQL Hyperscale](scale-out-in-postgresql-hyperscale-server-group.md)

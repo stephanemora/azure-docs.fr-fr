@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: 89309cfe427183d594a5cc2f76332ae150d4f803
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f85c693f038143543a3a90cc2774f3e6efea3c9b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102498674"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952256"
 ---
 # <a name="tutorial-train-a-model-in-python-with-automated-machine-learning"></a>Tutoriel : Entraîner un modèle dans Python avec le Machine Learning automatisé
 
@@ -31,7 +31,7 @@ Dans ce tutoriel, vous allez apprendre à :
 ## <a name="before-you-begin"></a>Avant de commencer
 
 - Créez un pool Apache Spark serverless en suivant le démarrage rapide [Créer un pool Apache Spark serverless](../quickstart-create-apache-spark-pool-studio.md).
-- Suivez le tutoriel de [configuration de l’espace de travail Azure Machine Learning](../../machine-learning/tutorial-1st-experiment-sdk-setup.md) si vous n’avez pas d’espace de travail Azure Machine Learning existant. 
+- Suivez le tutoriel de [configuration de l’espace de travail Azure Machine Learning](../../machine-learning/quickstart-create-resources.md) si vous n’avez pas d’espace de travail Azure Machine Learning existant. 
 
 ## <a name="understand-regression-models"></a>Comprendre les modèles de régression
 

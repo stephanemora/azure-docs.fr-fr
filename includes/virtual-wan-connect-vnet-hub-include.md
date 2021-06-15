@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 07/09/2020
+ms.date: 05/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 999f3fb054eedab64a1f7bcebd9788e1edbf29f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e466de84bbf26cb182135dd9a03f163633255f5c
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86220596"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578243"
 ---
 Au cours de cette étape, vous créez la connexion entre votre hub et un réseau virtuel. Répétez ces étapes pour chaque réseau virtuel que vous souhaitez connecter.
 

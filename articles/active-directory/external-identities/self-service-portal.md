@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a5b800e78448afcc970010535ba12b543d3cc74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7914e370cdd2430e034d3830e9d9ae6d7547cf75
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96860505"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614692"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Inscription en libre-service pour Azure AD B2B Collaboration
 
@@ -34,4 +34,4 @@ Les organisations peuvent utiliser l’[API gestionnaire d’invitation Microsof
 
 * [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
 * [Prix des identités externes](external-identities-pricing.md)
-* [Questions fréquemment posées (FAQ) sur Azure Active Directory B2B Collaboration](faq.md)
+* [Questions fréquemment posées (FAQ) sur Azure Active Directory B2B Collaboration](faq.yml)

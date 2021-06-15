@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 301d6eb0867604a6e780eb1d059eef0c153f246f
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: c8e22a1e81792145c468aeecd347f38426f73613
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574507"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412094"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutoriel : Manipulation de modèles
 
@@ -316,7 +316,7 @@ Quand un raycast aboutit dans le **RemoteRayCastPointerHandler**, l’élément 
     }
     ```
 
-2. Dans le GameObject **TestModel** créé précédemment, ajoutez le composant **RemoteRayCastPointerHandler** et le composant **RemoteEntityHelper**.
+1. Dans le GameObject **TestModel** créé précédemment, ajoutez le composant **RemoteRayCastPointerHandler** et le composant **RemoteEntityHelper**.
 1. Affectez la méthode `EntityToDebugLog` à l’événement `OnRemoteEntityClicked`. Quand le type de sortie de l’événement et le type d’entrée de la méthode correspondent, nous pouvons utiliser la connexion d’événements dynamique de Unity, qui passera automatiquement la valeur de l’événement dans la méthode.
     1. Créez un champ de rappel. ![Ajouter le rappel](./media/add-callback-remote-entity-clicked.png)
     1. Faites glisser le composant **Remote Entity Helper** vers le champ Object pour référencer le GameObject parent. ![Attribuer l’objet](./media/assign-object.png)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 18806b1d8dbdde2ac5c63f435c6d766aeb9abc08
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 3bcee44fb82216ee846af973f86b2e15ba953f1b
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732501"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891281"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Didacticiel : Intégration d’Azure Active Directory à itslearning
 
@@ -145,8 +145,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion itslearning pour démarrer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette itslearning dans Mes applications vous redirige vers l’URL de connexion à itslearning. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette itslearning dans Mes applications vous redirige vers l’URL de connexion à itslearning. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré itslearning, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré itslearning, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

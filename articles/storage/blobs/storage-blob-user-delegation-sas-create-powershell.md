@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 875b2a9f35562dd8f0d5df3c631e5ade1e3fbf75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69184abac12e9146d29ec5e7f14a536756ae0139
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91714529"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613575"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec PowerShell
 
@@ -38,7 +38,7 @@ Pour créer une SAP de délégation d’utilisateur avec PowerShell, installez l
 1. Vérifiez que la dernière version de PowerShellGet est installée. Ouvrez une fenêtre Windows PowerShell et exécutez la commande suivante pour installer la dernière version :
 
     ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
+    Install-Module PowerShellGet -Repository PSGallery -Force
     ```
 
 1. Fermez, puis rouvrez la fenêtre PowerShell après l'installation de PowerShellGet.
@@ -46,7 +46,7 @@ Pour créer une SAP de délégation d’utilisateur avec PowerShell, installez l
 1. Installez la dernière version d’Azure PowerShell :
 
     ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
+    Install-Module Az -Repository PSGallery -AllowClobber
     ```
 
 1. Assurez-vous qu’Azure PowerShell version 3.2.0 ou ultérieure est installé. Exécutez la commande suivante pour installer la dernière version du module PowerShell de Stockage Azure :

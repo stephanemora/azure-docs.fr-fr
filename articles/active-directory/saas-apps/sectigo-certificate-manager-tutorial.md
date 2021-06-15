@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 862138903721ddfb27547adb2b287df0526c32c6
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 05070571a4c8a1b673ff145a9449c9e744718026
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109735923"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Tutoriel : Intégration d'Azure Active Directory à Sectigo Certificate Manager
 
@@ -166,4 +166,4 @@ Sélectionnez **Sectigo Certificate Manager** dans le portail Mes applications. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Sectigo Certificate Manager, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré Sectigo Certificate Manager, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
