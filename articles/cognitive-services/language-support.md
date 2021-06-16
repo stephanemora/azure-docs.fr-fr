@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: c2c2b57ebf4e2a5cd96efce49da87cf42929e96c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a535e1540535c52d4a21684074d81df8b41c4ca
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103472047"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950764"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Prise en charge du langage naturel pour Azure Cognitive Services
 
@@ -33,7 +33,7 @@ Les Cognitive Services suivants sont indépendants de la langue et ne présenten
 * [Vision par ordinateur](./computer-vision/language-support.md)
 * [Form Recognizer (préversion)](./form-recognizer/language-support.md)
 * [Ink Recognizer (préversion)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
-* [Video Indexer](../media-services/video-indexer/language-identification-model.md#guidelines-and-limitations)
+* [Video Indexer](../azure-video-analyzer/video-analyzer-for-media-docs/language-identification-model.md#guidelines-and-limitations)
 
 ## <a name="language"></a>Langage
 
