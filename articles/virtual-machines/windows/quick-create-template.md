@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: d56f565dab1b83e0cf9572e6807577be32678fe7
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: b3ba1aefb02e8cfb139b1afc07e2c57e1d80fe94
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839110"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080270"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Démarrage rapide : Créer une machine virtuelle Windows à l’aide d’un modèle ARM
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/vm-simple-windows/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json":::
 
@@ -61,7 +61,7 @@ Plusieurs ressources sont définies dans le modèle :
     - **Groupe de ressources** : sélectionnez un groupe de ressources existant dans la liste déroulante ou sélectionnez **Créer**, entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK**.
     - **Emplacement** : sélectionnez un emplacement.  Par exemple, **USA Centre**.
     - **Nom d’utilisateur de l’administrateur** : indiquez un nom d’utilisateur, tel que *azureuser*.
-    - **Mot de passe d’administrateur** : entrez un mot de passe à utiliser pour le compte d’administrateur. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+    - **Mot de passe d’administrateur** : entrez un mot de passe à utiliser pour le compte d’administrateur. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
     - **Préfixe d’étiquette DNS** : entrez un identificateur unique à utiliser dans l’étiquette DNS.
     - **Version du système d’exploitation Windows** : sélectionnez la version de Windows que vous souhaitez exécuter sur la machine virtuelle.
     - **Taille de la machine virtuelle** : sélectionnez la [taille](../sizes.md) à utiliser pour la machine virtuelle.

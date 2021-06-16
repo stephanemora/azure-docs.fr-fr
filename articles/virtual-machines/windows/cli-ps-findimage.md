@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/17/2021
 ms.author: cynthn
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 282eaa6e966ff458dfb1dfdd32ef6ec1f2cdc151
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.custom: contperf-fy21q3, devx-track-azurepowershell
+ms.openlocfilehash: e3f49268b11d57ccabccd7c14ccc244103d1db86
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443744"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110670234"
 ---
 # <a name="find-and-use-azure-marketplace-vm-images-with-azure-powershell"></a>Rechercher et utiliser des images de machine virtuelle de la Place de marché Azure avec Azure PowerShell
 
@@ -31,7 +31,7 @@ Une image de Place de Marché dans Azure a les attributs suivants :
 * **Référence SKU** : instance d’une offre, par exemple une version majeure d’une distribution. Exemples : 18.04-LTS, 2019-Datacenter
 * **Version** : numéro de version d’une référence SKU d’image. 
 
-Ces valeurs peuvent être transmises individuellement ou en tant *qu’URN* d’image, combinant les valeurs séparées par le signe deux-points (:). Par exemple : *Éditeur*:*Offre*:*SKU*:*Version*. Vous pouvez remplacer le numéro de version dans l’URN par `latest` pour utiliser la version la plus récente de l’image. 
+Ces valeurs peuvent être transmises individuellement ou en tant qu’*URN* d’image, combinant les valeurs séparées par le signe deux-points (:). Par exemple : *Éditeur*:*Offre*:*SKU*:*Version*. Vous pouvez remplacer le numéro de version dans l’URN par `latest` pour utiliser la version la plus récente de l’image. 
 
 Si l’éditeur d’images fournit des conditions de licences et d’achat supplémentaires, vous devez les accepter avant de pouvoir utiliser l’image.  Pour plus d’informations, consultez [Accepter les conditions du plan d’achat](#accept-purchase-plan-terms).
 

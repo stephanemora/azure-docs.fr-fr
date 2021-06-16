@@ -3,20 +3,20 @@ title: Récupération de base de données accélérée
 titleSuffix: Azure SQL
 description: La récupération de base de données accélérée permet une récupération rapide et cohérente de la base de données, la restauration instantanée des transactions et la troncation agressive des journaux pour les bases de données dans le portefeuille Azure SQL.
 ms.service: sql-database
-ms.subservice: high-availability
+ms.subservice: backup-restore
 ms.custom: sqldbrb=4
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: kfarlee
+ms.author: kfarlee
+ms.reviewer: mathoma
 ms.date: 05/19/2020
-ms.openlocfilehash: bd1b33b2f6b1b0e0bf94639b3991b6507a89f5a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aefc5be21dc60327baecbcc7614e9bc1a78f2ca1
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97400792"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708981"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Récupération de base de données accélérée dans Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]

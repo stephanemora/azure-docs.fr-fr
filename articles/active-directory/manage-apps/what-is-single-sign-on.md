@@ -2,22 +2,22 @@
 title: Qu’est-ce que l’authentification unique Azure ?
 description: Découvrez le fonctionnement de l’authentification unique (SSO) avec Azure Active Directory. Utilisez l’authentification unique afin d’éviter aux utilisateurs de mémoriser les mots de passe de toutes les applications. Utilisez également l’authentification unique pour simplifier l’administration de la gestion des comptes.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: overview
 ms.date: 12/03/2019
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: arvindh, japere
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 65e4b32c7c41eea6a885a09dd7ad772980595a9e
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 3bf2be35f1cd0a0622031db53558397e9d86fceb
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379500"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079316"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Qu’est-ce que l’authentification unique ?
 

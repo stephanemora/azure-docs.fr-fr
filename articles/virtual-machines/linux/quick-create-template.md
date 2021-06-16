@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 6c72f62db310155c9b2fa1d09476ab9406f2d330
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 4a7bd76a6b7536a6bbc117d52fb2c0770145ab9d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813197"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078705"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>Démarrage rapide : Créer une machine virtuelle Ubuntu Linux à l’aide d’un modèle ARM
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/vm-simple-linux/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-linux/azuredeploy.json":::
 
@@ -61,7 +61,7 @@ Plusieurs ressources sont définies dans le modèle :
     - **Nom d’utilisateur de l’administrateur** : indiquez un nom d’utilisateur, tel que *azureuser*.
     - **Type d'authentification** : Vous pouvez choisir d’utiliser une clé SSH ou un mot de passe.
     - **Clé ou mot de passe d’administrateur** en fonction du type d’authentification choisi :
-        - Si vous choisissez **password**, le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+        - Si vous choisissez **password**, le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
         - Si vous choisissez **sshPublicKey**, collez le contenu de votre clé publique.
     - **Préfixe d’étiquette DNS** : entrez un identificateur unique à utiliser dans l’étiquette DNS.
     - **Version du système d’exploitation Ubuntu** : sélectionnez la version Ubuntu que vous souhaitez exécuter sur la machine virtuelle.

@@ -3,20 +3,20 @@ title: Guide pratique pour utiliser le traitement par lot afin d’améliorer le
 description: Cette rubrique explique comment les opérations de traitement par lot appliquées aux bases de données contribuent à améliorer la rapidité et la scalabilité de vos applications Azure SQL Database et Azure SQL Managed Instance. Bien que ces techniques de traitement par lot fonctionnent pour toutes les bases de données SQL, cet article porte exclusivement sur Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: genemi
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: 7f45e7d1515f0d6fc4467b36d95242ef8697c75d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e78f6762e3eb94e010909941cc84d19a37f3afc4
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641393"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110691352"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Utiliser le traitement par lot pour améliorer les performances des applications Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]

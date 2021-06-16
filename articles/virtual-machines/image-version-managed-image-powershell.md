@@ -9,12 +9,13 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: cec4f258cfaa0584c24f2cfc92ec1a536f6277cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 505a160ee677815c5619fad47fd0d1b9ced7d68d
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556978"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110669440"
 ---
 # <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>Cloner une image managée vers une image de galerie d’images partagées
 

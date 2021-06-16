@@ -15,12 +15,12 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 789554121af1c83d9077e6153ca9db01477bde25
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0cd917ced00220d1251b5aa1118f4287623b9445
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97360150"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080036"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Déplacer une machine virtuelle SQL Server vers une autre région au sein d’Azure à l’aide d’Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -154,6 +154,6 @@ Pour éviter des coûts, supprimez la machine virtuelle SQL Server du coffre ain
 Pour plus d’informations, consultez les articles suivants : 
 
 * [Vue d’ensemble de SQL Server sur une machine virtuelle Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Questions fréquentes (FAQ) relatives à SQL Server sur une machine virtuelle Windows](frequently-asked-questions-faq.md)
+* [Questions fréquentes (FAQ) relatives à SQL Server sur une machine virtuelle Windows](frequently-asked-questions-faq.yml)
 * [Guide des tarifs de SQL Server sur une machine virtuelle Windows](pricing-guidance.md)
 * [Notes de publication de SQL Server sur une machine virtuelle Windows](doc-changes-updates-release-notes.md)

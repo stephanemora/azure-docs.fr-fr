@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 674f267d3d99dd22c1ae06b6d32587761d5983ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4638139b6cc57e18b11382341b291a13b6c558c0
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93124915"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540065"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Azure AD et offres SaaS pouvant faire l’objet d’une transaction dans la Place de marché commerciale
 
@@ -68,7 +68,7 @@ Ce tableau décrit les étapes du processus de gestion des abonnements.
 | Étape du processus | Action de l’éditeur | Recommandé ou requis pour les éditeurs |
 | ------------ | ------------- | ------------- |
 | 5. L’éditeur gère l’abonnement à l’application SaaS par le biais de l’API de traitement SaaS. | Gérez les modifications d’abonnement et les autres tâches de gestion via les [API de traitement SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md).<br><br>Cette étape nécessite un jeton d’accès, comme décrit dans l’étape 3 du processus. | Obligatoire |
-| 6. Si vous utilisez la facturation à l’usage, l’éditeur envoie des événements d’utilisation à l’API du service de mesure. | Si votre application SaaS intègre une facturation à l’utilisation, effectuez des notifications d’utilisation par le biais des [API du service de mesure de la Place de marché](./partner-center-portal/marketplace-metering-service-apis.md).<br><br>Cette étape nécessite un jeton d’accès, comme décrit dans l’étape 3. | Requis pour la mesure |
+| 6. Si vous utilisez la facturation à l’usage, l’éditeur envoie des événements d’utilisation à l’API du service de mesure. | Si votre application SaaS intègre une facturation à l’utilisation, effectuez des notifications d’utilisation par le biais des [API du service de mesure de la Place de marché](marketplace-metering-service-apis.md).<br><br>Cette étape nécessite un jeton d’accès, comme décrit dans l’étape 3. | Requis pour la mesure |
 ||||
 
 ## <a name="process-steps-for-user-management"></a>Étapes de processus pour la gestion des utilisateurs
