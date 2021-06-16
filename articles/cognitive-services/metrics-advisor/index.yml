@@ -8,17 +8,17 @@ metadata:
   description: Metrics Advisor est une plateforme de supervision de série chronologique qui fournit un ensemble d’API pour l’ingestion des données, la détection des anomalies et les diagnostics, sans avoir à connaître le machine learning.
   author: mrbullwinkle
   manager: nitinme
-  ms.service: cognitive-services
+  ms.service: applied-ai-services
   ms.subservice: metrics-advisor
   ms.topic: landing-page
   ms.date: 08/13/2020
   ms.author: mbullwin
-  ms.openlocfilehash: 9779d1b024782f723ab9991a09daa2f859bb1539
-  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.openlocfilehash: 51a9315974b97032a58e21923df12d0adbe9d11b
+  ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/25/2021
-  ms.locfileid: "110367287"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111893856"
 landingContent:
 - title: À propos de Metrics Advisor
   linkLists:

@@ -3,20 +3,19 @@ title: Configurer et gérer une référence de contenu
 description: Recherchez une référence de contenu qui vous apprend à configurer et à gérer Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: guide
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.date: 01/14/2020
-ms.openlocfilehash: 19cec1deeef344ea5897061db0fec88066b90b05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d870597665b2e59a660d01453ee0f5de05b0545
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92791764"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110704374"
 ---
 # <a name="configure-and-manage-content-reference---azure-sql-database"></a>Configurer et gérer une référence de contenu – Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

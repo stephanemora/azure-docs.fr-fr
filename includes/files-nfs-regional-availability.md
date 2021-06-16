@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: rogarana
-ms.custom: include file
-ms.openlocfilehash: f5ebd05177abf5fb3468b3ce935b7d004b414424
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file, devx-track-azurepowershell
+ms.openlocfilehash: 75eef9053defcf4e57639fa6dc6a9b327fa65287
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100552289"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110720676"
 ---
 NFS est pris en charge dans **TOUTES** les plus de 30 régions où le stockage de fichiers Premium est disponible.
 

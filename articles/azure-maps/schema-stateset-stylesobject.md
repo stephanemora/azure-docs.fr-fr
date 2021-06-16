@@ -8,20 +8,16 @@ ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 08379e66c97d34eea53410190475e90e156a58e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f213976d0e61706b2d8a9c8465be1ff0a4065b2e
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96903341"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031886"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>Guide de référence du schéma StylesObject pour les cartes dynamiques
 
-> [!IMPORTANT]
-> Les services Azure Maps Creator sont disponibles en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
- `StylesObject` est un tableau de `StyleObject` représentant des styles de stateset. Utilisez le [service État de la fonctionnalité](/rest/api/maps/featurestate) d’Azure Maps Creator (préversion) pour appliquer vos styles StateSet à des caractéristiques de données de cartes d’intérieur. Une fois que vous avez créé vos styles de stateset et que vous les avez associés à des caractéristiques de cartes d’intérieur, vous pouvez les utiliser pour créer des cartes d’intérieur dynamiques. Pour plus d’informations sur la création de cartes d’intérieur dynamiques, consultez [Implémenter des styles dynamiques pour les cartes d’intérieur Creator](indoor-map-dynamic-styling.md).
+ `StylesObject` est un tableau de `StyleObject` représentant des styles de stateset. Utilisez le [service État de la fonctionnalité](/rest/api/maps/v2/feature-state) d’Azure Maps Creator pour appliquer vos styles de stateset à des caractéristiques de données de cartes d’intérieur. Une fois que vous avez créé vos styles de stateset et que vous les avez associés à des caractéristiques de cartes d’intérieur, vous pouvez les utiliser pour créer des cartes d’intérieur dynamiques. Pour plus d’informations sur la création de cartes d’intérieur dynamiques, consultez [Implémenter des styles dynamiques pour les cartes d’intérieur Creator](indoor-map-dynamic-styling.md).
 
 ## <a name="styleobject"></a>StyleObject
 

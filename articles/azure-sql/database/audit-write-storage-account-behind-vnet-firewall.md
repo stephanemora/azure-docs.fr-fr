@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 908c9f1d05c83eaa58f77b79a32d956898c35076
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e0bb7949e6f528925eb66c1148662720b144e06
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93348251"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060351"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Écrire un audit sur un compte de stockage situé derrière un réseau virtuel et un pare-feu
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -154,7 +154,7 @@ Vous pouvez configurer l’audit pour écrire des événements de base de donné
 > [!IMPORTANT]
 > Pour utiliser le compte de stockage derrière le réseau virtuel et le pare-feu, vous devez définir le paramètre **isStorageBehindVnet** sur true
 
-- [Déployer un serveur SQL Azure avec l’audit activé pour écrire des journaux d’audit dans un stockage Blob](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+- [Déployer un serveur SQL Azure avec l’audit activé pour écrire des journaux d’audit dans un stockage Blob](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-blob-storage/)
 
 > [!NOTE]
 > Les exemples liés se trouvent sur un référentiel public externe et sont fournis « en l’état », sans garantie et ne sont pas pris en charge dans n’importe quel service/programme de support Microsoft.

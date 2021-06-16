@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 2/16/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b93fdcc125075786c237ab1eb7bfac8cf2e551f6
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: ad3946dcd850a4a3d05f4d28882d08408e39b707
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108179165"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964690"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Sécuriser l’accès hybride : Sécuriser des applications héritées avec Azure Active Directory
 
@@ -32,13 +32,13 @@ Vous pouvez mener à bien vos transitions et renforcer la sécurité de l’ense
 
 ## <a name="secure-hybrid-access-sha-through-azure-ad-application-proxy"></a>Sécurisation de l’accès hybride (SHA) via le proxy d’application Azure AD
   
-À l’aide du [Proxy d'application](../app-proxy/what-is-application-proxy.md), vous pouvez fournir un [accès à distance sécurisé](../app-proxy/application-proxy.md) à vos applications web locales. Vos utilisateurs n’ont pas besoin d’utiliser un VPN. Les utilisateurs bénéficient d’une connexion facile à leurs applications à partir de n’importe quel appareil après une [authentification unique](add-application-portal-setup-sso.md). Le proxy d’application fournit l’accès à distance en tant que service et vous permet de [facilement publier vos applications locales](../app-proxy/application-proxy-add-on-premises-application.md) à des utilisateurs en dehors du réseau d’entreprise. Il vous permet de mettre à l’échelle votre gestion des accès cloud sans avoir à modifier vos applications locales. [Planifiez le déploiement d’un proxy d’application Azure AD](application-proxy-deployment-plan.md) comme étape suivante.
+À l’aide du [Proxy d'application](../app-proxy/what-is-application-proxy.md), vous pouvez fournir un [accès à distance sécurisé](../app-proxy/application-proxy.md) à vos applications web locales. Vos utilisateurs n’ont pas besoin d’utiliser un VPN. Les utilisateurs bénéficient d’une connexion facile à leurs applications à partir de n’importe quel appareil après une [authentification unique](add-application-portal-setup-sso.md). Le proxy d’application fournit l’accès à distance en tant que service et vous permet de [facilement publier vos applications locales](../app-proxy/application-proxy-add-on-premises-application.md) à des utilisateurs en dehors du réseau d’entreprise. Il vous permet de mettre à l’échelle votre gestion des accès cloud sans avoir à modifier vos applications locales. [Planifiez le déploiement d’un proxy d’application Azure AD](../app-proxy/application-proxy-deployment-plan.md) comme étape suivante.
 
 ## <a name="azure-ad-partner-integrations"></a>Intégrations de partenaires Azure AD
 
 ### <a name="sha-through-networking-and-delivery-controllers"></a>SHA via les contrôleurs de livraison et de mise en réseau
 
-En plus du [Proxy d’application Azure AD](./what-is-application-proxy.md), pour vous permettre d’utiliser le [framework de Confiance Zéro](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/), les partenaires Microsoft avec des fournisseurs tiers. Vous pouvez utiliser votre contrôleur de livraison et de mise en réseau et protéger facilement vos applications héritées, qui sont critiques pour vos processus d’entreprise, mais que vous ne pouviez pas protéger avant avec Azure AD. Il est probable que vous disposiez déjà de tout ce dont vous avez besoin pour commencer à protéger ces applications.
+En plus du [Proxy d’application Azure AD](../app-proxy/what-is-application-proxy.md), pour vous permettre d’utiliser le [framework de Confiance Zéro](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/), les partenaires Microsoft avec des fournisseurs tiers. Vous pouvez utiliser votre contrôleur de livraison et de mise en réseau et protéger facilement vos applications héritées, qui sont critiques pour vos processus d’entreprise, mais que vous ne pouviez pas protéger avant avec Azure AD. Il est probable que vous disposiez déjà de tout ce dont vous avez besoin pour commencer à protéger ces applications.
 
 ![L’image montre un accès hybride sécurisé avec les partenaires de mise en réseau et le proxy d’application](./media/secure-hybrid-access/secure-hybrid-access.png)
 

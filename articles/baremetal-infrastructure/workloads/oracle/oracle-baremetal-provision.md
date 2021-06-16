@@ -2,14 +2,14 @@
 title: Provisionner BareMetal pour Oracle
 description: Découvrez le provisionnement de BareMetal Infrastructure pour Oracle.
 ms.topic: reference
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/14/2021
-ms.openlocfilehash: 45ca2bf8bfc61c3820b4b14daa998e2e82e972fa
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 59618d43d720fe4964d1e2971865f83572e681d9
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107558595"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578548"
 ---
 # <a name="provision-baremetal-for-oracle"></a>Provisionner BareMetal pour Oracle
 

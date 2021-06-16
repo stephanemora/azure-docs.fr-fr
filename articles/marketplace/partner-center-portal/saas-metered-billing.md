@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 9f72d54fda8f66c2fce35f0520b51406aa276bb0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c84f48d7a41a43b1425663b2ceed9ba74276f3f9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92892751"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955615"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Facturation à l’usage pour SaaS à l’aide du service de mesure de la consommation de la Place de marché commerciale
 
@@ -26,7 +26,7 @@ Pour qu’une offre SaaS utilise la facturation à la consommation, elle doit :
 - S’intégrer aux [API de traitement SaaS](./pc-saas-fulfillment-api-v2.md) pour que les clients provisionnent votre offre et s’y connectent.  
 - Être configuré pour le modèle de tarification **forfaitaire** lors de la facturation de votre service aux clients.  Les dimensions sont une extension facultative du modèle de tarification forfaitaire. 
 
-L’offre SaaS peut alors s’intégrer avec les [API du service de mesure de la consommation de la Place de marché commerciale](./marketplace-metering-service-apis.md) pour informer Microsoft des événements facturables.
+L’offre SaaS peut alors s’intégrer avec les [API du service de mesure de la consommation de la Place de marché commerciale](../marketplace-metering-service-apis.md) pour informer Microsoft des événements facturables.
 
 >[!Note]
 >Le service de mesure de la consommation de la Place de marché est disponible seulement pour le modèle de facturation forfaitaire et ne s’applique pas au modèle de facturation par utilisateur.
@@ -41,7 +41,7 @@ Quand il s’agit de définir l’offre avec ses modèles de tarification, il es
 - Dans chaque plan configuré pour un modèle de facturation forfaitaire, au moins un coût récurrent (qui peut être de 0 dollar) est inclus :
     - Coût récurrent **mensuel** : coût récurrent mensuel forfaitaire qui est prépayé tous les mois quand l’utilisateur achète le plan.
     - Coût récurrent **annuel** : coût récurrent annuel forfaitaire qui est prépayé tous les ans quand l’utilisateur achète le plan.
-- Outre les coûts récurrents, un plan forfaitaire peut également inclure des dimensions personnalisées facultatives utilisées pour facturer les clients pour le dépassement d’utilisation non compris dans le forfait.  Chaque dimension représente une unité facturable que votre service communiquera à Microsoft en utilisant l’[API du service de mesure de la consommation de la Place de marché commerciale](./marketplace-metering-service-apis.md).
+- Outre les coûts récurrents, un plan forfaitaire peut également inclure des dimensions personnalisées facultatives utilisées pour facturer les clients pour le dépassement d’utilisation non compris dans le forfait.  Chaque dimension représente une unité facturable que votre service communiquera à Microsoft en utilisant l’[API du service de mesure de la consommation de la Place de marché commerciale](../marketplace-metering-service-apis.md).
 
 ## <a name="sample-offer"></a>Exemple d’offre
 
@@ -67,7 +67,7 @@ Par exemple, Contoso est un éditeur avec un service SaaS appelé Contoso Notifi
 
     [![Tarification du plan Entreprise](./media/saas-enterprise-pricing.png "Cliquer pour agrandir l’affichage")](./media/saas-enterprise-pricing.png)
 
-En fonction du plan sélectionné, un client Azure achetant un abonnement à une offre SaaS de CNS sera en mesure d’envoyer la quantité de SMS et d’e-mails incluse par durée d’abonnement (mois ou année spécifiés dans les détails de l’abonnement par DateDébut et DateFin).  Contoso comptabilise l’utilisation jusqu’à la quantité incluse sans envoyer d’événements d’utilisation à Microsoft. Quand les clients consomment plus que la quantité incluse, ils n’ont pas à changer de plan ou à procéder différemment.  Contoso mesure le dépassement au-delà de la quantité incluse et commence à émettre des événements d’utilisation à destination de Microsoft pour facturer le dépassement d’utilisation avec l’[API du service de mesure de la consommation de la Place de marché commerciale](./marketplace-metering-service-apis.md).  Microsoft, à son tour, facture le client pour le dépassement d’utilisation spécifié par l’éditeur dans les dimensions personnalisées. La facturation du dépassement est effectuée lors du prochain cycle de facturation (mensuel, mais peut être trimestriel ou précoce pour certains clients).  Dans le cas d’un forfait mensuel, la facturation du dépassement est effectuée pour chaque mois où un dépassement s’est produit.  Dans le cas d’un forfait annuel, une fois que la quantité de base incluse par année est consommée, toute utilisation supplémentaire émise par le compteur du client est facturée comme dépassement au cours de chaque cycle de facturation (mensuel) jusqu’à la fin de la durée annuelle de l’abonnement.
+En fonction du plan sélectionné, un client Azure achetant un abonnement à une offre SaaS de CNS sera en mesure d’envoyer la quantité de SMS et d’e-mails incluse par durée d’abonnement (mois ou année spécifiés dans les détails de l’abonnement par DateDébut et DateFin).  Contoso comptabilise l’utilisation jusqu’à la quantité incluse sans envoyer d’événements d’utilisation à Microsoft. Quand les clients consomment plus que la quantité incluse, ils n’ont pas à changer de plan ou à procéder différemment.  Contoso mesure le dépassement au-delà de la quantité incluse et commence à émettre des événements d’utilisation à destination de Microsoft pour facturer le dépassement d’utilisation avec l’[API du service de mesure de la consommation de la Place de marché commerciale](../marketplace-metering-service-apis.md).  Microsoft, à son tour, facture le client pour le dépassement d’utilisation spécifié par l’éditeur dans les dimensions personnalisées. La facturation du dépassement est effectuée lors du prochain cycle de facturation (mensuel, mais peut être trimestriel ou précoce pour certains clients).  Dans le cas d’un forfait mensuel, la facturation du dépassement est effectuée pour chaque mois où un dépassement s’est produit.  Dans le cas d’un forfait annuel, une fois que la quantité de base incluse par année est consommée, toute utilisation supplémentaire émise par le compteur du client est facturée comme dépassement au cours de chaque cycle de facturation (mensuel) jusqu’à la fin de la durée annuelle de l’abonnement.
 
 ## <a name="billing-dimensions"></a>Dimensions de facturation
 
@@ -157,4 +157,4 @@ Pour comprendre les options du serveur de publication et ouvrir un ticket de sup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [API de service de mesure de la Place de marché](./marketplace-metering-service-apis.md)
+- [API de service de mesure de la Place de marché](../marketplace-metering-service-apis.md)

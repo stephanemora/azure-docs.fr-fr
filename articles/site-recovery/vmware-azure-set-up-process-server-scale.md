@@ -1,18 +1,18 @@
 ---
 title: Configurer un serveur de processus avec scale-out pendant la récupération d’urgence des machines virtuelles VMware et serveurs physiques avec Azure Site Recovery | Microsoft Docs
 description: Cet article décrit comment configurer un serveur de processus avec scale-out en puissance pendant la récupération d’urgence des machines virtuelles VMware et serveurs physiques.
-author: Rajeswari-Mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/23/2019
-ms.author: ramamill
-ms.openlocfilehash: 40f912122e6ffb9cccbd32a747f6f0d46fd6c330
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: 9f98b37bf45593d55f9fe90c97dfc8b924f657cd
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96019132"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576721"
 ---
 # <a name="scale-with-additional-process-servers"></a>Mettre à l’échelle avec d’autres serveurs de processus
 

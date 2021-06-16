@@ -2,20 +2,20 @@
 title: 'Démarrage rapide : Affecter des utilisateurs à une application qui utilise Azure Active Directory comme fournisseur d’identité'
 description: Ce guide de démarrage rapide explique comment autoriser les utilisateurs à utiliser une application que vous avez configurée pour utiliser Azure AD en tant que fournisseur d’identité.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
-ms.author: iangithinji
-ms.openlocfilehash: eb6797fdfb57a503b6dece9f2dfdc3cb0c67feef
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.author: mtillman
+ms.openlocfilehash: a6f320c83d2baf179f4aaf4358f13ad4af2f4953
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375336"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081818"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Démarrage rapide : Affecter des utilisateurs à une application qui utilise Azure AD comme fournisseur d’identité
 

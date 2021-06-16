@@ -3,20 +3,20 @@ title: Créer et gérer des serveurs et des bases de données uniques
 description: Apprenez à créer et à gérer des serveurs et des bases de données uniques dans Azure SQL Database à l’aide du portail Azure, de PowerShell, d’Azure CLI, de Transact-SQL (T-SQL) et de l’API REST.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 4aaabdb3d21c41b973b21e6e52442be132796196
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f09bd53a8e98b88bcc42ac085240b45d02671bba
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781592"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693092"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Créer et gérer des serveurs et des bases de données uniques dans Azure SQL Database
 

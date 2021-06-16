@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: include
 ms.date: 6/2/2020
 ms.author: rogarana
-ms.custom: include file
-ms.openlocfilehash: 36069b5575cd0f11060c534a3699bf3064747576
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file, devx-track-azurepowershell
+ms.openlocfilehash: 946e20b2acb1188910bdebf8f802f004644eafda
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84465008"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110720427"
 ---
 Si vous souhaitez utiliser des points de terminaison de service pour limiter l’accès au point de terminaison public du compte de stockage à certains réseaux virtuels, vous devez d’abord collecter des informations sur le compte de stockage et le réseau virtuel. Renseignez `<storage-account-resource-group>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>` et `<subnet-name>` pour recueillir ces informations.
 

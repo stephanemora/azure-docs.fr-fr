@@ -3,20 +3,20 @@ title: Exemple CLI de restauration d’une sauvegarde géoredondante avec Azure 
 description: Exemple de script Azure CLI pour la restauration d’une base de données Azure SQL Managed Instance à partir d’une sauvegarde géoredondante.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 07/03/2019
-ms.openlocfilehash: 5468cfc733b037f6287e8536c8c85994f0840161
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0655ae56422ce29d145814b2cf4686684ae95b1
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86231251"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110698106"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Utiliser CLI pour restaurer une base de données Managed Instance dans une autre région de zone géographique
 

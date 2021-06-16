@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bce54bb845e3085d654e3980123ef5c8a856fd98
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 70cc20b51587a70e8a124b6f3b5d047ff827db83
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530199"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112034586"
 ---
 # <a name="conditional-access-grant"></a>Accès conditionnel : Accorder
 
@@ -74,7 +74,7 @@ Les organisations peuvent exiger que toute tentative d’accès aux applications
 
 Pour tirer parti de ce contrôle d’octroi, l’accès conditionnel exige que l’appareil soit inscrit dans Azure Active Directory, qui lui-même nécessite l’utilisation d’une application de répartiteur. L’application de répartiteur peut être Microsoft Authenticator pour iOS ou bien Microsoft Authenticator ou le portail d’entreprise Microsoft pour appareils Android. Si aucune application de répartiteur n’est installée sur l’appareil lorsque l’utilisateur tente de s’authentifier, l’utilisateur est redirigé vers le magasin d’applications approprié pour installer l’application de répartiteur requise.
 
-Ce paramètre s’applique aux applications iOS et Android suivantes :
+La prise en charge de ce paramètre est confirmée pour les applications clientes suivantes :
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
@@ -86,6 +86,7 @@ Ce paramètre s’applique aux applications iOS et Android suivantes :
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
+- Microsoft Lists
 - Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote

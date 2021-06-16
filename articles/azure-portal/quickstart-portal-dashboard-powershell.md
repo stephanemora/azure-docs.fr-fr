@@ -4,12 +4,12 @@ description: Découvrez comment créer un tableau de bord dans le portail Azure 
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 03/25/2021
-ms.openlocfilehash: cd001a8259c54f1d86aab5983da1413c8163008c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7828dd6ba43cebeef158e897dd8f2a5fb54d8d83
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557443"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077733"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>Démarrage rapide : Créer un tableau de bord dans le portail Azure avec PowerShell
 
@@ -77,7 +77,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 Le tableau de bord que vous créez dans la prochaine partie de ce guide de démarrage rapide nécessite une machine virtuelle existante. Créez une machine virtuelle en effectuant les étapes suivantes.
 
-Stockez les informations d’identification de connexion pour la machine virtuelle dans une variable. Le mot de passe doit être complexe. Il s’agit d’un nouveau nom d’utilisateur et d’un nouveau mot de passe. Ce n’est pas, par exemple, le compte que vous utilisez pour vous connecter à Azure. Pour plus d’informations, consultez les [exigences relatives aux noms d’utilisateur](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) et les [exigences relatives aux mots de passe](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+Stockez les informations d’identification de connexion pour la machine virtuelle dans une variable. Le mot de passe doit être complexe. Il s’agit d’un nouveau nom d’utilisateur et d’un nouveau mot de passe. Ce n’est pas, par exemple, le compte que vous utilisez pour vous connecter à Azure. Pour plus d’informations, consultez les [exigences relatives aux noms d’utilisateur](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-) et les [exigences relatives aux mots de passe](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
 ```azurepowershell-interactive
 $Cred = Get-Credential

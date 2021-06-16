@@ -4,12 +4,12 @@ description: Disponibilité des ressources de calcul et de mémoire pour le serv
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2bf5735c1e50ae31f70b68d7b926e82badeb3933
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 26d1bf74656c63f4957df1129746a3f8fd33c554
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015984"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959110"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilité des ressources pour Azure Container Instances dans les régions Azure
 
@@ -34,23 +34,26 @@ Les régions et les ressources maximales suivantes sont disponibles pour les gro
 | Australie Est | 4 | 16 | 4 | 16 | 50 | N/A |
 | Brésil Sud | 4 | 16 | 2 | 8 | 50 | N/A |
 | Centre du Canada | 4 | 16 | 4 | 16 | 50 | N/A |
+| Est du Canada | 4 | 16 | 4 | 16 | 50 | N/A |
 | Inde centrale | 4 | 16 | 4 | 4 | 50 | V100 |
 | USA Centre | 4 | 16 | 4 | 16 | 50 | N/A |
 | Asie Est | 4 | 16 | 4 | 16 | 50 | N/A |
 | USA Est | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | USA Est 2 | 4 | 16 | 4 | 16 | 50 | N/A |
 | France Centre | 4 | 16 | 4 | 16 | 50 | N/A |
-| Allemagne Centre-Ouest | 3 | 16 | N/A | N/A | 50 | N/A |
+| Allemagne Centre-Ouest | 4 | 16 | N/A | N/A | 50 | N/A |
 | Japon Est | 2 | 8 | 4 | 16 | 50 | N/A |
+| OuJapon Est | 4 | 16 | N/A | N/A | 50 | N/A |
 | Centre de la Corée | 4 | 16 | N/A | N/A | 50 | N/A |
 | Centre-Nord des États-Unis | 2 | 3,5 | 4 | 16 | 50 | K80, P100, V100 |
 | Europe Nord | 4 | 16 | 4 | 16 | 50 | K80 |
 | États-Unis - partie centrale méridionale | 4 | 16 | 4 | 16 | 50 | V100 |
 | Asie Sud-Est | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | Inde Sud | 4 | 16 | N/A | N/A | 50 | K80 |
-| Suisse Nord | 3 | 16 | N/A | N/A | 50 | N/A |
+| Suisse Nord | 4 | 16 | N/A | N/A | 50 | N/A |
 | Sud du Royaume-Uni | 4 | 16 | 4 | 16 | 50 | N/A |
-| Émirats arabes unis Nord | 3 | 16 | N/A | N/A | 50 | N/A |
+| Ouest du Royaume-Uni | 4 | 16 | 4 | 16 | 50 | N/A |
+| Émirats arabes unis Nord | 4 | 16 | N/A | N/A | 50 | N/A |
 | Centre-USA Ouest| 4 | 16 | 4 | 16 | 50 | N/A |
 | Europe Ouest | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | USA Ouest | 4 | 16 | 4 | 16 | 50 | N/A |

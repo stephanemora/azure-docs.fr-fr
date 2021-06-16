@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 4f32768f902ccc34ed182490e456f592ebdee930
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: bf5b2a437d6c6165d6a95ea135d91f4f183ab4e2
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074094"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558617"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-arm-template"></a>Démarrage rapide : Créer un cluster Apache Spark dans Azure HDInsight à l’aide d’un modèle Resource Manager
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/hdinsight-spark-linux/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.hdinsight/hdinsight-spark-linux/azuredeploy.json":::
 

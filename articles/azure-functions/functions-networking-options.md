@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: c35780ae2c4741454685d7d9740a660e965df19e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7c1c8532a3f77054755eb040fceff1bf8cf273e
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606988"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440229"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -161,7 +161,7 @@ Pour savoir comment contrôler l’adresse IP sortante à l’aide d’un résea
 Les API suivantes vous permettent de gérer par programmation les intégrations de réseaux virtuels régionaux :
 
 + **Azure CLI** : utilisez les commandes [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) pour ajouter, répertorier ou supprimer une intégration de réseau virtuel régional.  
-+ **Modèles ARM** : l’intégration d’un réseau virtuel régional peut être activée à l’aide d’un modèle Azure Resource Manager. Pour un exemple complet, consultez [ce modèle de démarrage rapide de Functions](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
++ **Modèles ARM** : l’intégration d’un réseau virtuel régional peut être activée à l’aide d’un modèle Azure Resource Manager. Pour un exemple complet, consultez [ce modèle de démarrage rapide de Functions](https://azure.microsoft.com/resources/templates/function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Dépannage
 

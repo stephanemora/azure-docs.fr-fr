@@ -3,20 +3,20 @@ title: 'Démarrage rapide : Créer une instance managée SQL Azure (portail)'
 description: Ce guide de démarrage rapide explique comment créer, à l’aide du portail Azure, une instance managée, un environnement réseau et une machine virtuelle cliente pour l’accès.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: danimir
-ms.author: danil
-ms.reviewer: sstein
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma
 ms.date: 1/29/2021
-ms.openlocfilehash: d356cad1b4754875574e19be732fdf6481c61e22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77b43cfe781499c408f1952aed532ddb12c621e5
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101691210"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082340"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance"></a>Démarrage rapide : Créer une instance gérée SQL Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -58,7 +58,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://az
    | **Nom de l’instance managée** | Nom valide.|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](/azure/architecture/best-practices/resource-naming).|
    | **Région** |Région dans laquelle vous voulez créer l’instance managée.|Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/).|
    | **Connexion administrateur de l’instance managée** | N’importe quel nom d’utilisateur valide. | Pour connaître les noms valides, consultez [Conventions d’affectation de noms](/azure/architecture/best-practices/resource-naming). N’utilisez pas « serveradmin », car il s’agit d’un rôle réservé au niveau du serveur.|
-   | **Mot de passe** | Mot de passe valide.| Le mot de passe doit contenir au moins 16 caractères et satisfaire aux [exigences de complexité définies](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+   | **Mot de passe** | Mot de passe valide.| Le mot de passe doit contenir au moins 16 caractères et satisfaire aux [exigences de complexité définies](../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).|
 
 - Sélectionnez **Configurer l’instance managée** pour dimensionner les ressources de calcul et de stockage, et pour examiner les niveaux tarifaires. Utilisez les curseurs ou zones de texte pour spécifier la quantité de stockage et le nombre de v-cores. Quand vous avez terminé, sélectionnez **Appliquer** pour enregistrer votre sélection. 
 

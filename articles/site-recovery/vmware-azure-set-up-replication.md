@@ -1,18 +1,18 @@
 ---
 title: Configurer des stratégies de réplication pour la reprise d’activité après sinistre de VMware avec Azure Site Recovery | Microsoft Docs
 description: Décrit comment configurer les paramètres de réplication en vue d’une récupération d’urgence VMware sur Azure avec Azure Site Recovery.
-author: sujayt
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.author: sutalasi
-ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: b7ab71f957b9f36fd6fbc5f9f52ad6d71be8ddff
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84699598"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576636"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Configurer et gérer des stratégies de réplication pour la reprise d’activité après sinistre de VMware
 

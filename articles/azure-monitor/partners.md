@@ -5,12 +5,12 @@ author: rboucher
 ms.author: robb
 ms.topic: conceptual
 ms.date: 04/14/2021
-ms.openlocfilehash: d69935c663106e9377fe78b77bcad063b0e528b4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 004f99f585ca10d6ef9985b001333b2a301df740
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108746168"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537033"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Intégrations partenaires d’Azure Monitor
 
@@ -167,7 +167,7 @@ LogRhythm, leader dans les informations de sécurité et gestion d’événement
 
 Microfocus **ArcSight** comporte un connecteur intelligent pour les Event Hubs Azure Monitor.
 
-[Consultez la documentation ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)
+[Consultez la documentation ArcSight](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0)
 
 Microfocus **Operations Bridge** surveille automatiquement toutes les ressources informatiques hybrides, quel que soit l'appareil, le système d'exploitation, la base de données, l'application ou le service, et quel que soit l'emplacement d'exécution, et applique AIOps à tous les types de données (événements, métriques, journaux et dépendances). Il fournit une combinaison unique de surveillance de la qualité des services et d'analytique approfondie de l'intégrité des applications, et offre une surveillance complète des performances et de la disponibilité des services Microsoft Azure. Operations Bridge permet aux clients de fournir un volet unique, disponible sur n’importe quel appareil équipé d’un navigateur, d’une manière compréhensible pour les parties prenantes tant commerciales qu’informatiques.
 
@@ -355,7 +355,7 @@ L’utilisation d’Azure Monitor pour acheminer les données de supervision ver
 |  IBM QRadar | Non | Le module DSM Microsoft Azure et Microsoft Azure Event Hub Protocol sont disponibles au téléchargement sur le [site Web du support IBM](https://www.ibm.com/support). Pour en savoir plus sur l’intégration à Azure, consultez [Configuration du module DSM QRadar](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
 | Splunk | Non | [Le module complémentaire Microsoft Azure pour Splunk](https://splunkbase.splunk.com/app/3757/) est un projet open source disponible dans Splunkbase. <br><br> Si vous ne pouvez pas installer de module complémentaire dans votre instance Splunk, par exemple, si vous utilisez un proxy ou exécutez sur un cloud Splunk, vous pouvez transférer ces événements au collecteur d’événements HTTP Splunk en utilisant [Azure Functions pour Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), déclenché par les nouveaux messages dans le hub d’événements. |
 | sumologic | Non | Les instructions de configuration de SumoLogic pour consommer les données d’un hub d’événements sont disponibles dans [Collecter des journaux pour une application d’audit Azure à partir d’un hub d’événements](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
-| ArcSight | Non | Le connecteur intelligent ArcSight Azure Event Hub est disponible dans la [collection de connecteurs intelligents ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| ArcSight | Non | Le connecteur intelligent ArcSight Azure Event Hub est disponible dans la [collection de connecteurs intelligents ArcSight](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0). |
 | Serveur syslog | Non | Si vous voulez envoyer en streaming des données Azure Monitor directement vers un serveur syslog, vous pouvez utiliser une [solution basée sur une fonction Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 | LogRhythm | Non| Les instructions permettant de configurer LogRhythm pour collecter les journaux à partir d’un Event Hub sont disponibles [ici](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 |Logz.io | Oui | Pour plus d’informations, consultez [Bien démarrer avec la supervision et la journalisation en utilisant Logz.io pour les applications Java exécutées sur Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio).

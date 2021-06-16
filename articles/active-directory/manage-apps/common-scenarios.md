@@ -1,22 +1,22 @@
 ---
 title: Scénarios courants de gestion des applications pour Azure Active Directory | Microsoft Docs
 description: Centralisation de la gestion des applications avec Azure AD
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: overview
 ms.date: 03/02/2019
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ad4cb5cdee3af68f7212b696dec10980ee89818
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: fc6e389bab894619eb0c974ef6f9829328fe2b0e
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318906"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081728"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralisation de la gestion des applications avec Azure AD
 

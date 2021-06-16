@@ -146,7 +146,7 @@
 - name: Ressources
   items:
     - name: Créer des modèles
-      href: ../azure-resource-manager/templates/template-syntax.md?toc=%2fazure%2fnetworking%2ftoc.json
+      href: ../azure-resource-manager/templates/syntax.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Fournisseurs
       href: networking-partners-msp.md
     - name: Feuille de route Azure

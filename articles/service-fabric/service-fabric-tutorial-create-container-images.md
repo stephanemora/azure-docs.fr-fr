@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous découvrez comment créer des images contene
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 31b5f870465bc1dff9d6ff7827a4efed084bcf62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0bbe5bbe8ed12902541e40e9d78a7e7cdd21f9f1
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92739067"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413137"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutoriel : Créer des images conteneurs sur un cluster Service Fabric Linux
 
@@ -70,7 +70,7 @@ Notez que les deux images ont été téléchargées ou créées. L’image *azur
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
+mcr.microsoft.com/azuredocs/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 
 ```
 
@@ -129,7 +129,7 @@ Sortie :
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
+mcr.microsoft.com/azuredocs/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 ```
 
 Pour obtenir le nom de loginServer, exécutez la commande suivante :
@@ -160,7 +160,7 @@ Sortie :
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
 <acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
-tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
+mcr.microsoft.com/azuredocs/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
 
 ```
 

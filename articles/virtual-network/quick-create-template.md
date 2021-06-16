@@ -6,15 +6,15 @@ services: virtual-network
 author: KumudD
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 05/11/2021
+ms.date: 06/09/2021
 ms.author: kumud
-ms.custom: ''
-ms.openlocfilehash: 28513132e75797adaafc7de32d94379b92f298ee
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a686eacf8e3caa162cfca765e60d2268fe2066e7
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752424"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078075"
 ---
 # <a name="quickstart-create-a-virtual-network---resource-manager-template"></a>Démarrage rapide : Créer un réseau virtuel – Modèle Resource Manager
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json).
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json" range="001-96" highlight="56-92":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json" range="001-98" highlight="56-97":::
 
 Les ressources Azure suivantes ont été définies dans le modèle :
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : permet de créer un réseau virtuel Azure.
@@ -45,7 +45,7 @@ Déployez le modèle Resource Manager sur Azure :
 
 1. Sélectionnez **Déployer sur Azure** pour vous connecter à Azure et ouvrir le modèle. Le modèle crée un réseau virtuel avec deux sous-réseaux.
 
-   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-virtual-network-2vms-create%2Fazuredeploy.json)
+   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fvnet-two-subnets%2Fazuredeploy.json)
 
 2. Dans le portail, dans la page **Créer un réseau virtuel avec deux sous-réseaux**, tapez ou sélectionnez les valeurs suivantes :
    - **Groupe de ressources** : Sélectionnez **Créer nouveau**, tapez un nom pour le groupe de ressources et sélectionnez **OK**.

@@ -1,18 +1,19 @@
 ---
-title: Planifier et gérer les coûts d’Azure SQL Database
+title: Prévoir et gérer les coûts
 description: Découvrez comment planifier et gérer les coûts pour Azure SQL Database avec l’analyse du coût dans le portail Azure.
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.custom: subject-cost-optimization
 ms.service: sql-database
+ms.subservice: service-overview
 ms.topic: how-to
 ms.date: 01/15/2021
-ms.openlocfilehash: 56cf30d89460df8ac50d258bd8b29cf4e7236690
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e43d9b85bc50772ad75e974e11d0e7332e271b29
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98734628"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408908"
 ---
 # <a name="plan-and-manage-costs-for-azure-sql-database"></a>Planifier et gérer les coûts d’Azure SQL Database
 
@@ -38,7 +39,7 @@ Azure SQL Database prend en charge deux modèles d’achat : vCore et DTU. La f
 
 ### <a name="provisioned-or-serverless"></a>Approvisionné ou serverless
 
-Dans le modèle d’achat vCore, Azure SQL Database prend également en charge deux types de niveaux de calcul : débit approvisionné et serverless. La façon dont vous êtes facturé pour chaque niveau de calcul varie. Il est donc important de comprendre ce qui fonctionne le mieux pour votre charge de travail lorsque vous planifiez et considérez les coûts. Pour plus d’informations, consultez [Vue d’ensemble du modèle vCore – Niveaux de calcul](service-tiers-vcore.md#compute-tiers).
+Dans le modèle d’achat vCore, Azure SQL Database prend également en charge deux types de niveaux de calcul : débit approvisionné et serverless. La façon dont vous êtes facturé pour chaque niveau de calcul varie. Il est donc important de comprendre ce qui fonctionne le mieux pour votre charge de travail lorsque vous planifiez et considérez les coûts. Pour plus d’informations, consultez [Vue d’ensemble du modèle vCore – Niveaux de calcul](service-tiers-sql-database-vcore.md#compute-tiers).
 
 Dans le niveau de calcul approvisionné du modèle d’achat vCore, vous pouvez échanger vos licences actuelles contre des tarifs réduits. Pour plus d’informations, consultez [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md).
 

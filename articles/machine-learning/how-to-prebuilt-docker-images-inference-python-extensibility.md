@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 688c0fd03573737ee97084025251c9082a8cb915
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8af27f876f1c325cf99214e36f680e012e86c98d
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382619"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536323"
 ---
 # <a name="python-package-extensibility-for-prebuilt-docker-images-preview"></a>Extensibilité des packages Python pour les images Docker prédéfinies (préversion)
 
@@ -155,7 +155,7 @@ Voici quelques éléments qui peuvent être à l’origine de ce problème :
     | Solution  | Créez un fichier `requirements.txt` qui installe les packages spécifiés au démarrage du conteneur. | Créez un environnement Python local avec toutes les dépendances. Montez ce répertoire dans le conteneur au moment de l’exécution. |
     | Installation des packages           | Aucune installation supplémentaire (en supposant que pip est déjà installé)                                                                                                          | Installation de l’environnement virtuel ou de Conda.                                                                                   |
     | Configuration de l’environnement virtuel              | Aucune configuration supplémentaire de l’environnement virtuel n’est nécessaire, car les utilisateurs peuvent extraire l’environnement utilisateur local actuel avec pip freeze si nécessaire pour créer le fichier `requirements.txt`. | Nécessité de configurer un environnement virtuel propre ; peut nécessiter des étapes supplémentaires en fonction de l’environnement local de l’utilisateur actuel.                        |
-    | Débogage                  | Le serveur est facile à configurer et à déboguer, car les dépendances sont listées clairement. | Un environnement virtuel non propre peut provoquer des problèmes lors du débogage du serveur. Par exemple, il peut ne pas apparaître clairement si les erreurs proviennent de l’environnement ou du code utilisateur. |
+    | [Débogage](how-to-inference-server-http.md)                 | Le serveur est facile à configurer et à déboguer, car les dépendances sont listées clairement. | Un environnement virtuel non propre peut provoquer des problèmes lors du débogage du serveur. Par exemple, il peut ne pas apparaître clairement si les erreurs proviennent de l’environnement ou du code utilisateur. |
     | Cohérence lors du scale-out | Non cohérent car dépendant des packages PyPi externes et des utilisateurs référençant leurs dépendances. Ces téléchargements externes peuvent être peu fiables.                                 | S’appuie seulement sur l’environnement utilisateur, donc pas de problèmes de cohérence.                                                                             |
 
 * Pourquoi mon fichier `requirements.txt` et mon répertoire des dépendances montées sont-ils introuvables dans le conteneur ?

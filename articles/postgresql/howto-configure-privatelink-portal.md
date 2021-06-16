@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 75defcf88128e1b100e403d74f76577525f0bdeb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7561a836f593515cc4d05706ff7834591e19aaf9
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642126"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081296"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Créer et gérer le service Azure Private Link pour Azure Database pour PostgreSQL – Serveur unique à l’aide du Portail Azure
 
@@ -35,7 +35,7 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
 1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
 2. Dans **Créer un réseau virtuel**, entrez ou sélectionnez ces informations :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez *MyVirtualNetwork*. |
     | Espace d’adressage | Entrez *10.1.0.0/16*. |
@@ -66,7 +66,7 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
     | Taille | Conservez la valeur par défaut **Standard DS1 v2**. |
     | **COMPTE ADMINISTRATEUR** |  |
     | Nom d’utilisateur | Entrez un nom d’utilisateur de votre choix. |
-    | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirmer le mot de passe | Retapez le mot de passe. |
     | **RÈGLES DES PORTS D’ENTRÉE** |  |
     | Aucun port d’entrée public | Conservez la valeur par défaut **Aucun**. |

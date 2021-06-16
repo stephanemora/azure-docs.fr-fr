@@ -5,18 +5,16 @@ description: Découvrez comment créer une zone et un enregistrement DNS dans Az
 services: dns
 author: duongau
 ms.author: duau
-ms.date: 09/8/2020
+ms.date: 6/2/2021
 ms.topic: quickstart
 ms.service: dns
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: 3ec97385d9774b93c04ebc4b8c5885d7effbbcd0
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: 4b025f9073497a718f5ab47144794e84b57b1b5b
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107949449"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111568532"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Créer une zone et un enregistrement Azure DNS à l’aide d’un modèle ARM
 
@@ -34,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-azure-dns-new-zone).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/azure-dns-new-zone).
 
 Dans ce guide de démarrage rapide, vous allez créer une zone DNS unique avec un suffixe `azurequickstart.org`. Un enregistrement `A` pointant vers deux adresses IP sera également placé dans la zone.
 

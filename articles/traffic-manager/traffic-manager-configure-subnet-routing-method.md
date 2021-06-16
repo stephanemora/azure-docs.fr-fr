@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
-ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c87278d19a2e035de6abedc8cb5c46bea4e5ca13
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95994891"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081656"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Diriger le trafic vers des points de terminaison spécifiques en fonction du sous-réseau de l’utilisateur via Traffic Manager
 
@@ -49,11 +49,11 @@ Dans cette section, vous allez créer deux machines virtuelles *myEndpointVMEast
 1. En haut à gauche du portail Azure, sélectionnez **Créer une ressource** > **Compute** > **Machine virtuelle Windows Server 2016**.
 2. Entrez ou sélectionnez les informations suivantes pour **De base**, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Créer** :
 
-    |Paramètre|Valeur|
+    |Paramètre|Value|
     |---|---|
     |Nom|myIISVMEastUS|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
-    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Resource group| Sélectionnez **Nouveau**, puis tapez *myResourceGroupTM1*.|
     |Emplacement| Sélectionnez **USA Est**.|
     |||
@@ -135,11 +135,11 @@ Dans cette section, vous allez créer une machine virtuelle (*mVMEastUS* et *myV
 1. En haut à gauche du portail Azure, sélectionnez **Créer une ressource** > **Compute** > **Machine virtuelle Windows Server 2016**.
 2. Entrez ou sélectionnez les informations suivantes pour **De base**, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Créer** :
 
-    |Paramètre|Valeur|
+    |Paramètre|Value|
     |---|---|
     |Nom|myVMEastUS|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
-    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Resource group| Sélectionnez **Existant**, puis *myResourceGroupTM1*.|
     |||
 
@@ -172,7 +172,7 @@ Créez un profil Traffic Manager qui vous permet de retourner des points de term
 1. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Profil Traffic Manager** > **Créer**.
 2. Dans **Créer un profil Traffic Manager**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Créer** :
 
-    | Paramètre                 | Valeur                                              |
+    | Paramètre                 | Value                                              |
     | ---                     | ---                                                |
     | Nom                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
     | Méthode de routage          | Sélectionnez la méthode de routage de **Sous-réseau**.                                       |

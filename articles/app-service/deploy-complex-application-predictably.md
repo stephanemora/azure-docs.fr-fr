@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: aec23c28e075dd38fa65f1315f9abd9e21cdc9cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 636b6d7a15e80e725cadbfb07ed1dd0c5ef0347e
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104951468"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888677"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Mise en service et déploiement de microservices de manière prévisible dans Azure
 Ce didacticiel explique comment mettre en service et déployer une application composée de [microservices](https://en.wikipedia.org/wiki/Microservices) dans [Azure App Service](https://azure.microsoft.com/services/app-service/) sous la forme d'une unité unique et de manière prévisible, à l'aide de modèles de groupe de ressources JSON et des scripts PowerShell. 
@@ -29,7 +29,7 @@ Dans ce didacticiel, vous allez déployer une application incluant les élément
 Dans ce didacticiel, vous allez utiliser les outils suivants. Dans la mesure où il ne s’agit pas d’une discussion complète sur les outils, je vais opter pour le scénario de bout en bout : je vais vous présenter chacun d’eux et vous indiquer à quel emplacement vous pouvez trouver davantage d’informations le concernant. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Modèles Microsoft Azure Resource Manager (JSON)
-Chaque fois que vous créez une application dans Microsoft Azure App Service, par exemple, Microsoft Azure Resource Manager utilise un modèle JSON pour créer le groupe de ressources dans son ensemble, avec les ressources des composants. Un modèle complexe sur la [Place de marché Azure](../marketplace/index.yml) peut inclure la base de données, les comptes de stockage, le plan App Service, l’application elle-même, les règles relatives aux alertes, les paramètres d’application et de mise à l’échelle automatique, etc. Tous ces modèles sont à votre disposition, par le biais de PowerShell. Pour en savoir plus sur les modèles Microsoft Azure Resource Manager, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+Chaque fois que vous créez une application dans Microsoft Azure App Service, par exemple, Microsoft Azure Resource Manager utilise un modèle JSON pour créer le groupe de ressources dans son ensemble, avec les ressources des composants. Un modèle complexe sur la [Place de marché Azure](../marketplace/index.yml) peut inclure la base de données, les comptes de stockage, le plan App Service, l’application elle-même, les règles relatives aux alertes, les paramètres d’application et de mise à l’échelle automatique, etc. Tous ces modèles sont à votre disposition, par le biais de PowerShell. Pour en savoir plus sur les modèles Microsoft Azure Resource Manager, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/syntax.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Kit de développement logiciel (SDK) Microsoft Azure version 2.6 pour Visual Studio
 Le Kit de développement logiciel (SDK) le plus récent contient des améliorations portant sur la prise en charge des modèles Resource Manager dans l’éditeur JSON. Vous pouvez utiliser ce Kit pour créer rapidement un modèle de groupe de ressources à partir de zéro, ou ouvrir un modèle JSON existant (comme un modèle de galerie téléchargé) à des fins de modification, pour remplir le fichier de paramètres, voire pour déployer le groupe de ressources directement à partir d’une solution de groupe de ressources Microsoft Azure.
@@ -250,8 +250,8 @@ Dans DevOps, la répétition et la prévisibilité jouent un rôle majeur pour 
 <a name="resources"></a>
 
 ## <a name="more-resources"></a>Plus de ressources
-* [Langue du modèle Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
-* [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+* [Langue du modèle Azure Resource Manager](../azure-resource-manager/templates/syntax.md)
+* [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/syntax.md)
 * [Fonctions des modèles Azure Resource Manager](../azure-resource-manager/templates/template-functions.md)
 * [Déploiement d’une application avec un modèle Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md)
 * [Utilisation d'Azure PowerShell avec Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md)

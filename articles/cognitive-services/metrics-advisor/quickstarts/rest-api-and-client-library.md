@@ -5,18 +5,18 @@ description: Utilisez ce guide de démarrage rapide pour connecter vos applicati
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.author: mbullwin
 zone_pivot_groups: programming-languages-metrics-monitor
-ms.openlocfilehash: 5b3df5f4b41b2beeec68b667863f6ca7715df47b
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: dc13aec8cd5bab7df93c25275331b34ea8093206
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186936"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894460"
 ---
 # <a name="quickstart-use-the-client-libraries-or-rest-apis-to-customize-your-solution"></a>Démarrage rapide : Utiliser les bibliothèques de client ou les API REST pour personnaliser votre solution
 

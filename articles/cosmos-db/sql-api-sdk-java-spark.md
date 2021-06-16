@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: bd948814b4b647bcc3fbfe58b090b1e794504232
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: fc1927ddf867ab9bfd5b288d57f2c5c9e59b0295
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363629"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957246"
 ---
 # <a name="azure-cosmos-db-apache-spark-2-oltp-connector-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Apache Spark 2 OLTP Connector pour API Core (SQL) : notes de publication et ressources
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,13 +25,13 @@ ms.locfileid: "107363629"
 > * [SDK .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK .NET Change Feed v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.JS](sql-api-sdk-node.md)
-> * [SDK Java v4](sql-api-sdk-java-v4.md)
+> * [Kit SDK Java v4](sql-api-sdk-java-v4.md)
 > * [SDK Java Async v2](sql-api-sdk-async-java.md)
 > * [SDK Java Sync v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Connecteur Spark 3 OLTP](sql-api-sdk-java-spark-v3.md)
-> * [Connecteur Spark 2 OLTP](sql-api-sdk-java-spark.md)
+> * [Connecteur OLTP Spark 3](sql-api-sdk-java-spark-v3.md)
+> * [Connecteur OLTP Spark 2](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [API REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
@@ -62,7 +62,7 @@ Vous pouvez utiliser le connecteur avec [Azure Databricks](https://azure.microso
 | **Téléchargement du Kit de développement logiciel (SDK)** | [Télécharger le dernier .jar](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG), [Maven](https://search.maven.org/search?q=a:azure-cosmosdb-spark_2.4.0_2.11) |
 |**Documentation de l’API** | [Référence Spark Connector]() |
 |**Contribution au Kit de développement logiciel (SDK)** | [Azure Cosmos DB Connector pour Apache Spark sur GitHub](https://github.com/Azure/azure-cosmosdb-spark) | 
-|**Prise en main** | [Accélérer l’analytique en temps réel des Big Data au moyen du connecteur Apache Spark-Azure Cosmos DB](./spark-connector.md#bk_working_with_connector) <br> [Utiliser Apache Spark Structured Streaming avec Apache Kafka et Azure Cosmos DB](../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
+|**Prise en main** | [Accélérer l’analytique en temps réel des Big Data au moyen du connecteur Apache Spark-Azure Cosmos DB](./create-sql-api-spark.md) <br> [Utiliser Apache Spark Structured Streaming avec Apache Kafka et Azure Cosmos DB](../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
 
 ## <a name="release-history"></a>Historique des mises en production
 

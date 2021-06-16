@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 8a46f70e3089a8610fa8ca6362bcba6f624e2b1a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02202255f82af33190e35060196a09e1f5457492
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664178"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955953"
 ---
 # <a name="security-in-azure-database-for-mariadb"></a>Sécurité dans Azure Database for MariaDB
 
@@ -45,7 +45,7 @@ Quand vous créez un serveur Azure Database for MariaDB, vous fournissez les inf
 
 ## <a name="threat-protection"></a>Protection contre les menaces
 
-Vous pouvez activer le service [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md) qui détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des serveurs.
+Vous pouvez activer le service [Advanced Threat Protection](../security-center/defender-for-databases-introduction.md) qui détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des serveurs.
 
 La fonctionnalité d’[enregistrement d’audit](concepts-audit-logs.md) vous permet de suivre l’activité dans vos bases de données. 
 

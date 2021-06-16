@@ -4,12 +4,12 @@ description: Ce tutoriel montre comment utiliser l’extension Intel OpenVINO™
 ms.topic: tutorial
 ms.service: azure-video-analyzer
 ms.date: 05/18/2021
-ms.openlocfilehash: 449cd027396f92be0443d7cd4fe6dabc3eb449f6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9f3a313b1dc99fd86bc2ee764a78a151e8d88f96
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383856"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440555"
 ---
 # <a name="tutorial-analyze-live-video-with-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutoriel : Analyser une vidéo en direct avec l’extension Intel OpenVINO™ DL Streamer – Edge AI 
 
@@ -80,7 +80,7 @@ Ce didacticiel présente les procédures suivantes :
 1. interpréter les résultats ;
 1. Supprimer des ressources.
 
-## <a name="set-up-your-development-environment"></a>Configurer l’environnement de développement
+## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement
 [!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
 
 ## <a name="deploy-the-required-modules"></a>Déployer les modules nécessaires
@@ -114,12 +114,12 @@ Cliquez avec le bouton droit sur l’appareil Azure Video Analyzer et sélection
 ![Démarrer la surveillance](./media/quickstarts/start-monitoring-iot-hub-events.png) 
 
 ### <a name="run-the-sample-program-to-detect-vehicles-persons-or-bike"></a>Exécuter l’exemple de programme pour détecter des véhicules, des personnes ou un vélo
-Si vous ouvrez la [topologie de pipeline](https://raw.githubusercontent.com/Azure/azure-video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json) de ce tutoriel dans un navigateur, vous voyez que la valeur de `grpcExtensionAddress` a été définie sur `tcp://avaExtension:5001`. Comme dans le tutoriel *httpExtensionOpenVINO*, vous n’avez pas besoin de remplacer l’URL par celle du serveur gRPC. À la place, vous indiquez au module à l’aide de la section `extensionConfiguration` du fichier operations d’exécuter un pipeline spécifique. Dans le cas contraire, la valeur par défaut est « object_detection » pour « person_vehicle_bike_detection ». Vous pouvez faire des essais avec d’autres pipelines pris en charge.
+Si vous ouvrez la [topologie de pipeline](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json) de ce tutoriel dans un navigateur, vous voyez que la valeur de `grpcExtensionAddress` a été définie sur `tcp://avaExtension:5001`. Comme dans le tutoriel *httpExtensionOpenVINO*, vous n’avez pas besoin de remplacer l’URL par celle du serveur gRPC. À la place, vous indiquez au module à l’aide de la section `extensionConfiguration` du fichier operations d’exécuter un pipeline spécifique. Dans le cas contraire, la valeur par défaut est « object_detection » pour « person_vehicle_bike_detection ». Vous pouvez faire des essais avec d’autres pipelines pris en charge.
 
 1. Modifiez le fichier *operations.json* :
     * Changez le lien de la topologie du pipeline en direct :
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"`
+        `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"`
 
     * Sous `pipelineTopologySet`, remplacez le nom de la topologie du pipeline en direct par la valeur du lien précédent :
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/20/2021
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: a18c53d972fbb38dc0b0e557d14b2fbffbff15fa
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: b0cc4deebac60fcf0ac4df20b112b8f69da05414
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174357"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072106"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gérer les instantanés avec Azure NetApp Files
 
@@ -49,26 +49,6 @@ Vous pouvez créer des captures instantanées de volume à la demande.
 ## <a name="manage-snapshot-policies"></a>Gérer les stratégies de capture instantanée
 
 Vous pouvez planifier la prise automatique de captures instantanées de volume à l’aide de stratégies de capture instantanée. Vous pouvez également modifier une stratégie de capture instantanée si nécessaire, ou supprimer en une dont vous n’avez plus besoin.  
-
-### <a name="register-the-feature"></a>Inscrire la fonctionnalité
-
-La fonctionnalité **stratégie d’instantané** est actuellement en préversion. Si vous utilisez cette fonctionnalité pour la première fois, vous devez commencer par l’inscrire. 
-
-1. Inscrivez la fonctionnalité : 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
-    ```
-
-2. Vérifiez l’état d’inscription de la fonctionnalité : 
-
-    > [!NOTE]
-    > **RegistrationState** peut être à l’état `Registering` pendant plusieurs minutes, et jusqu’à 60 minutes, avant de passer à l’état `Registered`. Avant de continuer, attendez que l’état soit **Inscrit**.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
-    ```
-Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
 
 ### <a name="create-a-snapshot-policy"></a>Créer une stratégie de capture instantanée 
 

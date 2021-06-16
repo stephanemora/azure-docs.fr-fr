@@ -4,13 +4,13 @@ description: Découvrez comment sauvegarder vos machines virtuelles avec un mod�
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/28/2021
-ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 2d26401f281ee0b7c161db36a37811e042ba7e53
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: mvc,subject-armqs, devx-track-azurepowershell
+ms.openlocfilehash: 434916465e3f395f8db7ac621acd8f922899162b
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736394"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112008000"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Démarrage rapide : Sauvegarder une machine virtuelle dans Azure avec un modèle ARM
 
@@ -26,7 +26,7 @@ Si votre environnement remplit les prérequis et que vous êtes déjà familiari
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). Ce modèle vous permet de déployer une machine virtuelle Windows simple et un coffre Recovery Services configuré avec la stratégie par défaut pour la protection.
+Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/). Ce modèle vous permet de déployer une machine virtuelle Windows simple et un coffre Recovery Services configuré avec la stratégie par défaut pour la protection.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.recoveryservices/recovery-services-create-vm-and-configure-backup/azuredeploy.json":::
 

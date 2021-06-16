@@ -3,12 +3,13 @@ title: Suppression réversible pour la Sauvegarde Azure
 description: Découvrez comment utiliser les fonctionnalités de sécurité dans Sauvegarde Azure pour renforcer la sécurité des sauvegardes.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: da473b1d886ec2fe95a7baae76b09aff38fb3cd7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 29a441db597de5d71ec71dde3f13e0630fabc05e
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95254047"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681282"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Suppression réversible pour la Sauvegarde Azure
 

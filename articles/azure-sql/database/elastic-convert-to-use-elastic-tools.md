@@ -7,16 +7,16 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: scoriani
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18a78ef71143968327b290548b3307a8bbcfdfd2
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92787140"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112021588"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migration de bases de données existantes pour effectuer un scale-out
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -160,7 +160,7 @@ Obtenez les scripts PowerShell à partir des [scripts d’outils de base de donn
 
 Les outils se trouvent également sur GitHub : [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
-Utilisez l’outil de fractionnement et de fusion pour déplacer des données, à partir d’un modèle mutualisé ou vers celui-ci, vers un modèle de client unique. Consultez [Outil de fractionnement et de fusion](elastic-scale-get-started.md).
+Utilisez l’outil de fractionnement et de fusion pour déplacer des données, à partir d’un modèle mutualisé ou vers celui-ci, vers un modèle de client unique. Consultez [Outil de fractionnement et de fusion](elastic-scale-configure-deploy-split-and-merge.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

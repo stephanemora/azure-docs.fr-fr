@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 435d74e771a9d887c87c9d10e6b525ac77cf97e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd96a8c2002bc22a0e4ef2c5a19fa06bf10b5565
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91278326"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071890"
 ---
 # <a name="storage-hierarchy-of-azure-netapp-files"></a>Hiérarchie de stockage d’Azure NetApp Files
 
@@ -63,9 +63,6 @@ Le type de QoS est un attribut d’un pool de capacités. Azure NetApp Files fou
     Le débit maximal alloué à un volume dépend du niveau de service du pool de capacités et du quota de taille du volume. Pour obtenir un exemple de calcul, consultez [Niveaux de service pour Azure NetApp Files](azure-netapp-files-service-levels.md).
 
 - <a name="manual_qos_type"></a>Type de QoS *manuel*  
-
-     > [!IMPORTANT] 
-     > Pour utiliser le type de QoS manuel pour un pool de capacités, il faut s’inscrire.  Consultez [Gérer un pool de capacités de QoS manuel](manage-manual-qos-capacity-pool.md).  
 
     Vous avez l’option d’utiliser le type de QoS manuel pour un pool de capacités.
 

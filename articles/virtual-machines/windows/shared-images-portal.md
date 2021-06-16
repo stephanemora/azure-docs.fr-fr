@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
-ms.openlocfilehash: e28a1412fa417b9f15ab7a6f79305d07ca6d9fec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ef48e6eaef441026457e584a302eb3fe515c0a6
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556092"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079406"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Créer une instance Azure Shared Image Gallery à l’aide du portail
 
@@ -48,7 +48,7 @@ Vous pouvez maintenant créer une ou plusieurs machines virtuelles. Cet exemple 
 1. Pour **Options de disponibilité**, conservez la valeur par défaut *Aucune redondance d’infrastructure nécessaire*.
 1. La valeur sous **Image** est automatiquement renseignée avec la version d’image `latest` si vous avez démarré à partir de la page de la définition d’image.
 1. Pour **Taille**, choisissez une taille de machine virtuelle dans la liste des tailles disponibles, puis **Sélectionner**.
-1. Sous **Compte administrateur**, si l’image était généralisée, indiquez un nom d’utilisateur (par exemple, *azureuser*) et un mot de passe. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](faq.md#what-are-the-password-requirements-when-creating-a-vm). Si votre image était spécialisée, les champs du nom d’utilisateur et du mot de passe seront grisés, car le nom d’utilisateur et le mot de passe de la machine virtuelle source sont utilisés.
+1. Sous **Compte administrateur**, si l’image était généralisée, indiquez un nom d’utilisateur (par exemple, *azureuser*) et un mot de passe. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](faq.yml#what-are-the-password-requirements-when-creating-a-vm-). Si votre image était spécialisée, les champs du nom d’utilisateur et du mot de passe seront grisés, car le nom d’utilisateur et le mot de passe de la machine virtuelle source sont utilisés.
 1. Si vous souhaitez autoriser l’accès à distance à la machine virtuelle, sous **Ports d’entrée publics**, choisissez **Autoriser les ports sélectionnés**, puis sélectionnez **RDP (3389)** dans la liste déroulante. Si vous ne souhaitez pas autoriser l’accès à distance à la machine virtuelle, conservez la sélection **Aucun** pour **Ports d’entrée publics**.
 1. Lorsque vous avez terminé, sélectionnez le bouton **Vérifier + créer** en bas de la page.
 1. Une fois la machine virtuelle validée, sélectionnez **Créer** en bas de la page pour démarrer le déploiement.
@@ -64,9 +64,9 @@ Si vous souhaitez supprimer des ressources individuelles, vous devez les supprim
 
 Vous pouvez également créer la ressource de galerie d’images partagées à l’aide de modèles. Plusieurs modèles de démarrage rapide Azure sont disponibles : 
 
-- [Créer une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [Créer une définition d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [Créer une version d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Créer une machine virtuelle à partir d’une version d’image](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Créer une galerie d’images partagées](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Créer une définition d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Créer une version d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Créer une machine virtuelle à partir d’une version d’image](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 Pour plus d’informations sur les galeries d’images partagées, consultez la [vue d’ensemble](../shared-image-galleries.md). Si vous rencontrez des problèmes, consultez [Résoudre les problèmes des galeries d’images partagées](../troubleshooting-shared-images.md).

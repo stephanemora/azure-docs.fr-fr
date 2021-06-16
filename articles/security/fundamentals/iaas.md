@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 6f073777930b4d026d826d2c3586e0886f906206
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3099ff7525e07a2361a63382eea0d3dc6e689ee7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102503077"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956843"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 Cet article décrit les meilleures pratiques en matière de sécurité pour les machines virtuelles et les systèmes d’exploitation.
@@ -43,7 +43,7 @@ La première étape dans la protection de vos machines virtuelles consiste à vo
 Si votre organisation dispose de plusieurs abonnements, vous pouvez avoir besoin d’un moyen de gérer efficacement l’accès, les stratégies et la conformité de ces abonnements. [Les groupes d’administration Azure](../../governance/management-groups/overview.md) fournissent un niveau d’étendue au-delà des abonnements. Vous organisez les abonnements en groupes d’administration (conteneurs) et vous appliquez vos conditions de gouvernance à ces groupes. Tous les abonnements d’un groupe d’administration héritent automatiquement des conditions appliquées au groupe. Les groupes d’administration vous permettent une gestion de qualité professionnelle à grande échelle, quel que soit le type de vos abonnements.
 
 **Bonne pratique** : réduire la variabilité au niveau de la configuration et du déploiement des machines virtuelles.   
-**Détail** : utilisez des modèles [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour renforcer vos choix de déploiement, mais aussi gérer et inventorier plus facilement les machines virtuelles de votre environnement.
+**Détail** : utilisez des modèles [Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) pour renforcer vos choix de déploiement, mais aussi gérer et inventorier plus facilement les machines virtuelles de votre environnement.
 
 **Bonne pratique** : Sécuriser l’accès privilégié.   
 **Détail** : utilisez [l’approche des privilèges minimum](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) et des rôles Azure intégrés pour permettre aux utilisateurs d’accéder aux machines virtuelles et de les configurer :
@@ -99,7 +99,7 @@ Si vous utilisez Windows Update, veillez à ce que la configuration automatique 
 **Détail** : recherchez et installez toutes les mises à jour Windows au début de chaque déploiement. Cette phase est particulièrement importante lorsque vous déployez les images que vous avez créées ou issues de votre propre bibliothèque. Bien que les images obtenues via la Place de marché Microsoft Azure soient automatiquement mises à jour par défaut, il peut y avoir un décalage (jusqu’à plusieurs semaines) après la publication d’une version publique.
 
 **Bonne pratique** : redéployer régulièrement les machines virtuelles pour actualiser la version du système d’exploitation.   
-**Détail** : définissez votre machine virtuelle à l’aide d’un [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) afin de faciliter son redéploiement. L’utilisation d’un modèle vous permet de bénéficier d’une machine virtuelle corrigée et sécurisée lorsque vous en avez besoin.
+**Détail** : définissez votre machine virtuelle à l’aide d’un [modèle Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) afin de faciliter son redéploiement. L’utilisation d’un modèle vous permet de bénéficier d’une machine virtuelle corrigée et sécurisée lorsque vous en avez besoin.
 
 **Bonne pratique** : appliquer rapidement les mises à jour de sécurité pour les machines virtuelles.   
 **Détail** : activer Azure Security Center (niveau Gratuit ou Standard) pour [identifier les mises à jour de sécurité manquantes et les appliquer](../../security-center/asset-inventory.md).

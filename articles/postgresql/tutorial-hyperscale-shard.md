@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/16/2020
-ms.openlocfilehash: 7d93002af866aa653972182a13ea37d37e912ce8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0b076809801a4bb2f055d94ba481736b008b52c
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97630307"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854879"
 ---
 # <a name="tutorial-shard-data-on-worker-nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>Tutoriel : Partitionner des données sur des nœuds Worker dans Azure Database pour PostgreSQL – Hyperscale (Citus)
 
@@ -42,7 +42,7 @@ Dans la section des prérequis, nous avons créé un groupe de serveurs Hypersca
 Les tables de métadonnées du nœud coordinateur effectuent le suivi des Workers et des données distribuées. Nous pouvons vérifier les Workers actifs dans la table [pg_dist_node](reference-hyperscale-metadata.md#worker-node-table).
 
 ```sql
-select nodeid from pg_dist_node where isactive;
+select nodeid, nodename from pg_dist_node where isactive;
 ```
 ```
  nodeid | nodename

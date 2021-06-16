@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 43c39c40af6e02861211a8666fefa57c34072f32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c43cc081316a26065143640a29cebdb90177ebc7
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96905194"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031634"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Révisions, flux de travail et travaux avec modération du contenu
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 Content Moderator combine la modération assistée par ordinateur et les capacités d’intervention humaine pour créer un processus de modération optimal adapté à des scénarios concrets. Il utilise pour cela l’[outil de révision](https://contentmoderator.cognitive.microsoft.com) dans le cloud. Dans ce guide, vous allez découvrir les concepts fondamentaux de l’outil de révision : révisions, workflows et travaux.
 

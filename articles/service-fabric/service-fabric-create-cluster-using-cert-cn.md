@@ -3,12 +3,13 @@ title: Créer un cluster à l’aide du nom commun du certificat
 description: Découvrez comment créer un cluster Service Fabric en utilisant un nom commun de certificat à partir d’un modèle.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: c852b40d35f936753d3c16420159676da239b6c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 06567c5a828e855f90c828751d82c5dd4fac0d02
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86246433"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110680912"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Déployer un cluster Service Fabric utilisant un nom commun de certificat au lieu d’une empreinte
 Deux certificats ne peuvent pas avoir la même empreinte, ce qui complique la gestion ou le renouvellement des certificats de cluster. Toutefois, plusieurs certificats peuvent avoir le même nom commun ou objet.  Un cluster utilisant des noms communs de certificat facilite grandement la gestion des certificats. Cet article décrit le déploiement d’un cluster Service Fabric pour utiliser le nom commun d’un certificat à la place de son empreinte.

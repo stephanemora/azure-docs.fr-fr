@@ -4,19 +4,19 @@ titleSuffix: Azure Applied AI Services
 description: Dans ce guide de démarrage rapide, vous allez utiliser l’outil d’étiquetage des exemples Form Recognizer pour étiqueter manuellement des documents de formulaire. Ensuite, vous allez effectuer l’apprentissage d’un modèle de traitement de documents personnalisé, et utiliser le modèle pour extraire des paires clé/valeur.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/14/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021
 keywords: traitement de documents
-ms.openlocfilehash: af803b92945be059f604a3890a90d3aa36e5781e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b30dbd58e0a9c440f51386052529850d9ce9adc4
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475150"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894071"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -148,11 +148,11 @@ Configurez les paramètres du projet en renseignant les champs avec les valeurs 
 * **Security Token** (Jeton de sécurité) : certains paramètres de projet peuvent inclure des valeurs sensibles, telles que des clés API ou d’autres secrets partagés. Chaque projet génère un jeton de sécurité qui peut être utilisé pour chiffrer/déchiffrer les paramètres de projet sensibles. Vous pouvez accéder aux jetons de sécurité dans les paramètres de l’application, en sélectionnant l’icône d’engrenage en bas de la barre de navigation gauche.
 
 * **Source connection** (Connexion source) : L’exemple d’outil d’étiquetage se connecte à une source (vos formulaires chargés d’origine) et à une cible (étiquettes créées et données de sortie). Les connexions peuvent être configurées et partagées entre les projets. Elles utilisent un modèle de fournisseur extensible, ce qui vous permet d’ajouter facilement de nouveaux fournisseurs sources/cibles. Créez une connexion en cliquant sur le bouton **Add Connection** (Ajouter une connexion). Renseignez les champs avec les valeurs suivantes :
-   * **Display Name** (nom d’affichage) : nom d’affichage de la connexion.
-   * **Description** : description de votre projet.
-   * **SAS URL** (URL SAS) : URL de signature d’accès partagé (SAS) de votre conteneur Stockage Blob Azure.
+  * **Display Name** (nom d’affichage) : nom d’affichage de la connexion.
+  * **Description** : description de votre projet.
+  * **SAS URL** (URL SAS) : URL de signature d’accès partagé (SAS) de votre conteneur Stockage Blob Azure.
 
-   [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+  * [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
 
    :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="Emplacement SAS.":::
 
@@ -217,13 +217,15 @@ Choisissez l’icône d’entraînement dans le volet gauche pour ouvrir la page
 * **Average Accuracy** : justesse moyenne du modèle. Vous pouvez améliorer la justesse du modèle en étiquetant des formulaires supplémentaires et en effectuant un nouvel entraînement pour créer un modèle. Nous vous recommandons de commencer par étiqueter cinq formulaires en analysant et en testant les résultats, puis d’ajouter, si nécessaire, d’autres formulaires.
 * Liste des étiquettes et justesse estimée par étiquette.
 
-    :::image type="content" source="../media/label-tool/custom-2.jpg" alt-text="Vue de l’entraînement.":::
+    :::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="Outil d’affichage de l’entraînement.":::
+
+    
 
 #### <a name="analyze-a-custom-form"></a>Analyser un formulaire personnalisé
 
 Sélectionnez l’icône Analyser (ampoule) située à gauche pour tester votre modèle. Sélectionnez le fichier local (« Local File ») source. Recherchez puis sélectionnez un fichier dans l’exemple de jeu de données que vous avez décompressez dans le dossier de test. Choisissez ensuite le bouton **« Run analysis » (Exécuter l’analyse)** pour obtenir des paires clé/valeur, du texte et des prédictions de tableaux pour le formulaire. L’outil applique des étiquettes dans les cadres englobants et signale la confiance de chaque étiquette.
 
-:::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="Outil d’affichage de l’entraînement.":::
+   :::image type="content" source="../media/label-tool/custom-2.jpg" alt-text="Vue de l’entraînement.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

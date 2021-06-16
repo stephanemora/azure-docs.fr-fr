@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50ba13a49d8e08b70ebf8a8bb12dfe92d8a35bb7
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: e02755f748cffcf7c523ce3b9c6fc651d2b1b02f
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206581"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438915"
 ---
 # <a name="govern-on-premises-service-accounts"></a>Administrer les comptes de service locaux
 
@@ -59,7 +59,7 @@ Pour les comptes d’utilisateur utilisés comme comptes de service, appliquez l
 
 *  **LogonWorkstations** : Limitez les autorisations d’accès du compte de service. S’il est exécuté localement sur un ordinateur, et qu’il a uniquement accès aux ressources de cet ordinateur, empêchez-le de se connecter ailleurs.
 
-* [**Impossible de changer le mot de passe**](/powershell/module/addsadministration/set-aduser) : Empêchez le compte de service de modifier son propre mot de passe en attribuant au paramètre la valeur false.
+* [**Impossible de changer le mot de passe**](/powershell/module/activedirectory/set-aduser) : Empêchez le compte de service de modifier son propre mot de passe en attribuant au paramètre la valeur false.
  
 ## <a name="build-a-lifecycle-management-process"></a>Mettre en place un processus de gestion du cycle de vie
 

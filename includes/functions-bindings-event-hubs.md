@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 05d136093bd509e8c23ce8622423216326b0f1f2
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 11d9b2c4825df76bad8e7c860c9edae3b60233ea
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102623329"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110575027"
 ---
 ## <a name="add-to-your-functions-app"></a>Ajouter à votre application de fonction
 
@@ -31,7 +31,7 @@ Pour utiliser le déclencheur et les liaisons, vous devez référencer le packag
 
 ### <a name="event-hubs-extension-5x-and-higher"></a>Extension Event Hubs 5.x et versions ultérieures
 
-Une nouvelle version de l’extension de liaisons d’Event Hubs est disponible sous la forme d’un [package NuGet en préversion](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.0.0-beta.1). Cette préversion introduit la possibilité de [se connecter à l’aide d’une identité au lieu d’un secret](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection). Pour les applications .NET, elle change également les types vers lesquels vous pouvez établir une liaison, en remplaçant les types de `Microsoft.Azure.EventHubs` par des types plus récents de [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs).
+Une nouvelle version de l’extension de liaisons d’Event Hubs est disponible sous la forme d’un [package NuGet en préversion](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.0.0-beta.4). Cette préversion introduit la possibilité de [se connecter à l’aide d’une identité au lieu d’un secret](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection). Pour les applications .NET, elle change également les types vers lesquels vous pouvez établir une liaison, en remplaçant les types de `Microsoft.Azure.EventHubs` par des types plus récents de [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs).
 
 > [!NOTE]
 > Le package en préversion n’étant pas inclus dans un bundle d’extensions, il doit être installé manuellement. Pour les applications .NET, ajoutez une référence au package. Pour tous les autres types d’applications, consultez [Mettre à jour vos extensions].

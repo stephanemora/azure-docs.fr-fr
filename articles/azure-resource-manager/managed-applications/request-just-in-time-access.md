@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: evanhi
-ms.openlocfilehash: b7c067ca82ea7fbe7eb9c0f3d50b7fe75dfb47df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae7c4e61107518676b2cc8308904816d075ecf7e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377361"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951491"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Activer et demander l’accès juste à temps pour les applications managées Azure
 
@@ -72,7 +72,7 @@ Lors de la création de votre offre dans l'Espace partenaires, veillez à active
 
 1. Connectez-vous au portail Place de marché commerciale de l'[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
-1. Pour créer une application managée, suivez la procédure décrite dans [Créer une offre d'application Azure](../../marketplace/create-new-azure-apps-offer.md).
+1. Pour créer une application managée, suivez la procédure décrite dans [Créer une offre d'application Azure](../../marketplace/azure-app-offer-setup.md).
 
 1. Sur la page **Configuration technique**, cochez la case **Activer l'accès juste à temps (JIT)** .
 

@@ -3,12 +3,12 @@ title: Créer et déployer des projets de groupe de ressources avec Visual Studi
 description: Utilisez Visual Studio pour créer un projet de groupe de ressources Azure et déployer les ressources dans Azure.
 ms.topic: conceptual
 ms.date: 04/12/2021
-ms.openlocfilehash: 4c0e19042506e0cf1772398b0a02b81f0245b1c7
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 71474578853523245b4859680b739254702afde6
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306974"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958111"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio
 
@@ -51,7 +51,7 @@ Dans cette section, vous créez un projet de groupe de ressources Azure avec un 
 
 ## <a name="customize-resource-manager-template"></a>Personnaliser le modèle Resource Manager
 
-Vous pouvez personnaliser un projet de déploiement en modifiant le modèle Resource Manager qui décrit les ressources que vous voulez déployer. Pour en savoir plus sur les éléments du modèle Resource Manager, consultez [Création de modèles Azure Resource Manager](template-syntax.md).
+Vous pouvez personnaliser un projet de déploiement en modifiant le modèle Resource Manager qui décrit les ressources que vous voulez déployer. Pour en savoir plus sur les éléments du modèle Resource Manager, consultez [Création de modèles Azure Resource Manager](./syntax.md).
 
 1. Pour travailler sur votre modèle, ouvrez **WebSite.json**.
 

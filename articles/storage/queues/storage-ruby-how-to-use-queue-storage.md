@@ -4,16 +4,16 @@ description: Découvrez comment utiliser le Stockage File d'attente Azure pour c
 author: twooley
 ms.author: twooley
 ms.reviewer: dineshm
-ms.date: 12/08/2016
+ms.date: 06/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 257b435f0136884e8568f4201794a7ce5cf0c209
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 7850e7fef034fd618c86400e17ddaa319c45005a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275853"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080990"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Utilisation du stockage de files d'attente à partir de Ruby
 
@@ -42,7 +42,7 @@ Pour utiliser Stockage Azure, vous devez télécharger et utiliser le package Az
 ### <a name="use-rubygems-to-obtain-the-package"></a>Utilisation de RubyGems pour obtenir le package
 
 1. Ouvrez une interface de ligne de commande, telle que PowerShell (Windows), Terminal (Mac) ou Bash (Unix).
-2. Tapez `gem install Azure` dans la fenêtre de commande pour installer gem et les dépendances.
+2. Tapez `gem install azure` dans la fenêtre de commande pour installer gem et les dépendances.
 
 ### <a name="import-the-package"></a>Importation du package
 

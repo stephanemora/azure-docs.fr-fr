@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/20/2021
-ms.openlocfilehash: ced923253b1e426c0d67594deed90c7fa6d8c37e
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: f6769d693eb19943ce8412d045a76382c4d98fb8
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107820139"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110612658"
 ---
 # <a name="configure-dynamics-365-for-customer-engagement--power-apps-offer-listing-details"></a>Configurer les détails d’une annonce d’offre Dynamics 365 pour Customer Engagement et Power Apps
 
@@ -75,8 +75,6 @@ Fournissez ici au moins un (et au plus trois) documents marketing associés au f
 ## <a name="marketplace-media"></a>Médias de la Place de marché
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format PNG. Votre demande sera rejetée si les images sont floues.
-
-[!INCLUDE [logo tips](includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Si vous rencontrez un problème pendant le chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.

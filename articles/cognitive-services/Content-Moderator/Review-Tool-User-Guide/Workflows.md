@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: pafarley
-ms.openlocfilehash: 6eb2a2d2762b60a12bb9a24b92e2edae4b846cd1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87d643e7658477fb13f857b8b123889d82c5dfff
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96904140"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033830"
 ---
 # <a name="define-and-use-moderation-workflows"></a>Définir et utiliser des flux de travail de modération
+
+[!INCLUDE [deprecation notice](../includes/tool-deprecation.md)]
 
 Dans ce guide, vous apprendrez à configurer et à utiliser des [flux de travail](../review-api.md#workflows) sur le site web de l’[outil de révision](https://contentmoderator.cognitive.microsoft.com). Les flux de travail sont des filtres personnalisés basés sur le cloud qui vous permettent de gérer plus efficacement le contenu. Flux de travail peut se connecter à une variété de services pour filtrer le contenu de différentes façons et puis exécutez l’action appropriée. Ce guide vous montre comment utiliser le connecteur Content Moderator (inclus par défaut) pour filtrer le contenu et configurer les évaluations humaines dans un scénario de modération typique.
 

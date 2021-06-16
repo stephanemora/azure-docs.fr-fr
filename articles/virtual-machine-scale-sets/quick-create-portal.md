@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 4ed0932e82751a5ded4bfc9d234bfcd16fa5b9e0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f9a5c8e95b5230b5689a63a74bb31324c083e28a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935445"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078291"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Démarrage rapide : Créer un groupe de machines virtuelles identiques dans le portail Azure
 
@@ -34,7 +34,7 @@ Commencez par créer un équilibreur de charge Standard public en utilisant le p
 1. Dans la zone de recherche, tapez **équilibreur de charge**. Sous **Place de marché** dans les résultats de la recherche, choisissez **Équilibreur de charge**.
 1. Dans l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre                 | Valeur   |
+    | Paramètre                 | Value   |
     | ---| ---|
     | Abonnement  | Sélectionnez votre abonnement.    |    
     | Resource group | Sélectionnez **Créer**, puis entrez *myVMSSResourceGroup* dans la zone de texte.|
@@ -61,7 +61,7 @@ Vous pouvez déployer un groupe identique avec une image Windows Server ou une i
 1. Dans **Région**, sélectionnez une région proche de vous.
 1. Sélectionnez une image de la place de marché pour **Image**. Dans cet exemple, nous avons choisi *Ubuntu Server 18.04 LTS*.
 1. Entrez le nom d’utilisateur de votre choix, puis sélectionnez le type d’authentification que vous préférez.
-   - Un **mot de passe** doit comporter au moins 12 caractères, avec au moins trois des quatre caractères suivants : une minuscule, une majuscule, un chiffre et un caractère spécial. Pour plus d’informations, consultez les [critères de nom d’utilisateur et de mot de passe](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
+   - Un **mot de passe** doit comporter au moins 12 caractères, avec au moins trois des quatre caractères suivants : une minuscule, une majuscule, un chiffre et un caractère spécial. Pour plus d’informations, consultez les [critères de nom d’utilisateur et de mot de passe](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
    - Si vous sélectionnez une image de disque du système d’exploitation Linux, vous pouvez choisir à la place **Clé publique SSH**. Entrez uniquement votre clé publique, comme *~/.ssh/id_rsa.pub*. Vous pouvez utiliser Azure Cloud Shell à partir du portail pour [créer et utiliser des clés SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
    
     :::image type="content" source="./media/virtual-machine-scale-sets-create-portal/quick-create-scale-set.png" alt-text="Image montrant les options de création de groupes identiques dans le portail Azure.":::

@@ -9,12 +9,12 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f5fa4ad357e937fed7df5be24a1fc78409a0259b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12337e9c6d42ee140367c26cd160fd0a5fd595d3
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100516394"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902300"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Tutoriel : Implémenter le modèle de capture de lac de données pour mettre à jour une table Delta Databricks
 
@@ -35,7 +35,7 @@ Pour créer cette solution, nous allons procéder dans l’ordre inverse et comm
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-* Créez un compte de stockage qui possède un espace de noms hiérarchique (Azure Data Lake Storage Gen2). Ce tutoriel utilise un compte de stockage nommé `contosoorders`. Vérifiez que le [rôle Contributeur aux données Blob du stockage](../common/storage-auth-aad-rbac-portal.md) est attribué à votre compte d’utilisateur.
+* Créez un compte de stockage qui possède un espace de noms hiérarchique (Azure Data Lake Storage Gen2). Ce tutoriel utilise un compte de stockage nommé `contosoorders`. Vérifiez que le [rôle Contributeur aux données Blob du stockage](assign-azure-role-data-access.md) est attribué à votre compte d’utilisateur.
 
    Consultez [Créer un compte de stockage à utiliser avec Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 

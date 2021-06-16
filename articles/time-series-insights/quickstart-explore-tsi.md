@@ -3,19 +3,20 @@ title: 'Démarrage rapide : Explorer l’environnement de démonstration Gen2 �
 description: Explorez les fonctionnalités clés de l’environnement de démonstration Azure Time Series Insights Gen2.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: shreyasharmamsft
+ms.author: shresha
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 03/01/2021
-ms.openlocfilehash: 25340af243217313ce6d3f7205c102d4bcd350b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b109d363b495712efd96e2fa8e5684ad43980964
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101698108"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061125"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>Démarrage rapide : Explorer l’environnement de démonstration Azure Time Series Insights Gen2
 
@@ -32,7 +33,7 @@ Ce démarrage rapide explique comment utiliser Azure Time Series Insights Gen2 p
 
 L’Explorateur Azure Time Series Insights Gen2 présente une analyse de données historiques et de cause racine. Pour commencer :
 
-1. Accédez à l’environnement de  [démonstration Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples).  
+1. Accédez à l’environnement de  [démonstration Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples).
 
 1. Si vous y êtes invité, connectez-vous à l’Explorateur Azure Time Series Insights Gen2 à l’aide de vos informations d’identification de compte Azure.
 
@@ -124,7 +125,7 @@ Azure Time Series Insights Gen2 et la télémétrie du capteur nous ont permis d
 
     Deux des capteurs de tension fonctionnent de manière comparable et dans les limites de la normale. Il semble que le capteur **GridVoltagePhase3** soit la cause du problème.
 
-1. Avec l’ajout de données hautement contextuelles, la baisse au niveau de la phase 3 apparaît encore plus comme le problème. Maintenant, nous avons une bonne piste sur la cause de l’avertissement. Nous sommes prêts à signaler le problème à notre équipe de maintenance.  
+1. Avec l’ajout de données hautement contextuelles, la baisse au niveau de la phase 3 apparaît encore plus comme le problème. Maintenant, nous avons une bonne piste sur la cause de l’avertissement. Nous sommes prêts à signaler le problème à notre équipe de maintenance.
 
     * Modifiez l’affichage pour superposer tous les capteurs **Generator System** sur la même échelle de graphique.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 5a8b722b7bef393422eec395f16de0f38e806152
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: dfc7be7619360e15f3233c469aba92832e5f6278
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141754"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080936"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guide Azure AI pour les solutions de maintenance prédictive
 
@@ -287,7 +287,7 @@ La question ici est : « Quelle est la durée de vie restante de l’équipeme
 
 Figure 4. Étiquetage pour la régression
 
-Pour la régression, l’étiquetage est effectué avec une référence à un point de défaillance. Son calcul n’est pas possible sans connaître la durée pendant laquelle l’équipement a survécu avant une défaillance. Par opposition à la classification binaire, les équipements dont les données ne contiennent pas de défaillances ne peuvent pas être utilisés pour la modélisation. Ce problème est mieux résolu par une autre technique statistique appelée [Analyse de survie](https://en.wikipedia.org/wiki/Survival_analysis). Cependant, des complications peuvent survenir lors de l’application de cette technique à des cas d’usage de la PdM impliquant des données qui varient dans le temps à des intervalles fréquents. Pour plus d’informations sur l’analyse de survie, consultez [ce document d’une page](https://www.cscu.cornell.edu/news/news.php/stnews78.pdf).
+Pour la régression, l’étiquetage est effectué avec une référence à un point de défaillance. Son calcul n’est pas possible sans connaître la durée pendant laquelle l’équipement a survécu avant une défaillance. Par opposition à la classification binaire, les équipements dont les données ne contiennent pas de défaillances ne peuvent pas être utilisés pour la modélisation. Ce problème est mieux résolu par une autre technique statistique appelée [Analyse de survie](https://en.wikipedia.org/wiki/Survival_analysis). Cependant, des complications peuvent survenir lors de l’application de cette technique à des cas d’usage de la PdM impliquant des données qui varient dans le temps à des intervalles fréquents. Pour plus d’informations sur l’analyse de survie, consultez [ce document d’une page](https://cscu.cornell.edu/wp-content/uploads/78_surv.pdf).
 
 ### <a name="multi-class-classification-for-predictive-maintenance"></a>Classification multiclasse pour la maintenance prédictive
 Les techniques de classification multiclasse peuvent être utilisées dans des solutions de PdM pour deux scénarios :

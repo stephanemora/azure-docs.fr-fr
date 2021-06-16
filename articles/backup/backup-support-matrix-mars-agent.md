@@ -1,14 +1,14 @@
 ---
 title: Matrice de prise en charge pour l’agent MARS
 description: Cet article décrit la prise en charge de Sauvegarde Azure quand vous sauvegardez des machines qui exécutent l’agent MARS (Microsoft Azure Recovery Services).
-ms.date: 04/09/2021
+ms.date: 06/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 20bca0e9ca9dfd735501e68bd0e5a6d69d2ef68e
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 068a5391130f569a2d56fa9bd605356036e7737f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576497"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952991"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Tableau de prise en charge de la sauvegarde avec l’agent MARS (Microsoft Azure Recovery Services)
 
@@ -50,77 +50,7 @@ Changements d’emplacement | Vous pouvez modifier l’emplacement du cache en a
 
 ## <a name="networking-and-access-support"></a>Prise en charge du réseau et de l’accès
 
-### <a name="url-and-ip-access"></a>URL et accès IP
-
-L’agent MARS doit avoir accès à ces URL :
-
-- `http://www.msftncsi.com/ncsi.txt`
-- *.Microsoft.com
-- *.MicrosoftAzure.com
-- *.MicrosoftOnline.com
-- *.Windows.net
-- `www.msftconnecttest.com`
-
-Et à ces adresses IP :
-
-- 20.190.128.0/18
-- 40.126.0.0/18
-
-L’accès à toutes les URL et adresses IP listées ci-dessus utilise le protocole HTTPS sur le port 443.
-
-Lors de la sauvegarde des fichiers et des dossiers de machines virtuelles Azure à l’aide de l’agent MARS, le réseau virtuel Azure doit également être configuré pour autoriser l’accès. Si vous utilisez des groupes de sécurité réseau (NSG), utilisez la balise de service *AzureBackup* pour autoriser l’accès sortant vers Sauvegarde Azure. En plus de l’étiquette pour Sauvegarde Azure, vous devez également autoriser la connectivité pour l’authentification et le transfert de données en créant des [règles NSG](../virtual-network/network-security-groups-overview.md#service-tags) similaires pour Azure AD (*AzureActiveDirectory*) et Stockage Azure (*Storage*). Les étapes suivantes décrivent le processus de création d’une règle pour la balise de Sauvegarde Azure :
-
-1. Dans **Tous les services**, accédez à **Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
-2. Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic sortant**.
-3. Sélectionnez **Ajouter**. Entrez toutes les informations nécessaires à la création d’une nouvelle règle, comme décrit dans [paramètres de règle de sécurité](../virtual-network/manage-network-security-group.md#security-rule-settings). Vérifiez que l’option **Destination** est définie sur *Balise de service* et l’option **Balise de service de destination** sur *AzureBackup*.
-4. Sélectionnez **Ajouter** pour enregistrer la règle de sécurité de trafic sortant que vous venez de créer.
-
-De même, vous pouvez créer des règles de sécurité de trafic sortant NSG pour Stockage Azure et Azure AD. Pour plus d’informations sur les balises de service, consultez [cet article](../virtual-network/service-tags-overview.md).
-
-### <a name="azure-expressroute-support"></a>Support Azure ExpressRoute
-
-Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le Peering publique (disponible pour les anciens circuits) et le Peering Microsoft. La sauvegarde sur un peering privé n’est pas prise en charge.
-
-Avec le Peering public : Garantissez l’accès aux domaines/adresses suivants :
-
-* URLs
-  * `www.msftncsi.com`
-  * `*.Microsoft.com`
-  * `*.WindowsAzure.com`
-  * `*.microsoftonline.com`
-  * `*.windows.net`
-  * `www.msftconnecttest.com`
-* Adresses IP
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-Avec le peering Microsoft, sélectionnez les services/régions et les valeurs de communauté pertinentes suivants :
-
-- Sauvegarde Azure (en fonction de l’emplacement de votre coffre Recovery Services)
-- Azure Active Directory (12076:5060)
-- Stockage Azure (en fonction de l’emplacement de votre coffre Recovery Services)
-
-Pour plus d’informations, consultez [Exigences du routage ExpressRoute](../expressroute/expressroute-routing.md#bgp).
-
->[!NOTE]
->Le peering public Azure est déconseillé pour les nouveaux circuits.
-
-### <a name="private-endpoint-support"></a>Prise en charge d'un point de terminaison privé
-
-Vous pouvez désormais utiliser des points de terminaison privés pour sauvegarder en toute sécurité les données des serveurs vers votre coffre Recovery Services. Dans la mesure où Azure Active Directory ne prend actuellement pas en charge les points de terminaison privés, l’accès sortant doit être attribué aux adresses IP et aux noms de domaine complets requis pour Azure Active Directory séparément.
-
-Lorsque vous utilisez l’agent MARS pour sauvegarder vos ressources locales, assurez-vous que votre réseau local (contenant vos ressources à sauvegarder) est homologué avec le réseau virtuel Azure qui contient un point de terminaison privé pour le coffre. Vous pouvez ensuite continuer à installer l’agent MARS et configurer la sauvegarde. Toutefois, vous devez vous assurer que toutes les communications pour la sauvegarde s’effectuent uniquement par le biais du réseau homologué.
-
-Si vous supprimez des points de terminaison privés pour le coffre après l’enregistrement d’un agent MARS, vous devez réinscrire le conteneur auprès du coffre. Vous n’avez pas besoin d’arrêter leur protection.
-
-En savoir plus sur les [points de terminaison privés pour Sauvegarde Azure](private-endpoints.md).
-
-### <a name="throttling-support"></a>Prise en charge de la limitation
-
-**Fonctionnalité** | **Détails**
---- | ---
-Contrôle de la bande passante | Pris en charge. Dans l’agent MARS, utilisez **Changer les propriétés** pour ajuster la bande passante.
-Limitation du réseau | Non disponible pour les machines sauvegardées qui exécutent Windows Server 2008 R2, Windows Server 2008 SP2 ou Windows 7.
+[!INCLUDE [Configuring network connectivity](../../includes/backup-network-connectivity.md)]
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 

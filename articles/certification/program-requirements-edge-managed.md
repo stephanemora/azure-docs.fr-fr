@@ -1,20 +1,20 @@
 ---
 title: Conditions requises pour la certification Edge Managed
-description: Conditions requises pour le programme de certification Edge Managed
+description: Conditions requises pour la certification Edge Managed
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Edge Managed Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 744f81d0544a765f60793ece1aa539c6c37e39cd
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 7d3cd36dd0f03db7cc701c618b40f58dc9873659
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105975672"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982013"
 ---
-# <a name="azure-certification-edge-managed"></a>Certification Edge Managed Azure 
+# <a name="edge-managed-certification-requirements"></a>Conditions requises pour la certification Edge Managed
 
 Ce document décrit les fonctionnalités spécifiques à l’appareil qui seront représentées dans le catalogue Azure Certified Device. Une fonctionnalité est un attribut d’appareil singulier qui peut décrire l’appareil. 
 
@@ -32,8 +32,8 @@ La certification Edge Managed requiert que toutes les exigences du [programme de
 
 | **Nom**                | AzureReady.DPS                                               |
 | ----------------------- | ------------------------------------------------------------ |
-| **Disponibilité de la cible** | Allumage (en préversion)                                                |
-| **S’applique à**          | N’importe quel appareil                                      |
+| **Disponibilité de la cible** | Déjà disponible                                                |
+| **S’applique à**          | N’importe quel appareil                                                   |
 | **SE**                  | Sans dépendance                                                     |
 | **Type de validation**     | Automatisé                                                    |
 | **Validation**          | AICS valident le DPS pour la prise en charge du code de l’appareil. **1.** L’utilisateur doit sélectionner l’une des méthodes d’attestation (X.509, TPM et clé SAP). **2.** Selon la méthode d’attestation, l’utilisateur doit effectuer une action correspondante, telle que **a)** charger le certificat X.509 dans l’étendue gérée par AICS ; **b)** implémenter la clé SAP ou la paire de clés de type EK (Endorsement Key) dans l’appareil. **3.** Ensuite, l’utilisateur clique sur le bouton « Se connecter » pour se connecter à AICS managé IoT Hub via DPS                                                    |
@@ -44,11 +44,11 @@ La certification Edge Managed requiert que toutes les exigences du [programme de
 
 **Le runtime Edge existe : L’objectif du test est de s’assurer que l’appareil contient un runtime IoT Edge ($edgehub et $edgeagent) qui fonctionne correctement.**
 
-| **Nom**                | EdgeManaged.EdgeRT                                               |
+| **Nom**                | EdgeManaged.EdgeRT                                           |
 | ----------------------- | ------------------------------------------------------------ |
-| **Disponibilité de la cible** | Déjà disponible                                                          |
-| **S’applique à**          | Appareil IoT Edge                                                   |
-| **SE**                  | [Système d’exploitation de niveau1 et niveau2](../iot-edge/support.md)                                                     |
+| **Disponibilité de la cible** | Déjà disponible                                                |
+| **S’applique à**          | Appareil IoT Edge                                              |
+| **SE**                  | [Système d’exploitation de niveau1 et niveau2](../iot-edge/support.md)                 |
 | **Type de validation**     | Automatisé                                                    |
 | **Validation**          | AICS valide la capacité de déploiement du runtime IoT Edge installé. **1.** L’utilisateur doit spécifier un système d’exploitation spécifique (le système d’exploitation ne se trouvant pas dans la liste de niveau 1/2 n’est pas accepté) **2.** AICS génère son fichier config.yaml et déploie le [module de périphérie de capteur Temp simulé](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-iot.simulated-temperature-sensor?tab=Overview) canonique **3.** AICS confirme que le sous-système de conteneur compatible avec l’ancrage (Moby) est installé sur l’appareil **4.** Le résultat de test est déterminé en fonction de la réussite du déploiement du module de périphérie de capteur temporaire simulé et de la fonctionnalité du sous-système de conteneur compatible avec l’ancrage                                                    |
 | **Ressources**           | **a)** [Blog AICS](https://azure.microsoft.com/en-in/blog/expanding-azure-iot-certification-service-to-support-azure-iot-edge-device-certification/), **b)** [Étapes de certification](./overview.md) (a toutes les ressources supplémentaires), **c)** [Exigences](./program-requirements-azure-certified-device.md) |

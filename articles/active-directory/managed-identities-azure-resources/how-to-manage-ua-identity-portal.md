@@ -6,21 +6,23 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: ''
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/26/2020
+ms.date: 05/20/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd4cccdfc3a2cf8dd3827776028a7738ae769673
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 72a9cfe6142b4c82cd122068e096776c19c4e392
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98184828"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080900"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Création, affichage, suppression ou attribution d’un rôle à une identité managée affectée par l’utilisateur avec le Portail Azure
 
@@ -74,16 +76,9 @@ La suppression d'une identité affectée par l'utilisateur ne la supprime pas de
 
 Pour affecter un rôle à une identité managée affectée par l’utilisateur, votre compte a besoin de l’affectation de rôle [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator).
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) en utilisant un compte associé à l’abonnement Azure afin de répertorier les identités managées affectées par l’utilisateur.
-2. Dans la zone de recherche, saisissez *Identités managées*, puis sous Services, cliquez sur **Identités managées**.
-3. Une liste d’identités managées affectées par l’utilisateur pour votre abonnement est retournée.  Sélectionnez l’identité managée affectée par l’utilisateur à laquelle vous souhaitez affecter un rôle.
-4. Sélectionnez **Contrôle d’accès (IAM)** , puis **Ajouter une attribution de rôle**.
+Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
-   ![Début d’identité managée affectée par l’utilisateur](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
+## <a name="next-steps"></a>Étapes suivantes
 
-5. Dans le panneau Ajouter une attribution de rôle, configurez les valeurs suivantes, puis cliquez sur **Enregistrer** :
-   - **Rôle** : rôle à affecter
-   - **Attribuer l’accès à** : ressource à laquelle affecter l’identité managée affectée par l’utilisateur
-   - **Sélectionner** : membre auquel affecter l’accès
-   
-   ![Identité managée affectée par l’utilisateur IAM](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)
+- [Affecter à une identité managée l’accès à une ressource à l’aide d’Azure CLI](howto-assign-access-cli.md)
+- [Affecter à une identité managée l’accès à une ressource à l’aide de PowerShell](howto-assign-access-powershell.md)

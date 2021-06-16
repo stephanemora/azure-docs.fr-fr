@@ -3,12 +3,13 @@ title: FAQ Azure DevTest Labs | Microsoft Docs
 description: Cet article fournit des réponses aux questions fréquemment posées (FAQ) sur Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 6abc2b0b950521d5ce7d4974c3535c5fbd64fba1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 31106eb69e118e6f68fbb1a0eecfe4301839ee88
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139000"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004238"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ d’Azure DevTest Labs
 Obtenez des réponses aux questions les plus fréquemment posées sur Azure DevTest Labs.
@@ -134,7 +135,7 @@ En définitive, le même type de restrictions doit être appliqué dans toute l�
 ## <a name="lab-configuration"></a>Configuration du laboratoire
 
 ### <a name="how-do-i-create-a-lab-from-a-resource-manager-template"></a>Comment puis-je créer un laboratoire à partir d’un modèle Resource Manager ?
-Nous offrons un [dépôt GitHub de modèles Azure Resource Manager de laboratoire](https://azure.microsoft.com/resources/templates/101-dtl-create-lab) que vous pouvez déployer tels quels ou modifier pour créer des modèles personnalisés pour vos laboratoires. À chaque modèle est associé un lien que vous pouvez utiliser pour déployer le laboratoire tel quel dans votre propre abonnement Azure. Ou bien, vous pouvez personnaliser le modèle et [effectuer le déploiement à l’aide de PowerShell ou de l’interface de ligne de commande Azure](../azure-resource-manager/templates/deploy-powershell.md).
+Nous offrons un [dépôt GitHub de modèles Azure Resource Manager de laboratoire](https://azure.microsoft.com/resources/templates/dtl-create-lab) que vous pouvez déployer tels quels ou modifier pour créer des modèles personnalisés pour vos laboratoires. À chaque modèle est associé un lien que vous pouvez utiliser pour déployer le laboratoire tel quel dans votre propre abonnement Azure. Ou bien, vous pouvez personnaliser le modèle et [effectuer le déploiement à l’aide de PowerShell ou de l’interface de ligne de commande Azure](../azure-resource-manager/templates/deploy-powershell.md).
 
 
 ### <a name="can-i-have-all-virtual-machines-to-be-created-in-a-common-resource-group-instead-having-each-machine-in-its-own-resource-group"></a>Puis-je créer toutes les machines virtuelles dans un groupe de ressources commun au lieu d'avoir chaque machine dans son propre groupe de ressources ?

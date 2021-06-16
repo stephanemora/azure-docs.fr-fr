@@ -3,12 +3,12 @@ title: Azure Key Vault en tant que source Event Grid
 description: Décrit les propriétés et le schéma qui sont fournis pour les événements Azure Key Vault avec Azure Event Grid
 ms.topic: conceptual
 ms.date: 02/11/2021
-ms.openlocfilehash: ea8821b15000b74a10f28730ccf82b538e7819e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48f4df660a17c36030b6b6d2396bd96cfec48edc
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363404"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110794083"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault en tant que source Event Grid
 
@@ -48,12 +48,12 @@ L’exemple suivant affiche le schéma pour **Microsoft.KeyVault.SecretNewVersio
       "eventTime":"2019-07-25T01:08:33.1036736Z",
       "data":{
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
-         "vaultName":"sample-kv",
-         "objectType":"Secret",
-         "objectName ":"newsecret",
-         "version":" ee059b2bb5bc48398a53b168c6cdcb10",
-         "nbf":"1559081980",
-         "exp":"1559082102"
+         "VaultName":"sample-kv",
+         "ObjectType":"Secret",
+         "ObjectName ":"newsecret",
+         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "NBF":"1559081980",
+         "EXP":"1559082102"
       },
       "dataVersion":"1",
       "metadataVersion":"1"
@@ -75,12 +75,12 @@ L’exemple suivant affiche le schéma pour **Microsoft.KeyVault.SecretNewVersio
       "time":"2019-07-25T01:08:33.1036736Z",
       "data":{
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
-         "vaultName":"sample-kv",
-         "objectType":"Secret",
-         "objectName ":"newsecret",
-         "version":" ee059b2bb5bc48398a53b168c6cdcb10",
-         "nbf":"1559081980",
-         "exp":"1559082102"
+         "VaultName":"sample-kv",
+         "ObjectType":"Secret",
+         "ObjectName ":"newsecret",
+         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "NBF":"1559081980",
+         "EXP":"1559082102"
       },
       "specversion":"1.0"
    }
@@ -128,12 +128,12 @@ L’objet de données comporte les propriétés suivantes :
 | Propriété | Type | Description |
 | ---------- | ----------- |---|
 | `id` | string | ID de l’objet qui a déclenché cet événement |
-| `vaultName` | string | Nom du coffre de clés de l’objet qui a déclenché cet événement |
-| `objectType` | string | Type de l’objet qui a déclenché cet événement |
-| `objectName` | string | Nom de l’objet qui a déclenché cet événement |
-| `version` | string | Version de l’objet qui a déclenché cet événement |
-| `nbf` | nombre | Date not-before, en secondes, depuis 1970-01-01T00:00:00Z de l’objet qui a déclenché cet événement |
-| `exp` | nombre | Date d’expiration, en secondes, depuis 1970-01-01T00:00:00Z de l’objet qui a déclenché cet événement |
+| `VaultName` | string | Nom du coffre de clés de l’objet qui a déclenché cet événement |
+| `ObjectType` | string | Type de l’objet qui a déclenché cet événement |
+| `ObjectName` | string | Nom de l’objet qui a déclenché cet événement |
+| `Version` | string | Version de l’objet qui a déclenché cet événement |
+| `NBF` | nombre | Date not-before, en secondes, depuis 1970-01-01T00:00:00Z de l’objet qui a déclenché cet événement |
+| `EXP` | nombre | Date d’expiration, en secondes, depuis 1970-01-01T00:00:00Z de l’objet qui a déclenché cet événement |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriels et articles de procédures
 |Intitulé  |Description  |

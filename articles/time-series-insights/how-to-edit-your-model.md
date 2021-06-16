@@ -1,21 +1,22 @@
 ---
 title: Modélisation des données dans les environnements Gen2 – Azure Time Series Insights | Microsoft Docs
 description: Découvrez la modélisation des données dans Azure Time Series Insights Gen2.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: msrsrinivasan
+ms.author: radhsrin
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 89efc1d4f34b250d211f9fd7492588bd2896eb6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 25efcbc36dcf518ea6f589d1d9a2cf1b42ed5eeb
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95016851"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112063501"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-gen2"></a>Modélisation des données dans Azure Time Series Insights Gen2
 
