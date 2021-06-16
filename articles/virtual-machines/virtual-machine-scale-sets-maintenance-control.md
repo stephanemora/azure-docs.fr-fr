@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 55cbc5db534dd1b05f91a24e0104b1f2dc110547
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c97294833ea04e4af559008cf55d3aef7230ef81
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90532931"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072232"
 ---
-# <a name="preview-maintenance-control-for-azure-virtual-machine-scale-sets"></a>Aperçu : Contrôle maintenance pour les groupes de machines virtuelles identiques Azure 
+# <a name="maintenance-control-for-azure-virtual-machine-scale-sets"></a>Contrôle de maintenance pour les groupes de machines virtuelles identiques Azure 
 
 Gérez les [mises à niveau automatiques des images de système d’exploitation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) pour vos groupes de machines virtuelles identiques à l’aide du contrôle de maintenance.
 
@@ -26,11 +26,6 @@ Le workflow complet se résume aux étapes suivantes :
 - Créez une configuration de maintenance.
 - Associez un groupe de machines virtuelles identiques à une configuration de maintenance.
 - Activez les mises à niveau automatiques des systèmes d’exploitation.
-
-> [!IMPORTANT]
-> Le contrôle de maintenance des mises à niveau d’images de système d’exploitation sur les groupes de machines virtuelles identiques Azure est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="limitations"></a>Limites
@@ -46,11 +41,11 @@ Le workflow complet se résume aux étapes suivantes :
 Vous pouvez créer et gérer des configurations de maintenance à l’aide de l’une des options suivantes :
 
 - [Azure PowerShell](virtual-machine-scale-sets-maintenance-control-powershell.md)
+- [Azure CLI](virtual-machine-scale-sets-maintenance-control-cli.md)
+- [Azure portal](virtual-machine-scale-sets-maintenance-control-portal.md)
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Découvrez comment contrôler le moment où la maintenance est appliquée à vos groupes de machines virtuelles identiques Azure à l’aide du contrôle de maintenance et de PowerShell.
 
 > [!div class="nextstepaction"]
 > [Contrôle de maintenance d’un groupe de machines virtuelles identiques avec PowerShell](virtual-machine-scale-sets-maintenance-control-powershell.md)

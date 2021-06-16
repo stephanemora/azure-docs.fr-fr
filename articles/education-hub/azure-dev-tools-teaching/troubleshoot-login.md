@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
-ms.openlocfilehash: 276ab2cc1d79235c00ce1bb50ff9b648bb1de6ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f6320b0af23dbb74f9ced7e0a9fe683861d6e96
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87094088"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894971"
 ---
 # <a name="troubleshooting-student-login-issues"></a>Résolution des problèmes de connexion des étudiants
 L’accès à Azure Dev Tools for Teaching requiert que l’utilisateur dispose d’un compte Microsoft (MSA). Les étudiants sont automatiquement dirigés vers la création d’un MSA si leur compte n’est pas déjà un MSA ou lié à un MSA. Si votre domaine est associé avec Active Directory, tous les comptes sous ce domaine sont déjà considérés comme des comptes MSA.
@@ -51,6 +51,6 @@ La prochaine fois que vous vous connecterez, vous pourrez utiliser votre adresse
     :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Gérer la manière dont vous vous connectez à Microsoft." border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [FORUM AUX QUESTIONS](program-faq.md)
+- [FORUM AUX QUESTIONS](program-faq.yml)
 
 - [Options de support](program-support.md)

@@ -2,7 +2,7 @@
 title: 'Gestion des applications : Bonnes pratiques et recommandations | Microsoft Docs'
 description: Apprenez les bonnes pratiques et les recommandations associées à la gestion des applications dans Azure Active Directory. Découvrez l’utilisation du provisionnement automatique et la publication d’applications locales avec Proxy d’application.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2019
 ms.subservice: app-mgmt
-ms.author: iangithinji
+ms.author: mtillman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f77ff371bfb53cff08d860be6cc0160debe491
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 526c3ead0509b6e69eab23a7f2b3771ffe40bd29
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108765986"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077389"
 ---
 # <a name="application-management-best-practices"></a>Bonnes pratiques relatives à la gestion des applications
 

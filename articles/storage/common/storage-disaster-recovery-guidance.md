@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 06/09/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c091d1b25b8c8e166fa759dfc31421bc7b778232
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 2fdbdcfd847c33bc6d948d12b14f468233b4cf19
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109635226"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901490"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Reprise d’activité après sinistre et basculement de compte de stockage
 
@@ -22,7 +22,7 @@ Microsoft s’efforce de faire en sorte que les services Azure soient toujours d
 
 Stockage Azure prend en charge le basculement de compte pour les comptes de stockage géoredondants. Avec le basculement de compte, vous pouvez lancer le processus de basculement pour votre compte de stockage si le point de terminaison principal devient indisponible. Le basculement met à jour le point de terminaison secondaire pour qu’il devienne le point de terminaison principal pour votre compte de stockage. Une fois le basculement terminé, les clients peuvent commencer à écrire dans le nouveau point de terminaison principal.
 
-Le basculement de compte est disponible pour les types de comptes GPv1, GPv2 et de stockage d’objets BLOB avec des déploiements d’Azure Resource Manager. Le basculement de compte est pris en charge pour toutes les régions publiques, mais n’est pas disponible dans les clouds souverains ou nationaux à l’heure actuelle. Le basculement de compte n’est pas pris en charge pour les comptes de stockage avec un espace de noms hiérarchique activé.
+Le basculement de compte est disponible pour les types de comptes GPv1, GPv2 et de stockage d’objets BLOB avec des déploiements d’Azure Resource Manager. Le basculement de compte n’est pas pris en charge pour les comptes de stockage avec un espace de noms hiérarchique activé.
 
 Cet article décrit les concepts et les processus impliqués dans un basculement de compte, et explique comment préparer votre compte de stockage pour la reprise avec le moins d’impact possible sur le client. Pour découvrir comment lancer un basculement de compte dans le Portail Azure ou PowerShell, consultez [Lancer un basculement de compte](storage-initiate-account-failover.md).
 
@@ -157,7 +157,7 @@ N’oubliez pas que toutes les données stockées dans un disque temporaire sont
 Les fonctionnalités et services suivants ne sont pas pris en charge pour le basculement de compte :
 
 - Azure File Sync ne prend pas en charge le basculement de compte de stockage. Les comptes de stockage contenant des partages de fichiers Azure utilisés en tant que points de terminaison cloud dans Azure File Sync ne doivent pas être basculés. Cela provoquera en effet un arrêt de la synchronisation et pourra entraîner une perte inattendue de données dans le cas de fichiers nouvellement hiérarchisés.
-- Les comptes dans lesquels est activé un espace de noms hiérarchique (comme Data Lake Storage Gen2) ne sont pas pris en charge pour l’instant.
+- Les comptes de stockage dans lesquels est activé un espace de noms hiérarchique (comme Data Lake Storage Gen2) ne sont pas pris en charge pour l’instant.
 - Un compte de stockage contenant des objets blob de blocs premium ne peut pas être basculé. Les comptes de stockage qui prennent en charge les objets blob de blocs premium ne prennent pas en charge la géoredondance.
 - Un compte de stockage incluant des conteneurs avec une [stratégie d’immuabilité WORM](../blobs/storage-blob-immutable-storage.md) ne peut pas être basculé. Les stratégies de rétention temporelles ou les stratégies de conservation légale déverrouillées/verrouillées empêchent le basculement afin de maintenir la conformité.
 

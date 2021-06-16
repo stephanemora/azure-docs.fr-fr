@@ -3,12 +3,12 @@ title: Déployer des modèles avec le service Cloud Shell
 description: Utilisez Azure Resource Manager et Azure Cloud Shell pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Azure Resource Manager (modèle ARM).
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 7697eb0a6786a07546bb0de679df69d64da30b1b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: bd597c2cb29120e680493a99aac33f146940bc19
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742342"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957874"
 ---
 # <a name="deploy-arm-templates-from-azure-cloud-shell"></a>Déployer des modèles ARM à partir d’Azure Cloud Shell
 
@@ -118,4 +118,4 @@ Pour déployer un modèle local, vous devez commencer par charger votre modèle 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur les commandes de déploiement, consultez [Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure](deploy-cli.md) et [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](deploy-powershell.md).
-- Pour afficher un aperçu des modifications avant de déployer un modèle, consultez [Opération de simulation de déploiement de modèle ARM](template-deploy-what-if.md).
+- Pour afficher un aperçu des modifications avant de déployer un modèle, consultez [Opération de simulation de déploiement de modèle ARM](./deploy-what-if.md).

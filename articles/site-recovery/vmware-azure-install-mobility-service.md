@@ -1,17 +1,19 @@
 ---
 title: Préparer les machines sources à une installation Push de Mobility Service pour la reprise d’activité de machines virtuelles VMware et serveurs physiques sur Azure | Microsoft Docs
 description: Découvrez comment préparer votre serveur à une installation Push de l'agent de mobilité pour la reprise d’activité de machines virtuelles VMware et serveurs physiques sur Azure à l’aide du service Azure Site Recovery.
-author: Rajeswari-Mamilla
+services: site-recovery
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.author: ramamill
-ms.openlocfilehash: 78fddb5b4512883f8e78d6ed53f6e3dbbeba0e4f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: c48fe1f4c6d871506235d5bea743226bc1184fee
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90524995"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576910"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Préparer la machine source pour l’installation Push de l’agent de mobilité
 

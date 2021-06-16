@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs
+ms.custom: mvc, subject-armqs, devx-track-azurepowershell
 ms.date: 04/01/2021
-ms.openlocfilehash: 01fe3121173eb730584dadd1266b3217af2b5017
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: e141a33be0433e8d40af41c4624b4921321a6aae
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279547"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971605"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Démarrage rapide : Créer et déployer un workflow d’application logique à l’aide d’un modèle Resource Manager
 
@@ -30,7 +30,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](http
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Ce guide de démarrage rapide utilise le modèle [**Créer une application logique**](https://azure.microsoft.com/resources/templates/101-logic-app-create/), que vous trouverez dans la [galerie des modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates), trop longue pour être présentée ici. Passez plutôt en revue le [« fichier azuredeploy.json »](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) du modèle de démarrage rapide dans la galerie des modèles.
+Ce guide de démarrage rapide utilise le modèle [**Créer une application logique**](https://azure.microsoft.com/resources/templates/logic-app-create/), que vous trouverez dans la [galerie des modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates), trop longue pour être présentée ici. Passez plutôt en revue le [« fichier azuredeploy.json »](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) du modèle de démarrage rapide dans la galerie des modèles.
 
 Ce modèle de démarrage rapide crée un workflow d’application logique qui utilise le déclencheur de périodicité, configuré pour s’exécuter toutes les heures, ainsi qu’une [action *intégrée*](../connectors/built-in.md) HTTP, qui appelle une URL qui retourne l’état d’Azure. Une action intégrée est native dans la plateforme Azure Logic Apps.
 
@@ -64,7 +64,7 @@ Suivez l’option que vous voulez utiliser pour déployer le modèle de démarra
 
 1. Dans le portail, dans la page **Créer une application logique à l’aide d’un modèle**, entrez ou sélectionnez ces valeurs :
 
-   | Propriété | Valeur | Description |
+   | Propriété | Value | Description |
    |----------|-------|-------------|
    | **Abonnement** | <*Azure-subscription-name*> | Nom de l’abonnement Azure à utiliser. |
    | **Groupe de ressources** | <*nom-groupe-de-ressources-Azure*> | Nom d’un groupe de ressources Azure nouveau ou existant. Cet exemple utilise `Check-Azure-Status-RG`. |
@@ -167,7 +167,7 @@ Pour plus d’informations, consultez les rubriques suivantes :
 
    Pour plus d’informations, consultez [API REST Gestion des ressources : Déploiements : Créer ou mettre à jour](/rest/api/resources/deployments/createorupdate).
 
-1. Pour fournir les valeurs à utiliser pour le déploiement, comme la région Azure et les liens vers le modèle de démarrage rapide et le [fichier de paramètres](../azure-resource-manager/templates/template-parameters.md), qui contient les valeurs que le modèle de démarrage rapide va utiliser lors du déploiement, suivez cette syntaxe pour le corps de la demande que vous envoyez à l’API REST Gestion des ressources :
+1. Pour fournir les valeurs à utiliser pour le déploiement, comme la région Azure et les liens vers le modèle de démarrage rapide et le [fichier de paramètres](../azure-resource-manager/templates/parameters.md), qui contient les valeurs que le modèle de démarrage rapide va utiliser lors du déploiement, suivez cette syntaxe pour le corps de la demande que vous envoyez à l’API REST Gestion des ressources :
 
    ```json
    {
@@ -186,7 +186,7 @@ Pour plus d’informations, consultez les rubriques suivantes :
    }
    ```
 
-   | Propriété | Valeur | Description |
+   | Propriété | Value | Description |
    |----------|-------|-------------|
    | `location`| <*Azure-region*> | Région Azure à utiliser pour le déploiement. Cet exemple utilise `West US`. |
    | `templateLink` : `uri` | <*quickstart-template-URL*> | Emplacement de l’URL du modèle de démarrage rapide à utiliser pour le déploiement : <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json`. |

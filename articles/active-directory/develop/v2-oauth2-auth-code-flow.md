@@ -13,12 +13,12 @@ ms.date: 03/29/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3e3f729243f4bcd8f40ca681bd1c0d7675696e27
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1d2c2f3131c8ee8fb73dfd52df3d7545b52b0044
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110455146"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075148"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plateforme d’identités Microsoft et flux de code d’autorisation OAuth
 
@@ -164,7 +164,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |`response_type`| Obligatoire | L’ajout de `id_token` indique au serveur que l’application aimerait un jeton d’ID dans la réponse du point de terminaison `/authorize`.  |
 |`scope`| Obligatoire | Pour les jetons d’ID, doit être mis à jour pour inclure les étendues de jeton d’ID : `openid` et éventuellement `profile` et `email`. |
 |`nonce`| Obligatoire|     Valeur incluse dans la requête, générée par l’application, qui sera incluse dans l’id_token résultant en tant que revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une chaîne unique et aléatoire qui peut être utilisée pour identifier l’origine de la requête. |
-|`response_mode`| Recommandé | Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Par défaut, `query` pour seulement un code d’autorisation, mais `fragment` si la requête comprend un id_token `response_type`.  Toutefois, il est recommandé que les applications utilisent `form_post`, en particulier si `http:/localhost` est utilisé comme URI de redirection. |
+|`response_mode`| Recommandé | Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Par défaut, `query` pour seulement un code d’autorisation, mais `fragment` si la requête comprend un id_token `response_type`.  Toutefois, il est recommandé que les applications utilisent `form_post`, en particulier si `http://localhost` est utilisé comme URI de redirection. |
 
 L’utilisation de `fragment` comme mode de réponse entraîne des problèmes pour les applications web qui lisent le code à partir de la redirection, dans la mesure où les navigateurs ne transmettent pas le fragment au serveur web.  Dans ces situations, les applications doivent utiliser le mode de réponse `form_post` pour garantir l’envoi de toutes les données au serveur. 
 

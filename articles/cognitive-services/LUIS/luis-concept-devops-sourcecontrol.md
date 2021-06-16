@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 68d88ef667da9f22d3e3a17f10036693fcca0c3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b860510610330d6c5d60f41dccc9e82bc77685f5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98932519"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969446"
 ---
 # <a name="devops-practices-for-luis"></a>Pratiques DevOps pour LUIS
 
@@ -214,4 +214,4 @@ La gestion de version doit être appliquée quand vos modifications dans votre d
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez les [tests pour LUIS dans DevOps](luis-concept-devops-testing.md).
-* Découvrez comment [implémenter DevOps pour LUIS avec GitHub](luis-how-to-devops-with-github.md).
+* Découvrez comment [implémenter DevOps pour LUIS avec GitHub](./luis-concept-devops-automation.md).

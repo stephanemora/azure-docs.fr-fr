@@ -8,12 +8,13 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: 9f8793b6ea0ba454b66c525c2d53c1de2197d539
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6eb802d560e168d64a1f9abe0301f8038203ee54
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102440205"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028484"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-powershell"></a>Configurer des autorisations de service Azure Image Builder à l’aide de PowerShell
 
@@ -22,20 +23,6 @@ Lorsque vous vous inscrivez à AIB, cela permet au service AIB de créer, de gé
 Pour permettre à Azure VM Image Builder de distribuer des images aux images gérées ou à une galerie d’images partagées, vous devez créer une identité attribuée par l’utilisateur Azure qui dispose des autorisations nécessaires pour lire et écrire des images. Si vous accédez au stockage Azure, des autorisations sont nécessaires pour lire des conteneurs privés ou publics.
 
 Vous devez configurer les autorisations et les privilèges avant de générer une image. Les sections suivantes détaillent comment configurer les scénarios possibles à l’aide de PowerShell.
-
-> [!IMPORTANT]
-> Le Générateur d’images Azure est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## <a name="register-the-features"></a>Inscrire les fonctionnalités
-
-Tout d’abord, vous devez vous inscrire au service Azure Image Builder. L’inscription octroie l’autorisation de service pour créer, gérer et supprimer un groupe de ressources mise en lots. Le service dispose également des droits nécessaires pour ajouter des ressources au groupe requises pour la génération de l’image.
-
-```powershell-interactive
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-```
 
 ## <a name="create-an-azure-user-assigned-managed-identity"></a>Créer une identité managée attribuée par l’utilisateur Azure
 
@@ -133,7 +120,7 @@ Pour simplifier le remplacement de valeurs dans l’exemple, définissez les var
 
 ```powershell-interactive
 $sub_id = "<Subscription ID>"
-# Resource group - For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image.
+# Resource group - image builder will only support creating custom images in the same Resource Group as the source managed image.
 $imageResourceGroup = "<Resource group>"
 $identityName = "aibIdentity"
 

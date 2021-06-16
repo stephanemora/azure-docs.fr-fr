@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: e45720543a5fc5f3293a2aae0c2740af1048384a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 53baa580d2f2c68fa32f38bddb07b5d9e362d190
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465226"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787746"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Instructions relatives au format pour les documents et les URL importés
 
@@ -92,7 +92,7 @@ Voici un exemple de document Word QnA structuré :
 
 ### <a name="structured-txt-tsv-and-xls-files"></a>Fichiers *TXT*, *TSV* et *XLS* structurés
 
-Les QnA sous forme de fichiers *.txt*, *.tsv* ou *.xls* structurés peuvent également être chargés vers QnA Maker pour créer ou augmenter une base de connaissances.  Il peuvent être en texte brut, ou peuvent avoir du contenu au format RTF ou HTML. Les [paires QnA](/how-to/edit-knowledge-base#question-and-answer-pairs) ont un champ de métadonnées facultatif qui peut être utilisé pour regrouper des paires QnA en catégories.
+Les QnA sous forme de fichiers *.txt*, *.tsv* ou *.xls* structurés peuvent également être chargés vers QnA Maker pour créer ou augmenter une base de connaissances.  Il peuvent être en texte brut, ou peuvent avoir du contenu au format RTF ou HTML. Les [paires QnA](./How-To/edit-knowledge-base.md#question-and-answer-pairs) ont un champ de métadonnées facultatif qui peut être utilisé pour regrouper des paires QnA en catégories.
 
 | Question  | Réponse  | Métadonnées (1 clé : 1 valeur) |
 |-----------|---------|-------------------------|
@@ -122,7 +122,7 @@ Une fois le fichier importé, la paire question-réponse figure dans la base de 
 
 ### <a name="structured-data-format-through-import"></a>Format de données structurées via l’importation
 
-L’importation d’une base de connaissances remplace le contenu de la base de connaissances existante. L’importation nécessite un fichier .tsv structuré qui contient des informations sur la source de données. Ces informations aident QnA Maker à regrouper les paires de question-réponse et à les attribuer à une source de données en particulier. Les [paires QnA](/how-to/edit-knowledge-base#question-and-answer-pairs) ont un champ de métadonnées facultatif qui peut être utilisé pour regrouper des paires QnA en catégories.
+L’importation d’une base de connaissances remplace le contenu de la base de connaissances existante. L’importation nécessite un fichier .tsv structuré qui contient des informations sur la source de données. Ces informations aident QnA Maker à regrouper les paires de question-réponse et à les attribuer à une source de données en particulier. Les [paires QnA](./How-To/edit-knowledge-base.md#question-and-answer-pairs) ont un champ de métadonnées facultatif qui peut être utilisé pour regrouper des paires QnA en catégories.
 
 | Question  | Réponse  | Source| Métadonnées (1 clé : 1 valeur) |
 |-----------|---------|----|---------------------|

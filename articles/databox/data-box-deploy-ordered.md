@@ -6,14 +6,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/08/2021
+ms.date: 06/10/2021
 ms.author: alkohli
-ms.openlocfilehash: ed539df9fec3c66b3881257ff1ce68d03cf4c382
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d5c9874324a11f9416806c22a3153c1ee4e8d442
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107878593"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111981947"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
 
@@ -239,7 +240,7 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
 6. Sous **Ordre**, accédez à l’onglet **Fonctions de base**. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Suivant : Destination des données>** .
 
-    |Paramètre  |Valeur  |
+    |Paramètre  |Value  |
     |---------|---------|
     |Abonnement      | L’abonnement est automatiquement renseigné en fonction de la sélection antérieure.|
     |Resource group    | Groupe de ressources que vous avez sélectionné précédemment. |

@@ -2,22 +2,22 @@
 title: Problèmes de connexion à une application Microsoft | Microsoft Docs
 description: Résoudre les problèmes courants liés à la connexion aux applications internes Microsoft (comme Microsoft 365) à l’aide d’Azure AD.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/10/2018
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c56e356a9bacc6479d3a3a33be905457c26e732e
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 2ca53af668794d977893c01340ed576a2bb7a8b3
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378174"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080846"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problèmes de connexion à une application Microsoft
 

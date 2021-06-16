@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bd6a5c8af117bf6cb39969a5f1b1f17ff08681c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 737a073a0360842d2ddd8010970e8a3461193742
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96172820"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966043"
 ---
 # <a name="password-based-authentication-with-azure-active-directory"></a>Authentification par mot de passe avec Azure Active Directory
 
@@ -49,5 +49,4 @@ Vous devez assurer la protection avec une authentification préalable et fournir
 
 * [Configurer l’authentification unique basée sur un mot de passe pour les applications Cloud ](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
-* [Configurer l’authentification unique basée sur un mot de passe pour les applications locales avec le proxy d’application](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
-
+* [Configurer l’authentification unique basée sur un mot de passe pour les applications locales avec le proxy d’application](../app-proxy/application-proxy-configure-single-sign-on-password-vaulting.md)

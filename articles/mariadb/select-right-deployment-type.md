@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: d8885e374142b3d916803fc472ae18351ca6d470
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e99d94fbd4ab91c2ba51ca7922873b8338f7da85
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664516"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033299"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Choisir l’option MariaDB Server appropriée dans Azure
 
@@ -41,7 +41,7 @@ Le tableau suivant liste les principales différences entre ces options :
 | Scénarios hybrides | La [réplication des données entrantes](concepts-data-in-replication.md) vous permet de synchroniser les données d’un serveur MariaDB externe avec le service Azure Database for MariaDB. Le serveur externe peut être hébergé localement, dans des machines virtuelles, ou il peut s'agir d'un service de base de données hébergé par d'autres fournisseurs de services cloud.<br/><br/> La fonctionnalité de [réplica en lecture](concepts-read-replicas.md) vous permet de répliquer des données d’un serveur source Azure Database for MariaDB sur jusqu’à cinq serveurs réplicas en lecture seule. Les réplicas se trouvent dans la même région Azure ou dans plusieurs régions. Les réplicas en lecture seule sont mis à jour de manière asynchrone à l’aide de la technologie de réplication binlog.<br/><br/>La réplication en lecture entre plusieurs régions est disponible en préversion publique.| Géré par les clients
 | Sauvegarde et restauration | Crée automatiquement des [sauvegardes de serveur](concepts-backup.md#backups) et les conserve dans un stockage configuré par l’utilisateur qui est redondant localement ou géoredondant. Le service accepte les sauvegardes complètes, différentielles et de fichier journal. | Géré par les clients |
 | Supervision des opérations de base de données | Offre aux clients la possibilité de [définir des alertes](concepts-monitoring.md) sur l’opération de base de données et d’agir dès qu’un seuil est atteint. | Géré par les clients |
-| Protection avancée contre les menaces | Fournit une [protection avancée contre les menaces](howto-database-threat-protection-portal.md). Cette protection détecte les activités anormales qui indiquent des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de bases de données.<br/><br/>La protection avancée contre les menaces est actuellement disponible en préversion publique.| Les clients doivent établir cette protection pour se prémunir eux-mêmes.
+| Protection avancée contre les menaces | Fournit une protection avancée contre les menaces. Cette protection détecte les activités anormales qui indiquent des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de bases de données.<br/><br/>La protection avancée contre les menaces est actuellement disponible en préversion publique.| Les clients doivent établir cette protection pour se prémunir eux-mêmes.
 | Récupération d'urgence | Stocke les sauvegardes automatisées dans un [stockage géoredondant ou redondant localement](howto-restore-server-portal.md) configuré par l’utilisateur. Les sauvegardes peuvent également restaurer un serveur à un point dans le temps. La période de conservation est comprise entre 7 et 35 jours. La restauration est effectuée à l’aide du Portail Azure. | Entièrement gérée par les clients. Les responsabilités incluent entre autres la planification, le test, l’archivage, le stockage et la conservation. Une autre option consiste à utiliser un coffre Azure Recovery Services pour sauvegarder les machines virtuelles Azure et les bases de données sur les machines virtuelles. Cette option est en préversion. |
 | Recommandations en matière de performances | Fournit aux clients des [recommandations sur les performances](https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) basées sur les fichiers journaux d’utilisation générés par le système. Ces recommandations aident à optimiser les charges de travail.<br/><br/>Les recommandations sur les performances sont actuellement disponibles en préversion publique. | Géré par les clients |
 

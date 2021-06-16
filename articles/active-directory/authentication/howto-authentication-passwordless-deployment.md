@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d4ff717a49ba9c9b4d66e54e5eae1248af3fcea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b5bbe10c07897c1e33dc4c5a156bc5acd0d7779
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579363"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110584872"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planifier un déploiement d’authentification sans mot de passe dans Azure Active Directory
 
@@ -283,7 +283,7 @@ Bien que l’authentification sans mot de passe soit une fonctionnalité légèr
 La restauration implique que l’administrateur se connecte au portail Azure Active Directory, qu’il sélectionne les méthodes d’authentification fortes souhaitées et remplace la valeur de l’option d’activation par **Non**. Ce processus désactive la fonctionnalité sans mot de passe pour tous les utilisateurs.
 
 Les utilisateurs qui ont déjà enregistré des appareils de sécurité FIDO2 sont alors invités à utiliser l’appareil de sécurité à leur prochaine connexion tandis que l’erreur suivante s’affiche :
-
+  
 ![choisir un autre mode de connexion](./media/howto-authentication-passwordless-deployment/passwordless-choose-sign-in.png)
 
 ## <a name="deploy-and-troubleshoot-passwordless-authentication"></a>Déployer l’authentification sans mot de passe et détecter un problème

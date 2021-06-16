@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: 3d7b88007a27b05119ebe93217c64279c8c541ff
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c36c2fd86252f41af0e722445dca78d870c255e2
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373401"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969892"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutoriel : Implémenter une CI/CD avec GitOps à l’aide de clusters Kubernetes avec Azure Arc
 
@@ -211,8 +211,8 @@ Le pipeline CD utilise le jeton de sécurité du build en cours d’exécution p
 1. Pour `<Project Name> Build Service (<Organization Name>)`, autorisez `Contribute`, `Contribute to pull requests` et `Create branch`.
 
 Pour plus d'informations, consultez les pages suivantes :
-- [Accorder des autorisations VC au service de build](https://docs.microsoft.com/azure/devops/pipelines/scripts/git-commands?view=azure-devops&tabs=yaml&preserve-view=true#version-control )
-- [Gérer les autorisations du compte de service de build](https://docs.microsoft.com/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml&preserve-view=true#manage-build-service-account-permissions)
+- [Accorder des autorisations VC au service de build](/azure/devops/pipelines/scripts/git-commands?preserve-view=true&tabs=yaml&view=azure-devops#version-control )
+- [Gérer les autorisations du compte de service de build](/azure/devops/pipelines/process/access-tokens?preserve-view=true&tabs=yaml&view=azure-devops#manage-build-service-account-permissions)
 
 
 ## <a name="deploy-the-dev-environment-for-the-first-time"></a>Déployer l’environnement dev pour la première fois

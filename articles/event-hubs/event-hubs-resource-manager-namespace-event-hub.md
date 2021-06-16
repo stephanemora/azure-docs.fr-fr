@@ -2,14 +2,14 @@
 title: 'Démarrage rapide : Créer un hub d’événements avec un groupe de consommateurs - Azure Event Hubs'
 description: 'Démarrage rapide : Créer un espace de noms Event Hubs avec un concentrateur d’événements et un groupe de consommateurs à l’aide de modèles Azure Resource Manager'
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 06/23/2020
-ms.openlocfilehash: 004d8db3502c866587ee0a96c3ecd4b3312224dd
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.date: 06/08/2021
+ms.openlocfilehash: a65fc2359393839491d5d2109fadabd77b08ec22
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278341"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965171"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-arm-template"></a>Démarrage rapide : Créer un hub d’événements à l’aide d’un modèle Resource Manager
 
@@ -27,7 +27,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/eventhubs-create-namespace-and-eventhub/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-eventhub/azuredeploy.json":::
 
@@ -105,7 +105,7 @@ Dans cet article, vous avez créé un espace de noms Event Hubs, ainsi qu’un E
 [4]: ./media/event-hubs-quickstart-powershell/receiver1.png
 [5]: ./media/event-hubs-quickstart-powershell/metrics.png
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/syntax.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/management/manage-resources-powershell.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/management/manage-resources-cli.md

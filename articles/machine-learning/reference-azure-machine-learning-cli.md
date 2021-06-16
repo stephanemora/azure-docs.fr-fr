@@ -9,15 +9,16 @@ ms.author: jordane
 author: jpe316
 ms.date: 04/02/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: f30cd528a329708a7478b1a4a343f7be3b9eac04
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 29b5e5b23fd8ad1b3912111ef1afef017ceced7c
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107877783"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592319"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installer et utiliser l’extension CLI pour Azure Machine Learning
 
+[!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
 L'interface CLI Azure Machine Learning est une extension pour l'[interface Azure](/cli/azure/), une interface de ligne de commande multiplateforme pour la plateforme Azure. Cette extension fournit les commandes à utiliser avec Azure Machine Learning. Il vous permet d’automatiser vos activités Machine Learning. La liste suivante fournit des exemples d’actions que vous pouvez effectuer avec l’extension CLI :
 
@@ -39,7 +40,7 @@ L’interface CLI ne remplace en rien le kit de développement logiciel (SDK) Az
 
 ## <a name="full-reference-docs"></a>Documents de référence complets
 
-Recherchez les [documents de référence complets concernant l’extension azure-cli-ml d’Azure CLI](/cli/azure/ml/).
+Recherchez les [documents de référence complets concernant l’extension azure-cli-ml d’Azure CLI](/cli/azure/ml(v1)/).
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Connexion de la CLI à votre abonnement Azure
 

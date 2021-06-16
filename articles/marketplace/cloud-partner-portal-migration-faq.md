@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/14/2021
-ms.openlocfilehash: af648b24d1fb5006a6dbfae33030e4c064646aeb
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.date: 07/14/2020
+ms.openlocfilehash: c5fcdf69c6e111147ed429daedbc4f28061e4f5f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634254"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955899"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Questions fréquentes (FAQ) sur la transition du portail Cloud Partner vers l’Espace partenaires
 
@@ -25,12 +25,12 @@ Vous pouvez continuer à travailler dans l’Espace partenaires :
 | Domaine | Modifications |
 | --- | --- |
 | Compte | Vous n’avez pas besoin de créer un nouveau compte Espace partenaires ; vous pouvez utiliser vos informations d’identification existantes du portail Cloud Partner pour vous connecter à l’Espace partenaires, où vous allez maintenant gérer votre compte, les utilisateurs, les autorisations et la facturation. Le contrat d’éditeur et les informations sur le profil de l’entreprise sont migrés vers votre nouveau compte Espace partenaires, ainsi que les informations de profil de paiement, les comptes d’utilisateur et les autorisations, ainsi que les offres actives. En savoir plus dans [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](manage-account.md). |
-| Expérience de publication d’offre et de gestion des offres | Nous avons déplacé vos données d’offre du portail Cloud Partner vers l’Espace partenaires. Maintenant, vous accédez à vos offres dans l’Espace partenaires, qui offre une expérience utilisateur améliorée et une interface intuitive. Découvrez comment [Mettre à jour une offre existante dans la place de marché commerciale](partner-center-portal/update-existing-offer.md). |
+| Expérience de publication d’offre et de gestion des offres | Nous avons déplacé vos données d’offre du portail Cloud Partner vers l’Espace partenaires. Maintenant, vous accédez à vos offres dans l’Espace partenaires, qui offre une expérience utilisateur améliorée et une interface intuitive. Découvrez comment [Mettre à jour une offre existante dans la place de marché commerciale](update-existing-offer.md). |
 | Disponibilité de vos offres sur la Place de marché commerciale | Aucun changement. Si votre offre est active dans la place de marché commerciale, elle restera active. |
 | Nouveaux achats et déploiements | Aucun changement. Vos clients peuvent continuer à acheter et à déployer vos offres sans interruption. |
 | Paiements | Les achats et les déploiements continuent à vous être payés normalement. En savoir plus sur [Recevoir un paiement dans la Place de marché commerciale](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
 | Intégrations d’API avec des [API du portail Cloud Partner existantes](cloud-partner-portal-api-overview.md) | Les API du portail Cloud Partner existantes sont toujours prises en charge et vos intégrations existantes fonctionnent toujours. En savoir plus dans [Les API REST du portail Cloud Partner seront-elles prises en charge ?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Analytics | Vous pouvez continuer à surveiller les ventes, évaluer les performances et optimiser vos offres sur la Place de marché commerciale en affichant l’analytique dans l’Espace partenaires. Il existe des différences entre l’affichage des rapports analytiques dans CPP et Espace partenaires. Par exemple, la fonctionnalité **Insights Vendeurs** dans CPP a un onglet **Commandes et utilisation** qui affiche les données pour les offres basées sur l’utilisation et celles non basées sur l’utilisation, tandis que, dans l’Espace partenaires, la page **Commandes** a un onglet distinct pour les offres SaaS. En savoir plus dans [Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](partner-center-portal/analytics.md). |
+| Analytics | Vous pouvez continuer à surveiller les ventes, évaluer les performances et optimiser vos offres sur la Place de marché commerciale en affichant l’analytique dans l’Espace partenaires. Il existe des différences entre l’affichage des rapports analytiques dans CPP et Espace partenaires. Par exemple, la fonctionnalité **Insights Vendeurs** dans CPP a un onglet **Commandes et utilisation** qui affiche les données pour les offres basées sur l’utilisation et celles non basées sur l’utilisation, tandis que, dans l’Espace partenaires, la page **Commandes** a un onglet distinct pour les offres SaaS. En savoir plus dans [Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](analytics.md). |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>Dois-je créer un nouveau compte pour gérer mes offres dans l’Espace partenaires ?
@@ -79,16 +79,16 @@ Pour les types d’offres pris en charge dans l’Espace partenaires, toutes les
 | --- | --- | --- |
 | SaaS | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Planifier une offre SaaS pour la place de marché commerciale](plan-saas-offer.md). |
 | Machine virtuelle | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Planifier une offre de machine virtuelle](marketplace-virtual-machines.md). |
-| Application Azure | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre d’application Azure](create-new-azure-apps-offer.md). |
-| Dynamics 365 Business Central | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
+| Application Azure | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre d’application Azure](azure-app-offer-setup.md). |
+| Dynamics 365 Business Central | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 Business Central](dynamics-365-business-central-offer-setup.md). |
 | Dynamics 365 for Customer Engagement et PowerApps | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 for Customer Engagement et PowerApps](dynamics-365-customer-engage-offer-setup.md). |
-| Dynamics 365 for Operations | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md). |
-| Application Power BI | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une application Power BI pour AppSource](partner-center-portal/create-power-bi-app-offer.md). |
-| Module IoT Edge | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer, configurer et publier une offre de module IoT Edge dans la Place de marché Azure](partner-center-portal/azure-iot-edge-module-creation.md). |
+| Dynamics 365 for Operations | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md). |
+| Application Power BI | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une application Power BI pour AppSource](./power-bi-app-offer-setup.md). |
+| Module IoT Edge | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer, configurer et publier une offre de module IoT Edge dans la Place de marché Azure](iot-edge-offer-setup.md). |
 | Conteneur | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de conteneur Azure](./azure-container-offer-setup.md). |
 | Service de conseil | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de services de conseil](./create-consulting-service-offer.md). |
 | Service managé | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de service managé](./plan-managed-service-offer.md). |
-| Dynamics Nav Managed Service | Non | Microsoft a fait évoluer Dynamics NAV Managed Service en [Dynamics 365 Business Central](/dynamics365/business-central/). Nous avons donc supprimé les offres actives Dynamics NAV Managed Service dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles dans AppSource, transformez-les en offres Dynamics 365 Business Central et envoyez-les dans [l’Espace partenaires](https://partner.microsoft.com/). En savoir plus dans [Créer une offre Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
+| Dynamics Nav Managed Service | Non | Microsoft a fait évoluer Dynamics NAV Managed Service en [Dynamics 365 Business Central](/dynamics365/business-central/). Nous avons donc supprimé les offres actives Dynamics NAV Managed Service dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles dans AppSource, transformez-les en offres Dynamics 365 Business Central et envoyez-les dans [l’Espace partenaires](https://partner.microsoft.com/). En savoir plus dans [Créer une offre Dynamics 365 Business Central](dynamics-365-business-central-offer-setup.md). |
 | Cortana Intelligence | Non | Microsoft a fait évoluer la feuille de route pour Cortana Intelligence. Nous avons donc supprimé les offres actives Cortana Intelligence dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles sur la place de marché commerciale, transformez-les en offres SaaS (Software as a Service) et envoyez-les dans [l’Espace partenaires](https://partner.microsoft.com/). En savoir plus dans [Liste de vérification de la création d’offre SaaS dans l’Espace partenaires](./plan-saas-offer.md). |
 
 ## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>Je ne trouve pas mes offres du portail Cloud Partner dans l’Espace partenaires
@@ -143,7 +143,7 @@ Les mises à jour que vous ne publiez pas sont enregistrées en tant que brouill
 
 ### <a name="enhanced-preview-options"></a>Options d’aperçu améliorées
 
-L’Espace partenaires comprend une [fonctionnalité de comparaison](partner-center-portal/update-existing-offer.md#compare-changes-to-your-offer) avec des options de filtrage améliorées. Cela vous permet d’effectuer des comparaisons entre la préversion et la version active de l’offre.
+L’Espace partenaires comprend une [fonctionnalité de comparaison](update-existing-offer.md#compare-changes-to-your-offer) avec des options de filtrage améliorées. Cela vous permet d’effectuer des comparaisons entre la préversion et la version active de l’offre.
 
 [![Screenshot shows the Partner Center compare feature.](media/cpp-pc-faq/compare.png "Affiche la fonctionnalité de comparaison de l’Espace partenaires")](media/cpp-pc-faq/compare.png#lightbox)
 
@@ -170,14 +170,11 @@ Votre ID d’offre est maintenant affiché dans la barre de navigation gauche de
 
 ![Affiche l’emplacement de l’ID de l’offre de l’Espace partenaires](media/cpp-pc-faq/offer-id.png)
 
-### <a name="deprecate-an-offer"></a>Déprécier une offre
+### <a name="stop-selling-an-offer"></a>Arrêter la vente d’une offre
 
-> [!IMPORTANT]
-> L'option Arrêter la vente a changé pour devenir Déprécier.
+Vous pouvez demander à [arrêter la vente d’une offre](update-existing-offer.md#stop-selling-an-offer-or-plan) sur la Place de marché directement à partir du portail de l’Espace partenaires. L’option est disponible dans la page **Vue d’ensemble de l’offre** de votre offre.
 
-Vous pouvez demander à [déprécier une offre (en arrêter officiellement la vente)](partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan) sur la Place de marché à partir du portail Espace partenaires. L’option est disponible dans la page **Vue d’ensemble de l’offre** de votre offre.
-
-[![Capture d'écran illustrant la page de l'Espace partenaires permettant de déprécier une offre (anciennement Arrêter la vente).](media/cpp-pc-faq/stop-sell.png "Affiche la page de l'Espace partenaires qui permet de déprécier une offre")](media/cpp-pc-faq/stop-sell.png#lightbox)
+[![Screenshot shows the Partner Center page to stop selling an offer.](media/cpp-pc-faq/stop-sell.png "Affiche la page de l’Espace partenaires pour arrêter la vente d’une offre")](media/cpp-pc-faq/stop-sell.png#lightbox)
 <br><br>
 
 ## <a name="are-the-cloud-partner-portal-rest-apis-still-supported"></a>Les API REST du portail Cloud Partner sont-elles toujours prises en charge ?

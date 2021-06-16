@@ -8,53 +8,53 @@ metadata:
   ms.topic: landing-page
   author: ekpgh
   ms.author: v-erkel
-  ms.date: 03/20/2020
-  ms.openlocfilehash: ea13d3cbe49a5f1f0a043178822a50f6c37bf472
-  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+  ms.date: 05/26/2021
+  ms.openlocfilehash: fab9463980b1a4d020ee11c916964f27654cbdd8
+  ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/26/2021
-  ms.locfileid: "110455811"
+  ms.lasthandoff: 06/04/2021
+  ms.locfileid: "111411032"
 landingContent:
 - title: À propos d’Azure FXT Edge Filer
   linkLists:
   - linkListType: overview
     links:
     - text: Qu’est-ce qu’Azure FXT Edge Filer ?
-      url: fxt-overview.md
+      url: overview.md
 - title: Bien démarrer
   linkLists:
   - linkListType: tutorial
     links:
     - text: 1 - Installer le matériel
-      url: fxt-install.md
+      url: install.md
     - text: 2 - Brancher les câbles
-      url: fxt-network-power.md
+      url: network-power.md
     - text: 3 - Définir des mots de passe pour le matériel
-      url: fxt-node-password.md
+      url: node-password.md
     - text: 4 - Créer un cluster
-      url: fxt-cluster-create.md
+      url: cluster-create.md
     - text: 5 - Ajouter des nœuds de cluster
-      url: fxt-add-nodes.md
+      url: add-nodes.md
     - text: 6 - Ajouter un stockage back-end et configurer l’espace de noms virtuel
-      url: fxt-add-storage.md
+      url: add-storage.md
     - text: 7 - Configurer les paramètres réseau du cluster
-      url: fxt-configure-network.md
+      url: configure-network.md
     - text: 8 - Monter les clients sur le cluster
-      url: fxt-mount-clients.md
+      url: mount-clients.md
 - title: Gérer
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Surveillance de l'état du matériel
-      url: fxt-monitor.md
+      url: monitor.md
     - text: Mettre hors tension le matériel de façon sécurisée
-      url: fxt-power-off.md
+      url: power-off.md
 - title: Ressources
   linkLists:
   - linkListType: reference
     links:
     - text: Spécifications matérielles
-      url: fxt-specs.md
+      url: specs.md
     - text: Documentation complémentaire
-      url: fxt-additional-doc.md
+      url: additional-doc.md

@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 03/08/2021
-ms.openlocfilehash: 77ed41299d9b4d8bc0ba3c6d2b998cb63258fd5c
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: c3e509a67eaf4bcc921032e762f54402f650ae3e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887879"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971220"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Disponibilité géographique et prise en charge des devises pour la Place de marché commerciale
 
@@ -196,14 +196,14 @@ Les prix individuels (qui, selon la façon dont ils ont été définis, peuvent 
 
 Pour plus d’informations sur la façon d’entrer les prix de certains types d’offres, reportez-vous aux articles suivants :
 
-- [Créer une offre Azure Application](create-new-azure-apps-offer.md)
+- [Créer une offre Azure Application](azure-app-offer-setup.md)
 - [Créer une offre de conteneur Azure](azure-container-offer-setup.md)
 - [Créer une offre de machine virtuelle Azure](azure-vm-create.md)
 - [Créer une offre de services de conseil](./create-consulting-service-offer.md)
 - [Créer une offre Dynamics 365 for Customer Engagement et Power Apps](dynamics-365-customer-engage-offer-setup.md)
-- [Créer une offre Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)
-- [Créer une offre Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md)
-- [Créer une offre de module IoT Edge](partner-center-portal/azure-iot-edge-module-creation.md)
+- [Créer une offre Dynamics 365 for Operations](dynamics-365-operations-offer-setup.md)
+- [Créer une offre Dynamics 365 Business Central](dynamics-365-business-central-offer-setup.md)
+- [Créer une offre de module IoT Edge](iot-edge-offer-setup.md)
 - [Créer une offre de service managé](./plan-managed-service-offer.md)
-- [Créer une application dans Power BI](partner-center-portal/create-power-bi-app-offer.md)
+- [Créer une application dans Power BI](./power-bi-app-offer-setup.md)
 - [Créer une offre SaaS](./create-new-saas-offer.md)

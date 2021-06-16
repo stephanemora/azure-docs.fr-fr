@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 1b2887dd82d9c01cc5403f35dffa230feff385d7
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: f45dcde6368cefe0d8eb869bd042e36f364589cf
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108185933"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963879"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Accès à distance aux applications locales par le bais du service Proxy d'application Azure AD
 
@@ -35,10 +35,10 @@ Le Proxy d’application est une fonctionnalité d’Azure AD qui permet aux uti
 
 Proxy d’application fonctionne avec les ressources suivantes :
 
-* Applications web qui utilisent [l’authentification Windows intégrée](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) pour l’authentification
-* Applications web qui utilisent l’accès [basé sur un en-tête](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md) ou sur un formulaire
+* Applications web qui utilisent [l’authentification Windows intégrée](./application-proxy-configure-single-sign-on-with-kcd.md) pour l’authentification
+* Applications web qui utilisent l’accès [basé sur un en-tête](./application-proxy-configure-single-sign-on-with-headers.md) ou sur un formulaire
 * API web que vous voulez exposer aux applications enrichies sur différents appareils
-* Applications hébergées derrière une [passerelle Bureau à distance](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
+* Applications hébergées derrière une [passerelle Bureau à distance](./application-proxy-integrate-with-remote-desktop-services.md)
 * Applications clientes complètes intégrées à la bibliothèque d’authentification Microsoft (MSAL)
 
 Proxy d’application prend en charge l’authentification unique. Pour plus d’informations sur les méthodes prises en charge, consultez [Choix d’une méthode d’authentification unique](../manage-apps/sso-options.md#choosing-a-single-sign-on-method).
