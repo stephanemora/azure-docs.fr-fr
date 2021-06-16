@@ -3,12 +3,12 @@ title: Erreur de dépassement de taille de la tâche
 description: Décrit comment résoudre les erreurs lorsque la taille d’une tâche ou le modèle est trop important.
 ms.topic: troubleshooting
 ms.date: 03/23/2021
-ms.openlocfilehash: b39a0bba15e73bab1a85cbd9e36efebf82d6cf42
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 5d7333e8faf44b5c2c872448960eff34ff61daf2
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889363"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963273"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>Résoudre les erreurs de dépassement de taille de la tâche
 
@@ -56,4 +56,4 @@ Vous pouvez définir d’autres ressources comme dépendantes du modèle lié et
 
 ## <a name="solution-2---reduce-name-size"></a>Solution 2 - Réduire la taille du nom
 
-Essayez de raccourcir la longueur des noms que vous utilisez pour les [paramètres](template-parameters.md), [variables](template-variables.md) et [sorties](template-outputs.md). Lorsque ces valeurs sont répétées à l’aide de boucles de copie, un grand nom est multiplié plusieurs fois.
+Essayez de raccourcir la longueur des noms que vous utilisez pour les [paramètres](./parameters.md), [variables](./variables.md) et [sorties](./outputs.md). Lorsque ces valeurs sont répétées à l’aide de boucles de copie, un grand nom est multiplié plusieurs fois.

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: ac3e07c67ca82c2960de1c4341a714b33751bfc1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77159a099dcc28739457a10afef374502d117b5a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092400"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971157"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Service de détection d’anomalie pour la facturation à l’usage
 
-Le [service de mesure de la consommation du marketplace](marketplace-metering-service-apis-faq.md) vous permet de créer des offres dans le cadre du programme du marketplace commercial qui sont facturées en fonction d’unités non standard. Avec la facturation à l’usage, vous envoyez des événements d’utilisation relatifs à l’utilisation de votre client à Microsoft et nous préparons la facturation en fonction de cette utilisation.
+Le [service de mesure de la consommation du marketplace](../marketplace-metering-service-apis-faq.md) vous permet de créer des offres dans le cadre du programme du marketplace commercial qui sont facturées en fonction d’unités non standard. Avec la facturation à l’usage, vous envoyez des événements d’utilisation relatifs à l’utilisation de votre client à Microsoft et nous préparons la facturation en fonction de cette utilisation.
 
 Des données d’utilisation incorrectes peuvent avoir des causes diverses, telles que des bogues, des erreurs de configuration dans votre suivi de la consommation ou des fraudes. Des données d’utilisation incorrectes entraînent des frais d’utilisation incorrects et des litiges de facturation.
 
@@ -82,5 +82,5 @@ Pour plus d’options de support à destination des éditeurs, consultez [Suppor
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur l’[API du service de mesure de la consommation du marketplace](marketplace-metering-service-apis.md).
+- En savoir plus sur l’[API du service de mesure de la consommation du marketplace](../marketplace-metering-service-apis.md).
 - [Gérer les anomalies de facturation mesurée dans l’Espace partenaires](../anomaly-detection.md)

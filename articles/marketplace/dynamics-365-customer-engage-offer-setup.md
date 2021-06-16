@@ -7,18 +7,18 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: 5a6adc0ad4f515e98f4393266bf71565359b3e0a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 060d24a331a7f15c4ee687c919fe8c2b7cdf2ca6
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110473378"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971456"
 ---
 # <a name="how-to-create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Comment créer une offre Dynamics 365 pour Customer Engagement et Power Apps
 
 Cet article décrit comment créer une offre Dynamics 365 pour Customer Engagement et Power Apps. Toutes les offres pour Dynamics 365 passent par notre processus de certification. Cette expérience d’essai permet aux utilisateurs de déployer votre solution dans un environnement Dynamics 365 en ligne.
 
-Avant de commencer, créez un compte de marketplace commercial dans [Espace partenaires](partner-center-portal/create-account.md) et vérifiez qu’il est inscrit au programme de marketplace commercial.
+Avant de commencer, créez un compte de marketplace commercial dans [Espace partenaires](./create-account.md) et vérifiez qu’il est inscrit au programme de marketplace commercial.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

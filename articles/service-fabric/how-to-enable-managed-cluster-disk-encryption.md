@@ -3,12 +3,13 @@ title: Activer le chiffrement de disque pour les nœuds de cluster managé Servi
 description: Découvrez comment activer le chiffrement de disque pour les nœuds de cluster managé dans Windows à l’aide d’un modèle ARM.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 10705027f376f53bedf7e5742162d58140f3a282
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 800ebb11c1d191ca68222b1fa473cebbca0e8912
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684970"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671320"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-managed-cluster-nodes"></a>Activer le chiffrement de disque pour les nœuds de cluster managé Service Fabric
 

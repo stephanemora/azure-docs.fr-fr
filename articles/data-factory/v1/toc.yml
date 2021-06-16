@@ -46,7 +46,7 @@
     - name: Déplacer des données entre un emplacement local et le cloud
       href: data-factory-move-data-between-onprem-and-cloud.md
     - name: Questions fréquentes (FAQ)
-      href: data-factory-faq.md
+      href: data-factory-faq.yml
 - name: Procédure
   items:
     - name: Transfert de données

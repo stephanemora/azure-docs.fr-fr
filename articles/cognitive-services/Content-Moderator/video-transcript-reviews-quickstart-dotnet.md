@@ -11,14 +11,16 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 326fc2cc162a2ab54b40888250fbeef55ad8800a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb26e92257d540f19f64c6b217a03f52eadb1f3a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96853456"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031531"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Révisions de transcriptions de vidéos à l’aide de .NET
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 Cet article fournit des informations et des exemples de code destinés à vous aider à démarrer rapidement avec le [SDK Content Moderator avec C#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) pour :
 

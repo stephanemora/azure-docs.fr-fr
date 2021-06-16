@@ -13,12 +13,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40, contperf-fy21q2
-ms.openlocfilehash: a4ce8242bd3110fee038ac826973e6a134413344
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9d8c747fb18cc815570c536b6f01a745a6c86a7a
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102426839"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438249"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>Présentation de la plateforme d’identités Microsoft
 
@@ -80,7 +80,7 @@ Découvrez dans ces quelques articles conseillés comment l’authentification d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous disposez d’un compte Azure, vous avez déjà accès à un locataire Azure Active Directory. Cependant, la plupart des développeurs de plateforme d’identités Microsoft ont besoin de leur propre locataire Azure AD, en fait d’un « locataire de développeur », pour s’en servir lors du développement d’applications.
+Si vous disposez d’un compte Azure, vous avez déjà accès à un locataire Azure Active Directory, mais la plupart des développeurs de plateforme d’identités Microsoft ont besoin de leur propre locataire Azure AD, en fait d’un « locataire de développeur », pour s’en servir lors du développement d’applications.
 
 Apprenez à créer votre propre locataire pour l’utiliser pendant la création de vos applications :
 

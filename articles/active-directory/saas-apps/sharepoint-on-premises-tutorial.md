@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2021
 ms.author: jeedes
-ms.openlocfilehash: be61dad30d7c8670442612faf928d5aa82e64d56
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 142b16d58fae508614324746345bc8d33f41cab4
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065743"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890048"
 ---
 # <a name="tutorial-implement-federated-authentication-between-azure-active-directory-and-sharepoint-on-premises"></a>Tutoriel : Implémenter l’authentification fédérée entre Azure Active Directory et SharePoint local
 
@@ -196,7 +196,7 @@ La configuration de base de l’approbation entre SharePoint et Azure AD est ma
 
 ## <a name="sign-in-as-a-member-user"></a>Se connecter en tant qu’utilisateur membre
 
-Azure Active Directory a [deux types d’utilisateurs](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-user-properties) : les utilisateurs invités et les utilisateurs membres. Commençons par un utilisateur membre, qui est simplement un utilisateur hébergé dans votre organisation.
+Azure Active Directory a [deux types d’utilisateurs](../external-identities/user-properties.md) : les utilisateurs invités et les utilisateurs membres. Commençons par un utilisateur membre, qui est simplement un utilisateur hébergé dans votre organisation.
 
 ### <a name="create-a-member-user-in-azure-active-directory"></a>Créer un utilisateur membre dans Azure Active Directory
 

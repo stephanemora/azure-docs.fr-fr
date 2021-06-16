@@ -16,12 +16,12 @@ ms.date: 04/16/2021
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17fe0c0ca5f1399c78def37ea7640ba8dfa395e
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: db1878c2760cfcaa157d0ef233bb1931a5f310b3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988223"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970909"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planification d’un déploiement de révision d’accès Azure Active Directory
 
@@ -240,10 +240,10 @@ Pour créer une stratégie de révision d’accès, vous devez disposer des info
 
 **Exemple de plan de révision d’accès**
 
-| Composant| Valeur |
+| Composant| Value |
 | - | - |
 | **Ressources à réviser**| Accès à Microsoft Dynamics |
-| **Fréquence de révision**| Mensuelle |
+| **Fréquence de révision**| Chaque mois |
 | **Qui effectue la révision**| Responsables de programme du groupe d’entreprise Dynamics |
 | **Notification**| E-mail envoyé au début de la révision à l’alias Dynamics-Pms<p>Inclure un message personnalisé encourageant les réviseurs pour obtenir leur adhésion |
 | **Durée**| 48 heures à partir de la notification |
@@ -336,7 +336,7 @@ Consulter [Utiliser les révisions d’accès Azure AD pour gérer les utilisate
 
 ### <a name="review-guest-users-group-memberships"></a>Examiner les appartenances de groupe des utilisateurs invités
 
-Consultez [Gérer l’accès invité avec les révisions d’accès Azure AD](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews) pour savoir comment examiner l’accès des utilisateurs invités aux appartenances de groupe.
+Consultez [Gérer l’accès invité avec les révisions d’accès Azure AD](./manage-guest-access-with-access-reviews.md) pour savoir comment examiner l’accès des utilisateurs invités aux appartenances de groupe.
 
 ### <a name="review-access-to-on-premises-groups"></a>Réviser l’accès aux groupes locaux
 

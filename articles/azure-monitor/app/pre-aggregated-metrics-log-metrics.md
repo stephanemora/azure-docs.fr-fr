@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: acbe535d740eb527d165be1675f31e759851a987
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ce337c97aa7eca601e72122568c3205ca21457f
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101717823"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372381"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métriques basées sur le journal et pré-agrégées dans Application Insights
 
@@ -47,7 +47,7 @@ Notez par ailleurs que le point de terminaison de collecte pré-agrège les év�
 |------------------------------|-----------------------------------|----------------------------------------------|---------------------------------------|
 | .NET Core et .NET Framework | Prises en charge (v2.13.1 et ultérieures)| Prises en charge via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Prises en charge (v2.7.2 et ultérieure) via [GetMetric](get-metric.md) |
 | Java                         | Non pris en charge       | Prises en charge via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Non pris en charge                           |
-| Node.js                      | Non pris en charge       | Prises en charge via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Non pris en charge                           |
+| Node.js                      | Pris en charge (V2.0.0 et versions ultérieures) | Prises en charge via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Non pris en charge                           |
 | Python                       | Non pris en charge       | Prise en charge                                 | Prise en charge partielle via [OpenCensus.stats](opencensus-python.md#metrics) |  
 
 > [!NOTE]

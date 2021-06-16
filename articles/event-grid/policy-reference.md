@@ -1,15 +1,15 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Event Grid
 description: Liste les définitions de stratégie intégrées Azure Policy pour Azure Event Grid. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: d2e951a2d96a57fd27755650118f0fc5dd9f91b9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: e716940bf5036a12534bdf17329ffbc3fccc3f88
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070537"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017489"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-event-grid"></a>Définitions intégrées d’Azure Policy pour Azure Event Grid
 

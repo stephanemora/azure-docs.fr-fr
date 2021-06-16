@@ -3,12 +3,13 @@ title: Configurer la supervision avec les journaux Azure Monitor
 description: Découvrez comment configurer des journaux Azure Monitor pour visualiser et analyser des événements afin de surveiller vos clusters Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.openlocfilehash: 79dbc38f9d177bc3decf11673a68ce434f9a83bc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: efc10740a37032eb00a69b6e2cefa502d601350a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625957"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677402"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurer les journaux Azure Monitor pour un cluster
 

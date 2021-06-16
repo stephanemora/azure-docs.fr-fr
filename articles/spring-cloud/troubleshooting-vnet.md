@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 6a8be63c134c25373f85a146ed3df7316e1eb7dc
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 82ee9b368ecb98d4bb1833ab9a4fc1dc22182e99
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132402"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968883"
 ---
 # <a name="troubleshooting-azure-spring-cloud-in-virtual-networks"></a>Résolution des problèmes Azure Spring Cloud dans des réseaux virtuels
 
@@ -31,7 +31,7 @@ Pour configurer l’instance de service Azure Spring Cloud à l’aide de l’[i
 - Le groupe de ressources pour l’instance est créé.
 - Le nom de la ressource est conforme à la règle de nommage. Il ne doit contenir que des lettres minuscules, des chiffres et des traits d’union. Le premier caractère doit être une lettre. Le dernier caractère doit être une lettre ou un chiffre. La valeur doit comprendre entre 2 et 32 caractères.
 
-Pour configurer l’instance de service Azure Spring Cloud à l’aide du modèle Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
+Pour configurer l’instance de service Azure Spring Cloud à l’aide du modèle Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../azure-resource-manager/templates/syntax.md).
 
 ### <a name="common-creation-issues"></a>Problèmes de création courants
 

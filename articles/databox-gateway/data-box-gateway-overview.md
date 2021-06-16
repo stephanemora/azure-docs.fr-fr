@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 03/15/2021
+ms.date: 05/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 2adbefff2a0154268157c7d1735d83e70aa92ee8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a258240383905180a18830deb2488a7617c5fbee
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563587"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579170"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Présentation d’Azure Data Box Gateway
 
@@ -67,7 +67,7 @@ L’appareil virtuel Data Box Gateway présente les spécifications suivantes :
 | Spécifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Processeurs virtuels (cœurs)   | 4 minimum |
-| Mémoire  |8 Go minimum|
+| Mémoire  |Au moins 8 Go de RAM. Nous recommandons vivement au moins 16 Go de RAM.|
 | Disponibilité|Nœud unique|
 | Disques|Disque de système d’exploitation : 250 Go <br> Disque de données : 2 To minimum, allocation dynamique et sauvegarde sur SSD|
 | Interfaces réseau |1 ou plusieurs interfaces réseau virtuelles|

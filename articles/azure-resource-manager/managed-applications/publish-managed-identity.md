@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: 277faa2d47df9fddd1762d90d9aa2fb5bf00d4df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 018995ed973679a617b409b82e076198a558eef7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82508125"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968777"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Application managée Azure avec identité managée
 
@@ -46,7 +46,7 @@ La création d’une application managée avec une identité managée nécessite
 }
 ```
 
-Il existe deux manières courantes de créer une application managée avec **identity** : [CreateUIDefinition.json](./create-uidefinition-overview.md) et les [modèles Azure Resource Manager](../templates/template-syntax.md). Pour des scénarios de création uniques et simples, CreateUIDefinition doit être utilisé pour activer l’identité managée, car il propose une expérience plus riche. Toutefois, quand vous utilisez des systèmes élaborés ou complexes qui demandent des déploiements automatisés ou multiples d’applications managées, les modèles peuvent être utilisés.
+Il existe deux manières courantes de créer une application managée avec **identity** : [CreateUIDefinition.json](./create-uidefinition-overview.md) et les [modèles Azure Resource Manager](../templates/syntax.md). Pour des scénarios de création uniques et simples, CreateUIDefinition doit être utilisé pour activer l’identité managée, car il propose une expérience plus riche. Toutefois, quand vous utilisez des systèmes élaborés ou complexes qui demandent des déploiements automatisés ou multiples d’applications managées, les modèles peuvent être utilisés.
 
 ### <a name="using-createuidefinition"></a>Utilisation de CreateUIDefinition
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aa91851787bbb0f5570a4f439f794ee352bf0625
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56a306e56991500a6b1d5acab1ab38a3b4fa457f
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579686"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613296"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutoriel : Créer un locataire Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Pour que vos applications puissent interagir avec Azure Active Directory B2C (Az
 > [!NOTE]
 > Vous pouvez créer jusqu’à 20 locataires par abonnement. Cette limite aide à se prémunir contre les menaces visant vos ressources, telles que les attaques par déni de service, et est appliquée à la fois dans le portail Azure et dans l’API de création de locataire sous-jacente. Si vous avez besoin de créer plus de 20 locataires, contactez le [Support Microsoft](support-options.md).
 > 
-> Si vous souhaitez réutiliser un nom de locataire que vous avez essayé de supprimer, mais que vous voyez s’afficher l’erreur « Déjà utilisé par un autre annuaire » quand vous entrez le nom de domaine, vous devez [suivre d’abord ces étapes pour supprimer complètement le locataire](./faq.md?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant). Vous devez disposer au moins d’un rôle d’administrateur d’abonnements. Après avoir supprimé le locataire, vous devrez peut-être également vous déconnecter et vous reconnecter pour pouvoir réutiliser le nom de domaine.
+> Si vous souhaitez réutiliser un nom de locataire que vous avez essayé de supprimer, mais que vous voyez s’afficher l’erreur « Déjà utilisé par un autre annuaire » quand vous entrez le nom de domaine, vous devez [suivre d’abord ces étapes pour supprimer complètement le locataire](./faq.yml?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant-). Vous devez disposer au moins d’un rôle d’administrateur d’abonnements. Après avoir supprimé le locataire, vous devrez peut-être également vous déconnecter et vous reconnecter pour pouvoir réutiliser le nom de domaine.
 
 Dans cet article, vous apprendrez comment :
 

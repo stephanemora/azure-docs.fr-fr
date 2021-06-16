@@ -8,12 +8,12 @@ ms.custom: references_regions
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/29/2021
-ms.openlocfilehash: 06b08ec2a28af36299f583bc9f8aa5604c347593
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 51ef78575a6987c3ac1537f1bb9d35e98e294ab6
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319050"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971419"
 ---
 # <a name="set-up-dynamics-365-for-customer-engagement--power-apps-offer-technical-configuration"></a>Définir la configuration technique d’une offre Dynamics 365 pour Customer Engagement et Power Apps
 
@@ -47,7 +47,7 @@ Sélectionnez **+ Ajouter une région** pour spécifier les régions géographiq
 
 Par défaut, **l’URL de configuration d’application** que vous avez saisie ci-dessus sera utilisée pour chaque région. Si vous le préférez, vous pouvez entrer une URL de configuration d’application distincte pour une ou plusieurs régions spécifiques.
 
-Sélectionnez **Enregistrer le brouillon** avant de passer à l’onglet suivant du menu de navigation de gauche, **Co-vendre avec Microsoft**. Pour plus d’informations sur la configuration de la co-vente avec Microsoft (facultatif), consultez la [Vue d’ensemble de la co-vente avec les équipes de ventes et les partenaires Microsoft](marketplace-co-sell.md). Si vous ne configurez pas la co-vente ou si vous avez terminé, passez à **Étapes suivantes** ci-dessous.
+Sélectionnez **Enregistrer le brouillon** avant de passer à l’onglet suivant du menu de navigation de gauche, **Co-vendre avec Microsoft**. Pour plus d’informations sur la configuration de la co-vente avec Microsoft (facultatif), consultez la [Vue d’ensemble de la co-vente avec les équipes de ventes et les partenaires Microsoft](./co-sell-overview.md). Si vous ne configurez pas la co-vente ou si vous avez terminé, passez à **Étapes suivantes** ci-dessous.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,12 +3,13 @@ title: Activer la mise en file d’attente de lettres mortes pour les files d’
 description: Cet article explique comment activer la mise en file d’attente de lettres mortes pour les files d’attente et les abonnements en utilisant Portail Azure, PowerShell, CLI et les langages de programmation (C#, Java, Python et JavaScript).
 ms.topic: how-to
 ms.date: 04/20/2021
-ms.openlocfilehash: 789f9221c224a70225849d05b736276b95ebfc11
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 13082574510a0668076b7191b6b973e5a1a7cd77
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107989267"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671475"
 ---
 # <a name="enable-dead-lettering-on-message-expiration-for-azure-service-bus-queues-and-subscriptions"></a>Activer la mise en file d’attente de lettres mortes à l’expiration du message pour les files d’attente et les abonnements Azure Service Bus
 Les files d’attente et les abonnements aux rubriques Azure Service Bus fournissent une sous-file d’attente secondaire, appelée file d’attente de lettres mortes. La file d’attente de lettres mortes n’a pas besoin d’être explicitement créée et ne peut pas être supprimée ni gérée indépendamment de l’entité principale. L’objectif de la file d’attente de lettres mortes est de conserver les messages qui ne peuvent pas être remis aux destinataires ou les messages qui n’ont pas pu être traités. Pour en savoir plus, consultez [Vue d’ensemble des files d’attente de lettres mortes Service Bus](service-bus-dead-letter-queues.md). Cet article vous montre différentes façons d’activer la mise en file d’attente de lettres mortes pour les files d’attente et les abonnements de Service Bus. 

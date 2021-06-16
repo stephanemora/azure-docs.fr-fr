@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a9b09193c94cf6e1674605312f0fbad03af1e7eb
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: e26522130d98d5e2f706a6c48002ad75b537d32a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108185972"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964774"
 ---
 # <a name="optimize-traffic-flow-with-azure-active-directory-application-proxy"></a>Optimiser le flux de trafic avec le proxy d’application Azure Active Directory
 
@@ -199,5 +199,5 @@ Vous pouvez également envisager d’utiliser une autre variante dans cette situ
 
 - [Activer le proxy d’application](application-proxy-add-on-premises-application.md)
 - [Activer l’authentification unique](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Activer l’accès conditionnel](../manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+- [Activer l’accès conditionnel](./application-proxy-integrate-with-sharepoint-server.md)
 - [Résoudre les problèmes rencontrés avec le proxy d’application](application-proxy-troubleshoot.md)

@@ -3,22 +3,22 @@ title: Authentification unique (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: En savoir plus sur la création d’expériences d’authentification unique à l’aide de la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js).
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: nacanuma
+ms.author: mtillman
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 8080d4cf4c3f0091f7837b3fccead5474c42db55
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 86df7b35987fcc0081aca4e7e33f4da72f08e452
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "84690776"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077137"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Authentification unique avec MSAL.js
 

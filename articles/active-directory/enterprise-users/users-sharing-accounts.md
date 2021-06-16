@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb088d56879ebdf5d439c913ac47a701db5c4a60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6993357241e646e1e8b70c65a9aa45ba0e20f477
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96576245"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963593"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partage de comptes avec Azure AD
 
@@ -61,7 +61,7 @@ Les fonctionnalités Azure AD qui permettent le partage de compte sont les suiva
 * Applications de mot de passe personnalisé
 * [Tableau de bord/rapports d’utilisation des applications](../authentication/howto-sspr-reporting.md)
 * Portails d’accès des utilisateurs finaux
-* [Proxy d’application](../manage-apps/application-proxy.md)
+* [Proxy d’application](../app-proxy/application-proxy.md)
 * [Marketplace Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)
 
 ## <a name="sharing-an-account"></a>Partage d’un compte

@@ -3,12 +3,13 @@ title: Ajouter un artefact à une machine virtuelle dans Azure DevTest Labs | Mi
 description: Apprenez à ajouter un artefact à une machine virtuelle dans un labo d'Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b4772755d8077f7a659c4d403961ffaeb9e1d483
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: bf8c40b019d1021fa9ade7e52c1b50e16be6526b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85483888"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705100"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Ajouter un artefact à une machine virtuelle
 Lors de la création d'une machine virtuelle, vous pouvez y ajouter des artefacts existants. Ces artefacts peuvent provenir du [référentiel Git public de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou de votre propre référentiel Git. Cet article explique comment ajouter des artefacts sur le portail Azure et à l'aide d'Azure PowerShell. 

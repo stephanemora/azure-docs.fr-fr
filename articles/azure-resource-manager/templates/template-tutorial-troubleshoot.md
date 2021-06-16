@@ -5,12 +5,13 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 88898d3a0e42ff362a5ab6fa586c52064fcb8221
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6fd9f84656c1478f8bde1261165cfb9d7655d670
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736736"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111886715"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutoriel : Résoudre les problèmes des déploiements de modèles ARM
 
@@ -41,7 +42,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="create-a-problematic-template"></a>Créer un modèle problématique
 
-Ouvrez un modèle nommé [Créer un compte de stockage standard](https://azure.microsoft.com/resources/templates/101-storage-account-create/) depuis les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/), puis configurez deux problèmes.
+Ouvrez un modèle nommé [Créer un compte de stockage standard](https://azure.microsoft.com/resources/templates/storage-account-create/) depuis les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/), puis configurez deux problèmes.
 
 1. À partir de Visual Studio Code, sélectionnez **Fichier** > **Ouvrir un fichier**.
 2. Collez l’URL suivante dans **Nom de fichier** :

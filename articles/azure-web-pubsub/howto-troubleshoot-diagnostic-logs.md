@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 03/22/2021
-ms.openlocfilehash: 58017425eda0461a648b81472933aaeb911b24f1
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 119591c4a337cf622b95fa4ed70a7508d8acb99e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166911"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963079"
 ---
 # <a name="how-to-troubleshoot-with-diagnostic-logs"></a>Comment résoudre des problèmes à l’aide de journaux de diagnostic
 
@@ -77,7 +77,7 @@ Une fois que le service Azure Web PubSub sera en disponibilité générale, l’
 
 ## <a name="capture-diagnostic-logs-with-azure-monitor"></a>Capturer les journaux de diagnostic avec Azure Monitor
 
-L’intégration à [Azure Monitor](https://azure.microsoft.com/services/monitor/), [Stockage Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage) et [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace) pour capturer les journaux de diagnostic n’est pas prise en charge dans la préversion publique.
+L’intégration à [Azure Monitor](https://azure.microsoft.com/services/monitor/), [Stockage Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) et [Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) pour capturer les journaux de diagnostic n’est pas prise en charge dans la préversion publique.
 
 ## <a name="troubleshoot-with-the-diagnostic-logs"></a>Résoudre les problèmes à l’aide des journaux de diagnostic
 
@@ -110,4 +110,3 @@ Si l’erreur 401 Non autorisé est retournée pour des demandes de clients, vé
 ### <a name="throttling"></a>Limitation
 
 Si vous constatez que vous ne pouvez pas établir de connexions client au service Azure Web PubSub, vérifiez vos journaux de diagnostic. Si vous rencontrez `Connection count reaches limit` dans le journal de diagnostic, cela signifie que vous établissez un trop grand nombre de connexions au service Azure Web PubSub, et que la limite du nombre de connexions est atteinte. Envisagez d’effectuer un scale-up de votre instance du service Azure Web PubSub. Si vous rencontrez `Message count reaches limit` dans le journal de diagnostic, cela signifie que vous utilisez le niveau gratuit et épuisez le quota de messages. Si vous souhaitez envoyer davantage de messages, envisagez de mettre à niveau votre instance du service Azure Web PubSub au niveau standard pour envoyer des messages supplémentaires. Pour plus d’informations, voir [Tarification du service Azure Web PubSub](https://azure.microsoft.com/pricing/details/web-pubsub/).
-

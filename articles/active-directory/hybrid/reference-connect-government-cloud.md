@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbb4298d0d9a9d7589c4a2055b4d55a0b852f951
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4fec955815a4d65a406179a311af7d3e74c0a188
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97504353"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965837"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considérations relatives à l’identité hybride pour l’Azure Government Cloud
 
@@ -36,7 +36,7 @@ Les informations suivantes décrivent l’implémentation de l’authentificatio
 Avant de déployer l’agent d’authentification directe, vérifiez s’il existe un pare-feu entre vos serveurs et Azure AD. Si votre pare-feu ou proxy autorise les programmes sécurisés ou avec blocage DNS, ajoutez les connexions suivantes.
 
 > [!NOTE]
-> Les instructions suivantes s’appliquent également à l’installation du [connecteur de proxy d’application](../manage-apps/what-is-application-proxy.md) pour les environnements Azure Government.
+> Les instructions suivantes s’appliquent également à l’installation du [connecteur de proxy d’application](../app-proxy/what-is-application-proxy.md) pour les environnements Azure Government.
 
 |URL |Utilisation|
 |-----|-----|

@@ -1,15 +1,15 @@
 ---
 title: Référence - Base de référence de configuration invité de Azure Policy pour Windows
 description: Détails de la base de référence Windows sur Azure implémentée via la configuration invité de Azure Policy.
-ms.date: 05/11/2021
+ms.date: 06/11/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: f4e5dd5470c2a8640501e511934ff2848d3b21bd
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f0eaf007d890751d339ec6ada6c568d54ba4d107
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789049"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032993"
 ---
 # <a name="azure-policy-guest-configuration-baseline-for-windows"></a>Base de référence de configuration invité de Azure Policy pour Windows
 

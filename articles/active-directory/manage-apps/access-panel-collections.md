@@ -3,7 +3,7 @@ title: Créer des collections pour les portails Mes applications dans Azure Acti
 description: Utilisez des collections Mes applications pour personnaliser les pages Mes applications afin de simplifier l’expérience Mes applications pour vos utilisateurs finaux. Organisez les applications en groupes avec des onglets distincts.
 services: active-directory
 documentationcenter: ''
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc79e8026cb91b8ef3eac2addbb097b9db83afa7
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 239bd084a1a593211a544b86ba8b24ed9c13624a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377681"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077679"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Créer des collections sur le portail Mes applications
 

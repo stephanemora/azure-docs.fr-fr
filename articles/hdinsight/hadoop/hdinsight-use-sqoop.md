@@ -4,12 +4,12 @@ description: Découvrez comment utiliser Azure PowerShell sur une station de tra
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 165660a0141c50cf1c6dc24e3ba8df0299f885f2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 62ac9d5243c719af73cfd30b3a5190a2e7344668
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069001"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559283"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Utiliser Apache Sqoop avec Hadoop dans HDInsight
 
@@ -59,7 +59,7 @@ Dans cet article, vous utilisez ces deux jeux de données pour tester l’import
 
 ## <a name="set-up-test-environment"></a><a name="create-cluster-and-sql-database"></a>Configurer un environnement de test
 
-Le cluster, la base de données SQL et d’autres objets sont créés via le portail Azure en utilisant un modèle Azure Resource Manager. Le modèle se trouve dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Le modèle Resource Manager appelle un package bacpac pour déployer les schémas de table sur une base de données SQL.  Le package bacpac est situé dans le conteneur d’objets blob public https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si vous souhaitez utiliser un conteneur privé pour stocker les fichiers bacpac, appliquez les valeurs suivantes au modèle :
+Le cluster, la base de données SQL et d’autres objets sont créés via le portail Azure en utilisant un modèle Azure Resource Manager. Le modèle se trouve dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/hdinsight-linux-with-sql-database/). Le modèle Resource Manager appelle un package bacpac pour déployer les schémas de table sur une base de données SQL.  Le package bacpac est situé dans le conteneur d’objets blob public https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si vous souhaitez utiliser un conteneur privé pour stocker les fichiers bacpac, appliquez les valeurs suivantes au modèle :
 
 ```json
 "storageKeyType": "Primary",

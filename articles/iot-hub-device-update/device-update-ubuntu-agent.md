@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 6464ad632251053ac481fbd1f6a3e1197aa470df
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: b8fc67076418678f6c53331dc6d0fbe0e7e7a0b1
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121300"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410024"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Tutoriel Device Update pour Azure IoT Hub avec l’agent de package sur Ubuntu Server 18.04 x64
 
@@ -92,7 +92,7 @@ Comme pour les étapes automatisées par le [script cloud-init](https://github.c
    > [!NOTE]
    > L’agent de package Device Update ne dépend pas d’IoT Edge. Toutefois, il s’appuie sur le démon de service d’identité IoT installé avec IoT Edge (versions 1.2.0 et ultérieures) pour obtenir une identité et se connecter à IoT Hub.
    >
-   > Bien que ce point ne soit pas abordé dans ce tutoriel, le [démon de service d’identité IoT peut être installé en mode autonome sur des appareils IoT basés sur Linux](https://azure.github.io/iot-identity-service/packaging.html). La séquence d’installation est importante. L’agent de package Device Update doit être installé _après_ le service d’identité IoT. Sinon, l’agent de package n’est pas inscrit en tant que composant autorisé pour établir une connexion à IoT Hub.
+   > Bien que ce point ne soit pas abordé dans ce tutoriel, le [démon de service d’identité IoT peut être installé en mode autonome sur des appareils IoT basés sur Linux](https://azure.github.io/iot-identity-service/installation.html). La séquence d’installation est importante. L’agent de package Device Update doit être installé _après_ le service d’identité IoT. Sinon, l’agent de package n’est pas inscrit en tant que composant autorisé pour établir une connexion à IoT Hub.
 
 1. Ensuite, installez les packages .deb de l’agent Device Update.
 
