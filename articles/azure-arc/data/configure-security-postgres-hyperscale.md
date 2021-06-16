@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: d6e27fddceb69efbb2c1697c09ee9b61d7f38ee4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6f9570c04b9182e756560a23ffb6bbbdc079cd1
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687972"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407738"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Configurer la sécurité pour votre groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc
 
@@ -221,6 +221,7 @@ Si la variable d’environnement de **session** AZDATA_PASSWORD existe mais n’
 ## <a name="audit"></a>Audit
 
 Pour les scénarios d’audit, configurez votre groupe de serveurs de façon à ce qu’il utilise les extensions `pgaudit` de Postgres. Pour plus d’informations sur `pgaudit`, consultez le [`pgAudit` projet GitHub](https://github.com/pgaudit/pgaudit/blob/master/README.md). Pour activer l’extension `pgaudit` dans votre groupe de serveurs, consultez [Utiliser les extensions PostgreSQL](using-extensions-in-postgresql-hyperscale-server-group.md).
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

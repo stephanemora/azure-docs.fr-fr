@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d003008ea5b0d2591574f6f488b0145ee6f08a5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2636b4ee53784d1cc79002430774d0bb5c5c2aa5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100008126"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966241"
 ---
 # <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Partage externe dans Microsoft 365 et collaboration dans Azure Active Directory B2B
 
@@ -45,7 +45,7 @@ Vous pouvez activer cette fonctionnalité à l’aide du paramètre ShowPeoplePi
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
-* [Ajout d’un utilisateur B2B Collaboration à un rôle](add-guest-to-role.md)
+* [Ajout d’un utilisateur B2B Collaboration à un rôle](./add-users-administrator.md)
 * [Déléguer des invitations B2B Collaboration](delegate-invitations.md)
 * [Groupes dynamiques et B2B Collaboration](use-dynamic-groups.md)
 * [Résolution des problèmes d’Azure Active Directory B2B Collaboration](troubleshoot.md)

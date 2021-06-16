@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: e2f044ab267365885260b031638572846184bc83
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8979943b271041087e3541760d983b94977a07c1
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063183"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893963"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configurer Azure Defender pour le stockage
 
@@ -75,7 +76,7 @@ Azure Defender est maintenant activé pour ce compte de stockage.
 
 ### <a name="template"></a>[Modèle](#tab/template)
 
-Utilisez un modèle Azure Resource Manager pour déployer un compte Stockage Azure avec Azure Defender activé. Pour plus d’informations, consultez [Compte de stockage avec la protection avancée contre les menaces](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
+Utilisez un modèle Azure Resource Manager pour déployer un compte Stockage Azure avec Azure Defender activé. Pour plus d’informations, consultez [Compte de stockage avec la protection avancée contre les menaces](https://azure.microsoft.com/resources/templates/storage-advanced-threat-protection-create/).
 
 ### <a name="azure-policy"></a>[Azure Policy](#tab/azure-policy)
 

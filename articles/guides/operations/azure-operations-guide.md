@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 1eb0bf2c0e214c3e076895903176d15ee792c70c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f362bc76a3361b511b08a3822c01730c200d37b1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093055"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957028"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
 
@@ -280,7 +280,7 @@ Les mécanismes suivants sont disponibles pour l’automatisation du déploiemen
 
 - **Liaison de modèles** : À partir d’un modèle Resource Manager, vous pouvez lier un autre modèle. Cela permet une décomposition du déploiement en un ensemble de modèles dont les usages sont spécifiques et ciblés.
 
-Vous pouvez générer des modèles Resource Manager dans n’importe quel éditeur de texte. Cela dit, le kit SDK Azure pour Visual Studio comprend des outils pour vous aider. À l’aide de Visual Studio, vous pouvez ajouter des ressources au modèle par l’intermédiaire d’un Assistant, puis déployer et déboguer le modèle directement à partir de Visual Studio. Pour plus d’informations, consultez [Création de modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
+Vous pouvez générer des modèles Resource Manager dans n’importe quel éditeur de texte. Cela dit, le kit SDK Azure pour Visual Studio comprend des outils pour vous aider. À l’aide de Visual Studio, vous pouvez ajouter des ressources au modèle par l’intermédiaire d’un Assistant, puis déployer et déboguer le modèle directement à partir de Visual Studio. Pour plus d’informations, consultez [Création de modèles Azure Resource Manager](../../azure-resource-manager/templates/syntax.md).
 
 Enfin, vous pouvez convertir des groupes de ressources existants en modèles réutilisables à partir du portail Azure. Cela peut être utile si vous souhaitez créer un modèle de déploiement pour un groupe de ressources existant, ou que vous voulez simplement examiner le JSON sous-jacent. Pour exporter un groupe de ressources, sélectionnez le bouton **Script d’automatisation** dans les paramètres du groupe de ressources.
 

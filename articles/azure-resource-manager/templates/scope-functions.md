@@ -4,12 +4,12 @@ description: Décrit le mode de résolution des fonctions de modèle dans les d�
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c4a2caaa7b66e516a69cdb9d6c26baf7fd605e89
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: db2099c6c2405928a33f33bbba579c2280ad4877
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314604"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959994"
 ---
 # <a name="arm-template-functions-in-deployment-scopes"></a>Fonctions de modèle ARM dans les étendues de déploiement
 
@@ -139,6 +139,6 @@ La sortie de l’exemple précédent est :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](template-syntax.md).
+* Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](./syntax.md).
 * Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](common-deployment-errors.md).
 * Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton SAP, consultez [Déployer un modèle ARM privé avec un jeton SAP](secure-template-with-sas-token.md).

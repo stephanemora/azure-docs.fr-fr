@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2021
 ms.author: bagol
-ms.openlocfilehash: 6d41c33cfb05808a2b6b83c01b59ce0edbe5b628
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: de7126b7a095868680ff08fab6691782379bb742
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140134"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952340"
 ---
 # <a name="connect-windows-virtual-desktop-data-to-azure-sentinel"></a>Connecter des données Windows Virtual Desktop à Azure Sentinel
 
@@ -34,9 +34,9 @@ Les données Windows Virtual Desktop dans Azure Sentinel incluent les types sui
 
 |Données  |Description  |
 |---------|---------|
-|**Journaux des événements Windows**     |  Les journaux des événements Windows de l’environnement WVD sont streamés vers un espace de travail Log Analytics activé pour Azure Sentinel, de la même manière que les journaux des événements Windows issus d’autres machines Windows en dehors de l’environnement WVD. <br><br>Installez l’agent Log Analytics sur votre ordinateur Windows et configurez les journaux des événements Windows à envoyer à l’espace de travail Log Analytics.<br><br>Pour plus d'informations, consultez les pages suivantes :<br>- [Installer l’agent Log Analytics sur des ordinateurs Windows](/azure/azure-monitor/agents/agent-windows)<br>- [Collecter les sources de données du journal des événements Windows avec l’agent Log Analytics](/azure/azure-monitor/agents/data-sources-windows-events)<br>- [Connecter les événements de sécurité Windows](connect-windows-security-events.md)       |
+|**Journaux des événements Windows**     |  Les journaux des événements Windows de l’environnement WVD sont streamés vers un espace de travail Log Analytics activé pour Azure Sentinel, de la même manière que les journaux des événements Windows issus d’autres machines Windows en dehors de l’environnement WVD. <br><br>Installez l’agent Log Analytics sur votre ordinateur Windows et configurez les journaux des événements Windows à envoyer à l’espace de travail Log Analytics.<br><br>Pour plus d'informations, consultez les pages suivantes :<br>- [Installer l’agent Log Analytics sur des ordinateurs Windows](../azure-monitor/agents/agent-windows.md)<br>- [Collecter les sources de données du journal des événements Windows avec l’agent Log Analytics](../azure-monitor/agents/data-sources-windows-events.md)<br>- [Connecter les événements de sécurité Windows](connect-windows-security-events.md)       |
 |**Microsoft Defender pour les alertes point de terminaison**     |  Pour configurer Defender pour point de terminaison pour Windows Virtual Desktop, appliquez la même procédure que pour n’importe quel autre point de terminaison Windows. <br><br>Pour plus d'informations, consultez les pages suivantes : <br>- [Configurer le déploiement de Microsoft Defender pour point de terminaison](/windows/security/threat-protection/microsoft-defender-atp/production-deployment)<br>- [Connecter des données de Microsoft 365 Defender à Azure Sentinel](connect-microsoft-365-defender.md)       |
-|**Diagnostics Windows Virtual Desktop**     | Les diagnostics Windows Virtual Desktop sont une fonctionnalité du service PaaS Windows Virtual Desktop qui enregistre des informations dans un journal chaque fois qu’un utilisateur disposant du rôle Windows Virtual Desktop utilise le service. <br><br>Chaque journal contient des informations sur le rôle Windows Virtual Desktop impliqué dans l'activité, les éventuels messages d'erreur qui apparaissent pendant la session, les informations sur le locataire et les informations sur l'utilisateur. <br><br>La fonctionnalité de diagnostic crée des journaux d'activité pour les actions des utilisateurs et des administrateurs. <br><br>Pour plus d’informations, consultez [Utiliser Log Analytics pour la fonctionnalité de diagnostic dans Windows Virtual Desktop](/azure/virtual-desktop/virtual-desktop-fall-2019/diagnostics-log-analytics-2019).        |
+|**Diagnostics Windows Virtual Desktop**     | Les diagnostics Windows Virtual Desktop sont une fonctionnalité du service PaaS Windows Virtual Desktop qui enregistre des informations dans un journal chaque fois qu’un utilisateur disposant du rôle Windows Virtual Desktop utilise le service. <br><br>Chaque journal contient des informations sur le rôle Windows Virtual Desktop impliqué dans l'activité, les éventuels messages d'erreur qui apparaissent pendant la session, les informations sur le locataire et les informations sur l'utilisateur. <br><br>La fonctionnalité de diagnostic crée des journaux d'activité pour les actions des utilisateurs et des administrateurs. <br><br>Pour plus d’informations, consultez [Utiliser Log Analytics pour la fonctionnalité de diagnostic dans Windows Virtual Desktop](../virtual-desktop/virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).        |
 |     |         |
 
 ## <a name="connect-windows-virtual-desktop-data"></a>Connecter des données Windows Virtual Desktop

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 04/10/2021
-ms.openlocfilehash: cee7993116e746c7b827faaf94724033501f1318
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 06/07/2021
+ms.openlocfilehash: ac9d0aaf4114e48fb128a5093c59781724e8fd9c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309048"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749054"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -141,9 +141,6 @@ Toutefois, si la plupart de vos flux de données s’exécutent en parallèle, i
 > [!NOTE]
 > La durée de vie n’est pas disponible lors de l’utilisation du runtime d’intégration de résolution automatique.
  
-> [!NOTE]
-> La réutilisation rapide de clusters existants est une fonctionnalité d’Azure Integration Runtime qui est actuellement en préversion publique.
-
 ## <a name="optimizing-sources"></a>Optimisation des sources
 
 Pour chaque source à l’exception d’Azure SQL Database, il est recommandé de conserver l’option **Utiliser le partitionnement actuel** sélectionnée. Lors de la lecture à partir de tous les autres systèmes sources, le flux de données partitionne automatiquement les données uniformément en fonction de la taille des données. Une nouvelle partition est créée pour chaque volume d’environ 128 Mo de données. Le nombre de partitions augmente à mesure que la taille des données augmente.
@@ -308,9 +305,6 @@ Si vos flux de données s’exécutent en parallèle, il est recommandé de ne p
 ### <a name="execute-data-flows-sequentially"></a>Exécuter des flux de données séquentiellement
 
 Si vous exécutez vos activités de flux de données dans l’ordre, il est recommandé de définir une durée de vie dans la configuration d’Azure IR. ADF réutilise les ressources de calcul, ce qui accélère le démarrage du cluster. Chaque activité sera toujours isolée pour recevoir un nouveau contexte Spark pour chaque exécution. Pour réduire encore davantage le temps entre les activités séquentielles, cochez la case « Réutiliser rapidement » sur l’IR Azure pour indiquer à ADF de réutiliser le cluster existant.
-
-> [!NOTE]
-> La réutilisation rapide de clusters existants est une fonctionnalité d’Azure Integration Runtime qui est actuellement en préversion publique.
 
 ### <a name="overloading-a-single-data-flow"></a>Surcharge d’un seul flux de données
 

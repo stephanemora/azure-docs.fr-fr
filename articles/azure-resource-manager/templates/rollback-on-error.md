@@ -4,12 +4,12 @@ description: Spécifiez qu’un déploiement ayant échoué doit être restauré
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7a0c4deef5956804aa74ad24f072bc46e5c2a8cd
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d66df9cafdb64c216896a66b3283277930a63ed0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321498"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960062"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>Restaurer en cas d’erreur vers un déploiement réussi
 
@@ -126,4 +126,4 @@ Le déploiement spécifié doit avoir réussi.
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour comprendre les modes complet et incrémentiel, consultez [Modes de déploiement Azure Resource Manager](deployment-modes.md).
-- Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](template-syntax.md).
+- Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](./syntax.md).

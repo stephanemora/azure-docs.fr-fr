@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 05/25/2021
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 84d3fd31f3da047b263a3e3a46761dfc4538e499
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 014084862f5dab95ee859315c52983cbcd96e678
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279542"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793420"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Protéger votre contenu à l’aide du chiffrement dynamique de Media Services
 
@@ -52,7 +52,7 @@ Pour implémenter correctement votre système de protection de contenu, vous dev
 
 ### <a name="media-services-code"></a>Code Media Services
   
-L’[exemple DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) montre comment implémenter un système multi-DRM avec Media Services v3 en utilisant .NET. Il montre également comment utiliser le service de remise de clé ou de licences de Media Services.
+L’[exemple DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs) montre comment implémenter un système multi-DRM avec Media Services v3 en utilisant .NET. Il montre également comment utiliser le service de remise de clé ou de licences de Media Services.
   
 Vous pouvez chiffrer chaque ressource avec plusieurs types de chiffrement (AES-128, PlayReady, Widevine, FairPlay). Pour identifier la meilleure combinaison, voir [Types de protocoles de diffusion en continu et de chiffrements](#streaming-protocols-and-encryption-types).
 
@@ -191,7 +191,7 @@ Quand vous configurez la stratégie de restriction par jeton, vous devez défini
 
 ### <a name="token-replay-prevention"></a>Prévention de réexécution de jeton
 
-La fonctionnalité de *prévention de relecture de jeton* permet aux clients de Media Services de limiter le nombre de fois qu’un même jeton peut être utilisé pour demander une clé ou une licence. Le client peut ajouter une revendication de type `urn:microsoft:azure:mediaservices:maxuses` dans le jeton, sont la valeur indique le nombre de fois que le jeton peut être utilisé pour acquérir une licence ou une clé. Toutes les demandes suivantes de remise de clé effectuées à l’aide du même jeton renvoient une réponse Non autorisé. Découvrez comment ajouter la revendication dans l’[exemple DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
+La fonctionnalité de *prévention de relecture de jeton* permet aux clients de Media Services de limiter le nombre de fois qu’un même jeton peut être utilisé pour demander une clé ou une licence. Le client peut ajouter une revendication de type `urn:microsoft:azure:mediaservices:maxuses` dans le jeton, sont la valeur indique le nombre de fois que le jeton peut être utilisé pour acquérir une licence ou une clé. Toutes les demandes suivantes de remise de clé effectuées à l’aide du même jeton renvoient une réponse Non autorisé. Découvrez comment ajouter la revendication dans l’[exemple DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L591).
  
 #### <a name="considerations"></a>Considérations
 

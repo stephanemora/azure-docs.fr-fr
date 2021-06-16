@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/19/2021
-ms.openlocfilehash: 6c7f4b221b1b9a1eee9a0d4d376bb6707d6b2869
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 76b6079b389f1b5817c328cf92939ae956034936
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108000851"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956929"
 ---
 # <a name="train-wide--deep-recommender"></a>Générateur de recommandations Train Wide and Deep
 Cet article explique comment utiliser le module **Générateur de recommandations Train Wide and Deep** dans le concepteur Azure Machine Learning afin d’effectuer la formation d’un modèle de recommandation. Ce module est basé sur l’apprentissage Wide and Deep, proposé par Google.
@@ -146,7 +146,7 @@ In distributed training the workload to train a model is split up and shared amo
 
 ### How to enable distributed training
 
-To enable distributed training for **Train Wide & Deep Recommender** module, you can set in **Run settings** in the right pane of the module. Only **[AML Compute cluster](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)** is supported for distributed training.
+To enable distributed training for **Train Wide & Deep Recommender** module, you can set in **Run settings** in the right pane of the module. Only **[AML Compute cluster](../how-to-create-attach-compute-cluster.md?tabs=python)** is supported for distributed training.
 
 1. Select the module and open the right panel. Expand the **Run settings** section.
 
@@ -164,7 +164,7 @@ To enable distributed training for **Train Wide & Deep Recommender** module, you
 
     [![Screenshot showing how to check compute cluster](./media/module/compute-cluster-node.png)](./media/module/compute-cluster-node.png#lightbox)
 
-You can learn more about distributed training in Azure Machine Learning [here](https://docs.microsoft.com/azure/machine-learning/concept-distributed-training).
+You can learn more about distributed training in Azure Machine Learning [here](../concept-distributed-training.md).
 
 
 ### Troubleshooting for distributed training
@@ -193,4 +193,4 @@ Dans l’implémentation du générateur de recommandations Wide and Deep, le mo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Regardez les [modules disponibles](module-reference.md) pour Azure Machine Learning. 
+Regardez les [modules disponibles](module-reference.md) pour Azure Machine Learning.

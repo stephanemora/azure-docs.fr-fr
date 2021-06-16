@@ -6,12 +6,12 @@ ms.author: pepogors
 author: peterpogorski
 ms.date: 5/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: 377e71c7fdf1f6750ae9529db2cf62fa329d18be
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: f79146e1271436e29dcd7f911c250cab58c28707
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684664"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956755"
 ---
 # <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur les clusters Service Fabric managés
 
@@ -67,7 +67,7 @@ Oui, les clusters managés Service Fabric prennent en charge les types de nœud 
 
 ### <a name="can-i-select-between-automatic-and-manual-upgrades-for-my-cluster-runtime"></a>Puis-je choisir entre des mises à niveau automatiques et manuelles pour mon runtime de cluster ?
 
-Oui, vous pouvez choisir des mises à niveau automatiques ou manuelles. Pour plus d'informations, consultez [Mises à niveau de clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade).
+Oui, vous pouvez choisir des mises à niveau automatiques ou manuelles. Pour plus d'informations, consultez [Mises à niveau de clusters](./service-fabric-cluster-upgrade.md).
 
 ## <a name="applications"></a>Applications
 

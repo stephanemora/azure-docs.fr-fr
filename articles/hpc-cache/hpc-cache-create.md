@@ -6,12 +6,13 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: v-erkel
-ms.openlocfilehash: 0cb4317a874e0f342c799fabad55aaefe5ba485d
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 72c9590cca805d0a6e22d42f482ad80935e842d3
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109733799"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706795"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Créer un cache Azure HPC Cache
 

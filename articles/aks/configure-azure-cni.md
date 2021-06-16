@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 839aa012cedaaa6f5bd3d1edad60e3ea7278133b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bdbc6956f9a32cbba369135652fb4ac03c581108
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775886"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559373"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)
 
@@ -154,7 +154,18 @@ La capture d’écran suivante de votre portail Azure représente un exemple de 
 > [!NOTE] 
 > La fonctionnalité en préversion est actuellement disponible dans les régions suivantes :
 >
+> * USA Est
+> * USA Est 2
+> * Centre-Nord des États-Unis
 > * Centre-USA Ouest
+> * USA Ouest
+> * USA Ouest 2
+> * Centre du Canada
+> * Australie Est
+> * Sud du Royaume-Uni
+> * Europe Nord
+> * Europe Ouest
+> * Asie Sud-Est
 
 Un inconvénient de la CNI (Container Networking Interface) traditionnelle est l’épuisement des adresses IP de pod à mesure que le cluster AKS croît, qui entraîne la nécessité de reconstruire l’ensemble du cluster dans un sous-réseau plus grand. La nouvelle fonctionnalité d’allocation d’adresses IP dynamique dans Azure CNI résout ce problème en allouant des adresses IP de pod à partir d’un sous-réseau séparé du sous-réseau hébergeant le cluster AKS.  Elle offre les avantages suivants :
 

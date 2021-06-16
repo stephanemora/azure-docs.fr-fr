@@ -1,0 +1,72 @@
+### YamlMime:FAQ
+metadata:
+  title: Foire aux questions relative à la fonctionnalité Azure Cosmos DB de restauration à un instant dans le passé
+  description: Cet article répertorie les questions fréquentes sur la fonctionnalité Azure Cosmos DB de restauration à un instant dans le passé, disponible dans le mode de sauvegarde continue.
+  author: kanshiG
+  ms.service: cosmos-db
+  ms.topic: conceptual
+  ms.date: 02/01/2021
+  ms.author: govindk
+  ms.reviewer: sngun
+  ms.openlocfilehash: af2598161c1fe6b2c28541877a40709948cbb913
+  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 05/06/2021
+  ms.locfileid: "111907228"
+title: Foire aux questions relative à la fonctionnalité Azure Cosmos DB de restauration à un instant dans le passé (préversion)
+summary: >
+  [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+
+
+  > [!IMPORTANT]
+
+  > La fonctionnalité de restauration à un instant dans le passé (mode de sauvegarde continue) pour Azure Cosmos DB est actuellement disponible en préversion publique.
+
+  > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+
+  > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+  Cet article répertorie les questions fréquentes sur la fonctionnalité Azure Cosmos DB de restauration à un instant dans le passé (préversion), disponible dans le mode de sauvegarde continue.
+sections:
+- name: Ignoré
+  questions:
+  - question: >
+      Combien de temps prend la restauration ?
+    answer: >
+      La durée de la restauration dépend de la taille de vos données.
+  - question: >
+      Puis-je envoyer l’heure de restauration en heure locale ?
+    answer: >
+      La restauration peut ne pas se produire selon que les ressources clés comme les bases de données ou les conteneurs existaient à ce moment-là. Vous pouvez le vérifier en entrant l’heure et en examinant la base de données ou le conteneur sélectionné pour une période donnée. Si vous ne voyez aucune ressource à restaurer, le processus de restauration ne fonctionne pas.
+  - question: >
+      Comment puis-je savoir si un compte est en cours de restauration ?
+    answer: "Après que vous avez soumis la commande de restauration et attendu sur la même page, une fois l’opération terminée, la barre d’état affiche le message de compte restauré avec succès. Vous pouvez également rechercher le compte restauré et [suivre l’état du compte en cours de restauration](continuous-backup-restore-portal.md#track-restore-status). Pendant que la restauration est en cours, l’état du compte est *En cours de création* ; une fois l’opération de restauration terminée, l’état du compte devient *En ligne*.\n\nDe même, pour PowerShell et CLI, vous pouvez suivre la progression de l’opération de restauration en exécutant la commande `az cosmosdb show` comme suit :\n\n```azurecli-interactive\naz cosmosdb show --name \"accountName\" --resource-group \"resourceGroup\"\n```\n\nLa propriété provisioningState affiche *Succeeded* quand le compte est en ligne.\n\n```json\n{\n\"virtualNetworkRules\": [],\n\"writeLocations\" : [\n{\n    \"documentEndpoint\": \"https://<accountname>.documents.azure.com:443/\", \n    \"failoverpriority\": 0,\n    \"id\": \"accountName\" ,\n    \"isZoneRedundant\" : false, \n    \"locationName\": \"West US 2\", \n    \"provisioningState\": \"Succeeded\"\n}\n]\n}\n```\n"
+  - question: >
+      Comment puis-je savoir si un compte a été restauré à partir d’un autre compte ?
+    answer: >
+      Exécutez la commande `az cosmosdb show`. Dans la sortie, vous pouvez voir la valeur de la propriété `createMode`. Si la valeur est définie sur **Restore**, cela indique que le compte a été restauré à partir d’un autre compte. La propriété `restoreParameters` contient des détails supplémentaires, tels que `restoreSource`, qui a l’ID de compte source. Le dernier GUID dans le paramètre `restoreSource` est l’instanceId du compte source.
+
+
+      Par exemple, dans la sortie suivante, l’ID d’instance du compte source est *7b4bb-f6a0-430e-ade1-638d781830cc*.
+
+
+      ```json
+
+      "restoreParameters": {
+         "databasesToRestore" : [],
+         "restoreMode": "PointInTime",
+         "restoreSource": "/subscriptions/2a5b-f6a0-430e-ade1-638d781830dd/providers/Microsoft.DocumentDB/locations/westus/restorableDatabaseAccounts/7b4bb-f6a0-430e-ade1-638d781830cc",
+         "restoreTimestampInUtc": "2020-06-11T22:05:09Z"
+      }
+
+      ```
+  - question: >
+      Que se passe-t-il lorsque je restaure une base de données à débit partagé ou un conteneur dans une base de données à débit partagé ?
+    answer: >
+      L’intégralité de la base de données à débit partagé est restaurée. Vous ne pouvez pas choisir un sous-ensemble de conteneurs dans une base de données à débit partagé pour les restaurer.
+  - question: >
+      Quelle est l’utilisation d’InstanceID dans la définition de compte ?
+    answer: "À tout moment, la propriété `accountName` du compte Azure Cosmos DB est unique au monde tant qu’il est actif. Toutefois, une fois le compte supprimé, il est possible de créer un autre compte portant le même nom. Par conséquent, la propriété « accountName » n’est plus suffisante pour identifier l’instance d’un compte. \n\nID ou `instanceId` est une propriété d’une instance de compte qui est utilisée pour lever l’ambiguïté entre plusieurs comptes (actifs et supprimés) s’ils portent le même nom pour la restauration. Vous pouvez récupérer l’ID d’instance en exécutant les commandes `Get-AzCosmosDBRestorableDatabaseAccount` ou `az cosmosdb restorable-database-account`. La valeur de l’attribut de nom désigne « InstanceID ».\n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\n* Qu’est-ce que le mode de [sauvegarde continue](continuous-backup-restore-introduction.md) ?\n* Configurez et gérez la sauvegarde continue en utilisant [Portail Azure](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md) ou [Azure Resource Manager](continuous-backup-restore-template.md).\n* [Gérez les autorisations](continuous-backup-restore-permissions.md) requises pour restaurer les données en mode de sauvegarde continue.\n* [Modèle de ressource du mode de sauvegarde continue](continuous-backup-restore-resource-model.md).\n"

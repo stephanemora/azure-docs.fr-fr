@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 06c58b7081ed68724a3c907f8fe76dcf5f7b8057
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c921637fc0c50125f6cc657dc9329e2107e8e774
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102046803"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894665"
 ---
 # <a name="how-to-create-alerts-from-vm-insights"></a>Comment créer des alertes à partir d’Insights de machine virtuelle
 [Les alertes dans Azure Monitor](../alerts/alerts-overview.md) vous informent de façon proactive des données et des modèles intéressants dans vos données de surveillance. Insights de machine virtuelle n’inclut pas de règles d’alerte préconfigurées, mais vous pouvez créer vos propres règles en fonction des données collectées. Cet article fournit des conseils sur la création de règles d’alerte, y compris un ensemble d’exemples de requêtes.
@@ -100,7 +100,7 @@ InsightsMetrics
 | where Origin == "vm.azm.ms" 
 | where Namespace == "LogicalDisk" and Name == "TransfersPerSecond"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) ), Computer, _ResourceId, Disk
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk
 ```
 
 ### <a name="logical-disk-data-rate"></a>Débit de données du disque logique
@@ -110,7 +110,7 @@ InsightsMetrics
 | where Origin == "vm.azm.ms" 
 | where Namespace == "LogicalDisk" and Name == "BytesPerSecond"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) , Computer, _ResourceId, Disk
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk
 ```
 
 ### <a name="network-interfaces-bytes-received---all-interfaces"></a>Octets reçus sur les interfaces réseau : toutes les interfaces

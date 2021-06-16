@@ -2,19 +2,20 @@
 title: Réalimenter les données d’objets blob à partir du niveau Archive
 description: Réalimentez vos blobs à partir du stockage d’archive pour pouvoir accéder aux données des blobs. Copiez un blob archivé sur un niveau de service en ligne.
 services: storage
-author: twooley
-ms.author: twooley
+author: tamram
+ms.author: tamram
 ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: aaea21dca5304a7a75b24bd7f974712db38d1815
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7e85905a544e677cf4f633b0b4deb51365a28218
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276771"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110679284"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Réalimenter les données d’objets blob à partir du niveau Archive
 

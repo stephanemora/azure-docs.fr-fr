@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b820b8b9606795709d03414fa14ec29a1b5c519
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2386392f34f25c30c7c68065dd69a606d16bae8e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92441553"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955072"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Groupes dynamiques et Azure Active Directory B2B Collaboration
 
@@ -74,5 +74,5 @@ L’image suivante illustre la syntaxe de règle d'un groupe dynamique modifié 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Propriétés de l’utilisateur B2B Collaboration](user-properties.md)
-- [Ajout d’un utilisateur B2B Collaboration à un rôle](add-guest-to-role.md)
+- [Ajout d’un utilisateur B2B Collaboration à un rôle](./add-users-administrator.md)
 - [Accès conditionnel pour les utilisateurs de B2B Collaboration](conditional-access.md)

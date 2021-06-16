@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 01/14/2021
-ms.openlocfilehash: 467cc4a62cd044cb4ad264ec8643728e6db0b10c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 8ce06a1279a71840dea90e199f5b9c3ee60bd3d3
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479812"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541077"
 ---
 # <a name="introduction-to-listing-options"></a>Présentation des options de référencement
 
@@ -112,7 +112,7 @@ Vous pouvez demander un coût forfaitaire pour ces types d’offres :
 
 Les types d’offres suivants prennent en charge la tarification basée sur l’utilisation :
 
-- Les offres Azure Application (application gérée) prennent en charge la facturation à l’usage. Pour plus d’informations, consultez [Vue d’ensemble de la facturation à l’usage](partner-center-portal/azure-app-metered-billing.md).
+- Les offres Azure Application (application gérée) prennent en charge la facturation à l’usage. Pour plus d’informations, consultez [Vue d’ensemble de la facturation à l’usage](marketplace-metering-service-apis.md).
 - Les offres SaaS prennent en charge la facturation à l’usage et la tarification par utilisateur (poste). Pour plus d’informations sur la facturation à l’usage, consultez [Facturation à l’usage pour SaaS à l’aide du service de mesure de la consommation de la Place de marché commerciale](partner-center-portal/saas-metered-billing.md).
 - Les offres de machine virtuelle Azure prennent en charge la tarification **Par cœur**, **Par taille de cœur** et **Par marché et taille de cœur**. Ces options sont calculées par heure et facturées mensuellement.
 

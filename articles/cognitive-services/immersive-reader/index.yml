@@ -5,19 +5,19 @@ metadata:
   title: Documentation du Lecteur immersif Azure
   description: Le lecteur immersif est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage. Vous pouvez utiliser le lecteur immersif dans votre application web à l’aide du SDK du lecteur immersif.
   services: service
-  ms.service: cognitive-services
+  ms.service: applied-ai-services
   ms.subservice: immersive-reader
   ms.topic: landing-page
   ms.collection: collection
   author: IEvangelist
   ms.author: dapine
   ms.date: 01/23/2020
-  ms.openlocfilehash: dff95a1989d8ff55658227cf135d3e2fc687ec0f
-  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.openlocfilehash: 470efd48de825de8c6265270416736247d41c1c5
+  ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/25/2021
-  ms.locfileid: "110377725"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111887957"
 landingContent:
 - title: À propos du lecteur immersif
   linkLists:

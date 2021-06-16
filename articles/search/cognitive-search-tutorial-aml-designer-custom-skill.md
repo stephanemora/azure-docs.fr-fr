@@ -8,25 +8,25 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: 7d73bfa4b184cb2a3d1cad9a4b6f7fb918c9f953
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: f6e26d697c97b70770ec0445be8d72bda7269f4f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107989450"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961433"
 ---
 # <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning-designer"></a>Exemple : Créer et déployer une compétence personnalisée avec le concepteur Azure Machine Learning
 
-Le [concepteur Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer) est un canevas interactif facile à utiliser qui permet de créer des modèles Machine Learning pour des tâches telles que la régression et la classification. L'appel du modèle créé par le concepteur dans un pipeline d'enrichissement du service Recherche cognitive nécessite quelques étapes supplémentaires. Dans cet exemple, vous allez créer un modèle de régression simple pour prédire le prix d'une automobile et appeler le point de terminaison d'inférence sous forme de compétence AML. 
+Le [concepteur Azure Machine Learning](../machine-learning/concept-designer.md) est un canevas interactif facile à utiliser qui permet de créer des modèles Machine Learning pour des tâches telles que la régression et la classification. L'appel du modèle créé par le concepteur dans un pipeline d'enrichissement du service Recherche cognitive nécessite quelques étapes supplémentaires. Dans cet exemple, vous allez créer un modèle de régression simple pour prédire le prix d'une automobile et appeler le point de terminaison d'inférence sous forme de compétence AML. 
 
-Pour créer un modèle permettant de prédire le prix d'une automobile en fonction de ses différentes caractéristiques, suivez le tutoriel [Régression - Prédiction du prix des véhicules automobiles (avancé)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-compare-algorithms.md) de la page [Exemples de pipelines et de jeux de données](https://docs.microsoft.com/azure/machine-learning/samples-designer).
+Pour créer un modèle permettant de prédire le prix d'une automobile en fonction de ses différentes caractéristiques, suivez le tutoriel [Régression - Prédiction du prix des véhicules automobiles (avancé)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-compare-algorithms.md) de la page [Exemples de pipelines et de jeux de données](../machine-learning/concept-designer.md).
 
 > [!IMPORTANT] 
 > Le déploiement du modèle en suivant le processus d'inférence en temps réel génère un point de terminaison valide, mais celui-ci ne peut pas être utilisé avec la compétence AML dans le service Recherche cognitive. 
 
 ## <a name="register-model-and-download-assets"></a>Inscrire le modèle et télécharger les ressources
 
-Après avoir effectué l'apprentissage d'un modèle, [inscrivez-le](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-model-designer) et suivez les étapes pour télécharger tous les fichiers du dossier `trained_model_outputs`, ou téléchargez uniquement les fichiers `score.py` et `conda_env.yml` à partir de la page des artefacts de modèles. Vous allez modifier le script de scoring avant que le modèle ne soit déployé en tant que point de terminaison d'inférence en temps réel.
+Après avoir effectué l'apprentissage d'un modèle, [inscrivez-le](../machine-learning/how-to-deploy-model-designer.md) et suivez les étapes pour télécharger tous les fichiers du dossier `trained_model_outputs`, ou téléchargez uniquement les fichiers `score.py` et `conda_env.yml` à partir de la page des artefacts de modèles. Vous allez modifier le script de scoring avant que le modèle ne soit déployé en tant que point de terminaison d'inférence en temps réel.
 
 
 ## <a name="edit-the-scoring-script-for-use-with-cognitive-search"></a>Modifier le script de scoring à utiliser avec le service Recherche cognitive 
@@ -211,7 +211,7 @@ Sélectionnez le modèle, puis l'action `Deploy`. L'étape de déploiement suppo
 
 Pour intégrer le point de terminaison nouvellement créé au service Recherche cognitive :
 1. Ajoutez un fichier JSON contenant un seul enregistrement d'automobile à un conteneur d'objets blob.
-2. Configurez un pipeline d'enrichissement par IA à l'aide du [workflow d'importation de données](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob). Sélectionnez `JSON` comme `parsing mode`.
+2. Configurez un pipeline d'enrichissement par IA à l'aide du [workflow d'importation de données](cognitive-search-quickstart-blob.md). Sélectionnez `JSON` comme `parsing mode`.
 3. Sous l'onglet `Add Enrichments`, sélectionnez une seule compétence `Extract people names` en tant qu'espace réservé.
 4. Ajoutez un nouveau champ à l'index `predicted_price` de type `Edm.Double`, puis définissez la propriété Retrievable sur true.
 5. Finalisez le processus d'importation des données.

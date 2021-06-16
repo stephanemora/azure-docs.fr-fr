@@ -3,12 +3,13 @@ title: Ajouter un référentiel d’artefacts à votre laboratoire dans Azure De
 description: Découvrez comment spécifier votre propre dépôt d’artefacts pour votre laboratoire dans Azure DevTest Labs afin de stocker des outils non disponibles dans le dépôt d’artefacts public.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: da4e345b18a46226853d71bbf66af0487f1a761f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0915254b5dbaabfc32a47b9b07713499a26c16a5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102502193"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954171"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Ajouter un référentiel d’artefacts à votre laboratoire dans Azure DevTest Labs.
 Azure DevTest Labs vous permet de spécifier l’ajout d’un artefact à une machine virtuelle pendant ou après la création de cette dernière. Cet artefact peut être un outil ou une application que vous souhaitez installer sur la machine virtuelle. Les artefacts sont définis dans un fichier JSON chargé à partir d’un référentiel Git Azure DevOps ou GitHub.
@@ -74,7 +75,7 @@ Cette section inclut les étapes permettant d’ajouter un référentiel d’art
 6. Sélectionnez **Enregistrer**.
 
 ## <a name="use-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
-Modèles Azure Resource Management (Azure Resource Manager) sont des fichiers JSON qui décrivent les ressources d’Azure que vous souhaitez créer. Pour en savoir plus sur ces modèles, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
+Modèles Azure Resource Management (Azure Resource Manager) sont des fichiers JSON qui décrivent les ressources d’Azure que vous souhaitez créer. Pour en savoir plus sur ces modèles, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/syntax.md).
 
 Cette section inclut les étapes permettant d’ajouter un référentiel d’artefacts à un laboratoire via un modèle Azure Resource Manager.  Ce modèle crée le laboratoire, s’il n’existe pas déjà.
 
@@ -293,7 +294,7 @@ $propertiesObject = @{
     status = 'Enabled'
 }
 
-Write-Verbose @"Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"
+Write-Verbose "Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"
 
 #Resource will be added to current subscription.
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'

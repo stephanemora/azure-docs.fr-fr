@@ -43,7 +43,7 @@
             - name: Équilibrer la charge des machines virtuelles
               href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: "Création de modèles Azure\_Resource\_Manager"
-              href: ../../azure-resource-manager/templates/template-syntax.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+              href: ../../azure-resource-manager/templates/syntax.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Sauvegarder des machines virtuelles à grande échelle
               href: ../../backup/tutorial-backup-vm-at-scale.md
     - name: Guides pratiques

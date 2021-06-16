@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: e4d26856d269a07ce87b22843c61be97b73bbea3
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a889f0b740d506bd546f1fb67f050317146c31e8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137253"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677888"
 ---
 # <a name="tutorial-configure-the-opc-publisher"></a>Tutoriel : Configurer OPC Publisher
 
@@ -85,7 +85,7 @@ Vous avez à votre disposition plusieurs arguments de ligne de commande pour dé
 ## <a name="configuration-via-the-built-in-opc-ua-server-interface"></a>Configuration par le biais de l’interface de serveur OPC UA intégrée
 
 >[!NOTE] 
-> Cette fonctionnalité est disponible uniquement dans les versions 2.5 et antérieures d’OPC Publisher.**
+> Cette fonctionnalité est disponible uniquement dans les versions 2.5 et antérieures d’OPC Publisher.
 
 OPC Publisher a un serveur OPC UA intégré, exécuté sur le port 62222. Il implémente trois méthodes OPC UA :
 
@@ -98,7 +98,7 @@ Cette interface est accessible à l’aide d’une application cliente OPC UA, 
 ## <a name="configuration-via-iot-hub-direct-methods"></a>Configuration par le biais de méthodes directes IoT Hub
 
 >[!NOTE] 
-> Cette fonctionnalité est disponible uniquement dans les versions 2.5 et antérieures d’OPC Publisher.**
+> Cette fonctionnalité est disponible uniquement dans les versions 2.5 et antérieures d’OPC Publisher.
 
 OPC Publisher implémente les [méthodes directes IoT Hub](../iot-hub/iot-hub-devguide-direct-methods.md)suivantes, que vous pouvez appeler à partir d’une application (depuis n’importe où dans le monde) en tirant parti du [Kit SDK IoT Hub Device](../iot-hub/iot-hub-devguide-sdks.md) :
 

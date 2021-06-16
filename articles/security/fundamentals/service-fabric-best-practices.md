@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: a7d87e2496158fec8ff33ab8586c845a6207f810
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: d89f2de555b17ddb5e77a85831f03be16a8a3f57
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816059"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950482"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Bonnes pratiques pour la sécurité Azure Service Fabric
 Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer votre application cloud dans l’environnement de production, passez en revue la liste des bonnes pratiques essentielles et recommandées pour l’implémentation de clusters sécurisés dans votre application.
@@ -144,7 +144,7 @@ Le protocole HTTP n’est pas sécurisé et peut faire l’objet d’écoutes cl
 Pour en savoir plus sur l’utilisation des certificats SSL/TLS, consultez [Configuration de TLS pour une application dans Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Utiliser la sécurité et l’isolement réseau avec Azure Service Fabric
-Configurez un cluster sécurisé à 3 types de nœud en utilisant le [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) comme exemple. Contrôlez les trafics réseau entrant et sortant à l’aide du modèle et de groupes de sécurité réseau.
+Configurez un cluster sécurisé à 3 types de nœud en utilisant le [modèle Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) comme exemple. Contrôlez les trafics réseau entrant et sortant à l’aide du modèle et de groupes de sécurité réseau.
 
 Le modèle a un groupe de sécurité réseau pour chacun des groupes de machines virtuelles identiques et permet de contrôler le trafic vers et depuis chacun d’eux. Les règles sont configurées par défaut pour autoriser tout le trafic nécessaire aux services système et aux ports d’application spécifiés dans le modèle. Passez en revue ces règles et apportez toutes les modifications nécessaires, y compris en ajoutant de nouvelles règles pour vos applications.
 

@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
-ms.custom: ''
-ms.openlocfilehash: 3ff0ee79413640c09132b8399a3b0c07dd1783cc
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 785cdcc2436486b69f9033bfa1a4fb0cb441d2a0
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063693"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110678732"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-azure-powershell"></a>Gérer l’exfiltration de données vers des comptes de stockage Azure avec des stratégies de point de terminaison de service de réseau virtuel à l’aide d’Azure PowerShell
 

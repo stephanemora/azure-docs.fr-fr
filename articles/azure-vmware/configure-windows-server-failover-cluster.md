@@ -3,12 +3,12 @@ title: Configurer un cluster de basculement Windows Server sur un vSAN Azure VMw
 description: Découvrez comment configurer Cluster de basculement Windows Server sur un vSAN Azure VMware Solution avec disques partagés natifs.
 ms.topic: how-to
 ms.date: 05/04/2021
-ms.openlocfilehash: d74ae5d699f965c4899c6e21c78cd2dec720de4e
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: f2fc9e712d3f56aeddc6e66c12837794dceb9abe
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632310"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954491"
 ---
 # <a name="configure-windows-server-failover-cluster-on-azure-vmware-solution-vsan"></a>Configurer un cluster de basculement Windows Server sur un vSAN Azure VMware Solution
 
@@ -165,5 +165,5 @@ Maintenant que vous savez configurer un cluster WSFC dans Azure VMware Solution,
 
 - Configuration de votre nouveau cluster WSFC en ajoutant d'autres applications pour lesquelles la fonctionnalité WSFC est requise. Par exemple, SQL Server et SAP ASCS.
 - Configuration d'une solution de sauvegarde.
-  - [Configuration d'un serveur de sauvegarde Azure pour Azure VMware Solution](/azure/backup/backup-azure-microsoft-azure-backup?context=/azure/azure-vmware/context/context)
-  - [Solutions de sauvegarde pour les machines virtuelles Azure VMware Solution](/azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context)
+  - [Configuration d'un serveur de sauvegarde Azure pour Azure VMware Solution](../backup/backup-azure-microsoft-azure-backup.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext)
+  - [Solutions de sauvegarde pour les machines virtuelles Azure VMware Solution](../backup/backup-azure-backup-server-vmware.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext)

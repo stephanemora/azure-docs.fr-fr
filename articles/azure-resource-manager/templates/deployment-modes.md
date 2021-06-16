@@ -3,12 +3,12 @@ title: Modes de déploiement
 description: Explique comment spécifier s’il faut utiliser un mode de déploiement complet ou incrémentiel avec Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 3f1f74c0495e0d43671712281a35a7e74fd7d821
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7566a24297a31c3138228528be050be6c7cf11c8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104888836"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963293"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modes de déploiement Azure Resource Manager
 
@@ -23,7 +23,7 @@ Le mode par défaut est incrémentiel.
 En mode complet, le Gestionnaire des ressources **supprime** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle.
 
 > [!NOTE]
-> Effectuez toujours l’[opération de simulation](template-deploy-what-if.md) avant de déployer un modèle en mode complet. La simulation vous indique les ressources qui seront créées, supprimées ou modifiées. Effectuez une simulation pour éviter la suppression accidentelle de ressources.
+> Effectuez toujours l’[opération de simulation](./deploy-what-if.md) avant de déployer un modèle en mode complet. La simulation vous indique les ressources qui seront créées, supprimées ou modifiées. Effectuez une simulation pour éviter la suppression accidentelle de ressources.
 
 Si votre modèle inclut une ressource qui n’est pas déployée parce que la [condition](conditional-resource-deployment.md) donne false, le résultat dépend de la version de l’API REST utilisée. Si vous utilisez une version antérieure à 2019-05-10, la ressource **n’est pas supprimée**. Avec 2019-05-10 ou ultérieur, elle **est supprimée**. Les dernières versions d’Azure PowerShell et d’Azure CLI suppriment la ressource.
 
@@ -35,7 +35,7 @@ Il existe des différences dans la manière dont les types de ressources traiten
 
 Par exemple, si votre groupe de ressources contient une zone DNS (type de ressource `Microsoft.Network/dnsZones`) et un enregistrement CNAME (type de ressource `Microsoft.Network/dnsZones/CNAME`), la zone DNS est la ressource parente de l’enregistrement CNAME. Si vous procédez à un déploiement en mode complet et que vous n'incluez pas la zone DNS dans votre modèle, la zone DNS et l'enregistrement CNAME sont tous deux supprimés. Si vous incluez la zone DNS dans votre modèle mais pas l’enregistrement CNAME, ce dernier n’est pas supprimé.
 
-Pour plus d'informations sur la façon dont les types de ressources gèrent la suppression, consultez [Suppression de ressources Azure pour les déploiements en mode complet](complete-mode-deletion.md).
+Pour plus d'informations sur la façon dont les types de ressources gèrent la suppression, consultez [Suppression de ressources Azure pour les déploiements en mode complet](./deployment-complete-mode-deletion.md).
 
 Si le groupe de ressources est [verrouillé](../management/lock-resources.md), le mode complet ne supprime pas les ressources.
 
@@ -126,6 +126,6 @@ L’exemple suivant montre un modèle lié dans le mode de déploiement incréme
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour apprendre à créer des modèles Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles Resource Manager](template-syntax.md).
+* Pour apprendre à créer des modèles Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles Resource Manager](./syntax.md).
 * Pour savoir comment déployer des ressources, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md).
 * Pour afficher les opérations pour un fournisseur de ressources, consultez [API REST Azure](/rest/api/).

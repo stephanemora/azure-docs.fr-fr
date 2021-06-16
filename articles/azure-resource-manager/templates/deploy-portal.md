@@ -3,12 +3,12 @@ title: Gérer les ressources avec le portail Azure
 description: Utilisez le portail Azure et Azure Resource Manager pour déployer vos ressources dans un groupe de ressources de votre abonnement.
 ms.topic: conceptual
 ms.date: 05/05/2021
-ms.openlocfilehash: 6370b628a8dc2d880168dd3c4ea8a7d10a1cd36c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 718d8be4e51bf41467bea398440b24f98ac1f6e9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737114"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957903"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Déployer des ressources à l’aide de modèles ARM et le portail Azure
 
@@ -75,7 +75,7 @@ Bien que vous ne l’ayez pas vu, le portail utilisait un modèle Resource Manag
 
 ## <a name="deploy-resources-from-custom-template"></a>Déployer des ressources à partir d’un modèle personnalisé
 
-Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de Marketplace, vous pouvez créer un modèle personnalisé qui définit l’infrastructure de votre solution. Pour apprendre à créer des modèles, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de Marketplace, vous pouvez créer un modèle personnalisé qui définit l’infrastructure de votre solution. Pour apprendre à créer des modèles, consultez [Comprendre la structure et la syntaxe des modèles ARM](./syntax.md).
 
 > [!NOTE]
 > L’interface du portail ne prend pas en charge le référencement à un [secret d’un coffre de clés](key-vault-parameter.md). Utilisez plutôt [PowerShell](deploy-powershell.md) ou [Azure CLI](deploy-cli.md) pour déployer votre modèle localement ou à partir d’un URI externe.

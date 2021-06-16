@@ -3,12 +3,12 @@ title: Définir plusieurs instances d’une variable
 description: Utilisez l’opération copy dans un modèle Azure Resource Manager (modèle ARM) pour effectuer une itération à plusieurs reprises lors de la création d’une variable.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: e1f6dfeb7b701b09ad1a9505d5dbcfddf2cd6b0b
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 5f6459335fa3f059a76128edde4ee7096790fe13
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385703"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957943"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Itération de variable dans les modèles ARM
 
@@ -326,5 +326,5 @@ Les exemples suivants illustrent des scénarios courants de création de plusieu
   - [Itération de ressource dans les modèles ARM](copy-resources.md)
   - [Itération de propriété dans les modèles ARM](copy-properties.md)
   - [Itération de sortie dans les modèles ARM](copy-outputs.md)
-- Pour plus d’informations sur les différentes sections d’un modèle, consultez [Présentation de la structure et de la syntaxe des modèles ARM](template-syntax.md).
+- Pour plus d’informations sur les différentes sections d’un modèle, consultez [Présentation de la structure et de la syntaxe des modèles ARM](./syntax.md).
 - Pour savoir comment déployer votre modèle, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md).

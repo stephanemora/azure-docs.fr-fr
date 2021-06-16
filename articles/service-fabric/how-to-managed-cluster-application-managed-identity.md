@@ -3,12 +3,12 @@ title: Configurer et utiliser l’identité managée de l’application sur des 
 description: Découvrez comment configurer et utiliser une identité managée d’application sur un cluster managé Azure Service Fabric déployé à partir d’un modèle ARM.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: f3c76ae6418ddf2ca9da0ed620941c10b7061603
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 4e488f9ebb78208617ca59fdb88dbec454de10e1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109689192"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958280"
 ---
 # <a name="deploy-a-service-fabric-application-with-managed-identity"></a>Déployer une application Service Fabric avec une identité managée
 
@@ -42,7 +42,7 @@ Les ressources d’application prennent en charge l’attribution SystemAssigned
 }
 
 ```
-[Référence JSON complète](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2021-05-01/managedclusters/applications?tabs=json)
+[Référence JSON complète](/azure/templates/microsoft.servicefabric/2021-05-01/managedclusters/applications?tabs=json)
 
 ## <a name="user-assigned-identity"></a>Identité attribuée par l’utilisateur
 

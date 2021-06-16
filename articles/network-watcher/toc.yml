@@ -142,7 +142,7 @@
               href: traffic-analytics.md
               items:
                 - name: Forum aux questions
-                  href: traffic-analytics-faq.md
+                  href: traffic-analytics-faq.yml
                 - name: Agrégation de schémas et de données
                   href: traffic-analytics-schema.md
                 - name: "Mise à jour de schéma (août\_2019)"
@@ -210,7 +210,7 @@
 - name: Ressources
   items:
     - name: Questions fréquentes (FAQ) sur Network Watcher
-      href: frequently-asked-questions.md
+      href: frequently-asked-questions.yml
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Page de questions Microsoft Q&A

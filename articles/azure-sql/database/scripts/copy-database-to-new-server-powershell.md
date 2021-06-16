@@ -4,19 +4,19 @@ description: Exemple de script Azure PowerShell pour copier une base de données
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 03/12/2019
-ms.openlocfilehash: 63de1ff47bdd3a6145b16ebcc8ee3b431888f926
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca6b16a1ad871dc9ec55b9be2bcc29db8ed31656
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91321476"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110689011"
 ---
 # <a name="use-powershell-to-copy-a-database-to-a-new-server"></a>Utiliser PowerShell pour copier une base de données sur un nouveau serveur
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]

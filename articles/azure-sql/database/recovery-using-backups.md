@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Découvrez la limite de restauration dans le temps, qui vous permet de restaurer une base de données dans Azure SQL Database ou une instance dans Azure SQL Managed Instance jusqu’à 35 jours en arrière.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein, danil
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 800fa34901ee63434d3f4798ec4c16dd52479fa6
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: c8e95200824a684334cbc1470f94e5353fe284ac
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110191843"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110689984"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Récupération à l’aide de sauvegardes de bases de données automatisées - Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

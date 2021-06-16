@@ -4,12 +4,12 @@ description: Empêchez les utilisateurs de mettre à jour ou de supprimer des re
 ms.topic: conceptual
 ms.date: 05/07/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5d8af2529039aa6e9435243249d7724d996b119d
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 780957dec73177541e8677fb5f6551a6ad147797
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634794"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951429"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Verrouiller les ressources pour empêcher les modifications inattendues
 
@@ -195,7 +195,7 @@ Pour créer un groupe de ressources et le verrouiller, déployez le modèle suiv
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
-Le fichier Bicep principal crée un groupe de ressources et utilise un [module](../templates/bicep-modules.md) pour créer le verrou.
+Le fichier Bicep principal crée un groupe de ressources et utilise un [module](../bicep/modules.md) pour créer le verrou.
 
 ```Bicep
 targetScope = 'subscription'

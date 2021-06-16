@@ -6,12 +6,13 @@ ms.topic: conceptual
 ms.date: 04/09/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: e4f60539e2eb524e95c76814f7527377630349e2
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c5727dafc9110ef35945f1d2bfc28db99ae1e23b
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285239"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681154"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Créer un runtime d’intégration Azure-SSIS dans Azure Data Factory
 
@@ -209,10 +210,10 @@ Dans le volet **Ajouter un magasin de packages**, effectuez les étapes suivante
 
       1. Si vous sélectionnez **Azure SQL Managed Instance**, effectuez les étapes suivantes. 
 
-         1. Sélectionnez **Chaîne de connexion** ou le **coffre de clés Azure** où elle est stockée en tant que secret.
+         1. Sélectionnez **Chaîne de connexion** ou le **coffre de clés Azure Key Vault** où elle est stockée en tant que secret.
 
          1. Si vous sélectionnez **Chaîne de connexion**, effectuez les étapes suivantes. 
-             1. Pour la **Méthode de sélection de compte**, si vous choisissez **À partir d’un abonnement Azure**, sélectionnez l’**abonnement Azure**, le **nom du serveur**, le **type de point de terminaison** et le **nom de la base de données** appropriés. Si vous choisissez **Entrer manuellement**, procédez comme suit. 
+             1. Pour la **Méthode de sélection de compte**, si vous choisissez **À partir d’un abonnement Azure**, sélectionnez l’**abonnement Azure**, le **nom du serveur**, le **type de point de terminaison** et le **nom de base de données** appropriés. Si vous choisissez **Entrer manuellement**, effectuez les étapes suivantes. 
                 1.  Pour **Nom de domaine complet**, entrez `<server name>.<dns prefix>.database.windows.net` ou `<server name>.public.<dns prefix>.database.windows.net,3342` comme point de terminaison privé ou public de votre instance gérée SQL Azure, respectivement. Si vous entrez le point de terminaison privé, **Tester la connexion** n’est pas applicable, car l’interface utilisateur d’ADF ne peut pas l’atteindre.
 
                 1. Pour **Nom de la base de données**, entrez `msdb`.

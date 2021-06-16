@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 12739d535e37c4d1de89e69237a0daddd9569217
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: b772112a238b4af4ff536a98e0a4105e7237c1af
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897466"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951948"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procédure : Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
@@ -79,7 +79,7 @@ Passons directement à la création de l’identité. Si vous rencontrez un prob
 1. Sélectionnez **Azure Active Directory**.
 1. Sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez **Nouvelle inscription**.
-1. Nommez l’application. Sélectionnez un type de compte pris en charge, qui détermine qui peut utiliser l’application. Sous **URI de redirection**, sélectionnez **Web** pour le type d’application que vous souhaitez créer. Saisissez l’URI vers lequel le jeton d’accès est envoyé. Vous ne pouvez pas créer d’informations d’identification pour une [application native](../manage-apps/application-proxy-configure-native-client-application.md). Vous ne pouvez pas utiliser ce type pour une application automatisée. Après avoir défini les valeurs, sélectionnez **S’inscrire**.
+1. Nommez l’application. Sélectionnez un type de compte pris en charge, qui détermine qui peut utiliser l’application. Sous **URI de redirection**, sélectionnez **Web** pour le type d’application que vous souhaitez créer. Saisissez l’URI vers lequel le jeton d’accès est envoyé. Vous ne pouvez pas créer d’informations d’identification pour une [application native](../app-proxy/application-proxy-configure-native-client-application.md). Vous ne pouvez pas utiliser ce type pour une application automatisée. Après avoir défini les valeurs, sélectionnez **S’inscrire**.
 
    ![Saisissez un nom pour votre application](./media/howto-create-service-principal-portal/create-app.png)
 

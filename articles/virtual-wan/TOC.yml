@@ -33,6 +33,8 @@
           href: ../networking/working-remotely-support.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
         - name: Optimiser Virtual WAN
           href: work-remotely-support.md
+    - name: FAQ sur Virtual WAN
+      href: virtual-wan-faq.md
     - name: Emplacements et partenaires
       items:
         - name: Emplacements de hub et partenaires
@@ -194,13 +196,11 @@
     - name: REST
       href: /rest/api/azure
     - name: Azure CLI
-      href: /azure/virtual-wan/
+      href: ./index.yml
     - name: Kit de développement logiciel (SDK) Python
       href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations'
 - name: Ressources
   items:
-    - name: Questions fréquentes (FAQ)
-      href: virtual-wan-faq.md
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
     - name: Limites du service et de l’abonnement
