@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Database
 description: Apprenez à gérer des bases de données uniques mises en pool après leur migration vers Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: joesackmsft
-ms.author: josack
-ms.reviewer: sstein
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: mathoma
 ms.date: 02/13/2019
-ms.openlocfilehash: b34ac24cb26bf5db4a49a5ad5b531deb252f4695
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a7cd071d9b1a2f0a359c11a123914f451a35569
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96446126"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690081"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nouvel administrateur de base de données dans le cloud - Gérer Azure SQL Database après la migration
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

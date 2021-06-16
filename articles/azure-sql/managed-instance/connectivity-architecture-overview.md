@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Managed Instance
 description: Découvrez l’architecture de connectivité et de communication d’Azure SQL Managed Instance ainsi que la façon dont les composants redirigent le trafic vers l’instance managée.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 04/29/2021
-ms.openlocfilehash: 8a753d598c55653536284679f2848c24dd571f2a
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 259bd0128a4c5ce677e4d01f44b114aaba0cb977
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289369"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111889151"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architecture de connectivité d’Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -178,5 +178,5 @@ Les fonctionnalités de réseau virtuel suivantes *ne sont pas prises en charge*
 - Découvrez comment créer une instance gérée :
   - À partir du [portail Azure](instance-create-quickstart.md).
   - En utilisant [PowerShell](scripts/create-configure-managed-instance-powershell.md).
-  - En utilisant [un modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - En utilisant [un modèle Azure Resource Manager (à l’aide de JumpBox, avec SSMS inclus)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/).
+  - En utilisant [un modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/sqlmi-new-vnet/).
+  - En utilisant [un modèle Azure Resource Manager (à l’aide de JumpBox, avec SSMS inclus)](https://azure.microsoft.com/resources/templates/sqlmi-new-vnet-w-jumpbox/).

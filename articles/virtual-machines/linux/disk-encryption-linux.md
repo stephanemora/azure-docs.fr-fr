@@ -8,13 +8,13 @@ ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: f014c07a319cbb07497cba01699b93d092255b93
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: eed40e353531ec6df4ecafad3757845b45a99886
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771500"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071842"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Linux
 
@@ -187,7 +187,7 @@ Utilisez l’applet de commande [Set-AzVMDiskEncryptionExtension](/powershell/mo
 
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-with-a-template"></a>Activer le chiffrement sur une machine virtuelle Linux existante ou en cours d’exécution avec un modèle
 
-Vous pouvez activer le chiffrement de disque sur une machine virtuelle Linux existante ou en cours d’exécution dans Azure à l’aide du [modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad).
+Vous pouvez activer le chiffrement de disque sur une machine virtuelle Linux existante ou en cours d’exécution dans Azure à l’aide du [modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm-without-aad).
 
 1. Cliquez sur **Déployer sur Azure** sur le modèle de démarrage rapide Azure.
 

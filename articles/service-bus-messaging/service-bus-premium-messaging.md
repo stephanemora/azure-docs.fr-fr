@@ -3,12 +3,12 @@ title: Niveaux de service Premium et Standard d’Azure Service Bus
 description: Cet article décrit les niveaux de service Standard et Premium d’Azure Service Bus. Compare ces niveaux de service et indique les différences techniques.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: e0149f0ad1ee608179cc7dbdfaa61b498dd60ca0
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: f0cc6b6d7b9026d9be23e36a587b7ce667ba1652
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190742"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111811259"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Couches messagerie Service Bus Premium et Standard
 
@@ -91,7 +91,8 @@ La prise en main de Premium Messaging est immédiate ; le processus est similair
 
 ![create-premium-namespace][create-premium-namespace]
 
-Vous pouvez également créer des [espaces de noms Premium à l’aide de modèles Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-servicebus-pn-ar/).
+Vous pouvez également créer des [espaces de noms Premium à l’aide de modèles Azure Resource Manager](https://azure.microsoft.com/resources/templates/servicebus-pn-ar/).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

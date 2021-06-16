@@ -140,7 +140,7 @@
       items:
         - name: Vue d’ensemble
           href: backup-azure-vms-introduction.md
-        - name: Backup
+        - name: Sauvegarde
           items:
             - name: Sauvegarder et restaurer des machines virtuelles Azure avec la restauration instantanée de Sauvegarde Azure
               href: backup-instant-restore-capability.md
@@ -204,7 +204,7 @@
               href: install-mars-agent.md
             - name: Mettre à niveau l’agent MARS
               href: upgrade-mars-agent.md
-        - name: Backup
+        - name: Sauvegarde
           items:
             - name: Sauvegarder les fichiers et dossiers de Windows Server
               href: backup-windows-with-mars-agent.md
@@ -228,13 +228,13 @@
           href: disk-backup-overview.md
         - name: À partir du portail Azure
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-managed-disks.md
             - name: Restaurer
               href: restore-managed-disks.md
         - name: Avec PowerShell
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-managed-disks-ps.md
             - name: Restaurer
               href: restore-managed-disks-ps.md
@@ -250,7 +250,7 @@
               href: blob-restore.md
         - name: Avec PowerShell
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-blobs-storage-account-ps.md
             - name: Restaurer
               href: restore-blobs-storage-account-ps.md
@@ -260,7 +260,7 @@
           href: azure-file-share-backup-overview.md
         - name: À partir du portail Azure
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-afs.md
             - name: Restaurer
               href: restore-afs.md
@@ -268,7 +268,7 @@
               href: manage-afs-backup.md
         - name: Avec l’interface de ligne de commande Azure
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-afs-cli.md
             - name: Restaurer
               href: restore-afs-cli.md
@@ -276,7 +276,7 @@
               href: manage-afs-backup-cli.md
         - name: Avec PowerShell
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-azure-afs-automation.md
             - name: Restaurer
               href: restore-afs-powershell.md
@@ -284,7 +284,7 @@
               href: manage-afs-powershell.md
         - name: Avec l’API REST
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-azure-file-share-rest-api.md
             - name: Restaurer
               href: restore-azure-file-share-rest-api.md
@@ -294,7 +294,7 @@
       items:
         - name: Vue d’ensemble
           href: sap-hana-db-about.md
-        - name: Backup
+        - name: Sauvegarde
           href: backup-azure-sap-hana-database.md
         - name: Restaurer
           href: sap-hana-db-restore.md
@@ -424,6 +424,8 @@
               href: backup-azure-sql-automation.md
             - name: Exemples Azure PowerShell
               href: powershell-backup-samples.md
+        - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
+          href: create-manage-azure-services-using-azure-command-line-interface.md
         - name: Utiliser l’API REST de sauvegarde Azure
           items:
             - name: Créer un coffre Recovery Services
@@ -438,6 +440,8 @@
               href: backup-azure-arm-userestapi-restoreazurevms.md
             - name: Gérer les travaux de sauvegarde Azure
               href: backup-azure-arm-userestapi-managejobs.md
+        - name: Interroger les informations de sauvegarde avec ARG
+          href: query-backups-using-azure-resource-graph.md
         - name: Modèles Resource Manager
           href: backup-rm-template-samples.md
     - name: Sécurité

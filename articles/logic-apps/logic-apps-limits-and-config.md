@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rohithah, rarayudu, azla
 ms.topic: reference
 ms.date: 05/25/2021
-ms.openlocfilehash: 49f9a04351d243f4011b35370b99e30327446f5d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 36f7f036552a747cf4f59e8ba7412d89bfb22228
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378178"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439401"
 ---
 # <a name="limits-and-configuration-reference-for-azure-logic-apps"></a>Limites et références de configuration pour Azure Logic Apps
 
@@ -281,7 +281,7 @@ Les tableaux suivants répertorient les valeurs possibles pour un appel entrant 
 
 ### <a name="timeout-duration"></a>Durée du délai d’expiration
 
-Par défaut, l'action HTTP et les actions APIConnection suivent le [modèle d'opération asynchrone standard](/architecture/patterns/async-request-reply), alors que l'action Response suit le *modèle d'opération synchrone*. Comme certaines opérations de connecteur managé passent des appels asynchrones ou écoutent des requêtes de webhook, le délai d'expiration de ces opérations peut dépasser les limites suivantes. Pour plus d'informations, consultez la [page de référence technique de chaque connecteur](/connectors/connector-reference/connector-reference-logicapps-connectors), ainsi que la documentation consacrée aux [Déclencheurs et actions de workflow](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
+Par défaut, l'action HTTP et les actions APIConnection suivent le [modèle d'opération asynchrone standard](/azure/architecture/patterns/async-request-reply), alors que l'action Response suit le *modèle d'opération synchrone*. Comme certaines opérations de connecteur managé passent des appels asynchrones ou écoutent des requêtes de webhook, le délai d'expiration de ces opérations peut dépasser les limites suivantes. Pour plus d'informations, consultez la [page de référence technique de chaque connecteur](/connectors/connector-reference/connector-reference-logicapps-connectors), ainsi que la documentation consacrée aux [Déclencheurs et actions de workflow](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
 > [!NOTE]
 > Pour le type de ressource **Application logique (Standard)** dans le modèle monolocataire, les workflows sans état peuvent s’exécuter uniquement de *façon synchrone*.
@@ -421,7 +421,7 @@ Les tableaux suivants répertorient les valeurs possibles en termes de nombre d'
 > [!NOTE]
 > Utilisez le niveau gratuit uniquement pour les scénarios exploratoires, pas pour les scénarios de production. Ce niveau limite le débit et l’utilisation et n’inclut aucun contrat de niveau de service (SLA).
 
-| Artefact | Gratuit | De base | standard |
+| Artefact | Gratuit | De base | Standard |
 |----------|------|-------|----------|
 | Contrats commerciaux EDI | 10 | 1 | 1 000 |
 | Partenaires commerciaux EDI | 25 | 2 | 1 000 |
@@ -447,7 +447,7 @@ Les tableaux suivants répertorient les valeurs possibles en termes de nombre d'
 
 ### <a name="throughput-limits"></a>Limites de débit
 
-| Point de terminaison du runtime | Gratuit | De base | standard | Notes |
+| Point de terminaison du runtime | Gratuit | De base | Standard | Notes |
 |------------------|------|-------|----------|-------|
 | Appels de lecture par tranche de 5 minutes | 3 000 | 30,000 | 60 000 | Cette limite s’applique aux appels qui obtiennent les entrées et sorties brutes à partir de l’historique des exécutions d’une application logique. Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
 | Appels d'invocation par tranche de 5 minutes | 3 000 | 30,000 | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |

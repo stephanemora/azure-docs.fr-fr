@@ -3,12 +3,13 @@ title: Déployer une spec de modèle en tant que modèle lié
 description: Découvrez comment déployer une spec de modèle existante dans un déploiement lié.
 ms.topic: conceptual
 ms.date: 05/04/2021
-ms.openlocfilehash: d51343412352143939c1aa375857280b9e031121
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d80442a2ee03bcf85d7173517661d42389542e82
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736811"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110696245"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template"></a>Tutoriel : Déployer une spec de modèle en tant que modèle lié
 

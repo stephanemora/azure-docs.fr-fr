@@ -3,12 +3,13 @@ title: Activer la détection des messages dupliqués – Azure Service Bus
 description: Cet article explique comment activer la détection des messages dupliqués en utilisant Portail Azure, PowerShell, CLI et des langages de programmation (C#, Java, Python et JavaScript).
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: 1e299b86991a7785cc89f2e72227e7a8ced883d7
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 654d53bb324584d8b17d1e36efe20e5f25d54e39
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107989123"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671441"
 ---
 # <a name="enable-duplicate-message-detection-for-an-azure-service-bus-queue-or-a-topic"></a>Activer la détection des messages dupliqués pour une file d’attente ou une rubrique Azure Service Bus
 Lorsque vous activez la détection des doublons pour une file d’attente ou une rubrique, Azure Service Bus conserve un historique de tous les messages envoyés à la file d’attente ou à la rubrique pendant une durée configurable. Pendant cet intervalle, votre file d’attente ou votre rubrique ne stockera pas de messages en double. L’activation de cette propriété garantit une livraison unique sur une période de temps définie par l’utilisateur. Pour en savoir plus, consultez [Détection des doublons](duplicate-detection.md). Cet article vous montre différentes façons d’activer la détection des messages dupliqués pour une file d’attente ou une rubrique Service Bus. 

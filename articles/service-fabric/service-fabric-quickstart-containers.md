@@ -4,13 +4,13 @@ description: Dans ce démarrage rapide, créez votre première application conte
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: atsenthi
-ms.custom: mvc
-ms.openlocfilehash: 934b679813323fe144f935811eb613ab68b561db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 34144cf26c92dc8401f7e12526faa838784f119a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87089615"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677349"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Démarrage rapide : Déployer des conteneurs Windows sur Service Fabric
 
@@ -146,7 +146,7 @@ Ouvrez un navigateur et accédez à l’adresse que vous avez indiquée dans le 
 
  La page web IIS par défaut s’affiche : ![Page web IIS par défaut][iis-default]
 
-## <a name="clean-up"></a>Nettoyer
+## <a name="clean-up"></a>Nettoyage
 
 Vous continuez à être facturé tant que le cluster est en cours d’exécution. Songez à [supprimer votre cluster](./service-fabric-tutorial-delete-cluster.md).
 

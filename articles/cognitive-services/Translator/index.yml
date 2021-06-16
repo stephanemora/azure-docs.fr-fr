@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 title: Documentation sur Translator
-summary: Translator est un service de traduction automatique basé sur le cloud que vous pouvez utiliser pour traduire du texte en temps quasi réel via un simple appel d’API REST. Le service utilise les technologies modernes de traduction automatique neuronale et propose des technologies de traduction automatique statistique. Custom Translator est une extension de Translator qui permet de créer des systèmes de traduction neuronaux. Le système de traduction personnalisé peut être utilisé pour traduire du texte avec Translator ou les services de reconnaissance vocale de Microsoft.
+summary: Translator est un service de traduction automatique basé sur le cloud que vous pouvez utiliser pour traduire du texte via un simple appel d’API REST. Le service utilise les technologies modernes de traduction automatique neuronale et propose des technologies de traduction automatique statistique. Custom Translator est une extension de Translator qui permet de créer des systèmes de traduction neuronaux. Le système de traduction personnalisé peut être utilisé pour traduire du texte avec Translator ou les services de reconnaissance vocale de Microsoft.
 metadata:
   title: Documentation sur Translator - guides de démarrage rapide, tutoriels, informations de référence sur les API
   titleSuffix: Azure Cognitive Services
-  description: Translator est un service de traduction automatique basé sur le cloud que vous pouvez utiliser pour traduire du texte en temps quasi réel via un simple appel d’API REST. Le service utilise les technologies modernes de traduction automatique neuronale et propose des technologies de traduction automatique statistique. Custom Translator est une extension de Translator qui permet de créer des systèmes de traduction neuronaux. Le système de traduction personnalisé peut être utilisé pour traduire du texte avec Translator ou les services de reconnaissance vocale de Microsoft.
+  description: Translator est un service de traduction automatique basé sur le cloud que vous pouvez utiliser pour traduire du texte via un simple appel d’API REST. Le service utilise les technologies modernes de traduction automatique neuronale et propose des technologies de traduction automatique statistique. Custom Translator est une extension de Translator qui permet de créer des systèmes de traduction neuronaux. Le système de traduction personnalisé peut être utilisé pour traduire du texte avec Translator ou les services de reconnaissance vocale de Microsoft.
   services: cognitive-services
   author: erhopf
   manager: nitinme
@@ -14,19 +14,21 @@ metadata:
   ms.date: 10/14/2019
   ms.author: erhopf
   ms.custom: contperf-fy21q2
-  ms.openlocfilehash: c8e74f83085054d7fc4e0892d371d644a06b060a
-  ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+  ms.openlocfilehash: 6517e29ebc025d94a8b85b754b60584aebd4c057
+  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/19/2021
-  ms.locfileid: "104656275"
+  ms.lasthandoff: 05/26/2021
+  ms.locfileid: "110476898"
 landingContent:
 - title: Convertisseur
   linkLists:
   - linkListType: overview
     links:
-    - text: Convertisseur
+    - text: Présentation de Translator
       url: translator-info-overview.md
+    - text: Support multilingue
+      url: language-support.md
     - text: Traduction de documents
       url: document-translation/overview.md
     - text: Custom Translator
@@ -39,27 +41,43 @@ landingContent:
       url: ./translator-how-to-signup.md
     - text: Questions fréquentes (FAQ)
       url: https://www.microsoft.com/translator/faq.aspx
-- title: Bien démarrer
+- title: Traduction de texte
   linkLists:
   - linkListType: quickstart
     links:
     - text: Démarrage rapide
       url: quickstart-translator.md
-  - linkListType: tutorial
+  - linkListType: how-to-guide
     links:
-    - text: Créer une application de traduction WPF, C#
-      url: tutorial-wpf-translation-csharp.md
-    - text: Créer une application de traduction flask, REST
-      url: tutorial-build-flask-app-translation-synthesis.md
+    - text: Créer une ressource
+      url: translator-how-to-signup.md
+    - text: Empêcher la traduction du contenu
+      url: prevent-translation.md
+    - text: Utiliser le dictionnaire dynamique
+      url: dynamic-dictionary.md
   - linkListType: reference
     links:
     - text: Informations de référence Translator (v3)
       url: reference/v3-0-reference.md
     - text: Limites de requête
       url: request-limits.md
-    - text: Support multilingue
-      url: language-support.md
-- title: Traduction personnalisée
+- title: Traduction de documents
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que la traduction de documents ?
+      url: document-translation/overview.md
+  - linkListType: quickstart
+    links:
+    - text: Démarrage rapide
+      url: document-translation/get-started-with-document-translation.md
+  - linkListType: reference
+    links:
+    - text: Informations de référence sur la traduction de documents
+      url: document-translation/reference/get-supported-document-formats.md
+    - text: Commencer la traduction
+      url: document-translation/reference/start-translation.md
+- title: Custom Translator
   linkLists:
   - linkListType: quickstart
     links:
@@ -97,6 +115,8 @@ landingContent:
     links:
     - text: Exemples sur GitHub
       url: https://aka.ms/TranslatorGitHub
+    - text: Conformité et certification
+      url: https://www.microsoft.com/translator/business/notrace/
     - text: Stack Overflow
       url: https://stackoverflow.com/questions/tagged/microsoft-translator
 - title: Aide et commentaires

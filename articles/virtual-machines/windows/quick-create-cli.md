@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 769b42133fb894c916ecaa3c42dd7de85206c765
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 651d644070f13933fadf4a2616e770a27c014c92
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556245"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112074878"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Démarrage rapide : Créer une machine virtuelle Windows avec l’interface Azure CLI
 
@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location eastus
 
 Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm). L’exemple suivant permet de créer une machine virtuelle nommée *myVM*. Cet exemple utilise *azureuser* comme d’utilisateur administratif. 
 
-Vous devrez fournir un mot de passe qui répond aux [conditions requises pour les mots de passe pour les machines virtuelles Azure](./faq.md#what-are-the-password-requirements-when-creating-a-vm
+Vous devrez fournir un mot de passe qui répond aux [conditions requises pour les mots de passe pour les machines virtuelles Azure](./faq.yml#what-are-the-password-requirements-when-creating-a-vm-
 ). Dans le cadre de l’exemple ci-après, vous serez invité à entrer un mot de passe dans la ligne de commande. Vous pouvez également ajouter le paramètre `--admin-password` avec une valeur pour votre mot de passe. Le nom d’utilisateur et le mot de passe seront utilisés plus tard, lorsque vous vous connecterez à la machine virtuelle.
 
 ```azurecli-interactive
@@ -67,6 +67,8 @@ La création de la machine virtuelle et des ressources de support ne nécessite 
 ```
 
 Notez votre propre `publicIpAddress` dans la sortie à partir de votre machine virtuelle. Cette adresse permet d’accéder à la machine virtuelle lors des étapes suivantes.
+
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## <a name="open-port-80-for-web-traffic"></a>Ouvrez le port 80 pour le trafic web
 

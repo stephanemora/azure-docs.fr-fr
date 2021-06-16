@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 04/21/2021
-ms.openlocfilehash: 9274bb2b28613c4b61ca139995ba54df0f402edd
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: ab71dc6f02c87997a680722e3553f2739c378dc4
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228223"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111371285"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Chiffrement des données avec Azure Machine Learning
 
@@ -36,8 +36,6 @@ L'indicateur `hbi_workspace` contrôle la quantité de [données que Microsoft c
 * Lance le chiffrement du disque de travail local dans votre cluster de calcul Azure Machine Learning, à condition que vous n’ayez créé aucun cluster dans cet abonnement. Autrement, vous devez ouvrir un ticket de support pour activer le chiffrement du disque de travail de vos clusters de calcul. 
 * Nettoie votre disque de travail local entre les exécutions.
 * Transmet en toute sécurité les informations d’identification de votre compte de stockage, de votre registre de conteneurs et de votre compte SSH de la couche d’exécution à vos clusters de calcul en utilisant votre coffre de clés.
-* Active le filtrage IP pour s’assurer que les pools Batch sous-jacents ne peuvent pas être appelés par des services externes autres que AzureMachineLearningService.
-* Les instances de calcul sont prises en charge dans l'espace de travail HBI.
 
 ### <a name="azure-blob-storage"></a>Stockage Blob Azure
 

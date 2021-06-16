@@ -17,12 +17,12 @@ ms.date: 03/10/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afb6a597d4fd58646f56e271cb6027fb46db1e26
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3ff9a6c989446c2cee074485ba02fddd40cbfc83
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634224"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953309"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Procédure : Intégrer des journaux d’activité Azure Active Directory à Splunk à l’aide d’Azure Monitor
 
@@ -56,6 +56,6 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Interpréter le schéma des journaux d’audit dans Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Interpréter le schéma des journaux d’audit dans Azure Monitor](./overview-reports.md)
 * [Interpréter le schéma des journaux d’activité de connexion dans Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
 * [Questions fréquentes et problèmes connus](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

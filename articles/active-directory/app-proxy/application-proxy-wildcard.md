@@ -12,12 +12,12 @@ ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a950e2c282eb3f06d32f87b0d81724aca31710e5
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: da2ea074a717189c038705f95f77e538d1bd9680
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108185935"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962146"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applications génériques dans le Proxy d’application Azure Active Directory
 
@@ -53,7 +53,7 @@ Pour commencer, vérifiez que vous respectez ces exigences.
 
 ### <a name="custom-domains"></a>Domaines personnalisés
 
-Bien que les [domaines personnalisés](../manage-apps/application-proxy-configure-custom-domain.md) soient facultatifs pour toutes les autres applications, ils sont obligatoires pour les applications génériques. Pour créer des domaines personnalisés, vous devez :
+Bien que les [domaines personnalisés](./application-proxy-configure-custom-domain.md) soient facultatifs pour toutes les autres applications, ils sont obligatoires pour les applications génériques. Pour créer des domaines personnalisés, vous devez :
 
 1. Créez un domaine vérifié dans Azure.
 1. Charger un certificat TLS/SSL au format PFX dans votre proxy d’application
@@ -122,7 +122,7 @@ L’application générique est représentée par une seule vignette dans le [pa
 
 ### <a name="kerberos-constrained-delegation"></a>Délégation Kerberos contrainte
 
-Pour les applications qui utilisent [la délégation Kerberos contrainte (KCD) comme méthode d’authentification unique](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md), le SPN répertorié pour la méthode d’authentification unique peut aussi nécessiter un caractère générique. Par exemple, le SPN peut être : `HTTP/*.adventure-works.com`. Vous devez toujours configurer les SPN individuels sur vos serveurs backend (par exemple, `HTTP/expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+Pour les applications qui utilisent [la délégation Kerberos contrainte (KCD) comme méthode d’authentification unique](./application-proxy-configure-single-sign-on-with-kcd.md), le SPN répertorié pour la méthode d’authentification unique peut aussi nécessiter un caractère générique. Par exemple, le SPN peut être : `HTTP/*.adventure-works.com`. Vous devez toujours configurer les SPN individuels sur vos serveurs backend (par exemple, `HTTP/expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
 ## <a name="scenario-1-general-wildcard-application"></a>Scénario 1 : Application générique générale
 
@@ -199,5 +199,5 @@ Si vous avez plusieurs applications publiées pour la finance et que `finance.ad
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur les **domaines personnalisés**, consultez [Utilisation des domaines personnalisés dans le proxy d’application Azure AD](../manage-apps/application-proxy-configure-custom-domain.md).
+- Pour en savoir plus sur les **domaines personnalisés**, consultez [Utilisation des domaines personnalisés dans le proxy d’application Azure AD](./application-proxy-configure-custom-domain.md).
 - Pour en savoir plus sur la **publication d’applications**, consultez [Publication d’applications à l’aide du proxy d’application Azure AD](application-proxy-add-on-premises-application.md)

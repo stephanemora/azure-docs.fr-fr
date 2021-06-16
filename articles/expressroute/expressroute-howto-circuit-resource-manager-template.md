@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: duau
-ms.openlocfilehash: 51bd54fddfdbd5978c3a262ffcd81ff204d7d156
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6b8299b26718159aeeeae7ef750bdc861b6448ef
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073878"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007235"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Création d’un circuit ExpressRoute en utilisant le modèle Azure Resource Manager
 
@@ -35,7 +36,7 @@ Découvrez comment créer un circuit ExpressRoute en déployant un modèle Azure
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>Créer et approvisionner un circuit ExpressRoute
 
-[Les modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/) comprennent une bonne collection de modèles Resource Manager. Vous utilisez un des [modèles existants](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) pour créer un circuit ExpressRoute.
+[Les modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/) comprennent une bonne collection de modèles Resource Manager. Vous utilisez un des [modèles existants](https://azure.microsoft.com/resources/templates/expressroute-circuit-create/) pour créer un circuit ExpressRoute.
 
 [!code-json[create-azure-expressroute-circuit](~/quickstart-templates/quickstarts/microsoft.network/expressroute-circuit-create/azuredeploy.json)]
 
@@ -49,8 +50,7 @@ Pour créer un circuit ExpressRoute en déployant un modèle :
     $circuitName = Read-Host -Prompt "Enter a circuit name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $resourceGroupName = "${circuitName}rg"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-expressroute-circuit-create/azuredeploy.json"
-
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/expressroute-circuit-create/azuredeploy.json"
     $serviceProviderName = "Equinix"
     $peeringLocation = "Silicon Valley"
     $bandwidthInMbps = 500

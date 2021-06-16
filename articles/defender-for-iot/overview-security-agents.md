@@ -3,12 +3,12 @@ title: Agents de sécurité
 description: Prenez un bon départ avec la compréhension, la configuration, le déploiement et l’utilisation des agents du service de sécurité Azure Defender pour IoT sur vos appareils IoT.
 ms.topic: conceptual
 ms.date: 1/24/2021
-ms.openlocfilehash: a1d74de9824b9e825f87754da21070d4e7f1ee33
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 117572c8b5e2d42b24c1f3af9dbb0eab474647a9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783487"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949157"
 ---
 # <a name="get-started-with-azure-defender-for-iot-device-micro-agents"></a>Bien démarrer avec les micro-agents d’appareils Azure Defender pour IoT
 
@@ -20,7 +20,7 @@ Utilisez le flux de travail suivant pour déployer et tester vos agents de sécu
 
 1. [Activez le service Defender pour IoT sur votre IoT Hub](quickstart-onboard-iot-hub.md).
 
-1. Si aucun appareil n’est inscrit sur votre hub IoT, [Enregistrez un nouvel appareil](../iot-accelerators/iot-accelerators-device-simulation-overview.md).
+1. Si aucun appareil n’est inscrit sur votre hub IoT, [Enregistrez un nouvel appareil](/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-overview).
 
 1. [Créez un jumeau de module DefenderIotMicroAgent](quickstart-create-micro-agent-module-twin.md) pour vos appareils.
 

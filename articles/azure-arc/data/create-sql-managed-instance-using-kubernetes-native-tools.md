@@ -4,17 +4,17 @@ description: Créer une instance gérée SQL à l’aide des outils Kubernetes
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: rothja
-ms.author: jroth
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 02/11/2021
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 9ca8712f0cbb1c9180b4c84e682512c348abeac9
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 24abb1ece1d307276be736b384c3e5e3c7d40f2a
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736337"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407486"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Créer une instance gérée Azure SQL à l’aide des outils Kubernetes
 
@@ -42,7 +42,7 @@ Voici un exemple de fichier YAML :
 apiVersion: v1
 data:
   password: <your base64 encoded password>
-  username: <your base64 encoded user name. 'sa' is not allowed>
+  username: <your base64 encoded username>
 kind: Secret
 metadata:
   name: sql1-login-secret
@@ -52,22 +52,42 @@ apiVersion: sql.arcdata.microsoft.com/v1alpha1
 kind: sqlmanagedinstance
 metadata:
   name: sql1
+  annotations:
+    exampleannotation1: exampleannotationvalue1
+    exampleannotation2: exampleannotationvalue2
+  labels:
+    examplelabel1: examplelabelvalue1
+    examplelabel2: examplelabelvalue2
 spec:
-  limits:
-    memory: 4Gi
-    vcores: "4"
-  requests:
-    memory: 2Gi
-    vcores: "1"
-  service:
-    type: LoadBalancer
+  scheduling:
+    default:
+      resources:
+        limits:
+          cpu: "2"
+          memory: 4Gi
+        requests:
+          cpu: "1"
+          memory: 2Gi
+  services:
+    primary:
+      type: LoadBalancer
   storage:
+    backups:
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
     data:
-      className: default
-      size: 5Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
+    datalogs:
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
     logs:
-      className: default
-      size: 1Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
 ```
 
 ### <a name="customizing-the-login-and-password"></a>Personnalisation de l’identifiant et du mot de passe
@@ -87,7 +107,6 @@ PowerShell
 
 #Example
 #[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes('example'))
-
 ```
 
 Linux/macOS
@@ -138,7 +157,6 @@ kubectl create -n <your target namespace> -f <path to your yaml file>
 #kubectl create -n arc -f C:\arc-data-services\sqlmi.yaml
 ```
 
-
 ## <a name="monitoring-the-creation-status"></a>Surveillance de l’état de la création
 
 La création de l’instance gérée SQL prendra quelques minutes. Vous pouvez surveiller la progression dans une autre fenêtre du terminal à l’aide des commandes suivantes :
@@ -157,10 +175,10 @@ kubectl get pods --namespace arc
 Vous pouvez également vérifier l’état de la création de n’importe quel pod en exécutant une commande comme celle qui figure ci-dessous.  C’est particulièrement utile pour résoudre les problèmes.
 
 ```console
-kubectl describe po/<pod name> --namespace arc
+kubectl describe pod/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/sql1-0 --namespace arc
+#kubectl describe pod/sql1-0 --namespace arc
 ```
 
 ## <a name="troubleshooting-creation-problems"></a>Résolution des problèmes de création

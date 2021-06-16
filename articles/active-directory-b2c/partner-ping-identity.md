@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 066fd6f91b19da211a73ac12fb6dca94085399ac
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 04aa6f6a7f99eed32c12cf5459c7a7e49089ce6c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256631"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962319"
 ---
 # <a name="tutorial-configure-ping-identity-with-azure-active-directory-b2c-for-secure-hybrid-access"></a>Tutoriel : Configurer Ping Identity avec Azure Active Directory B2C pour un accès hybride sécurisé
 
@@ -160,7 +160,7 @@ Procédez comme suit pour créer une session web :
 
 7. Dans le champ **Clé secrète client**, entrez la **clé** que vous avez générée pour l’application dans Azure AD.
 
-8. Facultatif : vous pouvez créer et utiliser des revendications personnalisées avec l’API Microsoft Graph. Si vous choisissez de le faire, sélectionnez **Avancé** et désélectionnez les options **Demander un profil** et **Actualiser les attributs utilisateur**. Pour plus d’informations sur l’utilisation des revendications personnalisées, consultez [Utiliser une revendication personnalisée](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers.md).
+8. Facultatif : vous pouvez créer et utiliser des revendications personnalisées avec l’API Microsoft Graph. Si vous choisissez de le faire, sélectionnez **Avancé** et désélectionnez les options **Demander un profil** et **Actualiser les attributs utilisateur**. Pour plus d’informations sur l’utilisation des revendications personnalisées, consultez [Utiliser une revendication personnalisée](../active-directory/app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
 
 9. Sélectionnez **Enregistrer**.
 

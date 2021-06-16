@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: de7d23689ae984ea0abece5edb03cf8a0c3a9be1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3477c8f1dbffb9f2c42c72c1b0bfc03c662ed24c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670339"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412292"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Obtenir des points de terminaison de connexion et former des chaînes de connexion pour votre groupe de serveurs Arc enabled PostgreSQL Hyperscale
 
@@ -85,13 +85,8 @@ postgres=#
 > _Domaine de base="Informations d’identification_ de connexion requises", Erreur de porteur="invalid_token", error_description="Le jeton est expiré"'})_ Quand ceci se produit, vous devez vous reconnecter avec azdata comme expliqué ci-dessus.
 
 ## <a name="from-cli-with-kubectl"></a>Depuis l’interface CLI avec kubectl
-- Si votre groupe de serveurs a la version 12 de Postgres (par défaut), utilisez la commande suivante :
 ```console
-kubectl get postgresql-12/<server group name> -n <namespace name>
-```
-- Si votre groupe de serveurs a la version 11 de Postgres, utilisez la commande suivante :
-```console
-kubectl get postgresql-11/<server group name> -n <namespace name>
+kubectl get postgresqls/<server group name> -n <namespace name>
 ```
 
 Ces commandes produisent une sortie similaire à celle-ci. Vous pouvez utiliser ces informations pour former vos chaînes de connexion :
@@ -153,7 +148,7 @@ host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} 
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Découvrez comment [effectuer un scale-out (ajout de nœuds Worker)](scale-out-postgresql-hyperscale-server-group.md) de votre groupe de serveurs
+- Découvrez comment [effectuer un scale-out (ajout de nœuds Worker)](scale-out-in-postgresql-hyperscale-server-group.md) de votre groupe de serveurs
 - Découvrez comment [effectuer un scale-up ou un scale-down (augmentation/diminution de la mémoire/des vCores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) de votre groupe de serveurs
 
 

@@ -3,12 +3,13 @@ title: Utiliser PowerShell pour gérer les ressources Azure Service Bus | Micros
 description: Cet article explique comment utiliser le module Azure PowerShell pour créer et gérer des entités Service Bus (espaces de noms, files d’attente, rubriques, abonnements).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: b6439deb2b86c2ea5b50fe3bdbad89a0875b2acc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5b5bb551584b0bb3d0cc84f408f1935e727ee50a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88065741"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663822"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Utiliser PowerShell pour gérer les ressources Service Bus
 

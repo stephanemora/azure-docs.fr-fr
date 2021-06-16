@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: c308824afdcae5f5c04a316c199bad71ad84a429
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1f9d028ea8701188a1bdea5d072399f1b4c55020
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94961989"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985685"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Créer une instance d’Azure Network Watcher
 
@@ -103,7 +104,7 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 
 ## <a name="create-a-network-watcher-using-azure-quickstart-template"></a>Créer une instance Network Watcher à l’aide du modèle de démarrage rapide Azure
 
-Pour créer une instance Network Watcher, reportez-vous à ce [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/101-networkwatcher-create/).
+Pour créer une instance Network Watcher, reportez-vous à ce [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/networkwatcher-create/).
 
 ## <a name="delete-a-network-watcher-in-the-portal"></a>Supprimer un observateur réseau dans le portail
 

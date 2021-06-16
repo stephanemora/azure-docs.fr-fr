@@ -5,17 +5,17 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/12/2021
-ms.custom: devx-track-terraform
-ms.openlocfilehash: aadf1f4c9ab8fa20933256749bd8ce37a1258063
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.custom: devx-track-terraform, devx-track-azurepowershell
+ms.openlocfilehash: b1f40ff5175de88e101bfe8f22f9593502e7d6d0
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738803"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005876"
 ---
 # <a name="azure-customer-usage-attribution"></a>Attribution de l’utilisation client Azure
 
-L’attribution de l’utilisation client associe l’utilisation des ressources Azure dans les abonnements clients créés lors du déploiement de votre adresse IP en tant que partenaire. La formation de ces associations dans les systèmes Microsoft internes offre une meilleure visibilité de l’empreinte Azure exécutant vos logiciels. Pour les [offres Azure Application dans la place de marché commerciale](#commercial-marketplace-azure-apps), cette fonctionnalité de suivi vous aide à vous aligner sur les équipes de vente Microsoft et à gagner du crédit pour les programmes partenaires Microsoft. L’attribution de l’utilisation client n’est pas applicable aux [offres de machines virtuelles Azure sur la Place de marché commerciale](./azure-vm-create.md). L’éditeur de la Place de marché n’a rien à faire pour s’assurer que la consommation Azure des offres de machines virtuelles est suivie dans les abonnements des clients finaux.
+L’attribution de l’utilisation client associe l’utilisation des ressources Azure dans les abonnements clients créés lors du déploiement de votre adresse IP en tant que partenaire. La formation de ces associations dans les systèmes Microsoft internes offre une meilleure visibilité de l’empreinte Azure exécutant vos logiciels. Pour les [offres Azure Application dans la place de marché commerciale](#commercial-marketplace-azure-apps), cette fonctionnalité de suivi vous aide à vous aligner sur les équipes de vente Microsoft et à gagner du crédit pour les programmes partenaires Microsoft. L’attribution de l’utilisation client n’est pas applicable aux [offres de machines virtuelles Azure sur la Place de marché commerciale](marketplace-virtual-machines.md). L’éditeur de la Place de marché n’a rien à faire pour s’assurer que la consommation Azure des offres de machines virtuelles est suivie dans les abonnements des clients finaux.
 
 L’attribution de l’utilisation de client prend en charge trois options de déploiement :
 
@@ -32,7 +32,7 @@ Il existe des cas d’usage secondaires pour l’attribution de l’utilisation 
 
 ## <a name="commercial-marketplace-azure-apps"></a>Applications Azure de la place de marché commerciale
 
-Le suivi de l’utilisation d’Azure à partir d’applications Azure publiées sur la place de marché commerciale est en grande partie automatique. Lorsque vous chargez un modèle Resource Manager dans le cadre de la [configuration technique du plan de votre application Azure sur la place de marché](./create-new-azure-apps-offer-solution.md#define-the-technical-configuration), l’Espace partenaires ajoute un ID de suivi lisible par Azure Resource Manager.
+Le suivi de l’utilisation d’Azure à partir d’applications Azure publiées sur la place de marché commerciale est en grande partie automatique. Lorsque vous chargez un modèle Resource Manager dans le cadre de la [configuration technique du plan de votre application Azure sur la place de marché](./azure-app-solution.md#define-the-technical-configuration), l’Espace partenaires ajoute un ID de suivi lisible par Azure Resource Manager.
 
 Si vous utilisez des API Azure Resource Manager, vous devez ajouter votre ID de suivi conformément aux [instructions ci-dessous](#use-resource-manager-apis) pour le transmettre à Azure Resource Manager à mesure que votre code déploie des ressources. Cet ID est visible dans l’Espace partenaires sur la page de configuration technique de votre plan. 
 
@@ -41,7 +41,7 @@ Si vous utilisez des API Azure Resource Manager, vous devez ajouter votre ID de 
 >
 >Lorsque vous mettez à jour vos offres, vous n’avez plus besoin d’ajouter le type de ressource **Microsoft.Resources/deployments** dans votre fichier de modèle principal.
 
-## <a name="other-use-cases"></a>Autres cas d’usage 
+## <a name="other-use-cases"></a>Autres cas d’usage
 
 Vous pouvez utiliser l’attribution de l’utilisation client pour suivre l’utilisation d’Azure des solutions non disponibles dans la place de marché commerciale. Ces solutions se trouvent généralement dans le référentiel Démarrage rapide, les dépôts GitHub privés ou proviennent d’engagements clients individualisés qui créent une adresse IP durable (telle qu’une application scalable et déployable).
 
@@ -65,9 +65,9 @@ Vous devez créer un GUID unique pour chaque produit et canal de distribution. S
 
 Les GUID doivent ensuite être inscrits dans l’Espace partenaires afin d’être associés à vous, en tant que partenaire :
 
-1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165507).
 
-1. Inscrivez-vous en tant qu’[éditeur de la place de marché commerciale](https://aka.ms/JoinMarketplace).
+1. Inscrivez-vous en tant qu’[éditeur de la place de marché commerciale](https://go.microsoft.com/fwlink/?linkid=2165614).
 
 1. Sélectionnez **Settings** (Paramètres) (icône d’engrenage) dans le coin supérieur droit, puis **Account settings** (Paramètres du compte).
 
@@ -253,7 +253,7 @@ Découvrez les options de support disponibles via la place de marché commercial
 1. Entrez un titre et une description détaillée du problème.
 1. Sélectionnez **Envoyer**.
 
-Consultez des instructions pas à pas avec captures d’écran dans [Utilisation des services techniques de prévente et de déploiement](https://aka.ms/TechConsultInstructions).
+Consultez des instructions pas à pas avec captures d’écran dans [Utilisation des services techniques de prévente et de déploiement](/partner-center/technical-benefits).
 
 Vous serez contacté par un consultant technique partenaire Microsoft afin d’organiser un appel destiné à évaluer l’étendue de vos besoins.
 

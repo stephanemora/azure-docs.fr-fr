@@ -3,20 +3,20 @@ title: Niveau de calcul serverless
 description: Cet article décrit le nouveau niveau de calcul serverless et le compare au niveau de calcul approvisionné existant pour Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
-ms.custom: test sqldbrb=1, devx-track-azurecli
+ms.subservice: service-overview
+ms.custom: test sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 4/16/2021
-ms.openlocfilehash: d5b0c8e60632be5e058900680dc376b7f0761150
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 514e7e229ba1b72f2c357f6cefdd272889ed46b9
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781574"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591005"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

@@ -6,15 +6,16 @@ ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: cawrites
 ms.date: 03/19/2021
-ms.openlocfilehash: 741a47120b9410f91ef7f6de21879aab796e9a5e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 37266c7a7692c59efdded9ba3fabe71458a5f674
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136725"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110788619"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guide de migration : Access vers Azure SQL Database
 
@@ -167,7 +168,7 @@ Pour plus d’informations sur ces problèmes et les étapes spécifiques pour l
 
 Pour plus d’informations sur l’exécution de ce scénario de migration, consultez la ressource suivante. Elle a été développée pour soutenir un engagement de projet de migration réel.
 
-| Titre | Description |
+| Intitulé | Description |
 | --- | --- |
 | [Outil et modèle d’évaluation d’une charge de travail de données](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Fournit des suggestions pour les plateformes cibles, la préparation du cloud et le niveau de correction des applications/bases de données qui sont les mieux adaptés pour des charges de travail spécifiées. Il propose des fonctionnalités de génération de rapports et de calculs simples en un clic qui permettent d’accélérer les évaluations d’un vaste domaine en fournissant un processus de décision de plateforme cible automatisé et uniforme. |
 

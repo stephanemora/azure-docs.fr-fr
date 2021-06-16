@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/20/2021
 ms.author: mathapli
-ms.openlocfilehash: afbdd490a429c86f1842b83fb62c3ce6a023a0ed
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 71d585d16f4026ac605e7a61e64af89df806fed8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750942"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950025"
 ---
 # <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set"></a>Azure Hybrid Benefit pour groupe de machines virtuelles identiques Linux
 
-**Azure Hybrid Benefit pour groupe de machines virtuelles identiques Linux est désormais en disponibilité générale**. L’avantage AHB peut vous aider à réduire le coût d’exécution de vos [groupes de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) RHEL et SLES.
+**Azure Hybrid Benefit pour groupe de machines virtuelles identiques Linux est désormais en disponibilité générale**. L’avantage AHB peut vous aider à réduire le coût d’exécution de vos [groupes de machines virtuelles identiques](./overview.md) RHEL et SLES.
 
 Avec cet avantage, vous payez uniquement le coût d’infrastructure de votre groupe identique. L’avantage s’applique à toutes les images PAYG (paiement à l’accès) de la place de marché RHEL et SLES.
 

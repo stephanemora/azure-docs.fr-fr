@@ -1,0 +1,70 @@
+### YamlMime:Landing
+title: Découvrir Azure Video Analyzer for Media (anciennement Video Indexer)
+summary: Azure Video Analyzer for Media (anciennement Video Indexer) est une application cloud qui fait partie d’Azure Applied AI Services et qui est basée sur Azure Media Services et Azure Cognitive Services (au même titre que Visage, Traducteur, Vision par ordinateur et Speech). Elle vous permet d’extraire les insights de vos vidéos à l’aide de modèles vidéo et audio Video Analyzer for Media.
+metadata:
+  title: Documentation Azure Video Analyzer for Media (anciennement Video Indexer)
+  description: Azure Video Analyzer for Media (anciennement Video Indexer) est une application cloud qui fait partie d’Azure Applied AI Services et qui est basée sur Azure Media Services et Azure Cognitive Services (au même titre que Visage, Traducteur, Vision par ordinateur et Speech). Elle vous permet d’extraire les insights de vos vidéos à l’aide de modèles vidéo et audio Video Analyzer for Media.
+  services: azure-video-analyzer
+  ms.service: azure-video-analyzer
+  ms.topic: landing-page
+  ms.collection: collection
+  author: Juliako
+  ms.author: juliako
+  ms.date: 05/07/2021
+  ms.openlocfilehash: f00c3318ada24acdb100ebba6a7589193453e935
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110383423"
+landingContent:
+- title: À propos d’Azure Video Analyzer for Media (anciennement Video Indexer)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Video Analyzer for Media ?
+      url: video-indexer-overview.md
+    - text: Comparer les préréglages de Media Services v3 et de Video Analyzer for Media
+      url: compare-video-indexer-with-media-services-presets.md
+    - text: Forum aux questions
+      url: faq.md
+    - text: User voice
+      url: https://aka.ms/UserVoiceVI
+  - linkListType: whats-new
+    links:
+    - text: Nouveautés de Video Analyzer for Media
+      url: release-notes.md
+- title: Bien démarrer
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: S’inscrire et charger une vidéo
+      url: video-indexer-get-started.md
+    - text: Inviter des utilisateurs
+      url: invite-users.md
+  - linkListType: how-to-guide
+    links:
+    - text: Créer un compte connecté à Azure
+      url: connect-to-azure.md
+    - text: Utiliser l’API Video Analyzer for Media
+      url: video-indexer-use-apis.md
+    - text: Charger et indexer vos vidéos
+      url: upload-index-videos.md
+    - text: Examiner la sortie produite par l’API
+      url: video-indexer-output-json-v2.md
+    - text: Incorporer les widgets Video Analyzer for Media dans des applications
+      url: video-indexer-embed-widgets.md
+  - linkListType: sample
+    links:
+    - text: Exemples de code
+      url: https://github.com/Azure-Samples/media-services-video-indexer
+- title: Personnaliser des modèles de contenu
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Personnaliser un modèle de marques
+      url: customize-brands-model-with-website.md
+    - text: Personnaliser un modèle de langage
+      url: customize-language-model-with-website.md
+    - text: Personnaliser un modèle de personne
+      url: customize-person-model-with-website.md

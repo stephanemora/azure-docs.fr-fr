@@ -2,13 +2,13 @@
 title: Définir plusieurs instances d’une propriété
 description: Utilisez l’opération de copie dans un modèle Azure Resource Manager (modèle ARM) pour effectuer une itération à plusieurs reprises lors de la création d’une propriété sur une ressource.
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: 3f6eeac8b32e0fb34b973e82557cc48bab532ffd
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.date: 05/07/2021
+ms.openlocfilehash: 1f5a93b8c0759a9baccb8c5d5bc7dab25b181791
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736931"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954696"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Itération de propriété dans les modèles ARM
 
@@ -19,8 +19,6 @@ Vous ne pouvez utiliser la boucle de copie qu’avec des ressources de niveau su
 Vous pouvez également utiliser la boucle de copie avec des [ressources](copy-resources.md), des [variables](copy-variables.md) et des [sorties](copy-outputs.md).
 
 ## <a name="syntax"></a>Syntaxe
-
-# <a name="json"></a>[JSON](#tab/json)
 
 Ajoutez l’élément `copy` à la section Ressources de votre modèle pour définir le nombre d’éléments pour une propriété. L’élément copier utilise le format général suivant :
 
@@ -40,36 +38,6 @@ La propriété `count` spécifie le nombre d’itérations que vous souhaitez po
 
 La propriété `input` spécifie les propriétés que vous souhaitez répéter. Vous créez un tableau d’éléments construits à partir de la valeur de la propriété `input`.
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-Les boucles peuvent être utilisées pour déclarer plusieurs propriétés via les méthodes suivantes :
-
-- Itération sur un tableau :
-
-  ```bicep
-  <property-name>: [for <item> in <collection>: {
-    <properties>
-  }]
-  ```
-
-- Itération sur les éléments d’un tableau
-
-  ```bicep
-  <property-name>: [for (<item>, <index>) in <collection>: {
-    <properties>
-  }]
-  ```
-
-- Utilisation de l’index de boucle
-
-  ```bicep
-  <property-name>: [for <index> in range(<start>, <stop>): {
-    <properties>
-  }]
-  ```
-
----
-
 ## <a name="copy-limits"></a>Limites de copie
 
 Le nombre ne peut pas dépasser 800.
@@ -86,8 +54,6 @@ Les versions antérieures de PowerShell, de l’interface CLI et de l’API REST
 ## <a name="property-iteration"></a>Itération de propriété
 
 L’exemple suivant montre comment appliquer une boucle de copie à la propriété `dataDisks` sur une machine virtuelle :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -251,30 +217,6 @@ L’élément `copy` est un tableau. Vous pouvez donc spécifier plusieurs propr
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-@minValue(0)
-@maxValue(16)
-@description('The number of dataDisks to be returned in the output array.')
-param numberOfDataDisks int = 16
-
-resource vmName 'Microsoft.Compute/virtualMachines@2020-06-01' = {
-  ...
-  properties: {
-    storageProfile: {
-      ...
-      dataDisks: [for i in range(0, numberOfDataDisks): {
-        lun: i
-        createOption: 'Empty'
-        diskSizeGB: 1023
-      }]
-    }
-    ...
-  }
-}
-```
-
 Le modèle déployé devient :
 
 ```json
@@ -304,11 +246,7 @@ Le modèle déployé devient :
       ...
 ```
 
----
-
 Vous pouvez utiliser des itérations de ressource et de propriété ensemble. Référencez l’itération de propriété par son nom.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -342,30 +280,6 @@ Vous pouvez utiliser des itérations de ressource et de propriété ensemble. R�
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-resource vnetname_resource 'Microsoft.Network/virtualNetworks@2018-04-01' = [for i in range(0, 2): {
-  name: concat(vnetname, i)
-  location: resourceGroup().location
-  properties: {
-    addressSpace: {
-      addressPrefixes: [
-        addressPrefix
-      ]
-    }
-    subnets: [for j in range(0, 2): {
-      name: 'subnet-${j}'
-      properties: {
-        addressPrefix: subnetAddressPrefix[j]
-      }
-    }]
-  }
-}]
-```
-
----
-
 ## <a name="example-templates"></a>Exemples de modèles
 
 L’exemple suivant montre un scénario courant pour la création de plusieurs valeurs pour une propriété.
@@ -381,5 +295,5 @@ L’exemple suivant montre un scénario courant pour la création de plusieurs v
   - [Itération de ressource dans les modèles ARM](copy-resources.md)
   - [Itération de variable dans les modèles ARM](copy-variables.md)
   - [Itération de sortie dans les modèles ARM](copy-outputs.md)
-- Pour plus d’informations sur les différentes sections d’un modèle, consultez [Présentation de la structure et de la syntaxe des modèles ARM](template-syntax.md).
+- Pour plus d’informations sur les différentes sections d’un modèle, consultez [Présentation de la structure et de la syntaxe des modèles ARM](./syntax.md).
 - Pour savoir comment déployer votre modèle, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md).

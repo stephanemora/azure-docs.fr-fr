@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
 ms.date: 09/04/2020
-ms.openlocfilehash: 09badebab86da8e4fd8d35307aa6648a26e91821
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73c8daf49ccdfeee1903a3c0ad823cdd3e52c141
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103232254"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537849"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guide de publication pour les applications managées Azure
 
@@ -51,4 +51,4 @@ Si vous ne l’avez pas déjà fait, découvrez comment [développer votre activ
 Pour vous inscrire à l’Espace partenaires et commencer à travailler dessus :
 
 - [Connectez-vous à l’Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer ou terminer votre offre.
-- Pour plus d’informations, consultez [Créer une offre d’application Azure](./create-new-azure-apps-offer.md).
+- Pour plus d’informations, consultez [Créer une offre d’application Azure](azure-app-offer-setup.md).

@@ -1,15 +1,18 @@
 ---
-ms.openlocfilehash: b5516af5f33292e79cfb9dc7502dfffcd2e7767f
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: a72147e84383a461c86339483d7e621c97fb5680
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108313565"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111429815"
 ---
 ## <a name="additional-prerequisites-for-java"></a>Autres composants requis pour Java
 Pour Java, vous aurez également besoin des éléments suivants :
 - [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 ou ultérieure.
 - [Apache Maven](https://maven.apache.org/download.cgi).
+
+> [!NOTE]
+> Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/use-managed-Identity).
 
 ## <a name="setting-up"></a>Configuration
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: d60c4ba78169bb137b8c63682b770c7148fe3f12
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2f76be3bd5a2688e91f63da5da137492190b2ccb
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756734"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789068"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Charges utiles de télémétrie, de propriétés et de commandes
 
@@ -478,7 +478,7 @@ Un client d’appareil doit envoyer une charge utile JSON ressemblant à l’exe
 { "BooleanProperty": false }
 ```
 
-L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété `boolean` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété `long` :
 
 ```json
 {

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2f9eca1600ffe9270ac2f02db38c815e92498afe
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 977dcbed29f74e97de3e61842b1b559a05ad8fdb
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110086209"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955473"
 ---
 # <a name="find-and-redact-blur-faces-with-the-face-detector-preset"></a>Rechercher et éditer (flouter) des visages avec le préréglage de Face Detector
 
@@ -31,7 +31,7 @@ Cet article apporte des précisions sur le **préréglage de Face Detector**, et
 
 ## <a name="compliance-privacy-and-security"></a>Conformité, confidentialité et sécurité
 
-N’oubliez jamais que vous devez vous conformer à la réglementation applicable durant l’utilisation des analyses dans Azure Media Services. Vous ne devez pas utiliser Azure Media Services ou tout autre service Azure d’une manière qui ne respecte pas les droits d’autrui. Avant de charger des vidéos, en particulier des données biométriques, vers le service Azure Media Services à des fins de traitement et de stockage, vous devez disposer de tous les droits appropriés sur ces vidéos, notamment le consentement des personnes qui y figurent. Pour en savoir plus sur la conformité, la confidentialité et la sécurité dans Azure Media Services, consultez les [Conditions d’utilisation de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Pour connaître les obligations de Microsoft en matière de confidentialité et de traitement de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions des Services en Ligne](https://www.microsoft.com/licensing/product-licensing/products) (OST) et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations complémentaires sur la confidentialité, notamment sur la conservation, la suppression et la destruction des données, sont disponibles dans l’OST et [ici](../video-indexer/faq.md). En utilisant Azure Media Services, vous acceptez d’être lié par les Conditions d’utilisation de Cognitive Services, à l’OST, au DPA et à la Déclaration de confidentialité
+N’oubliez jamais que vous devez vous conformer à la réglementation applicable durant l’utilisation des analyses dans Azure Media Services. Vous ne devez pas utiliser Azure Media Services ou tout autre service Azure d’une manière qui ne respecte pas les droits d’autrui. Avant de charger des vidéos, en particulier des données biométriques, vers le service Azure Media Services à des fins de traitement et de stockage, vous devez disposer de tous les droits appropriés sur ces vidéos, notamment le consentement des personnes qui y figurent. Pour en savoir plus sur la conformité, la confidentialité et la sécurité dans Azure Media Services, consultez les [Conditions d’utilisation de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Pour connaître les obligations de Microsoft en matière de confidentialité et de traitement de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions des Services en Ligne](https://www.microsoft.com/licensing/product-licensing/products) (OST) et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations complémentaires sur la confidentialité, notamment sur la conservation, la suppression et la destruction des données, sont disponibles dans l’OST et [ici](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md). En utilisant Azure Media Services, vous acceptez d’être lié par les Conditions d’utilisation de Cognitive Services, à l’OST, au DPA et à la Déclaration de confidentialité
 
 ## <a name="face-redaction-modes"></a>Modes de rédaction de face
 

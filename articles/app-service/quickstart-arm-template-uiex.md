@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bfdfad8af2d730caf0ac9e22ee815a6d59a6b6a3
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: f0412b6e67ff62247feb3f8643553c5a6101ad73
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074724"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892667"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Démarrage rapide : Créer une application App Service à l’aide d’un modèle ARM
 
@@ -41,7 +41,7 @@ Bien démarrer avec [Azure App Service](overview.md) en déployant une applicati
 ## <a name="2-review-the-template"></a>2. Vérifier le modèle
 
 ::: zone pivot="platform-windows"
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). Il déploie un plan App Service et une application App Service sur Windows.
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/app-service-docs-windows). Il déploie un plan App Service et une application App Service sur Windows.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json":::
 
@@ -69,7 +69,7 @@ Le tableau suivant détaille les paramètres par défaut et leur description :
 </details>
 ::: zone-end
 ::: zone pivot="platform-linux"
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux). Il déploie un plan App Service et une application App Service sur Windows.
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/app-service-docs-linux). Il déploie un plan App Service et une application App Service sur Windows.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json":::
 

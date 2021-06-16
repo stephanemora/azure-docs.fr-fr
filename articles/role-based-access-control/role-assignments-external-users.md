@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 02/15/2021
 ms.author: rolyon
 ms.custom: it-pro
-ms.openlocfilehash: d834f4ccd8dba26c895e0578f161813fc49332ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 469995a3211083dd592fa4b3f4ab8b145c7193a8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556285"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949294"
 ---
 # <a name="assign-azure-roles-to-external-guest-users-using-the-azure-portal"></a>Attribuer des rôles Azure à des utilisateurs invités externes à l’aide du portail Azure
 
@@ -181,7 +181,7 @@ Les utilisateurs invités disposent d'autorisations d'annuaire limitées. Par ex
 
 ![Impossible pour l’utilisateur invité de parcourir les utilisateurs figurant dans un annuaire](./media/role-assignments-external-users/directory-no-users.png)
 
-Si un utilisateur invité a besoin de privilèges supplémentaires sur l’annuaire, vous pouvez lui attribuer un rôle d’annuaire. Si vous voulez vraiment qu’un utilisateur invité dispose d’un accès en lecture complet à votre annuaire, vous pouvez l’ajouter au rôle [Lecteurs de répertoire](../active-directory/roles/permissions-reference.md) dans Azure AD. Pour plus d’informations, consultez [Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory](../active-directory/external-identities/add-guest-to-role.md).
+Si un utilisateur invité a besoin de privilèges supplémentaires sur l’annuaire, vous pouvez lui attribuer un rôle d’annuaire. Si vous voulez vraiment qu’un utilisateur invité dispose d’un accès en lecture complet à votre annuaire, vous pouvez l’ajouter au rôle [Lecteurs de répertoire](../active-directory/roles/permissions-reference.md) dans Azure AD. Pour plus d’informations, consultez [Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory](../active-directory/external-identities/add-users-administrator.md).
 
 ![Attribuer le rôle Lecteur de répertoire](./media/role-assignments-external-users/directory-roles.png)
 
@@ -191,11 +191,11 @@ Les utilisateurs invités disposent d'autorisations d'annuaire limitées. Même 
 
 ![Impossible pour l’utilisateur invité de parcourir les principaux de sécurité pour attribuer des rôles](./media/role-assignments-external-users/directory-no-browse.png)
 
-Si l’utilisateur invité connaît le nom de connexion exact d’une personne dans l’annuaire, il peut lui accorder l’accès. Si vous voulez vraiment qu’un utilisateur invité dispose d’un accès en lecture complet à votre annuaire, vous pouvez l’ajouter au rôle [Lecteurs de répertoire](../active-directory/roles/permissions-reference.md) dans Azure AD. Pour plus d’informations, consultez [Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory](../active-directory/external-identities/add-guest-to-role.md).
+Si l’utilisateur invité connaît le nom de connexion exact d’une personne dans l’annuaire, il peut lui accorder l’accès. Si vous voulez vraiment qu’un utilisateur invité dispose d’un accès en lecture complet à votre annuaire, vous pouvez l’ajouter au rôle [Lecteurs de répertoire](../active-directory/roles/permissions-reference.md) dans Azure AD. Pour plus d’informations, consultez [Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory](../active-directory/external-identities/add-users-administrator.md).
 
 ### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>Impossible pour l’utilisateur invité d’inscrire des applications ou de créer des principaux du service
 
-Les utilisateurs invités disposent d'autorisations d'annuaire limitées. Si un utilisateur invité a besoin de pouvoir inscrire des applications ou de créer des principaux du service, vous pouvez l’ajouter au rôle [Développeur d’applications](../active-directory/roles/permissions-reference.md) dans Azure AD. Pour plus d’informations, consultez [Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory](../active-directory/external-identities/add-guest-to-role.md).
+Les utilisateurs invités disposent d'autorisations d'annuaire limitées. Si un utilisateur invité a besoin de pouvoir inscrire des applications ou de créer des principaux du service, vous pouvez l’ajouter au rôle [Développeur d’applications](../active-directory/roles/permissions-reference.md) dans Azure AD. Pour plus d’informations, consultez [Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory](../active-directory/external-identities/add-users-administrator.md).
 
 ![Impossible pour l’utilisateur invité d’inscrire des applications](./media/role-assignments-external-users/directory-access-denied.png)
 

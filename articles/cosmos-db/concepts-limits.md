@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: 7f7e6cb896d5284a7bc4ff54c7396600463260c9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0e954b06afb9e1db09aefc77d9c9b85204f6fe28
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367621"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110615230"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -91,7 +91,7 @@ Selon les paramètres de valeur RU/s approvisionnée et de ressource, chaque res
 
 | Ressource | Limite |
 | --- | --- |
-| Nombre maximal d’unités de requête par partition (logique) | 5 000 |
+| Nombre maximal d’unités de requête par conteneur | 5 000 |
 | Volume de stockage maximal sur tous les éléments par partition (logique) | 20 Go |
 | Nombre maximal de clés de partition (logiques) distinctes | Illimité |
 | Volume de stockage maximal par conteneur | 50 Go |

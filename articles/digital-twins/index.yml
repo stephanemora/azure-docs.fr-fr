@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: 72bff0ff2974dda93c7d25027efa82b9d8d1d629
-  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.openlocfilehash: 4eba6315029b9dd720e47fc46d7fa64a0ee8fba9
+  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "108772654"
+  ms.lasthandoff: 05/26/2021
+  ms.locfileid: "110477947"
 landingContent:
 - title: À propos d’Azure Digital Twins
   linkLists:
@@ -31,12 +31,16 @@ landingContent:
       url: concepts-twins-graph.md
     - text: Langage de requête
       url: concepts-query-language.md
-- title: Bien démarrer avec le démarrage rapide
+- title: Bien démarrer avec Azure Digital Twins Explorer
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Explorer un exemple de scénario
+    - text: Bien démarrer avec Azure Digital Twins Explorer
       url: quickstart-azure-digital-twins-explorer.md
+  - linkListType: get-started
+    links:
+    - text: Azure Digital Twins Explorer
+      url: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer
 - title: Approfondir avec les tutoriels
   linkLists:
   - linkListType: tutorial
@@ -85,10 +89,6 @@ landingContent:
     links:
     - text: Exemples de bout en bout
       url: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
-  - linkListType: sample
-    links:
-    - text: Explorateur Azure Digital Twins (exemple)
-      url: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer
   - linkListType: sample
     links:
     - text: Validateur DTDL (exemple)

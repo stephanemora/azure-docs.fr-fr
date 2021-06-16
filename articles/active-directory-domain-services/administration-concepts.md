@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 06/01/2021
 ms.author: justinha
-ms.openlocfilehash: 5473ef46751d64fdbbf1d52f39c66f49d707e615
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82329a6a8134eb0227c1d0e64c3141135768cd66
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102631385"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438501"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Concepts de gestion pour les comptes d’utilisateur, les mots de passe et l’administration dans Azure Active Directory Domain Services
 
@@ -78,11 +78,11 @@ Pour plus d’informations sur les types de forêts dans Azure AD DS, consultez 
 
 Dans Azure AD DS, les performances et fonctionnalités disponibles sont basées sur la référence SKU. Vous sélectionnez une référence SKU lorsque vous créez le domaine managé et pouvez changer de références SKU au fil des besoins de votre entreprise, une fois le domaine managé déployé. Le tableau suivant présente les références SKU disponibles ainsi que leurs différences :
 
-| Nom de la référence (SKU)   | Nombre maximal d'objets | Fréquence de sauvegarde | Nombre maximal d’approbations de forêts sortantes |
-|------------|----------------------|------------------|----|
-| standard   | Illimité            | Tous les 5 jours     | 0  |
-| Entreprise | Illimité            | Tous les 3 jours     | 5  |
-| Premium    | Illimité            | Quotidien            | 10 |
+| Nom de la référence (SKU)   | Nombre maximal d'objets | Fréquence de sauvegarde | 
+|------------|----------------------|------------------|
+| Standard   | Illimité            | Tous les 5 jours     |
+| Entreprise | Illimité            | Tous les 3 jours     | 
+| Premium    | Illimité            | Quotidien            | 
 
 Avant ces références SKU Azure AD DS, un modèle de facturation basé sur le nombre d’objets (comptes d’utilisateurs et d’ordinateurs) dans le domaine managé était utilisé. Il n’existe plus de tarification variable en fonction du nombre d’objets du domaine managé.
 
@@ -99,10 +99,6 @@ Si les besoins de votre entreprise ou de vos applications évoluent et qu'il vou
 La fréquence de sauvegarde détermine la fréquence de prise d'un instantané du domaine managé. Les sauvegardes relèvent d'un processus automatisé managé par la plateforme Azure. En cas de problème lié à votre domaine managé, le support Azure peut vous aider à procéder à une restauration à partir d'une sauvegarde. La synchronisation étant unidirectionnelle *depuis* Azure AD, les problèmes survenant dans un domaine managé n’ont pas d’impact sur Azure AD ou les environnements et fonctionnalités AD DS locaux.
 
 Plus le niveau de référence SKU augmente, plus la fréquence de ces instantanés de sauvegarde augmente aussi. Examinez les besoins de votre entreprise et l’objectif de point de récupération afin de déterminer la fréquence de sauvegarde requise pour votre domaine managé. Si les besoins de votre entreprise ou de vos applications évoluent et que vous avez besoin de sauvegardes plus fréquentes, vous pouvez opter pour une autre référence SKU.
-
-### <a name="outbound-forest-trusts"></a>Approbations de forêt sortantes
-
-La section précédente a décrit en détail les approbations de forêts sortantes unidirectionnelles d’un domaine managé vers un environnement AD DS local. La référence SKU détermine nombre maximal d’approbations de forêt que vous pouvez créer pour un domaine managé. Examinez les exigences de votre entreprise et de vos applications pour déterminer le nombre d’approbations dont vous avez réellement besoin, puis choisissez la référence SKU Azure AD DS appropriée. Là encore, si les exigences de votre entreprise évoluent et qu'il vous faut créer des approbations de forêts supplémentaires, vous pouvez opter pour une autre référence SKU.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

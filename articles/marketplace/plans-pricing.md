@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 09/02/2020
-ms.openlocfilehash: e97171e61814b832e78f7bd815d8d6f341a90840
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21f8109fa1db49af8f2e84833466ed204d2f59fa
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91858170"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111536530"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Plans et tarification pour les offres de la place de marché commerciale
 
@@ -100,7 +100,7 @@ Si vous avez déjà fixé des prix pour votre plan en dollar américain (USD) et
 > [!IMPORTANT]
 > Une fois votre offre publiée, vous ne pouvez plus modifier le choix du modèle de tarification.
 
-Les offres SaaS à taux forfaitaire et les offres d’applications managées prennent en charge la facturation contrôlée à l’aide du service de contrôle de la place de marché. Il s’agit d’un modèle de facturation basé sur l’utilisation, qui vous permet de définir des unités non standard, telles que la bande passante ou les e-mails, que vos clients paieront en fonction de leur consommation. Consultez la documentation connexe pour en savoir plus sur la facturation contrôlée pour les [applications managées](./partner-center-portal/azure-app-metered-billing.md) et les [applications SaaS](./partner-center-portal/saas-metered-billing.md).
+Les offres SaaS à taux forfaitaire et les offres d’applications managées prennent en charge la facturation contrôlée à l’aide du service de contrôle de la place de marché. Il s’agit d’un modèle de facturation basé sur l’utilisation, qui vous permet de définir des unités non standard, telles que la bande passante ou les e-mails, que vos clients paieront en fonction de leur consommation. Consultez la documentation connexe pour en savoir plus sur la facturation contrôlée pour les [applications managées](marketplace-metering-service-apis.md) et les [applications SaaS](./partner-center-portal/saas-metered-billing.md).
 
 ## <a name="custom-prices"></a>Prix personnalisés
 
@@ -166,5 +166,5 @@ Pour obtenir des informations sur les abonnements clients qui participent actuel
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour savoir comment ajouter ou mettre à jour des plans pour une offre existante, consultez [Mettre à jour une offre existante dans la place de marché commerciale](./partner-center-portal/update-existing-offer.md).
+- Pour savoir comment ajouter ou mettre à jour des plans pour une offre existante, consultez [Mettre à jour une offre existante dans la place de marché commerciale](./update-existing-offer.md).
 - Pour en savoir plus sur les options de transaction et les modèles de tarification associés, consultez [Fonctionnalités de transaction de la place de marché commerciale](./marketplace-commercial-transaction-capabilities-and-considerations.md).

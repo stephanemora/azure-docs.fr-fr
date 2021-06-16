@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/11/2021
-ms.openlocfilehash: a1181af6bf7f8c734d7cb90c7e9bb28c22e00b08
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: d54432b482e952327083996b486ce27fc56a1c88
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517979"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949079"
 ---
 # <a name="how-to-index-data-available-through-cosmos-db-gremlin-api-using-an-indexer-preview"></a>Comment indexer les données disponibles via l’API Gremlin Cosmos DB à l’aide d’un indexeur (préversion)
 
@@ -32,13 +32,13 @@ Cet article explique comment configurer Recherche cognitive Azure pour indexer l
 
 ## <a name="get-started"></a>Bien démarrer
 
-Vous pouvez utiliser l’[API REST de préversion](https://docs.microsoft.com/rest/api/searchservice/index-preview) pour indexer les données d’Azure Cosmos DB disponibles via l’API Gremlin en suivant un workflow en trois parties commun à tous les indexeurs dans Recherche cognitive Azure : créer une source de données, créer un index, créer un indexeur. Dans le processus ci-dessous, l’extraction des données à partir de Cosmos DB démarre lorsque vous soumettez la requête Créer un indexeur.
+Vous pouvez utiliser l’[API REST de préversion](/rest/api/searchservice/index-preview) pour indexer les données d’Azure Cosmos DB disponibles via l’API Gremlin en suivant un workflow en trois parties commun à tous les indexeurs dans Recherche cognitive Azure : créer une source de données, créer un index, créer un indexeur. Dans le processus ci-dessous, l’extraction des données à partir de Cosmos DB démarre lorsque vous soumettez la requête Créer un indexeur.
 
 Par défaut, l’indexeur de l’API Gremlin Cosmos DB de Recherche cognitive Azure fait en sorte que chaque vertex de votre graphique soit un document dans l’index. Les arêtes seront ignorées. Vous pouvez également définir la requête pour qu’elle indexe uniquement les arêtes.
 
 ### <a name="step-1---assemble-inputs-for-the-request"></a>Étape 1 : Assembler des entrées pour la requête
 
-Pour chaque requête, vous devez fournir le nom du service et la clé d’administration pour Recherche cognitive Azure (dans l’en-tête POST). Vous pouvez utiliser [Postman](search-get-started-postman.md) ou tout autre client d’API REST pour envoyer des requêtes HTTPS à Recherche cognitive Azure.
+Pour chaque requête, vous devez fournir le nom du service et la clé d’administration pour Recherche cognitive Azure (dans l’en-tête POST). Vous pouvez utiliser [Postman](./search-get-started-rest.md) ou tout autre client d’API REST pour envoyer des requêtes HTTPS à Recherche cognitive Azure.
 
 Copiez et enregistrez les valeurs suivantes pour les utiliser dans votre requête :
 
@@ -178,7 +178,7 @@ Une fois l'index et la source de données créés, vous êtes prêt à créer l�
 
 Cet indexeur commencera à s’exécuter après sa création et ne s’exécutera qu’une seule fois. Vous pouvez ajouter le paramètre facultatif de planification à la requête pour configurer votre indexeur de façon à ce qu’il s’exécute selon une planification. Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [Guide pratique pour planifier les indexeurs pour Recherche cognitive Azure](search-howto-schedule-indexers.md).
 
-Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](/rest/api/searchservice/create-indexer).
 
 <a name="DataDeletionDetectionPolicy"></a>
 

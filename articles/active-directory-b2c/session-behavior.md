@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 06/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3898de5bf01ea03a5ad7f951a97da82a6a8c4b14
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 2e0af2e682799d4286a0d00daa2ce7e3805cf4ac
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896222"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565245"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurer le comportement de session dans Azure Active Directory B2C
 
@@ -243,16 +243,18 @@ Quand vous souhaitez déconnecter l’utilisateur de l’application, il ne suff
 
 Lors d’une demande de déconnexion, Azure AD B2C effectue les opérations suivantes :
 
-1. Invalide la session Azure AD B2C basée sur un cookie.
 ::: zone pivot="b2c-user-flow"
-2. Tente de se déconnecter des fournisseurs d’identité fédérés
+1. Invalide la session Azure AD B2C basée sur un cookie.
+1. Tente de se déconnecter des fournisseurs d’identité fédérés
 ::: zone-end
+
 ::: zone pivot="b2c-custom-policy"
-3. Tente de se déconnecter des fournisseurs d’identité fédérés :
+1. Invalide la session Azure AD B2C basée sur un cookie.
+1. Tente de se déconnecter des fournisseurs d’identité fédérés :
    - OpenId Connect : si le point de terminaison de configuration connu du fournisseur d’identité spécifie un emplacement `end_session_endpoint`. La demande de déconnexion ne passe pas le paramètre `id_token_hint`. Si le fournisseur d’identité fédérée requiert ce paramètre, la demande de déconnexion échoue.
    - OAuth2 : si les [métadonnées du fournisseur d’identité](oauth2-technical-profile.md#metadata) contiennent l’emplacement `end_session_endpoint`.
    - SAML : si les [métadonnées du fournisseur d’identité](identity-provider-generic-saml.md) contiennent l’emplacement `SingleLogoutService`.
-4. Si vous le souhaitez, se déconnecte d’autres applications. Pour plus d’informations, consultez la section [Déconnexion unique](#single-sign-out).
+1. Si vous le souhaitez, se déconnecte d’autres applications. Pour plus d’informations, consultez la section [Déconnexion unique](#single-sign-out).
 
 > [!NOTE]
 > Vous pouvez désactiver la déconnexion des fournisseurs d’identité fédérés en définissant les métadonnées du profil technique du fournisseur d’identité `SingleLogoutEnabled` sur `false`.

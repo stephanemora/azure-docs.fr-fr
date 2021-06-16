@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.custom: devx-track-azurepowershell
 manager: carmonm
-ms.openlocfilehash: d338c5f34d49663345582198ff53ba50a2919d7e
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c310003bb7c9120211e3cf74e240e51d4a10b20c
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829419"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891767"
 ---
 # <a name="enable-azure-automation-state-configuration"></a>Activer Azure Automation State Configuration
 
@@ -47,7 +47,7 @@ Pour activer une machine virtuelle Azure pour State Configuration via le [portai
 
 ### <a name="enable-a-vm-using-azure-resource-manager-templates"></a>Activer une machine virtuelle à l’aide de modèles Azure Resource Manager
 
-Vous pouvez installer et activer une machine virtuelle pour State Configuration à l’aide de modèles Azure Resource Manager. Pour un exemple de modèle activant une machine virtuelle existante pour State Configuration, consultez [Serveur géré par le service Desired State Configuration](https://azure.microsoft.com/resources/templates/101-automation-configuration/). Si vous gérez un groupe de machines virtuelles identiques, consultez l’exemple de modèle dans [Configuration des groupes de machines virtuelles identiques gérés par Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
+Vous pouvez installer et activer une machine virtuelle pour State Configuration à l’aide de modèles Azure Resource Manager. Pour un exemple de modèle activant une machine virtuelle existante pour State Configuration, consultez [Serveur géré par le service Desired State Configuration](https://azure.microsoft.com/resources/templates/automation-configuration/). Si vous gérez un groupe de machines virtuelles identiques, consultez l’exemple de modèle dans [Configuration des groupes de machines virtuelles identiques gérés par Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
 
 ### <a name="enable-machines-using-powershell"></a>Activer des machines à l’aide de PowerShell
 

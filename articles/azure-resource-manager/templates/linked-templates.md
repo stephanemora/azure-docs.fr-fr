@@ -4,12 +4,12 @@ description: Décrit l’utilisation des modèles liés dans un modèle ARM (Azu
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 80fabe5f720182e51e731e0d4d833ed0e7ab9137
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 3ae1bcc6cc1c99bc89e2f8fbd2c8debf95418850
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751542"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951148"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
@@ -611,7 +611,7 @@ L’exemple suivant indique comment utiliser une URL de base afin de créer deux
 
 ```json
 "variables": {
-  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/postgre/postgresql-on-ubuntu/",
   "sharedTemplateUrl": "[uri(variables('templateBaseUrl'), 'shared-resources.json')]",
   "vmTemplateUrl": "[uri(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
 }
@@ -894,6 +894,6 @@ Les exemples suivants montrent des utilisations courantes des modèles liés.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour suivre un tutoriel, consultez [Tutoriel : Déployer un modèle lié](./deployment-tutorial-linked-template.md).
-* Pour en savoir plus sur la définition de l’ordre de déploiement de vos ressources, consultez [Définir l’ordre de déploiement des ressources dans les modèles ARM](define-resource-dependency.md).
+* Pour en savoir plus sur la définition de l’ordre de déploiement de vos ressources, consultez [Définir l’ordre de déploiement des ressources dans les modèles ARM](./resource-dependency.md).
 * Pour savoir comment définir une seule ressource mais également comment créer de nombreuses instances de cette dernière, consultez [Itération de ressource dans les modèles ARM](copy-resources.md).
 * Pour connaître les étapes permettant de configurer un modèle dans un compte de stockage et de générer un jeton SAS, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md) ou [Déployer des ressources avec des modèles ARM et Azure CLI](deploy-cli.md).
