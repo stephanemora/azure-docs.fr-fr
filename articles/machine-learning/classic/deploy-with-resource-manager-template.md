@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-azurepowershell
 ms.date: 02/05/2018
-ms.openlocfilehash: ee0bee4857d410781561e6f7f6a7eae0509d1138
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c81397fb7729e6ce55da6fa7c8121de43c96130
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520032"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956041"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Déployer un espace de travail Azure Machine Learning Studio (classique) à l’aide d’Azure Resource Manager
 
@@ -142,7 +142,7 @@ Après la configuration de l’espace de travail, vous pouvez également automat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus, consultez [Création de modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
+* Pour en savoir plus, consultez [Création de modèles Azure Resource Manager](../../azure-resource-manager/templates/syntax.md).
 * Parcourez le [Référentiel de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates).
 * Regardez cette vidéo sur [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
 * Consultez l'[aide de référence sur les modèles Resource Manager](/azure/templates/microsoft.machinelearning/allversions).

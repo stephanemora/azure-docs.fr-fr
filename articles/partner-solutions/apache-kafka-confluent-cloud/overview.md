@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.service: partner-services
 ms.date: 01/15/2021
 ms.author: tomfitz
-ms.openlocfilehash: eea96f9a445fcfd1af5d23db1e01d1a7440fceea
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6fbd6b72c17b8483f9fdb5bc227625fd92009594
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137072"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952631"
 ---
 # <a name="what-is-apache-kafka-for-confluent-cloud"></a>Qu’est-ce qu’Apache Kafka pour Confluent Cloud ?
 
@@ -21,7 +21,7 @@ Pour réduire le fardeau de la gestion multiplateforme, Microsoft s’est associ
 
 Auparavant, vous deviez acheter l’offre Confluent Cloud sur la Place de marché, puis configurer séparément le compte dans Confluent Cloud. Pour gérer les configurations et les ressources, vous deviez naviguer entre les portails pour Azure et Confluent Cloud.
 
-À présent, vous provisionnez les ressources Confluent Cloud via un fournisseur de ressources nommé **Microsoft.Confluent**. Vous créez et gérez des ressources d’organisation Confluent Cloud via le [portail Azure](https://portal.azure.com/), [Azure CLI](/cli/azure/)ou des [SDK Azure](/azure/#languages-and-tools). Confluent Cloud possède et exécute l’application SaaS (Software as a Service), y compris les environnements, les clusters, les rubriques, les clés API et les connecteurs gérés.
+À présent, vous provisionnez les ressources Confluent Cloud via un fournisseur de ressources nommé **Microsoft.Confluent**. Vous créez et gérez des ressources d’organisation Confluent Cloud via le [portail Azure](https://portal.azure.com/), [Azure CLI](/cli/azure/)ou des [SDK Azure](/azure/index.yml#languages-and-tools). Confluent Cloud possède et exécute l’application SaaS (Software as a Service), y compris les environnements, les clusters, les rubriques, les clés API et les connecteurs gérés.
 
 ## <a name="capabilities"></a>Fonctions
 

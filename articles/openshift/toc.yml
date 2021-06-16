@@ -24,6 +24,8 @@
       items:
         - name: Créer un cluster ARO privé
           href: howto-create-private-cluster-4x.md
+        - name: Configurer un système DNS personnalisé
+          href: howto-custom-dns.md
         - name: Configurer la redirection DNS
           href: dns-forwarding.md
         - name: Restreindre le trafic de sortie

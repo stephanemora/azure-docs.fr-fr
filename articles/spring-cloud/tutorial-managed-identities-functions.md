@@ -1,17 +1,17 @@
 ---
 title: 'Tutoriel : Utilisation de l’identité managée pour appeler Azure Functions'
 description: Utiliser une identité managée pour appeler Azure Functions d’une application Azure Spring Cloud
-author: MarkGardner
+author: markjgardner
 ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 6742c55dffb86e591542f5da1379c483ccd1ebcd
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 05cf92d74b229226258f8e8d2986cbe6a9f2bb1f
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138406"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663512"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Tutoriel : Utiliser une identité managée pour appeler Azure Functions à partir d’une application Azure Spring Cloud
 

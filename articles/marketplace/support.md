@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 01/19/2020
-ms.openlocfilehash: cfe365af868f01b868e737a409724e92f1d57f81
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 47ed6f8e8756d8fe317b932edf360b710b58e26b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106987"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706849"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Support technique pour le programme Place de marché commerciale dans l’Espace partenaires
 
@@ -121,4 +121,4 @@ Pour générer un fichier HAR à l’aide de **Safari** :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Mettre à jour une offre existante dans la Place de marché commerciale](partner-center-portal/update-existing-offer.md)
+- [Mettre à jour une offre existante dans la Place de marché commerciale](update-existing-offer.md)

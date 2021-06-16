@@ -10,12 +10,12 @@ ms.service: security
 ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.openlocfilehash: 9e5246edd2d6490e823bacbdfff0f60ef553878b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ee4e8f3abad2a4da924e42f81004c86691a1bc8a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729131"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792508"
 ---
 # <a name="design-secure-applications-on-azure"></a>Concevoir des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à envisager lorsque vous concevez des applications pour le cloud. Les ressources de formation ainsi que les questions et concepts de sécurité à examiner pendant les phases de conception et de configuration des exigences du [Microsoft Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) y sont abordés. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour concevoir une application plus sécurisée.
@@ -223,7 +223,7 @@ Assurez-vous que votre application suit le principe du [privilège minimum](/win
 
 #### <a name="implement-just-in-time-access"></a>Implémenter l’accès juste-à-temps
 
-Implémentez l’accès *juste-à-temps* (JIT) pour réduire davantage le temps d’exposition des privilèges. Utilisez [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-admin-activity) pour :
+Implémentez l’accès *juste-à-temps* (JIT) pour réduire davantage le temps d’exposition des privilèges. Utilisez [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-administrator-activity) pour :
 
 - Donner aux utilisateurs les autorisations dont ils ont besoin uniquement juste-à-temps.
 - Attribuer des rôles pour une durée plus courte en sachant que les privilèges sont automatiquement révoqués.

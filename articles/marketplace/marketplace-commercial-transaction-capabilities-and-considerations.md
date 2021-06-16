@@ -4,15 +4,15 @@ description: Cet article décrit les considérations sur les prix, la facturatio
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 04/06/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: da0a216842ddbd10728f3ff4c3b0eee2df200ee7
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: f68b940dfdb8c166102f1b4c8957f5233aa83ea4
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633426"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007766"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Fonctionnalités de transaction de la place de marché commerciale
 
@@ -51,7 +51,7 @@ L’option de publication Transaction est actuellement disponible pour ces types
 
 ### <a name="metered-billing"></a>Facturation à l’usage
 
-Le _service de mesure de la Place de marché_ vous permet de spécifier des frais de paiement à l’utilisation (basés sur la consommation) en plus des frais mensuels ou annuels inclus dans le contrat (droit d’utilisation). Vous pouvez facturer les coûts d’utilisation selon les dimensions du service de mesure de la Place de marché que vous spécifiez, telles que la bande passante, les tickets ou les e-mails traités. Pour plus d’informations sur la facturation à l’usage pour les offres SaaS, consultez [Facturation à l’usage pour SaaS à l’aide du service de mesure de la consommation de la Place de marché commerciale](./partner-center-portal/saas-metered-billing.md). Pour plus d’informations sur la facturation à l’usage pour les offres Azure Application, consultez la page [Facturation des applications managées basée sur des mesures](./partner-center-portal/azure-app-metered-billing.md).
+Le _service de mesure de la Place de marché_ vous permet de spécifier des frais de paiement à l’utilisation (basés sur la consommation) en plus des frais mensuels ou annuels inclus dans le contrat (droit d’utilisation). Vous pouvez facturer les coûts d’utilisation selon les dimensions du service de mesure de la Place de marché que vous spécifiez, telles que la bande passante, les tickets ou les e-mails traités. Pour plus d’informations sur la facturation à l’usage pour les offres SaaS, consultez [Facturation à l’usage pour SaaS à l’aide du service de mesure de la consommation de la Place de marché commerciale](./partner-center-portal/saas-metered-billing.md). Pour plus d’informations sur la facturation à l’usage pour les offres Azure Application, consultez la page [Facturation des applications managées basée sur des mesures](marketplace-metering-service-apis.md).
 
 ### <a name="billing-infrastructure-costs"></a>Facturation des coûts d’infrastructure
 
@@ -67,13 +67,13 @@ Selon l’option Transaction choisie, les frais d’abonnement se présentent ai
 - **BYOL** (Bring your own license) : si une offre est répertoriée dans la Place de marché commerciale, les frais applicables aux licences logicielles sont gérés directement entre le serveur de publication et le client. Microsoft facture uniquement les frais d’utilisation de l’infrastructure Azure applicables au compte d’abonnement Azure du client.
 - **Tarification par abonnement** : les frais de licence logicielle sont facturés mensuellement ou annuellement dans le cadre d’un abonnement selon un tarif fixe ou par poste. Les frais d’abonnement récurrents ne sont pas calculés au prorata en cas d’annulation en cours de trimestre ou en cas de services non utilisés. Les frais d’abonnement réactualisés peuvent être facturés au prorata si le client met à niveau ou rétrograde son abonnement au milieu de la durée de l’abonnement.
 - **Tarification basée sur l’utilisation** : pour les offres de machines virtuelles Azure, les clients sont facturés en fonction de l’étendue de leur utilisation de l’offre. Pour les images Machines Virtuelles, les frais Place de marché Azure facturés aux clients sont basés sur l’utilisation réelle des machines virtuelles déployées à partir de ces images de machine virtuelle, selon un tarif horaire convenu par les éditeurs. Le tarif horaire peut être fixe ou variable en fonction de la taille des machines virtuelles. Les heures non terminées sont facturées à la minute. Les plans sont facturés tous les mois.
-- **Tarification limitée** : pour les offres Azure Application et les offres SaaS, les éditeurs peuvent utiliser le [service de mesure de la place de marché Microsoft Azure](./partner-center-portal/marketplace-metering-service-apis.md) pour facturer la consommation en fonction des dimensions de mesure personnalisées qu’ils configurent. Ces modifications s’ajoutent aux frais mensuels ou annuels inclus dans le contrat (droit d’utilisation). Exemples de dimensions de mesure personnalisée : bande passante, tickets ou e-mails. Les éditeurs peuvent définir une ou plusieurs dimensions mesurables pour chaque plan, avec un maximum de 30 par offre. Les éditeurs sont chargés d’effectuer le suivi personnel de l’utilisation pour chaque mesure définie dans l’offre. Les événements doivent être signalés à Microsoft dans un délai d’une heure. Celui-ci facture ensuite les clients en fonction des informations collectées par les éditeurs pour la période de facturation applicable.
+- **Tarification limitée** : pour les offres Azure Application et les offres SaaS, les éditeurs peuvent utiliser le [service de mesure de la place de marché Microsoft Azure](marketplace-metering-service-apis.md) pour facturer la consommation en fonction des dimensions de mesure personnalisées qu’ils configurent. Ces modifications s’ajoutent aux frais mensuels ou annuels inclus dans le contrat (droit d’utilisation). Exemples de dimensions de mesure personnalisée : bande passante, tickets ou e-mails. Les éditeurs peuvent définir une ou plusieurs dimensions mesurables pour chaque plan, avec un maximum de 30 par offre. Les éditeurs sont chargés d’effectuer le suivi personnel de l’utilisation pour chaque mesure définie dans l’offre. Les événements doivent être signalés à Microsoft dans un délai d’une heure. Celui-ci facture ensuite les clients en fonction des informations collectées par les éditeurs pour la période de facturation applicable.
 - **Essai gratuit** : gratuit pour les licences logicielles dont la durée varie entre 30 jours et six mois, selon le type d’offre. Si les éditeurs proposent une version d’évaluation gratuite de plusieurs plans au sein de la même offre, les clients peuvent passer à une version d’évaluation gratuite sur un autre plan, mais la période d’évaluation ne redémarre pas. Pour les offres de machines virtuelles, les clients sont facturés aux coûts d’infrastructure Azure pour l’utilisation de l’offre pendant une période d’évaluation gratuite. À l’expiration de la période d’évaluation, les clients sont facturés automatiquement pour le dernier plan qu’ils ont essayé en fonction des tarifs standard, sauf s’ils annulent avant la fin de la période d’évaluation.
 
 > [!NOTE]
 > Les offres qui sont facturées en fonction de la consommation après l’utilisation d’une solution ne sont pas éligibles à un remboursement.
 
-Les éditeurs qui souhaitent modifier les frais d’utilisation associés à une offre doivent tout d’abord supprimer l’offre (ou le plan spécifique de l’offre) de la place de marché commerciale. Cette suppression doit se faire conformément aux dispositions du [Contrat d’Éditeur Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560). L’éditeur peut ensuite publier une nouvelle offre (ou un plan intégré à une offre) avec les nouveaux frais d’utilisation. Pour plus d’informations sur la suppression d’une offre ou d’un plan, consultez [Déprécier une offre ou un plan](./partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan) (« déprécier » était auparavant « arrêter la vente »).
+Les éditeurs qui souhaitent modifier les frais d’utilisation associés à une offre doivent tout d’abord supprimer l’offre (ou le plan spécifique de l’offre) de la place de marché commerciale. Cette suppression doit se faire conformément aux dispositions du [Contrat d’Éditeur Microsoft](/legal/marketplace/msft-publisher-agreement). L’éditeur peut ensuite publier une nouvelle offre (ou un plan intégré à une offre) avec les nouveaux frais d’utilisation. Pour plus d’informations sur la suppression d’une offre ou d’un plan, consultez [Arrêter la vente d’une offre ou d’un plan](./update-existing-offer.md#stop-selling-an-offer-or-plan).
 
 ### <a name="free-contact-me-and-bring-your-own-license-byol-pricing"></a>Options tarifaires Gratuit, Me contacter et BYOL (apportez votre propre licence)
 
@@ -178,7 +178,7 @@ Les clients achètent généralement avec un Contrat Entreprise, ou par carte de
 
 #### <a name="billing-questions-and-support"></a>Questions et support sur la facturation
 
-Pour obtenir plus d’informations et connaître les règles juridiques, consultez le [Contrat d’éditeur Microsoft](/legal/marketplace/msft-publisher-agreement). Pour obtenir de l’aide sur les questions de facturation, contactez le [support de l’éditeur de la place de marché commerciale](https://aka.ms/marketplacepublishersupport).
+Pour obtenir plus d’informations et connaître les règles juridiques, consultez le [Contrat d’éditeur Microsoft](/legal/marketplace/msft-publisher-agreement). Pour obtenir de l’aide sur les questions de facturation, contactez le [support de l’éditeur de la place de marché commerciale](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 ## <a name="transact-requirements"></a>Exigences relatives aux offres Transaction
 

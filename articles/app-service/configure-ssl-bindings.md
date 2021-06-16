@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 9ae0ca07d0aad72a38ee4eccbefbdb826da9627b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0759a3fce2d056bbe5d9234e25b45525874faf4e
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373030"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110670561"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Sécuriser un nom DNS personnalisé avec une liaison TLS/SSL dans Azure App Service
 
@@ -100,9 +100,9 @@ Vous devez potentiellement effectuer deux modifications :
 
 - Par défaut, votre application utilise une adresse IP publique partagée. Dès que vous liez un certificat avec IP SSL, App Service crée une adresse IP dédiée pour votre application. Si vous avez mappé un enregistrement A à votre application, mettez à jour votre registre de domaine avec cette nouvelle adresse IP dédiée.
 
-    La page **Domaine personnalisé** de votre application est mise à jour avec la nouvelle adresse IP dédiée. [Copiez cette adresse IP](app-service-web-tutorial-custom-domain.md#info), puis [mappez à nouveau l’enregistrement A](app-service-web-tutorial-custom-domain.md#map-an-a-record) à cette nouvelle adresse IP.
+    La page **Domaine personnalisé** de votre application est mise à jour avec la nouvelle adresse IP dédiée. [Copiez cette adresse IP](app-service-web-tutorial-custom-domain.md#info), puis [mappez à nouveau l’enregistrement A](app-service-web-tutorial-custom-domain.md#4-create-the-dns-records) à cette nouvelle adresse IP.
 
-- Si vous avez une liaison SNI SSL à `<app-name>.azurewebsites.net`, [remapper les mappages CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record) pour les faire pointer à la place vers `sni.<app-name>.azurewebsites.net` (ajoutez le préfixe `sni`).
+- Si vous avez une liaison SNI SSL à `<app-name>.azurewebsites.net`, [remapper les mappages CNAME](app-service-web-tutorial-custom-domain.md#4-create-the-dns-records) pour les faire pointer à la place vers `sni.<app-name>.azurewebsites.net` (ajoutez le préfixe `sni`).
 
 ## <a name="test-https"></a>Test du protocole HTTPS
 

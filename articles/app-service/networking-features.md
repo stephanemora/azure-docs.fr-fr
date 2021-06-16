@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/26/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7410793a429395b7f1b1e826c66cb2647eb77cd2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 33cfd226df9f7620bafe2e404cc43050f176de13
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367707"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892055"
 ---
 # <a name="app-service-networking-features"></a>Fonctionnalités de mise en réseau App Service
 
@@ -298,7 +298,7 @@ Les applications métier sont des applications internes qui ne sont normalement 
 
 Si aucun de ces besoins ne s’applique, il est préférable d’utiliser des points de terminaison privés. Avec les points de terminaison privés disponibles dans App Service, vous pouvez exposer vos applications sur des adresses privées de votre réseau virtuel. Le point de terminaison privé que vous placez dans votre réseau virtuel peut être atteint via des connexions ExpressRoute et VPN. 
 
-La configuration de points de terminaison privés expose vos applications sur une adresse privée, mais vous devez configurer un DNS pour atteindre cette adresse en local. Pour que cette configuration fonctionne, vous devez transférer la zone Azure DNS privée contenant vos points de terminaison privés vers vos serveurs DNS locaux. Les zones Azure DNS privées ne prennent pas en charge le transfert de zone, mais vous pouvez le prendre en charge à l’aide d’un serveur DNS dédié à cette fin. Le modèle de [Redirecteur DNS](https://azure.microsoft.com/resources/templates/301-dns-forwarder/) facilite le transfert de votre zone Azure DNS privée vers vos serveurs DNS locaux.
+La configuration de points de terminaison privés expose vos applications sur une adresse privée, mais vous devez configurer un DNS pour atteindre cette adresse en local. Pour que cette configuration fonctionne, vous devez transférer la zone Azure DNS privée contenant vos points de terminaison privés vers vos serveurs DNS locaux. Les zones Azure DNS privées ne prennent pas en charge le transfert de zone, mais vous pouvez le prendre en charge à l’aide d’un serveur DNS dédié à cette fin. Le modèle de [Redirecteur DNS](https://azure.microsoft.com/resources/templates/dns-forwarder/) facilite le transfert de votre zone Azure DNS privée vers vos serveurs DNS locaux.
 
 ## <a name="app-service-ports"></a>Ports App Service
 

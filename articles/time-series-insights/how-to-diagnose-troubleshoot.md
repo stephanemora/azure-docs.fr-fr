@@ -1,21 +1,22 @@
 ---
 title: Diagnostiquer et résoudre les problèmes d’un environnement Gen2 - Azure Time Series Insights | Microsoft Docs
 description: Découvrez comment diagnostiquer et résoudre les problèmes d’un environnement Gen2 Azure Time Series Insights.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: d9dd07e3a35d83ff6bd9c7c493768d1197667c39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 610c579929462f641371896085355987c4d67dae
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98108787"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796252"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnostiquer et résoudre les problèmes d’un environnement Gen2 Azure Time Series Insights.
 
@@ -50,7 +51,7 @@ Il existe plusieurs raisons pour lesquelles vos données pourraient ne pas appar
     - Les stratégies **iothubowner** et **service** fonctionnent toutes les deux car elles disposent de l’autorisation **Connexion de service**.
 
   - Pour Event Hub, vous devez fournir la clé avec l’autorisation **Écouter**.
-  
+
     [![Passez en revue les autorisations du hub d’événements.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
     - Les stratégies **Read** et **Manage** fonctionnent toutes les deux car elles disposent de l’autorisation **Écouter**.

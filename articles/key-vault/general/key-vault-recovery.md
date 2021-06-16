@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
 ms.date: 09/30/2020
-ms.openlocfilehash: 270f9d4637d5e16ff88991a4a9e5f1eb0a3f9e0e
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 45f56812f0d6645c9ac75ce62f9f0659acc358fe
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285355"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970069"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Gestion de la récupération d’Azure Key Vault avec suppression réversible et protection contre la suppression définitive
 
@@ -35,7 +35,7 @@ Pour plus d’informations sur Key Vault, consultez
   |Microsoft.KeyVault/locations/deletedVaults/read|Afficher les propriétés d’un coffre Key Vault supprimé de manière réversible|
   |Microsoft.KeyVault/locations/deletedVaults/purge/action|Vider un coffre Key Vault supprimé de manière réversible|
   |Microsoft.KeyVault/locations/operationResults/read| Pour vérifier l’état de vidage du coffre|
-  |[Contributeur Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor)|Pour récupérer un coffre supprimé de manière réversible|
+  |[Contributeur Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor)|Pour récupérer un coffre supprimé de manière réversible|
 
 
 ## <a name="what-are-soft-delete-and-purge-protection"></a>Définition de la suppression réversible et la protection contre le vidage

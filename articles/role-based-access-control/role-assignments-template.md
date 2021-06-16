@@ -10,16 +10,17 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 01/21/2021
 ms.author: rolyon
-ms.openlocfilehash: ba1df23b40de82a8ef901541884ef29ea0b504a1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5f0368c3d2ee0132816852bfdf170700939bee46
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771872"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949242"
 ---
 # <a name="assign-azure-roles-using-azure-resource-manager-templates"></a>Attribuer des rôles Azure avec des modèles Azure Resource Manager
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] En plus d’utiliser Azure PowerShell ou l’interface Azure CLI, vous pouvez attribuer des rôles à l’aide des [modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Les modèles peuvent être utiles si vous devez déployer les ressources de manière cohérente et répétée. Cet article explique comment attribuer des rôles à l’aide de modèles.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] En plus d’utiliser Azure PowerShell ou l’interface Azure CLI, vous pouvez attribuer des rôles à l’aide des [modèles Azure Resource Manager](../azure-resource-manager/templates/syntax.md). Les modèles peuvent être utiles si vous devez déployer les ressources de manière cohérente et répétée. Cet article explique comment attribuer des rôles à l’aide de modèles.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -377,6 +378,6 @@ L’exemple suivant illustre l’attribution du rôle contributeur à un nouveau
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Démarrage rapide : Créer et déployer des modèles ARM à l’aide du portail Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
-- [Comprendre la structure et la syntaxe des modèles ARM](../azure-resource-manager/templates/template-syntax.md)
+- [Comprendre la structure et la syntaxe des modèles ARM](../azure-resource-manager/templates/syntax.md)
 - [Créer des groupes de ressources et des ressources au niveau de l’abonnement](../azure-resource-manager/templates/deploy-to-subscription.md)
 - [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

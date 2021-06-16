@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 765a2728c5de49787a64fff723625e53e100e450
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5bc493197b6ae4e6bd969a837bb873cae38c0790
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98017780"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032012"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schéma et agrégation de données dans Traffic Analytics
 
@@ -177,4 +177,4 @@ Le tableau ci-dessous répertorie les champs contenus dans le schéma et expliqu
 1. Les lettres \_s ou \_d sont ajoutées à certains noms de champ. Celles-ci ne désignent PAS la source et la cible mais indiquent les types de données chaîne et décimal, respectivement.
 
 ### <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des réponses aux questions fréquentes, consultez [Questions fréquentes (FAQ) sur Traffic Analytics](traffic-analytics-faq.md). Pour plus d’informations sur des fonctionnalités, consultez la [documentation Traffic Analytics](traffic-analytics.md)
+Pour obtenir des réponses aux questions fréquentes, consultez [Questions fréquentes (FAQ) sur Traffic Analytics](traffic-analytics-faq.yml). Pour plus d’informations sur des fonctionnalités, consultez la [documentation Traffic Analytics](traffic-analytics.md)

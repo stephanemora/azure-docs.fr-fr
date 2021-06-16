@@ -5,15 +5,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 9aae62b9f4ca74b11c4f62c44f6d310628d36316
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7df94ff656cc862a2b6efd6998745531bba94d6d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045766"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956415"
 ---
 # <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les agents dans Azure Monitor
-Cet article contient des exemples de [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) permettant de déployer et de configurer l’[agent Log Analytics](./log-analytics-agent.md) et l’[extension de diagnostic](./diagnostics-extension-overview.md) associé pour les machines virtuelles dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
+Cet article contient des exemples de [modèle Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) permettant de déployer et de configurer l’[agent Log Analytics](./log-analytics-agent.md) et l’[extension de diagnostic](./diagnostics-extension-overview.md) associé pour les machines virtuelles dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/04/2021
+ms.date: 05/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 614a13a140453e3c7ed55a7fc0f9173626ad2f2f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cefa6fab5bbd140f8540ebb78f66706beeffd530
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99627697"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578257"
 ---
 1. Sélectionnez **Connecter des sites VPN** pour ouvrir la page **Connecter des sites**.
 
-    ![Capture d’écran montrant le volet Sites connectés pour le hub virtuel, prêt pour une clé prépartagée et les paramètres associés.](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "se connecter")
+   :::image type="content" source="./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Capture d’écran montrant le volet Sites connectés pour le hub virtuel, prêt pour une clé prépartagée et les paramètres associés." border="false":::
 
    Renseignez les champs suivants :
 
@@ -28,7 +28,7 @@ ms.locfileid: "99627697"
 2. Sélectionnez **Connecter**.
 3. Au bout de quelques minutes, le site affiche la connexion et l’état de la connectivité.
 
-   ![Capture d’écran montrant une connexion de site à site et un état de connectivité.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   :::image type="content" source="./media/virtual-wan-tutorial-connect-vpn-site-include/status.png" alt-text="Capture d’écran montrant une connexion de site à site et un état de connectivité." lightbox="./media/virtual-wan-tutorial-connect-vpn-site-include/status.png"border="false":::
 
    **État de la connexion :** Il s’agit de l’état de la ressource Azure pour la connexion qui connecte le site VPN à la passerelle VPN du hub Azure. Une fois cette opération de plan de contrôle réussie, la passerelle VPN Azure et le périphérique VPN local continuent d’établir la connectivité.
 

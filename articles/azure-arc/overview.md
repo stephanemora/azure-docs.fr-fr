@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Azure Arc
 description: Découvrez ce qu’est le service Azure Arc et comment il permet aux clients d’activer la gestion et la gouvernance de leurs ressources hybrides avec d’autres services et fonctionnalités Azure.
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: 57b483fd64004680d2feffa1e0a6c2843b819c19
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: b9e3cac865a92023d0079a5face9fbc8a3734c6e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369077"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967079"
 ---
 # <a name="azure-arc-overview"></a>Vue d’ensemble d’Azure Arc
 
@@ -47,7 +47,7 @@ Les fonctionnalités clés d’Azure Arc sont les suivantes :
 
 * Exécuter les [services de données Azure](../azure-arc/kubernetes/custom-locations.md) sur n’importe quel environnement Kubernetes comme s’ils s’exécutaient dans Azure (en particulier Azure SQL Managed Instance et Azure Database pour PostgreSQL Hyperscale, avec des avantages tels que les mises à niveau et mises à jour, la sécurité et la supervision). Utiliser la mise à l’échelle élastique, appliquer des mises à jour sans temps d’arrêt de l’application, même sans connexion continue à Azure.
 
-* Créer des [emplacements personnalisés](./kubernetes/custom-locations.md) en plus de vos clusters [Kubernetes avec Azure Arc](./kubernetes/overview.md), en les utilisant comme emplacements cibles pour le déploiement des instances de services Azure. Déployer vos extensions de cluster de service Azure pour [Data Services avec Azure Arc](./data/deploy-data-controller-direct-mode.md), [App Services sur Azure Arc](../app-service/overview-arc-integration.md) (y compris les applications web, de fonction et logiques) et [Event Grid sur Kubernetes](/azure/event-grid/kubernetes/overview).
+* Créer des [emplacements personnalisés](./kubernetes/custom-locations.md) en plus de vos clusters [Kubernetes avec Azure Arc](./kubernetes/overview.md), en les utilisant comme emplacements cibles pour le déploiement des instances de services Azure. Déployer vos extensions de cluster de service Azure pour [Data Services avec Azure Arc](./data/deploy-data-controller-direct-mode.md), [App Services sur Azure Arc](../app-service/overview-arc-integration.md) (y compris les applications web, de fonction et logiques) et [Event Grid sur Kubernetes](../event-grid/kubernetes/overview.md).
 
 * Une expérience unifiée de l’affichage de vos ressources Azure Arc activées, que vous utilisiez le portail Azure, l’interface Azure CLI, Azure PowerShell ou l’API REST Azure.
 

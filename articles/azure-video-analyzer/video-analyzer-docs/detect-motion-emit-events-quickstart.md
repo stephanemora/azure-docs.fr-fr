@@ -4,12 +4,12 @@ description: Ce guide de démarrage rapide vous montre comment utiliser Azure Vi
 ms.topic: quickstart
 ms.date: 03/17/2021
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 478e446f87ee8e1fc05ec00aca98125f348ed528
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f0f36f1dc08d7e5c9100814456ab5d21a37123fc
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385875"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957721"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Démarrage rapide : Détecter les événements de mouvement et d’émission
 
@@ -38,7 +38,7 @@ Ce guide de démarrage rapide vous guide tout au long des étapes de prise en ma
 
 ## <a name="set-up-azure-resources"></a>Configurer les ressources Azure
 
-[![Déployer sur Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
+[![Effectuer le déploiement dans Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 [!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
 
 ## <a name="overview"></a>Vue d’ensemble
@@ -127,4 +127,4 @@ Si vous envisagez d’essayer les autres guides de démarrage rapide, vous devez
 - Passez en revue les défis supplémentaires pour les utilisateurs expérimentés :
 
   - Utilisez une [caméra IP](https://en.wikipedia.org/wiki/IP_camera) qui prend en charge RTSP au lieu d’utiliser le simulateur RTSP. Vous trouverez les caméras IP qui prennent RTSP en charge dans la page des [produits conformes ONVIF](https://www.onvif.org/conformant-products/). Recherchez les appareils conformes aux profils G, S ou T.
-  - Utilisez un appareil Linux AMD64 ou x64 au lieu d’utiliser une machine virtuelle Linux dans Azure. Cet appareil doit se trouver dans le même réseau que la caméra IP. Suivez les instructions données dans [Installer le runtime Azure IoT Edge sur Linux](/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true). Suivez ensuite les instructions dans [Déployer votre premier module IoT Edge sur un appareil virtuel Linux](/azure/iot-edge/quickstart-linux?view=iotedge-2020-11&preserve-view=true) pour inscrire l’appareil auprès d’Azure IoT Hub.
+  - Utilisez un appareil Linux AMD64 ou x64 au lieu d’utiliser une machine virtuelle Linux dans Azure. Cet appareil doit se trouver dans le même réseau que la caméra IP. Suivez les instructions données dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-install-iot-edge.md?preserve-view=true&view=iotedge-2020-11). Suivez ensuite les instructions dans [Déployer votre premier module IoT Edge sur un appareil virtuel Linux](../../iot-edge/quickstart-linux.md?preserve-view=true&view=iotedge-2020-11) pour inscrire l’appareil auprès d’Azure IoT Hub.

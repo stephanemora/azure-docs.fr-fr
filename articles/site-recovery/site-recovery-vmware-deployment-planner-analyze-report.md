@@ -1,18 +1,18 @@
 ---
 title: Analyser le rapport du planificateur de déploiement pour la récupération d’urgence VMware avec Azure Site Recovery
 description: Cet article décrit comment analyser un rapport généré par le planificateur de déploiement de récupération pour la récupération d’urgence VMware sur Azure à l’aide d’Azure Site Recovery.
-author: rajeswari-mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/4/2019
-ms.author: ramamill
-ms.openlocfilehash: 7e2db720bb37a25b8511bd1c42c0c18e139aa216
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: f41c06014aea251896af11201175819abfc7fa78
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93186601"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110577238"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analyser le rapport du planificateur de déploiement pour la récupération d’urgence VMware sur Azure
 

@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f797c40a276323cea9983c5340d2d854160c83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ebf9f490bd746115d4cdf095538063a2ab8e018
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97368475"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958253"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : Forum aux questions
 
@@ -50,7 +50,7 @@ Non. L’authentification directe _ne bascule pas_ automatiquement vers la synch
 
 Lorsque vous utilisez Azure AD Connect pour changer de méthode de connexion, en passant de la synchronisation de hachage de mot de passe vers l’authentification directe, cette dernière devient la méthode de connexion principale pour vos utilisateurs dans les domaines managés. Remarque : l’ensemble des hachages de mot de passe des utilisateurs qui ont été préalablement synchronisés via la synchronisation de hachage de mot de passe restent stockés sur Azure AD.
 
-## <a name="can-i-install-an-azure-ad-application-proxy-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Puis-je installer un connecteur de [proxy d’application Azure AD](../manage-apps/application-proxy.md) sur le même serveur qu’un agent d’authentification directe ?
+## <a name="can-i-install-an-azure-ad-application-proxy-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Puis-je installer un connecteur de [proxy d’application Azure AD](../app-proxy/application-proxy.md) sur le même serveur qu’un agent d’authentification directe ?
 
 Oui. Les versions renommées de l’agent d’authentification directe (versions 1.5.193.0 ou versions ultérieures) prennent en charge cette configuration.
 

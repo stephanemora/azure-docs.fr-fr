@@ -4,12 +4,12 @@ description: Cet article explique comment authentifier l’accès aux ressources
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ff141fc1bb681e2356a4471dfdc808d622fd76b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12e129686bdde9b03e1c284e0f54cb31e32469c3
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98986493"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903002"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Authentifier l’accès aux ressources Event Hubs avec des signatures d’accès partagé
 La signature d’accès partagé (SAS, shared access signature) vous offre un contrôle granulaire sur le type d’accès que vous octroyez aux clients qui la possèdent. Voici quelques-uns des contrôles que vous pouvez définir dans une signature d’accès partagé : 
@@ -59,11 +59,11 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 Le jeton contient les valeurs non hachées afin que le destinataire puisse recalculer le hachage avec les mêmes paramètres, en vérifiant que l’émetteur est en possession d’une clé de signature valide.
 
-L’URI de ressource est l’URI complet de la ressource Service Bus à laquelle vous souhaitez accéder. Par exemple, `http://contoso.servicebus.windows.net/eventhubs/eh1` pour http://<namespace>.servicebus.windows.net/<entityPath> ou `sb://<namespace>.servicebus.windows.net/<entityPath>;`.
+L’URI de ressource est l’URI complet de la ressource Service Bus à laquelle vous souhaitez accéder. Par exemple, `http://contoso.servicebus.windows.net/eh1` pour http://<namespace>.servicebus.windows.net/<entityPath> ou `sb://<namespace>.servicebus.windows.net/<entityPath>;`.
 
 L’URI doit être encodée en pourcentage.
 
-La règle de l’autorisation d’accès partagé utilisée pour la signature doit être configurée sur l’entité spécifiée par cette URI, ou par un de ses parents hiérarchiques. Par exemple, `http://contoso.servicebus.windows.net/eventhubs/eh1` ou `http://contoso.servicebus.windows.net` dans l’exemple précédent.
+La règle de l’autorisation d’accès partagé utilisée pour la signature doit être configurée sur l’entité spécifiée par cette URI, ou par un de ses parents hiérarchiques. Par exemple, `http://contoso.servicebus.windows.net/eh1` ou `http://contoso.servicebus.windows.net` dans l’exemple précédent.
 
 Un jeton SAS est valide pour toutes les ressources avec le préfixe <resourceURI> utilisé dans la chaîne de signature.
 

@@ -3,12 +3,12 @@ title: Utiliser des secrets d’application dans des clusters managés Service 
 description: En savoir plus sur les secrets d’application Azure Service Fabric et sur la façon de collecter les informations nécessaires pour une utilisation dans des clusters managés
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: e10a02c82e7f78e120863c89d53bb70e1234ec9e
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 820fb2a116ba5343a2f2126950a7f5d5896ddee3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109689277"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950129"
 ---
 # <a name="use-application-secrets-in-service-fabric-managed-clusters"></a>Utiliser des secrets d’application dans des clusters managés Service Fabric
 
@@ -37,7 +37,7 @@ Nous prenons également prendre en charge [KeyVaultReference](service-fabric-key
 Pour créer votre propre coffre de clés et configurer des certificats, suivez les instructions d’Azure Key Vault avec [Azure CLI, PowerShell, le portail et plus encore][key-vault-certs].
 
 >[!NOTE]
-> Le coffre de clés doit être [activé pour le déploiement de modèle](https://docs.microsoft.com/azure/key-vault/general/manage-with-cli2#bkmk_KVperCLI) afin d’autoriser le fournisseur de ressources de calcul à obtenir des certificats à partir de ce coffre de clés et à les installer sur des nœuds de cluster.
+> Le coffre de clés doit être [activé pour le déploiement de modèle](../key-vault/general/manage-with-cli2.md#bkmk_KVperCLI) afin d’autoriser le fournisseur de ressources de calcul à obtenir des certificats à partir de ce coffre de clés et à les installer sur des nœuds de cluster.
 
 ## <a name="install-the-certificate-in-your-cluster"></a>Installation du certificat dans votre cluster
 Ce certificat doit être installé sur chaque nœud du cluster et les clusters managés Service Fabric facilitent cette opération. Le service de cluster managé peut envoyer des secrets spécifiques à la version aux nœuds pour vous permettre d’installer des secrets qui ne changeront pas souvent, comme l’installation d’une autorité de certification racine privée sur les nœuds. Pour la plupart des charges de travail de production, nous vous suggérons d’utiliser l’[extension KeyVault][key-vault-windows]. L’extension de machine virtuelle Key Vault assure l’actualisation automatique des certificats stockés dans un coffre de clés Azure par rapport à une version statique.

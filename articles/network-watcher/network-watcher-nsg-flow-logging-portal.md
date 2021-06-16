@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 76d57990fcdd82bfe382fa2fb4ab75fb037caf4f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 58b667128732c800d3cd3d3e9034280aa34a13c0
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063916"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076651"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutoriel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure
 
@@ -47,11 +47,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 2. Sélectionnez **Calcul**, puis **Windows Server 2016 Datacenter** ou une version d’**Ubuntu Server**.
 3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK** :
 
-    |Paramètre|Valeur|
+    |Paramètre|Value|
     |---|---|
     |Nom|myVm|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
-    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.yml?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Abonnement| Sélectionnez votre abonnement.|
     |Resource group| Sélectionnez **Créer** et entrez **myResourceGroup**.|
     |Emplacement| Sélectionnez **USA Est**.|
@@ -90,7 +90,7 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
 2. Sélectionnez **Stockage**, puis **Compte de stockage - blob, fichier, table, file d’attente**.
 3. Entrez ou sélectionnez les informations suivantes, acceptez les autres valeurs par défaut, puis sélectionnez **Créer**.
 
-    | Paramètre        | Valeur                                                        |
+    | Paramètre        | Value                                                        |
     | ---            | ---   |
     | Nom           | Contenant 3 à 24 caractères et uniquement des chiffres et des lettres minuscules, il doit être unique dans tous les comptes Stockage Azure.                                                               |
     | Emplacement       | Sélectionnez **USA Est**.                                           |

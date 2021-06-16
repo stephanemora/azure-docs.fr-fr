@@ -2,18 +2,18 @@
 title: Métriques de supervision pour Azure Front Door Standard/Premium
 description: Cet article décrit les métriques de supervision d’Azure Front Door Standard/Premium.
 services: frontdoor
-author: duau
+author: duongau
 manager: KumudD
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: 72388eb8006ff1b9628db5066dc63e6a0811f3d5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a22e3825764f8b727802a1d78f2e02011cf7660a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557324"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793522"
 ---
 # <a name="real-time-monitoring-in-azure-front-door-standardpremium"></a>Supervision en temps réel dans Azure Front Door Standard/Premium
 
@@ -39,7 +39,7 @@ Vous pouvez configurer des alertes pour chaque métrique, comme un seuil pour 4X
 | ------------- | ------------- | ------------- |
 | Taux de réussite en octets | Pourcentage de sortie du cache AFD, calculé par rapport à la sortie totale. </br> **Taux de réussite en octets** = (sortie de la périphérie - sortie de l’origine)/sortie de la périphérie. </br> **Scénarios exclus du calcul du taux de réussite en octets** :</br> 1. Vous ne configurez explicitement aucun cache par le biais du comportement de mise en cache des chaînes de requête ou du moteur de règles. </br> 2. Vous configurez explicitement une directive de contrôle du cache avec un cache privé ou sans magasin. </br>3. Le taux de réussite en octets peut être faible si la majeure partie du trafic est transférée à l’origine au lieu d’être desservie depuis ce qui est mis en cache, en fonction de vos configurations ou de vos scénarios. | Point de terminaison |
 | RequestCount | Nombre de requêtes de clients prises en charge par CDN. | Point de terminaison, pays du client, région du client, état HTTP, groupe d’états HTTP |
-| ResponseSize | Nombre de requêtes clientes traitées par AFD. |Point de terminaison, pays du client, région du client, état HTTP, groupe d’états HTTP |
+| ResponseSize | Nombre d’octets envoyés en tant que réponses de Front Door aux clients. |Point de terminaison, pays du client, région du client, état HTTP, groupe d’états HTTP |
 | TotalLatency | Durée totale de la requête du client reçue par CDN **jusqu’au dernier octet de réponse envoyé de CDN au client**. |Point de terminaison, pays du client, région du client, état HTTP, groupe d’états HTTP |
 | RequestSize | Nombre d’octets envoyés en tant que requêtes des clients vers AFD. | Point de terminaison, pays du client, région du client, état HTTP, groupe d’états HTTP |
 | Pourcentage d’erreurs 4XX | Pourcentage de toutes les requêtes clientes pour lesquelles le code d’état de la réponse est 4XX. | Point de terminaison, pays du client, région du client |

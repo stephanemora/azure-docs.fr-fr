@@ -11,12 +11,12 @@ ms.date: 04/30/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d097260dc7e84804df30895babd5977a191e293d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e861a1adc2dead2ee7c4397b9fb09aae202aaf94
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737936"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963695"
 ---
 # <a name="attribute-mapping-in-azure-ad-connect-cloud-sync"></a>Mappage d’attributs dans la synchronisation cloud Azure AD Connect
 
@@ -40,7 +40,7 @@ Avec le mappage des attributs, vous pouvez contrôler la façon dont les attribu
 En plus de ces types de base, les mappages d’attributs personnalisés prennent en charge l’affectation de valeur *par défaut* facultative. L’affectation d’une valeur par défaut garantit qu’un attribut cible sera renseigné avec une valeur si Azure AD ou l’objet cible n’ont pas encore de valeur. La configuration la plus courante consiste à laisser ce champ vide.
 
 ## <a name="schema-updates-and-mappings"></a>Mises à jour du schéma et mappages
-La synchronisation cloud met occasionnellement à jour le schéma et la liste des attributs par défaut qui sont [synchronisés](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized?context=/azure/active-directory/cloud-provisioning/context/cp-context).  Ces mappages d’attributs par défaut sont disponibles pour les nouvelles installations, mais ne sont pas automatiquement ajoutés aux installations existantes.  Pour ajouter ces mappages, vous pouvez suivre les étapes ci-dessous.
+La synchronisation cloud met occasionnellement à jour le schéma et la liste des attributs par défaut qui sont [synchronisés](../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context).  Ces mappages d’attributs par défaut sont disponibles pour les nouvelles installations, mais ne sont pas automatiquement ajoutés aux installations existantes.  Pour ajouter ces mappages, vous pouvez suivre les étapes ci-dessous.
 
 
   1. Cliquez sur « Ajouter un mappage d’attributs ».

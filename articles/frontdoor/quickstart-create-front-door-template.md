@@ -12,15 +12,13 @@ ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: db51e7ca844ee9d4e36b522e21d395bf9544acf3
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: 2668d2c2d5de42b8676ac78166a2a49c9c14b068
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847451"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007370"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Démarrage rapide : Créer un service Front Door à l’aide d’un modèle Resource Manager
 
@@ -30,7 +28,7 @@ Ce guide de démarrage rapide explique comment utiliser un modèle Azure Resourc
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-front-door-create-basic%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ffront-door-create-basic%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,7 +37,7 @@ Si votre environnement remplit les prérequis et que vous êtes déjà familiari
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-front-door-create-basic).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/front-door-create-basic).
 
 Dans ce guide de démarrage rapide, vous allez créer une configuration Front Door avec un seul back-end et un seul chemin par défaut correspondant à `/*`.
 
@@ -56,7 +54,7 @@ Une seule ressource Azure est définie dans le modèle :
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-front-door-create-basic/azuredeploy.json"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/front-door-create-basic/azuredeploy.json"
 
     $resourceGroupName = "${projectName}rg"
 

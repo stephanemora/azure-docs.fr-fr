@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 3debd58aadb98ab1e78692411e8d0bb66635f0da
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 9bf6e9a09cfd271fb701b930eaee7b0e8bdee61f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279295"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961618"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Créez des modèles Azure Resource Manager afin d’automatiser le déploiement pour le service Azure Logic Apps
 
@@ -24,9 +24,9 @@ Azure Logic Apps fournit un [modèle Azure Resource Manager prédéfini pour les
 
 Pour plus d’informations sur les modèles Azure Resource Manager, consultez ces articles :
 
-* [Structure et syntaxe du modèle Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
-* [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
-* [Développer des modèles Azure Resource Manager pour la cohérence du cloud](../azure-resource-manager/templates/templates-cloud-consistency.md)
+* [Structure et syntaxe du modèle Azure Resource Manager](../azure-resource-manager/templates/syntax.md)
+* [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/syntax.md)
+* [Développer des modèles Azure Resource Manager pour la cohérence du cloud](../azure-resource-manager/templates/template-cloud-consistency.md)
 
 <a name="visual-studio"></a>
 

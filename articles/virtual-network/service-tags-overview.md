@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 4/23/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 1b068fd00402fc281001e8572f9e03662c8ffd55
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 07376647edac05384c2efc1240c2242fd5eb664b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107951789"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949816"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -92,7 +92,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **DataFactory**  | Azure Data Factory | Les deux | Non | Non |
 | **DataFactoryManagement** | Trafic de gestion pour Azure Data Factory. | Règle de trafic sortant | Non | Non |
 | **Dynamics365ForMarketingEmail** | Plages d’adresses pour le service de messagerie marketing de Dynamics 365. | Règle de trafic sortant | Oui | Non |
-| **EOPExternalPublishedIPs** | Cette balise représente les adresses IP utilisées pour le Centre de sécurité et de conformité PowerShell. Pour plus d'informations, consultez [Se connecter au Centre de sécurité et de conformité PowerShell à l'aide du module EXO V2](https://docs.microsoft.com/powershell/exchange/connect-to-scc-powershell). <br/><br/> *Remarque : Cette étiquette n’est actuellement pas configurable sur le portail Azure*. | Les deux | Non | Oui |
+| **EOPExternalPublishedIPs** | Cette balise représente les adresses IP utilisées pour le Centre de sécurité et de conformité PowerShell. Pour plus d'informations, consultez [Se connecter au Centre de sécurité et de conformité PowerShell à l'aide du module EXO V2](/powershell/exchange/connect-to-scc-powershell). <br/><br/> *Remarque : Cette étiquette n’est actuellement pas configurable sur le portail Azure*. | Les deux | Non | Oui |
 | **EventHub** | Azure Event Hubs. | Règle de trafic sortant | Oui | Oui |
 | **GatewayManager** | Trafic de gestion pour les déploiements dédiés à la passerelle VPN Azure et Application Gateway. | Trafic entrant | Non | Non |
 | **GuestAndHybridManagement** | Azure Automation et Guest Configuration. | Règle de trafic sortant | Non | Oui |

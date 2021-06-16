@@ -4,15 +4,15 @@ description: Cet article explique le modèle de ressource pour la fonctionnalit�
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 06/08/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 065127fbeaabc415dd9a5fbe74f90d5060909d5d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4cb6d818713bb083451bc11257f21a6f6146472a
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641044"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753464"
 ---
 # <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Modèle de ressource pour la fonctionnalité Azure Cosmos DB de restauration à un instant dans le passé (préversion)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -128,7 +128,7 @@ Cette ressource contient une instance de compte de base de données qui peut êt
 | restorableLocations: creationTime | Heure UTC de la création du compte régional.|
 | restorableLocations: deletionTime | Heure UTC de la suppression du compte régional. Cette valeur est vide si le compte régional est actif.|
 
-Pour obtenir la liste de tous les comptes pouvant être restaurés, consultez les articles [Comptes de base de données restaurables – Liste](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorabledatabaseaccounts/list) ou [Comptes de base de données restaurables – Liste par emplacement](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorabledatabaseaccounts/listbylocation).
+Pour obtenir la liste de tous les comptes pouvant être restaurés, consultez les articles [Comptes de base de données restaurables – Liste](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorabledatabaseaccounts/list) ou [Comptes de base de données restaurables – Liste par emplacement](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorabledatabaseaccounts/listbylocation).
 
 ### <a name="restorable-sql-database"></a>Base de données SQL restaurable
 
@@ -142,7 +142,7 @@ Chaque ressource contient des informations sur un événement de mutation, tel q
 | operationType | Type d’opération de cet événement de base de données. Les valeurs possibles sont les suivantes :<br/><ul><li>Create : événement de création de la base de données</li><li>Delete : événement de suppression de la base de données</li><li>Replace : événement de modification de la base de données</li><li>SystemOperation : événement de modification de la base de données déclenché par le système. Cet événement n’est pas initié par l’utilisateur</li></ul> |
 | database |Propriétés de la base de données SQL au moment de l’événement|
 
-Pour obtenir la liste de toutes les mutations de base de données, consultez l’article [Bases de données SQL restaurables – Liste](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorablesqldatabases/list).
+Pour obtenir la liste de toutes les mutations de base de données, consultez l’article [Bases de données SQL restaurables – Liste](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorablesqldatabases/list).
 
 ### <a name="restorable-sql-container"></a>Conteneur SQL restaurable
 
@@ -156,7 +156,7 @@ Chaque ressource contient des informations sur un événement de mutation, tel q
 | operationType | Type d’opération de cet événement de conteneur. Les valeurs possibles sont les suivantes : <br/><ul><li>Create : événement de création de conteneur</li><li>Delete : événement de suppression de conteneur</li><li>Replace : événement de modification de conteneur</li><li>SystemOperation : événement de modification du conteneur déclenché par le système Cet événement n’est pas initié par l’utilisateur</li></ul> |
 | conteneur | Propriétés du conteneur SQL au moment de l’événement.|
 
-Pour obtenir la liste de toutes les mutations de conteneur sous la même base de données, consultez l’article [Conteneurs SQL récupérables– Liste](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorablesqlcontainers/list).
+Pour obtenir la liste de toutes les mutations de conteneur sous la même base de données, consultez l’article [Conteneurs SQL récupérables– Liste](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorablesqlcontainers/list).
 
 ### <a name="restorable-sql-resources"></a>Ressources SQL restaurables
 
@@ -167,7 +167,7 @@ Chaque ressource représente une base de données unique et tous les conteneurs 
 | databaseName  | Nom de la base de données SQL.
 | collectionNames   | Liste des conteneurs SQL sous cette base de données.|
 
-Pour obtenir la liste de toutes les combinaisons de bases de données et conteneur SQL qui existent sur le compte à l’heure et à l’emplacement donnés, consultez l’article [Ressources SQL récupérables – Liste](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorablesqlresources/list).
+Pour obtenir la liste de toutes les combinaisons de bases de données et conteneur SQL qui existent sur le compte à l’heure et à l’emplacement donnés, consultez l’article [Ressources SQL récupérables – Liste](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorablesqlresources/list).
 
 ### <a name="restorable-mongodb-database"></a>Base de données MongoDB restaurable
 
@@ -180,7 +180,7 @@ Chaque ressource contient des informations sur un événement de mutation, tel q
 | ownerResourceId   | ID de ressource de la base de données MongoDB. |
 | operationType |   Type d’opération de cet événement de base de données. Les valeurs possibles sont les suivantes :<br/><ul><li> Create : événement de création de la base de données</li><li> Delete : événement de suppression de la base de données</li><li> Replace : événement de modification de la base de données</li><li> SystemOperation : événement de modification de la base de données déclenché par le système. Cet événement n’est pas initié par l’utilisateur </li></ul> |
 
-Pour obtenir la liste de toutes les mutations de base de données, consultez l’article [Bases de données MongoDB restaurables – Liste](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorablemongodbdatabases/list).
+Pour obtenir la liste de toutes les mutations de base de données, consultez l’article [Bases de données MongoDB restaurables – Liste](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorablemongodbdatabases/list).
 
 ### <a name="restorable-mongodb-collection"></a>Collection MongoDB restaurable
 
@@ -193,7 +193,7 @@ Chaque ressource contient des informations sur un événement de mutation, tel q
 | ownerResourceId   | ID de ressource de la collection MongoDB. |
 | operationType |Type d’opération de cet événement de collection. Les valeurs possibles sont les suivantes :<br/><ul><li>Create : événement de création de collection</li><li>Delete : événement de suppression de collection</li><li>Replace : événement de modification de collection</li><li>SystemOperation : événement de modification de la collection déclenché par le système. Cet événement n’est pas initié par l’utilisateur</li></ul> |
 
-Pour obtenir la liste de toutes les mutations de conteneur sous la même base de données, consultez l’article [Collections MongoDB récupérables– Liste](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorablemongodbcollections/list).
+Pour obtenir la liste de toutes les mutations de conteneur sous la même base de données, consultez l’article [Collections MongoDB récupérables– Liste](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorablemongodbcollections/list).
 
 ### <a name="restorable-mongodb-resources"></a>Ressources MongoDB restaurables
 
@@ -204,7 +204,7 @@ Chaque ressource représente une base de données unique et toutes les collectio
 | databaseName  |Nom de la base de données MongoDB. |
 | collectionNames | Liste des collections MongoDB sous cette base de données. |
 
-Pour obtenir la liste de toutes les combinaisons de bases de données et collections MongoDB qui existent sur le compte à l’heure et à l’emplacement donnés, consultez l’article [Ressources MongoDB récupérables – Liste](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorablemongodbresources/list).
+Pour obtenir la liste de toutes les combinaisons de bases de données et collections MongoDB qui existent sur le compte à l’heure et à l’emplacement donnés, consultez l’article [Ressources MongoDB récupérables – Liste](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorablemongodbresources/list).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

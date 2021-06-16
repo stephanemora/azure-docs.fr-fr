@@ -3,14 +3,14 @@ title: Exécuter des tâches Apache Sqoop avec PowerShell et Azure HDInsight
 description: Découvrez comment utiliser Azure PowerShell à partir d’un poste de travail pour exécuter des commandes Apache Sqoop import et export entre un cluster Apache Hadoop et Azure SQL Database.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, devx-track-azurepowershell
 ms.date: 05/14/2020
-ms.openlocfilehash: 7d1f0a4982402a7854841f17c1915625e2f01cc1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fd86c77d8dfcd304bee0bdfe0c12269dbccd884
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943134"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110692059"
 ---
 # <a name="run-apache-sqoop-jobs-with-azure-powershell-in-hdinsight"></a>Exécuter des tâches Apache Sqoop avec Azure PowerShell dans HDInsight
 

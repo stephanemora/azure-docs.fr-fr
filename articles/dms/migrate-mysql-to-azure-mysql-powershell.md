@@ -9,15 +9,15 @@ manager: arthiaga
 ms.reviewer: arthiaga
 ms.service: dms
 ms.workload: data-services
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 04/11/2021
-ms.openlocfilehash: f01f718bca7d6fc8c6226f682289ef46068aa126
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: eea4a539c8a2b17a9a6280a8f847e68542d1a8d5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125838"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950642"
 ---
 # <a name="migrate-mysql-to-azure-database-for-mysql-offline-with-powershell--azure-database-migration-service"></a>Migrer MySQL vers Azure Database pour MySQL hors connexion avec PowerShell et Azure Database Migration Service
 
@@ -31,7 +31,8 @@ Dans cet article, vous migrez une base de données MySQL restaurée dans une ins
 > Amazon Relational Database Service (RDS) pour MySQL et Amazon Aurora (MySQL) sont également pris en charge en tant que sources pour la migration.
 
 > [!IMPORTANT]
-> Le scénario de migration en ligne « MySQL vers Azure Database pour MySQL » sera remplacé par un scénario de migration hors connexion très performante et en parallèle à partir du 1er juin 2021. Pour les migrations en ligne, vous pouvez utiliser cette nouvelle offre ainsi que la [réplication des données entrantes](../mysql/concepts-data-in-replication.md). Vous pouvez également utiliser des outils open source tels que [MyDumper/MyLoader](https://centminmod.com/mydumper.html) avec la réplication des données entrantes pour les migrations en ligne. 
+> Pour les migrations en ligne, vous pouvez utiliser des outils open source comme [MyDumper/MyLoader](https://centminmod.com/mydumper.html) avec [réplication des données entrantes](../mysql/concepts-data-in-replication.md).
+
 
 L’article vous aide à automatiser le scénario dans lequel les noms des bases de données source et cible peuvent être identiques ou différents et, dans le cadre de la migration, soit l’ensemble, soit une partie des tables de la base de données cible ont besoin d’être migrées, en sachant qu’elles ont le même nom et la même structure. Bien que les articles partent du principe que la source est une instance de base de données MySQL et la cible Azure Database pour MySQL, la procédure peut être utilisée pour effectuer une migration depuis une source Azure Database pour MySQL vers une même cible, en modifiant simplement le nom du serveur source et les informations d’identification. De plus, la migration de serveurs MySQL d’une version antérieure (v5.6 et versions ultérieures) vers des versions ultérieures est également prise en charge.
 

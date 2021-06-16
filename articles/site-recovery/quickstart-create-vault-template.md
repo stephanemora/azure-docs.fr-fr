@@ -3,15 +3,13 @@ title: Démarrage rapide pour créer un coffre Recovery Services Azure avec un m
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un coffre Recovery Services Azure à l’aide d’un modèle Azure Resource Manager (modèle ARM).
 ms.date: 04/28/2021
 ms.topic: quickstart
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: 453c1a14a54011d8124588911da1cde64fe2ea28
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: 8d7d62c05586032bc73c41ef671862a4aa211334
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277297"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903167"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Démarrage rapide : Créer un coffre Recovery Services avec un modèle ARM
 
@@ -29,7 +27,7 @@ Si vous n’avez pas d’abonnement Azure actif, créez un [compte gratuit](http
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/recovery-services-vault-create/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.recoveryservices/recovery-services-vault-create/azuredeploy.json":::
 

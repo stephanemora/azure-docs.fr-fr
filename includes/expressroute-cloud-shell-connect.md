@@ -7,13 +7,13 @@ ms.service: vpn-gateway
 ms.topic: include
 ms.date: 02/01/2019
 ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: 1aca39a7ff162aa3c42fdb3ca5999c71091ec02e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file, devx-track-azurepowershell
+ms.openlocfilehash: 9894787ed29226ad6e8d491b498b082cadd0626b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "67176796"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690805"
 ---
  Si vous utilisez Azure Cloud Shell, vous vous connectez à votre compte Azure automatiquement après avoir cliqué sur « Essayer ». Pour vous connecter en local, ouvrez la console PowerShell avec des privilèges élevés et exécutez la cmdlet pour vous connecter.
 

@@ -3,12 +3,13 @@ title: Activer le partitionnement dans les files d’attente et rubriques Azure 
 description: Cet article explique comment activer le partitionnement dans les files d’attente et rubriques Azure Service Bus en utilisant le portail Azure, PowerShell, l’interface CLI et les langages de programmation (C#, Java, Python et JavaScript).
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: ac77dfc2e72d1d83c4424c05da40c5adba1e8e9d
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 786a78cfa86c67ba32675fcee2b03c4e3817fbf6
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076686"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671389"
 ---
 # <a name="enable-partitioning-for-an-azure-service-bus-queue-or-a-topic"></a>Activer le partitionnement pour une file d’attente ou une rubrique Azure Service Bus
 Service Bus permet également le partitionnement des files d’attente et des rubriques, ou des entités de messagerie entre plusieurs courtiers de messages et banques de messagerie. Le partitionnement signifie que le débit global d’une entité partitionnée n’est plus limité par les performances d’un seul courtier de messages ou d’une seule banque de messagerie. En outre, la panne temporaire d’une banque de messagerie ne rend pas une rubrique ou une file d’attente partitionnée indisponible. Les rubriques et les files d’attente partitionnées peuvent contenir toutes les fonctionnalités avancées de Service Bus, comme la prise en charge des transactions et des sessions. Pour plus d’informations, consultez [Rubriques et files d’attente partitionnées](service-bus-partitioning.md). Cet article vous montre différentes façons d’activer la détection des messages dupliqués pour une file d’attente ou une rubrique Service Bus. 

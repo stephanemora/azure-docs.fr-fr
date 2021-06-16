@@ -4,12 +4,12 @@ description: Automatisez la création et la gestion des ressources, des alertes 
 ms.topic: conceptual
 ms.date: 05/02/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 60417e829297eb9a7ad4e244523c546dcaff053d
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d629ef1bc7d2086f85bbb08105041a0457b133c5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318600"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954876"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gérer les ressources Application Insights à l’aide de PowerShell
 
@@ -437,7 +437,7 @@ Pour automatiser la création de toute autre ressource de tout type, créez un e
     `"apiVersion": "2015-05-01",`
 
 ### <a name="parameterize-the-template"></a>Définir les paramètres du modèle
-Vous devez à présent remplacer les noms spécifiques par des paramètres. Pour [définir les paramètres d’un modèle](../../azure-resource-manager/templates/template-syntax.md), écrivez des expressions utilisant un [ensemble de fonctions d’assistance](../../azure-resource-manager/templates/template-functions.md). 
+Vous devez à présent remplacer les noms spécifiques par des paramètres. Pour [définir les paramètres d’un modèle](../../azure-resource-manager/templates/syntax.md), écrivez des expressions utilisant un [ensemble de fonctions d’assistance](../../azure-resource-manager/templates/template-functions.md). 
 
 Comme vous ne pouvez pas définir uniquement les paramètres d’une portion de chaîne, utilisez `concat()` pour générer les chaînes.
 

@@ -4,19 +4,19 @@ description: Utilisez un exemple de script Azure PowerShell pour créer une base
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 07/16/2019
-ms.openlocfilehash: 34d296e51f25c492d7f66347a2e2b190c39e83f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e350eaa5a629649f58163c8680401e980a939825
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94594128"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110694096"
 ---
 # <a name="use-powershell-to-add-a-database-to-a-failover-group"></a>Utiliser PowerShell pour ajouter une base de données à un groupe de basculement
 

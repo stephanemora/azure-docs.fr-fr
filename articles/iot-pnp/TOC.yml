@@ -22,7 +22,7 @@
     - name: Utiliser MQTT pour connecter un appareil
       href: tutorial-use-mqtt.md
     - name: Connecter un appareil MXCHIP
-      href: /azure/iot-develop/quickstart-devkit-mxchip-az3166
+      href: ../iot-develop/quickstart-devkit-mxchip-az3166.md
     - name: Connecter un module d’appareil
       href: tutorial-migrate-device-to-module.md
     - name: Préversion - Connecter et analyser les données avec Time Series Insights Gen2

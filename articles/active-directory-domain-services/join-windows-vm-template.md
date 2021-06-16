@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: e7245e8e468ea051ee095d97cc250ad303aa80a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fcfe5fb48a6eef0b7185fe8bba5a8f1e80fb4f1f
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619434"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030536"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Joindre une machine virtuelle Windows Server à un domaine managé Azure Active Directory Domain Services à l’aide d’un modèle Resource Manager
 
@@ -81,10 +81,10 @@ Si vous avez besoin d’une machine virtuelle Windows Server, vous pouvez en cr�
 
 Pour créer une machine virtuelle Windows Server et la joindre ensuite à un domaine managé, procédez comme suit :
 
-1. Accédez au [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/201-vm-domain-join/). Sélectionnez l’option **Déployer dans Azure**.
+1. Accédez au [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/vm-domain-join/). Sélectionnez l’option **Déployer dans Azure**.
 1. Sur la page **Déploiement personnalisé**, entrez les informations suivantes pour créer une machine virtuelle Windows Server et la joindre au domaine managé :
 
-    | Paramètre                   | Valeur |
+    | Paramètre                   | Value |
     |---------------------------|-------|
     | Abonnement              | Choisissez le même abonnement Azure que celui dans lequel vous avez activé Azure AD Domain Services. |
     | Resource group            | Choisissez le groupe de ressources de votre machine virtuelle. |
@@ -114,10 +114,10 @@ Si vous disposez d’une machine virtuelle ou d’un groupe de machines virtuell
 
 Pour joindre une machine virtuelle Windows Server existante à un domaine managé, procédez comme suit :
 
-1. Accédez au [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/). Sélectionnez l’option **Déployer dans Azure**.
+1. Accédez au [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/vm-domain-join-existing/). Sélectionnez l’option **Déployer dans Azure**.
 1. Sur la page **Déploiement personnalisé**, entrez les informations suivantes pour joindre la machine virtuelle au domaine managé :
 
-    | Paramètre                   | Valeur |
+    | Paramètre                   | Value |
     |---------------------------|-------|
     | Abonnement              | Choisissez le même abonnement Azure que celui dans lequel vous avez activé Azure AD Domain Services. |
     | Resource group            | Choisissez le groupe de ressources avec votre machine virtuelle existante. |

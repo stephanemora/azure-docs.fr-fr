@@ -4,17 +4,17 @@ titleSuffix: Azure Applied AI Services
 description: Découvrez les différentes façons de déployer l’outil d’étiquetage des exemples Form Recognizer pour faciliter l’apprentissage supervisé.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: lajanuar
-ms.openlocfilehash: 66edf7dbe7bc32cffcc5c4adad6e04d81f8a21ac
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cc78ae0bc417becb1c6cf16270f77206c60b461e
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374592"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076975"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Déployer l’outil d’étiquetage des exemples
 
@@ -77,7 +77,7 @@ Suivez ces étapes pour créer une nouvelle ressource à partir du portail Azure
 * URL du serveur : définissez cette valeur sur `https://mcr.microsoft.com`
 * Nom d’utilisateur (facultatif) : créez un nom d’utilisateur. 
 * Mot de passe (facultatif) : créez un mot de passe sécurisé dont vous vous souviendrez.
-* Image et étiquette : définissez cette valeur sur `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+* Image et étiquette : définissez cette valeur sur `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1`
 * Déploiement continu : définissez cette valeur sur **Activé** si vous souhaitez recevoir des mises à jour automatiques lorsque l’équipe de développement apporte des modifications à l’outil d’étiquetage des exemples.
 * Commande de démarrage : définissez cette option sur `./run.sh eula=accept`
 
@@ -127,7 +127,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1 \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \
@@ -146,7 +146,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \

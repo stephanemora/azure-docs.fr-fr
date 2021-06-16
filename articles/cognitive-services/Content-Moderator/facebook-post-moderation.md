@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/29/2021
 ms.author: pafarley
-ms.openlocfilehash: f3b43ed6a86276b308599f9091d581423b0f363c
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 58de8de28b796d67f9368224ced24c9c592cfdb6
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220988"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033812"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutoriel : Modérer les publications et commandes Facebook avec Azure Content Moderator
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 Dans ce tutoriel, vous allez apprendre à utiliser Azure Content Moderator, pour faciliter la modération des publications et commentaires sur une page Facebook. Facebook enverra le contenu publié par les visiteurs au service Content Moderator. Vos flux de travail Content Moderator publient le contenu ou créent des révisions dans l’outil de révision selon les scores et les seuils de contenu. Consultez la [vidéo de démonstration du build 2017](https://channel9.msdn.com/Events/Build/2017/T6033) pour obtenir un exemple de ce scénario.
 

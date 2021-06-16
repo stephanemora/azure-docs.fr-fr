@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 5882cc949d88e8c2a4102362cf5d2a3613e1d714
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d372c4bff4977ed310d2e84aa255679a9c5ed928
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99475486"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756452"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Conseils sur l’enrichissement par IA dans Recherche cognitive Azure
 
@@ -30,8 +30,7 @@ Exécutez votre exemple de document via le pipeline de bout en bout et vérifiez
 
 ## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>Conseil 2 : assurez-vous que les informations d’identification de la source de données sont correctes
 La connexion de source de données n’est pas validée tant que vous ne définissez pas un indexeur qui l’utilise. Si vous rencontrez des erreurs signalant que l’indexeur ne peut pas accéder aux données, vérifiez les points suivants :
-- Votre chaîne de connexion est correcte. En particulier lorsque vous créez des jetons SAP, veillez à utiliser le format attendu par la Recherche cognitive Azure. Pour découvrir les différents formats pris en charge, voir la section [Comment spécifier des informations d’identification](
-https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials).
+- Votre chaîne de connexion est correcte. En particulier lorsque vous créez des jetons SAP, veillez à utiliser le format attendu par la Recherche cognitive Azure. Pour découvrir les différents formats pris en charge, voir la section [Comment spécifier des informations d’identification](search-howto-indexing-azure-blob-storage.md#credentials).
 - Le nom de votre conteneur dans l’indexeur est correct.
 
 ## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>Conseil 3 : regardez ce qui fonctionne même en présence d’erreurs

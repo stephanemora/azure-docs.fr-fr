@@ -253,7 +253,7 @@
           href: connector-amazon-redshift.md
         - name: Amazon S3
           href: connector-amazon-simple-storage-service.md
-        - name: Amazon S3 Compatible Storage
+        - name: "Stockage compatible Amazon\_S3"
           href: connector-amazon-s3-compatible-storage.md
         - name: "Format\_Avro"
           href: format-avro.md
@@ -909,7 +909,7 @@
     - name: Livres blancs
       href: whitepapers.md
     - name: Questions fréquentes (FAQ)
-      href: frequently-asked-questions.md
+      href: frequently-asked-questions.yml
       displayName: timeout
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=data-factory'

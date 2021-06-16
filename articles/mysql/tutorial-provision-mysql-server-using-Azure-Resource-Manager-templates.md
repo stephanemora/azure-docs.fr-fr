@@ -7,19 +7,19 @@ ms.service: mysql
 ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
-ms.custom: mvc
-ms.openlocfilehash: 6fd070417cfa20c1a8f50c79915f4fcb2ec361f3
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 2219e7b31e4c6594fc5f98022151f6094853a1b1
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279817"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984673"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutoriel : Provisionner un serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager
 
 [L’API REST Azure Database pour MySQL](/rest/api/mysql/) permet aux ingénieurs DevOps d’automatiser et d’intégrer l’approvisionnement, la configuration et les opérations des bases de données et des serveurs MySQL gérés dans Azure.  L’API permet la création, l’énumération, la gestion et la suppression des bases de données et serveurs MySQL sur le service Azure Database pour MySQL.
 
-Azure Resource Manager tire parti de l’API REST sous-jacente pour déclarer et programmer les ressources Azure nécessaires aux déploiements à grande échelle, en s’alignant sur l’infrastructure sous la forme d’un concept de code. Le modèle paramètre le nom de ressource Azure, la référence, le réseau, la configuration du pare-feu et les réglages. Vous pouvez ainsi le créer une fois et l’utiliser plusieurs fois.  Les modèles Azure Resource Manager peuvent être facilement créés à l’aide du [portail Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) ou de [Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=CLI). Ils permettent la création d’applications, la normalisation et l’automatisation du déploiement, qui peuvent être intégrées dans le pipeline CI/CD DevOps.  Par exemple, si vous cherchez à déployer rapidement une application web avec le serveur principal Azure Database pour MySQL, vous pouvez effectuer le déploiement de bout en bout à l’aide de ce [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) depuis la galerie GitHub.
+Azure Resource Manager tire parti de l’API REST sous-jacente pour déclarer et programmer les ressources Azure nécessaires aux déploiements à grande échelle, en s’alignant sur l’infrastructure sous la forme d’un concept de code. Le modèle paramètre le nom de ressource Azure, la référence, le réseau, la configuration du pare-feu et les réglages. Vous pouvez ainsi le créer une fois et l’utiliser plusieurs fois.  Les modèles Azure Resource Manager peuvent être facilement créés à l’aide du [portail Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) ou de [Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=CLI). Ils permettent la création d’applications, la normalisation et l’automatisation du déploiement, qui peuvent être intégrées dans le pipeline CI/CD DevOps.  Par exemple, si vous cherchez à déployer rapidement une application web avec le serveur principal Azure Database pour MySQL, vous pouvez effectuer le déploiement de bout en bout à l’aide de ce [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/webapp-managed-mysql/) depuis la galerie GitHub.
 
 Dans ce tutoriel, vous allez utiliser un modèle Azure Resource Manager et d’autres utilitaires pour apprendre à :
 
@@ -78,28 +78,28 @@ Pour connaître la référence de modèle JSON d’un serveur Azure Database pou
 }
 ```
 Dans cette requête, vous devez personnaliser les valeurs suivantes :
-+   `name` -Spécifiez le nom de votre serveur MySQL (sans nom de domaine).
-+   `location` -Spécifiez une région de centre de données Azure valide pour votre serveur MySQL. Par exemple, westus2.
-+   `properties/version` -Spécifiez la version de serveur MySQL à déployer. Par exemple, 5.6 ou 5.7.
-+   `properties/administratorLogin` -Spécifiez la connexion d’administrateur MySQL pour le serveur. Le nom de connexion d’administrateur ne doit pas être azure_superuser, admin, administrator, root, guest ou public.
-+   `properties/administratorLoginPassword` -Spécifiez le mot de passe pour l’utilisateur administrateur de MySQL spécifié ci-dessus.
-+   `properties/sslEnforcement` -Spécifiez Activé/Désactivé pour activer/désactiver sslEnforcement.
-+   `storageProfile/storageMB` -Spécifiez la taille maximale de stockage approvisionné requise pour le serveur en mégaoctets. Par exemple, 5120.
-+   `storageProfile/backupRetentionDays` - Spécifiez la période de rétention de sauvegarde souhaitée en jours. Par exemple, 7. 
-+   `storageProfile/geoRedundantBackup` -Spécifiez Activé/Désactivé selon les exigences de géo-reprise d’activité.
-+   `sku/tier` -Spécifiez le niveau Basique, Usage général ou Mémoire optimisée pour le déploiement.
-+   `sku/capacity` -Spécifiez la capacité de vCore. Les valeurs possibles sont 2, 4, 8, 16, 32 ou 64.
-+   `sku/family` - Spécifiez Gen5 pour choisir la génération du matériel pour le déploiement du serveur.
-+   `sku/name` -Spécifiez la valeur TierPrefix_family_capacity. Par exemple B_Gen5_1, GP_Gen5_16, MO_Gen5_32. Pour comprendre les valeurs valides par région et par niveau, consultez la documentation sur les [niveaux tarifaires](./concepts-pricing-tiers.md).
-+   `resources/properties/virtualNetworkSubnetId` -Spécifiez l’identificateur Azure du sous-réseau de réseau virtuel dans lequel placer le serveur Azure MySQL. 
-+   `tags(optional)` -Spécifiez les balises facultatives comme paires clé/valeur que vous utiliseriez pour catégoriser les ressources pour la facturation, etc.
++ `name` -Spécifiez le nom de votre serveur MySQL (sans nom de domaine).
++ `location` -Spécifiez une région de centre de données Azure valide pour votre serveur MySQL. Par exemple, westus2.
++ `properties/version` -Spécifiez la version de serveur MySQL à déployer. Par exemple, 5.6 ou 5.7.
++ `properties/administratorLogin` -Spécifiez la connexion d’administrateur MySQL pour le serveur. Le nom de connexion d’administrateur ne doit pas être azure_superuser, admin, administrator, root, guest ou public.
++ `properties/administratorLoginPassword` -Spécifiez le mot de passe pour l’utilisateur administrateur de MySQL spécifié ci-dessus.
++ `properties/sslEnforcement` -Spécifiez Activé/Désactivé pour activer/désactiver sslEnforcement.
++ `storageProfile/storageMB` -Spécifiez la taille maximale de stockage approvisionné requise pour le serveur en mégaoctets. Par exemple, 5120.
++ `storageProfile/backupRetentionDays` - Spécifiez la période de rétention de sauvegarde souhaitée en jours. Par exemple, 7. 
++ `storageProfile/geoRedundantBackup` -Spécifiez Activé/Désactivé selon les exigences de géo-reprise d’activité.
++ `sku/tier` -Spécifiez le niveau Basique, Usage général ou Mémoire optimisée pour le déploiement.
++ `sku/capacity` -Spécifiez la capacité de vCore. Les valeurs possibles sont 2, 4, 8, 16, 32 ou 64.
++ `sku/family` - Spécifiez Gen5 pour choisir la génération du matériel pour le déploiement du serveur.
++ `sku/name` -Spécifiez la valeur TierPrefix_family_capacity. Par exemple B_Gen5_1, GP_Gen5_16, MO_Gen5_32. Pour comprendre les valeurs valides par région et par niveau, consultez la documentation sur les [niveaux tarifaires](./concepts-pricing-tiers.md).
++ `resources/properties/virtualNetworkSubnetId` -Spécifiez l’identificateur Azure du sous-réseau de réseau virtuel dans lequel placer le serveur Azure MySQL. 
++ `tags(optional)` -Spécifiez les balises facultatives comme paires clé/valeur que vous utiliseriez pour catégoriser les ressources pour la facturation, etc.
 
 Si vous souhaitez créer un modèle Azure Resource Manager pour automatiser les déploiements Azure Database pour MySQL de votre organisation, nous vous recommandons de commencer par l’exemple de [modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json) dans la galerie GitHub Démarrage rapide Azure et de poursuivre à partir de là. 
 
 Si vous ne connaissez pas encore les modèles Azure Resource Manager et que vous souhaitez les essayer, commencez en procédant comme suit :
-+   Clonez ou téléchargez l’exemple de [modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json) à partir de la galerie Démarrage rapide Azure.  
-+   Modifiez azuredeploy.parameters.json pour mettre à jour les valeurs de paramètre en fonction de vos préférences, puis enregistrez le fichier. 
-+   Utilisez Azure CLI pour créer le serveur Azure MySQL à l’aide des commandes suivantes
++ Clonez ou téléchargez l’exemple de [modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json) à partir de la galerie Démarrage rapide Azure.  
++ Modifiez azuredeploy.parameters.json pour mettre à jour les valeurs de paramètre en fonction de vos préférences, puis enregistrez le fichier. 
++ Utilisez Azure CLI pour créer le serveur Azure MySQL à l’aide des commandes suivantes
 
 Vous pouvez utiliser Azure Cloud Shell dans le navigateur ou installer Azure CLI sur votre ordinateur pour exécuter les blocs de code de ce tutoriel.
 
@@ -170,9 +170,9 @@ Maintenant que vous savez vous connecter à la base de données Azure Database p
 Tout d’abord, créez une table et chargez-y des données. Nous allons créer une table qui stocke des données d’inventaire.
 ```sql
 CREATE TABLE inventory (
-    id serial PRIMARY KEY, 
-    name VARCHAR(50), 
-    quantity INTEGER
+  id serial PRIMARY KEY, 
+  name VARCHAR(50), 
+  quantity INTEGER
 );
 ```
 

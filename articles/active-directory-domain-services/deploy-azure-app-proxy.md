@@ -11,18 +11,18 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 70951dc1c1934bcbb2721512175e7d314168ce91
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 67d29dcf0ea4e68354f7b0fad2be7e57e85f8fe7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175457"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962203"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Déployer le proxy d’application Azure AD pour un accès sécurisé aux applications internes dans un domaine managé Azure Active Directory Domain Services
 
 Grâce à Azure AD Domain Services (Azure AD DS), vous pouvez transférer des applications héritées lift-and-shift s’exécutant localement vers Azure. Le proxy d’application Azure Active Directory (AD) vous aide à prendre en charge les Workers à distance en publiant en toute sécurité les applications internes qui font partie d’un domaine managé Azure AD DS afin qu’elles soient accessibles via Internet.
 
-Si vous débutez avec le Proxy d'application Azure AD et que vous souhaitez en savoir plus, consultez [Comment fournir un accès à distance sécurisé aux applications internes](../active-directory/manage-apps/application-proxy.md).
+Si vous débutez avec le Proxy d'application Azure AD et que vous souhaitez en savoir plus, consultez [Comment fournir un accès à distance sécurisé aux applications internes](../active-directory/app-proxy/application-proxy.md).
 
 Cet article explique comment créer et configurer un connecteur de Proxy d’application Azure AD pour fournir un accès sécurisé aux applications dans un domaine managé.
 
@@ -75,7 +75,7 @@ Une fois qu’une machine virtuelle est prête à être utilisée en tant que co
         > Par exemple, si le domaine Azure AD est *contoso.com*, l’administrateur général doit être `admin@contoso.com` ou tout autre alias valide sur ce domaine.
 
    * Si l’option Configuration de sécurité renforcée d’Internet Explorer est activée sur la machine virtuelle sur laquelle vous installez le connecteur, l’écran d’inscription risque d’être bloqué. Pour autoriser l’accès, suivez les instructions du message d’erreur ou désactivez la sécurité renforcée d’Internet Explorer au cours du processus d’installation.
-   * Si l’inscription du connecteur échoue, consultez[Détecter un problème du Proxy d’application](../active-directory/manage-apps/application-proxy-troubleshoot.md).
+   * Si l’inscription du connecteur échoue, consultez[Détecter un problème du Proxy d’application](/azure/active-directory/app-proxy/application-proxy-troubleshoot).
 1. À la fin de l’installation, une remarque s’affiche pour les environnements avec un proxy sortant. Pour configurer le connecteur de Proxy d’application Azure AD et qu’il fonctionne par le biais du proxy sortant, exécutez le script fourni, tel que `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`.
 1. Dans la page du proxy d’application du Portail Azure, le nouveau connecteur est répertorié avec l’état *Actif*, comme indiqué dans l’exemple suivant :
 

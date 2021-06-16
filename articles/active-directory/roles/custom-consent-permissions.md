@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: psignoret
 ms.custom: it-pro
-ms.openlocfilehash: a7a26bfd979fd58ba0519aeba274b22ae502f8a8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8795007a5a38d21985d8b31884c66342b3dda7ed
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085921"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792405"
 ---
 # <a name="app-consent-permissions-for-custom-roles-in-azure-active-directory"></a>Autorisations de consentement d’application pour les rôles personnalisés dans Azure Active Directory
 
@@ -65,14 +65,15 @@ Pour déléguer la création, la mise à jour et la suppression de [stratégies 
 
 ## <a name="full-list-of-permissions"></a>Liste complète des autorisations
 
-Autorisation | Description
----------- | -----------
-microsoft.directory/servicePrincipals/managePermissionGrantsForSelf.{id} | Octroie la possibilité d’accorder son consentement aux applications en son propre nom (consentement de l’utilisateur), sous réserve de la stratégie de consentement d’application `{id}`.
-microsoft.directory/servicePrincipals/managePermissionGrantsForAll.{id} | Octroie l’autorisation d’accorder son consentement aux applications pour le compte de tous (consentement administrateur au niveau du locataire), sous réserve de la stratégie de consentement d’application `{id}`.
-microsoft.directory/permissionGrantPolicies/standard/read | Accorde la possibilité de lire les stratégies de consentement d’application.
-microsoft.directory/permissionGrantPolicies/basic/update | Accorde la possibilité de mettre à jour les propriétés de base sur les stratégies de consentement d’application existantes.
-microsoft.directory/permissionGrantPolicies/create | Accorde la possibilité de créer des stratégies de consentement d’application.
-microsoft.directory/permissionGrantPolicies/delete | Accorde la possibilité de supprimer des stratégies de consentement d’application.
+> [!div class="mx-tableFixed"]
+> | Autorisation | Description |
+> | ---------- | ----------- |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForSelf.{id} | Octroie la possibilité d’accorder son consentement aux applications en son propre nom (consentement de l’utilisateur), sous réserve de la stratégie de consentement d’application `{id}`. |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.{id} | Octroie l’autorisation d’accorder son consentement aux applications pour le compte de tous (consentement administrateur au niveau du locataire), sous réserve de la stratégie de consentement d’application `{id}`. |
+> | microsoft.directory/permissionGrantPolicies/standard/read | Accorde la possibilité de lire les stratégies de consentement d’application. |
+> | microsoft.directory/permissionGrantPolicies/basic/update | Accorde la possibilité de mettre à jour les propriétés de base sur les stratégies de consentement d’application existantes. |
+> | microsoft.directory/permissionGrantPolicies/create | Accorde la possibilité de créer des stratégies de consentement d’application. |
+> | microsoft.directory/permissionGrantPolicies/delete | Accorde la possibilité de supprimer des stratégies de consentement d’application. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

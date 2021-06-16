@@ -7,12 +7,13 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/02/2020
 ms.author: allensu
-ms.openlocfilehash: afd1f8b6c80cfd7aa8d5142841458d76511a9e96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9999f9d8e297bd36f20ab77c821619040ecd7870
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562909"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110696838"
 ---
 # <a name="quickstart-create-an-azure-private-endpoint-using-azure-powershell"></a>Démarrage rapide : Création d’un point de terminaison privé en utilisant Azure PowerShell
 
@@ -144,6 +145,8 @@ New-AzVMConfig @parameters2 | Set-AzVMOperatingSystem -Windows @parameters3 | Se
 ## Create the virtual machine ##
 New-AzVM -ResourceGroupName 'CreatePrivateEndpointQS-rg' -Location 'eastus' -VM $vmConfig
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="create-private-endpoint"></a>Créer un point de terminaison privé
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: cb128f9269895f04d1e0dad8e0c8d06c481e86c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a93db3a2ee147267432d84ea7a7c87ee77eb50e4
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100576171"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786270"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Bande passante réseau des machines virtuelles
 
@@ -63,8 +63,6 @@ Une fois cette limite atteinte, les connexions supplémentaires sont supprimées
 Des métriques permettant de suivre le nombre de flux réseau et le taux de création des flux sur votre machine virtuelle ou sur des instances de VMSS sont disponibles dans [Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines).
 
 ![Capture d’écran montrant la page Métriques d’Azure Monitor avec un graphique en courbes et des totaux pour les flux entrants et sortants.](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
-
-Le taux d’établissement et de fin de connexions peut également affecter le niveau de performance réseau, car l’établissement et la fin des connexions partagent l’UC avec les routines de traitement de paquets. Nous vous recommandons d’évaluer les charges de travail pour les modèles de trafic attendus et d’effectuer un scale-out de manière appropriée en fonction de vos besoins en matière de niveau de performance. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

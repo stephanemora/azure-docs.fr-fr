@@ -1,18 +1,18 @@
 ---
 title: Gérer le serveur de configuration pour la récupération d’urgence avec Azure Site Recovery
 description: Découvrez les tâches courantes permettant de gérer un serveur de configuration local pour la reprise d’activité des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery.
-author: Rajeswari-Mamilla
-ms.author: ramamill
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: 67f25c97e0b4433ed09cb8c6337afe671424ba0b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: e260b9fa7b24a3cb91e107bac6b01537879857c0
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048542"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576893"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la récupération d'urgence d’un serveur physique ou d’une machine virtuelle VMware
 

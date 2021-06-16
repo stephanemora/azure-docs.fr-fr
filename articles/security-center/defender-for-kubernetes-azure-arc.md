@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.author: memildin
-ms.openlocfilehash: f59c8b4e4f4ddc32cb0ec14e264e4dbb5b093971
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 02690da936190b7d868f54c987939c06b91b1a35
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762854"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854015"
 ---
 # <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>Défendre des clusters Kubernetes avec Azure Arc s’exécutant dans des environnements locaux et multicloud
 
@@ -255,7 +255,7 @@ Pour confirmer la réussite du déploiement ou valider l’état de votre extens
 
 ## <a name="simulate-security-alerts-from-azure-defender-for-kubernetes"></a>Simuler des alertes de sécurité d’Azure Defender pour Kubernetes
 
-La liste complète des alertes prises en charge est disponible dans le [tableau de référence de toutes les alertes de sécurité dans Azure Security Center](alerts-reference.md#alerts-akscluster).
+La liste complète des alertes prises en charge est disponible dans le [tableau de référence de toutes les alertes de sécurité dans Azure Security Center](alerts-reference.md#alerts-k8scluster).
 
 1. Pour simuler une alerte Azure Defender, exécutez la commande suivante :
 
