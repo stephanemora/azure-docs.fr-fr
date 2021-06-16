@@ -15,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/11/2020
 ms.author: kumud
-ms.openlocfilehash: 22494d292077f4b6018a4512b45b5fe2caa9c8ee
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 789816e37c3aaf9678fd9cb87ff6362442709498
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057199"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082205"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutoriel : Restreindre l’accès réseau aux ressources PaaS avec des points de terminaison de service de réseau virtuel en utilisant le portail Azure
 
@@ -48,7 +48,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 2. Sélectionnez **Mise en réseau**, puis **Réseaux virtuels**.
 3. Cliquez sur **+ Ajouter** et entrez les informations suivantes : 
 
-   |Paramètre|Valeur|
+   |Paramètre|Value|
    |----|----|
    |Abonnement| Sélectionnez votre abonnement|
    |Resource group | Sélectionnez **Créer** et entrez *myResourceGroup*.|
@@ -88,7 +88,7 @@ Les points de terminaison de service sont activés par service, par sous-réseau
 
 3. Sous **Ajouter un sous-réseau**, sélectionnez ou saisissez les informations suivantes, puis sélectionnez **OK** :
 
-    |Paramètre|Valeur|
+    |Paramètre|Value|
     |----|----|
     |Name| Privé |
     |Plage d’adresses| Laissez la valeur par défaut|
@@ -109,7 +109,7 @@ Par défaut, toutes les instances de machines virtuelles d’un sous-réseau peu
 3. Dans la page **Groupes de sécurité réseau**, cliquez sur **+ Ajouter**.
 4. Entrez les informations ci-après 
 
-    |Paramètre|Valeur|
+    |Paramètre|Value|
     |----|----|
     |Abonnement| Sélectionnez votre abonnement|
     |Resource group | Sélectionnez *myResourceGroup* dans la liste|
@@ -131,7 +131,7 @@ Par défaut, toutes les instances de machines virtuelles d’un sous-réseau peu
     |Plages de ports de destination| Laissez la valeur *8080* par défaut |
     |Protocol|Quelconque|
     |Action|Allow|
-    |Priority|100|
+    |Priorité|100|
     |Nom|Renommez avec **Allow-Storage-All**|
 
 10. Créer une règle de sécurité de trafic sortant qui refuse les communications vers Internet. Cette règle qui permet la communication Internet sortante se substitue à une règle par défaut dans tous les groupes de sécurité réseau. Répétez les étapes 6 à 9 ci-dessus en utilisant les valeurs suivantes :
@@ -182,13 +182,13 @@ Les étapes nécessaires pour restreindre l’accès réseau aux ressources cré
 3. Cliquez sur **+ Ajouter**.
 4. Entrez les informations suivantes :
 
-    |Paramètre|Valeur|
+    |Paramètre|Value|
     |----|----|
     |Abonnement| Sélectionnez votre abonnement|
     |Resource group| Sélectionner *myResourceGroup*|
     |Nom du compte de stockage| Entrez un nom qui n’existe dans aucun autre emplacement Azure. Le nom doit comprendre entre 3 et 24 caractères, correspondant à des chiffres et à des lettres en minuscules.|
     |Emplacement| Sélectionnez **(États-Unis) USA Est** |
-    |Performances|standard|
+    |Performances|Standard|
     |Type de compte| StorageV2 (v2 universel)|
     |Réplication| Stockage localement redondant (LRS)|
 
@@ -204,7 +204,7 @@ Les étapes nécessaires pour restreindre l’accès réseau aux ressources cré
 1. Accédez à la page Vue d’ensemble de votre compte de stockage.
 2. Sélectionnez l’icône d’application **Partages de fichiers**, puis cliquez sur **+ Partage de fichiers**.
 
-    |Paramètre|Valeur|
+    |Paramètre|Value|
     |----|----|
     |Nom| my-file-share|
     |Quota| « Définir sur la valeur maximale » |
@@ -223,7 +223,7 @@ Par défaut, les comptes de stockage acceptent les connexions réseau provenant 
 3. Sélectionnez **+ Ajouter un réseau virtuel existant**.
 4. Sous **Ajouter des réseaux**, sélectionnez les valeurs suivantes puis **Ajouter** :
 
-    |Paramètre|Valeur|
+    |Paramètre|Value|
     |----|----|
     |Abonnement| Sélectionnez votre abonnement|
     |Réseaux virtuels| **myVirtualNetwork**|
@@ -248,7 +248,7 @@ Pour tester l’accès réseau à un compte de stockage, déployez une machine v
 2. Sélectionnez **+ Ajouter > Machine virtuelle**. 
 3. Entrez les informations suivantes :
 
-   |Paramètre|Valeur|
+   |Paramètre|Value|
    |----|----|
    |Abonnement| Sélectionnez votre abonnement|
    |Resource group| Sélectionnez **myResourceGroup, qui a été créé précédemment|
@@ -259,7 +259,7 @@ Pour tester l’accès réseau à un compte de stockage, déployez une machine v
    |Image | Windows Server 2019 Datacenter – Gen 1 |
    |Taille | Sélectionnez la taille d’instance de machine virtuelle que vous souhaitez utiliser |
    |Nom d’utilisateur|Entrez un nom d’utilisateur de votre choix.|
-   |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+   |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
    |Aucun port d’entrée public | Autoriser les ports sélectionnés |
    |Sélectionner des ports d’entrée | Conservez le paramètre par défaut *RDP (3389)* |
 

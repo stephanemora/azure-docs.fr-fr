@@ -1,15 +1,15 @@
 ---
 title: Liste des définitions de stratégie intégrées
 description: Liste les définitions de stratégie intégrées pour Azure Policy. Les catégories incluent Étiquettes, Conformité réglementaire, Key Vault, Kubernetes, Guest Configuration et plus encore.
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 0aa7bce0fd603386469b04a94d18135075e944f4
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d321e0583d1456126ccd2daf141f0f50a500227f
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110074109"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112019386"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Définitions de stratégie Azure Policy intégrées
 
@@ -201,6 +201,10 @@ Le nom de chaque définition intégrée est un lien vers la définition de strat
 
 [!INCLUDE [azure-policy-reference-policies-signalr](../../../../includes/policy/reference/bycat/policies-signalr.md)]
 
+## <a name="site-recovery"></a>Site Recovery
+
+[!INCLUDE [azure-policy-reference-policies-site-recovery](../../../../includes/policy/reference/bycat/policies-site-recovery.md)]
+
 ## <a name="sql"></a>SQL
 
 [!INCLUDE [azure-policy-reference-policies-sql](../../../../includes/policy/reference/bycat/policies-sql.md)]
@@ -224,6 +228,10 @@ Le nom de chaque définition intégrée est un lien vers la définition de strat
 ## <a name="vm-image-builder"></a>Générateur d’images de machine virtuelle
 
 [!INCLUDE [azure-policy-reference-policies-vm-image-builder](../../../../includes/policy/reference/bycat/policies-vm-image-builder.md)]
+
+## <a name="web-pubsub"></a>Web PubSub
+
+[!INCLUDE [azure-policy-reference-policies-web-pubsub](../../../../includes/policy/reference/bycat/policies-web-pubsub.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

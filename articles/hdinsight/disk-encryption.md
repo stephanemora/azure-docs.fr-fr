@@ -5,12 +5,13 @@ description: Cet article décrit les deux couches de chiffrement disponibles pou
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 226516b1178f14789570b45b68cfdbf56f63bbd7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6ada7a8c09491416224f40852a761c55a652f4ac
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775148"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110702323"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Double chiffrement Azure HDInsight pour les données au repos
 

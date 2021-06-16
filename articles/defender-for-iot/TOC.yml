@@ -142,7 +142,7 @@
         - name: Gérer les utilisateurs et les accès utilisateur
           items:
             - name: Créer et gérer des utilisateurs
-              displayName: 'Active Directory, roles, permissions'
+              displayName: 'Active Directory, roles, permissions, password, passwords, change, reset'
               href: how-to-create-and-manage-users.md
             - name: Définir le contrôle d’accès utilisateur global
               href: how-to-define-global-user-access-control.md
@@ -180,6 +180,7 @@
             - name: Comprendre les alertes de capteur
               href: how-to-work-with-alerts-on-your-sensor.md
             - name: Filtrer et gérer les alertes à partir de la page Alertes
+              displayName: 'alert, alerts, Important, pinned, recent, acknowledge, archive, archived, search, text,'
               href: how-to-view-alerts.md
             - name: À propos des messages d’alerte
               href: how-to-view-information-provided-in-alerts.md
@@ -338,7 +339,7 @@
           displayNAme: 'prototype, disable'
           href: azure-rtos-security-module-api.md
         - name: Questions fréquentes - agent
-          displayName: 'FAQ, embedded, dependencies, data, quota, internet,'
+          displayName: 'FAQ, embedded, dependencies, data, quota, internet, password, change'
           href: resources-agent-frequently-asked-questions.md
         - name: Feuille de route Azure
           href: 'https://azure.microsoft.com/roadmap/?category=security-identity'

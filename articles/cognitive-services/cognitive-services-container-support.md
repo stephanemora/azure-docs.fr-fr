@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/13/2021
+ms.date: 06/07/2021
 ms.author: aahi
 keywords: local, Docker, conteneur, Kubernetes
-ms.openlocfilehash: e047a96dc154ecc57226b7ecf4f673e86547fbd3
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 9a0dbba69b6317ab5a3df0b87e5f288d5a95872c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465054"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752654"
 ---
 # <a name="azure-cognitive-services-containers"></a>Conteneurs Azure Cognitive Services
 
@@ -53,7 +53,7 @@ Les conteneurs Azure Cognitive Services fournissent l’ensemble suivant de cont
 | [Analyse de texte][ta-containers-keyphrase] | **Extraction de phrases clés** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extraire des expressions clés pour identifier les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ». | Préversion |
 | [Analyse de texte][ta-containers-language] |  **Détection de la langue du texte** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Détecter la langue (parmi 120 langues maximum) dans laquelle le texte d’entrée est rédigé et générer un code de langue unique pour chaque document envoyé dans la demande. Le code de langue est associé à un score indiquant la puissance de l’analyse. | Mise à la disposition générale |
 | [Analyse de texte][ta-containers-sentiment] | **Analyse des sentiments v3** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyser le texte brut pour obtenir des indices sur un sentiment positif ou négatif. Cette version d’Analyse des sentiments renvoie des étiquettes de sentiment (par exemple, *positif* ou *négatif*) pour chaque document et phrase qu’elle contient. |  Mise à la disposition générale |
-| [Analyse de texte][ta-containers-health] |  **Analyse de texte pour la santé** | Extraire et étiqueter des informations médicales à partir de textes cliniques non structurés. | Préversion contrôlée. [Demandez l’accès][request-access]. |
+| [Analyse de texte][ta-containers-health] |  **Analyse de texte pour la santé** | Extraire et étiqueter des informations médicales à partir de textes cliniques non structurés. | Préversion |
 | [Translator][tr-containers] | **Translator** | Traduisez du texte en plusieurs langues et dialectes. | Préversion contrôlée. [Demandez l’accès][request-access]. | 
 
 ### <a name="speech-containers"></a>Conteneurs Speech

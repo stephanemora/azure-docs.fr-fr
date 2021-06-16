@@ -7,12 +7,13 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: 116c12900f015c849c9492ed67bc11d116286c43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: af7b46d0942b5d1bec1cbe77ec02eec7080597ba
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102611927"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110676953"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Journaux de ressources pour le pare-feu d’applications web Azure
 

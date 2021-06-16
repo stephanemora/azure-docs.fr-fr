@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/27/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: 238da57b73d764c9a5583ccced36f7e46a4be389
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 52bd27122bee20377975bb7ce87f23aeb892dedf
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061140"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952796"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-central"></a>Démarrage rapide : Envoyer la télémétrie d’un appareil à Azure IoT Central
 
@@ -78,6 +78,6 @@ Dans ce démarrage rapide, vous avez appris un workflow de base d’application 
 À présent, explorez les articles suivants pour en savoir plus sur la création de solutions d’appareils avec Azure IoT. 
 
 > [!div class="nextstepaction"]
-> [Envoyer la télémétrie à Azure IoT Hub](quickstart-send-telemetry-cli-python.md)
+> [Envoyer la télémétrie à Azure IoT Hub](./quickstart-send-telemetry-iot-hub.md)
 > [!div class="nextstepaction"]
 > [Créer une application IoT Central](../iot-central/core/quick-deploy-iot-central.md)

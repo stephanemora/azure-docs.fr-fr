@@ -103,7 +103,7 @@ additionalContent:
               text: Utiliser un service de mise en cache de fichiers complètement managé (Azure HPC Cache)
             - url: ../avere-vfxt/avere-vfxt-overview.md
               text: Mise en cache du NAS local dans Azure (Avere vFXT pour Azure)
-            - url: ../fxt-edge-filer/fxt-overview.md
+            - url: ../fxt-edge-filer/overview.md
               text: Déployer une appliance de mise en cache locale (Azure FXT Edge Filer)
     - title: Opérations de données
       items:

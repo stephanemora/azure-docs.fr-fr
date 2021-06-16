@@ -8,12 +8,12 @@ author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
 ms.date: 04/07/2021
-ms.openlocfilehash: d7e5890201afeae5b88e3edff8d0ed2af278f308
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: f28e9f2da86a810ca8737505938e3115540232c9
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107839"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007064"
 ---
 # <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Ajouter de nouveaux éditeurs au programme place de marché commerciale
 
@@ -29,7 +29,7 @@ Une organisation peut avoir plusieurs éditeurs associés à un compte de la pla
 
 ## <a name="add-new-publishers"></a>Ajouter de nouveaux serveurs de publications
 
-1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. En haut à droite, sélectionnez **Paramètres** > **Paramètres du compte**.
 1. Sous **Profil de l’organisation**, sélectionnez **Identificateurs**.
 1. Dans la section **Serveur de publication**, sélectionnez **Ajouter un serveur de publication**.

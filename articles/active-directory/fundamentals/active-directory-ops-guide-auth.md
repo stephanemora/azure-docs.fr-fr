@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 26b5331aa9242978f0f097c8e90bc807fc65f745
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: b7aefa537c9b822572f38501920afdaa45bc01c3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531940"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955047"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guide de référence des opérations de gestion de l’authentification Azure Active Directory
 
@@ -153,7 +153,7 @@ Si vous voulez en savoir plus sur l’authentification sans mot de passe, consul
 
 ### <a name="single-sign-on-for-apps"></a>Authentification unique pour les applications
 
-La fourniture d’un mécanisme d’authentification unique standardisé à l’échelle de l’entreprise est essentielle pour une meilleure expérience utilisateur, réduire les risques, la possibilité de signaler et la gouvernance. Si vous utilisez des applications qui prennent en charge l’authentification unique avec Azure AD mais qui sont actuellement configurées pour utiliser des comptes locaux, vous devez reconfigurer ces applications pour qu’elles utilisent l’authentification unique avec Azure AD. De même, si vous utilisez des applications qui prennent en charge l’authentification unique avec Azure AD mais qui utilisent actuellement un autre fournisseur d’identité, vous devez aussi reconfigurer ces applications pour qu’elles utilisent l’authentification unique avec Azure AD. Pour les applications qui ne prennent pas en charge les protocoles de fédération mais qui prennent en charge l’authentification basée sur des formulaires, nous vous recommandons de configurer ces applications pour qu’elles utilisent des [coffres de mots de passe](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) avec le proxy d’application Azure AD.
+La fourniture d’un mécanisme d’authentification unique standardisé à l’échelle de l’entreprise est essentielle pour une meilleure expérience utilisateur, réduire les risques, la possibilité de signaler et la gouvernance. Si vous utilisez des applications qui prennent en charge l’authentification unique avec Azure AD mais qui sont actuellement configurées pour utiliser des comptes locaux, vous devez reconfigurer ces applications pour qu’elles utilisent l’authentification unique avec Azure AD. De même, si vous utilisez des applications qui prennent en charge l’authentification unique avec Azure AD mais qui utilisent actuellement un autre fournisseur d’identité, vous devez aussi reconfigurer ces applications pour qu’elles utilisent l’authentification unique avec Azure AD. Pour les applications qui ne prennent pas en charge les protocoles de fédération mais qui prennent en charge l’authentification basée sur des formulaires, nous vous recommandons de configurer ces applications pour qu’elles utilisent des [coffres de mots de passe](../app-proxy/application-proxy-configure-single-sign-on-password-vaulting.md) avec le proxy d’application Azure AD.
 
 ![Connexion au proxy d’application basée sur des mots de passe](./media/active-directory-ops-guide/active-directory-ops-img8.png)
 
@@ -196,10 +196,10 @@ En revanche, si vous trouvez des applications auxquelles des utilisateurs indivi
 
 ### <a name="named-locations"></a>Emplacements nommés
 
-Avec les [emplacements nommés](../reports-monitoring/quickstart-configure-named-locations.md) dans Azure AD, vous pouvez étiqueter des plages d’adresses IP approuvées dans votre organisation. Azure AD utilise des emplacements nommés pour effectuer les actions suivantes :
+Avec les [emplacements nommés](../conditional-access/location-condition.md) dans Azure AD, vous pouvez étiqueter des plages d’adresses IP approuvées dans votre organisation. Azure AD utilise des emplacements nommés pour effectuer les actions suivantes :
 
 - Éviter les faux positifs dans les événements à risque. La connexion à partir d’un emplacement réseau approuvé réduit les risques liés à la connexion d’un utilisateur.
-- Configurer l’[accès conditionnel en fonction des emplacements](../reports-monitoring/quickstart-configure-named-locations.md).
+- Configurer l’[accès conditionnel en fonction des emplacements](../conditional-access/location-condition.md).
 
 ![Emplacements nommés](./media/active-directory-ops-guide/active-directory-ops-img10.png)
 

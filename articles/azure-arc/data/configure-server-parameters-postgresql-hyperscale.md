@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: cdbddfc84b3f71576cfd0299f2babec859b4ef1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06bff9acd76edc05498285809735eb4ec8a3c2f3
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92311058"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407751"
 ---
 # <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Définir les paramètres du moteur de base de données pour PostgreSQL Hyperscale activé par Azure Arc
 
@@ -215,5 +215,5 @@ azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Découvrez comment [effectuer un scale-out (ajout de nœuds Worker)](scale-out-postgresql-hyperscale-server-group.md) de votre groupe de serveurs
+- Découvrez comment [effectuer un scale-out (ajout de nœuds Worker)](scale-out-in-postgresql-hyperscale-server-group.md) de votre groupe de serveurs
 - Découvrez comment [effectuer un scale-up ou un scale-down (augmentation/diminution de la mémoire/des vCores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) de votre groupe de serveurs

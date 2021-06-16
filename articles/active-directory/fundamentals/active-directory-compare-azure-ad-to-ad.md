@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
-ms.openlocfilehash: 7a68185313049cf6716517d5694477f697ef56f5
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: bca37a0e30240732443bcc08ca76dc9b875af37d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802123"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955013"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Comparer Active Directory à Azure Active Directory
 
@@ -36,7 +36,7 @@ La plupart des administrateurs informatiques maîtrisent les concepts liés à A
 | Gestion des informations d’identification| Dans Active Directory, les informations d’identification sont basées sur les mots de passe, l’authentification par certificat et l’authentification par carte à puce. Les mots de passe sont gérés à l’aide de stratégies de mot de passe basées sur la longueur, l’expiration et la complexité des mots de passe.|Azure AD utilise une [protection par mot de passe](../authentication/concept-password-ban-bad.md) intelligente pour le cloud et localement. Cette protection comprend le verrouillage intelligent, ainsi que le blocage des substitutions et phrases de mot de passe courantes et personnalisées. </br>Azure AD améliore de manière significative la sécurité via l’[authentification multifacteur](../authentication/concept-mfa-howitworks.md) et des technologies [sans mot de passe](../authentication/concept-authentication-passwordless.md), comme FIDO2. </br>Azure AD réduit les coûts de support en fournissant aux utilisateurs un système de [réinitialisation de mot de passe en libre-service](../authentication/concept-sspr-howitworks.md). |
 | **Applications**|||
 | Applications d’infrastructure|Active Directory forme la base de nombreux composants locaux d’infrastructure, tels que l’accès DNS, DHCP, IPSec, WiFi, NPS et VPN|Dans le nouveau monde du cloud, Azure AD est le nouveau plan de contrôle permettant d’accéder aux applications et de s’appuyer sur les contrôles de réseau. Lorsque les utilisateurs s’authentifient,l’[accès conditionnel](../conditional-access/overview.md) contrôle les utilisateurs qui auront accès aux applications dans les conditions requises.|
-| Applications traditionnelles et héritées| La plupart des applications locales utilisent LDAP, l’authentification Windows intégrée (NTLM et Kerberos) ou l’authentification basée sur l’en-tête pour contrôler l’accès aux utilisateurs.| Azure AD peut fournir un accès à ces types d’applications locales à l’aide d’agents de [proxy d’application Azure AD](../manage-apps/application-proxy.md) s’exécutant localement. En utilisant cette méthode, Azure AD peut authentifier localement les utilisateurs Active Directory à l’aide de Kerberos pendant que vous migrez ou avez besoin de coexister avec des applications héritées. |
+| Applications traditionnelles et héritées| La plupart des applications locales utilisent LDAP, l’authentification Windows intégrée (NTLM et Kerberos) ou l’authentification basée sur l’en-tête pour contrôler l’accès aux utilisateurs.| Azure AD peut fournir un accès à ces types d’applications locales à l’aide d’agents de [proxy d’application Azure AD](../app-proxy/application-proxy.md) s’exécutant localement. En utilisant cette méthode, Azure AD peut authentifier localement les utilisateurs Active Directory à l’aide de Kerberos pendant que vous migrez ou avez besoin de coexister avec des applications héritées. |
 | Applications SaaS|Active Directory ne prend pas en charge les applications SaaS en mode natif et nécessite un système de fédération, tel qu’AD FS.|Les applications SaaS prenant en charge l’authentification OAuth2, SAML et WS-\* peuvent être intégrées pour utiliser Azure AD pour l’authentification. |
 | Applications métier avec authentification moderne|Les organisations peuvent utiliser AD FS avec Active Directory pour prendre en charge les applications métier nécessitant une authentification moderne.| Les applications métier nécessitant une authentification moderne peuvent être configurées pour utiliser Azure AD pour l’authentification. |
 | Services de niveau intermédiaire/démons|Les services s’exécutant dans des environnements locaux utilisent normalement les comptes de service Active Directory ou les comptes de service administrés de groupe (gMSA) pour s’exécuter. Ces applications hériteront ensuite des autorisations du compte de service.| Azure AD fournit des [identités managées](../managed-identities-azure-resources/index.yml) afin d’exécuter d’autres charges de travail dans le cloud. Le cycle de vie de ces identités est géré par Azure AD et lié au fournisseur de ressources, et il ne peut pas être utilisé à d’autres fins pour obtenir un accès par une porte dérobée.|
@@ -50,5 +50,5 @@ La plupart des administrateurs informatiques maîtrisent les concepts liés à A
 
 - [Qu’est-ce qu’Azure Active Directory ?](./active-directory-whatis.md)
 - [Comparer les services Active Directory Domain Services auto-gérés, Azure Active Directory et Azure Active Directory Domain Services managés](../../active-directory-domain-services/compare-identity-solutions.md)
-- [Questions fréquentes (FAQ) sur Azure Active Directory](./active-directory-faq.md)
+- [Questions fréquentes (FAQ) sur Azure Active Directory](./active-directory-faq.yml)
 - [Nouveautés d’Azure Active Directory](./whats-new.md)

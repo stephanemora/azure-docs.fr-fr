@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: e4240e7ad53725494a2b9b04d827fef0395c1bd2
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: a97726498adc89a8453d88bef9a61aa343da2c5e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483170"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956440"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : Dictionnaire de la terminologie cloud sur la plateforme Azure
 
@@ -104,7 +104,7 @@ Voir [Présentation d’Azure Resource Manager](azure-resource-manager/managemen
 
 ## <a name="resource-manager-template"></a><a name="arm-template"></a>modèle Azure Resource Manager
 Un fichier JSON qui définit de façon déclarative une ou plusieurs ressources Azure ainsi que les dépendances entre les ressources déployées. Le modèle peut être utilisé pour déployer les ressources de manière cohérente et répétée.  
-Voir [Création de modèles Azure Resource Manager](./azure-resource-manager/templates/template-syntax.md)
+Voir [Création de modèles Azure Resource Manager](./azure-resource-manager/templates/syntax.md)
 
 ## <a name="resource-provider"></a>fournisseur de ressources
 Un service qui fournit les ressources que vous pouvez déployer et gérer via Azure Resource Manager. Chaque fournisseur de ressources propose des opérations pour travailler avec les ressources déployées. Les fournisseurs de ressources sont accessibles via le portail Azure, Azure PowerShell et plusieurs Kits de développement logiciel (SDK) de programmation.  

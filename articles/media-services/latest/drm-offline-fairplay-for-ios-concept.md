@@ -6,14 +6,14 @@ author: willzhan
 manager: femila
 ms.service: media-services
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 05/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: acff3e77b92110c818ea0ab0f8281aef87e9db81
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 516feb728368bfc57ce48bad8275419c726c7701
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068460"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793403"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>FairPlay Streaming hors connexion pour iOS avec Media Services v3
 
@@ -49,18 +49,18 @@ Avant de mettre en œuvre DRM hors connexion pour FairPlay sur un appareil iOS 1
 
     - [Configuration et conditions de licence Apple FairPlay](drm-fairplay-license-overview.md)
     - [Utilisation du chiffrement dynamique DRM et du service de remise des licences](drm-protect-with-drm-tutorial.md)
-    - Exemple .NET qui comprend la configuration du streaming FPS en ligne : [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
+    - Exemple .NET qui comprend la configuration du streaming FPS en ligne : [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L493)
 * Obtenez le Kit SDK FPS d’Apple Developer Network. Le Kit SDK FPS contient deux composants :
 
     - le Kit SDK du serveur FPS, qui contient le module de sécurité de clés (KSM), des exemples clients, une spécification et un ensemble de vecteurs de test ;
     - le pack de déploiement FPS, qui contient la fonction D, une spécification avec des instructions sur le mode de génération du certificat FPS, une clé privée spécifique au client et la clé secrète d’application. Apple publie le pack de déploiement FPS uniquement aux fournisseurs de contenu sous licence.
 * Clonez https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git. 
 
-    Pour ajouter des configurations FairPlay, vous devrez modifier le code fourni dans [Encrypt with DRM using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM).  
+    Pour ajouter des configurations FairPlay, vous devrez modifier le code fourni dans [Encrypt with DRM using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/main/AMSV3Tutorials/EncryptWithDRM).  
 
 ## <a name="configure-content-protection-in-azure-media-services"></a>Configurer la protection du contenu dans Azure Media Services
 
-Dans la méthode [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189), effectuez les étapes suivantes :
+Dans la méthode [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L192), effectuez les étapes suivantes :
 
 Décommentez le code qui configure l’option de stratégie FairPlay :
 
@@ -82,7 +82,7 @@ options.Add(
 
 ## <a name="enable-offline-mode"></a>Activer le mode hors connexion
 
-Pour activer le mode hors connexion, créez un StreamingPolicy personnalisé et utiliser son nom lors de la création d’un StreamingLocator dans [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L561).
+Pour activer le mode hors connexion, créez un StreamingPolicy personnalisé et utiliser son nom lors de la création d’un StreamingLocator dans [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L538).
  
 ```csharp
 CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()

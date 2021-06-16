@@ -1,22 +1,22 @@
 ---
 title: 'Azure CLI : Créer une instance gérée'
 description: Exemple de script Azure CLI permettant de créer une instance managée dans Azure SQL Managed Instance
-services: sql-database
-ms.service: sql-database
-ms.subservice: operations
+services: sql-managed-instance
+ms.service: sql-managed-instance
+ms.subservice: deployment-configuration
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: carlrab
+author: danimir
+ms.author: danil
+ms.reviewer: mathoma
 ms.date: 03/25/2019
-ms.openlocfilehash: 54e1aa993f177a4d3bc255287ae8c2fb14cf65af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 25ddb88cfe4fa96f60c2b9ffe556a200aaae3c2b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87497271"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110698124"
 ---
 # <a name="use-cli-to-create-an-azure-sql-managed-instance"></a>Utiliser l’interface CLI pour créer une instance Azure SQL Managed Instance
 

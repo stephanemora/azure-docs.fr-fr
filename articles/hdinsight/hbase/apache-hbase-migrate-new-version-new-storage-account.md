@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/06/2021
-ms.openlocfilehash: 57ce3d38e715dce80289b38efeb7ddacba46ff8e
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 4ed4de8c134575bba1b961f918216eb3cca9b6b1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109657534"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963996"
 ---
 # <a name="migrate-apache-hbase-to-a-new-version-and-storage-account"></a>Migrer Apache HBase vers une nouvelle version et un compte de stockage
 
@@ -143,7 +143,7 @@ Pour passer la clé du compte de stockage, utilisez :
 - `-Dfs.azure.account.key.<storageaccount>.blob.core.windows.net='<storage account key>'`
 - `-Dfs.azure.account.keyprovider.<storageaccount>.blob.core.windows.net=org.apache.hadoop.fs.azure.SimpleKeyProvider`
 
-Vous pouvez aussi utiliser [AzCopy](/azure/storage/common/storage-ref-azcopy) pour bénéficier de meilleures performances lors de la copie de fichiers de données HBase.
+Vous pouvez aussi utiliser [AzCopy](../../storage/common/storage-ref-azcopy.md) pour bénéficier de meilleures performances lors de la copie de fichiers de données HBase.
    
 1. Exécutez la commande AzCopy :
    
@@ -159,7 +159,7 @@ Vous pouvez aussi utiliser [AzCopy](/azure/storage/common/storage-ref-azcopy) po
    sudo -u hbase hadoop fs -chmod -R 0755 /hbase
    ```
 
-Vous pouvez télécharger AzCopy à partir de la page [Bien démarrer avec AzCopy](/azure/storage/common/storage-use-azcopy-v10). Pour plus d’informations sur l’utilisation d’AzCopy, consultez [azcopy copy](/azure/storage/common/storage-ref-azcopy-copy).
+Vous pouvez télécharger AzCopy à partir de la page [Bien démarrer avec AzCopy](../../storage/common/storage-use-azcopy-v10.md). Pour plus d’informations sur l’utilisation d’AzCopy, consultez [azcopy copy](../../storage/common/storage-ref-azcopy-copy.md).
 
 #### <a name="the-source-cluster-is-hdi-36-or-hdi-40-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes"></a>Le cluster source utilise HDI 3.6 ou HDI 4.0 avec les écritures accélérées et le cluster de destination utilise les écritures accélérées
 
@@ -276,4 +276,3 @@ Pour plus d’informations sur [Apache HBase](https://hbase.apache.org/) et la m
 - [Superviser et gérer Azure HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](../hdinsight-hadoop-manage-ambari.md)
 - [Versions d’Azure HDInsight](../hdinsight-component-versioning.md)
 - [Optimiser Apache HBase](../optimize-hbase-ambari.md)
-

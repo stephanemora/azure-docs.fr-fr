@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2cf201c17b97464386ce52f4d689c2c1006d0970
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: e4463659077943507651ddd2ad30ee2a1af9cf7a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377413"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110785210"
 ---
 # <a name="azure-functions-hosting-options"></a>Options d’hébergement Azure Functions
 
@@ -103,7 +103,7 @@ Le tableau suivant compare les comportements de mise à l’échelle des différ
 | --- | --- |
 | **[Plan de consommation](consumption-plan.md)** | Ne payez que la durée d’exécution de vos fonctions. La facturation est basée sur le nombre d’exécutions, la durée d’exécution et la mémoire utilisée. |
 | **[Plan Premium](functions-premium-plan.md)** | Le plan Premium se base sur le nombre de cœurs-seconde et la mémoire utilisée sur les instances nécessaires et préparées. Au moins une instance par plan doit être chaude en permanence. Ce plan offre la tarification la plus prévisible. |
-| * *[Plan Dedicated](dedicated-plan.md)* | Le coût des Function App dans un plan App Service est le même que pour d’autres ressources App Service, par exemple les applications web.|
+| **[Plan dédié](dedicated-plan.md)** | Le coût des Function App dans un plan App Service est le même que pour d’autres ressources App Service, par exemple les applications web.|
 | **[App Service Environment (ASE)](dedicated-plan.md)** | Un tarif fixe mensuel couvre l’infrastructure d’un ASE et ne change pas avec la taille de l’environnement ASE. Chaque processeur virtuel de plan App Service présente aussi un coût. Toutes les applications hébergées dans un environnement App Service sont dans la référence (SKU) de prix Isolée. |
 | **[Kubernetes](functions-kubernetes-keda.md)**| Vous ne payez que le coût de votre cluster Kubernetes et aucune facturation supplémentaire pour Functions. Votre application de fonction s’exécute comme une charge de travail d’application sur votre cluster, tout comme une application normale. |
 

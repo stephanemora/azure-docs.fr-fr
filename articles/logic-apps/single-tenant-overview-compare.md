@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, ladolan, azla
 ms.topic: conceptual
 ms.date: 05/25/2021
-ms.openlocfilehash: 1dd4a75cbebeb0244ffd3e0c1f8e2cfcd1968440
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0c09d013e3e9e3934702eb512334a33a60044b9d
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379729"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111441237"
 ---
 # <a name="single-tenant-versus-multi-tenant-and-integration-service-environment-for-azure-logic-apps"></a>Architecture monolocataire ou multilocataire et environnement de service d’intégration pour Azure Logic Apps
 
@@ -95,7 +95,7 @@ Pour créer une application logique basée sur l’environnement souhaité, vous
 | Portail Azure | Type de ressource **Application logique (Consommation)** | [Démarrage rapide : Créer des workflows d’intégration dans une instance mutalisée Azure Logic Apps - Portail Azure](quickstart-create-first-logic-app-workflow.md) |
 | Visual Studio Code | [Extension **Azure Logic Apps (Consommation)**](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) | [Démarrage rapide : Créer des workflows d’intégration dans une instance mutalisée Azure Logic Apps - Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 | Azure CLI | [Extension **Azure CLI Logic Apps**](https://github.com/Azure/azure-cli-extensions/tree/master/src/logic) | - [Démarrage rapide : Créer et gérer des workflows d’intégration dans une instance mutalisée Azure Logic Apps - Azure CLI](quickstart-logic-apps-azure-cli.md) <p><p>- [az logic](/cli/azure/logic) |
-| Azure Resource Manager | [Modèle Azure Resource Manager (ARM) **Créer une application logique**](https://azure.microsoft.com/resources/templates/101-logic-app-create/) | [Démarrage rapide : Créer et déployer des workflows d’intégration dans une instance mutalisée Azure Logic Apps - Modèle ARM](quickstart-create-deploy-azure-resource-manager-template.md) |
+| Azure Resource Manager | [Modèle Azure Resource Manager (ARM) **Créer une application logique**](https://azure.microsoft.com/resources/templates/logic-app-create/) | [Démarrage rapide : Créer et déployer des workflows d’intégration dans une instance mutalisée Azure Logic Apps - Modèle ARM](quickstart-create-deploy-azure-resource-manager-template.md) |
 | Azure PowerShell | [Az.LogicApp module](/powershell/module/az.logicapp) | [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps) |
 | API REST Azure | [API REST Azure Logic Apps](/rest/api/logic) | [Référence Bien démarrer avec l’API REST Azure](/rest/api/azure) |
 ||||

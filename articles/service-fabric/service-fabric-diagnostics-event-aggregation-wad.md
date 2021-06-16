@@ -3,12 +3,13 @@ title: Agrégation d’événements avec Diagnostics Windows Azure
 description: Découvrez comment agréger et collecter des événements à l’aide des diagnostics Windows Azure pour la surveillance et le diagnostic de clusters Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 04/03/2018
-ms.openlocfilehash: bbc8efcb2600e1832ad8a37560ab231a4a7f3185
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f2adfb44c1ff65503635cf2623371e529092fe19
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626726"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110680898"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agrégation et collecte d’événements à l’aide de Diagnostics Azure pour Windows
 > [!div class="op_single_selector"]

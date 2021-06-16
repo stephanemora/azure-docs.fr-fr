@@ -5,14 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/19/2020
-ms.openlocfilehash: 067d4fb6ce61ca2a5938bbc3256e8a9c01c8a818
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 8795d51c082733101dba69f0018a09982ce2634c
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279829"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560019"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Démarrage rapide : Création d’un serveur Azure Database pour MySQL à l’aide d’un modèle ARM
 
@@ -46,7 +46,7 @@ Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure
 
 Vous créez un serveur Azure Database pour MySQL avec un ensemble défini de ressources de calcul et de stockage. Pour en savoir plus, consultez [Niveaux tarifaires Azure Database pour MySQL](concepts-pricing-tiers.md). Vous créez ce serveur dans un [groupe de ressources Azure](../azure-resource-manager/management/overview.md).
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-managed-mysql-with-vnet/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/managed-mysql-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json":::
 

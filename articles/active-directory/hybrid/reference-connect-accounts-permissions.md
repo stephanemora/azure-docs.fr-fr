@@ -6,23 +6,22 @@ documentationcenter: ''
 author: billmath
 manager: daveba
 editor: ''
-ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/03/2021
+ms.date: 06/02/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63d4c39c2c48312ca68adc501710ee23fb3bbf73
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3b24375cd3c5566a1da4d4e1876844d6984c7985
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754484"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965863"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect : Comptes et autorisations
 
@@ -199,8 +198,8 @@ Légende :
 - Non gras - Option prise en charge
 - Compte local - Compte d’utilisateur local sur le serveur
 - Compte de domaine - Compte d’utilisateur de domaine
-- sMSA - [Compte de service géré autonome](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
-- gMSA - [Compte de service géré de groupe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))
+- sMSA - [Compte de service géré autonome](../../active-directory/fundamentals/service-accounts-on-premises.md)
+- gMSA - [Compte de service géré de groupe](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Custom | SQL à distance</br>Custom |
 | --- | --- | --- | --- |
@@ -217,11 +216,11 @@ VSA est destiné à être utilisé dans les scénarios où le moteur de synchron
 Cette fonctionnalité nécessite Windows Server 2008 R2 ou version ultérieure. Si vous installez Azure AD Connect sur Windows Server 2008, l’installation bascule sur l’utilisation d’un [compte d’utilisateur](#user-account) à la place.
 
 #### <a name="group-managed-service-account"></a>Compte de service géré de groupe
-Si vous utilisez un serveur SQL distant, nous recommandons d’utiliser un **compte de service administré de groupe**. Pour plus d’informations sur la préparation de votre annuaire Active Directory pour le compte de service géré de groupe, consultez [Présentation des comptes de service géré de groupe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)).
+Si vous utilisez un serveur SQL distant, nous recommandons d’utiliser un **compte de service administré de groupe**. Pour plus d’informations sur la préparation de votre annuaire Active Directory pour le compte de service géré de groupe, consultez [Présentation des comptes de service géré de groupe](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
 
 Pour utiliser cette option, sur la page [Installer les composants requis](how-to-connect-install-custom.md#install-required-components), sélectionnez **Utiliser un compte de service existant**, puis sélectionnez **Compte de service administré**.  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
-Il est également possible d’utiliser un [Compte de service géré autonome](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10)). Toutefois, dans la mesure où vous pouvez uniquement les utiliser sur l’ordinateur local, il n’existe aucun avantage à les utiliser à la place du compte de service virtuel par défaut.
+Il est également possible d’utiliser un [Compte de service géré autonome](../../active-directory/fundamentals/service-accounts-on-premises.md). Toutefois, dans la mesure où vous pouvez uniquement les utiliser sur l’ordinateur local, il n’existe aucun avantage à les utiliser à la place du compte de service virtuel par défaut.
 
 Cette fonctionnalité nécessite Windows Server 2012 ou version ultérieure. Si vous devez utiliser un ancien système d’exploitation et SQL à distance, vous devez utiliser un [compte d’utilisateur](#user-account).
 

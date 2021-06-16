@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53cdbfb3ba531330c37f86233cbed990da4efaf4
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: c570a7f646f9fc76fcb858748c59f438b46bf033
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258382"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572134"
 ---
 # <a name="resilient-end-user-experience"></a>Expérience résiliente de l’utilisateur final
 
@@ -46,7 +46,7 @@ Reportez-vous à l’article qui [compare les flux d’utilisateurs et les strat
 
 ## <a name="choose-multiple-idps"></a>Choisir plusieurs IDP
 
-Lorsque vous utilisez un [fournisseur d’identité externe](../../active-directory-b2c/technical-overview.md#external-identity-providers) tel que Facebook, assurez-vous de disposer d’un plan de secours au cas où le fournisseur externe deviendrait indisponible.
+Lorsque vous utilisez un [fournisseur d’identité externe](../../active-directory-b2c/add-identity-provider.md) tel que Facebook, assurez-vous de disposer d’un plan de secours au cas où le fournisseur externe deviendrait indisponible.
 
 ### <a name="how-to-set-up-multiple-idps"></a>Configuration de plusieurs IDP
 

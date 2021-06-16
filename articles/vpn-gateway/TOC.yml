@@ -39,6 +39,8 @@
           href: work-remotely-support.md
         - name: Configurations d’appliances virtuelles réseau et travail à distance
           href: nva-work-remotely-support.md
+    - name: FAQ sur la passerelle VPN
+      href: vpn-gateway-vpn-faq.md
     - name: À propos de la conception de la passerelle VPN
       href: design.md
     - name: À propos des paramètres de la passerelle VPN
@@ -320,8 +322,6 @@
       href: /cli/azure/network/vnet-gateway
 - name: Ressources
   items:
-    - name: FAQ sur la passerelle VPN
-      href: vpn-gateway-vpn-faq.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Blog

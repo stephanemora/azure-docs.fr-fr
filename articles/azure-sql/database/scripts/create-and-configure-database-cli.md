@@ -3,20 +3,20 @@ title: 'L’interface de ligne de commande Azure CLI : Créer une base de donn
 description: Utilisez cet exemple de script Azure CLI pour créer une base de données unique.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 00346accbccd67f542a8496ac097b0236c56a08c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 76f7d0314e382508c6290e80db4960addbc15c24
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773816"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110688961"
 ---
 # <a name="use-the-azure-cli-to-create-a-single-database-and-configure-a-firewall-rule"></a>Utiliser Azure CLI pour créer une base de données unique et configurer une règle de pare-feu
 

@@ -7,16 +7,16 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3a56ff7a53151030b1c0aec8d11906c09a499a63
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: b67a1dcb2f6df42c95bb0b5c20ae4397582112db
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319374"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966914"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Exemples de modèle Resource Manager pour Azure Monitor
 
-Azure Monitor peut être déployé et configuré à grande échelle à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Les articles suivants fournissent des exemples de modèle pour différentes fonctionnalités d’Azure Monitor. Ces exemples peuvent être modifiés en fonction de vos besoins spécifiques, et déployés par le biais de n’importe quelle méthode standard de déploiement de modèles Resource Manager. 
+Azure Monitor peut être déployé et configuré à grande échelle à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/templates/syntax.md). Les articles suivants fournissent des exemples de modèle pour différentes fonctionnalités d’Azure Monitor. Ces exemples peuvent être modifiés en fonction de vos besoins spécifiques, et déployés par le biais de n’importe quelle méthode standard de déploiement de modèles Resource Manager. 
 
 ## <a name="deploying-the-sample-templates"></a>Déploiement des exemples de modèle
 Les étapes de base pour utiliser les exemples sont les suivantes :

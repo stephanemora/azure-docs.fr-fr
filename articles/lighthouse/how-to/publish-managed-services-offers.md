@@ -3,12 +3,12 @@ title: Publier une offre de services gérés sur la place de marché Azure
 description: Découvrez comment publier une offre de service géré qui intègre les clients à Azure Lighthouse.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: f59d9708925b52bcf9432663fe6d3137a54b37ad
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 014386c6c4676abbc441cc2e23bdfcf90f3adc09
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107446"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965114"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publier une offre de services gérés sur la place de marché Azure
 
@@ -53,7 +53,7 @@ Après avoir ajouté votre offre, un client peut déléguer un ou plusieurs abon
 
 Lorsque vous avez terminé chacune des sections, l’étape suivante consiste à publier l’offre sur la Place de marché Azure. Sélectionnez le bouton **Publier** pour démarrer le processus de mise en ligne de votre offre. Pour plus d’informations sur ce processus, consultez cette [page](../../marketplace/review-publish-offer.md).
 
-Vous pouvez [publier une version mise à jour de votre offre](../..//marketplace/partner-center-portal/update-existing-offer.md) à tout moment. Par exemple, vous pouvez souhaiter ajouter une nouvelle définition de rôle à une offre publiée précédemment. Dans ce cas, les clients qui ont déjà ajouté l’offre voient s’afficher une icône sur la page [**Fournisseurs de services**](view-manage-service-providers.md) du Portail Azure, ce qui leur permet de savoir qu’une mise à jour est disponible. Chaque client pourra [passer en revue les modifications](view-manage-service-providers.md#update-service-provider-offers) et décider s’il souhaite effectuer la mise à jour vers la nouvelle version. 
+Vous pouvez [publier une version mise à jour de votre offre](../../marketplace/update-existing-offer.md) à tout moment. Par exemple, vous pouvez souhaiter ajouter une nouvelle définition de rôle à une offre publiée précédemment. Dans ce cas, les clients qui ont déjà ajouté l’offre voient s’afficher une icône sur la page [**Fournisseurs de services**](view-manage-service-providers.md) du Portail Azure, ce qui leur permet de savoir qu’une mise à jour est disponible. Chaque client pourra [passer en revue les modifications](view-manage-service-providers.md#update-service-provider-offers) et décider s’il souhaite effectuer la mise à jour vers la nouvelle version. 
 
 ## <a name="the-customer-onboarding-process"></a>Processus d’intégration des clients
 

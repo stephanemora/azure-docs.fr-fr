@@ -6,16 +6,16 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 52b5bd0650b3a069adc3ef7f101c48a4674deaab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1006f29544bf2708277c6b5a975836a31bcdeff9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97107105"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959286"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutoriel : Ajouter des fonctions de modèle à votre modèle ARM
 
-Dans ce tutoriel, vous allez apprendre à ajouter des [fonctions de modèle](template-functions.md) à votre modèle Azure Resource Manager (modèle ARM). Vous utilisez des fonctions pour élaborer des valeurs de façon dynamique. Outre ces fonctions de modèle fournies par le système, vous pouvez aussi créer des [fonctions définies par l’utilisateur](./template-user-defined-functions.md). Ce tutoriel dure environ **7 minutes**.
+Dans ce tutoriel, vous allez apprendre à ajouter des [fonctions de modèle](template-functions.md) à votre modèle Azure Resource Manager (modèle ARM). Vous utilisez des fonctions pour élaborer des valeurs de façon dynamique. Outre ces fonctions de modèle fournies par le système, vous pouvez aussi créer des [fonctions définies par l’utilisateur](./user-defined-functions.md). Ce tutoriel dure environ **7 minutes**.
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -8,12 +8,12 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
-ms.openlocfilehash: 88cade73c03f1dd3562ac196cbad5091981c2058
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d21a9b91a7030deb805c80034ca0515e2b226b16
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776702"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954591"
 ---
 # <a name="migrate-failover-cluster-instance-to-sql-server-on-azure-vms"></a>Migrer une instance de cluster de basculement vers SQL Server sur machines virtuelles Azure
 
@@ -46,7 +46,7 @@ Préparer Azure pour la migration avec Migration de serveur.
 
 **Tâche** | **Détails**
 --- | ---
-**Créer un projet Azure Migrate** | Votre compte Azure doit disposer d’autorisations Contributeur ou Propriétaire pour [créer un projet](https://docs.microsoft.com/azure/migrate/create-manage-projects).
+**Créer un projet Azure Migrate** | Votre compte Azure doit disposer d’autorisations Contributeur ou Propriétaire pour [créer un projet](../../../migrate/create-manage-projects.md).
 **Vérifier les autorisations pour votre compte Azure** | Votre compte Azure doit disposer d’autorisations Contributeur ou Propriétaire sur l’abonnement Azure, des autorisations pour inscrire des applications AAD (Azure Active Directory) et des autorisations Administrateur de l’accès utilisateur sur l’abonnement Azure pour créer un coffre de clés, créer une machine virtuelle et écrire sur un disque managé Azure.
 **Configurer un réseau virtuel Azure** | [Configurez](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network) un réseau virtuel Azure. Quand vous effectuez une réplication sur Azure, des machines virtuelles Azure sont créées et jointes au réseau virtuel Azure que vous avez spécifié lors de la configuration de la migration.
 
@@ -134,7 +134,7 @@ Pour installer le service Mobility, procédez comme suit :
 
 1. Connectez-vous à l’appliance de réplication.
 2. Accédez au dossier **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
-3. Recherchez le programme d’installation correspondant à la version du système d’exploitation de la machine. Vérifiez quels sont les [systèmes d’exploitation pris en charge](/site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines). 
+3. Recherchez le programme d’installation correspondant à la version du système d’exploitation de la machine. Vérifiez quels sont les [systèmes d’exploitation pris en charge](../../../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines). 
 4. Copiez le fichier du programme d’installation sur la machine qui doit faire l’objet d’une migration.
 5. Vérifiez que vous disposez de la phrase secrète qui a été générée lorsque vous avez déployé l’appliance.
     - Stockez le fichier dans un fichier texte temporaire sur la machine.
@@ -247,7 +247,7 @@ Pour que le cluster et les rôles de cluster répondent correctement aux demande
     - Chiffrement double avec des clés gérées par la plateforme et des clés gérées par le client
 
     > [!NOTE]
-    > Pour répliquer des machines virtuelles avec une clé gérée par le client, vous devez [créer un jeu de chiffrement de disque](https://go.microsoft.com/fwlink/?linkid=2151800) sous le groupe de ressources cible. Un objet de jeu de chiffrement de disque mappe les disques managés à un coffre de clés contenant les clés gérées par le client à utiliser pour le chiffrement côté serveur.
+    > Pour répliquer des machines virtuelles avec une clé gérée par le client, vous devez [créer un jeu de chiffrement de disque](../../../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) sous le groupe de ressources cible. Un objet de jeu de chiffrement de disque mappe les disques managés à un coffre de clés contenant les clés gérées par le client à utiliser pour le chiffrement côté serveur.
   
 1. Dans **Azure Hybrid Benefit** :
 
@@ -356,7 +356,7 @@ Votre instance de cluster de basculement SQL Server est prête.
     - Arrête la réplication pour l’ordinateur local.
     - Supprime l’ordinateur du nombre **Réplication de serveurs** dans Azure Migrate : Server Migration.
     - Nettoie les informations d’état de réplication pour la machine.
-1. Installez l’agent [Windows](/virtual-machines/extensions/agent-windows.md) de machine virtuelle Azure sur les machines migrées.
+1. Installez l’agent [Windows](../../../virtual-machines/extensions/agent-windows.md) de machine virtuelle Azure sur les machines migrées.
 1. Effectuez les éventuels ajustements post-migration de l’application, comme la mise à jour des chaînes de connexion de base de données et les configurations du serveur web.
 1. Effectuez les tests finaux de réception de l’application et de la migration sur l’application migrée qui s’exécute maintenant dans Azure.
 1. Réduisez le trafic vers l’instance de machine virtuelle Azure migrée.

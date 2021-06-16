@@ -3,12 +3,13 @@ title: Sauvegarder des disques managés Azure avec Azure PowerShell
 description: Découvrez comment sauvegarder des disques managés Azure avec Azure PowerShell.
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 2e286128185c1ac7fe4861a9b06de52e10d4139a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 31259bdbdc99fd307337cd6059f9160a0aeaf05e
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629729"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110672129"
 ---
 # <a name="back-up-azure-managed-disks-using-azure-powershell"></a>Sauvegarder des disques managés Azure avec Azure PowerShell
 

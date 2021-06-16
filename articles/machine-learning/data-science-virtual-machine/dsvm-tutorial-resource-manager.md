@@ -11,12 +11,12 @@ ms.service: data-science-vm
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 25310abebb1b938bb0ff453f6525165531685448
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 63c41484ab1123a5a5fdc9620381afed76e8bf08
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749496"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982733"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>Démarrage rapide : Créer une machine virtuelle Data Science Virtual Machine Ubuntu à l’aide d’un modèle Resource Manager
 
@@ -36,7 +36,7 @@ Si votre environnement remplit les prérequis et que vous êtes déjà familiari
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/vm-ubuntu-DSVM-GPU-or-CPU/).
 
 :::code language="json" source="~/quickstart-templates/application-workloads/datascience/vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json":::
 

@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 9e3144738bd259ab9be75059af00f125581bb37c
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 5dffc4b1ffaa221e507c84c8a9b5654f9e5355c8
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "102050118"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110785201"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Démarrage rapide : Créer votre première fonction dans Azure à l’aide de Visual Studio
 
@@ -24,8 +24,6 @@ Le suivi de ce guide de démarrage rapide génère une dépense de quelques cent
 + Créez un <abbr title="Profil qui gère les informations de facturation pour l’utilisation d’Azure.">account</abbr> avec un <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">subscription</abbr>. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 + Installez [Visual Studio 2019](https://azure.microsoft.com/downloads/) et sélectionnez la charge de travail **Développement Azure** lors de l’installation. 
-
-![Installez Visual Studio avec la charge de travail de développement Azure.](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 <br/>
 <details>
@@ -155,19 +153,7 @@ L’attribut de méthode `FunctionName` définit le nom de la fonction qui, par 
 
 ## <a name="7-clean-up-resources"></a>7. Nettoyer les ressources
 
-Supprimez l’application de fonction et ses ressources afin d’éviter des coûts supplémentaires.
-
-1. Dans Cloud Explorer, développez votre abonnement, développez **App Services**, cliquez avec le bouton droit sur votre application de fonction et choisissez **Ouvrir dans le portail**. 
-
-1. Dans la page de l’application de fonction, sélectionnez l’onglet **Vue d’ensemble**, puis le lien sous **Groupe de ressources**.
-
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Sélectionner le groupe de ressources à supprimer dans la page de l’application de fonction":::
-
-1. Dans la page **Groupe de ressources**, passez en revue la liste des ressources incluses et vérifiez qu’elles correspondent à celles que vous souhaitez supprimer.
- 
-1. Sélectionnez **Supprimer le groupe de ressources** et suivez les instructions.
-
-    Cette opération peut prendre quelques minutes. Une fois terminée, une notification s’affiche pendant quelques secondes. Vous pouvez également sélectionner l’icône représentant une cloche en haut de la page pour afficher la notification.
+[!INCLUDE [functions-vstools-cleanup](../../includes/functions-vstools-cleanup.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

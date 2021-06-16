@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 03/29/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0708548e1ece88cbf575301ee779fd5e5000dc5d
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 727b5997045694a1a9242b30d865ec6229fbd3bf
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683511"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963623"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Révoquer les accès utilisateur dans Azure Active Directory
 
@@ -54,7 +54,7 @@ La plupart des applications basées sur un navigateur utilisent des jetons de se
 
 ## <a name="revoke-access-for-a-user-in-the-hybrid-environment"></a>Révoquer l’accès d’un utilisateur dans l’environnement hybride
 
-Dans un environnement hybride où un Active Directory local est synchronisé avec Azure Active Directory, Microsoft recommande aux administrateurs informatiques de suivre les procédures ci-après. Si vous avez un **environnement uniquement Azure AD**, passez à la section [Environnement Active Directory local](https://docs.microsoft.com/azure/active-directory/enterprise-users/users-revoke-access#azure-active-directory-environment).
+Dans un environnement hybride où un Active Directory local est synchronisé avec Azure Active Directory, Microsoft recommande aux administrateurs informatiques de suivre les procédures ci-après. Si vous avez un **environnement uniquement Azure AD**, passez à la section [Environnement Active Directory local](#azure-active-directory-environment).
 
 
 ### <a name="on-premises-active-directory-environment"></a>Environnement Active Directory local

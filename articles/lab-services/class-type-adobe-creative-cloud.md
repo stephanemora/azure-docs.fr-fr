@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 04/21/2021
 ms.author: nicolela
-ms.openlocfilehash: ef4245a3c17f95cf7e04b866939d4e92e39411c8
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 210fa647f12a786e357902bef3bbb3b20cca8077
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108281060"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962658"
 ---
 # <a name="set-up-a-lab-for-adobe-creative-cloud"></a>Configurer un labo pour Adobe Creative Cloud
 [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) est un ensemble d'applications de bureau et de services web utilisés pour la photographie, la conception graphique, le montage vidéo, le développement web, etc.  Des universités et des établissements scolaires utilisent Creative Cloud dans le cadre de leurs cours dédiés aux arts numériques et au multimédia.  Certains des processus multimédias de Creative Cloud peuvent nécessiter une puissance de calcul et de visualisation (GPU) supérieure à celle d'une tablette, d'un ordinateur portable ou d'une station de travail classique.  Azure Lab Services vous permet de faire votre choix parmi différentes tailles de machine virtuelle (tailles GPU comprises).
@@ -29,11 +29,11 @@ Activez les paramètres décrits dans le tableau ci-dessous pour le compte lab. 
 
 | Paramètres du compte lab | Instructions |
 | ------------------- | ------------ |
-|Image de la Place de marché| Activez l'image Windows 10 pour l'utiliser dans votre compte Lab.|
+|Image de la Place de marché| Activez l’image Windows 10 pour l’utiliser dans votre compte de labo.|
 
 ### <a name="lab-settings"></a>Paramètres du labo
 
-La taille de machine virtuelle à utiliser pour votre labo dépendra des types de projets que vos étudiants créeront.  La plupart des [applications Creative Cloud](https://helpx.adobe.com/creative-cloud/system-requirements.html) prennent en charge l'accélération basée sur le GPU et nécessitent un GPU pour que les fonctionnalités soient opérationnelles.  Pour sélectionner la taille de machine virtuelle appropriée et bénéficier de performances adéquates, nous vous recommandons de tester les projets créés par vos étudiants.  Le tableau ci-dessous indique la [taille de machine virtuelle](https://docs.microsoft.com/azure/lab-services/administrator-guide#vm-sizing) qu'il est recommandé d'utiliser avec Creative Cloud.  
+La taille de machine virtuelle à utiliser pour votre labo dépendra des types de projets que vos étudiants créeront.  La plupart des [applications Creative Cloud](https://helpx.adobe.com/creative-cloud/system-requirements.html) prennent en charge l'accélération basée sur le GPU et nécessitent un GPU pour que les fonctionnalités soient opérationnelles.  Pour sélectionner la taille de machine virtuelle appropriée et bénéficier de performances adéquates, nous vous recommandons de tester les projets créés par vos étudiants.  Le tableau ci-dessous indique la [taille de machine virtuelle](./administrator-guide.md#vm-sizing) qu'il est recommandé d'utiliser avec Creative Cloud.  
 
 | Paramètres du labo | Valeur/instructions |
 | ------------ | ------------------ |

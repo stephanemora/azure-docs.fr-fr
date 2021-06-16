@@ -2,13 +2,13 @@
 title: Fonctions de modèle - tableaux
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (ARM) pour travailler avec des tableaux.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 099fdf6d8ca5e4221ff3ea438978f20c14557c73
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.date: 05/11/2021
+ms.openlocfilehash: 62704fc3ac6b4198e35d09f9951b9239bd95ce5a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802825"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959740"
 ---
 # <a name="array-functions-for-arm-templates"></a>Fonctions de tableau pour les modèles ARM
 
@@ -32,8 +32,6 @@ Resource Manager fournit plusieurs fonctions pour vous permettre d’utiliser de
 
 Pour obtenir un tableau de valeurs de chaîne délimitée par une valeur, consultez [split](template-functions-string.md#split).
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## <a name="array"></a>tableau
 
 `array(convertToArray)`
@@ -53,8 +51,6 @@ Tableau.
 ### <a name="example"></a> Exemple
 
 L’exemple suivant montre comment utiliser la fonction de tableau avec des types différents.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -96,23 +92,6 @@ L’exemple suivant montre comment utiliser la fonction de tableau avec des type
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param intToConvert int = 1
-param stringToConvert string = 'efgh'
-param objectToConvert object = {
-  'a': 'b'
-  'c': 'd'
-}
-
-output intOutput array = array(intToConvert)
-output stringOutput array = array(stringToConvert)
-output objectOutput array = array(objectToConvert)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -143,8 +122,6 @@ Chaîne ou tableau de valeurs concaténées.
 ### <a name="example"></a> Exemple
 
 L’exemple suivant montre comment combiner deux tableaux.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -179,25 +156,6 @@ L’exemple suivant montre comment combiner deux tableaux.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstArray array = [
-  '1-1'
-  '1-2'
-  '1-3'
-]
-param secondArray array = [
-  '2-1'
-  '2-2'
-  '2-3'
-]
-
-output return array = concat(firstArray, secondArray)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -205,8 +163,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) suivant montre comment combiner deux valeurs de chaîne et retourner une chaîne concaténée.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -227,16 +183,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param prefix string = 'prefix'
-
-output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -264,8 +210,6 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 ### <a name="example"></a>Exemple
 
 L’exemple suivant montre comment utiliser contains avec différents types :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -320,31 +264,6 @@ L’exemple suivant montre comment utiliser contains avec différents types :
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringToTest string = 'OneTwoThree'
-param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
-}
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output stringTrue bool = contains(stringToTest, 'e')
-output stringFalse bool = contains(stringToTest, 'z')
-output objectTrue bool = contains(objectToTest, 'one')
-output objectFalse bool = contains(objectToTest, 'a')
-output arrayTrue bool = contains(arrayToTest, 'three')
-output arrayFalse bool = contains(arrayToTest, 'four')
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -360,7 +279,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 `createArray (arg1, arg2, arg3, ...)`
 
-Crée un tableau à partir des paramètres. La fonction `createArray` n’est pas prise en charge par Bicep.  Construisez un littéral de tableau à l’aide de `[]`.
+Crée un tableau à partir des paramètres.
 
 ### <a name="parameters"></a>Paramètres
 
@@ -375,8 +294,6 @@ Tableau. Quand aucun paramètre n’est fourni, un tableau vide est retourné.
 ### <a name="example"></a>Exemple
 
 L’exemple suivant montre comment utiliser createArray avec différents types :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -423,13 +340,6 @@ L’exemple suivant montre comment utiliser createArray avec différents types 
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-> [!NOTE]
-> `createArray()` n’est pas pris en charge par Bicep.  Construisez un littéral de tableau à l’aide de `[]`.
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -459,8 +369,6 @@ Retourne **True** si la valeur est vide ; sinon, **False**.
 ### <a name="example"></a>Exemple
 
 L’exemple suivant vérifie si un tableau, un objet et une chaîne sont vides.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -499,20 +407,6 @@ L’exemple suivant vérifie si un tableau, un objet et une chaîne sont vides.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testArray array = []
-param testObject object = {}
-param testString string = ''
-
-output arrayEmpty bool = empty(testArray)
-output objectEmpty bool = empty(testObject)
-output stringEmpty bool = empty(testString)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -541,8 +435,6 @@ Type (chaîne, entier, tableau ou objet) du premier élément d’un tableau ou 
 
 L’exemple suivant montre comment utiliser la première fonction avec un tableau et une chaîne.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -567,21 +459,6 @@ L’exemple suivant montre comment utiliser la première fonction avec un tablea
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output arrayOutput string = first(arrayToTest)
-output stringOutput string = first('One Two Three')
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -611,8 +488,6 @@ Tableau ou objet avec les éléments communs.
 ### <a name="example"></a>Exemple
 
 L’exemple suivant indique comment utiliser l’intersection avec les tableaux et les objets :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -659,38 +534,6 @@ L’exemple suivant indique comment utiliser l’intersection avec les tableaux 
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
-}
-
-param secondObject object = {
-  'one': 'a'
-  'two': 'z'
-  'three': 'c'
-}
-
-param firstArray array = [
-  'one'
-  'two'
-  'three'
-]
-
-param secondArray array = [
-  'two'
-  'three'
-]
-
-output objectOutput object = intersection(firstObject, secondObject)
-output arrayOutput array = intersection(firstArray, secondArray)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -718,8 +561,6 @@ Type (chaîne, entier, tableau ou objet) du dernier élément d’un tableau ou 
 
 L’exemple suivant indique comment utiliser la dernière fonction avec un tableau et une chaîne.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -744,21 +585,6 @@ L’exemple suivant indique comment utiliser la dernière fonction avec un table
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output arrayOutput string = last(arrayToTest)
-output stringOutput string = last('One Two three')
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -786,8 +612,6 @@ Un entier.
 ### <a name="example"></a>Exemple
 
 L’exemple suivant montre comment utiliser la longueur avec un tableau et une chaîne :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -837,32 +661,6 @@ L’exemple suivant montre comment utiliser la longueur avec un tableau et une c
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-param stringToTest string = 'One Two Three'
-param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
-    'propD-1': 'sub'
-    'propD-2': 'sub'
-  }
-}
-
-output arrayLength int = length(arrayToTest)
-output stringLength int = length(stringToTest)
-output objectLength int = length(objectToTest)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -873,21 +671,12 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Vous pouvez utiliser cette fonction avec un tableau pour spécifier le nombre d’itérations lors de la création de ressources. Dans l’exemple ci-après, le paramètre **siteNames** fait référence à un tableau de noms à utiliser lors de la création de sites web.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 "copy": {
   "name": "websitescopy",
   "count": "[length(parameters('siteNames'))]"
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-> [!NOTE]
-> Les boucles ne sont pas encore implémentées dans Bicep.  Consultez [Boucles](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
-
----
 
 Pour plus d’informations sur l’utilisation de cette fonction avec un tableau, consultez [Itération sur des ressources dans les modèles ARM](copy-resources.md).
 
@@ -910,8 +699,6 @@ Entier représentant la valeur maximale.
 ### <a name="example"></a> Exemple
 
 L’exemple suivant montre comment utiliser max avec un tableau et une liste d’entiers :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -936,23 +723,6 @@ L’exemple suivant montre comment utiliser max avec un tableau et une liste d�
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  0
-  3
-  2
-  5
-  4
-]
-
-output arrayOutput int = max(arrayToTest)
-output intOutput int = max(0,3,2,5,4)
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -981,8 +751,6 @@ Entier représentant la valeur minimale.
 
 L’exemple suivant indique comment utiliser la fonction min avec un tableau et une liste d’entiers :
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1006,23 +774,6 @@ L’exemple suivant indique comment utiliser la fonction min avec un tableau et 
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  0
-  3
-  2
-  5
-  4
-]
-
-output arrayOutput int = min(arrayToTest)
-output intOutput int = min(0,3,2,5,4)
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -1052,8 +803,6 @@ Tableau d’entiers.
 
 L’exemple suivant montre comment utiliser la fonction range :
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1077,17 +826,6 @@ L’exemple suivant montre comment utiliser la fonction range :
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param startingInt int = 5
-param numberOfElements int = 3
-
-output rangeOutput array = range(startingInt, numberOfElements)
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -1115,8 +853,6 @@ Tableau ou chaîne.
 ### <a name="example"></a> Exemple
 
 L’exemple suivant ignore le nombre spécifié d’éléments dans le tableau et le nombre spécifié de caractères dans une chaîne.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1158,24 +894,6 @@ L’exemple suivant ignore le nombre spécifié d’éléments dans le tableau e
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testArray array = [
-  'one'
-  'two'
-  'three'
-]
-param elementsToSkip int = 2
-param testString string = 'one two three'
-param charactersToSkip int = 4
-
-output arrayOutput array = skip(testArray, elementsToSkip)
-output stringOutput string = skip(testString, charactersToSkip)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -1203,8 +921,6 @@ Tableau ou chaîne.
 ### <a name="example"></a> Exemple
 
 L’exemple suivant prend le nombre spécifié d’éléments du tableau, et les caractères d’une chaîne.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1246,24 +962,6 @@ L’exemple suivant prend le nombre spécifié d’éléments du tableau, et les
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testArray array = [
-  'one'
-  'two'
-  'three'
-]
-param elementsToTake int = 2
-param testString string = 'one two three'
-param charactersToTake int = 2
-
-output arrayOutput array = take(testArray, elementsToTake)
-output stringOutput string = take(testString, charactersToTake)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -1292,8 +990,6 @@ Objet ou tableau.
 ### <a name="example"></a>Exemple
 
 L’exemple suivant indique comment utiliser l’intersection avec les tableaux et les objets :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1340,38 +1036,6 @@ L’exemple suivant indique comment utiliser l’intersection avec les tableaux 
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c1'
-}
-
-param secondObject object = {
-  'three': 'c2'
-  'four': 'd'
-  'five': 'e'
-}
-
-param firstArray array = [
-  'one'
-  'two'
-  'three'
-]
-
-param secondArray array = [
-  'three'
-  'four'
-]
-
-output objectOutput object = union(firstObject, secondObject)
-output arrayOutput array = union(firstArray, secondArray)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -1381,4 +1045,4 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](./syntax.md).

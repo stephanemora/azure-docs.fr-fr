@@ -2,14 +2,14 @@
 title: Récupérer votre base de données Oracle sur Azure BareMetal Infrastructure
 description: Découvrez comment récupérer votre base de données Oracle sur Azure BareMetal Infrastructure.
 ms.topic: reference
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/15/2021
-ms.openlocfilehash: fc7464474d01314a52a77e0f28b1df160a9f42a0
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: c93159476403ac01ea9622b438fb36e5c423ecb4
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589729"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578479"
 ---
 # <a name="recover-your-oracle-database-on-azure-baremetal-infrastructure"></a>Récupérer votre base de données Oracle sur Azure BareMetal Infrastructure
 

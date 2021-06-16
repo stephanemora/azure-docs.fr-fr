@@ -6,16 +6,16 @@ ms.author: rishjai
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 3fe6ec7baba3e075f5c5026732b10fab81f3bd42
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7707fb0688a10c1791556f0605b40cacc54b5a85
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749372"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961023"
 ---
 # <a name="using-policy-with-azure-site-recovery-public-preview"></a>Utilisation de Policy avec Azure Site Recovery (Préversion publique)
 
-Cet article explique comment configurer [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) pour vos ressources en utilisant Azure Policy. [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) permet d’appliquer certaines règles d’entreprise à vos ressources Azure et d’évaluer la conformité de ces ressources.
+Cet article explique comment configurer [Azure Site Recovery](./site-recovery-overview.md) pour vos ressources en utilisant Azure Policy. [Azure Policy](../governance/policy/overview.md) permet d’appliquer certaines règles d’entreprise à vos ressources Azure et d’évaluer la conformité de ces ressources.
 
 ## <a name="disaster-recovery-with-azure-policy"></a>Récupération d’urgence avec Azure Policy
 Site Recovery vous aide à maintenir vos applications opérationnelles en cas de pannes zonales/régionales planifiées ou non. L’activation de Site Recovery sur vos machines à grande échelle via le portail Azure peut s’avérer difficile. Désormais, vous avez la possibilité d’activer Site Recovery en masse sur des groupes de ressources spécifiques (_étendue_ de la stratégie) par le biais du portail.
@@ -27,8 +27,8 @@ Azure Policy résout ce problème. Une fois que vous avez créé une stratégie 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Comprenez comment attribuer une stratégie [ici](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal).
-- Apprenez-en plus sur l’architecture d’Azure pour la récupération d’urgence Azure [ici](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture).
+- Comprenez comment attribuer une stratégie [ici](../governance/policy/assign-policy-portal.md).
+- Apprenez-en plus sur l’architecture d’Azure pour la récupération d’urgence Azure [ici](./azure-to-azure-architecture.md).
 - Consultez la matrice de prise en charge pour connaître la prise en charge de Policy par Azure Site Recovery :
 
 **Scénario** | **Déclaration de prise en charge**
@@ -93,7 +93,7 @@ Vous êtes sur le point de créer une stratégie pour activer Azure Site Recover
 ## <a name="remediation-and-other-properties"></a>Correction et autres propriétés
 1. Les propriétés cibles pour Azure Site Recovery ont été configurées. Toutefois, cette stratégie ne prendra effet que pour les machines virtuelles nouvellement créées dans l’étendue de la stratégie. Elle peut être appliquée à des ressources existantes par le biais d’une tâche de correction une fois la stratégie attribuée. Vous pouvez créer une tâche de correction ici en cochant la case _Créer une tâche de correction_.
 
-1. Azure Policy créera une [identité managée](https://aka.ms/arm-policy-identity) qui aura des autorisations de propriétaire pour activer Azure Site Recovery pour les ressources de l’étendue.
+1. Azure Policy créera une [identité managée](../governance/policy/how-to/remediate-resources.md) qui aura des autorisations de propriétaire pour activer Azure Site Recovery pour les ressources de l’étendue.
 
 1. Vous pouvez configurer un message de non-conformité personnalisé pour la stratégie dans l’onglet _Messages de non-conformité_.
 

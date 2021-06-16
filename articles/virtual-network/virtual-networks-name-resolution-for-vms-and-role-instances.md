@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2e2f9876c77e292a2634b5ba29958f64f1f32679
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: cbbb1ab30a9f49157951b95a7b33769c3cb2347e
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110079297"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111810263"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Résolution de noms des ressources dans les réseaux virtuels Azure
 
@@ -162,7 +162,7 @@ Il peut arriver que vous ayez besoin d’autres fonctionnalités que celles four
 
 Les serveurs DNS d’un réseau virtuel peuvent transférer des requêtes DNS vers le programme de résolution récursive dans Azure. Cela vous permet de résoudre les noms d’hôte au sein de ce réseau virtuel. Par exemple, un contrôleur de domaine exécuté dans Azure peut répondre aux requêtes DNS concernant ses domaines et transférer toutes les autres requêtes vers Azure. Le transfert des requêtes permet aux machines virtuelles de voir vos ressources locales (par le biais du contrôleur de domaine) et les noms d’hôte fournis par Azure (par le biais du redirecteur). Les programmes de résolution récursive d’Azure sont accessibles via l’adresse IP virtuelle 168.63.129.16.
 
-Le transfert DNS permet aussi la résolution DNS entre réseaux virtuels et permet à vos machines locales de résoudre les noms d’hôte fournis par Azure. Pour résoudre le nom d’hôte d’une machine virtuelle, la machine virtuelle du serveur DNS doit résider dans le même réseau virtuel et être configurée pour rediriger les requêtes de nom d’hôte vers Azure. Comme le suffixe DNS est différent dans chaque réseau virtuel, vous pouvez utiliser des règles de redirection conditionnelles pour envoyer les requêtes DNS au réseau virtuel approprié en vue de la résolution. L’image suivante montre deux réseaux virtuels et un réseau local effectuant une résolution DNS entre réseaux virtuels à l’aide de cette méthode. Un exemple de redirecteur DNS est disponible dans la [Galerie de modèles de démarrage rapide Azure](https://azure.microsoft.com/en-us/resources/templates/dns-forwarder) et sur [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder).
+Le transfert DNS permet aussi la résolution DNS entre réseaux virtuels et permet à vos machines locales de résoudre les noms d’hôte fournis par Azure. Pour résoudre le nom d’hôte d’une machine virtuelle, la machine virtuelle du serveur DNS doit résider dans le même réseau virtuel et être configurée pour rediriger les requêtes de nom d’hôte vers Azure. Comme le suffixe DNS est différent dans chaque réseau virtuel, vous pouvez utiliser des règles de redirection conditionnelles pour envoyer les requêtes DNS au réseau virtuel approprié en vue de la résolution. L’image suivante montre deux réseaux virtuels et un réseau local effectuant une résolution DNS entre réseaux virtuels à l’aide de cette méthode. Un exemple de redirecteur DNS est disponible dans la [Galerie de modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/dns-forwarder) et sur [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder).
 
 > [!NOTE]
 > Une instance de rôle peut résoudre les noms des machines virtuelles appartenant au même réseau virtuel. Pour cela, elle utilise le nom de domaine complet, qui est constitué du nom d’hôte de la machine virtuelle et du suffixe DNS **internal.cloudapp.net**. Toutefois, dans ce cas, la résolution de noms réussit uniquement si l’instance de rôle a le nom de la machine virtuelle défini dans le [Schéma Rôle (fichier .cscfg)](/previous-versions/azure/reference/jj156212(v=azure.100)).
@@ -199,7 +199,7 @@ Supposons que vous ayez besoin d’effectuer la résolution des noms entre votre
 
 Si vous devez effectuer une résolution de noms à partir de votre application web créée à l’aide d’App Service, liée à un réseau virtuel, vers des machines virtuelles dans un autre réseau virtuel, vous devez utiliser des serveurs DNS personnalisés sur les deux réseaux virtuels, comme suit :
 
-* Configurez un serveur DNS dans votre réseau virtuel cible, sur une machine virtuelle qui peut également transférer les requêtes vers le programme de résolution récursive d’Azure (adresse IP virtuelle : 168.63.129.16). Un exemple de redirecteur DNS est disponible dans la [Galerie de modèles de démarrage rapide Azure](https://azure.microsoft.com/en-us/resources/templates/dns-forwarder/) et sur [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder).
+* Configurez un serveur DNS dans votre réseau virtuel cible, sur une machine virtuelle qui peut également transférer les requêtes vers le programme de résolution récursive d’Azure (adresse IP virtuelle : 168.63.129.16). Un exemple de redirecteur DNS est disponible dans la [Galerie de modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/dns-forwarder/) et sur [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder).
 * Configurez un redirecteur DNS dans le réseau virtuel source sur une machine virtuelle. Configurez ce redirecteur DNS pour transférer les requêtes au serveur DNS dans votre réseau virtuel cible.
 * Configurez votre serveur DNS source dans les paramètres de votre réseau virtuel source.
 * Activez l’intégration de réseau virtuel pour votre application web afin de créer un lien vers le réseau virtuel source, en suivant les instructions de l’article [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
