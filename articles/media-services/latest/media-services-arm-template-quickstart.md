@@ -30,7 +30,7 @@ Si vous n’avez jamais déployé de modèle ARM, nous vous conseillons de lire 
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-media-services-create/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/media-services-create/).
 
 La syntaxe de la clôture du code JSON est la suivante :
 

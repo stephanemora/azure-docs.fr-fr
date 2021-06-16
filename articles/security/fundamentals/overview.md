@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
-ms.openlocfilehash: b5f9df4e6f682b5d1e9e3cd35affe6e4191e3d53
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 413e8387e6e6e1c1386aa9477aebe37b2488c098
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047777"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950557"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation de la sécurité Azure
 
@@ -363,7 +363,7 @@ Microsoft a recours à plusieurs technologies et pratiques de sécurité dans se
 
 - L’option [Joint à Azure Active Directory](../../active-directory/devices/overview.md) vous permet d’étendre les fonctionnalités du cloud aux appareils Windows 10 en vue d’une gestion centralisée. Cette fonctionnalité permet aux utilisateurs de se connecter au cloud d’entreprise ou d’organisation via Azure Active Directory, et simplifie l’accès aux applications et aux ressources.
 
-- Le [proxy d’application Azure Active Directory](../../active-directory/manage-apps/application-proxy.md) offre une authentification unique (SSO) et un accès à distance sécurisé pour les applications web hébergées en local.
+- Le [proxy d’application Azure Active Directory](../../active-directory/app-proxy/application-proxy.md) offre une authentification unique (SSO) et un accès à distance sécurisé pour les applications web hébergées en local.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

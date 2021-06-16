@@ -4,12 +4,12 @@ description: Déployez des ressources sur Azure avec un modèle Azure Resource M
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 1c3dd78d8c9c0819c69b12ccb9199acd7a4a626e
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: d8a173c719c239d72c57febbe54688f079a601bb
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752028"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959976"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>Déployer un modèle privé ARM avec un jeton SAS
 
@@ -147,4 +147,4 @@ Pour accéder à un exemple d’utilisation d’un jeton SAP avec des modèles l
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour une introduction au déploiement de modèles, voir [Déployer des ressources à l’aide de modèles ARM et d’Azure PowerShell](deploy-powershell.md).
-* Pour définir des paramètres dans le modèle, consultez [Création de modèles](template-syntax.md#parameters).
+* Pour définir des paramètres dans le modèle, consultez [Création de modèles](./syntax.md#parameters).

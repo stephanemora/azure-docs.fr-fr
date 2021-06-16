@@ -2,17 +2,17 @@
 title: Déploiement conditionnel avec des modèles
 description: Explique comment déployer une ressource de manière conditionnelle dans un modèle Azure Resource Manager (modèle ARM).
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 8be42b4e57e628e41afa5cd914f9dcf72ebe4ab7
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.date: 05/07/2021
+ms.openlocfilehash: 352ee71fea77608ae27552630a7d302b215374a1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736949"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969499"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Déploiement conditionnel dans des modèles ARM
 
-Parfois, vous devez déployer une ressource facultative dans un modèle Azure Resource Manager (modèle ARM) ou un fichier Bicep. Pour les modèles JSON, utilisez l’élément `condition` pour spécifier si la ressource est déployée. Pour Bicep, utilisez le mot clé `if` pour spécifier si la ressource est déployée. La valeur de la condition est résolue en true ou false. Lorsque la valeur est true, la ressource est créée. Lorsque la valeur est false, la ressource n’est pas créée. La valeur ne peut être appliquée qu’à l’ensemble de la ressource.
+Parfois, vous devez déployer une ressource de manière conditionnelle dans un modèle Azure Resource Manager (modèle ARM). Pour spécifier si la ressource est déployée, utilisez l’élément `condition`. La valeur de la condition est résolue en true ou false. Lorsque la valeur est true, la ressource est créée. Lorsque la valeur est false, la ressource n’est pas créée. La valeur ne peut être appliquée qu’à l’ensemble de la ressource.
 
 > [!NOTE]
 > L’exécution du déploiement conditionnel n’inclut pas les [ressources enfants](child-resource-name-type.md). Si vous souhaitez déployer une ressource et ses ressources enfants de manière conditionnelle, vous devez appliquer la même condition à chaque type de ressource.
@@ -20,8 +20,6 @@ Parfois, vous devez déployer une ressource facultative dans un modèle Azure Re
 ## <a name="deploy-condition"></a>Condition de déploiement
 
 Vous pouvez transmettre dans un paramètre une valeur indiquant si une ressource est déployée. L’exemple suivant opère un déploiement de manière conditionnelle dans une zone DNS.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -45,26 +43,11 @@ Vous pouvez transmettre dans un paramètre une valeur indiquant si une ressource
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param deployZone bool
-
-resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
-  name: 'myZone'
-  location: 'global'
-}
-```
-
----
-
 Pour un exemple plus complexe, consultez [Serveur logique SQL Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-logical-server).
 
 ## <a name="new-or-existing-resource"></a>Ressource nouvelle ou existante
 
 Vous pouvez utiliser un déploiement conditionnel pour créer une ressource ou en utiliser une existante. L’exemple suivant montre comment déployer un nouveau compte de stockage ou utiliser un compte de stockage existant.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -108,34 +91,6 @@ Vous pouvez utiliser un déploiement conditionnel pour créer une ressource ou e
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param storageAccountName string
-param location string = resourceGroup().location
-
-@allowed([
-  'new'
-  'existing'
-])
-param newOrExisting string = 'new'
-
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
-  name: storageAccountName
-  location: location
-  sku: {
-    name: 'Standard_LRS'
-    tier: 'Standard'
-  }
-  kind: 'StorageV2'
-  properties: {
-    accessTier: 'Hot'
-  }
-}
-```
-
----
-
 Lorsque le paramètre `newOrExisting` a la valeur **new**, la condition donne le résultat true. Le compte de stockage est déployé. En revanche, quand le paramètre `newOrExisting` a la valeur **existing**, la condition donne le résultat false et le compte de stockage n’est pas déployé.
 
 Pour un exemple de modèle complet qui utilise l’élément `condition`, consultez [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-new-or-existing-conditions) (Machine virtuelle avec un réseau virtuel, un stockage et une adresse IP publique nouveaux ou existants).
@@ -146,7 +101,7 @@ Si vous utilisez une fonction de [référence](template-functions-resource.md#re
 
 Utilisez la fonction [if](template-functions-logical.md#if) pour vous assurer que la fonction est évaluée uniquement pour les conditions lorsque la ressource est déployée. Consultez la [fonction if](template-functions-logical.md#if) pour obtenir un exemple de modèle qui utilise `if` et `reference` avec une ressource déployée de manière conditionnelle.
 
-Vous définissez une [ressource comme étant dépendante](define-resource-dependency.md) d’une ressource conditionnelle exactement comme vous le feriez pour une autre ressource. Quand une ressource conditionnelle n’est pas déployée, Azure Resource Manager la supprime automatiquement des dépendances nécessaires.
+Vous définissez une [ressource comme étant dépendante](./resource-dependency.md) d’une ressource conditionnelle exactement comme vous le feriez pour une autre ressource. Quand une ressource conditionnelle n’est pas déployée, Azure Resource Manager la supprime automatiquement des dépendances nécessaires.
 
 ## <a name="complete-mode"></a>Mode Complet
 
@@ -155,5 +110,5 @@ Si vous déployez un modèle en [mode complet](deployment-modes.md) et qu’une 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour lire un module Microsoft Learn qui aborde les conditions de déploiement, consultez [Gérer des déploiements cloud complexes à l’aide des fonctionnalités avancées de modèle ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
-* Pour obtenir des recommandations sur la création de modèles, consultez [Bonnes pratiques relatives aux modèles ARM](template-best-practices.md).
+* Pour obtenir des recommandations sur la création de modèles, consultez [Bonnes pratiques relatives aux modèles ARM](./best-practices.md).
 * Pour créer plusieurs instances d’une ressource, consultez [Itération de ressources dans des modèles ARM](copy-resources.md).

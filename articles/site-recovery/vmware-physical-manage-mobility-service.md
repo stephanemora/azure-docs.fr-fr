@@ -1,18 +1,18 @@
 ---
 title: Gérer l’agent du service Mobilité pour les serveurs physiques et VMware avec Azure Site Recovery
 description: Gérez l'agent du service Mobilité pour la récupération d'urgence des serveurs physiques et des machines virtuelles VMware sur Azure à l’aide du service Azure Site Recovery.
-author: Rajeswari-Mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.author: ramamill
-ms.openlocfilehash: d921bddf90c415cb244e2cc9ad98354392a537ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: 88f4fb85a6f67b770c8a13a5701749b8369124bd
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90530146"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578147"
 ---
 # <a name="manage-the-mobility-agent"></a>Gérer l’agent du service Mobilité 
 

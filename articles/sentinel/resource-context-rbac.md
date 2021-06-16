@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: c6fc31c006c832550cafde16959bb0c7202f915d
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 1c4a32e79f54bd2626f2eb4f3a3cc97266d3bab0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109655297"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958497"
 ---
 # <a name="manage-access-to-azure-sentinel-data-by-resource"></a>Gérer l’accès aux données d’Azure Sentinel par ressource
 
@@ -41,7 +41,7 @@ Activez un RBAC dans le contexte de la ressource dans Azure Monitor. Pour plus d
 > [!NOTE]
 > Si vos données ne sont pas des ressources Azure, telles que des données Syslog, CEF ou AAD, ou des données recueillies par un collecteur personnalisé, vous devez configurer manuellement l’ID de ressource utilisé pour identifier les données et autoriser l’accès à celles-ci. Pour plus d’informations, consultez [Configurer explicitement un RBAC dans le contexte de la ressource](#explicitly-configure-resource-context-rbac).
 >
-> En outre, les [fonctions](/azure/azure-monitor/logs/functions) et les recherches enregistrées ne sont pas prises en charge dans les contextes centrés sur les ressources. Par conséquent, les fonctionnalités d’Azure Sentinel telles que l’analyse et la [normalisation](normalization.md) ne sont pas prises en charge pour le RBAC dans le contexte de la ressource dans Azure Sentinel.
+> En outre, les [fonctions](../azure-monitor/logs/functions.md) et les recherches enregistrées ne sont pas prises en charge dans les contextes centrés sur les ressources. Par conséquent, les fonctionnalités d’Azure Sentinel telles que l’analyse et la [normalisation](normalization.md) ne sont pas prises en charge pour le RBAC dans le contexte de la ressource dans Azure Sentinel.
 > 
 
 ## <a name="scenarios-for-resource-context-rbac"></a>Scénarios pour un RBAC dans le contexte de la ressource

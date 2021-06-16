@@ -3,18 +3,18 @@ title: Référence des erreurs pour les contrôles d’intégrité d’un regist
 description: Codes d’erreur et solutions possibles en lie avec des problèmes détectés en exécutant la commande de diagnostic az acr check-health dans Azure Container Registry
 ms.topic: article
 ms.date: 01/25/2021
-ms.openlocfilehash: f9716c29093ae58518bc86ec06af40522d49047c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 12cdd1e75a51097bab3830cdd0e6567e53f91dce
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773438"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537416"
 ---
 # <a name="health-check-error-reference"></a>Référence d’erreur pour le contrôle d’intégrité
 
 Vous trouverez ci-après des détails sur les codes d’erreur retournés par la commande [az acr check-health][az-acr-check-health]. Pour chaque erreur, les solutions possibles sont répertoriées.
 
-Pour plus d’informations sur l’exécution de `az acr check-healh`, consultez [Vérifier l’intégrité d’un registre de conteneurs Azure](container-registry-check-health.md).
+Pour plus d’informations sur l’exécution de `az acr check-health`, consultez [Vérifier l’intégrité d’un registre de conteneurs Azure](container-registry-check-health.md).
 
 ## <a name="docker_command_error"></a>DOCKER_COMMAND_ERROR
 

@@ -5,15 +5,15 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: c1b66fcd8f4810e55de49bbc6fd085a60a64812f
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 56f540e103cc3392cc4e73777dd49d5d7faf266d
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109815015"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984605"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Démarrage rapide : Créer un service de liaison privée à l’aide d’un modèle ARM
 
@@ -35,7 +35,7 @@ Vous devez avoir un compte Azure avec un abonnement actif. [Créez un compte gra
 
 Ce modèle crée un service de liaison privée.
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/privatelink-service/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/privatelink-service/azuredeploy.json":::
 

@@ -5,19 +5,19 @@ description: Exemple de script Azure PowerShell pour créer une instance managé
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 07/16/2019
-ms.openlocfilehash: af1d7110cccfd8b0617d6c79eb5373cc7c087159
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3584758532d8bc03213ce51f38fa38ac8a5bc374
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94594009"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110692938"
 ---
 # <a name="use-powershell-to-add-a-managed-instance-to-a-failover-group"></a>Utiliser PowerShell pour ajouter une instance managée à un groupe de basculement 
 

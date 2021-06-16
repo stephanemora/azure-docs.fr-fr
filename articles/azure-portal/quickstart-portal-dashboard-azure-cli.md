@@ -4,12 +4,12 @@ description: 'Démarrage rapide : Découvrez comment créer un tableau de bord 
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 12/4/2020
-ms.openlocfilehash: 76d4e3b9c1c906dd91a7355af2c7cb957ef6ac95
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: aa9d5f1c7ab20de9a2f815ce5b2639582d5f2bed
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891731"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081602"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>Démarrage rapide : Créer un tableau de bord sur le portail Azure avec Azure CLI
 
@@ -47,7 +47,7 @@ az vm create --resource-group myResourceGroup --name SimpleWinVM --image win2016
 > Le mot de passe doit être complexe.
 > Il s’agit d’un nouveau nom d’utilisateur et d’un nouveau mot de passe.
 > Ce n’est pas, par exemple, le compte que vous utilisez pour vous connecter à Azure.
-> Pour plus d’informations, consultez les [exigences relatives aux noms d’utilisateur](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) et les [exigences relatives aux mots de passe](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+> Pour plus d’informations, consultez les [exigences relatives aux noms d’utilisateur](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-) et les [exigences relatives aux mots de passe](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
 Le déploiement démarre et se termine au bout de quelques minutes.
 Une fois le déploiement terminé, passez à la section suivante.

@@ -3,19 +3,20 @@ title: Comment configurer la rétention des données dans votre environnement - 
 description: Découvrez comment configurer la rétention des données dans votre environnement Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 468b4f7ca7b0af4abc32df5d9ef64a74154d3de1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0189fdbd37be97d841d8a0ea80c83fa2e2c32d0
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91569402"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112063465"
 ---
 # <a name="configuring-retention-in-azure-time-series-insights-gen1"></a>Configuration de la conservation des données dans Azure Time Series Insights Gen1
 
@@ -33,7 +34,7 @@ Chaque environnement Time Series Insights dispose d’un paramètre supplémenta
 - **Vidage des données anciennes** (par défaut)
 - **Suspendre l’entrée**
 
-Pour plus d’informations sur ces paramètres, afin de mieux les comprendre voir [Présentation de la conservation des données dans Time Series Insights](time-series-insights-concepts-retention.md).  
+Pour plus d’informations sur ces paramètres, afin de mieux les comprendre voir [Présentation de la conservation des données dans Time Series Insights](time-series-insights-concepts-retention.md).
 
 ## <a name="configure-data-retention"></a>Configurer la rétention de données
 
