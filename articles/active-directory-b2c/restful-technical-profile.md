@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 05/03/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 175c1d7f2e6239c48358e5244cb82100ee4e20a2
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 904b4ec201b38a817fe7a84d88878c62629b2625
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481190"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110785928"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique RESTful dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -117,7 +117,7 @@ Le profil technique retourne également des revendications, qui ne sont pas reto
 | ServiceUrl | Oui | URL du point de terminaison de l’API REST. |
 | AuthenticationType | Oui | Type de l’authentification effectuée par le fournisseur de revendications RESTful. Valeurs possibles : `None`, `Basic`, `Bearer`, `ClientCertificate` ou `ApiKeyHeader`. <br /><ul><li>La valeur `None` indique que l’API REST est anonyme. </li><li>La valeur `Basic` indique que l’API REST est sécurisée avec une authentification HTTP de base. Seuls des utilisateurs vérifiés, notamment Azure AD B2C, peuvent accéder à votre API. </li><li>La valeur `ClientCertificate` (recommandée) indique que l’API REST restreint l’accès à l’aide d’une authentification de certificat client. Seuls des services disposant des certificats appropriés, par exemple Azure AD B2C, peuvent accéder à votre API. </li><li>La valeur `Bearer` indique que l’API REST restreint l’accès à l’aide d’un jeton du porteur OAuth2 du client. </li><li>La valeur `ApiKeyHeader` indique que l’API REST est sécurisée par l’en-tête HTTP de la clé API, par exemple *x-functions-key*. </li></ul> |
 | AllowInsecureAuthInProduction| Non| Indique si `AuthenticationType` peut être défini sur `none` dans l’environnement de production (`DeploymentMode` de la stratégie [TrustFrameworkPolicy](trustframeworkpolicy.md) est défini sur `Production` ou n’est pas spécifié). Valeurs possibles : true ou false (par défaut). |
-| SendClaimsIn | Non | Spécifie la façon dont les revendications d’entrée sont envoyées au fournisseur de revendications RESTful. Valeurs possibles : `Body` (par défaut), `Form`, `Header`, `Url` ou `QueryString`. <br /> La valeur `Body` est la revendication d’entrée envoyée dans le corps de la demande au format JSON. <br />Le valeur `Form` est la revendication d’entrée envoyée dans le corps de la demande, dans un format de valeurs de clé séparées par des perluètes (&). <br />La valeur `Header` est la revendication d’entrée envoyée dans l’en-tête de la demande. <br />La valeur `Url` est la revendication d’entrée envoyée dans l’URL, par exemple, https://api.example.com/{claim1}/{claim2}?{claim3}={claim4}. La partie nom d’hôte de l’URL ne peut pas contenir de revendications.  <br />La valeur `QueryString` est la revendication d’entrée envoyée dans la chaîne de requête de la demande. <br />Les verbes HTTP appelés par chacune sont les suivants :<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`Url`: GET</li><li>`QueryString`: GET</li></ul> |
+| SendClaimsIn | Non | Spécifie la façon dont les revendications d’entrée sont envoyées au fournisseur de revendications RESTful. Valeurs possibles : `Body` (par défaut), `Form`, `Header`, `Url` ou `QueryString`. <br /> La valeur `Body` est la revendication d’entrée envoyée dans le corps de la demande au format JSON. <br />Le valeur `Form` est la revendication d’entrée envoyée dans le corps de la demande, dans un format de valeurs de clé séparées par des perluètes (&). <br />La valeur `Header` est la revendication d’entrée envoyée dans l’en-tête de la demande. <br />La valeur `Url` est la revendication d’entrée envoyée dans l’URL, par exemple, `https://api.example.com/{claim1}/{claim2}?{claim3}={claim4}`. La partie nom d’hôte de l’URL ne peut pas contenir de revendications.  <br />La valeur `QueryString` est la revendication d’entrée envoyée dans la chaîne de requête de la demande. <br />Les verbes HTTP appelés par chacune sont les suivants :<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`Url`: GET</li><li>`QueryString`: GET</li></ul> |
 | ClaimsFormat | Non | Non utilisé actuellement, peut être ignoré. |
 | ClaimUsedForRequestPayload| Non | Nom d’une revendication de chaîne qui contient la charge utile à envoyer à l’API REST. |
 | DebugMode | Non | Exécute le profil technique en mode débogage. Valeurs possibles : `true` ou `false` (par défaut). En mode débogage, l’API REST peut retourner plus d’informations. Consultez la section [Retour de message d’erreur](#returning-validation-error-message). |

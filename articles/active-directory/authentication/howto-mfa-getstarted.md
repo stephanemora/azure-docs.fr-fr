@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 068a3852371c44086717a6f0164e42d6a3ee33a6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: aa57446053531ee4d3b40b617e8664eb0648c725
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754538"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951932"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Planifier un déploiement d'Azure AD Multi-Factor Authentication
 
@@ -39,7 +39,7 @@ Avant de lancer un déploiement d'Azure AD Multi-Factor Authentication, certains
 | --- | --- |
 | Environnement d’identité **cloud uniquement** avec authentification moderne | **Aucune tâche de configuration requise supplémentaire** |
 | Scénarios d’identité **hybride** | [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) est déployé, et les identités des utilisateurs sont synchronisées ou fédérées avec Azure Active Directory Connect en local avec Azure Active Directory. |
-| Applications héritées locales publiées pour l’accès au cloud | Le [proxy d’application](../manage-apps/application-proxy.md) Azure AD est déployé. |
+| Applications héritées locales publiées pour l’accès au cloud | Le [proxy d’application](../app-proxy/application-proxy.md) Azure AD est déployé. |
 | Utilisation d'Azure AD MFA avec l'authentification RADIUS | Un [serveur NPS (Network Policy Server)](howto-mfa-nps-extension.md) est déployé. |
 | Les utilisateurs disposent de Microsoft Office 2010 ou une version antérieure, ou d’Apple Mail pour iOS 11 ou une version antérieure. | Effectuez une mise à niveau vers [Microsoft Office 2013](https://support.microsoft.com/help/4041439/modern-authentication-configuration-requirements-for-transition-from-o) ou une version ultérieure, et Apple Mail pour iOS 12 ou une version ultérieure. L’accès conditionnel n’est pas pris en charge par les protocoles d’authentification hérités. |
 
@@ -267,7 +267,7 @@ Les applications qui s’authentifient directement auprès d’Azure AD et disp
 
 ### <a name="use-azure-ad-mfa-with-azure-ad-application-proxy"></a>Utiliser Azure AD MFA avec le proxy d'application Azure AD
 
-Les applications locales peuvent être publiées sur votre locataire Azure AD via le [proxy d'application Azure AD](../manage-apps/application-proxy.md) et tirer parti d'Azure AD Multi-Factor Authentication si elles sont configurées pour utiliser la pré-authentification Azure AD.
+Les applications locales peuvent être publiées sur votre locataire Azure AD via le [proxy d'application Azure AD](../app-proxy/application-proxy.md) et tirer parti d'Azure AD Multi-Factor Authentication si elles sont configurées pour utiliser la pré-authentification Azure AD.
 
 Ces applications sont soumises aux stratégies d'accès conditionnel qui imposent l'authentification Azure AD MFA, tout comme n'importe quelle autre application intégrée à Azure AD.
 
@@ -338,7 +338,7 @@ Maintenant que vous avez planifié votre solution, vous pouvez l’implémenter 
 
 1. Respectez les prérequis.
    1. Déployez [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) pour les scénarios hybrides.
-   1. Déployez le [proxy d’application Azure AD](../manage-apps/application-proxy.md) pour les applications locales publiées pour l’accès au cloud.
+   1. Déployez le [proxy d’application Azure AD](../app-proxy/application-proxy.md) pour les applications locales publiées pour l’accès au cloud.
    1. Déployez [NPS](/windows-server/networking/technologies/nps/nps-top) pour l’authentification RADIUS.
    1. Vérifiez que les utilisateurs ont effectué la mise à niveau vers des versions prises en charge de Microsoft Office avec l’authentification moderne activée.
 1. Configurez les [méthodes d’authentification](#choose-verification-options) choisies.

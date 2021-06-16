@@ -3,21 +3,21 @@ title: 'Démarrage rapide : Connecter des utilisateurs dans des applications mo
 titleSuffix: Microsoft identity platform
 description: Dans ce guide de démarrage rapide, vous découvrez de quelle manière une application JavaScript peut appeler une API qui exige des jetons d’accès émis par la plateforme d’identités Microsoft.
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
-ms.author: nacanuma
+ms.author: mtillman
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: c71e7deeb746a08ccc94784ef2b1115b434a6961
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: ae6fdc989f70cee387c818a147e52408650cc783
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071887"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075436"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application SPA JavaScript
 

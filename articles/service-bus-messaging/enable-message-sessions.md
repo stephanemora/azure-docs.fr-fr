@@ -3,12 +3,13 @@ title: Activer des sessions de messagerie Azure Service Bus | Microsoft Docs
 description: Cet article explique comment activer des sessions de messagerie en utilisant le Portail Azure, PowerShell, l’interface CLI et des langages de programmation (C#, Java, Python et JavaScript)
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: 53791bb7dc1dec9bdf6c2c4aa8dda14728c2c465
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0a39e601d675225feb7e82e1de81eee9d3887aeb
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107989141"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671424"
 ---
 # <a name="enable-message-sessions-for-an-azure-service-bus-queue-or-a-subscription"></a>Activer des sessions de messagerie pour une file d’attente ou un abonnement Azure Service Bus
 Les sessions Azure Service Bus permettent un traitement conjoint et chronologique de séquences illimitées de messages associés. Vous pouvez utiliser des sessions dans des modèles **premier entré, premier sorti (FIFO**) et **requête-réponse**. Pour plus d’informations, consultez [Sessions de messagerie](message-sessions.md). Cet article vous montre différentes façons d’activer des sessions pour une file d’attente ou un abonnement Service Bus. 

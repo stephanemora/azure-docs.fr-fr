@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 13acee8b21adf946192544afcea17b4a8d9b9ec9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 49cc885976e022e8b7c4c44c3546febc217e2d7c
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99581123"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071818"
 ---
 # <a name="manual-qos-capacity-pool"></a>Pool de capacités QoS
 
@@ -44,8 +44,6 @@ Lorsque vous utilisez un pool de capacités avec QoS manuelle avec, par exemple,
 Lorsque vous [créez un pool de capacités](azure-netapp-files-set-up-capacity-pool.md), vous pouvez spécifier d’utiliser le type QoS manuelle pour le pool de capacités.  Vous pouvez également [modifier un pool de capacités existant](manage-manual-qos-capacity-pool.md#change-to-qos) pour utiliser le type QoS manuelle. 
 
 La définition du type de capacité sur la QoS manuelle est une modification permanente. Vous ne pouvez pas convertir un outil de capacité de type QoS manuelle en pool de capacités avec QoS automatique. 
-
-L’utilisation du type QoS manuelle nécessite que vous [inscriviez la fonctionnalité](manage-manual-qos-capacity-pool.md#register-the-feature).  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

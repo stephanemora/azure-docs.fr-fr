@@ -3,12 +3,12 @@ title: Mettre à niveau des clusters managés Azure Service Fabric
 description: Découvrez les options de mise à niveau de votre cluster managé Azure Service Fabric.
 ms.topic: how-to
 ms.date: 05/10/2021
-ms.openlocfilehash: c7096191e72d5645149bc1b1e28254a0c57a94b0
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 478b39a6222906c793d826ab69edeeaddbb096bf
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785274"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961004"
 ---
 # <a name="manage-service-fabric-managed-cluster-upgrades"></a>Gérer les mises à niveau des clusters managés Service Fabric
 
@@ -63,7 +63,7 @@ Pour modifier le mode de mise à niveau de votre cluster à l’aide d’un mod�
 
 Une fois le déploiement du modèle réussi, les modifications apportées au mode de mise à niveau du cluster seront appliquées. Si votre cluster est en mode manuel, la mise à niveau du cluster démarre automatiquement.
 
-Les [stratégies d’intégrité des clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction#health-policies) (combinaison de l’intégrité des nœuds et de l’intégrité de toutes les applications exécutées dans le cluster) sont respectées pendant la mise à niveau. Si les stratégies d’intégrité des clusters ne sont pas respectées, la mise à niveau est annulée.
+Les [stratégies d’intégrité des clusters](./service-fabric-health-introduction.md#health-policies) (combinaison de l’intégrité des nœuds et de l’intégrité de toutes les applications exécutées dans le cluster) sont respectées pendant la mise à niveau. Si les stratégies d’intégrité des clusters ne sont pas respectées, la mise à niveau est annulée.
 
 Une fois que vous avez corrigé les problèmes entraînant la restauration, vous devez initier à nouveau la mise à niveau en suivant la procédure décrite précédemment.
 

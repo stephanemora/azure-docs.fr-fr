@@ -4,12 +4,12 @@ description: Décrit la syntaxe JSON déclarative pour les modèles Azure Resour
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0c010d71217dcae23348098355bf1752ffc43337
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 1232e7774a88bec089254397d0582cc52f450fdb
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314892"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959815"
 ---
 # <a name="syntax-and-expressions-in-arm-templates"></a>Syntaxe et expressions dans les modèles ARM
 
@@ -134,4 +134,4 @@ Pour affecter la valeur Null à une propriété, vous pouvez utiliser `null` ou 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour obtenir la liste complète des fonctions de modèle, consultez [Fonctions des modèles ARM](template-functions.md).
-* Pour plus d'informations sur les fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Resource Manager](template-syntax.md).
+* Pour plus d'informations sur les fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Resource Manager](./syntax.md).

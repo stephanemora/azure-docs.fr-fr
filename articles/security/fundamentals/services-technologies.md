@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 5914d5a54606f49f6fbd809a17e2b47375b58dcd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d2c8f16e340b0b8eca30dd8a67010020b6362df
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641973"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950433"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Services et technologies de sécurité disponibles sur Azure
 
@@ -89,7 +89,7 @@ Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. V
 | [Équilibrage de charge Azure](../../load-balancer/load-balancer-overview.md)|Équilibreur de charge réseau pour les applications TCP/UDP. |
 | [Azure ExpressRoute](../../expressroute/expressroute-introduction.md)| Lien WAN dédié entre des réseaux locaux et des réseaux virtuels Azure. |
 | [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)| Équilibreur de charge DNS global.|
-| [Proxy d’application Azure](../../active-directory/manage-apps/application-proxy.md)| Frontend d’authentification utilisé pour sécuriser l’accès à distance pour des applications web hébergées en local. |
+| [Proxy d’application Azure](../../active-directory/app-proxy/application-proxy.md)| Frontend d’authentification utilisé pour sécuriser l’accès à distance pour des applications web hébergées en local. |
 |[Pare-feu Azure](../../firewall/overview.md)|Service de sécurité réseau cloud managé qui protège vos ressources Réseau virtuel Azure.|
 |[Protection DDoS Azure](../../ddos-protection/ddos-protection-overview.md)|Associé aux bonnes pratiques de conception d’application, assure une excellente protection contre les attaques DDoS.|
 |[Points de terminaison de service de réseau virtuel](../../virtual-network/virtual-network-service-endpoints-overview.md)|Étend votre espace d’adressage privé de réseau virtuel et l’identité de votre réseau virtuel aux services Azure, par le biais d’une connexion directe.|

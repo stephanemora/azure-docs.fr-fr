@@ -3,20 +3,20 @@ title: Comprendre la conservation des données dans votre environnement - Azure 
 description: Cet article décrit deux paramètres qui contrôlent la conservation des données dans votre environnement Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
-ms.reviewer: jasonh, kfile
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 26363031aea37c53cce098e2b6cbc2b4d93b918f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: af70f0f68a01cb7324e73e751d6843a4750b73b4
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307076"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110791004"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Comprendre la procédure de conservation des données dans Azure Time Series Insights Gen1
 
@@ -35,7 +35,7 @@ Chacun de vos environnements Azure Time Series Insights inclut un paramètre qui
 
 De plus, votre environnement Azure Time Series Insights inclut un paramètre **Comportement de limite de stockage dépassée**. Il contrôle le comportement relatif aux entrées et à la purge lorsque la capacité maximale d’un environnement est atteinte. Vous pouvez choisir entre deux comportements lors de la configuration :
 
-- **Vidage des données anciennes** (par défaut)  
+- **Vidage des données anciennes** (par défaut)
 - **Suspendre l’entrée**
 
 > [!NOTE]
@@ -47,7 +47,7 @@ Les deux stratégies de rétention des données sont décrites plus en détail c
 
 ## <a name="purge-old-data"></a>Vidage des données anciennes
 
-- **Vidage des anciennes données** est le paramètre par défaut pour les environnements Azure Time Series Insights.  
+- **Vidage des anciennes données** est le paramètre par défaut pour les environnements Azure Time Series Insights.
 - **Supprimer définitivement des données anciennes** est préférable lorsque les utilisateurs souhaitent avoir systématiquement leurs *données les plus récentes* dans leur environnement Azure Time Series Insights.
 - Le paramètre **Vidage des données anciennes** *purge* les données une fois que les limites de l’environnement (durée de conservation, taille ou nombre, selon ce qui se présente en premier) sont atteintes. Par défaut, la conservation est définie sur 30 jours.
 - Les données ingérées les plus anciennes sont vidées en premier (approche « premier arrivé, premier sorti »).
@@ -58,17 +58,17 @@ Prenons l’exemple d’un environnement configuré avec le comportement de cons
 
 La **durée de conservation des données** est définie sur 400 jours. La **Capacité** est définie sur l’unité S1, avec une capacité totale de 30 Go. Supposons que les données entrantes atteignent en moyenne 500 Mo par jour. Cet environnement ne peut conserver que 60 jours de données étant donné le taux de données entrantes, la capacité maximale étant atteinte après 60 jours. Les données entrantes s’accumulent comme suit : 500 Mo chaque jour x 60 jours = 30 Go.
 
-Le 61ème jour, l’environnement affiche les données les plus récentes, mais vide les données les plus anciennes, datant de plus de 60 jours. Le vidage fait de la place pour les nouvelles données entrantes, afin qu’elles puissent toujours être explorées. Si l’utilisateur souhaite conserver les données plus longtemps, ils peut augmenter la taille de l’environnement en ajoutant des unités supplémentaires ou il peut envoyer (push) moins de données.  
+Le 61ème jour, l’environnement affiche les données les plus récentes, mais vide les données les plus anciennes, datant de plus de 60 jours. Le vidage fait de la place pour les nouvelles données entrantes, afin qu’elles puissent toujours être explorées. Si l’utilisateur souhaite conserver les données plus longtemps, ils peut augmenter la taille de l’environnement en ajoutant des unités supplémentaires ou il peut envoyer (push) moins de données.
 
 ### <a name="example-two"></a>Deuxième exemple
 
-Prenons l’exemple d’un environnement configuré également avec le comportement de conservation **Poursuivre l’entrée et vider les données anciennes**. Dans cet exemple, la **Durée de conservation des données** est définie sur une valeur inférieure de 180 jours. La **Capacité** est définie sur l’unité S1, avec une capacité totale de 30 Go. Pour stocker des données durant les 180 jours complets, l’entrée quotidienne ne peut pas dépasser 0,166 Go (166 Mo) par jour.  
+Prenons l’exemple d’un environnement configuré également avec le comportement de conservation **Poursuivre l’entrée et vider les données anciennes**. Dans cet exemple, la **Durée de conservation des données** est définie sur une valeur inférieure de 180 jours. La **Capacité** est définie sur l’unité S1, avec une capacité totale de 30 Go. Pour stocker des données durant les 180 jours complets, l’entrée quotidienne ne peut pas dépasser 0,166 Go (166 Mo) par jour.
 
 Quand le taux d’entrée quotidien de cet environnement dépasse 0,166 Go par jour, les données ne peuvent pas être stockées pendant 180 jours, étant donné que certaines données sont vidées. Considérez ce même environnement pendant un laps de temps occupé. Supposons que le taux d’entrée de l’environnement atteigne 0,189 Go en moyenne par jour. Durant ce laps de temps occupé, 158 jours environ de données sont conservés (30 Go/0,189 = 158,73 jours de conservation). Cette durée est inférieure à la durée de conservation des données souhaitée.
 
 ## <a name="pause-ingress"></a>Suspendre l’entrée
 
-- Le paramètre **Suspendre l’entrée** est conçu pour s’assurer que les données ne sont pas vidées si les limites de taille et de nombre sont atteintes avant leur durée de conservation.  
+- Le paramètre **Suspendre l’entrée** est conçu pour s’assurer que les données ne sont pas vidées si les limites de taille et de nombre sont atteintes avant leur durée de conservation.
 - Le paramètre **Suspendre l’entrée** offre plus de temps aux utilisateurs pour augmenter la capacité de leur environnement avant que les données ne soient vidées en raison de la violation de la durée de conservation.
 - Il offre une protection contre la perte de données, mais peut créer une opportunité en cas de perte de vos données les plus récentes si l’entrée est suspendue au-delà de la durée de conservation de votre source d’événements.
 - Toutefois, quand la capacité maximale d’un environnement est atteinte, l’environnement suspend l’entrée des données jusqu’à ce que des actions supplémentaires se produisent :
