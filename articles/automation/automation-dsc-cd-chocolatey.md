@@ -6,12 +6,12 @@ ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 717561614a3e42995bbce6746839fd9b7cbca37e
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 34006afd79ef2c1bb8a1f552a7f8f9905b95d72f
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834855"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075544"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Configurer un déploiement continu avec Chocolatey
 
@@ -81,7 +81,7 @@ Vous pouvez installer votre compte Automation dans l’une des régions suivante
 
 ## <a name="step-2-make-vm-extension-tweaks-to-the-resource-manager-template"></a>Étape 2 : Ajuster l’extension de machine virtuelle au modèle Resource Manager
 
-Voir les détails de l’enregistrement d’une machine virtuelle (à l’aide de l’extension PowerShell DSC VM) fournis dans ce [modèle de démarrage rapide d’Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).
+Voir les détails de l’enregistrement d’une machine virtuelle (à l’aide de l’extension PowerShell DSC VM) fournis dans ce [modèle de démarrage rapide d’Azure](https://azure.microsoft.com/blog/automating-vm-configuration-using-powershell-dsc-extension/).
 Cette étape consiste à inscrire votre nouvelle machine virtuelle auprès du serveur d’extraction dans la liste des nœuds State Configuration. Une partie de cette inscription consiste à spécifier la configuration du nœud à appliquer au nœud. Comme cette configuration de nœud n’a pas encore besoin d’exister déjà sur le serveur d’extraction, cette opération peut être effectuée pour la première fois à l’étape 4. Mais ici, à l'étape 2, vous devez avoir choisi le nom du nœud et celui de la configuration. Dans cet exemple d'utilisation, le nœud est ’isvbox’ et la configuration est ’ISVBoxConfig’. Le nom de la configuration de nœud (à préciser dans DeploymentTemplate.json) est donc ’ISVBoxConfig.isvbox’.
 
 ## <a name="step-3-add-required-dsc-resources-to-the-pull-server"></a>Étape 3 : Ajouter des ressources DSC nécessaires au serveur Pull

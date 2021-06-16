@@ -1,20 +1,20 @@
 ---
 title: Traiter le flux de modification dans Stockage Blob Azure | Microsoft Docs
 description: Découvrez comment traiter les journaux de flux de modification dans une application cliente .NET
-author: normesta
-ms.author: normesta
+author: tamram
+ms.author: tamram
 ms.date: 09/08/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f0e89fdfba852fc056cf48efd1b92daabb272cf0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 857e5ba3c4251e49dd84726697164f87e0a96bc6
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89568249"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110653175"
 ---
 # <a name="process-change-feed-in-azure-blob-storage"></a>Traiter le flux de modification dans Stockage Blob Azure
 

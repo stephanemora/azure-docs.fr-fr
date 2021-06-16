@@ -3,17 +3,17 @@ title: Créer une machine virtuelle SQL Server à l’aide d’un modèle ARM
 description: Découvrez comment créer une machine virtuelle SQL Server sur Azure à l’aide d’un modèle Azure Resource Manager (modèle ARM).
 author: MashaMSFT
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
 ms.subservice: deployment
-ms.openlocfilehash: 8ba1966590b1b1af88366b8545136de8eff18ca1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 89df657e1b1e9164769880ff29217833d6e96c9b
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755636"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006272"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Démarrage rapide : Créer une machine virtuelle SQL Server à l’aide d’un modèle ARM
 
@@ -36,7 +36,7 @@ Le modèle Resource Manager de machine virtuelle SQL Server nécessite les élé
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-sql-vm-new-storage/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/sql-vm-new-storage/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.sqlvirtualmachine/sql-vm-new-storage/azuredeploy.json":::
 

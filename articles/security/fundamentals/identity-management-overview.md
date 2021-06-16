@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/05/2021
 ms.author: terrylan
-ms.openlocfilehash: 988689a662839476a695646865c92870f35391ea
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 502fb45c690baa7e6d098258c12576f0f3b31c1f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175781"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956825"
 ---
 # <a name="azure-identity-management-security-overview"></a>Vue d’ensemble de la sécurité et de la gestion des identités Azure
 
@@ -72,8 +72,8 @@ En savoir plus :
 
 * [Activation du proxy d’application Azure AD](../../active-directory/app-proxy/application-proxy-add-on-premises-application.md)
 * [Publier des applications avec le Proxy d’application Azure AD](../../active-directory/app-proxy/application-proxy-add-on-premises-application.md)
-* [Authentification unique avec le proxy d’application](../../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-* [Utilisation de l’accès conditionnel](../../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+* [Authentification unique avec le proxy d’application](../../active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Utilisation de l’accès conditionnel](../../active-directory/app-proxy/application-proxy-integrate-with-sharepoint-server.md)
 
 ## <a name="multi-factor-authentication"></a>Azure Multi-Factor Authentication
 

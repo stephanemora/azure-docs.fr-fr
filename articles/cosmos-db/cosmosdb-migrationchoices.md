@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: 3325960793a5a0d7bc48ca8030c675d7ebf0c026
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: db8164cc0d1216050bfd7f6cc071b3d47db452f1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106442590"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956319"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Options de migration de vos données locales ou cloud vers Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -45,7 +45,7 @@ Les facteurs suivants déterminent le choix de l’outil de migration :
 |---------|---------|---------|---------|---------|
 |Hors connexion|[Outil de migration de données](import-data.md)| &bull;Fichiers JSON/CSV<br/>&bull;API SQL Azure Cosmos DB<br/>&bull;MongoDB<br/>&bull;SQL Server<br/>&bull;Stockage Table<br/>&bull;AWS DynamoDB<br/>&bull;Stockage Blob Azure|&bull;API SQL Azure Cosmos DB<br/>&bull;API Tables Azure Cosmos DB<br/>&bull;Fichiers JSON |&bull; Facile à configurer et prend en charge plusieurs sources. <br/>&bull; Non adapté aux jeux de données volumineux|
 |Hors connexion|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).| &bull;Fichiers JSON/CSV<br/>&bull;API SQL Azure Cosmos DB<br/>&bull;API Azure Cosmos DB pour MongoDB<br/>&bull;MongoDB <br/>&bull;SQL Server<br/>&bull;Stockage Table<br/>&bull;Stockage Blob Azure <br/> <br/>Pour d’autres sources prises en charge, consultez l’article [Azure Data Factory](../data-factory/connector-overview.md).|&bull;API SQL Azure Cosmos DB<br/>&bull;API Azure Cosmos DB pour MongoDB<br/>&bull;Fichiers JSON <br/><br/> Pour d’autres cibles prises en charge, consultez l’article [Azure Data Factory](../data-factory/connector-overview.md). |&bull; Facile à configurer et prend en charge plusieurs sources.<br/>&bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB. <br/>&bull; Adapté aux jeux de données volumineux. <br/>&bull; Absence de points de contrôle – Si un problème se produit au cours de la migration, vous devez redémarrer l’ensemble du processus de migration.<br/>&bull; Absence de file d’attente de lettres mortes – Quelques fichiers erronés peuvent arrêter l’ensemble du processus de migration.|
-|Hors connexion|[Connecteur Spark Azure Cosmos DB](spark-connector.md)|API SQL Azure Cosmos DB. <br/><br/>Vous pouvez utiliser d’autres sources avec des connecteurs supplémentaires à partir de l’écosystème Spark.| API SQL Azure Cosmos DB. <br/><br/>Vous pouvez utiliser d’autres cibles avec des connecteurs supplémentaires à partir de l’écosystème Spark.| &bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB. <br/>&bull; Adapté aux jeux de données volumineux. <br/>&bull; Nécessite une configuration Spark personnalisée. <br/>&bull; Spark est sensible aux incohérences de schéma et cela peut être un problème lors de la migration. |
+|Hors connexion|[Connecteur Spark Azure Cosmos DB](./create-sql-api-spark.md)|API SQL Azure Cosmos DB. <br/><br/>Vous pouvez utiliser d’autres sources avec des connecteurs supplémentaires à partir de l’écosystème Spark.| API SQL Azure Cosmos DB. <br/><br/>Vous pouvez utiliser d’autres cibles avec des connecteurs supplémentaires à partir de l’écosystème Spark.| &bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB. <br/>&bull; Adapté aux jeux de données volumineux. <br/>&bull; Nécessite une configuration Spark personnalisée. <br/>&bull; Spark est sensible aux incohérences de schéma et cela peut être un problème lors de la migration. |
 |Hors connexion|[Outil personnalisé avec la bibliothèque d’exécuteur en bloc Cosmos DB](migrate-cosmosdb-data.md)| La source dépend de votre code personnalisé | API SQL Azure Cosmos DB| &bull; Fournit des fonctionnalités de points de contrôle et de lettres mortes qui renforcent la résilience de la migration. <br/>&bull; Adapté aux jeux de données très volumineux (plus de 10 To).  <br/>&bull; Nécessite l’installation personnalisée de cet outil exécuté en tant qu’App Service. |
 |En ligne|[Fonctions Cosmos DB + API ChangeFeed](change-feed-functions.md)| API SQL Azure Cosmos DB | API SQL Azure Cosmos DB| &bull; Facile à configurer. <br/>&bull; Fonctionne uniquement si la source est un conteneur Azure Cosmos DB. <br/>&bull; Non adapté aux jeux de données volumineux <br/>&bull; Ne capture pas les suppressions à partir du conteneur source. |
 |En ligne|[Service de migration personnalisé utilisant ChangeFeed](https://github.com/Azure-Samples/azure-cosmosdb-live-data-migrator)| API SQL Azure Cosmos DB | API SQL Azure Cosmos DB| &bull; Assure le suivi de la progression. <br/>&bull; Fonctionne uniquement si la source est un conteneur Azure Cosmos DB. <br/>&bull; Fonctionne également pour les jeux de données plus volumineux.<br/>&bull; Exige de l’utilisateur qu’il configure un App Service pour héberger le processeur de flux de modification. <br/>&bull; Ne capture pas les suppressions à partir du conteneur source.|
@@ -86,5 +86,5 @@ Pour les API autres que l’API SQL, l’API Mongo et l’API Cassandra, différ
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus, essayez les exemples d'applications utilisant la bibliothèque d'Exécuteurs en bloc en [.NET](bulk-executor-dot-net.md) et [Java](bulk-executor-java.md). 
-* La bibliothèque d'Exécuteurs en bloc est intégrée au connecteur Spark Cosmos DB. Pour plus d'informations, consultez [Connecteur Spark Azure Cosmos DB](spark-connector.md).  
+* La bibliothèque d'Exécuteurs en bloc est intégrée au connecteur Spark Cosmos DB. Pour plus d'informations, consultez [Connecteur Spark Azure Cosmos DB](./create-sql-api-spark.md).  
 * Pour contacter l’équipe Azure Cosmos DB en ouvrant un ticket de support sous le type de problème « Conseils généraux », sous-type de problème « Grandes (To+) migrations » pour obtenir une aide supplémentaire lors des migrations à grande échelle.

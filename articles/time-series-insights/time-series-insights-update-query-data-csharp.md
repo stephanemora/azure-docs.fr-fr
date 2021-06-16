@@ -3,20 +3,21 @@ title: Interroger des données à partir d’un environnement Gen2 en utilisant
 description: Découvrez comment interroger des données à partir d’un environnement Azure Time Series Insights Gen2 à l’aide d’une application écrite en C#.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: shreyasharmamsft
+ms.author: shresha
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: aecd18fd0d568904f9704b749525204ced05f3ef
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0507bef469f50f9ba5e87505529b8ad839deeb4a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463423"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790832"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>Interroger des données à partir d’un environnement Azure Time Series Insights Gen2 en utilisant C#
 

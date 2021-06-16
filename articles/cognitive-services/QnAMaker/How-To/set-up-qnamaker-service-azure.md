@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 67ba835237dac96a28aae124781bbb71b59323f2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a5bcc536a51da13934fb98f383fb1812d92a0073
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369376"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964344"
 ---
 # <a name="manage-qna-maker-resources"></a>Gérer les ressources QnA Maker
 
@@ -177,7 +177,7 @@ Il n’est actuellement pas possible d’effectuer une mise à niveau sur place 
 
 1. Restaurez les index de votre ressource de recherche Azure d’origine vers la nouvelle. Consultez [l’exemple de code de restauration de sauvegarde](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
-1. Liez la nouvelle ressource de recherche Azure à la fonctionnalité Réponses aux questions personnalisées sous l’[onglet Fonctionnalités de la ressource Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/configure-qna-maker-resources?tabs=v2#configure-qna-maker-managed-preview-service-to-use-different-cognitive-search-resource).
+1. Liez la nouvelle ressource de recherche Azure à la fonctionnalité Réponses aux questions personnalisées sous l’[onglet Fonctionnalités de la ressource Analyse de texte](./configure-qna-maker-resources.md?tabs=v2#configure-text-analytics-resource-with-custom-question-answering-feature-to-use-a-different-cognitive-search-resource).
 
 ### <a name="inactivity-policy-for-free-search-resources"></a>Stratégie d’inactivité pour les ressources de recherche gratuites
 

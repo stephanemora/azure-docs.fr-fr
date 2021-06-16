@@ -1,7 +1,7 @@
 ---
 title: Contrôles de conformité réglementaire d’Azure Policy pour Azure Image Builder
 description: Liste les contrôles de conformité réglementaire d’Azure Policy pour Azure Image Builder. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: c80217e63757b720be7d2941b274c446609a7496
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 387057a1b63e645b34f7d8414d2a435400a4ce1e
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083357"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032738"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-image-builder"></a>Contrôles de conformité réglementaire d’Azure Policy pour Azure Image Builder
 

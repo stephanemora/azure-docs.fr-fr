@@ -2,22 +2,22 @@
 title: Gérer les autorisations des utilisateurs et des administrateurs – Azure Active Directory | Microsoft Docs
 description: Apprenez à examiner et gérer les autorisations relatives à une application sur Azure AD. Par exemple, révoquez toutes les autorisations octroyées à une application.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 7/10/2020
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e8cf0459ecdf93251d1d59a9396b6ee11b7701c
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: efa8611fb932fadcdf8cd7c8a361fb840babf16b
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108160814"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075877"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Mesures relatives aux applications surprivilégiées ou suspectes dans Azure Active Directory.
 

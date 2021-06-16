@@ -70,7 +70,7 @@
         - name: Authentification unique par lien
           href: configure-linked-sign-on.md
         - name: Authentification unique basée sur en-tête (applications locales)
-          href: application-proxy-configure-single-sign-on-with-headers.md
+          href: ../app-proxy/application-proxy-configure-single-sign-on-with-headers.md
         - name: SSO en un clic
           href: one-click-sso-tutorial.md
     - name: Sécurité des applications

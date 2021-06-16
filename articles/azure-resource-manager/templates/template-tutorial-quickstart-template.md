@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 46b32ae7aeb971c9391a69e3ca3d01f669774248
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 16c89a37ad232f356c4d7857bfb3c35f8c644acd
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97106901"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565911"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Tutoriel : Utiliser les modèles de démarrage rapide Azure
 
@@ -35,7 +35,7 @@ Ce modèle fonctionne pour le déploiement de comptes de stockage et de plans Ap
 
 1. Ouvrez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/).
 1. Dans **Rechercher**, entrez _deploy linux web app_ (déployer une application web Linux).
-1. Sélectionnez la vignette intitulée **Deploy a basic Linux web app** (Déployer une application web Linux de base). Si vous rencontrez des difficultés pour la trouver, voici le [lien direct](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
+1. Sélectionnez la vignette intitulée **Deploy a basic Linux web app** (Déployer une application web Linux de base). Si vous rencontrez des difficultés pour la trouver, voici le [lien direct](https://azure.microsoft.com/en-us/resources/templates/webapp-basic-linux/).
 1. Sélectionnez **Rechercher sur GitHub**.
 1. Sélectionnez _azuredeploy.json_.
 1. Vérifiez le modèle. Recherchez en particulier la ressource `Microsoft.Web/sites`.

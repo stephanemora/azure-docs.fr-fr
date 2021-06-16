@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/19/2021
-ms.openlocfilehash: 7524b0fd496a87a281e5b9cd9f8ffcc8b54d6388
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: cfc866a7b7a63982377f8a2498b9538bd870e381
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108000912"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969118"
 ---
 # <a name="train-pytorch-model"></a>Effectuer l'apprentissage d'un modèle PyTorch
 
@@ -81,7 +81,7 @@ Cliquez sur l'onglet « Métriques » de ce module et consultez les graphiques
 
 ### <a name="how-to-enable-distributed-training"></a>Activer l'apprentissage distribué
 
-Pour activer l'apprentissage distribué pour le module **Train PyTorch Model**, accédez aux **Paramètres d'exécution** dans le volet droit du module. Seul le **[Cluster de calcul AML](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)** est pris en charge pour l'apprentissage distribué.
+Pour activer l'apprentissage distribué pour le module **Train PyTorch Model**, accédez aux **Paramètres d'exécution** dans le volet droit du module. Seul le **[Cluster de calcul AML](../how-to-create-attach-compute-cluster.md?tabs=python)** est pris en charge pour l'apprentissage distribué.
 
 > [!NOTE]
 > **Plusieurs GPU** sont nécessaires pour activer l'apprentissage distribué car le backend NCCL qu'utilise le module Train PyTorch Model a besoin de cuda.
@@ -102,7 +102,7 @@ Pour activer l'apprentissage distribué pour le module **Train PyTorch Model**, 
 
     [![Capture d'écran montrant comment consulter un cluster de calcul](./media/module/compute-cluster-node.png)](./media/module/compute-cluster-node.png#lightbox)
 
-Pour en savoir plus sur l'apprentissage distribué dans Azure Machine Learning, cliquez [ici](https://docs.microsoft.com/azure/machine-learning/concept-distributed-training).
+Pour en savoir plus sur l'apprentissage distribué dans Azure Machine Learning, cliquez [ici](../concept-distributed-training.md).
 
 ### <a name="troubleshooting-for-distributed-training"></a>Résolution des problèmes liés à l'apprentissage distribué
 
@@ -151,7 +151,4 @@ Une fois l'exécution du pipeline effectuée, si vous souhaitez utiliser le mod�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
-
-
-
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning.

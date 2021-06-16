@@ -4,19 +4,19 @@ description: Explique comment manipuler les partitions et déplacer les données
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: scoriani
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 03/12/2019
-ms.openlocfilehash: 5a646ffe1d306d7ea13da002715d5bd9b907107b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfd33ad39e48201208c41cf7351910dafa614e84
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92793464"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708709"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Déplacement de données entre des bases de données cloud mises à l’échelle
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

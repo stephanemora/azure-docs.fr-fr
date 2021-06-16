@@ -12,12 +12,12 @@ ms.date: 03/26/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: e72667ab562a9e12d233f45dc50efc9b70d2141b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d65daffab7522c1ececb3383d1cf5184f906d8f9
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642109"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893009"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Se connecter et démarrer des applications à partir du portail Mes applications
 
@@ -75,7 +75,7 @@ L’**extension de connexion sécurisée à Mes applications** vous aide à :
 - Vous connecter directement aux applications à partir de la page de connexion.
 - Lancer n’importe quelle application à l’aide de la fonctionnalité de **recherche rapide**.
 - Consulter les dernières applications vous avez utilisées dans la section **Utilisées récemment**.
-- Utiliser les URL internes de la société à distance à l’aide du [Proxy d’application](../manage-apps/application-proxy.md).
+- Utiliser les URL internes de la société à distance à l’aide du [Proxy d’application](../app-proxy/application-proxy.md).
 
 ### <a name="to-download-and-install-the-extension"></a>Pour télécharger et installer l’extension
 

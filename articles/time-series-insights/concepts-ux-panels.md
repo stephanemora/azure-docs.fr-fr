@@ -1,21 +1,22 @@
 ---
 title: Visualiser les données dans l’Explorateur Time Series Insights – Azure Time Series Insights Gen2 | Microsoft Docs
 description: Découvrez les fonctionnalités et options disponibles dans l’Explorateur Azure Time Series Insights.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: narmeens
+ms.author: narsam
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 77c6e8790451ef830b37cc5914ce9de8e92174f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08333afd9a752d7ed338ba571d36c823a3ebad09
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103464086"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060873"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorateur Azure Time Series Insights
 

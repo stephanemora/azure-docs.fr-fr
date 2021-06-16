@@ -4,17 +4,17 @@ description: Migrer une base de données de SQL Server vers Azure Arc enabled SQ
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: rothja
-ms.author: jroth
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 1f588ca0762cf201bf532d7b9d97ea6c4e21c9b4
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: f2d2c2ecff92dde411c6ec2a8d00ad997f4c5c02
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734951"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495824"
 ---
 # <a name="migrate-sql-server-to-azure-arc-enabled-sql-managed-instance"></a>Migrer : SQL Server vers Azure Arc enabled SQL Managed Instance
 

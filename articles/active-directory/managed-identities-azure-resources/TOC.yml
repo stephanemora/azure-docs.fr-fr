@@ -59,7 +59,7 @@
     - name: Identités managées et machines virtuelles Azure
       href: how-managed-identities-work-vm.md
     - name: Recommandations de bonnes pratiques
-      url: managed-identity-best-practice-recommendations.md
+      href: managed-identity-best-practice-recommendations.md
 - name: Guides pratiques
   items:
     - name: Configurer des identités gérées sur les machines virtuelles
@@ -105,17 +105,7 @@
         - name: PowerShell
           href: howto-assign-access-powershell.md
     - name: Gérer les identités gérées affectées par l’utilisateur
-      items:
-        - name: Portail
-          href: how-to-manage-ua-identity-portal.md
-        - name: Interface de ligne de commande
-          href: how-to-manage-ua-identity-cli.md
-        - name: PowerShell
-          href: how-to-manage-ua-identity-powershell.md
-        - name: Modèle Azure Resource Manager
-          href: how-to-manage-ua-identity-arm.md
-        - name: REST
-          href: how-to-manage-ua-identity-rest.md
+      href: how-manage-user-assigned-managed-identities.md
     - name: Afficher les principaux de service d’identités managées
       items:
         - name: Portail

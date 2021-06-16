@@ -2,22 +2,22 @@
 title: Comprendre l’authentification unique (SSO) basée sur OIDC pour les applications dans Azure Active Directory
 description: Comprendre l’authentification unique (SSO) basée sur OIDC pour les applications dans Azure Active Directory.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/19/2020
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: arajpathak7
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 990e0c09f8a49b83bc68d7123f5f8146a3551575
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 8c98449368a19f2bbc9d845539acc5b1c015ffac
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374537"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076219"
 ---
 # <a name="understand-oidc-based-single-sign-on"></a>Comprendre l’authentification unique basée sur OIDC
 Avec la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications, vous avez appris à utiliser Azure AD comme fournisseur d’identité (IdP) pour une application. Cet article décrit plus en détails les applications qui utilisent la norme OpenID Connect pour implémenter l’authentification unique. 

@@ -8,19 +8,20 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 12/13/2018
-ms.openlocfilehash: fe03bbfb33f3637eecc4e68f24846c929dad5fa4
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 20be29d428fe6eaf9e7e64b4536c5014641c5416
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479251"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962526"
 ---
 # <a name="use-linux-diagnostic-extension-30-to-monitor-metrics-and-logs"></a>Utiliser l’extension de diagnostic Linux 3.0 pour superviser les métriques et les journaux
 
 Ce document décrit la version 3.0 et les versions ultérieures de l’extension de diagnostic Linux.
 
 > [!IMPORTANT]
-> Pour plus d’informations sur la version 2.3 et sur les versions antérieures, consultez [Superviser les données de performances et de diagnostic d’une machine virtuelle Linux](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> Pour plus d’informations sur la version 2.3 et sur les versions antérieures, consultez [Superviser les données de performances et de diagnostic d’une machine virtuelle Linux](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introduction
 
@@ -42,7 +43,7 @@ Vous pouvez activer l’extension en utilisant des cmdlets Azure PowerShell, des
 >[!NOTE]
 >Certains composants de l’extension de machine virtuelle de diagnostic Linux sont également fournis avec l’[extension de machine virtuelle Log Analytics](./oms-linux.md). En raison de cette architecture, des conflits peuvent survenir si les deux extensions sont instanciées dans le même modèle ARM. 
 >
->Pour éviter les conflits au moment de l’installation, utilisez la [directive `dependsOn`](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) pour vous assurer que les extensions sont installées de manière séquentielle. Les extensions peuvent être installées dans n’importe quel ordre.
+>Pour éviter les conflits au moment de l’installation, utilisez la [directive `dependsOn`](../../azure-resource-manager/templates/resource-dependency.md#dependson) pour vous assurer que les extensions sont installées de manière séquentielle. Les extensions peuvent être installées dans n’importe quel ordre.
 
 Ces instructions d’installation et un [exemple de configuration téléchargeable](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configurent l’extension de diagnostic Linux 3.0 pour :
 
@@ -829,7 +830,7 @@ Dans chaque cas, les données sont également chargées dans :
 
 Le `resourceId` dans la configuration doit correspondre à celui de la machine virtuelle ou du groupe de machines virtuelles identiques.
 
-* Les graphes et les alertes des métriques de la plateforme Azure connaissent le `resourceId` de la machine virtuelle sur laquelle vous travaillez. Ils s’attendent à trouver les données de votre machine virtuelle en utilisant le `resourceId` comme clé de recherche.
+* Les graphiques et les alertes des métriques de la plateforme Azure connaissent le `resourceId` de la machine virtuelle sur laquelle vous travaillez. Ils s’attendent à trouver les données de votre machine virtuelle en utilisant le `resourceId` comme clé de recherche.
 * Si vous utilisez la mise à l’échelle automatique d’Azure, le `resourceId` dans la configuration de la mise à l’échelle automatique doit correspondre au `resourceId` utilisé par l’extension de diagnostic Linux.
 * Le `resourceId` est intégré aux noms des blobs JSON écrits par l’extension de diagnostic Linux.
 

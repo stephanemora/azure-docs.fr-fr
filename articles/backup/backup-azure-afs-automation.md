@@ -3,12 +3,13 @@ title: Sauvegarder un partage de fichiers Azure en utilisant PowerShell
 description: Dans cet article, découvrez comment sauvegarder un partage de fichiers Azure Files avec le service Sauvegarde Azure et PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 948931764769bc967b88e7942b7e8384b0f93dff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 74478d98d63a18582d93c8cddb872ffb3c3774f8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87076997"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681484"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>Sauvegarder un partage de fichiers Azure en utilisant PowerShell
 

@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a0c734d7717f157ba062b1c9369be5dd95be03af
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 5fcef44fed77b01e069129a160299f547340c346
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278467"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964571"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -53,7 +53,7 @@ Le tableau suivant liste certaines tâches d’exécution de runbook avec l’en
 |Exécution d’un script de longue durée|Runbook Worker hybride|Les bacs à sable Azure présentent des [limites de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
 |Interaction avec les services locaux|Runbook Worker hybride|Accédez directement à l’ordinateur hôte, ou aux ressources dans d’autres environnements cloud ou dans l’environnement local. |
 |Imposer des logiciels et des fichiers exécutables tiers|Runbook Worker hybride|Vous gérez le système d’exploitation et pouvez installer des logiciels.|
-|Surveillance d'un fichier ou d'un dossier avec un runbook|Runbook Worker hybride|Utilisez une [tâche Watcher](automation-watchers-tutorial.md) sur un runbook Worker hybride.|
+|Surveillance d'un fichier ou d'un dossier avec un runbook|Runbook Worker hybride|Utilisez une [tâche Watcher](./automation-scenario-using-watcher-task.md) sur un runbook Worker hybride.|
 |Exécution d’un script gourmand en ressources|Runbook Worker hybride| Les bacs à sable Azure présentent des [limites de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
 |Utilisation de modules ayant des exigences spécifiques| Runbook Worker hybride|Quelques exemples :</br> WinSCP – dépend de winscp.exe </br> Administration IIS - Dépendance sur l'activation ou la gestion d’IIS|
 |Installation d’un module avec un programme d’installation|Runbook Worker hybride|Les modules pour bac à sable doivent prendre en charge la copie.|
@@ -229,7 +229,7 @@ Les runbooks qui s’exécutent dans les bacs à sable Azure ne prennent pas en 
 
 Les tâches de runbook dans les bacs à sable Azure ne peuvent avoir accès aux caractéristiques des appareils ou des applications. Pour interroger les métriques de performances sur Windows, notamment celles, courantes, qui portent sur l’utilisation de la mémoire et du processeur, L’API la plus utilisée est WMI. Cependant, quelle que soit l’API utilisée, les tâches qui s’exécutent dans le cloud ne peuvent avoir accès à l’implémentation Microsoft de WBEM (Web-Based Enterprise Management). Cette plateforme est basée sur CIM (Common Information Model), qui fait office de standard sectoriel pour la définition des caractéristiques des appareils et des applications.
 
-## <a name="webhooks"></a>Webhooks
+## <a name="webhooks"></a>webhooks
 
 Les services externes, par exemple, Azure DevOps Services et GitHub, peuvent démarrer un runbook dans Azure Automation. Pour effectuer ce type de démarrage, le service utilise un [webhook](automation-webhooks.md) via une requête HTTP unique. L’utilisation d’un Webhook permet de démarrer runbooks sans implémenter une fonctionnalité Azure Automation complète.
 

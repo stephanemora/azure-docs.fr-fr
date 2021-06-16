@@ -2,22 +2,22 @@
 title: Invite de consentement inattendue lors de la connexion à une application | Microsoft Docs
 description: Procédure de dépannage à suivre quand un utilisateur voit une invite de consentement inattendue pour une application intégrée à Azure AD
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37e4384b5a1b400f11b7b7d6ab15beec4d2f8de9
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: cd58aefca395cab7645f444763c50e6451e0cffc
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378055"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080774"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Invite de consentement inattendue lors de la connexion à une application
 

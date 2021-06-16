@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: 2addf415c39691b4e662f304522a418aa8a778c2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0d9c849ce7454e2875c4f00e73cc3b3edc37ad7e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730369"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971565"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Version d’évaluation Azure Resource Manager
 
 Utilisez ce type si vous disposez d’une offre sur la Place de marché Azure ou AppSource, mais que vous souhaitez créer une version d’évaluation uniquement avec des ressources Azure. Un modèle ARM (Azure Resource Manager) est un conteneur codé de ressources Azure que vous concevez pour représenter votre solution de la meilleure façon. La version d’évaluation prend le modèle ARM fourni et déploie toutes les ressources nécessaires sur un groupe de ressources. Il s’agit de la seule option de version d’évaluation pour les machines virtuelles ou Azure App.
 
-Si vous ne savez pas très bien ce qu’est un modèle ARM, lisez [Qu’est-ce qu’Azure Resource Manager ?](../azure-resource-manager/management/overview.md) et [Comprendre la structure et la syntaxe des modèles ARM](../azure-resource-manager/templates/template-syntax.md) pour mieux comprendre comment créer et tester vos propres modèles.
+Si vous ne savez pas très bien ce qu’est un modèle ARM, lisez [Qu’est-ce qu’Azure Resource Manager ?](../azure-resource-manager/management/overview.md) et [Comprendre la structure et la syntaxe des modèles ARM](../azure-resource-manager/templates/syntax.md) pour mieux comprendre comment créer et tester vos propres modèles.
 
 Pour plus d’informations sur ce qu’est une version d’évaluation **hébergée** ou d’**application logique**, consultez [Qu’est-ce qu’une version d’évaluation ?](what-is-test-drive.md)
 

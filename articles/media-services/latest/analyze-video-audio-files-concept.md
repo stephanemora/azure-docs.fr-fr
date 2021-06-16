@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 03/22/2021
 ms.author: inhenkel
-ms.openlocfilehash: 97aff4bf97a8d79813afb1bd5b7a5e14f6d545c4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 83e739eb643896de710b5179b78a6305adf84465
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375271"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949283"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analyser des fichiers vidéo et audio avec Azure Media Services
 
@@ -21,7 +21,7 @@ ms.locfileid: "110375271"
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Azure Media Services v3 vous permet d’extraire les insights de vos fichiers vidéo et audio avec Video Indexer. Cet article décrit les présélections de l’analyseur Media Services V3 utilisées pour extraire ces Insights. Si vous souhaitez des informations plus détaillées, utilisez directement Video Indexer. Pour comprendre à quel moment utiliser Video Indexer plutôt que les présélections de l’analyseur de Media Services, consultez le [document de comparaison](../video-indexer/compare-video-indexer-with-media-services-presets.md).
+Azure Media Services v3 vous permet d’extraire les insights de vos fichiers vidéo et audio avec Video Indexer. Cet article décrit les présélections de l’analyseur Media Services V3 utilisées pour extraire ces Insights. Si vous souhaitez des informations plus détaillées, utilisez directement Video Indexer. Pour comprendre à quel moment utiliser Video Indexer plutôt que les présélections de l’analyseur de Media Services, consultez le [document de comparaison](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
 
 Il existe deux modes pour le préréglage de l’analyseur audio, de base et standard. Consultez la description des différences dans le tableau ci-dessous.
 
@@ -29,7 +29,7 @@ Pour analyser votre contenu à l’aide des préréglages Media Services v3, vou
 
 ## <a name="compliance-privacy-and-security"></a>Conformité, confidentialité et sécurité
 
-Il est important de vous rappeler que vous devez vous conformer à toutes les lois applicables dans le cadre de votre utilisation de Video Indexer, et que vous n’êtes pas autorisé à utiliser Video Indexer ou tout autre service Azure d’une façon qui porte atteinte aux droits d’autrui ou qui soit préjudiciable à autrui. Avant de charger des vidéos, y compris des données biométriques, vers le service Video Indexer à des fins de traitement et de stockage, Vous devez disposer de tous les droits appropriés sur les vidéos, y compris avoir obtenu le consentement de chaque personne apparaissant dans les vidéos. Pour découvrir la conformité, la confidentialité et la sécurité dans Video Indexer, consultez les [Conditions générales d’utilisation d’Azure Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Pour connaître les obligations de Microsoft en matière de confidentialité et de traitement de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions d’utilisation des services en ligne](https://www.microsoft.com/licensing/product-licensing/products) (« OST ») et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations complémentaires sur la confidentialité, notamment sur la conservation, la suppression et la destruction des données, sont disponibles dans l’OST et [ici](../video-indexer/faq.md). En utilisant Video Indexer, vous acceptez de vous conformer aux Conditions d’utilisation de Cognitive Services, à l’OST, au DPA et à la Déclaration de confidentialité.
+Il est important de vous rappeler que vous devez vous conformer à toutes les lois applicables dans le cadre de votre utilisation de Video Indexer, et que vous n’êtes pas autorisé à utiliser Video Indexer ou tout autre service Azure d’une façon qui porte atteinte aux droits d’autrui ou qui soit préjudiciable à autrui. Avant de charger des vidéos, y compris des données biométriques, vers le service Video Indexer à des fins de traitement et de stockage, Vous devez disposer de tous les droits appropriés sur les vidéos, y compris avoir obtenu le consentement de chaque personne apparaissant dans les vidéos. Pour découvrir la conformité, la confidentialité et la sécurité dans Video Indexer, consultez les [Conditions générales d’utilisation d’Azure Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Pour connaître les obligations de Microsoft en matière de confidentialité et de traitement de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions d’utilisation des services en ligne](https://www.microsoft.com/licensing/product-licensing/products) (« OST ») et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations complémentaires sur la confidentialité, notamment sur la conservation, la suppression et la destruction des données, sont disponibles dans l’OST et [ici](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md). En utilisant Video Indexer, vous acceptez de vous conformer aux Conditions d’utilisation de Cognitive Services, à l’OST, au DPA et à la Déclaration de confidentialité.
 
 ## <a name="built-in-presets"></a>Préréglages intégrés
 

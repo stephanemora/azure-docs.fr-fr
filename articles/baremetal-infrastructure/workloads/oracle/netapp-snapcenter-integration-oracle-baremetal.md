@@ -2,14 +2,14 @@
 title: Intégration de SnapCenter pour Oracle sur l’infrastructure BareMetal
 description: Découvrez comment utiliser les technologies d’instantané Oracle et NetApp pour créer des sauvegardes de récupération opérationnelles pour les bases de données Oracle sur l’infrastructure BareMetal.
 ms.topic: how-to
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 05/05/2021
-ms.openlocfilehash: 4182a5fe97e356152b6d589fc6788b922e5c8493
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: d9cf6933287167da82b1a5ad4ab8848d5c34d404
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109520495"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579886"
 ---
 # <a name="snapcenter-integration-for-oracle-on-baremetal-infrastructure"></a>Intégration de SnapCenter pour Oracle sur l’infrastructure BareMetal
 

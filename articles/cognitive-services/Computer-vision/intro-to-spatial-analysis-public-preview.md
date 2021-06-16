@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 03/29/2021
-ms.openlocfilehash: fc0d0b0a589ff5b8354a56a2f8c95062f4d2d9a9
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: d19a080ef596975dd3377207b84bade6ef0d3b12
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076146"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537586"
 ---
 # <a name="what-is-spatial-analysis"></a>Qu'est-ce que l'Analyse spatiale ?
 
@@ -43,12 +43,6 @@ Les opérations de base de l'Analyse spatiale reposent toutes sur un pipeline qu
 
 ## <a name="get-started"></a>Bien démarrer
 
-### <a name="public-preview-gating"></a>Accès à la préversion
-
-Pour veiller à ce que l'Analyse spatiale soit utilisée dans les scénarios pour lesquels elle a été conçue, nous mettons cette technologie à la disposition des clients par le biais d'un processus de demande d'accès. Pour accéder à l'Analyse spatiale, vous devez commencer par remplir notre formulaire de demande en ligne. [Commencez votre demande ici](https://aka.ms/csgate).
-
-L'accès à la préversion publique de l'Analyse spatiale est à l'entière discrétion de Microsoft conformément à ses critères d'admissibilité, à son processus de vérification et à sa capacité à prendre en charge un nombre limité de clients pendant cette période de préversion contrôlée. Dans le cadre de la préversion publique, Microsoft recherche des clients qui ont un lien privilégié avec ses équipes, et qui sont désireux de collaborer avec elles sur les cas d'usage recommandés, ainsi que d'autres scénarios en accord avec les engagements de Microsoft en matière d'IA responsable.
-
 ### <a name="follow-a-quickstart"></a>Suivre un guide de démarrage rapide
 
 Une fois que vous avez accès à l'Analyse spatiale, suivez le [guide de démarrage rapide](spatial-analysis-container.md) pour configurer le conteneur et entamer l'analyse de la vidéo.
@@ -60,4 +54,4 @@ Pour savoir comment utiliser la technologie d’analyse spatiale de façon respo
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Conteneur Analyse spatiale](spatial-analysis-container.md)''''''''''''
+> [Démarrage rapide : Conteneur Analyse spatiale](spatial-analysis-container.md)

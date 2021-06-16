@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: larryfr
 author: BlackMist
 ms.date: 03/05/2020
-ms.openlocfilehash: ed612ae6c021a2f2be7e07c48da2412c6d35670c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 95c9880eb8c61b5a057cf2573aad7871c3c37bb3
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770692"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613609"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Qu’est-il arrivé à Azure Machine Learning Workbench ?
 
@@ -103,4 +103,4 @@ Commencez par [Démarrage rapide : Bien démarrer avec Azure Machine Learning](
   + [Utiliser un notebook Jupyter pour entraîner des modèles de classification d’images](tutorial-train-models-with-aml.md)
   + [Utiliser le Machine learning automatisé](tutorial-designer-automobile-price-train-score.md) 
   + [Utiliser les fonctionnalités glisser-déplacer du concepteur](tutorial-first-experiment-automated-ml.md) 
-  + [Utiliser l’extension ML de l’interface CLI](tutorial-train-deploy-model-cli.md)
+  + [Utiliser l’extension ML de l’interface CLI](how-to-train-cli.md)

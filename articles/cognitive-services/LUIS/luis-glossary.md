@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/17/2021
-ms.openlocfilehash: 15235ddd1ae6bfe3166b523004bc8fe80a5b5be9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5d4b5f5264ad38ca3610840e6fd9a72c6bc5e0aa
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061459"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950974"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossaire Language Understanding des termes et concepts courants
 Ce glossaire décrit les termes que vous pourriez rencontrer lors de l’utilisation de LUIS (Language Understanding Intelligent Service).
@@ -295,7 +295,7 @@ Le modèle retourne la valeur normalisée de l’entité lorsque l’un des syno
 
 ## <a name="test"></a>Test
 
-[Tester](luis-concept-test.md) une application LUIS signifie afficher des prédictions de modèle.
+[Tester](./luis-interactive-test.md) une application LUIS signifie afficher des prédictions de modèle.
 
 ## <a name="timezone-offset"></a>Décalage de fuseaux horaires
 

@@ -5,15 +5,15 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 8b6e5e5e097ce59fc676e75d45217269a927b2d7
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 1c562c52eb7df92ba2297b066560866d04074f2f
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109814799"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982212"
 ---
 # <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Démarrage rapide : Créer un point de terminaison privé à l’aide d’un modèle Resource Manager
 
@@ -35,7 +35,7 @@ Vous devez avoir un compte Azure avec un abonnement actif. [Créez un compte gra
 
 Ce modèle crée un point de terminaison privé pour une instance d’Azure SQL Database.
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/private-endpoint-sql/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.sql/private-endpoint-sql/azuredeploy.json":::
 

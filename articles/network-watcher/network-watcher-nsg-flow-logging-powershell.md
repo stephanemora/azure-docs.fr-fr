@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 29340852cabcc77b7488f734a4677697b4a9b972
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c3685928544d3e3edee9a864c004cae7f595eaef
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535222"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110678303"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configuration des journaux d’activité des flux de groupe de sécurité réseau avec PowerShell
 
@@ -29,7 +30,7 @@ ms.locfileid: "107535222"
 
 Les journaux de flux de groupe de sécurité réseau désignent une fonctionnalité de Network Watcher qui vous permet d’afficher des informations sur le trafic IP entrant et sortant d’un groupe de sécurité réseau. Ces journaux de flux sont écrits au format json et affichent les flux entrants et sortants en fonction de règles, de la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), et de l’autorisation ou du refus du trafic.
 
-Vous trouverez [ici](https://docs.microsoft.com/powershell/module/az.network/#network-watcher) la spécification détaillée de toutes les commandes de journaux de flux NSG pour différentes versions d’AzPowerShell.
+Vous trouverez [ici](/powershell/module/az.network/#network-watcher) la spécification détaillée de toutes les commandes de journaux de flux NSG pour différentes versions d’AzPowerShell.
 
 ## <a name="register-insights-provider"></a>Inscription du fournisseur Insights
 

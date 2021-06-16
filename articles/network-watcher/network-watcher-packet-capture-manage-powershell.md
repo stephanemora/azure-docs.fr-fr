@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 8779381425d4180cc7320f251de9c2cfdd1f0510
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f264097ac340e5810c3f69e199a28b06d2a22972
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99223421"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110678359"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gérer les captures de paquets avec Azure Network Watcher à l’aide de PowerShell
 
@@ -89,7 +90,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
                          True         OK OK   
 ```
 
-### <a name="step-3"></a>Étape 3 :
+### <a name="step-3"></a>Étape 3
 
 Pour vous assurer que l’agent est installé, exécutez l’applet de commande `Get-AzVMExtension` et transmettez-lui le nom de la machine virtuelle et le nom de l’extension.
 
@@ -139,7 +140,7 @@ Récupérez un compte de stockage. Ce compte de stockage permet de stocker le fi
 $storageAccount = Get-AzStorageAccount -ResourceGroupName testrg -Name testrgsa123
 ```
 
-### <a name="step-3"></a>Étape 3 :
+### <a name="step-3"></a>Étape 3
 
 Des filtres peuvent être utilisés pour limiter les données stockées par la capture des paquets. L’exemple suivant définit deux filtres.  Un filtre collecte le trafic TCP sortant uniquement à partir de l’adresse IP locale 10.0.0.3 vers les ports de destination 20, 80 et 443.  Le second filtre collecte uniquement le trafic UDP.
 

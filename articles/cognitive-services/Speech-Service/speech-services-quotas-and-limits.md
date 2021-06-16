@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: 0f4064e6baf6c6ce237371a2a725fbe023b1e9f2
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 20a82f26b02e5acc42e8ab29a213e10e4cd6859d
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277693"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439347"
 ---
 # <a name="speech-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -75,7 +75,6 @@ Dans le tableau ci-dessous, les paramètres sans ligne « Réglable » ne sont
 | **Quotas spécifiques de WebSocket**                                                  |                        |                 |
 | Longueur maximale de l’audio produit par tour                                             | 10 min                 | 10 min          |
 | Taille maximale des messages SSML par tour                                                 | 64 Ko                  | 64 Ko           |
-| **Limite d’API REST**                                                             | 20 demandes par minute | 300 requêtes par minute |
 
 
 <sup>3</sup> Pour le niveau tarifaire **gratuit (F0)** , consultez également les allocations mensuelles sur la [page de tarification](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
