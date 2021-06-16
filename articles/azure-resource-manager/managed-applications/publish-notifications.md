@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: 2a2e9d429d494c35c49a5b0a3e10b291fd8f24a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 229abeb71a580444525a314f648ee09452585336
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100633935"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971925"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Applications managées Azure avec notifications
 
@@ -61,7 +61,7 @@ Pour bien démarrer, lisez [Publier une application du catalogue de services en 
 
 ```
 ## <a name="add-azure-marketplace-managed-application-notifications"></a>Ajouter des notifications d’application managée de la Place de marché Azure
-Pour plus d’informations, consultez [Créer une offre d’application Azure](../../marketplace/create-new-azure-apps-offer.md).
+Pour plus d’informations, consultez [Créer une offre d’application Azure](../../marketplace/azure-app-offer-setup.md).
 
 ![Notifications d’application managée de la Place de marché Azure dans le portail Azure](./media/publish-notifications/marketplace-notifications.png)
 ## <a name="event-triggers"></a>Déclencheurs d’événement

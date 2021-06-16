@@ -10,14 +10,16 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: pafarley
-ms.openlocfilehash: ddf4d17cd2631f5bc299e392c46bd9065bb13744
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4336b24dd68df2ce52081e6b0d3d1e49517f3d8
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93146613"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031760"
 ---
 # <a name="content-moderator-review-tool"></a>Outil de révision de Content Moderator
+
+[!INCLUDE [deprecation notice](../includes/tool-deprecation.md)]
 
 Azure Content Moderator fournit des services pour combiner la modération du contenu Machine Learning aux révisions humaines. Le site web de l’[outil de révision](https://contentmoderator.cognitive.microsoft.com) est un front-end convivial qui procure un accès détaillé à ces services.
 
