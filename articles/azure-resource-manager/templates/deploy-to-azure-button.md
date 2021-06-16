@@ -3,12 +3,12 @@ title: Bouton Déployer dans Azure
 description: Utilisez le bouton pour déployer des modèles Azure Resource Manager à partir d’un référentiel GitHub.
 ms.topic: conceptual
 ms.date: 05/05/2021
-ms.openlocfilehash: 77d23852941177aca35a582f64b21bfac02d7942
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5074d21867e931560367a6ab62c46e5753f1b00e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736898"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957814"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Utiliser un bouton de déploiement pour déployer des modèles à partir du référentiel GitHub
 
@@ -122,4 +122,4 @@ Le portail affiche un volet qui vous permet de fournir facilement des valeurs de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur les modèles, voir [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+- Pour en savoir plus sur les modèles, voir [Comprendre la structure et la syntaxe des modèles ARM](./syntax.md).

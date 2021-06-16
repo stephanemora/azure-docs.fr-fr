@@ -3,12 +3,12 @@ title: Mettre à jour une délégation
 description: Découvrez comment mettre à jour une délégation pour un client précédemment intégré à Azure Lighthouse.
 ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: f93dcda5eead60c22457d4e8be30f352ad8a8c81
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: bc52790c5652f9571e3a63023314ff8e97fb7e99
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785976"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965067"
 ---
 # <a name="update-a-delegation"></a>Mettre à jour une délégation
 
@@ -58,7 +58,7 @@ Une fois le déploiement terminé, [confirmez sa réussite](onboard-customer.md#
 
 ## <a name="updating-managed-service-offers"></a>Mise à jour des offres de service géré
 
-Si vous avez intégré votre client via une offre de service géré publiée sur Place de marché Azure et que vous souhaitez mettre à jour les autorisations, vous pouvez mettre à jour la délégation en [publiant une nouvelle version de votre offre](../../marketplace/partner-center-portal/update-existing-offer.md) avec les [autorisations](../../marketplace/plan-managed-service-offer.md) que vous souhaitez utiliser mises à jour dans le plan de ce client. Le client sera ensuite en mesure de mettre à jour vers la version la plus récente dans le portail Azure.
+Si vous avez intégré votre client via une offre de service géré publiée sur Place de marché Azure et que vous souhaitez mettre à jour les autorisations, vous pouvez mettre à jour la délégation en [publiant une nouvelle version de votre offre](../../marketplace/update-existing-offer.md) avec les [autorisations](../../marketplace/plan-managed-service-offer.md) que vous souhaitez utiliser mises à jour dans le plan de ce client. Le client sera ensuite en mesure de mettre à jour vers la version la plus récente dans le portail Azure.
 
 Si vous souhaitez modifier le locataire gestionnaire, vous devez [créer et publier une nouvelle offre de service géré](../../marketplace/plan-managed-service-offer.md) que le client doit accepter.
 

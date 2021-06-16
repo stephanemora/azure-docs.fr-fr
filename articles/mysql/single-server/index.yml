@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/20/2020
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: a2ae6e91481da51c77f3c73f4fd9b5d31169952d
-  ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+  ms.openlocfilehash: 372c13e841d3d87bd2bd6952fe96507b02cb2980
+  ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/07/2020
-  ms.locfileid: "96749128"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110191433"
 landingContent:
 - title: À propos de Serveur unique
   linkLists:
@@ -101,6 +101,8 @@ landingContent:
       url: ../concepts-migrate-dump-restore.md
     - text: Migrer en utilisant l’importation et l’exportation
       url: ../concepts-migrate-import-export.md
+    - text: Migrer RDS MySQL en utilisant MySQL Workbench
+      url: ../how-to-migrate-rds-mysql-workbench.md
 - title: Continuité de l’activité
   linkLists:
   - linkListType: concept

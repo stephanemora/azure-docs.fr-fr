@@ -10,13 +10,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: juergent
-ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 8e2b757010aa79bd6d8a14b5e90ac95a199be75a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 717d98591fe5dc8326e6ee311c569bdca83eaa19
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083113"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960943"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 
@@ -591,7 +591,7 @@ Il est possible d’attribuer des adresses IP fixes ou réservées aux machines 
 
 
 ##### <a name="secondary-ip-addresses-for-sap-hostname-virtualization"></a>Adresses IP secondaires pour la virtualisation du nom d’hôte SAP
-Plusieurs adresses IP peuvent être affectées à chaque carte d’interface réseau de la machine virtuelle Azure. L’adresse IP secondaire peut être utilisée pour les noms d’hôte virtuels SAP qui sont mappés à un enregistrement DNS A/PTR, si nécessaire. Les adresses IP secondaires doivent être affectées à la configuration IP des cartes réseau virtuelles Azure, conformément à [cet article](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md), et également configurées dans le système d’exploitation, car les adresses IP secondaires ne sont pas attribuées par le biais de DHCP. Chaque adresse IP secondaire doit provenir du même sous-réseau auquel le carte réseau virtuelle est liée. L’utilisation de l’adresse IP flottante d’Azure Load Balancer n’est [pas prise en charge](/azure/load-balancer/load-balancer-multivip-overview#limitations) pour les configurations IP secondaires, comme les clusters Pacemaker, dans ce cas l’adresse IP de l’équilibreur de charge active le ou les noms d’hôte virtuels SAP. Consultez également la note de SAP [#962955](https://launchpad.support.sap.com/#/notes/962955) sur les conseils généraux pour les noms d’hôtes virtuels.
+Plusieurs adresses IP peuvent être affectées à chaque carte d’interface réseau de la machine virtuelle Azure. L’adresse IP secondaire peut être utilisée pour les noms d’hôte virtuels SAP qui sont mappés à un enregistrement DNS A/PTR, si nécessaire. Les adresses IP secondaires doivent être affectées à la configuration IP des cartes réseau virtuelles Azure, conformément à [cet article](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md), et également configurées dans le système d’exploitation, car les adresses IP secondaires ne sont pas attribuées par le biais de DHCP. Chaque adresse IP secondaire doit provenir du même sous-réseau auquel le carte réseau virtuelle est liée. L’utilisation de l’adresse IP flottante d’Azure Load Balancer n’est [pas prise en charge](../../../load-balancer/load-balancer-multivip-overview.md#limitations) pour les configurations IP secondaires, comme les clusters Pacemaker, dans ce cas l’adresse IP de l’équilibreur de charge active le ou les noms d’hôte virtuels SAP. Consultez également la note de SAP [#962955](https://launchpad.support.sap.com/#/notes/962955) sur les conseils généraux pour les noms d’hôtes virtuels.
 
 
 ##### <a name="multiple-nics-per-vm"></a>Plusieurs cartes d’interface réseau par machine virtuelle

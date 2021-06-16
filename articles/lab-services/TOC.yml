@@ -42,32 +42,39 @@
               href: class-types.md
             - name: Adobe Creative Cloud
               href: class-type-adobe-creative-cloud.md
-            - name: Autodesk
-              href: class-type-autodesk.md
-            - name: Deep Learning pour le traitement en langage naturel
-              href: class-type-deep-learning-natural-language-processing.md
-            - name: Scripts shell sur Linux
-              href: class-type-shell-scripting-linux.md
-            - name: Piratage éthique
-              href: class-type-ethical-hacking.md
-            - name: Réseau avec GNS3
-              href: class-type-networking-gns3.md
-            - name: Gestion de bases de données
-              href: class-type-database-management.md
-            - name: Gestion et développement de bases de données SQL
-              href: class-type-sql-server.md
-            - name: Python et Jupyter Notebooks
-              href: class-type-jupyter-notebook.md
-            - name: Analytique du Big Data
-              href: class-type-big-data-analytics.md
-            - name: MATLAB
-              href: class-type-matlab.md
-            - name: Conception assistée par ordinateur (CAO) SolidWorks
-              href: class-type-solidworks.md
             - name: ArcGIS
               href: class-type-arcgis.md
+            - name: Autodesk
+              href: class-type-autodesk.md
+            - name: Analytique du Big Data
+              href: class-type-big-data-analytics.md
+            - name: Gestion de bases de données
+              href: class-type-database-management.md
+            - name: Deep Learning pour le traitement en langage naturel
+              href: class-type-deep-learning-natural-language-processing.md
+            - name: Piratage éthique
+              href: class-type-ethical-hacking.md
+            - name: MATLAB
+              href: class-type-matlab.md
+            - name: Réseau avec GNS3
+              href: class-type-networking-gns3.md
             - name: Project Lead the Way
               href: class-type-pltw.md
+            - name: Python et Jupyter Notebooks
+              href: class-type-jupyter-notebook.md
+            - name: Développement web React
+              items:
+                - name: React (Linux)
+                  href: class-type-react-linux.md
+                - name: React (Windows)
+                  href: class-type-react-windows.md
+            - name: Scripts shell sur Linux
+              href: class-type-shell-scripting-linux.md
+            - name: Conception assistée par ordinateur (CAO) SolidWorks
+              displayName: SolidWorks CAD
+              href: class-type-solidworks.md
+            - name: Gestion et développement de bases de données SQL
+              href: class-type-sql-server.md
         - name: Utiliser Azure Lab Services dans Teams
           items:
             - name: Vue d’ensemble
@@ -97,8 +104,12 @@
           href: how-to-connect-peer-virtual-network.md
         - name: Guide pratique pour créer un labo avec une ressource partagée
           href: how-to-create-a-lab-with-shared-resource.md
-        - name: Attacher ou détacher une galerie d’images partagées
-          href: how-to-attach-detach-shared-image-gallery.md
+        - name: Utiliser une galerie d’images partagées
+          items:
+            - name: Attacher ou détacher une galerie d’images partagées
+              href: how-to-attach-detach-shared-image-gallery.md
+            - name: Charger une image personnalisée Windows sur une galerie d’images partagées
+              href: upload-custom-image-shared-image-gallery.md
         - name: Ajouter des propriétaires supplémentaires à un laboratoire
           href: how-to-add-user-lab-owner.md
         - name: Configurer les paramètres de pare-feu
@@ -107,8 +118,6 @@
           href: specify-marketplace-images.md
         - name: Spécifier des informations de support (propriétaire de compte lab)
           href: lab-account-owner-support-information.md
-        - name: Charger une image personnalisée sur Shared Image Gallery
-          href: upload-custom-image-shared-image-gallery.md
     - name: Créer et configurer des labos (formateur)
       items:
         - name: Créer et gérer des labos

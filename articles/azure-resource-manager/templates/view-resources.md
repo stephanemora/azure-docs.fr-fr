@@ -3,12 +3,12 @@ title: Découvrir les propriétés des ressources
 description: Décrit comment rechercher des propriétés de ressource.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: aaa7bb13f49c1c742e44a255d4bbdbd2b1730939
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7f0267e4a5afaec0853b82624f4c2486fd8a70e0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736682"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959443"
 ---
 # <a name="discover-resource-properties"></a>Découvrir les propriétés des ressources
 
@@ -116,4 +116,4 @@ Pour montrer comment récupérer des informations de schéma à l’aide de cet 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à rechercher des informations de schéma de modèle. Pour apprendre à créer des modèles, consultez [Comprendre la structure et la syntaxe des modèles Resource Manager](./template-syntax.md).
+Dans cet article, vous avez appris à rechercher des informations de schéma de modèle. Pour apprendre à créer des modèles, consultez [Comprendre la structure et la syntaxe des modèles Resource Manager](./syntax.md).

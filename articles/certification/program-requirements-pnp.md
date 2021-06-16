@@ -1,18 +1,18 @@
 ---
 title: Critères de certification IoT Plug-and-Play
-description: Critères du programme de certification IoT Plug-and-Play
+description: Critères de certification IoT Plug-and-Play
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: IoT Plug and Play Certification Requirements
 ms.service: certification
-ms.openlocfilehash: eaf3ef6016388404761e913f878972df4a333061
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: bec37c72d8db3e0891cb2cd375084465950ea5f5
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109712799"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541950"
 ---
 # <a name="iot-plug-and-play-certification-requirements"></a>Critères de certification IoT Plug-and-Play
 

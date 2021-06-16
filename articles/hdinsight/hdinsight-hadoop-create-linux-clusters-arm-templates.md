@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/07/2020
-ms.openlocfilehash: 9d35e5730d35309b7881723df5a682f6c9990a59
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 7d39163fa2890eb16a455d505baa0a6bbeddd42e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072618"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950627"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Créer des clusters Apache Hadoop dans HDInsight avec des modèles Resource Manager
 
@@ -33,7 +33,7 @@ Pour accéder à des exemples de modèles HDInsight, consultez la page [Modèles
 
 Pour plus d’informations sur les modèles Resource Manager, consultez les articles et exemples suivants :
 
-* [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+* [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/syntax.md)
 * [Déployer une application avec des modèles Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md)
 * Documentation de référence concernant le modèle [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions)
 * [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
@@ -76,5 +76,5 @@ Cet article vous a présenté différentes méthodes pour créer un cluster HDIn
 * Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez la page [Déployer des ressources avec des bibliothèques .NET et un modèle](/previous-versions/azure/virtual-machines/windows/csharp-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Approvisionner et déployer des microservices de manière prévisible dans Azure](../app-service/deploy-complex-application-predictably.md).
 * Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](../devtest-labs/devtest-lab-overview.md).
-* Pour en savoir plus sur les sections du modèle Azure Resource Manager, consultez [Création de modèles](../azure-resource-manager/templates/template-syntax.md).
+* Pour en savoir plus sur les sections du modèle Azure Resource Manager, consultez [Création de modèles](../azure-resource-manager/templates/syntax.md).
 * Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager, voir [Fonctions des modèles](../azure-resource-manager/templates/template-functions.md).

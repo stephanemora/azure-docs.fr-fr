@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: how-to
 ms.date: 05/13/2021
-ms.openlocfilehash: 093dd29a4e9eda9157a49c6cc44144b5e8a4bbec
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 860e84bf8e2378d4a9c433df81c5adfb6741169e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369146"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953828"
 ---
 # <a name="estimate-storage-costs-for-workflows-in-single-tenant-azure-logic-apps"></a>Estimer les coûts de stockage des workflows dans Azure Logic Apps monolocataire
 
-Azure Logic Apps utilise [Stockage Azure](/azure/storage/) pour toutes les opérations de stockage. Dans le modèle Azure Logic Apps *multilocataire* traditionnel, toute utilisation de stockage et tout coût sont attachés à l’application logique. Désormais, dans Azure Logic Apps *monolocataire*, vous pouvez utiliser votre propre compte de stockage. Ces coûts de stockage sont listés séparément dans votre facture Azure. Cette fonctionnalité vous offre plus de souplesse et de contrôle sur vos données d’application logique.
+Azure Logic Apps utilise [Stockage Azure](../storage/index.yml) pour toutes les opérations de stockage. Dans le modèle Azure Logic Apps *multilocataire* traditionnel, toute utilisation de stockage et tout coût sont attachés à l’application logique. Désormais, dans Azure Logic Apps *monolocataire*, vous pouvez utiliser votre propre compte de stockage. Ces coûts de stockage sont listés séparément dans votre facture Azure. Cette fonctionnalité vous offre plus de souplesse et de contrôle sur vos données d’application logique.
 
 > [!NOTE]
 > Cet article s’applique aux workflows de l’environnement Azure Logic Apps monolocataire. Ces workflows se trouvent dans la même application logique et dans un locataire unique qui partagent le même stockage. Pour plus d’informations, consultez [Architecture monolocataire ou multilocataire et environnement de service d’intégration](single-tenant-overview-compare.md).

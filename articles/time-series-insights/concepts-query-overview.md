@@ -3,19 +3,20 @@ title: Interrogation des données – Azure Time Series Insights Gen2 | Microsof
 description: Concepts de l’interrogation de données et vue d’ensemble de l’API REST dans Azure Time Series Insights Gen2.
 author: shreyasharmamsft
 ms.author: shresha
-manager: dpalled
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: b1b055fa7f083bd8bccda16498e2894d5d67eace
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8cecba9b63f201b220916baa9e534f5607156a35
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374131"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613747"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Interrogation des données à partir d’Azure Time Series Insights Gen2
 
@@ -54,7 +55,7 @@ La plupart de ces API prennent en charge l’opération d’exécution par lot p
 
 ## <a name="time-series-query-tsq-apis"></a>API de requête de série chronologique (TSQ)
 
-Ces API sont disponibles dans les deux magasins (chaud et froid) de notre solution de stockage multicouche. 
+Ces API sont disponibles dans les deux magasins (chaud et froid) de notre solution de stockage multicouche.
 
 * [API Obtenir les événements](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) : permet l’interrogation et l’extraction d’événements bruts et des timestamps d’événements associés tels qu’ils sont enregistrés dans Azure Time Series Insights Gen2 à partir du fournisseur de source. Cette API permet de récupérer des événements bruts pour un ID Time Series donné et une étendue de recherche. Cette API prend en charge la pagination pour récupérer le jeu de données de réponse complet pour l’entrée sélectionnée.
 
@@ -64,7 +65,7 @@ Ces API sont disponibles dans les deux magasins (chaud et froid) de notre soluti
 * [API Obtenir les séries](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries) : Active l’interrogation et la récupération des valeurs calculées et des timestamps d’événements associés en appliquant des calculs définis par des variables sur des événements bruts. Ces variables peuvent être définies dans le modèle Time Series ou fournies inline dans la requête. Cette API prend en charge la pagination pour récupérer le jeu de données de réponse complet pour l’entrée sélectionnée.
 
 * [API Agréger les séries](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries) : permet l’interrogation et la récupération des valeurs agrégées et des timestamps d’intervalle associés en appliquant des calculs définis par des variables sur des événements bruts. Ces variables peuvent être définies dans le modèle Time Series ou fournies inline dans la requête. Cette API prend en charge la pagination pour récupérer le jeu de données de réponse complet pour l’entrée sélectionnée.
-  
+
   Pour une étendue de recherche et un intervalle spécifiés, cette API renvoie une réponse agrégée par intervalle et par variable pour un ID de série chronologique. Le nombre d’intervalles dans le jeu de données de réponse est calculé en comptant les cycles d’époque (le nombre de millisecondes qui se sont écoulées depuis l’époque UNIX - 1er janvier 1970) et en divisant les cycles par la taille de l’intervalle de temps spécifiée dans la requête.
 
   Les timestamps retournés dans le jeu de réponses sont des limites de l’intervalle gauche, et non des événements échantillonnés à partir de l’intervalle.
@@ -72,11 +73,11 @@ Ces API sont disponibles dans les deux magasins (chaud et froid) de notre soluti
 
 ### <a name="selecting-store-type"></a>Sélection du type de magasin
 
-Les API ci-dessus ne peuvent s’exécuter que sur l’un des deux types de stockage (froid ou chaud) dans un seul appel. Les paramètres URL de requête permettent de spécifier le [type de stockage](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) sur lequel la requête doit s’exécuter. 
+Les API ci-dessus ne peuvent s’exécuter que sur l’un des deux types de stockage (froid ou chaud) dans un seul appel. Les paramètres URL de requête permettent de spécifier le [type de stockage](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) sur lequel la requête doit s’exécuter.
 
-Si aucun paramètre n’est spécifié, la requête est exécutée dans le stockage froid par défaut. Si une requête s’étend sur une plage de temps qui chevauche à la fois le stockage froid et le stockage chaud, il est recommandé de router la requête vers le stockage froid pour une expérience optimale, puisque le stockage chaud contient uniquement des données partielles. 
+Si aucun paramètre n’est spécifié, la requête est exécutée dans le stockage froid par défaut. Si une requête s’étend sur une plage de temps qui chevauche à la fois le stockage froid et le stockage chaud, il est recommandé de router la requête vers le stockage froid pour une expérience optimale, puisque le stockage chaud contient uniquement des données partielles.
 
-L’[Explorateur Time Series Insights](./concepts-ux-panels.md) et le [connecteur Power BI](./how-to-connect-power-bi.md) effectuent des appels aux API ci-dessus et sélectionnent automatiquement le paramètre storeType approprié, si besoin. 
+L’[Explorateur Time Series Insights](./concepts-ux-panels.md) et le [connecteur Power BI](./how-to-connect-power-bi.md) effectuent des appels aux API ci-dessus et sélectionnent automatiquement le paramètre storeType approprié, si besoin.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

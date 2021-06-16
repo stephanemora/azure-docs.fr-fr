@@ -3,13 +3,13 @@ title: Configurer des points de terminaison privés pour les rubriques ou les do
 description: Cet article explique comment configurer des points de terminaison privés pour les rubriques ou les domaines Azure Event Grid.
 ms.topic: how-to
 ms.date: 11/18/2020
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 85546e99a8c431dc75b1af3d5044e06a18cf226d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: df0c855a50bdb8f617513e635a021032a1ebf7da
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770504"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706056"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurer des points de terminaison privés pour les rubriques ou les domaines Azure Event Grid
 Vous pouvez utiliser des [points de terminaison privés](../private-link/private-endpoint-overview.md) pour autoriser l’entrée sécurisée d’événements directement à partir de votre réseau virtuel vers vos rubriques et domaines via une [liaison privée](../private-link/private-link-overview.md), sans passer par le réseau Internet public. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour votre rubrique ou domaine. Pour plus d’informations conceptuelles, consultez [Sécurité du réseau](network-security.md).

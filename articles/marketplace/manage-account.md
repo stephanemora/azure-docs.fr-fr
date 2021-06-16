@@ -7,12 +7,12 @@ ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 04/07/2021
-ms.openlocfilehash: 8edac35fd83ef5dbf122e7f0959564fa072fbadd
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: fa09a03a9ffda04e09bbd5708e97334304013078
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144922"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006578"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gérer votre compte Place de marché commerciale dans l’Espace partenaires
 
@@ -21,13 +21,13 @@ ms.locfileid: "108144922"
 - Propriétaire
 - Manager
 
-Une fois que vous avez [créé un compte Espace partenaires](./create-account.md), vous pouvez utiliser le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) pour gérer votre compte et les offres.
+Une fois que vous avez [créé un compte Espace partenaires](./create-account.md), vous pouvez utiliser le [tableau de bord de la Place de marché commerciale](https://go.microsoft.com/fwlink/?linkid=2165290) pour gérer votre compte et les offres.
 
 ## <a name="access-your-account-settings"></a>Accéder à vos paramètres de compte
 
-Si ce n’est déjà fait, vous (ou l’administrateur de votre organisation) devez accéder aux [paramètres du compte](https://partner.microsoft.com/dashboard/account/management) de votre compte Espace partenaires.
+Si ce n’est déjà fait, vous (ou l’administrateur de votre organisation) devez accéder aux [paramètres du compte](https://go.microsoft.com/fwlink/?linkid=2165291) de votre compte Espace partenaires.
 
-1. Connectez-vous au [tableau de bord de la place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace) dans l’Espace partenaires à l’aide du compte auquel vous souhaitez accéder. Si vous êtes membre de plusieurs comptes et que vous vous êtes connecté avec un autre compte, vous pouvez [changer de compte](switch-accounts.md).
+1. Connectez-vous au [tableau de bord de la place de marché commerciale](https://go.microsoft.com/fwlink/?linkid=2165290) dans l’Espace partenaires à l’aide du compte auquel vous souhaitez accéder. Si vous êtes membre de plusieurs comptes et que vous vous êtes connecté avec un autre compte, vous pouvez [changer de compte](switch-accounts.md).
 1. En haut à droite, sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres du compte**.
 
     [ ![Capture d’écran du menu Paramètres du compte dans l’Espace partenaires.](./media/manage-accounts/settings-account.png) ](./media/manage-accounts/settings-account.png#lightbox)
@@ -110,7 +110,7 @@ La page **Contrats** vous permet d’afficher la liste des contrats de publicati
 
 Pour accéder à la page Contrats :
 
-1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. En haut à droite, sélectionnez **Paramètres** > **Paramètres du compte**.
 1. Sous **Paramètres du compte**, sélectionnez **Contrats**.
 
@@ -179,7 +179,7 @@ Les paramètres de gestion des appareils ne s’appliquent qu’à la publicatio
 
 ## <a name="create-a-billing-profile"></a>Créer un profil de facturation
 
-Si vous publiez une offre [Dynamics 365 for Customer Engagement & Power Apps](dynamics-365-customer-engage-offer-setup.md) ou [Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md), vous devez compléter votre *profil de facturation*.
+Si vous publiez une offre [Dynamics 365 for Customer Engagement & Power Apps](dynamics-365-customer-engage-offer-setup.md) ou [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md), vous devez compléter votre *profil de facturation*.
 
 L’adresse de facturation est préremplie avec votre entité légale et vous pouvez la mettre à jour ultérieurement. Les champs Taxes et ID TVA sont obligatoires pour certains pays et facultatifs pour d’autres. Le nom du pays/de la région et le nom de la société ne peuvent pas être modifiés.
 

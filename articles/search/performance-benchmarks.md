@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: 5f7617fdfea68c8005c8a33ec782edc2bbe01f4b
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 2da5a39710e7bbce2e610ef7850b9284bc5c4309
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930769"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111441433"
 ---
 # <a name="azure-cognitive-search-performance-benchmarks"></a>Tests d’évaluation des performances de Recherche cognitive Azure
 
@@ -22,7 +22,7 @@ Les performances de Recherche cognitive Azure dépendent de [divers facteurs](se
 Pour couvrir un maximum de cas d’utilisation différents, nous avons exécuté des tests d’évaluation pour deux scénarios principaux :
 
 * **Recherche e-commerce** : ce test d’évaluation émule un véritable scénario e-commerce et est basé sur la société de commerce électronique nordique [CDON](https://cdon.com).
-* **Recherche de documents** : ce scénario se compose d’une recherche par mot clé sur des documents de texte intégral provenant de [Semantic Scholar](http://s2-public-api-prod.us-west-2.elasticbeanstalk.com/corpus/download/). Elle émule une solution de recherche de documents classique.
+* **Recherche de documents** : ce scénario se compose d’une recherche par mot clé sur des documents de texte intégral provenant de [Semantic Scholar](https://www.aclweb.org/anthology/2020.acl-main.447/). Elle émule une solution de recherche de documents classique.
 
 Bien que ces scénarios reflètent des cas d’utilisation différents, chaque scénario est unique. Nous recommandons donc toujours de tester les performances de votre charge de travail individuelle. Nous avons publié une [solution de test des performances à l’aide de JMeter](https://github.com/Azure-Samples/azure-search-performance-testing) pour vous permettre d’exécuter des tests similaires sur votre propre service.
 
