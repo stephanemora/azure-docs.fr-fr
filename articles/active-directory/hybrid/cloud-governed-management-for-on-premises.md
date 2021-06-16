@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b4d1041b9d330227fadf31f6afc1804174ea2ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea87a6729e6f8339ad92bc9d57e7152199349ac5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96340847"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965927"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Comment Azure AD permet une gestion gouvernée par le cloud pour les charges de travail locales
 
@@ -59,7 +59,7 @@ Azure AD améliore la gestion des applications locales intégrées à Active Di
 
 * **Accès à distance sécurisé et accès conditionnel pour les applications locales**
 
-Pour de nombreuses organisations, la gestion de l’accès aux applications de bureau distantes et aux applications web locales intégrées à Azure Directory, à partir du cloud, nécessite en premier lieu le déploiement du [proxy d’application](../manage-apps/application-proxy.md) devant ces applications afin de fournir un accès à distance sécurisé.
+Pour de nombreuses organisations, la gestion de l’accès aux applications de bureau distantes et aux applications web locales intégrées à Azure Directory, à partir du cloud, nécessite en premier lieu le déploiement du [proxy d’application](../app-proxy/application-proxy.md) devant ces applications afin de fournir un accès à distance sécurisé.
 
 Après une authentification unique à Azure AD, les utilisateurs peuvent accéder aux applications cloud et locales par le biais d’une URL externe ou un portail d’applications interne. Par exemple, le proxy d’application fournit l’accès à distance et l’authentification unique aux applications Bureau à distance, SharePoint, Tableau, Qlik, ainsi qu’aux applications métier (LOB). En outre, les stratégies d’accès conditionnel peuvent inclure l’affichage de [conditions d’utilisation](../conditional-access/terms-of-use.md) et un processus permettant de [ vérifier que l’utilisateur a accepté ces conditions](../conditional-access/require-tou.md) avant de lui permettre d’accéder à une application.
 

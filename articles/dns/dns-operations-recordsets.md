@@ -8,16 +8,16 @@ ms.service: dns
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 ms.workload: infrastructure-services
 ms.date: 04/28/2021
 ms.author: rohink
-ms.openlocfilehash: 1b3e4df12a7b8a08d3f7edc8e63c9b6225a3e7bc
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 2aaa8ff93d0e334bf8b9104b4f82b0e35ccf36c1
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228061"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705043"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gérer les enregistrements et jeux d’enregistrements DNS dans Azure DNS à l’aide d’Azure PowerShell
 
@@ -312,9 +312,9 @@ Set-AzDnsRecordSet -RecordSet $rs
 
 Le jeu d’enregistrements NS à l’apex de la zone est créé automatiquement avec chaque zone DNS. Il contient les noms des serveurs de noms Azure DNS attribués à la zone.
 
-Vous pouvez ajouter d’autres serveurs de noms à ce jeu d’enregistrements NS pour prendre en charge le co-hébergement de domaines avec plusieurs fournisseurs DNS. Il est également possible de modifier la durée de vie et les métadonnées de ce jeu d’enregistrements. Toutefois, vous n’avez pas la possibilité de supprimer ni de modifier les serveurs de noms Azure DNS préremplis.
+Vous pouvez ajouter d’autres serveurs de noms à ce jeu d’enregistrements NS pour prendre en charge le cohébergement de domaines avec plusieurs fournisseurs DNS. Il est également possible de modifier la durée de vie et les métadonnées de ce jeu d’enregistrements. Toutefois, vous n’avez pas la possibilité de supprimer ni de modifier les serveurs de noms Azure DNS préremplis.
 
-Cette restriction s’applique uniquement au jeu d’enregistrements NS au niveau de l’apex de la zone. Les autres jeux d’enregistrements NS dans votre zone (tels que ceux utilisés pour déléguer des zones enfants) peuvent être modifiés sans contrainte.
+Cette restriction s’applique uniquement au jeu d’enregistrements NS situé à l’apex de la zone. Les autres jeux d’enregistrements NS dans votre zone (tels que ceux utilisés pour déléguer des zones enfants) peuvent être modifiés sans contrainte.
 
 L’exemple suivant montre comment ajouter un autre serveur de noms au jeu d’enregistrements NS au niveau de l’apex de la zone :
 

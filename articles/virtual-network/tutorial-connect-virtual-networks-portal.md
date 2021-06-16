@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: b7fcf7f60b18d0d44ded67cb5b22bcdcdcd56a77
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 8a0dd8b20331d2f296767bc5628e901600f835e0
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059324"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078147"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutoriel : Connecter des réseaux virtuels à l’aide du peering de réseaux virtuels en utilisant le portail Azure
 
@@ -45,7 +45,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 2. Sélectionnez **Mise en réseau**, puis **Réseau virtuel**.
 3. Sous l’onglet **Bases**, entrez ou sélectionnez les informations suivantes, puis acceptez les valeurs par défaut pour les autres paramètres :
 
-    |Paramètre|Valeur|
+    |Paramètre|Value|
     |---|---|
     |Abonnement| Sélectionnez votre abonnement.|
     |Resource group| Sélectionnez **Créer** et entrez *myResourceGroup*.|
@@ -57,7 +57,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
    
 5. Effectuez à nouveau les étapes 1 à 5, avec les modifications suivantes :
 
-    |Paramètre|Valeur|
+    |Paramètre|Value|
     |---|---|
     |Nom|myVirtualNetwork2|
     |Espace d’adressage|10.1.0.0/16|
@@ -105,7 +105,7 @@ Créez une machine virtuelle sur chaque réseau virtuel afin de pouvoir établir
     |Nom|myVm1|
     |Emplacement| Sélectionnez **USA Est**.|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
-    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
    
 4. Sélectionnez une taille de machine virtuelle sous l’option **Taille**.
 5. Sélectionnez les valeurs suivantes sous **Réseaux** :
@@ -123,12 +123,14 @@ Créez une machine virtuelle sur chaque réseau virtuel afin de pouvoir établir
 
 Effectuez à nouveau les étapes 1 à 6, avec les modifications suivantes :
 
-|Paramètre|Valeur|
+|Paramètre|Value|
 |---|---|
 |Nom | myVm2|
 |Réseau virtuel | myVirtualNetwork2|
 
 La création des machines virtuelles peut prendre plusieurs minutes. Attendez que les deux machines virtuelles aient été créées avant de passer aux étapes restantes.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="communicate-between-vms"></a>Établir une communication entre les machines virtuelles
 

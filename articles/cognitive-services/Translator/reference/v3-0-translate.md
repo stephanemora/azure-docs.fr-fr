@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 431e42e422ecbaeb0e404928a505cf90180f6dd7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 090e00bbf9ca86115f286b8f24955f33c7230bf3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379334"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969400"
 ---
 # <a name="translator-30-translate"></a>Translator 3.0 : Translate
 
@@ -50,9 +50,9 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
 
 | Paramètre de requête. | Description |
 | --- | --- |
-| de | _Paramètre facultatif_.  <br>Spécifie la langue du texte d’entrée. Trouvez les langues disponibles pour la traduction en recherchant [langues prises en charge](../reference/v3-0-languages.md) à l’aide de l’étendue `translation`. Si le paramètre `from` n’est pas spécifié, une détection automatique de la langue est appliquée pour déterminer la langue source.  <br>  <br>Vous devez utiliser le paramètre `from` au lieu de la détection automatique lors de l’utilisation de la fonctionnalité de [dictionnaire dynamique](/azure/cognitive-services/translator/dynamic-dictionary). |
+| de | _Paramètre facultatif_.  <br>Spécifie la langue du texte d’entrée. Trouvez les langues disponibles pour la traduction en recherchant [langues prises en charge](../reference/v3-0-languages.md) à l’aide de l’étendue `translation`. Si le paramètre `from` n’est pas spécifié, une détection automatique de la langue est appliquée pour déterminer la langue source.  <br>  <br>Vous devez utiliser le paramètre `from` au lieu de la détection automatique lors de l’utilisation de la fonctionnalité de [dictionnaire dynamique](../dynamic-dictionary.md). |
 | textType | _Paramètre facultatif_.  <br>Définit si le texte en cours de traduction est au format texte brut ou HTML. Tout code HTML doit être un élément bien formé et complet. Les valeurs possibles sont : `plain` (par défaut) ou `html`. |
-| catégorie | _Paramètre facultatif_.  <br>Chaîne spécifiant la catégorie (domaine) de la traduction. Ce paramètre est utilisé pour obtenir des traductions d’un système personnalisé créé avec [Custom Translator](../customization.md). Ajoutez l’ID de catégorie de vos [détails de projet](/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details) Custom Translator à ce paramètre pour utiliser votre système personnalisé déployé. La valeur par défaut est `general`. |
+| catégorie | _Paramètre facultatif_.  <br>Chaîne spécifiant la catégorie (domaine) de la traduction. Ce paramètre est utilisé pour obtenir des traductions d’un système personnalisé créé avec [Custom Translator](../customization.md). Ajoutez l’ID de catégorie de vos [détails de projet](../custom-translator/how-to-create-project.md#view-project-details) Custom Translator à ce paramètre pour utiliser votre système personnalisé déployé. La valeur par défaut est `general`. |
 | ProfanityAction | _Paramètre facultatif_.  <br>Spécifie comment les vulgarités doivent être traitées dans les traductions. Les valeurs possibles sont : `NoAction` (valeur par défaut), `Marked` ou `Deleted`. Pour comprendre comment traiter les vulgarités, voir [Gestion de la vulgarité](#handle-profanity). |
 | ProfanityMarker | _Paramètre facultatif_.  <br>Spécifie comment vulgarités doit être marquées dans les traductions. Les valeurs possibles sont : `Asterisk` (par défaut) ou `Tag`. Pour comprendre comment traiter les vulgarités, voir [Gestion de la vulgarité](#handle-profanity). |
 | includeAlignment | _Paramètre facultatif_.  <br>Spécifie s’il faut inclure une projection d’alignement du texte source vers le texte traduit. Les valeurs possibles sont `true` ou `false` (par défaut). |
@@ -66,7 +66,7 @@ Les en-têtes de demande sont les suivants :
 
 | headers | Description |
 | --- | --- |
-| En-tête(s) d’authentification | _En-tête de demande obligatoire_.  <br>Voir les [options disponibles pour l’authentification](/azure/cognitive-services/translator/reference/v3-0-reference#authentication). |
+| En-tête(s) d’authentification | _En-tête de demande obligatoire_.  <br>Voir les [options disponibles pour l’authentification](./v3-0-reference.md#authentication). |
 | Content-Type | _En-tête de demande obligatoire_.  <br>Spécifie le type de contenu de la charge utile.  <br>La valeur acceptée est `application/json; charset=UTF-8`. |
 | Content-Length | _En-tête de demande obligatoire_.  <br>Longueur du corps de la demande. |
 | X-ClientTraceId | _Facultatif_.  <br>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête appelé `ClientTraceId`. |

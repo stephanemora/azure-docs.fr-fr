@@ -2,13 +2,13 @@
 title: Fonctions de modèle - date
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (ARM) pour travailler avec des dates.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: abff5b86ad1e10042596b11f613cdb594e307209
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/11/2021
+ms.openlocfilehash: c6bf3adca5dde4947e2c22dd8468f1b045f77120
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889924"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959700"
 ---
 # <a name="date-functions-for-arm-templates"></a>Fonctions de date pour les modèles ARM
 
@@ -16,8 +16,6 @@ Resource Manager fournit les fonctions ci-dessous pour vous permettre d’utilis
 
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## <a name="datetimeadd"></a>dateTimeAdd
 
@@ -40,8 +38,6 @@ Valeur datetime qui résulte de l’ajout de la valeur de durée à la valeur de
 ### <a name="examples"></a>Exemples
 
 L’exemple de modèle suivant montre différentes façons d’ajouter des valeurs de temps.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -76,22 +72,6 @@ L’exemple de modèle suivant montre différentes façons d’ajouter des valeu
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param baseTime string = utcNow('u')
-
-var add3Years = dateTimeAdd(baseTime, 'P3Y')
-var subtract9Days = dateTimeAdd(baseTime, '-P9D')
-var add1Hour = dateTimeAdd(baseTime, 'PT1H')
-
-output add3YearsOutput string = add3Years
-output subtract9DaysOutput string = subtract9Days
-output add1HourOutput string = add1Hour
-```
-
----
-
 Lorsque le modèle précédent est déployé avec la valeur de temps de base `2020-04-07 14:53:14Z`, la sortie est la suivante :
 
 | Nom | Type | Valeur |
@@ -101,8 +81,6 @@ Lorsque le modèle précédent est déployé avec la valeur de temps de base `20
 | add1HourOutput | String | 7/4/2023 15:53:14 |
 
 L’exemple de modèle suivant montre comment définir l’heure de début d’une planification Automation.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -154,30 +132,6 @@ L’exemple de modèle suivant montre comment définir l’heure de début d’u
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param omsAutomationAccountName string = 'demoAutomation'
-param scheduleName string = 'demSchedule1'
-param baseTime string = utcNow('u')
-
-var startTime = dateTimeAdd(baseTime, 'PT1H')
-
-...
-
-resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31' = {
-  name: concat(omsAutomationAccountName, '/', scheduleName)
-  properties: {
-    description: 'Demo Scheduler'
-    startTime: startTime
-    interval: 1
-    frequency: 'Hour'
-  }
-}
-```
-
----
-
 ## <a name="utcnow"></a>utcNow
 
 `utcNow(format)`
@@ -205,8 +159,6 @@ Valeur de date/heure UTC actuelle.
 ### <a name="examples"></a>Exemples
 
 L’exemple de modèle suivant montre des formats différents pour la valeur de date/heure.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -245,20 +197,6 @@ L’exemple de modèle suivant montre des formats différents pour la valeur de 
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param utcValue string = utcNow()
-param utcShortValue string = utcNow('d')
-param utcCustomValue string = utcNow('M d')
-
-output utcOutput string = utcValue
-output utcShortOutput string = utcShortValue
-output utcCustomOutput string = utcCustomValue
-```
-
----
-
 La sortie de l’exemple précédent varie pour chaque déploiement, mais elle sera semblable à celle-ci :
 
 | Nom | Type | Valeur |
@@ -268,8 +206,6 @@ La sortie de l’exemple précédent varie pour chaque déploiement, mais elle s
 | utcCustomOutput | string | 3 5 |
 
 L’exemple suivant montre comment utiliser une valeur de la fonction pour définir une valeur de balise.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -305,25 +241,6 @@ L’exemple suivant montre comment utiliser une valeur de la fonction pour défi
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param utcShort string = utcNow('d')
-param rgName string
-
-resource myRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
-  name: rgName
-  location: 'westeurope'
-  tags: {
-    createdDate: utcShort
-  }
-}
-
-output utcShortOutput string = utcShort
-```
-
----
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](./syntax.md).

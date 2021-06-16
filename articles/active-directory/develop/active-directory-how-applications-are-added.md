@@ -13,12 +13,12 @@ ms.date: 12/01/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: ac02638dfdef4867e93e277175df82be18be66a7
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 1abd8f23f54826e283f4e45aac8b4fb35dc0b144
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530088"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953648"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Comment et pourquoi les applications sont ajoutées à Azure AD
 
@@ -74,7 +74,7 @@ Le principal de service peut inclure :
   * Lorsque vous vous abonnez à Microsoft 365 ou commencez une version d’évaluation, un ou plusieurs principaux de service sont créés dans l’annuaire représentant les différents services qui sont utilisés pour transmettre toutes les fonctionnalités associées à Microsoft 365.
   * Certains services de Microsoft 365 tels que SharePoint créent des principaux de service sur une base continue, afin de sécuriser les communications entre les composants, y compris les flux de travail.
 * Lorsqu’un administrateur ajoute une application à partir de la galerie d’applications (cette opération crée également un objet d’application sous-jacent)
-* Lors de l’ajout d’une application pour utiliser le [Proxy d’application d’Azure AD](../manage-apps/application-proxy.md)
+* Lors de l’ajout d’une application pour utiliser le [Proxy d’application d’Azure AD](../app-proxy/application-proxy.md)
 * Lors de la connexion d’une application pour l’authentification unique à l’aide de SAML ou de l’authentification unique (SSO) avec mot de passe
 * Par programmation via l’API Microsoft Graph ou PowerShell
 

@@ -3,13 +3,13 @@ title: Créer un cluster Service Fabric exécutant Windows dans Azure
 description: Dans ce tutoriel, vous allez découvrir comment déployer un cluster Windows Service Fabric dans un réseau virtuel Azure et un groupe de sécurité réseau à l’aide de PowerShell.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: a7390858e55a456ec5fb2f851be1a7443be97082
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 2c719569fc97121a935c3dcbd4945e50863ecf80
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86245039"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082016"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutoriel : Déployer un cluster Service Fabric exécutant Windows sur un réseau virtuel Azure
 
@@ -145,8 +145,8 @@ Le fichier de paramètres [azuredeploy.parameters.json][parameters] déclare de 
 
 **Paramètre** | **Exemple de valeur** | **Remarques** 
 |---|---|---|
-|adminUsername|vmadmin| Nom d’utilisateur administrateur pour les machines virtuelles de cluster. [Conditions requises pour les noms d’utilisateur de la machine virtuelle](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). |
-|adminPassword|Password#1234| Mot de passe d’administrateur pour les machines virtuelles de cluster. [Conditions requises pour les mots de passe de la machine virtuelle](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUsername|vmadmin| Nom d’utilisateur administrateur pour les machines virtuelles de cluster. [Conditions requises pour les noms d’utilisateur de la machine virtuelle](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-). |
+|adminPassword|Password#1234| Mot de passe d’administrateur pour les machines virtuelles de cluster. [Conditions requises pour les mots de passe de la machine virtuelle](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).|
 |clusterName|mysfcluster123| Nom du cluster. Peut contenir seulement des lettres et des chiffres. Le nom peut contenir entre 3 et 23 caractères.|
 |location|southcentralus| Emplacement du cluster. |
 |certificateThumbprint|| <p>La valeur doit être vide si vous créez un certificat auto-signé ou si vous fournissez un fichier de certificat.</p><p>Pour utiliser un certificat existant déjà chargé dans un coffre de clés, renseignez la valeur d’empreinte du certificat SHA-1. Par exemple, « 6190390162C988701DB5676EB81083EA608DCCF3 ».</p> |

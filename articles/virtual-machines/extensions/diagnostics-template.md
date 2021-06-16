@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: windows
 ms.date: 05/31/2017
-ms.openlocfilehash: 7759257f51cb00cd106af7e72e14c6660450cae9
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 50693e25b01d175c24931c5e2b298a00339fff33
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754350"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962499"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Utiliser la surveillance et les diagnostics avec une machine virtuelle Windows et des modèles Azure Resource Manager
 L’extension Diagnostics Azure fournit des fonctionnalités d’analyse et de diagnostics sur une machine virtuelle Azure basée sur Windows. Vous pouvez activer ces fonctionnalités sur la machine virtuelle en incluant l’extension dans le modèle Azure Resource Manager. Pour plus d’informations sur l’ajout d’une extension dans un modèle de machine virtuelle, consultez [Création de modèles Azure Resource Manager avec des extensions de machine virtuelle](../windows/template-description.md#extensions) . Cet article décrit comment ajouter l’extension Diagnostics Azure à un modèle de machine virtuelle Windows.
@@ -172,4 +172,4 @@ Chaque table WADMetrics contient les colonnes suivantes :
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir un exemple de modèle complet d’une machine virtuelle Windows avec l’extension Diagnostics, consultez [vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-monitoring-diagnostics-extension)
 * Déployer le modèle Azure Resource Manager à l’aide [d’Azure PowerShell](../windows/ps-template.md) ou de la [ligne de commande Azure](../linux/create-ssh-secured-vm-from-template.md)
-* En savoir plus sur la [création de modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md)
+* En savoir plus sur la [création de modèles Azure Resource Manager](../../azure-resource-manager/templates/syntax.md)

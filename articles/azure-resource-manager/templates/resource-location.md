@@ -4,12 +4,12 @@ description: Décrit comment définir un emplacement de ressource dans un modèl
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b2eba8e48a9b5ccc1ddb731690e99dcbbaa8f6fb
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 686975b73ee2ad0e487fad278f872e7d31753041
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321624"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960050"
 ---
 # <a name="set-resource-location-in-arm-template"></a>Définir l'emplacement des ressources dans un modèle Resource Manager
 
@@ -97,4 +97,4 @@ L’exemple suivant illustre le déploiement d’un compte de stockage dans un e
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour obtenir la liste complète des fonctions de modèle, consultez [Fonctions des modèles ARM](template-functions.md).
-* Pour plus d'informations sur les fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Resource Manager](template-syntax.md).
+* Pour plus d'informations sur les fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Resource Manager](./syntax.md).

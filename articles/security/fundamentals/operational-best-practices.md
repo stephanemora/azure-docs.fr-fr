@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 6634a536828b3c19d771d135fdb3a1224d3dfdf3
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: e6bfa172624ba65c161abcba6dfd97b557fb8d91
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717420"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950464"
 ---
 # <a name="azure-operational-security-best-practices"></a>Bonnes pratiques pour Azure Operational Security
 Cet article fournit un ensemble de meilleures pratiques opérationnelles pour protéger vos données, applications et autres ressources dans Azure.
@@ -144,9 +144,9 @@ Voici des bonnes pratiques pour la supervision du réseau et les outils disponib
 Utilisez les bonnes pratiques DevOps suivantes pour garantir la productivité et l’efficacité de votre entreprise et de vos équipes.
 
 **Bonne pratique** : Automatisez la génération et le déploiement des services.  
-**Détail** : [L’infrastructure en tant que code](/azure/devops/learn/what-is-infrastructure-as-code) est un ensemble de techniques et de pratiques qui aident les professionnels de l’informatique à supprimer la charge de travail que représentent la génération et la gestion quotidiennes d’une infrastructure modulaire. Elle permet aux professionnels de l’informatique de générer et de gérer leur environnement serveur moderne d’une façon similaire à celle dont les développeurs de logiciels génèrent et gèrent le code de l’application.
+**Détail** : [L’infrastructure en tant que code](/devops/deliver/what-is-infrastructure-as-code) est un ensemble de techniques et de pratiques qui aident les professionnels de l’informatique à supprimer la charge de travail que représentent la génération et la gestion quotidiennes d’une infrastructure modulaire. Elle permet aux professionnels de l’informatique de générer et de gérer leur environnement serveur moderne d’une façon similaire à celle dont les développeurs de logiciels génèrent et gèrent le code de l’application.
 
-Vous pouvez utiliser [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour provisionner vos applications à l’aide d’un modèle déclaratif. Dans un modèle unique, vous pouvez déployer plusieurs services ainsi que leurs dépendances. Le même modèle vous permet de déployer plusieurs fois votre application à chaque phase du cycle de vie de l’application.
+Vous pouvez utiliser [Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) pour provisionner vos applications à l’aide d’un modèle déclaratif. Dans un modèle unique, vous pouvez déployer plusieurs services ainsi que leurs dépendances. Le même modèle vous permet de déployer plusieurs fois votre application à chaque phase du cycle de vie de l’application.
 
 **Bonne pratique** : Générez et déployez automatiquement des applications web Azure ou des services cloud.  
 **Détail** : Vous pouvez configurer vos projets Azure DevOps Projects afin de les [générer et de les déployer automatiquement](/azure/devops/pipelines/index) sur des applications web Azure ou des services cloud. Azure DevOps déploie automatiquement les fichiers binaires après avoir effectué une génération sur Azure au terme de chaque archivage de code. Le processus de génération de package est équivalent à la commande Package de Visual Studio, et les étapes de la publication sont identiques à la commande Publier dans Visual Studio.

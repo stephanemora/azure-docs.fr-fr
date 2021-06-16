@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: b1551b4d9c28a693adb74436b6490ce7af62a977
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: ac2746c963c00ffd12a272b0c41322b0f9b9b24e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279849"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961638"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Présentation : Automatiser le déploiement pour le service Azure Logic Apps à l’aide de modèles Resource Manager
 
@@ -30,9 +30,9 @@ L’exemple d’application logique présenté dans cette rubrique utilise un [d
 
 Pour plus d’informations sur les modèles Resource Manager, voir les rubriques suivantes :
 
-* [Structure et syntaxe du modèle Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
-* [Meilleures pratiques relatives aux modèles Azure Resource Manager](../azure-resource-manager/templates/template-best-practices.md)
-* [Développer des modèles Azure Resource Manager pour la cohérence du cloud](../azure-resource-manager/templates/templates-cloud-consistency.md)
+* [Structure et syntaxe du modèle Azure Resource Manager](../azure-resource-manager/templates/syntax.md)
+* [Meilleures pratiques relatives aux modèles Azure Resource Manager](../azure-resource-manager/templates/best-practices.md)
+* [Développer des modèles Azure Resource Manager pour la cohérence du cloud](../azure-resource-manager/templates/template-cloud-consistency.md)
 
 Pour plus d’informations sur les ressources de modèle spécifiques pour les applications logiques, les comptes d’intégration, les artefacts de compte d’intégration et les environnements de service d’intégration, consultez [Types de ressources Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
 
@@ -47,7 +47,7 @@ Pour l’API REST Logic Apps, commencez par la [Vue d’ensemble de l’API REST
 
 ## <a name="template-structure"></a>Structure du modèle
 
-Au niveau supérieur, un modèle Resource Manager suit cette structure entièrement décrite dans la rubrique [Structure et syntaxe du modèle Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) :
+Au niveau supérieur, un modèle Resource Manager suit cette structure entièrement décrite dans la rubrique [Structure et syntaxe du modèle Azure Resource Manager](../azure-resource-manager/templates/syntax.md) :
 
 ```json
 {
@@ -65,8 +65,8 @@ Pour un modèle d’application logique, vous travaillez principalement avec les
 
 | Attribut | Description |
 |-----------|-------------|
-| `parameters` | Déclare les [ paramètres de modèle ](../azure-resource-manager/templates/template-syntax.md#parameters) pour l’acceptation des valeurs à utiliser lors de la création et de la personnalisation des ressources pour un déploiement vers Azure. Par exemple, ces paramètres acceptent les valeurs du nom et de l’emplacement de votre application logique, des connexions et des autres ressources nécessaires au déploiement. Vous pouvez stocker ces valeurs de paramètre dans un [fichier de paramètres](#template-parameter-files) décrit plus loin dans cette rubrique. Pour plus de détails, voir [Paramètres – Structure et syntaxe de modèle Resource Manager](../azure-resource-manager/templates/template-syntax.md#parameters). |
-| `resources` | Définit les [ressources](../azure-resource-manager/templates/template-syntax.md#resources) à créer ou mettre à jour, ainsi qu’à déployer vers un groupe de ressources Azure, telles que votre application logique, vos connexions, vos comptes de stockage Azure, etc. Pour des détails généraux, voir [Ressources – Structure et syntaxe de modèle Resource Manager](../azure-resource-manager/templates/template-syntax.md#resources). |
+| `parameters` | Déclare les [ paramètres de modèle ](../azure-resource-manager/templates/syntax.md#parameters) pour l’acceptation des valeurs à utiliser lors de la création et de la personnalisation des ressources pour un déploiement vers Azure. Par exemple, ces paramètres acceptent les valeurs du nom et de l’emplacement de votre application logique, des connexions et des autres ressources nécessaires au déploiement. Vous pouvez stocker ces valeurs de paramètre dans un [fichier de paramètres](#template-parameter-files) décrit plus loin dans cette rubrique. Pour plus de détails, voir [Paramètres – Structure et syntaxe de modèle Resource Manager](../azure-resource-manager/templates/syntax.md#parameters). |
+| `resources` | Définit les [ressources](../azure-resource-manager/templates/syntax.md#resources) à créer ou mettre à jour, ainsi qu’à déployer vers un groupe de ressources Azure, telles que votre application logique, vos connexions, vos comptes de stockage Azure, etc. Pour des détails généraux, voir [Ressources – Structure et syntaxe de modèle Resource Manager](../azure-resource-manager/templates/syntax.md#resources). |
 |||
 
 Votre modèle d’application logique utilise le format de nom de fichier suivant :
@@ -80,7 +80,7 @@ Votre modèle d’application logique utilise le format de nom de fichier suivan
 
 ## <a name="template-parameters"></a>Paramètres de modèle
 
-Un modèle d’application logique comporte plusieurs objets `parameters` existant à différents niveaux et exécutant différentes fonctions. Par exemple, au niveau supérieur, vous pouvez déclarer des [paramètres de modèle](../azure-resource-manager/templates/template-syntax.md#parameters) pour les valeurs à accepter et à utiliser lors de la création et du déploiement de ressources dans Azure, par exemple :
+Un modèle d’application logique comporte plusieurs objets `parameters` existant à différents niveaux et exécutant différentes fonctions. Par exemple, au niveau supérieur, vous pouvez déclarer des [paramètres de modèle](../azure-resource-manager/templates/syntax.md#parameters) pour les valeurs à accepter et à utiliser lors de la création et du déploiement de ressources dans Azure, par exemple :
 
 * Votre application logique
 * Connexions que votre logique utilise pour accéder à d’autres services et systèmes via des [Connecteurs managés](../connectors/apis-list.md)
@@ -88,7 +88,7 @@ Un modèle d’application logique comporte plusieurs objets `parameters` exista
 
   Par exemple, si votre application logique utilise un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) pour les scénarios interentreprises (B2B), l’objet `parameters` de niveau supérieur du modèle déclare le paramètre qui accepte l’ID de ressource pour ce compte d’intégration.
 
-Voici la structure et la syntaxe générales d’une définition de paramètre, qui sont décrites en détail dans [Paramètres – Structure et syntaxe de modèle Resource Manager](../azure-resource-manager/templates/template-syntax.md#parameters) :
+Voici la structure et la syntaxe générales d’une définition de paramètre, qui sont décrites en détail dans [Paramètres – Structure et syntaxe de modèle Resource Manager](../azure-resource-manager/templates/syntax.md#parameters) :
 
 ```json
 "<parameter-name>": {
@@ -149,7 +149,7 @@ Cet exemple présente uniquement les paramètres de modèle applicables aux vale
 
 Pour plus d’informations sur la sécurisation des paramètres de modèle, consultez les rubriques suivantes :
 
-* [Recommandations de sécurité pour les paramètres de modèle](../azure-resource-manager/templates/template-best-practices.md#parameters)
+* [Recommandations de sécurité pour les paramètres de modèle](../azure-resource-manager/templates/best-practices.md#parameters)
 * [Améliorer la sécurité pour les paramètres de modèle](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 * [Transmettre des valeurs de paramètre sécurisées avec Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
@@ -171,7 +171,7 @@ Voici quelques meilleures pratiques pour la définition de paramètres :
 
 * Incluez l’attribut `defaultValue`, qui peut spécifier des valeurs vides, pour tous les paramètres, à l’exception des valeurs sensibles ou qui doivent être sécurisées. Utilisez toujours des paramètres sécurisés pour les noms d’utilisateur, mots de passe et secrets. Pour masquer ou protéger les valeurs de paramètres sensibles, suivez les instructions des rubriques suivantes :
 
-  * [Recommandations de sécurité pour les paramètres de modèle](../azure-resource-manager/templates/template-best-practices.md#parameters)
+  * [Recommandations de sécurité pour les paramètres de modèle](../azure-resource-manager/templates/best-practices.md#parameters)
 
   * [Améliorer la sécurité pour les paramètres de modèle](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
@@ -179,7 +179,7 @@ Voici quelques meilleures pratiques pour la définition de paramètres :
 
 * Pour différencier les noms de paramètre de modèle des noms de paramètre de définition de flux de travail, vous pouvez utiliser des noms de paramètre de modèle descriptifs, par exemple : `TemplateFabrikamPassword`
 
-Pour d’autres meilleures pratiques en lien avec les modèles, voir [Meilleures pratiques pour les paramètres de modèle](../azure-resource-manager/templates/template-best-practices.md#parameters).
+Pour d’autres meilleures pratiques en lien avec les modèles, voir [Meilleures pratiques pour les paramètres de modèle](../azure-resource-manager/templates/best-practices.md#parameters).
 
 <a name="template-parameter-files"></a>
 
@@ -275,8 +275,8 @@ Pour passer en revue les définitions de toutes les ressources d’un groupe de 
 
 Pour des informations générales sur les ressources de modèle et leurs attributs, voir les rubriques suivantes :
 
-* [Ressources – Structure et syntaxe de modèle Resource Manager](../azure-resource-manager/templates/template-syntax.md#resources)
-* [Meilleures pratiques pour les ressources de modèle](../azure-resource-manager/templates/template-best-practices.md#resources)
+* [Ressources – Structure et syntaxe de modèle Resource Manager](../azure-resource-manager/templates/syntax.md#resources)
+* [Meilleures pratiques pour les ressources de modèle](../azure-resource-manager/templates/best-practices.md#resources)
 
 <a name="logic-app-resource-definition"></a>
 

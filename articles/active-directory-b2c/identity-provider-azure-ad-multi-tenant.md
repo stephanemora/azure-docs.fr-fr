@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9d9ba7e3e898da8d5b7d1bb4fbc69554ee205147
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 56a2eff6a39f879de4e9d968eb470243014cb430
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028330"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982031"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer une connexion pour un service Azure Active Directory mutualisé à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -149,7 +149,7 @@ Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant Az
     ```
 
 1. Sous l’élément **ClaimsProvider**, mettez à jour la valeur de **Domaine** sur une valeur unique qui peut être utilisée pour le distinguer des autres fournisseurs d’identité.
-1. Sous l’élément **TechnicalProfile**, mettez à jour la valeur de **DisplayName**, par exemple `Contoso Employee`. Cette valeur apparaît sur le bouton de connexion dans votre page de connexion.
+1. Sous l’élément **TechnicalProfile**, mettez à jour la valeur de **DisplayName**, par exemple `Multi-Tenant AAD`. Cette valeur apparaît sur le bouton de connexion dans votre page de connexion.
 1. Définissez **client_id** sur l’ID de l’application multilocataire Azure AD que vous avez inscrite précédemment.
 1. Sous **CryptographicKeys**, mettez à jour la valeur de **StorageReferenceId** sur le nom de la clé de stratégie que vous avez créée précédemment. Par exemple : `B2C_1A_AADAppSecret`.
 

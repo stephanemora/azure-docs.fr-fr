@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 2270d9569f2638cd08e81e26cff4a4605011ffbb
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a45dfba338617cfe1685d525472edfb755e34444
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070135"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951508"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutoriel : Créer une application managée avec des actions et des ressources personnalisées
 
@@ -353,6 +353,6 @@ Si vous avez des questions sur les applications managées Azure, vous pouvez ess
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour publier votre application gérée sur la Place de marché Microsoft Azure, consultez [Applications gérées Azure sur la Place de marché](../../marketplace/create-new-azure-apps-offer.md).
+Pour publier votre application gérée sur la Place de marché Microsoft Azure, consultez [Applications gérées Azure sur la Place de marché](../../marketplace/azure-app-offer-setup.md).
 
 Apprenez-en davantage sur les [fournisseurs personnalisés Azure](../custom-providers/overview.md).

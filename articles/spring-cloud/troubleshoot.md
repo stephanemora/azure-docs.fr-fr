@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: f08b9db58ee0e4ec7711afb95085ef27fa5db13c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 13f61378b16f41d80b5622a41a55c103247b381b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132536"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968999"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Résoudre les problèmes courants liés à Azure Spring Cloud
 
@@ -115,7 +115,7 @@ Toutefois, si vous tentez de configurer l’instance de service Azure Spring Clo
 * Le groupe de ressources pour l’instance est créé.
 * Le nom de la ressource est conforme à la règle de nommage. Il ne doit contenir que des lettres minuscules, des chiffres et des traits d’union. Le premier caractère doit être une lettre. Le dernier caractère doit être une lettre ou un chiffre. La valeur doit comprendre entre 2 et 32 caractères.
 
-Si vous souhaitez configurer l’instance de service Azure Spring Cloud à l’aide du modèle Resource Manager, consultez d’abord [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
+Si vous souhaitez configurer l’instance de service Azure Spring Cloud à l’aide du modèle Resource Manager, consultez d’abord [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../azure-resource-manager/templates/syntax.md).
 
 Le nom de l’instance de service Azure Spring Cloud est utilisé pour demander un nom de sous-domaine sous `azureapps.io`, de sorte que la configuration échoue si le nom est en conflit avec un nom existant. Vous pouvez trouver plus de détails dans les journaux d’activité.
 

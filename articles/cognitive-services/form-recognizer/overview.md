@@ -4,25 +4,25 @@ titleSuffix: Azure Applied AI Services
 description: Le service Azure Form Recognizer vous permet d’identifier et d’extraire des paires clé/valeur et des données de table de vos formulaires, ainsi que d’extraire des informations importantes des tickets de caisse et des cartes de visite.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de données automatisé, traitement de documents, entrée de données automatisée, traitement des formulaires
-ms.openlocfilehash: b3991d6cce5505a88250a4f470565f6b191667e2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1688cc686b11fd6a6edb129a7ac01a048ae88f4a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453368"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957499"
 ---
 # <a name="what-is-azure-form-recognizer"></a>Qu’est-ce qu’Azure Form Recognizer?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Form Recognizer fait partie d’[Azure Applied AI Services](https://aka.ms/applied-ai-services-hub) qui vous permet de créer des logiciels de traitement de données automatisé à l’aide des technologies du Machine Learning. Identifiez et extrayez du texte, des paires clé/valeur, des marques de sélection, des tableaux et une structure de vos documents : le service produit des données structurées qui incluent les relations dans le fichier d’origine, des rectangles englobants, la confiance, etc. Vous pouvez obtenir des résultats rapidement, avec précision et en adéquation avec votre contenu particulier, sans la nécessité d’une intervention manuelle lourde ou de compétences approfondies en science des données. Utilisez Form Recognizer pour automatiser l’entrée de données dans vos applications et enrichir les fonctionnalités de recherche de vos documents.
+Azure Form Recognizer fait partie d’[Azure Applied AI Services](../../applied-ai-services/index.yml) qui vous permet de créer des logiciels de traitement de données automatisé à l’aide des technologies du Machine Learning. Identifiez et extrayez du texte, des paires clé/valeur, des marques de sélection, des tableaux et une structure de vos documents : le service produit des données structurées qui incluent les relations dans le fichier d’origine, des rectangles englobants, la confiance, etc. Vous pouvez obtenir des résultats rapidement, avec précision et en adéquation avec votre contenu particulier, sans la nécessité d’une intervention manuelle lourde ou de compétences approfondies en science des données. Utilisez Form Recognizer pour automatiser l’entrée de données dans vos applications et enrichir les fonctionnalités de recherche de vos documents.
 
 Form Recognizer est constitué de modèles de traitement de documents personnalisés, de modèles prédéfinis pour les factures, reçus, ID et cartes de visite, et du modèle de disposition. Vous pouvez appeler les modèles Form Recognizer au moyen d’une API REST ou de SDK de bibliothèque de client, afin d’en réduire la complexité et de l’intégrer à votre workflow ou application.
 

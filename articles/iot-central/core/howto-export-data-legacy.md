@@ -7,12 +7,12 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: d4c099d29a843b4c354ffb218887dc7ffab51771
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a6a5a98b6989526908e464a314d271dd07c19d8
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98065437"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110586251"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Exporter des données IoT vers des destinations cloud à l'aide de la fonctionnalité d'exportation de données (héritée)
 
@@ -67,9 +67,9 @@ En l’absence de compte de stockage Azure vers lequel exporter, suivez ces éta
 
     |Niveau de performances|Type de compte|
     |-|-|
-    |standard|Usage général v2|
-    |standard|Usage général v1|
-    |standard|Stockage d'objets blob|
+    |Standard|Usage général v2|
+    |Standard|Usage général v1|
+    |Standard|Stockage d'objets blob|
     |Premium|Stockage d’objets blob de blocs|
 
 2. Créez un conteneur dans votre compte de stockage. Accédez à votre compte de stockage. Sous **Service blob**, sélectionnez **Parcourir les objets blob**. Sélectionnez **+ Conteneur**, en haut, pour créer un conteneur.
@@ -555,7 +555,7 @@ Cet exemple d’instantané montre un message contenant les données d’apparei
 
 Si vous avez déjà une exportation de données dans votre application en préversion, dans laquelle les flux *Appareils* et *Modèles d’appareil* sont activés, mettez à jour votre exportation d’ici le **30 juin 2020**. Cette condition s’applique aux exportations vers le stockage Blob Azure, Azure Event Hubs et Azure Service Bus.
 
-À partir du 3 février 2020, toutes les nouvelles exportations des applications où sont activés les appareils et les modèles d’appareils auront le format de données décrit plus haut. Toutes les exportations créées avant cette date sont conservées dans l’ancien format de données jusqu’au 30 juin 2020. Après cela, ces exportations seront automatiquement migrées au nouveau format de données. Le nouveau format de données correspond aux objets de type [appareil](/rest/api/iotcentral/devices/get), [propriété d’appareil](/rest/api/iotcentral/devices/getproperties), [propriété cloud d’appareil](/rest/api/iotcentral/devices/getcloudproperties) et [modèle d’appareil](/rest/api/iotcentral/devicetemplates/get) dans l’API publique IoT Central.
+À partir du 3 février 2020, toutes les nouvelles exportations des applications où sont activés les appareils et les modèles d’appareils auront le format de données décrit plus haut. Toutes les exportations créées avant cette date sont conservées dans l’ancien format de données jusqu’au 30 juin 2020. Après cela, ces exportations seront automatiquement migrées au nouveau format de données. Le nouveau format de données correspond aux objets de type [appareil](/rest/api/iotcentral/2021-04-30preview/devices/get), [propriété d’appareil](/rest/api/iotcentral/2021-04-30preview/devices/getproperties), [propriété cloud d’appareil](/rest/api/iotcentral/2021-04-30preview/devices/getcloudproperties) et [modèle d’appareil](/rest/api/iotcentral/2021-04-30preview/devicetemplates/get) dans l’API publique IoT Central.
 
 Pour les **appareils**, les différences notables entre l’ancien format de données et le nouveau sont les suivantes :
 - L’`@id` a été supprimé pour les appareils, `deviceId` a été remplacé par `id` 

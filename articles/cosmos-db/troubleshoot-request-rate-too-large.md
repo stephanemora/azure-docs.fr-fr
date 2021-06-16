@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: ed75ad96346d4a98e947a6231714d19431aa2715
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 99cad194317a2dfc7a5924635aef7484d83f8ba0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734363"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969280"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-429-exceptions"></a>Diagnostiquer et résoudre des problèmes liés aux exceptions Taux de requêtes Azure Cosmos DB trop élevé (429)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -57,7 +57,7 @@ Une partition chaude se présente quand une ou plusieurs clés de partition logi
 
 Voici quelques exemples de stratégies de partitionnement qui mènent à des partitions chaudes :
 - Vous disposez d’un conteneur qui stocke des données d’appareil IoT pour une charge de travail gourmande en écriture qui est partitionnée par date. Toutes les données d’une même date se trouveront sur la même partition logique et physique. Comme toutes les données écrites chaque jour ont la même date, cela se traduirait par une partition chaude tous les jours. 
-    - Au lieu de cela, pour ce scénario, une clé de partition comme ID (soit un GUID, soit ou un ID d’appareil) ou une [clé de partition synthétique](/synthetic-partition-keys.md) qui associe ID et date donnerait une cardinalité plus élevée de valeurs et une meilleure distribution du volume de requêtes.
+    - Au lieu de cela, pour ce scénario, une clé de partition comme ID (soit un GUID, soit ou un ID d’appareil) ou une [clé de partition synthétique](./synthetic-partition-keys.md) qui associe ID et date donnerait une cardinalité plus élevée de valeurs et une meilleure distribution du volume de requêtes.
 - Vous avez un scénario multilocataire avec un conteneur partitionné par tenantId. Si un locataire est beaucoup plus actif que les autres, il en résulte une partition chaude. Par exemple, si le plus grand locataire a 100 000 utilisateurs, mais que la plupart des locataires ont moins de 10 utilisateurs, vous aurez une partition chaude lorsqu’ils seront partitionnés par le tenantID. 
     - Pour le scénario précédent, envisagez d’avoir un conteneur dédié pour le plus grand locataire, partitionné par une propriété plus granulaire telle que UserId. 
     
@@ -92,7 +92,7 @@ Cet exemple de sortie montre qu’au cours d’une minute donnée, la clé de pa
 > Dans toute charge de travail, il y aura une variation naturelle du volume des requêtes entre les partitions logiques. Vous devez déterminer si la partition chaude est causée par une asymétrie fondamentale due au choix de la clé de partition (ce qui peut nécessiter de changer la clé) ou par un pic temporaire dû à la variation naturelle des modèles de charge de travail.
 
 #### <a name="recommended-solution"></a>Solution recommandée
-Consultez l’aide relative au [choix d’une clé de partition correcte](/partitioning-overview.md#choose-partitionkey).
+Consultez l’aide relative au [choix d’une clé de partition correcte](./partitioning-overview.md#choose-partitionkey).
 
 Si le pourcentage de requêtes à débit limité est élevé et qu’il n’y a pas de partition chaude :
 - Vous pouvez [augmenter les RU/s](set-throughput.md) sur la base de données ou le conteneur à l’aide des Kits de développement logiciel (SDK) clients, du portail Azure, de PowerShell, de l’interface CLI ou du modèle ARM.  

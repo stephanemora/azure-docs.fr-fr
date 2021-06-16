@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
-ms.openlocfilehash: d6835d06015923a70301c95370c76efbd0c2163e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d3180ba6e8c19714759563eb79a8488929efe940
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776732"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110675852"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle
 
@@ -174,9 +175,9 @@ Si vous utilisez le [portail](#diagnose-using-azure-portal) Azure, [PowerShell](
 | Source port ranges      | Quelconque                                                                                |
 | Destination             | L’adresse IP de la machine virtuelle, une plage d’adresses IP ou toutes les adresses dans le sous-réseau. |
 | Plages de ports de destination | 80                                                                                 |
-| Protocole                | TCP                                                                                |
-| Action                  | Autoriser                                                                              |
-| Priority                | 100                                                                                |
+| Protocol                | TCP                                                                                |
+| Action                  | Allow                                                                              |
+| Priorité                | 100                                                                                |
 | Name                    | Allow-HTTP-All                                                                     |
 
 Après avoir créé la règle, le port 80 autorise le trafic entrant à partir d’internet, étant donné que la priorité de la règle est supérieure à la règle de sécurité par défaut nommée *DenyAllInBound*, qui interdit le trafic. Apprenez à [créer une règle de sécurité](manage-network-security-group.md#create-a-security-rule). Si différents groupes de sécurité réseau sont associés à l’interface réseau et au sous-réseau, vous devez créer la même règle dans chaque groupe de sécurité réseau.

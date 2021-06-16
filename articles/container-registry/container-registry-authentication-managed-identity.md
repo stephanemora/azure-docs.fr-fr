@@ -3,16 +3,16 @@ title: Authentifier avec l’identité gérée
 description: Donnez accès aux images de votre registre de conteneurs privé à l’aide d’une identité managée Azure affectée par l’utilisateur ou par le système.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 213f49356fdc2444f8bc2cb4635e96015aff0a61
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 88952a032b9c4439620de05f181402f29639a5b2
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781538"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440661"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Utiliser une identité managée Azure pour s’authentifier auprès d’un registre de conteneurs Azure 
 
-Utilisez une [identité managée pour ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) pour vous authentifier auprès d’un registre de conteneurs Azure à partir d’une autre ressource Azure, sans avoir à fournir ou à gérer les informations d’identification du registre. Par exemple, configurez une identité managée affectée par l’utilisateur ou par le système sur une machine virtuelle Linux pour accéder aux images conteneur à partir de votre registre de conteneurs, comme avec un registre public. Vous pouvez également configurer un cluster Azure Kubernetes Service pour utiliser son [identité gérée](../aks/use-managed-identity.md) pour extraire des images de conteneur d’Azure Container Registry pour les déploiements de pod.
+Utilisez une [identité managée pour ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) pour vous authentifier auprès d’un registre de conteneurs Azure à partir d’une autre ressource Azure, sans avoir à fournir ou à gérer les informations d’identification du registre. Par exemple, configurez une identité managée affectée par l’utilisateur ou par le système sur une machine virtuelle Linux pour accéder aux images conteneur à partir de votre registre de conteneurs, comme avec un registre public. Vous pouvez également configurer un cluster Azure Kubernetes Service pour utiliser son [identité gérée](../aks/cluster-container-registry-integration.md) pour extraire des images de conteneur d’Azure Container Registry pour les déploiements de pod.
 
 Dans cet article, vous découvrirez les identités managées et apprendrez à :
 

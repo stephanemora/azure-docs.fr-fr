@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 8be747d2027291203272a960efe6b26368471a50
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b00561875d7c8c08061c9fcbe46a88815ef2f32c
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735044"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784640"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Projets open source de la communauté Azure Maps
 
@@ -79,7 +79,7 @@ La liste suivante répertorie les projets open source qui étendent les fonction
 | Nom du projet | Description |
 |-|-|
 | [Azure Maps Docs](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | Source relative à toute la documentation d’Azure Location Based Services. |
-| [Outils Azure Maps Creator (préversion)](https://github.com/Azure-Samples/AzureMapsCreator) | Outils Python pour les outils Azure Maps Creator (préversion). |
+| [Outils de création Azure Maps](https://github.com/Azure-Samples/AzureMapsCreator) | Outils Python pour les outils de création Azure Maps. |
 
 Une liste plus longue de projets open source pour Azure Maps incluant des projets créés par la communauté est disponible [ici](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
 

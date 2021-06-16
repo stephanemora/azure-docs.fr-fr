@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/10/2021
 ms.author: petender
-ms.openlocfilehash: 4d79e417e637894f2a41bd55b52fbbe55300a694
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 95b2bd71b59a8ef14274928428624fe52e923fe1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685402"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968902"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-using-an-arm-template"></a>Tutoriel : Publier des applications Azure Static Web Apps en utilisant un modèle ARM
 
@@ -31,10 +31,10 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 - **Éditeur pour les modèles ARM :** l’examen et la modification des modèles nécessitent un éditeur JSON. Visual Studio Code avec l’[extension Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) convient pour modifier les modèles ARM. Pour obtenir des instructions sur l’installation et la configuration de Visual Studio Code, consultez [Démarrage rapide : Créer des modèles ARM avec Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md).
 
 - **Azure CLI ou Azure PowerShell** : le déploiement de modèles ARM nécessite un outil en ligne de commande. Pour les instructions d’installation, consultez :
-  - [Installer Azure CLI sur un système d’exploitation Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows)
-  - [Installer Azure CLI sur un système d’exploitation Linux](https://docs.microsoft.com/cli/azure/install-azure-cli-linux)
-  - [Installer Azure CLI sur macOS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos)
-  - [Installation d'Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+  - [Installer Azure CLI sur un système d’exploitation Windows](/cli/azure/install-azure-cli-windows)
+  - [Installer Azure CLI sur un système d’exploitation Linux](/cli/azure/install-azure-cli-linux)
+  - [Installer Azure CLI sur macOS](/cli/azure/install-azure-cli-macos)
+  - [Installation d'Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="create-a-github-personal-access-token"></a>Créer un jeton d’accès personnel GitHub
 

@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 27ab47be439b83af4297330c2b85fdc844bfcf3a
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 0724a1281475ffc9cbeaa4480bd45aa69f9d4857
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489690"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967807"
 ---
 # <a name="control-access-to-iot-hub-using-shared-access-signatures-and-security-tokens"></a>Contrôler l’accès à IoT Hub à l’aide de signatures d’accès partagé et de jetons de sécurité
 
@@ -282,7 +282,7 @@ Le résultat, qui revient à accorder l’accès en lecture à toutes les identi
 
 ### <a name="supported-x509-certificates"></a>Certificats X.509 pris en charge
 
-Vous pouvez utiliser n’importe quel certificat X.509 pour authentifier un appareil avec IoT Hub en chargeant une empreinte de certificat ou une autorité de certification (CA) sur Azure IoT Hub. Pour plus d’informations, consultez [Authentification des appareils à l’aide de certificats d’autorité de certification X.509](iot-hub-x509ca-overview.md). Pour plus d’informations sur le chargement et la vérification d’une autorité de certification avec votre IoT Hub, consultez [Configurer la sécurité X.509 dans votre Azure IoT Hub](iot-hub-security-x509-get-started.md).
+Vous pouvez utiliser n’importe quel certificat X.509 pour authentifier un appareil avec IoT Hub en chargeant une empreinte de certificat ou une autorité de certification (CA) sur Azure IoT Hub. Pour plus d’informations, consultez [Authentification des appareils à l’aide de certificats d’autorité de certification X.509](iot-hub-x509ca-overview.md). Pour plus d’informations sur le chargement et la vérification d’une autorité de certification avec votre IoT Hub, consultez [Configurer la sécurité X.509 dans votre Azure IoT Hub](./tutorial-x509-scripts.md).
 
 ### <a name="use-sas-tokens-as-a-device"></a>Utilisation de jetons SAP comme appareil
 

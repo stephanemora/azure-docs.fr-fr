@@ -3,19 +3,19 @@ title: Positionnement de la ligne et de la zone d’analyse spatiale
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment configurer des zones et des lignes avec l’analyse spatiale
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.author: aahi
-ms.openlocfilehash: cfd3bc406407298c6daf7723cb684911d7c9a9cf
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.date: 06/08/2021
+ms.author: pafarley
+ms.openlocfilehash: 203a75b6f06b858fb398fb55ecdea6ea63f85efe
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284666"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751142"
 ---
 # <a name="zone-and-line-placement-guide"></a>Guide de positionnement de zone et de ligne
 

@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 06/10/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: deeaed7b85c741b15931fdbca5cb6b2e276d7e65
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c1be64850cba80602c13e30c2545470767963251
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737798"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963562"
 ---
 # <a name="federation-with-samlws-fed-identity-providers-for-guest-users-preview"></a>Fédération avec des fournisseurs d’identité SAML/WS-Fed pour les utilisateurs invités (préversion)
 
 > [!NOTE]
 >- *La fédération directe* dans Azure Active Directory est désormais appelée *Fédération de fournisseur d’identité (IdP) SAML/WS-Fed*.
->- La fédération SAML/WS-Fed est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>- La fédération IdP SAML/WS-Fed est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Cet article décrit comment configurer la fédération directe avec n’importe quelle organisation dont le fournisseur d’identité (IdP) prend en charge le protocole SAML 2.0 ou WS-Fed. Lorsque vous configurez la fédération avec un fournisseur d’identité partenaire, les nouveaux utilisateurs invités de ce domaine peuvent utiliser leur propre compte professionnel géré par le fournisseur d’identité pour se connecter à votre locataire Azure AD et commencer à travailler avec vous. Il n’est pas nécessaire pour l’utilisateur invité de créer un compte Azure AD séparé.
 
@@ -122,7 +122,7 @@ Votre organisation partenaire doit ensuite configurer son fournisseur d’identi
 Azure AD B2B peut être configuré pour la fédération avec les fournisseurs d’identité qui utilisent le protocole SAML avec certaines exigences spécifiques indiquées ci-dessous. Pour plus d’informations sur la configuration d’une approbation entre votre fournisseur d’identité SAML et Azure AD, consultez [Utiliser un fournisseur d’identité SAML 2.0 pour l’authentification unique](../hybrid/how-to-connect-fed-saml-idp.md).  
 
 > [!NOTE]
-> Le domaine cible pour la fédération de fournisseur d’identité SAML/WS-Fed ne doit pas être vérifié par DNS sur Azure AD. Le domaine de l’URL d’authentification doit correspondre au domaine cible, ou doit être le domaine d’un fournisseur d’identité autorisé. Consultez la section [Limitations](#limitations) pour plus d’informations.
+> Le domaine cible pour la fédération de fournisseur d’identité SAML/WS-Fed ne doit pas être vérifié par DNS sur Azure AD. Consultez la section [Limitations](#limitations) pour plus d’informations.
 
 #### <a name="required-saml-20-attributes-and-claims"></a>Attributs SAML 2.0 et revendications requises
 Les tableaux suivants présentent la configuration requise pour les attributs spécifiques et les revendications qui doivent être configurés au niveau du fournisseur d’identité tiers. Pour configurer la fédération, les attributs suivants doivent être reçus dans la réponse SAML 2.0 à partir du fournisseur d’identité. Ces attributs peuvent être configurés en liant le fichier XML du service d’émission de jeton de sécurité en ligne ou en les entrant manuellement.
@@ -148,7 +148,7 @@ Revendications requises pour le jeton SAML 2.0 émis par le fournisseur d’ide
 Azure AD B2B peut être configuré pour la fédération avec les fournisseurs d’identité qui utilisent le protocole WS-Fed avec certaines exigences spécifiques indiquées ci-dessous. Actuellement, les deux fournisseurs WS-Fed testés pour assurer la compatibilité avec Azure AD incluent AD FS et Shibboleth. Pour plus d’informations sur l’établissement d’une partie de confiance entre un fournisseur compatible WS-Fed avec Azure AD, consultez le document « STS Integration Paper using WS Protocols » (Intégration » STS à l’aide des protocoles WS) disponible dans [Compatibilité des fournisseurs d’identité Azure AD](https://www.microsoft.com/download/details.aspx?id=56843).
 
 > [!NOTE]
-> Le domaine cible pour la fédération ne doit pas être vérifié par DNS sur Azure AD. Le domaine de l’URL d’authentification doit correspondre au domaine cible ou au domaine d’un fournisseur d’identité autorisé. Consultez la section [Limitations](#limitations) pour plus d’informations.
+> Le domaine cible pour la fédération ne doit pas être vérifié par DNS sur Azure AD. Consultez la section [Limitations](#limitations) pour plus d’informations.
 
 #### <a name="required-ws-fed-attributes-and-claims"></a>Attributs WS-Fed et revendications requises
 

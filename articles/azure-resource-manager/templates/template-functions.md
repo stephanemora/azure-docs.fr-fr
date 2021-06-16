@@ -3,18 +3,18 @@ title: Fonctions des modèles de gestionnaire des ressources Azure
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (modèle ARM) pour récupérer des valeurs, utiliser des chaînes et des valeurs numériques, et récupérer des informations sur le déploiement.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: a9ea21a57404f7de832fb307bdabeb47f8cf3f58
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 012e570a769e8ea969d0c527a71053f55ecdf5a9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220179"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959396"
 ---
 # <a name="arm-template-functions"></a>Fonctions des modèles ARM
 
 Cet article décrit toutes les fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager (modèle ARM). Pour plus d’informations sur l’utilisation des fonctions dans votre modèle, voir [Syntaxe du modèle](template-expressions.md).
 
-Pour créer vos propres fonctions, consultez [Fonctions définies par l’utilisateur](template-syntax.md#functions).
+Pour créer vos propres fonctions, consultez [Fonctions définies par l’utilisateur](./syntax.md#functions).
 
 La plupart des fonctions opèrent de la même façon quand elles sont déployées sur un groupe de ressources, un abonnement, un groupe d’administration ou un locataire. Certaines fonctions ne peuvent pas être utilisées dans toutes les étendues. Elles sont indiquées dans les listes ci-dessous.
 
@@ -36,7 +36,7 @@ La plupart des fonctions opèrent de la même façon quand elles sont déployée
 
 ## <a name="any-function"></a>Toutes les fonctions
 
-La [fonction any](template-functions-any.md) est disponible dans bicep pour aider à résoudre les problèmes concernant les avertissements de type de données.
+La [fonction any](../bicep/bicep-functions-any.md) est disponible dans bicep pour aider à résoudre les problèmes concernant les avertissements de type de données.
 
 ## <a name="array-functions"></a>Fonctions Tableau
 
@@ -253,7 +253,7 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des chaîn
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](./syntax.md).
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés et imbriqués lors du déploiement de ressources Azure](linked-templates.md).
 * Pour itérer un nombre spécifié lors de la création d’un type de ressource, consultez [Itération de ressource dans les modèles ARM](copy-resources.md).
 * Pour découvrir comment déployer le modèle que vous avez créé, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md).

@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous allez utiliser un fichier 
 ms.date: 05/20/2021
 ms.topic: quickstart
 ms.custom: subject-bicepqs
-ms.openlocfilehash: 6ce9eb5ab021e5d6d5d57b9c81f5d0f4d0360f01
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0f48804fd73b073479617aa3359e6d338056fb39
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475479"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007172"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-bicep-file"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier des ressources non conformes à l'aide d'un fichier Bicep
 
@@ -20,12 +20,12 @@ Ce guide de démarrage rapide explique pas à pas comment utiliser un fichier [B
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Bouton pour déployer le modèle Resource Manager pour l’affectation d’une stratégie Azure à Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Bouton pour déployer le modèle Resource Manager pour l’affectation d’une stratégie Azure à Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.authorization%2Fazurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- Version `0.3` ou ultérieure de Bicep installée. Si vous ne disposez pas encore de l'interface CLI Bicep ou si vous devez effectuer une mise à jour, consultez [Installer Bicep (préversion)](../../azure-resource-manager/templates/bicep-install.md).
+- Version `0.3` ou ultérieure de Bicep installée. Si vous ne disposez pas encore de l'interface CLI Bicep ou si vous devez effectuer une mise à jour, consultez [Installer Bicep (préversion)](../../azure-resource-manager/bicep/install.md).
 
 ## <a name="review-the-bicep-file"></a>Examiner le fichier Bicep
 

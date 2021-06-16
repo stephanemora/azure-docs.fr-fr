@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 4f9f3e2af9abc054d3b1d5ce2bd1f1b27f7bf958
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 188efd630f1b497815f86a9249d31e823f45a8ce
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066039"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081710"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutoriel : surveiller la communication réseau entre deux machines virtuelles à l’aide du portail Azure
 
@@ -55,11 +55,11 @@ Créez deux machines virtuelles.
 2. Sélectionnez **Compute**, puis un système d’exploitation. Dans ce tutoriel, **Windows Server 2016 Datacenter** est utilisé.
 3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK** :
 
-    |Paramètre|Valeur|
+    |Paramètre|Value|
     |---|---|
     |Nom|myVm1|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
-    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.yml?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Abonnement| Sélectionnez votre abonnement.|
     |Resource group| Sélectionnez **Créer** et entrez **myResourceGroup**.|
     |Emplacement| Sélectionnez **USA Est**.|
@@ -77,7 +77,7 @@ Créez deux machines virtuelles.
 
 Réeffectuez les étapes indiquées dans [Créer la première machine virtuelle](#create-the-first-vm), avec les modifications suivantes :
 
-|Étape|Paramètre|Valeur|
+|Étape|Paramètre|Value|
 |---|---|---|
 | 1 | Sélectionner une version de **Ubuntu Server** |                                                                         |
 | 3 | Nom                                  | myVm2                                                                   |
@@ -97,7 +97,7 @@ Créez un moniteur de connexion pour surveiller la communication sur le port TCP
 4. Sélectionnez **Ajouter**.
 5. Entrez ou sélectionnez les informations appropriées à la connexion à contrôler, puis sélectionnez **Ajouter**. Dans l’exemple illustré par l’image suivante, la connexion surveillée est celle entre la machine virtuelle *myVm1* et la machine virtuelle *myVm2* sur le port 22 :
 
-    | Paramètre                  | Valeur               |
+    | Paramètre                  | Value               |
     | ---------                | ---------           |
     | Nom                     | myVm1-myVm2(22)     |
     | Source                   |                     |
@@ -157,7 +157,7 @@ Par défaut, Azure permet la communication sur tous les ports entre les machines
     | ---                     | ---            |
     | Plages de ports de destination | 22             |
     | Action                  | Deny           |
-    | Priority                | 100            |
+    | Priorité                | 100            |
     | Nom                    | DenySshInbound |
 
 5. Étant donné que le moniteur de connexion effectue un sondage toutes les 60 secondes, patientez quelques minutes, puis dans la partie gauche du portail, sélectionnez **Network Watcher**, puis **Moniteur de connexion**, puis resélectionnez le moniteur **myVm1-myVm2(22)**. Les résultats sont à présent différents, comme l’illustre l’image suivante :

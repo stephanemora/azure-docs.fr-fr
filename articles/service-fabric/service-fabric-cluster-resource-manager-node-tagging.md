@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: branim
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 712e6422060619e5567a74d6335320eff9ed8e66
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: b20ab4720f9f172ef9248d3314b25922896eb8bd
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107741232"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796927"
 ---
 # <a name="introduction-to-dynamic-node-tags"></a>Présentation des balises de nœud dynamiques
 Les balises de nœuds vous permettent d’ajouter et de supprimer dynamiquement des balises à partir de nœuds afin d’influencer le positionnement des services. Le balisage des nœuds est très flexible et permet de modifier le placement des services sans mise à niveau de l’application ou du cluster. Les balises peuvent être ajoutées ou supprimées des nœuds à tout moment, et les services peuvent spécifier des exigences pour certaines balises lors de leur création. Les spécifications d’un service peuvent également être mises à jour de manière dynamique pendant qu’il est en cours d’exécution.
@@ -54,7 +54,7 @@ via ClusterConfig.json pour les déploiements autonomes ou Template.json pour le
     "name": "PlacementAndLoadBalancing",
     "parameters": [
       {
-          "name": " NodeTaggingEnabled ",
+          "name": "NodeTaggingEnabled",
           "value": "true"
       }
     ]

@@ -11,16 +11,16 @@ ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 3c5dce26a8c1274e68bb1d6cbc497852b86a3821
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 1e46bb0fad37e1a6da3676578f6cd92af912cb3f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108185943"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963898"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Résoudre les problèmes de proxy d’application et les messages d’erreur
 
-Lors de la résolution des problèmes du proxy d’application, nous vous recommandons de commencer par examiner le flux de résolution des problèmes, [Déboguer les problèmes d’un connecteur Proxy d’application](../manage-apps/application-proxy-debug-connectors.md), afin de déterminer si les connecteurs Proxy d’application sont configurés correctement. Si vous rencontrez toujours des problèmes de connexion à l’application, suivez la procédure de résolution des problèmes dans [Déboguer les problèmes d’application d’un proxy d’application](../manage-apps/application-proxy-debug-apps.md).
+Lors de la résolution des problèmes du proxy d’application, nous vous recommandons de commencer par examiner le flux de résolution des problèmes, [Déboguer les problèmes d’un connecteur Proxy d’application](./application-proxy-debug-connectors.md), afin de déterminer si les connecteurs Proxy d’application sont configurés correctement. Si vous rencontrez toujours des problèmes de connexion à l’application, suivez la procédure de résolution des problèmes dans [Déboguer les problèmes d’application d’un proxy d’application](./application-proxy-debug-apps.md).
 
 Si des erreurs se produisent dans l’accès à une application publiée ou dans la publication d’applications, vérifiez les options suivantes pour voir si le proxy d’application Microsoft Azure Active Directory fonctionne correctement :
 
@@ -78,7 +78,7 @@ Cette liste comprend des erreurs que vos utilisateurs finaux peuvent rencontrer 
 | Cette application d’entreprise n’est pas accessible. Vous n’êtes pas autorisé à accéder à cette application. Échec de l’autorisation. Veillez à affecter à l’utilisateur un accès à cette application. | Votre utilisateur peut recevoir cette erreur en tentant d’accéder à l’application que vous avez publiée s’il utilise des comptes Microsoft plutôt que son compte d’entreprise pour se connecter. Les utilisateurs invités peuvent également obtenir cette erreur. Les utilisateurs d’un compte Microsoft et les invités ne peuvent pas accéder aux applications avec l’authentification Windows intégrée. Assurez-vous que l’utilisateur se connecte en utilisant son compte d’entreprise qui correspond au domaine de l’application publiée.<br><br>Vous n’avez peut-être pas affecté cette application à l’utilisateur. Accédez à l’onglet **Application** et, sous **Utilisateurs et groupes**, affectez cet utilisateur ou ce groupe d’utilisateurs à cette application. |
 | Cette application d’entreprise n’est pas accessible pour l’instant. Réessayez ultérieurement... Le connecteur a dépassé le délai d’expiration. | Votre utilisateur peut recevoir cette erreur en tentant d’accéder à l’application que vous avez publiée s’il n’est pas correctement défini pour cette application du côté local. Assurez-vous que votre utilisateur a les autorisations appropriées, telles qu’elles sont définies pour cette application back-end sur l’ordinateur local. |
 | Cette application d’entreprise n’est pas accessible. Vous n’êtes pas autorisé à accéder à cette application. Échec de l’autorisation. Vérifiez que l’utilisateur possède une licence Azure Active Directory Premium. | Il se peut que votre utilisateur obtienne cette erreur en tentant d’accéder à l’application que vous avez publiée si l’administrateur de l’abonné ne lui a pas assigné explicitement une licence Premium. Accédez à l’onglet **Licences** Active Directory de l’abonné et vérifiez qu’une licence Premium est affectée à cet utilisateur ou à ce groupe. |
-| Impossible de trouver un serveur avec le nom d’hôte spécifié. | Votre utilisateur peut recevoir cette erreur en tentant d’accéder à l’application que vous avez publiée si le domaine personnalisé de l’application n’est pas configuré correctement. Assurez-vous d’avoir chargé un certificat pour le domaine et configuré correctement l’enregistrement DNS en suivant les étapes décrites dans [Utilisation des domaines personnalisés dans le proxy d'application Azure AD](../manage-apps/application-proxy-configure-custom-domain.md) |
+| Impossible de trouver un serveur avec le nom d’hôte spécifié. | Votre utilisateur peut recevoir cette erreur en tentant d’accéder à l’application que vous avez publiée si le domaine personnalisé de l’application n’est pas configuré correctement. Assurez-vous d’avoir chargé un certificat pour le domaine et configuré correctement l’enregistrement DNS en suivant les étapes décrites dans [Utilisation des domaines personnalisés dans le proxy d'application Azure AD](./application-proxy-configure-custom-domain.md) |
 |Interdit : Cette application d’entreprise n’est pas accessible OU l’utilisateur n’a pas pu être autorisé. Assurez-vous que l’utilisateur est défini dans votre annuaire AD local et que l’utilisateur a accès à l’application dans votre AD local. | Il pourrait s’agir d’un problème d’accès aux informations d’autorisation. Consultez [Certaines applications et API nécessitent l’accès à des informations d’autorisation sur des objets Compte]( https://support.microsoft.com/help/331951/some-applications-and-apis-require-access-to-authorization-information). Pour résumer, ajoutez le compte d’ordinateur connecteur de proxy d’application au groupe de domaines builtin « Groupe d’accès d’autorisation Windows » à résoudre. |
 
 ## <a name="my-error-wasnt-listed-here"></a>Mon erreur n’était pas répertoriée ici
@@ -89,7 +89,7 @@ Si vous rencontrez une erreur ou un problème avec le proxy d’application Azur
 * [Activation du proxy d’application Azure AD](application-proxy-add-on-premises-application.md)
 * [Publiez des applications avec le proxy d’application](application-proxy-add-on-premises-application.md)
 * [Activer l’authentification unique](application-proxy-configure-single-sign-on-with-kcd.md)
-* [Activer l’accès conditionnel](../manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+* [Activer l’accès conditionnel](./application-proxy-integrate-with-sharepoint-server.md)
 
 
 <!--Image references-->

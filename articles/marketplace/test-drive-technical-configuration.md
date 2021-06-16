@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: 553eba3898a5ea42e5d478603e35e82c68abcab1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4d5ccaead616fa53cc10733ad82f0f20b7e1cab
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462893"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007388"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuration technique de la version d’évaluation
 
@@ -97,10 +97,8 @@ Si vous êtes en train de créer votre version d'évaluation dans l’Espace par
 
 Pour obtenir des instructions pas à pas sur l’affichage et la configuration de votre version d’évaluation hébergée, consultez la page [Configuration détaillée pour une version d'évaluation hébergée](./test-drive-hosted-detailed-config.md).
 
-## <a name="additional-resources"></a>Ressources supplémentaires
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Test drive des meilleures pratiques](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Vue d’ensemble](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF ; veillez à désactiver votre bloqueur de fenêtres publicitaires)
-- [Mettre à jour une offre existante dans la Place de marché commerciale](partner-center-portal/update-existing-offer.md)
+- [Mettre à jour une offre existante dans la Place de marché commerciale](update-existing-offer.md)

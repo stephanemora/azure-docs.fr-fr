@@ -3,12 +3,12 @@ title: Vue d’ensemble de la disponibilité d’Application Insights
 description: Configurez des tests web récurrents pour surveiller la disponibilité et la réactivité de votre application ou de votre site web.
 ms.topic: conceptual
 ms.date: 05/04/2021
-ms.openlocfilehash: 4e0cbcec2773186feb38f26720d40c03e5817b7f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 94fe55a5bce0e915a092fd32ad5acf6936d59e61
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742604"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967018"
 ---
 # <a name="availability-tests-overview"></a>Vue d’ensemble des tests de disponibilité
 
@@ -39,4 +39,4 @@ Consultez l’[article dédié au dépannage](troubleshoot-availability.md).
 * [Tests web à plusieurs étapes](availability-multistep.md)
 * [Tests des URL](monitor-web-app-availability.md)
 * [Créer et exécuter des tests de disponibilité personnalisés avec Azure Functions](availability-azure-functions.md)
-* [Modèle Azure Resource Manager pour les tests web](https://docs.microsoft.com/azure/templates/microsoft.insights/webtests?tabs=json)
+* [Modèle Azure Resource Manager pour les tests web](/azure/templates/microsoft.insights/webtests?tabs=json)

@@ -6,12 +6,12 @@ ms.date: 04/27/2021
 ms.topic: quickstart
 ms.author: jgao
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 90c7145e6761820dea11fa13fc883dc87bec999e
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 03ef6ce6dd8b203ebff1da0dba7fc5febd29c329
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075120"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960259"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Démarrage rapide : Créer et déployer des modèles ARM à l’aide du portail Azure
 
@@ -58,7 +58,7 @@ De nombreux développeurs de modèles expérimentés utilisent cette méthode po
 
     ![Générer un modèle depuis le portail](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
 
-    Le volet principal affiche le modèle. Il s’agit d’un fichier JSON avec six éléments de niveau supérieur : `schema`, `contentVersion`, `parameters`, `variables`, `resources` et `output`. Pour plus d’informations, consultez [Comprendre la structure et la syntaxe des modèles ARM](./template-syntax.md)
+    Le volet principal affiche le modèle. Il s’agit d’un fichier JSON avec six éléments de niveau supérieur : `schema`, `contentVersion`, `parameters`, `variables`, `resources` et `output`. Pour plus d’informations, consultez [Comprendre la structure et la syntaxe des modèles ARM](./syntax.md)
 
     Neuf paramètres sont définis. Un d’eux est appelé **storageAccountName**. La deuxième partie en surbrillance dans la capture d’écran précédente montre comment référencer ce paramètre dans le modèle. Dans la section suivante, vous modifiez le modèle pour utiliser un nom généré pour le compte de stockage.
 

@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 315b505e9de853fbe4663eacdfe929149dbaa458
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 65f4bb6f50b6c09bc570b2832aa6d3aee3ac703f
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107873142"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111981743"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Démarrage rapide : créer un cluster Azure Managed Instance pour Apache Cassandra à partir du portail Azure (préversion)
  
@@ -100,7 +100,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="connecting-to-your-cluster"></a>Connexion à votre cluster
 
-Azure Managed Instance pour Apache Cassandra ne crée pas de nœuds avec des adresses IP publiques. Donc, pour vous connecter à votre cluster Cassandra nouvellement créé, vous devez créer une autre ressource dans le réseau virtuel. Il peut s’agir d’une application ou d’une machine virtuelle sur laquelle [CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html), l’outil de requête open source d’Apache, est installé. Vous pouvez utiliser un [modèle](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) pour déployer une machine virtuelle Ubuntu. Une fois la machine déployée, utilisez SSH pour vous y connecter et installez CQLSH à l’aide des commandes ci-dessous :
+Azure Managed Instance pour Apache Cassandra ne crée pas de nœuds avec des adresses IP publiques. Donc, pour vous connecter à votre cluster Cassandra nouvellement créé, vous devez créer une autre ressource dans le réseau virtuel. Il peut s’agir d’une application ou d’une machine virtuelle sur laquelle [CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html), l’outil de requête open source d’Apache, est installé. Vous pouvez utiliser un [modèle](https://azure.microsoft.com/resources/templates/vm-simple-linux/) pour déployer une machine virtuelle Ubuntu. Une fois la machine déployée, utilisez SSH pour vous y connecter et installez CQLSH à l’aide des commandes ci-dessous :
 
 ```bash
 # Install default-jre and default-jdk

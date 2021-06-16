@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 4/23/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4977b56265f542f8f8ff13693abb468bc695a384
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.openlocfilehash: 12bab4b8099b074f79d0e5307780ec34178f13b8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992728"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968474"
 ---
 # <a name="modify-your-azure-file-sync-topology"></a>Modifier votre topologie Azure File Sync
 
@@ -44,7 +44,7 @@ Répétez ces étapes pour tous les groupes de synchronisation que vous souhaite
 
 Cela n’est pas pris en charge. 
 
-Si vous utilisez actuellement le lecteur D et que vous envisagez de migrer vers le cloud, consultez [Transformer le lecteur D: d'une machine virtuelle en disque de données - Machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/change-drive-letter).
+Si vous utilisez actuellement le lecteur D et que vous envisagez de migrer vers le cloud, consultez [Transformer le lecteur D: d'une machine virtuelle en disque de données - Machines virtuelles Azure](../../virtual-machines/windows/change-drive-letter.md).
 
 ## <a name="deprovision-all-server-endpoints-associated-with-a-registered-server"></a>Déprovisionner tous les points de terminaison de serveur associés à un serveur inscrit
 
@@ -54,6 +54,3 @@ Naviguez vers votre ressource Service de synchronisation de stockage et accédez
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Déprovisionner votre point de terminaison de serveur Azure File Sync](./file-sync-deprovision-server-endpoint.md)
-
-
-

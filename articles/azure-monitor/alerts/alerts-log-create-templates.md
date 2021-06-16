@@ -5,18 +5,18 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 560f26b712818327294791feb787b5fe7c9d7b82
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f31371c3d33354c4d8e6c849c9739eb9001c7641
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102036467"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961784"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Créer une alerte de journal avec un modèle Resource Manager
 
 Les alertes de journal permettent aux utilisateurs d’utiliser une requête [Log Analytics](../logs/log-analytics-tutorial.md) pour évaluer les journaux de ressources à chaque fréquence définie, et de déclencher une alerte en fonction des résultats. Les règles peuvent déclencher l'exécution d'une ou plusieurs actions à l'aide des [groupes d'actions](./action-groups.md). [En savoir plus sur les fonctionnalités et la terminologie des alertes de journal](./alerts-unified-log.md).
 
-Cet article explique comment utiliser un [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour configurer des [alertes de journal](./alerts-unified-log.md) dans Azure Monitor. Les modèles Resource Manager vous permettent de configurer des alertes par programmation de manière cohérente et reproductible dans vos environnements. Les alertes de journal sont créées dans le fournisseur de ressources `Microsoft.Insights/scheduledQueryRules`. Consultez les informations de référence sur l'[API Règles de requêtes planifiées](/rest/api/monitor/scheduledqueryrules/).
+Cet article explique comment utiliser un [modèle Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) pour configurer des [alertes de journal](./alerts-unified-log.md) dans Azure Monitor. Les modèles Resource Manager vous permettent de configurer des alertes par programmation de manière cohérente et reproductible dans vos environnements. Les alertes de journal sont créées dans le fournisseur de ressources `Microsoft.Insights/scheduledQueryRules`. Consultez les informations de référence sur l'[API Règles de requêtes planifiées](/rest/api/monitor/scheduledqueryrules/).
 
 Les étapes de base sont les suivantes :
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d548f4d792d8980e2aa5040b09530eaf7868c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5cee69fbd2cb829a7ec90179e94098e307e5a094
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102609904"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968540"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protéger Microsoft 365 des attaques locales
 
@@ -187,7 +187,7 @@ Utilisez les fonctionnalités d'Azure AD pour gérer les appareils en toute séc
 
 * **Applications héritées** 
 
-   * Vous pouvez activer l’authentification, l’autorisation et l’accès à distance sur les applications héritées qui ne prennent pas en charge l’authentification moderne. Utilisez [Proxy d’application Azure AD](../manage-apps/application-proxy.md). Vous pouvez également les activer par le biais d’une solution de contrôle de livraison de réseau ou d’application en utilisant des [intégrations de partenaires d’accès hybride sécurisé](../manage-apps/secure-hybrid-access.md).   
+   * Vous pouvez activer l’authentification, l’autorisation et l’accès à distance sur les applications héritées qui ne prennent pas en charge l’authentification moderne. Utilisez [Proxy d’application Azure AD](../app-proxy/application-proxy.md). Vous pouvez également les activer par le biais d’une solution de contrôle de livraison de réseau ou d’application en utilisant des [intégrations de partenaires d’accès hybride sécurisé](../manage-apps/secure-hybrid-access.md).   
 
    * Choisissez un fournisseur VPN qui prend en charge l’authentification moderne. Intégrez son authentification à Azure AD. Lors d’une atteinte à la sécurité locale, vous pouvez utiliser Azure AD pour désactiver ou bloquer l’accès en désactivant le VPN.
 
@@ -222,7 +222,7 @@ Surveillez les scénarios clés suivants, en plus des scénarios propres à votr
 
     Surveillez tous les [événements à risque Azure AD](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation) pour détecter toute activité suspecte. [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) est intégré en mode natif à Azure Security Center.
 
-    Définissez les [emplacements nommés](../reports-monitoring/quickstart-configure-named-locations.md) du réseau pour éviter les détections bruyantes sur les signaux basés sur l'emplacement. 
+    Définissez les [emplacements nommés](../conditional-access/location-condition.md) du réseau pour éviter les détections bruyantes sur les signaux basés sur l'emplacement. 
 *  **Alertes d’analyse comportementale des utilisateurs et des entités** 
 
     Utilisez l’analyse comportementale des utilisateurs et des entités pour obtenir des insights sur la détection des anomalies.

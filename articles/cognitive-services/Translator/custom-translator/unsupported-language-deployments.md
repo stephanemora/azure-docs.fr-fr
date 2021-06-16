@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: lajanuar
-ms.openlocfilehash: fb31388647fc6022a2e6670baf7b3e73f345c36a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca2fab82dd08ea999186a430b78b6329c64ae816
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98898068"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409592"
 ---
 # <a name="unsupported-language-deployments"></a>Déploiements de langages non pris en charge
 
@@ -28,7 +28,7 @@ Nous avons élaboré un processus qui vous permet de déployer vos modèles non 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour que vos modèles puissent être candidats au déploiement, ils doivent respecter les critères suivants :
-* Le projet contenant le modèle doit avoir été migré du hub vers Custom Translator à l’aide de l’outil de migration.  Le processus de migration de projets et d’espaces de travail est décrit [ici](how-to-migrate.md).
+* Le projet contenant le modèle doit avoir été migré du hub vers Custom Translator à l’aide de l’outil de migration.  
 * Lors de la migration, le modèle doit être dans l’état déployé.  
 * La paire de langues du modèle ne doit pas être prise en charge dans Custom Translator.  Les paires de langues dont l’une des langues est prise en charge depuis ou vers l’anglais, mais qui n’incluent pas l’anglais, sont candidates pour des déploiements de langues non prises en charge.  Par exemple, un modèle de hub pour la paire de langues français-allemand est considéré comme une paire de langues non prise en charge, même si les paires de langues français-anglais et anglais-allemand sont prise en charge.
 

@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 62f163b9ce649cd5ddb52b4325682570633dfb92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 49dc71dac6d246907de3498ed0a39541a3caf522
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96183156"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888425"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>CI/CD pour la gestion des API à l’aide de modèles de Azure Resource Manager
 
@@ -41,7 +41,7 @@ Dans cet exemple, il existe deux environnements de déploiement : *Développeme
 * Les développeurs d’API ont accès à l’instance de développement et peuvent l’utiliser pour développer et tester leurs API. 
 * Une équipe désignée appelée *Éditeurs d’API* gère l’instance de production.
 
-La clé de cette approche proposée consiste à conserver toutes les configurations de gestion des API dans les [modèles de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). L’organisation doit conserver ces modèles dans un système de contrôle de code source tel que Git. Comme illustré dans l’image, un référentiel de publication contient toutes les configurations de l’instance Gestion des API de production dans une collection de modèles :
+La clé de cette approche proposée consiste à conserver toutes les configurations de gestion des API dans les [modèles de Azure Resource Manager](../azure-resource-manager/templates/syntax.md). L’organisation doit conserver ces modèles dans un système de contrôle de code source tel que Git. Comme illustré dans l’image, un référentiel de publication contient toutes les configurations de l’instance Gestion des API de production dans une collection de modèles :
 
 |Modèle  |Description  |
 |---------|---------|
