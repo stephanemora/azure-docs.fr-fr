@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 561855704d157f9ad826b5db83600a79d9437fc6
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 9fd77ec4f72555e2d326a07831abe2648a68fbaf
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500683"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592049"
 ---
 # <a name="chat-sdk-overview"></a>Vue d’ensemble du kit SDK Conversation 
 
@@ -40,7 +40,7 @@ La liste suivante présente l’ensemble des fonctionnalités actuellement dispo
 |                   | Mettre à jour le contenu de votre message envoyé                                                                               | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
 |                   | Supprimer un message que vous avez envoyé                                                                                                      | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
 |                   | Confirmation de lecture des messages qui ont été lus par d’autres participants dans une conversation                                        | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |   
-|                   | Recevoir une notification lorsque des participants tapent activement un message dans un fil de conversation                                         | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
+|                   | Recevoir une notification lorsque des participants tapent activement un message dans un fil de conversation                                         | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |   
 |                   | Obtenir tous les messages d’un fil de conversation                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
 |                   | Envoyer des emojis Unicode dans le contenu d’un message                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
 |Notifications en temps réel (activées par le package de signalisation propriétaire**)|  Les clients de conversation peuvent s’abonner pour obtenir des mises à jour en temps réel sur les messages entrants et les autres opérations qui se produisent dans un fil de conversation. Si vous souhaitez voir la liste des mises à jour prises en charge pour les notifications en temps réel, consultez [Concepts de Conversation](concepts.md#real-time-notifications)                                     | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |   

@@ -11,12 +11,12 @@ author: rsethur
 ms.date: 05/25/2021
 ms.topic: how-to
 ms.custom: how-to
-ms.openlocfilehash: 61754eec2c866a7bf5897b2faa2a2b2ae7b60d02
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 93365304e958bfabaf3067ab58312a9b78745edb
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382616"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854663"
 ---
 # <a name="safe-rollout-for-online-endpoints-preview"></a>Déploiement sécurisé pour les points de terminaison en ligne (préversion)
 
@@ -56,7 +56,7 @@ az configure --defaults workspace=<azureml workspace name> group=<resource group
 
 * Si vous n’avez pas déjà défini la variable d’environnement $ENDPOINT _NAME, faites-le maintenant :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
 
 * (Recommandé) Clonez le dépôt d’exemples et accédez au répertoire `cli/` du dépôt : 
 
@@ -65,7 +65,7 @@ git clone https://github.com/Azure/azureml-examples
 cd azureml-examples/cli
 ```
 
-Les commandes de ce tutoriel se trouvent dans le fichier `how-to-deploy-declarative-safe-rollout-online-endpoints.sh` et les fichiers de configuration YAML se trouvent dans le sous-répertoire `endpoints/online/managed/canary-declarative-flow/`.
+Les commandes de ce tutoriel se trouvent dans le fichier `deploy-declarative-safe-rollout-online-endpoints.sh` et les fichiers de configuration YAML se trouvent dans le sous-répertoire `endpoints/online/managed/canary-declarative-flow/`.
 
 ## <a name="confirm-your-existing-deployment-is-created"></a>Vérifier que votre déploiement existant est créé
 
@@ -85,7 +85,7 @@ Dans le déploiement décrit dans [Déployer et scorer un modèle Machine Learni
 
 Mettez à jour le déploiement avec :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
 
 > [!IMPORTANT]
 > La mise à jour avec le fichier YAML est déclarative. Autrement dit, les modifications apportées dans le fichier YAML seront reflétées dans les ressources Azure Resource Manager sous-jacentes (points de terminaison et déploiements). Cette approche facilite [GitOps](https://www.atlassian.com/git/tutorials/gitops) : *TOUTES* les modifications apportées aux points de terminaison/déploiements passent par le fichier YAML (même `instance_count`). À titre d’effet secondaire, si vous supprimez un déploiement du fichier YAML et que vous exécutez `az ml endpoint update` en utilisant le fichier, ce déploiement sera supprimé. 
@@ -98,13 +98,13 @@ Pour déployer votre nouveau modèle, ajoutez une nouvelle section à la section
 
 Mettez à jour le déploiement : 
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="create_green" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="create_green" :::
 
 ### <a name="test-the-new-deployment"></a>Tester le nouveau déploiement
 
 La configuration a spécifié 0 % du trafic vers le déploiement `green` que vous venez de créer. Pour le tester, vous pouvez l’appeler directement en spécifiant le nom `--deployment` :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="test_green" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="test_green" :::
 
 Si vous voulez utiliser un client REST pour appeler le déploiement directement sans passer par les règles de trafic, définissez l’en-tête HTTP suivant : `azureml-model-deployment: <deployment-name>`.
 
@@ -116,7 +116,7 @@ Une fois que vous avez testé votre déploiement `green`, le fichier `4-flight-g
 
 En dehors des lignes en surbrillance, le fichier de configuration n’est pas modifié. Mettez à jour votre déploiement avec :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="green_10pct_traffic" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="green_10pct_traffic" :::
 
 À présent, votre déploiement `green` va recevoir 10 % des demandes. 
 
@@ -128,7 +128,7 @@ Une fois que vous constatez que votre déploiement `green` est entièrement sati
 
 Mettez à jour le déploiement : 
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="green_100pct_traffic" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="green_100pct_traffic" :::
 
 ## <a name="remove-the-old-deployment"></a>Supprimer l’ancien déploiement
 
@@ -138,10 +138,10 @@ Terminez la bascule vers votre nouveau modèle en supprimant l’ancien déploie
 
 Mettez à jour le déploiement avec :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_blue" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_blue" :::
 
 ## <a name="delete-the-endpoint-and-deployment"></a>Supprimer le point de terminaison et le déploiement
 
 Si vous ne prévoyez pas d’utiliser le déploiement, vous devez le supprimer avec :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
