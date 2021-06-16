@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 7258b37c9d92f25227eac678dde77963e644e64b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 130bf6c9ff105b445830c5f73fdf7d5f564064ab
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483315"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958555"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>Tutoriel : Création d’une application Azure Remote Rendering prête à la commercialisation
 
@@ -255,7 +255,7 @@ Nombreux sont les clients d’entreprise qui exigent que votre système Azure St
 Pour plus d'informations :
 
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
-* [Tutoriel : Publier des applications managées Azure sur la Place de marché](../../../../marketplace/create-new-azure-apps-offer.md)
+* [Tutoriel : Publier des applications managées Azure sur la Place de marché](../../../../marketplace/azure-app-offer-setup.md)
 
 ### <a name="security"></a>Sécurité
 

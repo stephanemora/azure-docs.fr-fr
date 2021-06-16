@@ -3,12 +3,12 @@ title: Filtrage d’événements pour Azure Event Grid
 description: Explique comment filtrer des événements lors de la création d’un abonnement Azure Event Grid.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: b5439b77b86d42d062cf9da66ce678f04f46f813
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 986e31c1213dc05862c95d87a0bc7733f7a2f9c1
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256087"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372140"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Comprendre le filtrage d’événements pour les abonnements Event Grid
 
@@ -63,7 +63,7 @@ La clé est le champ des données d’événement que vous utilisez pour le filt
 - Number
 - Boolean
 - String
-- Array. Vous devez définir la propriété `enableAdvancedFilteringOnArrays` sur true pour utiliser cette fonctionnalité. Actuellement, le portail Azure ne prend pas en charge l’activation de cette fonctionnalité. 
+- Array. Vous devez définir la propriété `enableAdvancedFilteringOnArrays` sur true pour utiliser cette fonctionnalité. 
 
     ```json
     "filter":

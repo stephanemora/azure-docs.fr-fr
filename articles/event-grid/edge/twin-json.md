@@ -1,19 +1,17 @@
 ---
 title: Jumeau de module – Azure Event Grid sur IoT Edge | Microsoft Docs
 description: Configuration via un jumeau de module.
-author: HiteshMadan
 manager: rajarv
-ms.author: himad
 ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: 27e5194b86ea5f76a346412c3239dac111c07d80
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 20f74b989b6f07354d9e94394da87045ba7e60fb
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379780"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750278"
 ---
 # <a name="module-twin-json-schema-azure-event-grid"></a>Schéma JSON de jumeau de module (Azure Event Grid)
 

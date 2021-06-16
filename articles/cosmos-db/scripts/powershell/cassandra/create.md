@@ -7,12 +7,13 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 3d5dec36481a57eadeb68d7ec3182cff76d6b081
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 28b2bf546b1a1ab0bf73e1cc2521336639f4a22b
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98684418"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110680623"
 ---
 # <a name="create-a-keyspace-and-table-for-azure-cosmos-db---cassandra-api"></a>Créer un espace de clés et une table pour Azure Cosmos DB - API Cassandra
 [!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]

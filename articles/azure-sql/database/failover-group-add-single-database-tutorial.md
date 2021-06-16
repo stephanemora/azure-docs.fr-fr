@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: tutorial
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 06/19/2019
-ms.openlocfilehash: 68fa089713c3dd89b4699011ded7d667bca6f73f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 83fe28a063c455de17e178320f0ff2cc057f3f01
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178069"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706354"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Tutoriel : Ajouter une base de données Azure SQL Database à un groupe de basculement automatique
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -197,9 +197,9 @@ Cette partie du tutoriel utilise les cmdlets Azure CLI suivantes :
 
 | Commande | Notes |
 |---|---|
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crée un serveur qui héberge des bases de données et des pools élastiques. |
+| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Crée un serveur qui héberge des bases de données et des pools élastiques. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Crée les règles de pare-feu d’un serveur. |
-| [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) | Crée un groupe de basculement. |
+| [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) | Crée un groupe de basculement. |
 
 ---
 
@@ -322,8 +322,8 @@ Cette partie du tutoriel utilise les cmdlets Azure CLI suivantes :
 
 | Commande | Notes |
 |---|---|
-| [az sql failover-group list](/cli/azure/sql/failover-group#az-sql-failover-group-list) | Répertorie les groupes de basculement d’un serveur. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Définit le principal du groupe de basculement en basculant toutes les bases de données à partir du serveur principal actuel. |
+| [az sql failover-group list](/cli/azure/sql/failover-group#az_sql_failover_group_list) | Répertorie les groupes de basculement d’un serveur. |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) | Définit le principal du groupe de basculement en basculant toutes les bases de données à partir du serveur principal actuel. |
 
 ---
 
@@ -373,7 +373,7 @@ Cette partie du tutoriel utilise les cmdlets Azure CLI suivantes :
 
 | Commande | Notes |
 |---|---|
-| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az group delete](/cli/azure/vm/extension#az_vm_extension_set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ---
 
@@ -409,15 +409,15 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-| [az account set](/cli/azure/account#az-account-set) | Définit un abonnement en tant qu’abonnement actif. |
-| [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crée un serveur qui héberge des bases de données uniques et des pools élastiques dans Azure SQL Database. |
+| [az account set](/cli/azure/account#az_account_set) | Définit un abonnement en tant qu’abonnement actif. |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Crée un serveur qui héberge des bases de données uniques et des pools élastiques dans Azure SQL Database. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Crée les règles de pare-feu IP au niveau du serveur dans Azure SQL Database. |
 | [az sql db create](/cli/azure/sql/db) | Crée une base de données dans Azure SQL Database. |
-| [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) | Crée un groupe de basculement dans Azure SQL Database. |
-| [az sql failover-group list](/cli/azure/sql/failover-group#az-sql-failover-group-list) | Répertorie les groupes de basculement dans un serveur dans Azure SQL Database. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Définit le principal du groupe de basculement en basculant toutes les bases de données à partir du serveur principal actuel. |
-| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) | Crée un groupe de basculement dans Azure SQL Database. |
+| [az sql failover-group list](/cli/azure/sql/failover-group#az_sql_failover_group_list) | Répertorie les groupes de basculement dans un serveur dans Azure SQL Database. |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) | Définit le principal du groupe de basculement en basculant toutes les bases de données à partir du serveur principal actuel. |
+| [az group delete](/cli/azure/vm/extension#az_vm_extension_set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 # <a name="the-portal"></a>[Le portail](#tab/azure-portal)
 

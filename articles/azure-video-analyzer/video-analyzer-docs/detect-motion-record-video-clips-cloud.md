@@ -3,12 +3,12 @@ title: Détecter des mouvements et enregistrer des vidéos avec Azure Video Anal
 description: Ce guide de démarrage rapide montre comment utiliser le module de périphérie Azure Video Analyzer pour appliquer la détection de mouvement à un stream vidéo en direct et enregistrer une vidéo dans le compte Video Analyzer.
 ms.topic: quickstart
 ms.date: 04/03/2021
-ms.openlocfilehash: 851310ff3b03730a1fc9adb4eaa7c0c3f9cf84f2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9643ed3a7bbcc23757110033be1dbc3780ddafb5
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385856"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565929"
 ---
 # <a name="quickstart-detect-motion-record-video-to-video-analyzer"></a>Démarrage rapide : Détecter des mouvements et enregistrer une vidéo dans Video Analyzer
 
@@ -986,6 +986,23 @@ En quelques secondes, vous devriez voir la réponse suivante dans la fenêtre SO
 ```
 
 Le code d’état 200 indique que la topologie de pipeline a été correctement supprimée.
+
+## <a name="playing-back-the-recording"></a>Lecture de l’enregistrement
+
+Vous pouvez examiner la ressource vidéo Video Analyzer qui a été créée par le pipeline en direct en vous connectant au portail Azure et en visionnant la vidéo.
+1. Ouvrez votre navigateur web pour accéder au [portail Azure](https://portal.azure.com/). Entrez vos informations d’identification pour vous connecter au portail. Il s’ouvre par défaut sur le tableau de bord des services.
+1. Localisez votre compte Video Analyzer parmi les ressources que vous avez dans votre abonnement, puis ouvrez le volet du compte.
+1. Sélectionnez **Vidéos** dans la liste **Video Analyzer**.
+1. Vous y trouvez une vidéo portant le nom `sample-motion-video-camera001`. Il s’agit du nom choisi dans votre fichier de topologie de pipeline.
+1. Sélectionnez la vidéo.
+1. La page de détails de la vidéo s’ouvre et la lecture démarre automatiquement.
+
+    <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
+
+
+> [!NOTE]
+> Étant donné que la source de la vidéo était un conteneur simulant le flux d’une caméra, les horodatages de la vidéo sont liés au moment où vous avez activé le pipeline en direct et où vous l’avez désactivé.
+    
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

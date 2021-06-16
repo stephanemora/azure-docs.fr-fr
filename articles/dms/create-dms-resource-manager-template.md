@@ -3,16 +3,16 @@ title: Créer une instance de DMS (modèle Azure Resource Manager)
 description: Découvrez comment créer une instance de Database Migration Service à l’aide d’un modèle ARM (Azure Resource Manager).
 author: MashaMSFT
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: 8b448f04811ad254358990f6f37c4a02f1909d65
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: fad7f93e4ccaa31f17df79f4d512647607427f1c
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107952725"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006794"
 ---
 # <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>Démarrage rapide : Créer une instance du service Azure Database Migration Service à l’aide du modèle ARM
 
@@ -33,7 +33,7 @@ Le modèle Resource Manager Azure Database Migration Service nécessite les él�
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-azure-database-migration-simple-deploy/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/azure-database-migration-simple-deploy/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.datamigration/azure-database-migration-simple-deploy/azuredeploy.json":::
 

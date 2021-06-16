@@ -1,18 +1,18 @@
 ---
 title: Contrôles de conformité réglementaire Azure Policy pour Azure Container Registry
 description: Liste les contrôles de conformité réglementaire Azure Policy disponibles pour Azure Container Registry. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.topic: sample
 author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: f30d51591454576d79c1000ad032bbe8facf6e59
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f8a4a900322e808bf7f47118e712f597bde46ed0
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090265"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029552"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-container-registry"></a>Contrôles de conformité réglementaire Azure Policy pour Azure Container Registry
 

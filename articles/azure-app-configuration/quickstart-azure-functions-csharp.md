@@ -6,14 +6,14 @@ author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 09/28/2020
+ms.date: 06/02/2021
 ms.author: alkemper
-ms.openlocfilehash: 9d378b21132e6646329c459401255ef9a3ed9426
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf76cdc52ba7b4ebcf99e0b32d9b56e59a9bf837
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724235"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411662"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Démarrage rapide : Créer une application Azure Functions avec Azure App Configuration
 
@@ -112,7 +112,8 @@ Ce projet utilise l’[injection de dépendances dans .NET Azure Functions](../a
     }
     ```
 
-   La classe `Function1` et la méthode `Run` ne doivent pas être statiques. Supprimez le modificateur `static` s’il a été généré automatiquement.
+    > [!NOTE]
+    > La classe `Function1` et la méthode `Run` ne doivent pas être statiques. Supprimez le modificateur `static` s’il a été généré automatiquement.
 
 ## <a name="test-the-function-locally"></a>Tester la fonction en local
 

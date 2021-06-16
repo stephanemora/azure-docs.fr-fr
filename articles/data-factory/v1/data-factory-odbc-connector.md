@@ -6,13 +6,14 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
+ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: e847592127d19eba3370255385f5b969b87e886e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 43987b333279675204179a90f01f2aa668abb2c1
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100380098"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110665655"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Transfert de données à partir de magasins de données ODBC à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

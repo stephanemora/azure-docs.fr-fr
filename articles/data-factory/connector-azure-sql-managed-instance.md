@@ -7,12 +7,12 @@ ms.author: jianleishen
 author: jianleishen
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 6313843cac97ec93fb538c1ddf8ca5477a4cce81
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: da1dbfc43aa8dccda8cca53b33923e2fee730d12
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487454"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789727"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure SQL Managed Instance à l’aide d’Azure Data Factory
 
@@ -638,8 +638,6 @@ L’exemple suivant montre comment utiliser une procédure stockée pour effectu
 
 Lors de la transformation de données dans le flux de données de mappage, vous pouvez lire et écrire dans des tables à partir d’Azure SQL Managed Instance. Pour plus d’informations, consultez la [transformation de la source](data-flow-source.md) et la [transformation du récepteur](data-flow-sink.md) dans le flux de données de mappage.
 
-> [!NOTE]
-> Le connecteur Azure SQL Managed Instance dans le flux de données de mappage est actuellement disponible en préversion publique. Vous pouvez vous connecter au point de terminaison public de SQL Managed Instance, mais pas à un point de terminaison privé pour le moment.
 
 ### <a name="source-transformation"></a>Transformation de la source
 

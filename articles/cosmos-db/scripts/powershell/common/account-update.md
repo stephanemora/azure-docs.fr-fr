@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: f9d6036a31f2482ca69f06c72bf224490fe8bbc6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8226761c5b1a0663e0b53dcec32cc79fc1576f59
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98684352"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110680448"
 ---
 # <a name="update-the-regions-on-an-azure-cosmos-db-account-using-powershell"></a>Mettre à jour les régions d’un compte Azure Cosmos DB à l’aide de PowerShell
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]

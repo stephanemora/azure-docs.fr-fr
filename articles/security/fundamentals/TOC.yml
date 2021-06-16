@@ -43,6 +43,8 @@
       items:
         - name: Sécurité de microprogramme
           href: firmware.md
+        - name: Intégrité du code
+          href: code-integrity.md
         - name: Démarrage sécurisé
           href: secure-boot.md
         - name: Démarrage mesuré et attestation de l’hôte

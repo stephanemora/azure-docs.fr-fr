@@ -11,19 +11,19 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8c0628d9e2d0d89fcb84569d227f592b5ad0943
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: a1a41c2360438158adcee9a4198a5f956012a443
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285571"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952048"
 ---
 # <a name="securing-cloud-resources-with-azure-ad-multi-factor-authentication-and-ad-fs"></a>Sécurisation des ressources cloud avec Azure AD Multi-Factor Authentication et AD FS
 
 Si votre organisation est fédérée avec Azure Active Directory, utilisez Azure AD Multi-Factor Authentication ou les services de fédération Active Directory (AD FS) pour sécuriser les ressources auxquelles Azure AD accède. Utilisez les procédures suivantes pour sécuriser les ressources Azure Active Directory à l’aide d’Azure AD Multi-Factor Authentication ou des services de fédération Active Directory (AD FS).
 
 >[!NOTE]
->Pour sécuriser une ressource Azure AD, il est recommandé d’exiger l’authentification MFA par le biais d’une [stratégie d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa), de définir le paramètre de domaine SupportsMfa sur $True et [d’émettre la revendication multipleauthn](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-adfs#secure-azure-ad-resources-using-ad-fs) dès que la vérification en deux étapes effectuée par un utilisateur a abouti.
+>Pour sécuriser une ressource Azure AD, il est recommandé d’exiger l’authentification MFA par le biais d’une [stratégie d’accès conditionnel](../conditional-access/howto-conditional-access-policy-all-users-mfa.md), de définir le paramètre de domaine SupportsMfa sur $True et [d’émettre la revendication multipleauthn](#secure-azure-ad-resources-using-ad-fs) dès que la vérification en deux étapes effectuée par un utilisateur a abouti.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Sécurisation des ressources Azure AD à l’aide d’AD FS
 

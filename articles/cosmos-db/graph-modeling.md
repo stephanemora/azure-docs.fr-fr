@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: chrande
-ms.openlocfilehash: d99e2e2ffd63b050e7373c98084fed3fb14727bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f2be9103d61897eb24d1653f63cbec86ffb407c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93357043"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957336"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modélisation des données de graphe pour l’API Gremlin d’Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -38,7 +38,7 @@ Une solution de base de données de graphe peut être appliquée de façon optim
 
 Si les critères ci-dessus sont remplis, il est probable qu’une approche de base de données de graphe fournira des avantages pour la **complexité des requêtes**, la **scalabilité du modèle de données** et les **performances des requêtes**.
 
-L’étape suivante consiste à déterminer si le graphe va être utilisé à des fins analytiques ou transactionnelles. Si le graphe est destiné à être utilisé pour des calculs intensifs et des charges de travail importantes de traitement des données, il peut être utile d’explorer le [connecteur Spark Cosmos DB](./spark-connector.md) et l’utilisation de la [bibliothèque GraphX](https://spark.apache.org/graphx/). 
+L’étape suivante consiste à déterminer si le graphe va être utilisé à des fins analytiques ou transactionnelles. Si le graphe est destiné à être utilisé pour des calculs intensifs et des charges de travail importantes de traitement des données, il peut être utile d’explorer le [connecteur Spark Cosmos DB](./create-sql-api-spark.md) et l’utilisation de la [bibliothèque GraphX](https://spark.apache.org/graphx/). 
 
 ## <a name="how-to-use-graph-objects"></a>Comment utiliser des objets de graphe
 

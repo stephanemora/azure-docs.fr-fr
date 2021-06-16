@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d47d93c7e1456cbd589aec34c2840a4b8257c8eb
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: b2c1840acae64940561133a90cb1450c4af80a19
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109848156"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952751"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de traitement SaaS version 2 sur la Place de marché commerciale
 
@@ -970,6 +970,6 @@ Pour afficher les options de support pour les éditeurs, consultez [Support tech
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour découvrir plus d’options concernant les offres SaaS sur la Place de marché commerciale, consultez [API de facturation à la consommation de la Place de marché](marketplace-metering-service-apis.md).
+Pour découvrir plus d’options concernant les offres SaaS sur la Place de marché commerciale, consultez [API de facturation à la consommation de la Place de marché](../marketplace-metering-service-apis.md).
 
 Examinez et utilisez les [clients pour différents langages et exemples de programmation](https://github.com/microsoft/commercial-marketplace-samples).

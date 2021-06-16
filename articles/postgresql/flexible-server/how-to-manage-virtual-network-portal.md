@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 04/22/2021
-ms.openlocfilehash: af1ef22c55502ac6ae4279810a527b407555dd5c
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: 18d556a11ff55c1967252491d26bea62729498c5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987796"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952433"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Créer et gérer des réseaux virtuels pour le serveur flexible Azure Database pour PostgreSQL à l'aide du Portail Azure
 
@@ -41,7 +41,7 @@ Pour créer un serveur flexible dans un réseau virtuel, vous avez besoin des é
      4. Sur l’écran d’extraction, sous **Point de terminaison de service**, choisissez `Microsoft.storage` dans la liste déroulante.
      5. Enregistrez les modifications.
 
-- Si vous souhaitez configurer votre propre zone DNS privée à utiliser avec le serveur flexible, consultez la documentation [Vue d’ensemble du DNS privé](https://docs.microsoft.com/azure/dns/private-dns-overview) pour plus d’informations. 
+- Si vous souhaitez configurer votre propre zone DNS privée à utiliser avec le serveur flexible, consultez la documentation [Vue d’ensemble du DNS privé](../../dns/private-dns-overview.md) pour plus d’informations. 
   
 ## <a name="create-azure-database-for-postgresql---flexible-server-in-an-already-existing-virtual-network"></a>Créer un serveur flexible Azure Database pour PostgreSQL dans un réseau virtuel déjà existant
 
@@ -60,7 +60,7 @@ Pour créer un serveur flexible dans un réseau virtuel, vous avez besoin des é
 > Une fois le serveur flexible déployé sur un réseau virtuel et un sous-réseau, vous ne pouvez pas le déplacer vers un accès public (adresses IP autorisées).
 
 >[!Note]
-> Si vous souhaitez vous connecter au serveur flexible à partir d’un client configuré dans un autre réseau virtuel, vous devez lier la zone DNS privée au réseau virtuel. Pour plus d’informations, consultez la documentation relative à la [liaison du réseau virtuel](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network).
+> Si vous souhaitez vous connecter au serveur flexible à partir d’un client configuré dans un autre réseau virtuel, vous devez lier la zone DNS privée au réseau virtuel. Pour plus d’informations, consultez la documentation relative à la [liaison du réseau virtuel](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Créer et gérer un réseau virtuel Azure Database pour PostgreSQL - Serveur flexible à l’aide de Azure CLI](./how-to-manage-virtual-network-cli.md).

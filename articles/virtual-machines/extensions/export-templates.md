@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: windows
 ms.date: 12/05/2016
-ms.openlocfilehash: df1ae43b2c6a74448a6782a43fb86f8f4939b13a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d461be7d760e1e4fc99fe23a9fe2d5529237ebb3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560002"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949828"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportation de groupes de ressources contenant des extensions de machine virtuelle
 
@@ -131,7 +131,7 @@ La ressource d’extension finale est semblable à l’exemple JSON suivant :
 }
 ```
 
-Si vous utilisez des paramètres de modèle pour fournir des valeurs de propriété, ceux-ci doivent être créés. Lorsque vous créez des paramètres de modèle pour des valeurs de paramètres protégés, veillez à utiliser le type de paramètre `SecureString` afin que les valeurs sensibles soient sécurisées. Pour en savoir plus sur l’utilisation des paramètres, consultez [Création de modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
+Si vous utilisez des paramètres de modèle pour fournir des valeurs de propriété, ceux-ci doivent être créés. Lorsque vous créez des paramètres de modèle pour des valeurs de paramètres protégés, veillez à utiliser le type de paramètre `SecureString` afin que les valeurs sensibles soient sécurisées. Pour en savoir plus sur l’utilisation des paramètres, consultez [Création de modèles Azure Resource Manager](../../azure-resource-manager/templates/syntax.md).
 
 Dans l’exemple de l’extension `IaasDiagnostic`, les paramètres suivants doivent être créés dans la section des paramètres du modèle Resource Manager.
 

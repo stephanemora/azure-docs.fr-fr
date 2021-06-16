@@ -3,21 +3,21 @@ title: 'Tutoriel : Créer une application monopage React qui utilise le flux de
 titleSuffix: Microsoft identity platform
 description: Dans ce tutoriel, vous créer une application SPA React qui peut connecter des utilisateurs et utiliser le flux de code d’authentification pour obtenir un jeton d’accès à partir de la plateforme d’identités Microsoft et appeler l’API Microsoft Graph.
 services: active-directory
-author: tnorling
+author: j-mantu
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 04/16/2021
-ms.author: thnorlin
+ms.author: jamesmantu
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 82a484964992809dc7e27744035ec19ed3a9e3db
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 1b8e822c72bdf2af8b20950944fb93686524b797
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109657331"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072340"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-react-single-page-app-spa-using-auth-code-flow"></a>Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) React à l’aide du flux de code d’authentification
 

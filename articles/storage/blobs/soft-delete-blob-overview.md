@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: ef1ed584a609b2e4baa27111e47343df99146f5a
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 46cd1b2d695592b97f2fe27451fe48e6e2c7be19
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257498"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410708"
 ---
 # <a name="soft-delete-for-blobs"></a>Suppression réversible pour les objets blob
 
@@ -113,7 +113,7 @@ Le tableau suivant décrit le comportement attendu pour les opérations de suppr
 | [Supprimer le compte de stockage](/rest/api/storagerp/storageaccounts/delete) | Aucune modification. Les conteneurs et objets blob dans le compte supprimé ne sont pas récupérables. | Aucune modification. Les conteneurs et objets blob dans le compte supprimé ne sont pas récupérables. |
 | [Delete Container](/rest/api/storageservices/delete-container) | Aucune modification. Les objets blob figurant dans le conteneur supprimé ne sont pas récupérables. | Aucune modification. Les objets blob figurant dans le conteneur supprimé ne sont pas récupérables. |
 | [Delete Blob](/rest/api/storageservices/delete-blob) | Si cette opération est utilisée pour supprimer un objet blob, celui-ci est marqué comme étant supprimé de manière réversible. <br /><br /> Si cette opération est utilisée pour supprimer un instantané blob, l’instantané est marqué comme supprimé de manière réversible. | Si cette opération est utilisée pour supprimer un objet blob, la version actuelle devient la version antérieure et la version actuelle est supprimée. Aucune nouvelle version n’est créée et aucun instantané supprimé de manière réversible n’est créé.<br /><br /> Si cette opération est utilisée pour supprimer une version d’objet blob, la version est marquée comme étant supprimée de manière réversible. |
-| [Annuler la suppression d’un objet blob](/rest/api/storageservices/delete-blob) | Restaure un objet blob et les instantanés qui ont été supprimés pendant la période de conservation. | Restaure un objet blob et les versions qui ont été supprimés pendant la période de conservation. |
+| [Annuler la suppression d’un objet blob](/rest/api/storageservices/undelete-blob) | Restaure un objet blob et les instantanés qui ont été supprimés pendant la période de conservation. | Restaure un objet blob et les versions qui ont été supprimés pendant la période de conservation. |
 | [Put Blob](/rest/api/storageservices/put-blob)<br />[Put Block List](/rest/api/storageservices/put-block-list)<br />[Copy Blob](/rest/api/storageservices/copy-blob)<br />[Copier un objet blob à partir d’une URL](/rest/api/storageservices/copy-blob) | Si cette opération est appelée sur un objet blob actif, un instantané de l’état de l’objet blob avant l’opération est généré automatiquement. <br /><br /> Si cette opération est appelée sur un objet blob supprimé de manière réversible, un instantané de l’état précédent de l’objet blob est généré uniquement s’il est remplacé par un objet blob du même type. Si le type de l’objet blob est différent, toutes les données supprimées de manière réversible sont définitivement supprimées. | Une nouvelle version qui capture l’état de l’objet blob avant l’opération est générée automatiquement. |
 | [Put Block](/rest/api/storageservices/put-block) | Si cette opération est utilisée pour valider un bloc dans un objet blob actif, rien ne change.<br /><br />Si cette opération est utilisée pour valider un bloc dans un objet blob supprimé de manière réversible, un nouvel objet blob est créé et un instantané est généré automatiquement pour capturer l’état de l’objet blob supprimé de manière réversible. | Aucune modification. |
 | [Put Page](/rest/api/storageservices/put-page)<br />[Placer la page à partir de l’URL](/rest/api/storageservices/put-page-from-url) | Aucune modification. Les données de l’objet blob de pages remplacées ou effacées par cette opération n’étant pas enregistrées, elles sont irrécupérables. | Aucune modification. Les données de l’objet blob de pages remplacées ou effacées par cette opération n’étant pas enregistrées, elles sont irrécupérables. |

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/02/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: d31f490baec49e8e0b6fcf89caa8c19202fdf763
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8981d305fff1970b58b569d95c6f16e933b2ca10
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102431378"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812889"
 ---
 # <a name="quickstart-create-an-any-to-any-configuration-using-an-arm-template"></a>Démarrage rapide : Créer une configuration Any-to-any à l’aide d’un modèle ARM
 
@@ -24,7 +24,7 @@ Ce guide de démarrage rapide explique comment utiliser un modèle Azure Resourc
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f201-virtual-wan-with-all-gateways%2fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-all-gateways%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,7 +33,7 @@ Si votre environnement remplit les prérequis et que vous êtes déjà familiari
 
 ## <a name="review-the-template"></a><a name="review"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/201-virtual-wan-with-all-gateways). Le modèle utilisé pour cet article est trop long pour être affiché ici. Pour voir le modèle, consultez [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-virtual-wan-with-all-gateways/azuredeploy.json).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/virtual-wan-with-all-gateways). Le modèle utilisé pour cet article est trop long pour être affiché ici. Pour voir le modèle, consultez [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/virtual-wan-with-all-gateways/azuredeploy.json).
 
 Dans ce guide de démarrage rapide, vous allez créer un déploiement multihub Azure Virtual WAN, avec toutes les passerelles et les connexions de réseau virtuel. La liste des paramètres d’entrée a été volontairement réduite au minimum. Le schéma d’adressage IP peut être modifié en rectifiant les variables à l’intérieur du modèle. Le scénario est expliqué plus en détail dans l’article [Scénario Any-to-any](scenario-any-to-any.md).
 
@@ -75,7 +75,7 @@ Pour déployer ce modèle convenablement, vous devez utiliser le bouton Déploye
 
 1. Cliquez sur **Déployer dans Azure**.
 
-   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f201-virtual-wan-with-all-gateways%2fazuredeploy.json)
+   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-all-gateways%2fazuredeploy.json)
 1. Pour afficher le modèle, cliquez sur **Modifier le modèle**. Dans cette page, vous pouvez ajuster certaines valeurs comme l’espace d’adressage ou le nom de certaines ressources. Cliquez sur **Enregistrer** pour enregistrer vos modifications ou sur **Abandonner**.
 1. Dans la page du modèle, entrez les valeurs. Pour ce modèle, les données du certificat public P2S sont nécessaires. Si vous envisagez cet article comme exercice, vous pouvez utiliser les données suivantes de ce fichier .cer comme données d’exemple pour les deux hubs. Une fois que le modèle s’exécute et que le déploiement est terminé, pour utiliser la configuration P2S, vous devez remplacer ces informations par les [données de certificat](certificates-point-to-site.md#cer) de la clé publique pour votre propre déploiement.
 

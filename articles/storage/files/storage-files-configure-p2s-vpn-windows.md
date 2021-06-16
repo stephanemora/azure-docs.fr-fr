@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e7b7445fe293ae6cec975409a15e979873ec64aa
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 979d1c9148e079728b240f73b467e6d9aee13067
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331247"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663478"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Configurer un VPN point à site (P2S) sur Windows pour l’utiliser avec Azure Files
 Vous pouvez utiliser une connexion VPN point à site (P2S) pour monter vos partages de fichiers Azure sur SMB en dehors d’Azure, sans ouvrir le port 445. Une connexion VPN point à site est une connexion VPN entre Azure et un client individuel. Pour utiliser une connexion VPN P2S avec Azure Files, une connexion VPN P2S doit être configurée pour chaque client qui souhaite se connecter. Si de nombreux clients doivent se connecter à vos partages de fichiers Azure depuis votre réseau local, vous pouvez utiliser une connexion VPN site à site (S2S) au lieu d’une connexion point à site pour chaque client. Pour plus d’informations, consultez [Configurer un VPN site à site pour une utilisation avec Azure Files](storage-files-configure-s2s-vpn.md).

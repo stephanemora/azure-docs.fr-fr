@@ -4,19 +4,19 @@ description: Créez un principal du service pour accéder à Azure SQL Database 
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=1 , devx-track-azurecli
+ms.custom: sqldbrb=1 , devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: mathoma
 ms.date: 03/12/2019
-ms.openlocfilehash: d264ee022d2833b092948ac0d1f3fef537bea943
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 923e218768e10fcf31c5dd1f3408c6dfc1af27b2
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94841322"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705698"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-azure-sql-database-from-code"></a>Obtenir les valeurs requises pour authentifier une application en vue d’accéder à Azure SQL Database à partir du code
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

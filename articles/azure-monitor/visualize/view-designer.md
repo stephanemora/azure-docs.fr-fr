@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/04/2020
-ms.openlocfilehash: cb0274260022c55ae657b5b28b2c9ad1903d0296
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 089eeb1f4b412f3d696b74885e1a7358f37e4860
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043267"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965563"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Créer des vues personnalisées à l’aide du Concepteur de vues dans Azure Monitor
 Grâce au Concepteur de vues d’Azure Monitor, vous pouvez créer plusieurs vues personnalisées dans le portail Azure qui peuvent vous aider à visualiser les données dans votre espace de travail Log Analytics. Cet article fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
@@ -101,7 +101,7 @@ Les options pour l’utilisation des vues en mode d’édition sont décrites da
 | Enregistrer        | Enregistre les modifications et ferme la vue. |
 | Annuler      | Ignore les modifications et ferme la vue. |
 | Supprimer la vue | Supprime la vue. |
-| Exporter      | Exporte la vue vers un [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) que vous pouvez importer dans un autre espace de travail. Le nom du fichier est identique à celui de la vue, avec une extension *omsview*. |
+| Exporter      | Exporte la vue vers un [modèle Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) que vous pouvez importer dans un autre espace de travail. Le nom du fichier est identique à celui de la vue, avec une extension *omsview*. |
 | Importer      | Importe le fichier *omsview* que vous avez exporté à partir d’un autre espace de travail. Cette opération remplace la configuration de la vue existante. |
 | Clone       | Crée une vue et l’ouvre dans le Concepteur de vues. Le nom de la nouvelle vue est identique à celui de la vue d’origine, avec le mot *Copy* ajouté à la fin. |
 

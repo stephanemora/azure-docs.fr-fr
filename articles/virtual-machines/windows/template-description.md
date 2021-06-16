@@ -7,12 +7,13 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 32b73be3faf6eedb92220725b292a3e69cf7f965
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 28262d66794d573d40e4e202d8b047e1d1fbefc7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555990"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953810"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Machines virtuelles dans un modèle Azure Resource Manager
 
@@ -163,7 +164,7 @@ Utilisez ces opportunités pour obtenir les dernières versions de l'API :
 
 ## <a name="parameters-and-variables"></a>Paramètres et variables
 
-Les [paramètres](../../azure-resource-manager/templates/template-syntax.md) vous permettent de spécifier facilement les valeurs du modèle lors de son exécution. Cette section de paramètres est utilisée dans l’exemple :
+Les [paramètres](../../azure-resource-manager/templates/syntax.md) vous permettent de spécifier facilement les valeurs du modèle lors de son exécution. Cette section de paramètres est utilisée dans l’exemple :
 
 ```json
 "parameters": {
@@ -175,7 +176,7 @@ Les [paramètres](../../azure-resource-manager/templates/template-syntax.md) vou
 
 Lorsque vous déployez l’exemple de modèle, vous entrez les valeurs de nom et de mot de passe du compte d’administrateur sur chaque machine virtuelle ainsi que le nombre de machines virtuelles à créer. Vous pouvez spécifier les valeurs de paramètres dans un fichier distinct qui est géré avec le modèle, ou fournir ces valeurs lorsque vous y êtes invité.
 
-Les [variables](../../azure-resource-manager/templates/template-syntax.md) vous permettent de définir facilement les valeurs utilisées à plusieurs reprises tout au long du modèle ou qui peuvent changer au fil du temps. Cette section de variables est utilisée dans l’exemple :
+Les [variables](../../azure-resource-manager/templates/syntax.md) vous permettent de définir facilement les valeurs utilisées à plusieurs reprises tout au long du modèle ou qui peuvent changer au fil du temps. Cette section de variables est utilisée dans l’exemple :
 
 ```json
 "variables": { 
@@ -208,7 +209,7 @@ Les [variables](../../azure-resource-manager/templates/template-syntax.md) vous 
 }, 
 ```
 
-Lorsque vous déployez l'exemple de modèle, les valeurs de variables sont utilisées pour le nom et l’identificateur du compte de stockage créé précédemment. Les variables servent également à fournir les paramètres pour l’extension de diagnostic. Utilisez les [bonnes pratiques relatives à la création de modèles Azure Resource Manager](../../azure-resource-manager/templates/template-best-practices.md) pour choisir comment structurer les paramètres et les variables de votre modèle.
+Lorsque vous déployez l'exemple de modèle, les valeurs de variables sont utilisées pour le nom et l’identificateur du compte de stockage créé précédemment. Les variables servent également à fournir les paramètres pour l’extension de diagnostic. Utilisez les [bonnes pratiques relatives à la création de modèles Azure Resource Manager](../../azure-resource-manager/templates/best-practices.md) pour choisir comment structurer les paramètres et les variables de votre modèle.
 
 ## <a name="resource-loops"></a>boucles de ressources
 
@@ -247,7 +248,7 @@ N’oubliez pas que pour créer une boucle pour une ressource dans le modèle, v
 
 ## <a name="dependencies"></a>Les dépendances
 
-La plupart des ressources dépendent d’autres ressources pour fonctionner correctement. Les machines virtuelles doivent être associées à un réseau virtuel et pour cela, une interface réseau est requise. L'élément [dependsOn](../../azure-resource-manager/templates/define-resource-dependency.md) permet de vérifier que l’interface réseau est prête à être utilisée avant la création des machines virtuelles :
+La plupart des ressources dépendent d’autres ressources pour fonctionner correctement. Les machines virtuelles doivent être associées à un réseau virtuel et pour cela, une interface réseau est requise. L'élément [dependsOn](../../azure-resource-manager/templates/resource-dependency.md) permet de vérifier que l’interface réseau est prête à être utilisée avant la création des machines virtuelles :
 
 ```json
 "dependsOn": [
@@ -451,7 +452,7 @@ Vous pouvez utiliser le même modèle pour créer des ressources ou pour mettre 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Créez votre propre modèle à l’aide de la rubrique [Création de modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
+- Créez votre propre modèle à l’aide de la rubrique [Création de modèles Azure Resource Manager](../../azure-resource-manager/templates/syntax.md).
 - Déployez le modèle que vous avez créé à l'aide de la rubrique [Créer une machine virtuelle Windows avec un modèle Resource Manager](ps-template.md).
 - Découvrez comment gérer les machines virtuelles que vous avez créées en lisant [Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell](tutorial-manage-vm.md).
 - Pour connaître la syntaxe JSON et les propriétés des types de ressource dans les modèles, consultez la [référence du modèle Azure Resource Manager](/azure/templates/).

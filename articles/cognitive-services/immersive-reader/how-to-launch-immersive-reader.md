@@ -4,19 +4,19 @@ titleSuffix: Azure Applied AI Services
 description: Découvrez comment lancer le Lecteur immersif en utilisant JavaScript, Python, Android ou iOS. Lecteur immersif utilise des techniques éprouvées pour améliorer la compréhension de la lecture pour les apprenants d’une langue, les lecteurs débutants et les étudiants présentant des différences d’apprentissage.
 author: metanMSFT
 manager: guillasi
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: metang
 ms.custom: devx-track-js
 zone_pivot_groups: immersive-reader-how-to-guides
-ms.openlocfilehash: 2d65ec4bd9683b7217cb8efbda7beef4371fc9dc
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9c6ddc3ce750f7fac9b8b6516a78defd5998b567
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373907"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893315"
 ---
 # <a name="how-to-launch-the-immersive-reader"></a>Guide de lancement du Lecteur immersif
 

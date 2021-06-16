@@ -4,13 +4,13 @@ description: Cet article liste les limites connues d’Azure Cognitive Services 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 06/04/2020
-ms.openlocfilehash: 1f917087eb15d8c77356995299e27dfc1657cb5d
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.date: 05/26/2021
+ms.openlocfilehash: 00b218908242b27e7276a18a490250a0db34d57a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497198"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954196"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites de vos clés et de votre modèle LUIS
 LUIS a plusieurs zones de limites. La première est la [limite de modèle](#model-limits), qui contrôle les intentions, les entités et les caractéristiques dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. La troisième zone de limites est la [séquence de touches](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS.
@@ -80,7 +80,6 @@ Utilisez le _genre_, `LUIS.Authoring`, lors du filtrage des ressources dans le p
 
 |Ressource de création|TPS de création|
 |--|--|
-|Starter|1 000 000/mois, 5/seconde|
 |F0 - Niveau gratuit |1 000 000/mois, 5/seconde|
 
 * TPS = Transactions par seconde
@@ -117,7 +116,7 @@ L'[intégration du Speech](../speech-service/how-to-recognize-intents-from-speec
 Votre accès de connexion est valable **60 minutes**. Une fois ce délai expiré, le message d’erreur suivant s’affichera. Vous devez vous reconnecter.
 
 [luis-get-started-create-app]: ./luis-get-started-create-app.md
-[batch-testing]: ./luis-concept-test.md#batch-testing
+[batch-testing]: ./luis-interactive-test.md#batch-testing
 [intents]: ./luis-concept-intent.md
 [phrase-list]: ./luis-concept-feature.md
 [utterances]: ./luis-concept-utterance.md

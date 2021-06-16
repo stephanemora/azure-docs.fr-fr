@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: 383c9651d6552a327bc9e986d18fbc7832fc94f8
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: e11ed0d284e89a9e5f406aade2147b52d139f0ad
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072186"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953537"
 ---
 # <a name="use-the-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Utiliser la bibliothèque d’authentification Microsoft pour JavaScript pour travailler avec Azure AD B2C
 
@@ -28,12 +28,12 @@ En utilisant Azure AD B2C en tant que service de gestion des identités, vous p
 
 ## <a name="supported-app-types-and-scenarios"></a>Types d’applications et scénarios pris en charge
 
-MSAL.js permet aux [applications monopages](https://docs.microsoft.com/azure/active-directory-b2c/application-types#single-page-applications) de connecter des utilisateurs à Azure AD B2C à l’aide du [flux de code d’autorisation avec PKCE](https://docs.microsoft.com/azure/active-directory-b2c/authorization-code-flow). Avec MSAL.js et Azure AD B2C :
+MSAL.js permet aux [applications monopages](../../active-directory-b2c/application-types.md#single-page-applications) de connecter des utilisateurs à Azure AD B2C à l’aide du [flux de code d’autorisation avec PKCE](../../active-directory-b2c/authorization-code-flow.md). Avec MSAL.js et Azure AD B2C :
 
 - Les utilisateurs **peuvent** s’authentifier avec leur identité sociale et locale.
 - Les utilisateurs **peuvent** être autorisés à accéder aux ressources protégées Azure AD B2C (mais pas aux ressources protégées Azure AD).
-- Les utilisateurs **ne peuvent pas** obtenir de jetons pour les API Microsoft (par exemple, MS API Graph) à l’aide d'[autorisations déléguées](https://review.docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent?branch=master#permission-types).
-- Les utilisateurs disposant de privilèges d’administrateur **peuvent** obtenir des jetons pour les API Microsoft (par exemple, MS API Graph) à l’aide d'[autorisations déléguées](https://review.docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent?branch=master#permission-types).
+- Les utilisateurs **ne peuvent pas** obtenir de jetons pour les API Microsoft (par exemple, MS API Graph) à l’aide d'[autorisations déléguées](/azure/active-directory/develop/v2-permissions-and-consent#permission-types).
+- Les utilisateurs disposant de privilèges d’administrateur **peuvent** obtenir des jetons pour les API Microsoft (par exemple, MS API Graph) à l’aide d'[autorisations déléguées](/azure/active-directory/develop/v2-permissions-and-consent#permission-types).
 
 Pour plus d’informations, consultez [Utilisation d’Azure AD B2C](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/working-with-b2c.md).
 

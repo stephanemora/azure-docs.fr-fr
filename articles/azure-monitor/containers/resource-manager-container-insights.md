@@ -5,15 +5,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 68bad5b4bfcef4f0f633bce7e3e352486aed3fdf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7e2a38e2bf008901a1ba18c18dd282e91898036e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102039187"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966933"
 ---
 # <a name="resource-manager-template-samples-for-container-insights"></a>Exemples de modèles Resource Manager pour Container Insights
-Cet article contient des exemples de [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour déployer et configurer l’agent Log Analytics destiné à des machines virtuelles dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
+Cet article contient des exemples de [modèle Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) pour déployer et configurer l’agent Log Analytics destiné à des machines virtuelles dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

@@ -3,12 +3,12 @@ title: Sélectionner des types de disques managés pour des nœuds de cluster ma
 description: Apprenez à sélectionner des types de disques managés pour des nœuds de cluster managé Service Fabric et à les configurer dans un modèle ARM.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 6e3f3c31f0db192122ec4becb07647deb3380dc0
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 054f2b68bfc2a8177e792824dd3c507bf6b4523b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109689201"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961045"
 ---
 # <a name="select-managed-disk-types-for-service-fabric-managed-cluster-nodes"></a>Sélectionner des types de disques managés pour des nœuds de cluster managé Service Fabric
 
@@ -21,7 +21,7 @@ Les clusters managés Azure Service Fabric prennent en charge les types de disqu
     * Stockage localement redondant HDD Standard. Idéal pour un accès de secours non critique et occasionnel. 
 * SSD Standard *par défaut*
     * Stockage localement redondant SSD Standard. Idéal pour les serveurs web, les applications d’entreprise peu utilisées et les environnements dev/test.
-* SSD Premium *compatibles avec des tailles de machines virtuelles spécifiques*. Pour plus d’informations, consultez [SSD Premium](https://docs.microsoft.com/azure/virtual-machines/disks-types#premium-ssd)
+* SSD Premium *compatibles avec des tailles de machines virtuelles spécifiques*. Pour plus d’informations, consultez [SSD Premium](../virtual-machines/disks-types.md#premium-ssd)
     * Stockage localement redondant SSD Premium. Idéal pour les charges de travail de production et sensibles aux performances.
 
 >[!NOTE]

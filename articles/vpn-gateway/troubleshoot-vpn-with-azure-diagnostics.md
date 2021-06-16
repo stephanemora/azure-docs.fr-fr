@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: stegag
-ms.openlocfilehash: 8b240b31d7b3fc90ad9dc62eaf49aed6af6dd93d
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: cc4165a2636169c34b14795a8c2298a0f9917916
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229069"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652132"
 ---
 # <a name="troubleshoot-azure-vpn-gateway-using-diagnostic-logs"></a>Résoudre les problèmes de passerelle VPN Azure à l’aide des journaux de diagnostic
 
@@ -100,7 +100,7 @@ Ce n’est qu’après avoir identifié l’horodateur d’une déconnexion, vou
 
 
 Conseils de dépannage :
-- Si vous voyez un événement de déconnexion sur une instance de passerelle, suivi d’un événement de connexion sur une instance de passerelle **différente** en quelques secondes, vous examinez un basculement de passerelle. Il s’agit généralement d’un comportement attendu résultant d’une maintenance sur une instance de passerelle. Pour en savoir plus sur ce comportement, consultez [À propos de la redondance de passerelle VPN Azure](./vpn-gateway-highlyavailable.md#about-azure-vpn-gateway-redundancy).
+- Si vous voyez un événement de déconnexion sur une instance de passerelle, suivi d’un événement de connexion sur une instance de passerelle **différente** en quelques secondes, vous examinez un basculement de passerelle. Il s’agit généralement d’un comportement attendu résultant d’une maintenance sur une instance de passerelle. Pour en savoir plus sur ce comportement, consultez [À propos de la redondance de passerelle VPN Azure](./vpn-gateway-highlyavailable.md#activestandby).
 - Le même comportement se produit si vous exécutez intentionnellement une réinitialisation de passerelle côté Azure, ce qui entraîne un redémarrage de l’instance de la passerelle active. Pour en savoir plus sur ce comportement, consultez [Réinitialiser une passerelle VPN](./reset-gateway.md).
 - Si vous voyez un événement de déconnexion sur une instance de passerelle, suivi d’un événement de connexion sur la **même** instance de passerelle en quelques secondes, vous examinez peut-être un problème de réseau provoquant une expiration de détection d’homologue mort (DPD) ou une déconnexion envoyée par erreur par l’appareil local.
 
