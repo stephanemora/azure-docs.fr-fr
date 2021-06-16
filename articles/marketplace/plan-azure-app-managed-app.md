@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 694f501efc565ed498c1c8d8e2e38326277e8605
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a34bdfe55d2200176d6f6c7fde389c19dc26cfa5
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96621414"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111536477"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planifier une application managée Azure pour une offre d’application Azure
 
@@ -81,7 +81,7 @@ Les plans privés ne sont pas pris en charge avec les abonnements Azure souscrit
 
 Vous devez indiquer le tarif mensuel de chaque plan. Ce tarif s’ajoute aux coûts logiciels de paiement à l’utilisation et aux coûts de l’infrastructure Azure qui sont engendrés par les ressources déployées par cette solution.
 
-En plus du tarif mensuel, vous pouvez fixer des prix pour l’utilisation d’unités non standard assortie d’une [facturation basée sur des mesures](partner-center-portal/azure-app-metered-billing.md). Si vous le souhaitez, vous pouvez définir le tarif mensuel sur zéro et facturer exclusivement via une facturation basée sur des mesures.
+En plus du tarif mensuel, vous pouvez fixer des prix pour l’utilisation d’unités non standard assortie d’une [facturation basée sur des mesures](marketplace-metering-service-apis.md). Si vous le souhaitez, vous pouvez définir le tarif mensuel sur zéro et facturer exclusivement via une facturation basée sur des mesures.
 
 Les prix fixés en USD (USD = dollar américain) sont convertis dans la devise locale de tous les marchés sélectionnés, selon les taux de change en vigueur disponibles lors de l’enregistrement. Toutefois, vous pouvez choisir de définir les prix des clients pour chaque marché.
 
@@ -137,4 +137,4 @@ Pour chaque type de stratégie que vous ajoutez, vous devez associer une référ
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comment créer une offre d’application Azure dans la Place de marché commerciale](create-new-azure-apps-offer.md)
+- [Créer une offre Azure Application](azure-app-offer-setup.md)

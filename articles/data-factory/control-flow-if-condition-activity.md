@@ -7,12 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f0b9de331dc6361a2358c57d19c73c54a4cdb6e5
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3a1df46f3f54cdbab62d50aca71c850e776aa9ff
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906707"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110675036"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Activité IfCondition dans Azure Data Factory | Microsoft Docs
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

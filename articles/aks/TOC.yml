@@ -299,7 +299,7 @@
       items:
         - name: Consulter les métriques du cluster
           href: view-metrics.md
-        - name: Azure Monitor pour des conteneurs
+        - name: "Container\_Insights"
           href: ../azure-monitor/containers/container-insights-overview.md
           maintainContext: true
         - name: Afficher les journaux des composants de plan de contrôle

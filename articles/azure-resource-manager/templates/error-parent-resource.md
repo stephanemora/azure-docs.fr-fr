@@ -3,12 +3,12 @@ title: Erreurs de ressources parentes
 description: Décrit comment résoudre les erreurs liées à des ressources parentes dans un modèle Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 08/01/2018
-ms.openlocfilehash: 474cb85d16382136e24e5502b87ba8a1a65488ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 885bd319d322128784b53f781b2ceb5a42d292f5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84673658"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951091"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Résoudre les erreurs avec des ressources parentes
 
@@ -78,4 +78,4 @@ Pour résoudre cette erreur quand la ressource parente a déjà été déployée
 }
 ```
 
-Pour plus d’informations, consultez [Définir l’ordre de déploiement des ressources dans les modèles Azure Resource Manager](define-resource-dependency.md).
+Pour plus d’informations, consultez [Définir l’ordre de déploiement des ressources dans les modèles Azure Resource Manager](./resource-dependency.md).

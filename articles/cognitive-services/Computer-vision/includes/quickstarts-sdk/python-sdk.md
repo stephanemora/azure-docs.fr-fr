@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 5ed79ad74be8d7792516d792ac62a7518e0751d2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e46f34c36d2cb2a62853536157105aa5f9ff7acd
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110486331"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112083538"
 ---
 <a name="HOLTop"></a>
 
@@ -106,7 +106,7 @@ Commencez par utiliser le code suivant afin d’appeler la méthode **read** pou
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_call)]
 
 > [!TIP]
-> Vous pouvez également lire du texte à partir d’une image locale. Consultez les méthodes [ComputerVisionClientOperationsMixin](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin), comme **read_in_stream**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py#L717) pour obtenir des scénarios impliquant des images locales.
+> Vous pouvez également lire du texte à partir d’une image locale. Consultez les méthodes [ComputerVisionClientOperationsMixin](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin), comme **read_in_stream**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) pour obtenir des scénarios impliquant des images locales.
 
 ### <a name="get-read-results"></a>Obtenir les résultats de la lecture
 
