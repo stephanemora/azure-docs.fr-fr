@@ -1,21 +1,21 @@
 ---
 title: Supervision des informations de référence sur les données Azure Time Series Insights | Microsoft Docs
 description: Documentation de référence pour la supervision d’Azure Time Series Insights.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
-ms.custom: lyrana
-ms.openlocfilehash: 20d376ee501edf16711617847c685dfd531f2c80
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 52f2ea8b88bb7f83a3a897d101030d134749fc1a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504581"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792046"
 ---
 # <a name="monitoring-azure-time-series-insights-data-reference"></a>Supervision des informations de référence sur les données Azure Time Series Insights
 
@@ -25,7 +25,6 @@ Découvrez les données et les ressources collectées par Azure Monitor à parti
 
 Cette section liste toutes les métriques de plateforme collectées automatiquement pour Azure Time Series Insights. Pour obtenir la liste de toutes les métriques de prise en charge d’Azure Monitor (notamment celles d’Azure Time Series Insights), consultez [Métriques prises en charge par Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 Le fournisseur de ressources pour ces métriques est [Microsoft.TimeSeriesInsights/environments/eventsources](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) et [Microsoft.TimeSeriesInsights/environments](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironments).
-
 
 ### <a name="ingress"></a>Entrée
 
@@ -55,6 +54,7 @@ Cette section liste les types de journaux de ressources que vous pouvez collecte
 | Entrée | TSIIngress | La catégorie Ingress (Entrée) effectue le suivi des erreurs qui se produisent dans le pipeline d’entrée. Cette catégorie comprend les erreurs qui se produisent lors de la réception d’événements (comme les échecs de connexion à une source d’événement) et le traitement d’événements (comme les erreurs survenant lors de l’analyse d’une charge utile d’événement). |
 
 ## <a name="schemas"></a>Schémas
+
 Les schémas suivants sont utilisés par Azure Time Series Insights
 
 ### <a name="tsiingress-table"></a>Table TSIIngress

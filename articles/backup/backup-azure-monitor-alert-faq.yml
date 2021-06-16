@@ -1,0 +1,76 @@
+### YamlMime:FAQ
+metadata:
+  title: Surveillance de la FAQ sur les alertes et les rapports
+  description: Dans cet article, découvrez les réponses aux questions les plus fréquentes sur les alertes de supervision Sauvegarde Azure et les rapports de Sauvegarde Azure.
+  ms.reviewer: srinathv
+  ms.topic: conceptual
+  ms.date: 07/08/2019
+  ms.openlocfilehash: 3117220c9202a458e2fdf377abf11cf068e53201
+  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 04/15/2021
+  ms.locfileid: "111907019"
+title: Alerte de supervision de Sauvegarde Azure - Questions fréquentes (FAQ)
+summary: Cet article répond aux questions courantes sur la supervision et la création de rapports avec Sauvegarde Azure.
+sections:
+- name: Configurer les rapports de la Sauvegarde Azure
+  questions:
+  - question: >
+      Comment vérifier si les données de rapports ont commencé à arriver dans un espace de travail Log Analytics (LA) ?
+    answer: >
+      Accédez à l’espace de travail LA que vous avez configuré. Accédez à l’élément de menu **Journaux** et exécutez la requête `CoreAzureBackup | take 1`. Si vous voyez un enregistrement retourné, cela signifie que les données ont commencé à arriver dans l’espace de travail. Le Push de données initial peut prendre jusqu’à 24 heures.
+  - question: >
+      Quelle est la fréquence de Push de données à un espace de travail LA ?
+    answer: >
+      Les données de diagnostic provenant du coffre sont injectées dans l’espace de travail Log Analytics avec un certain décalage. Chaque événement arrive dans l’espace de travail Log Analytics 20 à 30 minutes après son envoi (push) depuis le coffre Recovery Services. Voici plus d’informations sur le décalage :
+
+
+      * Dans toutes les solutions, les alertes intégrées du service de sauvegarde sont envoyées (push) dès qu’elles sont créées. Elles apparaissent donc généralement dans l’espace de travail Log Analytics après 20 à 30 minutes.
+
+      * Dans toutes les solutions, les travaux de sauvegarde et les travaux de restauration à la demande sont envoyés (push) dès qu’ils se terminent.
+
+      * Pour toutes les solutions, à l’exception de la sauvegarde SQL, les travaux de sauvegarde planifiés sont envoyés (push) dès qu’ils se terminent.
+
+      * Pour la sauvegarde SQL, comme des sauvegardes de journal peuvent se produire toutes les 15 minutes, les informations pour tous les travaux de sauvegarde planifiés terminés, y compris les journaux, sont traitées par lot et envoyées (push) toutes les 6 heures.
+
+      * Dans toutes les solutions, d’autres informations, comme l’élément de sauvegarde, la stratégie de sauvegarde, les points de récupération de sauvegarde, le stockage de sauvegarde, etc., sont envoyées (push) au moins une fois par jour.
+
+      * Une modification dans la configuration de sauvegarde (comme la stratégie de changement ou de modification) déclenche un envoi (push) de toutes les informations de sauvegarde associées.
+  - question: >
+      Combien de temps puis-je conserver les données des rapports ?
+    answer: >
+      Après avoir créé un espace de travail LA, vous pouvez choisir de conserver les données pendant deux ans maximum. Par défaut, un espace de travail LA conserve les données pendant 31 jours.
+  - question: >
+      Verrai-je toutes mes données dans des rapports après avoir configuré l’espace de travail LA ?
+    answer: Toutes les données générées après la configuration des paramètres de diagnostic sont envoyées (push) à l’espace de travail LA et sont disponibles dans les rapports. Les travaux En cours ne sont pas transmis pour la création de rapports. Une fois que la tâche se termine ou échoue, elle est envoyée aux rapports.
+  - question: >
+      Puis-je afficher des rapports sur différents coffres et abonnements ?
+    answer: >
+      Oui, vous pouvez afficher des rapports sur différents coffres et abonnements, ainsi que sur différentes régions. Vos données peuvent résider dans un espace de travail LA unique ou dans un groupe d’espaces de travail LA.
+  - question: >
+      Puis-je afficher les rapports de différents locataires ?
+    answer: >
+      Si vous êtes un utilisateur [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) doté d’un accès délégué aux abonnements ou aux espaces de travail LA de vos clients, vous pouvez utiliser des rapports de sauvegarde pour consulter les données de tous vos locataires.
+- name: Coffre Recovery Services
+  questions:
+  - question: >
+      Combien de temps faut-il pour que l’état du travail de l’agent Sauvegarde Azure apparaisse dans le portail ?
+    answer: >
+      Une quinzaine de minutes peuvent être nécessaires avant que l’état du travail de l’agent Sauvegarde Azure ne s’affiche dans le portail Azure.
+  - question: >
+      En cas d’échec d’un travail de sauvegarde, au bout de combien de temps l’alerte est-elle déclenchée ?
+    answer: >
+      Une alerte est générée dans les 20 minutes qui suivent l’échec de Sauvegarde Azure.
+  - question: >
+      Est-il possible qu’aucun e-mail ne soit envoyé alors que les notifications sont activées ?
+    answer: >
+      Oui. Dans les cas suivants, les notifications ne sont pas envoyées :
+
+
+      * Si les notifications sont configurées sur une base horaire, et qu’une alerte est déclenchée et résolue dans l’heure
+
+      * Si un travail est annulé
+
+      * Si un travail de sauvegarde secondaire a échoué, parce que le travail de sauvegarde principal est en cours
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\nLire les autres forums aux questions :\n\n* [Questions courantes](backup-azure-vm-backup-faq.yml) sur la sauvegarde des machines virtuelles Azure.\n* [Questions courantes](backup-azure-file-folder-backup-faq.yml) sur l’agent Sauvegarde Azure.\n"

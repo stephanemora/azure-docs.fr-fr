@@ -11,16 +11,16 @@ author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 1572b0a9822f340887c512c5cc20448fe0729109
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e6d89bdfca268a02c1f58bdceb4e4485dc3851a6
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110461721"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438375"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutoriel : Activer la réécriture de la réinitialisation du mot de passe en libre-service Azure Active Directory dans un environnement local
 
-Avec SSPR Azure AD, la réinitialisation du mot de passe en libre-service Azure Active Directory, les utilisateurs peuvent mettre à jour leur mot de passe ou déverrouiller leur compte en utilisant un navigateur web. Dans un environnement hybride, où Azure AD est connecté à un environnement Active Directory Domain Services (AD DS) local, ce scénario peut entraîner une différence entre les mots de passe des deux annuaires.
+Avec SSPR Azure AD, la réinitialisation du mot de passe en libre-service Azure Active Directory, les utilisateurs peuvent mettre à jour leur mot de passe ou déverrouiller leur compte en utilisant un navigateur web. Nous vous recommandons de regarder cette vidéo sur [la façon d’activer et de configurer SSPR dans Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ). Dans un environnement hybride, où Azure AD est connecté à un environnement Active Directory Domain Services (AD DS) local, ce scénario peut entraîner une différence entre les mots de passe des deux annuaires.
 
 La réécriture du mot de passe peut être utilisée pour synchroniser les changements de mot de passe dans Azure AD sur votre environnement AD DS local. Azure AD Connect fournit un mécanisme sécurisé qui renvoie ces changements de mot de passe à un annuaire local existant d’Azure AD.
 

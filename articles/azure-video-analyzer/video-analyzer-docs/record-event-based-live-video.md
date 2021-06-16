@@ -3,12 +3,12 @@ title: 'Tutoriel : Enregistrement vidéo basé sur les événements et lecture 
 description: Dans ce tutoriel, vous allez voir comment utiliser Azure Video Analyzer pour effectuer un enregistrement vidéo basé sur les événements dans le cloud et pour le lire dans le cloud.
 ms.topic: tutorial
 ms.date: 04/13/2021
-ms.openlocfilehash: 05c28fbc3b410f792d10adf7e59e43f070d7d57a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6ecbaf794530e80837c2d2a5f9f3fca11e3c93ae
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383824"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565659"
 ---
 # <a name="tutorial-event-based-video-recording-and-playback"></a>Tutoriel : Enregistrement vidéo basé sur les événements et lecture des enregistrements
 
@@ -82,7 +82,7 @@ Ce didacticiel présente les procédures suivantes :
 1. interpréter les résultats ;
 1. Supprimer des ressources.
 
-## <a name="set-up-your-development-environment"></a>Configurer l’environnement de développement
+## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement
 [!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
 
 
@@ -170,7 +170,7 @@ Après environ 30 secondes, actualisez Azure IoT Hub dans la section inférieur
 1. Ensuite, sous les nœuds **livePipelineSet** et **pipelineTopologyDelete**, vérifiez que la valeur de **topologyName** correspond à celle de la propriété **name** dans la topologie de pipeline précédente :
 
     `"pipelineTopologyName" : "EVRtoVideosOnObjDetect"`
-1. Ouvrez la [topologie de pipeline](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-videos/topology.json) dans un navigateur, puis examinez videoName. Vous verrez qu’il est codé en dur dans `sample-evr-video`. C’est acceptable dans un tutoriel. En production, vous devrez faire en sorte que chaque caméra RTSP soit enregistrée dans une ressource vidéo sous un nom unique.
+1. Ouvrez la [topologie de pipeline](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-videos/topology.json) dans un navigateur, puis examinez la valeur de videoName ; vous verrez qu’elle est codée en dur dans `sample-evr-video`. C’est acceptable dans un tutoriel. En production, vous devrez faire en sorte que chaque caméra RTSP soit enregistrée dans une ressource vidéo sous un nom unique.
 1. Démarrez une session de débogage en appuyant sur F5. Quelques messages s’affichent dans la fenêtre **TERMINAL**.
 1. Le fichier operations.json commence par appeler pipelineTopologyList et livePipelineList. Si vous avez nettoyé des ressources à l’issue de démarrages rapides ou de tutoriels, cette action renvoie des listes vides et marque des pauses pour vous permettre de sélectionner **Entrée**, comme illustré ci-dessous :
     ```
@@ -189,7 +189,7 @@ Après environ 30 secondes, actualisez Azure IoT Hub dans la section inférieur
     Press Enter to continue
     ```
 1. Une fois que vous avez sélectionné **Entrée** dans la fenêtre **TERMINAL**, l’ensemble suivant d’appels de méthode directe est effectué :
-   * Un appel à pipelineTopologySet à l’aide du pipelinetopologyUrl précédent
+   * Un appel à pipelineTopologySet en utilisant l’élément pipelinetopologyUrl précédent
    * Un appel à livePipelineSet à l’aide du corps suivant
      
         ```
@@ -311,7 +311,7 @@ La section subject dans applicationProperties référence le nœud récepteur vi
 
 ### <a name="recordingavailable-event"></a>Événement RecordingAvailable
 
-Comme son nom l’indique, l’événement RecordingStarted est envoyé lorsque l’enregistrement démarre. Il est cependant possible que les données vidéo ne soient pas encore chargées dans la ressource vidéo. Lorsque le nœud récepteur vidéo a chargé une vidéo, il émet un événement de type **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingAvailable** :
+Comme son nom l’indique, l’événement RecordingStarted est envoyé lorsque l’enregistrement démarre. Il est cependant possible que les données du média ne soient pas encore chargées dans la ressource vidéo. Dès que le nœud récepteur vidéo a chargé le média, il émet un événement de type **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingAvailable** :
 
 ```
 [IoTHubMonitor] [[9:43:38 AM] Message received from [avasample-iot-edge-device/avaedge]:
@@ -330,11 +330,11 @@ Comme son nom l’indique, l’événement RecordingStarted est envoyé lorsque 
 }
 ```
 
-Cet événement indique que suffisamment de données ont été écrites dans la ressource vidéo pour que les lecteurs ou les clients puissent démarrer la lecture de la vidéo. La section subject dans applicationProperties référence le nœud récepteur vidéo dans le pipeline en direct qui a généré ce message. La section body contient des informations sur l’emplacement de sortie. Dans ce cas, il s’agit du nom de la ressource Video Analyzer dans laquelle la vidéo est enregistrée.
+Cet événement indique que suffisamment de données ont été écrites dans la ressource vidéo pour que les lecteurs ou les clients commencent la lecture de la vidéo. La section subject dans applicationProperties fait référence au nœud récepteur vidéo dans le pipeline en direct qui a généré ce message. La section body contient des informations sur l’emplacement de sortie. Dans ce cas, il s’agit du nom de la ressource Video Analyzer dans laquelle la vidéo est enregistrée.
 
 ### <a name="recordingstopped-event"></a>Événement RecordingStopped
 
-Lorsque vous désactivez le pipeline en direct, le nœud récepteur vidéo arrête d’enregistrer la vidéo. Il émet un événement de type **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingStopped** :
+Quand vous désactivez le pipeline en direct, le nœud récepteur vidéo cesse d’enregistrer le média. Il émet un événement de type **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingStopped** :
 
 ```
 [IoTHubMonitor] [11:33:31 PM] Message received from [avasample-iot-edge-device/avaedge]:
@@ -353,19 +353,17 @@ Lorsque vous désactivez le pipeline en direct, le nœud récepteur vidéo arrê
 }
 ```
 
-Cet événement indique que l’enregistrement s’est arrêté. La section subject dans applicationProperties référence le nœud récepteur vidéo dans le pipeline en direct qui a généré ce message. La section body contient des informations sur l’emplacement de sortie. Dans ce cas, il s’agit du nom de la ressource Video Analyzer dans laquelle la vidéo est enregistrée.
+Cet événement indique que l’enregistrement s’est arrêté. La section subject dans applicationProperties fait référence au nœud récepteur vidéo dans le pipeline en direct qui a généré ce message. La section body contient des informations sur l’emplacement de sortie. Dans ce cas, il s’agit du nom de la ressource Video Analyzer dans laquelle la vidéo est enregistrée.
 
-## <a name="video-analyzer-video-resource"></a>Ressource vidéo Video Analyzer
+## <a name="playing-back-the-recording"></a>Lecture de l’enregistrement
 
 Vous pouvez examiner la ressource vidéo Video Analyzer qui a été créée par le pipeline en direct en vous connectant au portail Azure et en visionnant la vidéo.
 1. Ouvrez votre navigateur web pour accéder au [portail Azure](https://portal.azure.com/). Entrez vos informations d’identification pour vous connecter au portail. Il s’ouvre par défaut sur le tableau de bord des services.
 1. Localisez votre compte Video Analyzer parmi les ressources que vous avez dans votre abonnement, puis ouvrez le volet du compte.
 1. Sélectionnez **Vidéos** dans la liste **Video Analyzer**.
-
-    <!--TODO: add image -- ![Video Analyzers videos]() ./media/event-based-video-recording-tutorial/videos.png -->
-1. Vous trouverez une vidéo portant le nom de `sample-evr-video`. Il s’agit du nom choisi dans votre fichier de topologie de pipeline.
+1. Vous y trouvez une vidéo portant le nom `sample-evr-video`. Il s’agit du nom choisi dans votre fichier de topologie de pipeline.
 1. Sélectionnez la vidéo.
-1. Dans la page de détails de la vidéo, sélectionnez l’option playback (lecture). <!-- TODO: fix this-->
+1. La page de détails de la vidéo s’ouvre et la lecture démarre automatiquement.
 
     <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
 

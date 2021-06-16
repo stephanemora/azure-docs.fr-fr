@@ -5,16 +5,16 @@ ms.topic: sample
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/08/2020
-ms.openlocfilehash: 6a64ed1d0d7a133930bf48e7d764c8d170d9824a
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 44c1c482a8d2907cd4de435b851ca5d9e8a6432a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383353"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964332"
 ---
 # <a name="resource-manager-template-samples-for-creating-application-insights-resources"></a>Exemples de modèles Resource Manager pour la création de ressources Application Insights
 
-Cet article contient des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) permettant de déployer et de configurer des [ressources Application Insights classiques](../app/create-new-resource.md) et les nouvelles [ressources Application Insights basées sur un espace de travail en préversion](../app/create-workspace-resource.md). Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
+Cet article contient des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) permettant de déployer et de configurer des [ressources Application Insights classiques](../app/create-new-resource.md) et les nouvelles [ressources Application Insights basées sur un espace de travail en préversion](../app/create-workspace-resource.md). Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

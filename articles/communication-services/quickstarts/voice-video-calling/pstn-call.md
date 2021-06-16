@@ -8,27 +8,27 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: a24b62875fedcb976b06517cf61ddd69ab9abcf1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d70d2a507339f94e0f16aeafc39d8ce2b5cde0f8
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726734"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560332"
 ---
 # <a name="quickstart-call-to-phone"></a>Démarrage rapide : Appel téléphonique
 
 Commencez à utiliser Azure Communication Services en utilisant le SDK Communication Services Calling pour ajouter des appels RTC à votre application.
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Calling with JavaScript](./includes/pstn-call-js.md)]
+[!INCLUDE [Calling with JavaScript](./includes/pstn/pstn-call-js.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Calling with Android](./includes/pstn-call-android.md)]
+[!INCLUDE [Calling with Android](./includes/pstn/pstn-call-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Calling with iOS](./includes/pstn-call-ios.md)]
+[!INCLUDE [Calling with iOS](./includes/pstn/pstn-call-ios.md)]
 ::: zone-end
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

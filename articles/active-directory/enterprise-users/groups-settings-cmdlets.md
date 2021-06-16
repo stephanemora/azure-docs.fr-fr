@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ad70aff7e1673681541a1b6b37a0bd50d822fed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc0acadadc728f714e84418a438c451aea255ccc
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97954399"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408026"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
 
@@ -157,7 +157,7 @@ Voici les paramètres définis dans l’objet SettingsTemplate Group.Unified. Sa
 |  <ul><li>DefaultClassification<li>Tapez : String<li>Par défaut : "" | Classification qui doit être utilisée en tant que classement par défaut pour un groupe si aucune classification n’a été spécifiée.<br>Ce paramètre ne s’applique pas lorsque EnableMIPLabels == True.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Tapez : String<li>Par défaut : "" | Chaîne d’une longueur maximale de 64 caractères qui définit la convention d’affectation de noms configurée pour les groupes Microsoft 365. Pour plus d’informations, consultez [Appliquer une stratégie d’affectation de noms pour les groupes Microsoft 365](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Tapez : String<li>Par défaut : "" | Chaîne d’expressions séparées par des virgules que les utilisateurs ne seront pas autorisés à employer dans les noms ou alias de groupe. Pour plus d’informations, consultez [Appliquer une stratégie d’affectation de noms pour les groupes Microsoft 365](groups-naming-policy.md). |
-| <ul><li>EnableMSStandardBlockedWords<li>Tapez : Boolean<li>Valeur par défaut : « False » (faux) | À ne pas utiliser
+| <ul><li>EnableMSStandardBlockedWords<li>Tapez : Boolean<li>Valeur par défaut : « False » (faux) | Obsolète. Ne pas utiliser.
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tapez : Boolean<li>Valeur par défaut : False | Valeur booléenne indiquant si un utilisateur invité peut être ou non un propriétaire de groupes. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Tapez : Boolean<li>Valeur par défaut : True | Valeur booléenne indiquant si un utilisateur invité peut avoir ou non accès au contenu des groupes Microsoft 365.  Ce paramètre ne nécessite pas une licence Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tapez : String<li>Par défaut : "" | URL d’un lien vers les instructions d’utilisation de l’invité. |

@@ -6,12 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
 ms.date: 03/30/2021
-ms.openlocfilehash: 8e081257d70c9bc9c9f75df18b30f8dcf119e48e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: aa408d0ae548e9d532f0e26562070847c0cc38c8
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763340"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695649"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps
 
@@ -99,7 +100,7 @@ Pour configurer l’identité managée à utiliser, suivez le lien de cette iden
 
    ![ID d’objet pour l’identité attribuée par le système](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
-   | Propriété | Valeur | Description |
+   | Propriété | Value | Description |
    |----------|-------|-------------|
    | **ID d’objet** | <*identity-resource-ID*> | GUID (identificateur global unique) qui représente l’identité affectée par le système pour votre application logique dans un locataire Azure AD |
    ||||

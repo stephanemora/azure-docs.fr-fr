@@ -6,12 +6,12 @@ ms.author: lle
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 05/06/2021
-ms.openlocfilehash: 8d0abcef8ac5f139ce120443475a67217455b0a8
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 5c9396cdfe8296b4869f6713ff0022bc896dc733
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109657349"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957229"
 ---
 # <a name="tutorial-how-to-access-sql-managed-instance-from-data-factory-managed-vnet-using-private-endpoint"></a>Tutoriel : Guide pratique pour accéder à une instance managée Microsoft Azure SQL à partir d’un VNET managé Data Factory en utilisant un point de terminaison privé
 
@@ -22,9 +22,9 @@ Ce tutoriel explique comment utiliser le portail Azure pour configurer le servic
 ## <a name="prerequisites"></a>Prérequis
 
 * **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* **Réseau virtuel**. Si vous n’avez pas de réseau virtuel, créez-en un en suivant la procédure [Créer un réseau virtuel](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
-* **Réseau virtuel connecté à un réseau local**. Créez une connexion entre le réseau virtuel et le réseau local en utilisant [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager?toc=/azure/virtual-network/toc.json) ou un [VPN](https://docs.microsoft.com/azure/vpn-gateway/tutorial-site-to-site-portal?toc=/azure/virtual-network/toc.json).
-* **Data Factory avec VNET managé activé**. Si vous n’avez pas de fabrique de données ou que le VNET managé n’est pas activé, créez-en une en suivant la procédure [Créer une fabrique de données avec VNET managé](https://docs.microsoft.com/azure/data-factory/tutorial-copy-data-portal-private).
+* **Réseau virtuel**. Si vous n’avez pas de réseau virtuel, créez-en un en suivant la procédure [Créer un réseau virtuel](../virtual-network/quick-create-portal.md).
+* **Réseau virtuel connecté à un réseau local**. Créez une connexion entre le réseau virtuel et le réseau local en utilisant [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou un [VPN](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* **Data Factory avec VNET managé activé**. Si vous n’avez pas de fabrique de données ou que le VNET managé n’est pas activé, créez-en une en suivant la procédure [Créer une fabrique de données avec VNET managé](./tutorial-copy-data-portal-private.md).
 
 ## <a name="create-subnets-for-resources"></a>Créer des sous-réseaux pour les ressources
 
@@ -45,7 +45,7 @@ Utilisez le portail pour créer un équilibreur de charge interne standard.
 1. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource > Mise en réseau > Équilibreur de charge**.
 2. Dans l’onglet **Fonctions de base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     |:--- |:--- |
     |Abonnement|Sélectionnez votre abonnement.|
     |Resource group|Sélectionnez votre groupe de ressources.|
@@ -86,7 +86,7 @@ Créez une sonde d’intégrité nommée **myHealthProbe** pour surveiller l’i
 1. Sélectionnez **Tous les services** dans le menu de gauche, **Toutes les ressources**, puis **myLoadBalancer** dans la liste des ressources.
 2. Sous **Paramètres**, sélectionnez **Sondes d’intégrité**, puis **Ajouter**.
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     |:--- |:--- |
     |Nom|Entrez **MyHealthProbe**.|
     |Protocol|Sélectionnez **TCP**.|
@@ -106,7 +106,7 @@ Dans cette section, vous allez créer une règle d’équilibreur de charge :
 2. Sous **Paramètres**, sélectionnez **Règles d’équilibrage de charge**, puis **Ajouter**.
 3. Pour configurer la règle d’équilibrage de charge, utilisez les valeurs suivantes :
 
-    |Paramètre |Valeur |
+    |Paramètre |Value |
     |:--- |:--- |
     |Nom|Entrez **myRule**.|
     |Version de l’adresse IP|Sélectionnez **IPv4**.|
@@ -187,7 +187,7 @@ Dans cette section, vous allez créer un service Private Link derrière un équi
 3. Sélectionnez l'onglet **Mise en réseau** ou choisissez **Suivant : Disques**, puis **Suivant : Mise en réseau**.
 4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre |Valeur|
+    | Paramètre |Value|
     |---------|--------|
     |**Interface réseau**||
     |Réseau virtuel |Sélectionnez votre réseau virtuel.|

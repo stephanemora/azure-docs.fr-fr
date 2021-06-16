@@ -9,18 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: f5fb7c8059c8b98e8ec514a4159e96f48db7b1ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 956c1969afa4f25fa4f431cca31caa410607777f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96906197"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787143"
 ---
-# <a name="creator-preview-long-running-operation-api"></a>API d’opérations de longue durée Creator (préversion)
-
-> [!IMPORTANT]
-> Les services Azure Maps Creator sont disponibles en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="creator-long-running-operation-api"></a>API d’opération de longue durée du Créateur
 
 Certaines API Azure Maps utilisent un [modèle de demande-réponse asynchrone](/azure/architecture/patterns/async-request-reply). Ce modèle permet à Azure Maps de fournir des services hautement disponibles et réactifs. Cet article explique l’implémentation spécifique d’Azure Map du traitement en arrière-plan asynchrone de longue durée.
 

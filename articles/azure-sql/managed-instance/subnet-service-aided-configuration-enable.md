@@ -3,19 +3,19 @@ title: Activer la configuration de sous-réseau assistée par le service pour Az
 description: Activer la configuration de sous-réseau assistée par le service pour Azure SQL Managed Instance
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: ''
+ms.subservice: deployment-configuration
+ms.custom: devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
-ms.openlocfilehash: 67b398194d9094cd99fccaa85ed0df3be362ce2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26f9dd2991f575669f580fc92cfc29259ca54be6
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91618010"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110707222"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Activer la configuration de sous-réseau assistée par le service pour Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

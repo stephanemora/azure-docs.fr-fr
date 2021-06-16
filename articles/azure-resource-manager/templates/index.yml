@@ -12,12 +12,12 @@ metadata:
   author: mumian
   ms.author: jgao
   ms.date: 03/03/2021
-  ms.openlocfilehash: 01f89fa12654a949c701d728e23f7ae79e0c69e7
-  ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+  ms.openlocfilehash: b3a8448145a101367a2000e5b16d0ff61b93a0d7
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/26/2021
-  ms.locfileid: "105611954"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111963212"
 landingContent:
 - title: À propos des modèles ARM
   linkLists:
@@ -25,12 +25,10 @@ landingContent:
     links:
     - text: Que sont les modèles ?
       url: overview.md
-    - text: Qu’est-ce que Bicep ?
-      url: bicep-overview.md
   - linkListType: concept
     links:
     - text: Meilleures pratiques
-      url: template-best-practices.md
+      url: ./best-practices.md
     - text: Forum aux questions
       url: frequently-asked-questions.md
     - text: Spécifications de modèle
@@ -49,8 +47,6 @@ landingContent:
     links:
     - text: Créer des modèles JSON – VS Code
       url: quickstart-create-templates-use-visual-studio-code.md
-    - text: Créer des modèles Bicep – VS Code
-      url: quickstart-create-bicep-use-visual-studio-code.md
     - text: Créer des modèles JSON – Portail
       url: quickstart-create-templates-use-the-portal.md
     - text: Créer et déployer des spécifications de modèle
@@ -59,8 +55,6 @@ landingContent:
     links:
     - text: Tutoriels sur les modèles pour débutants
       url: template-tutorial-create-first-template.md
-    - text: Tutoriels sur Bicep pour débutants
-      url: bicep-tutorial-create-first-bicep.md
   - linkListType: learn
     links:
     - text: Déployer avec des modèles ARM
@@ -78,17 +72,17 @@ landingContent:
     - text: Utiliser les fonctions
       url: template-functions.md
     - text: Définir les paramètres
-      url: template-parameters.md
+      url: ./parameters.md
     - text: Définir des variables
-      url: template-variables.md
+      url: ./variables.md
     - text: Définir les ressources
-      url: template-syntax.md#resources
+      url: ./syntax.md#resources
     - text: Définir les sorties
-      url: template-outputs.md
+      url: ./outputs.md
   - linkListType: reference
     links:
     - text: Syntaxe des fichiers de modèle
-      url: template-syntax.md
+      url: ./syntax.md
     - text: Modèles de démarrage rapide Azure
       url: https://azure.microsoft.com/resources/templates/
 - title: Déployer des modèles
@@ -112,7 +106,7 @@ landingContent:
     - text: Cloud Shell
       url: deploy-cloud-shell.md
     - text: Déploiement What-if
-      url: template-deploy-what-if.md
+      url: ./deploy-what-if.md
 - title: Déploiements délimités
   linkLists:
   - linkListType: how-to-guide

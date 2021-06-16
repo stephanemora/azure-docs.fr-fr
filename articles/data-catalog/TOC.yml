@@ -22,7 +22,7 @@
     - name: Adoption d’Azure Data Catalog
       href: data-catalog-adopting-data-catalog.md
     - name: Questions fréquentes (FAQ)
-      href: data-catalog-frequently-asked-questions.md
+      href: data-catalog-frequently-asked-questions.yml
 - name: Guides pratiques
   items:
     - name: Inscription des sources de données

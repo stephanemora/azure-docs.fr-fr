@@ -64,11 +64,13 @@
         - name: Vue d’ensemble de la protection bot
           href: ./ag/bot-protection-overview.md
         - name: Questions fréquentes (FAQ)
-          href: ./ag/application-gateway-waf-faq.md
+          href: ./ag/application-gateway-waf-faq.yml
     - name: Front Door
       items:
         - name: Réglage
           href: ./afds/waf-front-door-tuning.md
+        - name: Règles managées
+          href: ./afds/waf-front-door-drs.md
         - name: Règles personnalisées
           href: ./afds/waf-front-door-custom-rules.md
         - name: Listes d’exclusions
@@ -78,7 +80,7 @@
         - name: Filtrage géographique
           href: ./afds/waf-front-door-geo-filtering.md
         - name: Questions fréquentes (FAQ)
-          href: ./afds/waf-faq.md
+          href: ./afds/waf-faq.yml
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
@@ -184,7 +186,7 @@
 - name: Ressources
   items:
     - name: Créer des modèles
-      href: ../azure-resource-manager/templates/template-syntax.md
+      href: ../azure-resource-manager/templates/syntax.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Modèles fournis par la communauté

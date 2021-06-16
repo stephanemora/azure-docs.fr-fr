@@ -4,20 +4,20 @@ description: 'Obtenir une introduction à SQL Database : détails techniques et
 keywords: introduction à sql, intro à sql, qu’est-ce qu’une base de données sql
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=3
 ms.devlang: ''
 ms.topic: overview
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 65710ae40a971d214068f0e2686f78fb994a967e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c5f2be821e43eda1ae611f3300538c7c41d04f4
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601395"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110707673"
 ---
 # <a name="what-is-azure-sql-database"></a>Qu’est-ce qu’Azure SQL Database ?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

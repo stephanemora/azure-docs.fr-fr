@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9abe306668a4b20e42e45c498bf85b540dfaaee5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8dc6ac712110210414f66446827569f51f396c1f
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94630190"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110669804"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Configuration du transfert DNS pour Azure Files
 Azure Files vous permet de créer des points de terminaison privés pour les comptes de stockage contenant vos partages de fichiers. Bien qu’utiles pour une grande variété d’applications, les points de terminaison privés le sont particulièrement lorsque vous devez vous connecter à vos partages de fichiers Azure à partir de votre réseau local, à l’aide d’une connexion VPN ou ExpressRoute avec appairage privé. 

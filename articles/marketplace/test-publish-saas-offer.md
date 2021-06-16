@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 03/25/2021
-ms.openlocfilehash: aeab671c9283d64f9c1ca37cf184b80b1eca8f35
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7fed85abe42b0366ff2429ba923fc9a3cdf6190a
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045244"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111536413"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>Comment tester et publier une offre SaaS sur la place de marché commerciale
 
@@ -53,13 +53,13 @@ Pour afficher un aperçu de votre offre, procédez comme suit.
 
 1. Pour valider le flux d’achat et d’installation de bout en bout, achetez les plans dans votre offre en préversion. Commencez par informer Microsoft avec un [ticket de support](https://aka.ms/marketplacesupport) pour vous assurer que nous ne vous imputions pas de frais.
 
-1. Si votre offre SaaS prend en charge la [facturation contrôlée à l’aide du service de contrôle de la place de marché commerciale](./partner-center-portal/saas-metered-billing.md), examinez et suivez les meilleures pratiques de test détaillées dans les [API de facturation contrôlée de la place de marché](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices).
+1. Si votre offre SaaS prend en charge la [facturation contrôlée à l’aide du service de contrôle de la place de marché commerciale](./partner-center-portal/saas-metered-billing.md), examinez et suivez les meilleures pratiques de test détaillées dans les [API de facturation contrôlée de la place de marché](marketplace-metering-service-apis.md#development-and-testing-best-practices).
 
 1. Passez en revue et suivez les instructions de test dans [API de traitement SaaS version 2 dans la place de marché commerciale de Microsoft](./partner-center-portal/pc-saas-fulfillment-api-v2.md#development-and-testing) pour vous assurer que votre offre est correctement intégrée avec les API avant de la publier en ligne.
 
 1. Si l’étape de validation de l’offre a généré des avertissements, un lien **Afficher le rapport de validation** s’affiche sur la page **Vue d’ensemble de l’offre**. Veillez à consulter le rapport et à résoudre les problèmes avant de cliquer sur le bouton **Démarrer**. Dans le cas contraire, la certification risque d’échouer et de retarder la mise en ligne de votre offre.
 
-1. Si vous devez apporter des changements à l’offre après en avoir affiché l’aperçu et l’avoir testée, vous pouvez la modifier et soumettre à la publication une nouvelle préversion. Pour plus d’informations, consultez [Mettre à jour une offre existante dans la Place de marché commerciale](./partner-center-portal/update-existing-offer.md).
+1. Si vous devez apporter des changements à l’offre après en avoir affiché l’aperçu et l’avoir testée, vous pouvez la modifier et soumettre à la publication une nouvelle préversion. Pour plus d’informations, consultez [Mettre à jour une offre existante dans la Place de marché commerciale](update-existing-offer.md).
 
 ## <a name="publish-your-offer-live"></a>Publier votre offre en ligne
 
@@ -74,4 +74,4 @@ Une fois ces vérifications terminées, votre offre est publiée sur la place de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/analytics.md)
+- [Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](analytics.md)

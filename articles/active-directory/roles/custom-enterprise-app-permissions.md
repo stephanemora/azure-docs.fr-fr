@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: bc3db3de91c9fbf059c56fb1f2770381265d82de
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 46d1a0029607767ac3d7c0abbfe3a318b04aebda
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090638"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790797"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Autorisations d’application d’entreprise pour les rôles personnalisés dans Azure Active Directory
 
@@ -119,52 +119,53 @@ Pour déléguer la capacité à autoriser l’accès aux applications pour le pr
 
 ## <a name="full-list-of-permissions"></a>Liste complète des autorisations
 
-Autorisation | Description
----------- | -----------
-microsoft.directory/applicationPolicies/allProperties/read | Lire toutes les propriétés des stratégies d’application.
-microsoft.directory/applicationPolicies/allProperties/update | Mettre à jour toutes les propriétés des stratégies d’application.
-microsoft.directory/applicationPolicies/basic/update | Mettre à jour les propriétés standard des stratégies d’application.
-microsoft.directory/applicationPolicies/create | Créer des stratégies d’application.
-microsoft.directory/applicationPolicies/createAsOwner | Créer des stratégies d’application. Le créateur est ajouté en tant que premier propriétaire.
-microsoft.directory/applicationPolicies/delete | Supprimer des stratégies d’application.
-microsoft.directory/applicationPolicies/owners/read | Lire les propriétaires des stratégies d’application.
-microsoft.directory/applicationPolicies/owners/update | Mettre à jour les propriétaires des stratégies d’application.
-microsoft.directory/applicationPolicies/policyAppliedTo/read | Lire les stratégies d’application appliquées à la liste d’objets.
-microsoft.directory/applicationPolicies/standard/read | Lire les propriétés standard des stratégies d’application.
-microsoft.directory/servicePrincipals/allProperties/allTasks | Créez et supprimez des principaux de service (servicePrincipals), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory.
-microsoft.directory/servicePrincipals/allProperties/read | Lire toutes les propriétés sur les principaux de service.
-microsoft.directory/servicePrincipals/allProperties/update | Mettre à jour toutes les propriétés sur les principaux de service.
-microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Lire les attributions de rôles des principaux de service.
-microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Mettre à jour les attributions de rôles des principaux de service.
-microsoft.directory/servicePrincipals/appRoleAssignments/read | Lire les attributions de rôles affectées aux principaux de service.
-microsoft.directory/servicePrincipals/audience/update | Mettre à jour les propriétés d’audience sur les principaux de service.
-microsoft.directory/servicePrincipals/authentication/update | Mettre à jour les propriétés d’authentification sur les principaux de service.
-microsoft.directory/servicePrincipals/basic/update | Mettre à jour les propriétés de base sur les principaux de service.
-microsoft.directory/servicePrincipals/create | Créer des principaux de service.
-microsoft.directory/servicePrincipals/createAsOwner | Créer des principaux de service. Le créateur est ajouté en tant que premier propriétaire.
-microsoft.directory/servicePrincipals/credentials/update | Mettre à jour les propriétés d’identification sur les principaux de service.
-microsoft.directory/servicePrincipals/delete | Supprimer des principaux de service.
-microsoft.directory/servicePrincipals/disable | Désactiver des principaux de service.
-microsoft.directory/servicePrincipals/enable | Activer des principaux de service.
-microsoft.directory/servicePrincipals/getPasswordSingleSignOnCredentials | Lire les informations d’identification de l’authentification unique par mot de passe sur les principaux de service.
-microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Gérer les informations d’identification de l’authentification unique par mot de passe sur les principaux de service.
-microsoft.directory/servicePrincipals/oAuth2PermissionGrants/read | Lire les autorisations déléguées accordées sur les principaux de service.
-microsoft.directory/servicePrincipals/owners/read | Lire les propriétaires sur les principaux de service.
-microsoft.directory/servicePrincipals/owners/update | Mettre à jour les propriétaires sur les principaux de service.
-microsoft.directory/servicePrincipals/permissions/update |  
-microsoft.directory/servicePrincipals/policies/read | Lire les stratégies sur les principaux de service.
-microsoft.directory/servicePrincipals/policies/update | Mettre à jour les stratégies sur les principaux de service.
-microsoft.directory/servicePrincipals/standard/read | Lire les propriétés standard des principaux de service.
-microsoft.directory/servicePrincipals/synchronization/standard/read | Lire les paramètres de provisionnement associés au principal de service.
-microsoft.directory/servicePrincipals/tag/update | Mettre à jour la propriété Tags sur les principaux de service.
-microsoft.directory/applicationTemplates/instantiate | Instanciez des applications de la galerie à partir de modèles d’application.
-microsoft.directory/auditLogs/allProperties/read | Lire les journaux d’audit.
-microsoft.directory/signInReports/allProperties/read | Lire les rapports de connexion.
-microsoft.directory/applications/synchronization/standard/read | Lire les paramètres de provisionnement associés à l’objet application.
-microsoft.directory/servicePrincipals/synchronizationJobs/manage | Gérer tous les aspects de la synchronisation des travaux pour les ressources des principaux de service.
-microsoft.directory/servicePrincipals/synchronization/standard/read | Lire les paramètres de provisionnement associés aux principaux de service.
-microsoft.directory/servicePrincipals/synchronizationSchema/manage | Gérer tous les aspects de la synchronisation de schéma pour les ressources des principaux de service.
-microsoft.directory/provisioningLogs/allProperties/read | Lire toutes les propriétés des journaux de provisionnement.
+> [!div class="mx-tableFixed"]
+> | Autorisation | Description |
+> | ---------- | ----------- |
+> | microsoft.directory/applicationPolicies/allProperties/read | Lire toutes les propriétés des stratégies d’application. |
+> | microsoft.directory/applicationPolicies/allProperties/update | Mettre à jour toutes les propriétés des stratégies d’application. |
+> | microsoft.directory/applicationPolicies/basic/update | Mettre à jour les propriétés standard des stratégies d’application. |
+> | microsoft.directory/applicationPolicies/create | Créer des stratégies d’application. |
+> | microsoft.directory/applicationPolicies/createAsOwner | Créer des stratégies d’application. Le créateur est ajouté en tant que premier propriétaire. |
+> | microsoft.directory/applicationPolicies/delete | Supprimer des stratégies d’application. |
+> | microsoft.directory/applicationPolicies/owners/read | Lire les propriétaires des stratégies d’application. |
+> | microsoft.directory/applicationPolicies/owners/update | Mettre à jour les propriétaires des stratégies d’application. |
+> | microsoft.directory/applicationPolicies/policyAppliedTo/read | Lire les stratégies d’application appliquées à la liste d’objets. |
+> | microsoft.directory/applicationPolicies/standard/read | Lire les propriétés standard des stratégies d’application. |
+> | microsoft.directory/servicePrincipals/allProperties/allTasks | Créez et supprimez des principaux de service (servicePrincipals), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/allProperties/read | Lire toutes les propriétés sur les principaux de service. |
+> | microsoft.directory/servicePrincipals/allProperties/update | Mettre à jour toutes les propriétés sur les principaux de service. |
+> | microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Lire les attributions de rôles des principaux de service. |
+> | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Mettre à jour les attributions de rôles des principaux de service. |
+> | microsoft.directory/servicePrincipals/appRoleAssignments/read | Lire les attributions de rôles affectées aux principaux de service. |
+> | microsoft.directory/servicePrincipals/audience/update | Mettre à jour les propriétés d’audience sur les principaux de service. |
+> | microsoft.directory/servicePrincipals/authentication/update | Mettre à jour les propriétés d’authentification sur les principaux de service. |
+> | microsoft.directory/servicePrincipals/basic/update | Mettre à jour les propriétés de base sur les principaux de service. |
+> | microsoft.directory/servicePrincipals/create | Créer des principaux de service. |
+> | microsoft.directory/servicePrincipals/createAsOwner | Créer des principaux de service. Le créateur est ajouté en tant que premier propriétaire. |
+> | microsoft.directory/servicePrincipals/credentials/update | Mettre à jour les propriétés d’identification sur les principaux de service. |
+> | microsoft.directory/servicePrincipals/delete | Supprimer des principaux de service. |
+> | microsoft.directory/servicePrincipals/disable | Désactiver des principaux de service. |
+> | microsoft.directory/servicePrincipals/enable | Activer des principaux de service. |
+> | microsoft.directory/servicePrincipals/getPasswordSingleSignOnCredentials | Lire les informations d’identification de l’authentification unique par mot de passe sur les principaux de service. |
+> | microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Gérer les informations d’identification de l’authentification unique par mot de passe sur les principaux de service. |
+> | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/read | Lire les autorisations déléguées accordées sur les principaux de service. |
+> | microsoft.directory/servicePrincipals/owners/read | Lire les propriétaires sur les principaux de service. |
+> | microsoft.directory/servicePrincipals/owners/update | Mettre à jour les propriétaires sur les principaux de service. |
+> | microsoft.directory/servicePrincipals/permissions/update |  |
+> | microsoft.directory/servicePrincipals/policies/read | Lire les stratégies sur les principaux de service. |
+> | microsoft.directory/servicePrincipals/policies/update | Mettre à jour les stratégies sur les principaux de service. |
+> | microsoft.directory/servicePrincipals/standard/read | Lire les propriétés standard des principaux de service. |
+> | microsoft.directory/servicePrincipals/synchronization/standard/read | Lire les paramètres de provisionnement associés au principal de service. |
+> | microsoft.directory/servicePrincipals/tag/update | Mettre à jour la propriété Tags sur les principaux de service. |
+> | microsoft.directory/applicationTemplates/instantiate | Instanciez des applications de la galerie à partir de modèles d’application. |
+> | microsoft.directory/auditLogs/allProperties/read | Lire les journaux d’audit. |
+> | microsoft.directory/signInReports/allProperties/read | Lire les rapports de connexion. |
+> | microsoft.directory/applications/synchronization/standard/read | Lire les paramètres de provisionnement associés à l’objet application. |
+> | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Gérer tous les aspects de la synchronisation des travaux pour les ressources des principaux de service. |
+> | microsoft.directory/servicePrincipals/synchronization/standard/read | Lire les paramètres de provisionnement associés aux principaux de service. |
+> | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Gérer tous les aspects de la synchronisation de schéma pour les ressources des principaux de service. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Lire toutes les propriétés des journaux de provisionnement. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

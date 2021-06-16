@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: aca2c51ff14b99ba41b159cf32e59dc861de7a53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f86a30a82bce15e8d2c5b6b33166793798deb2d5
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87826209"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411518"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Déplacer des ressources d’application logique vers d’autres abonnements, régions ou groupes de ressources Azure
 
@@ -57,7 +57,7 @@ Pour déplacer une ressource, telle qu’une application logique ou un compte d�
 
 Pour déplacer une ressource, telle qu’une application logique, un compte d’intégration ou un [environnement de service d’intégration (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), vers un autre groupe de ressources Azure, vous pouvez utiliser le portail Azure, Azure PowerShell, Azure CLI ou l’API REST. Ces étapes couvrent les Portail Azure, que vous pouvez utiliser lorsque la région de la ressource reste la même. Pour plus d’informations, consultez la page [Déplacer des ressources vers un nouveau groupe de ressources ou un abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-Avant de déplacer réellement des ressources entre des groupes, vous pouvez tester si vous pouvez déplacer votre ressource vers un autre groupe. Pour plus d’informations, voir [Valider votre opération de déplacement](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
+Avant de déplacer réellement des ressources entre des groupes, vous pouvez tester si vous pouvez déplacer votre ressource vers un autre groupe. Pour plus d’informations, voir [Valider votre opération de déplacement](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-rest-api).
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez la ressource d’application logique que vous souhaitez déplacer.
 

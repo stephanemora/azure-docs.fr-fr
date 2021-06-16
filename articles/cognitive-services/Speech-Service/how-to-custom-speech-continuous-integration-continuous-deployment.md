@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: f7f11ef097d3abee2b4c18c32a1cb215d9fe8ce8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06a5bd2366f2a24e263e8ffa1c905a5cbd6afc9b
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98939887"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440337"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD pour Custom Speech
 
 Implémentez une formation automatisée, des tests et une gestion des mises en production pour permettre l’amélioration continue des modèles Custom Speech lorsque vous appliquez des mises à jour à des données d’apprentissage et de test. Grâce à l’implémentation efficace de workflows CI/CD, vous pouvez vous assurer que le point de terminaison pour le modèle Custom Speech le plus performant est toujours disponible.
 
-[L’intégration continue (CI)](/azure/devops/learn/what-is-continuous-integration) est la pratique d’ingénierie consistant à valider fréquemment des mises à jour dans un référentiel partagé et à effectuer une génération automatisée sur celle-ci. Les workflows CI pour Custom Speech forment un nouveau modèle à partir de ses sources de données et effectuent des tests automatisés sur le nouveau modèle pour s’assurer qu’il fonctionne mieux que le modèle précédent.
+[L’intégration continue (CI)](/devops/develop/what-is-continuous-integration) est la pratique d’ingénierie consistant à valider fréquemment des mises à jour dans un référentiel partagé et à effectuer une génération automatisée sur celle-ci. Les workflows CI pour Custom Speech forment un nouveau modèle à partir de ses sources de données et effectuent des tests automatisés sur le nouveau modèle pour s’assurer qu’il fonctionne mieux que le modèle précédent.
 
-[La livraison continue](/azure/devops/learn/what-is-continuous-delivery) (CD) sélectionne des modèles à partir du processus CI et crée un point de terminaison pour chaque modèle Custom Speech amélioré. Un workflow CD permet d’intégrer facilement des points de terminaison à des solutions.
+[La livraison continue](/devops/deliver/what-is-continuous-delivery) (CD) sélectionne des modèles à partir du processus CI et crée un point de terminaison pour chaque modèle Custom Speech amélioré. Un workflow CD permet d’intégrer facilement des points de terminaison à des solutions.
 
 Des solutions CI/CD personnalisées sont possibles, mais pour bénéficier d’une solution robuste et prédéfinie, utilisez le [référentiel de modèles DevOps Speech](https://github.com/Azure-Samples/Speech-Service-DevOps-Template), qui exécute les workflows CI/CD à l’aide d’actions GitHub.
 

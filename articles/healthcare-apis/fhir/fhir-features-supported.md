@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: de99d6b5480a8e8262aba9d40826f69862630961
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 7248ae47d1ced0013559f14f5e5185f25b7d8083
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592989"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077854"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -97,19 +97,6 @@ Actuellement, les actions autorisées pour un rôle donné sont appliquées *à 
 * **Limite d’abonnement** : par défaut, chaque abonnement est limité à un maximum de 10 instances de serveur FHIR. Si vous avez besoin d’un plus grand nombre d’instances par abonnement, ouvrez un ticket de support et fournissez des informations détaillées sur vos besoins.
 
 * **Connexions et instances simultanées** : par défaut, vous disposez de 15 connexions simultanées sur deux instances du cluster (pour un total de 30 demandes simultanées). Si vous avez besoin de plus de demandes simultanées, ouvrez un ticket de support et fournissez des informations détaillées sur vos besoins.
-
-## <a name="performance-expectations"></a>Attentes en matière de niveau de performance
-
-Les performances du système dépendent du nombre d’unités de requête, des connexions simultanées et du type d’opérations que vous effectuez (put, poster, etc.). Vous trouverez ci-dessous quelques plages générales de ce que vous pouvez attendre en fonction des unités de requête configurées. En règle générale, les performances évoluent de façon linéaire avec l’augmentation des unités de requête :
-
-| Nombre d’unités de requête | Ressources/s |    Stockage max. (Go)*    |
-|----------|---------------|--------|                 
-| 400      | 5-10          |     10   |
-| 1 000    | 100-150       |      25  |
-| 10 000   | 225-400       |      250  |
-| 100 000  | 2 500-4 000   |      2 500  |
-
-Remarque : par Cosmos DB exigence, un débit minimal de 40 RU/s par Go de stockage est requis. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,13 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 6d803d1a66c069f5eb42deead453a8526577f76b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 444bb90a88656a71727d5133daf4e2c78ce3dc15
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102615208"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110670441"
 ---
 # <a name="errors-that-commonly-occur-during-classic-to-azure-resource-manager-migration"></a>Erreurs qui se produisent fréquemment pendant la migration de Classic vers Azure Resource Manager
 

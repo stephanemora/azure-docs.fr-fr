@@ -4,15 +4,15 @@ description: Découvrez les modifications à venir dues aux changements de certi
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: security
 ms.topic: conceptual
 ms.date: 09/13/2020
-ms.openlocfilehash: 96367b143711c4ec5f3f8d609f048c72c6fded16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d569065a022180f2b2f94131099e6eedc4c468fb
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97590849"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110702072"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>Comprendre les modifications liées au changement d’autorité de certification racine pour Azure SQL Database et SQL Managed Instance
 

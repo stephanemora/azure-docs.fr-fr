@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 10/31/2019
 ms.author: duau
-ms.custom: seodec18
-ms.openlocfilehash: 6213e17f1232bd505ba1edf185a851bf669b9809
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: c8a482d71119db391df66bd814ffe8119f61963f
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553428"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705990"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Vérification de la connectivité ExpressRoute
 Cet article vous permet de vérifier et de résoudre les problèmes de connectivité ExpressRoute. ExpressRoute étend un réseau local au cloud de Microsoft via une connexion privée qui est généralement facilitée par un fournisseur de connectivité. La connectivité ExpressRoute implique traditionnellement trois zones de réseau distinctes, comme suit :

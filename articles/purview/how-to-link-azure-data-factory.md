@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/24/2021
-ms.openlocfilehash: 9d728160413d470383f3eee78fc430aed0125ed7
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 05/31/2021
+ms.openlocfilehash: 0f92a5313622ffafe5ea5cbe2fdedc77d685b0ab
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905231"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792218"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Guide pratique pour se connecter à Azure Data Factory et Azure Purview
 
@@ -158,9 +158,13 @@ En plus de la traçabilité des données, le schéma de la ressource de données
 | Banque de données | Prise en charge |
 | ------------------- | ------------------- | 
 | Stockage Blob Azure | Oui |
+| Azure Cosmos DB\* (API SQL) | Oui | 
 | Azure Data Lake Storage Gen1 | Oui |
 | Azure Data Lake Storage Gen2 | Oui |
+| Azure Database pour MySQL\* | Oui | 
+| Azure Database pour PostgreSQL \* | Oui |
 | Azure SQL Database \* | Oui |
+| Azure SQL Managed Instance\* | Oui | 
 | Azure Synapse Analytics\* | Oui |
 
 *\* Azure Purview ne prend pas en charge à l’heure actuelle les requêtes ni les procédures stockées pour la traçabilité et l’analyse. La traçabilité est limitée aux sources de table et de vue uniquement.*

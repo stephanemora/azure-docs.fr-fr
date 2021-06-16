@@ -3,19 +3,19 @@ title: Obtenez le type de compte de stockage et le nom de référence SKU avec .
 titleSuffix: Azure Storage
 description: Découvrez comment obtenir le type de compte de stockage Azure et le nom de référence SKU à l’aide de la bibliothèque cliente .NET.
 services: storage
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 11/12/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96c77291a1c540e2ff95fb911b2321e78f20e604
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 94e8a76d48b8ff45d089a9ee375b3dc4a5e5de94
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110478841"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110653098"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>Obtenez le type de compte de stockage et le nom de référence SKU avec .NET
 

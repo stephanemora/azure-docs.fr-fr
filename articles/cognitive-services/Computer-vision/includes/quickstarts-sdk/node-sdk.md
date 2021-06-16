@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 0f84a9d6be2944f1d8fec656a7cd68c1279a4dab
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 7eadec693c1ec1adee4b6a6dffdf5ce211dfce91
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110486666"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112083966"
 ---
 <a name="HOLTop"></a>
 
@@ -126,7 +126,7 @@ Enregistrez une référence à l’URL des images à partir desquelles vous souh
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 
 > [!NOTE]
-> Vous pouvez également lire du texte à partir d’une image locale. Consultez les méthodes [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient), comme **readInStream**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js#L503) pour obtenir des scénarios impliquant des images locales.
+> Vous pouvez également lire du texte à partir d’une image locale. Consultez les méthodes [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient), comme **readInStream**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) pour obtenir des scénarios impliquant des images locales.
 
 ### <a name="call-the-read-api"></a>Appeler l’API Lire
 

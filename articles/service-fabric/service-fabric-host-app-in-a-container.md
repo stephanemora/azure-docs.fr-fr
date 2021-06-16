@@ -3,12 +3,13 @@ title: Déployer une application .NET dans un conteneur vers Azure Service Fabri
 description: Découvrez comment mettre en conteneur une application .NET existante à l’aide de Visual Studio et comment déboguer des conteneurs Service Fabric en local. L’application en conteneur est envoyée par push dans un registre de conteneur Azure et déployée dans un cluster Service Fabric. Lorsqu’elle est déployée dans Azure, l’application utilise Azure SQL DB pour conserver des données.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 7930651a0faa5f37336c15557e2a0f068d613011
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b0e75d4054bc814c3e826db4519f9e882964ef4e
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98936710"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677367"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutoriel : Déployer une application .NET dans un conteneur Windows vers Azure Service Fabric
 

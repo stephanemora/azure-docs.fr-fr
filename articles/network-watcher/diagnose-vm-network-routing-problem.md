@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: d5cd9c5d7f4a14a9a93e6984a8ef7367e5cbafc4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 7a056d3a998be5d8edee71557c0333f4c5cb8fd9
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055091"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082358"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Didacticiel : diagnostiquer un problème de routage réseau d’une machine virtuelle à l’aide du portail Azure
 
@@ -47,11 +47,11 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 2. Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter** ou **Ubuntu Server 17.10 VM**.
 3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK** :
 
-    |Paramètre|Valeur|
+    |Paramètre|Value|
     |---|---|
     |Nom|myVm|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
-    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.yml?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Abonnement| Sélectionnez votre abonnement.|
     |Resource group| Sélectionnez **Créer** et entrez **myResourceGroup**.|
     |Emplacement| Sélectionnez **USA Est**.|

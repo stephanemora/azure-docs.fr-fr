@@ -5,15 +5,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 97b3ac4d693afb8ee2f2dba362e1e2f307e50f78
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 82c99ea320ac06df8ce3a4309ccade90598f5033
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047262"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953144"
 ---
 # <a name="resource-manager-template-samples-for-log-queries-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les requêtes de journal dans Azure Monitor
-Cet article contient des exemples de [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour créer et configurer des requêtes de journal dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
+Cet article contient des exemples de [modèle Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) pour créer et configurer des requêtes de journal dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
