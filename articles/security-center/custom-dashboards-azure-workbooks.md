@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/04/2021
-ms.openlocfilehash: 198702f619e490e8000e4430aab23a7f6bfb6d85
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 06/13/2021
+ms.openlocfilehash: 9aad86bc08d7190ae9fca9faab9dbfcfba93f206
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102107062"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062313"
 ---
 # <a name="create-rich-interactive-reports-of-security-center-data"></a>Créer des rapports riches et interactifs de données de Security Center
 
@@ -28,7 +28,7 @@ Dans Azure Security Center, vous pouvez accéder aux rapports intégrés pour su
 
 | Aspect                          | Détails                                                                                                                                      |
 |---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| État de sortie :                  | PRÉVERSION<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                       |
+| État de sortie :                  | Disponibilité générale (GA)                                                                                                                    |
 | Prix :                        | Gratuit                                                                                                                                         |
 | Rôles et autorisations obligatoires : | Pour enregistrer des classeurs, vous devez disposer au minimum d’autorisations de Contributeur de classeur sur le groupe de ressources cible                                      |
 | Clouds :                         | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov) |

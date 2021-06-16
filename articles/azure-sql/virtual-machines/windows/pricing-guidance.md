@@ -16,12 +16,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d980b92bc4effc58ef84ef6ec70c3908f575e484
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 05883b3016ac3c8a8d26bfc02fea38e3adb2675a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102615599"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079748"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Guide des prix de SQL Server sur machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -100,7 +100,7 @@ Pour créer une machine virtuelle Azure exécutant SQL Server 2017 avec l’une
 L’**apport de votre propre licence SQL Server par le biais de License Mobility**, également appelé **BYOL**, implique l’utilisation d’une licence en volume SQL Server existante avec Software Assurance dans une machine virtuelle Azure. Une machine virtuelle SQL Server qui a recours à la méthode BYOL facture uniquement le coût d’exécution de la machine virtuelle, et non la licence SQL Server, étant donné que vous avez déjà acquis les licences et Software Assurance dans le cadre d’un programme de licence en volume ou via un fournisseur de solutions cloud (CSP).
 
 > [!NOTE]
-> Les images BYOL ne sont actuellement disponibles que pour les machines virtuelles Windows. Toutefois, vous pouvez installer manuellement SQL Server sur une machine virtuelle Linux uniquement. Reportez-vous aux instructions disponibles dans le [FAQ concernant SQL Server sur une machine virtuelle Linux](../linux/frequently-asked-questions-faq.md).
+> Les images BYOL ne sont actuellement disponibles que pour les machines virtuelles Windows. Toutefois, vous pouvez installer manuellement SQL Server sur une machine virtuelle Linux uniquement. Reportez-vous aux instructions disponibles dans le [FAQ concernant SQL Server sur une machine virtuelle Linux](../linux/frequently-asked-questions-faq.yml).
 
 L’apport de votre propre licence SQL au travers de la mobilité de licence est recommandé pour :
 

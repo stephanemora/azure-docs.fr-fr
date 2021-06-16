@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 2c410d6c310c8f9b0c50ff0073f4dda9a35c8f9c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: b84255a4148322f9aa1b5c0d59eb220c2555102f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382540"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967626"
 ---
 # <a name="extend-a-prebuilt-docker-image-preview"></a>Étendre une image Docker prédéfinie (préversion)
 
@@ -61,7 +61,7 @@ docker build -f <above dockerfile> -t <image_name>:<tag> .
 > [!TIP]
 > Vous trouverez des détails complémentaires sur `docker build` dans la [documentation Docker](https://docs.docker.com/engine/reference/commandline/build/).
 
-Si la commande `docker build` n’est pas disponible localement, utilisez l’ACR (Azure Container Registry) de votre espace de travail Azure Machine Learning pour générer l’image Docker dans le cloud. Pour plus d’informations, consultez [Tutoriel : Générer et déployer des images conteneur avec Azure Container Registry](/azure/container-registry/container-registry-tutorial-quick-task).
+Si la commande `docker build` n’est pas disponible localement, utilisez l’ACR (Azure Container Registry) de votre espace de travail Azure Machine Learning pour générer l’image Docker dans le cloud. Pour plus d’informations, consultez [Tutoriel : Générer et déployer des images conteneur avec Azure Container Registry](../container-registry/container-registry-tutorial-quick-task.md).
 
 > [!IMPORTANT]
 > Microsoft vous recommande de vérifier dans un premier temps que le Dockerfile fonctionne localement avant d’essayer de créer une image de base personnalisée via Azure Container Registry.

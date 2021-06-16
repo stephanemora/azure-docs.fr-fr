@@ -4,14 +4,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 02/10/2021
+ms.date: 06/07/2021
 ms.author: tamram
-ms.openlocfilehash: 483f5853c321eee4ac6d10543f0e360a0a5e54b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32f2d1a5533c48b3b7c78d9e66b08cafdde09a8f
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100373746"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901896"
 ---
 Avant d’attribuer un rôle RBAC Azure à un principal de sécurité, déterminez l’étendue de l’accès dont doit disposer le principal de sécurité. Selon les bonnes pratiques, il est toujours préférable d’accorder la plus petite étendue possible. Les rôles RBAC Azure définis au niveau d’une étendue plus large sont hérités par les ressources qui sont sous eux.
 

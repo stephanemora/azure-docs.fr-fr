@@ -2,20 +2,20 @@
 title: Résoudre les problèmes d’authentification unique basée sur SAML dans Azure Active Directory
 description: Résolvez les problèmes liés à une application Azure AD configurée pour l’authentification unique basée sur SAML.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: iangithinji
-ms.openlocfilehash: c4a4f7bfad4254e7c3fa5851e62532ed427ced8b
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.author: mtillman
+ms.openlocfilehash: b119df626eed15c15fdb267a0a78b6fd62b72162
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376424"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080540"
 ---
 # <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Résoudre les problèmes d’authentification unique basée sur SAML dans Azure Active Directory
 Si vous rencontrez un problème lors de la configuration d’une application, vérifiez que vous avez suivi toutes les étapes du didacticiel dédié à l’application. Dans la configuration de l’application, une documentation en ligne sur la configuration de l’application vous est proposée. Pour une aide pas à pas détaillée, vous pouvez accéder à la [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md).
