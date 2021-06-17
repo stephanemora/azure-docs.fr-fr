@@ -1,11 +1,14 @@
 ---
-ms.openlocfilehash: 956c92c5c020f892b8148e9d43d403b1099fbdba
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 6fbd65b75ebb061b8012d4841ed03f331777e6ef
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106113276"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111430954"
 ---
+> [!NOTE]
+> Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/phone-numbers-quickstart).
+
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -98,7 +101,7 @@ const searchRequest = {
 const searchPoller = await phoneNumbersClient.beginSearchAvailablePhoneNumbers(searchRequest);
 
 // The search is underway. Wait to receive searchId.
-const { searchId, phoneNumbers } = searchPoller.pollUntilDone();
+const { searchId, phoneNumbers } = await searchPoller.pollUntilDone();
 const phoneNumber = phoneNumbers[0];
 
 console.log(`Found phone number: ${phoneNumber}`);
@@ -159,15 +162,15 @@ Après avoir acheté un numéro, vous pouvez le récupérer à partir du client.
  */
 
 const { capabilities } = await phoneNumbersClient.getPurchasedPhoneNumber(phoneNumber);
-console.log(`These capabilities: ${capabilities}, should be the same as these: ${updateRequest}.`);
+console.log("These capabilities:", capabilities, "should be the same as these:", updateRequest, ".");
 ```
 
 Vous pouvez également récupérer tous les numéros de téléphone achetés.
 
 ```javascript
-const phoneNumbers = await phoneNumbersClient.listPurchasedPhoneNumbers();
+const purchasedPhoneNumbers = await phoneNumbersClient.listPurchasedPhoneNumbers();
 
-for await (const purchasedPhoneNumber of phoneNumbers) {
+for await (const purchasedPhoneNumber of purchasedPhoneNumbers) {
   console.log(`Phone number: ${purchasedPhoneNumber.phoneNumber}, country code: ${purchasedPhoneNumber.countryCode}.`);
 }
 ```
@@ -181,7 +184,7 @@ Vous pouvez maintenant libérer le numéro de téléphone acheté. Ajoutez l’e
  * Release Purchased Phone Number
  */
 
-const releasePoller = await client.beginReleasePhoneNumber(phoneNumber);
+const releasePoller = await phoneNumbersClient.beginReleasePhoneNumber(phoneNumber);
 
 // Release is underway.
 await releasePoller.pollUntilDone();

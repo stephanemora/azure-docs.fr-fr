@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 6b728591aeb330c7b2af8ca5dc4770147761b5b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a380088210d99989dc1b69455898d85343dd1d53
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552284"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032570"
 ---
 # <a name="create-a-vm-using-a-specialized-image"></a>Créer une machine virtuelle à l’aide d’une image spécialisée 
 
@@ -128,9 +129,9 @@ Add-AzVMDataDisk `
 
 Vous pouvez également créer la ressource de galerie d’images partagées à l’aide de modèles. Plusieurs modèles de démarrage rapide Azure sont disponibles : 
 
-- [Créer une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [Créer une définition d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [Créer une version d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Créer une machine virtuelle à partir d’une version d’image](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Créer une galerie d’images partagées](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Créer une définition d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Créer une version d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Créer une machine virtuelle à partir d’une version d’image](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 Pour plus d’informations sur les galeries d’images partagées, consultez la [vue d’ensemble](./shared-image-galleries.md). Si vous rencontrez des problèmes, consultez [Résoudre les problèmes des galeries d’images partagées](troubleshooting-shared-images.md).

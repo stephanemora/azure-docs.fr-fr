@@ -1,11 +1,14 @@
 ---
-ms.openlocfilehash: f5f9f30103381a8e91cd38bb7fa3547e6ca4c97e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d840d2ea518ede320990eb8da23b96129310bcbc
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108157594"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111430570"
 ---
+> [!NOTE]
+> Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/PhoneNumbers).
+
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

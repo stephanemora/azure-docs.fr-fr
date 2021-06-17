@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau
-ms.custom: seodec18
-ms.openlocfilehash: 366f27a0e2a22e9aa10dda20e105bf644255bdd4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: cb4843319e08eff33ce6ce1869f64fccd9e17c6c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89393137"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950666"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurer un réseau VPN de site à site via le peering Microsoft ExpressRoute
 
@@ -130,7 +130,7 @@ Le diagramme suivant montre un extrait de la vue d’ensemble de l’exemple de 
 
 ### <a name="about-the-azure-resource-manager-template-examples"></a>À propos des exemples de modèles ARM
 
-Dans les exemples, la fin de la passerelle VPN et la fin du tunnel IPsec sont configurées à l’aide d’un modèle ARM (Azure Resource Manager). Si vous utilisez les modèles Resource Manager pour la première fois et ne connaissez pas ses principes fondamentaux, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Le modèle de cette section crée un environnement Azure Greenfield (réseau virtuel). Toutefois, si vous disposez déjà d’un réseau virtuel existant, vous pouvez le référencer dans le modèle. Si vous n’êtes pas familiarisé avec les configurations de site à site IPsec/IKE des passerelles VPN, consultez [Créer une connexion de site à site](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
+Dans les exemples, la fin de la passerelle VPN et la fin du tunnel IPsec sont configurées à l’aide d’un modèle ARM (Azure Resource Manager). Si vous utilisez les modèles Resource Manager pour la première fois et ne connaissez pas ses principes fondamentaux, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../azure-resource-manager/templates/syntax.md). Le modèle de cette section crée un environnement Azure Greenfield (réseau virtuel). Toutefois, si vous disposez déjà d’un réseau virtuel existant, vous pouvez le référencer dans le modèle. Si vous n’êtes pas familiarisé avec les configurations de site à site IPsec/IKE des passerelles VPN, consultez [Créer une connexion de site à site](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
 
 >[!NOTE]
 >Vous n’avez pas besoin d’utiliser les modèles ARM (Azure Resource Manager) pour cette configuration. Vous pouvez créer cette configuration à l’aide du portail Azure ou de PowerShell.

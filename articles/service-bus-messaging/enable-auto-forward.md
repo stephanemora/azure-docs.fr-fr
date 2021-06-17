@@ -3,12 +3,13 @@ title: Activer le transfert automatique pour les files d’attente et les abonne
 description: Cet article explique comment activer le transfert automatique pour les files d’attente et les abonnements en utilisant Portail Azure, PowerShell, CLI et les langages de programmation (C#, Java, Python et JavaScript).
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: 0271ac825c192fcfe9db4a4b6378a47c62dc9903
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: da5af50941263c54a08de27df43fc85b5bd75b4a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988115"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671492"
 ---
 # <a name="enable-auto-forwarding-for-azure-service-bus-queues-and-subscriptions"></a>Activer le transfert automatique pour les files d’attente et les abonnements Azure Service Bus
 La fonctionnalité de transfert automatique de Service Bus vous permet de chaîner une file d’attente ou un abonnement à une autre file d’attente ou rubrique qui fait partie du même espace de noms. Lorsque le transfert automatique est activé, Service Bus supprime automatiquement les messages placés dans la première file d’attente ou le premier abonnement (source) pour les placer dans la deuxième file d’attente ou la rubrique (destination). Il est toujours possible d’envoyer un message directement à l’entité de destination. Pour en savoir plus, consultez l’article [Chaînage des entités Service Bus avec transfert automatique](service-bus-auto-forwarding.md). Cet article vous montre différentes façons d’activer le transfert automatique pour les files d’attente et les abonnements de Service Bus. 

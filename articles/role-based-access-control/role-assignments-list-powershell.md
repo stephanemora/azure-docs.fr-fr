@@ -14,12 +14,13 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ac1c623f3ac136f1e16a92d47995c1067818e926
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c46a8306004fc052cd33cd13d7026934c24e3325
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787460"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110691005"
 ---
 # <a name="list-azure-role-assignments-using-azure-powershell"></a>Lister les attributions de rôle Azure avec Azure PowerShell
 

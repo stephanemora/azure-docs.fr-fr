@@ -3,12 +3,13 @@ title: Activer le chiffrement de disque pour des clusters Windows
 description: Cet article décrit comment activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric en utilisant Azure Key Vault dans Azure Resource Manager.
 ms.topic: article
 ms.date: 03/22/2019
-ms.openlocfilehash: b08cdb63aa6f334c5a6f7c230b1624d232206c3b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b86366931d4bacaf8a947f4e2d2853c99c41ea33
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "78251816"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110670943"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric dans Windows 
 > [!div class="op_single_selector"]

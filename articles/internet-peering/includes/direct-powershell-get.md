@@ -8,12 +8,13 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: c84cd8b1d7850576eb608d88ba91c3079edb0d68
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8408cac9ff21615ae44390c52d7e95ad7f2df30e
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81680795"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110720120"
 ---
 Pour afficher la liste des Peerings, exécutez la commande **Get-AzPeering**.
 

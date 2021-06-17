@@ -2,13 +2,13 @@
 title: Définition de plusieurs instances d’une valeur de sortie
 description: Utilisez l’opération copy dans un modèle Azure Resource Manager (modèle ARM) pour retourner une valeur à partir d’un déploiement sur plusieurs itérations.
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: 49050f4c0a494bbfb470b64704a09d8738a727f7
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.date: 05/07/2021
+ms.openlocfilehash: 880ed42afdbb2082821c216a50da438ec45bd680
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385732"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954679"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Itération de sortie dans les modèles ARM
 
@@ -17,8 +17,6 @@ Cet article explique comment créer plusieurs valeurs pour une sortie dans votre
 Il est également possible d’utiliser la boucle de copie avec des [ressources](copy-resources.md), des [propriétés dans une ressource](copy-properties.md) et des [variables](copy-variables.md).
 
 ## <a name="syntax"></a>Syntaxe
-
-# <a name="json"></a>[JSON](#tab/json)
 
 Ajoutez l’élément `copy` à la section de sortie de votre modèle pour renvoyer un certain nombre d’éléments. L’élément copy utilise le format général suivant :
 
@@ -32,37 +30,6 @@ Ajoutez l’élément `copy` à la section de sortie de votre modèle pour renvo
 La propriété `count` indique le nombre d’itérations souhaité pour la valeur de sortie.
 
 La propriété `input` spécifie les propriétés que vous souhaitez répéter. Vous créez un tableau d’éléments construits à partir de la valeur de la propriété `input`. Il peut s’agir d’une propriété unique (par exemple, une chaîne) ou d’un objet avec plusieurs propriétés.
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-Les boucles peuvent être utilisées pour retourner un certain nombre d’éléments pendant le déploiement :
-
-- Itération sur un tableau :
-
-  ```bicep
-  output <output-name> array = [for <item> in <collection>: {
-    <properties>
-  }]
-
-  ```
-
-- Itération sur les éléments d’un tableau
-
-  ```bicep
-  output <output-name> array = [for <item>, <index> in <collection>: {
-    <properties>
-  }]
-  ```
-
-- Utilisation de l’index de boucle
-
-  ```bicep
-  output <output-name> array = [for <index> in range(<start>, <stop>): {
-    <properties>
-  }]
-  ```
-
----
 
 ## <a name="copy-limits"></a>Limites de copie
 
@@ -80,8 +47,6 @@ Les versions antérieures de PowerShell, de l’interface CLI et de l’API REST
 ## <a name="outputs-iteration"></a>Itération sur les sorties
 
 L’exemple suivant crée un nombre variable de comptes de stockage et retourne un point de terminaison pour chacun d’eux :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -125,28 +90,6 @@ L’exemple suivant crée un nombre variable de comptes de stockage et retourne 
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param storageCount int = 2
-
-var baseName_var = 'storage${uniqueString(resourceGroup().id)}'
-
-resource baseName 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, storageCount): {
-  name: '${i}${baseName_var}'
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  properties: {}
-}]
-
-output storageEndpoints array = [for i in range(0, storageCount): reference(${i}${baseName_var}).primaryEndpoints.blob]
-```
-
----
-
 Le modèle précédent retourne un tableau avec les valeurs suivantes :
 
 ```json
@@ -157,8 +100,6 @@ Le modèle précédent retourne un tableau avec les valeurs suivantes :
 ```
 
 L’exemple suivant retourne trois propriétés à partir des nouveaux comptes de stockage.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -206,32 +147,6 @@ L’exemple suivant retourne trois propriétés à partir des nouveaux comptes d
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param storageCount int = 2
-
-var baseName_var = 'storage${uniqueString(resourceGroup().id)}'
-
-resource baseName 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, storageCount): {
-  name: '${i}${baseName_var}'
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  properties: {}
-}]
-
-output storageInfo array = [for i in range(0, storageCount): {
-  id: reference(concat(i, baseName_var), '2019-04-01', 'Full').resourceId
-  blobEndpoint: reference(concat(i, baseName_var)).primaryEndpoints.blob
-  status: reference(concat(i, baseName_var)).statusOfPrimary
-}]
-```
-
----
-
 L’exemple précédent retourne un tableau avec les valeurs suivantes :
 
 ```json
@@ -256,5 +171,5 @@ L’exemple précédent retourne un tableau avec les valeurs suivantes :
   - [Itération de ressource dans les modèles ARM](copy-resources.md)
   - [Itération de propriété dans les modèles ARM](copy-properties.md)
   - [Itération de variable dans les modèles ARM](copy-variables.md)
-- Pour plus d’informations sur les différentes sections d’un modèle, consultez [Présentation de la structure et de la syntaxe des modèles ARM](template-syntax.md).
+- Pour plus d’informations sur les différentes sections d’un modèle, consultez [Présentation de la structure et de la syntaxe des modèles ARM](./syntax.md).
 - Pour savoir comment déployer votre modèle, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md).

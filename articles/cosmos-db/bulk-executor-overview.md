@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 211fc85f97069fcf3251048a074d625e777f8e7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 159b44c4002c838a22656e8a8ddc5f5f6efd69b7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93100471"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971943"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Vue d’ensemble de la bibliothèque d’exécuteur en bloc Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,5 +54,5 @@ La bibliothèque de l’exécuteur en bloc veille à utiliser au maximum le déb
   
 * Pour en savoir plus, essayez les exemples d'applications utilisant la bibliothèque d'Exécuteurs en bloc en [.NET](bulk-executor-dot-net.md) et [Java](bulk-executor-java.md).  
 * Consultez les notes de publication et les informations sur le SDK de l’exécuteur en bloc en [.NET](sql-api-sdk-bulk-executor-dot-net.md) et en [Java](sql-api-sdk-bulk-executor-java.md).
-* La bibliothèque d'Exécuteurs en bloc est intégrée au connecteur Spark Cosmos DB. Pour plus d'informations, consultez [Connecteur Spark Azure Cosmos DB](spark-connector.md).  
+* La bibliothèque d'Exécuteurs en bloc est intégrée au connecteur Spark Cosmos DB. Pour plus d'informations, consultez [Connecteur Spark Azure Cosmos DB](./create-sql-api-spark.md).  
 * La bibliothèque d’exécuteur en bloc est également intégrée à une nouvelle version du [connecteur Azure Cosmos DB](../data-factory/connector-azure-cosmos-db.md) pour permettre à Azure Data Factory de copier des données.

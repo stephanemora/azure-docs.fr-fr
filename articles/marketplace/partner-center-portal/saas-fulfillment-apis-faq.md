@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2021
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 760e7210d054e44dfec6d6a6e480baecd04d6807
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 06debcfbf4404497e17f1446779189b124b0079e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044122"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952649"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Questions courantes sur les API de traitement SaaS
 
@@ -88,4 +88,4 @@ La séquence ci-dessous est la capture du flux quand un utilisateur Azure se dé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[API de service de mesure de la Place de marché](./marketplace-metering-service-apis.md)
+[API de service de mesure de la Place de marché](../marketplace-metering-service-apis.md)
