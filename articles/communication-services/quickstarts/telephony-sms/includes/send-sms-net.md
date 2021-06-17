@@ -10,20 +10,19 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: peiliu
-ms.openlocfilehash: 5fd209c612f90e3912e244daf60d20edf30a08c6
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 177c433fcc1fb990a610405c8343340314816966
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106113367"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111429518"
 ---
 Commencez avec Azure Communication Services en utilisant le kit de développement logiciel (SDK) Communication Services SMS C# pour envoyer des SMS.
 
 Le fait de suivre ce guide de démarrage rapide entraîne une petite dépense de quelques cents USD tout au plus dans votre compte Azure.
 
-<!--**TODO: update all these reference links as the resources go live**
-
-[API reference documentation](../../../references/overview.md) | [Library source code](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/communication/sdk/communication/Azure.Communication.Sms#todo-update-to-public) | [Package (NuGet)](#todo-nuget) | [Samples](#todo-samples)-->
+> [!NOTE]
+> Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendSMS).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -114,7 +113,7 @@ Console.WriteLine($"Sms id: {sendResult.MessageId}");
 Vous devez remplacer `<from-phone-number>` par un numéro de téléphone permettant de recevoir des SMS associé à votre ressource Communication Services et `<to-phone-number>` par le numéro de téléphone auquel vous souhaitez envoyer un message.
 
 > [!WARNING]
-> Notez que les numéros de téléphone doivent être fournis au format standard international E.164. (par exemple +14255550123)
+> Notez que les numéros de téléphone doivent être fournis au format standard international E.164. (par exemple, +14255550123)
 
 ## <a name="send-a-1n-sms-message-with-options"></a>Envoyer un message SMS 1:N avec des options
 Pour envoyer un message SMS à une liste de destinataires, appelez la fonction `Send` ou `SendAsync` à partir du SmsClient avec une liste de numéros de téléphone de destinataire. Vous pouvez également transmettre des paramètres facultatifs pour spécifier si le rapport de remise doit être activé et pour définir des balises personnalisées.
@@ -140,7 +139,7 @@ foreach (SmsSendResult result in results)
 Vous devez remplacer `<from-phone-number>` par un numéro de téléphone permettant de recevoir des SMS et associé à votre ressource Communication Services, et `<to-phone-number-1>` et `<to-phone-number-2>` par le ou les numéros de téléphone auxquels vous souhaitez envoyer un message.
 
 > [!WARNING]
-> Notez que les numéros de téléphone doivent être fournis au format standard international E.164. (par exemple +14255550123)
+> Notez que les numéros de téléphone doivent être fournis au format standard international E.164. (par exemple, +14255550123)
 
 Le paramètre `enableDeliveryReport` est un paramètre facultatif que vous pouvez utiliser pour configurer la création de rapports de remise. C’est utile pour les scénarios où vous souhaitez émettre des événements quand des SMS sont remis. Consultez le guide de démarrage rapide [Gérer les événements SMS](../handle-sms-events.md) pour configurer la création de rapports de remise pour vos SMS.
 

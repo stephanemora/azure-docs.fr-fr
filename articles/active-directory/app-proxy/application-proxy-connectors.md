@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 3c68d0138c9e9ca6bc72937be1a7f54347b89d0c
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: ae7da354b16dbea3e84f8d75fbf97e805387c4b0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186053"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952103"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -75,7 +75,7 @@ Vous pouvez rencontrer des temps d’arrêt lors de la mise à jour de votre con
 - Vous n’avez qu’un seul connecteur. Nous vous recommandons d’en installer un deuxième et de [créer un groupe de connecteurs](application-proxy-connector-groups.md) pour éviter les temps morts et accroître la disponibilité.  
 - Un connecteur se trouvait au milieu d’une transaction lorsque la mise à jour a commencé. Bien que la transaction d’origine soit perdue, votre navigateur devrait automatiquement relancer l’opération, ou vous pouvez actualiser votre page. Lorsque la demande est renvoyée, le trafic est acheminé vers un connecteur de secours.
 
-Pour avoir des informations sur les versions précédentes et les changements qu’elles incluent, consultez [Proxy d’application - Historique des versions](../manage-apps/application-proxy-release-version-history.md).
+Pour avoir des informations sur les versions précédentes et les changements qu’elles incluent, consultez [Proxy d’application - Historique des versions](./application-proxy-release-version-history.md).
 
 ## <a name="creating-connector-groups"></a>Créer des groupe de connecteurs
 
@@ -111,7 +111,7 @@ Les connecteurs peuvent être installés n’importe où sur le réseau pourvu q
 
 Les connecteurs envoient uniquement des demandes sortantes. Le trafic sortant est envoyé au service de proxy d’application et aux applications publiées. Il n’est pas nécessaire pour ouvrir des ports d’entrée car le trafic passe dans les deux sens une fois qu’une session est établie. Il n’est pas non plus nécessaire de configurer l’accès entrant à travers les pare-feu.
 
-Pour plus d’informations sur la configuration des règles sortantes de pare-feu, consultez [Travailler avec des serveurs proxy locaux existants](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md).
+Pour plus d’informations sur la configuration des règles sortantes de pare-feu, consultez [Travailler avec des serveurs proxy locaux existants](./application-proxy-configure-connectors-with-proxy-servers.md).
 
 ## <a name="performance-and-scalability"></a>Performances et évolutivité
 
@@ -165,7 +165,7 @@ Register-AppProxyConnector -EnvironmentName "AzureCloud"
 
 Pour les administrations, utilisez `-EnvironmentName "AzureUSGovernment"`. Pour plus de détails, consultez [Installer l’agent pour le cloud Azure Government](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
 
-Pour en savoir plus sur la façon de vérifier le certificat et de résoudre les problèmes, consultez [Vérifier la prise en charge du certificat de confiance du proxy d’application par la machine et les composants back-end](../manage-apps/application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
+Pour en savoir plus sur la façon de vérifier le certificat et de résoudre les problèmes, consultez [Vérifier la prise en charge du certificat de confiance du proxy d’application par la machine et les composants back-end](./application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
 
 ## <a name="under-the-hood"></a>Sous le capot
 
@@ -188,6 +188,6 @@ Vous pouvez examiner l’état du service dans la fenêtre Services. Le connecte
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs](application-proxy-connector-groups.md)
-- [Travailler avec des serveurs proxy locaux existants](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
-- [Résoudre les erreurs du proxy d’application et du connecteur](../manage-apps/application-proxy-troubleshoot.md)
-- [Comment installer silencieusement le connecteur du Proxy d'application Azure AD](../manage-apps/application-proxy-register-connector-powershell.md)
+- [Travailler avec des serveurs proxy locaux existants](./application-proxy-configure-connectors-with-proxy-servers.md)
+- [Résoudre les erreurs du proxy d’application et du connecteur](./application-proxy-troubleshoot.md)
+- [Comment installer silencieusement le connecteur du Proxy d'application Azure AD](./application-proxy-register-connector-powershell.md)

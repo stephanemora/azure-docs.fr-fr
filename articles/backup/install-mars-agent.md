@@ -2,13 +2,13 @@
 title: Installer l’agent Microsoft Azure Recovery Services (MARS)
 description: Découvrez comment installer l’agent Microsoft Azure Recovery Services (MARS) pour sauvegarder des machines Windows.
 ms.topic: conceptual
-ms.date: 03/03/2020
-ms.openlocfilehash: 3ea48aaa6aad4a51463c4c028ead22f31163f810
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 06/04/2021
+ms.openlocfilehash: c52b65c06a4920020e4358c131870c0fe77b2584
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519219"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970623"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installer l’agent MARS de sauvegarde Azure
 
@@ -63,51 +63,7 @@ Modifiez le type de réplication de stockage :
 
 ### <a name="verify-internet-access"></a>Vérifiez l’accès à Internet
 
-Si votre machine a un accès limité à Internet, vérifiez que les paramètres de pare-feu sur la machine ou le proxy autorisent les URL et adresses IP suivantes :
-
-* URLs
-  * `www.msftncsi.com`
-  * `*.Microsoft.com`
-  * `*.WindowsAzure.com`
-  * `*.microsoftonline.com`
-  * `*.windows.net`
-  * `www.msftconnecttest.com`
-* Adresses IP
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-### <a name="use-azure-expressroute"></a>Utiliser Azure ExpressRoute
-
-Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le peering public (disponible pour les anciens circuits) et le peering Microsoft. La sauvegarde sur un peering privé n’est pas prise en charge.
-
-Pour utiliser le peering public, commencez par vérifier l’accès aux domaines et adresses suivants :
-
-* `http://www.msftncsi.com/ncsi.txt`
-* `http://www.msftconnecttest.com/connecttest.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
-* Adresses IP
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-Pour utiliser le peering Microsoft, sélectionnez les services, les régions et les valeurs de communauté pertinentes suivants :
-
-* Azure Active Directory (12076:5060)
-* Région Azure, en fonction de la localisation de votre coffre Recovery Services
-* Stockage Azure, en fonction de la localisation de votre coffre Recovery Services
-
-Pour plus d’informations, consultez [Exigences du routage ExpressRoute](../expressroute/expressroute-routing.md).
-
-> [!NOTE]
-> Le peering public est déprécié pour les nouveaux circuits.
-
-Toutes les adresses IP et URL précédentes utilisent le protocole HTTPS sur le port 443.
-
-### <a name="private-endpoints"></a>Points de terminaison privés
-
-[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
+[!INCLUDE [Configuring network connectivity](../../includes/backup-network-connectivity.md)]
 
 ## <a name="download-the-mars-agent"></a>Télécharger l’agent MARS
 

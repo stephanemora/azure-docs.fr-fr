@@ -1,18 +1,25 @@
 ---
 title: Déploiement de SAP S/4HANA ou BW/4HANA sur une machine virtuelle Azure | Microsoft Docs
 description: Déploiement de SAP S/4HANA ou BW/4HANA sur une machine virtuelle Azure
-author: hermanndms
 ms.service: virtual-machines-sap
+author: hobru
+manager: maordish
+editor: ''
+tags: azure-resource-manager
+keywords: ''
+ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
 ms.date: 09/15/2016
-ms.author: hermannd
-ms.reviewer: cynthn
-ms.openlocfilehash: 4b739efcf2695a5385351f531efb6201bbea1cd5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: hobruche
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: e9cbb7e03d77507e4671e2e10665bc245a095b0a
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101671943"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755391"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Déploiement de SAP S/4HANA ou BW/4HANA sur Azure
 Cet article explique comment déployer S/4HANA sur Azure en utilisant SAP Cloud Appliance Library (SAP CAL) 3.0. Procédez de la même façon pour déployer d’autres solutions SAP HANA, comme BW/4HANA.
