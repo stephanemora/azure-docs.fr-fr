@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 1beac7a75bc8ddfbdec046d381ee95b23b1575ca
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5208f497fc5423cd0e9c2343af2a5757088399b1
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108793514"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111449761"
 ---
-Cet article liste les versions et les fonctionnalités de l’agent de provisionnement Azure Active Directory Connect qui ont été publiées. L’équipe Azure AD met régulièrement à jour l’agent d’approvisionnement avec de nouvelles fonctions et fonctionnalités. L’agent de provisionnement est mis à jour automatiquement quand une nouvelle version est publiée. 
+Cet article liste les versions et les fonctionnalités de l’agent de provisionnement Azure Active Directory Connect qui ont été publiées. L’équipe Azure AD met régulièrement à jour l’agent d’approvisionnement avec de nouvelles fonctions et fonctionnalités. 
 
 Microsoft offre une prise en charge directe de la version la plus récente de l’agent et de la version précédente.
 
@@ -113,5 +113,4 @@ Microsoft offre une prise en charge directe de la version la plus récente de l�
 ### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 
 * Optimisation de l’architecture du connecteur et de l’agent de provisionnement à des fins de performances, de stabilité et de fiabilité 
-* Simplification de la configuration de l’agent de provisionnement avec l’Assistant Installation géré par l’interface utilisateur 
-* Ajout de la prise en charge des mises à jour automatiques de l’agent
+* Simplification de la configuration de l’agent de provisionnement avec l’Assistant Installation géré par l’interface utilisateur

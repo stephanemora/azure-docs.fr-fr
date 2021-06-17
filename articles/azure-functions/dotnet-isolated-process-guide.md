@@ -3,14 +3,15 @@ title: Guide d’utilisation d’un processus isolé .NET pour .NET 5.0 dans Az
 description: Apprenez à utiliser un processus isolé .NET pour exécuter vos fonctions C# sur .NET 5.0 hors processus dans Azure.
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 06/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: 53f3c79886d26b20a584d747759176ea842741cf
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+recommendations: false
+ms.openlocfilehash: 34a4a37d351f144d00d926de0544c8ae56e9a314
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739275"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901442"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guide d’exécution des fonctions sur .NET 5.0 dans Azure
 
@@ -36,9 +37,7 @@ Exécutées hors processus, vos fonctions .NET peuvent tirer parti des avantages
 + Contrôle total du processus : vous contrôlez le démarrage de l’application, ainsi que les configurations utilisées et l’intergiciel démarré.
 + Injection de dépendances : étant donné que vous contrôlez totalement le processus, vous pouvez utiliser les comportements .NET actuels pour injecter des dépendances et incorporer l’intergiciel dans votre application de fonction. 
 
-## <a name="supported-versions"></a>Versions prises en charge
-
-Actuellement, seule la version .NET 5.0 est prise en charge pour l’exécution hors processus.
+[!INCLUDE [functions-dotnet-supported-versions](../../includes/functions-dotnet-supported-versions.md)]
 
 ## <a name="net-isolated-project"></a>Projet isolé .NET
 

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8edceb31a0cdde36c987076e91350116a4f81255
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf76427df2c1802ed49dc5ff848059d88ba9658e
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782399"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558545"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Développer des applications sécurisées sur Azure
 
@@ -36,7 +36,7 @@ Supposons que votre application soit utilisée d’une manière que vous ne souh
 
 ### <a name="perform-code-reviews"></a>Effectuer des révisions de code
 
-Avant d’archiver du code, [révisez-le](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) pour augmenter la qualité globale du code et réduire le risque de création de bogues. Vous pouvez utiliser [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs) pour gérer le processus de révision de code.
+Avant d’archiver du code, révisez-le pour augmenter la qualité globale du code et réduire le risque de création de bogues. Vous pouvez utiliser [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs) pour gérer le processus de révision de code.
 
 ### <a name="perform-static-code-analysis"></a>Effectuer une analyse du code statique
 

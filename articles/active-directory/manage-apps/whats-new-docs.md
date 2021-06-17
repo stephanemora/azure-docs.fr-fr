@@ -1,30 +1,37 @@
 ---
 title: Nouveautés dans la gestion des applications Azure Active Directory
 description: Gestion des applications Azure Active Directory - Nouvelle documentation et documentation mise à jour
-ms.date: 05/04/2021
+ms.date: 06/02/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: iangithinji
-author: iantheninja
+ms.author: mtillman
+author: mtillman
 manager: CelesteDG
-ms.openlocfilehash: 19fbfbed3a86575eb38fd2651cab9fffeabb673f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 361fb5cc46d356fbab53defc5c3add4d7a5b768b
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743864"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079190"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestion des applications Azure Active Directory : Nouveautés
 
 Nouveautés de la documentation relative à la gestion des applications Azure Active Directory Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés en matière de gestion des applications d’entreprise, consultez [Nouveautés d’Azure Active Directory](../fundamentals/whats-new.md).
 
+## <a name="may-2021"></a>Mai 2021
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Gestion des applications Azure Active Directory : Nouveautés](whats-new-docs.md)
+
+
 ## <a name="april-2021"></a>Avril 2021
 
 ### <a name="new-articles"></a>Nouveaux articles
 
-- [Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory](application-proxy-faq.yml)
+- [Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory](../app-proxy/application-proxy-faq.yml)
 
 ### <a name="updated-articles"></a>Articles mis à jour
 

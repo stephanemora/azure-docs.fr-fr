@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d4c2be170ad66b12a4ea176937565755ec514832
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 9f8f09b61998c0b9c2d46291e4559741beac8acc
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134642"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812488"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurer un environnement intermédiaire dans Azure Spring Cloud
 
@@ -68,7 +68,7 @@ Pour générer l'application, procédez comme suit :
 4. Générez le fichier .jar :
 
    ```azurecli
-   mvn clean packge -DskipTests
+   mvn clean package -DskipTests
    ```
 5. Créez l’application dans votre instance d’Azure Spring Cloud :
 
