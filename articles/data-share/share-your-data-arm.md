@@ -5,14 +5,14 @@ author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 08/19/2020
-ms.openlocfilehash: 5abe92120c8b822ac86ced90658869a0858d4ff4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8a211c6cb3a405b1d3f022dfa02673d6a6db942
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92487685"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705190"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>Démarrage rapide : Partager des données à l’aide d’Azure Data Share et d’un modèle ARM
 

@@ -1,19 +1,17 @@
 ---
 title: Filtrage avancé – Azure Event Grid IoT Edge | Microsoft Docs
 description: Filtrage avancé dans Event Grid sur IoT Edge.
-author: HiteshMadan
 manager: rajarv
-ms.author: himad
 ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: e42bb29a00486a16d697b68d7bcf337017da7998
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d0f146f66e2779a9ee8187f3ac06c72d884e9d8a
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368922"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755624"
 ---
 # <a name="advanced-filtering"></a>Filtrage avancé
 Event Grid permet de spécifier des filtres sur n’importe quelle propriété de la charge utile JSON. Ces filtres sont modélisés sous la forme d’un ensemble de conditions `AND`, chaque condition externe comportant des conditions `OR` internes facultatives. Pour chaque condition `AND` sont spécifiées les valeurs suivantes :
