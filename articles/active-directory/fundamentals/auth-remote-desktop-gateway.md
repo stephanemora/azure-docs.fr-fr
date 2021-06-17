@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97f43ee22ade532ab8efd633c0c332b78e73263f
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 9208a0076038dd9977c1488ab25836e249e290d0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108181145"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966015"
 ---
 # <a name="remote-desktop-gateway-services"></a>Services de passerelle Bureau à distance
 
@@ -44,7 +44,6 @@ Vous devez fournir un accès à distance et protéger votre déploiement RDS pa
 
 ## <a name="implement-remote-desktop-gateway-services-with-azure-ad"></a>Implémenter des services de passerelle Bureau à distance avec Azure AD
 
-* [Publier le Bureau à distance avec Proxy d’application d’Azure AD](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md) 
+* [Publier le Bureau à distance avec Proxy d’application d’Azure AD](../app-proxy/application-proxy-integrate-with-remote-desktop-services.md) 
 
 * [Ajouter une application locale pour un accès à distance via le service Proxy d’application d’Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md)
-

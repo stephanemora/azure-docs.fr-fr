@@ -3,19 +3,19 @@ title: Données de télémétrie et de journalisation pour les conteneurs d’an
 titleSuffix: Azure Cognitive Services
 description: L’analyse spatiale fournit à chaque conteneur des insights sur l’infrastructure de configuration commune, la journalisation et les paramètres de sécurité communs.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
-ms.openlocfilehash: 901e857a346b0955726c5755e23595efefbc2ca1
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.date: 06/08/2021
+ms.author: pafarley
+ms.openlocfilehash: 08afa72507bb5689dbd1a003cb776958d6e63f1d
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589497"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746444"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Télémétrie et résolution des problèmes
 
@@ -301,14 +301,6 @@ Le tableau suivant répertorie les attributs de la réponse à la requête.
 Vérifiez les lignes, les heures et les tailles du journal extrait. Si ces paramètres semblent corrects, remplacez ***DoPost*** par `true` pour envoyer les journaux avec les mêmes filtres aux destinations. 
 
 Vous pouvez exporter les journaux à partir du stockage d’objets Blob Azure lors de la résolution des problèmes. 
-
-## <a name="common-issues"></a>Problèmes courants
-
-Si vous voyez le message suivant dans les journaux de module, cela peut signifier que votre abonnement Azure doit être approuvé : 
-
-«Le conteneur n’est pas dans un état valide. La validation de l’abonnement a échoué avec l’état « Incompatibilité ». La clé API n’est pas destinée au type de conteneur donné. »
-
-Pour plus d’informations, consultez [Demande d’approbation pour l’exécution du conteneur](spatial-analysis-container.md#request-approval-to-run-the-container).
 
 ## <a name="troubleshooting-the-azure-stack-edge-device"></a>Résolution des problèmes avec les appareils Azure Stack Edge
 

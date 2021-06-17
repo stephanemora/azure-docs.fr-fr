@@ -12,39 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/04/2021
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 1c20190ba1a997ef85f4023a54ecea3c2a77ae53
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 18333b7c9fded73d330cacd6322b0869bf65f9d9
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183826"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071080"
 ---
 # <a name="manage-a-manual-qos-capacity-pool"></a>Gérer un pool de capacités de QoS manuel
 
 Cet article explique comment gérer un pool de capacités qui utilise le type QoS manuelle.  
 
 Pour comprendre les considérations relatives aux types de QoS, consultez [Hiérarchie de stockage d’Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md) et [Considérations relatives aux performances pour Azure NetApp Files](azure-netapp-files-performance-considerations.md).  
-
-## <a name="register-the-feature"></a>Inscrire la fonctionnalité
-Actuellement, la fonctionnalité du type QoS manuelle est disponible en préversion. Si vous utilisez cette fonctionnalité pour la première fois, vous devez commencer par l’inscrire.
-  
-1.  Inscrivez la fonctionnalité :
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexPool
-    ```
-
-2. Vérifiez l’état d’inscription de la fonctionnalité : 
-
-    > [!NOTE]
-    > **RegistrationState** peut être à l’état `Registering` pendant plusieurs minutes, et jusqu’à 60 minutes, avant de passer à l’état `Registered`. Avant de continuer, attendez que l’état soit **Inscrit**.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexPool
-    ```
-Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
 
 ## <a name="set-up-a-new-manual-qos-capacity-pool"></a>Configurer un nouveau pool de capacités avec QoS manuelle 
 

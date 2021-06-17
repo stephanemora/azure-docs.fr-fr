@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 9487fc562fa099d2650aabc8d15fc1449c7fcb5c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37dfd5adcfa00377980933e67c8881aaef6d8dd8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97825184"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746102"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flux d'appareils IoT Hub (préversion)
 
@@ -153,64 +153,6 @@ Deux côtés de chaque flux (côté appareil et côté service) utilisent le SDK
 * Les SDK C et C# prennent en charge les flux d'appareils côté appareil.
 
 * Les SDK NodeJS et C# prennent en charge les flux d'appareils côté service.
-
-## <a name="iot-hub-device-stream-samples"></a>Exemples de flux d’appareils IoT Hub
-
-Deux [exemples de démarrage rapide](./index.yml) sont disponibles sur la page IoT Hub. Ils illustrent l’utilisation des flux d’appareils par les applications.
-
-* L’exemple *écho* illustre l’utilisation programmatique des flux d’appareils (en appelant directement les API du SDK).
-
-* L’exemple *proxy local* illustre le tunneling du trafic d’application client/serveur du commerce (par exemple, SSH, RDP ou web) via les flux d’appareils.
-
-Ces exemples sont traités plus en détail ci-dessous.
-
-### <a name="echo-sample"></a>Exemple écho
-
-L’exemple écho illustre l’utilisation programmatique des flux d’appareils pour envoyer et recevoir des octets entre les applications de service et d’appareil. Notez que vous pouvez utiliser des programmes de service et d’appareil dans différents langages. Par exemple, vous pouvez utiliser le programme d’appareil C avec le programme de service C#.
-
-Voici les exemples qui en découlent :
-
-* [Service et programme de service C#](quickstart-device-streams-echo-csharp.md)
-
-* [Programme de service Node.js](quickstart-device-streams-echo-nodejs.md)
-
-* [Programme d’appareil C](quickstart-device-streams-echo-c.md)
-
-### <a name="local-proxy-sample-for-ssh-or-rdp"></a>Exemple de proxy local (pour SSH ou RDP)
-
-L’exemple de proxy local illustre un moyen d'activer le tunneling d'un trafic d'application existante impliquant une communication entre un client et un programme de serveur. Cette configuration fonctionne pour les protocoles client/serveur tels que SSH et RDP, où le côté service agit en tant que client (exécutant les programmes clients SSH ou RDP), et le côté appareil en tant que serveur (exécutant le démon SSH ou les programmes de serveur RDP).
-
-Cette section décrit l’utilisation des flux d’appareils pour permettre à l’utilisateur d’exécuter SSH sur un appareil via des flux d’appareils (le cas de RDP ou d’une autre application client/serveur est similaire en utilisant le port correspondant du protocole).
-
-La configuration s’appuie sur deux programmes de *proxy local* illustrés dans la figure ci-dessous, à savoir *proxy local appareil* et *proxy local service*. Les programmes de proxy local sont chargés d’effectuer la [liaison d’initiation des flux d’appareils](#device-stream-creation-flow) avec IoT Hub ainsi que d’interagir avec le client SSH et le démon SSH à l’aide de sockets client/serveur classiques.
-
-![« Configuration de proxy de flux d’appareil pour SSH/RDP »](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png)
-
-1. L’utilisateur exécute un proxy local de service pour initier un flux vers l'appareil.
-
-2. Le proxy local d’appareil accepte la demande d’initiation de flux et le tunnel est établi au point de terminaison de streaming IoT Hub (comme indiqué ci-dessus).
-
-3. Le proxy local d'appareil se connecte au point de terminaison du démon SSH qui écoute sur le port 22 de l'appareil.
-
-4. Le proxy local de service écoute sur un port désigné en attendant les nouvelles connexions SSH de l’utilisateur (le port 2222 est utilisé dans l’exemple, mais tout autre port disponible peut être configuré). L’utilisateur pointe le client SSH vers le port du proxy local de service sur l'hôte local.
-
-### <a name="notes"></a>Notes
-
-* Les étapes ci-dessus permettent d'établir un tunnel de bout en bout entre le client SSH (à droite) et le démon SSH (à gauche). Une partie de cette connectivité de bout en bout implique l’envoi de trafic sur un flux d’appareil à IoT Hub.
-
-* Les flèches de la figure indiquent le sens dans lequel les connexions sont établies entre les points de terminaison. Plus précisément, notez qu’il n’existe aucune connexion entrante vers l’appareil (elles sont souvent bloquées par un pare-feu).
-
-* L’utilisation du port 2222 sur le proxy local de service est un choix arbitraire. Le proxy peut être configuré pour utiliser tout autre port disponible.
-
-* Le choix du port 22 dépend du protocole et est propre à SSH dans le cas présent. Pour RDP, le port 3389 doit être utilisé. Cela peut être configuré dans les exemples de programmes fournis.
-
-Utilisez les liens ci-dessous pour obtenir des instructions sur l'exécution de programmes de proxy local dans le langage de votre choix. Comme pour l’[exemple écho](#echo-sample), vous pouvez exécuter des programmes de proxy local d’appareil et de service dans différents langages, car ils sont pleinement interopérables.
-
-* [Service et programme de service C#](quickstart-device-streams-proxy-csharp.md)
-
-* [Programme de service Node.js](quickstart-device-streams-proxy-nodejs.md)
-
-* [Programme d’appareil C](quickstart-device-streams-proxy-c.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

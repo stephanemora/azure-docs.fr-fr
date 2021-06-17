@@ -4,20 +4,20 @@ description: Comment utiliser Node.js pour créer un programme qui se connecte �
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.devlang: nodejs
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer: v-masebo
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma, v-masebo
 ms.date: 05/19/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js
-ms.openlocfilehash: 31901c456c31b5b63bb6e7201dcb9a980107a89a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0e0ec8f4cc5106ac0e9a9e72f4d9b6c0186c5fe3
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110473637"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706401"
 ---
 # <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Démarrage rapide : Utiliser Node.js pour interroger une base de données dans Azure SQL Database ou Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

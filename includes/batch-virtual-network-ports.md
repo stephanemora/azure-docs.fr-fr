@@ -10,15 +10,15 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 04/23/2021
+ms.date: 06/09/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 3100e84255f95b2154f7e8d0ce47024546383da4
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: 694bf49db5a77e09d421b94797166bae2fe16685
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107990463"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903079"
 ---
 ### <a name="general-requirements"></a>Conditions générales
 
@@ -61,7 +61,7 @@ Le sous-réseau doit autoriser les communications entrantes issues du service Ba
 
 #### <a name="network-security-groups-specifying-subnet-level-rules"></a>Groupes de sécurité réseau : spécification de règles au niveau du sous-réseau
 
-Vous n’avez pas besoin de spécifier des groupes de sécurité réseau au niveau du sous-réseau du réseau virtuel, car Batch configure ses propres groupes de sécurité réseau (voir ci-dessus). Si vous avez un groupe de sécurité réseau associé au sous-réseau dans lequel les nœuds de calcul Batch sont déployés ou si vous souhaitez appliquer des règles de groupe de sécurité réseau personnalisées pour remplacer celles appliquées par défaut, vous devez configurer ce groupe de sécurité réseau avec au moins les règles de sécurité entrantes et sortantes montrées dans les tableaux suivants.
+Si vous avez un groupe de sécurité réseau associé au sous-réseau dans lequel les nœuds de calcul Batch sont déployés ou si vous souhaitez appliquer des règles de groupe de sécurité réseau personnalisées pour remplacer celles appliquées par défaut, vous devez configurer ce groupe de sécurité réseau avec au moins les règles de sécurité entrantes et sortantes montrées dans les tableaux suivants.
 
 Configurez le trafic entrant sur le port 3389 (Windows) ou 22 (Linux) uniquement si vous avez besoin d’autoriser l’accès à distance aux nœuds de calcul depuis des sources externes. Vous devrez peut-être activer les règles du port 22 sur Linux si vous avez besoin de la prise en charge des tâches multi-instances avec certains runtimes MPI. Le fait d’autoriser le trafic sur ces ports n’est pas strictement nécessaire pour que les nœuds de calcul du pool soient utilisables.
 

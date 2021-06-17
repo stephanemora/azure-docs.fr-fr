@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/11/2021
+ms.date: 04/16/2021
 ms.author: aahi
-ms.openlocfilehash: a74c0cad971389168d643c9504f5bb809438a1ea
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 6c13134ded2ef276520835880f9dda331232709a
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106097774"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111761471"
 ---
 ### <a name="financial-account-identification"></a>Identification de compte financier
 
@@ -235,6 +235,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `AUDriversLicenseNumber` au `pii-categories` paramètre. `AUDriversLicenseNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -287,6 +288,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `AUDriversLicense` au `pii-categories` paramètre. `AUDriversLicense` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -304,6 +306,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `AUMedicalAccountNumber` au `pii-categories` paramètre. `AUMedicalAccountNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -361,6 +364,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `BENationalNumber` au `pii-categories` paramètre. `BENationalNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -404,6 +408,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `BRLegalEntityNumber` au `pii-categories` paramètre. `BRLegalEntityNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -422,6 +427,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `BRCPFNumber` au `pii-categories` paramètre. `BRCPFNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -439,6 +445,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `BRNationalIDRG` au `pii-categories` paramètre. `BRNationalIDRG` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -460,7 +467,8 @@ Les entités suivantes sont regroupées et listées par pays :
         **Détails**
 
         Pour accéder à cette catégorie d’entité, ajoutez `CABankAccountNumber` au `pii-categories` paramètre. `CABankAccountNumber` est retourné dans la réponse de l’API si elle est détectée.
-      
+    
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -480,6 +488,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `CADriversLicenseNumber` au `pii-categories` paramètre. `CADriversLicenseNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
 
     :::column span="":::
@@ -500,6 +509,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `CAHealthServiceNumber` au `pii-categories` paramètre. `CAHealthServiceNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
 
     :::column span="":::
@@ -534,6 +544,8 @@ Les entités suivantes sont regroupées et listées par pays :
     :::column span="2":::
 
         Pour accéder à cette catégorie d’entité, ajoutez `CAPersonalHealthIdentification` au `pii-categories` paramètre. `CAPersonalHealthIdentification` est retourné dans la réponse de l’API si elle est détectée.
+
+        Également retourné avec `domain=phi`.
       
     :::column-end:::
     :::column span="":::
@@ -552,6 +564,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `CASocialInsuranceNumber` au `pii-categories` paramètre. `CASocialInsuranceNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -574,6 +587,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `CLIdentityCardNumber` au `pii-categories` paramètre. `CLIdentityCardNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -597,6 +611,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `CNResidentIdentityCardNumber` au `pii-categories` paramètre. `CNResidentIdentityCardNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -621,6 +636,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `EUDebitCardNumber` au `pii-categories` paramètre. `EUDebitCardNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -639,6 +655,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `EUDriversLicenseNumber` au `pii-categories` paramètre. `EUDriversLicenseNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -673,6 +690,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `EUNationalIdentificationNumber` au `pii-categories` paramètre. `EUNationalIdentificationNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -707,6 +725,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `EUSocialSecurityNumber` au `pii-categories` paramètre. `EUSocialSecurityNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -746,6 +765,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `FRDriversLicenseNumber` au `pii-categories` paramètre. `FRDriversLicenseNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -781,6 +801,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `FRNationalID` au `pii-categories` paramètre. `FRNationalID` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -815,6 +836,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `FRSocialSecurityNumber` au `pii-categories` paramètre. `FRSocialSecurityNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -871,6 +893,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `DEDriversLicenseNumber` au `pii-categories` paramètre. `DEDriversLicenseNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -889,6 +912,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `DEIdentityCardNumber` au `pii-categories` paramètre. `DEIdentityCardNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -963,6 +987,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `HKIdentityCardNumber` au `pii-categories` paramètre. `HKIdentityCardNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -1043,6 +1068,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `INPermanentAccount` au `pii-categories` paramètre. `INPermanentAccount` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -1062,6 +1088,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `INUniqueIdentificationNumber` au `pii-categories` paramètre. `INUniqueIdentificationNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1086,6 +1113,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `IDIdentityCardNumber` au `pii-categories` paramètre. `IDIdentityCardNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -1109,6 +1137,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `IEPersonalPublicServiceNumber` au `pii-categories` paramètre. `IEPersonalPublicServiceNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -1167,7 +1196,8 @@ Les entités suivantes sont regroupées et listées par pays :
     :::column span="2":::
 
         Pour accéder à cette catégorie d’entité, ajoutez `ILBankAccountNumber` au `pii-categories` paramètre. `ILBankAccountNumber` est retourné dans la réponse de l’API si elle est détectée.
-      
+    
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1190,6 +1220,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `ITDriversLicenseNumber` au `pii-categories` paramètre. `ITDriversLicenseNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -1248,6 +1279,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `JPBankAccountNumber` au `pii-categories` paramètre. `JPBankAccountNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -1266,6 +1298,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `JPDriversLicenseNumber` au `pii-categories` paramètre. `JPDriversLicenseNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1317,6 +1350,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `ITValueAddedTaxNumber` au `pii-categories` paramètre. `ITValueAddedTaxNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1334,6 +1368,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `JPResidenceCardNumber` au `pii-categories` paramètre. `JPResidenceCardNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1351,6 +1386,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `JPSocialInsuranceNumber` au `pii-categories` paramètre. `JPSocialInsuranceNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1523,6 +1559,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `NZMinistryOfHealthNumber` au `pii-categories` paramètre. `NZMinistryOfHealthNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1563,6 +1600,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `PHUnifiedMultiPurposeIDNumber` au `pii-categories` paramètre. `PHUnifiedMultiPurposeIDNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -1585,7 +1623,8 @@ Les entités suivantes sont regroupées et listées par pays :
         **Détails**
 
         Pour accéder à cette catégorie d’entité, ajoutez `PTCitizenCardNumber` au `pii-categories` paramètre. `PTCitizenCardNumber` est retourné dans la réponse de l’API si elle est détectée.
-      
+          
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -1604,6 +1643,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `PTTaxIdentificationNumber` au `pii-categories` paramètre. `PTTaxIdentificationNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1650,6 +1690,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `ZAIdentificationNumber` au `pii-categories` paramètre. `ZAIdentificationNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -1674,6 +1715,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `KRResidentRegistrationNumber` au `pii-categories` paramètre. `KRResidentRegistrationNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -1715,6 +1757,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `ESSocialSecurityNumber` au `pii-categories` paramètre. `ESSocialSecurityNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1778,6 +1821,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `TWNationalID` au `pii-categories` paramètre. `TWNationalID` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -1796,6 +1840,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `TWResidentCertificate` au `pii-categories` paramètre. `TWResidentCertificate` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1835,6 +1880,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `UKDriversLicenseNumber` au `pii-categories` paramètre. `UKDriversLicenseNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -1854,6 +1900,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `UKNationalInsuranceNumber` au `pii-categories` paramètre. `UKNationalInsuranceNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1871,6 +1918,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `UKNationalHealthNumber` au `pii-categories` paramètre. `UKNationalHealthNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1888,6 +1936,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `UKNationalInsuranceNumber` au `pii-categories` paramètre. `UKNationalInsuranceNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -1945,6 +1994,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `USSocialSecurityNumber` au `pii-categories` paramètre. `USSocialSecurityNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
       **Langues de document prises en charge**
@@ -1963,6 +2013,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `USDriversLicenseNumber` au `pii-categories` paramètre. `USDriversLicenseNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -2014,6 +2065,7 @@ Les entités suivantes sont regroupées et listées par pays :
 
         Pour accéder à cette catégorie d’entité, ajoutez `DrugEnforcementAgencyNumber` au `pii-categories` paramètre. `DrugEnforcementAgencyNumber` est retourné dans la réponse de l’API si elle est détectée.
       
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
@@ -2030,7 +2082,8 @@ Les entités suivantes sont regroupées et listées par pays :
     :::column span="2":::
 
         Pour accéder à cette catégorie d’entité, ajoutez `USBankAccountNumber` au `pii-categories` paramètre. `USBankAccountNumber` est retourné dans la réponse de l’API si elle est détectée.
-      
+        
+        Également retourné avec `domain=phi`.
     :::column-end:::
     :::column span="":::
 
