@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 79749533d636f4b73ff3bef6b12d9e842ac485ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 210ed6e3a73721a7b4b4508071dc98e0bfd27498
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96905152"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031652"
 ---
 # <a name="define-and-use-moderation-workflows-api-console"></a>Définir et utiliser des flux de travail de modération (console d’API)
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 Les flux de travail sont des filtres personnalisés basés sur le cloud qui vous permettent de gérer plus efficacement le contenu. Flux de travail peut se connecter à une variété de services pour filtrer le contenu de différentes façons et puis exécutez l’action appropriée. Ce guide vous montre comment utiliser les API REST de flux de travail via la console d’API pour créer et utiliser des flux de travail. Une fois que vous aurez compris la structure des API, vous pourrez facilement déplacer ces appels vers n’importe quelle plateforme compatible avec REST.
 

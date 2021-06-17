@@ -1,0 +1,127 @@
+- name: Documentation Azure Video Analyzer for Media
+  href: ./index.yml
+- name: Vue d’ensemble
+  items:
+    - name: "Qu’est-ce que Video Analyzer for Media\_?"
+      href: video-indexer-overview.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: Bien démarrer
+      href: video-indexer-get-started.md
+    - name: Inviter des utilisateurs
+      href: invite-users.md
+- name: Tutoriels
+  items:
+    - name: Créer un nouveau compte
+      href: connect-to-azure.md
+    - name: Utiliser l’API Video Analyzer for Media
+      href: video-indexer-use-apis.md
+    - name: Connecteur Logic Apps
+      href: logic-apps-connector-tutorial.md
+- name: Exemples
+  items:
+    - name: Exemples Video Analyzer for Media
+      href: 'https://github.com/Azure-Samples/media-services-video-indexer'
+- name: Concepts
+  items:
+    - name: Vue d’ensemble
+      href: concepts-overview.md
+    - name: Comparer les préréglages de Video Analyzer for Media et Media Services
+      href: compare-video-indexer-with-media-services-presets.md
+    - name: Gérer plusieurs locataires
+      href: manage-multiple-tenants.md
+    - name: Modèle d’identification de langues
+      href: language-identification-model.md
+    - name: Analyse de stream en direct
+      href: live-stream-analysis.md
+    - name: Personnes observées
+      href: observed-people-tracing.md
+    - name: Détection des effets audio
+      href: audio-effects-detection.md
+    - name: Personnalisation de modèles de contenu
+      items:
+        - name: Vue d’ensemble
+          href: customize-content-models-overview.md
+        - name: Personnages animés
+          href: animated-characters-recognition.md
+        - name: Marques
+          href: customize-brands-model-overview.md
+        - name: Langage
+          href: customize-language-model-overview.md
+        - name: Personne
+          href: customize-person-model-overview.md
+- name: Guides pratiques
+  items:
+    - name: Gérer le compte connecté à Azure
+      href: manage-account-connected-to-azure.md
+    - name: Charger et indexer des vidéos
+      href: upload-index-videos.md
+    - name: Examiner la sortie d’Azure Video Analyzer for Media
+      href: video-indexer-output-json-v2.md
+    - name: Rechercher des instants précis dans les vidéos
+      displayName: search
+      href: video-indexer-search.md
+    - name: 'Détecter des scènes, des plans et des images clés'
+      href: scenes-shots-keyframes.md
+    - name: Identifier et transcrire un contenu multilingue
+      href: multi-language-identification-transcription.md
+    - name: Afficher et modifier les insights
+      href: video-indexer-view-edit.md
+    - name: Utiliser l’éditeur pour créer des projets
+      href: use-editor-create-project.md
+    - name: Incorporer des widgets dans votre application
+      href: video-indexer-embed-widgets.md
+    - name: Points à prendre en compte lors de l’utilisation de Video Analyzer for Media à grande échelle
+      href: considerations-when-use-at-scale.md
+    - name: Récupération d'urgence
+      href: video-indexer-disaster-recovery.md
+    - name: Personnaliser des modèles de contenu
+      items:
+        - name: Personnages animés
+          href: animated-characters-recognition-how-to.md
+        - name: Personne
+          items:
+            - name: utiliser le site web
+              href: customize-person-model-with-website.md
+            - name: utiliser l'API
+              href: customize-person-model-with-api.md
+        - name: Marques
+          items:
+            - name: utiliser le site web
+              href: customize-brands-model-with-website.md
+            - name: utiliser l'API
+              href: customize-brands-model-with-api.md
+        - name: Langage
+          items:
+            - name: utiliser le site web
+              href: customize-language-model-with-website.md
+            - name: utiliser l'API
+              href: customize-language-model-with-api.md
+- name: Informations de référence
+  items:
+    - name: API Video Analyzer for Media
+      href: 'https://api-portal.videoindexer.ai/'
+- name: Ressources
+  items:
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Régions
+      displayName: location
+      href: regions.md
+    - name: FAQ
+      href: faq.md
+    - name: Conformité
+      href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'
+    - name: Notes de publication
+      href: release-notes.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=video-indexer'
+    - name: User voice
+      href: 'https://aka.ms/UserVoiceVI'
+    - name: Blogs
+      href: 'https://azure.microsoft.com/blog/tag/video-indexer/'

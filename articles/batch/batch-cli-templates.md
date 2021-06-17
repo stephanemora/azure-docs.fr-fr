@@ -2,14 +2,14 @@
 title: Exécuter des travaux de bout en bout à l’aide de modèles
 description: En utilisant juste des commandes CLI, vous pouvez créer un pool, charger des données d’entrée, créer des travaux et des tâches associées, et télécharger les données de sortie produites.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 06/14/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 845a32c2feda5a5a3b8d44d237c62db94cae1779
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad7882276c53f6bee8fa32592ad474f47697c27a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91848719"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078363"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Utiliser des modèles d’interface de ligne de commande Azure Batch et le transfert de fichiers
 
@@ -18,7 +18,7 @@ Vous pouvez utiliser une extension Batch de l’interface Azure CLI pour exécu
 Créez et utilisez des modèles de fichier JSON avec Azure CLI pour créer des pools, travaux et tâches Batch. Utilisez des commandes d’extension LCI pour charger facilement les fichiers d’entrée des travaux dans le compte de stockage associé au compte Batch, et télécharger les fichiers de sortie de travaux.
 
 > [!NOTE]
-> Les fichiers JSON ne prennent pas en charge les mêmes fonctionnalités que [les modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Ils sont conçus pour être mis en forme comme le corps de la demande REST brute. L’extension CLI ne modifie pas les commandes existantes, mais elle possède une option de modèle similaire qui ajoute une fonctionnalité partielle de modèle Azure Resource Manager. Voir [Extensions CLI d’Azure Batch pour Windows, Mac et Linux](https://github.com/Azure/azure-batch-cli-extensions).
+> Les fichiers JSON ne prennent pas en charge les mêmes fonctionnalités que [les modèles Azure Resource Manager](../azure-resource-manager/templates/syntax.md). Ils sont conçus pour être mis en forme comme le corps de la demande REST brute. L’extension CLI ne modifie pas les commandes existantes, mais elle possède une option de modèle similaire qui ajoute une fonctionnalité partielle de modèle Azure Resource Manager. Voir [Extensions CLI d’Azure Batch pour Windows, Mac et Linux](https://github.com/Azure/azure-batch-cli-extensions).
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -121,7 +121,7 @@ Voici l’exemple d’un modèle qui crée un pool de machines virtuelles Linux 
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",
             "enableAutoScale": false,
-            "taskSlotsPerNode": 1,
+            "maxTasksPerNode": 1,
             "packageReferences": [
                 {
                     "type": "aptPackage",
