@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: cd2fd8dc8c10864089b198db1ca1089f994a3ffb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a6f146fac4e2989e03382ef4879b305410fab6d8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98788449"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969391"
 ---
 # <a name="testing-for-luis-devops"></a>Tests pour LUIS dans DevOps
 
@@ -25,7 +25,7 @@ Les tests constituent une partie essentielle des [flux de travail CI/CD](luis-co
 Il existe deux types de tests pour une application LUIS à exécuter dans les flux de travail d’intégration continue :
 
 - Les **tests unitaires** qui sont relativement simples et vérifient la fonctionnalité clé de votre application LUIS. Un test unitaire est validé lorsque l’intention prévue et les entités attendues sont retournées pour un énoncé de test donné. Tous les tests unitaires doivent être validés pour que la série de tests se termine correctement.  
-Ce type de test est similaire aux [tests interactifs](./luis-concept-test.md) que vous pouvez effectuer dans le [portail LUIS](https://www.luis.ai/).
+Ce type de test est similaire aux [tests interactifs](./luis-interactive-test.md) que vous pouvez effectuer dans le [portail LUIS](https://www.luis.ai/).
 
 - Les **tests par lot** sont plus complets et concernent votre modèle en cours d’apprentissage afin d’en mesurer les performances. Contrairement aux tests unitaires, les tests par lot ne sont pas validés ou bloqués. Les tests par lot ne retournent pas forcément l’intention et les entités attendues. Au lieu de cela, un test par lot vous aide à afficher la précision de chaque intention et entité dans votre application et vous aide à effectuer des comparaisons au fil du temps à mesure que vous apportez des améliorations.  
 Ce type de test est le même que les [tests par lot](./luis-how-to-batch-test.md) que vous pouvez effectuer de manière interactive dans le portail LUIS.
@@ -91,7 +91,7 @@ Les ensembles de tests par lot doivent contenir un grand nombre de cas de test, 
 
 Le portail LUIS offre des fonctionnalités pour faciliter les tests interactifs :
 
-* Les [**tests interactifs**](./luis-concept-test.md) vous permettent de soumettre un exemple d’énoncé et d’obtenir une réponse à des intentions et des entités reconnues par LUIS. Vous pouvez vérifier si le test est validé par une simple inspection visuelle.
+* Les [**tests interactifs**](./luis-interactive-test.md) vous permettent de soumettre un exemple d’énoncé et d’obtenir une réponse à des intentions et des entités reconnues par LUIS. Vous pouvez vérifier si le test est validé par une simple inspection visuelle.
 
 * Les [**tests par lot**](./luis-how-to-batch-test.md) utilisent un fichier de test par lot comme source pour valider votre version entraînée active afin de mesurer la précision des prédictions. Un test par lot vous permet de visualiser la précision de chaque intention et entité dans votre version active, affichant ainsi les résultats avec un graphique.
 
@@ -136,4 +136,4 @@ Si vous souhaitez désactiver l’apprentissage non déterministe pour les versi
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur l’[implémentation de flux de travail d’intégration en CI/CD](luis-concept-devops-automation.md)
-* Comment [implémenter DevOps pour LUIS avec GitHub](luis-how-to-devops-with-github.md)
+* Comment [implémenter DevOps pour LUIS avec GitHub](./luis-concept-devops-automation.md)

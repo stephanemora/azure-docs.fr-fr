@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7db7accec4b87f7bc8c3e38b409902fd4439851f
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 8d7238aea62b3532461cd40404b683e18227386f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108018704"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950989"
 ---
 # <a name="use-the-persondirectory-structure"></a>Utiliser la structure PersonDirectory
 
@@ -353,7 +353,7 @@ HttpResponseMessage response;
 // Request body
 var body = new Dictionary<string, object>();
 body.Add("faceIds", new List<string>{"{guid1}", "{guid2}", …});
-body.Add("personIds", "['*']");
+body.Add("personIds", new List<string>{"{guid1}", "{guid2}", …});
 byte[] byteData = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(body));
 
 using (var content = new ByteArrayContent(byteData))
@@ -398,4 +398,4 @@ La réponse contient une valeur booléenne indiquant si le service considère qu
 
 Dans ce guide, vous avez appris à utiliser la structure **PersonDirectory** afin de stocker les données relatives aux visages et aux personnes de votre application Visage. Découvrez ensuite les meilleures pratiques à adopter pour ajouter les données de visage de vos utilisateurs.
 
-* [Bonnes pratiques pour ajouter des utilisateurs](https://docs.microsoft.com/azure/cognitive-services/face/enrollment-overview)
+* [Bonnes pratiques pour ajouter des utilisateurs](../enrollment-overview.md)

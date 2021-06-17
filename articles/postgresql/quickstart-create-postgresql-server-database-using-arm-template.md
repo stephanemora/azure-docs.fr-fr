@@ -5,14 +5,14 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 02/11/2021
-ms.openlocfilehash: 33e074da8c9e028916552e45be0dfb9634a1d173
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 40e48cade82f8ffc808303dd43cb0d5f9ff5fe86
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277819"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984425"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Démarrage rapide : Création d’un serveur Azure Database pour PostgreSQL à l’aide d’un modèle ARM – Serveur unique
 
@@ -46,7 +46,7 @@ Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure
 
 Un serveur Azure Database pour PostgreSQL est créé. Il contient un ensemble configuré de ressources de calcul et de stockage. Pour plus d’informations, consultez [Niveaux tarifaires dans Azure Database pour PostgreSQL – Serveur unique](concepts-pricing-tiers.md). Vous créez ce serveur dans un [groupe de ressources Azure](../azure-resource-manager/management/overview.md).
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-managed-postgresql-with-vnet/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/managed-postgresql-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.dbforpostgresql/managed-postgresql-with-vnet/azuredeploy.json":::
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/09/2021
+ms.date: 06/03/2021
 ms.author: alkohli
-ms.openlocfilehash: f4f7e5f69e6b496395b74dbdcd58b3ada0a7f349
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: a68394b5db25565b44db0347a685d6cd67540170
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285194"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985703"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Sécurité et protection des données pour Azure Stack Edge Pro R et Azure Stack Edge Mini R
 
@@ -51,7 +51,7 @@ L’appareil robuste est un appareil local qui vous permet de transformer vos do
     - Pour le logiciel de l’appareil, les journaux de pare-feu par défaut sont collectés pour le trafic entrant et sortant à partir de l’appareil. Ces journaux sont regroupés dans le package de support.
     - Pour le matériel de l’appareil, tous les événements de châssis de périphérique, tels que l’ouverture et la fermeture du châssis de l’appareil, sont enregistrés dans l’appareil.
 
-    Pour plus d’informations sur les journaux spécifiques qui contiennent les événements d’intrusion matérielle et logicielle et sur la façon d’obtenir les journaux, accédez à [Collecter des journaux de sécurité avancés](azure-stack-edge-gpu-troubleshoot.md).
+    Pour plus d’informations sur les journaux spécifiques qui contiennent les événements d’intrusion matérielle et logicielle et sur la façon d’obtenir les journaux, accédez à [Collecter des journaux de sécurité avancés](azure-stack-edge-gpu-troubleshoot.md#gather-advanced-security-logs).
 
 
 ### <a name="protect-the-device-via-activation-key"></a>Protéger l’appareil via une clé d’activation

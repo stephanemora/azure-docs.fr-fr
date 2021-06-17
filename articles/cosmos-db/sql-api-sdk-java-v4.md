@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 213580eeb9495ecbc949eeb648533eb069c3d581
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: c8b1297d69de920e29cba4dba14b3d5f79c01427
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287137"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535576"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (SQL) : notes de publication et ressources
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -56,7 +56,7 @@ Le Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (S
 | Contenu | Lien |
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
-|**Documentation de l’API** | [Documentation de référence sur l’API Java](/java/api/overview/azure/cosmosdb/client) |
+|**Documentation de l’API** | [Documentation de référence sur l’API Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/latest/index.html) |
 |**Contribution au Kit de développement logiciel (SDK)** | [Référentiel centralisé relatif au Kit de développement logiciel (SDK) Azure pour Java sur GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) | 
 |**Prise en main** | [Démarrage rapide : Créer une application Java pour gérer les données de l’API SQL d’Azure Cosmos DB](./create-sql-api-java.md) <br> [Référentiel GitHub avec code de démarrage rapide](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**Exemples de code de base** | [Azure Cosmos DB : exemples Java pour l’API SQL](sql-api-java-sdk-samples.md) <br> [Référentiel GitHub avec exemple de code](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|

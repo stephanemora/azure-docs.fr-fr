@@ -3,12 +3,12 @@ title: Erreurs de modèle non valide
 description: Décrit comment résoudre les erreurs de modèle non valide quand vous déployez des modèles Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: ba19d3c4e72a765e2aaff7393915b77a80daf2ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 155adc03dfe7a25996b2004bff3aaac48dd6205c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96185791"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957583"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Résoudre les erreurs de modèle non valide
 
@@ -124,7 +124,7 @@ for the template parameter {parameter name} is not valid. The parameter value is
 part of the allowed values
 ```
 
-Vérifiez les valeurs autorisées dans le modèle et fournissez-en une pendant le déploiement. Pour plus d’informations sur les valeurs de paramètres autorisées, consultez [Section Parameters des modèles Azure Resource Manager](template-syntax.md#parameters).
+Vérifiez les valeurs autorisées dans le modèle et fournissez-en une pendant le déploiement. Pour plus d’informations sur les valeurs de paramètres autorisées, consultez [Section Parameters des modèles Azure Resource Manager](./syntax.md#parameters).
 
 <a id="too-many-resource-groups"></a>
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: 717c3c8052c89825b161f77614d7411c5912d1cd
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 58e1fad683f30c041cf5ca374e0340a81018f228
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799902"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007208"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Utiliser des nœuds de périphérie vides sur des clusters Apache Hadoop dans HDInsight
 
@@ -68,11 +68,11 @@ Après avoir créé un nœud de périphérie, vous pouvez vous connecter au nœu
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Ajouter un nœud de périmètre à un cluster existant
 
-Dans cette section, vous allez utiliser un modèle Resource Manager pour ajouter un nœud de périmètre à un cluster HDInsight existant.  Le modèle Resource Manager se trouve dans [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). Le modèle Resource Manager appelle une action de script située dans https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Le script n’effectue aucune action.  Cela sert à illustrer l’appel d’action de script à partir d’un modèle Resource Manager.
+Dans cette section, vous allez utiliser un modèle Resource Manager pour ajouter un nœud de périmètre à un cluster HDInsight existant.  Le modèle Resource Manager se trouve dans [GitHub](https://azure.microsoft.com/resources/templates/hdinsight-linux-add-edge-node/). Le modèle Resource Manager appelle une action de script située dans https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.hdinsight/hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Le script n’effectue aucune action.  Cela sert à illustrer l’appel d’action de script à partir d’un modèle Resource Manager.
 
 1. Sélectionnez l’image suivante pour vous connecter à Azure et ouvrir le modèle Azure Resource Manager dans le Portail Azure.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.hdinsight%2Fhdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 1. Configurez les propriétés suivantes :
 
@@ -90,13 +90,13 @@ Dans cette section, vous allez utiliser un modèle Resource Manager pour ajouter
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Ajouter un nœud de périmètre lors de la création d’un cluster
 
-Dans cette section, vous allez utiliser un modèle Resource Manager pour créer un cluster HDInsight avec un nœud de périmètre.  Le modèle Resource Manager se trouve dans la [galerie de modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Le modèle Resource Manager appelle une action de script située dans https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Le script n’effectue aucune action.  Cela sert à illustrer l’appel d’action de script à partir d’un modèle Resource Manager.
+Dans cette section, vous allez utiliser un modèle Resource Manager pour créer un cluster HDInsight avec un nœud de périmètre.  Le modèle Resource Manager se trouve dans la [galerie de modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/hdinsight-linux-with-edge-node/). Le modèle Resource Manager appelle une action de script située dans https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.hdinsight/hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Le script n’effectue aucune action.  Cela sert à illustrer l’appel d’action de script à partir d’un modèle Resource Manager.
 
 1. Créez un cluster HDInsight si vous n’avez pas encore.  Consultez [Prise en main de Hadoop dans HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 1. Sélectionnez l’image suivante pour vous connecter à Azure et ouvrir le modèle Azure Resource Manager dans le Portail Azure.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.hdinsight%2Fhdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 1. Configurez les propriétés suivantes :
 

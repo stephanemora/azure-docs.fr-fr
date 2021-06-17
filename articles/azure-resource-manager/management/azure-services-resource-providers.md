@@ -2,14 +2,14 @@
 title: Fournisseurs de ressources par les services Azure
 description: Répertorie tous les espaces de noms de fournisseurs de ressources pour Azure Resource Manager et affiche le service Azure de chaque espace de noms.
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 06/14/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 40c166a85da1ad5370b6e90096061790f1c77d49
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b83f0874527b366595f27aea6bab01afc1f8060b
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108745736"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071260"
 ---
 # <a name="resource-providers-for-azure-services"></a>Fournisseurs de ressources pour les services Azure
 
@@ -108,8 +108,8 @@ Les fournisseurs de ressources marqués avec **- inscrit** sont inscrits par dé
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
 | Microsoft.Intune | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.KeyVault | [Key Vault](../../key-vault/index.yml) |
-| Microsoft.Kubernetes | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
-| Microsoft.KubernetesConfiguration | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
+| Microsoft.Kubernetes | [Service Azure Kubernetes sur Azure Stack HCI](/azure-stack/aks-hci/) |
+| Microsoft.KubernetesConfiguration | [Service Azure Kubernetes sur Azure Stack HCI](/azure-stack/aks-hci/) |
 | Microsoft.Kusto | [Explorateur de données Azure](/azure/data-explorer/) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Logic | [Logic Apps](../../logic-apps/index.yml) |

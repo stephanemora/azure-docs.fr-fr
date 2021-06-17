@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/02/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 52b9bee1d43c0f136889a6a54277d4bb45dd4a45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 76ee3371134c66d6dcc5b4b07436e5c30a15f144
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101750782"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111449557"
 ---
 Vous pouvez choisir de gérer le chiffrement au niveau de chaque disque managé, avec vos propres clés. Le chiffrement côté serveur pour les disques managés avec des clés gérées par le client offre une expérience intégrée avec Azure Key Vault. Vous pouvez importer [vos clés RSA](../articles/key-vault/keys/hsm-protected-keys.md) vers votre Key Vault ou générer de nouvelles clés RSA dans Azure Key Vault. 
 
@@ -23,9 +23,7 @@ Les disques managés Azure gèrent le chiffrement et le déchiffrement de maniè
 
 Vous devez accorder l’accès aux disques managés dans votre Key Vault pour utiliser vos clés pour le chiffrement et le déchiffrement de la clé de chiffrement. Cela vous permet de contrôler intégralement vos données et vos clés. Vous pouvez désactiver vos clés ou révoquer l’accès aux disques managés à tout moment. Vous pouvez également auditer l’utilisation de la clé de chiffrement avec la surveillance Azure Key Vault pour vous assurer que seuls les disques managés ou d’autres services Azure approuvés accèdent à vos clés.
 
-Pour les SSD Premium, les SSD Standard et les HDD Standard : si vous désactivez ou supprimez votre clé, toutes les machines virtuelles comportant des disques qui utilisent cette clé s’arrêtent automatiquement. Elles ne seront plus utilisables tant que la clé n’aura pas été réactivée ou que vous n’aurez pas affecté une nouvelle clé.    
-
-Pour les Disques Ultra : si vous désactivez ou supprimez une clé, les machines virtuelles comportant des Disques Ultra qui utilisent cette clé ne s’arrêtent pas automatiquement. Une fois que vous aurez libéré et redémarré les machines virtuelles, les disques arrêteront d’utiliser la clé et les machines virtuelles ne sont plus en ligne. Pour les remettre en ligne, vous devrez affecter une nouvelle clé ou activer la clé existante.    
+si vous désactivez ou supprimez votre clé, toutes les machines virtuelles comportant des disques qui utilisent cette clé s’arrêtent automatiquement. Elles ne seront plus utilisables tant que la clé n’aura pas été réactivée ou que vous n’aurez pas affecté une nouvelle clé.    
 
 Le diagramme suivant montre comment les disques managés utilisent Azure Active Directory et Azure Key Vault pour effectuer des demandes en utilisant la clé gérée par le client :
 

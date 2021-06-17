@@ -2,13 +2,13 @@
 title: Sauvegarder une base de données SAP HANA sur Azure avec Sauvegarde Azure
 description: Dans cet article, découvrez comment sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: ab4b192c63697b398314f78518eaf8f90f17c452
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.date: 05/28/2021
+ms.openlocfilehash: 9267a3a27823249116e74c6aba9321cfdfd0e338
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277585"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681345"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Sauvegarder des bases de données SAP HANA dans des machines virtuelles Azure
 
@@ -84,7 +84,7 @@ Vous pouvez également utiliser les FQDN suivants pour autoriser l’accès aux 
 | Service    | Noms de domaine auxquels accéder                             |
 | -------------- | ------------------------------------------------------------ |
 | Sauvegarde Azure  | `*.backup.windowsazure.com`                             |
-| Stockage Azure | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
+| Stockage Azure | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` |
 | Azure AD      | Autoriser l’accès aux FQDN en vertu des sections 56 et 59 conformément à [cet article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Utiliser un serveur proxy HTTP pour acheminer le trafic

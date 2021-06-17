@@ -9,12 +9,12 @@ ms.custom:
 - subject-armqs
 - devx-track-js
 - mode-arm
-ms.openlocfilehash: 2f57e86421f7522467a3f4adf4a4e9a21456ba4c
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 2af957f6b69f2ef8c20672e62acaed5066a0d4d4
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107878737"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006153"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>Démarrage rapide : Déployer une instance de conteneur dans Azure à l’aide d’un modèle Resource Manager
 
@@ -24,7 +24,7 @@ Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aci-linuxcontainer-public-ip%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.containerinstance%2Faci-linuxcontainer-public-ip%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-aci-linuxcontainer-public-ip/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/aci-linuxcontainer-public-ip/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.containerinstance/aci-linuxcontainer-public-ip/azuredeploy.json":::
 
@@ -46,7 +46,7 @@ Vous trouverez d’autres exemples de modèles Azure Container Instances dans la
 
  1. Cliquez sur l’image ci-après pour vous connecter à Azure et ouvrir un modèle. Le modèle crée un registre et un réplica dans une autre localisation.
 
-    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aci-linuxcontainer-public-ip%2Fazuredeploy.json)
+    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.containerinstance%2Faci-linuxcontainer-public-ip%2Fazuredeploy.json)
 
  2. Sélectionnez ou entrez les valeurs suivantes.
 

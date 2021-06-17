@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/28/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: ef0e3745d6a45353ef286101bcb5fef1923ce12b
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: fca763f307c8ae1437009b282e460fc249c40b60
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206742"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540974"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Utilisation dans les données d’analytique de la Place de marché commerciale
 
@@ -194,10 +194,10 @@ Si vous avez plusieurs offres qui utilisent des compteurs personnalisés, le rap
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble des rapports d’analytique disponibles dans la Place de marché commerciale, consultez [Accéder aux rapports d’analytique de la Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/analytics.md).
+- Pour une vue d’ensemble des rapports d’analytique disponibles dans la Place de marché commerciale, consultez [Accéder aux rapports d’analytique de la Place de marché commerciale dans l’Espace partenaires](analytics.md).
 - Pour consulter les graphes, tendances et valeurs des données agrégées qui résument l’activité de la Place de marché pour vos offres, consultez [Tableau de bord Résumé dans l’analytique de la Place de marché commerciale](./summary-dashboard.md).
 - Pour plus d’informations sur vos commandes dans un format graphique téléchargeable, consultez [Tableau de bord Commandes dans l’analytique de la place de marché commerciale](./orders-dashboard.md).
 - Pour voir les métriques de facturation à l’utilisation des offres de machines virtuelles, consultez [Tableau de bord de l’utilisation dans l’analytique de la Place de marché commerciale](usage-dashboard.md).
-- Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, voir [Tableau de bord des téléchargements dans l’analytique de la place de marché commerciale](./partner-center-portal/downloads-dashboard.md).
-- Pour une vue centralisée des commentaires clients sur les offres de la Place de marché Azure et de Microsoft AppSource, consultez [Tableau de bord Analytique des évaluations et avis de l’Espace partenaires](./partner-center-portal/ratings-reviews.md).
+- Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, voir [Tableau de bord des téléchargements dans l’analytique de la place de marché commerciale](downloads-dashboard.md).
+- Pour une vue centralisée des commentaires clients sur les offres de la Place de marché Azure et de Microsoft AppSource, consultez [Tableau de bord Analytique des évaluations et avis de l’Espace partenaires](ratings-reviews.md).
 - Pour voir les questions fréquentes sur l’analytique de la Place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Terminologie pour l’analytique de la Place de marché commerciale et questions fréquentes](./analytics-faq.md).

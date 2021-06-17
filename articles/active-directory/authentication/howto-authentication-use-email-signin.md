@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: 222197249f9fa8c4a30a0361633229c1d6cc473a
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: ed77dcad9e9e6568cc38fd3510d9b5a9a0624c11
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517583"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963645"
 ---
 # <a name="sign-in-to-azure-ad-with-email-as-an-alternate-login-id-preview"></a>Se connecter à Azure AD avec un e-mail comme autre ID de connexion (préversion)
 
@@ -40,7 +40,7 @@ Voici ce que vous devez savoir sur l’utilisation d’un e-mail comme autre ID 
 
 * La fonctionnalité est disponible dans l’édition Azure Active Directory Free et éditions supérieures.
 * La fonctionnalité permet aux utilisateurs Azure AD authentifiés dans le cloud de se connecter à l’aide de l’attribut *ProxyAddresses* du domaine vérifié.
-* Quand un utilisateur se connecte avec un e-mail non-UPN, les revendications `unique_name` et `preferred_username` (le cas échéant) dans le [jeton d’ID](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) prennent la valeur de l’e-mail non UPN.
+* Quand un utilisateur se connecte avec un e-mail non-UPN, les revendications `unique_name` et `preferred_username` (le cas échéant) dans le [jeton d’ID](../develop/id-tokens.md) prennent la valeur de l’e-mail non UPN.
 * Il y a deux options possibles pour configurer la fonctionnalité :
     * [Stratégie de découverte du domaine d’accueil (HRD)](#enable-user-sign-in-with-an-email-address) : utilisez cette option pour activer la fonctionnalité sur l’ensemble du locataire. Des privilèges d’administrateur général sont requis.
     * [Stratégie de déploiement par étapes](#enable-staged-rollout-to-test-user-sign-in-with-an-email-address) : utilisez cette option pour tester la fonctionnalité avec des groupes Azure AD spécifiques. Des privilèges d’administrateur général sont requis.
@@ -93,8 +93,8 @@ Une autre approche consiste à synchroniser les UPN Azure AD et locaux avec la m
 
 | Option | Description |
 |---|---|
-| [ID de connexion alternatif pour AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) | Activez la connexion avec un attribut alternatif (par exemple, l’e-mail) pour les utilisateurs d’AD FS. |
-| [ID de connexion alternatif dans Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-userprincipalname#alternate-login-id) | Synchronisez un attribut alternatif (par exemple, l’e-mail) en tant qu’UPN Azure AD. |
+| [ID de connexion alternatif pour AD FS](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) | Activez la connexion avec un attribut alternatif (par exemple, l’e-mail) pour les utilisateurs d’AD FS. |
+| [ID de connexion alternatif dans Azure AD Connect](../hybrid/plan-connect-userprincipalname.md#alternate-login-id) | Synchronisez un attribut alternatif (par exemple, l’e-mail) en tant qu’UPN Azure AD. |
 | E-mail utilisé comme autre ID de connexion | Activez la connexion avec l’attribut *ProxyAddresses* du domaine vérifié pour les utilisateurs d’Azure AD. |
 
 ## <a name="synchronize-sign-in-email-addresses-to-azure-ad"></a>Synchroniser les adresses e-mail de connexion sur Azure AD
@@ -227,7 +227,7 @@ Une fois la stratégie appliquée, il peut falloir jusqu’à une heure pour qu
 ## <a name="enable-staged-rollout-to-test-user-sign-in-with-an-email-address"></a>Activer le lancement intermédiaire pour tester la connexion de l’utilisateur avec une adresse e-mail  
 
 > [!NOTE]
->Cette option de configuration utilise une stratégie de déploiement par étapes. Pour plus d’informations, consultez [Type de ressource featureRolloutPolicy](https://docs.microsoft.com/graph/api/resources/featurerolloutpolicy?view=graph-rest-1.0&preserve-view=true).
+>Cette option de configuration utilise une stratégie de déploiement par étapes. Pour plus d’informations, consultez [Type de ressource featureRolloutPolicy](/graph/api/resources/featurerolloutpolicy?preserve-view=true&view=graph-rest-1.0).
 
 La stratégie de déploiement par étapes permet aux administrateurs de locataire d’activer des fonctionnalités pour des groupes Azure AD spécifiques. Il est recommandé aux administrateurs du locataire d’utiliser le lancement intermédiaire pour tester la connexion de l’utilisateur avec une adresse e-mail. Lorsque les administrateurs sont prêts à déployer cette fonctionnalité sur la totalité de leur locataire, ils doivent utiliser une [stratégie de découverte du domaine d’accueil (HRD)](#enable-user-sign-in-with-an-email-address).  
 
