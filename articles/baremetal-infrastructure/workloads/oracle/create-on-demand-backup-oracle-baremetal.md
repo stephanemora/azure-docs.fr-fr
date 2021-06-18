@@ -2,14 +2,14 @@
 title: Créer une sauvegarde à la demande d’Oracle Database dans SnapCenter
 description: Découvrez comment créer une sauvegarde à la demande d’Oracle Database dans SnapCenter sur l’infrastructure Oracle BareMetal.
 ms.topic: how-to
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 05/07/2021
-ms.openlocfilehash: 55465133d175b35f1996db1e25fa354318de9aa7
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 699c070a3eeca2904f9620ca5f12c95c509210ab
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109520526"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579153"
 ---
 # <a name="create-on-demand-backup-of-your-oracle-database-in-snapcenter"></a>Créer une sauvegarde à la demande d’Oracle Database dans SnapCenter
 

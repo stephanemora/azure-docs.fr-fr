@@ -3,20 +3,20 @@ title: Guide pratique pour ajouter une source d’événement de hub IoT – Azu
 description: Découvrez comment ajouter une source d’événement de Hub IoT à votre environnement Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
-ms.reviewer: v-mamcge, jasonh, kfile
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 85773ec66dbe567afcfd1afca1d14aa0119fb8f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a1b9dbb53f694b47806122faf326db535390649
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103464018"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616929"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Découvrez comment ajouter une source d’événement de Hub IoT à votre environnement Azure Time Series Insights
 

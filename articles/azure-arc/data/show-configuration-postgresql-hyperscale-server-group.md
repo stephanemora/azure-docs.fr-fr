@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: a268cd6b2fa3da6846554e3d1b170298abec7f18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12631adea948c6a59f935ba409dcc925268c6319
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93279399"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412256"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>Afficher la configuration d’un groupe de serveurs Arc enabled PostgreSQL Hyperscale
 
@@ -362,7 +362,7 @@ Retourne la sortie ci-dessous dans un format et avec un contenu très similaire 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Découvrir les concepts d’Azure Arc enabled PostgreSQL Hyperscale](concepts-distributed-postgres-hyperscale.md)
-- [Découvrir le scale-out (ajout des nœuds worker) d’un groupe de serveurs](scale-out-postgresql-hyperscale-server-group.md)
+- [Découvrir le scale-out (ajout des nœuds worker) d’un groupe de serveurs](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Découvrir le scale-up/scale-down (augmentation ou réduction de la mémoire et/ou des vCores) d’un groupe de serveurs](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)
 - [Explorer la configuration du stockage](storage-configuration.md)
 - [Lisez comment surveiller une instance de base de données](monitor-grafana-kibana.md)

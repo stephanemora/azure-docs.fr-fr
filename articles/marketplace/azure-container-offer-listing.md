@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2021
-ms.openlocfilehash: 0b9b96c4cbc2484597e51463a6b7a4ecfaf9e950
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 16bac156af04394552c280271d13ecbe41a1982b
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107892353"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110615177"
 ---
 # <a name="configure-azure-container-offer-listing-details"></a>Configurer les détails d’une annonce d’offre Azure Container
 
@@ -57,8 +57,6 @@ Dans la section **Contact du support**, fournissez le **site web du support** o�
 ## <a name="marketplace-media"></a>Médias de la Place de marché
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format PNG. Votre demande sera rejetée si les images sont floues.
-
-[!INCLUDE [logo tips](includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Si vous rencontrez un problème pendant le chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.

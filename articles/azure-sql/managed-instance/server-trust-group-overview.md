@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: En savoir plus sur le groupe d’approbations de serveurs et sur la gestion de l’approbation entre instances Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: sasapopo
 ms.author: sasapopo
-ms.reviewer: sstein, bonova
+ms.reviewer: mathoma
 ms.date: 10/08/2020
-ms.openlocfilehash: e1f732c29d977ff421496809f149ee722c766072
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: f66050545c2c30c592b41cb21c30394316c80711
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517421"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110692734"
 ---
 # <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>Utiliser des groupes d’approbations de serveurs pour configurer et gérer l’approbation entre des instances managées SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,7 +30,7 @@ Le groupe d’approbations de serveurs est un concept utilisé pour la gestion d
 
 ## <a name="server-trust-group-setup"></a>Configuration du groupe d’approbations de serveurs
 
-Le groupe d'approbations de serveurs peut être configuré via [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservertrustgroup) ou [Azure CLI](https://docs.microsoft.com/cli/azure/sql/stg). La section suivante décrit la configuration du groupe d'approbations de serveurs à l'aide du portail Azure.
+Le groupe d'approbations de serveurs peut être configuré via [Azure PowerShell](/powershell/module/az.sql/new-azsqlservertrustgroup) ou [Azure CLI](/cli/azure/sql/stg). La section suivante décrit la configuration du groupe d'approbations de serveurs à l'aide du portail Azure.
 
 1. Accédez au [portail Azure](https://portal.azure.com/).
 

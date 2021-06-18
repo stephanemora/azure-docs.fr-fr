@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: e4f905b7a08564eadb20d65d651c137ef3741376
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4f48ccaab8ba084a3944ba2d5fdd7188efa56555
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100319"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556835"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Feuille de route de préparation pour Azure Security Center
 Ce document fournit une feuille de route de préparation qui vous aidera à prendre en main Azure Security Center.
@@ -102,7 +102,7 @@ Articles
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Page de documentation de Security Center](./index.yml)
 * [Page de documentation de l’API REST de Security Center](/previous-versions/azure/reference/mt704034(v=azure.100))
-* [FAQ de Azure Security Center](./faq-general.md)
+* [FAQ de Azure Security Center](./faq-general.yml)
 * [Page de tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/)
 * [Meilleures pratiques relatives à la sécurité d’identité](../security/fundamentals/identity-management-best-practices.md)
 * [Meilleures pratiques en matière de sécurité réseau](../security/fundamentals/network-best-practices.md)
