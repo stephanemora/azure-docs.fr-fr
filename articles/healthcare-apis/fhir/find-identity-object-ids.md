@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: matjazl
-ms.openlocfilehash: 706d7e081743f2bab1f593e00dc792f218a000ea
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.author: zxue
+ms.openlocfilehash: d65aa4494c7ca5827added3d1159bc6838b2ac7b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103018018"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112288700"
 ---
 # <a name="find-identity-object-ids-for-authentication-configuration"></a>Rechercher des ID d’objet d’identité pour la configuration de l’authentification
 

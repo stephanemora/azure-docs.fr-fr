@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 11/13/2020
-ms.author: matjazl
-ms.openlocfilehash: 479e8f870692cc16345d0ca19b8eb065caa28fa8
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.author: chrupa
+ms.openlocfilehash: 79c7cf1def04ab61320b22df51b5d3933c462cb8
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103018014"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112286576"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>Qu’est-ce que l’API Azure pour FHIR&reg; ?
 
@@ -22,7 +22,7 @@ L’API Azure pour FHIR permet d’échanger rapidement des données via les API
 - Service FHIR managé, provisionné dans le cloud en quelques minutes 
 - Point de terminaison FHIR® de niveau grande entreprise dans Azure pour l’accès aux données et le stockage au format FHIR®
 - Haute performance, faible latence
-- Gestion sécurisée des informations d’intégrité protégées (PHI) dans un environnement Cloud conforme
+- Gestion sécurisée des données PHI (informations médicales protégées) dans un environnement cloud conforme
 - SMART sur FHIR pour les implémentations mobiles et web
 - Contrôler vos propres données à grande échelle avec la fonctionnalité RBAC (contrôle d’accès en fonction du rôle)
 - Suivi des journaux d’audit pour l’accès, la création, la modification et les lectures dans chaque magasin de données
