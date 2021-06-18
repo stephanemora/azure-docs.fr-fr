@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: harshja
-ms.openlocfilehash: bfec9273d1d363c3bd39887e83597d22262265f1
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: d635d0c87cb6f759c15461abe9efc9dd42297ddb
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186493"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964907"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-active-directory-application-proxy"></a>Définition d’une page d’accueil personnalisée pour les applications publiées avec le Proxy d’application Azure Active Directory
 
@@ -175,5 +175,5 @@ Créez l’URL de la page d’accueil et mettez à jour votre application avec c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Activer l’accès distant pour SharePoint avec le proxy d’application Azure AD](../manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+- [Activer l’accès distant pour SharePoint avec le proxy d’application Azure AD](./application-proxy-integrate-with-sharepoint-server.md)
 - [Tutoriel : Ajouter une application locale pour un accès à distance via le proxy d’application d’Azure Active Directory](application-proxy-add-on-premises-application.md)

@@ -8,15 +8,13 @@ manager: kumud
 ms.date: 10/12/2020
 ms.topic: quickstart
 ms.service: expressroute
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: 6c31f55d5b208437170f9a69ff7bbe1d6b836201
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: 36520a7c8661cce71eb8b210c279a27c0766a7a7
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277441"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005390"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Démarrage rapide : Créer un circuit ExpressRoute avec un peering privé en utilisant un modèle ARM
 
@@ -34,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-expressroute-private-peering-vnet).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/expressroute-private-peering-vnet).
 
 Dans ce guide de démarrage rapide, vous créez un circuit ExpressRoute avec *Equinix* comme fournisseur de services. Le circuit utilise un *SKU Premium*, avec une bande passante de *50 Mbits/s* et la localisation de peering *Washington DC*. Le peering privé est activé avec les sous-réseaux principal et secondaire *192.168.10.16/30* et *192.168.10.20/30*, respectivement. Un réseau virtuel est également créé avec une *passerelle ExpressRoute HighPerformance*.
 

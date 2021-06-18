@@ -10,19 +10,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
-ms.openlocfilehash: fd1d3afdd8ab6836971fbda88baac93f3abdbbb2
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 109e6f9a1cbc39e1382d73acacfb163940e72a0f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785598"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962466"
 ---
 # <a name="deprecated-login-to-a-linux-virtual-machine-in-azure-with-azure-active-directory-using-device-code-flow-authentication"></a>Déconseillé : Se connecter à une machine virtuelle Linux dans Azure avec Azure Active Directory à l’aide de l’authentification du flux de code de l’appareil
 
 > [!CAUTION]
 > **La fonctionnalité en préversion publique décrite dans cet article est déconseillée à compter du 15 août 2021.**
 > 
-> Cette fonctionnalité est remplacée par la possibilité d’utiliser Azure AD et SSH par le biais de l’authentification basée sur les certificats. Pour plus d’informations, consultez l’article [Préversion : Se connecter à une machine virtuelle Linux dans Azure avec Azure Active Directory à l’aide de l’authentification par certificat SSH](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md). Pour migrer de l’ancienne version vers cette dernière, consultez [Migration à partir de la préversion précédente](https://docs.microsoft.com/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux#migration-from-previous-preview).
+> Cette fonctionnalité est remplacée par la possibilité d’utiliser Azure AD et SSH par le biais de l’authentification basée sur les certificats. Pour plus d’informations, consultez l’article [Préversion : Se connecter à une machine virtuelle Linux dans Azure avec Azure Active Directory à l’aide de l’authentification par certificat SSH](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md). Pour migrer de l’ancienne version vers cette dernière, consultez [Migration à partir de la préversion précédente](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md#migration-from-previous-preview).
 
 Pour améliorer la sécurité des machines virtuelles Linux (VM) dans Azure, vous pouvez intégrer l’authentification Azure Active Directory (AD). Lorsque vous utilisez l’authentification Azure AD pour les machines virtuelles Linux, vous contrôlez et appliquez de façon centralisée des stratégies qui autorisent ou refusent l’accès aux machines virtuelles. Cet article indique comment créer et configurer une machine virtuelle Linux pour utiliser l’authentification Azure AD.
 

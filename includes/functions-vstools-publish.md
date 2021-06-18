@@ -1,19 +1,15 @@
 ---
-title: Fichier include
-description: Fichier include
-services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 ms.date: 09/30/2020
 ms.author: glenga
-ms.custom: include file
-ms.openlocfilehash: 5b537b88052ce4042e346732f3dc63aaec6621cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9cbab70d37c689967c7129b3205a9194e9de9ade
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100529725"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "111351032"
 ---
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet et sélectionnez **Publier** puis, dans **Cible**, sélectionnez **Azure**, puis **Suivant**.
 
@@ -25,7 +21,7 @@ ms.locfileid: "100529725"
 
 1. Créez une instance en utilisant les valeurs spécifiées dans le tableau suivant :
 
-    | Paramètre      | Valeur  | Description                                |
+    | Paramètre      | Value  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nom** | Nom globalement unique | Nom qui identifie uniquement votre nouvelle application de fonction. Acceptez ce nom ou entrez un nouveau nom. Les caractères valides sont `a-z`, `0-9` et `-`. |
     | **Abonnement** | Votre abonnement | Sélectionnez l’abonnement Azure à utiliser. Acceptez cet abonnement ou sélectionnez-en un nouveau dans la liste déroulante. |

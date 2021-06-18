@@ -2,18 +2,18 @@
 title: Démarrage rapide - Bibliothèque de client de clés Azure Key Vault pour Java
 description: Fournit un guide de démarrage rapide pour la bibliothèque de client de clés Azure Key Vault pour Java.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell
 ms.author: mbaldwin
 ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: bd12a02b4dcd54796d9252417310b77da4ad0b5e
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 65def18d91a6fd3f76439313cadcca07cf6bfc6b
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291403"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110664063"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Démarrage rapide : Bibliothèque de client de clés Azure Key Vault pour Java
 Découvrez comment démarrer avec la bibliothèque de client de clés Azure Key Vault pour Java. Suivez les étapes ci-dessous pour installer le package et tester un exemple de code relatif à des tâches de base.

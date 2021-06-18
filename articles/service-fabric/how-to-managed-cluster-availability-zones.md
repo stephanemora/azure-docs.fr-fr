@@ -3,12 +3,12 @@ title: Déployer un cluster managé Service Fabric sur plusieurs zones de dispon
 description: Apprenez à déployer un cluster managé Service Fabric sur plusieurs zones de disponibilité et à le configurer dans un modèle ARM.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 9e971516ca8f841129973297b808e28c2f2ed2ed
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 5278ea170e0a60907813b9a79b151dde44ab4a12
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109689262"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956784"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-across-availability-zones"></a>Déployer un cluster managé Service Fabric sur plusieurs zones de disponibilité
 
@@ -49,7 +49,7 @@ Exemple de liste de nœuds illustrant les formats FD/UD dans les zones étendues
 **Scénario de zone défaillante** : Lorsqu’une zone est défaillante, tous les nœuds de cette zone apparaissent comme étant en panne. Les réplicas de service sur ces nœuds sont également indisponibles. Étant donné qu’il y a des réplicas dans les autres zones, le service continue à être réactif avec les réplicas principaux qui basculent vers les zones qui fonctionnent. Les services s’affichent dans un état d’avertissement, car le nombre de réplicas cibles n’est pas atteint et le nombre de machines virtuelles est toujours supérieur à la taille minimale de réplica cible définie. En conséquence, un équilibreur de charge Service Fabric affichera les réplicas dans les zones de travail pour qu’elles correspondent au nombre de réplicas cibles configuré. À ce stade, les services apparaissent intègres. Lorsque la zone qui était hors service se remet en marche, l’équilibreur de charge répartit à nouveau tous les réplicas de service de manière égale sur toutes les zones.
 
 ## <a name="networking-configuration"></a>Configuration de la mise en réseau
-Pour plus d’informations, consultez [Configuration des paramètres réseau pour les clusters managés Service Fabric](https://docs.microsoft.com/azure/service-fabric/how-to-managed-cluster-networking).
+Pour plus d’informations, consultez [Configuration des paramètres réseau pour les clusters managés Service Fabric](./how-to-managed-cluster-networking.md).
 
 ## <a name="enabling-a-zone-resilient-azure-service-fabric-managed-cluster"></a>Activation d’un cluster managé Azure Service Fabric résilient aux zones
 Pour activer un cluster managé Azure Service Fabric résilient aux zones, vous devez inclure ce qui suit dans la définition de ressource de cluster managé.

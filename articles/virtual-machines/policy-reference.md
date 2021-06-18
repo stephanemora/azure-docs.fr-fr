@@ -1,19 +1,19 @@
 ---
 title: Définitions de stratégie intégrées pour Machines virtuelles Azure
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Machines virtuelles Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.topic: reference
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.custom: subject-policy-reference
-ms.openlocfilehash: b6a864e4f85e3ff24dfdfe153f795ddde7c20b86
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 0a9872f659a0aa9be6ba9205aa0b2c60afb5cbc8
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077610"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112016931"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machines"></a>Définitions intégrées d’Azure Policy pour Machines virtuelles Azure
 

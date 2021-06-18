@@ -2,14 +2,14 @@
 title: Approvisionner un pool dans un réseau virtuel
 description: Découvrez comment créer un pool Batch dans un réseau virtuel Azure afin que les nœuds de calcul puissent communiquer en toute sécurité avec d’autres machines virtuelles du réseau, comme un serveur de fichiers.
 ms.topic: how-to
-ms.date: 03/26/2021
+ms.date: 06/09/2021
 ms.custom: seodec18
-ms.openlocfilehash: f376c62a8fda4a84ec8385fb623fa304bb8c035e
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 5279e9efb426c327761f14188b436e47387ea1eb
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107947498"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903080"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Créer un pool Azure Batch dans un réseau virtuel
 

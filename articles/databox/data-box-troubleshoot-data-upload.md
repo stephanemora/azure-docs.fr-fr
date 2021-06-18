@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: troubleshooting
 ms.date: 05/10/2021
 ms.author: alkohli
-ms.openlocfilehash: 7ede9b952a27c8ed0df2c24598fc65187036e5dc
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: bd54b662e48ef6f66ea2bfef10863e2d7627289f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790484"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966432"
 ---
 # <a name="review-copy-errors-in-uploads-from-azure-data-box-and-azure-data-box-heavy-devices"></a>Passer en revue les erreurs de copie dans les chargements à partir d’appareils Azure Data Box et Azure Data Box Heavy
 
@@ -110,7 +110,7 @@ D’autres erreurs d’API REST peuvent se produire pendant les chargements de d
 
 **Description de l’erreur :** Si un conteneur de stockage d’objets blob est configuré au format WORM (Write Once, Read Many), le chargement des objets blob déjà stockés dans le conteneur échoue.
 
-**Suivi :** Vous ne pouvez pas corriger cette erreur dans le chargement actuel. Le chargement s’est terminé avec des erreurs. Avant de procéder à un transfert réseau ou de démarrer une nouvelle commande d’importation, vérifiez que les objets blob listés ne font pas partie d’un conteneur de stockage immuable. Pour plus d’informations, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](/azure/storage/blobs/storage-blob-immutable-storage).
+**Suivi :** Vous ne pouvez pas corriger cette erreur dans le chargement actuel. Le chargement s’est terminé avec des erreurs. Avant de procéder à un transfert réseau ou de démarrer une nouvelle commande d’importation, vérifiez que les objets blob listés ne font pas partie d’un conteneur de stockage immuable. Pour plus d’informations, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](../storage/blobs/storage-blob-immutable-storage.md).
 
 
 ### <a name="the-total-provisioned-capacity-of-the-shares-cannot-exceed-the-account-maximum-size-limit"></a>La capacité provisionnée totale des partages ne peut pas dépasser la taille maximale du compte
@@ -142,7 +142,7 @@ D’autres erreurs d’API REST peuvent se produire pendant les chargements de d
 
 **Description de l’erreur :** L’importation de données vers un objet blob dans le cloud échoue si l’objet blob de destination a un bail actif.
 
-**Suivi :** Vous ne pouvez pas corriger cette erreur dans le chargement actuel. Le chargement s’est terminé avec des erreurs. Avant de procéder à un transfert réseau ou de démarrer une nouvelle commande d’importation, vérifiez que les objets blob listés n’ont pas de bail actif. Pour plus d’informations, consultez [Accès concurrentiel pessimiste pour les objets blob](/azure/storage/blobs/concurrency-manage?tabs=dotnet#pessimistic-concurrency-for-blobs).
+**Suivi :** Vous ne pouvez pas corriger cette erreur dans le chargement actuel. Le chargement s’est terminé avec des erreurs. Avant de procéder à un transfert réseau ou de démarrer une nouvelle commande d’importation, vérifiez que les objets blob listés n’ont pas de bail actif. Pour plus d’informations, consultez [Accès concurrentiel pessimiste pour les objets blob](../storage/blobs/concurrency-manage.md?tabs=dotnet#pessimistic-concurrency-for-blobs).
 
 
 ### <a name="the-size-of-the-blob-being-imported-is-invalid-the-blob-size-is-blob-size-bytes-supported-sizes-are-between-20971520-bytes-and-8192-gib"></a>La taille de l’objet blob importé n’est pas valide. La taille de l’objet blob est de `<blob-size>` octets. Les tailles prises en charge sont comprises entre 20971520 octets et 8192 Gio.
