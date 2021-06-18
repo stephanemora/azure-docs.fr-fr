@@ -3,19 +3,19 @@ title: 'Comment installer et exécuter le conteneur d’analyse spatiale : visi
 titleSuffix: Azure Cognitive Services
 description: Le conteneur d’analyse spatiale vous permet de détecter des personnes et des distances.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
-ms.openlocfilehash: d257a77940b460bf8be64e3f8376353a859365f7
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.date: 06/08/2021
+ms.author: pafarley
+ms.openlocfilehash: 15ef67fb452b4302cc848b88b3dab89d46fb8793
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284717"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746462"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installer et exécuter le conteneur d’analyse spatiale (préversion)
 
@@ -26,7 +26,6 @@ Le conteneur d’analyse spatiale vous permet d’analyser le flux vidéo en tem
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services)
 * Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Créer une ressource Vision par ordinateur"  target="_blank">créez une ressource Vision par ordinateur </a> pour le niveau Standard S1 dans le portail Azure afin d’obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour exécuter le conteneur d’analyse spatiale. Vous utiliserez votre clé et votre point de terminaison ultérieurement.
-
 
 ### <a name="spatial-analysis-container-requirements"></a>Exigences du conteneur d’analyse spatiale
 
@@ -70,21 +69,6 @@ Dans notre exemple, nous utilisons une [machine virtuelle de série NC](../../vi
 |--|--|
 | Appareil photo | Le conteneur d’analyse spatiale n’est pas lié à une marque de caméra spécifique. La caméra doit : prendre en charge l’encodage RTSP (Real-Time Streaming Protocol) et H. 264, être accessible à l’ordinateur hôte et pouvoir assurer une diffusion en continu à 15FPS et avec une résolution de 1080p. |
 | Système d’exploitation Linux | [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) doit être installé sur l’ordinateur hôte.  |
-
-
-## <a name="request-approval-to-run-the-container"></a>Demande d’approbation pour l’exécution du conteneur
-
-Complétez le [formulaire de demande](https://aka.ms/csgate) et envoyez-le afin d’obtenir l’approbation d’exécuter le conteneur.
-
-Le formulaire demande des informations sur vous, votre entreprise et le scénario d’utilisateur pour lequel vous allez utiliser le conteneur. Une fois le formulaire envoyé, l’équipe Azure Cognitive Services Azure l’examinera et vous informera de sa décision par courrier électronique.
-
-> [!IMPORTANT]
-> * Dans le formulaire, vous devez utiliser une adresse e-mail associée à un ID d’abonnement Azure.
-> * La ressource Vision par ordinateur que vous utilisez pour exécuter le conteneur doit avoir été créée avec l’ID d’abonnement Azure approuvé.
-
-Une fois que vous êtes approuvé, vous pourrez exécuter le conteneur après l’avoir téléchargé à partir de Microsoft Container Registry, décrit plus loin dans cet article.
-
-Vous ne pourrez pas exécuter le conteneur si votre abonnement Azure n’a pas été approuvé.
 
 ## <a name="set-up-the-host-computer"></a>Configurer l’ordinateur hôte
 

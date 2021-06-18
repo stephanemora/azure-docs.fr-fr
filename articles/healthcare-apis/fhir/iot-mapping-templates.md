@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 04/05/2021
-ms.author: punagpal
-ms.openlocfilehash: e43b5068544927ba4d04c86b16d3a15510c32bed
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.author: rabhaiya
+ms.openlocfilehash: 9b5fa3533aa521053a321a3f0ffdfad3505abb73
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448470"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112286666"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modèles de mappage du connecteur Azure IoT pour FHIR (préversion)
 Cet article explique comment configurer le Connecteur Azure IoT pour Fast Healthcare Interoperability Resources (FHIR&#174;)* à l’aide de modèles de mappage.

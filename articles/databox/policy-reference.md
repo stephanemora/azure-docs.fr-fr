@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Data Box
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Data Box. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: databox
 author: alkohli
 ms.author: alkohli
-ms.openlocfilehash: 1973c028ae367149c7438eefc5e5e57685e95302
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 36da49668c3086151a337749e44950834cbca80c
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069034"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112021300"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-box"></a>Définitions intégrées d’Azure Policy pour Azure Data Box
 
