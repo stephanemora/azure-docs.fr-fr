@@ -16,12 +16,12 @@ ms.date: 4/16/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02d7e5fd6fdbb17b91d151875a48b7763d6b93c8
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: d07e287214e911f278450f645a6873ffe638f32b
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988277"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652597"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gérer l’accès invité avec les révisions d’accès Azure AD
 
@@ -57,7 +57,7 @@ Vous pouvez réviser :
 
 Lors de la révision de l'accès des utilisateurs invités aux groupes Microsoft 365, vous pouvez créer une révision d'accès pour chaque groupe individuellement, ou activer des révisions d'accès automatiques et récurrentes pour les utilisateurs invités dans tous les groupes Microsoft 365. Pour plus d'informations sur les révisions d'accès récurrentes des utilisateurs invités, regardez la vidéo suivante : 
 
-> [!VIDEO https://www.youtube.com/watch?v=3D2_YW2DwQ8]
+> [!VIDEO https://www.youtube.com/embed/3D2_YW2DwQ8]
 
 Vous pouvez alors décider de demander à chaque invité de revoir leur propre accès ou de demander à un ou plusieurs utilisateurs de revoir l’accès de chaque invité.
 

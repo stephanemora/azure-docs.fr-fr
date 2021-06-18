@@ -4,12 +4,12 @@ description: Découvrez comment configurer la récupération d’urgence vers Az
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
-ms.openlocfilehash: 056c8118f2b1ab483e31771c4b8ead3fe6da4598
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 0197d3f505edef0890ed076e15f89d14ad5ab5d4
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107949594"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968698"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurer la récupération d’urgence vers Azure pour des serveurs physiques locaux
 
@@ -48,7 +48,7 @@ Avant de commencer, notez les choses suivantes :
 Procurez-vous un [compte Microsoft Azure](https://azure.microsoft.com/).
 
 - Vous pouvez commencer par une version d’ [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
-- Lisez les informations relatives aux [prix de Site Recovery](/azure/site-recovery/site-recovery-faq#pricing) et prenez connaissance des [prix appliqués](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Lisez les informations relatives aux [prix de Site Recovery](/azure/site-recovery/site-recovery-faq.yml#pricing) et prenez connaissance des [prix appliqués](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Identifiez les [régions prises en charge](https://azure.microsoft.com/pricing/details/site-recovery/) pour Site Recovery.
 
 ### <a name="verify-azure-account-permissions"></a>Vérifier les autorisations de compte Azure

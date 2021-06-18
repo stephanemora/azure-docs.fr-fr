@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2020
 ms.author: allensu
-ms.openlocfilehash: 8bfc76afc1ef799be0fb29654bd341f53d1b0a8c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7671ccecb4bbda17853b33989b7a7bc2cdbd6f89
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048457"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111809761"
 ---
 # <a name="public-ip-address-prefix"></a>Préfixe d’adresse IP publique
 
@@ -60,7 +60,7 @@ Vous pouvez associer les ressources suivantes à une adresse IP publique statiq
 
 |Ressource|Scénario|Étapes|
 |---|---|---|
-|Machines virtuelles| L’association d’IP publiques à partir d’un préfixe à vos machines virtuelles dans Azure réduit la surcharge de gestion lors de l’ajout d’adresses IP à une liste verte dans le pare-feu. Vous pouvez ajouter la totalité d’un préfixe avec une seule règle de pare-feu. Quand vous effectuez une mise à l’échelle avec des machines virtuelles dans Azure, vous pouvez associer des adresses IP du même préfixe, ce qui réduit les coûts, fait gagner du temps et limite la surcharge de gestion.| Pour associer des adresses IP d’un préfixe à votre machine virtuelle : </br> 1. [Créez un préfixe.](manage-public-ip-address-prefix.md) </br> 2. [Créez une adresse IP à partir du préfixe.](manage-public-ip-address-prefix.md) </br> 3. [Associez l’adresse IP à l’interface réseau de votre machine virtuelle.](virtual-network-network-interface-addresses.md#add-ip-addresses) </br> Vous pouvez également [associer les adresses IP à un groupe de machines virtuelles identiques](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
+|Machines virtuelles| L’association d’IP publiques à partir d’un préfixe à vos machines virtuelles dans Azure réduit la surcharge de gestion lors de l’ajout d’adresses IP à une liste verte dans le pare-feu. Vous pouvez ajouter la totalité d’un préfixe avec une seule règle de pare-feu. Quand vous effectuez une mise à l’échelle avec des machines virtuelles dans Azure, vous pouvez associer des adresses IP du même préfixe, ce qui réduit les coûts, fait gagner du temps et limite la surcharge de gestion.| Pour associer des adresses IP d’un préfixe à votre machine virtuelle : </br> 1. [Créez un préfixe.](manage-public-ip-address-prefix.md) </br> 2. [Créez une adresse IP à partir du préfixe.](manage-public-ip-address-prefix.md) </br> 3. [Associez l’adresse IP à l’interface réseau de votre machine virtuelle.](virtual-network-network-interface-addresses.md#add-ip-addresses) </br> Vous pouvez également [associer les adresses IP à un groupe de machines virtuelles identiques](https://azure.microsoft.com/resources/templates/vmms-with-public-ip-prefix/).
 | Équilibreurs de charge Standard | L’association d’IP publiques d’un préfixe à la configuration d’adresses IP frontale ou à la règle de trafic sortant d’un équilibreur de charge garantit la simplification de votre espace d’adressage IP public Azure. Simplifiez votre scénario en préparant les connexions sortantes de sorte à partir d’une plage d’adresses IP contiguës. | Pour associer des adresses IP d’un préfixe à votre équilibreur de charge : </br> 1. [Créez un préfixe.](manage-public-ip-address-prefix.md) </br> 2. [Créez une adresse IP à partir du préfixe.](manage-public-ip-address-prefix.md) </br> 3. Quand vous créez l’équilibreur de charge, sélectionnez ou mettez à jour l’adresse IP créée à l’étape 2 ci-dessus comme adresse IP frontale de votre équilibreur de charge. |
 | Pare-feu Azure | Vous pouvez utiliser une adresse IP publique d’un préfixe pour une NAT de trafic sortant. Tout le trafic virtuel sortant est traduit en IP publique de [pare-feu Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). | Pour associer une adresse IP d’un préfixe à votre pare-feu : </br> 1. [Créez un préfixe.](manage-public-ip-address-prefix.md) </br> 2. [Créez une adresse IP à partir du préfixe.](manage-public-ip-address-prefix.md) </br> 3. Quand vous [déployez le pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), veillez à sélectionner l’adresse IP précédemment allouée à partir du préfixe.|
 | Passerelle VPN (SKU AZ) ou Application Gateway v2 | Vous pouvez utiliser l’adresse IP publique d’un préfixe pour votre passerelle VPN ou Application Gateway v2 redondante interzone. | Pour associer une adresse IP d’un préfixe à votre passerelle : </br> 1. [Créez un préfixe.](manage-public-ip-address-prefix.md) </br> 2. [Créez une adresse IP à partir du préfixe.](manage-public-ip-address-prefix.md) </br> 3. Quand vous déployez la [passerelle VPN](../vpn-gateway/tutorial-create-gateway-portal.md) ou la passerelle [Application Gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway), veillez à sélectionner l’adresse IP précédemment allouée à partir du préfixe.|

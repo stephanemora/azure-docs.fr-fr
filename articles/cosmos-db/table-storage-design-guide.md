@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 271bcd12fea3a09a3a62570cee865292f7c413e6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4129b288f912f4b5d90d912ef8453ef195f37d36
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064417"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007928"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guide de conception de table de stockage Table Azure : tables scalables et performantes
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -209,7 +209,7 @@ Voici quelques recommandations générales pour la conception de requêtes de st
 * La deuxième solution consiste à utiliser une *requête de plage de données*. Elle utilise la `PartitionKey` et filtre sur une plage de valeurs `RowKey` pour retourner plusieurs entités. La valeur de `PartitionKey` identifie une partition spécifique, tandis que la valeur de `RowKey` identifie un sous-ensemble des entités de cette partition. Par exemple : `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
 * La troisième solution consiste à effectuer une *analyse de partition*. Elle utilise la `PartitionKey` et filtre sur une autre propriété non-clé, et peut retourner plusieurs entités. La valeur de `PartitionKey` identifie une partition spécifique, et les valeurs des propriétés sélectionnent un sous-ensemble d’entités dans cette partition. Par exemple : `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
 * Une *analyse de table* n’inclut pas la valeur de `PartitionKey`, et s’avère inefficace car elle lance une recherche sur toutes les partitions qui composent la table pour toutes les entités correspondantes. Elle effectue une analyse de table, que votre filtre utilise la valeur de `RowKey` ou non. Par exemple : `$filter=LastName eq 'Jones'`.  
-* Les requêtes de stockage Table Azure qui retournent plusieurs entités les trient par ordre de `PartitionKey` et `RowKey`. Pour éviter un nouveau tri des entités dans le client, sélectionnez une valeur de `RowKey` qui définit l’ordre de tri le plus répandu. Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](/table-api-faq.yml#table-api-in-azure-cosmos-db-vs-azure-table-storage).
+* Les requêtes de stockage Table Azure qui retournent plusieurs entités les trient par ordre de `PartitionKey` et `RowKey`. Pour éviter un nouveau tri des entités dans le client, sélectionnez une valeur de `RowKey` qui définit l’ordre de tri le plus répandu. Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](/cosmos-db/table-api-faq#table-api-in-azure-cosmos-db-vs-azure-table-storage).
 
 L’utilisation d’un connecteur « **or** » pour spécifier un filtre selon les valeurs de `RowKey` déclenche une analyse de partition, et n’est pas traitée en tant que requête de plage de données. Par conséquent, évitez les requêtes qui utilisent des filtres tels que : `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
 
