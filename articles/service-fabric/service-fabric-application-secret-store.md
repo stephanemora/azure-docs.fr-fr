@@ -5,12 +5,12 @@ author: amenarde
 ms.topic: conceptual
 ms.date: 04/06/2021
 ms.author: anmenard
-ms.openlocfilehash: 735f0b375d26d00dce43fd9d64131fa194958a73
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1c920631d671ad2af9fa2e723fc98bf96462b007
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131076"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950109"
 ---
 # <a name="central-secret-service-in-azure-service-fabric"></a>Service CSS dans Azure Service Fabric 
 CSS, également appelé « magasin de secrets central », est un service système Service Fabric destiné à protéger les secrets au sein d’un cluster. CSS facilite la gestion des secrets des applications SF, ce qui évite de devoir recourir à des paramètres chiffrés.
@@ -67,7 +67,7 @@ En formalisant le modèle, les règles implémentées et appliquées dans l’im
 - La suppression d’une ressource de secret entraîne la suppression de toutes ses versions  
 - La valeur d’une version de secret est immuable
     
-L’ensemble complet d’API de gestion REST correspondant aux ressources de secret est disponible [ici](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-meshsecrets), et pour les versions de secret, [ici](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-meshsecretvalues).
+L’ensemble complet d’API de gestion REST correspondant aux ressources de secret est disponible [ici](/rest/api/servicefabric/sfclient-index-meshsecrets), et pour les versions de secret, [ici](/rest/api/servicefabric/sfclient-index-meshsecretvalues).
 
 ### <a name="declare-a-secret-resource"></a>Déclarer une ressource de secret
 Vous pouvez créer une ressource de secret à l’aide de l’API REST.

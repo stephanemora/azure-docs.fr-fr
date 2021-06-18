@@ -6,15 +6,15 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: dseven
-ms.author: matjazl
+ms.author: cavoeg
 author: matjazl
 ms.date: 03/26/2021
-ms.openlocfilehash: 59847f745037acec47415489cdf61d119a7807af
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 72e5711ca813378e291d48bdaaa5803693d91482
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936272"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284020"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Accéder à l’API Azure pour FHIR avec Postman
 
@@ -85,7 +85,7 @@ Dans la boîte de dialogue **récupérer un nouveau jeton d’accès** , entrez 
 | Client ID (ID client)             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                           | ID de l'application             |
 | Client Secret (Clé secrète client)         | `XXXXXXXX`                                                                                                      | Clé client secrète          |
 | Scope (Étendue) | `<Leave Blank>` | L’étendue n’est pas utilisée ; par conséquent, il peut être laissé vide.  
-| State                 | `1234`     | L' [État](https://learning.postman.com/docs/sending-requests/authorization/) est une valeur opaque pour empêcher la falsification de requête intersites. Elle est facultative et peut prendre une valeur arbitraire telle que « 1234 ».                           |
+| État                 | `1234`     | L' [État](https://learning.postman.com/docs/sending-requests/authorization/) est une valeur opaque pour empêcher la falsification de requête intersites. Elle est facultative et peut prendre une valeur arbitraire telle que « 1234 ».                           |
 | Client Authentication (Authentification du client) | Envoyer les informations d’identification du client dans le corps                                                                                 |                 
 
 Sélectionnez le **jeton de demande** pour être guidé via le Azure Active Directory le workflow d’authentification, et un jeton sera renvoyé à la publication. En cas d’échec de l’authentification, reportez-vous à la console du poste de publication pour plus d’informations. **Remarque**: dans le ruban, sélectionnez **affichage**, puis sélectionnez **afficher la console du poste**. Le raccourci clavier vers la console poster est **ALT-CTRL + C**.

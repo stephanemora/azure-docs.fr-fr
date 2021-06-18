@@ -4,12 +4,12 @@ description: Découvrez comment créer un tableau de bord du portail Azure à l�
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/15/2021
-ms.openlocfilehash: 3cb6069b13246e561de85c7a392283a5c243f1a4
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 0a1da860c4263f25e04e68253d0eed96254bed3a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517781"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077715"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Démarrage rapide : Créer un tableau de bord dans le portail Azure à l’aide d’un modèle ARM
 
@@ -55,13 +55,13 @@ Le tableau de bord que vous créez dans la prochaine partie de ce guide de déma
         -Location "East US" 
     ```
 
-1. Entrez un nom d’utilisateur et un mot de passe pour la machine virtuelle. Il s’agit d’un nouveau nom d’utilisateur et d’un nouveau mot de passe. Ce n’est pas, par exemple, le compte que vous utilisez pour vous connecter à Azure. Pour plus d’informations, consultez les [exigences relatives aux noms d’utilisateur](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) et les [exigences relatives aux mots de passe](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. Entrez un nom d’utilisateur et un mot de passe pour la machine virtuelle. Il s’agit d’un nouveau nom d’utilisateur et d’un nouveau mot de passe. Ce n’est pas, par exemple, le compte que vous utilisez pour vous connecter à Azure. Pour plus d’informations, consultez les [exigences relatives aux noms d’utilisateur](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-) et les [exigences relatives aux mots de passe](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
     Le déploiement de la machine virtuelle commence alors et prend quelques minutes. Une fois le déploiement terminé, passez à la section suivante.
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-azure-portal-dashboard/). Le modèle utilisé pour cet article est trop long pour être affiché ici. Pour voir le modèle, consultez [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/azuredeploy.json). Une ressource Azure est définie dans le modèle, [Microsoft.Portal/dashboards](/azure/templates/microsoft.portal/dashboards) - Créer un tableau de bord dans le portail Azure.
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/azure-portal-dashboard/). Le modèle utilisé pour cet article est trop long pour être affiché ici. Pour voir le modèle, consultez [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/azuredeploy.json). Une ressource Azure est définie dans le modèle, [Microsoft.Portal/dashboards](/azure/templates/microsoft.portal/dashboards) - Créer un tableau de bord dans le portail Azure.
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 

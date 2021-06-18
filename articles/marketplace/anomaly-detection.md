@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 5/03/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: dd0f86af30c88a7c7e1d1eb9cec9a5f31505496a
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 4576cad94cd26f0b2892dca5aeddd8861c5abf09
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795597"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540131"
 ---
 # <a name="manage-metered-billing-anomalies-in-partner-center"></a>Gérer les anomalies de facturation mesurée dans l’Espace partenaires
 
@@ -83,5 +83,5 @@ Après avoir marqué un dépassement d’utilisation comme une anomalie ou recon
 
 ## <a name="see-also"></a>Voir également
 - [Facturation à l’usage pour SaaS à l’aide du service de mesure de la consommation de la Place de marché commerciale](./partner-center-portal/saas-metered-billing.md)
-- [Facturation des applications managées basée sur des mesures](./partner-center-portal/azure-app-metered-billing.md)
+- [Facturation des applications managées basée sur des mesures](marketplace-metering-service-apis.md)
 - [Service de détection des anomalies pour la facturation à l’usage](./partner-center-portal/anomaly-detection-service-for-metered-billing.md)

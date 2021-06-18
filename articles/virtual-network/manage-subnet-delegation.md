@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: 401124ed4b2794d891ca224ba3dc1c78edcae8d5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5ae401e0593eedfedfde1c657da66d9b423d810f
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783410"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060558"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Ajouter ou supprimer une délégation de sous-réseau
 
@@ -36,7 +37,7 @@ Dans le cadre de cette section, vous allez créer un réseau virtuel et le sous-
 1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
 1. Dans **Créer un réseau virtuel**, entrez ou sélectionnez ces informations :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez *MyVirtualNetwork*. |
     | Espace d’adressage | Entrez *10.0.0.0/16*. |
@@ -59,16 +60,14 @@ Le rôle intégré [Contributeur réseau](../role-based-access-control/built-in-
 Dans le cadre de cette section, vous allez déléguer le sous-réseau que vous avez créé à la section précédente à un service Azure.
 
 1. Dans la barre de recherche du portail, entrez *myVirtualNetwork*. Quand la mention **myVirtualNetwork** apparaît dans les résultats de recherche, sélectionnez-la.
-2. Dans les résultats de recherche, sélectionnez *myVirtualNetwork*.
-3. Sélectionnez **Sous-réseaux** sous **PARAMÈTRES**, puis sélectionnez **mySubnet**.
-4. Dans la page *mySubnet*, pour la liste **Délégation de sous-réseau**, sélectionnez l’un des services listés sous **Déléguer le sous-réseau à un service** (par exemple, **Microsoft.DBforPostgreSQL/serversv2**).  
+2. Sélectionnez **Sous-réseaux** sous **PARAMÈTRES**, puis sélectionnez **mySubnet**.
+3. Dans la page *mySubnet*, pour la liste **Délégation de sous-réseau**, sélectionnez l’un des services listés sous **Déléguer le sous-réseau à un service** (par exemple, **Microsoft.DBforPostgreSQL/serversv2**).  
 
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Supprimer une délégation de sous-réseau d’un service Azure
 
 1. Dans la barre de recherche du portail, entrez *myVirtualNetwork*. Quand la mention **myVirtualNetwork** apparaît dans les résultats de recherche, sélectionnez-la.
-2. Dans les résultats de recherche, sélectionnez *myVirtualNetwork*.
-3. Sélectionnez **Sous-réseaux** sous **PARAMÈTRES**, puis sélectionnez **mySubnet**.
-4. Dans la page *mySubnet*, pour la liste **Délégation de sous-réseau**, sélectionnez **Aucun** dans les services listés sous **Déléguer le sous-réseau à un service**. 
+2. Sélectionnez **Sous-réseaux** sous **PARAMÈTRES**, puis sélectionnez **mySubnet**.
+3. Dans la page *mySubnet*, pour la liste **Délégation de sous-réseau**, sélectionnez **Aucun** dans les services listés sous **Déléguer le sous-réseau à un service**. 
 
 ## <a name="azure-cli"></a>Azure CLI
 

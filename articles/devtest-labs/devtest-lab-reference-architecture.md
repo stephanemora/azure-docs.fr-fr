@@ -4,12 +4,12 @@ description: Cet article fournit des conseils sur l’architecture de référenc
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: d977ae8341981c90096c10bbc2c051372b4d8dab
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2a7c98784e230292afdb5cd217c2f0455034ad70
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125874"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111814581"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Architecture de référence Azure DevTest Labs pour les entreprises
 Cet article décrit l’architecture de référence vous permettant de déployer une solution basée sur Azure DevTest Labs dans une entreprise. Les éléments suivants sont abordés :
@@ -46,7 +46,7 @@ Bien que DevTest Labs n’intègre pas de quotas ou de limites, les autres resso
     - **Utilisation d’adresses IP publiques partagées** : Toutes les machines virtuelles de la même taille et de la même région sont regroupées dans le même groupe de ressources. Cette configuration est un « juste milieu » entre les quotas de groupes de ressources et les quotas de type de ressources par groupe de ressources si les machines virtuelles sont autorisées à posséder des adresses IP publiques.
 - **Ressources par groupe de ressources par type de ressource** : le nombre maximal par défaut des [ressources par groupe de ressources et par type de ressources est fixé à 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  Lorsque vous utilisez la configuration *Toutes les machines virtuelles de la même taille et de la même région sont regroupées dans le même groupe de ressources*, les utilisateurs atteignent cette limite d’abonnement d’autant plus vite que les machines virtuelles possèdent un grand nombre de disques supplémentaires.
 - **Comptes de stockage** : un labo de DevTest Labs est livré avec un compte de stockage. Le quota Azure pour le [nombre de comptes de stockage par région par abonnement est de 250](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). Le nombre maximum de DevTest Labs dans la même région s’élève également à 250.
-- **Affectations de rôles** : un attribution de rôle est la façon dont vous donnez l’accès à une ressource (niveau propriétaire, ressource, autorisation) à un utilisateur ou un principal. Azure prend en charge jusqu’à [2 000 attributions de rôle par abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits). Par défaut, le service DevTest Labs crée un groupe de ressources pour chaque machine virtuelle. Le propriétaire reçoit l’autorisation *propriétaire* pour la machine virtuelle DevTest Labs, et l’autorisation *lecteur* pour le groupe de ressources. De cette façon, chaque nouvelle machine virtuelle que vous créez utilise deux affectations de rôle en plus de celles qui sont utilisées lorsque vous donnez aux utilisateurs l’autorisation d’accès au labo.
+- **Affectations de rôles** : un attribution de rôle est la façon dont vous donnez l’accès à une ressource (niveau propriétaire, ressource, autorisation) à un utilisateur ou un principal. Azure prend en charge jusqu’à [2 000 attributions de rôle par abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits). Par défaut, le service DevTest Labs crée un groupe de ressources pour chaque machine virtuelle. Le propriétaire reçoit l’autorisation *propriétaire* pour la machine virtuelle DevTest Labs, et l’autorisation *lecteur* pour le groupe de ressources. De cette façon, chaque nouvelle machine virtuelle que vous créez utilise deux affectations de rôle en plus de celles qui sont utilisées lorsque vous donnez aux utilisateurs l’autorisation d’accès au labo.
 - **Lectures/écritures d’API** : il existe plusieurs façons d’automatiser Azure et DevTest Labs, notamment les API REST, PowerShell, Azure CLI et le SDK Azure. Grâce à l’automatisation, vous pourriez atteindre une autre limite sur les requêtes d’API : chaque abonnement autorise jusqu’à [12 000 demandes de lecture et 1 200 demandes d’écriture par heure](../azure-resource-manager/management/request-limits-and-throttling.md). Soyez conscient de cette limite lorsque vous automatisez DevTest Labs.
 
 ## <a name="manageability-considerations"></a>Considérations relatives à la facilité de gestion
