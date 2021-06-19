@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/23/2021
 ms.author: cavoeg
-ms.openlocfilehash: 905d9381ac93e38575e9d0ff5c6f5571122b2990
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b4ede817b3babfb9221ac8fa982acc0322c9d7b2
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476644"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112379669"
 ---
 # <a name="running-a-reindex-job"></a>Exécution d’un travail de réindexation
 
@@ -192,8 +192,8 @@ Vous trouverez ci-dessous un tableau détaillant les paramètres disponibles, le
 | --------------------------------- | ---------------------------- | ------------------ | ------------------------------- |
 | QueryDelayIntervalInMilliseconds  | Il s’agit du délai entre chaque lot de ressources en cours de lancement pendant le travail de réindexation. | 500 MS (. 5 secondes) | 50 à 5000:50 accélère le travail de réindexation et 5000 le ralentit de la valeur par défaut. |
 | MaximumResourcesPerQuery  | Il s’agit du nombre maximal de ressources incluses dans le lot de ressources à réindexer.  | 100 | 1-500 |
-| MaximumConcurreny  | Il s’agit du nombre de lots effectués à la fois.  | 1 | 1-5 |
-| targetDataStoreUsagePercentrage | Cela vous permet de spécifier le pourcentage de votre magasin de données à utiliser pour le travail de réindexation. Par exemple, vous pouvez spécifier 50% et vous assurer qu’au plus la tâche de réindexation utilise 50% des unités de demande disponibles sur Cosmos DB.  | Non présent, ce qui signifie qu’il est possible d’utiliser jusqu’à 100%. | 1-100 |
+| MaximumConcurrency  | Il s’agit du nombre de lots effectués à la fois.  | 1 | 1-5 |
+| targetDataStoreUsagePercentage | Cela vous permet de spécifier le pourcentage de votre magasin de données à utiliser pour le travail de réindexation. Par exemple, vous pouvez spécifier 50% et vous assurer qu’au plus la tâche de réindexation utilise 50% des unités de demande disponibles sur Cosmos DB.  | Non présent, ce qui signifie qu’il est possible d’utiliser jusqu’à 100%. | 1-100 |
 
 Si vous souhaitez utiliser l’un des paramètres ci-dessus, vous pouvez les transmettre à la ressource de paramètres lorsque vous démarrez le travail de réindexation.
 
