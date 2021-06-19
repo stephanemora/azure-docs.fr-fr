@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 03/22/2021
-ms.openlocfilehash: 6e92ab3c27113aad44b7bed2815b9c5050afd0ac
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: f9c86cdf09e99d3cf5fc14ad6f6b72b8f36d9133
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166902"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963099"
 ---
 # <a name="how-to-collect-a-network-trace"></a>Comment collecter une trace du réseau
 
@@ -50,7 +50,7 @@ La plupart des outils de développement des navigateurs possèdent un onglet «�
 
 ### <a name="microsoft-edge-chromium"></a>Microsoft Edge (Chromium)
 
-1. Ouvrez les [outils de développement](https://docs.microsoft.com/microsoft-edge/devtools-guide-chromium/).
+1. Ouvrez les [outils de développement](/microsoft-edge/devtools-guide-chromium/).
     * Sélectionnez `F12` 
     * Sélectionnez `Ctrl`+`Shift`+`I` \(Windows/Linux\) ou `Command`+`Option`+`I` \(macOS\).
     * Sélectionnez `Settings and more`, puis `More Tools > Developer Tools`.  

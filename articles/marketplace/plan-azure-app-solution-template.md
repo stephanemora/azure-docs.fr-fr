@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: aab856b1e1d2d991cc4964d061a990dbedbeddb7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 25feef60e6b417d835f06be9641207ce56aa53a6
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98876509"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111536430"
 ---
 # <a name="plan-a-solution-template-for-an-azure-application-offer"></a>Planifier un modèle de solution pour une offre d’application Azure
 
@@ -76,4 +76,4 @@ Pour plus d’informations, consultez [Offres privées dans la Place de marché 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comment créer une offre d’application Azure dans la Place de marché commerciale](create-new-azure-apps-offer.md)
+- [Créer une offre Azure Application](azure-app-offer-setup.md)

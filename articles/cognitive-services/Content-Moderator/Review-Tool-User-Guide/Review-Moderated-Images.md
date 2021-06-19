@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 77d7b8a0bf4d7fe9a94a61ea3f2f4279246ffb69
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 155bf999823625e1a91752c9cf064bc804d28335
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96903885"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031778"
 ---
 # <a name="create-human-reviews"></a>Créer des révisions humaines
+
+[!INCLUDE [deprecation notice](../includes/tool-deprecation.md)]
 
 Dans ce guide, vous apprendrez à configurer des [révisions](../review-api.md#reviews) sur le site web de l’outil de révision. Les révisions stockent et affichent le contenu que les modérateurs humains vont évaluer. Les modérateurs peuvent modifier les balises appliquées et appliquer leurs propres balises personnalisées selon leurs besoins. Lorsqu’un utilisateur termine une révision, les résultats sont envoyés à un point de terminaison de rappel spécifié, puis le contenu est retiré du site.
 
