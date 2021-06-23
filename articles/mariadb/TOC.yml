@@ -153,10 +153,8 @@
       href: concepts-ssl-connection-security.md
     - name: Configurer TLS
       href: howto-tls-configurations.md
-    - name: Advanced Threat Protection
-      href: concepts-data-access-and-security-threat-protection.md
-    - name: Configuration d’Advanced Threat Protection
-      href: howto-database-threat-protection-portal.md
+    - name: Protection contre les menaces avec Azure Defender
+      href: ../security-center/defender-for-databases-introduction.md
     - name: Concepts de l’audit
       href: concepts-audit-logs.md
     - name: Configuration des journaux d’audit

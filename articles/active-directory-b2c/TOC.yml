@@ -24,9 +24,9 @@
       href: tutorial-create-tenant.md
     - name: 2 - Inscrire une application
       href: tutorial-register-applications.md
-    - name: 3 - Créer des flux d’utilisateur
+    - name: 3 - Créer des flux d’utilisateur et des stratégies personnalisées
       href: tutorial-create-user-flows.md
-    - name: 4 - Authentifier les utilisateurs
+    - name: Authentification des utilisateurs
       items:
         - name: ASP.NET
           href: tutorial-web-app-dotnet.md
@@ -37,7 +37,7 @@
         - name: Python
           href: tutorial-web-app-python.md
           displayName: flask
-    - name: 5 - Accorder l’accès à une API
+    - name: Accorder un accès à l’API
       items:
         - name: ASP.NET
           href: tutorial-web-api-dotnet.md
@@ -45,7 +45,7 @@
           href: tutorial-desktop-app-webapi.md
         - name: Page unique
           href: tutorial-single-page-app-webapi.md
-    - name: 6 -Nettoyer et supprimer un locataire
+    - name: Nettoyer et supprimer un locataire
       href: tutorial-delete-tenant.md
 - name: Exemples
   href: code-samples.md
@@ -105,8 +105,28 @@
       href: tenant-management.md
     - name: Intégration d’applications
       items:
-        - name: "Inscrire une application\_web"
-          href: tutorial-register-applications.md
+        - name: Application web ASP.NET Core
+          items:
+            - name: Configurer un exemple d’application web
+              href: configure-authentication-sample-web-app.md
+            - name: Activer l’authentification dans votre application
+              href: enable-authentication-web-application.md
+            - name: Options d’authentification
+              href: enable-authentication-web-application-options.md
+        - name: Application web ASP.NET Core qui appelle l’API
+          items:
+            - name: Configurer un exemple d’application web qui appelle l’API
+              href: configure-authentication-sample-web-app-with-api.md
+            - name: Activer l’authentification dans votre application
+              href: enable-authentication-web-app-with-api.md
+            - name: Options d’authentification
+              href: enable-authentication-web-app-with-api-options.md
+        - name: Application monopage (SPA)
+          items:
+            - name: Configurer un exemple d’application SPA
+              href: configure-authentication-sample-spa-app.md
+            - name: Options d’authentification
+              href: enable-authentication-spa-app-options.md
         - name: Inscrire une application monopage (SPA)
           href: tutorial-register-spa.md
         - name: Application SAML
@@ -158,7 +178,7 @@
       items:
         - name: Fournisseur d’identité d’un compte local
           href: identity-provider-local.md
-          displayName: 'Username, Email, Phone authorization, Phone sing-in'
+          displayName: 'Username, Email, Phone authorization, Phone sign-in'
         - name: Ajouter un fournisseur d'identité
           href: add-identity-provider.md
         - name: AD FS
@@ -475,14 +495,16 @@
                   href: id-token-hint.md
                 - name: Émetteur de jeton JWT
                   href: jwt-issuer-technical-profile.md
-                - name: OAuth1
+                - name: Fournisseur d’identité OAuth1
                   href: oauth1-technical-profile.md
-                - name: OAuth2
+                - name: Fournisseur d’identité OAuth2
                   href: oauth2-technical-profile.md
+                - name: Erreur personnalisée OAuth2
+                  href: oauth2-error-technical-profile.md
                 - name: Mot de passe à usage unique
                   href: one-time-password-technical-profile.md
                   displayName: otp
-                - name: OpenID Connect
+                - name: Fournisseur d’identité OpenID Connect
                   href: openid-connect-technical-profile.md
                 - name: Facteur de téléphone
                   href: phone-factor-technical-profile.md
@@ -551,7 +573,7 @@
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Forum aux questions
-      href: faq.md
+      href: ./faq.yml
     - name: Obtenir de l’aide
       href: ../active-directory/develop/developer-support-help-options.md
     - name: Tarifs

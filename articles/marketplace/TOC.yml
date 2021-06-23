@@ -21,8 +21,6 @@
           href: manage-tenants.md
         - name: Rechercher ou créer un compte professionnel d’entreprise
           href: company-work-accounts.md
-        - name: Migration de compte CPP vers l’Espace partenaires
-          href: account-migration-from-cpp-to-pc.md
         - name: Notifier Microsoft
           href: submit-legal-notice.md
     - name: Gestion des utilisateurs
@@ -39,7 +37,7 @@
   items:
     - name: Options de référencement
       href: determine-your-listing-type.md
-    - name: Fonctionnalités Transact
+    - name: Transaction dans la Place de marché commerciale
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
     - name: Gestion des licences
       href: third-party-license.md
@@ -85,12 +83,14 @@
           href: cloud-solution-providers.md
         - name: Guide d’intégration du programme Connect
           href: business-applications-isv-program.md
-        - name: Avantage d’Azure Consumption Commitment
-          href: azure-consumption-commitment-benefit.md
+        - name: Inscription à Azure Consumption Commitment
+          href: azure-consumption-commitment-enrollment.md
+        - name: Solutions recommandées
+          href: /marketplace/appsource-overview#microsoft-preferred-solutions
         - name: Solutions intégrées
           href: integrated-solutions-for-publishers.md
     - name: Activer les récompenses de la Place de marché
-      href: partner-center-portal/marketplace-rewards.md
+      href: marketplace-rewards.md
     - name: Processus de paiement
       items:
         - name: Processus de paiement
@@ -111,115 +111,121 @@
   items:
     - name: Guide de publication par Type d’offre
       href: publisher-guide-by-offer-type.md
-    - name: Offres d’application Azure
+    - name: Offre d’application Azure
       items:
-        - name: Planifier des offres d’application Azure
+        - name: Planifier l’offre
           items:
-            - name: Planifier une offre d’application Azure
+            - name: Planifier l’offre
               href: plan-azure-application-offer.md
             - name: Planifier un modèle de solution
               href: plan-azure-app-solution-template.md
             - name: Planifier un application managée
               href: plan-azure-app-managed-app.md
-        - name: Créer et publier une offre d’application Azure
+        - name: Créer l’offre
           items:
-            - name: Créer une offre d’application Azure
-              href: create-new-azure-apps-offer.md
-            - name: Configurer les propriétés d’une offre d’application Azure
-              href: create-new-azure-apps-offer-properties.md
-            - name: Configurer le référencement d’une offre d’application Azure
-              href: create-new-azure-apps-offer-listing.md
-            - name: Ajouter un public pour la préversion
-              href: create-new-azure-apps-offer-preview.md
-            - name: Ajouter des détails techniques
-              href: create-new-azure-apps-offer-technical.md
-            - name: Créer des plans
-              href: create-new-azure-apps-offer-plans.md
-            - name: Créer un plan de modèle de solution
-              href: create-new-azure-apps-offer-solution.md
-            - name: Créer un plan d’application managée
-              href: create-new-azure-apps-offer-managed.md
-            - name: Tester et publier une offre d’application Azure
-              href: create-new-azure-apps-offer-test-publish.md
-        - name: Commercialiser votre offre d’application Azure
-          href: create-new-azure-apps-offer-marketing.md
-        - name: Facturation des applications Azure basée sur des mesures
-          href: partner-center-portal/azure-app-metered-billing.md
+            - name: Créer l’offre
+              href: azure-app-offer-setup.md
+            - name: Propriétés
+              href: azure-app-properties.md
+            - name: Annonce de l’offre
+              href: azure-app-offer-listing.md
+            - name: Public de la préversion
+              href: azure-app-preview.md
+            - name: Détails techniques
+              href: azure-app-technical-configuration.md
+            - name: Plans
+              items:
+                - name: Créer un plan
+                  href: azure-app-plans.md
+                - name: Plan de modèle de solution
+                  href: azure-app-solution.md
+                - name: Plan d’application managée
+                  href: azure-app-managed.md
+        - name: Tester et publier
+          href: azure-app-test-publish.md
+        - name: Commercialiser votre offre
+          href: azure-app-marketing.md
+        - name: Facturation à l’usage
+          href: marketplace-metering-service-apis.md
         - name: Gestion des commentaires de révision
-          href: partner-center-portal/azure-apps-review-feedback.md
-        - name: API d’application Azure
-          href: partner-center-portal/azure-app-apis.md
+          href: azure-app-review-feedback.md
+        - name: API d’application
+          href: azure-app-apis.md
     - name: Offre de conteneur Azure
       items:
         - name: Planifier l’offre
-          href: marketplace-containers.md
-        - name: Préparer des ressources techniques
-          href: azure-container-technical-assets.md
-        - name: Créer l’offre
-          href: azure-container-offer-setup.md
-        - name: Propriétés
-          href: azure-container-properties.md
-        - name: Annonce de l’offre
-          href: azure-container-offer-listing.md
-        - name: Public de la préversion
-          href: azure-container-preview-audience.md
-        - name: Créer et modifier des plans
           items:
-            - name: Vue d’ensemble du plan
-              href: azure-container-plan-overview.md
-            - name: Configuration du plan
-              href: azure-container-plan-setup.md
-            - name: Liste des plans
-              href: azure-container-plan-listing.md
-            - name: Disponibilité du plan
-              href: azure-container-plan-availability.md
-            - name: Planifier la configuration technique
-              href: azure-container-plan-technical-configuration.md
+            - name: Planifier l’offre
+              href: marketplace-containers.md
+            - name: Préparer des ressources techniques
+              href: azure-container-technical-assets.md
+        - name: Créer l’offre
+          items:
+            - name: Créer l’offre
+              href: azure-container-offer-setup.md
+            - name: Propriétés
+              href: azure-container-properties.md
+            - name: Annonce de l’offre
+              href: azure-container-offer-listing.md
+            - name: Public de la préversion
+              href: azure-container-preview-audience.md
+            - name: Plans
+              items:
+                - name: Vue d’ensemble du plan
+                  href: azure-container-plan-overview.md
+                - name: Configuration du plan
+                  href: azure-container-plan-setup.md
+                - name: Liste des plans
+                  href: azure-container-plan-listing.md
+                - name: Disponibilité du plan
+                  href: azure-container-plan-availability.md
+                - name: Planifier la configuration technique
+                  href: azure-container-plan-technical-configuration.md
     - name: Offres de machines virtuelles Azure
       items:
-        - name: Planifier une offre de machine virtuelle
+        - name: Planifier l’offre
           href: marketplace-virtual-machines.md
-        - name: Créer et publier une offre de machine virtuelle
+        - name: Créer l’offre
           items:
-            - name: Créer une offre de machine virtuelle
+            - name: Créer l’offre
               href: azure-vm-create.md
-            - name: Configurer les propriétés d’une offre de machine virtuelle
+            - name: Propriétés
               href: azure-vm-create-properties.md
-            - name: Configurer l’annonce d’une offre de machine virtuelle
+            - name: Annonce de l’offre
               href: azure-vm-create-listing.md
-            - name: Ajouter un public pour la préversion
+            - name: Public de la préversion
               href: azure-vm-create-preview.md
-            - name: Créer des plans de machine virtuelle
+            - name: Plans
               href: azure-vm-create-plans.md
-            - name: Revendre via des fournisseurs de solutions cloud
-              href: azure-vm-create-resell-csp.md
-            - name: Créer des ressources techniques pour les machines virtuelles
-              items:
-                - name: Créer une machine virtuelle à partir d’une base approuvée
-                  href: azure-vm-create-using-approved-base.md
-                - name: Créer une machine virtuelle en utilisant votre propre image
-                  href: azure-vm-create-using-own-image.md
-                - name: Tester une image de machine virtuelle
-                  href: azure-vm-image-test.md
-                - name: Obtenir un URI SAS
-                  href: azure-vm-get-sas-uri.md
-                - name: Messages d’échec SAS
-                  href: azure-vm-sas-failure-messages.md
-                - name: Questions fréquentes (FAQ) sur la création de machine virtuelle
-                  href: azure-vm-create-faq.md
-                - name: Résolution des problèmes de certification de machines virtuelles
-                  href: azure-vm-create-certification-faq.md
-    - name: Services de conseil
+        - name: Revendre via des fournisseurs de solutions cloud
+          href: azure-vm-create-resell-csp.md
+        - name: Créer des ressources techniques
+          items:
+            - name: Créer une machine virtuelle à partir d’une base approuvée
+              href: azure-vm-create-using-approved-base.md
+            - name: Créer une machine virtuelle en utilisant votre propre image
+              href: azure-vm-create-using-own-image.md
+            - name: Tester une image de machine virtuelle
+              href: azure-vm-image-test.md
+            - name: Obtenir un URI SAS
+              href: azure-vm-get-sas-uri.md
+            - name: Messages d’échec SAS
+              href: azure-vm-sas-failure-messages.md
+            - name: Questions fréquentes (FAQ) sur la création de machine virtuelle
+              href: azure-vm-create-faq.md
+            - name: Résolution des problèmes de certification de machines virtuelles
+              href: azure-vm-create-certification-faq.md
+    - name: Offre de services de conseil
       items:
-        - name: Planifier une offre de services de conseil
+        - name: Planifier l’offre
           href: plan-consulting-service-offer.md
-        - name: Créer une offre de services de conseil
+        - name: Créer l’offre
           href: create-consulting-service-offer.md
-        - name: Configurer les propriétés du service de conseil
+        - name: Propriétés
           href: create-consulting-service-offer-properties.md
-        - name: Configurer le référencement du service de conseil
+        - name: Annonce de l’offre
           href: create-consulting-service-offer-listing.md
-        - name: Configurer les tarifs et la disponibilité
+        - name: Tarification et disponibilité
           href: create-consulting-service-pricing-availability.md
     - name: "Offres Dynamics\_365"
       items:
@@ -241,24 +247,68 @@
               href: dynamics-365-customer-engage-technical-configuration.md
             - name: Contenu supplémentaire
               href: dynamics-365-customer-engage-supplemental-content.md
-            - name: Vérifier et publier
-              href: dynamics-365-customer-engage-review-publish.md
         - name: Créer une offre Operations
           items:
-            - name: "Créer une offre Dynamics\_365 for Operations"
-              href: partner-center-portal/create-new-operations-offer.md
+            - name: Créer l’offre
+              href: dynamics-365-operations-offer-setup.md
+            - name: Propriétés
+              href: dynamics-365-operations-properties.md
+            - name: Annonce de l’offre
+              href: dynamics-365-operations-offer-listing.md
+            - name: Disponibilité
+              href: dynamics-365-operations-availability.md
+            - name: Configuration technique
+              href: dynamics-365-operations-technical-configuration.md
+            - name: Contenu supplémentaire
+              href: dynamics-365-operations-supplemental-content.md
             - name: Validation fonctionnelle
-              href: dynamics-365-finance-operations-functional-validation.md
+              href: dynamics-365-operations-validation.md
         - name: Créer une offre Business Central
-          href: partner-center-portal/create-new-business-central-offer.md
-    - name: Offres de module IoT Edge
+          items:
+            - name: Créer l’offre
+              href: dynamics-365-business-central-offer-setup.md
+            - name: Propriétés
+              href: dynamics-365-business-central-properties.md
+            - name: Annonce de l’offre
+              href: dynamics-365-business-central-offer-listing.md
+            - name: Disponibilité
+              href: dynamics-365-business-central-availability.md
+            - name: Configuration technique
+              href: dynamics-365-business-central-technical-configuration.md
+            - name: Contenu supplémentaire
+              href: dynamics-365-business-central-supplemental-content.md
+        - name: Vérifier et publier
+          href: dynamics-365-review-publish.md
+    - name: "Offre de module IoT\_Edge"
       items:
-        - name: Planifier une offre de module IoT Edge
-          href: iot-edge-module.md
-        - name: Créer une offre de module Azure IoT Edge
-          href: partner-center-portal/azure-iot-edge-module-creation.md
-        - name: Préparer les ressources techniques du module Azure IoT Edge
-          href: partner-center-portal/create-iot-edge-module-asset.md
+        - name: Planifier l’offre
+          items:
+            - name: Planifier l’offre
+              href: marketplace-iot-edge.md
+            - name: Préparer des ressources techniques
+              href: iot-edge-technical-asset.md
+        - name: Créer l’offre
+          items:
+            - name: Créer l’offre
+              href: iot-edge-offer-setup.md
+            - name: Propriétés
+              href: iot-edge-properties.md
+            - name: Annonce de l’offre
+              href: iot-edge-offer-listing.md
+            - name: Public de la préversion
+              href: iot-edge-preview-audience.md
+            - name: Créer des plans
+              items:
+                - name: Vue d’ensemble du plan
+                  href: iot-edge-plan-overview.md
+                - name: Configuration du plan
+                  href: iot-edge-plan-setup.md
+                - name: Liste des plans
+                  href: iot-edge-plan-listing.md
+                - name: Disponibilité du plan
+                  href: iot-edge-plan-availability.md
+                - name: Planifier la configuration technique
+                  href: iot-edge-plan-technical-configuration.md
     - name: Offres de services managés
       items:
         - name: Planifier une offre de service managé
@@ -273,13 +323,23 @@
           href: create-managed-service-offer-plans.md
     - name: "Offres d’applications Power\_BI"
       items:
-        - name: "Planifier une offre d’application Power\_BI"
-          href: partner-center-portal/create-power-bi-app-overview.md
-        - name: "Créer une offre d’application Power\_BI"
-          href: partner-center-portal/create-power-bi-app-offer.md
+        - name: Planifier l’offre
+          href: marketplace-power-bi.md
+        - name: Créer l’offre
+          items:
+            - name: Configuration de l’offre
+              href: power-bi-app-offer-setup.md
+            - name: Propriétés
+              href: power-bi-app-properties.md
+            - name: Annonce de l’offre
+              href: power-bi-app-offer-listing.md
+            - name: Configuration technique
+              href: power-bi-app-technical-configuration.md
+            - name: Contenu supplémentaire
+              href: power-bi-app-supplemental-content.md
     - name: Offres SaaS
       items:
-        - name: Planifier une offre SaaS
+        - name: Planifier l’offre
           href: plan-saas-offer.md
         - name: Authentification Azure AD pour SaaS
           items:
@@ -291,30 +351,30 @@
               href: azure-ad-free-or-trial-landing-page.md
         - name: Facturation à l’usage SaaS
           href: partner-center-portal/saas-metered-billing.md
-        - name: Créer et publier une offre SaaS
+        - name: Créer l’offre
           items:
-            - name: Créer une offre SaaS
+            - name: Créer l’offre
               href: create-new-saas-offer.md
-            - name: Configurer les propriétés de l’offre SaaS
+            - name: Propriétés
               href: create-new-saas-offer-properties.md
-            - name: Configurer l’annonce d’une offre SaaS
+            - name: Annonce de l’offre
               href: create-new-saas-offer-listing.md
-            - name: Ajouter un public pour la préversion
+            - name: Public de la préversion
               href: create-new-saas-offer-preview.md
-            - name: Ajouter des détails techniques
+            - name: Détails techniques
               href: create-new-saas-offer-technical.md
-            - name: Créer des plans
+            - name: Plans
               href: create-new-saas-offer-plans.md
-            - name: Créer une offre de test
+            - name: Créer une offre SaaS de test
               href: create-saas-dev-test-offer.md
-            - name: Tester et publier une offre SaaS
+            - name: Tester et publier
               href: test-publish-saas-offer.md
-        - name: Vendre votre offre SaaS
+        - name: Commercialiser votre offre
           href: create-new-saas-offer-marketing.md
     - name: Réviser et publier des offres
       href: review-publish-offer.md
     - name: Mettre à jour les offres existantes
-      href: partner-center-portal/update-existing-offer.md
+      href: update-existing-offer.md
 - name: Vendre et commercialiser vos offres
   items:
     - name: Meilleures pratiques marketing
@@ -342,7 +402,7 @@
 - name: Données et analyse
   items:
     - name: Analytique de la Place de marché commerciale
-      href: partner-center-portal/analytics.md
+      href: analytics.md
     - name: Tableau de bord Résumé
       href: summary-dashboard.md
     - name: Tableau de bord des commandes
@@ -354,9 +414,9 @@
     - name: Tableau de bord des insights de la Place de marché
       href: insights-dashboard.md
     - name: Tableau de bord Téléchargements
-      href: partner-center-portal/downloads-dashboard.md
+      href: downloads-dashboard.md
     - name: Tableau de bord des évaluations et des avis
-      href: partner-center-portal/ratings-reviews.md
+      href: ratings-reviews.md
     - name: Accès programmatique à l’analytique
       items:
         - name: Bien démarrer
@@ -456,11 +516,11 @@
         - name: Service de détection d’anomalie
           href: partner-center-portal/anomaly-detection-service-for-metered-billing.md
         - name: Stratégies d’authentification
-          href: partner-center-portal/marketplace-metering-service-authentication.md
+          href: marketplace-metering-service-authentication.md
         - name: API de service de mesure de la Place de marché
-          href: partner-center-portal/marketplace-metering-service-apis.md
+          href: marketplace-metering-service-apis.md
         - name: API de service de mesure de la Place de marché - Questions fréquentes (FAQ)
-          href: partner-center-portal/marketplace-metering-service-apis-faq.md
+          href: marketplace-metering-service-apis-faq.md
     - name: API de traitement SaaS
       items:
         - name: Vue d’ensemble des API de traitement SaaS

@@ -23,11 +23,11 @@
     - name: "Démarrer avec Python (jour\_1)"
       expanded: true
       items:
-        - name: 1. "Hello world"
+        - name: 1. Exécuter un script Python
           href: tutorial-1st-experiment-hello-world.md
         - name: 2. Entraîner votre modèle
           href: tutorial-1st-experiment-sdk-train.md
-        - name: 3. Apportez vos propres données
+        - name: 3. Utiliser vos propres données
           href: tutorial-1st-experiment-bring-data.md
     - name: Notebooks Jupyter
       items:
@@ -73,8 +73,8 @@
           href: tutorial-labeling.md
     - name: Interface de ligne de commande
       items:
-        - name: Entraîner et déployer avec l’interface CLI
-          href: tutorial-train-deploy-model-cli.md
+        - name: "Entraîner des modèles avec CLI\_2.0"
+          href: how-to-train-cli.md
         - name: Accéder aux ressources Azure avec des points de terminaison managés
           href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
     - name: Visual Studio Code
@@ -295,6 +295,9 @@
           href: how-to-configure-environment.md
         - name: Configurer un environnement de studio
           items:
+            - name: Gérer des environnements dans le studio
+              href: how-to-manage-environments-in-studio.md
+              displayName: 'environments, studio, create, edit'
             - name: Créer et gérer des fichiers
               href: how-to-manage-files.md
               displayName: 'Jupyter, notebooks, clone, samples'
@@ -383,37 +386,58 @@
       items:
         - name: "Entraîner avec l’interface CLI\_2.0"
           href: how-to-train-cli.md
-        - name: Configurer et soumettre une exécution d’entraînement
-          displayName: 'run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
-          href: how-to-set-up-training-targets.md
-        - name: Optimiser les hyperparamètres
-          displayName: 'parameter, hyperparameter, hyperdrive'
-          href: how-to-tune-hyperparameters.md
-        - name: Scikit-learn
-          href: how-to-train-scikit-learn.md
-        - name: TensorFlow
-          href: how-to-train-tensorflow.md
-        - name: Keras
-          href: how-to-train-keras.md
-        - name: PyTorch
-          href: how-to-train-pytorch.md
-        - name: Entraîner avec une image Docker personnalisée
-          href: how-to-train-with-custom-image.md
         - name: Entraîner avec l’API REST
           href: how-to-train-with-rest.md
-        - name: Migrer depuis Estimators vers ScriptRunConfig
-          href: how-to-migrate-from-estimators-to-scriptrunconfig.md
-        - name: Suivre et superviser l’entraînement
+        - name: Entraîner avec le SDK Python
           items:
-            - name: 'Suivre, superviser et analyser des exécutions'
-              displayName: 'cancel, fail, status, child run'
-              href: how-to-track-monitor-analyze-runs.md
-            - name: Journaliser et afficher les métriques et les fichiers journaux
-              displayName: 'troubleshoot, log, files, tracing, metrics'
-              href: how-to-log-view-metrics.md
-            - name: Visualiser les exécutions avec TensorBoard
-              displayName: 'log, monitor, metrics'
-              href: how-to-monitor-tensorboard.md
+            - name: Configurer et soumettre une exécution d’entraînement
+              displayName: 'run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+              href: how-to-set-up-training-targets.md
+            - name: Optimiser les hyperparamètres
+              displayName: 'parameter, hyperparameter, hyperdrive'
+              href: how-to-tune-hyperparameters.md
+            - name: Scikit-learn
+              href: how-to-train-scikit-learn.md
+            - name: TensorFlow
+              href: how-to-train-tensorflow.md
+            - name: Keras
+              href: how-to-train-keras.md
+            - name: PyTorch
+              href: how-to-train-pytorch.md
+            - name: Entraîner avec une image Docker personnalisée
+              href: how-to-train-with-custom-image.md
+            - name: Migrer depuis Estimators vers ScriptRunConfig
+              href: how-to-migrate-from-estimators-to-scriptrunconfig.md
+            - name: Apprentissage par renforcement
+              href: how-to-use-reinforcement-learning.md
+            - name: Utiliser MLflow
+              items:
+                - name: Suivre des expériences avec MLflow
+                  displayName: 'log, monitor, metrics, model registry, register'
+                  href: how-to-use-mlflow.md
+                - name: Suivre les exécutions Azure Databricks avec MLflow
+                  displayName: 'log, monitor, deploy, metrics, databricks'
+                  href: how-to-use-mlflow-azure-databricks.md
+                - name: Entraîner des expériences avec des projets MLflow
+                  displayName: 'log, monitor, metrics, model registry, register'
+                  href: how-to-train-mlflow-projects.md
+                - name: Déployer des modèles MLflow
+                  displayName: 'log, monitor, deploy, metrics, databricks, aci, aks'
+                  href: how-to-deploy-mlflow-models.md
+            - name: Suivre et superviser l’entraînement
+              items:
+                - name: 'Suivre, superviser et analyser des exécutions'
+                  displayName: 'cancel, fail, status, child run'
+                  href: how-to-track-monitor-analyze-runs.md
+                - name: Journaliser et afficher les métriques et les fichiers journaux
+                  displayName: 'troubleshoot, log, files, tracing, metrics'
+                  href: how-to-log-view-metrics.md
+                - name: Visualiser les exécutions avec TensorBoard
+                  displayName: 'log, monitor, metrics'
+                  href: how-to-monitor-tensorboard.md
+            - name: Utiliser Key Vault lors de l’entraînement
+              displayName: secrets keyvault
+              href: how-to-use-secrets-in-runs.md
         - name: Interpréter et expliquer les modèles
           displayName: interpretability
           items:
@@ -425,25 +449,6 @@
               href: how-to-machine-learning-interpretability-automl.md
         - name: Évaluer et atténuer l’impartialité d’un modèle
           href: how-to-machine-learning-fairness-aml.md
-        - name: Utiliser Key Vault lors de l’entraînement
-          displayName: secrets keyvault
-          href: how-to-use-secrets-in-runs.md
-        - name: Apprentissage par renforcement
-          href: how-to-use-reinforcement-learning.md
-    - name: Utiliser MLflow
-      items:
-        - name: Suivre des expériences avec MLflow
-          displayName: 'log, monitor, metrics, model registry, register'
-          href: how-to-use-mlflow.md
-        - name: Suivre les exécutions Azure Databricks avec MLflow
-          displayName: 'log, monitor, deploy, metrics, databricks'
-          href: how-to-use-mlflow-azure-databricks.md
-        - name: Entraîner des expériences avec des projets MLflow
-          displayName: 'log, monitor, metrics, model registry, register'
-          href: how-to-train-mlflow-projects.md
-        - name: Déployer des modèles MLflow
-          displayName: 'log, monitor, deploy, metrics, databricks, aci, aks'
-          href: how-to-deploy-mlflow-models.md
     - name: Machine learning automatisé
       displayName: 'automl, auto ml'
       items:
@@ -490,6 +495,8 @@
                   href: how-to-use-managed-online-endpoint-studio.md
                 - name: Affichage des coûts des points de terminaison en ligne managés
                   href: how-to-view-online-endpoints-costs.md
+                - name: Utiliser REST pour déployer un modèle comme point de terminaison en ligne managé
+                  href: how-to-deploy-with-rest.md
                 - name: Liste des références SKU de VM pour les points de terminaison en ligne managés
                   href: reference-managed-online-endpoints-vm-sku-list.md
                 - name: Surveillance des points de terminaison en ligne managés
@@ -628,6 +635,9 @@
     - name: Gérer les quotas de ressources
       displayName: limits
       href: how-to-manage-quotas.md
+    - name: Gérer et optimiser les coûts
+      displayName: 'cost-management,cost-optimization'
+      href: how-to-manage-optimize-cost.md
     - name: Gérer les ressources VS Code
       displayName: 'vscode,resources'
       href: how-to-manage-resources-vscode.md
@@ -642,25 +652,31 @@
       href: how-to-use-event-grid.md
 - name: Informations de référence
   items:
+    - name: API REST
+      href: /rest/api/azureml/
+    - name: CLI (v2)
+      displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
+      href: /cli/azure/ml/
+    - name: Schémas YAML CLI (v2)
+      items:
+        - name: Points de terminaison en ligne
+          href: reference-online-endpoint-yaml.md
     - name: Kit de développement logiciel (SDK) Python
       displayName: 'api, core, package, python, class'
       href: /python/api/overview/azure/ml/intro
-    - name: SDK R
-      displayName: 'api, core, package, R, class'
-      href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'
-    - name: Interface de ligne de commande
+    - name: CLI (v1)
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
-    - name: API REST
-      href: /rest/api/azureml/
     - name: Informations de référence sur les modules du concepteur
       displayName: 'module, reference, algorithm, studio'
       href: algorithm-module-reference/module-reference.md
     - name: Superviser la référence des données
       href: monitor-resource-reference.md
+    - name: Informations de référence YAML sur les points de terminaison en ligne managés
+      href: reference-online-endpoint-yaml.md
     - name: Informations de référence YAML sur les pipelines de machine learning
       href: reference-pipeline-yaml.md
-    - name: Parité de clouds souverains
+    - name: Disponibilité des fonctionnalités dans les régions
       href: reference-machine-learning-cloud-parity.md
     - name: Éléments intégrés Azure Policy
       displayName: 'samples, policies, definitions'

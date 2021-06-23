@@ -40,38 +40,40 @@
   items:
     - name: Clusters et clouds privés
       href: concepts-private-clouds-clusters.md
-    - name: Réseau et interconnectivité d’un cloud privé
+    - name: Réseau et interconnectivité
       href: concepts-networking.md
-    - name: Stockage dans des clouds privés
+    - name: Stockage
       href: concepts-storage.md
-    - name: Accès et identité pour les clouds privés
+    - name: Accès et identité
       href: concepts-identity.md
-    - name: Superviser et réparer des clouds privés
-      href: concepts-private-clouds-clusters.md#host-monitoring-and-remediation
+    - name: Supervision et protection
+      href: concepts-monitor-protection.md
     - name: Gestion des API
       href: concepts-api-management.md
     - name: Hub-and-spoke
       href: concepts-hub-and-spoke.md
 - name: Guides pratiques
   items:
+    - name: Créer une évaluation Azure VMware Solution
+      href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
     - name: Demander un quota hôte pour Azure VMware Solution
       href: request-host-quota-azure-vmware-solution.md
+    - name: Faire des économies avec une instance réservée
+      href: reserved-instance.md
     - name: Déplacer des ressources
       items:
         - name: Déplacer des abonnements Azure VMware Solution
           href: move-ea-csp-subscriptions.md
-    - name: Faire des économies avec une instance réservée
-      href: reserved-instance.md
-    - name: Créer une évaluation Azure VMware Solution
-      href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
-    - name: Configurer et gérer DHCP
+        - name: Déplacer des ressources Azure VMware Solution dans les régions
+          href: move-azure-vmware-solution-across-regions.md
+    - name: Configurer DHCP
       href: configure-dhcp-azure-vmware-solution.md
     - name: Configurer DHCP sur les réseaux VMware HCX étendus L2
       href: configure-l2-stretched-vmware-hcx-networks.md
-    - name: Configurer les composants réseau NSX
+    - name: Configurer les composants NSX avec Azure
       href: configure-nsx-network-components-azure-portal.md
     - name: Configurer GitHub Enterprise Server
-      href: github-enterprise-server.md
+      href: ./configure-github-enterprise-server.md
     - name: Activer l’accès Internet public
       href: enable-public-internet-access.md
     - name: Configurer un réseau VPN de site à site dans un WAN virtuel
@@ -80,42 +82,32 @@
       href: configure-windows-server-failover-cluster.md
     - name: Rotation des informations d’identification cloudadmin
       href: rotate-cloudadmin-credentials.md
-    - name: Sauvegarder et restaurer avec un serveur de sauvegarde Azure
-      items:
-        - name: Sauvegarder des machines virtuelles VMware
-          href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
-        - name: Restaurer les machines virtuelles VMware
-          href: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
-        - name: Superviser les charges de travail de Sauvegarde Azure
-          href: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context
     - name: Récupération d'urgence
       items:
-        - name: Déployer la reprise d’activité pour les machines virtuelles
-          href: disaster-recovery-for-virtual-machines.md
-        - name: Reprise d’activité vers Azure
+        - name: Déployer la reprise d’activité avec VMware HCX
+          href: deploy-disaster-recovery-using-vmware-hcx.md
+        - name: Reprise d’activité sur Azure Site Recovery
           items:
             - name: Préparer Azure
-              href: /azure/site-recovery/avs-tutorial-prepare-azure?context=/azure/azure-vmware/context/context
+              href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
             - name: Préparer Azure VMware Solution
-              href: /azure/site-recovery/avs-tutorial-prepare-avs?context=/azure/azure-vmware/context/context
+              href: ../site-recovery/avs-tutorial-prepare-avs.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
             - name: Configurer la réplication
-              href: /azure/site-recovery/avs-tutorial-replication?context=/azure/azure-vmware/context/context
+              href: ../site-recovery/avs-tutorial-replication.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
             - name: Exécuter une simulation de récupération d'urgence
-              href: /azure/site-recovery/avs-tutorial-dr-drill-azure?context=/azure/azure-vmware/context/context
+              href: ../site-recovery/avs-tutorial-dr-drill-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
             - name: Basculer vers Azure
-              href: /azure/site-recovery/avs-tutorial-failover?context=/azure/azure-vmware/context/context
+              href: ../site-recovery/avs-tutorial-failover.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
             - name: Reprotéger des machines virtuelles
-              href: /azure/site-recovery/avs-tutorial-reprotect?context=/azure/azure-vmware/context/context
+              href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
             - name: Effectuer une restauration automatique à partir d’Azure
-              href: /azure/site-recovery/avs-tutorial-failback?context=/azure/azure-vmware/context/context
+              href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
     - name: Intégration native Azure
       items:
-        - name: Protéger les machines virtuelles avec Azure Security Center
+        - name: 'Protéger, superviser et gérer les machines virtuelles'
+          href: integrate-azure-native-services.md
+        - name: Intégrer Azure Security Center
           href: azure-security-integration.md
-        - name: Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde Azure
-          href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
-        - name: Superviser et gérer les machines virtuelles
-          href: lifecycle-management-of-azure-vmware-solution-vms.md
         - name: Intégrer Azure NetApp Files
           href: netapp-files-with-azure-vmware-solution.md
         - name: Protéger des applications web avec Azure Application Gateway
@@ -151,23 +143,25 @@
         - name: Général
           href: faq.yml
         - name: Communication du client
-          href: /azure/azure-vmware/faq#customer-communication
+          href: /azure/azure-vmware/faq.yml#customer-communication
         - name: Configuration et installation
-          href: /azure/azure-vmware/faq#configuration-and-setup
+          href: /azure/azure-vmware/faq.yml#configuration-and-setup
         - name: Logiciels VMware
-          href: /azure/azure-vmware/faq#vmware-software
-        - name: 'Calcul, sauvegarde et reprise d’activité'
-          href: '/azure/azure-vmware/faq#compute,-backup,-and-disaster-recovery'
+          href: /azure/azure-vmware/faq.yml#vmware-software
+        - name: Solutions de sauvegarde tierces
+          href: /azure/azure-vmware/faq.yml#third-party-backup-and-recovery
+        - name: Compute
+          href: /azure/azure-vmware/faq.yml#compute
         - name: Réseau et interconnectivité
-          href: /azure/azure-vmware/faq#networking-and-interconnectivity
+          href: /azure/azure-vmware/faq.yml#networking-and-interconnectivity
         - name: Stockage
-          href: /azure/azure-vmware/faq#storage
+          href: /azure/azure-vmware/faq.yml#storage
         - name: 'Hôtes, clusters et clouds privés'
-          href: '/azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds'
+          href: '/azure/azure-vmware/faq.yml#hosts,-clusters,-and-private-clouds'
         - name: Gestion des identités
-          href: /azure/azure-vmware/faq#identity-management
+          href: /azure/azure-vmware/faq.yml#identity-management
         - name: Facturation et support
-          href: /azure/azure-vmware/faq#billing-and-support
+          href: /azure/azure-vmware/faq.yml#billing-and-support
     - name: Vidéos
       items:
         - name: Sélection

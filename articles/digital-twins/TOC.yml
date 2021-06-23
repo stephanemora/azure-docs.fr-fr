@@ -7,7 +7,7 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Explorer un exemple de scénario
+    - name: Bien démarrer avec Azure Digital Twins Explorer
       href: quickstart-azure-digital-twins-explorer.md
 - name: Tutoriels
   items:
@@ -41,14 +41,18 @@
       href: concepts-query-language.md
     - name: Unités de requête
       href: concepts-query-units.md
+    - name: Interrogation avec Azure Data Explorer
+      href: concepts-data-explorer-plugin.md
     - name: Interfaces développeur
       items:
+        - name: Azure Digital Twins Explorer
+          href: concepts-azure-digital-twins-explorer.md
         - name: API et Kits de développement logiciel (SDK)
           href: concepts-apis-sdks.md
         - name: Ensemble de commandes CLI
           href: concepts-cli.md
-    - name: Intégration à d’autres services
-      href: concepts-integration.md
+    - name: Entrée et sortie de données
+      href: concepts-data-ingress-egress.md
     - name: Notifications d’événement
       href: concepts-event-notifications.md
     - name: Routes d’événements
@@ -63,24 +67,28 @@
       items:
         - name: Configurer une instance et l’authentification
           items:
-            - name: Version du portail
+            - name: Portail
               href: how-to-set-up-instance-portal.md
-            - name: Version de la CLI
+            - name: Interface de ligne de commande
               href: how-to-set-up-instance-cli.md
-            - name: Version de PowerShell
+            - name: PowerShell
               href: how-to-set-up-instance-powershell.md
-            - name: Version scriptée
+            - name: Configurer un exemple de script
               href: how-to-set-up-instance-scripted.md
         - name: Activer l’accès privé avec Private Link
           items:
-            - name: Version du portail
+            - name: Portail
               href: how-to-enable-private-link-portal.md
-            - name: Version de la CLI
+            - name: Interface de ligne de commande
               href: how-to-enable-private-link-cli.md
         - name: Écrire le code d’authentification de l’application
           href: how-to-authenticate-client.md
         - name: Créer une inscription d’application
-          href: how-to-create-app-registration.md
+          items:
+            - name: Portail
+              href: how-to-create-app-registration-portal.md
+            - name: Interface de ligne de commande
+              href: how-to-create-app-registration-cli.md
         - name: Déplacer une instance vers une autre région
           href: how-to-move-regions.md
     - name: Concevoir des modèles
@@ -93,6 +101,8 @@
           href: how-to-use-tags.md
     - name: Utiliser un environnement d’exécution en direct
       items:
+        - name: Utiliser Azure Digital Twins Explorer
+          href: how-to-use-azure-digital-twins-explorer.md
         - name: Gérer des jumeaux numériques
           href: how-to-manage-twin.md
         - name: Gérer le graphe de jumeaux avec des relations
@@ -115,19 +125,21 @@
           href: how-to-provision-using-device-provisioning-service.md
         - name: Intégrer à Logic Apps
           href: how-to-integrate-logic-apps.md
+        - name: Ingérer des données OPC UA dans Azure Digital Twins
+          href: how-to-ingest-opcua-data.md
     - name: Connecter une sortie
       items:
         - name: Gérer les points de terminaison et les routes
           items:
-            - name: Version du portail
+            - name: Portail
               href: how-to-manage-routes-portal.md
-            - name: API et version CLI
+            - name: API et CLI
               href: how-to-manage-routes-apis-cli.md
         - name: Activer une identité managée pour les événements de routage
           items:
-            - name: Version du portail
+            - name: Portail
               href: how-to-enable-managed-identities-portal.md
-            - name: Version de la CLI
+            - name: Interface de ligne de commande
               href: how-to-enable-managed-identities-cli.md
         - name: Intégrer à Azure Maps
           href: how-to-integrate-maps.md
@@ -277,12 +289,12 @@
           href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus'
     - name: Outils et exemples de projets
       items:
+        - name: Azure Digital Twins Explorer
+          href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
         - name: Collection Postman Azure Digital Twins
           href: 'https://github.com/microsoft/azure-digital-twins-postman-samples'
         - name: Exemples Azure Digital Twins de bout en bout
           href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
-        - name: Explorateur Azure Digital Twins (exemple)
-          href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
         - name: Validateur DTDL (exemple)
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: Chargeur de modèles (exemple)
@@ -299,6 +311,14 @@
           href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
         - name: Service de simulateur d’appareil
           href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
+    - name: Ontologies
+      items:
+        - name: Bâtiments intelligents
+          href: 'https://github.com/Azure/opendigitaltwins-building'
+        - name: Villes intelligentes
+          href: 'https://github.com/Azure/opendigitaltwins-smartcities'
+        - name: Réseaux électriques
+          href: 'https://github.com/Azure/opendigitaltwins-energygrid/'
     - name: DTDL
       items:
         - name: "Extension DTDL pour VS\_Code"

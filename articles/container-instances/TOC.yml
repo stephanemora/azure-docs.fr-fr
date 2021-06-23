@@ -130,6 +130,8 @@
           href: container-instances-get-logs.md
         - name: Journalisation avec les journaux d’activité Azure Monitor
           href: container-instances-log-analytics.md
+        - name: Analyser les images avec l’action d’analyse de conteneur Azure
+          href: container-instances-github-action-scan.md
     - name: Dépanner
       items:
         - name: Résolution des problèmes courants
@@ -177,3 +179,5 @@
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
     - name: Questions fréquentes (FAQ)
       href: container-instances-faq.md
+- name: Support et résolution des problèmes
+  href: container-instances-support-help.md

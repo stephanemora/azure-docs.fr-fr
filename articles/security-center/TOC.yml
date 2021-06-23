@@ -165,7 +165,7 @@
         - name: Durcir vos hôtes Docker
           displayName: containers
           href: harden-docker-hosts.md
-    - name: Protéger vos ressources SQL
+    - name: Protéger vos bases de données
       items:
         - name: Vue d’ensemble d’Azure Defender pour SQL
           displayName: database
@@ -173,12 +173,12 @@
         - name: Activer Defender pour les serveurs SQL sur les ordinateurs
           href: defender-for-sql-usage.md
           displayName: 'hybrid, arc, Azure Defender'
+        - name: Vue d’ensemble d’Azure Defender pour les bases de données relationnelles open source
+          displayName: 'PG, PostgreSQL, MySQL, MariaDB'
+          href: defender-for-databases-introduction.md
         - name: Analyser vos ressources SQL à la recherche de vulnérabilités
           href: defender-for-sql-on-machines-vulnerability-assessment.md
-          displayName: 'hybrid, arc, Azure Defender'
-        - name: Désactiver une vulnérabilité trouvée sur les serveurs SQL
-          displayName: 'VA, registry, vulnerabilities'
-          href: defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings-preview
+          displayName: 'hybrid, arc, Azure Defender, VA, registry, vulnerabilities'
         - name: Personnaliser la politique de protection des informations SQL
           displayName: 'sql, database, data discovery'
           href: security-center-info-protection-policy.md
@@ -197,6 +197,9 @@
         - name: Analyser les images de votre registre à la recherche de vulnérabilités
           displayName: 'ACR, registry, images, qualys'
           href: defender-for-container-registries-usage.md
+        - name: Analyser les images dans vos workflows CI/CD
+          displayName: 'ACR, registry, images, trevi, vulnerabilities, scanner'
+          href: defender-for-container-registries-cicd.md
         - name: Désactiver des résultats de vulnérabilités d’images spécifiques
           displayName: 'ACR, registry, images, qualys'
           href: defender-for-container-registries-usage.md#disable-specific-findings-preview
@@ -301,15 +304,15 @@
     - name: Questions fréquentes (FAQ) sur Azure Security Center
       items:
         - name: Questions générales
-          href: faq-general.md
+          href: faq-general.yml
         - name: Questions sur les autorisations
-          href: faq-permissions.md
+          href: faq-permissions.yml
         - name: Questions sur la collecte de données et les agents
-          href: faq-data-collection-agents.md
+          href: faq-data-collection-agents.yml
         - name: Questions sur les machines virtuelles
-          href: faq-vms.md
+          href: faq-vms.yml
         - name: Utilisateurs existants d’Azure Log Analytics
-          href: faq-azure-monitor-logs.md
+          href: faq-azure-monitor-logs.yml
     - name: Éléments intégrés Azure Policy
       displayName: 'samples, policy'
       href: policy-reference.md
@@ -319,6 +322,8 @@
       href: security-center-endpoint-protection.md
     - name: Azure CLI
       href: /cli/azure/security
+    - name: Azure PowerShell
+      href: /powershell/module/az.security/
 - name: Ressources
   items:
     - name: Développer vos compétences avec Microsoft Learn

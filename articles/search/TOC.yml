@@ -5,7 +5,7 @@
   items:
     - name: "Qu’est-ce que la Recherche cognitive\_?"
       href: search-what-is-azure-search.md
-    - name: Liste des fonctionnalités
+    - name: Fonctionnalités de Recherche
       href: search-features-list.md
     - name: Nouveautés de Recherche
       href: whats-new.md
@@ -42,28 +42,38 @@
       href: search-get-started-arm.md
 - name: Tutoriels
   items:
-    - name: Ajouter la recherche à un site web
+    - name: Ajouter une recherche à des applications web
       items:
         - name: C#
           items:
-            - name: Vue d’ensemble d’un site web
+            - name: Vue d’ensemble
               href: tutorial-csharp-overview.md
             - name: Créer un index de recherche
               href: tutorial-csharp-create-load-index.md
             - name: Déployer une application web statique
               href: tutorial-csharp-deploy-static-web-app.md
-            - name: Aide-mémoire d’intégration
+            - name: Explorer le code
               href: tutorial-csharp-search-query-integration.md
         - name: JavaScript
           items:
-            - name: Vue d’ensemble d’un site web
+            - name: Vue d’ensemble
               href: tutorial-javascript-overview.md
             - name: Créer un index de recherche
               href: tutorial-javascript-create-load-index.md
             - name: Déployer une application web statique
               href: tutorial-javascript-deploy-static-web-app.md
-            - name: Aide-mémoire d’intégration
+            - name: Explorer le code
               href: tutorial-javascript-search-query-integration.md
+        - name: Python
+          items:
+            - name: Vue d’ensemble
+              href: tutorial-python-overview.md
+            - name: Créer un index de recherche
+              href: tutorial-python-create-load-index.md
+            - name: Déployer une application web statique
+              href: tutorial-python-deploy-static-web-app.md
+            - name: Explorer le code
+              href: tutorial-python-search-query-integration.md
     - name: Créer une application C#
       items:
         - name: 1 - Page de recherche de base
@@ -264,6 +274,8 @@
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
+        - name: Sources de données Power Query
+          href: search-how-to-index-power-query-data-sources.md
         - name: SharePoint Online
           href: search-howto-index-sharepoint-online.md
         - name: Objets blob Azure
@@ -302,6 +314,8 @@
           href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: Machines virtuelles Azure SQL Server
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: Azure MySQL
+          href: search-howto-index-mysql.md
         - name: Résoudre les problèmes de l’indexeur
           href: search-indexer-troubleshooting.md
         - name: Résoudre les erreurs et les avertissements de l’indexeur
@@ -430,7 +444,7 @@
           href: search-traffic-analytics.md
     - name: Sécurité
       items:
-        - name: Droits d’administrateur
+        - name: Attribuer des rôles
           href: search-security-rbac.md
         - name: Chiffrement des données
           items:
@@ -540,8 +554,10 @@
               href: cognitive-search-skill-custom-entity-lookup.md
             - name: Extraction de document
               href: cognitive-search-skill-document-extraction.md
-            - name: Reconnaissance d’entité
-              href: cognitive-search-skill-entity-recognition.md
+            - name: Liaison d’entités (V3)
+              href: cognitive-search-skill-entity-linking-v3.md
+            - name: Reconnaissance d’entités (V3)
+              href: cognitive-search-skill-entity-recognition-v3.md
             - name: Analyse d’image
               href: cognitive-search-skill-image-analysis.md
             - name: Extraction d’expressions clés
@@ -552,8 +568,8 @@
               href: cognitive-search-skill-ocr.md
             - name: Détection PII
               href: cognitive-search-skill-pii-detection.md
-            - name: Sentiments
-              href: cognitive-search-skill-sentiment.md
+            - name: Sentiment (V3)
+              href: cognitive-search-skill-sentiment-v3.md
             - name: Modélisateur
               href: cognitive-search-skill-shaper.md
             - name: Fusion de texte
@@ -573,6 +589,10 @@
           items:
             - name: Reconnaissance d’entité nommée
               href: cognitive-search-skill-named-entity-recognition.md
+            - name: Reconnaissance d’entité
+              href: cognitive-search-skill-entity-recognition.md
+            - name: Sentiments
+              href: cognitive-search-skill-sentiment.md
     - name: Éléments intégrés Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
