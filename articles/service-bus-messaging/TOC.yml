@@ -36,8 +36,6 @@
               href: service-bus-nodejs-how-to-use-queues.md
             - name: PHP
               href: service-bus-php-how-to-use-queues.md
-            - name: Ruby
-              href: service-bus-ruby-how-to-use-queues.md
         - name: Envoyer et recevoir des messages (versions/packages anciens)
           items:
             - name: .NET (Microsoft.Azure.ServiceBus)
@@ -66,8 +64,6 @@
               href: service-bus-nodejs-how-to-use-topics-subscriptions.md
             - name: PHP
               href: service-bus-php-how-to-use-topics-subscriptions.md
-            - name: Ruby
-              href: service-bus-ruby-how-to-use-topics-subscriptions.md
         - name: Publier et s’abonner à des messages (versions/packages anciens)
           items:
             - name: .NET (Microsoft.Azure.ServiceBus)
@@ -98,6 +94,8 @@
       href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
     - name: Fonctionnalités avancées
       items:
+        - name: Overview of advanced features
+          href: advanced-features-overview.md
         - name: Sessions de message
           href: message-sessions.md
         - name: Détection de messages en double
@@ -220,8 +218,8 @@
           href: service-bus-end-to-end-tracing.md
         - name: Journaux de diagnostic
           href: service-bus-diagnostic-logs.md
-        - name: Mesures Azure Monitor
-          href: service-bus-metrics-azure-monitor.md
+        - name: Supervision d’Azure Service Bus
+          href: monitor-service-bus.md
     - name: Integrate
       items:
         - name: Intégrer à RabbitMQ
@@ -281,6 +279,8 @@
           href: service-bus-resource-manager-exceptions.md
 - name: Informations de référence
   items:
+    - name: Superviser la référence des données
+      href: monitor-service-bus-reference.md
     - name: .NET
       items:
         - name: Migrer de Microsoft.Azure.ServiceBus vers Azure.Messaging.ServiceBus

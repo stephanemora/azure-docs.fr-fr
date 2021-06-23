@@ -16,14 +16,44 @@
     - name: Datadog
       items:
         - name: Vue d’ensemble
-          displayName: 'Datadog, Monitoring'
-          href: ./datadog/overview.md
-        - name: Créer
-          href: ./datadog/create.md
-        - name: Gérer
-          href: ./datadog/manage.md
-        - name: Dépanner
-          href: ./datadog/troubleshoot.md
+          items:
+            - name: Présentation de Datadog
+              href: ./datadog/overview.md
+              displayName: 'Datadog, Monitoring'
+        - name: Démarrages rapides
+          items:
+            - name: Créer une org Datadog
+              href: ./datadog/create.md
+            - name: Lier à une org Datadog existante
+              href: ./datadog/link-to-existing-organization.md
+        - name: Procédures
+          items:
+            - name: Configurer le prédéploiement
+              href: ./datadog/prerequisites.md
+            - name: Gérer
+              href: ./datadog/manage.md
+            - name: Dépanner
+              items:
+                - name: Obtenir un support
+                  href: ./datadog/get-support.md
+                - name: Corriger les erreurs courantes
+                  href: ./datadog/troubleshoot.md
+    - name: Elastic
+      items:
+        - name: Vue d’ensemble
+          items:
+            - name: "Qu’est-ce qu’Elastic\_?"
+              href: ./elastic/overview.md
+        - name: Démarrages rapides
+          items:
+            - name: Créer une ressource Elastic
+              href: ./elastic/create.md
+        - name: Procédures
+          items:
+            - name: Gérer l’intégration
+              href: ./elastic/manage.md
+            - name: Dépanner
+              href: ./elastic/troubleshoot.md
 - name: Informations de référence
   items:
     - name: Azure CLI

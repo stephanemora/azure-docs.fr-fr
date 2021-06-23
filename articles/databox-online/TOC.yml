@@ -230,6 +230,8 @@
               href: azure-stack-edge-gpu-virtual-machine-overview.md
             - name: Voir les machines virtuelles prises en charge
               href: azure-stack-edge-gpu-virtual-machine-sizes.md
+            - name: Afficher les profils d’API pris en charge
+              href: azure-stack-edge-profiles-azure-resource-manager-versions.md
             - name: Créer une image de machine virtuelle
               items:
                 - name: Image personnalisée d’une machine virtuelle Azure
@@ -239,7 +241,9 @@
                 - name: Image généralisée à partir d’une ISO
                   href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
                 - name: Utiliser une image spécialisée
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
+                  href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md
+                - name: Utiliser une image de la Place de marché Azure
+                  href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md
             - name: Déployer des machines virtuelles
               items:
                 - name: Via le portail Azure
@@ -268,6 +272,8 @@
                   href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
                 - name: Installer l’extension de script personnalisé
                   href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
+                - name: Installer l’extension GPU
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md
                 - name: Sauvegarder des disques de machine virtuelle
                   href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
                 - name: Dépanner
@@ -275,7 +281,11 @@
                     - name: Se connecter à la console de la machine virtuelle
                       href: azure-stack-edge-gpu-connect-virtual-machine-console.md
                     - name: Chargement d’images de VM
-                      href: azure-stack-edge-troubleshoot-virtual-machine-image-upload.md
+                      href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md
+                    - name: Déploiement de machine virtuelle
+                      href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
+                    - name: Problèmes d’extension GPU
+                      href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
         - name: Gérer des certificats
           items:
             - name: Configuration requise
@@ -334,12 +344,18 @@
               href: azure-stack-edge-gpu-enable-azure-monitor.md
         - name: Dépanner
           items:
-            - name: Problèmes d’appareil
-              href: azure-stack-edge-gpu-troubleshoot.md
             - name: Classement des problèmes
               href: azure-stack-edge-troubleshoot-ordering.md
             - name: Problèmes d’activation
               href: azure-stack-edge-gpu-troubleshoot-activation.md
+            - name: Journaux et diagnostics d’appareil
+              href: azure-stack-edge-gpu-troubleshoot.md
+            - name: Problèmes Azure Resource Manager
+              href: azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md
+            - name: Problèmes Blob
+              href: azure-stack-edge-gpu-troubleshoot-blob-storage.md
+            - name: Problèmes IoT Edge
+              href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
             - name: Contacter le support Microsoft
               href: azure-stack-edge-contact-microsoft-support.md
     - name: Notes de publication partagées
@@ -426,6 +442,8 @@
                   href: azure-stack-edge-troubleshoot.md
                 - name: Classement des problèmes
                   href: azure-stack-edge-troubleshoot-ordering.md
+                - name: IoT Edge
+                  href: azure-stack-edge-troubleshoot-iot-edge.md
                 - name: Contacter le support Microsoft
                   href: azure-stack-edge-contact-microsoft-support.md
         - name: Superviser

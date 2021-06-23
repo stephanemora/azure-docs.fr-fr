@@ -32,6 +32,8 @@
     - name: Stratégie de version
       href: concepts-version-policy.md
       displayName: 'version, postgresql'
+    - name: Mises à niveau des versions principales
+      href: how-to-upgrade-using-dump-and-restore.md
     - name: Problèmes connus et limitations
       href: concepts-known-issues-limitations.md
       displayName: 'issues, limitations, postgresql'
@@ -148,8 +150,8 @@
             - name: Architecture de connectivité
               href: concepts-connectivity-architecture.md
               displayName: 'security, architecture'
-            - name: Détection avancée des menaces
-              href: concepts-data-access-and-security-threat-protection.md
+            - name: Protection contre les menaces avec Azure Defender
+              href: ../security-center/defender-for-databases-introduction.md
               displayName: 'security, advanced threat protection'
             - name: Authentification Azure AD
               href: concepts-aad-authentication.md
@@ -351,11 +353,6 @@
             - name: Résoudre les problèmes de chiffrement de données
               href: howto-data-encryption-troubleshoot.md
               displayName: 'debug, security, encryption'
-        - name: Détection avancée des menaces
-          items:
-            - name: Portail Azure
-              href: howto-database-threat-protection-portal.md
-              displayName: 'advanced thread, security'
         - name: Réseau virtuel
           items:
             - name: Portail Azure
@@ -408,8 +405,6 @@
           items:
             - name: Portail Azure
               href: howto-move-regions-portal.md
-        - name: Mises à niveau des versions principales
-          href: how-to-upgrade-using-dump-and-restore.md
 - name: Serveur flexible (préversion)
   expanded: true
   items:
@@ -472,6 +467,8 @@
           href: flexible-server/concepts-maintenance.md
         - name: Regroupement de connexions (PgBouncer)
           href: flexible-server/concepts-pgbouncer.md
+        - name: Paramètres de serveur
+          href: flexible-server/concepts-server-parameters.md
         - name: Continuité de l’activité
           items:
             - name: Vue d’ensemble de la continuité des activités
@@ -551,21 +548,29 @@
           items:
             - name: Portail Azure
               href: flexible-server/how-to-restart-server-portal.md
+            - name: Azure CLI
+              href: flexible-server/how-to-restart-server-cli.md
         - name: Restaurer un serveur
           items:
             - name: Portail Azure
               href: flexible-server/how-to-restore-server-portal.md
+            - name: Azure CLI
+              href: flexible-server/how-to-restore-server-cli.md
         - name: Arrêter/démarrer un serveur
           items:
             - name: Portail Azure
               href: flexible-server/how-to-stop-start-server-portal.md
+            - name: Azure CLI
+              href: flexible-server/how-to-stop-start-server-cli.md
         - name: Gérer la haute disponibilité
           items:
             - name: Portail Azure
               href: flexible-server/how-to-manage-high-availability-portal.md
+            - name: Azure CLI
+              href: flexible-server/how-to-configure-high-availability-cli.md
         - name: Superviser
           items:
-            - name: Créer des alertes sur les mesures
+            - name: Créer des alertes sur les métriques à l’aide du portail
               href: flexible-server/howto-alert-on-metrics.md
             - name: Configurer et accéder aux journaux
               href: flexible-server/howto-configure-and-access-logs.md
@@ -709,6 +714,9 @@
             - name: Résoudre les erreurs de connexion
               href: howto-hyperscale-troubleshoot-common-connection-issues.md
               displayName: 'connection errors, hyperscale'
+            - name: Résoudre les problèmes d’accès en lecture seule
+              href: howto-hyperscale-troubleshoot-read-only.md
+              displayName: 'read-only, hyperscale'
             - name: Requêtes de diagnostic utiles
               href: howto-hyperscale-useful-diagnostic-queries.md
     - name: Référence API

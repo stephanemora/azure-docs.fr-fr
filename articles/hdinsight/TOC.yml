@@ -304,6 +304,8 @@
       items:
         - name: Publications
           items:
+            - name: "Mise à jour d’Ubuntu\_18.04"
+              href: ./hdinsight-ubuntu-1804-qa.md
             - name: "Nouveautés d’HDInsight\_4.0"
               href: ./hdinsight-version-release.md
             - name: Notes de publication
@@ -835,6 +837,8 @@
               href: ./hadoop/apache-hadoop-hive-java-udf.md
             - name: Interroger Hive avec PowerShell et ODBC
               href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
+            - name: Activer la fonctionnalité Hive LLAP Workload Management
+              href: ./interactive-query/hive-workload-management.md
         - name: Gérer
           items:
             - name: Copier des tables Hive dans des comptes de stockage
@@ -879,6 +883,14 @@
               href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
             - name: Options de sécurité pour Hive
               href: ./interactive-query/hdinsight-security-options-for-hive.md
+            - name: Apache Hive LLAP Workload Management
+              href: ./interactive-query/troubleshoot-workload-management-issues.md
+            - name: "Guide de dépannage de HDInsight\_3.6 à 4.0 - Hive"
+              href: ./interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md
+    - name: Référence
+      items:
+        - name: Commandes Hive LLAP Workload Management
+          href: ./interactive-query/workload-management-commands.md
 - name: ML Services
   items:
     - name: Vue d’ensemble

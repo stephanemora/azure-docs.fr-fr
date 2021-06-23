@@ -104,6 +104,8 @@
           href: import-soap-api.md
         - name: Importer une API SOAP et la convertir pour REST
           href: restify-soap-api.md
+        - name: Importer une API WebSocket
+          href: websocket-api.md
         - name: Importer une application web
           href: import-app-service-as-api.md
         - name: Importer une application de fonction
@@ -339,18 +341,20 @@
       href: api-management-faq.md
     - name: Tarifs
       href: 'https://aka.ms/apimpricing'
+    - name: Mises à jour produit
+      href: 'https://aka.ms/apimupdates'
+    - name: Notes de publication
+      href: 'https://aka.ms/apim/releases'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Feuille de route
-      href: 'https://aka.ms/apimroadmap'
-    - name: Demandes de fonctionnalités
-      href: 'https://aka.ms/apimwish'
     - name: Vidéos
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=api-management'
+      href: 'https://azure.microsoft.com/documentation/videos/index/?service=api-management'
     - name: Page de questions Microsoft Q&A
       href: /answers/topics/azure-api-management.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-api-management'
+    - name: Ressources supplémentaires
+      href: 'https://aka.ms/apimlove'
     - name: Guide de conception d’API
       href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
     - name: Recommandations relatives à l’implémentation de l’API

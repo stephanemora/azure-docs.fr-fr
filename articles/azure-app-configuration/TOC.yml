@@ -58,12 +58,18 @@
       items:
         - name: .NET Core
           href: enable-dynamic-configuration-dotnet-core-push-refresh.md
-    - name: Utiliser des références Key Vault
+    - name: Références Key Vault
       items:
-        - name: ASP.NET Core
-          href: use-key-vault-references-dotnet-core.md
-        - name: Spring Boot
-          href: use-key-vault-references-spring-boot.md
+        - name: Utiliser des références Key Vault
+          items:
+            - name: ASP.NET Core
+              href: use-key-vault-references-dotnet-core.md
+            - name: Spring Boot
+              href: use-key-vault-references-spring-boot.md
+        - name: Recharger automatiquement les secrets et les certificats
+          items:
+            - name: .NET
+              href: reload-key-vault-secrets-dotnet.md
     - name: 'Génération, déploiement et CI/CD'
       items:
         - name: Envoi (push) avec Azure Pipelines
@@ -124,6 +130,8 @@
           href: overview-managed-identity.md
         - name: Base de référence de la sécurité
           href: /security/benchmark/azure/baselines/app-config-security-baseline?toc=/azure/azure-app-configuration/TOC.json
+        - name: Désactiver l’authentification par clé d’accès (préversion)
+          href: howto-disable-access-key-authentication.md
         - name: Contrôles de sécurité par Azure Policy
           href: ./security-controls-policy.md
     - name: Haute disponibilité

@@ -52,6 +52,14 @@
           href: dynamic-dictionary.md
         - name: Traduire derrière des pare-feu
           href: firewalls.md
+        - name: Utiliser le conteneur Translator
+          items:
+            - name: Installer et exécuter des conteneurs
+              href: containers/translator-how-to-install-container.md
+            - name: Configurer des conteneurs
+              href: containers/translator-container-configuration.md
+            - name: "Conteneur\_: Traduire"
+              href: containers/translator-container-supported-parameters.md
     - name: Tutoriels
       items:
         - name: 'Créer une application WPF pour Translator, C#'
@@ -134,8 +142,6 @@
           href: custom-translator/how-to-view-system-test-results.md
         - name: Gérer les paramètres
           href: custom-translator/how-to-manage-settings.md
-        - name: Migrer à partir du hub
-          href: custom-translator/how-to-migrate.md
         - name: Déploiements de langages non pris en charge
           href: custom-translator/unsupported-language-deployments.md
     - name: Concepts
