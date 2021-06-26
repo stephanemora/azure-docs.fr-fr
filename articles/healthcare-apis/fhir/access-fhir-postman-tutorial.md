@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: matjazl
 ms.date: 03/26/2021
-ms.openlocfilehash: 72e5711ca813378e291d48bdaaa5803693d91482
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 764a33d7dbdcde005e8ab62824ab6c7c87e1fcb2
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112284020"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112969669"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Accéder à l’API Azure pour FHIR avec Postman
 
@@ -27,7 +27,7 @@ Une application cliente peut accéder à l’API Azure pour FHIR via une [API RE
   Pour déployer l’API Azure pour FHIR (service géré), vous pouvez utiliser le [portail Azure](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md)ou [Azure CLI](fhir-paas-cli-quickstart.md).
 
 - Une [application cliente confidentielle](register-confidential-azure-ad-client-app.md) inscrite pour accéder au service FHIR.
-- Vous avez accordé des autorisations à l’application cliente confidentielle, par exemple « FHIR Data Contributor », pour accéder au service FHIR. Pour plus d’informations, consultez [configurer Azure RBAC pour FHIR](./configure-azure-rbac.md).
+- Vous avez accordé des autorisations à l’application cliente confidentielle et à votre compte d’utilisateur, par exemple « FHIR Data Contributor », pour accéder au service FHIR. Pour plus d’informations, consultez [configurer Azure RBAC pour FHIR](./configure-azure-rbac.md).
 - Postman installé. 
     
   Pour plus d’informations sur la publication, consultez [prise en main du poste de publication](https://www.getpostman.com).
