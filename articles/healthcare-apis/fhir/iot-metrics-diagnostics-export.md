@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 3b350de81e07f30f4f0f105c4e833a3b4450e558
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: efdf932a26e783ff4e7fc22820e061fb9b2e26ba
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103019415"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112992150"
 ---
 # <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exporter les métriques du connecteur Azure IoT pour FHIR (préversion) via les paramètres de diagnostic
 
@@ -58,6 +58,6 @@ L’accès aux journaux de métriques est essentiel pour la supervision et la r�
 Consultez les questions fréquemment posées sur le Connecteur Azure IoT pour FHIR.
 
 >[!div class="nextstepaction"]
->[FAQ sur le Connecteur Azure IoT pour FHIR](fhir-faq.md)
+>[FAQ sur le Connecteur Azure IoT pour FHIR](fhir-faq.yml)
 
 *Sur le Portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion). Le sigle FHIR est une marque déposée de HL7 et est utilisé avec l’autorisation de HL7.

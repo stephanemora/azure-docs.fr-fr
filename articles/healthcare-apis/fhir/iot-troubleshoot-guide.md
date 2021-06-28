@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 3eef7354f7197f60e8abd1b5522393bf00a6203f
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 4e296f8d62afbebe49ebccc60654e26c46cbb2bf
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103019355"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112991196"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Guide de dépannage du Connecteur Azure IoT pour FHIR (préversion)
 
@@ -189,6 +189,6 @@ Les copies du fichier de mappage doivent être fournies au support technique Azu
 Consultez les questions fréquemment posées sur le Connecteur Azure IoT pour FHIR.
 
 >[!div class="nextstepaction"]
->[FAQ sur le Connecteur Azure IoT pour FHIR](fhir-faq.md)
+>[FAQ sur le Connecteur Azure IoT pour FHIR](fhir-faq.yml)
 
 *Sur le Portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion). Le sigle FHIR est une marque déposée de HL7 et est utilisé avec l’autorisation de HL7.

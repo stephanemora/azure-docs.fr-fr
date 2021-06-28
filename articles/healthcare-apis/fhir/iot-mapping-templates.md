@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: rabhaiya
-ms.openlocfilehash: 9b5fa3533aa521053a321a3f0ffdfad3505abb73
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 690a406c9cb0dd7644656c78236a2001ae0f0f2e
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112286666"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112991592"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modèles de mappage du connecteur Azure IoT pour FHIR (préversion)
 Cet article explique comment configurer le Connecteur Azure IoT pour Fast Healthcare Interoperability Resources (FHIR&#174;)* à l’aide de modèles de mappage.
@@ -662,6 +662,6 @@ Représente le type de données [CodeableConcept](http://hl7.org/fhir/datatypes.
 Consultez les questions fréquemment posées sur le connecteur Azure IoT pour FHIR (préversion).
 
 >[!div class="nextstepaction"]
->[FAQ sur le Connecteur Azure IoT pour FHIR](fhir-faq.md)
+>[FAQ sur le Connecteur Azure IoT pour FHIR](fhir-faq.yml)
 
 *Sur le Portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion). Le sigle FHIR est une marque déposée de HL7 et est utilisé avec l’autorisation de HL7.
