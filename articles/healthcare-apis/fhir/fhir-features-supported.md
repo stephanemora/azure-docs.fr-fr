@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 6/16/2021
 ms.author: cavoeg
-ms.openlocfilehash: cec3b32fc2c56769cf910cf9317e45648cc59174
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 3e2d0c051ff882e43b04b2aea4357e78d79e67dc
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112295738"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135948"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -56,7 +56,7 @@ Versions antérieures également prises en charge : `3.0.2`
  **Remarque 2**
 * Ajoute la prise en charge MVP pour la recherche de FHIR chaînée et inversée dans CosmosDB. 
 
-  Dans l’API Azure pour FHIR et le serveur FHIR Open source avec Cosmos, la recherche chaînée et la recherche chaînée par chaîne est une implémentation MVP. Pour effectuer une recherche chaînée sur Cosmos DB, l’implémentation parcourt l’expression de recherche et émet des sous-requêtes pour résoudre les ressources correspondantes. Cette opération est effectuée pour chaque niveau de l’expression. Si une requête retourne plus de 100 résultats, une erreur est générée. Par défaut, la recherche chaînée se trouve derrière un indicateur de fonctionnalité. Pour utiliser la recherche chaînée sur Cosmos DB, utilisez l’en-tête `x-ms-enable-chained-search: true` . Pour plus d’informations, consultez la page [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
+  dans l’API Azure pour FHIR et le serveur FHIR open source sauvegardé par Cosmos, la recherche chaînée et la recherche chaînée par chaîne est une implémentation MVP. pour effectuer une recherche chaînée sur Cosmos DB, l’implémentation parcourt l’expression de recherche et émet des sous-requêtes pour résoudre les ressources correspondantes. Cette opération est effectuée pour chaque niveau de l’expression. Si une requête retourne plus de 100 résultats, une erreur est générée. Par défaut, la recherche chaînée se trouve derrière un indicateur de fonctionnalité. pour utiliser la recherche chaînée sur Cosmos DB, utilisez l’en-tête `x-ms-enable-chained-search: true` . Pour plus d’informations, consultez la page [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 
 ## <a name="extended-operations"></a>Opérations étendues
 
@@ -70,7 +70,7 @@ Toutes les opérations prises en charge qui étendent l’API RESTful.
 | $convert-data          | Oui       | Oui       | Oui       |         |
 | $validate              | Oui       | Oui       | Oui       |         |
 | $member-correspondance          | Oui       | Oui       | Oui       |         |
-| $patient-tout    | Non        | Non        | Oui       |         |
+| $patient-tout    | Oui       | Oui       | Oui       |         |
 
 ## <a name="persistence"></a>Persistance
 

@@ -8,14 +8,14 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 06/04/2021
 ms.author: cavoeg
-ms.openlocfilehash: 480a909b5349d973f2d9803e1440827d94923ee6
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+ms.openlocfilehash: ad7da9305d9bde65f7c393295b806957414a05d8
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112322779"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135606"
 ---
-# <a name="patient-everything-in-fhir"></a>Patient-tout dans FHIR
+# <a name="patient-everything-in-fhir"></a>Patient-everything dans FHIR
 
 L’opération [$patient-Everything](https://www.hl7.org/fhir/patient-operation-everything.html) est utilisée pour fournir à un patient un accès à son enregistrement entier ou à un fournisseur ou à un autre utilisateur pour effectuer un téléchargement de données en bloc. Cette opération permet de renvoyer toutes les informations relatives à un ou plusieurs patients décrits dans la ressource ou le contexte sur lequel cette opération est appelée.  
 
@@ -30,10 +30,6 @@ L’API Azure pour FHIR valide qu’il peut trouver le patient correspondant à 
 *  Ressources directement référencées par la ressource patient (à l’exception du lien) 
 *  Ressources dans le [compartiment des patients](https://www.hl7.org/fhir/compartmentdefinition-patient.html)
 *  [Ressources](https://www.hl7.org/fhir/device.html) de l’appareil qui font référence à la ressource patient. Cela est limité à 100 appareils. Si le patient a plus de 100 appareils qui y sont liés, seuls 100 sont retournés. 
-
- 
-> [!Note]
-> La prise en charge de l’instruction de capacité pour le serveur FHIR est manquante pour $patient tout, suivi ici : problème [1989](https://github.com/microsoft/fhir-server/issues/1989). 
 
 
 ## <a name="patient-everything-parameters"></a>Paramètres de tous les patients
