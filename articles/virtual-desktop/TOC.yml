@@ -1,12 +1,12 @@
-- name: Windows Virtual Desktop
+- name: Azure Virtual Desktop
   href: index.yml
 - name: Vue d’ensemble
   items:
-    - name: "Qu’est-ce que Windows Virtual Desktop\_?"
+    - name: "Qu’est-ce qu’Azure Virtual Desktop\_?"
       href: overview.md
     - name: Nouveautés
       href: whats-new.md
-    - name: Documentation Windows Virtual Desktop (classique)
+    - name: Documentation Azure Virtual Desktop (classique)
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutoriels
   items:
@@ -22,7 +22,7 @@
   items:
     - name: Migrer manuellement
       href: manual-migration.md
-    - name: Se connecter à des ressources Windows Virtual Desktop
+    - name: Se connecter aux ressources Azure Virtual Desktop
       items:
         - name: Se connecter avec le client Windows Desktop
           href: connect-windows-7-10.md
@@ -76,7 +76,7 @@
           href: configure-host-pool-load-balancing.md
         - name: Type d’affectation de bureau personnel
           href: configure-host-pool-personal-desktop-assignment-type.md
-    - name: Utiliser une licence Windows Virtual Desktop
+    - name: Utiliser une licence Azure Virtual Desktop
       href: apply-windows-license.md
     - name: Personnaliser une image d’hôte de session
       items:
@@ -109,9 +109,11 @@
         - name: Configurer l’outil MSIXMGR
           href: app-attach-msixmgr.md
     - name: Utiliser Microsoft Teams
-      href: teams-on-wvd.md
+      href: teams-on-avd.md
     - name: "Configurer l’authentification multifacteur Azure\_AD"
       href: set-up-mfa.md
+    - name: "Configurer l’authentification unique\_AD\_FS"
+      href: configure-adfs-sso.md
     - name: Configurer les mises à jour automatiques
       href: configure-automatic-updates.md
     - name: Installer des modules linguistiques
@@ -120,7 +122,7 @@
       href: azure-advisor.md
     - name: Résoudre les recommandations
       href: azure-advisor-recommendations.md
-    - name: Utiliser Azure Monitor pour Windows Virtual Desktop
+    - name: Utiliser Azure Monitor pour Azure Virtual Desktop
       href: azure-monitor.md
     - name: Définir un plan de reprise d’activité
       href: disaster-recovery.md
@@ -140,9 +142,9 @@
       href: rbac.md
     - name: Authentification
       href: authentication.md
-    - name: Environnement Windows Virtual Desktop
+    - name: Environnement Azure Virtual Desktop
       href: environment-setup.md
-    - name: Agent Windows Virtual Desktop
+    - name: Agent Azure Virtual Desktop
       href: agent-overview.md
     - name: Connectivité réseau
       items:
@@ -160,7 +162,7 @@
           href: proxy-server-support.md
         - name: Déterminer la latence des connexions utilisateur
           href: connection-latency.md
-    - name: Accès délégué dans Windows Virtual Desktop
+    - name: Accès délégué dans Azure Virtual Desktop
       href: delegated-access-virtual-desktop.md
     - name: Méthodes d’équilibrage de charge des pools d’hôtes
       href: host-pool-load-balancing.md
@@ -168,7 +170,7 @@
       href: fslogix-containers-azure-files.md
     - name: Options de stockage pour les conteneurs de profil FSLogix
       href: store-fslogix-profile.md
-    - name: Questions fréquentes (FAQ) sur Windows Virtual Desktop
+    - name: Questions fréquentes (FAQ) sur Azure Virtual Desktop
       href: faq.md
     - name: "FAQ sur Windows\_10 Entreprise multisession"
       href: windows-10-multisession-faq.yml
@@ -200,11 +202,11 @@
       href: troubleshoot-vm-configuration.md
     - name: Connexions du service Bureau à distance
       href: troubleshoot-service-connection.md
-    - name: Agent Windows Virtual Desktop
+    - name: Agent Azure Virtual Desktop
       href: troubleshoot-agent.md
     - name: Problèmes du client Bureau à distance
       href: troubleshoot-client.md
-    - name: Windows Virtual Desktop PowerShell
+    - name: Azure Virtual Desktop PowerShell
       href: troubleshoot-powershell.md
     - name: Diagnostic des problèmes de performances graphiques
       href: remotefx-graphics-performance-counters.md
