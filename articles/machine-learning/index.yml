@@ -1,71 +1,67 @@
 ### YamlMime:Landing
 title: Documentation Azure Machine Learning
-summary: Découvrez comment entraîner, déployer et gérer des modèles Machine Learning, utiliser AutoML et exécuter des pipelines à grande échelle avec Azure Machine Learning.  Des tutoriels, des exemples de code, des informations de référence sur les API, etc., vous montrent comment.
+summary: Découvrez comment entraîner et déployer des modèles, et gérer le cycle de vie du machine learning avec Azure Machine Learning. Des tutoriels, des exemples de code, des informations de référence sur les API, etc., vous montrent comment.
 metadata:
   title: Documentation Azure Machine Learning
-  description: Découvrez comment entraîner, déployer et gérer des modèles Machine Learning, utiliser AutoML et exécuter des pipelines à grande échelle avec Azure Machine Learning. Des tutoriels, des exemples de code, des informations de référence sur les API, etc., vous montrent comment.
+  description: Découvrez comment entraîner et déployer des modèles, et gérer le cycle de vie du machine learning avec Azure Machine Learning. Des tutoriels, des exemples de code, des informations de référence sur les API, etc., vous montrent comment.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
   ms.topic: landing-page
   ms.collection: collection
-  ms.author: larryfr
-  author: BlackMist
-  ms.date: 09/21/2020
-  ms.custom: contperf-fy21q1
-  ms.openlocfilehash: bbf934ef45f66a009c198a5ab0a47b871b419d85
-  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.author: sgilley
+  author: sdgilley
+  ms.date: 06/11/2021
+  ms.custom: jordan-changes
+  ms.openlocfilehash: 8ca3c770daa74b2f9f8f8dfd2edd0e22b6659538
+  ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "108740912"
+  ms.lasthandoff: 06/11/2021
+  ms.locfileid: "112030068"
 landingContent:
-- title: 'Bien démarrer : Code First'
+- title: 'Bien démarrer : Entraîner des modèles'
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Prise en main d’Azure Machine Learning
+    - text: Configurer des ressources
       url: quickstart-create-resources.md
-    - text: Inférence de lot avec des pipelines ML (Python)
-      url: tutorial-pipeline-batch-scoring-classification.md
-- title: 'Bien démarrer : Peu ou pas de code'
+    - text: Entraîner avec le SDK Python
+      url: tutorial-1st-experiment-hello-world.md
+    - text: Entraîner avec l’interface CLI v2 (préversion)
+      url: how-to-train-cli.md
+- title: Autres options d’entraînement de modèles
   linkLists:
-  - linkListType: overview
+  - linkListType: how-to-guide
     links:
-    - text: Azure Machine Learning Studio
-      url: overview-what-is-machine-learning-studio.md
-    - text: Qu’est-ce que le Machine Learning automatisé (AutoML) ?
-      url: concept-automated-ml.md
-    - text: Qu’est-ce que le concepteur glisser-déposer ?
-      url: concept-designer.md
-  - linkListType: tutorial
-    links:
-    - text: Démarrer (AutoML)
+    - text: Optimiser les modèles avec des balayages d’hyperparamètres
+      url: how-to-tune-hyperparameters.md
+    - text: Créer des pipelines ML multi-étapes
+      url: how-to-create-machine-learning-pipelines.md
+    - text: Entraîner avec AutoML
       url: tutorial-first-experiment-automated-ml.md
-    - text: Démarrer (concepteur)
+    - text: Entraîner avec un concepteur
       url: tutorial-designer-automobile-price-train-score.md
-  - linkListType: reference
-    links:
-    - text: Algorithmes et modules du concepteur
-      url: algorithm-module-reference/module-reference.md
-- title: Intégrer votre modèle ML à Azure
+- title: Déployer des modèles
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Déployer votre modèle dans le cloud
+    - text: Déploiement d’un modèle
       url: how-to-deploy-and-where.md
-    - text: Suivre des modèles MLflow
-      url: how-to-use-mlflow.md
-- title: Déployer et gérer des modèles (MLOps)
+    - text: Scoring en ligne managé (préversion)
+      url: how-to-deploy-managed-online-endpoints.md
+    - text: Scoring en lot managé (préversion)
+      url: how-to-use-batch-endpoint.md
+- title: Gérer le cycle de vie du ML
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Qu’est-ce que MLOps ?
+    - text: Suivre les expériences ML
+      url: how-to-track-monitor-analyze-runs.md
+    - text: Gestion du cycle de vie du ML (MLOps)
       url: concept-model-management-and-deployment.md
-    - text: Comment et où déployer
-      url: how-to-deploy-and-where.md
-    - text: Déployer des modèles MLflow
-      url: how-to-deploy-mlflow-models.md
+- title: Documents de référence
+  linkLists:
   - linkListType: reference
     links:
     - text: Kit de développement logiciel (SDK) Python

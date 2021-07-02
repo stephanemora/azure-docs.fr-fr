@@ -1,7 +1,7 @@
 ---
-title: 'Tutoriel : Utiliser vos propres données'
+title: 'Tutoriel : Charger des données et entraîner un modèle'
 titleSuffix: Azure Machine Learning
-description: La partie 3 de la série de tutoriels sur la prise en main d’Azure Machine Learning explique comment utiliser vos propres données dans le cadre d’un entraînement à distance.
+description: Guide pratique pour charger et utiliser vos propres données dans un entraînement à distance. Il s’agit de la deuxième partie d’une série de prise en main qui en compte trois.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,31 +10,27 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/29/2021
-ms.custom: tracking-python, contperf-fy21q3
-ms.openlocfilehash: 2b6659e533edac33e992c2648140760888a6b32c
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: dbbd71a40419ee3472b01be11c101567e6945634
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785580"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028214"
 ---
-# <a name="tutorial-use-your-own-data-part-3-of-3"></a>Tutoriel : Utiliser vos propres données (partie 3 sur 3)
+# <a name="tutorial-upload-data-and-train-a-model-part-3-of-3"></a>Tutoriel : Charger des données et entraîner un modèle (partie 3 sur 3)
 
-Ce tutoriel vous montre comment télécharger et utiliser vos propres données pour former des modèles Machine Learning dans Azure Machine Learning.
+Ce tutoriel vous montre comment télécharger et utiliser vos propres données pour former des modèles Machine Learning dans Azure Machine Learning. Ce tutoriel est la *troisième partie d’une série de tutoriels qui en compte trois*.  
 
-Ce tutoriel constitue la *partie 3 d’une série de trois tutoriels* où vous découvrez les principes fondamentaux d’Azure Machine Learning ainsi que l’exécution de tâches de machine learning basées sur des travaux dans Azure. Ce tutoriel s’appuie sur le travail que vous avez effectué dans [Partie 1 : Exécuter « Hello World! »](tutorial-1st-experiment-hello-world.md) et [Partie 2 : Entraîner un modèle](tutorial-1st-experiment-sdk-train.md).
-
-Dans [Partie 2 : Entraîner un modèle](tutorial-1st-experiment-sdk-train.md), des données ont été téléchargées via la méthode `torchvision.datasets.CIFAR10` intégrée dans l’API PyTorch. Cependant, dans de nombreux cas, vous allez utiliser vos propres données pour réaliser un entraînement à distance. Cet article montre le workflow que vous pouvez suivre pour travailler avec vos propres données dans Azure Machine Learning.
+Dans la [Partie 2 : Entraîner un modèle](tutorial-1st-experiment-sdk-train.md), vous avez entraîné un modèle dans le cloud, en utilisant des exemples de données de `PyTorch`.  Vous avez également téléchargé ces données à l’aide de la méthode `torchvision.datasets.CIFAR10` dans l’API PyTorch. Dans ce tutoriel, vous allez utiliser les données téléchargées pour découvrir le workflow afin d’utiliser vos propres données dans Azure Machine Learning.
 
 Dans ce tutoriel, vous allez :
 
 > [!div class="checklist"]
-> * Configurer un script d’entraînement pour utiliser des données dans un répertoire local.
-> * Tester le script d’entraînement en local.
 > * Charger des données sur Azure.
 > * Créer un script de contrôle.
 > * Comprendre les nouveaux concepts d’Azure Machine Learning (passage de paramètres, jeux de données, magasins de données).
-> * Soumettre et exécuter votre script d’entraînement.
+> * Soumettre et exécuter votre script de formation.
 > * Afficher le résultat de votre code dans le cloud.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -176,7 +172,7 @@ Pour exécuter ce script dans Azure Machine Learning, vous devez rendre vos donn
 >[!NOTE] 
 > Azure Machine Learning vous permet de connecter d’autres magasins de données cloud qui stockent vos données. Pour plus d’informations, consultez la [documentation des magasins de données](./concept-data.md).  
 
-1. Créez un script de contrôle Python appelé *upload-data.py* dans le dossier **get-started** :
+1. Créez un script de contrôle Python dans le dossier de **get-started**. (Vérifiez qu’il se trouve dans le dossier **get-started**, et *pas* dans le dossier **/src**.)  Nommez le script *upload-data.py*, puis copiez ce code dans le fichier :
     
     ```python
     # upload-data.py
@@ -250,6 +246,9 @@ if __name__ == "__main__":
     print("")
     print(aml_url)
 ```
+
+> [!TIP]
+> Si vous avez utilisé un autre nom quand vous avez créé le cluster de calcul, veillez à modifier également ce nom dans le code `compute_target='cpu-cluster'`.
 
 ### <a name="understand-the-code-changes"></a>Comprendre les modifications du code
 

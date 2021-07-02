@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 05/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 56548bc770c68d9eab2df138a91e8719efae25cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6066dc8709fe376f99babcc3dd1360e4bf571ef2
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101651521"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110655214"
 ---
 # <a name="tutorial-integrate-miro-with-azure-active-directory"></a>Tutoriel : Intégrer Miro à Azure Active Directory
 
-Dans ce tutoriel, vous allez apprendre à intégrer Miro à Azure Active Directory (Azure AD). Quand vous intégrez Miro à Azure AD, vous pouvez :
+Dans ce tutoriel, vous allez apprendre à intégrer Miro à Azure Active Directory (Azure AD). Une autre version de ce tutoriel est disponible sur help.miro.com. Quand vous intégrez Miro à Azure AD, vous pouvez :
 
 * Contrôler dans Azure AD qui a accès à Miro.
 * Permettre à vos utilisateurs de se connecter automatiquement à Miro avec leur compte Azure AD.
@@ -37,6 +37,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. 
 * Miro prend en charge l’authentification unique lancée par **le fournisseur d’identité et le fournisseur de service** ainsi que le provisionnement d’utilisateurs **juste-à-temps**.
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="add-miro-from-the-gallery"></a>Ajouter Miro à partir de la galerie
 
@@ -74,19 +77,17 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez l’étape suivante :
 
-    Dans la zone de texte **Identificateur**, tapez l’URL : `https://miro.com`
+    Dans la zone de texte **Identificateur**, tapez l’URL : `https://miro.com/`
 
-5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
+5. Si vous souhaitez configurer l’application en mode lancé par le **fournisseur de service**, dans la zone de texte **URL de connexion**, tapez l’URL `https://miro.com/sso/login/`
 
-    Dans la zone de texte **URL de connexion**, tapez l’URL : `https://miro.com/sso/saml`
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur. Vous en aurez besoin pour configurer l’authentification unique côté Miro.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+   ![Lien Téléchargement de certificat](common/certificatebase64.png "Lien Téléchargement de certificat")
 
-   ![Lien Téléchargement de certificat](common/metadataxml.png)
+1. Dans la section **Configurer Miro**, copiez l’URL de connexion. Vous en aurez besoin pour configurer l’authentification unique côté Miro.
 
-1. Dans la section **Configurer Miro**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
-
-   ![Copier les URL de configuration](common/copy-configuration-urls.png)
+   ![Copier l’URL de connexion](./media/miro-tutorial/login.png "Copier l’URL de connexion")
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -112,30 +113,37 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificati
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
+* Vous pouvez également accéder aux **Propriétés** de l’application et désactiver **Affectation de l’utilisateur obligatoire**
+![Désactiver l’exigence d’affectation](./media/miro-tutorial/properties.png "Désactiver l’exigence d’affectation")
+
 ## <a name="configure-miro-sso"></a>Configurer l’authentification unique Miro
 
-Pour configurer l’authentification unique côté **Miro**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’équipe du support technique de Miro. Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté Miro, utilisez le certificat précédemment téléchargé et l’URL de connexion précédemment copiée. Dans les paramètres du compte Miro, accédez à la section **Security** (Sécurité), puis activez l’option **Enable SSO/SAML** (Activer SSO/SAML). 
+
+1. Collez l’URL de connexion dans le champ **SAML Sign-in URL** (URL de connexion SAML).
+1. Ouvrez le fichier de certificat avec un éditeur de texte, puis copiez la séquence de certificat. Collez la séquence dans le champ **Key x509 Certificate** (Certificat x509 de clé).
+![Paramètres Miro](./media/miro-tutorial/security.png "Paramètres Miro")
+
+1. Dans le champ **Domaines**, tapez l’adresse de votre domaine, cliquez sur **Ajouter**, puis suivez la procédure de vérification. Répétez cette procédure pour vos autres adresses de domaine, le cas échéant. La fonctionnalité d’authentification unique de Miro fonctionne pour les utilisateurs finaux dont les domaines figurent dans la liste. 
+![Domaine](./media/miro-tutorial/add-domain.png "Domaine")
+
+1. Déterminez si vous allez utiliser le provisionnement juste-à-temps (en extrayant vos utilisateurs dans votre abonnement lors de leur inscription dans Miro), puis cliquez sur **Enregistrer** pour terminer la configuration de l’authentification unique côté Miro.
+![Provisionnement juste-à-temps](./media/miro-tutorial/save-configuration.png "Provisionnement juste-à-temps") 
 
 ### <a name="create-miro-test-user"></a>Créer un utilisateur de test Miro
 
-Dans cette section, un utilisateur appelé B. Simon est créé dans Miro. Miro prend en charge l’approvisionnement juste-à-temps, qui peut être activé en fonction de vos besoins. Vous n’avez aucune opération à effectuer dans cette section. S’il n’y a pas déjà un utilisateur dans Miro, un nouvel utilisateur est créé lorsque vous tentez d’y accéder.
+Dans cette section, un utilisateur appelé B. Simon est créé dans Miro. Miro prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Miro, il en est créé un après l’authentification.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes à l’aide de l’utilisateur de test B.Simon. 
 
 #### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
-
-* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion à Miro, d’où vous pouvez lancer le processus de connexion.  
 
 * Accédez directement à l’URL de connexion Miro et lancez le processus de connexion.
 
 #### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-* En cliquant sur **Tester cette application** dans le portail Azure, vous devez être connecté automatiquement à l’instance de Miro pour laquelle vous avez configuré l’authentification unique. 
+* Cliquez sur **Tester cette application** dans le portail Azure, puis choisissez de vous connecter en tant que B.Simon. Vous devez être automatiquement connecté à l’abonnement Miro pour lequel vous avez configuré l’authentification unique. 
 
 Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Miro dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Miro pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Une fois que vous avez configuré Miro, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

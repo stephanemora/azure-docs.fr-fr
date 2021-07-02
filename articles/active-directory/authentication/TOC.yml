@@ -154,6 +154,8 @@
           href: howto-password-ban-bad-on-premises-faq.yml
         - name: Historique des versions d’agent
           href: howto-password-ban-bad-on-premises-agent-versions.md
+    - name: Encourager l’installation de Microsoft Authenticator (préversion)
+      href: how-to-nudge-authenticator-app.md
     - name: Utiliser un passe d’accès temporaire (préversion)
       href: howto-authentication-temporary-access-pass.md
     - name: Utiliser une authentification par SMS

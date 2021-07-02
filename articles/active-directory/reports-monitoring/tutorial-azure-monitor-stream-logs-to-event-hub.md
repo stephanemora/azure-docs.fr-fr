@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0443dcb2bf3bd58f2474c507c9f9594fb6d8a7f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc9b978d2b3080d2bf72be81d4dc55fdb8c9e63a
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89469182"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847253"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Tutoriel : Diffuser en continu des journaux Azure Active Directory sur un hub d’événements Azure
 
@@ -77,7 +77,7 @@ Une fois que les données apparaissent dans le hub d’événements, vous pouvez
 
 * **Configurez un outil SIEM pris en charge**. Pour lire les données du hub d’événements, la plupart des outils nécessitent la chaîne de connexion du hub d’événements, ainsi que certaines autorisations de votre abonnement Azure. Voici une liste non exhaustive des outils tiers avec intégration Azure Monitor :
     
-    * **ArcSight** : Pour plus d’informations sur l’intégration des journaux d’activité Azure AD à Splunk, consultez [Comment intégrer les journaux d’activité Azure AD à ArcSight à l’aide d’Azure Monitor](howto-integrate-activity-logs-with-arcsight.md).
+    * **ArcSight** : Pour plus d’informations sur l’intégration des journaux Azure AD à ArcSight, consultez [Intégrer les journaux Azure AD à ArcSight à l’aide d’Azure Monitor](howto-integrate-activity-logs-with-arcsight.md).
     
     * **Splunk** : pour plus d’informations sur l’intégration des journaux d’activité Azure AD à Splunk, consultez [Comment intégrer les journaux d’activité Azure AD à Splunk à l’aide d’Azure Monitor](./howto-integrate-activity-logs-with-splunk.md).
     

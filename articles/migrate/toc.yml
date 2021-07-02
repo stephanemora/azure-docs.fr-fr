@@ -126,6 +126,8 @@
           href: migrate-support-matrix-physical-migration.md
         - name: Conditions requises de l’appliance de réplication
           href: migrate-replication-appliance.md
+        - name: Architecture de migration sans agent VMware
+          href: concepts-vmware-agentless-migration.md
         - name: Architecture de la migration Hyper-V
           href: hyper-v-migration-architecture.md
         - name: Architecture de la migration basée sur agent VMware
@@ -134,8 +136,11 @@
   items:
     - name: Créer et gérer des projets Azure Migrate
       href: create-manage-projects.md
-    - name: Utiliser Azure Migrate avec une liaison privée
+    - name: Utiliser Azure Migrate avec des points de terminaison privés
       href: how-to-use-azure-migrate-with-private-endpoints.md
+      items:
+        - name: Résoudre les problèmes de connectivité réseau
+          href: troubleshoot-network-connectivity.md
     - name: Se préparer à travailler avec les outils ISV/Movere
       href: prepare-isv-movere.md
     - name: Découvrez

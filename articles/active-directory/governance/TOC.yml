@@ -104,8 +104,10 @@
               href: entitlement-management-request-access.md
     - name: Révisions d’accès
       items:
-        - name: Planifier le déploiement de révision d’accès
+        - name: Planifier un déploiement de révision d’accès
           href: deploy-access-reviews.md
+        - name: Créer un rapport sur l’historique des révisions d’accès
+          href: access-reviews-downloadable-review-history.md
         - name: Packages d’accès
           items:
             - name: Créer une révision d’accès
@@ -144,6 +146,6 @@
   expanded: true
   items:
     - name: Révisions d’accès - API Graph
-      href: /graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true
+      href: /graph/api/resources/accessreviewsv2-root?view=graph-rest-beta
     - name: Gestion des droits d’utilisation - API Graph
-      href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta&preserve-view=true
+      href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta

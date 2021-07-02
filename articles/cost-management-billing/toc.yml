@@ -220,7 +220,7 @@
               href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
             - name: Créer des abonnements MPA programmatiquement
               href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-            - name: Créer des abonnements programmatiquement - API en préversion
+            - name: Créer des abonnements programmatiquement - API héritées
               href: manage/programmatically-create-subscription-preview.md
         - name: Gérer les abonnements Contrat Entreprise
           items:

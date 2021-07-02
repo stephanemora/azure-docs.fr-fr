@@ -10,12 +10,12 @@ metadata:
   author: timlt
   ms.author: timlt
   ms.date: 01/11/2021
-  ms.openlocfilehash: 29872aa965c7c539cd4e5e4e3c66b90ba63562ed
-  ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+  ms.openlocfilehash: ba80c9c40beed46222d72903983d74ee9500b3a2
+  ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "108795670"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111888749"
 landingContent:
 - title: À propos du développement d’appareil IoT
   linkLists:
@@ -39,5 +39,19 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Bien démarrer avec le développement d’appareils embarqués
-      url: quickstart-device-development.md
+    - text: Connecter MXCHIP AZ3166 à Azure IoT
+      url: quickstart-devkit-mxchip-az3166.md
+    - text: Connecter MXCHIP AZ3166 à Azure IoT Hub
+      url: quickstart-devkit-mxchip-az3166-iot-hub.md
+    - text: Connecter Microchip ATSAME54-XPro à Azure IoT
+      url: quickstart-devkit-microchip-atsame54-xpro.md
+    - text: Connecter NXP MIMXRT1050-EVKB à Azure IoT
+      url: quickstart-devkit-nxp-mimxrt1050-evkb.md
+    - text: Connecter NXP MIMXRT1060-EVK à Azure IoT
+      url: quickstart-devkit-nxp-mimxrt1060-evk.md
+    - text: Connecter Renesas RX65N-2MB à Azure IoT
+      url: quickstart-devkit-renesas-rx65n-2mb.md
+    - text: Connecter Renesas RX65N Cloud Kit à Azure IoT
+      url: quickstart-devkit-renesas-rx65n-cloud-kit.md
+    - text: Connecter ST Microelectronics B-L475E/L4S5I-IOT01A à Azure IoT
+      url: quickstart-devkit-stm-b-l475e.md

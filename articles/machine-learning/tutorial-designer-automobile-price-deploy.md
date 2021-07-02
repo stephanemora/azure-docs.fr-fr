@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 01/15/2021
+ms.date: 05/25/2021
 ms.custom: designer
-ms.openlocfilehash: 1846b5478c824caa954b85ea6346d773f46b279c
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 73cc893815cf591812c95c8d8b092a4b58697917
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315666"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457645"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutoriel : Déployer un modèle Machine Learning avec le concepteur
 
@@ -56,8 +56,8 @@ Pour déployer votre pipeline, vous devez d’abord convertir le pipeline d’en
     * Les modules **Entrée du service web** et **Sortie du service web** sont ajoutés. Ces modules montrent l’emplacement où les données utilisateur sont entrées dans le pipeline ainsi que l’emplacement où ces données sont retournées.
 
     > [!NOTE]
-    > Par défaut, l’**entrée de service web** attend le même schéma de données que les données d’entraînement utilisées pour créer le pipeline prédictif. Dans ce scénario, le prix est inclus dans le schéma. Toutefois, le prix n’est pas utilisé comme facteur lors de la prédiction.
-    >
+    > Par défaut, l’**entrée de service web** attend le même schéma de données que les données de sortie du module qui se connectent au même port en aval qu’elle. Dans cet exemple, le module **Entrée de service web** et les données **Automobile price data (Raw)** (données sur le prix des véhicules automobiles (brutes)) se connectent au même module en aval. Par conséquent, l’**entrée de service web** attend le même schéma de données que les données **Automobile price data (Raw)** et la colonne variable cible `price` est incluse dans le schéma.
+    > Toutefois, quand vous attribuez un score aux données, vous ne connaissez pas les valeurs des variables cibles. Dans ce cas, vous pouvez supprimer la colonne variable cible dans le pipeline d’inférence à l’aide du module **Sélectionner des colonnes dans le jeu de données**. Vérifiez que la sortie du module **Sélectionner des colonnes dans le jeu de données** supprimant la colonne variable cible est connectée au même port que la sortie du module **Entrée de service web**.
 
 1. Sélectionnez **Envoyer**, puis utilisez la même cible de calcul et la même expérience que durant la première partie.
 
