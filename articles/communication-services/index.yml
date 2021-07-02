@@ -9,12 +9,12 @@ metadata:
   author: mikben
   ms.author: mikben
   ms.date: 03/10/2021
-  ms.openlocfilehash: ec0a4ebaebecf9cf5fac95ca1b3bded1ba759958
-  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+  ms.openlocfilehash: 9c07d4334d6137fc6bef9a9edecf6566d97c4cd6
+  ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/19/2021
-  ms.locfileid: "110092275"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111903380"
 landingContent:
 - title: À propos d’Azure Communication Services
   linkLists:
@@ -36,6 +36,8 @@ landingContent:
       url: quickstarts/create-communication-resource.md
     - text: Créer et gérer des jetons d’accès utilisateur
       url: quickstarts/access-tokens.md
+    - text: Obtenir un jeton de relais
+      url: quickstarts/relay-token.md
   - linkListType: concept
     links:
     - text: Architecture client et serveur
@@ -52,10 +54,10 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Ajouter l’appel vocal et l’appel vidéo à votre application
+    - text: Ajouter l’appel vocal à votre application
       url: quickstarts/voice-video-calling/getting-started-with-calling.md
-    - text: Utiliser le SDK Calling
-      url: quickstarts/voice-video-calling/calling-client-samples.md
+    - text: Ajouter l’appel vidéo à votre application
+      url: quickstarts/voice-video-calling/get-started-with-video-calling.md
   - linkListType: concept
     links:
     - text: Concepts vocaux et vidéo

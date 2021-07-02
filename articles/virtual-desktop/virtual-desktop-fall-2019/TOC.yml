@@ -1,10 +1,10 @@
-- name: Windows Virtual Desktop (classique)
+- name: Azure Virtual Desktop (classique)
   href: ../index.yml
 - name: Vue d’ensemble
   items:
-    - name: "Qu’est-ce que Windows Virtual Desktop\_?"
+    - name: "Qu’est-ce qu’Azure Virtual Desktop\_?"
       href: ../overview.md
-    - name: Documentation Windows Virtual Desktop
+    - name: Documentation Azure Virtual Desktop
       href: ../create-host-pools-azure-marketplace.md
 - name: Tutoriels
   items:
@@ -24,7 +24,7 @@
   items:
     - name: Migrer manuellement
       href: ../manual-migration.md
-    - name: Se connecter à des ressources Windows Virtual Desktop
+    - name: Se connecter à des ressources Azure Virtual Desktop
       items:
         - name: Se connecter avec le client Windows Desktop
           href: connect-windows-7-10-2019.md
@@ -76,9 +76,9 @@
       href: ../set-up-mfa.md
 - name: Concepts
   items:
-    - name: Environnement Windows Virtual Desktop
+    - name: Environnement Azure Virtual Desktop
       href: environment-setup-2019.md
-    - name: Accès délégué dans Windows Virtual Desktop
+    - name: Accès délégué dans Azure Virtual Desktop
       href: delegated-access-virtual-desktop-2019.md
     - name: Méthodes d’équilibrage de charge des pools d’hôtes
       href: host-pool-load-balancing-2019.md
@@ -100,7 +100,7 @@
       href: troubleshoot-management-tool.md
     - name: Connexions du service Bureau à distance
       href: troubleshoot-service-connection-2019.md
-    - name: Windows Virtual Desktop PowerShell
+    - name: Azure Virtual Desktop PowerShell
       href: troubleshoot-powershell-2019.md
 - name: Informations de référence
   items:

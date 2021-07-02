@@ -11,12 +11,12 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 03/02/2021
-  ms.openlocfilehash: 6203e20f007fc170447d0c145bbaab942834d907
-  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.openlocfilehash: 86122297340197ede15e99b8ac3f4ff2f61713b1
+  ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/25/2021
-  ms.locfileid: "110378366"
+  ms.lasthandoff: 06/07/2021
+  ms.locfileid: "111555863"
 landingContent:
 - title: À propos de la recherche cognitive
   linkLists:
@@ -40,7 +40,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Indexer à partir du stockage Blob Azure
+    - text: Indexer à partir du Stockage Blob Azure
       url: search-blob-storage-integration.md
     - text: Indexer à partir d’Azure SQL Database
       url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
@@ -62,20 +62,6 @@ landingContent:
       url: search-create-app-portal.md
     - text: Extraire du texte à partir d’images et de fichiers d’application
       url: cognitive-search-quickstart-blob.md
-- title: Indexer des données
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Définir un index
-      url: search-what-is-an-index.md
-    - text: Importer des données
-      url: search-what-is-data-import.md
-  - linkListType: reference
-    links:
-    - text: Créer un index (REST)
-      url: /rest/api/searchservice/create-index
-    - text: Créer un indexeur (REST)
-      url: /rest/api/searchservice/create-indexer
 - title: Enrichir avec l’intelligence artificielle
   linkLists:
   - linkListType: concept
@@ -98,6 +84,22 @@ landingContent:
     links:
     - text: Compétences prédéfinies
       url: cognitive-search-predefined-skills.md
+- title: Indexer des données
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Définir un index
+      url: search-what-is-an-index.md
+    - text: Importer des données
+      url: search-what-is-data-import.md
+    - text: Indexer à l’aide de connecteurs Power Query
+      url: search-how-to-index-power-query-data-sources.md
+  - linkListType: reference
+    links:
+    - text: Créer un index (REST)
+      url: /rest/api/searchservice/create-index
+    - text: Créer un indexeur (REST)
+      url: /rest/api/searchservice/create-indexer
 - title: Interroger des données
   linkLists:
   - linkListType: concept

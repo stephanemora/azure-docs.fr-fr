@@ -10,106 +10,126 @@ metadata:
   ms.collection: collection
   author: tfitzmac
   ms.author: tomfitz
-  ms.date: 03/04/2020
-  ms.openlocfilehash: e844a428910a220d77c143baa74124a112135387
-  ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
-  ms.translationtype: HT
-  ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/01/2020
-  ms.locfileid: "96435210"
+  ms.date: 06/01/2021
 highlightedContent:
   items:
-  - title: Présentation de Resource Manager
-    itemType: overview
-    url: management/overview.md
-  - title: Que sont les modèles ARM ?
-    itemType: overview
-    url: templates/overview.md
-  - title: Créer votre premier modèle
-    itemType: tutorial
-    url: templates/template-tutorial-create-first-template.md
+    - title: Présentation de Resource Manager
+      itemType: overview
+      url: management/overview.md
+    - title: "Que sont les modèles ARM\_?"
+      itemType: overview
+      url: templates/overview.md
+    - title: "Qu’est-ce que Bicep\_?"
+      itemType: overview
+      url: bicep/overview.md
 conceptualContent:
   items:
-  - title: Déployer des modèles ARM
-    links:
-    - url: templates/overview.md
-      itemType: overview
-      text: Vue d’ensemble
-    - url: templates/template-tutorial-create-first-template.md
-      itemType: tutorial
-      text: Séries de tutoriels pour débutant
-    - url: templates/template-syntax.md
-      itemType: reference
-      text: Syntaxe des modèles
-    - url: templates/template-functions.md
-      itemType: reference
-      text: Fonctions des modèles de gestionnaire des ressources Azure
-    - url: /azure/templates/
-      itemType: reference
-      text: Informations de référence sur les modèles
-    - url: templates/deploy-powershell.md
-      itemType: how-to-guide
-      text: Déployer
-    - url: templates/template-best-practices.md
-      itemType: concept
-      text: Meilleures pratiques
-    footerLink:
-      url: templates/index.yml
-      text: Voir plus
-  - title: Gestion des ressources
-    links:
-    - url: management/overview.md
-      itemType: overview
-      text: Vue d’ensemble
-    - url: management/tag-resources.md
-      itemType: how-to-guide
-      text: Baliser des ressources
-    - url: management/move-resource-group-and-subscription.md
-      itemType: concept
-      text: Déplacer des ressources
-    - url: management/lock-resources.md
-      itemType: how-to-guide
-      text: Verrouiller des ressources
-    - url: management/resource-providers-and-types.md
-      itemType: concept
-      text: Fournisseurs et types de ressources
-    - url: management/azure-subscription-service-limits.md
-      itemType: concept
-      text: Limites du service et de l’abonnement
-    footerLink:
-      url: management/index.yml
-      text: Voir plus
-  - title: Applications gérées
-    links:
-    - url: managed-applications/overview.md
-      itemType: overview
-      text: Vue d’ensemble
-    - url: managed-applications/publish-service-catalog-app.md
-      itemType: tutorial
-      text: Publier une application dans le catalogue de services
-    - url: managed-applications/create-uidefinition-overview.md
-      itemType: how-to-guide
-      text: Définir le volet de portail pour créer une application
-    - url: ../marketplace/create-new-azure-apps-offer.md
-      itemType: tutorial
-      text: Ajouter une application à la Place de marché
-    footerLink:
-      url: managed-applications/index.yml
-      text: Voir plus
-  - title: Fournisseurs personnalisés Azure
-    links:
-    - url: custom-providers/overview.md
-      itemType: overview
-      text: Vue d’ensemble
-    - url: custom-providers/create-custom-provider.md
-      itemType: quickstart
-      text: Créer un fournisseur personnalisé
-    - url: custom-providers/tutorial-get-started-with-custom-providers.md
-      itemType: tutorial
-      text: Créer des actions et des ressources personnalisées
-    - url: custom-providers/custom-providers-action-endpoint-how-to.md
-      itemType: how-to-guide
-      text: Ajouter des actions personnalisées à l’API REST Azure
-    footerLink:
-      url: custom-providers/index.yml
-      text: En savoir plus
+    - title: Déployer des modèles ARM
+      links:
+        - url: templates/overview.md
+          itemType: overview
+          text: Vue d’ensemble
+        - url: templates/template-tutorial-create-first-template.md
+          itemType: tutorial
+          text: Séries de tutoriels pour débutant
+        - url: ./templates/syntax.md
+          itemType: reference
+          text: Syntaxe des modèles
+        - url: templates/template-functions.md
+          itemType: reference
+          text: Fonctions des modèles de gestionnaire des ressources Azure
+        - url: /azure/templates/
+          itemType: reference
+          text: Informations de référence sur les modèles
+        - url: templates/deploy-powershell.md
+          itemType: how-to-guide
+          text: Déployer
+        - url: ./templates/best-practices.md
+          itemType: concept
+          text: Meilleures pratiques
+      footerLink:
+        url: templates/index.yml
+        text: Voir plus
+    - title: "Déployer des fichiers\_Bicep"
+      links:
+        - url: bicep/overview.md
+          itemType: overview
+          text: Vue d’ensemble
+        - url: /learn/modules/deploy-azure-resources-by-using-bicep-templates
+          itemType: learn
+          text: Déployer des ressources Azure
+        - url: bicep/file.md
+          itemType: reference
+          text: Structure des fichiers Bicep
+        - url: bicep/data-types.md
+          itemType: reference
+          text: Types de données Bicep
+        - url: bicep/bicep-functions.md
+          itemType: reference
+          text: Fonctions Bicep
+        - url: bicep/operators.md
+          itemType: reference
+          text: Opérateurs Bicep
+        - url: bicep/deploy-powershell.md
+          itemType: how-to-guide
+          text: Déployer
+      footerLink:
+        url: bicep/index.yml
+        text: Voir plus
+    - title: Gestion des ressources
+      links:
+        - url: management/overview.md
+          itemType: overview
+          text: Vue d’ensemble
+        - url: management/tag-resources.md
+          itemType: how-to-guide
+          text: Baliser des ressources
+        - url: management/move-resource-group-and-subscription.md
+          itemType: concept
+          text: Déplacer des ressources
+        - url: management/lock-resources.md
+          itemType: how-to-guide
+          text: Verrouiller des ressources
+        - url: management/resource-providers-and-types.md
+          itemType: concept
+          text: Fournisseurs et types de ressources
+        - url: management/azure-subscription-service-limits.md
+          itemType: concept
+          text: Limites du service et de l’abonnement
+      footerLink:
+        url: management/index.yml
+        text: Voir plus
+    - title: Applications gérées
+      links:
+        - url: managed-applications/overview.md
+          itemType: overview
+          text: Vue d’ensemble
+        - url: managed-applications/publish-service-catalog-app.md
+          itemType: tutorial
+          text: Publier une application dans le catalogue de services
+        - url: managed-applications/create-uidefinition-overview.md
+          itemType: how-to-guide
+          text: Définir le volet de portail pour créer une application
+        - url: ../marketplace/azure-app-offer-setup.md
+          itemType: tutorial
+          text: Ajouter une application à la Place de marché
+      footerLink:
+        url: managed-applications/index.yml
+        text: Voir plus
+    - title: Fournisseurs personnalisés Azure
+      links:
+        - url: custom-providers/overview.md
+          itemType: overview
+          text: Vue d’ensemble
+        - url: custom-providers/create-custom-provider.md
+          itemType: quickstart
+          text: Créer un fournisseur personnalisé
+        - url: custom-providers/tutorial-get-started-with-custom-providers.md
+          itemType: tutorial
+          text: Créer des actions et des ressources personnalisées
+        - url: custom-providers/custom-providers-action-endpoint-how-to.md
+          itemType: how-to-guide
+          text: Ajouter des actions personnalisées à l’API REST Azure
+      footerLink:
+        url: custom-providers/index.yml
+        text: En savoir plus

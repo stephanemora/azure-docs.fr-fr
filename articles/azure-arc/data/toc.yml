@@ -140,8 +140,8 @@
               items:
                 - name: Afficher la configuration
                   href: show-configuration-postgresql-hyperscale-server-group.md
-                - name: Scale-out - Ajouter des nœuds Worker
-                  href: scale-out-postgresql-hyperscale-server-group.md
+                - name: Effectuer un scale-out|in des nœuds Worker
+                  href: scale-out-in-postgresql-hyperscale-server-group.md
                 - name: Effectuer un scale-up ou un scale-down pour la mémoire et les vCores
                   href: scale-up-down-postgresql-hyperscale-server-group-using-cli.md
                 - name: Configurer les paramètres du serveur
