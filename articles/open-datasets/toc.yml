@@ -16,6 +16,104 @@
   items:
     - name: Jeux de données dans Azure Machine Learning
       href: how-to-create-azure-machine-learning-dataset-from-open-dataset.md
+- name: Groupes de données
+  items:
+    - name: Catalogue de jeux de données
+      href: dataset-catalog.md
+    - name: Transport
+      items:
+        - name: Tartanair AirSim
+          href: dataset-tartanair-simulation.md
+        - name: Taxi new-yorkais - jaune
+          href: dataset-taxi-yellow.md
+        - name: Taxi new-yorkais - vert
+          href: dataset-taxi-green.md
+        - name: Taxi new-yorkais - VTC
+          href: dataset-taxi-for-hire-vehicle.md
+    - name: Santé et génomique
+      items:
+        - name: Lac de données COVID-19
+          items:
+            - name: Lac de données COVID-19
+              href: dataset-covid-19-data-lake.md
+            - name: Données Bing COVID-19
+              href: dataset-bing-covid-19.md
+            - name: Projet de suivi du COVID
+              href: dataset-covid-tracking.md
+            - name: Cas COVID-19 ECDC
+              href: dataset-ecdc-covid-cases.md
+            - name: Tracker des réponses du gouvernement au COVID-19 d’Oxford
+              href: dataset-oxford-covid-government-response-tracker.md
+        - name: Recherches ouvertes sur le COVID-19
+          href: dataset-covid-19-open-research.md
+        - name: Lac de données de génomique
+          items:
+            - name: Lac de données de génomique
+              href: dataset-genomics-data-lake.md
+            - name: Illumina Platinum Genomes
+              href: dataset-illumina-platinum-genomes.md
+            - name: Génomes humains de référence
+              href: dataset-human-reference-genomes.md
+            - name: Annotations ClinVar
+              href: dataset-clinvar-annotations.md
+            - name: SnpEff
+              href: dataset-snpeff.md
+            - name: gnomAD
+              href: dataset-gnomad.md
+            - name: "1\_000\_génomes"
+              href: dataset-1000-genomes.md
+            - name: OpenCravat
+              href: dataset-open-cravat.md
+            - name: ENCODE
+              href: dataset-encode.md
+            - name: Groupe de ressources GATK
+              href: dataset-gatk-resource-bundle.md
+    - name: Travail et économie
+      items:
+        - name: US Labor Force Statistics (Statistiques de la population active américaine)
+          href: dataset-us-labor-force.md
+        - name: US National Employment Hours and Earnings (Heures d’emploi et revenus nationaux aux États-Unis)
+          href: dataset-us-national-employment-earnings.md
+        - name: US National Employment Hours and Earnings (Heures d’emploi et revenus au niveau des États aux États-Unis)
+          href: dataset-us-state-employment-earnings.md
+        - name: US Local Area Unemployment Statistics (Statistiques sur le chômage local aux États-Unis)
+          href: dataset-us-local-unemployment.md
+        - name: Indice américain des prix à la consommation
+          href: dataset-us-consumer-price-index.md
+        - name: Indice des prix producteur aux États-Unis - Industrie
+          href: dataset-us-producer-price-index-industry.md
+        - name: Indice des prix à la production aux États-Unis - Marchandises
+          href: dataset-us-producer-price-index-commodities.md
+    - name: Population et sûreté
+      items:
+        - name: Population américaine par comté
+          href: dataset-us-population-county.md
+        - name: Population américaine par code postal
+          href: dataset-us-population-zip.md
+        - name: Données de sûreté de Boston
+          href: dataset-boston-safety.md
+        - name: Données de sûreté de Chicago
+          href: dataset-chicago-safety.md
+        - name: Données de sûreté de New York City
+          href: dataset-new-york-city-safety.md
+        - name: Données de sûreté de San Francisco
+          href: dataset-san-francisco-safety.md
+        - name: Données de sûreté de Seattle
+          href: dataset-seattle-safety.md
+    - name: Jeux de données communs
+      items:
+        - name: Diabètes
+          href: dataset-diabetes.md
+        - name: Données simulées de ventes de billets de JO
+          href: dataset-oj-sales-simulated.md
+        - name: MNIST
+          href: dataset-mnist.md
+        - name: Jeu de données de recommandation Microsoft News
+          href: dataset-microsoft-news.md
+        - name: Jours fériés
+          href: dataset-public-holidays.md
+        - name: Reconnaissance vocale ouverte pour le russe
+          href: dataset-open-speech-text.md
 - name: Exemples
   displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
   href: samples.md

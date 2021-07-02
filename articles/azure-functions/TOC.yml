@@ -58,8 +58,10 @@
         - name: Azure Arc (préversion)
           items:
             - name: Publier un projet de code
+              displayName: 'Arc, container, Kubernetes'
               href: create-first-function-arc-cli.md
             - name: Publier un conteneur Linux
+              displayName: 'Arc, container, Kubernetes'
               href: create-first-function-arc-custom-container.md
     - name: Se connecter à une base de données
       items:
@@ -352,6 +354,8 @@
           href: functions-manually-run-non-http.md
         - name: Placer des dépendances dans les applications de fonction
           href: bring-dependency-to-functions.md
+        - name: Développer des extensions worker Python
+          href: develop-python-worker-extensions.md
     - name: Déployer
       items:
         - name: Déploiement continu

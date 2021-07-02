@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 03/05/2021
+ms.date: 06/10/2021
 ms.author: alkohli
-ms.openlocfilehash: 40e8f2d35c78f4f3809fa7d102f82a48b5eab0c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 97c26e0d418c5cbba6704d275605fc975d3aa3bb
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102444369"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111981946"
 ---
 Avant de commencer, assurez-vous que :
 
@@ -18,6 +18,8 @@ Avant de commencer, assurez-vous que :
 * L’abonnement que vous utilisez pour le service Data Box appartient à l’une des catégories suivantes :
   * Contrat client Microsoft (MCA) pour les nouveaux abonnements ou Contrat Entreprise (EA) Microsoft pour les abonnements existants. Pour plus d’informations, consultez [Contrat client Microsoft pour les nouveaux abonnements](https://www.microsoft.com/licensing/how-to-buy/microsoft-customer-agreement) et [Abonnements du Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
   * Fournisseur de solutions cloud (CSP). En savoir plus sur le [programme Azure CSP](/azure/cloud-solution-provider/overview/azure-csp-overview).
+    > [!NOTE]
+    > Ce service n’est pas pris en charge pour le programme Azure CSP en Inde.
   * Microsoft Azure Sponsorship. En savoir plus sur le [programme Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
   * Microsoft Partner Network (MPN). Découvrez-en plus sur le [Microsoft Partner Network](https://partner.microsoft.com/commercial#).
 

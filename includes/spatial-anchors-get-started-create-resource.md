@@ -4,12 +4,13 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
-ms.openlocfilehash: 2c85e26d5a9115b00621c4099e3ed36afb224e3f
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: eb9b77e42a46ba735a5721907f9d3a7890a34131
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107879676"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111896399"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Créer une ressource Spatial Anchors
 
@@ -34,7 +35,7 @@ Dans le volet **Spatial Anchors Account** (compte Spatial Anchors), procédez co
   [!INCLUDE [resource group intro text](resource-group.md)]
 
 * Sélectionnez un emplacement (région) où placer la ressource.
-* Sélectionnez **Nouveau** pour commencer à créer la ressource.
+* Sélectionnez **Créer** pour commencer à créer la ressource.
 
 ![Capture d’écran du volet Spatial Anchors pour la création d’une ressource.](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
@@ -46,13 +47,13 @@ Sélectionnez **Accéder à la ressource**. Vous pouvez à présent afficher les
 
 Copiez la valeur **ID de compte** de la ressource dans un éditeur de texte en vue d’une utilisation ultérieure.
 
-![Capture d’écran du volet des propriétés de la ressource.](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+![Capture d’écran du volet des propriétés de la ressource.](./media/spatial-anchors-get-started-create-resource/view-resource-accountid.png)
 
 Copiez également le **Domaine du compte** de la ressource dans un éditeur de texte en vue d’une utilisation ultérieure.
 
 ![Capture d’écran montrant la valeur de domaine du compte de la ressource.](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
 
-Sous **Paramètres**, sélectionnez **Clé**. Copiez la valeur de **Clé primaire**, **Clé de compte**, dans un éditeur de texte en vue d’une utilisation ultérieure.
+Sous **Paramètres**, sélectionnez **Clé d’accès**. Copiez la valeur de **Clé primaire**, **Clé de compte**, dans un éditeur de texte en vue d’une utilisation ultérieure.
 
 ![Capture d’écran du volet Clés pour le compte.](./media/spatial-anchors-get-started-create-resource/view-account-key.png)
 

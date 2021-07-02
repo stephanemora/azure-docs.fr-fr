@@ -305,6 +305,8 @@
   items:
     - name: GitHub - Exemples Azure Policy
       href: 'https://github.com/Azure/azure-policy'
+    - name: Niveau entreprise - Implémentation de référence
+      href: 'https://github.com/Azure/Enterprise-Scale#enterprise-scale---reference-implementation'
     - name: Outils de la communauté
       items:
         - name: GitHub - Dépôt Community Policy
