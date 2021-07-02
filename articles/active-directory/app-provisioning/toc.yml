@@ -1,6 +1,6 @@
 - name: Documentation sur le provisionnement d’applications et de RH
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que le provisionnement d’application\_?"
@@ -18,6 +18,8 @@
       href: customize-application-attributes.md
     - name: Tutoriels sur le provisionnement spécifique aux applications
       href: /azure/active-directory/saas-apps
+    - name: "Connecteur SQL générique pour l’Hôte de connecteur Azure\_AD ECMA"
+      href: tutorial-ecma-sql-connector.md
 - name: Concepts
   expanded: true
   items:
@@ -29,6 +31,10 @@
       href: plan-cloud-hr-provision.md
     - name: Comprendre la journalisation avec Azure Monitor
       href: application-provisioning-log-analytics.md
+    - name: Architecture de provisionnement d’applications local
+      href: on-premises-application-provisioning-architecture.md
+    - name: Comprendre le générateur d’expressions
+      href: expression-builder.md
 - name: Guides pratiques
   expanded: true
   items:
@@ -53,7 +59,7 @@
         - name: Provisionnement de rapports
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Automatiser la configuration avec MS Graph
-      href: /graph/application-provisioning-configure-api
+      href: application-provisioning-configuration-api.md
     - name: Résoudre les problèmes de provisionnement d’applications
       items:
         - name: Problèmes connus
@@ -66,8 +72,24 @@
           href: application-provisioning-config-problem-no-users-provisioned.md
         - name: Attribut source manquant
           href: user-provisioning-sync-attributes-for-mapping.md
+        - name: Résolution des problèmes de l’Hôte de connecteur ECMA
+          href: on-premises-ecma-troubleshoot.md
         - name: Journaux d’approvisionnement
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+    - name: Provisionnement d’applications local
+      items:
+        - name: Prérequis de l’Hôte de connecteur ECMA
+          href: on-premises-ecma-prerequisites.md
+        - name: Installation de l’Hôte de connecteur ECMA
+          href: on-premises-ecma-install.md
+        - name: Configuration de l’Hôte de connecteur ECMA
+          href: on-premises-ecma-configure.md
+        - name: "Configuration du connecteur\_SQL générique"
+          href: on-premises-sql-connector-configure.md
+        - name: Provisionnement d’applications local sur des applications compatibles SCIM
+          href: on-premises-scim-provisioning.md
+        - name: Migrer le connecteur depuis la synchronisation MIM
+          href: on-premises-migrate-microsoft-identity-manager.md
 - name: Informations de référence
   items:
     - name: "Conformité au protocole SCIM\_2.0"

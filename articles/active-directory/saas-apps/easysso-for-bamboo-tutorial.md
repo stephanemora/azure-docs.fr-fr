@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 06/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 3d784979876857e94c1e09ffc5b7bef11c0a0d04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ef286e9e760c6a18b69eb8724c1317e6a872b2c
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98735964"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569089"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à EasySSO pour Bamboo
 
@@ -37,10 +37,10 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* EasySSO pour Bamboo prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**
-* EasySSO pour Bamboo prend en charge le provisionnement d’utilisateurs **juste-à-temps**
+* EasySSO pour Bamboo prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**.
+* EasySSO pour Bamboo prend en charge l’affectation d’utilisateurs **juste-à-temps**.
 
-## <a name="adding-easysso-for-bamboo-from-the-gallery"></a>Ajout d’EasySSO pour Bamboo à partir de la galerie
+## <a name="add-easysso-for-bamboo-from-the-gallery"></a>Ajouter EasySSO pour Bamboo à partir de la galerie
 
 Pour configurer l’intégration d’EasySSO pour Bamboo dans Azure AD, vous devez ajouter EasySSO pour Bamboo, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
@@ -50,7 +50,6 @@ Pour configurer l’intégration d’EasySSO pour Bamboo dans Azure AD, vous de
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **EasySSO pour Bamboo** dans la zone de recherche.
 1. Sélectionnez **EasySSO pour Bamboo** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-easysso-for-bamboo"></a>Configurer et tester l’authentification unique Azure AD pour EasySSO for Bamboo
 
@@ -71,19 +70,19 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **EasySSO for Bamboo**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<server-base-url>/plugins/servlet/easysso/saml`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<SERVER_BASE_URL>/plugins/servlet/easysso/saml`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<server-base-url>/plugins/servlet/easysso/saml`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<SERVER_BASE_URL>/plugins/servlet/easysso/saml`
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<server-base-url>/login.jsp`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SERVER_BASE_URL>/login.jsp`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. En cas de doute, contactez l’[équipe du support technique EasySSO](mailto:support@techtime.co.nz) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -129,9 +128,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **EasySSO pour Bamboo**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
@@ -166,7 +163,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 5. À présent, recherchez le **Certificat (Base64)** ou le **Fichier de métadonnées** que vous avez enregistré aux étapes précédentes de la configuration de l’**authentification unique Azure AD**. Vous avez le choix entre les options suivantes :
 
-    a. Utilisez le **fichier de métadonnées** de fédération d’application que vous avez téléchargé dans un fichier local sur votre ordinateur. Sélectionnez la case d’option **Upload** (Charger) et suivez les instructions de la boîte de dialogue de chargement de fichier propre à votre système d’exploitation.
+    a. Utilisez le **fichier de métadonnées** de fédération d’application que vous avez téléchargé dans un fichier local sur votre ordinateur. Sélectionnez la case d’option **Charger**, puis suivez les instructions de la boîte de dialogue de chargement de fichier spécifique à votre système d’exploitation.
 
     **OR**
 
@@ -191,7 +188,7 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Bamboo. 
 
 Toutefois, si vous ne souhaitez pas activer le provisionnement automatique d’utilisateurs lors de la première connexion, les utilisateurs doivent exister dans les répertoires utilisateurs back-end utilisés par l’instance de Bamboo, comme LDAP ou Atlassian Crowd.
 
-![Approvisionnement d'utilisateurs](./media/easysso-for-bamboo-tutorial/bamboo-admin-6.png)
+![Approvisionnement d'utilisateurs](./media/easysso-for-bamboo-tutorial/admin.png)
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
@@ -209,7 +206,7 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
 Ce scénario part du principe que vous avez activé le **bouton de connexion SAML** sous l’onglet **Look & Feel** dans votre page de configuration EasySSO pour Bamboo (voir ci-dessus). Ouvrez votre URL de connexion Bamboo en mode incognito du navigateur pour éviter toute interférence avec vos sessions existantes. Cliquez sur le bouton **Connexion SAML**. Vous êtes alors redirigé vers le flux d’authentification des utilisateurs Azure AD. Une fois l’opération terminée, vous serez redirigé vers votre instance de Bamboo en tant qu’utilisateur authentifié par le biais de SAML.
 
-Il est possible que vous rencontriez l’écran suivant après avoir été redirigé à partir d’Azure AD
+Il est possible que vous voyiez l’écran suivant après avoir été redirigé à partir d’Azure AD.
 
 ![Écran d’échec d’EasySSO](./media/easysso-for-bamboo-tutorial/bamboo-admin-8.png)
 

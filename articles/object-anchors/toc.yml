@@ -30,19 +30,25 @@
       href: 'https://github.com/Azure/azure-object-anchors'
 - name: References
   items:
+    - name: SDK de conversion pour .NET
+      href: /dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre
     - name: "Runtime\_SDK pour Unity"
       href: /dotnet/api/Microsoft.Azure.ObjectAnchors/
     - name: "Runtime\_SDK pour HoloLens\_C++/WinRT"
       href: /cpp/api/object-anchors/winrt/
 - name: Ressources
   items:
-    - name: Notes de publication
-      href: 'https://github.com/Azure/azure-object-anchors/releases'
     - name: API REST pour la gestion des ressources Azure Mixed Reality
       href: /rest/api/mixedreality/
-    - name: Codes d’erreur de conversion de modèle
-      href: model-conversion-error-codes.md
+    - name: Détecter un objet difficile
+      href: detect-difficult-object.md
     - name: Questions fréquentes (FAQ)
       href: faq.md
+    - name: Codes d’erreur de conversion de modèle
+      href: model-conversion-error-codes.md
+    - name: Notes de publication
+      href: 'https://github.com/Azure/azure-object-anchors/releases'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-object-anchors'
+    - name: Visualiser un modèle converti
+      href: visualize-converted-model.md

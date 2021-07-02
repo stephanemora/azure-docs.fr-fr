@@ -151,6 +151,8 @@
       items:
         - name: "Obtenir la chaîne de connexion Event\_Hubs"
           href: event-hubs-get-connection-string.md
+        - name: Configurer des unités de traitement pour un espace de noms Premium
+          href: configure-processing-units-premium-namespace.md
         - name: Ajouter des données personnalisées aux événements
           href: add-custom-data-event.md
         - name: Créer un registre de schémas
@@ -211,8 +213,8 @@
           href: apache-kafka-frequently-asked-questions.yml
     - name: Gestion et surveillance
       items:
-        - name: Surveiller Event Hubs avec la surveillance Azure Monitor
-          href: event-hubs-metrics-azure-monitor.md
+        - name: Superviser Azure Event Hubs
+          href: monitor-event-hubs.md
         - name: Configurer les journaux de diagnostic
           href: event-hubs-diagnostic-logs.md
         - name: Diffuser des données de diagnostics Azure en continu à l’aide d’Event Hubs
@@ -253,6 +255,8 @@
           href: move-cluster-across-regions.md
 - name: Informations de référence
   items:
+    - name: Informations de référence sur les données de supervision
+      href: monitor-event-hubs-reference.md
     - name: Kits SDK
       href: sdks.md
     - name: .NET
