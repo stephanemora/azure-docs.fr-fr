@@ -1,0 +1,110 @@
+### YamlMime:Landing
+title: Documentation sur Always Encrypted avec enclaves sécurisées
+summary: Rechercher de la documentation sur Always Encrypted avec enclaves sécurisées
+metadata:
+  title: Documentation sur Always Encrypted avec enclaves sécurisées
+  description: Rechercher de la documentation sur Always Encrypted avec enclaves sécurisées pour SQL Server et Azure SQL Database
+  ms.service: sql-database
+  ms.subservice: security
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: landing-page
+  author: VanMSFT
+  ms.author: vanto
+  ms.reviewer: 
+  ms.date: 03/12/2021
+  ms.openlocfilehash: 8667cacced164eedffb056c348075a49c3e2ffad
+  ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 03/13/2021
+  ms.locfileid: "111907007"
+landingContent:
+- title: Vue d’ensemble
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Always Encrypted avec enclaves sécurisées ?
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves
+    - text: Configurer et utiliser Always Encrypted avec enclaves sécurisées
+      url: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
+- title: Configurer dans Azure SQL Database
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Planifier les enclaves Intel SGX et l’attestation dans Azure SQL Database
+      url: always-encrypted-enclaves-plan.md
+    - text: Activer Intel SGX pour votre instance Azure SQL Database
+      url: always-encrypted-enclaves-enable-sgx.md
+    - text: Configurer Azure Attestation pour votre serveur logique Azure SQL
+      url: always-encrypted-enclaves-configure-attestation.md
+- title: Configurer sur un serveur SQL d’une machine virtuelle Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Planifier l’attestation du Service Guardian hôte
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-host-guardian-service-plan
+    - text: Déployer le Service Guardian hôte pour SQL Server
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-host-guardian-service-deploy
+    - text: Inscrire un ordinateur auprès du Service Guardian hôte
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-host-guardian-service-register
+    - text: Configurer l’enclave sécurisée dans SQL Server
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-configure-enclave-type
+- title: Tutoriels
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Bien démarrer avec Always Encrypted avec enclaves sécurisées dans SQL Server
+      url: /sql/relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves
+    - text: Bien démarrer avec Always Encrypted avec enclaves sécurisées dans Azure SQL Database
+      url: always-encrypted-enclaves-getting-started.md
+    - text: Créer et utiliser des index sur des colonnes prenant en charge les enclaves à l’aide d’un chiffrement aléatoire
+      url: /sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption
+    - text: Développer une application .NET en utilisant Always Encrypted avec enclaves sécurisées
+      url: /sql/connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps
+    - text: Développer une application .NET Framework avec Always Encrypted avec enclaves sécurisées
+      url: /sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps
+- title: Gérer les clés
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gérer les clés pour Always Encrypted avec enclaves sécurisées
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-manage-keys
+    - text: Approvisionner des clés prenant en charge les enclaves
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-provision-keys
+    - text: Effectuer une rotation de clés activées pour les enclaves
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-rotate-keys
+- title: Configurer des colonnes
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer le chiffrement de colonne sur place en utilisant Always Encrypted avec enclaves sécurisées
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-configure-encryption
+    - text: Configurer le chiffrement de colonne sur place avec Transact-SQL
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-configure-encryption-tsql
+    - text: Activer Always Encrypted avec enclaves sécurisées pour les colonnes chiffrées existantes
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-enable-for-encrypted-columns
+- title: Vidéos
+  linkLists:
+  - linkListType: video
+    links:
+    - text: Au cœur de l’architecture des centres de données Azure avec Mark Russinovich
+      url: https://youtu.be/69PrhWQorEM?t=4523
+    - text: Webinaire avec une section sur les enclaves sécurisées
+      url: https://info.microsoft.com/ww-ondemand-azure-webinar-series-four-ways-to-take-your-data-security-to-the-next-level.html
+- title: Interroger les colonnes
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Exécuter des instructions Transact-SQL à l’aide d’enclaves sécurisées
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-query-columns
+    - text: Résoudre les problèmes courants relatifs à Always Encrypted avec enclaves sécurisées
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-troubleshooting
+    - text: Créer et utiliser des index sur des colonnes en utilisant Always Encrypted avec enclaves sécurisées
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-create-use-indexes
+- title: Développer des applications
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Développer des applications avec Always Encrypted avec enclaves sécurisées
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-client-development
