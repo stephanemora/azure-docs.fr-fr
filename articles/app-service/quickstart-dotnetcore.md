@@ -1,21 +1,21 @@
 ---
-title: 'Démarrage rapide : Déployer une application web ASP.NET'
+title: 'Démarrage rapie : Déployer une application web ASP.NET'
 description: Découvrez comment exécuter des applications web dans Azure App Service en déployant votre première application ASP.NET.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 03/30/2021
+ms.date: 06/08/2021
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-ide
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
-ms.openlocfilehash: 482bf6d29fbc1e982ee4d17099d82915ff3a0241
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3b3abdf40d5aa9d56421361237432ddf08c0c016
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762458"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746534"
 ---
 <!-- NOTES:
 
@@ -35,12 +35,9 @@ target cross-platform with .NET Core 3.1 or .NET 5.0.
 
 -->
 
-# <a name="quickstart-deploy-an-aspnet-web-app"></a>Démarrage rapide : Déployer une application web ASP.NET
+# <a name="quickstart-deploy-an-aspnet-web-app"></a>Démarrage rapie : Déployer une application web ASP.NET
 
 Dans ce guide de démarrage rapide, vous allez apprendre à créer et déployer votre première application web ASP.NET sur [Azure App Service](overview.md). App Service prend en charge différentes versions d’applications .NET et fournit un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Les applications web ASP.NET sont multiplateformes et peuvent être hébergées sur Linux ou Windows. Quand vous aurez terminé, vous disposerez d’un groupe de ressources Azure constitué d’un plan d’hébergement App Service et d’un service d’application avec une application web déployée.
-
-> [!TIP]
-> .NET Core 3.1 est la version actuelle prise en charge à long terme (LTS) de .NET. Pour plus d’informations, consultez [Stratégie de prise en charge .NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -109,6 +106,9 @@ Dans ce guide de démarrage rapide, vous allez apprendre à créer et déployer 
 :::zone-end
 
 ## <a name="create-an-aspnet-web-app"></a>Créez une application web ASP.NET
+
+> [!TIP]
+> .NET Core 3.1 est la version actuelle prise en charge à long terme (LTS) de .NET. Pour plus d’informations, consultez [Stratégie de prise en charge .NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 :::zone target="docs" pivot="development-environment-vs"
 

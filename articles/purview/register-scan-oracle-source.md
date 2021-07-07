@@ -1,5 +1,5 @@
 ---
-title: Inscrire une source Oracle et configurer des analyses (préversion) dans Azure Purview
+title: Inscrire une source Oracle et configurer des analyses dans Azure Purview
 description: Cet article explique comment inscrire une source Oracle dans Azure Purview et configurer une analyse.
 author: chandrakavya
 ms.author: kchandra
@@ -7,14 +7,14 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 40c5e0ff2c2301607f5a548ff05c742c5c5a948d
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: dadf457c2fc3f617e2473a853e802fe863709ac5
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517060"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072286"
 ---
-# <a name="register-and-scan-oracle-source-preview"></a>Inscrire et analyser une source Oracle (préversion)
+# <a name="register-and-scan-oracle-source"></a>Inscrire et analyser une source Oracle
 
 Cet article explique comment inscrire une base de données Oracle dans Purview et configurer une analyse.
 
@@ -132,8 +132,13 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
     L’utilisation de NOT et des caractères spéciaux n’est pas autorisée.
 
 6.  **Emplacement du pilote** : spécifiez le chemin d’accès à l’emplacement du pilote JDBC dans votre machine virtuelle où s’exécute le runtime d’intégration auto-hébergé. Il doit s’agir du chemin vers l’emplacement du dossier JAR valide.
+    > [!Note]
+    > Le pilote doit être accessible à tous les comptes de la machine virtuelle. Ne procédez pas à l’installation dans un compte d’utilisateur.
 
 7.  **Mémoire maximale disponible** : mémoire maximale (en Go) disponible sur la machine virtuelle du client pouvant être utilisée par les processus d’analyse. Elle dépend de la taille de la source SAP S/4HANA à analyser.
+
+    > [!Note] 
+    > En règle générale, prévoyez 1 Go de mémoire pour 1 000 tables
 
     :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="Analyser Oracle" border="true":::
 

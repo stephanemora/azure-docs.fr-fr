@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: d683507e8c35db5af3ef7e91674f6a55254e22e2
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 90c044593ac02f2c906fb2347d731168b25af5af
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132420"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813863"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>Tutoriel : Créer une application web statique avec Blazor dans Azure Static Web Apps
 
@@ -61,51 +61,47 @@ Cet article utilise un dépôt de modèles GitHub pour vous permettre de démarr
 
 1. Veillez à être connecté à GitHub et accédez à l’emplacement suivant pour créer un dépôt :
    - [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=/staticwebdev/blazor-starter/generate)
-1. Nommez votre référentiel **my-first-static-blazor-app**
+1. Nommez votre référentiel **my-first-static-blazor-app**.
 
 ## <a name="create-a-static-web-app"></a>Créer une application web statique
 
 Maintenant que le référentiel est créé, créez une application web statique à partir du portail Azure.
 
-1. Accéder au [portail Azure](https://portal.azure.com)
-1. Sélectionnez **Créer une ressource**
-1. Recherchez **Applications web statiques**
-1. Sélectionnez **Static Web Apps (Préversion)**
-1. Sélectionnez **Créer**
-
-Dans la section _De base_, commencez par configurer votre nouvelle application et liez-la à un référentiel GitHub.
-
-:::image type="content" source="media/deploy-blazor/basics.png" alt-text="Onglet Informations de base":::
-
-1. Sélectionnez votre _abonnement Azure_.
-1. Sélectionnez ou créez un _groupe de ressources_.
-1. Nommez l'application **my-first-static-blazor-app**.
-   - Les caractères valides sont `a-z` (insensible à la casse), `0-9`et `-`.
-1. Sélectionnez la _région_ la plus proche de vous.
-1. Sélectionnez **SKU** _gratuite_.
-1. Sélectionnez le bouton **Se connecter à GitHub** et authentifiez-vous auprès de GitHub.
-
-Après vous être connecté à GitHub, entrez les informations relatives au dépôt.
-
-:::image type="content" source="media/deploy-blazor/repository-details.png" alt-text="Détails du référentiel":::
-
-1. Sélectionnez votre _organisation_ préférée.
-1. Sélectionnez **my-first-static-blazor-app** dans la liste déroulante _Référentiel_.
-1. Sélectionnez **principale** dans la liste déroulante _Branche_.
-
-   En l’absence de dépôt, il peut être nécessaire d’autoriser Azure Static Web Apps dans GitHub. Accédez à votre dépôt GitHub, puis à **Paramètres > Applications > Applications OAuth autorisées**, sélectionnez **Azure Static Web Apps**, puis sélectionnez **Octroyer**. Pour les dépôts de l’organisation, vous devez être propriétaire de l’organisation pour accorder des autorisations.
-
-1. Dans la section _Détails de la build_, ajoutez les détails de configuration spécifiques à Blazor.
-
-   - Sélectionnez **Blazor** dans la liste déroulante _Présélections de build_ et conservez toutes les valeurs par défaut.
-
-1. Sélectionnez **Revoir + créer**.
-
-   :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Bouton Vérifier + créer":::
-
+1. Accédez au [portail Azure](https://portal.azure.com).
+1. Sélectionnez **Créer une ressource**.
+1. Recherchez **Static Web Apps**.
+1. Sélectionnez **Static Web Apps**.
 1. Sélectionnez **Create** (Créer).
+1. Sous l’onglet _Informations de base_, entrez les valeurs suivantes.
 
-   :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="Bouton Créer":::
+    | Propriété | Valeur |
+    | --- | --- |
+    | _Abonnement_ | Le nom de votre abonnement Azure. |
+    | _Groupe de ressources_ | **my-blazor-group**  |
+    | _Nom_ | **my-first-static-blazor-app** |
+    | _Type de plan_ | **Gratuit** |
+    | _Région de l’API Azure Functions et des environnements intermédiaires_ | Sélectionnez la région la plus proche de vous. |
+    | _Source_ | **GitHub** |
+
+1. Sélectionnez **Se connecter avec GitHub** et authentifiez-vous auprès de GitHub.
+
+1. Entrez les valeurs GitHub suivantes.
+
+    | Propriété | Valeur |
+    | --- | --- |
+    | _Organisation_ | Sélectionnez l’organisation GitHub de votre choix. |
+    | _Dépôt_ | Sélectionnez **my-first-static-blazor-app**. |
+    | _Branche_ | Sélectionnez **principal**. |
+
+1. Dans la section _Détails de build_, sélectionnez **Blazor** dans la liste déroulante _Présélections de build_ et conservez les valeurs par défaut.
+
+### <a name="review-and-create"></a>Examiner et créer
+
+1. Pour vérifier que les informations sont correctes, sélectionnez le bouton **Vérifier + créer**.
+
+1. Pour démarrer la création de l’application web statique App Service et le provisionnement d’une action GitHub pour le déploiement, sélectionnez **Créer**.
+
+1. Une fois le déploiement terminé, cliquez sur **Accéder à la ressource**.
 
 1. Sélectionnez **Accéder à la ressource**.
 
@@ -129,9 +125,9 @@ La fenêtre de vue d’ensemble de Static Web Apps présente des liens qui vous 
 
 Si vous ne prévoyez pas de continuer à utiliser cette application, vous pouvez supprimer l’instance Azure Static Web Apps en effectuant les étapes suivantes :
 
-1. Ouvrez le [portail Azure](https://portal.azure.com)
-1. Recherchez **my-first-static-blazor-app** sur la barre de recherche supérieure.
-1. Sélectionnez le nom de l’application.
+1. Ouvrez le [portail Azure](https://portal.azure.com).
+1. Recherchez **my-blazor-group** dans la barre de recherche supérieure.
+1. Sélectionnez le nom du groupe.
 1. Sélectionnez le bouton **Supprimer**.
 1. Sélectionnez **Oui** pour confirmer la suppression.
 

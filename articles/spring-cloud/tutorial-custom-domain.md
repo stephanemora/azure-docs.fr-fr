@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 583124e9e3ca657ee13e4726eda981ae26022856
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6c9d2e82e048a8693175974d6ef664d67e9deac8
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138514"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652649"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>Tutoriel : Mapper un domaine personnalisé existant à Azure Spring Cloud
 
@@ -89,7 +89,7 @@ Pour charger votre certificat dans le coffre de clés :
 1. Dans le menu du haut, cliquez sur **Générer/importer**.
 1. Dans la boîte de dialogue **Créer un certificat**, en dessous de **Méthode de création de certificat**, sélectionnez `Import`.
 1. Sous **Charger le fichier de certificat**, accédez à emplacement du certificat et sélectionnez-le.
-1. Sous **Mot de passe**, entrez la clé privée de votre certificat.
+1. Sous **Mot de passe**, si vous chargez un fichier de certificat protégé par mot de passe, indiquez ce mot de passe ici. Autrement, laissez le champ vide. Une fois le fichier de certificat importé, le coffre de clés supprime ce mot de passe.
 1. Cliquez sur **Créer**.
 
     ![Importation du certificat 1](./media/custom-dns-tutorial/import-certificate-a.png)

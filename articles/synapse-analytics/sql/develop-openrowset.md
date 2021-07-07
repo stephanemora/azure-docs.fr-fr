@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: be412f4dd2413cfe5562f895489aed10b9a9a80f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1a39b963fa88866e02e9813c68d1b6504d3e98c7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378681"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956532"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Comment utiliser OPENROWSET avec le pool SQL serverless dans Azure Synapse Analytics
 
@@ -90,7 +90,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 <bulk_options> ::=  
 [ , FIELDTERMINATOR = 'char' ]    
 [ , ROWTERMINATOR = 'char' ] 
-[ , ESCAPE_CHAR = 'char' ] 
+[ , ESCAPECHAR = 'char' ] 
 [ , FIRSTROW = 'first_row' ]     
 [ , FIELDQUOTE = 'quote_characters' ]
 [ , DATA_COMPRESSION = 'data_compression_method' ]
@@ -189,11 +189,11 @@ ROWTERMINATOR ='row_terminator'`
 
 Spécifie l’indicateur de fin de ligne à utiliser. Si la marque de fin de ligne n’est pas spécifiée, l’une des marques par défaut sera utilisée. Les indicateurs de fin par défaut pour PARSER_VERSION = ’1.0’ sont \r\n, \n et \r. Les indicateurs de fin par défaut pour PARSER_VERSION = ’2.0’ sont \r\n et \n.
 
-ESCAPE_CHAR = 'char'
+ESCAPECHAR = 'char'
 
 Spécifie le caractère dans le fichier qui est utilisé pour se placer lui-même dans une séquence d’échappement ainsi que toutes les valeurs de délimiteur dans le fichier. Si le caractère d’échappement est suivi d’une valeur autre que lui-même, ou que l’une des valeurs de délimiteur, le caractère d’échappement est supprimé lors de la lecture de la valeur. 
 
-Le paramètre ESCAPE_CHAR est appliqué, que FIELDQUOTE soit ou non activé. Il ne sera pas utilisé comme caractère d’échappement devant le caractère de délimitation. Le caractère de délimitation doit être placé dans une séquence d’échappement avec un autre caractère de délimitation. Le caractère de délimitation peut apparaître dans la valeur de colonne seulement si la valeur est encapsulée avec des caractères de délimitation.
+Le paramètre ESCAPECHAR est appliqué, que FIELDQUOTE soit ou non activé. Il ne sera pas utilisé comme caractère d’échappement devant le caractère de délimitation. Le caractère de délimitation doit être placé dans une séquence d’échappement avec un autre caractère de délimitation. Le caractère de délimitation peut apparaître dans la valeur de colonne seulement si la valeur est encapsulée avec des caractères de délimitation.
 
 FIRSTROW = 'first_row' 
 
@@ -420,5 +420,4 @@ AS [r]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir d’autres exemples, consultez le [Guide de démarrage rapide du stockage de données de requête](query-data-storage.md) pour savoir comment utiliser `OPENROWSET` pour lire les formats de fichiers [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), [DELTA LAKE](query-delta-lake-format.md) et [JSON](query-json-files.md). Consultez les [bonnes pratiques](best-practices-sql-on-demand.md) pour obtenir des performances optimales. Vous pouvez également apprendre à enregistrer les résultats de votre requête dans Stockage Azure à l’aide de [CETAS](develop-tables-cetas.md).
-
+Pour obtenir d’autres exemples, consultez le [Guide de démarrage rapide du stockage de données de requête](query-data-storage.md) pour savoir comment utiliser `OPENROWSET` pour lire les formats de fichiers [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), [DELTA LAKE](query-delta-lake-format.md) et [JSON](query-json-files.md). Consultez les [bonnes pratiques](./best-practices-serverless-sql-pool.md) pour obtenir des performances optimales. Vous pouvez également apprendre à enregistrer les résultats de votre requête dans Stockage Azure à l’aide de [CETAS](develop-tables-cetas.md).

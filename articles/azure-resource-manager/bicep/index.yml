@@ -1,0 +1,105 @@
+### YamlMime:Landing
+title: Documentation Bicep
+summary: Bicep est un langage permettant de déployer de manière déclarative des ressources Azure. Vous pouvez utiliser Bicep au lieu de JSON pour développer vos modèles Azure Resource Manager (modèles ARM).
+metadata:
+  title: Documentation Bicep
+  description: Découvrir comment développer des fichiers Bicep et les utiliser pour déployer des ressources Azure
+  services: azure-resource-manager
+  ms.service: azure-resource-manager
+  ms.subservice: Bicep
+  ms.topic: landing-page
+  ms.collection: na
+  author: mumian
+  ms.author: jgao
+  ms.date: 05/20/2021
+  ms.openlocfilehash: 4ca69803581d8cf04e20e13845944c55ec334516
+  ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 06/02/2021
+  ms.locfileid: "111025409"
+landingContent:
+- title: Bicep
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que Bicep ?
+      url: overview.md
+  - linkListType: video
+    links:
+    - text: Présentation d’Ignite 2021
+      url: https://www.youtube.com/embed/sc1kJfcRQgY
+- title: Bien démarrer
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Créer des fichiers Bicep – VS Code
+      url: quickstart-create-bicep-use-visual-studio-code.md
+  - linkListType: learn
+    links:
+    - text: Introduction à Bicep
+      url: /learn/modules/introduction-to-infrastructure-as-code-using-bicep/
+    - text: Déployer avec Bicep
+      url: /learn/modules/deploy-azure-resources-by-using-bicep-templates/
+    - text: Déployer des ressources d’extension et enfants
+      url: /learn/modules/child-extension-bicep-templates/
+- title: Créer des fichiers Bicep
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Utiliser les fonctions
+      url: ./bicep-functions.md
+    - text: Utiliser des opérateurs
+      url: ./operators.md
+    - text: Utiliser des types de données
+      url: ./data-types.md
+    - text: Définir les paramètres
+      url: ./parameters.md
+    - text: Définir des variables
+      url: ./variables.md
+    - text: Définir les ressources
+      url: ./resource-declaration.md
+    - text: Définir les sorties
+      url: outputs.md
+  - linkListType: reference
+    links:
+    - text: Structure des fichiers Bicep
+      url: ./file.md
+    - text: Modèles de démarrage rapide Azure
+      url: https://azure.microsoft.com/resources/templates/
+- title: Déployer des fichiers Bicep
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: PowerShell
+      url: deploy-powershell.md
+    - text: Azure CLI
+      url: deploy-cli.md
+    - text: Cloud Shell
+      url: deploy-cloud-shell.md
+    - text: Déploiement What-if
+      url: deploy-what-if.md
+- title: Déploiements délimités
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Resource group
+      url: deploy-to-resource-group.md
+    - text: Abonnement
+      url: deploy-to-subscription.md
+    - text: Groupe d’administration
+      url: deploy-to-management-group.md
+    - text: Locataire
+      url: deploy-to-tenant.md
+    - text: Définition d’une étendue de ressource d’extension
+      url: scope-extension-resources.md
+- title: Explorer le contenu de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Informations de référence sur les modèles
+      url: /azure/templates/
+    - text: Azure PowerShell
+      url: /powershell/module/az.resources
+    - text: Azure CLI
+      url: /cli/azure/resource

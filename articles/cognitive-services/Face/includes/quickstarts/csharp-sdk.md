@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: fc45296fe3541d5388505a52a7e3f0856b4b1825
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3387e5d1fd64771b8be012b421da4b32007155f0
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108792423"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109858118"
 ---
 Commencez à utiliser la reconnaissance faciale avec la bibliothèque de client Visage pour .NET. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
@@ -261,10 +261,10 @@ Définissez la méthode de suppression avec le code suivant :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le cadre de ce guide de démarrage rapide, vous avez vu comment utiliser la bibliothèque de client Visage pour .NET afin d’effectuer des tâches de reconnaissance faciale basiques. Pour plus d’informations sur la bibliothèque, reportez-vous à la documentation de référence.
+Dans le cadre de ce guide de démarrage rapide, vous avez vu comment utiliser la bibliothèque de client Visage pour .NET afin d’effectuer des tâches de reconnaissance faciale basiques. Découvrez à présent les différents modèles de détection de visage, et la façon de spécifier le modèle adapté à votre cas d’usage.
 
 > [!div class="nextstepaction"]
-> [Informations de référence sur l’API Visage (.NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi)
+> [Spécifier une version de modèle de détection des visages](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [Qu’est ce que le service Visage ?](../../overview.md)
 * Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Face/FaceQuickstart.cs).

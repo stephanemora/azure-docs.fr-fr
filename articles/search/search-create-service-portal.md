@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/15/2021
-ms.openlocfilehash: 83e206a5fd7b34da0b0ac8590d5271a554855d3e
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 06/03/2021
+ms.openlocfilehash: 713d2216029fb88716d157d9db7b2010d3f32720
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580750"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111526269"
 ---
 # <a name="create-an-azure-cognitive-search-service-in-the-portal"></a>Créer un service Recherche cognitive Azure dans le portail
 
 [Recherche cognitive Azure](search-what-is-azure-search.md) est une ressource Azure qui permet d’ajouter une expérience de recherche en texte intégral à des applications personnalisées. Vous pouvez facilement l’intégrer à d’autres services Azure qui fournissent des données ou un traitement supplémentaire, avec des applications situées sur des serveurs réseau ou avec des logiciels s’exécutant sur d’autres plateformes cloud.
 
-Vous pouvez créer un service de recherche en utilisant le [portail Azure](https://portal.azure.com/), ce qui est expliqué dans cet article. Vous pouvez aussi utiliser [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), l’[API REST de gestion](/rest/api/searchmanagement/) ou un [modèle de service Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
+Vous pouvez créer un service de recherche en utilisant le [portail Azure](https://portal.azure.com/), ce qui est expliqué dans cet article. Vous pouvez aussi utiliser [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), l’[API REST de gestion](/rest/api/searchmanagement/) ou un [modèle de service Azure Resource Manager](https://azure.microsoft.com/resources/templates/azure-search-create/).
 
 [![GIF animé](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -83,25 +83,25 @@ Configuration requise du nom du service :
 
 ## <a name="choose-a-location"></a>Choisir un emplacement
 
-Recherche cognitive Azure est disponible dans la plupart des régions, comme indiqué dans [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=search). En général, si vous utilisez plusieurs services Azure, choisissez une région qui héberge aussi votre service de données ou d’application. Cela réduit au minimum voire évite les frais de bande passante pour les données sortantes. Il n’y a aucuns frais liés aux données sortantes lorsque les services se trouvent dans la même région.
+Recherche cognitive Azure est disponible dans la plupart des régions, comme indiqué dans [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=search). 
 
-+ [L’enrichissement par IA](cognitive-search-concept-intro.md) nécessite que Cognitive Services se trouve dans la même région physique que Recherche cognitive Azure. Seules quelques régions ne proposent pas les deux. La page [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=search) indique une double disponibilité en montrant deux coches empilées. Pour une combinaison non disponible, il n’y a pas de coche :
+En général, si vous utilisez plusieurs services Azure, choisissez une région qui héberge également votre service de données ou d’application. Cela réduit au minimum voire évite les frais de bande passante pour les données sortantes. Il n’y a aucuns frais liés aux données sortantes lorsque les services se trouvent dans la même région.
+
++ [L’enrichissement par IA](cognitive-search-concept-intro.md) nécessite que Cognitive Services se trouve dans la même région physique que Recherche cognitive Azure. Seules quelques régions *n’offrent pas* les deux. La page [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=search) indique une double disponibilité en montrant deux coches empilées. Pour une combinaison non disponible, il n’y a pas de coche :
 
   :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="Disponibilité régionale" border="true":::
 
 + Les exigences en matière de continuité d’activité et de reprise d’activité (BCDR) doivent être satisfaites en créant plusieurs services de recherche dans des [paires de régions](../best-practices-availability-paired-regions.md#azure-regional-pairs). Par exemple, si vous opérez en Amérique du Nord, vous pouvez choisir USA Est et USA Ouest, ou USA Centre Nord et USA Centre Sud, pour chaque service de recherche.
 
-Certaines fonctionnalités ont une disponibilité limitée en fonction des régions. Les restrictions sont mises en évidence dans la documentation des fonctionnalités :
-
-+ [Double chiffrement](search-security-overview.md#double-encryption)
+Les fonctionnalités dont la disponibilité est limitée en fonction de la région sont répertoriées ci-dessous. Les régions prises en charge sont spécifiées dans les articles relatifs aux fonctionnalités : 
 
 + [« Zones de disponibilité » dans Mettre à l’échelle pour les performances](search-performance-optimization.md#availability-zones).
 
 ## <a name="choose-a-pricing-tier"></a>Sélectionnez un niveau tarifaire
 
-La Recherche cognitive Azure est actuellement proposée à [plusieurs niveaux tarifaires](https://azure.microsoft.com/pricing/details/search/) : Gratuit, De base, Standard ou À stockage optimisé. Chaque niveau a ses propres [capacité et limites](search-limits-quotas-capacity.md). Pour obtenir de l’aide, consultez [Choisir un niveau tarifaire](search-sku-tier.md).
+La Recherche cognitive Azure est actuellement proposée à [plusieurs niveaux tarifaires](https://azure.microsoft.com/pricing/details/search/) : Gratuit, De base, Standard ou À stockage optimisé. Chaque niveau a ses propres [capacité et limites](search-limits-quotas-capacity.md). En outre, le niveau que vous sélectionnez peut avoir une incidence sur la disponibilité de certaines fonctionnalités. Pour obtenir de l’aide, consultez [Disponibilité des fonctionnalités par niveau](search-sku-tier.md#feature-availability-by-tier).
 
-De base et Standard sont les options les plus courantes pour les charges de production, mais la plupart des clients démarrent avec le service gratuit. Les principales différences entre les niveaux sont la taille et la vitesse des partitions, ainsi que les limites du nombre d’objets que vous pouvez créer.
+Les niveaux De base et Standard sont les choix les plus courants pour les charges de travail de production, mais la plupart des clients commencent avec le service Gratuit à des fins d’évaluation. Les principales différences entre les niveaux facturables sont la taille et la vitesse des partitions, ainsi que les limites au nombre d’objets que vous pouvez créer.
 
 N’oubliez pas que vous ne pouvez pas changer de niveau tarifaire une fois le service créé. Si vous avez besoin d’un niveau plus élevé ou moins élevé, vous devez recréer le service.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 06/04/2021
 ms.author: alkohli
-ms.openlocfilehash: a415dba4bb4fd5b95e98ae7c104cae92db27f34c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 406e31320e8f7d0d95bfef44f620505989b3ae9f
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060157"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746696"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Installer Azure Stack Edge Pro avec GPU
 
@@ -163,7 +163,7 @@ Pour brancher votre appareil, vous avez besoin des éléments suivants :
 - Votre appareil physique Azure Stack Edge Pro, déballé et monté en rack.
 - 2 câbles d’alimentation.
 - Au moins un câble réseau 1-GbE RJ-45 à brancher à l’interface de gestion. Il existe deux interfaces de réseau 1-GbE, une interface de gestion, et une interface de données, sur l’appareil.
-- Un câble en cuivre 25-GbE SFP+ pour chaque interface de réseau de données à configurer. Au moins une interface de réseau de données, au choix PORT 2, PORT 3, PORT 4, PORT 5 ou PORT 6, doit être connectée à Internet (avec connectivité à Azure).  
+- Un câble en cuivre 25/10 GbE SFP+ pour chaque interface réseau de données à configurer. Au moins une interface de réseau de données, au choix PORT 2, PORT 3, PORT 4, PORT 5 ou PORT 6, doit être connectée à Internet (avec connectivité à Azure).  
 - Accès à deux unités de distribution d’énergie (recommandé).
 - Commutateur réseau 1-GbE au minimum pour connecter une interface réseau 1 GbE à Internet pour les données. L’interface utilisateur web locale n’est pas accessible si le commutateur connecté n’offre pas un débit d’au moins 1 GbE. Si vous utilisez l’interface 25/10 GbE pour les données, vous aurez besoin d’un commutateur 25 GbE ou 10 GbE.
 
@@ -188,12 +188,12 @@ Sur votre appareil Azure Stack Edge Pro :
 - Le fond de panier comprend deux cartes réseau correspondant aux six ports :
 
     - **Carte Microsoft `Qlogic` Cavium 25G NDC personnalisée** - Ports 1 à 4.
-    - **Carte réseau Mellanox Dual Port 25G ConnectX - 4 canaux** - Ports 5 et 6.
+    - **Carte réseau Mellanox Dual Port 25G ConnectX - 4 canaux** : Ports 5 et 6.
 
-Pour obtenir la liste complète des câbles, commutateurs et transmetteurs pris en charge pour ces cartes réseau, consultez le document :
+Pour obtenir la liste complète des câbles, commutateurs et transmetteurs pour ces cartes réseau, consultez :
 
 - [Matrice d’interopérabilité de la carte `Qlogic` Cavium 25G NDC](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
-- [Produits compatibles avec la carte réseau Mellanox Dual Port 25G ConnectX - 4 canaux](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
+- Câbles et modules 25 GbE et 10 GbE dans [Produits compatibles avec la carte réseau Mellanox Dual Port 25G ConnectX-4](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
  
 Effectuez les étapes suivantes pour brancher l’alimentation et le réseau de votre appareil.

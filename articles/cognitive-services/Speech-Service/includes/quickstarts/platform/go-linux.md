@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: gelecaro
-ms.openlocfilehash: cf765145cafa2eb06d77ea2e153e45c296281b71
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: c2222918106de8594881f105cc86ab1b45135027
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100551381"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110164281"
 ---
 Ce guide explique comment installer le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour Linux.
 
@@ -23,32 +23,9 @@ Linux : consultez la liste des [architectures cibles et distributions Linux pri
 
 Pour effectuer ce démarrage rapide, vous devez disposer des éléments suivants :
 
-* Sur Windows, vous avez besoin de [Microsoft Redistributable Visual C++ pour Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) pour votre plateforme. La première installation peut demander i, redémarrage.
-* gcc
 * [Binaire Go (1.13 ou version ultérieure)](https://golang.org/dl/)
+* Configuration de l’environnement Linux en fonction de la [configuration système demandée et des instructions d’installation](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk).
 
-* Les plateformes Linux prises en charge nécessitent l’installation de certaines bibliothèques (`libssl` pour la prise en charge du protocole SSL et `libasound2` pour la prise en charge du son). Reportez-vous à votre distribution ci-dessous pour connaître les commandes nécessaires à l’installation des versions appropriées de ces bibliothèques.
-
-   * Sur Ubuntu/Debian :
-
-     ```sh
-     sudo apt-get update
-     sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-     ```
-
-     Si libssl1.0.0 n’est pas disponible, installez libssl1.0.x (où x est supérieur à 0) ou libssl1.1 à la place.
-
-   * Sur RHEL/CentOS :
-
-     ```sh
-     sudo yum update
-     sudo yum groupinstall "Development tools"
-     sudo yum install alsa-lib openssl wget
-     ```
-
-> [!NOTE]
-> - Sur RHEL/CentOS 7, suivez les instructions décrivant [comment configurer RHEL/CentOS 7 pour le Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
-> - Sur RHEL/CentOS 8, suivez les instructions du [Guide pratique pour configurer OpenSSL pour Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 [!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
 

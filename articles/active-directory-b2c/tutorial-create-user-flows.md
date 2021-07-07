@@ -7,18 +7,18 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/26/2021
+ms.date: 06/07/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: fa1250189c5ba11426ac993bed8fde398ae37ea2
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: fb04dbe5cdfab523e8af9a057cc4477f58b1b525
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001463"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565335"
 ---
-# <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutoriel : Créer des flux d’utilisateur dans Azure Active Directory B2C
+# <a name="tutorial-create-user-flows-and-custom-policies-in-azure-active-directory-b2c"></a>Tutoriel : créer des flux d’utilisateurs et des stratégies personnalisées dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -46,13 +46,13 @@ Les [stratégies personnalisées](custom-policy-overview.md) sont des fichiers d
 
 ::: zone pivot="b2c-user-flow"
 - Si vous n’en avez pas, [créez un locataire Azure AD B2C](tutorial-create-tenant.md) qui est lié à votre abonnement Azure.
-- [Inscrivez votre application](tutorial-register-applications.md) dans le locataire que vous avez créé afin qu’il puisse communiquer avec Azure AD B2C.
+- [Inscrivez une application web](tutorial-register-applications.md) et [activez l’octroi implicite de jeton d’ID](tutorial-register-applications.md#enable-id-token-implicit-grant).
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
 - Si vous n’en avez pas, [créez un locataire Azure AD B2C](tutorial-create-tenant.md) qui est lié à votre abonnement Azure.
-- [Inscrivez votre application](tutorial-register-applications.md) dans le locataire que vous avez créé afin qu’il puisse communiquer avec Azure AD B2C.
+- [Inscrivez une application web](tutorial-register-applications.md) et [activez l’octroi implicite de jeton d’ID](tutorial-register-applications.md#enable-id-token-implicit-grant).
 - [Créez une application Facebook](identity-provider-facebook.md#create-a-facebook-application). Ignorez les prérequis et la réinitialisation des étapes de l’article [Configurer l’inscription et se connecter avec un compte Facebook](identity-provider-facebook.md). Bien qu’une application Facebook ne soit pas requise pour l’utilisation de stratégies personnalisées, elle est utilisée dans cette procédure pas à pas pour illustrer l’activation de la connexion à partir de réseaux sociaux dans une stratégie personnalisée.
 
 ::: zone-end
@@ -327,7 +327,9 @@ Comme indiqué dans [Conditions préalables](#prerequisites), Facebook n’est *
 1. Sous **Stratégies personnalisées**, sélectionnez **B2C_1A_signup_signin**.
 1. Sélectionnez **Exécuter maintenant** et sélectionnez Facebook pour vous connecter avec Facebook et tester la stratégie personnalisée.
 
+
 ::: zone-end
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez appris à effectuer les opérations suivantes :
@@ -341,3 +343,5 @@ Ensuite, découvrez comment utiliser Azure AD B2C pour connecter et inscrire des
 
 > [!div class="nextstepaction"]
 > [Tutoriel : Activer l’authentification dans une application web à l’aide d’Azure AD B2C >](tutorial-web-app-dotnet.md)
+
+Vous pouvez également en savoir plus dans la [série de présentation approfondie de l’architecture Azure AD B2C](https://www.youtube.com/playlist?list=PLOPotgzC07IKXXCTZcrpuLWbVe3y51kfm).

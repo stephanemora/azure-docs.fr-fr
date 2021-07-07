@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 04/01/2020
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: 1430095861b4e8232127fe6d22b87afe5babcf67
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 31b46475af345ec4eed3a8d5787bf859918048ef
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750732"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985847"
 ---
 # <a name="frequently-asked-questions-about-azure-object-anchors"></a>Forum aux questions sur Azure Object Anchors
 
@@ -35,15 +35,15 @@ Pour plus d’informations, consultez [Vue d’ensemble d’Azure Object Anchors
 
 **Q : Quelles sont les dimensions maximales de l’objet qui peuvent être traitées pour la conversion de modèle ?**
 
-**R :** Chaque dimension d’un modèle CAO doit être inférieure à 10 mètres.
+**R :** Chaque dimension d’un modèle CAO doit être inférieure à 10 mètres. Pour plus d’informations, consultez [Prérequis des ressources](overview.md).
 
 **Q : Quelle est la taille maximale du modèle CAO qui peut être traitée pour la conversion ?**
 
-**R :** La taille de fichier du modèle doit être inférieure à 150 Mo.
+**R :** La taille de fichier du modèle doit être inférieure à 150 Mo. Pour plus d’informations, consultez [Prérequis des ressources](overview.md).
 
 **Q : Quels sont les formats CAO pris en charge ?**
 
-**R :** Nous prenons actuellement en charge les types de fichiers `fbx`, `ply`, `obj`, `glb` et `gltf`.
+**R :** Nous prenons actuellement en charge les types de fichiers `fbx`, `ply`, `obj`, `glb` et `gltf`. Pour plus d’informations, consultez [Prérequis des ressources](overview.md).
 
 **Q : Quelles sont la direction et l’unité de gravité requises par le service de conversion de modèle ? Comment obtenir ces valeurs ?**
 
@@ -63,7 +63,7 @@ L’unité représente l’unité de mesure du modèle. Les unités prises en ch
 
 **Q : Quels appareils Object Anchors prend-il en charge ?**
 
-**R :** HoloLens 2 
+**R :** HoloLens 2.
 
 **Q : quel build de système d’exploitation dois-je exécuter avec HoloLens ?**
 
@@ -89,6 +89,10 @@ L’unité représente l’unité de mesure du modèle. Les unités prises en ch
  8. Démarrez la détection d’objets et visualisez le rendu en fonction de la pose estimée.
  9. Verrouillez l’objet détecté ou arrêtez le suivi une fois que la pose est stable et précise afin d’économiser la batterie.
 
+**Q : Quelle version de la boîte à outils Mixed Reality mon application HoloLens Unity doit-elle utiliser pour pouvoir se servir du kit SDK Unity Object Anchors ?**
+
+**R :** Le kit SDK Unity Azure Object Anchors ne dépend en aucun cas de la boîte à outils Mixed Reality. Vous êtes donc libre d’utiliser la version de votre choix. Pour plus d’informations, consultez [Présentation de la boîte à outils Mixed Reality pour Unity](/windows/mixed-reality/develop/unity/mrtk-getting-started).
+
 **Q : Quelle est la précision d’une pose estimée ?**
 
 **R :** Cela dépend de la taille de l’objet, du matériau, de l’environnement, etc. Pour les petits objets, la pose estimée peut avoir une erreur inférieure à 2 cm. Pour les objets volumineux, comme un véhicule, l’erreur peut se situer entre 2 et 8 cm.
@@ -103,7 +107,7 @@ L’unité représente l’unité de mesure du modèle. Les unités prises en ch
 
 **Q : Combien d’objets différents Object Anchors peut-il détecter à la fois ?**
 
-**R :** Nous prenons actuellement en charge la détection d’un seul modèle d’objet à la fois. 
+**R :** Nous prenons actuellement en charge la détection d’un seul modèle d’objet à la fois.
 
 **Q : Object Anchors peut-il détecter plusieurs instances d’un même modèle d’objet ?**
 
@@ -115,10 +119,11 @@ L’unité représente l’unité de mesure du modèle. Les unités prises en ch
 
 * Assurez-vous que la pièce dispose de suffisamment de textures en ajoutant quelques affiches.
 * Scannez davantage l’objet.
-* Ajustez les paramètres du modèle, comme décrit ci-dessus.
+* Ajustez les paramètres du modèle comme ci-dessous.
 * Définissez un cadre étroit comme zone de recherche incluant tout ou partie de l’objet.
 * Effacez le cache de mappage spatial et scannez à nouveau l’objet.
 * Capturez les diagnostics et envoyez-nous les données.
+* Ajustez la propriété `MinSurfaceCoverage` à partir de la classe `ObjectQuery`. Pour plus d’informations, consultez [Guide pratique pour détecter un objet difficile](detect-difficult-object.md).
 
 **Q : Comment choisir les paramètres de requête d’objet ?**
 
@@ -128,6 +133,7 @@ L’unité représente l’unité de mesure du modèle. Les unités prises en ch
 * La valeur par défaut `ObjectQuery.MinSurfaceCoverage` du modèle d’objet est généralement correcte. Sinon, utilisez une valeur inférieure pour accélérer la détection.
 * Utilisez une petite valeur pour `ObjectQuery.ExpectedMaxVerticalOrientationInDegrees` si l’objet est censé être debout.
 * Une application doit toujours utiliser un modèle d’objet `1:1` pour la détection. Idéalement, l’échelle estimée doit être proche de 1, avec une erreur inférieure à 1 %. Une application peut avoir la valeur `ObjectQuery.MaxScaleChange` à `0` ou `0.1` pour désactiver ou activer l’estimation de l’échelle, et évaluer qualitativement la pose de l’instance.
+* Pour plus d’informations, consultez [Guide pratique pour détecter un objet difficile](detect-difficult-object.md).
 
 **Q : Comment obtenir des données de diagnostic Object Anchors à partir de HoloLens ?**
 

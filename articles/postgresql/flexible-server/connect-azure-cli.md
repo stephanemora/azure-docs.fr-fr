@@ -7,19 +7,20 @@ ms.service: postgresql
 ms.custom: mvc, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 03/06/2021
-ms.openlocfilehash: 3017d10abc910233e0627037349c0dfd966fd88e
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 99fee3db3c970e71aa4a979113d7508ecad3bd1e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107883793"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463703"
 ---
 # <a name="quickstart-connect-and-query-with-azure-cli--with-azure-database-for-postgresql---flexible-server"></a>Démarrage rapide : Se connecter et interroger avec Azure CLI, avec Azure Database pour PostgreSQL - Serveur flexible
 
 > [!IMPORTANT]
 > Azure Database pour PostgreSQL - Serveur flexible est en actuellement en préversion publique.
 
-Ce guide de démarrage rapide montre comment se connecter à un serveur flexible Azure Database pour PostgreSQL en utilisant Azure CLI avec la commande ```az postgres flexible-server connect```. Cette commande vous permet de tester la connectivité à votre serveur de base de données et d’exécuter des requêtes. Vous pouvez également exécuter plusieurs requêtes en utilisant le mode interactif. 
+Ce guide de démarrage rapide montre comment se connecter à un serveur flexible Azure Database pour PostgreSQL en utilisant Azure CLI avec la commande ```az postgres flexible-server connect``` et exécuter une seule requête ou un fichier sql avec la commande ```az postgres flexible-server execute```. Cette commande vous permet de tester la connectivité à votre serveur de base de données et d’exécuter des requêtes. Vous pouvez également exécuter plusieurs requêtes en utilisant le mode interactif. 
+
 
 ## <a name="prerequisites"></a>Prérequis
 - Un compte Azure. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/free/).
@@ -67,16 +68,47 @@ Si la connexion a échoué, essayez ces solutions :
 - Vérifiez si vous avez configuré une règle de pare-feu pour votre machine cliente.
 - Si vous avez configuré votre serveur avec un accès privé dans le réseau virtuel, vérifiez que votre machine cliente est dans le même réseau virtuel.
 
+## <a name="run-multiple-queries-using-interactive-mode"></a>Exécuter plusieurs requêtes en utilisant le mode interactif
+Vous pouvez exécuter plusieurs requêtes en utilisant le mode **interactif**. Pour activer le mode interactif, exécutez la commande suivante :
+
+```azurecli
+az postgres flexible-server connect -n <servername> -u <username> -p "<password>" -d <databasename>
+```
+
+**Exemple :**
+
+```azurecli
+az postgres flexible-server connect -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb --interactive
+```
+
+Vous verrez l’expérience du shell **psql** comme ci-dessous :
+
+```bash
+Command group 'postgres flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+Password for earthyTurtle7:
+Server: PostgreSQL 12.5
+Version: 3.0.0
+Chat: https://gitter.im/dbcli/pgcli
+Home: http://pgcli.com
+postgres> create database pollsdb;
+CREATE DATABASE
+Time: 0.308s
+postgres> exit
+Goodbye!
+Local context is turned on. Its information is saved in working directory C:\sunitha. You can run `az local-context off` to turn it off.
+Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
+```
+
 ## <a name="run-single-query"></a>Exécuter une seule requête
 Vous pouvez exécuter une seule requête avec la commande en utilisant l’argument ```--querytext```, ```-q```.
 
 ```azurecli
-az postgres flexible-server connect -n <server-name> -u <username> -p "<password>" -d <database-name> -q "<query-text>"
+az postgres flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> -q "<query-text>"
 ```
 
 **Exemple :** 
 ```azurecli
-az postgresql flexible-server connect -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -q "select * from table1;" --output table
+az postgres flexible-server execute -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -q "select * from table1;" --output table
 ```
 
 Vous voyez une sortie comme celle-ci :
@@ -100,37 +132,26 @@ test   200
 test   200
 ```
 
-## <a name="run-multiple-queries-using-interactive-mode"></a>Exécuter plusieurs requêtes en utilisant le mode interactif
-Vous pouvez exécuter plusieurs requêtes en utilisant le mode **interactif**. Pour activer le mode interactif, exécutez la commande suivante :
+## <a name="run-sql-file"></a>Exécuter un fichier SQL
+Vous pouvez exécuter un fichier sql avec la commande en utilisant l’argument ```--file-path```, ```-f```.
 
 ```azurecli
-az postgres flexible-server connect -n <servername> -u <username> -p "<password>" -d <databasename>
+az postgres flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> --file-path "<file-path>"
 ```
 
-**Exemple :**
-
+**Exemple :** 
 ```azurecli
-az postgresql flexible-server connect -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb --interactive
+az postgres flexible-server execute -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -f "./test.sql"
 ```
 
-Vous verrez l’expérience du shell **psql** comme ci-dessous :
+Vous voyez une sortie comme celle-ci :
 
-```bash
+```output
 Command group 'postgres flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
-Password for earthyTurtle7:
-Server: PostgreSQL 12.5
-Version: 3.0.0
-Chat: https://gitter.im/dbcli/pgcli
-Home: http://pgcli.com
-postgres> create database pollsdb;
-CREATE DATABASE
-Time: 0.308s
-postgres> exit
-Goodbye!
-Local context is turned on. Its information is saved in working directory C:\sunitha. You can run `az local-context off` to turn it off.
-Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
+Running sql file '.\test.sql'...
+Successfully executed the file.
+Closed the connection to postgresdemoserver.
 ```
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

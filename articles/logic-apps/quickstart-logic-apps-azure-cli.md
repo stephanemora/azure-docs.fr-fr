@@ -1,20 +1,20 @@
 ---
-title: Démarrage rapide – Créer et gérer des flux de travail avec le service Azure Logic Apps mutualisé et Azure CLI
-description: À l’aide de l’interface de ligne de commande, créez des flux de travail d’application logique avec le service Azure Logic Apps mutualisé, et gérez la logique avec des opérations telles que list, show (get), update, et delete.
+title: Démarrage rapide – Création et gestion des flux de travail avec Azure CLI dans le service multi-locataire Azure Logic Apps
+description: À l’aide de l’interface de ligne de commande, créez et gérez les flux de travail des applications logiques dans le service multi-locataire Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
 ms.date: 05/25/2021
-ms.openlocfilehash: 4a848b560fd0302690f1e52661b165182082dd9b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 533a3001068c2bfa6a6902e486d6a1acf468d246
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375926"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617257"
 ---
-# <a name="quickstart-create-and-manage-workflows-in-multi-tenant-azure-logic-apps-using-the-azure-cli"></a>Démarrage rapide – Créer et gérer des flux de travail dans le service Azure Logic Apps mutualisé à l’aide d’Azure CLI
+# <a name="quickstart-create-and-manage-workflows-using-azure-cli-in-multi-tenant-azure-logic-apps"></a>Démarrage rapide : Création et gestion des flux de travail avec Azure CLI dans le service multi-locataire Azure Logic Apps
 
 Ce guide de démarrage rapide montre comment créer et gérer des applications logiques à l’aide de l’extension [Logic Apps d’Azure CLI](/cli/azure/logic) (`az logic`). À partir de la ligne de commande, vous pouvez créer une application logique à l’aide du fichier JSON pour une définition de flux de travail d’application logique. Vous pouvez ensuite gérer votre application logique en exécutant des commandes telles que `list`, `show` (`get`), `update` et `delete` à partir de la ligne de commande.
 

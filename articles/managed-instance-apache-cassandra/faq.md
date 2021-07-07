@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: 1ba2b7d648c86912118b83a566bf2eb0800baee2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6953ffb5542e2a0d8acb9e404b2df0f923a08145
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101747434"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744014"
 ---
 # <a name="frequently-asked-questions-about-azure-managed-instance-for-apache-cassandra-preview"></a>Questions fréquentes sur Azure Managed Instance pour Apache Cassandra (préversion)
 
@@ -45,6 +45,10 @@ Managed Instance sera disponible dans un nombre limité de régions durant la pr
 ### <a name="what-are-the-storage-and-throughput-limits-of-azure-managed-instance-for-apache-cassandra"></a>Quelles sont les limites de stockage et de débit d’Azure Managed Instance pour Apache Cassandra ?
 
 Ces limites dépendent des références SKU de machines virtuelles que vous choisissez.
+
+### <a name="how-are-cassandra-repairs-carried-out-in-azure-managed-instance-for-apache-cassandra"></a>Comment les réparations Cassandra sont-elles effectuées dans Azure Managed Instance pour Apache Cassandra ?
+
+Nous utilisons [cassandra-reaper.io](http://cassandra-reaper.io/). Cet outil est configuré pour s’exécuter automatiquement.
 
 ### <a name="what-is-the-cost-of-azure-managed-instance-for-apache-cassandra"></a>Quel est le coût d’Azure Managed Instance pour Apache Cassandra ?
 

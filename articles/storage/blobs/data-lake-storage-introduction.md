@@ -8,18 +8,18 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 1c4d04e25bf8f7d981c998baafb468f04b66eaf1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b197d91893cc419913ace60fe30beca88484bfd2
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879896"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590951"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Présentation d'Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 est un ensemble de fonctionnalités dédiées à l'analytique du Big Data et intégrées au service [Stockage Blob Azure](storage-blobs-introduction.md). 
+Azure Data Lake Storage Gen2 est un ensemble de fonctionnalités dédiées à l’analytique du Big Data, s’appuyant sur le service [Stockage Blob Azure](storage-blobs-introduction.md). 
 
-Data Lake Storage Gen2 fait converger les fonctionnalités d’[Azure Data Lake Storage Gen1](../../data-lake-store/index.yml) vers celles du Stockage Blob Azure. Par exemple, Data Lake Storage Gen2 fournit une sémantique du système de fichiers, une sécurité au niveau des fichiers et la mise à l’échelle. Comme ces fonctionnalités sont basées sur le stockage Blob, vous bénéficiez également d’un stockage hiérarchisé à faible coût avec des fonctionnalités à haute disponibilité et de reprise d’activité.
+Data Lake Storage Gen2 fait converger les fonctionnalités d’[Azure Data Lake Storage Gen1](../../data-lake-store/index.yml) avec le service Stockage Blob Azure. Par exemple, Data Lake Storage Gen2 fournit une sémantique du système de fichiers, une sécurité au niveau des fichiers et la mise à l’échelle. Comme ces fonctionnalités sont basées sur le stockage Blob, vous bénéficiez également d’un stockage hiérarchisé à faible coût avec des fonctionnalités à haute disponibilité et de reprise d’activité.
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Conçu pour l’analytique du Big Data d’entreprise
 
@@ -35,7 +35,7 @@ Data Lake Storage Gen2 s’appuie sur le Stockage Blob. Il améliore les perform
 
 -   La **sécurité** est applicable, car vous pouvez définir des autorisations POSIX sur des répertoires ou des fichiers spécifiques.
 
-Par ailleurs, Data Lake Storage Gen2 est extrêmement rentable dans la mesure où il repose sur le [Stockage Blob Azure](storage-blobs-introduction.md), dont le coût est faible. Les fonctionnalités supplémentaires réduisent encore le coût total de possession de l’analytique du Big Data sur Azure.
+Par ailleurs, Data Lake Storage Gen2 est extrêmement rentable dans la mesure où il repose sur le service [Stockage Blob Azure](storage-blobs-introduction.md), dont le coût est faible. Les fonctionnalités supplémentaires réduisent encore le coût total de possession de l’analytique du Big Data sur Azure.
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Principales fonctionnalités de Data Lake Storage Gen2
 
@@ -43,7 +43,7 @@ Par ailleurs, Data Lake Storage Gen2 est extrêmement rentable dans la mesure o�
 
 -   **Surensemble d’autorisations POSIX** : Le modèle de sécurité pour Data Lake Gen2 prend en charge les autorisations ACL et POSIX, ainsi que certaines granularités supplémentaires spécifiques à Data Lake Storage Gen2. Les paramètres peuvent être configurés via l’Explorateur Stockage ou des infrastructures telles que Hive et Spark.
 
--   **Rentabilité** : Data Lake Storage Gen2 offre une capacité de stockage et des transactions à bas coût. Des fonctionnalités telles que le [cycle de vie de Stockage Blob Azure](storage-lifecycle-management-concepts.md) optimisent les coûts tout au long du cycle de vie des données.
+-   **Rentabilité** : Data Lake Storage Gen2 offre une capacité de stockage et des transactions à bas coût. Des fonctionnalités telles que le [cycle de vie du service Stockage Blob Azure](storage-lifecycle-management-concepts.md) optimisent les coûts tout au long du cycle de vie des données.
 
 -   **Pilote optimisé** : Le pilote ABFS est [optimisé spécifiquement](data-lake-storage-abfs-driver.md) pour l’analytique Big Data. Les API REST correspondantes sont exposées par le biais du point de terminaison `dfs.core.windows.net`.
 
@@ -53,13 +53,13 @@ Le Stockage Azure est nativement scalable, que vous y accédiez via les interfac
 
 ### <a name="cost-effectiveness"></a>Rentabilité
 
-Comme Data Lake Storage Gen2 repose sur le stockage Blob Azure, la capacité de stockage et les coûts des transactions sont moins importants. Contrairement à d’autres services de stockage cloud, vous n’avez pas besoin de déplacer ni de transformer vos données pour pouvoir les analyser. Pour plus d’informations sur la tarification, consultez la page [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage).
+Data Lake Storage Gen2 reposant sur le service Stockage Blob Azure, la capacité de stockage et les coûts des transactions sont inférieurs. Contrairement à d’autres services de stockage cloud, vous n’avez pas besoin de déplacer ni de transformer vos données pour pouvoir les analyser. Pour plus d’informations sur la tarification, consultez la page [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage).
 
 Par ailleurs, des fonctionnalités comme [l’espace de noms hiérarchique](data-lake-storage-namespace.md) améliorent considérablement les performances générales de nombreuses tâches analytiques. Cette amélioration des performances signifie que vous avez besoin d’une puissance de calcul moindre pour traiter la même quantité de données, ce qui contribue à la baisse du coût total de possession (TCO) pour le travail analytique de bout en bout.
 
 ### <a name="one-service-multiple-concepts"></a>Un seul service, plusieurs concepts
 
-Comme Data Lake Storage Gen2 repose sur le stockage Blob Azure, plusieurs concepts peuvent décrire les mêmes éléments partagés.
+Data Lake Storage Gen2 reposant sur le service Stockage Blob Azure, plusieurs concepts peuvent décrire les mêmes éléments partagés.
 
 Les éléments suivants sont des entités équivalentes, décrites par différents concepts. Sauf indication contraire, ces entités sont directement synonymes :
 

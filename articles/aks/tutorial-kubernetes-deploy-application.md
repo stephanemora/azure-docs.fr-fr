@@ -3,14 +3,14 @@ title: Didacticiel Kubernetes sur Azure - Déployer une application
 description: Dans le cadre de ce didacticiel Azure Kubernetes Service (AKS), vous allez déployer une application multiconteneur dans votre cluster à l’aide d’une image personnalisée stockée dans Azure Container Registry.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/12/2021
-ms.custom: mvc
-ms.openlocfilehash: a0de097a545a831e39a671fe4cf5eadcd336ce24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/24/2021
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 9632b3cb2e0e3b46cb024df0cc6dddd6829aed05
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98250177"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697935"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Didacticiel : Exécuter des applications dans Azure Kubernetes Service (ACS)
 
@@ -31,17 +31,37 @@ Dans les didacticiels précédents, une application a été empaquetée dans une
 
 Pour effectuer ce didacticiel, vous avez besoin du fichier manifeste Kubernetes `azure-vote-all-in-one-redis.yaml`. Ce fichier a été téléchargé avec le code source de l’application dans un didacticiel précédent. Vérifiez que vous avez cloné le référentiel et changé des répertoires dans le référentiel cloné. Si vous n’avez pas effectué ces étapes et si vous souhaitez suivre cette procédure, commencez par [Tutoriel 1 : Créer des images conteneur][aks-tutorial-prepare-app].
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 Ce didacticiel nécessite l’exécution de l’interface de ligne de commande Azure CLI version 2.0.53 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Ce tutoriel nécessite que vous exécutiez Azure PowerShell version 5.9.0 ou ultérieure. Exécutez `Get-InstalledModule -Name Az` pour trouver la version. Si vous avez besoin de procéder à une installation ou à une mise à niveau, consultez [Installer Azure PowerShell][azure-powershell-install].
+
+---
 
 ## <a name="update-the-manifest-file"></a>Mettre à jour le fichier manifeste
 
 Dans ces didacticiels, une instance Azure Container Registry (ACR) stocke l’image conteneur de l’exemple d’application. Pour déployer l’application, vous devez mettre à jour le nom de l’image dans le fichier manifeste Kubernetes afin d’inclure le nom du serveur de connexion ACR.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Obtenez le nom du serveur de connexion ACR à l’aide de la commande [az acr list][az-acr-list], comme suit :
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Récupérez le nom du serveur de connexion ACR à l’aide de l’applet de commande [Get-AzContainerRegistry][get-azcontainerregistry] de la façon suivante :
+
+```azurepowershell
+(Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name <acrName>).LoginServer
+```
+
+---
 
 L’exemple de fichier manifeste provenant du référentiel git cloné dans le premier didacticiel utilise le nom de serveur de connexion *microsoft*. Veillez à être dans le répertoire *azure-voting-app-redis* cloné, puis ouvrez le fichier manifeste avec un éditeur de texte, comme `vi` :
 
@@ -140,3 +160,5 @@ Passez au didacticiel suivant pour découvrir comment mettre à l’échelle une
 [azure-cli-install]: /cli/azure/install-azure-cli
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [kubernetes-service]: concepts-network.md#services
+[azure-powershell-install]: /powershell/azure/install-az-ps
+[get-azcontainerregistry]: /powershell/module/az.containerregistry/get-azcontainerregistry

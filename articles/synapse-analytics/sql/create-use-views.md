@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7528d1f29b293e1efadde84fac9fa8d95f8f5076
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: da026012c4084783d30f548cbdffc8951d74bcd6
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371302"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751214"
 ---
 # <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Créer et utiliser des vues avec le pool SQL serverless dans Azure Synapse Analytics
 
@@ -119,6 +119,8 @@ Le nom de dossier dans la fonction `OPENROWSET` (`yellow` dans cet exemple), qui
 
 > [!div class="mx-imgBorder"]
 >![Dossier Yellow Taxi Delta Lake](./media/shared/yellow-taxi-delta-lake.png)
+
+N’utilisez pas la clause `WITH` dans la fonction `OPENROWSET` lorsque vous interrogez des données Delta Lake partitionnées. En raison du problème connu dans la préversion, la clause `WITH` ne retourne pas correctement les valeurs des colonnes de partitionnement sous-jacentes. L’élimination de partition fonctionne bien si vous utilisez directement la fonction `OPENROWSET` avec la clause `WITH` (sans les vues).  
 
 ## <a name="use-a-view"></a>Utiliser une vue
 

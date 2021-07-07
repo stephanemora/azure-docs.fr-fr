@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 06/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 6dcd5612bd2c5957ae0a397c3463dbb42445a754
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d10ff0f9ca4fde80557341c0b5d29b3f7c26c970
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956041"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982808"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-solarwinds-service-desk-previously-samanage"></a>Tutoriel : Intégration d’Azure Active Directory à SolarWinds Service Desk (précédemment Samanage)
 
@@ -32,6 +32,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement SolarWinds pour lequel l’authentification unique est activée.
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -134,7 +137,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
  
     a. Cliquez sur **Enable Single Sign-On with SAML**(Activer l’authentification unique avec SAML).  
  
-    b. Dans la zone de texte **Identity Provider URL** (URL du fournisseur d’identité), collez la valeur de l’**identificateur Azure AD** que vous avez copiée à partir du portail Azure.    
+    b. Dans la zone de texte **Identity Provider URL** (URL du fournisseur d’identité), entrez une valeur comme `https://YourAccountName.samanage.com`.
  
     c. Vérifiez que l’URL de connexion (**Login URL**) correspond à l’**URL de connexion** de la section **Configuration SAML de base** dans le portail Azure.
  

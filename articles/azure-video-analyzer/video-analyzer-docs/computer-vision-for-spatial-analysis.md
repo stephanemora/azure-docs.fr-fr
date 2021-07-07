@@ -6,12 +6,12 @@ ms.author: juliako
 ms.service: azure-video-analyzer
 ms.topic: tutorial
 ms.date: 04/01/2021
-ms.openlocfilehash: d54983e25abc769a75923e59c483a4cf9495770f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 82edf5b282f7b68a7d4d1d7909cfe653a65c175b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383811"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746557"
 ---
 # <a name="tutorial-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Tutoriel : Analyser des flux vidéo en direct avec le service Vision par ordinateur pour l’analyse spatiale (préversion)
 
@@ -145,16 +145,7 @@ Vous aurez besoin de cette clé et de cet URI de point de terminaison dans vos f
 1. Clonez le dépôt à partir de cet emplacement : [https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp).
 1. Dans Visual Studio Code, ouvrez le dossier dans lequel le dépôt a été téléchargé.
 1. Dans Visual Studio Code, accédez au dossier src/cloud-to-device-console-app. À partir de là, créez un fichier et nommez-le *appsettings.json*. Ce fichier contiendra les paramètres nécessaires à l’exécution du programme.
-1. Récupérez `IotHubConnectionString` à partir de l’appareil périphérique en effectuant les étapes suivantes :
-
-   - Accédez à votre IoT Hub dans le Portail Azure, puis cliquez sur `Shared access policies` dans le volet de navigation de gauche.
-   - Cliquez sur `iothubowner` pour obtenir les clés d’accès partagé.
-   - Copiez la valeur `Connection String – primary key`, puis collez-la dans la zone de saisie VSCode.
-
-     La chaîne de connexion doit ressembler à : <br/>`HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx`
-
-1. Copiez le contenu ci-dessous dans le fichier. Veillez à remplacer les variables.
-
+1. Copiez le contenu du fichier appsettings.json à partir du portail Azure. Le texte doit ressembler au code suivant.
    ```json
    {
      "IoThubConnectionString": "HostName=<IoTHubName>.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>",
@@ -164,7 +155,7 @@ Vous aurez besoin de cette clé et de cet URI de point de terminaison dans vos f
    ```
 
 1. Accédez au dossier src/edge, puis créez un fichier nommé .env.
-1. Copiez le contenu du fichier env à partir du portail Azure. Le texte doit ressembler au code suivant.
+1. Copiez le contenu du fichier env.txt à partir du portail Azure. Le texte doit ressembler au code suivant.
 
    ```env
    SUBSCRIPTION_ID="<Subscription ID>"
@@ -198,7 +189,7 @@ Il y a plusieurs éléments auxquels vous devez faire attention dans le fichier 
 1. `IpcMode` dans `avaedge` et le module createOptions `spatialanalysis` doivent être identiques et être définis sur **host**.
 1. Pour que le simulateur RTSP fonctionne, vérifiez que le paramètre Volume Bounds est bien configuré lorsque vous utilisez l’appareil Azure Stack Edge.
 
-   1. [Connectez-vous au partage SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) et copiez l’[exemple de fichier vidéo stairwell](https://lvamedia.blob.core.windows.net/public/2018-03-05.10-27-03.10-30-01.admin.G329.mp4) sur le partage local.
+   1. [Connectez-vous au partage SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) et copiez l’[exemple de fichier vidéo stairwell](https://lvamedia.blob.core.windows.net/public/2018-03-05.10-27-03.10-30-01.admin.G329.mkv) sur le partage local.
 
       > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWDRJd]
 
@@ -295,7 +286,7 @@ Dans operations.json :
   {
       "opName": "pipelineTopologySet",
       "opParams": {
-          "topologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json"
+          "pipelineTopologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json"
       }
   },
   ```
@@ -313,7 +304,7 @@ Dans operations.json :
               "parameters": [
                   {
                       "name": "rtspUrl",
-                      "value": " rtsp://rtspsim:554/media/stairwell.mkv"
+                      "value": " rtsp://rtspsim:554/media/2018-03-05.10-27-03.10-30-01.admin.G329.mkv"
                   },
                   {
                       "name": "rtspUserName",
@@ -381,7 +372,7 @@ Dans operations.json :
       ],
   ```
 
-Exécutez une session de débogage et suivez les instructions du **TERMINAL**. Cette opération permet de définir pipelineTopology, de définir livePipeline, d’activer livePipeline et enfin, de supprimer les ressources.
+Exécutez une session de débogage en sélectionnant F5, puis suivez les instructions du **TERMINAL**. Cette opération permet de définir pipelineTopology et livePipeline, d’activer livePipeline et enfin, de supprimer les ressources.
 
 ## <a name="interpret-results"></a>Interpréter les résultats
 
@@ -725,12 +716,26 @@ Exemple de sortie pour personZoneEvent (à partir de l’opération `SpatialAnal
 
 </details>
 
-## <a name="video-player"></a>Lecteur vidéo
+## <a name="playing-back-the-recording"></a>Lecture de l’enregistrement
 
-Vous pouvez utiliser un lecteur vidéo pour afficher la vidéo générée, y compris les inférences (cadres englobants) comme indiqué ci-dessous :
+Vous pouvez examiner la ressource vidéo Video Analyzer qui a été créée par le pipeline en direct en vous connectant au portail Azure et en visionnant la vidéo.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis/inference.png" alt-text="Cadres englobants":::
+1. Ouvrez votre navigateur web pour accéder au [portail Azure](https://portal.azure.com/). Entrez vos informations d’identification pour vous connecter au portail. Il s’ouvre par défaut sur le tableau de bord des services.
+1. Localisez votre compte Video Analyzer parmi les ressources qui figurent dans votre abonnement, puis ouvrez le volet du compte.
+1. Sélectionnez **Vidéos** dans la liste **Video Analyzer**.
+1. Vous y trouvez une vidéo portant le nom `personcount`. Il s’agit du nom choisi dans votre fichier de topologie de pipeline.
+1. Sélectionnez la vidéo.
+1. Dans la page d’informations de la vidéo, cliquez sur l’icône de **lecture**
+
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/spatial-analysis/sa-video-playback.png" alt-text="Capture d’écran de la lecture de vidéo":::
+   
+1. Pour afficher les métadonnées d’inférence sous forme de cadres englobants sur la vidéo, cliquez sur l’icône de **cadre englobant**
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="Icône de cadre englobant":::
+
+> [!NOTE]
+> Comme la source de la vidéo était un conteneur simulant le flux d’une caméra, les horodatages de la vidéo représentent le moment où vous avez activé le pipeline en direct et celui où vous l’avez désactivé.
 
 ## <a name="troubleshooting"></a>Dépannage
 

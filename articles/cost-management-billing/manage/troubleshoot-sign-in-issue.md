@@ -1,6 +1,6 @@
 ---
 title: Résoudre les problèmes de connexion à l’abonnement Azure
-description: Aide à résoudre les problèmes de connexion au portail Azure ou au Centre des comptes Azure.
+description: Aide à résoudre les problèmes de connexion au portail Azure.
 services: cost-management-billing
 author: v-miegge
 manager: dcscontentpm
@@ -8,18 +8,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 05/13/2021
 ms.author: v-miegge
-ms.openlocfilehash: 915b4fb289b6af6f4aac84d8bfa4d491a7f77efe
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 009a29a4e296c8aa03163dd954cd242eec040027
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050468"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470743"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Résoudre les problèmes de connexion à l’abonnement Azure
 
-Ce guide aide à résoudre les problèmes de connexion au portail Azure ou au Centre des comptes Azure.
+Ce guide aide à résoudre les problèmes de connexion au portail Azure.
 
 > [!NOTE]
 > Si vous rencontrez des problèmes pour vous inscrire à un nouveau compte Azure, consultez [Résoudre les problèmes d’inscription aux abonnements Azure](./troubleshoot-azure-sign-up.md).
@@ -61,20 +61,12 @@ Pour résoudre le problème, essayez l’une des méthodes suivantes :
 
 Ce problème se produit si vous avez sélectionné le mauvais annuaire ou si votre compte ne dispose pas des autorisations suffisantes.
 
-**Scénario 1 :** Vous recevez l’erreur quand vous vous connectez au [portail Azure](https://portal.azure.com/)
+**Scénario :** vous recevez l’erreur quand vous vous connectez au [portail Azure](https://portal.azure.com/)
 
 Pour résoudre ce problème :
 
 - Vérifiez que le répertoire Azure correct est sélectionné en sélectionnant votre compte dans l’angle supérieur droit.
 - Si le répertoire Azure correct est sélectionné, mais que vous recevez néanmoins le messager d’erreur, [faites ajouter votre compte en tant que Propriétaire](./add-change-subscription-administrator.md).
-
-**Scénario 2 :** Vous recevez l’erreur quand vous vous connectez au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions)
-
-Vérifiez que le compte utilisé correspond à l’administrateur du compte. Pour vérifier qui est l’administrateur du compte, procédez comme suit :
-
-1.  Connectez-vous à la [vue Abonnements dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1.  Sélectionnez l’abonnement que vous souhaitez vérifier, puis choisissez **Paramètres**.
-1.  Sélectionner **Propriétés**. L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte** .
 
 ## <a name="additional-help-resources"></a>Ressources d'aide supplémentaires
 

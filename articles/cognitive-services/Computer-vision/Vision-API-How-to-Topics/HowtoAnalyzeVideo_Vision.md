@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3aa218710ddd4addfb8e430122ab19c95e42772a
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 0c86c9f2ffece02ed026d1052929836e42c82434
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070887"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810099"
 ---
 # <a name="analyze-videos-in-near-real-time"></a>Analyser des vidéos en quasi temps réel
 
@@ -247,5 +247,5 @@ Les fonctionnalités de compréhension d’image, de voix, de vidéo et de texte
 
 Dans cet article, vous avez découvert comment exécuter une analyse en quasi temps réel sur des streams vidéo en direct à l’aide des services Visage et Vision par ordinateur. Vous avez également découvert comment vous pouvez utiliser notre exemple de code pour commencer.
 
-N’hésitez pas à fournir un feedback et des suggestions dans le [dépôt GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). Pour fournir un feedback plus général sur l’API, accédez à notre site UserVoice.
+N’hésitez pas à fournir un feedback et des suggestions dans le [dépôt GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). Pour fournir un feedback plus général sur l’API, accédez à notre site [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743).
 

@@ -1,29 +1,26 @@
 ---
 title: Créer des utilisateurs Azure AD avec des principaux de service
-description: Ce tutoriel vous guide dans la création d’un utilisateur Azure AD avec des applications Azure AD (principaux de service) dans Azure SQL Database et Azure Synapse Analytics.
+description: Ce tutoriel vous guide dans la création d’un utilisateur Azure AD avec des applications Azure AD (principaux de service) dans Azure SQL Database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: azure-synapse
 ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 02/11/2021
-ms.openlocfilehash: 13e049d3e7e0c87bd0a214a92491e10d652a3619
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c1c0754175283dd9087429586e61739c8c779e49
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100380608"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110662433"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Tutoriel : Créer des utilisateurs Azure AD avec des applications Azure AD
 
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-> [!NOTE]
-> Cet article est en **préversion publique**. Pour plus d’informations, consultez [Principal de service Azure Active Directory avec Azure SQL](authentication-aad-service-principal.md). Cet article utilise Azure SQL Database pour illustrer les étapes essentielles du tutoriel. Il s’applique cependant de manière similaire à [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
-
-Cet article vous guide dans le processus de création d’utilisateurs Azure AD dans Azure SQL Database avec des principaux de service Azure (applications Azure AD). Cette fonctionnalité existe déjà dans Azure SQL Managed Instance, mais elle est à présent introduite dans Azure SQL Database et Azure Synapse Analytics. Dans ce scénario, vous devez générer une identité Azure AD et l’attribuer au serveur logique Azure SQL.
+Cet article vous guide dans le processus de création d’utilisateurs Azure AD dans Azure SQL Database avec des principaux de service Azure (applications Azure AD). Cette fonctionnalité existe déjà dans Azure SQL Managed Instance, mais elle est à présent introduite dans Azure SQL Database. Dans ce scénario, vous devez générer une identité Azure AD et l’attribuer au serveur logique Azure SQL.
 
 Pour plus d’informations sur l’authentification Azure AD pour Azure SQL, consultez l’article [Utiliser l’authentification Azure Active Directory](authentication-aad-overview.md).
 
@@ -38,7 +35,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un déploiement [Azure SQL Database](single-database-create-quickstart.md) ou [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) existant. Nous supposons que vous disposez d’une base de données SQL opérationnelle pour ce tutoriel.
+- Un déploiement [Azure SQL Database](single-database-create-quickstart.md) existant. Nous supposons que vous disposez d’une base de données SQL opérationnelle pour ce tutoriel.
 - L’accès à une instance Azure Active Directory existante.
 - Le module [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) (ou version supérieure) pour utiliser PowerShell afin de configurer une application Azure AD individuelle en tant qu’administrateur Azure AD pour Azure SQL. Assurez-vous que vous avez mis à niveau le module vers la version la plus récente.
 
@@ -159,13 +156,7 @@ Vous trouverez dans l’article [Provisionner un administrateur Azure AD (SQL Ma
 
 ## <a name="create-a-service-principal-an-azure-ad-application-in-azure-ad"></a>Créer un principal de service (une application Azure AD) dans Azure AD
 
-1. Suivez les instructions de la section [Inscrire votre application et définir des autorisations](active-directory-interactive-connect-azure-sql-db.md#register-your-app-and-set-permissions).
-
-    Veillez à ajouter les **permissions d’application** et les **autorisations déléguées**.
-
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Capture d’écran montrant la page des inscriptions d’applications pour Azure Active Directory. Une application portant le nom d’affichage AppSP est mise en surbrillance.":::
-
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="API - autorisations":::
+1. Suivez le guide ici pour [inscrire votre application](active-directory-interactive-connect-azure-sql-db.md#register-your-app-and-set-permissions).
 
 2. Vous devez aussi créer un secret client pour la connexion. Suivez les instructions ici pour [charger un certificat ou créer un secret pour la connexion](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
@@ -176,17 +167,6 @@ Vous trouverez dans l’article [Provisionner un administrateur Azure AD (SQL Ma
 Dans ce tutoriel, nous allons utiliser *AppSP* comme premier utilisateur du principal de service et *myapp* comme deuxième utilisateur du principal de service. Celui-ci sera créé dans Azure SQL par *AppSP*. Vous devrez créer les deux applications *AppSP* et *myapp*.
 
 Pour plus d’informations sur la création d’une application Azure AD, consultez l’article [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](../../active-directory/develop/howto-create-service-principal-portal.md).
-
-### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Autorisations nécessaires pour définir ou annuler l’administrateur Azure AD
-
-Pour que le principal de service puisse définir ou annuler un administrateur Azure AD pour Azure SQL, une autorisation d’API supplémentaire est nécessaire. L’autorisation de l’API d’application [Directory.Read.All](/graph/permissions-reference#application-permissions-18) devra être ajoutée à votre application dans Azure AD.
-
-:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Autorisations Directory.Reader.All dans Azure AD":::
-
-Le principal de service a également besoin du rôle [ **Contributeur SQL Server**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) pour SQL Database ou du rôle [**Contributeur SQL Managed Instance**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) pour SQL Managed Instance.
-
-> [!NOTE]
-> Même si l’API Graph Azure AD est dépréciée, l’autorisation **Directory.Reader.All** s’applique toujours à ce tutoriel. En revanche, l’API Microsoft Graph ne s’applique pas à ce tutoriel.
 
 ## <a name="create-the-service-principal-user-in-azure-sql-database"></a>Créer l’utilisateur de principal de service dans Azure SQL Database
 

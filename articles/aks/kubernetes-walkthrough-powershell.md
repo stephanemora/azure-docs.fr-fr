@@ -5,18 +5,18 @@ services: container-service
 ms.topic: quickstart
 ms.date: 03/15/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2b61c791390200beac4a18422a4de58dd94fa711
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f96ecd00b72f1853fe25b497283ea48ebdf55d7
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492895"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747794"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>Démarrage rapide : Déployer un cluster Azure Kubernetes Service à l’aide de PowerShell
 
 AKS (Azure Kubernetes Service) est un service Kubernetes managé qui vous permet de déployer et de gérer rapidement des clusters. Dans ce guide de démarrage rapide, vous allez :
-* Déployer un cluster AKS à l’aide de PowerShell. 
-* Exécutez une application à plusieurs conteneurs avec un serveur web frontal et une instance Redis dans le cluster. 
+* Déployer un cluster AKS à l’aide de PowerShell.
+* Exécutez une application à plusieurs conteneurs avec un serveur web frontal et une instance Redis dans le cluster.
 * Supervisez l’intégrité du cluster et des pods qui exécutent votre application.
 
 Pour en savoir plus sur la création d’un pool de nœuds Windows Server, consultez [Créer un cluster AKS qui prend en charge les conteneurs Windows Server][windows-container-powershell].
@@ -41,9 +41,9 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) est un groupe logique dans lequel des ressources Azure sont déployées et gérées. Lorsque vous créez un groupe de ressources, il vous est demandé de spécifier un emplacement. Cet emplacement est : 
+Un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) est un groupe logique dans lequel des ressources Azure sont déployées et gérées. Lorsque vous créez un groupe de ressources, il vous est demandé de spécifier un emplacement. Cet emplacement est :
 * L’emplacement de stockage des métadonnées de votre groupe de ressources.
-* Là où vos ressources s’exécutent dans Azure si vous ne spécifiez pas une autre région lors de la création des ressources. 
+* Là où vos ressources s’exécutent dans Azure si vous ne spécifiez pas une autre région lors de la création des ressources.
 
 L’exemple suivant crée un groupe de ressources nommé **myResourceGroup** dans la région **USA Est**.
 
@@ -65,12 +65,12 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## <a name="create-aks-cluster"></a>Créer un cluster AKS
 
-1. Utilisez l’utilitaire de ligne de commande `ssh-keygen` pour générer une paire de clés SSH. 
+1. Utilisez l’utilitaire de ligne de commande `ssh-keygen` pour générer une paire de clés SSH.
     * Pour plus d’informations, consultez [Étapes rapides : Création et utilisation d’une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. Utilisez l’applet de commande [New-AzAks][new-azaks] pour créer un cluster AKS. Azure Monitor pour les conteneurs est activé par défaut.
+1. Créez un cluster AKS en utilisant l’applet de commande [New-AzAksCluster][new-azakscluster]. Azure Monitor pour les conteneurs est activé par défaut.
 
-    L’exemple suivant crée un cluster à un nœud nommé **myAKSCluster**. 
+    L’exemple suivant crée un cluster à un nœud nommé **myAKSCluster**.
 
     ```azurepowershell-interactive
     New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
@@ -83,7 +83,7 @@ Au bout de quelques minutes, la commande se termine et retourne des informations
 
 ## <a name="connect-to-the-cluster"></a>Se connecter au cluster
 
-Pour gérer un cluster Kubernetes, utilisez [kubectl][kubectl], le client de ligne de commande Kubernetes. Si vous utilisez Azure Cloud Shell, `kubectl` est déjà installé. 
+Pour gérer un cluster Kubernetes, utilisez [kubectl][kubectl], le client de ligne de commande Kubernetes. Si vous utilisez Azure Cloud Shell, `kubectl` est déjà installé.
 
 1. Pour installer `kubectl` localement avec la cmdlet `Install-AzAksKubectl` :
 
@@ -112,11 +112,11 @@ Pour gérer un cluster Kubernetes, utilisez [kubectl][kubectl], le client de lig
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
-Un [fichier manifeste Kubernetes][kubernetes-deployment] définit un état souhaité d’un cluster, notamment les images conteneur à exécuter. 
+Un [fichier manifeste Kubernetes][kubernetes-deployment] définit un état souhaité d’un cluster, notamment les images conteneur à exécuter.
 
 Dans ce guide de démarrage rapide, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’[application Azure Vote][azure-vote-app]. Ce manifeste comprend deux [déploiements Kubernetes][kubernetes-deployment] :
 * Exemples d’applications Python pour Azure Vote.
-* Une instance Redis. 
+* Une instance Redis.
 
 Deux [services Kubernetes][kubernetes-service] sont également créés :
 * Un service interne pour l’instance Redis.
@@ -256,7 +256,7 @@ Pour voir l’application Azure Vote en action, ouvrez un navigateur web en util
 
 ![Application de vote déployée dans Azure Kubernetes Service](./media/kubernetes-walkthrough-powershell/voting-app-deployed-in-azure-kubernetes-service.png)
 
-Affichez les métriques d’intégrité des nœuds de cluster et des blocs capturées par Azure Monitor pour les conteneurs du portail Azure. 
+Affichez les métriques d’intégrité des nœuds de cluster et des blocs capturées par Azure Monitor pour les conteneurs du portail Azure.
 
 ## <a name="delete-the-cluster"></a>Supprimer le cluster
 
@@ -268,7 +268,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 > [!NOTE]
 > Lorsque vous supprimez le cluster, le principal de service Azure Active Directory utilisé par le cluster AKS n’est pas supprimé. Pour obtenir des instructions sur la façon de supprimer le principal de service, consultez [Considérations et suppression du principal de service AKS][sp-delete].
-> 
+>
 > Si vous avez utilisé une identité managée, l’identité est managée par la plateforme et n’a pas besoin d’être supprimée.
 
 ## <a name="get-the-code"></a>Obtenir le code
@@ -296,7 +296,7 @@ Pour en savoir plus sur AKS et parcourir le code complet de l’exemple de dépl
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
-[new-azaks]: /powershell/module/az.aks/new-azaks
+[new-azakscluster]: /powershell/module/az.aks/new-azakscluster
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services

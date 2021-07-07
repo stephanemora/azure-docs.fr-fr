@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df7dcf9859b6942662ae447af836f59985e2d11a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 415c980390faae86e27efa6b6f63ec0334d6d0f0
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99509501"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560219"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Tutoriel : Indexer à partir de plusieurs sources de données à l’aide du SDK .NET
 
@@ -56,7 +56,7 @@ Ce tutoriel a été mis à jour pour utiliser le package Azure.Search.Documents 
 
 ## <a name="1---create-services"></a>1 - Créer les services
 
-Ce tutoriel utilise Recherche cognitive Azure pour l’indexation et les requêtes, Azure Cosmos DB pour un des jeux de données et Stockage Blob Azure pour le deuxième jeu de données. 
+Ce tutoriel utilise Recherche cognitive Azure pour l’indexation et les requêtes, Azure Cosmos DB pour l’un des deux jeux de données et Stockage Blob Azure pour l’autre jeu de données. 
 
 Si possible, créez tous les services dans la même région et le même groupe de ressources pour des raisons de proximité et de facilité de gestion. Dans la pratique, vos services peuvent se trouver dans n’importe quelle région.
 

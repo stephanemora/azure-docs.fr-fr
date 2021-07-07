@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: bcb37c624f53d961020de022569a621ca1dfaba1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8ec795e7ad54d2101573d857fa52b5aaad0ed71d
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788976"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032390"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>Démarrage rapide : Configurer le service IoT Hub Device Provisioning avec un modèle ARM
 
@@ -25,7 +25,7 @@ Ce démarrage rapide utilise le [portail Azure](../azure-resource-manager/templa
 
 Si votre environnement satisfait les prérequis et si vous êtes déjà habitué à utiliser des modèles ARM, le fait de sélectionner le bouton **Déployer sur Azure** ci-dessous a pour effet d’ouvrir le modèle pour un déploiement sur le portail Azure.
 
-[![Vue d’ensemble du déploiement sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-iothub-device-provisioning%2fazuredeploy.json)
+[![Vue d’ensemble du déploiement sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-device-provisioning%2fazuredeploy.json)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,12 +34,12 @@ Si votre environnement satisfait les prérequis et si vous êtes déjà habitué
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-iothub-device-provisioning/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/iothub-device-provisioning/).
 
 > [!NOTE]
 > Actuellement, le modèle ARM n’est pas pris en charge pour la création d’inscriptions avec de nouvelles ressources DPS. Il s’agit d’une demande fréquente et comprise que nous envisageons d’implémenter dans le futur.
 
-:::code language="json" source="~/quickstart-templates/101-iothub-device-provisioning/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devices/iothub-device-provisioning/azuredeploy.json":::
 
 Deux ressources Azure sont définies dans le modèle ci-dessus :
 
@@ -53,7 +53,7 @@ Deux ressources Azure sont définies dans le modèle ci-dessus :
 
 1. Sélectionnez l’image suivante pour vous connecter à Azure et ouvrir le modèle pour le déploiement. Le modèle crée un hub IoT et une ressource DPS. Le hub est lié dans la ressource DPS.
 
-    [![Étapes de déploiement sur Azure à partir du portail](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-iothub-device-provisioning%2fazuredeploy.json)
+    [![Étapes de déploiement sur Azure à partir du portail](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-device-provisioning%2fazuredeploy.json)
 
 2. Sélectionnez ou entrez les valeurs suivantes, puis cliquez sur **Vérifier + créer**.
 
@@ -114,7 +114,7 @@ Vous connecter à votre compte Azure et sélectionner votre abonnement.
     ```azurecli-interactive
     read -p "Enter a project name that is used for generating resource names:" projectName &&
     read -p "Enter the location (i.e. centralus):" location &&
-    templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-iothub-device-provisioning/azuredeploy.json" &&
+    templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.devices/iothub-device-provisioning/azuredeploy.json" &&
     resourceGroupName="${projectName}rg" &&
     az group create --name $resourceGroupName --location "$location" &&
     az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
@@ -167,7 +167,7 @@ Vous pouvez également supprimer des groupes de ressources et des ressources ind
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez déployé un hub IoT et une instance de service Device Provisioning, puis vous avez lié ces deux ressources. Pour savoir comment utiliser cette configuration pour provisionner un appareil, passez au démarrage rapide traitant de la création d’un appareil.
+Dans ce guide de démarrage rapide, vous avez déployé un hub IoT et une instance du service Device Provisioning, puis vous avez lié ces deux ressources. Pour savoir comment utiliser cette configuration pour provisionner un appareil, passez au démarrage rapide traitant de la création d’un appareil.
 
 > [!div class="nextstepaction"]
 > [Démarrage rapide pour provisionner un appareil](./quick-create-simulated-device-symm-key.md)

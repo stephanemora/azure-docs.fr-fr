@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/04/2021
+ms.date: 06/11/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: e447d0b3328419ea4ca2509100ab9c4ba6bcf098
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: fa767fb934536ff42f15a295fe3270059450f94a
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108761975"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112019427"
 ---
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -18,6 +18,7 @@ ms.locfileid: "108761975"
 |[Auditer des machines virtuelles pour lesquelles la reprise d’activité après sinistre n’est pas configurée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56) |Auditez les machines virtuelles configurées sans reprise d’activité. Pour en savoir plus sur la reprise d’activité, consultez [https://aka.ms/asr-doc](https://aka.ms/asr-doc). |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/RecoveryServices_DisasterRecovery_Audit.json) |
 |[Faire l’audit des machines virtuelles n’utilisant aucun disque managé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F06a78e20-9358-41c9-923c-fb736d382a4d) |Cette stratégie fait l’audit des machines virtuelles n’utilisant pas de disque managé |audit |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json) |
 |[Configurer la reprise d’activité sur les machines virtuelles en activant la réplication](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac34a73f-9fa5-4067-9247-a3ecae514468) |Les machines virtuelles sans configuration de récupération d’urgence sont vulnérables aux pannes et autres interruptions. Si la récupération d’urgence n’est pas encore configurée sur la machine virtuelle, cette opération produit le même effet en activant la réplication à l’aide de configurations prédéfinies pour faciliter la continuité des activités. Pour en savoir plus sur la reprise d’activité, consultez [https://aka.ms/asr-doc](https://aka.ms/asr-doc). |DeployIfNotExists, Désactivé |[1.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/AzureSiteRecovery-Replication-Policy.json) |
+|[Configurer les ressources d’accès au disque pour utiliser des zones DNS privées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbc05b96c-0b36-4ca9-82f0-5c53f96ce05a) |Utilisez des zones DNS privées pour remplacer la résolution DNS pour un point de terminaison privé. Une zone DNS privée est liée à votre réseau virtuel afin de permettre des opérations de résolution pour un disque managé. Pour en savoir plus : [https://aka.ms/disksprivatelinksdoc](https://aka.ms/disksprivatelinksdoc). |DeployIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/DiskAccesses_PrivateDnsZones_DeployIfNotExist.json) |
 |[Configurer des ressources d’accès au disque avec des points de terminaison privés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F582bd7a6-a5f6-4dc6-b9dc-9cb81fe0d4c5) |Les points de terminaison privés vous permettent de connecter vos réseaux virtuels aux services Azure sans adresse IP publique au niveau de la source ou de la destination. En mappant des points de terminaison privés aux ressources d’accès au disque, vous pouvez réduire les risques de fuite de données. En savoir plus sur les liaisons privées : [https://aka.ms/disksprivatelinksdoc](https://aka.ms/disksprivatelinksdoc). |DeployIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/DiskAccesses_PrivateEndpoints_DeployIfNotExists.json) |
 |[Configurer les disques managés pour désactiver l’accès au réseau public](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8426280e-b5be-43d9-979e-653d12a08638) |Désactivez l’accès au réseau public pour votre ressource de disque managé afin qu’elle ne soit pas accessible sur l’Internet public. Cela peut réduire les risques de fuite de données. Pour en savoir plus : [https://aka.ms/disksprivatelinksdoc](https://aka.ms/disksprivatelinksdoc). |Modifier, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/AddDiskAccessToDisk_Modify.json) |
 |[Déployer l’extension Microsoft IaaSAntimalware par défaut pour Windows Server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2835b622-407b-4114-9198-6f7064cbe0dc) |Cette stratégie déploie une extension Microsoft IaaSAntimalware avec une configuration par défaut quand une machine virtuelle n’est pas configurée avec l’extension de logiciel anti-programme malveillant. |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMAntimalwareExtension_Deploy.json) |

@@ -1,5 +1,5 @@
 ---
-title: Inscrire une source SAP ECC et configurer des analyses (préversion) dans Azure Purview
+title: Inscrire une source SAP ECC et configurer des analyses dans Azure Purview
 description: Cet article explique comment inscrire une source SAP ECC dans Azure Purview et configurer une analyse.
 author: chandrakavya
 ms.author: kchandra
@@ -7,14 +7,14 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: bc35f79bae0cd75b24b119e951f27b289ebef704
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.openlocfilehash: c4126a99b38021ea7399bb486b8942423f0a809c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108007355"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067111"
 ---
-# <a name="register-and-scan-sap-ecc-source-preview"></a>Inscrire et analyser la source SAP ECC (préversion)
+# <a name="register-and-scan-sap-ecc-source"></a>Inscrire et analyser la source SAP ECC
 
 Cet article explique comment inscrire une source SAP ECC dans Purview et configurer une analyse.
 

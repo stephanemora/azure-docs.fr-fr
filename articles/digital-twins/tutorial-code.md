@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 1cfed11eec3758586519eeb33b396a41b768e693
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 68afdb1c0ab74f5d05fd13a9fe8868cb9e2ac4aa
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075475"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460255"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutoriel : Codage avec les API Azure Digital Twins
 
@@ -80,7 +80,7 @@ Pour commencer, ouvrez le fichier *Program.cs* dans un éditeur de code de votre
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="Extrait d’exemple de code. Il y a une instruction 'using System;', un espace de noms appelé DigitalTwinsCodeTutorial;, une classe dans l’espace de noms appelée Program; et une méthode Main dans la classe avec une signature standard de 'static void Main(string[] args)'. La méthode Main contient une instruction d’affichage Hello World." lightbox="media/tutorial-code/starter-template.png":::
+        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="Capture d’écran d’un extrait d’exemple de code dans un éditeur de code." lightbox="media/tutorial-code/starter-template.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -180,7 +180,7 @@ Pour empêcher que le programme se plante, vous pouvez ajouter du code d’excep
 
 À présent, si vous exécutez le programme avec `dotnet run` dans votre fenêtre de commande, vous verrez que vous obtenez un code d’erreur. La sortie du code de création de modèle indique l’erreur suivante :
 
-:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="Sortie du programme, affichant le message « 409:Service request failed. État : 409 (Conflict). », suivi du contenu de l’erreur indiquant que dtmi:example:SampleModel;1 existe déjà":::
+:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="Capture d’écran d’une console montrant la sortie du programme, qui se solde par une erreur « 409 : Échec de la demande de service. État : 409 (conflit).».":::
 
 Désormais, ce tutoriel encapsulera tous les appels aux méthodes de service dans des gestionnaires try/catch.
 
@@ -228,7 +228,7 @@ Ensuite, ajoutez le code suivant à la fin de la méthode `Main` pour appeler le
 
 Dans votre fenêtre de commande, exécutez le programme avec `dotnet run`. Vous devez voir une liste de toutes les relations que vous avez créées dans une instruction de sortie similaire à celle-ci :
 
-:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="Sortie du programme, contenant un message indiquant « Twin sampleTwin-0 is connected to: contains->sampleTwin-1, -contains->sampleTwin-2 »" lightbox="media/tutorial-code/list-relationships.png":::
+:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="Capture d’écran d’une console montrant la sortie du programme qui se traduit par un message listant les relations entre jumeaux." lightbox="media/tutorial-code/list-relationships.png":::
 
 ### <a name="query-digital-twins"></a>Interroger des jumeaux numériques
 

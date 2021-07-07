@@ -10,20 +10,20 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/04/2021
-ms.openlocfilehash: f36d5deb93f141bb7467a50d4b5dba7f3df1ea92
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: ba6023ccc1582650e74da483aeefc48d2a305bef
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517007"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554749"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explorer le centre des connaissances Synapse
 
-Dans ce tutoriel, découvrez comment utiliser le centre des connaissances Synapse Studio.
+Dans ce tutoriel, découvrez comment utiliser le **centre des connaissances** Synapse Studio.
 
-## <a name="finding-to-the-knowledge-center"></a>Accès au centre des connaissances
+## <a name="finding-the-knowledge-center"></a>Accès au centre des connaissances
 
-Il existe deux façons d’accéder au centre des connaissances dans Synapse Studio :
+Il existe deux façons d’accéder au **centre des connaissances** dans Synapse Studio :
 
   1. Dans le hub Accueil, près du coin supérieur droit de la page, cliquez sur **Découvrir**.
   2. Dans la barre de menu située en haut, cliquez sur **?** , puis sur **Centre des connaissances**.
@@ -53,7 +53,7 @@ Cette section comprend trois éléments :
 
 ## <a name="gallery-a-collection-of-sample-datasets-and-sample-code"></a>Galerie : une collection d’exemples de jeux de données et d’exemples de code
 
-1. Accédez au **Centre des connaissances**, puis cliquez sur **Browse gallery** (Parcourir la galerie).
+1. Accédez au **centre des connaissances**, puis cliquez sur **Browse gallery** (Parcourir la galerie).
 1. Sélectionnez l’onglet **SQL scripts** (Scripts SQL) en haut.
 1. Sélectionnez l’exemple d’ingestion de données **Load the New York Taxicab dataset** (Charger le jeu de données New York Taxicab), puis cliquez sur **Continue**.
 1. Sous **Pool SQL**, choisissez **Sélectionner un pool existant**, puis **SQLPOOL1**. Sélectionnez ensuite la base de données **SQLPOOL1** créée précédemment.

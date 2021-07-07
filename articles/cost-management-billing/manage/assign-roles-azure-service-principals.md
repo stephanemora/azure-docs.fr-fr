@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 05/01/2021
 ms.author: banders
-ms.openlocfilehash: cb6a7d8411c2be6d76718b79c6fc1339a6600ce5
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 395f6804e0fdea88e65879817b83b9a8aabdd0f1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905501"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748064"
 ---
 # <a name="assign-roles-to-azure-enterprise-agreement-service-principal-names"></a>Attribuer des rôles à des noms de principal du service Contrat Entreprise Azure
 
@@ -77,7 +77,7 @@ Plus loin dans cet article, vous donnerez à l’application Azure AD l’autor
 
 ## <a name="assign-enrollment-account-role-permission-to-the-spn"></a>Attribuer l’autorisation du rôle de compte d’inscription au SPN
 
-1. Lisez l’article sur l’API REST [Attributions de rôles – PUT](/rest/api/billing/2019-10-01-preview/roleassignments/put). Pendant la lecture de l’article, sélectionnez **Essayer** pour commencer à utiliser le SPN.
+1. Lisez l’article sur l’API REST [Attributions de rôles – PUT](/rest/api/billing/2019-10-01-preview/role-assignments/put). Pendant la lecture de l’article, sélectionnez **Essayer** pour commencer à utiliser le SPN.
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/put-try-it.png" alt-text="Capture d’écran montrant l’option Essayer dans l’article Put." lightbox="./media/assign-roles-azure-service-principals/put-try-it.png" :::
 
@@ -91,13 +91,13 @@ Plus loin dans cet article, vous donnerez à l’application Azure AD l’autor
 
    - `billingRoleAssignmentName` : ce paramètre est un GUID unique que vous devez fournir. Vous pouvez générer un GUID à l’aide de la commande PowerShell [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid). Vous pouvez aussi utiliser le site web [Online GUID/UUID Generator](https://guidgenerator.com/) pour générer un GUID unique.
 
-   - `api-version` : utilisez la version **2019-10-01-preview**. Utilisez l’exemple de corps de demande fourni dans la section [Exemples dans Attributions de rôles – PUT](/rest/api/billing/2019-10-01-preview/roleassignments/put#examples).
+   - `api-version` : utilisez la version **2019-10-01-preview**. Utilisez l’exemple de corps de demande fourni dans la section [Exemples dans Attributions de rôles – PUT](/rest/api/billing/2019-10-01-preview/role-assignments/put#examples).
 
       Le corps de la demande contient du code JSON avec trois paramètres que vous devez utiliser.
 
       | Paramètre | Comment y accéder |
       | --- | --- |
-      | `properties.principalId` | Voir [Rechercher votre SPN et votre ID de locataire](#find-your-spn-and-tenant-id). |
+      | `properties.principalId` | Il s’agit de la valeur de l’ID d’objet. Voir [Rechercher votre SPN et votre ID de locataire](#find-your-spn-and-tenant-id). |
       | `properties.principalTenantId` | Voir [Rechercher votre SPN et votre ID de locataire](#find-your-spn-and-tenant-id). |
       | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/24f8edb6-1668-4659-b5e2-40bb5f3a7d7e` |
 
@@ -121,7 +121,7 @@ Pour le rôle d’acheteur EA, utilisez les mêmes étapes que pour le rôle de
 
 ## <a name="assign-the-department-reader-role-to-the-spn"></a>Attribuer le rôle de lecteur de service au SPN
 
-1. Lisez cet article sur l’API REST : [Attributions de rôles de service d’inscription – Put](/rest/api/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put). Pendant la lecture de l’article, sélectionnez **Essayer**.
+1. Lisez cet article sur l’API REST : [Attributions de rôles de service d’inscription – Put](/rest/api/billing/2019-10-01-preview/enrollment-department-role-assignments/put). Pendant la lecture de l’article, sélectionnez **Essayer**.
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" alt-text="Capture d’écran montrant l’option Essayer dans l’article Attributions de rôles de service d’inscription – PUT." lightbox="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" :::
 
@@ -141,13 +141,13 @@ Pour le rôle d’acheteur EA, utilisez les mêmes étapes que pour le rôle de
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/department-id.png" alt-text="Capture d’écran montrant un exemple d’ID de service." lightbox="./media/assign-roles-azure-service-principals/department-id.png" :::
 
-   - `api-version` : utilisez la version **2019-10-01-preview**. Utilisez l’exemple dans[Attributions de rôles de service d’inscription – PUT](/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put).
+   - `api-version` : utilisez la version **2019-10-01-preview**. Utilisez l’exemple dans[Attributions de rôles de service d’inscription – PUT](/rest/api/billing/2019-10-01-preview/enrollment-department-role-assignments/put).
 
       Le corps de la demande contient du code JSON avec trois paramètres que vous devez utiliser.
 
       | Paramètre | Comment y accéder |
       | --- | --- |
-      | `properties.principalId` | Voir [Rechercher votre SPN et votre ID de locataire](#find-your-spn-and-tenant-id). |
+      | `properties.principalId` | Il s’agit de la valeur de l’ID d’objet. Voir [Rechercher votre SPN et votre ID de locataire](#find-your-spn-and-tenant-id). |
       | `properties.principalTenantId` | Voir [Rechercher votre SPN et votre ID de locataire](#find-your-spn-and-tenant-id). |
       | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/db609904-a47f-4794-9be8-9bd86fbffd8a` |
 
@@ -165,13 +165,13 @@ Vous pouvez maintenant utiliser le SPN pour accéder automatiquement aux API EA
 
 ## <a name="assign-the-subscription-creator-role-to-the-spn"></a>Attribuer le rôle de créateur d’abonnement au SPN
 
-1. Lisez l’article [Attributions de rôles de compte d’inscription – PUT](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Pendant la lecture, sélectionnez **Essayer** pour attribuer le rôle de créateur d’abonnement au SPN.
+1. Lisez l’article [Attributions de rôles de compte d’inscription – PUT](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put). Pendant la lecture, sélectionnez **Essayer** pour attribuer le rôle de créateur d’abonnement au SPN.
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" alt-text="Capture d’écran montrant l’option Essayer dans l’article Attributions de rôles de compte d’inscription – PUT." lightbox="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" :::
 
 1. Utilisez les informations d’identification de votre compte pour vous connecter au locataire avec l’accès d’inscription que vous souhaitez attribuer.
 
-1. Fournissez les paramètres suivants dans le cadre de la demande d’API. Lisez la section [Paramètres URI dans Attributions de rôles de compte d’inscription – PUT](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put#uri-parameters).
+1. Fournissez les paramètres suivants dans le cadre de la demande d’API. Lisez la section [Paramètres URI dans Attributions de rôles de compte d’inscription – PUT](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put#uri-parameters).
 
    - `billingAccountName` : ce paramètre est l’**ID du compte de facturation**. Vous le trouverez dans le portail Azure, dans la page de présentation de **Cost Management + Billing**.
 
@@ -185,13 +185,13 @@ Vous pouvez maintenant utiliser le SPN pour accéder automatiquement aux API EA
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/account-id.png" alt-text="Capture d’écran montrant l’ID de compte." lightbox="./media/assign-roles-azure-service-principals/account-id.png" :::
 
-   - `api-version` : utilisez la version **2019-10-01-preview**. Utilisez l’exemple fourni la section [Exemples dans Attributions de rôles de service d’inscription – PUT](/rest/api/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put#putenrollmentdepartmentadministratorroleassignment).
+   - `api-version` : utilisez la version **2019-10-01-preview**. Utilisez l’exemple fourni la section [Exemples dans Attributions de rôles de service d’inscription – PUT](/rest/api/billing/2019-10-01-preview/enrollment-department-role-assignments/put#examples).
 
       Le corps de la demande contient du code JSON avec trois paramètres que vous devez utiliser.
 
       | Paramètre | Comment y accéder |
       | --- | --- |
-      | `properties.principalId` | Voir [Rechercher votre SPN et votre ID de locataire](#find-your-spn-and-tenant-id). |
+      | `properties.principalId` | Il s’agit de la valeur de l’ID d’objet. Voir [Rechercher votre SPN et votre ID de locataire](#find-your-spn-and-tenant-id). |
       | `properties.principalTenantId` | Voir [Rechercher votre SPN et votre ID de locataire](#find-your-spn-and-tenant-id). |
       | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountID}/enrollmentAccounts/196987/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71` |
 

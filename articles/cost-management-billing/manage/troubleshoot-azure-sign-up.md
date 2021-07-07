@@ -1,6 +1,6 @@
 ---
-title: Résoudre les problèmes liés à l’inscription pour obtenir un nouveau compte dans le portail Azure ou le centre des comptes Azure
-description: Résolution d’un problème que vous pouvez rencontrer quand vous tentez de créer un compte dans le centre des comptes du Portail Microsoft Azure.
+title: Résoudre les problèmes liés à l'inscription d'un nouveau compte sur le portail Azure
+description: Résolution d'un problème rencontré lors de la tentative de création d'un compte sur le portail Microsoft Azure.
 services: cost-management-billing
 author: v-miegge
 manager: dcscontentpm
@@ -8,18 +8,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 01/28/2021
+ms.date: 05/13/2021
 ms.author: v-miegge
-ms.openlocfilehash: 015e6058236190a04df152573621f0e57030d23b
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 6e9c3d09c5dbf9ddae779f585425f8317b41ab46
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054159"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467512"
 ---
-# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Résoudre les problèmes liés à l’inscription pour obtenir un nouveau compte dans le portail Azure ou le centre des comptes Azure
+# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal"></a>Résoudre les problèmes liés à l'inscription d'un nouveau compte sur le portail Azure
 
-Vous pouvez rencontrer un problème quand vous tentez de créer un compte dans le Portail Microsoft Azure ou le centre des comptes Azure. Ce guide succinct vous guide tout au long du processus d’inscription et aborde certains problèmes courants à chaque étape.
+Un problème peut survenir lorsque vous tentez d'inscrire un nouveau compte sur le portail Microsoft Azure. Ce guide succinct vous guide tout au long du processus d’inscription et aborde certains problèmes courants à chaque étape.
 
 > [!NOTE]
 > Si vous disposez déjà d’un compte existant et que vous recherchez des conseils pour résoudre les problèmes de connexion, consultez [Résoudre les problèmes de connexion à un abonnement Azure](./troubleshoot-sign-in-issue.md).
@@ -28,7 +28,7 @@ Vous pouvez rencontrer un problème quand vous tentez de créer un compte dans l
 
 Avant de commencer l’inscription, vérifiez les points suivants :
 
-- Les informations de votre profil de compte Azure (notamment l’adresse e-mail, l’adresse postale et le numéro de téléphone du contact) sont correctes.
+- Les informations de votre profil Azure (comme votre adresse e-mail, votre adresse postale et votre numéro de téléphone) sont correctes.
 - Les informations de votre carte de crédit sont correctes.
 - Vous n’avez pas déjà un compte Microsoft avec les mêmes informations.
 
@@ -45,7 +45,14 @@ Cette procédure pas à pas fournit des exemples d’informations correctes à f
 
 ## <a name="about-you"></a>À propos de vous
 
-![À propos de vous](./media/troubleshoot-azure-sign-up/1.png)
+Lors de votre inscription sur Azure, vous devez fournir des informations sur vous, notamment :
+
+- Votre pays ou région
+- Prénom
+- Nom
+- Adresse de messagerie
+- Numéro de téléphone
+- Informations de carte de crédit
  
 ### <a name="common-issues-and-solutions"></a>Problèmes courants et solutions
 
@@ -53,9 +60,9 @@ Cette procédure pas à pas fournit des exemples d’informations correctes à f
 
 Pour résoudre cette erreur, effectuez les étapes suivantes :
 
-1.  Connectez-vous au [Centre des comptes Azure](https://account.azure.com/Profile) en utilisant des informations d’identification d’administrateur de compte.
-1.  Sélectionnez **Modifier les détails**.
-1.  Vérifiez que tous les champs d’adresse sont renseignés et valides.
+1. Connectez-vous au [Centre des comptes Microsoft](https://account.microsoft.com/).
+1. En haut de la page, sélectionnez **Vos informations**.
+1. Vérifiez que vos données de facturation et d'expédition sont complètes et valides.
 1.  Quand vous souscrivez l’abonnement Azure, vérifiez que l’adresse de facturation entrée pendant l’enregistrement de la carte de crédit correspond à celle que possède votre banque.
 
 Si vous recevez toujours le même message, réessayez de vous inscrire à l’aide d’un autre navigateur.

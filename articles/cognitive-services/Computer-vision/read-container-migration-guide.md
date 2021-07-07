@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 01/29/2021
+ms.date: 05/24/2021
 ms.author: aahi
-ms.openlocfilehash: 1cc17306265e6e8ba2e7fb3f570d0017b006b84f
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: d648acb3ff9a1f7c2076a4b7c1fcf9755a9ea05d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284683"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465190"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrer vers des conteneurs OCR Read v3.x
 
@@ -25,7 +25,7 @@ Si vous utilisez la version 2 du conteneur OCR Read de Vision par ordinateur, u
 ## <a name="configuration-changes"></a>Modifications de configuration
 
 * `ReadEngineConfig:ResultExpirationPeriod` n’est plus pris en charge. Le conteneur OCR Read comporte une tâche Cron intégrée qui supprime les résultats et les métadonnées associés à une requête au bout de 48 heures.
-* `Cache:Redis:Configuration` n’est plus pris en charge. Le cache n’est pas utilisé dans les conteneurs v3.x, donc vous n’avez pas besoin de le définir.
+* `Cache:Redis:Configuration` n’est plus pris en charge. Le cache n’étant pas utilisé dans les conteneurs v3.x, vous n’avez pas besoin de le définir.
 
 ## <a name="api-changes"></a>Modifications d'API
 
@@ -35,7 +35,7 @@ Le conteneur Read v3.2 utilise la version 3 de l’API Vision par ordinateur et
 * `/vision/v3.2-preview.1/read/analyze`
 * `/vision/v3.2-preview.1/read/syncAnalyze`
 
-Pour plus d’informations sur la mise à jour de vos applications pour utiliser la version 3 de l’API Read cloud, consultez le [Guide de migration de l’API REST Vision par ordinateur v3](./upgrade-api-versions.md). Ces informations s’appliquent également au conteneur. Notez que les opérations de synchronisation sont uniquement prises en charge dans les conteneurs.
+Pour plus d’informations sur la mise à jour de vos applications pour utiliser la version 3 de l’API Read cloud, consultez le [Guide de migration de l’API REST Vision par ordinateur v3](./upgrade-api-versions.md). Ces informations s’appliquent également au conteneur. Les opérations de synchronisation sont uniquement prises en charge dans les conteneurs.
 
 ## <a name="memory-requirements"></a>Besoins en mémoire
 
@@ -69,7 +69,7 @@ Dans un conteneur v3.x, RabbitMQ n’est pas pris en charge pour l’instant. Le
 | Files d'attente Azure | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Production |
 | RabbitMQ    | Indisponible | Production |
 
-Pour une redondance accrue, le conteneur Read v3.x utilise un minuteur de visibilité pour vérifier que les demandes peuvent être traitées correctement en cas d’incident, dans le cadre de l’exécution dans une configuration à plusieurs conteneurs. 
+Pour une redondance accrue, le conteneur Read v3.x utilise un minuteur de visibilité permettant de vérifier que les requêtes peuvent être traitées correctement en cas d’incident lors de l’exécution dans une configuration à plusieurs conteneurs. 
 
 Définissez le minuteur avec `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, qui définit le délai à l’issue duquel un message devient invisible car un rôle de travail est en train de le traiter. Pour éviter le traitement redondant des pages, nous vous recommandons de définir le délai d’attente sur 120 secondes. La valeur par défaut est de 30 secondes.
 

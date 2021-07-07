@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/31/2021
+ms.date: 05/20/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: bd5533f4bc8420ee6d8900e8a17dfe7099d7945f
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: d339f058e94f27c26b4d5ae9bfcce4c66f279554
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107195"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463634"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Rôles d’administrateur d’abonnement classique, rôles Azure et rôles Azure AD
 
@@ -44,13 +44,13 @@ Dans Azure, les trois rôles d’administrateur d’abonnements classique sont A
 
 | Administrateur d’abonnements classiques | Limite | Autorisations | Notes |
 | --- | --- | --- | --- |
-| Administrateur de comptes | 1 par compte Azure | <ul><li>Gérer la facturation sur le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)</li><li>Gestion de tous les abonnements d’un compte</li><li>Création de nouveaux abonnements</li><li>Annulation d’abonnements</li><li>Changement du mode de facturation d’un abonnement</li><li>Changement d’administrateur de services</li></ul> | Le concept est qu’il est propriétaire de la facturation de l’abonnement. |
+| Administrateur de comptes | 1 par compte Azure | <ul><li>Peut accéder au [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) et gérer la facturation</li><li>Gérer la facturation pour tous les abonnements du compte</li><li>Création de nouveaux abonnements</li><li>Annulation d’abonnements</li><li>Changement du mode de facturation d’un abonnement</li><li>Changement d’administrateur de services</li><li>Ne peut pas annuler des abonnements, sauf s’il a le rôle d’administrateur de service ou de propriétaire d’abonnement</li></ul> | Le concept est qu’il est propriétaire de la facturation de l’abonnement. |
 | Administrateur de services | 1 par abonnement Azure | <ul><li>Gestion des services dans le [portail Azure](https://portal.azure.com)</li><li>Annuler l’abonnement</li><li>Attribution d’utilisateurs au rôle Coadministrateur</li></ul> | Par défaut, pour un nouvel abonnement, l’administrateur de compte est également l’administrateur de services fédérés.<br>L’administrateur de services dispose de l’accès équivalent à un utilisateur qui se voit attribuer le rôle Propriétaire sur l’étendue de l’abonnement.<br>L’Administrateur de service a un accès complet au portail Azure. |
 | Coadministrateur | 200 par abonnement | <ul><li>Mêmes privilèges d’accès que l’administrateur de services, à ceci près qu’il ne peut pas changer l’association des abonnements aux annuaires Azure</li><li>Attribution des utilisateurs au rôle Coadministrateur, mais ne peut pas changer d’administrateur de services</li></ul> | Le coadministrateur dispose de l’accès équivalent à un utilisateur qui se voit attribuer le rôle Propriétaire sur l’étendue de l’abonnement. |
 
 Sur le portail Azure, vous pouvez gérer les Coadministrateurs ou afficher l’Administrateur de Service sous l’onglet **Administrateurs classiques**.
 
-![Administrateurs d’abonnement Azure Classic sur le portail Azure](./media/rbac-and-directory-admin-roles/subscription-view-classic-administrators.png)
+![Administrateurs d’abonnement Azure Classic sur le portail Azure](./media/shared/classic-administrators.png)
 
 Sur le portail Azure, vous pouvez afficher ou modifier l’Administrateur de Service ou afficher l’Administrateur de compte dans le panneau des propriétés de votre abonnement.
 
@@ -85,11 +85,11 @@ Le contrôle RBAC Azure est pris en charge uniquement par le portail Azure et le
 
 Dans le portail Azure, les attributions de rôles avec le contrôle RBAC Azure s’affichent dans le panneau **Contrôle d’accès (IAM)** . Ce panneau se trouve dans le portail, notamment pour les groupes d’administration, les abonnements, les groupes de ressources et diverses ressources.
 
-![Panneau Contrôle d’accès IAM dans le portail Azure](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
+![Panneau Contrôle d’accès IAM dans le portail Azure](./media/shared/sub-role-assignments.png)
 
 Quand vous cliquez sur l’onglet **Rôles**, vous voyez la liste des rôles intégrés et personnalisés.
 
-![Rôles intégrés dans le portail Azure](./media/rbac-and-directory-admin-roles/roles-list.png)
+![Rôles intégrés dans le portail Azure](./media/shared/roles-list.png)
 
 Pour plus d’informations, consultez [Attribuer des rôles Azure en utilisant le portail Azure](role-assignments-portal.md).
 

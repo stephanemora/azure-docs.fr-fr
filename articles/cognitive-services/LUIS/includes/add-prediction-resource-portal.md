@@ -5,14 +5,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/23/2021
+ms.date: 05/14/2021
 ms.author: aahi
-ms.openlocfilehash: 74a5cad377f94d869655952d093e1b54708c1163
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 1144d6d8387817d76ba9969b0c56936301b85c30
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107948337"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110096015"
 ---
 1. Accédez à l’onglet **Gérer** dans votre application.
 2. Dans le menu de navigation gauche, sélectionnez **Ressources Azure**.
@@ -20,7 +20,7 @@ ms.locfileid: "107948337"
 
     :::image type="image" alt-text="Ajouter une ressource de prédiction à partir du portail" source="../media/add-prediction-resource-portal.png" lightbox="../media/add-prediction-resource-portal.png":::
   
-    Si vous avez déjà une ressource de prédiction, ajoutez-la directement. Sinon, sélectionnez **Créer une ressource de prédiction**.
+    Si vous disposez déjà d’une ressource de prédiction, ajoutez-la. Dans le cas contraire, sélectionnez **Créer une ressource de prédiction**.
   
     :::image type="image" alt-text="Ajouter une ressource de prédiction à partir du portail-2" source="../media/add-prediction-resource-portal-2.png" lightbox="../media/add-prediction-resource-portal-2.png":::
   

@@ -1,6 +1,6 @@
 ---
-title: Tutoriel pour filtrer et analyser des données pour un déploiement avancé avec le rôle de calcul sur Azure Stack Edge Pro | Microsoft Docs
-description: Découvrez comment configurer le rôle de calcul sur Azure Stack Edge Pro et l’utiliser pour transformer des données à destination d’un flux de déploiement avancé avant de les envoyer à Azure.
+title: Tutoriel expliquant comment filtrer et analyser des données sur Azure Stack Edge Pro FPGA pour un déploiement avancé avec un rôle de calcul
+description: Apprenez à configurer un rôle de calcul sur Azure Stack Edge Pro FPGA et à l'utiliser pour transformer des données à destination d'un flux de déploiement avancé avant de les envoyer à Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 81953f573c47d229fcaccd7c11f62155acd2f119
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 8f6fff328e90c37804e86e4b258cbcd0cb2255d7
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063642"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461461"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Tutoriel : Transformer des données avec Azure Stack Edge Pro pour un flux de déploiement avancé
+# <a name="tutorial-transform-data-with-azure-stack-edge-pro-fpga-for-advanced-deployment-flow"></a>Tutoriel : Transformer des données avec Azure Stack Edge Pro FPGA pour un flux de déploiement avancé
 
-Ce tutoriel explique comment configurer un rôle de calcul pour un flux de déploiement avancé sur votre appareil Azure Stack Edge Pro. Une fois que vous avez configuré le rôle de calcul, Azure Stack Edge Pro peut transformer des données avant de les envoyer à Azure.
+Ce tutoriel explique comment configurer un rôle de calcul pour un flux de déploiement avancé sur votre appareil Azure Stack Edge Pro FPGA. Une fois le rôle de calcul configuré, Azure Stack Edge Pro FPGA peut transformer des données avant de les envoyer à Azure.
 
 Le calcul peut être configuré pour le flux d’un déploiement simple ou avancé sur votre appareil.
 
@@ -42,14 +42,14 @@ Dans ce tutoriel, vous allez apprendre à :
  
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de configurer un rôle de calcul sur votre appareil Azure Stack Edge Pro, vérifiez que :
+Avant de configurer un rôle de calcul sur votre appareil Azure Stack Edge Pro FPGA, vérifiez que :
 
-- Vous avez activé votre appareil Azure Stack Edge Pro, comme décrit dans [Connecter, configurer et activer Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md).
+- Vous avez activé votre appareil Azure Stack Edge Pro FPGA, comme décrit dans [Connecter, configurer et activer Azure Stack Edge Pro FPGA](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## <a name="configure-compute"></a>Configurer le calcul
 
-Pour configurer le calcul sur votre appareil Azure Stack Edge Pro, vous allez créer une ressource IoT Hub.
+Pour configurer le calcul sur votre appareil Azure Stack Edge Pro FPGA, vous allez créer une ressource IoT Hub.
 
 1. Dans le portail Azure de votre ressource Azure Stack Edge, accédez à **Vue d’ensemble**. Dans le volet droit, sélectionnez la vignette **IoT Edge**.
 
@@ -145,9 +145,9 @@ Pour le déploiement avancé dans ce tutoriel, vous aurez besoin de deux partage
 
 ## <a name="add-a-module"></a>Ajouter un module
 
-Il n’existe aucun module personnalisé sur cet appareil Edge. Vous pouvez ajouter un module prédéfini ou personnalisé. Pour savoir comment créer un module personnalisé, accédez à [Développer un module C# pour votre appareil Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md).
+Il n’existe aucun module personnalisé sur cet appareil Edge. Vous pouvez ajouter un module prédéfini ou personnalisé. Pour apprendre à créer un module personnalisé, accédez à [Développer un module C# pour votre appareil Azure Stack Edge Pro FPGA](azure-stack-edge-create-iot-edge-module.md).
 
-Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edge que vous avez créé dans [Développer un module C# pour votre appareil Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md). Ce module personnalisé place des fichiers d’un partage local Edge sur l’appareil de périphérie, puis les déplace vers un partage Edge (cloud) sur l’appareil. Le partage cloud envoie ensuite les fichiers vers le compte de stockage Azure associé au partage cloud.
+Dans cette section, vous allez ajouter un module personnalisé à l'appareil IoT Edge que vous avez créé dans [Développer un module C# pour votre appareil Azure Stack Edge Pro FPGA](azure-stack-edge-create-iot-edge-module.md). Ce module personnalisé place des fichiers d’un partage local Edge sur l’appareil de périphérie, puis les déplace vers un partage Edge (cloud) sur l’appareil. Le partage cloud envoie ensuite les fichiers vers le compte de stockage Azure associé au partage cloud.
 
 1. Accédez à votre ressource Azure Stack Edge, puis à **IoT Edge > Vue d’ensemble**. Sur la vignette **Modules**, sélectionnez **Accéder à Azure IoT Hub**.
 
@@ -170,7 +170,7 @@ Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edg
 4. Sous **Ajouter des modules**, effectuez les étapes suivantes :
 
     1. Entrez le nom, l’adresse, le nom d’utilisateur et le mot de passe dans les paramètres du registre de conteneurs du module personnalisé.
-    Le nom, l’adresse et les informations d’identification indiquées sont utilisées pour récupérer des modules avec une URL correspondante. Pour déployer ce module, sous **Deployment modules** (Modules de déploiement), sélectionnez **IoT Edge module** (Module IoT Edge). Ce module IoT Edge est un conteneur Docker que vous pouvez déployer sur l’appareil IoT Edge associé à votre appareil Azure Stack Edge Pro.
+    Le nom, l’adresse et les informations d’identification indiquées sont utilisées pour récupérer des modules avec une URL correspondante. Pour déployer ce module, sous **Deployment modules** (Modules de déploiement), sélectionnez **IoT Edge module** (Module IoT Edge). Ce module IoT Edge est un conteneur Docker que vous pouvez déployer sur l'appareil IoT Edge associé à votre appareil Azure Stack Edge Pro FPGA.
 
         ![Page Définir des modules](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-4.png) 
  
@@ -178,7 +178,7 @@ Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edg
      
         |Champ  |Valeur  |
         |---------|---------|
-        |Nom     | Nom unique pour le module. Ce module est un conteneur Docker que vous pouvez déployer sur l’appareil IoT Edge associé à votre Azure Stack Edge Pro.        |
+        |Nom     | Nom unique pour le module. Ce module est un conteneur Docker que vous pouvez déployer sur l'appareil IoT Edge associé à votre Azure Stack Edge Pro FPGA.        |
         |URI d’image     | URI d’image de l’image conteneur associée pour le module.        |
         |Informations d’identification obligatoires     | Si cette case est cochée, le nom d’utilisateur et le mot de passe sont utilisés pour récupérer les modules avec une URL correspondante.        |
     
@@ -265,7 +265,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Ajouter un module de calcul
 > * Vérifier la transformation des données et transférer
 
-Pour savoir comment gérer votre appareil Azure Stack Edge Pro, consultez :
+Pour apprendre à gérer votre appareil Azure Stack Edge Pro FPGA, consultez :
 
 > [!div class="nextstepaction"]
-> [Administrer un appareil Azure Stack Edge Pro avec l’interface utilisateur web locale](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Administrer un appareil Azure Stack Edge Pro FPGA avec l'interface utilisateur web locale](azure-stack-edge-manage-access-power-connectivity-mode.md)
