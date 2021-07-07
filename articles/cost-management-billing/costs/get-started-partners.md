@@ -3,18 +3,18 @@ title: Prise en main d’Azure Cost Management pour les partenaires
 description: Cet article explique aux partenaires comment utiliser les fonctionnalités d’Azure Cost Management et comment autoriser l’accès à Cost Management à leurs clients.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/27/2021
+ms.date: 06/01/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 40c683d98a13bf4810ec4575af3fba5ae64961f0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 7278211ee47ec4a291a7934fee4b56fae0d8dfc4
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946980"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790367"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Prise en main d’Azure Cost Management pour les partenaires
 
@@ -110,7 +110,13 @@ Les partenaires peuvent utiliser l’étendue pour effectuer un rapprochement av
 
 Les partenaires utilisent l’étendue pour gérer les coûts associés aux clients intégrés au contrat client Microsoft. L’étendue permet aux partenaires de voir les coûts avant impôts pour un client spécifique dans une devise de facturation. Vous pouvez également filtrer les coûts avant impôts pour un abonnement, un groupe de ressources ou une ressource spécifique.
 
-L’étendue de client n’inclut pas les clients bénéficiant de l’offre CSP actuelle. L’étendue comprend uniquement les clients qui disposent d’un contrat client Microsoft. Les coûts de droit (et non les coûts d’utilisation d’Azure) pour les clients de l’offre CSP actuelle sont disponibles dans les étendues de compte de facturation et de profil de facturation quand vous appliquez le filtre client. Les budgets définis dans cette étendue sont exprimés dans la devise de facturation.
+L’étendue de client n’inclut pas les clients bénéficiant de l’offre CSP actuelle. L’étendue comprend uniquement les clients qui disposent d’un contrat client Microsoft.
+
+Les coûts de droit (et non les coûts d’utilisation d’Azure) pour les clients de l’offre CSP actuelle sont disponibles dans les étendues de compte de facturation et de profil de facturation quand vous appliquez le filtre client. Les budgets définis dans cette étendue sont exprimés dans la devise de facturation.
+
+Pour afficher les coûts dans l’étendue du client, dans le locataire partenaire, accédez à Analyse des coûts, sélectionnez le sélecteur d’étendue, puis sélectionnez le client spécifique dans la liste des étendues. Voici un exemple pour le client *Contoso Services*.
+
+:::image type="content" source="./media/get-started-partners/customer-scope.png" alt-text="Capture d’écran montrant la sélection d’une étendue client." lightbox="./media/get-started-partners/customer-scope.png" :::
 
 ## <a name="partner-access-to-billing-scopes-in-cost-management"></a>Accès des partenaires aux étendues de facturation dans Cost Management
 
@@ -147,7 +153,7 @@ Quand la stratégie de visualisation des coûts est activée, tous les services 
 
 ### <a name="view-subscription-costs-in-the-customer-tenant"></a>Afficher les coûts d’abonnement dans le locataire du client
 
-Pour afficher les coûts d’un abonnement, ouvrez **Cost Management + Facturation** dans le locataire Azure du client. Sélectionnez **Analyse du coût** pour l’abonnement requis afin de commencer à examiner les coûts. Vous pouvez afficher les coûts de consommation pour chaque abonnement individuellement dans le locataire du client.
+Pour afficher les coûts d’un abonnement, ouvrez **Cost Management + Facturation** dans le locataire Azure du client. Sélectionnez **Analyse des coûts** et l’abonnement requis pour commencer à examiner les coûts. Vous pouvez afficher les coûts de consommation pour chaque abonnement individuellement dans le locataire du client.
 
 [![Voir l’analyse des coûts en tant que client ](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 

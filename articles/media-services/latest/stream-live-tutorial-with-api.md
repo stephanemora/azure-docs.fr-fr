@@ -1,7 +1,7 @@
 ---
-title: Diffuser en direct avec Media Services en utilisant .NET Core
+title: Diffuser en direct avec Media Services en utilisant .NET 5.0
 titleSuffix: Azure Media Services
-description: Découvrez comment diffuser des événements en direct en utilisant .NET Core.
+description: Apprenez à diffuser des événements en direct en utilisant .NET 5.0
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 06/13/2019
 ms.author: inhenkel
-ms.openlocfilehash: 504378dac7d868dd8c3fcdb5be778aa25c9766bf
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: d471431da7cc738f9ef908897ccab34343cc4c4b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713195"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470426"
 ---
-# <a name="tutorial-stream-live-with-media-services-by-using-net-core"></a>Tutoriel : Diffuser en direct avec Media Services en utilisant .NET Core
+# <a name="tutorial-stream-live-with-media-services-by-using-net-50"></a>Tutoriel : Diffuser en direct avec Media Services en utilisant .NET 5.0
 
 Dans Azure Media Services, les [événements en direct](/rest/api/media/liveevents) sont responsables du traitement de contenu de streaming en direct. Un événement en direct fournit un point de terminaison d’entrée (URL d’ingestion) que vous fournissez ensuite à un encodeur live. Il reçoit des flux d’entrée d’un encodeur live et les rend disponibles pour le streaming par le biais d’un ou de plusieurs [points de terminaison de streaming](/rest/api/media/streamingendpoints). Les événements en direct fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour prévisualiser et valider votre flux avant de poursuivre le traitement ou la distribution. 
 
-Ce didacticiel explique comment utiliser .NET Core pour créer un type de *canal direct* d’un événement en temps réel. Ce didacticiel présente les procédures suivantes :
+Ce tutoriel explique comment utiliser .NET 5.0 pour créer un type de *Pass-through* d'événement en direct. Ce didacticiel présente les procédures suivantes :
 
 > [!div class="checklist"]
 > * Télécharger un exemple d’application
@@ -43,7 +43,8 @@ Ce didacticiel explique comment utiliser .NET Core pour créer un type de *canal
 
 Pour ce tutoriel, vous devez disposer des éléments suivants :
 
-- Installez Visual Studio Code ou Visual Studio.
+- Installez [Visual Studio Code pour Windows/macOS/Linux](https://code.visualstudio.com/) ou [Visual Studio 2019 pour Windows ou Mac](https://visualstudio.microsoft.com/).
+- Installer le [Kit de développement logiciel (SDK) .NET 5.0](https://dotnet.microsoft.com/download)
 - [Créer un compte Media Services](./account-create-how-to.md). Veillez à copier les détails de l’**accès à l’API** au format JSON ou à stocker les valeurs nécessaires pour se connecter au compte Media Services dans le format de fichier *.env* utilisé dans cet exemple.
 - Suivez les étapes décrites dans [Accéder à l’API Azure Media Services avec Azure CLI](./access-api-howto.md) et enregistrez les informations d’identification. Vous devez les utiliser pour accéder à l’API dans cet exemple ou les entrer dans le format de fichier *.env*. 
 
@@ -80,16 +81,25 @@ Le fichier *.gitignore* est déjà configuré pour empêcher la publication de c
 
 ## <a name="examine-the-code-that-performs-live-streaming"></a>Examiner le code qui effectue la diffusion en continu
 
-Cette section examine les fonctions définies dans le fichier [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs) du projet *LiveEventWithDVR*.
+Cette section examine les fonctions définies dans les fichiers [Authentication.cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Common_Utils/Authentication.cs) et [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs) du projet *LiveEventWithDVR*.
 
 L’exemple crée un suffixe unique pour chaque ressource afin d’éviter tout conflit de noms si vous exécutez l’exemple plusieurs fois sans le supprimer.
 
 
 ### <a name="start-using-media-services-apis-with-the-net-sdk"></a>Commencer à utiliser les API Media Services avec le SDK .NET
 
-Pour commencer à utiliser les API Media Services avec .NET, vous devez créer un objet `AzureMediaServicesClient`. Pour créer l’objet, vous devez fournir des informations d’identification pour que le client puisse se connecter à Azure avec Azure Active Directory. Dans le code que vous avez cloné au début de l’article, la fonction `GetCredentialsAsync`crée l’objet `ServiceClientCredentials` en fonction des informations d’identification fournies dans le fichier de configuration local (*appsettings.json*) ou par le biais du fichier de variables d’environnement *.env* à la racine du dépôt.
+Pour commencer à utiliser les API Media Services avec .NET, vous devez créer un objet `AzureMediaServicesClient`. Pour créer l’objet, vous devez fournir des informations d’identification pour que le client puisse se connecter à Azure avec Azure Active Directory. Une autre option consiste à utiliser l'authentification interactive, qui est implémentée dans `GetCredentialsInteractiveAuthAsync`.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateMediaServicesClient)]
+[!code-csharp[Main](../../../media-services-v3-dotnet/Common_Utils/Authentication.cs#CreateMediaServicesClientAsync)]
+
+Dans le code que vous avez cloné au début de l’article, la fonction `GetCredentialsAsync`crée l’objet `ServiceClientCredentials` en fonction des informations d’identification fournies dans le fichier de configuration local (*appsettings.json*) ou par le biais du fichier de variables d’environnement *.env* à la racine du dépôt.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet/Common_Utils/Authentication.cs#GetCredentialsAsync)]
+
+Dans le cas d'une authentification interactive, la fonction `GetCredentialsInteractiveAuthAsync` crée l'objet `ServiceClientCredentials` sur la base d'une authentification interactive et des paramètres de connexion fournis dans le fichier de configuration local (*appsettings.json*) ou via le fichier de variables d'environnement *.env* à la racine du référentiel. Dans ce cas, AADCLIENTID et AADSECRET ne sont pas nécessaires dans le fichier de variables d'environnement ou de configuration.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet/Common_Utils/Authentication.cs#GetCredentialsInteractiveAuthAsync)]
+
 
 ### <a name="create-a-live-event"></a>Créer un événement en temps réel
 

@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: a47f9d6a47876f09ca241c30e3443886642e4fd8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 80d4ef5fc474ff40807e01b6ecb9014db1ae8f51
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137235"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677870"
 ---
 # <a name="tutorial-deploy-the-opc-publisher"></a>Tutoriel : Déployer OPC Publisher
 
@@ -32,6 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte d’essai gratuit.
 
 - Un hub IoT doit être créé
 - Un appareil IoT Edge doit être créé
+- Un appareil IoT Edge doit être inscrit
 
 ## <a name="deploy-the-opc-publisher-from-the-azure-marketplace"></a>Déployer OPC Publisher à partir de la Place de marché Azure
 
@@ -42,16 +43,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte d’essai gratuit.
 5. Cliquez sur « OPCPublisher » pour ouvrir la page « Mettre à jour le module IoT Edge » d’OPC Publisher, puis sélectionnez « Options de création de conteneur ».
 6. Spécifiez des options de création de conteneur supplémentaires en fonction de votre utilisation d’OPC Publisher ; consultez la section suivante ci-après.
 
-
-### <a name="accessing-the-microsoft-container-registry-docker-containers-for-opc-publisher-manually"></a>Accès manuel aux conteneurs Docker Microsoft Container Registry pour OPC Publisher
-
-La dernière version publiée d’OPC Publisher peut être exécutée manuellement par le biais de la commande suivante :
-
-```
-docker run mcr.microsoft.com/iotedge/opc-publisher:latest <name>
-```
-
-Où « name » est le nom du conteneur.
+Toutes les images Docker prises en charge pour OPC Publisher sont listées [ici](https://mcr.microsoft.com/v2/iotedge/opc-publisher/tags/list). Pour les ressources non-OPC UA, nous avons conclu un partenariat avec les principaux fournisseurs de connectivité industriels et nous les avons aidés à déplacer leur logiciel d’adaptateur d’OPC UA vers Azure IoT Edge. Ces adaptateurs sont disponibles dans la [Place de marché](https://azuremarketplace.microsoft.com/marketplace/apps?page=1) Azure.
 
 ## <a name="specifying-container-create-options-in-the-azure-portal"></a>Spécification des options de création de conteneur dans le portail Azure
 Lors du déploiement d’OPC Publisher par le biais du portail Azure, vous pouvez spécifier des options de création de conteneur dans la page Mettre à jour le module IoT Edge d’OPC Publisher. Ces options de création doivent être au format JSON. Les arguments de ligne de commande d’OPC Publisher peuvent être spécifiés par le biais de la clé Cmd, par exemple :

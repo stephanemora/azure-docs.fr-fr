@@ -1,16 +1,16 @@
 ---
 author: laujan
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 03/15/2021
+ms.date: 05/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 734b548953c4ede5e7d09feb0042509ae5528e82
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: f1024edf7d05d47ba14478a1561c29f7859a245c
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108026268"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887085"
 ---
 Accédez au portail Azure et <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="créez une ressource Form Recognizer" target="_blank">Créer une ressource Form Recognizer </a>. Dans le volet **Créer**, indiquez les informations suivantes :
 
@@ -23,6 +23,9 @@ Accédez au portail Azure et <a href="https://ms.portal.azure.com/#create/Micros
 | **Niveau tarifaire** | Le coût de la ressource dépend du niveau tarifaire que vous choisissez et de votre utilisation. Pour plus d'informations, consultez le [détail des tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/) de l’API.
 
 > [!NOTE]
-> Quand vous créez une ressource Cognitive Services dans le portail Azure, vous avez la possibilité de créer une clé d’abonnement multiservice (utilisée dans plusieurs services cognitifs) ou une clé d’abonnement monoservice (utilisée avec un service cognitif spécifique). Actuellement, Form Recognizer n’est pas compris dans l’abonnement multiservice.
+> Quand vous créez une ressource Cognitive Service dans le portail Azure, vous avez la possibilité de créer une clé d’abonnement multiservice (utilisée dans plusieurs Cognitive Services) ou une clé d’abonnement monoservice (utilisée avec un Cognitive Service spécifique). Actuellement, Form Recognizer n’est pas compris dans l’abonnement multiservice.
 
-Lorsque le déploiement de la ressource Form Recognizer se termine, recherchez-la et sélectionnez-la dans la liste **Toutes les ressources** dans le portail. Votre clé et votre point de terminaison se trouvent dans la page de la clé et du point de terminaison de la ressource, sous Gestion des ressources. Enregistrez ces deux éléments à un emplacement temporaire avant de continuer.
+## <a name="retrieve-the-key-and-endpoint"></a>Récupérer la clé et le point de terminaison
+
+Lorsque le déploiement de la ressource Form Recognizer se termine, recherchez-la et sélectionnez-la dans la liste **Toutes les ressources** dans le portail. Votre clé et votre point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources**. Enregistrez ces deux éléments à un emplacement temporaire avant de continuer.
+

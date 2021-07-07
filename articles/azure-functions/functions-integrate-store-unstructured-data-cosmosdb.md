@@ -4,12 +4,12 @@ description: Stocker des données non structurées à l’aide d’Azure Functio
 ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 5bc3895cb219338acde492b871dce806db70622b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90a85cad60696ad692d39d19ad123ecfd6f7dc30
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91661157"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236568"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Stocker des données non structurées à l’aide d’Azure Cosmos DB et d’Azure Functions
 
@@ -30,7 +30,7 @@ Pour suivre ce tutoriel :
 
 Vous devez disposer d’un compte Azure Cosmos DB qui utilise l’API SQL avant de créer la liaison de sortie.
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-an-output-binding"></a>Ajouter une liaison de sortie
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 16692ac75f0ab6df0c8ee1bebef393848ca066b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb11033e0f4fcff171825d579e62e071f66b1cea
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676548"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745886"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Tutoriel : Analyser des données avec Azure Purview (préversion)
 
@@ -192,7 +192,7 @@ Une identité managée portant le même nom que votre compte Azure Purview est a
 
 ### <a name="scan-your-data-sources"></a>Analyser vos sources de données
 
-1. Accédez à votre ressource Azure Purview dans le [portail Azure](https://portal.azure.com), puis sélectionnez *Ouvrir Purview Studio*. Vous êtes automatiquement dirigé vers la page d’accueil de Purview Studio.
+1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez le nom de l’instance d’Azure Purview que vous avez créée en tant que prérequis, puis sélectionnez *Ouvrir Purview Studio*. Vous êtes automatiquement dirigé vers la page d’accueil de Purview Studio.
 
 1. Sélectionnez **Sources** sur la page web de votre catalogue et sélectionnez **Inscrire**. Ensuite, sélectionnez **Stockage Blob Azure** et **Continuer**.
 

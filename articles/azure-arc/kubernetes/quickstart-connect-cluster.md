@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/25/2021
 ms.custom: template-quickstart, references_regions, devx-track-azurecli
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: 6221de7a9cffe5ba4d2e1ed8cc8e47c372b6b578
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a15a841e24d1464741c115684ed639609576a314
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373715"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796572"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Démarrage rapide : Connecter un cluster Kubernetes existant à Azure Arc 
 
@@ -59,11 +59,11 @@ Dans ce guide de démarrage rapide, vous allez découvrir les avantages d’util
   
 | Point de terminaison (DNS) | Description |  
 | ----------------- | ------------- |  
-| `https://management.azure.com`                                                                                 | Requis pour que l’agent se connecte à Azure et inscrive le cluster.                                                        |  
-| `https://<region>.dp.kubernetesconfiguration.azure.com` | Point de terminaison du plan de données permettant à l’agent d’envoyer (push) le statut et de récupérer (fetch) les informations de configuration.                                      |  
-| `https://login.microsoftonline.com`                                                                            | Requis pour extraire et mettre à jour des jetons Azure Resource Manager.                                                                                    |  
-| `https://mcr.microsoft.com`                                                                            | Requis pour extraire des images conteneurs pour les agents Azure Arc.                                                                  |  
-| `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`, `https://wcus.his.arc.azure.com`, `https://scus.his.arc.azure.com`, `https://sea.his.arc.azure.com`, `https://uks.his.arc.azure.com`, `https://wus2.his.arc.azure.com`, `https://ae.his.arc.azure.com`, `https://eus2.his.arc.azure.com`, `https://ne.his.arc.azure.com` |  Indispensable à l’extraction des certificats attribués par le système dans le cadre des identités managées pour les ressources Azure.                                                                  |
+| `https://management.azure.com` (pour le Cloud Azure), `https://management.usgovcloudapi.net` (pour Azure US Government) | Requis pour que l’agent se connecte à Azure et inscrive le cluster. |  
+| `https://<region>.dp.kubernetesconfiguration.azure.com` (pour le Cloud Azure), `https://<region>.dp.kubernetesconfiguration.azure.us` (pour Azure US Government) | Point de terminaison du plan de données permettant à l’agent d’envoyer (push) le statut et de récupérer (fetch) les informations de configuration. |  
+| `https://login.microsoftonline.com` (pour le Cloud Azure), `https://login.microsoftonline.us` (pour Azure US Government) | Requis pour extraire et mettre à jour des jetons Azure Resource Manager. |  
+| `https://mcr.microsoft.com` | Requis pour extraire des images conteneurs pour les agents Azure Arc.                                                                  |  
+| `https://<region-code>.his.arc.azure.com` (pour le Cloud Azure), `https://usgv.his.arc.azure.us` (pour Azure US Government) |  Indispensable à l’extraction des certificats attribués par le système dans le cadre des identités managées pour les ressources Azure. Mappage de `<region-code>` pour les régions du cloud Azure : `eus` (USA Est), `weu` (Europe Ouest), `wcus` (USA Centre-Ouest), `scus` (USA Centre Sud), `sea` (Asie Sud-Est), `uks` (Royaume-Uni Sud), `wus2` (USA Ouest 2), `ae` (Australie Est), `eus2` (USA Est 2), `ne` (Europe Nord), `fc` (France Centre). |
 
 ## <a name="1-register-providers-for-azure-arc-enabled-kubernetes"></a>1. Inscrire les fournisseurs pour Kubernetes avec Azure Arc
 
@@ -142,14 +142,14 @@ Helm release deployment succeeded
 > La commande ci-dessus sans paramètre d’emplacement spécifié crée la ressource Kubernetes avec Azure Arc dans le même emplacement que le groupe de ressources. Pour créer la ressource Kubernetes avec Azure Arc dans un emplacement différent, spécifiez `--location <region>` ou `-l <region>` lors de l’exécution de la commande `az connectedk8s connect`.
 
 > [!NOTE]
-> Si vous êtes connecté à Azure CLI avec un principal de service, des [autorisations supplémentaires](troubleshooting.md#enable-custom-locations-using-service-principal) sont requises sur celui-ci pour activer la fonctionnalité d’emplacement personnalisé lors de la connexion du cluster à Azure Arc.
+> Si vous êtes connecté à Azure CLI avec un principal de service, vous devez définir un [paramètre supplémentaire](troubleshooting.md#enable-custom-locations-using-service-principal) pour activer la fonctionnalité d’emplacement personnalisé sur le cluster.
 
 ## <a name="4-verify-cluster-connection"></a>4. Vérifier la connexion du cluster
 
 Exécutez la commande suivante :  
 
 ```azurecli-interactive
-az connectedk8s list -resource-group AzureArcTest -output table
+az connectedk8s list --resource-group AzureArcTest --output table
 ```
 
 Sortie :

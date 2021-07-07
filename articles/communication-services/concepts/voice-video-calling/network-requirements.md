@@ -6,15 +6,15 @@ author: nmurav
 manager: jken
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 3/23/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c7ec360d961c0960dc941c48626c3aeb3f7367ec
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 377d6783fb73c2d03f7e4dde7b352abe1eaef993
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289009"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110796"
 ---
 # <a name="ensure-high-quality-media-in-azure-communication-services"></a>Garantir un contenu multimédia de qualité supérieure dans Azure Communication Services
 
@@ -47,7 +47,7 @@ Voici les bandes passantes requises des kits SDK JavaScript :
 |500 Kbits/s|Appel vidéo de groupe de 360p à 30 i/s|
 |1,2 Mbits/s|Appel vidéo de groupe HD avec une résolution de 720p HD à 30 i/s| 
 
-Voici les bandes passantes requises pour les kits SDK Android et iOS natifs :
+Voici les bandes passantes requises pour les kits SDK Windows, Android et iOS natifs :
 
 |Bande passante|Scénarios|
 |:--|:--|

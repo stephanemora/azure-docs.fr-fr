@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 26aefab9b4637c3f3f6b0f0d1195068e2cd770ab
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 76f8c8819bf67405023980a6fd0e48f997926938
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001811"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111897072"
 ---
 <!-- All needs updating -->
 En tant qu’opérateur dans votre application Azure IoT Central, vous pouvez effectuer les opérations suivantes :
@@ -78,7 +78,7 @@ Pour qu’un opérateur puisse voir et utiliser les personnalisations que vous a
 
 Un opérateur peut maintenant utiliser la vue **Propriétés** pour mettre à jour les valeurs de propriétés, et appeler des commandes nommée **Get thermostat1 status report** et **Get thermostat2 status report** dans la page de commandes de l’appareil :
 
-* Mettez à jour les valeurs des propriétés inscriptibles dans la page **Propriétés** :
+* Mettez à jour les valeurs des propriétés accessibles en écriture dans la page **Propriétés** :
 
     :::image type="content" source="media/iot-central-monitor-thermostat/update-properties.png" alt-text="Mettre à jour les propriétés de l’appareil":::
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: d29fb34fd16293eee014c28cbbc39ec9a0ab7813
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: bc40b149da61936240562d13f8556e4bf0ce8890
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064933"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460203"
 ---
 # <a name="azure-for-students-starter"></a>Microsoft Azure for Students Starter
 
@@ -31,7 +31,7 @@ Cette offre n’est pas disponible pour une utilisation dans un cours en ligne o
 
 Cette offre est limitée à un seul abonnement Azure for Students Starter par client éligible. Elle est non transférable et ne peut pas être combinée avec d’autres offres, sauf autorisation contraire de Microsoft.
 
-Aucune carte bancaire n’est requise pour l’offre Azure for Students Starter. Toutefois, vous pouvez à tout moment opérer une mise à niveau vers un abonnement assorti d’un paiement à l’utilisation pour accéder à tous les services Azure via le [portail des comptes Azure](https://account.azure.com/).
+Aucune carte bancaire n’est requise pour l’offre Azure for Students Starter. Toutefois, vous pouvez à tout moment opérer une mise à niveau vers un abonnement assorti d’un paiement à l’utilisation pour accéder à tous les services Azure via le [portail Azure](https://portal.azure.com/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Obtenir de l’aide sur les erreurs de connexion](troubleshoot-login.md)

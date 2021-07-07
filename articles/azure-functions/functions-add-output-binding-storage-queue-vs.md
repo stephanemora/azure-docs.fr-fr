@@ -1,15 +1,15 @@
 ---
 title: Connecter des fonctions à Stockage Azure avec Visual Studio
 description: Découvrez comment ajouter une liaison de sortie pour connecter vos fonctions de bibliothèque de classes C# à une file d’attente Stockage Azure avec Visual Studio.
-ms.date: 07/22/2019
+ms.date: 05/30/2021
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 635392212027c73e5aa954eb671be31228796a0d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28748b7b9d0622d62baeb0de144adcd89c061a72
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96185128"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790906"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Connecter des fonctions à Stockage Azure avec Visual Studio
 
@@ -33,7 +33,7 @@ Dans l’[article du guide de démarrage rapide précédent](./create-first-func
 
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**. 
 
-1. Sous **Actions**, sélectionnez **Modifier les paramètres d’Azure App Service**. 
+1. Dans l’onglet **Publier** sous **Hébergement**, développez les trois points ( **...** ), puis sélectionnez **Gérer les paramètres Azure App Service**. 
 
     ![Modifier les paramètres d’application](media/functions-add-output-binding-storage-queue-vs/edit-app-settings.png)
 

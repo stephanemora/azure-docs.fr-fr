@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: include
 ms.date: 03/11/2021
-ms.openlocfilehash: 72e3c56b4f8fdaeec94bff60be45aadfb9b09e76
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: e147d6f954009f8ed4267f8b947438e2e60da0b4
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166886"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110486412"
 ---
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -21,11 +21,13 @@ Connectez-vous au portail Azure à l’adresse [https://portal.azure.com/](https
 
 Votre application se connectera à l’instance de service Web PubSub dans Azure.
 
-1. Cliquez sur le bouton Nouveau dans le coin supérieur gauche du portail Azure. À l’écran Nouveau, tapez *Web PubSub* dans la zone de recherche et appuyez sur Entrée.
+1. Cliquez sur le bouton Nouveau dans le coin supérieur gauche du portail Azure. À l’écran Nouveau, saisissez *Web PubSub* dans la zone de recherche et appuyez sur Entrée. (Vous pouvez également effectuer une recherche dans Azure Web PubSub à partir de la catégorie `Web`.)
 
-1. Sélectionnez **Web PubSub** dans les résultats de la recherche, puis **Créer**.
+:::image type="content" source="../media/create-instance-portal/search-web-pubsub-in-portal.png" alt-text="Capture d’écran d’une recherche dans Azure Web PubSub depuis le portail.":::
 
-1. Entrez les paramètres suivants.
+2. Sélectionnez **Web PubSub** dans les résultats de la recherche, puis **Créer**.
+
+3. Entrez les paramètres suivants.
 
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -36,4 +38,4 @@ Votre application se connectera à l’instance de service Web PubSub dans Azure
     | **Niveau tarifaire** | Gratuit | Essayez gratuitement le service Azure Web PubSub. |
     | **Nombre d’unité** |  Non applicable | Le nombre d’unité spécifie le nombre de connexions que votre instance de service Web PubSub peut accepter. Ceci n’est configurable que dans le niveau Standard. |
 
-1. Sélectionnez **Créer** pour commencer le déploiement de l’instance de service Web PubSub.
+4. Sélectionnez **Créer** pour commencer le déploiement de l’instance de service Web PubSub.

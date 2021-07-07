@@ -3,14 +3,14 @@ title: Didacticiel Kubernetes sur Azure - Créer un registre de conteneurs
 description: Dans le cadre de ce didacticiel Azure Kubernetes Service (AKS), vous allez créer une instance Azure Container Registry et y charger un exemple d’image conteneur d’application.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/31/2021
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: fd53fab577797ad8bfdbf29b4a6d219e61ee3ef4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/20/2021
+ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 157aae551f4fa77c4739670081804af1b8dbf16b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764258"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697775"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Didacticiel : Déployer et utiliser Azure Container Registry
 
@@ -28,11 +28,21 @@ Dans les tutoriels ultérieurs, cette instance ACR est intégrée à un cluster 
 
 Dans le [didacticiel précédent][aks-tutorial-prepare-app], une image conteneur a été créée pour une application Azure Vote. Si vous n’avez pas créé l’image de l’application Azure Vote, retournez au [Didacticiel 1 : Créer des images conteneur][aks-tutorial-prepare-app].
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 Ce didacticiel nécessite l’exécution de l’interface de ligne de commande Azure CLI version 2.0.53 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Ce tutoriel nécessite que vous exécutiez Azure PowerShell version 5.9.0 ou ultérieure. Exécutez `Get-InstalledModule -Name Az` pour trouver la version. Si vous avez besoin de procéder à une installation ou à une mise à niveau, consultez [Installer Azure PowerShell][azure-powershell-install].
+
+---
 
 ## <a name="create-an-azure-container-registry"></a>Création d’un Azure Container Registry
 
 Pour créer une instance Azure Container Registry, vous devez tout d’abord disposer d’un groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Créez un groupe de ressources avec la commande [az group create][az-group-create]. Dans l’exemple suivant, un groupe de ressources nommé *myResourceGroup* est créé dans la région *eastus* :
 
@@ -46,13 +56,41 @@ Créez une instance Azure Container Registry avec la commande [az acr create][az
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Créez un groupe de ressources avec l’applet de commande [New-AzResourceGroup][new-azresourcegroup]. Dans l’exemple suivant, un groupe de ressources nommé *myResourceGroup* est créé dans la région *eastus* :
+
+```azurepowershell
+New-AzResourceGroup -Name myResourceGroup -Location eastus
+```
+
+Créez une instance Azure Container Registry avec l’applet de commande [New-AzContainerRegistry][new-azcontainerregistry] et fournissez votre propre nom de registre. Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Dans le reste de ce didacticiel, `<acrName>` est utilisé comme espace réservé pour le nom du registre de conteneurs. Indiquez un nom de registre unique. La référence SKU *De base* est un point d’entrée au coût optimisé fourni à des fins de développement qui offre un bon équilibre entre stockage et débit.
+
+```azurepowershell
+New-AzContainerRegistry -ResourceGroupName myResourceGroup -Name <acrname> -Sku Basic
+```
+
+---
+
 ## <a name="log-in-to-the-container-registry"></a>Se connecter au registre de conteneurs
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour utiliser l’instance ACR, vous devez commencer par vous y connecter. Utilisez la commande [az acr login][az-acr-login] et fournissez le nom unique que vous avez attribué au registre de conteneurs à l’étape précédente.
 
 ```azurecli
 az acr login --name <acrName>
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Pour utiliser l’instance ACR, vous devez commencer par vous y connecter. Utilisez l’applet de commande [Connect-AzContainerRegistry][connect-azcontainerregistry] et fournissez le nom unique qui a été donné au registre de conteneurs à l’étape précédente.
+
+```azurepowershell
+Connect-AzContainerRegistry -Name <acrName>
+```
+
+---
 
 Après son exécution, la commande retourne le message *Login Succeeded (Connexion réussie)* .
 
@@ -74,11 +112,22 @@ tiangolo/uwsgi-nginx-flask                     python3.6           a16ce562e863 
 
 Pour utiliser l’image conteneur *azure-vote-front* avec ACR, vous devez baliser cette image avec l’adresse du serveur de connexion de votre registre. Cette balise est utilisée pour l’acheminement lors de l’envoi des images de conteneur dans un registre d’images.
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 Pour obtenir l’adresse du serveur de connexion, utilisez la commande [az acr list][az-acr-list] et exécutez une requête portant sur l’élément *loginServer*, comme suit :
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Pour obtenir l’adresse du serveur de connexion, utilisez l’applet de commande [AzContainerRegistry][get-azcontainerregistry] et interrogez *loginServer* de la façon suivante :
+
+```azurepowershell
+(Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name <acrName>).LoginServer
+```
+
+---
 
 À présent, étiquetez votre image *azure-vote-front* locale avec l’adresse *acrLoginServer* du registre de conteneurs. Pour indiquer la version de l’image, ajoutez *:v1* à la fin du nom de l’image :
 
@@ -114,6 +163,8 @@ L’envoi de l’image à ACR peut nécessiter quelques minutes.
 
 ## <a name="list-images-in-registry"></a>Créer la liste des images du registre
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 Pour retourner la liste des images qui ont été envoyées à votre instance ACR, utilisez la commande [az acr repository list][az-acr-repository-list]. Fournissez votre propre `<acrName>`, comme suit :
 
 ```azurecli
@@ -141,6 +192,38 @@ Result
 --------
 v1
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Pour retourner la liste des images qui ont été envoyées (push) vers votre instance ACR, utilisez l’applet de commande [Get-AzContainerRegistryManifest][get-azcontainerregistrymanifest]. Fournissez votre propre `<acrName>`, comme suit :
+
+```azurepowershell
+Get-AzContainerRegistryManifest -RegistryName <acrName> -RepositoryName azure-vote-front
+```
+
+L’exemple de sortie ci-après répertorie l’image *azure-vote-front* comme étant disponible dans le registre :
+
+```output
+Registry  ImageName        ManifestsAttributes
+--------  ---------        -------------------
+<acrName> azure-vote-front {Microsoft.Azure.Commands.ContainerRegistry.Models.PSManifestAttributeBase}
+```
+
+Pour afficher les étiquettes d’une image, utilisez l’applet de commande [AzContainerRegistryTag][get-azcontainerregistrytag] de la façon suivante :
+
+```azurepowershell
+Get-AzContainerRegistryTag -RegistryName <acrName> -RepositoryName azure-vote-front
+```
+
+L’exemple de sortie ci-après présente l’image *v1* balisée lors d’une étape précédente :
+
+```output
+Registry  ImageName        Tags
+--------  ---------        ----
+<acrName> azure-vote-front {v1}
+```
+
+---
 
 Vous disposez désormais d’une image conteneur stockée dans une instance Azure Container Registry privée. Au cours du didacticiel suivant, cette image est déployée à partir d’ACR vers un cluster Kubernetes.
 
@@ -174,3 +257,10 @@ Passez au didacticiel suivant pour découvrir comment déployer un cluster Kuber
 [azure-cli-install]: /cli/azure/install-azure-cli
 [aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[azure-powershell-install]: /powershell/azure/install-az-ps
+[new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
+[new-azcontainerregistry]: /powershell/module/az.containerregistry/new-azcontainerregistry
+[connect-azcontainerregistry]: /powershell/module/az.containerregistry/connect-azcontainerregistry
+[get-azcontainerregistry]: /powershell/module/az.containerregistry/get-azcontainerregistry
+[get-azcontainerregistrymanifest]: /powershell/module/az.containerregistry/get-azcontainerregistrymanifest
+[get-azcontainerregistrytag]: /powershell/module/az.containerregistry/get-azcontainerregistrytag

@@ -1,27 +1,27 @@
 ---
-title: Pool d’hôtes Windows Virtual Desktop Portail Azure - Azure
-description: Guide pratique pour créer un pool d’hôtes Windows Virtual Desktop à l’aide du portail Azure.
+title: Pool d’hôtes Azure Virtual Desktop Portail Azure - Azure
+description: Guide pratique pour créer un pool d’hôtes Azure Virtual Desktop à l’aide du portail Azure.
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
 ms.date: 03/10/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1003ab20f839469235d6bd7949ec3b2df4dd4f25
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 96e5fbf825c0550001ae9b0a38517e753b3a8d0f
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447979"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756254"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutoriel : Créer un pool d’hôtes avec le portail Azure
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Les objets que vous créez avec Windows Virtual Desktop (classique) ne peuvent pas être gérés avec le portail Azure.
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (Classic) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Les objets que vous créez avec Azure Virtual Desktop (classique) ne peuvent pas être gérés avec le portail Azure.
 
-Les pools d’hôtes sont des ensembles d’une ou plusieurs machines virtuelles identiques dans des environnements Windows Virtual Desktop. Chaque pool d’hôtes peut contenir un groupe d’applications avec lequel les utilisateurs peuvent interagir comme ils le feraient sur un ordinateur de bureau physique.
+Les pools d’hôtes sont des ensembles d’une ou plusieurs machines virtuelles identiques dans des environnements Azure Virtual Desktop. Chaque pool d’hôtes peut contenir un groupe d’applications avec lequel les utilisateurs peuvent interagir comme ils le feraient sur un ordinateur de bureau physique.
 
-Cet article vous guide tout au long du processus de création d’un pool d’hôtes pour un environnement Windows Virtual Desktop par le biais du portail Azure. Cette méthode offre une interface basée sur un navigateur pour créer un pool d’hôtes dans Windows Virtual Desktop, créer un groupe de ressources avec des machines virtuelles dans un abonnement Azure, joindre ces machines virtuelles au domaine Azure Active Directory (AD) et inscrire les machines virtuelles auprès de Windows Virtual Desktop.
+Cet article vous guide tout au long du processus de création d’un pool d’hôtes pour un environnement Azure Virtual Desktop par le biais du portail Azure. Cette méthode offre une interface basée sur un navigateur pour créer un pool d’hôtes dans Azure Virtual Desktop, créer un groupe de ressources avec des machines virtuelles dans un abonnement Azure, joindre ces machines virtuelles au domaine Azure Active Directory (AD) et inscrire les machines virtuelles auprès d’Azure Virtual Desktop.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,7 +30,7 @@ Vous devez entrer les paramètres suivants pour créer un pool d’hôtes :
 - Nom de l’image de machine virtuelle
 - Configuration des machines virtuelles
 - Propriétés du domaine et du réseau
-- Propriétés du pool d’hôtes Windows Virtual Desktop
+- Propriétés du pool d’hôtes Azure Virtual Desktop
 
 Vous devez également connaître les éléments suivants :
 
@@ -39,7 +39,7 @@ Vous devez également connaître les éléments suivants :
 
 En outre, assurez-vous d’avoir inscrit le fournisseur de ressources Microsoft.DesktopVirtualization. Si vous ne l’avez pas encore fait, accédez à **Abonnements**, sélectionnez le nom de votre abonnement, puis **Fournisseurs de ressources**. Recherchez DesktopVirtualization, sélectionnez Microsoft.DesktopVirtualization, puis Inscrire.
 
-Lorsque vous créez un pool d’hôtes Windows Virtual Desktop avec le modèle Azure Resource Manager, vous pouvez créer une machine virtuelle à partir de la galerie Azure, d’une image managée ou d’une image non managée. Pour en savoir plus sur la création d’images de machines virtuelles, voir [Préparer un disque dur virtuel Windows à charger sur Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) et [Créer une image managée d’une machine virtuelle généralisée dans Azure](../virtual-machines/windows/capture-image-resource.md).
+Lorsque vous créez un pool d’hôtes Azure Virtual Desktop avec le modèle Azure Resource Manager, vous pouvez créer un ordinateur virtuel à partir de la Galerie Azure, d’une image managée ou d’une image non managée. Pour en savoir plus sur la création d’images de machines virtuelles, voir [Préparer un disque dur virtuel Windows à charger sur Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) et [Créer une image managée d’une machine virtuelle généralisée dans Azure](../virtual-machines/windows/capture-image-resource.md).
 
 Si vous n’avez pas encore d’abonnement Azure, veillez à [créer un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer à suivre ces instructions.
 
@@ -52,9 +52,9 @@ Pour commencer à créer votre nouveau pool d’hôtes
    >[!NOTE]
    > Si vous vous connectez au portail US Gov, accédez à [https://portal.azure.us/](https://portal.azure.us/) à la place.
 
-2. Entrez **Windows Virtual Desktop** dans la barre de recherche, puis recherchez et sélectionnez **Windows Virtual Desktop** sous Services.
+2. Entrez **Azure Virtual Desktop** dans la barre de recherche, puis recherchez et sélectionnez **Azure Virtual Desktop** sous Services.
 
-3. Dans la page de vue d’ensemble de **Windows Virtual Desktop**, sélectionnez **Créer un pool d’hôtes**.
+3. Dans la page de vue d’ensemble d’**Azure Virtual Desktop**, sélectionnez **Créer un pool d’hôtes**.
 
 4. Sous l’onglet **De base**, sélectionnez l’abonnement approprié sous Détails du projet.
 
@@ -208,7 +208,7 @@ Si vous préférez utiliser un processus automatisé, [téléchargez notre modè
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez créé votre pool d’hôtes, vous pouvez le remplir avec des programmes RemoteApps. Pour en savoir plus sur la façon de gérer des applications dans Windows Virtual Desktop, consultez le tutoriel suivant :
+Maintenant que vous avez créé votre pool d’hôtes, vous pouvez le remplir avec des programmes RemoteApps. Pour en savoir plus sur la façon de gérer des applications dans Azure Virtual Desktop, consultez le tutoriel suivant :
 
 > [!div class="nextstepaction"]
 > [Gérer les groupes d’applications](./manage-app-groups.md)

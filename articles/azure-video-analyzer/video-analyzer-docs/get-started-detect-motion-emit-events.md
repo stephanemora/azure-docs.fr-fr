@@ -4,12 +4,12 @@ description: Ce guide de démarrage rapide vous guide tout au long des étapes d
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 04/21/2021
-ms.openlocfilehash: 3606442101c8e20173ed3cd18c583fce02a45da1
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 284911c4fb4a2df0fd03d10e2ead9c1f14a9c2bf
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385708"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112321609"
 ---
 # <a name="quickstart-get-started-with-azure-video-analyzer"></a>Démarrage rapide : Bien démarrer avec Azure Video Analyzer
 
@@ -40,7 +40,7 @@ Une fois la procédure de configuration terminée, vous pourrez exécuter un flu
 Le processus de déploiement prend environ **20 minutes**. À la fin de l’opération, certaines ressources Azure sont déployées dans l’abonnement Azure, notamment :
 1. **Compte Video Analyzer** : ce [service cloud](overview.md) est utilisé pour inscrire le module de périphérie Video Analyzer ainsi que pour la lecture des vidéos enregistrées et l’analytique vidéo.
 1. **Compte de stockage** : pour stocker les vidéos enregistrées et l’analytique vidéo.
-1. **Identité managée** : il s’agit de l’[identité managée]../../active-directory/managed-identities-azure-resources/overview.md) affectée par l’utilisateur, qui permet de gérer l’accès au compte de stockage ci-dessus.
+1. **Identité managée** : il s’agit de l’[identité managée](../../active-directory/managed-identities-azure-resources/overview.md) affectée par l’utilisateur qui permet de gérer l’accès au compte de stockage ci-dessus.
 1. **Machine virtuelle** : il s’agit d’une machine virtuelle qui sert d’appareil de périphérie simulé.
 1. **IoT Hub** : fait office de hub de messagerie centralisé pour la communication bidirectionnelle entre votre application IoT, les modules IoT Edge et les appareils qu'il gère.
 

@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 036db7999ce6d5fd84ad6210aa50206e2b031b2f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6c6dd03956329fd85862b7e211c24966f7eec64f
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369352"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495208"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Démarrage rapide : Charger, encoder et diffuser en streaming du contenu via le portail
 
@@ -36,7 +36,7 @@ Ce guide de démarrage rapide vous montre comment utiliser le portail Azure pour
 
         Quand vous utilisez le portail Azure, vous pouvez effectuer les opérations suivantes : générer un fichier de sous-titres codés TTML et WebVTT. Vous pouvez utiliser les fichiers ayant ces formats pour rendre les fichiers audio et vidéo accessibles aux personnes malentendantes. Vous pouvez également extraire des mots clés de votre contenu.
 
-        Pour une expérience riche qui vous permet d’extraire des insights de vos fichiers vidéo et audio, utilisez les présélections Media Services v3 (décrites dans [Tutoriel : Analyser des vidéos avec Media Services v3](analyze-videos-tutorial.md). <br/>Si vous souhaitez des informations plus détaillées, utilisez directement Video Indexer.    
+        Pour une expérience riche qui vous permet d’extraire des insights de vos fichiers vidéo et audio, utilisez les présélections Media Services v3 (décrites dans [Tutoriel : Analyser des vidéos avec Media Services v3](analyze-videos-tutorial.md). <br/>Si vous souhaitez obtenir des informations plus détaillées, utilisez directement [Azure Video Analyzer](../../azure-video-analyzer/video-analyzer-for-media-docs/index.yml).    
 * Une fois votre contenu traité, vous pouvez distribuer du contenu multimédia aux lecteurs clients. Pour permettre aux clients d’accéder en lecture aux vidéos de l’actif multimédia de sortie, vous devez créer un **localisateur de streaming**. Durant la création du **localisateur de streaming**, vous devez spécifier une **stratégie de streaming**. Les **stratégies de streaming** vous permettent de définir des protocoles de streaming et des options de chiffrement (le cas échéant) pour vos **localisateurs de streaming**.
     
     Révision :

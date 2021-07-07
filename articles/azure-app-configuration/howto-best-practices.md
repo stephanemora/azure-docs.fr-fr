@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 33661eafee6b180819b18d9a9a980eff1e2aeceb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c322ebcbda0d123a9048e92971e20c6b7c7c5fee
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371547"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064501"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Azure App Configuration – Bonnes pratiques
 
@@ -92,8 +92,10 @@ App Configuration est service régional. Pour les applications ayant des configu
 
 ## <a name="client-applications-in-app-configuration"></a>Applications clientes dans App Configuration 
 
-Un nombre excessif de requêtes envoyées à App Configuration peut entraîner des frais de limitation de requêtes ou de dépassement. Les applications tirent parti de la mise en cache et de l’actualisation intelligente actuellement disponibles pour optimiser le nombre de demandes qu’elles envoient. Ce processus peut être mis en miroir dans des applications clientes à volume élevé en évitant les connexions directes au magasin de configuration. Les applications clientes se connectent ainsi à un service personnalisé, qui communique avec le magasin de configuration. Grâce à cette solution de proxy, les applications clientes ne s’approchent pas de la limitation dans le magasin de configuration. Pour plus d’informations sur la limitation, consultez [FAQ](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
+Lorsque vous utilisez App Configuration dans des applications clientes, veillez à prendre en compte deux facteurs principaux. Tout d’abord, si vous utilisez la chaîne de connexion dans une application cliente, vous risquez d’exposer au public la clé d’accès de votre magasin App Configuration. Deuxièmement, l’échelle classique d’une application cliente est susceptible de donner lieu à des demandes excessives à votre magasin App Configuration, ce qui peut entraîner des frais de dépassement ou une limitation. Pour plus d’informations sur la limitation, consultez la [FAQ](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).
+
+Pour résoudre ces problèmes, nous vous recommandons d’utiliser un service proxy entre vos applications clientes et votre magasin App Configuration. Le service proxy peut s’authentifier en toute sécurité auprès de votre magasin App Configuration sans problème de sécurité de type fuite d’informations d’authentification. Vous pouvez créer un service proxy à l’aide d’une des bibliothèques du fournisseur App Configuration. Ainsi, vous tirerez parti des fonctionnalités intégrées de mise en cache et d’actualisation pour optimiser le volume de demandes envoyées à App Configuration. Pour plus d’informations sur les fournisseurs App Configuration, consultez les articles des guides de démarrage rapide et des tutoriels. Le service proxy traite la configuration de vos applications clientes à partir de son cache. De votre côté, vous évitez les deux problèmes potentiels mentionnés dans cette section.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Clés et valeurs](./concept-key-value.md)
+* [Clés et valeurs](./concept-key-value.md) 

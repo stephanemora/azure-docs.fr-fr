@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 04/23/2021
 ms.custom: devx-track-csharp
 ms.devlang: .NET
-ms.openlocfilehash: 800d89f22d54b185111f7385ebe07771f228d8cf
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: d38259b55c490d06885ea9fce4094fabcee68a37
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107981947"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469885"
 ---
 # <a name="3---deploy-the-search-enabled-net-website"></a>3 - Déployer le site web .NET avec fonctionnalité de recherche
 
@@ -30,20 +30,25 @@ L’application web statique extrait les informations et les fichiers en vue du 
 
     :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="Cliquez avec le bouton droit sur le nom de l’abonnement, puis sélectionnez **Créer une application web statique (avancé)**.":::
 
+1. Si une fenêtre contextuelle s'affiche dans VS Code pour vous demander à partir de quelle branche vous souhaitez effectuer le déploiement, sélectionnez la branche par défaut, généralement la branche **maître** ou **principale**. 
+
+    Ce paramètre signifie que seules les modifications apportées à cette branche sont déployées dans votre application web statique. 
+
+1. Si une fenêtre contextuelle s'affiche pour vous demander de valider vos modifications, ne le faites pas. Les secrets de l'étape d'importation en bloc ne doivent pas être validés dans le référentiel. 
+
+    Pour annuler les modifications, dans VS Code, sélectionnez l'icône Contrôle de code source de la barre Activité, choisissez chaque fichier modifié dans la liste Modifications, puis sélectionnez l'icône **Ignorer les modifications**.
+
 1. Suivez les invites pour fournir les informations suivantes :
 
     |Prompt|Entrez|
     |--|--|
-    |Comment voulez-vous créer une application web statique ?|Utiliser le référentiel GitHub existant|
-    |Choisir une organisation|Sélectionnez votre _propre_ alias GitHub en tant qu’organisation.|
-    |Choisir un référentiel|Sélectionnez **azure-search-dotnet-samples** dans la liste. |
-    |Choisir une branche pour le référentiel|Dans la liste, sélectionnez **master**. |
     |Entrez le nom de la nouvelle application web statique.|Créez un nom unique pour votre ressource. Vous pouvez ajouter votre nom au nom du référentiel, par exemple, `joansmith-azure-search-dotnet-samples`. |
     |Sélectionnez un groupe de ressources pour les nouvelles ressources.|Utilisez le groupe de ressources que vous avez créé pour ce tutoriel.|
+    |Sélectionner une référence| Dans le cadre de ce tutoriel, sélectionnez la référence SKU gratuite.|
     |Choisissez Générer une présélection pour configurer la structure de projet par défaut.|Sélectionnez **Personnalisée**.|
-    |Sélectionnez l’emplacement du code de votre application.|`search-website`|
-    |Sélectionnez l’emplacement de votre code Azure Function.|`search-website/api`|
-    |Entrez le chemin d’accès de la sortie générée...|build|
+    |Sélectionnez l’emplacement du code de votre application.|`search-website`<br><br>Il s'agit du chemin entre la racine du référentiel et votre application web Azure Static. |
+    |Sélectionnez l’emplacement de votre code Azure Function.|`search-website/api`<br><br>Il s'agit du chemin entre la racine du référentiel et votre application Azure Function. |
+    |Entrez le chemin d’accès de la sortie générée...|`build`<br><br>Il s'agit du chemin entre votre application web Azure Static et les fichiers que vous avez générés.|
     |Sélectionnez un emplacement pour les nouvelles ressources.|Sélectionnez une région proche de chez vous.|
 
 1. La ressource est créée. Sélectionnez **Actions d’ouverture dans GitHub** dans les notifications. Cela ouvre une fenêtre de navigateur pointée vers votre référentiel dupliqué. 

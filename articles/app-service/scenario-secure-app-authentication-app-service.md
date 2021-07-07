@@ -11,12 +11,12 @@ ms.date: 04/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: b17cb6906a37d2cab4383fac18400b35dc8adb2f
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: a99b017bf619bb7b3312f71a156b4d535b4067b3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106223179"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075859"
 ---
 # <a name="tutorial-add-authentication-to-your-web-app-running-on-azure-app-service"></a>Tutoriel : Ajouter l’authentification à votre application web s’exécutant sur Azure App Service
 
@@ -68,6 +68,10 @@ En bas de la page **Ajouter un fournisseur d’identité**, cliquez sur **Ajoute
 :::image type="content" alt-text="Capture d’écran montrant la configuration de l’authentification." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
 
 Vous disposez maintenant d’une application sécurisée par l’authentification et l’autorisation App Service.
+
+> [!NOTE]
+> Pour autoriser les comptes provenant d'autres locataires, remplacez l'« URL de l'émetteur » par « https://login.microsoftonline.com/common/v2.0  » en modifiant votre « Fournisseur d'identité » à partir du panneau « Authentification ».
+>
 
 ## <a name="verify-limited-access-to-the-web-app"></a>Vérifier l’accès limité à l’application web
 

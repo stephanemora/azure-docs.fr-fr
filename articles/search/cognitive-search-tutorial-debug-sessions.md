@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/02/2021
-ms.openlocfilehash: ed988baec46152d55cf63aec09fce7a298157212
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0560c7e1f8770dd27d8ad462d10a2668d69d5865
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99509146"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559244"
 ---
 # <a name="tutorial-debug-a-skillset-using-debug-sessions"></a>Tutoriel : Déboguer un ensemble de compétences avec Sessions de débogage
 
@@ -46,7 +46,7 @@ Avant de commencer, vous devez disposer des prérequis suivants :
 
 ## <a name="set-up-your-data"></a>Configurer vos données
 
-Cette section crée l’exemple de jeu de données dans le stockage Blob Azure, afin que l’indexeur et l’ensemble de compétences disposent de contenu à utiliser.
+Cette section crée l’exemple de jeu de données dans le service Stockage Blob Azure pour permettre à l’indexeur et à l’ensemble de compétences de disposer d’un contenu à utiliser.
 
 1. [Téléchargez l’exemple de données (clinical-trials-pdf-19)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19) composé de 19 fichiers.
 
@@ -107,7 +107,7 @@ L’exemple de code crée délibérément un index incorrect à la suite de prob
 1. Entrez la chaîne de requête `$select=metadata_storage_path, organizations, locations&$count=true` pour retourner les champs de documents spécifiques (identifiés par le champ `metadata_storage_path` unique).
 1. Cliquez sur **Rechercher** pour exécuter la requête qui retourne les 19 documents et affiche des valeurs vides pour « organizations » et « locations ».
 
-Ces champs auraient dû être remplis à l’aide de la [compétence de reconnaissance d’entité](cognitive-search-skill-entity-recognition.md) de l’ensemble de compétences ; celle-ci est utilisée pour rechercher des organisations et des localisations n’importe où dans le contenu du blob. Dans l’exercice suivant, vous allez utiliser la session de débogage pour déterminer la cause du problème.
+Ces champs auraient dû être remplis à l’aide de la [compétence de reconnaissance d’entité](cognitive-search-skill-entity-recognition-v3.md) de l’ensemble de compétences ; celle-ci est utilisée pour rechercher des organisations et des localisations n’importe où dans le contenu du blob. Dans l’exercice suivant, vous allez utiliser la session de débogage pour déterminer la cause du problème.
 
 Vous pouvez également investiguer les erreurs et les avertissements en utilisant le portail Azure.
 

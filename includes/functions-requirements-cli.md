@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 7a390c0d19a37ea18f9eac8636683ec35ecbc844
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: a191d5ff68bf671274ceb7f88a42c0451d48cd40
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107880119"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459596"
 ---
 ## <a name="configure-your-local-environment"></a>Configurer votre environnement local
 
@@ -17,20 +17,9 @@ Avant de commencer la lecture cet article, vous devez disposer des éléments su
 
 + Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java,programming-language-other"  
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 2.7.1846 ou ultérieure.
-::: zone-end  
-::: zone pivot="programming-language-python"
-+ La version Azure Functions Core Tools qui correspond à la version de Python installée :
++ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2).
 
-   | Version Python | Version Core Tools |
-   | -------------- | ------------------ |
-   | Python 3.8     | [version 3.x](../articles/azure-functions/functions-run-local.md#v2) |
-   | Python 3.6<br/>Python 3.7 | [Version 2.7.1846 ou ultérieure](../articles/azure-functions/functions-run-local.md#v2) |
-  
-::: zone-end
-
-+ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 ou ultérieure. 
++ [Azure CLI](/cli/azure/install-azure-cli), version 2.4 ou ultérieure. 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 + [Node.js](https://nodejs.org/), Active LTS et Maintenance LTS (versions 8.11.1 et 10.14.1 recommandées).
 ::: zone-end

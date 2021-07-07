@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 92f9c3baaa8260bdc154f8752b56a63cf1444ebe
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7359dc8199c01bae7f7463b83079193397e40519
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140404"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072889"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -109,6 +109,12 @@ Le propriétaire de la ressource Private Link peut effectuer les actions suivant
  
 > [!NOTE]
 > Seule une instance Private Endpoint dans un état approuvé peut envoyer le trafic vers une ressource Private Link donnée. 
+
+### <a name="rbac-permissions"></a>Autorisations RBAC
+
+Voici des autorisations RBAC spécifiques dont l’utilisateur a besoin pour pouvoir créer un point de terminaison privé. Pour plus d’informations sur les rôles personnalisés, consultez [Étapes de création d’un rôle personnalisé](/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role).
+
+Microsoft.Resources/deployments/* Microsoft.Resources/subscriptions/resourcegroups/resources/read Microsoft.Network/virtualNetworks/read Microsoft.Network/virtualNetworks/subnets/read Microsoft.Network/virtualNetworks/subnets/write Microsoft.Network/virtualNetworks/subnets/join/action Microsoft.Network/privateEndpoints/read Microsoft.Network/privateEndpoints/write Microsoft.Network/locations/availablePrivateEndpointTypes/read
 
 ### <a name="connecting-using-alias"></a>Connexion à l’aide de l’alias
 Alias est un moniker unique qui est généré lorsque le propriétaire du service crée le service Private Link derrière un Standard Load Balancer. Le propriétaire du service peut partager cet alias avec ses consommateurs hors connexion. Les consommateurs peuvent demander une connexion au service Private Link à l’aide de l’URI de ressource ou de l’alias. Si vous souhaitez vous connecter à l’aide de l’alias, vous devez créer une instance Private Endpoint à l’aide de la méthode d’approbation de connexion manuelle. Pour utiliser la méthode d’approbation de connexion manuelle, affectez la valeur true au paramètre de demande manuelle au cours de la création de votre Private Endpoint. Étudiez [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) et [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) pour plus de détails. 

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 12/15/2020
+ms.date: 05/24/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance d’image, identificateur d’image, application de reconnaissance d’image, vision personnalisée
-ms.openlocfilehash: 12877f2d43f9b8f864871e5a5ab050aa0eeb61e2
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e245c4882a06d5053e8781a48469d104bcaced23
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814599"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454783"
 ---
 # <a name="what-is-custom-vision"></a>Qu’est-ce que Custom Vision ?
 
@@ -27,7 +27,7 @@ Azure Custom Vision est un service de reconnaissance d’image qui vous permet d
 
 ## <a name="what-it-does"></a>Résultat
 
-Le service Custom Vision utilise un algorithme de Machine Learning pour analyser les images. En tant que développeur, vous envoyez des groupes d’images présentant les caractéristiques en question ainsi que des groupes d’images n’en disposant pas. Vous étiquetez les images vous-même au moment de la soumission. L’algorithme s’entraîne ensuite avec ces données et calcule sa propre justesse en se testant lui-même à l’aide de ces mêmes images. Une fois l’algorithme entraîné, vous pouvez le tester, le réentraîner, puis l’utiliser dans votre application de reconnaissance d’images pour classifier de nouvelles images. Vous pouvez également exporter le modèle en question pour l’utiliser en mode hors connexion.
+Le service Custom Vision utilise un algorithme de Machine Learning pour analyser les images. En tant que développeur, vous envoyez des groupes d’images présentant les caractéristiques en question ainsi que des groupes d’images n’en disposant pas. Vous étiquetez les images vous-même au moment de la soumission. L’algorithme s’entraîne ensuite avec ces données et calcule sa propre justesse en se testant lui-même à l’aide de ces mêmes images. Une fois que vous avez entraîné l’algorithme, vous pouvez le tester, le réentraîner, puis l’utiliser dans votre application de reconnaissance d’images pour classifier de nouvelles images. Vous pouvez également exporter le modèle en question pour l’utiliser en mode hors connexion.
 
 ### <a name="classification-and-object-detection"></a>Classification et détection d’objet
 

@@ -40,6 +40,10 @@
           href: tutorial-no-code-speech.md
 - name: Concepts
   items:
+    - name: DK Azure Percept
+      items:
+        - name: Se connecter via une connexion cellulaire
+          href: connect-over-cellular.md
     - name: Azure Percept Audio
       items:
         - name: Comportement des voyants et des boutons
@@ -78,6 +82,8 @@
           href: how-to-update-via-usb.md
     - name: Se connecter au DK Azure Percept
       items:
+        - name: Se connecter via Ethernet
+          href: how-to-connect-over-ethernet.md
         - name: Se connecter via SSH
           href: how-to-ssh-into-percept-dk.md
         - name: Se connecter via un port série

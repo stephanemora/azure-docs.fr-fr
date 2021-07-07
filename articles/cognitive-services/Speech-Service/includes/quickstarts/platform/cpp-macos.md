@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: 3ad8eb9564c4d8343a0763cc2f6f5061ee602b72
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ed1e979d6334dbef580eb4e686363bfbaffac222
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188246"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110164925"
 ---
 Ce guide explique comment installer le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour C++ sur macOS 10.13 et versions ultérieures.
 
@@ -53,8 +53,6 @@ macOS 10.13 et versions ultérieures
    ```
 
    La liste des répertoires doit contenir les fichiers de notification et de licence de tiers, ainsi qu’un répertoire `MicrosoftCognitiveServicesSpeech.framework`.
-
-Vous pouvez maintenant passer aux [étapes suivantes](#next-steps) ci-dessous.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

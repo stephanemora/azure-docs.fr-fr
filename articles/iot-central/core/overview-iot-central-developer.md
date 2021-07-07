@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 7cb52dba88d94ed52baa8272c7f20fed4bcde0fd
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 90e1b951cd3990df3615cdcf33a4d659f693b5ee
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787542"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064879"
 ---
 # <a name="iot-central-device-development-guide"></a>Guide de développement d’appareils IoT Central
 
@@ -77,6 +77,8 @@ Les protocoles de communication qu’un appareil peut utiliser pour se connecter
 ## <a name="implement-the-device"></a>Implémenter l’appareil
 
 Un modèle d’appareil IoT Central comprend un _modèle de capacité_ qui spécifie les comportements qu’un appareil de ce type doit implémenter. Les comportements incluent une télémétrie, des propriétés et des commandes.
+
+Pour en découvrir plus sur les bonnes pratiques de modification d’un modèle, consultez [Modifier un modèle d’appareil existant](howto-edit-device-template.md).
 
 > [!TIP]
 > Vous pouvez exporter le modèle de capacité à partir d’IoT Central en tant que fichier JSON [DTDL (Digital Twins Definition Language) v2](https://github.com/Azure/opendigitaltwins-dtdl).

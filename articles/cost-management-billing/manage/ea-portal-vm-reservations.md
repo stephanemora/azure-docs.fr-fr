@@ -3,17 +3,17 @@ title: Instances réservées de machine virtuelle Azure EA
 description: Cet article résume la façon dont les réservations Azure pour les instances réservées de machine virtuelle peuvent vous aider à faire des économies dans le cadre de l’inscription de votre entreprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2020
+ms.date: 05/17/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 6303a94cec9efc01815b6dc6c697abdfe0f84227
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 0378e05d8d606d04b90ca20aa3e0399132e9f0ef
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220898"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095839"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instances réservées de machine virtuelle Azure EA
 
@@ -43,6 +43,14 @@ Les clients titulaires d’un contrat Entreprise peuvent consulter les données 
 Pour plus d’informations sur les coûts de réservation et l’utilisation, voir [Obtenir les données d’utilisation et de coûts de la réservation pour les Contrats Entreprise](../reservations/understand-reserved-instance-usage-ea.md).
 
 Pour obtenir des informations sur les tarifs, consultez [Tarification des machines virtuelles Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) ou [Tarification des machines virtuelles Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+
+### <a name="reservation-prices"></a>Tarifs des réservations
+
+Les réductions sur les réservations que votre organisation a pu négocier n'apparaissent pas dans la grille tarifaire d'EA Portal. Auparavant, les tarifs réduits étaient disponibles sur EA Portal, mais cette fonctionnalité a été supprimée. Si vous avez négocié des tarifs de réservation réduits, la seule façon d'en obtenir la liste est de créer une [demande de support Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+Les tarifs des réservations ne sont pas nécessairement les mêmes entre les prix de vente au détail et EA. Ils peuvent être identiques, mais si vous avez négocié une réduction, ils seront différents.
+
+Les prix indiqués dans la [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) et l'[API Prix de vente au détail](/rest/api/cost-management/retail-prices/azure-retail-prices) sont identiques. Pour afficher tous les prix en même temps, interrogez l'API.
 
 ## <a name="reserved-instances-api-support"></a>Prise en charge des API des instances réservées
 

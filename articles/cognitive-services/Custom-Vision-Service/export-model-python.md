@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 7422b88aa2f9c4894d550ee2bf7e397cd163f870
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 3b72f65ad5cf025533e844478deb84433b019c18
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105046026"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111853709"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Didacticiel : exécuter le modèle TensorFlow dans Python
 
 Une fois que vous avez [exporté votre modèle TensorFlow](./export-your-model.md) à partir du Service Vision personnalisée, ce démarrage rapide vous montrera comment utiliser ce modèle localement pour classer des images.
 
 > [!NOTE]
-> Ce tutoriel s’applique seulement aux modèles exportés depuis des projets de classification d’images.
+> Ce tutoriel s’applique seulement aux modèles exportés à partir de projets de classification d’images « Général (compact) ». Si vous avez exporté d’autres modèles, consultez notre [référentiel d’exemples de code](https://github.com/Azure-Samples/customvision-export-samples).
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc, devx-track-python, devx-track-js, devx-track-csharp
 ms.subservice: blobs
-ms.openlocfilehash: 0d597f0742cfc43f1c7fb38568b2a2bbda352beb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8c9666f9cfadeda29b6259876c972bda67a9ee44
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049336"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462011"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutoriel : Générer une application hautement disponible avec le stockage Blob
 
@@ -39,17 +39,17 @@ Dans ce premier volet, vous apprenez à :
 
 Pour suivre ce tutoriel :
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 * Installez [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement Azure**.
 
   ![Développement Azure (sous Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK Python v12](#tab/python)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
@@ -58,11 +58,11 @@ Nous travaillons actuellement à la création d’extraits de code reflétant la
 * Installez [Python](https://www.python.org/downloads/)
 * Téléchargez et installez le [SDK Stockage Azure pour Python](https://github.com/Azure/azure-storage-python).
 
-# <a name="nodejs-v12"></a>[Node.js v12](#tab/nodejs)
+# <a name="nodejs-v12-sdk"></a>[SDK Node.js v12](#tab/nodejs)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# <a name="nodejs-v11"></a>[Node.js v11](#tab/nodejs11)
+# <a name="nodejs-v11-sdk"></a>[SDK Node.js v11](#tab/nodejs11)
 
 * Installez [Node.js](https://nodejs.org).
 
@@ -84,7 +84,7 @@ Suivez ces étapes pour créer un compte de stockage géoredondant interzone (RA
 
    | Paramètre       | Exemple de valeur | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Abonnement** | *Mon abonnement* | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.azure.com/Subscriptions). |
+   | **Abonnement** | *Mon abonnement* | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). |
    | **ResourceGroup** | *myResourceGroup* | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom). |
    | **Nom** | *mystorageaccount* | Un nom unique pour votre compte de stockage. |
    | **Lieu** | *USA Est* | Choisissez un emplacement. |
@@ -97,11 +97,11 @@ Suivez ces étapes pour créer un compte de stockage géoredondant interzone (RA
 
 ## <a name="download-the-sample"></a>Télécharger l’exemple
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 [Téléchargez l’exemple de projet](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) et extrayez (décompressez) le fichier storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. Vous pouvez aussi utiliser [git](https://git-scm.com/) pour télécharger une copie de l’application dans votre environnement de développement. L’exemple de projet contient une application console.
 
@@ -109,7 +109,7 @@ Nous travaillons actuellement à la création d’extraits de code reflétant la
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK Python v12](#tab/python)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
@@ -121,11 +121,11 @@ Nous travaillons actuellement à la création d’extraits de code reflétant la
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="nodejs-v12"></a>[Node.js v12](#tab/nodejs)
+# <a name="nodejs-v12-sdk"></a>[SDK Node.js v12](#tab/nodejs)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# <a name="nodejs-v11"></a>[Node.js v11](#tab/nodejs11)
+# <a name="nodejs-v11-sdk"></a>[SDK Node.js v11](#tab/nodejs11)
 
 [Téléchargez l’exemple de projet](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) et décompressez le fichier. Vous pouvez aussi utiliser [git](https://git-scm.com/) pour télécharger une copie de l’application dans votre environnement de développement. L’exemple de projet contient une application Node.js de base.
 
@@ -137,11 +137,11 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 ## <a name="configure-the-sample"></a>Configurer l'exemple
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 Dans l’application, vous devez fournir la chaîne de connexion de votre compte de stockage. Vous pouvez stocker cette chaîne de connexion dans une variable d’environnement sur l’ordinateur local exécutant l’application. Suivez l’un des exemples ci-dessous, en fonction de votre système d’exploitation, pour créer la variable d’environnement.
 
@@ -159,7 +159,7 @@ export storageconnectionstring=<yourconnectionstring>
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK Python v12](#tab/python)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
@@ -183,11 +183,11 @@ setx accountname "<youraccountname>"
 setx accountkey "<youraccountkey>"
 ```
 
-# <a name="nodejs-v12"></a>[Node.js v12](#tab/nodejs)
+# <a name="nodejs-v12-sdk"></a>[SDK Node.js v12](#tab/nodejs)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# <a name="nodejs-v11"></a>[Node.js v11](#tab/nodejs11)
+# <a name="nodejs-v11-sdk"></a>[SDK Node.js v11](#tab/nodejs11)
 
 Pour exécuter cet exemple, vous devez ajouter les informations d’identification de votre compte de stockage au fichier `.env.example` et le renommer `.env`.
 
@@ -204,11 +204,11 @@ Installez les dépendances nécessaires. Pour cela, ouvrez une invite de command
 
 ## <a name="run-the-console-application"></a>Exécuter l’application console
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 Dans Visual Studio, appuyez sur **F5** ou sélectionnez **Démarrer** pour commencer le débogage de l’application. Visual Studio restaure automatiquement les packages NuGet manquants si cette option est configurée. Pour en savoir plus, consultez [Installation et réinstallation de packages avec la restauration de packages](/nuget/consume-packages/package-restore#package-restore-overview).
 
@@ -218,7 +218,7 @@ Une fenêtre de console apparaît et l’application commence à s’exécuter. 
 
 Dans l’exemple de code, la tâche `RunCircuitBreakerAsync` dans le fichier `Program.cs` est utilisée pour télécharger une image du compte de stockage à l’aide de la méthode [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync). Avant le téléchargement, une classe [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext) est définie. Le contexte d’opération définit les gestionnaires d’événements, qui se déclenchent quand un téléchargement se termine correctement ou si un téléchargement échoue et effectue une nouvelle tentative.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK Python v12](#tab/python)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
@@ -234,11 +234,11 @@ La fonction Nouvelle tentative de l’objet de stockage est définie sur une str
 
 Avant le téléchargement, l’objet du service [retry_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient) et la fonction [response_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient) sont définis. Ces fonctions définissent les gestionnaires d’événements qui se déclenchent quand un téléchargement se termine correctement ou si un téléchargement échoue et effectue une nouvelle tentative.
 
-# <a name="nodejs-v12"></a>[Node.js v12](#tab/nodejs)
+# <a name="nodejs-v12-sdk"></a>[SDK Node.js v12](#tab/nodejs)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# <a name="nodejs-v11"></a>[Node.js v11](#tab/nodejs11)
+# <a name="nodejs-v11-sdk"></a>[SDK Node.js v11](#tab/nodejs11)
 
 Pour exécuter l’exemple, ouvrez une invite de commandes, accédez à l’exemple de dossier et entrez `node index.js`.
 
@@ -269,11 +269,11 @@ Deleted container newcontainer1550799840726
 
 ## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 ### <a name="retry-event-handler"></a>Gestionnaire d’événements de nouvelle tentative
 
@@ -324,7 +324,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK Python v12](#tab/python)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
@@ -371,11 +371,11 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="nodejs-v12"></a>[Node.js v12](#tab/nodejs)
+# <a name="nodejs-v12-sdk"></a>[SDK Node.js v12](#tab/nodejs)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# <a name="nodejs-v11"></a>[Node.js v11](#tab/nodejs11)
+# <a name="nodejs-v11-sdk"></a>[SDK Node.js v11](#tab/nodejs11)
 
 Avec le kit SDK Node.js V10, les gestionnaires de rappel sont inutiles. À la place, l’exemple crée un pipeline configuré avec des options de nouvelle tentative et un point de terminaison secondaire. L’application peut ainsi basculer automatiquement vers le pipeline secondaire si elle ne parvient pas à atteindre vos données via le pipeline principal.
 

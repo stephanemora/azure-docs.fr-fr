@@ -4,17 +4,17 @@ titleSuffix: Azure Applied AI Services
 description: Ce guide vous montre comment utiliser une fonction Azure pour déclencher le traitement de documents chargés dans un conteneur de stockage blob Azure.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: 6a8f3cf5b98361f96df26da923ff6bff7a604d23
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c458740f3b8b321631b4c9e8fec5d30e8286eb6e
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373995"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893477"
 ---
 # <a name="tutorial-use-an-azure-function-to-process-stored-documents"></a>Tutoriel : Utiliser une fonction Azure pour traiter des documents stockés
 
@@ -166,7 +166,7 @@ Le bloc de code suivant appelle l’API [Analyze Layout](https://westus.dev.cogn
 > [!IMPORTANT]
 > Accédez au portail Azure. Si la ressource Form Recognizer que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. La clé et le point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources**. 
 >
-> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article [Sécurité Azure Cognitive Services](../cognitive-services-security.md).
+> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. En production, utilisez des méthodes sécurisées pour stocker vos informations d’identification et y accéder. Pour plus d’informations, consultez l’article [Sécurité Azure Cognitive Services](../cognitive-services-security.md).
 
 Ensuite, ajoutez du code pour interroger le service et obtenir les données retournées. 
 

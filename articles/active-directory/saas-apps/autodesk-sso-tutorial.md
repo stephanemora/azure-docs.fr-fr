@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/04/2021
+ms.date: 05/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 41e08c1278cf6ea3041ad419703ac86f6995f451
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: fa207bb2d915ad307a04f633139cd49beddfbb24
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109665185"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110580092"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-autodesk-sso"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Autodesk SSO
 
@@ -63,7 +63,7 @@ Pour configurer et tester l’authentification SSO Azure AD avec Autodesk SSO, 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
     1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-1. **[Configurer l’authentification SSO pour Autodesk SSO](#configure-autodesk-sso-sso)** afin de configurer les paramètres d’authentification unique côté application.
+1. **[Configurer l’authentification unique Autodesk](#configure-autodesk-sso)** pour configurer les paramètres de l’authentification unique côté application.
     1. **[Créer une utilisatrice de test pour Autodesk SSO](#create-autodesk-sso-test-user)** afin de disposer dans Autodesk SSO d’un équivalent de B.Simon lié à la représentation Azure AD de l’utilisatrice.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
@@ -86,7 +86,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     c. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://autodesk-prod.okta.com/sso/saml2/`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique d’Autodesk SSO](mailto:apps.email@autodesk.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique d’Autodesk SSO](https://knowledge.autodesk.com/contact-support). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. L’application Autodesk SSO attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
@@ -133,9 +133,9 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-autodesk-sso-sso"></a>Configurer l’authentification SSO pour Autodesk SSO
+## <a name="configure-autodesk-sso"></a>Configurer l’authentification unique Autodesk
 
-Pour configurer l’authentification unique côté **Autodesk SSO**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL copiées appropriées à partir du portail Azure à l’[équipe du support technique d’Autodesk SSO](mailto:apps.email@autodesk.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Autodesk SSO**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL copiées appropriées à partir du portail Azure à l’[équipe du support technique d’Autodesk SSO](https://knowledge.autodesk.com/contact-support). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-autodesk-sso-test-user"></a>Créer l’utilisateur de test Autodesk SSO
 
@@ -147,6 +147,6 @@ Pour tester Autodesk SSO, ouvrez la console Autodesk, cliquez sur le bouton **Te
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré Autodesk SSO, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Une fois que vous avez configuré Autodesk SSO, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/05/2020
 ms.author: v-jawe
-ms.openlocfilehash: 3873a15c6a56d6ee4944cc596f447c966c275950
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: a44cbbf110ac2789b03b411f074f068451c70e2c
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108313463"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109858215"
 ---
 ## <a name="quickstart-face-client-library-for-javascript"></a>Démarrage rapide : Bibliothèque de client Visage pour JavaScript
 
@@ -213,10 +213,10 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à utiliser la bibliothèque de client Visage pour JavaScript afin d’effectuer des tâches de reconnaissance faciale simples. Pour plus d’informations sur la bibliothèque, reportez-vous à la documentation de référence.
+Dans ce guide de démarrage rapide, vous avez appris à utiliser la bibliothèque de client Visage pour JavaScript afin d’effectuer des tâches de reconnaissance faciale simples. Découvrez à présent les différents modèles de détection de visage, et la façon de spécifier le modèle adapté à votre cas d’usage.
 
 > [!div class="nextstepaction"]
-> [Informations de référence sur l’API Visage (JavaScript)](/javascript/api/@azure/cognitiveservices-face/)
+> [Spécifier une version de modèle de détection des visages](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [Qu’est ce que le service Visage ?](../../overview.md)
 * Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/sdk_quickstart.js).

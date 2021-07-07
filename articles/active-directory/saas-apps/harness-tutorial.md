@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/02/2019
+ms.date: 05/18/2021
 ms.author: jeedes
-ms.openlocfilehash: d6a6c8b49582b34c2603e0ddf78b76736f97c183
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9452358c7549209bd628e21d5eb702a07d6f39f1
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92445577"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472976"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Harness
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez apprendre à intégrer Harness à Azure Active Dire
 * Contrôler dans Azure AD qui a accès à Harness.
 * Permettre à vos utilisateurs de se connecter automatiquement à Harness avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,24 +37,27 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Harness prend en charge l’authentification unique (SSO) lancée **le fournisseur de services et le fournisseur d’identité**
+* Harness prend en charge l'authentification unique (SSO) lancée par **le fournisseur de services et le fournisseur d'identité**.
 
-## <a name="adding-harness-from-the-gallery"></a>Ajout de Harness à partir de la galerie
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
+
+## <a name="add-harness-from-the-gallery"></a>Ajouter Harness à partir de la galerie
 
 Pour configurer l’intégration de Harness à Azure AD, vous devez ajouter Harness de la galerie à votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Harness** dans la zone de recherche.
 1. Sélectionnez **Harness** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-harness"></a>Configurer et tester l’authentification unique Azure AD pour Harness
+## <a name="configure-and-test-azure-ad-sso-for-harness"></a>Configurer et tester l'authentification unique Azure AD pour Harness
 
 Configurez et testez l’authentification unique (SSO) Azure AD avec Harness à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique (SSO) fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur Harness associé.
 
-Pour configurer et tester l’authentification unique (SSO) Azure AD avec Harness, suivez les modules suivants :
+Pour configurer et tester l'authentification unique Azure AD auprès de Harness, suivez les étapes ci-dessous :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -69,19 +70,19 @@ Pour configurer et tester l’authentification unique (SSO) Azure AD avec Harne
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans la page d’intégration de l’application **Harness** du [portail Azure](https://portal.azure.com/), recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Sur le portail Azure, accédez à la page d'intégration de l'application **Harness**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez l’étape suivante :
 
     Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://app.harness.io/gateway/api/users/saml-login?accountId=<harness_account_id>`
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL : `https://app.harness.io/`
+    Dans la zone de texte **URL de connexion**, tapez l’URL : `https://app.harness.io/`
 
     > [!NOTE]
     > La valeur de l’URL de réponse n’est pas réelle. Vous obtiendrez l’URL de réponse réelle en suivant la procédure décrite dans la section **Configurer l’authentification unique (SSO) Harness**, plus loin dans ce tutoriel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -113,15 +114,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Harness**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-harness-sso"></a>Configurer l’authentification unique (SSO) Harness
@@ -138,15 +133,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 4. En haut à droite de la page, cliquez sur **Sécurité continue** > **Gestion de l’accès** > **Paramètres d’authentification**.
 
-    ![Capture d’écran montrant le menu « Continuous Security » avec les éléments « Access Management » et « Authentication Settings » sélectionnés.](./media/harness-tutorial/configure01.png)
+    ![Capture d’écran montrant le menu « Continuous Security » avec les éléments « Access Management » et « Authentication Settings » sélectionnés.](./media/harness-tutorial/authentication.png)
 
 5. Dans la section **Fournisseurs SSO**, cliquez sur **+ Ajouter des fournisseurs SSO** > **SAML**.
 
-    ![Capture d’écran montrant la zone « SSO Providers » avec l’option « Add SSO Providers - SAML » sélectionnée.](./media/harness-tutorial/configure03.png)
+    ![Capture d’écran montrant la zone « SSO Providers » avec l’option « Add SSO Providers - SAML » sélectionnée.](./media/harness-tutorial/providers.png)
 
 6. Dans la fenêtre contextuelle **Fournisseur SAML**, effectuez les étapes suivantes :
 
-    ![Capture d’écran montrant la fenêtre contextuelle « SAML Provider » avec les champs « URL » et « Display Name » mis en évidence, ainsi que les boutons « File » et « Submit » sélectionnés.](./media/harness-tutorial/configure02.png)
+    ![Capture d’écran montrant la fenêtre contextuelle « SAML Provider » avec les champs « URL » et « Display Name » mis en évidence, ainsi que les boutons « File » et « Submit » sélectionnés.](./media/harness-tutorial/file.png)
 
     a. Copiez l’instance **Dans votre fournisseur SSO, activez la connexion basée sur SAML, puis entrez l’URL suivante**, puis collez-la dans la zone de texte URL de réponse de la section **Configuration SAML de base**.
 
@@ -166,15 +161,15 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Harness, vous devez
 
 1. En haut à droite de la page, cliquez sur **Sécurité continue** > **Gestion de l’accès** > **Utilisateurs**.
 
-    ![Capture d’écran montrant le menu « Continuous Security » avec les éléments « Access Management » et « Users » sélectionnés.](./media/harness-tutorial/configure04.png)
+    ![Capture d’écran montrant le menu « Continuous Security » avec les éléments « Access Management » et « Users » sélectionnés.](./media/harness-tutorial/users.png)
 
 1. À droite de la page, cliquez sur **+ Ajouter un utilisateur**.
 
-    ![Capture d’écran montrant la page « Users » avec l’action « + Add User » sélectionnée.](./media/harness-tutorial/configure05.png)
+    ![Capture d’écran montrant la page « Users » avec l’action « + Add User » sélectionnée.](./media/harness-tutorial/add-user.png)
 
 1. Dans la fenêtre contextuelle **Ajouter un utilisateur**, effectuez les étapes suivantes :
 
-    ![Configuration de Harness](./media/harness-tutorial/configure06.png)
+    ![Configuration de Harness](./media/harness-tutorial/configure.png)
 
     a. Dans la zone de texte **Adresses e-mail**, entrez l’adresse e-mail de l’utilisateur, par exemple `B.simon@contoso.com`.
 
@@ -184,16 +179,20 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Harness, vous devez
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Le fait de cliquer sur la vignette Harness dans le volet d’accès doit vous connecter automatiquement à l’application Harness pour laquelle vous avez configuré l’authentification unique (SSO). Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l'URL de connexion à Harness, à partir de laquelle vous pouvez lancer le flux de connexion.  
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Accédez directement à l'URL de connexion à Harness pour lancer le flux de connexion.
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+* Cliquez sur **Tester cette application** sur le portail Azure. Vous êtes alors automatiquement connecté à l'instance de Harness pour laquelle vous avez configuré l'authentification unique. 
 
-- [Essayer Harness avec Azure AD](https://aad.portal.azure.com/)
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, lorsque vous cliquez sur la vignette Harness dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l'application pour lancer le flux de connexion ; s'il s'agit du mode Fournisseur d'identité, vous êtes automatiquement connecté à l'instance de Harness pour laquelle vous avez configuré l'authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Après avoir configuré Harness, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l'exfiltration et l'infiltration de données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

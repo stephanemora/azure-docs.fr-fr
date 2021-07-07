@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 05/25/2021
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: efe19d39914e2efc4ac4dcc39d9b0f036ac626b3
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 80090bf8743c78a66e38250dbfbb89beb70e66c2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371009"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457576"
 ---
 # <a name="train-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Entraîner un modèle de classification d’images TensorFlow en utilisant l’extension Visual Studio Code d’Azure Machine Learning (préversion)
 
@@ -68,9 +68,9 @@ La première chose à faire pour générer une application dans Azure Machine Le
       team: ml-team
     ```
 
-    Le modèle crée un espace de travail appelé `TeamWorkspace` dans la région `WestUS2`. Le reste des options définies dans le modèle fournissent un nom convivial, des descriptions et des étiquettes pour l’espace de travail.
+    Le fichier de spécification crée un espace de travail appelé `TeamWorkspace` dans la région `WestUS2`. Le reste des options définies dans le fichier de spécification fournissent un nom convivial, des descriptions et des étiquettes pour l’espace de travail.
 
-1. Cliquez avec le bouton droit sur le fichier de modèle, puis sélectionnez **Azure ML : Créer une ressource**. La création d’une ressource utilise les options de configuration définies dans le fichier de spécifications YAML et envoie un travail en utilisant l’interface CLI 2.0. À ce stade, une demande est envoyée à Azure pour créer un nouvel espace de travail et ses ressources dépendantes dans votre compte. Après quelques minutes, le nouvel espace de travail apparaît dans votre nœud d’abonnement.
+1. Cliquez avec le bouton droit sur le fichier de spécification et sélectionnez **Azure ML : Créer une ressource**. La création d’une ressource utilise les options de configuration définies dans le fichier de spécifications YAML et envoie un travail en utilisant l’interface CLI 2.0. À ce stade, une demande est envoyée à Azure pour créer un nouvel espace de travail et ses ressources dépendantes dans votre compte. Après quelques minutes, le nouvel espace de travail apparaît dans votre nœud d’abonnement.
 1. Définissez `TeamWorkspace` comme votre espace de travail par défaut. Cela place les ressources et les travaux que vous créez dans l’espace de travail par défaut. Sélectionnez le bouton **Définir l’espace de travail Azure ML** dans la barre d’état de Visual Studio Code, puis suivez les invites pour définir `TeamWorkspace` comme votre espace de travail par défaut.
 
 Pour plus d’informations sur les espaces de travail, consultez [Comment gérer des ressources dans VS Code](how-to-manage-resources-vscode.md).
@@ -98,11 +98,11 @@ Une cible de calcul est la ressource ou l’environnement informatique où vous 
     idle_time_before_scale_down: 120
     ```
 
-    Le modèle crée un cluster GPU appelé `gpu-cluster` avec au plus 3 nœuds de machines virtuelles Standard_NC12 qui font automatiquement l’objet d’un scale-down à 0 nœuds après 120 secondes d’inactivité.
+    Le fichier de spécification crée un cluster GPU appelé `gpu-cluster`, avec au plus 3 nœuds de machines virtuelles Standard_NC12 qui font automatiquement l’objet d’un scale-down à 0 nœud après 120 secondes d’inactivité.
 
     Pour plus d’informations sur les tailles de machine virtuelle, consultez [Tailles des machines virtuelles Linux dans Azure](../virtual-machines/sizes.md).
 
-1. Cliquez avec le bouton droit sur le fichier de modèle, puis sélectionnez **Azure ML : Créer une ressource**.
+1. Cliquez avec le bouton droit sur le fichier de spécification et sélectionnez **Azure ML : Créer une ressource**.
 
 Après quelques minutes, la nouvelle cible de calcul apparaît dans le nœud *Calcul > Clusters de calcul* de votre espace de travail.
 
@@ -110,7 +110,7 @@ Après quelques minutes, la nouvelle cible de calcul apparaît dans le nœud *Ca
 
 Lors du processus d’entraînement, un modèle TensorFlow est entraîné en traitant les données d’entraînement et les patterns d’entraînement incorporés pour chacun des chiffres classifiés.
 
-Comme les espaces de travail et les cibles de calcul, les travaux d’entraînement sont définis avec des modèles de ressources. Pour cet exemple, le modèle est défini dans le fichier *job.yml* qui se présente comme suit :
+Comme les espaces de travail et les cibles de calcul, les travaux d’entraînement sont définis avec des modèles de ressources. Pour cet exemple, la spécification est définie dans le fichier *job.yml* qui se présente de la façon suivante :
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
@@ -125,7 +125,7 @@ experiment_name: tensorflow-mnist-example
 description: Train a basic neural network with TensorFlow on the MNIST dataset.
 ```
 
-Ce modèle soumet un travail d’entraînement appelé `tensorflow-mnist-example` à la cible de calcul `gpu-cluster` récemment créée qui exécute le code dans le script Python *train.py*. L’environnement utilisé est un des environnements organisés fournis par Azure Machine Learning qui contient TensorFlow et d’autres dépendances logicielles nécessaires pour exécuter le script d’entraînement. Pour plus d’informations sur les environnements organisés, consultez [Environnements organisés Azure Machine Learning](resource-curated-environments.md).
+Ce fichier de spécification soumet un travail d’entraînement appelé `tensorflow-mnist-example` à la cible de calcul `gpu-cluster` récemment créée qui exécute le code dans le script Python *train.py*. L’environnement utilisé est un des environnements organisés fournis par Azure Machine Learning qui contient TensorFlow et d’autres dépendances logicielles nécessaires pour exécuter le script d’entraînement. Pour plus d’informations sur les environnements organisés, consultez [Environnements organisés Azure Machine Learning](resource-curated-environments.md).
 
 Pour soumettre le travail d’entraînement :
 

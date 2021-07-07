@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/02/2021
+ms.date: 05/07/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 267094ea6a7295a65b93fb7700c97e4280da341d
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 86609d42a7c8f0e78df6b3a0019d97c951b5d378
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539109"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736151"
 ---
 ::: zone target="docs"
 
@@ -344,14 +344,14 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone target="docs"
 
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload.md)]
 
 ::: zone-end
 -->
 
 ## <a name="self-managed"></a>[Autogérée](#tab/in-selfmanaged)
 
-Si vous utilisez la Data Box au Japon, à Singapour, en Corée, en Inde, en Afrique du Sud, au Royaume-Uni, en Europe de l’Ouest, en Australie ou dans le cadre d’une offre US Government et que vous avez sélectionné l’expédition autogérée au moment de créer votre commande, suivez ces instructions.
+Si vous utilisez la Data Box au Japon, à Singapour, en Corée, en Inde, en Afrique du Sud, au Royaume-Uni, en Europe de l’Ouest, en Australie ou au Brésil dans le cadre d’une offre US Government et que vous avez sélectionné l’expédition autogérée au moment de créer votre commande, suivez ces instructions.
 
 1. Indiquez le code d’autorisation mentionné dans la page **Préparation de l’expédition** de l’interface utilisateur web locale de la Data Box une fois l’étape terminée.
 2. Mettez l’appareil hors tension et débranchez les câbles. Enroulez le cordon d’alimentation fourni avec l’appareil, et fixez-le à l’arrière de ce dernier.
@@ -363,8 +363,12 @@ Si vous utilisez la Data Box au Japon, à Singapour, en Corée, en Inde, en Afri
     Body:
         1. Order name  
         2. Authorization code available after Prepare to Ship has completed [Yes/No]  
-        3. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+        3. Contact name of the person dropping off. You will need to display a government-approved ID during the drop off.
     ```
+
+   > [!NOTE]
+   > - Les informations requises pour le renvoi de l’appareil peuvent varier selon la région. 
+   > - Si vous renvoyez un Data Box au Brésil, consultez la rubrique [Utilisation de l’expédition autogérée pour Azure Data Box](data-box-portal-customer-managed-shipping.md) pour obtenir des instructions détaillées. 
 
 ::: zone target="chromeless"
 
@@ -387,4 +391,3 @@ Une fois que le chargement des données vers Azure est terminé, la Data Box eff
 [!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
-

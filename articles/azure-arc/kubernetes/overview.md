@@ -9,18 +9,18 @@ ms.author: mlearned
 description: Cet article offre une vue d’ensemble de Kubernetes avec Azure Arc.
 keywords: Kubernetes, Arc, Azure, conteneurs
 ms.custom: references_regions
-ms.openlocfilehash: 74db1dda9ffdf40ec7e6a571a63986d4ab75c193
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d2e71b61210baf93950cb9e8fb2270320f882404
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375351"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967153"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>Qu’est-ce que Kubernetes avec Azure Arc ?
 
 Grâce à Kubernetes avec Azure Arc, vous pouvez attacher et configurer des clusters Kubernetes situés à l’intérieur ou à l’extérieur d’Azure. Quand vous connectez un cluster Kubernetes à Azure Arc :
 * Il apparaît dans le portail Azure avec un ID Azure Resource Manager et une identité managée. 
-* Il est placé dans un abonnement et un groupe de ressources Azure.
+* Être placé dans un abonnement et un groupe de ressources Azure.
 * Il reçoit des étiquettes comme n’importe quelle autre ressource Azure. 
 
 Pour connecter un cluster Kubernetes à Azure, l’administrateur du cluster doit déployer des agents. Ces agents :
@@ -49,7 +49,7 @@ Kubernetes avec Azure Arc prend en charge les scénarios suivants :
 
 * Appliquer des stratégies à l’aide d’Azure Policy pour Kubernetes.
 
-* Créer des [emplacements personnalisés](./custom-locations.md) comme emplacements cibles où déployer Data Services avec Azure Arc, [App Services sur Azure Arc](../../app-service/overview-arc-integration.md) (y compris les applications web, de fonction et logiques) et [Event Grid sur Kubernetes](/azure/event-grid/kubernetes/overview).
+* Créer des [emplacements personnalisés](./custom-locations.md) comme emplacements cibles où déployer Data Services avec Azure Arc, [App Services sur Azure Arc](../../app-service/overview-arc-integration.md) (y compris les applications web, de fonction et logiques) et [Event Grid sur Kubernetes](../../event-grid/kubernetes/overview.md).
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

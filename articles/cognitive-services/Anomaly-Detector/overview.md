@@ -12,12 +12,12 @@ ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: détection d’anomalie, Machine Learning, algorithmes
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: d63399d0f492f85a4a2d57a595a6d8ef5b606d92
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 52ed294146edbd70f21af4f706ad68f3aa6662dc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599517"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076813"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Présentation de l’API Détecteur d’anomalies
 
@@ -56,16 +56,7 @@ Pour exécuter la démonstration, vous devez créer une ressource Détecteur d�
 
 Pour savoir comment appeler l’API Détecteur d’anomalies, essayez ce [notebook](https://aka.ms/adNotebook). Ce notebook Jupyter montre comment envoyer une demande d’API et visualiser le résultat.
 
-Pour exécuter le notebook, procédez comme suit :
-
-1. Obtenez une clé d’abonnement valide pour l’API Détecteur d’anomalies et un point de terminaison d’API. La section ci-dessous donne les instructions pour s’inscrire.
-1. Connectez-vous, puis sélectionnez Clone (Cloner) en haut à droite.
-1. Décochez l’option « public » dans la boîte de dialogue avant de procéder à l’opération de clonage. Dans le cas contraire, votre notebook, avec toutes les clés d’abonnement, est public.
-1. Sélectionnez **Run on Free Compute** (Exécuter sur le calcul gratuit).
-1. Sélectionnez l’un des notebooks.
-1. Ajoutez votre clé d’abonnement à l’API Détecteur d'anomalies valide à la variable `subscription_key`.
-1. Modifiez la variable `endpoint` à votre point de terminaison. Par exemple : `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
-1. Dans la barre de menus supérieure, sélectionnez **Cell** (Cellule), puis **Run All** (Tout exécuter).
+Pour exécuter le notebook, vous devez obtenir une **clé d’abonnement** API Détecteur d’anomalies valide et un **point de terminaison d’API**. Dans le notebook, ajoutez votre clé d’abonnement API Détecteur d’anomalies valide à la variable `subscription_key`, et remplacez la variable `endpoint` par votre point de terminaison.
 
 ## <a name="workflow"></a>Workflow
 
