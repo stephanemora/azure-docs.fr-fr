@@ -6,19 +6,19 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/22/2020
-ms.openlocfilehash: 9939130782594c03a497d98ce6cd9b33b28eadec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/20/2021
+ms.openlocfilehash: 1741c48d98e18053bbb87f46f0223a3fd12d6091
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101718401"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476592"
 ---
 # <a name="create-and-delete-managed-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Créer et supprimer des points de terminaison privés managés dans un cluster Azure Stream Analytics
 
 Vous pouvez connecter les travaux Azure Stream Analytics exécutés sur un cluster à des ressources d'entrée et de sortie situées derrière un pare-feu ou un réseau virtuel Azure. Commencez par créer un point de terminaison privé managé pour une ressource, telle qu’Azure Event Hub ou Azure SQL Database, dans votre cluster Stream Analytics. Approuvez ensuite la connexion du point de terminaison privé à partir de votre entrée ou de votre sortie.
 
-Une fois la connexion approuvée, tout travail en cours d’exécution dans votre cluster Stream Analytics peut accéder à la ressource via le point de terminaison privé. Cet article explique comment créer et supprimer des points de terminaison privés dans un cluster Azure Stream Analytics. Vous pouvez créer des points de terminaison privés pour Azure SQL Database, Stockage Azure, Azure Data Lake Storage Gen2, Azure Event Hub et Azure Service Bus. Les points de terminaison privés pour d’autres services seront bientôt ajoutés. 
+Une fois la connexion approuvée, tout travail en cours d’exécution dans votre cluster Stream Analytics peut accéder à la ressource via le point de terminaison privé. Cet article explique comment créer et supprimer des points de terminaison privés dans un cluster Azure Stream Analytics. Vous pouvez créer des points de terminaison privés pour Azure SQL Database, Azure Synapse SQL Database, Azure Cosmos DB, Stockage Azure, Azure Data Lake Storage Gen2, Azure Event Hub, Azure IoT Hub et Azure Service Bus.
 
 ## <a name="create-managed-private-endpoint-in-stream-analytics-cluster"></a>Créer un point de terminaison privé managé dans un cluster Stream Analytics
 

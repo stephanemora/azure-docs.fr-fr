@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/15/2021
 ms.author: jeedes
-ms.openlocfilehash: a5a6833e07e6743eed4013739f9acda6b5bd1fa4
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ffdd6c30e279cc5df7f97e5ab5bb77a87c18dd8b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145917"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480495"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-managed-user"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec GitHub Enterprise Managed User
 
-Ce tutoriel explique comment intégrer GitHub Enterprise Managed User avec Azure Active Directory (Azure AD). Lorsque vous intégrez GitHub Enterprise Managed User avec Azure AD, vous pouvez :
+Ce tutoriel explique comment intégrer GitHub Enterprise Managed User (EMU) à Azure Active Directory (Azure AD). Lorsque vous intégrez GitHub Enterprise Managed User avec Azure AD, vous pouvez :
 
 * Contrôler dans Azure AD qui a accès à GitHub Enterprise Managed User.
 * Permettre à vos utilisateurs de se connecter automatiquement à GitHub Enterprise Managed User avec leur compte Azure AD.
@@ -38,8 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * GitHub Enterprise Managed User prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
-* GitHub Enterprise Managed User prend en charge le provisionnement d’utilisateurs **Juste-à-temps**.
-* GitHub Enterprise Managed User prend en charge le [provisionnement **automatique** d’utilisateurs](./github-enterprise-managed-user-provisioning-tutorial.md).
+* GitHub Enterprise Managed User requiert l'[approvisionnement **automatique** d'utilisateurs](./github-enterprise-managed-user-provisioning-tutorial.md).
 
 ## <a name="adding-github-enterprise-managed-user-from-the-gallery"></a>Ajout de GitHub Enterprise Managed User à partir de la galerie
 
@@ -55,16 +54,10 @@ Pour configurer l’intégration de GitHub Enterprise Managed User dans Azure A
 
 ## <a name="configure-and-test-azure-ad-sso-for-github-enterprise-managed-user"></a>Configurer et tester l’authentification unique Azure AD pour GitHub Enterprise Managed User
 
-Configurez et testez l’authentification unique Azure AD avec GitHub Enterprise Managed User avec un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur associé dans GitHub Enterprise Managed User.
-
 Pour configurer et tester l’authentification unique Azure AD avec GitHub Enterprise Managed User, effectuez les étapes suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-1. **[Configurer l’authentification unique GitHub Enterprise Managed User](#configure-github-enterprise-managed-user-sso)** pour configurer les paramètres d’authentification unique côté application.
-    1. **[Créer un utilisateur de test GitHub Enterprise Managed User](#create-github-enterprise-managed-user-test-user)** pour avoir un équivalent de B.Simon dans GitHub Enterprise Managed User lié à la représentation Azure AD de l’utilisateur.
-1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
+1. **[Configurer l'authentification unique Azure AD](#configure-azure-ad-sso)**  : permet d'activer l'authentification unique SAML dans votre locataire AAD.
+1. **[Configurer l'authentification unique GitHub Enterprise Managed User](#configure-github-enterprise-managed-user-sso)**  : permet de configurer les paramètres d'authentification unique dans GitHub Enterprise.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
@@ -76,77 +69,66 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Avant de commencer, vérifiez que vous disposez de l'URL de votre instance d'Enterprise. Le champ ENTITY mentionné ci-dessous correspond au nom Enterprise de votre URL Enterprise compatible EMU. Par exemple, https://github.com/enterprises/contoso - **contoso** correspond au champ ENTITY. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://github.com/enterprise-managed/<ENTITY>`
-
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://github.com/enterprises/<ENTITY>`
+    
+    > [!NOTE]
+    > Notez que le format de l'identificateur est différent du format suggéré par l'application. Veuillez suivre le format ci-dessus. De plus, vérifiez que l'**identificateur ne contient pas de barre oblique finale.
+    
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://github.com/enterprises/<ENTITY>/saml/consume`
+    
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://github.com/enterprises/<ENTITY>/sso`
 
-    > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de GitHub Enterprise Managed User](mailto:support@github.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
-
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](common/certificatebase64.png)
+    ![Lien Téléchargement de certificat](common/certificate-base64-download.png)
 
-1. Dans la section **Configurer GitHub Enterprise Managed User**, copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer GitHub Enterprise Managed User**, copiez les URL suivantes et enregistrez-les pour configurer GitHub ci-dessous.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
-
-Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
-
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
-1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
-   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès GitHub Enterprise Managed User.
+Dans cette section, vous allez attribuer votre compte à GitHub Enterprise Managed User afin de finaliser la configuration de l'authentification unique.
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **GitHub Enterprise Managed User**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez votre compte dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l'écran.
+1. Dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle **Propriétaire Enterprise**, puis cliquez sur le bouton **Sélectionner** en bas de l'écran. Lorsque vous approvisionnez votre compte dans le tutoriel suivant, le rôle Propriétaire Enterprise lui est attribué pour votre instance de GitHub. 
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-github-enterprise-managed-user-sso"></a>Configurer l’authentification unique GitHub Enterprise Managed User
 
-Pour configurer l’authentification unique côté **GitHub Enterprise Managed User**, vous devez envoyer le **Certificat (Base64)** téléchargé et les URL correspondantes copiées à partir du portail Azure à l’[équipe du support technique de GitHub Enterprise Managed User](mailto:support@github.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l'authentification unique côté **GitHub Enterprise Managed User**, vous devez disposer des éléments suivants :
 
-### <a name="create-github-enterprise-managed-user-test-user"></a>Créer un utilisateur de test GitHub Enterprise Managed User
+1. URL de votre application AAD Enterprise Managed User ci-dessus : URL de connexion, identificateur Azure AD et URL de déconnexion.
+1. Nom et mot de passe du compte du premier utilisateur administrateur de votre instance de GitHub Enterprise. Les informations d'identification sont fournies dans un e-mail de réinitialisation de mot de passe envoyé par votre contact GitHub Solutions Engineering. 
 
-Dans cette section, un utilisateur nommé B.Simon est créé dans GitHub Enterprise Managed User. GitHub Enterprise Managed User prend en charge le provisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans GitHub Enterprise Managed User, il en est créé un quand vous tentez d’y accéder.
+### <a name="enable-github-enterprise-managed-user-saml-sso"></a>Activer l'authentification unique SAML GitHub Enterprise Managed User
 
-GitHub Enterprise Managed User prend également en charge le provisionnement automatique d’utilisateurs. Vous trouverez plus d’informations [ici](./github-enterprise-managed-user-provisioning-tutorial.md) sur la façon de configurer le provisionnement automatique d’utilisateurs.
+Dans cette section, vous allez utiliser les informations fournies par AAD ci-dessus et les entrer dans vos paramètres Enterprise pour activer la prise en charge de l'authentification unique.
 
-## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
-
-Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
-
-#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
-
-* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion à GitHub Enterprise Managed User, où vous pouvez lancer le flux de connexion.  
-
-* Accédez directement à l’URL de connexion à GitHub Enterprise Managed User pour lancer le flux de connexion.
-
-#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
-
-* Dans le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors connecté automatiquement à l’instance de GitHub Enterprise Managed User pour laquelle vous avez configuré l’authentification unique 
-
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette GitHub Enterprise Managed User dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de GitHub Enterprise Managed User pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
-
+1. Accédez à https://github.com
+1. Cliquez sur Se connecter en haut à droite.
+1. Entrez les informations d'identification du premier compte d'utilisateur administrateur. Le descripteur de connexion doit être au format suivant : `<your enterprise short code>_admin`
+1. Accédez à https://github.com/enterprises/ `<your enterprise name>`. Ces informations doivent vous être fournies par votre contact Solutions Engineering.
+1. Dans le menu de navigation de gauche, sélectionnez **Paramètres**, puis **Sécurité**.
+1. Cochez la case **Activer l'authentification SAML**.
+1. Entrez l'URL de connexion. Il s'agit de l'URL de connexion que vous avez précédemment copiée à partir d'AAD.
+1. Entrez l'émetteur. Il s'agit de l'identificateur Azure AD que vous avez précédemment copié à partir d'AAD.
+1. Entrez le certificat public. Ouvrez le certificat base64 que vous avez précédemment téléchargé et collez le texte du contenu de ce fichier dans cette boîte de dialogue.
+1. Cliquez sur **Tester la configuration SAML**. Vous accédez alors à une boîte de dialogue qui vous permet de vous connecter à l'aide de vos informations d'identification Azure AD pour vérifier que l’authentification unique SAML est correctement configurée. Connectez-vous à l'aide de vos informations d'identification AAD. Si la validation est couronnée de succès, vous recevrez un message de type **Authentification réussie de votre identité d'authentification unique SAML**.
+1. Cliquez sur **Enregistrer** pour enregistrer ces paramètres.
+1. Enregistrez (téléchargez, imprimez ou copiez) les codes de récupération en lieu sûr.
+1. Cliquez sur **Activer l'authentification SAML**.
+1. À ce stade, seuls les comptes sur lesquels l'authentification unique est activée peuvent se connecter à votre instance d'Enterprise. Suivez les instructions du document ci-dessous pour approvisionner les comptes qui bénéficient de l'authentification unique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré GitHub Enterprise Managed User, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+GitHub Enterprise Managed User **exige** que tous les comptes soient créés par le biais de l'approvisionnement automatique des utilisateurs. Pour plus d'informations sur la configuration de l'approvisionnement automatique des utilisateurs, cliquez [ici](./github-enterprise-managed-user-provisioning-tutorial.md).

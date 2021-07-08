@@ -6,16 +6,16 @@ author: tomaschladek
 manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: e356219d22ee558ce3de5a96d58f24b9e7902d8a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d4836609aac24a414cb112988a0524de1e7a71c1
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726615"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113113257"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Démarrage rapide : Créer et gérer des jetons d’accès
 
@@ -63,7 +63,6 @@ Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_0000000
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Apprenez-en davantage sur le [nettoyage des ressources](./create-communication-resource.md#clean-up-resources).
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

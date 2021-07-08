@@ -9,42 +9,42 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 05/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 089a47632fe173edd233545ff096ff5226c02511
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: d30b4e60ef93b8dccc7e9ed4966eeb7d9570df43
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803185"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110096942"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Zscaler Three
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Zscaler Three à Azure Active Directory (Azure AD). Quand vous intégrez Zscaler Three à Azure AD, vous pouvez :
 
-- Contrôler dans Azure AD qui a accès à Zscaler Three.
-- Permettre à vos utilisateurs de se connecter automatiquement à Zscaler Three avec leur compte Azure AD.
-- Gérer vos comptes à un emplacement central : le Portail Azure.
+* Contrôler dans Azure AD qui a accès à Zscaler Three.
+* Permettre à vos utilisateurs de se connecter automatiquement à Zscaler Three avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-- Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-- Un abonnement Zscaler Three pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Zscaler Three pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-- Zscaler Three prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Zscaler Three prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
-- Zscaler Three prend en charge le provisionnement **juste-à-temps** des utilisateurs
+* Zscaler Three prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
-## <a name="adding-zscaler-three-from-the-gallery"></a>Ajouter Zscaler Three à partir de la galerie
+## <a name="add-zscaler-three-from-the-gallery"></a>Ajouter Zscaler Three à partir de la galerie
 
 Pour configurer l’intégration de Zscaler Three à Azure AD, vous devez ajouter Zscaler Three, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
@@ -80,7 +80,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-   Dans la zone de texte **URL de connexion**, tapez une URL : `https://login.zscalerthree.net/sfc_sso`
+   Dans la zone de texte **URL de connexion**, tapez l’URL : `https://login.zscalerthree.net/sfc_sso`
 
 1. Votre application Zscaler Three s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
@@ -121,17 +121,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Zscaler Three**.
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez l’utilisateur tel que **Britta Simon** dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-   ![Capture d’écran montrant la boîte de dialogue Utilisateurs et groupes où vous pouvez sélectionner un utilisateur.](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
-
-1. Dans la boîte de dialogue **Sélectionner un rôle**, choisissez le rôle d’utilisateur approprié dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-   ![Capture d’écran montrant la boîte de dialogue Sélectionner un rôle où vous pouvez sélectionner un rôle d’utilisateur.](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
-
-1. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
-
-   ![Capture d’écran montrant la boîte de dialogue Ajouter une attribution où vous pouvez sélectionner Attribuer.](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-zscaler-three-sso"></a>Configurer l’authentification unique Zscaler Three
 
@@ -147,7 +141,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 4. Sélectionnez **Administration > Authentification > Paramètres d'authentification** et procédez comme suit :
 
-   ![Capture d’écran montrant le site Zscaler One avec les étapes décrites.](./media/zscaler-three-tutorial/ic800206.png "Administration")
+   ![Capture d’écran montrant le site Zscaler One avec les étapes décrites.](./media/zscaler-three-tutorial/settings.png "Administration")
 
    a. Sous Type d'authentification, choisissez **SAML**.
 
@@ -155,7 +149,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 5. Dans la fenêtre **Modifier les paramètres SAML**, procédez comme suit, puis cliquez sur Enregistrer.
 
-   ![Gérer les utilisateurs et l’authentification](./media/zscaler-three-tutorial/ic800208.png "Manage Users & Authentication")
+   ![Gérer les utilisateurs et l’authentification](./media/zscaler-three-tutorial/authentication.png "Manage Users & Authentication")
 
    a. Dans la zone de texte **URL du portail SAML**, collez l'**URL de connexion** que vous avez copiée sur le portail Azure.
 
@@ -175,7 +169,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 6. Dans la page **Configure User Authentication** , procédez comme suit :
 
-   ![Capture d’écran montrant la boîte de dialogue Configure User Authentication avec l’option Activate sélectionnée.](./media/zscaler-three-tutorial/ic800207.png)
+   ![Capture d’écran montrant la boîte de dialogue Configure User Authentication avec l’option Activate sélectionnée.](./media/zscaler-three-tutorial/user.png)
 
    a. Passez la souris sur le menu **Activation** en bas à gauche.
 
@@ -189,17 +183,17 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Pour ouvrir la boîte de dialogue **Options Internet**, sélectionnez **Options Internet** dans le menu **Outils**.
 
-   ![Options Internet](./media/zscaler-three-tutorial/ic769492.png &quot;Options Internet")
+   ![Options Internet](./media/zscaler-three-tutorial/tools.png &quot;Options Internet")
 
 3. Cliquez sur l’onglet **Connexions** .
 
-   ![Connexions](./media/zscaler-three-tutorial/ic769493.png "Connexions")
+   ![Connexions](./media/zscaler-three-tutorial/setup.png "Connexions")
 
 4. Cliquez sur **Paramètres réseau** pour ouvrir la boîte de dialogue **Paramètres réseau**.
 
 5. Dans la section Serveur proxy, procédez comme suit :
 
-   ![Serveur proxy](./media/zscaler-three-tutorial/ic769494.png "Serveur proxy")
+   ![Serveur proxy](./media/zscaler-three-tutorial/server.png "Serveur proxy")
 
    a. Sélectionnez **Utiliser un serveur proxy pour le réseau local**.
 
@@ -222,13 +216,13 @@ Dans cette section, un utilisateur appelé B.Simon est créé dans Zscaler Thre
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-- Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Zscaler Three, où vous pouvez lancer le flux de connexion.
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Zscaler Three, où vous pouvez lancer le flux de connexion. 
 
-- Accédez directement à l’URL de connexion à Zscaler Three pour y lancer le flux de connexion.
+* Accédez directement à l’URL de connexion à Zscaler Three pour y lancer le flux de connexion.
 
-- Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Zscaler Three dans Mes applications, vous êtes redirigé vers l’URL de connexion à Zscaler Three. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Zscaler Three dans Mes applications, vous êtes redirigé vers l’URL de connexion à Zscaler Three. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

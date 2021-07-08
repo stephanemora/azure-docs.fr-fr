@@ -5,16 +5,16 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 04/28/2021
+ms.date: 05/11/2021
 ms.author: cshoe
-ms.openlocfilehash: 0f572d49867fe9149416664a405309253dd01af2
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 179fa0e247b2c875a4d32eac312d240ae768c009
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202931"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190552"
 ---
-# <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Tutoriel : Publier un site Jekyll dans Azure Static Web Apps (préversion)
+# <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps"></a>Tutoriel : Publier un site Jekyll dans Azure Static Web Apps
 
 Cet article montre comment créer et déployer une application web [Jekyll](https://jekyllrb.com/) dans [Azure Static Web Apps](overview.md).
 
@@ -91,59 +91,49 @@ Les étapes suivantes vous montrent comment créer une application Static Web Ap
 
 ### <a name="create-the-application"></a>Création de l'application
 
-1. Accédez au [portail Azure](https://portal.azure.com).
+1. Accéder au [portail Azure](https://portal.azure.com)
+1. Sélectionnez **Créer une ressource**
+1. Recherchez **Applications web statiques**
+1. Sélectionnez **Static Web Apps**
+1. Sélectionnez **Créer**
+1. Sous l’onglet _Informations de base_, entrez les valeurs suivantes.
 
-1. Cliquez sur **Créer une ressource**.
+    | Propriété | Valeur |
+    | --- | --- |
+    | _Abonnement_ | Le nom de votre abonnement Azure. |
+    | _Groupe de ressources_ | **jekyll-static-app**  |
+    | _Nom_ | **jekyll-static-app** |
+    | _Type de plan_ | **Gratuit** |
+    | _Région de l’API Azure Functions et des environnements intermédiaires_ | Sélectionnez la région la plus proche de vous. |
+    | _Source_ | **GitHub** |
 
-1. Recherchez **Static Web Apps**.
+1. Sélectionnez **Se connecter avec GitHub** et authentifiez-vous auprès de GitHub.
 
-1. Cliquez sur **Static Web Apps (Préversion)** .
+1. Entrez les valeurs GitHub suivantes.
 
-1. Cliquez sur **Créer**.
+    | Propriété | Valeur |
+    | --- | --- |
+    | _Organisation_ | Sélectionnez l’organisation GitHub de votre choix. |
+    | _Dépôt_ | Sélectionnez **jekyll-static-app**. |
+    | _Branche_ | Sélectionnez **principal**. |
 
-1. Pour **Abonnement**, acceptez l’abonnement qui est listé ou sélectionnez-en un nouveau dans la liste déroulante.
+1. Dans la section _Détails de build_, sélectionnez **Personnalisé** dans la liste déroulante _Présélections de build_ et conservez les valeurs par défaut.
 
-1. Dans _Groupe de ressources_, sélectionnez **Nouveau**. Dans _Nom du nouveau groupe de ressources_, entrez **jekyll-static-app**, puis sélectionnez **OK**.
+1. Dans la zone _Emplacement de l’application_, entrez **./** .
 
-1. Ensuite, indiquez un nom pour votre application dans la zone _Nom_. Les caractères valides sont `a-z`, `A-Z`, `0-9` et `-`.
+1. Laissez la zone _Emplacement de l’API_ vide.
 
-1. Dans _Region_ (Région), sélectionnez une région disponible proche de vous.
-
-1. Pour _SKU_, sélectionnez **Free** (Gratuit).
-
-1. Dans _Détails du déploiement_, sélectionnez **GitHub** pour _Source_.
-
-1. Cliquez sur le bouton **Sign in with GitHub** (Se connecter avec GitHub).
-
-1. Sélectionnez l’**organisation** sous laquelle vous avez créé le référentiel.
-
-1. Sélectionnez **jekyll-static-app** comme _Dépôt_.
-
-1. Comme _Branche_, sélectionnez **main**.
-
-### <a name="build"></a>Build
-
-Vous ajoutez ensuite les paramètres de configuration utilisés par le processus de génération pour générer votre application. Les paramètres suivants configurent le fichier de workflow d’action GitHub.
-
-1. Pour les _options prédéfinies de build_, sélectionnez **Personnalisé**.
-
-1. Définissez _App location_ (Emplacement de l’application) sur **/** .
-
-1. Définissez l’_emplacement de sortie_ sur **_site**.
-
-   Il n’est pas nécessaire de fournir une valeur pour _API location_ (Emplacement de l’API), puisque vous ne déployez pas d’API pour le moment.
-
-   :::image type="content" source="./media/publish-jekyll/github-actions-inputs.png" alt-text="Entrées GitHub Actions":::
+1. Dans la zone _Emplacement de la sortie_, entrez **_site**.
 
 ### <a name="review-and-create"></a>Examiner et créer
 
-1. Pour vérifier que les informations sont correctes, cliquez sur le bouton **Review + Create** (Vérifier + créer).
+1. Pour vérifier que les informations sont correctes, sélectionnez le bouton **Vérifier + créer**.
 
-1. Pour démarrer la création de l’application Azure Static Web Apps et la configuration d’une action GitHub pour le déploiement, cliquez sur **Create** (Créer).
+1. Pour démarrer la création de l’application web statique App Service et le provisionnement d’une action GitHub pour le déploiement, sélectionnez **Créer**.
 
-1. Attendez que l’action GitHub se termine.
+1. Une fois le déploiement terminé, cliquez sur **Accéder à la ressource**.
 
-1. Dans la fenêtre _Overview_ (Vue d’ensemble) du portail Azure de la ressource Azure Static Web Apps nouvellement créée, cliquez sur le lien _URL_ pour ouvrir l’application que vous avez déployée.
+1. Sur l’écran de la ressource, cliquez sur le lien _URL_ pour ouvrir l’application que vous avez déployée. Vous devrez peut-être patienter une ou deux minutes, le temps que l’action GitHub soit terminée.
 
    :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Application déployée":::
 
@@ -156,7 +146,7 @@ Pour configurer des variables d’environnement, comme `JEKYLL_ENV`, ajoutez une
 ```yaml
 - name: Build And Deploy
    id: builddeploy
-   uses: Azure/static-web-apps-deploy@v0.0.1-preview
+   uses: Azure/static-web-apps-deploy@v1
    with:
       azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
       repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
@@ -165,7 +155,7 @@ Pour configurer des variables d’environnement, comme `JEKYLL_ENV`, ajoutez une
       # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
       app_location: "/" # App source code path
       api_location: "" # Api source code path - optional
-      output_location: "_site_" # Built app content directory - optional
+      output_location: "_site" # Built app content directory - optional
       ###### End of Repository/Build Configurations ######
    env:
       JEKYLL_ENV: production

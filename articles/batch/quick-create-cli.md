@@ -2,14 +2,14 @@
 title: Démarrage rapide - exécution de votre premier travail Batch avec l’interface de ligne de commande (CLI) Azure
 description: Ce guide de démarrage rapide montre comment créer un compte Batch et exécuter un travail Batch avec l’interface Azure CLI.
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 05/25/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 8d3005233320a7ba0d00f186944a0a8c0c456647
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: eba9bf9fd290c4483fc9caa0efa4f05adbeb08ef
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765302"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476138"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Démarrage rapide : Exécuter votre premier travail Batch avec Azure CLI
 
@@ -72,7 +72,7 @@ az batch account login \
 
 ## <a name="create-a-pool-of-compute-nodes"></a>Créer un pool de nœuds de calcul
 
-Maintenant que vous avez un compte Batch, créez un pool d’exemple de nœuds de calcul Linux à l’aide de la commande [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create). L’exemple suivant crée un pool appelé *mypool* avec 2 nœuds de taille *Standard_A1_v2* exécutant Ubuntu 16.04 LTS. La taille de nœud suggérée offre un bon compromis entre performances et coûts pour cet exemple rapide.
+Maintenant que vous avez un compte Batch, créez un pool d’exemple de nœuds de calcul Linux à l’aide de la commande [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create). L’exemple suivant crée un pool appelé *mypool* avec deux nœuds *Standard_A1_v2* exécutant Ubuntu 16.04 LTS. La taille de nœud suggérée offre un bon compromis entre performances et coûts pour cet exemple rapide.
  
 ```azurecli-interactive
 az batch pool create \
@@ -105,7 +105,7 @@ az batch job create \
 
 Utilisez maintenant la commande [az batch task create](/cli/azure/batch/task#az_batch_task_create) pour créer des tâches à exécuter dans le travail. Dans cet exemple, vous créez quatre tâches identiques. Chaque tâche exécute une `command-line` pour afficher les variables d’environnement Azure Batch sur un nœud de calcul, puis attend 90 secondes. Lorsque vous utilisez Azure Batch, cette ligne de commande se trouve là où vous spécifiez votre application ou votre script. Azure Batch fournit plusieurs façons de déployer des applications et des scripts sur des nœuds de calcul.
 
-Le script Bash suivant crée 4 tâches parallèles (*mytask1* à *mytask4*).
+Le script Bash suivant crée quatre tâches parallèles (*mytask1* à *mytask4*).
 
 ```azurecli-interactive
 for i in {1..4}

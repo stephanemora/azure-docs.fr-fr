@@ -4,23 +4,27 @@ description: Utilisez la bibliothèque de client Form Recognizer pour .NET afin 
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/12/2021
+ms.date: 05/25/2021
 ms.author: lajanuar
 ms.custom: " devx-track-csharp"
-ms.openlocfilehash: 1adba2b8f0be01be231721a9c838ad6961ab03a0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 000c8a1bf59597dd8786874eff3b5edcbc8e364a
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374181"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894303"
 ---
 <!-- markdownlint-disable MD024 -->
+
 <!-- markdownlint-disable MD033 -->
 > [!IMPORTANT]
-> Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité.
+>
+> * Ce guide de démarrage rapide utilise le SDK version **3.1.0** et cible l’API version **2.1**.
+>
+>* Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité.
 
 [Documentation de référence](/dotnet/api/overview/azure/ai.formrecognizer-readme) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Exemples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
@@ -61,28 +65,9 @@ Build succeeded.
 
 Dans le répertoire de l’application, installez la bibliothèque de client Form Recognizer pour .NET avec la commande suivante :
 
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
 ```console
-dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
+dotnet add package Azure.AI.FormRecognizer --version 3.1.0
 ```
-
-> [!NOTE]
-> Le SDK Form Recognizer 3.1.0-beta.4 reflète la version 2.1-preview.3 de l’API.
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-```console
-dotnet add package Azure.AI.FormRecognizer --version 3.0.0
-```
-
-> [!NOTE]
-> Le SDK Form Recognizer 3.0.0 reflète la version 2.0 de l’API
-
----
-
-> [!TIP]
-> Vous voulez voir l’intégralité du fichier de code de démarrage rapide à la fois ? Vous le trouverez sur [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md), qui contient les exemples de code utilisés dans ce guide de démarrage rapide.
 
 À partir du répertoire de projet, ouvrez le fichier *Program.cs* dans votre éditeur ou votre IDE favori. Ajoutez les directives `using` suivantes :
 
@@ -93,21 +78,13 @@ Dans la classe **Program** de l’application, créez des variables pour la clé
 > [!IMPORTANT]
 > Accédez au portail Azure. Si la ressource Form Recognizer que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. La clé et le point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources**.
 >
-> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](../../../cognitive-services-security.md) de Cognitive Services.
+> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. En production, utilisez des méthodes sécurisées pour stocker vos informations d’identification et y accéder. Pour plus d’informations, consultez l’article sur la [sécurité](../../../cognitive-services-security.md) de Cognitive Services.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_creds)]
 
-Dans la méthode **Main** de l’application, ajoutez un appel aux tâches asynchrones utilisées dans ce guide de démarrage rapide. Vous les implémenterez ultérieurement.
-
-#### <a name="v21"></a>[v2.1](#tab/2-1)
+Dans la méthode **Main** de l’application, ajoutez un appel aux tâches asynchrones utilisées dans ce guide de démarrage rapide. Vous les implémenterez ultérieurement :
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
-
----
 
 ## <a name="object-model"></a>Modèle objet
 
@@ -135,34 +112,6 @@ Consultez les exemples pour [entraîner un modèle](#train-a-custom-model) et [g
 > [!NOTE]
 > Les modèles peuvent aussi être entraînés à partir d’une interface graphique utilisateur comme l’[outil d’étiquetage Form Recognizer](../../label-tool.md).
 
-## <a name="code-examples"></a>Exemples de code
-
-Ces extraits de code montrent comment effectuer les tâches suivantes avec la bibliothèque de client Form Recognizer pour .NET :
-<!-- markdownlint-disable MD001 -->
-
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
-* [Authentifier le client](#authenticate-the-client)
-* [Analyser la disposition](#analyze-layout)
-* [Analyser les reçus](#analyze-receipts)
-* [Analyser les cartes de visite](#analyze-business-cards)
-* [Analyser les factures](#analyze-invoices)
-* [Analyser les documents d’identité](#analyze-identity-documents)
-* [Entraîner un modèle personnalisé](#train-a-custom-model)
-* [Analyser les formulaires avec un modèle personnalisé](#analyze-forms-with-a-custom-model)
-* [Gérer des modèles personnalisés](#manage-custom-models)
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-* [Authentifier le client](#authenticate-the-client)
-* [Analyser la disposition](#analyze-layout)
-* [Analyser les reçus](#analyze-receipts)
-* [Entraîner un modèle personnalisé](#train-a-custom-model)
-* [Analyser les formulaires avec un modèle personnalisé](#analyze-forms-with-a-custom-model)
-* [Gérer des modèles personnalisés](#manage-custom-models)
-
----
-
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
 En dessous de **Main**, créez une méthode sous le nom `AuthenticateClient`. Vous vous en servirez dans d’autres tâches pour authentifier vos demandes auprès du service Form Recognizer. Cette méthode utilise l’objet `AzureKeyCredential` pour que, le cas échéant, vous puissiez mettre à jour la clé API sans créer de nouveaux objets clients.
@@ -170,7 +119,7 @@ En dessous de **Main**, créez une méthode sous le nom `AuthenticateClient`. Vo
 > [!IMPORTANT]
 > Obtenez votre clé et votre point de terminaison à partir du portail Azure. Si la ressource Form Recognizer que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. La clé et le point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources**.
 >
-> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Par exemple, [Azure Key Vault](../../../../key-vault/general/overview.md).
+> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. En production, utilisez des méthodes sécurisées pour stocker vos informations d’identification et y accéder. Par exemple, [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_auth)]
 
@@ -188,15 +137,7 @@ Vous devrez aussi ajouter des références aux URL pour vos données d’entraî
 * Ensuite, répétez les étapes ci-dessus pour obtenir l’URL SAS d’un document individuel dans le conteneur de stockage d’objets blob. Enregistrez-la également dans un emplacement temporaire.
 * Enfin, enregistrez l’URL du ou des exemples d’image inclus ci-dessous (également disponible sur [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)).
 
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_urls)]
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_urls)]
-
----
 
 ## <a name="analyze-layout"></a>Analyser la disposition
 
@@ -309,8 +250,6 @@ Total: '1203.39', with confidence '0.774'
 
 ## <a name="analyze-business-cards"></a>Analyser les cartes de visite
 
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
 Cette section montre comment analyser et extraire les champs courants des cartes de visite en anglais en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des cartes de visite, consultez le [guide conceptuel des cartes de visite](../../concept-business-cards.md).
 
 Pour analyser des cartes de visite à partir d’une URL, utilisez la méthode `StartRecognizeBusinessCardsFromUriAsync`.
@@ -324,16 +263,7 @@ Le code suivant traite la carte de visite à l’URI donné, et affiche les cham
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
 
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-> [!IMPORTANT]
-> Cette fonctionnalité n’est pas disponible dans la version de l’API sélectionnée.
-
----
-
 ## <a name="analyze-invoices"></a>Analyser les factures
-
-#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 Cette section montre comment analyser et extraire les champs communs de factures de vente en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des factures, consultez le [guide conceptuel des factures](../../concept-invoices.md).
 
@@ -348,36 +278,20 @@ Le code suivant traite la facture à l’URI donné et affiche les champs princi
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_print)]
 
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-> [!IMPORTANT]
-> Cette fonctionnalité n’est pas disponible dans la version de l’API sélectionnée.
-
----
-
 ## <a name="analyze-identity-documents"></a>Analyser les documents d’identité
-
-#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 Cette section montre comment analyser et extraire des informations clés de documents d’identité gouvernementaux (passeports internationaux et permis de conduire émis aux États-Unis) à l’aide du modèle de document d’identification prédéfini Form Recognizer. Pour plus d’informations sur l’analyse des documents d’identité, consultez notre [guide conceptuel sur le modèle de document d’identification prédéfini](../../concept-identification-cards.md).
 
-Pour analyser des documents d’identité à partir d’un URI, utilisez la méthode `StartRecognizeIdDocumentsFromUriAsync`.
+Pour analyser des documents d’identité à partir d’un URI, utilisez la méthode `StartRecognizeIdentityDocumentsFromUriAsync`.
 
-:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs" id="snippet_id_call":::
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_id_call)]
 
 > [!TIP]
-> Vous pouvez également analyser les images de documents d’identité locaux. Examinez les méthodes de [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) comme **StartRecognizeIdDocumentsAsync** ou consultez l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) pour les scénarios impliquant des images locales.
+> Vous pouvez également analyser les images de documents d’identité locaux. Examinez les méthodes de [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) comme **StartRecognizeIdentityDocumentsAsync**. ou consultez l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) pour les scénarios impliquant des images locales.
 
 Le code suivant traite le document d’identité à l’URI donné et affiche les champs principaux et leurs valeurs sur la console.
 
-:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs" id="snippet_id_print":::
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-> [!IMPORTANT]
-> Cette fonctionnalité n’est pas disponible dans la version de l’API sélectionnée.
-
----
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_id_print)]
 
 ## <a name="train-a-custom-model"></a>Entraîner un modèle personnalisé
 
@@ -709,14 +623,26 @@ catch (RequestFailedException e)
 
 Vous remarquerez que des informations supplémentaires, comme l’ID de demande client de l’opération, sont journalisées.
 
-``
+```console
 
-Message: Azure.RequestFailedException: Service request failed.
-Status: 400 (Bad Request)
+Message:
+    Azure.RequestFailedException: Service request failed.
+    Status: 400 (Bad Request)
 
-Content: {"error":{"code":"FailedToDownloadImage","innerError": {"requestId":"8ca04feb-86db-4552-857c-fde903251518"}, "message":"Failed to download image from input URL."}}
+Content:
+    {"error":{"code":"FailedToDownloadImage","innerError":
+    {"requestId":"8ca04feb-86db-4552-857c-fde903251518"},
+    "message":"Failed to download image from input URL."}}
 
-Headers: Transfer-Encoding: chunked x-envoy-upstream-service-time: REDACTED apim-request-id: REDACTED Strict-Transport-Security: REDACTED X-Content-Type-Options: REDACTED Date: Mon, 20 Apr 2020 22:48:35 GMT Content-Type: application/json; charset=utf-8 ``
+Headers:
+    Transfer-Encoding: chunked
+    x-envoy-upstream-service-time: REDACTED
+    apim-request-id: REDACTED
+    Strict-Transport-Security: REDACTED
+    X-Content-Type-Options: REDACTED
+    Date: Mon, 20 Apr 2020 22:48:35 GMT
+    Content-Type: application/json; charset=utf-8
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

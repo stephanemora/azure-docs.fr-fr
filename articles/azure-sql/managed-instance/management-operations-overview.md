@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: Découvrez la durée des opérations de gestion Azure SQL Managed Instance et les meilleures pratiques.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: overview
 author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, MashaMSFT
-ms.date: 07/10/2020
-ms.openlocfilehash: bd66c10bb1d6316bbe90e7ba4092d79c6a43a75d
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.date: 06/08/2021
+ms.openlocfilehash: 9a4df35d102b3304a65ad7c9a5c750bd70d3d64c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285273"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745850"
 ---
 # <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Vue d’ensemble des opérations de gestion Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -125,7 +125,7 @@ Les opérations de gestion sont constituées de plusieurs étapes. Avec l’[int
 |Nettoyage de l’ancienne instance SQL |Suppression de l’ancien processus SQL du cluster virtuel |
 
 > [!NOTE]
-> Suite à la mise à l’échelle des instances, le cluster virtuel sous-jacent passe par le processus de libération de la capacité inutilisée et par une défragmentation possible de la capacité, ce qui peut affecter les instances qui n’ont pas participé aux opérations de création et de mise à l’échelle. 
+> Une fois la mise à l’échelle de l’instance effectuée, le cluster virtuel sous-jacent est soumis au processus de libération de la capacité inutilisée et d’une possible défragmentation de la capacité, ce qui peut affecter les instances du même sous-réseau qui n’ont pas participé à l’opération de mise à l’échelle et provoquer leur basculement. 
 
 
 ## <a name="management-operations-cross-impact"></a>Impact sur les opérations de gestion

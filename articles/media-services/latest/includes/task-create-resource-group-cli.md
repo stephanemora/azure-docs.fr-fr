@@ -5,17 +5,35 @@ ms.topic: include
 ms.date: 08/17/2020
 ms.author: inhenkel
 ms.custom: CLI
-ms.openlocfilehash: d567a4f7d9b9429887d6396cb2b03dfc34c6ac93
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1b77e4cee809d7ddb7bbbf7de6c5ac483b150e3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88602243"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110060125"
 ---
 <!-- Create a resource group -->
 
-Utilisez la commande suivante pour créer un groupe de ressources. Sélectionnez la zone géographique à utiliser pour stocker les enregistrements multimédias et les métadonnées de votre compte Media Services. Cette région servira à traiter et diffuser vos médias.
+Utilisez la commande suivante pour créer un groupe de ressources. Remplacez `your-resource-group-name` par le nom de votre groupe de ressources.
 
-```azurecli
-az group create --name amsResourceGroup --location westus2
+Remplacez `your-region` par la zone géographique à utiliser pour stocker les enregistrements multimédias et les métadonnées de votre compte Media Services. Cette région servira à traiter et diffuser vos médias.
+
+```azurecli-interactive
+az group create --name <your-resource-group-name> --location <your-region>
+```
+
+Exemple de réponse JSON :
+
+```json
+{
+  "id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/your-resource-group-name",
+  "location": "your-region",
+  "managedBy": null,
+  "name": "your-resource-group-name",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
 ```

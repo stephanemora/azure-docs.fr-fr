@@ -2,13 +2,13 @@
 title: 'Tutoriel : Déployer un cloud privé Azure VMware Solution'
 description: Découvrez comment créer et déployer un cloud privé Azure VMware Solution
 ms.topic: tutorial
-ms.date: 04/23/2021
-ms.openlocfilehash: cdbd00473890e22c08ebf57f7c6f54f6eef188bb
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.date: 06/11/2021
+ms.openlocfilehash: 5d882098c29db7fb0272bb503eae42a244113b5b
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107945798"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112021372"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>Tutoriel : Déployer un cloud privé Azure VMware Solution
 
@@ -31,11 +31,10 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Droits d’administration appropriés et autorisation de créer un cloud privé. Vous devez avoir un niveau de contributeur minimal dans l’abonnement.
 - Suivez les informations que vous avez rassemblées dans l’article sur la [planification](production-ready-deployment-steps.md) pour déployer Azure VMware Solution.
 - Vérifiez que vous disposez d’un réseau approprié configuré comme décrit dans [Check-list pour la planification réseau](tutorial-network-checklist.md).
-- Les hôtes ont été provisionnés et le fournisseur de ressources Microsoft.AVS inscrit comme décrit dans l’article qui explique comment [demander les hôtes et activer le fournisseur de ressources Microsoft.AVS](enable-azure-vmware-solution.md).
+- Les hôtes ont été provisionnés et le fournisseur de ressources Microsoft.AVS [a été inscrit](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider).
 
 ## <a name="create-a-private-cloud"></a>Créer un cloud privé
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 05/17/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: 4428e349277bc8a1482f80620b178b098eb44b2f
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 9126b3a915f9d457b51a69a4cef9a79003597c31
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109480565"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091128"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?
 
@@ -83,6 +83,12 @@ Le diagramme suivant montre un exemple d’attribution de rôle. Dans cet exempl
 Vous pouvez attribuer des rôles en utilisant le portail Azure, Azure PowerShell, Azure CLI, des SDK Azure ou des API REST.
 
 Pour plus d’informations, consultez [Étapes pour attribuer un rôle Azure](role-assignments-steps.md).
+
+## <a name="groups"></a>Groupes
+
+Les attributions de rôle sont transitives pour les groupes, ce qui signifie que si un utilisateur est membre d’un groupe et que ce groupe est membre d’un autre groupe auquel un rôle a été attribué, l’utilisateur a les autorisations définies dans l’attribution de rôle.
+
+![Diagramme montrant comment les attributions de rôles sont transitives pour les groupes.](./media/overview/rbac-groups-transitive.png)
 
 ## <a name="multiple-role-assignments"></a>Attributions de rôles multiples
 

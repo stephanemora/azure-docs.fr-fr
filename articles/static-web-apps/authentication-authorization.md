@@ -7,26 +7,29 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 8b8f42d75a0d214bdc504c8cc0adb6f234ea036e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0ed20af6b27822f1f437f584e9b73eb416941d6f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751118"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110065995"
 ---
-# <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Authentification et autorisation pour les applications Azure Static Web Apps - Préversion
+# <a name="authentication-and-authorization-for-azure-static-web-apps"></a>Authentification et autorisation pour les applications Azure Static Web Apps
 
-Azure Static Web Apps simplifie l’expérience d’authentification en gérant l’authentification auprès des fournisseurs suivants :
+Azure Static Web Apps offre une expérience d’authentification simplifiée. Par défaut, vous avez accès à une série de fournisseurs préconfigurés, ou à l’option [d’inscription d’un fournisseur personnalisé](./authentication-custom.md).
 
-- Azure Active Directory
-- GitHub
-- Twitter
+- N’importe quel utilisateur peut s’authentifier auprès d’un fournisseur activé.
+- Une fois connectés, les utilisateurs appartiennent par défaut aux rôles `anonymous` et `authenticated`.
+- Les utilisateurs autorisés ont accès aux [itinéraires](configuration.md#routes) restreints par les règles définies dans le fichier [staticwebapp.config.json](./configuration.md).
+- Les utilisateurs accèdent à des rôles personnalisés au moyen [d’invitations](#invitations) propres au fournisseur ou d’une [inscription de fournisseur Azure Active Directory personnalisée](./authentication-custom.md).
+- Tous les fournisseurs d’authentification sont activés par défaut.
+  - Pour restreindre un fournisseur d’authentification, [bloquez l’accès](#block-an-authorization-provider) avec une règle d’acheminement personnalisée.
+- Les fournisseurs préconfigurés sont les suivants :
+  - Azure Active Directory
+  - GitHub
+  - Twitter
 
-Les [invitations](#invitations) spécifiques au fournisseur associent les utilisateurs à des rôles, et les utilisateurs autorisés bénéficient d'un accès aux [itinéraires](configuration.md#routes) via les règles définies dans le fichier _staticwebapp.config.json_.
-
-Tous les fournisseurs d’authentification sont activés par défaut. Pour restreindre un fournisseur d’authentification, [bloquez l’accès](#block-an-authorization-provider) avec une règle d’acheminement personnalisée.
-
-Les rubriques relatives à l’authentification et à l’autorisation ont beaucoup de points communs les concepts de routage. Veillez à lire le [guide relatif à la configuration](configuration.md#routes) avec cet article.
+Les sujets de l’authentification et de l’autorisation se recoupent de manière significative avec les concepts de routage, détaillés dans le [guide de configuration des applications](configuration.md#routes).
 
 ## <a name="roles"></a>Rôles
 
@@ -41,7 +44,10 @@ Au-delà des rôles intégrés, vous pouvez créer des rôles, les attribuer à 
 
 ### <a name="add-a-user-to-a-role"></a>Ajouter un utilisateur à un rôle
 
-Pour ajouter des utilisateurs à votre site web, vous générez des invitations qui vous permettent d’associer les utilisateurs à des rôles spécifiques. Les rôles sont définis et gérés dans le fichier _staticwebapp.config.json_.
+Pour ajouter un utilisateur à un rôle, il faut générer des invitations permettant d’associer des utilisateurs à des rôles spécifiques. Les rôles sont définis et gérés dans le fichier _staticwebapp.config.json_.
+
+> [!NOTE]
+> Vous pouvez choisir [d’inscrire un fournisseur Azure Active Directory personnalisé](./authentication-custom.md) afin d’éviter d’émettre des invitations pour la gestion de groupes.
 
 <a name="invitations" id="invitations"></a>
 
@@ -101,9 +107,9 @@ Lorsque vous supprimez un utilisateur, vous devez garder à l’esprit les consi
 
 ## <a name="remove-personal-identifying-information"></a>Supprimer les informations d’identification personnelle
 
-Lorsque vous accordez un consentement à une application en tant qu’utilisateur final, l’application a accès à votre adresse e-mail ou à votre nom d’utilisateur, selon le fournisseur d’identité utilisé. Une fois ces informations fournies, le propriétaire de l’application décide comment traiter les informations d’identification personnelle.
+Lorsque vous accordez votre consentement à une application en tant qu’utilisateur final, l’application a accès à votre adresse e-mail ou à votre nom d’utilisateur, selon le fournisseur d’identité utilisé. Une fois ces informations fournies, le propriétaire de l’application décide comment traiter les informations d’identification personnelle.
 
-Les utilisateurs finaux doivent contacter l’administrateur de chaque application Web pour révoquer ces informations.
+Les utilisateurs finaux doivent contacter l’administrateur de chaque application web pour révoquer ces informations dans leurs systèmes.
 
 Pour supprimer les informations d’identification personnelle de la plateforme Azure Static Web Apps et empêcher la plateforme de fournir ces informations lors de demandes ultérieures, envoyez une demande à l’aide de l’URL suivante :
 
@@ -123,7 +129,7 @@ Azure Static Web Apps utilise le dossier système `/.auth` pour fournir l’acc�
 
 ## <a name="login"></a>Connexion
 
-Utilisez le tableau suivant pour rechercher l’itinéraire de connexion spécifique au fournisseur.
+Appuyez-vous sur le tableau suivant pour rechercher l’itinéraire de connexion propre au fournisseur.
 
 | Fournisseur d’autorisation | Itinéraire de connexion             |
 | ---------------------- | ----------------------- |
@@ -131,7 +137,7 @@ Utilisez le tableau suivant pour rechercher l’itinéraire de connexion spécif
 | GitHub                 | `/.auth/login/github`   |
 | Twitter                | `/.auth/login/twitter`  |
 
-Par exemple, pour vous connecter avec GitHub, vous pouvez inclure un lien de connexion comme dans l’extrait de code suivant :
+Par exemple, pour vous connecter avec GitHub, vous pouvez inclure un lien comme dans l’extrait suivant :
 
 ```html
 <a href="/.auth/login/github">Login</a>

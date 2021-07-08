@@ -1,24 +1,24 @@
 ---
-title: Gérer des groupes d’applications Windows Virtual Desktop - Portail Azure
-description: Explique comment gérer des groupes d’applications Windows Virtual Desktop avec le portail Azure.
+title: Gérer des groupes d’applications Azure Virtual Desktop - Portail Azure
+description: Explique comment gérer des groupes d’applications Azure Virtual Desktop avec le portail Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 05/28/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 65ca13cba07230a7bf606a398e28761aced14857
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 3c28654f70599a67060a94b8bb93397fc51c527e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446007"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753338"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutoriel : Gérer des groupes d’applications avec le portail Azure
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (Classic) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
 
-Le groupe d’applications par défaut créé pour un nouveau pool d’hôtes Windows Virtual Desktop publie également l’intégralité du bureau. De plus, vous pouvez créer un ou plusieurs groupes d’applications RemoteApp pour le pool d’hôtes. Suivez ce tutoriel pour créer un groupe d’applications RemoteApp et publier des applications individuelles du menu Démarrer.
+Le groupe d’applications par défaut créé pour un nouveau pool d’hôtes Azure Virtual Desktop publie également l’intégralité du bureau. De plus, vous pouvez créer un ou plusieurs groupes d’applications RemoteApp pour le pool d’hôtes. Suivez ce tutoriel pour créer un groupe d’applications RemoteApp et publier des applications individuelles du menu Démarrer.
 
 Dans ce tutoriel, vous allez apprendre à effectuer les actions suivantes :
 
@@ -35,7 +35,7 @@ Si vous avez déjà créé un pool d’hôtes et des machines virtuelles hôtes 
     >[!NOTE]
     > Si vous vous connectez au portail US Gov, accédez à [https://portal.azure.us/](https://portal.azure.us/) à la place.
 
-2.  Recherchez et sélectionnez **Windows Virtual Desktop**.
+2.  Recherchez et sélectionnez **Azure Virtual Desktop**.
 
 3. Vous pouvez ajouter un groupe d’applications directement ou vous pouvez l’ajouter à partir d’un pool d’hôtes existant. Choisissez l’une des options suivantes :
 
@@ -124,7 +124,31 @@ Le processus de déploiement effectue les tâches suivantes pour vous :
 - Création d’un lien vers un modèle Azure Resource Manager en fonction de votre configuration, que vous pouvez télécharger et enregistrer pour plus tard
 
 >[!IMPORTANT]
->Vous pouvez seulement créer 200 groupes d’applications pour chaque locataire Azure Active Directory. Nous avons ajouté cette limite en raison des limitations du service de récupération des flux de nos utilisateurs. Cette limite ne s’applique pas aux groupes d’applications créés dans Windows Virtual Desktop (classique).
+>Vous pouvez seulement créer 200 groupes d’applications pour chaque locataire Azure Active Directory. Nous avons ajouté cette limite en raison des limitations du service de récupération des flux de nos utilisateurs. Cette limite ne s’applique pas aux groupes d’applications créés dans Azure Virtual Desktop (classique).
+
+## <a name="edit-or-remove-an-app"></a>Modifier ou supprimer une application
+
+Pour modifier ou supprimer une application d’un groupe d’applications :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+   
+   >[!NOTE]
+   >Si vous vous connectez au portail US Gov, accédez à [https://portal.azure.us/](https://portal.azure.us) à la place.
+
+2. Recherchez et sélectionnez **Azure Virtual Desktop**.
+
+3. Vous pouvez ajouter un groupe d’applications directement ou à partir d’un pool d’hôtes existant en choisissant l’une des options suivantes :
+
+    - Pour ajouter directement un nouveau groupe d’applications, sélectionnez **Groupes d’applications** dans le menu sur le côté gauche de la page, puis choisissez le groupe d’applications que vous souhaitez modifier.
+    - Pour modifier un groupe d’applications dans un pool d’ordinateurs hôtes existant, sélectionnez **Pools hôtes** dans le menu sur le côté gauche de l’écran, choisissez le nom du pool hôte, sélectionnez **Groupes d’applications** dans le menu qui s’affiche sur le côté gauche de l’écran, puis choisissez le groupe d’applications que vous souhaitez modifier.
+
+4. Sélectionnez **Applications** dans le menu sur le côté gauche de la page.
+
+5. Si vous souhaitez supprimer une application, cochez la case en regard de l’application, puis sélectionnez **Supprimer** dans le menu en haut de la page.
+
+6. Si vous souhaitez modifier les détails d’une application, sélectionnez le nom de l’application. Le menu d’édition s’ouvre.
+
+7. Une fois les modifications terminées, sélectionnez **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
