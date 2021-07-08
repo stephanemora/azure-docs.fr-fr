@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: cost-management-billing
 ms.topic: include
-ms.date: 03/15/2021
+ms.date: 06/04/2021
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: f02b7f0f80cfb875cc6207b542db90607b379b67
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 12571cb0a34df67eab67eb9ebb45c64a95e90bf5
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107800082"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111761308"
 ---
 | Ressource | Limite |
 | --- | --- |
@@ -27,4 +27,4 @@ ms.locfileid: "107800082"
 
 <sup>1</sup>Vous pouvez appliquer jusqu’à 50 étiquettes directement à un abonnement. Toutefois, l’abonnement peut contenir un nombre illimité d’étiquettes appliquées aux groupes de ressources et aux ressources au sein de l’abonnement. Le nombre de balises par ressource ou groupe de ressources est limité à 50. Resource Manager retourne une [liste comportant le nom de balise unique et les valeurs](/rest/api/resources/tags) de l’abonnement uniquement lorsque le nombre de balises est inférieur ou égal à 80 000. Vous pouvez toujours trouver une ressource par balise quand le nombre de balises est supérieur à 80 000.
 
-<sup>2</sup> Si vous atteignez la limite des 800 déploiements, supprimez les déploiements inutiles de l’historique. Pour supprimer les déploiements au niveau de l’abonnement, utilisez [Remove-AzDeployment](/powershell/module/az.resources/Remove-AzDeployment) ou [az deployment sub delete](/cli/azure/deployment/sub#az_deployment_sub_delete).
+<sup>2</sup>Quand vous vous approchez de la limite, les déploiements sont automatiquement supprimés de l’historique. Pour plus d’informations, consultez [Suppressions automatiques de l’historique de déploiement](../articles/azure-resource-manager/templates/deployment-history-deletions.md).

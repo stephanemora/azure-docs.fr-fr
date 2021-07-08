@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 47b4f36aec9a906317a9704a7d73bf66385d9e88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a095cee6b2af93358b0e76c39cfc0c04ad454fa
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552114"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408044"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutoriel : Connecter des utilisateurs et appeler une API protégée à partir d’une application Blazor WebAssembly
 
@@ -40,7 +40,7 @@ Nous disposons également d’un [tutoriel pour Blazor Server](tutorial-blazor-s
 Chaque application qui utilise Azure Active Directory (Azure AD) pour l’authentification doit être inscrite avec Azure AD. Suivez les instructions de la page [Inscrire une application](quickstart-register-app.md) avec les précisions suivantes :
 
 - Pour les **Types de comptes pris en charge**, sélectionnez **Comptes dans cet annuaire organisationnel**.
-- Laissez le champ déroulant **URI de redirection** défini sur **Web** et entrez `https://localhost:5001/authentication/login-callback`. Le port par défaut pour une application s’exécutant sur Kestrel est 5001. Si l’application est disponible sur un autre port, spécifiez ce numéro de port au lieu de `5001`.
+- Définissez la liste déroulante **URI de redirection** sur **Application monopage (SPA)** et entrez `https://localhost:5001/authentication/login-callback`. Le port par défaut pour une application s’exécutant sur Kestrel est 5001. Si l’application est disponible sur un autre port, spécifiez ce numéro de port au lieu de `5001`.
 
 Une fois l’inscription effectuée, sous **Gérer**, sélectionnez **Authentification** > **Octroi implicite et flux hybrides**. Sélectionnez **Jetons d’accès** et **Jetons d’ID**, puis **Enregistrer**.
 

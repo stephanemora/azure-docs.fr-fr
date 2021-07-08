@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 8fef4bbc0c0e77c1e152b8c2c44254e091b0e5a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5259294734b3b0c33835759beadb2ad4e1089a9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392542"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744716"
 ---
 # <a name="what-is-azure-data-factory"></a>qu'est-ce qu'Azure Data Factory ?
 
@@ -36,6 +36,12 @@ De plus, vous pouvez publier vos données transformées sur des magasins de donn
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
 Data Factory contient une série de systèmes interconnectés qui fournissent une plateforme de bout en bout complète pour les ingénieurs de données.
+
+Ce guide visuel offre une vue d’ensemble générale de l’architecture Data Factory :
+
+:::image type="content" source="media\introduction\data-factory-visual-guide-small.png" alt-text="Guide visuel détaillé de l’architecture système complète d’Azure Data Factory, présenté dans une image haute résolution unique." lightbox="media\introduction\data-factory-visual-guide.png":::
+
+Pour afficher plus de détails, cliquez sur l’image précédente afin d’effectuer un zoom avant ou accédez à l’[image haute résolution](/azure/data-factory/media/introduction/data-factory-visual-guide.png#lightbox). 
 
 ### <a name="connect-and-collect"></a>Se connecter et collecter
 

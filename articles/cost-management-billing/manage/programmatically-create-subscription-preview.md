@@ -1,24 +1,24 @@
 ---
-title: Créer des abonnements Azure programmatiquement avec des API en préversion
-description: Découvrez comment créer des abonnements Azure supplémentaires programmatiquement avec des préversions de l’API REST, d’Azure CLI et d’Azure PowerShell.
+title: Créer des abonnements Azure programmatiquement avec des API héritées
+description: Découvrez comment créer des abonnements Azure supplémentaires programmatiquement avec des versions héritées de l’API REST, d’Azure CLI et d’Azure PowerShell.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 06/09/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: d3247a86795b9661196c3264c60b06e7c61d6e23
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: edf57ec72d056f58eaca624b4c91b27a82ad9daf
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107877897"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902048"
 ---
-# <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Créer des abonnements Azure programmatiquement avec des API en préversion
+# <a name="programmatically-create-azure-subscriptions-with-legacy-apis"></a>Créer des abonnements Azure programmatiquement avec des API héritées
 
-Cet article explique comment créer des abonnements Azure programmatiquement à l’aide de la préversion de l’API. Dans cet article, vous apprenez à créer des abonnements par programmation en utilisant Azure Resource Manager.
+Cet article explique comment créer des abonnements Azure programmatiquement à l’aide de la préversion héritée de l’API. Dans cet article, vous apprenez à créer des abonnements par programmation en utilisant Azure Resource Manager.
 
 Nous disposons de nouveaux articles pour la dernière version de l’API à utiliser avec différents types d’abonnements de contrat Azure :
 

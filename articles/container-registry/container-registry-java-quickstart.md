@@ -9,12 +9,12 @@ ms.custom:
 - devx-track-java
 - devx-track-azurecli
 - mode-api
-ms.openlocfilehash: 4d805458d90c73de879a9b87d5b08c98a8f1a250
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 9b06afefedd7e8a850cca8a54cf5fc1da2cf3cc5
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537294"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112120221"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Démarrage rapide : générer des images conteneurs Java et les envoyer (push) à Azure Container Registry
 
@@ -104,11 +104,11 @@ Enfin, vous mettez à jour la configuration de votre projet et vous utilisez l�
 1. Connectez-vous à votre instance Azure Container Registry depuis Azure CLI à l’aide de la commande suivante. N’oubliez pas de remplacer l’espace réservé par le nom de votre registre.
 
    ```azurecli
-   az configure --defaults acr=<your registry name>
+   az config set defaults.acr=<your registry name>
    az acr login
    ```
 
-   La commande `az configure` définit le nom de registre par défaut à utiliser avec les commandes `az acr`.
+   La commande `az config` définit le nom de registre par défaut à utiliser avec les commandes `az acr`.
 
 1. Accédez au répertoire de projet terminé de votre application Spring Boot (par exemple, « *C:\SpringBoot\gs-spring-boot-docker\complete* » ou «  */users/robert/SpringBoot/gs-spring-boot-docker/complete* ») et ouvrez le fichier *pom.xml* avec un éditeur de texte.
 

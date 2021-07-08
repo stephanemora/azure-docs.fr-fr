@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2021
 ms.author: mbullwin
-ms.openlocfilehash: 632352e707927cccfb9ccc541ed4b9bd38e2c9c6
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 8f8b51607d9b7b97560393b904195646552dbeb6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108333531"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110166101"
 ---
-Démarrez avec la bibliothèque de client Détecteur d’anomalies (multivarié) pour .NET. Effectuez les étapes suivantes pour installer le package et commencer à utiliser les algorithmes fournis par le service. Les nouvelles API de détection d’anomalie multivariée permettent aux développeurs d’intégrer facilement l’intelligence artificielle avancée pour détecter les anomalies à partir de groupes de métriques, sans avoir besoin d’une connaissance du machine learning ni de données étiquetées. Les dépendances et inter-corrélations entre différents signes sont automatiquement comptabilisées comme des facteurs clés. Cela vous permet de protéger de manière proactive vos systèmes complexes contre les défaillances.
+Démarrez avec la bibliothèque de client Détecteur d’anomalies (multivariée) pour C#. Effectuez les étapes suivantes pour installer le package et commencer à utiliser les algorithmes fournis par le service. Les nouvelles API de détection d’anomalie multivariée permettent aux développeurs d’intégrer facilement l’intelligence artificielle avancée pour détecter les anomalies à partir de groupes de métriques, sans avoir besoin d’une connaissance du machine learning ni de données étiquetées. Les dépendances et inter-corrélations entre différents signes sont automatiquement comptabilisées comme des facteurs clés. Cela vous permet de protéger de manière proactive vos systèmes complexes contre les défaillances.
 
-Utilisez la bibliothèque de client Détecteur d’anomalies (multivarié) pour .NET pour :
+Utilisez la bibliothèque de client Détecteur d’anomalies (multivariée) pour C# afin de :
 
 * Détecter les anomalies au niveau du système à partir d’un groupe de séries chronologiques.
 * Quand des séries chronologiques individuelles ne contiennent pas beaucoup d’informations et que vous devez examiner tous les signes pour détecter un problème.
@@ -87,6 +87,9 @@ using NUnit.Framework;
 ```
 
 Dans la méthode `main()`, créez des variables pour le point de terminaison Azure de votre ressource, votre clé API et une source de données personnalisée.
+
+> [!NOTE]
+> Vous avez toujours la possibilité d’utiliser l’une des deux clés. Cela permet d’autoriser la rotation des clés sécurisées. Dans le cadre de ce guide de démarrage rapide, utilisez la première clé. 
 
 ```csharp
 string endpoint = "YOUR_API_KEY";
@@ -229,6 +232,9 @@ private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, st
 
 ## <a name="export-model"></a>Exporter le modèle
 
+> [!NOTE]
+> L’utilisation de la commande d’exportation est prévue pour permettre l’exécution de modèles multivariés du Détecteur d’anomalies dans un environnement en conteneur. Cette possibilité n’est pas reconnue actuellement pour l’élément multivarié, mais une prise en charge sera ajoutée à l’avenir.
+
 Pour exporter le modèle que vous avez précédemment entraîné, créez un `private async Task` nommé `exportAysnc`. Vous allez utiliser `ExportModelAsync` et passer l’ID du modèle que vous voulez exporter.
 
 ```csharp
@@ -348,7 +354,14 @@ Exécutez l’application avec la commande `dotnet run` à partir du répertoire
 ```dotnetcli
 dotnet run
 ```
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources liées au groupe de ressources.
+
+* [Portail](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Bonnes pratiques concernant le Détecteur d’anomalies (multivarié)](../../concepts/best-practices-multivariate.md)
+* [Présentation de l’API Détecteur d’anomalies](../../overview-multivariate.md)
+* [Bonnes pratiques concernant l’utilisation de l’API Détecteur d’anomalies.](../../concepts/best-practices-multivariate.md) 

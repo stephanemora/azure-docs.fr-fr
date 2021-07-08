@@ -1,6 +1,6 @@
 ---
-title: Tutoriel expliquant comment connecter, configurer et activer l'appareil Azure Stack Edge Pro sur le portail Azure | Microsoft Docs
-description: Le tutoriel consacré au déploiement d'Azure Stack Edge Pro avec GPU vous apprend à connecter, configurer et activer votre appareil physique.
+title: Tutoriel expliquant comment connecter, configurer et activer l'appareil Azure Stack Edge Pro FPGA sur le portail Azure
+description: Le tutoriel consacré au déploiement d'Azure Stack Edge Pro FPGA vous apprend à connecter, configurer et activer votre appareil physique.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
-ms.openlocfilehash: af0c305cc13b94666a87d937d1eac10586135a4d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: c8edd68dae991a06cc7280e95a5c193c34452329
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067688"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461358"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro"></a>Tutoriel : Connecter, configurer et activer Azure Stack Edge Pro 
+# <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro-fpga"></a>Tutoriel : Connecter, configurer et activer Azure Stack Edge Pro FPGA 
 
-Ce tutoriel vous explique comment connecter, configurer et activer votre appareil Azure Stack Edge Pro à l'aide de l'interface utilisateur web locale.
+Ce tutoriel vous explique comment connecter, configurer et activer votre appareil Azure Stack Edge Pro FPGA à l'aide de l'interface utilisateur web locale.
 
 Le processus de configuration et d’activation peut prendre 20 minutes environ.
 
@@ -30,14 +30,14 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de configurer et d'activer votre appareil Azure Stack Edge Pro, vérifiez que :
+Avant de configurer et d'activer votre appareil Azure Stack Edge Pro FPGA, vérifiez que :
 
-* Vous avez installé l'appareil physique, comme indiqué dans [Installer Azure Stack Edge Pro](azure-stack-edge-deploy-install.md).
-* Vous disposez de la clé d'activation du service Azure Stack Edge que vous avez créé pour gérer l'appareil Azure Stack Edge Pro. Pour plus d'informations, consultez [Préparer le déploiement d'Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md).
+* Vous avez installé l'appareil physique, comme indiqué dans [Installer Azure Stack Edge Pro FPGA](azure-stack-edge-deploy-install.md).
+* Vous disposez de la clé d'activation du service Azure Stack Edge que vous avez créé pour gérer l'appareil Azure Stack Edge Pro FPGA. Pour plus d'informations, consultez [Préparer le déploiement d'Azure Stack Edge Pro FPGA](azure-stack-edge-deploy-prep.md).
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Se connecter à la configuration de l’interface utilisateur web locale
 
-1. Configurez l'adaptateur Ethernet sur votre ordinateur pour vous connecter à l'appareil Azure Stack Edge Pro avec l'adresse IP statique 192.168.100.5 et le sous-réseau 255.255.255.0.
+1. Configurez l'adaptateur Ethernet sur votre ordinateur pour vous connecter à l'appareil Azure Stack Edge Pro FPGA avec l'adresse IP statique 192.168.100.5 et le sous-réseau 255.255.255.0.
 
 2. Connectez l’ordinateur au PORT 1 de votre appareil. Utilisez l’illustration ci-dessous pour identifier le PORT 1 sur votre appareil.
 
@@ -55,7 +55,7 @@ Avant de configurer et d'activer votre appareil Azure Stack Edge Pro, vérifiez 
 
 5. Connectez-vous à l’interface utilisateur web de votre appareil physique. Le mot de passe par défaut est *Password1*. 
    
-    ![Page de connexion de l'appareil Azure Stack Edge Pro](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
+    ![Page de connexion de l'appareil Azure Stack Edge Pro FPGA](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
 6. À l’invite, modifiez le mot de passe d’administrateur de l’appareil.  
     Le nouveau mot de passe doit contenir entre 8 et 16 caractères. Il doit contenir trois des types de caractères suivants : majuscule, minuscule, chiffre et caractère spécial.
@@ -95,7 +95,7 @@ Le tableau de bord comprend les différents paramètres nécessaires à la confi
    
    a. Dans la zone **URL de proxy Web**, entrez l’URL dans ce format : `http://host-IP address or FQDN:Port number`. Les URL HTTPS ne sont pas prises en charge.
 
-   b. Sous **Authentification**, sélectionnez **Aucune** ou **NTLM**. Si vous activez le calcul et utilisez le module IoT Edge sur votre appareil Azure Stack Edge Pro, nous vous recommandons de définir l'authentification du proxy web sur **Aucune**. **NTLM** n’est pas pris en charge.
+   b. Sous **Authentification**, sélectionnez **Aucune** ou **NTLM**. Si vous activez le calcul et utilisez le module IoT Edge sur votre appareil Azure Stack Edge Pro FPGA, nous vous recommandons de définir l'authentification du proxy web sur **Aucune**. **NTLM** n’est pas pris en charge.
 
    c. Si vous utilisez une authentification, entrez un nom d’utilisateur et un mot de passe.
 
@@ -104,7 +104,7 @@ Le tableau de bord comprend les différents paramètres nécessaires à la confi
    > [!NOTE]
    > Les fichiers PAC ne sont pas pris en charge. Un fichier PAC définit la manière dont les navigateurs web et les autres agents utilisateurs peuvent choisir automatiquement le serveur proxy approprié (méthode d’accès) pour récupérer une URL donnée.
    > Les proxys qui tentent d’intercepter et de lire tout le trafic (puis de tout resigner avec leur propre certification) ne sont pas compatibles, car le certificat du proxy n’est pas approuvé.
-   > En général, les proxys transparents fonctionnent bien avec Azure Stack Edge Pro.
+   > En général, les proxys transparents fonctionnent bien avec Azure Stack Edge Pro FPGA.
 
 4. (Facultatif) Dans le volet de gauche, sélectionnez **Paramètres de l’heure**, puis configurez les paramètres de l’heure de votre appareil, notamment le fuseau horaire et les serveurs NTP principal et secondaire.  
     Les serveurs NTP sont requis. En effet, votre appareil doit synchroniser les heures pour pouvoir s’authentifier auprès de vos fournisseurs de services cloud.
@@ -132,7 +132,7 @@ Le tableau de bord comprend les différents paramètres nécessaires à la confi
 
 6. Dans le volet de gauche, sélectionnez **Paramètres cloud**, puis activez votre appareil auprès du service Azure Stack Edge sur le portail Azure.
     
-    1. Dans la zone **Clé d'activation**, entrez la clé d'activation que vous avez obtenue dans [Obtenir la clé d'activation](azure-stack-edge-deploy-prep.md#get-the-activation-key) pour Azure Stack Edge Pro.
+    1. Dans la zone **Clé d'activation**, entrez la clé d'activation d'Azure Stack Edge Pro FPGA que vous avez obtenue dans [Obtenir la clé d'activation](azure-stack-edge-deploy-prep.md#get-the-activation-key).
     2. Sélectionnez **Appliquer**.
        
         ![Page « Paramètres cloud » de l’interface utilisateur web locale](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-6.png)
@@ -157,7 +157,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Se connecter à un appareil physique
 > * Configurer et activer l’appareil physique
 
-Pour savoir comment transférer des données avec votre appareil Azure Stack Edge Pro, consultez :
+Pour apprendre à transférer des données avec votre appareil Azure Stack Edge Pro FPGA, consultez :
 
 > [!div class="nextstepaction"]
-> [Transférer des données avec Azure Stack Edge Pro](./azure-stack-edge-deploy-add-shares.md)
+> [Transférer des données avec Azure Stack Edge Pro FPGA](./azure-stack-edge-deploy-add-shares.md).

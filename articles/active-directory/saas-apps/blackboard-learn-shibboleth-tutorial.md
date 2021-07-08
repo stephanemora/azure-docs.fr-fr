@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/19/2021
+ms.date: 06/04/2021
 ms.author: jeedes
-ms.openlocfilehash: b1b3f265d0e1fcad2953292c5227c2630c6df229
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 099ca4681dcbcc31962a56c08f5599a96c00bcb6
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649892"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112008054"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>Didacticiel : Intégration d’Azure Active Directory à Blackboard Learn - Shibboleth
 
@@ -37,7 +37,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Blackboard Learn - Shibboleth prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Blackboard Learn - Shibboleth prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
 ## <a name="add-blackboard-learn---shibboleth-from-the-gallery"></a>Ajouter Blackboard Learn - Shibboleth à partir de la galerie
 
@@ -63,7 +63,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Blackboard L
     1. **[Créer un utilisateur de test Blackboard Learn - Shibboleth](#create-blackboard-learn---shibboleth-test-user)** pour avoir un équivalent de Britta Simon dans Blackboard Learn - Shibboleth lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
@@ -121,15 +121,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="configure-blackboard-learn---shibboleth-sso"></a>Configurer l’authentification unique Blackboard Learn - Shibboleth
+## <a name="configure-blackboard-learn---shibboleth-sso"></a>Configurer l’authentification unique Blackboard Learn - Shibboleth
 
-Pour configurer l’authentification unique côté **Blackboard Learn - Shibboleth**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées à partir du portail Azure à l’[équipe du support technique Blackboard Learn - Shibboleth](https://www.blackboard.com/forms/contact-us_form.aspx). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique Blackboard Learn - Shibboleth, consultez ce [document](https://help.blackboard.com/Learn/Administrator/SaaS/Authentication/Implement_Authentication/SAML_Authentication_Provider_Type).
 
 ### <a name="create-blackboard-learn---shibboleth-test-user"></a>Créer un utilisateur de test Blackboard Learn - Shibboleth
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Blackboard Learn - Shibboleth. Pour ajouter les utilisateurs à la plateforme Blackboard Learn - Shibboleth, contactez l’[équipe du support Blackboard Learn - Shibboleth](https://www.blackboard.com/forms/contact-us_form.aspx). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO)
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 

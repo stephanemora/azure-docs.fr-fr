@@ -5,12 +5,12 @@ ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 9371ebfbb89e30b53183ad364514b5bba904c56b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0f999b5c3a1efcf151876e3f2c1e285260edb8a3
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108761558"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535061"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Définir et affecter un blueprint dans le portail :
 
@@ -63,11 +63,11 @@ La première étape de la définition d’un modèle standard à des fins de con
 
    1. Définissez le **Type** sur **Intégré**. Dans la zone **Recherche**, entrez **étiquette**.
 
-   1. Enlevez le focus de la fonction **Rechercher** pour appliquer le filtre. Sélectionnez **Ajouter l’étiquette et sa valeur par défaut aux groupes de ressources**.
+   1. Enlevez le focus de la fonction **Rechercher** pour appliquer le filtre. Sélectionnez **Ajouter l’étiquette et sa valeur aux groupes de ressources**.
 
    1. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
 
-1. Sélectionnez la ligne d’attribution de stratégie **Ajouter l’étiquette et sa valeur par défaut aux groupes de ressources**.
+1. Sélectionnez la ligne d’attribution de stratégie **Ajouter l’étiquette et sa valeur aux groupes de ressources**.
 
 1. La fenêtre permettant de paramétrer l’artefact dans le cadre de la définition du blueprint s’ouvre. Vous définissez ainsi des paramètres statiques pour toutes les affectations basées sur ce blueprint (les paramètres dynamiques étant définis durant l’affectation). Cet exemple utilise des paramètres dynamiques durant l’affectation du blueprint. Veillez donc à conserver les valeurs par défaut et à sélectionner **Annuler**.
 

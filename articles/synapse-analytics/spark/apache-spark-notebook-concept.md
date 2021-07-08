@@ -9,18 +9,18 @@ ms.date: 11/18/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 5efdfcea7b6d727038bad124368179b9395bfafd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dbdfb7e13249de21b890c6f4476cb82a5c91a23e
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97093275"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809901"
 ---
 # <a name="azure-synapse-analytics-notebooks"></a>Notebooks Azure Synapse Analytics
 
 Un notebook Synapse Studio est une interface web permettant de créer des fichiers contenant du code, des visualisations et du texte descriptif en direct. Les blocs-notes constituent un bon endroit où valider des idées et effectuer des expérimentations rapides pour extraire des insights de vos données. 
 
-Un bloc-notes Azure Synapse Studio permet d’effectuer les opérations suivantes :
+Un notebook Synapse Studio permet d’effectuer les opérations suivantes :
 
 * Commencer à travailler sans le moindre effort de configuration.
 * Sécuriser les données avec des fonctionnalités de sécurité d’entreprise intégrées.

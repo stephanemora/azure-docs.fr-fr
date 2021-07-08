@@ -11,15 +11,26 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
-ms.date: 02/03/2021
-ms.openlocfilehash: 8977bb90087d9d3d4962d7eda50903d97da93539
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.date: 05/19/2021
+ms.openlocfilehash: 31f3dc8adcd17c7795351877c856fa854582007b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443865"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456550"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-db-api-for-mongodb-offline"></a>Tutoriel : Migrer MongoDB vers l'API Azure Cosmos DB pour MongoDB hors connexion
+[!INCLUDE[appliesto-mongodb-api](../cosmos-db/includes/appliesto-mongodb-api.md)]
+
+> [!IMPORTANT]  
+> Veuillez lire ce guide dans son intégralité avant d’effectuer les étapes de migration.
+>
+
+Ce guide de migration de MongoDB fait partie d’une série sur la migration de MongoDB. Les étapes critiques de la migration de MongoDB sont la [pré-migration](../cosmos-db/mongodb-pre-migration.md), la migration proprement dite et la [post-migration](../cosmos-db/mongodb-post-migration.md), comme indiqué ci-dessous.
+
+![Diagramme des étapes de migration.](../cosmos-db/media/mongodb-pre-migration/overall-migration-steps.png)
+
+## <a name="overview-of-offline-data-migration-from-mongodb-to-azure-cosmos-db-using-dms"></a>Vue d’ensemble de la migration des données hors connexion de MongoDB vers Azure Cosmos DB avec DMS
 
 Utilisez Azure Database Migration Service pour procéder à une migration hors connexion et ponctuelle de bases de données situées sur une instance locale ou cloud de MongoDB vers l'API Azure Cosmos DB pour MongoDB.
 

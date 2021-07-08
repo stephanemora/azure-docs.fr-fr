@@ -6,17 +6,19 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/25/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8a25f69019e194650bb6aa2f5b8ae19dd37fbc48
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 52404879e14f31ddd284aa2bfb8d1724d9338be5
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729165"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108294"
 ---
 # <a name="voice-and-video-concepts"></a>Concepts vocaux et vidéo
+
+[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
 
 Vous pouvez utiliser Azure Communication Services pour effectuer ou recevoir des appels un à un ou des appels vocaux et vidéos de groupe. Vos appels peuvent être dirigés vers d’autres appareils connectés à Internet et vers des téléphones traditionnels. Vous pouvez utiliser les kits SDK JavaScript, Android ou iOS Communication Services pour créer des applications qui permettent à vos utilisateurs de parler entre eux dans le cadre de conversations privées ou de discussions de groupe. Azure Communication Services prend en charge les appels vers et depuis des services ou des bots.
 

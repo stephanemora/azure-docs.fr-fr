@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : router vers des services partagés en utilisant un modèle ARM'
 titleSuffix: Azure Virtual WAN
-description: Ce guide de démarrage rapide vous montre comment configurer des routes pour accéder à un réseau virtuel de services partagés avec une charge de travail à laquelle vous voulez que chaque réseau virtuel et chaque branche accède en utilisant un modèle Azure Resource Manager (modèle ARM).
+description: Découvrez comment configurer des routes pour accéder à un réseau virtuel de services partagés avec une charge de travail à laquelle vous voulez que chaque réseau virtuel et chaque branche accède en utilisant un modèle Azure Resource Manager (modèle ARM).
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/05/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: c954db5c75f1cf32833ec5ecb270ef3c4b57c10b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ff23bf626fe252547d3449cfe318c073e9cc9b6c
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110093175"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112026306"
 ---
 # <a name="quickstart-route-to-shared-services-vnets-using-an-arm-template"></a>Démarrage rapide : router vers des réseaux virtuels de services partagés en utilisant un modèle ARM
 
@@ -33,7 +33,7 @@ Si votre environnement remplit les prérequis et que vous êtes déjà familiari
 
 ## <a name="review-the-template"></a><a name="review"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templatesvirtual-wan-with-route-tables). Le modèle utilisé pour cet article est trop long pour être affiché ici. Pour voir le modèle, consultez [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/virtual-wan-with-route-tables/azuredeploy.json).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/virtual-wan-with-route-tables). Le modèle utilisé pour cet article est trop long pour être affiché ici. Pour voir le modèle, consultez [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/virtual-wan-with-route-tables/azuredeploy.json).
 
 Dans ce guide de démarrage rapide, vous allez créer un déploiement multihub Azure Virtual WAN, avec toutes les passerelles et les connexions de réseau virtuel. La liste des paramètres d’entrée a été volontairement réduite au minimum. Le schéma d’adressage IP peut être modifié en rectifiant les variables à l’intérieur du modèle. Le scénario est expliqué plus en détail dans l’article [Scénario : réseau virtuel de services partagés](scenario-shared-services-vnet.md).
 

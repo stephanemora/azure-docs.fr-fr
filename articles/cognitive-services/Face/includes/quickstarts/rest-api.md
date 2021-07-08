@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 12/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 6e3827ca9f729f1fa231a58a11c829b1ee8a4f44
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 87871be12310782abe172fe308782825ba8e09d0
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108792761"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109858108"
 ---
 Commencez à utiliser la reconnaissance faciale avec l’API REST Visage. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
@@ -227,9 +227,9 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez vu comment utiliser l’API REST Visage afin d’effectuer des tâches de reconnaissance faciale basiques. Pour plus d’informations sur la bibliothèque, reportez-vous à la documentation de référence.
+Dans ce guide de démarrage rapide, vous avez vu comment utiliser l’API REST Visage afin d’effectuer des tâches de reconnaissance faciale basiques. Découvrez à présent les différents modèles de détection de visage, et la façon de spécifier le modèle adapté à votre cas d’usage.
 
 > [!div class="nextstepaction"]
-> [Référence sur l’API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Spécifier une version de modèle de détection des visages](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [Qu’est ce que le service Visage ?](../../overview.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/02/2021
+ms.date: 06/10/2021
 ms.author: aahi
-ms.openlocfilehash: b1af48aa2aad3daa37a3ca4073d44574b5b05e6c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c9ff3bdc7e7076846ffb44239bf5654512f88eea
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742118"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967972"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exemple : Détecter la langue avec Analyse de texte
 
@@ -303,3 +303,4 @@ Dans cet article, vous avez vu les concepts et le flux de travail de détection 
 * [Vue d’ensemble d’Analyse de texte](../overview.md)
 * [Utilisation de la bibliothèque cliente Analyse de texte](../quickstarts/client-libraries-rest-api.md)
 * [Nouveautés](../whats-new.md)
+* [Versions du modèle](../concepts/model-versioning.md)

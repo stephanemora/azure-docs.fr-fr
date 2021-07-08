@@ -6,12 +6,12 @@ ms.author: rywinter
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 01/11/2021
-ms.openlocfilehash: 38c21ff71971868f6597856c4048ec179faf4e01
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7b23569b07893ebbecf86336a40e52cd8627851a
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108759433"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590069"
 ---
 # <a name="what-is-azure-iot-device-and-application-development"></a>Qu’est-ce que le développement d’applications et d’appareils Azure IoT ?
 
@@ -73,6 +73,5 @@ Une étape importante du processus de développement consiste à choisir l’ens
 Pour en savoir plus sur la sélection d’une plateforme d’application et d’outils, consultez [Vue d’ensemble : options de connexion pour les développeurs d’appareils Azure IoT](concepts-overview-connection-options.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Sélectionnez ci-dessous la série de démarrages rapides la plus pertinente pour votre rôle de développement. Ces articles présentent les principes fondamentaux de la création d’une application Azure IoT pour héberger des appareils, l’utilisation d’un Kit de développement logiciel (SDK), la connexion d’un appareil et l’envoi de données de télémétrie.  
-- Pour le développement d’applications pour appareils : [Démarrage rapide : Envoyer des données de télémétrie d’un appareil à Azure IoT Central](quickstart-send-telemetry-central.md)
-- Pour le développement d’appareils intégrés : [Prise en main du développement d’appareils intégrés Azure IoT](quickstart-device-development.md)
+Sélectionnez la série de démarrages rapides de développement intégré ou de développement d’applications la plus pertinente pour votre rôle de développement. Ces articles présentent les principes fondamentaux de la création d’une application Azure IoT pour héberger des appareils, l’utilisation d’un Kit de développement logiciel (SDK), la connexion d’un appareil et l’envoi de données de télémétrie.  
+- [Développement d’appareil Azure IoT](index.yml)

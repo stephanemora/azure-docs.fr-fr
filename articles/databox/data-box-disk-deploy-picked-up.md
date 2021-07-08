@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/02/2021
+ms.date: 05/07/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 542eed34f2be05cce3829baab2f07a5c58413ba0
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: b590468b0e1f036a8b60143ff23e4a54b01802a8
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526294"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714491"
 ---
 ::: zone target="docs"
 
@@ -213,7 +213,7 @@ Si vous retournez l’appareil en Chine, procédez comme suit.
 
 | Informations de contact | Détails |
 |---|---|
-|Nom :       | Bao Ying|
+|Nom :       | `Bao Ying`|
 |Désignation | Senior OneCall Representative |
 |Téléphone :      | 400.889.6066 ext. 3693 |
 |E-mail :     | [ying.bao@fedex.com](mailto:ying.bao@fedex.com) |
@@ -222,26 +222,32 @@ Si vous retournez l’appareil en Chine, procédez comme suit.
 
 | Informations de contact | Détails |
 |---|---|
-|Nom :       | He Xun|
+|Nom :       | `He Xun`|
 |Désignation | OneCall Representative |
 |Téléphone :      | 400.889.6066 ext. 3603 |
 |E-mail :     | [739951@fedex.com](mailto:739951@fedex.com) |
 
 ### <a name="self-managed"></a>[Autogérée](#tab/in-selfmanaged)
 
-Si vous utilisez Data Box Disk au Japon, à Singapour, en Corée, au Royaume-Uni, en Europe de l’Ouest, en Australie, en Afrique du Sud, en Inde ou dans le cadre d’une offre US Government et que vous avez sélectionné l’option d'expédition autogérée pendant la création de la commande, suivez ces instructions.
+Si vous utilisez Data Box Disk au Japon, à Singapour, en Corée, au Royaume-Uni, en Europe de l’Ouest, en Australie, en Afrique du Sud, en Inde, au Brésil ou dans le cadre d’une offre US Government et que vous avez sélectionné l’option d’expédition autogérée pendant la création de la commande, suivez ces instructions.
 
 1. Accédez au panneau **Vue d’ensemble** de votre commande dans le portail Azure. Parcourez les instructions qui s’affichent lorsque vous sélectionnez **Planifier l’enlèvement**. Un code d’autorisation doit apparaître. Il est utilisé au moment de la remise de la commande.
 
 2. Quand vous êtes prêt à renvoyer l’appareil, adressez un e-mail à l’équipe Azure Data Box Operations en utilisant le modèle suivant.
 
-    ```
-    To: adbops@microsoft.com
-    Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
-    Body:
-     a. Order name
-     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop-off.
-    ```
+   ```
+   To: adbops@microsoft.com
+   Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
+   Body:
+   1. Order name
+   2. Contact name of the person dropping off. You will need to display a government-approved ID during the drop-off.
+   ```
+
+   > [!NOTE]
+   > - Les informations requises pour le renvoi de l’appareil peuvent varier selon la région. 
+   > - Si vous renvoyez un Data Box Disk au Brésil, consultez la rubrique [Utilisation de l’expédition autogérée pour Azure Data Box Disk](data-box-disk-portal-customer-managed-shipping.md) pour obtenir des instructions détaillées.
+  
+
 3. L’équipe Azure Data Box Operations vous accompagnera pour organiser la remise au centre de données Azure.
 
 ---

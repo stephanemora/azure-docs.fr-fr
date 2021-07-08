@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 82c5cbc2b938ef8cd27a17da394b467a7f5ba8aa
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 030aadf55f692b19109582fb85320023159005a3
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755600"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569419"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ Cet article présente les différences de fonctionnalités lorsque vous utilisez
 
 ## <a name="overview"></a>Vue d’ensemble
 
-SQL Server sur les machines virtuelles Azure utilise la fonctionnalité WSFC (clustering de basculement Windows Server) pour fournir une haute disponibilité locale grâce à la redondance au niveau de l'instance de serveur : une instance de cluster de basculement. Une instance FCI est une instance unique de SQL Server installée sur les nœuds WSFC (ou tout simplement du cluster) et, éventuellement, sur plusieurs sous-réseaux. Sur le réseau, une instance FCI semble être une instance de SQL Server s’exécutant sur un seul ordinateur. Toutefois, l’instance FCI permet le basculement d’un nœud WSFC vers un autre si le nœud actuel devient indisponible.
+SQL Server sur des machines virtuelles Azure utilise la fonctionnalité [WSFC (clustering de basculement Windows Server)](hadr-windows-server-failover-cluster-overview.md) pour fournir une haute disponibilité locale via la redondance au niveau de l’instance du serveur : une instance de cluster de basculement. Une instance FCI est une instance unique de SQL Server installée sur les nœuds WSFC (ou tout simplement du cluster) et, éventuellement, sur plusieurs sous-réseaux. Sur le réseau, une instance FCI apparaît comme une instance unique de SQL Server s’exécutant sur un seul ordinateur. Toutefois, l’instance FCI permet le basculement d’un nœud WSFC vers un autre si le nœud actuel devient indisponible.
 
 Le reste de cet article se concentre sur les différences entre les instances de cluster de basculement lorsqu’elles sont utilisées avec SQL Server sur des machines virtuelles Azure. Pour en savoir plus sur la technologie de clustering de basculement, consultez : 
 
@@ -148,9 +148,11 @@ Pour les solutions de stockage partagé et de réplication de données proposée
 
 ## <a name="connectivity"></a>Connectivité
 
-Les instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure utilisent un [nom de réseau distribué (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md) ou un [nom de réseau virtuel (VNN) avec Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) pour acheminer le trafic vers l’instance SQL Server, quel que soit le nœud actuellement propriétaire des ressources en cluster. Des considérations supplémentaires sont à prendre en compte lors de l’utilisation de certaines fonctionnalités et de DNN avec une instance FCI de SQL Server. Pour en savoir plus, consultez [Interopérabilité DNN avec l’instance FCI de SQL Server](failover-cluster-instance-dnn-interoperability.md). 
+Vous pouvez configurer un nom de réseau virtuel ou un nom de réseau distribué pour une instance de cluster de basculement. [Passez en revue les différences entre les deux](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn), puis déployez un [nom de réseau distribué](failover-cluster-instance-distributed-network-name-dnn-configure.md) ou un [nom de réseau virtuel](failover-cluster-instance-vnn-azure-load-balancer-configure.md) pour votre instance de cluster de basculement.
 
-Pour plus d’informations sur les options de connectivité des clusters, consultez [Acheminer les connexions HADR vers SQL Server sur des machines virtuelles Azure](hadr-cluster-best-practices.md#connectivity). 
+Le nom de réseau distribué est recommandé si c’est possible, car le basculement est plus rapide, et la surcharge et le coût de la gestion de l’équilibreur de charge sont éliminés. 
+
+La plupart des fonctionnalités de SQL Server fonctionnent de façon transparente avec les FCI lors de l’utilisation du DNN, mais certaines fonctionnalités peuvent nécessiter une attention particulière. Pour plus d’informations, consultez [Interopérabilité de FCI et de DNN](failover-cluster-instance-dnn-interoperability.md). 
 
 ## <a name="limitations"></a>Limites
 
@@ -176,7 +178,9 @@ Concernant Machines virtuelles Azure, MSDTC n’est pas pris en charge pour Wind
 
 Passez en revue les [meilleures pratiques pour les configurations de cluster](hadr-cluster-best-practices.md), puis vous pouvez [préparer votre machine virtuelle SQL Server pour FCI](failover-cluster-instance-prepare-vm.md). 
 
-Pour plus d'informations, consultez les pages suivantes : 
 
-- [Technologies de cluster Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [Instances de cluster de basculement SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+Pour en savoir plus, consultez :
+
+- [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Vue d’ensemble des instances de cluster de basculement](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+

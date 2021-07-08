@@ -3,12 +3,12 @@ title: Démarrage rapide Azure - Créer un Event Hub à l'aide du portail Azure
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un hub d’événements Azure à l’aide du portail Azure.
 ms.topic: quickstart
 ms.date: 05/25/2021
-ms.openlocfilehash: 32a669c08976f1626617b7d17558e2733fa784a5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6a483981f1461c738f087c6f9401006319fd0135
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375108"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617136"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Démarrage rapide : Créer un hub d’événements avec le portail Azure
 Azure Event Hubs est une plateforme de streaming Big Data et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
@@ -55,7 +55,7 @@ Un espace de noms Event Hubs fournit un conteneur délimité unique, dans lequel
    1. Entrez un **nom** pour l’espace de noms. Le système vérifie immédiatement si le nom est disponible.  
    1. Sélectionnez un **emplacement** pour l’espace de noms.
    1. Choisissez **De base** comme **niveau tarifaire**. Pour en savoir plus sur les différences entre les niveaux, consultez les articles [Quotas et limites](event-hubs-quotas.md), [Event Hubs Premium](event-hubs-premium-overview.md) et [Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
-   1. Ne changez pas les paramètres **Unités de débit** (pour le niveau Standard) ou **Unités de traitement** (pour le niveau Premium). Les unités de débit sont des unités de capacité achetées préalablement. Pour en savoir plus sur les unités de débit ou de traitement, consultez [Scalabilité avec Event Hubs](event-hubs-scalability.md).  
+   1. Ne changez pas les paramètres **Unités de débit** (pour le niveau Standard) ou **Unités de traitement** (pour le niveau Premium). Pour en savoir plus sur les unités de débit ou de traitement, consultez [Scalabilité avec Event Hubs](event-hubs-scalability.md).  
    1. Au bas de la page, sélectionnez **Vérifier + créer**.
       
       ![Créer un espace de noms Event Hub](./media/event-hubs-quickstart-portal/create-event-hub1.png)

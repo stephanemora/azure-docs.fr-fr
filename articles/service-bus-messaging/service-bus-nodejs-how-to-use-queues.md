@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.custom:
 - devx-track-js
 - mode-api
-ms.openlocfilehash: d2c861757b72f630f88d62ba50723ed1b6fc25ed
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: fb84dd12dd8e7a5b60d77e7a4895ae5b5d67cde6
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110462349"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652269"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Envoyer et recevoir des messages à partir de files d’attente Azure Service Bus (JavaScript)
 Dans ce tutoriel, vous allez découvrir comment utiliser le package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) dans un programme JavaScript pour envoyer et recevoir des messages à partir d’une file d’attente Service Bus.
@@ -37,7 +37,7 @@ npm install @azure/service-bus
 L’exemple de code suivant illustre comment envoyer un message à une file d’attente.
 
 1. Ouvrez votre éditeur favori, tel que [Visual Studio Code](https://code.visualstudio.com/).
-2. Créez un fichier appelé `send.js` et collez-y le code ci-dessous. Ce code envoie un message vers votre file d’attente. Le message comporte une étiquette (Scientist) et un corps (Einstein).
+2. Créez un fichier appelé `send.js` et collez-y le code ci-dessous. Ce code envoie les noms des scientifiques à votre file d’attente sous forme de messages.
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus");
@@ -208,6 +208,6 @@ Sélectionnez la file d’attente dans cette page **Vue d’ensemble** pour acc�
 Voir la documentation et les exemples suivants : 
 
 - [Bibliothèque de client Azure Service Bus pour JavaScript](https://www.npmjs.com/package/@azure/service-bus)
-- [Exemples JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [Exemples TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Exemples JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/v7/javascript)
+- [Exemples TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/v7/typescript)
 - [Documentation de référence de l’API](/javascript/api/overview/azure/service-bus)

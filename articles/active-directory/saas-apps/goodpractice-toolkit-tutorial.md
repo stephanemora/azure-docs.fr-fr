@@ -9,26 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/12/2020
+ms.date: 05/28/2021
 ms.author: jeedes
-ms.openlocfilehash: 57598ea22874cfba772f6cf0e6b2ba779ef7c482
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d394410ab552cd9e5687decd5951c5ae5583a57e
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92448385"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111568393"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mind-tools-toolkit"></a>Tutoriel : Intégration d’Azure Active Directory à Mind Tools Toolkit
 
-Dans ce tutoriel, vous allez apprendre à intégrer Mind Tools Toolkit à Azure Active Directory (Azure AD).
-
-Avec cette intégration, vous pouvez :
+Dans ce tutoriel, vous allez apprendre à intégrer Mind Tools Toolkit à Azure Active Directory (Azure AD). Quand vous intégrez Mind Tools Toolkit à Azure AD, vous pouvez :
 
 * Dans Azure AD, contrôlez qui a accès à Mind Tools Toolkit.
 * Permettez à vos utilisateurs de se connecter automatiquement à Mind Tools Toolkit (authentification unique) avec leur compte Azure AD.
 * gérer vos comptes à un emplacement central : le portail Azure.
-
-Pour en savoir plus sur l’intégration d’applications SaaS (software as a service) à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -43,49 +39,45 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 * Mind Tools Toolkit prend en charge l’authentification unique lancée par le fournisseur de services.
 * Mind Tools Toolkit prend en charge l’attribution d’utilisateurs juste-à-temps.
-* Après avoir configuré Mind Tools Toolkit, vous pouvez appliquer le contrôle de session. Ce contrôle protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="add-mind-tools-toolkit-from-the-gallery"></a>Ajouter Mind Tools Toolkit depuis la galerie
 
 Pour configurer l’intégration de Mind Tools Toolkit dans Azure AD, vous devez ajouter Mind Tools Toolkit à votre liste d’applications SaaS managées à partir de la galerie.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft.
 1. Dans le volet de navigation le plus à gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, saisissez **Mind Tools Toolkit** dans la zone de recherche.
 1. Sélectionnez **Mind Tools Toolkit** dans les résultats de la recherche, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-mind-tools-toolkit"></a>Configurer et tester Azure AD SSO pour Mind Tools Toolkit
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Mind Tools Toolkit, à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur Mind Tools Toolkit associé.
+Configurez et testez Azure AD SSO avec Mind Tools Toolkit pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur associé dans Mind Tools Toolkit.
 
-Pour configurer et tester l’authentification unique Azure AD avec Mind Tools Toolkit, suivez les indications des sections suivantes :
+Pour configurer et tester Azure AD SSO avec Mind Tools Toolkit, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
     1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique Mind Tools Toolkit](#configure-mind-tools-toolkit-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    1. **[Créez un utilisateur de test Mind Tools Toolkit](#create-a-mind-tools-toolkit-test-user)** pour avoir un équivalent de B. Simon dans Mind Tools Toolkit. Cet équivalent est lié à la représentation Azure AD de l’utilisateur.
+    1. **[Créer un utilisateur de test Mind Tools Toolkit](#create-mind-tools-toolkit-test-user)** pour avoir un équivalent de B.Simon dans Mind Tools Toolkit lié à la représentation Azure AD associée.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous configurez l’authentification unique Azure AD avec Mind Tools Toolkit, en procédant comme suit :
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Mind Tools Toolkit**, sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Mind Tools Toolkit**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
-    ![La section Gérer avec Authentification unique en évidence](common/select-sso.png)
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML/WS-Fed** pour activer l’authentification unique.
-
-    ![La boîte de dialogue Sélectionner une méthode d’authentification unique, avec SAML mis en évidence](common/select-saml-option.png)
-
-1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
-
-    ![La page Configurer l’authentification unique avec SAML, avec l’icône de crayon pour Configuration SAML de base mise en évidence](common/edit-urls.png)
-
-1. Dans la section **Configuration SAML de base**, dans la zone **URL de connexion**, entrez une URL au format `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>`.
+1. Dans la section **Configuration SAML de base**, dans la zone **URL de connexion**, entrez une URL au format `https://app.goodpractice.net/#/<subscriptionUrl>/s/<LOCATION_ID>`.
 
     > [!NOTE]
     > La valeur d’**URL de connexion** n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique Mind Tools Toolkit](mailto:support@goodpractice.com).
@@ -96,70 +88,50 @@ Dans cette section, vous configurez l’authentification unique Azure AD avec Mi
 
 1. Dans **Configurer Mind Tools Toolkit**, copiez les URL dont vous avez besoin parmi les suivantes.
 
-    * **URL de connexion**
-
-    * **Identificateur Azure AD**
-
-    * **URL de déconnexion**
-
     ![La section Configurer Mind Tools Toolkit, avec les URL de configuration mises en évidence](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-Dans cette section, vous créez un utilisateur de test appelé B.Simon dans le portail Azure :
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet le plus à gauche du portail Azure, sélectionnez **Azure Active Directory** > **Utilisateurs** > **Tous les utilisateurs**.
-1. Sélectionnez **Nouvel utilisateur**, en haut de l’écran.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez **B.Simon**.  
-   1. Dans le champ **Nom d’utilisateur**, saisissez **B.Simon@** _domaine_entreprise_ **.** _extension_. Par exemple : B.Simon@contoso.com.
-   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
-   1. Sélectionnez **Create** (Créer).
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous autorisez B. Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Mind Tools Toolkit.
+Dans cette section, vous allez autoriser B. Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Mind Tools Toolkit.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** > **Toutes les applications**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Mind Tools Toolkit**.
-1. Dans la page de vue d’ensemble de l’application, accédez à la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![La section Gérer, avec Utilisateurs et groupes mis en évidence](common/users-groups-blade.png)
-
-1. Sélectionnez **Ajouter un utilisateur**. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
-
-   ![La fenêtre Utilisateurs et groupes, avec Ajouter un utilisateur mis en évidence](common/add-assign-user.png)
-
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** dans la liste des utilisateurs. Ensuite, choisissez le bouton **Sélectionner** en bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste. Ensuite, choisissez le bouton **Sélectionner** en bas de l’écran.
-1. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-mind-tools-toolkit-sso"></a>Configurer l’authentification unique Mind Tools Toolkit
 
 Pour configurer l’authentification unique du côté de **Mind Tools Toolkit**, envoyez le **XML de métadonnées de fédération** téléchargé et les URL précédemment copiées à l’[équipe de support technique Mind Tools Toolkit](mailto:support@goodpractice.com). Celle-ci configure ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
-### <a name="create-a-mind-tools-toolkit-test-user"></a>Créer un utilisateur de test Mind Tools Toolkit
+### <a name="create-mind-tools-toolkit-test-user"></a>Créer un utilisateur de test Mind Tools Toolkit
 
-Dans cette section, vous créez un utilisateur appelé B. Simon dans Mind Tools Toolkit.
+Dans cette section, un utilisateur appelé B. Simon est créé dans Mind Tools Toolkit. Mind Tools Toolkit prend en charge le provisionnement juste-à-temps de l’utilisateur, une option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Mind Tools Toolkit, un utilisateur est créé après l’authentification.
 
-Mind Tools Toolkit prend en charge le provisionnement juste-à-temps, une option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Si un utilisateur n’existe pas déjà dans Mind Tools Toolkit, un nouvel utilisateur est créé lorsque vous tentez d’accéder à Mind Tools Toolkit.
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO)
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à partir du portail Mes applications.
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Mind Tools Toolkit où vous pouvez lancer le flux de connexion. 
 
-Quand vous sélectionnez la vignette Mind Tools Toolkit dans le portail Mes applications, vous vous connectez automatiquement à l’application Mind Tools Toolkit pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le portail Mes applications, consultez [Introduction au portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Accédez directement à l’URL de connexion Mind Tools Toolkit pour lancer le flux de connexion à partir de là.
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Mind Tools Toolkit dans Mes applications vous redirige vers l’URL de connexion à Mind Tools Toolkit. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Tutoriels pour intégrer des applications SaaS à Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer Mind Tools Toolkit avec Azure AD](https://aad.portal.azure.com/)
-
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
-
-- [Guide pratique pour protéger Mind Tools Toolkit avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)
+Après avoir configuré Mind Tools Toolkit, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

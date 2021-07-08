@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/02/2021
-ms.openlocfilehash: f8ac611d25507913d6d5f2e2dd289ea52ce4ae9f
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: ec1f8890d9626ca1ed96f538bd464da7c30caf17
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106387117"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983785"
 ---
 # <a name="quickstart-create-a-purview-account-using-python"></a>Démarrage rapide : Créer un compte Purview à l'aide de Python
 
@@ -69,7 +69,7 @@ Suivez ce guide de démarrage rapide pour créer un compte Purview à l'aide de 
 
 2. Ajoutez le code suivant à la méthode **Main** qui crée une instance de la classe PurviewManagementClient. Vous utiliserez cet objet pour créer un compte Purview, supprimer le compte Purview, vérifier la disponibilité d'un nom et d'autres opérations de fournisseur de ressources.
  
- ```python
+    ```python
     def main():
     
     # Azure subscription ID
@@ -92,9 +92,9 @@ Suivez ce guide de démarrage rapide pour créer un compte Purview à l'aide de 
 
 ## <a name="create-a-purview-account"></a>Créer un compte Purview
 
-Ajoutez le code suivant à la méthode **Main** qui crée un **compte Purview**. Si votre groupe de ressources existe déjà, commentez la première instruction `create_or_update`.
+1. Ajoutez le code suivant à la méthode **Main** qui crée un **compte Purview**. Si votre groupe de ressources existe déjà, commentez la première instruction `create_or_update`.
 
-```python
+   ```python
     # create the resource group
     # comment out if the resource group already exits
     resource_client.resource_groups.create_or_update(rg_name, rg_params)
@@ -118,15 +118,14 @@ Ajoutez le code suivant à la méthode **Main** qui crée un **compte Purview**.
             print("Error in creating Purview account")
             break
         time.sleep(30)      
-        
-```
+      ```
 
-Maintenant, ajoutez l’instruction suivante pour appeler la méthode **main** lorsque le programme est exécuté :
+2. Maintenant, ajoutez l’instruction suivante pour appeler la méthode **main** lorsque le programme est exécuté :
 
-```python
-# Start the main method
-main()
-```
+   ```python
+   # Start the main method
+   main()
+   ```
 
 ## <a name="full-script"></a>Script complet
 

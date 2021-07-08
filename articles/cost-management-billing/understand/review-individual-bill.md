@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 10/26/2020
+ms.date: 05/17/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ef04c964f0037fcf36fe376084df75ffa0034957
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 013a59c703d5275278e905314357f32acc211f93
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027558"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067759"
 ---
 # <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Tutoriel : Vérifier votre facture d’abonnement Azure
 
@@ -37,7 +37,7 @@ Vous devez disposer d’un compte de facturation *Programme Microsoft Online Ser
 
 Les factures pour les comptes gratuits Azure sont créées uniquement quand le montant du crédit mensuel est dépassé.
 
-Vous devez être inscrit à Azure depuis plus de 30 jours. Azure vous facture à la fin de votre période de facturation.
+Cela doit faire plus de 30 jours que vous êtes inscrit à Azure. Azure vous facture à la fin de votre période de facturation.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -122,13 +122,13 @@ Les coûts indiqués dans l’analyse des coûts doivent correspondre précisém
 
 ![Frais d’utilisation indiqués sur la facture](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external-marketplace-services-are-billed-separately"></a>Les services externes de la Place de marché sont facturés séparément
+## <a name="external-marketplace-services"></a>Services externes de la Place de marché
 
 <a name="external"></a>
 
 Les services externes, ou frais de la Place de marché, concernent les ressources créées par des fournisseurs de logiciels tiers. Ces ressources sont disponibles sur la Place de marché Azure. Par exemple, un pare-feu Barracuda est une ressource de la Place de marché Azure offerte par un tiers. Tous les frais du pare-feu et les compteurs correspondants apparaissent en tant que frais de services externes.
 
-Les frais de services externes sont facturés séparément. Les frais ne s’affichent pas sur votre facture Azure.
+Les frais des services externes figurent sur une facture distincte.
 
 ### <a name="resources-are-billed-by-usage-meters"></a>Les ressources sont facturées d’après les compteurs d’utilisation
 

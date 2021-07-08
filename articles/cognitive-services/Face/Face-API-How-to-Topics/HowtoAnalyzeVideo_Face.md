@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d06396c869bb7e9dbfbf99109d0a857302d5e874
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 92bf7b7c1d2f24b7a858f6e9b786b84943651239
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136208"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810729"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exemple : Comment analyser des vidéos en temps réel
 
@@ -173,7 +173,7 @@ Quand vous êtes prêt à procéder à l’intégration, **référencez la bibli
 
 Dans ce guide, vous avez découvert comment exécuter une analyse en temps quasi réel de flux vidéo en direct à l’aide des API Visage, Vision par ordinateur et Émotion, et comment utiliser notre exemple de code pour bien démarrer.
 
-N’hésitez pas à envoyer vos commentaires et suggestions dans le [dépôt GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) ou, pour des commentaires plus généraux sur les API, sur notre site UserVoice.
+N’hésitez pas à envoyer vos commentaires et suggestions dans le [dépôt GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) ou, pour des commentaires plus généraux sur les API, sur notre site [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743).
 
 ## <a name="related-topics"></a>Rubriques connexes
 - [How to Detect Faces in Image](HowtoDetectFacesinImage.md) (Comment détecter des visages dans l’image)

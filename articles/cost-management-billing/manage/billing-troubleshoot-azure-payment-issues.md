@@ -1,24 +1,24 @@
 ---
 title: Résoudre les problèmes de paiement d’Azure
-description: Résolution d’un problème lors de la mise à jour du compte d’informations de paiement dans le centre des comptes du Portail Microsoft Azure.
+description: Résolution d’un problème lors de la mise à jour du compte d’informations de paiement dans le portail Microsoft Azure.
 author: v-miegge
 ms.reviewerr: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 05/13/2021
 ms.author: jaserano
-ms.openlocfilehash: 77ca8e8425326cec31fce345600bdd0174ab5f4e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 54aba8ecb56d3c96628c424522ca606a0b04273a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131851"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481168"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Résoudre les problèmes de paiement d’Azure
 
-Vous pouvez rencontrer un problème quand vous tentez de mettre à jour les informations du compte de paiement dans le portail Microsoft Azure ou le centre des comptes Azure.
+Vous pouvez rencontrer un problème ou une erreur quand vous tentez de mettre à jour les informations du compte de paiement dans le portail Microsoft Azure.
 
 Pour résoudre votre problème, dans la liste ci-dessous, sélectionnez la rubrique qui se rapproche le plus de votre erreur.
 
@@ -30,7 +30,7 @@ Pour résoudre les problèmes liés à un refus de carte, reportez-vous à [Rés
 
 Vous utilisez peut-être un ID de messagerie qui diffère de celui utilisé pour les abonnements.
 
-Pour détecter ce problème, consultez [Aucun abonnement trouvé pour le Portail Azure ou le Centre des comptes Azure](no-subscriptions-found.md).
+Pour détecter ce problème, consultez [Aucun abonnement trouvé pour le portail Azure](no-subscriptions-found.md).
 
 ## <a name="unable-to-use-a-virtual-or-prepaid-credit-or-debit-card-as-a-payment-method"></a>Impossible d’utiliser une carte de débit ou de crédit virtuelle ou prépayée comme mode de paiement
 
@@ -55,7 +55,7 @@ Ce problème est dû à un solde impayé. Réglez tous les soldes impayés avant
 
 ## <a name="unable-to-make-payment-for-a-subscription"></a>Impossible de procéder au paiement d’un abonnement
 
-Si vous recevez le message d’erreur suivant : *L’échéance du paiement est dépassée. Un problème est survenu avec votre moyen de paiement* ou *Nous sommes désolés, il est impossible d’enregistrer les informations. Fermez le navigateur et réessayez.* Il existe un paiement en attente sur la carte car celle-ci a été refusée par votre institution financière.
+Si vous recevez le message d’erreur : *L'échéance du paiement est dépassée. Un problème est survenu avec votre moyen de paiement.* ou *Nous sommes désolés, il est impossible d’enregistrer les informations. Fermez le navigateur, puis réessayez.* , alors un paiement est en attente sur la carte, car celle-ci a été refusée par votre établissement bancaire.
 
 Vérifiez que le solde de la carte de crédit est suffisant pour que le paiement soit effectué. S’il n’est pas suffisant, utilisez une autre carte ou bien contactez votre institution financière pour résoudre le problème.
 

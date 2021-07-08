@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 05/12/2021
 ms.author: jeedes
-ms.openlocfilehash: cfdcef2b9adf4e7ce500a9a89a45678a60afffc6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 535e1b103e44074021f23ae9527f849082d24a7f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92458446"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467777"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmos"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Litmos
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez découvrir comment intégrer Litmos à Azure Active
 * Contrôler dans Azure AD qui a accès à Litmos.
 * Permettre à vos utilisateurs de se connecter automatiquement à Litmos avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,25 +37,25 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Litmos prend en charge l’authentification unique initiée par le **fournisseur d’identité**
-* Litmos prend en charge l’attribution d’utilisateurs **Juste-à-temps**
+* Litmos prend en charge l'authentification unique lancée par le **fournisseur d'identité**.
+* Litmos prend en charge l'approvisionnement d'utilisateurs **Juste-à-temps**.
 
-## <a name="adding-litmos-from-the-gallery"></a>Ajout de Litmos à partir de la galerie
+## <a name="add-litmos-from-the-gallery"></a>Ajouter Litmos à partir de la galerie
 
 Pour configurer l’intégration de Litmos avec Azure AD, vous devez ajouter Litmos à partir de la galerie à votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Litmos** dans la zone de recherche.
 1. Sélectionnez **Litmos** dans le volet des résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-litmos"></a>Configurer et tester l’authentification unique Azure AD pour Litmos
+## <a name="configure-and-test-azure-ad-sso-for-litmos"></a>Configurer et tester l'authentification unique Azure AD pour Litmos
 
 Configurez et testez l’authentification unique Azure AD avec Litmos pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Litmos associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Litmos, suivez les indications des sections ci-après :
+Pour configurer et tester l'authentification unique Azure AD auprès de Litmos, suivez les étapes ci-dessous :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -70,13 +68,13 @@ Pour configurer et tester l’authentification unique Azure AD avec Litmos, suiv
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Litmos**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Sur le portail Azure, accédez à la page d'intégration de l'application **Litmos**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, entrez les valeurs pour les champs suivants :
+1. Dans la page **Configurer l’authentification unique avec SAML**, effectuez les étapes suivantes :
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<companyname>.litmos.com/account/Login`
 
@@ -112,15 +110,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Litmos**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-litmos-sso"></a>Configurer l’authentification unique Litmos
@@ -129,23 +121,23 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Dans la barre de navigation située à gauche, cliquez sur **Accounts**.
 
-    ![Section Comptes côté application][22]
+    ![Section Comptes côté application](./media/litmos-tutorial/account.png)
 
 3. Cliquez sur l’onglet **Integrations** .
 
-    ![Onglet Intégration][23]
+    ![Onglet Intégration](./media/litmos-tutorial/integrate.png)
 
 4. Sur l’onglet **Integrations**, accédez à **3rd Party Integrations**, puis cliquez sur l’onglet **SAML 2.0**.
 
-    ![Section SAML 2.0][24]
+    ![Section SAML 2.0](./media/litmos-tutorial/third-party.png)
 
 5. Copiez la valeur sous **The SAML endpoint for litmos is** (Le point de terminaison SAML pour litmos est), puis collez-la dans la zone de texte **URL de réponse** de la section **Domaine et URL Litmos** du portail Azure.
 
-    ![Point de terminaison SAML][26]
+    ![Point de terminaison SAML](./media/litmos-tutorial/certificate.png)
 
 6. Dans votre application **Litmos** , procédez comme suit :
 
-    ![Application Litmos][25]
+    ![Application Litmos](./media/litmos-tutorial/application.png)
 
     a. Cliquez sur **Enable SAML**.
 
@@ -155,7 +147,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ### <a name="create-litmos-test-user"></a>Créer un utilisateur de test Litmos
 
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Litmos. L’application Litmos prend en charge l’approvisionnement juste-à-temps. Cela signifie qu’un compte d’utilisateur est automatiquement créé si nécessaire pendant la tentative d’accès à l’application à l’aide du volet d’accès.
+Dans cette section, un utilisateur appelé B.Simon est créé dans Litmos. Litmos prend en charge l'approvisionnement d'utilisateurs juste-à-temps (option activée par défaut). Vous n’avez aucune opération à effectuer dans cette section. S'il n'existe pas encore d'utilisateur dans Litmos, il en est créé un après l'authentification.
 
 **Pour créer un utilisateur appelé Britta Simon dans Litmos, procédez comme suit :**
 
@@ -163,40 +155,28 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 2. Dans la barre de navigation située à gauche, cliquez sur **Accounts**.
 
-    ![Section Comptes côté application][22]
+    ![Section Comptes côté application](./media/litmos-tutorial/account.png)
 
 3. Cliquez sur l’onglet **Integrations** .
 
-    ![Onglet Intégrations][23]
+    ![Onglet Intégrations](./media/litmos-tutorial/integrate.png)
 
 4. Sur l’onglet **Integrations**, accédez à **3rd Party Integrations**, puis cliquez sur l’onglet **SAML 2.0**.
 
-    ![SAML 2.0][24]
+    ![SAML 2.0](./media/litmos-tutorial/third-party.png)
 
 5. Sélectionner **Générer automatiquement les utilisateurs**
   
-    ![Générer automatiquement les utilisateurs][27]
+    ![Générer automatiquement les utilisateurs](./media/litmos-tutorial/users.png)
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-Quand vous cliquez sur la vignette Litmos dans le volet d’accès, vous devez être connecté automatiquement à l’application Litmos pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur Tester cette application sur le portail Azure. Vous êtes alors automatiquement connecté à l'instance de Litmos pour laquelle vous avez configuré l'authentification unique.
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Litmos dans Mes applications, vous devez être automatiquement connecté à l'application Litmos pour laquelle vous avez configuré l'authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer Litmos avec Azure AD](https://aad.portal.azure.com/)
-
-[21]: ./media/litmos-tutorial/tutorial_litmos_60.png
-[22]: ./media/litmos-tutorial/tutorial_litmos_61.png
-[23]: ./media/litmos-tutorial/tutorial_litmos_62.png
-[24]: ./media/litmos-tutorial/tutorial_litmos_63.png
-[25]: ./media/litmos-tutorial/tutorial_litmos_64.png
-[26]: ./media/litmos-tutorial/tutorial_litmos_65.png
-[27]: ./media/litmos-tutorial/tutorial_litmos_66.png
+Après avoir configuré Litmos, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l'exfiltration et l'infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

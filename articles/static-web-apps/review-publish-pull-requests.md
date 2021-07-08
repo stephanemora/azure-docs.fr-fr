@@ -7,14 +7,14 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: 1cb5f2f9ac941001efb18301f4a54bd0092920ba
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: d061eed42280fffa1ff7f53e43adb7b85a94ae0d
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102172738"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813214"
 ---
-# <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Passer en revue les demandes de tirage (pull request) dans les environnements de préproduction dans Azure Static Web Apps (préversion)
+# <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps"></a>Passer en revue les demandes de tirage (pull request) dans les environnements de préproduction dans Azure Static Web Apps
 
 Cet article explique comment utiliser les environnements de pré-production pour examiner les modifications apportées aux applications déployées avec [Azure Static Web Apps](overview.md).
 
@@ -33,7 +33,7 @@ L’utilisation d’environnements de préproduction présente de nombreux avant
 - Effectuez des vérifications d’intégrité avant le déploiement en production.
 
 > [!NOTE]
-> Pendant la préversion, seul un [maximum de trois environnements intermédiaires](quotas.md) sont autorisés à la fois.
+> [Trois environnements intermédiaires maximum](quotas.md) sont autorisés à la fois.
 
 ## <a name="prerequisites"></a>Prérequis
 
