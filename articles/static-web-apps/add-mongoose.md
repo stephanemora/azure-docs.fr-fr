@@ -6,12 +6,12 @@ ms.author: chrhar
 ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 01/25/2021
-ms.openlocfilehash: fb1c1d64d77ca1c69960b77cbec7f60bb717c26c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 63bbc978f4927dc6922d92e1f339282f74e4fb4e
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143518"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814295"
 ---
 # <a name="tutorial-access-data-in-cosmos-db-using-mongoose-with-azure-static-web-apps"></a>Tutoriel : Accéder aux données dans Cosmos DB en utilisant Mongoose avec Azure Static Web Apps
 
@@ -71,7 +71,7 @@ Ce tutoriel utilise un dépôt de modèles GitHub pour vous aider à créer votr
 5. Retournez au [portail Azure](https://portal.azure.com)
 6. Cliquez sur **Créer une ressource**
 7. Tapez **Static Web Apps** dans la zone de recherche
-8. Sélectionnez **Static Web Apps (préversion)**
+8. Sélectionnez **Static Web App**
 9. Cliquez sur **Créer**
 10. Configurez votre application Azure Static Web Apps avec les informations suivantes
     - Abonnement : choisissez le même abonnement qu’auparavant

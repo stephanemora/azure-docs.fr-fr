@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6cbfa01788f1897264b4197798aa5879cf724db3
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 93b5d7059c1d19b3e5130a8e6d360655fa210aba
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104770952"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555949"
 ---
 # <a name="tutorial-use-net-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Didacticiel : utiliser .NET et l’IA pour générer du contenu pouvant faire l’objet de recherches à partir d’objets blob Azure
 
-Si vous avez du texte non structuré ou des images dans le stockage Blob Azure, un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) peut extraire des informations et créer du contenu pour les scénarios de recherche en texte intégral ou d’exploration de connaissances. 
+Si vous avez du texte non structuré ou des images dans Stockage Blob Azure, un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) peut extraire des informations et créer du contenu pour les scénarios de recherche en texte intégral ou d’exploration de connaissances. 
 
 Dans ce didacticiel, vous apprendrez à :
 
@@ -297,7 +297,7 @@ Dans cette section, vous définissez un ensemble d’étapes d’enrichissement 
 
 * [Fractionnement de texte](cognitive-search-skill-textsplit.md) pour découper un texte long en plus petits morceaux avant d’appeler les compétences d’extraction de phrases clés et de reconnaissance d’entités. Les compétences d’extraction de phrases clés et de reconnaissance d’entités acceptent les entrées de 50 000 caractères maximum. Certains fichiers d’exemple doivent être fractionnés pour satisfaire cette limite.
 
-* [Reconnaissance d’entité](cognitive-search-skill-entity-recognition.md) pour extraire les noms d’organisations du contenu dans le conteneur d’objets blob.
+* [Reconnaissance d’entité](cognitive-search-skill-entity-recognition-v3.md) pour extraire les noms d’organisations du contenu dans le conteneur d’objets blob.
 
 * [Extraction de phrases clés](cognitive-search-skill-keyphrases.md) pour extraire les principales expressions clés.
 

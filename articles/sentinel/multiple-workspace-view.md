@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 448998328ff15b74b0aa0b17e2435a7ff55c54a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed1101d75685eb397eb3e45683adb886288ee49b
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83124169"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809001"
 ---
 # <a name="work-with-incidents-in-many-workspaces-at-once"></a>Utiliser les incidents dans plusieurs espaces de travail simultanément 
 
@@ -50,7 +50,7 @@ Dans l’**affichage de plusieurs espaces de travail**, seul l’écran **Incide
 
 - Vous devez disposer d’autorisations en lecture et en écriture sur tous les espaces de travail pour lesquels vous avez sélectionné des incidents. Si vous disposez uniquement d’autorisations de lecture sur certains espaces de travail, des messages d’avertissement s’affichent si vous sélectionnez les incidents dans ces espaces de travail. Vous ne pouvez pas modifier ces incidents, ni les autres que vous avez sélectionnés en même temps (même si vous disposez des autorisations pour les autres).
 
-- Si vous choisissez un incident et que vous cliquez sur **Voir les détails complets** ou **Analyser**, vous vous trouverez à partir de là dans le contexte de données de l’espace de travail de cet incident et pas dans les autres.
+- Si vous choisissez un incident et que vous cliquez sur **Voir les détails complets** ou **Actions** > **Examiner**, vous vous trouverez à partir de là dans le contexte de données de l’espace de travail de cet incident et non des autres.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris comment consulter et utiliser les incidents dans plusieurs espaces de travail Azure Sentinel simultanément. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :

@@ -4,14 +4,10 @@
   items:
     - name: "Que sont les modèles ARM\_?"
       href: overview.md
-    - name: Vue d’ensemble de Bicep
-      href: bicep-overview.md
 - name: Démarrages rapides
   items:
     - name: "Créer des modèles\_JSON\_– VS\_Code"
       href: quickstart-create-templates-use-visual-studio-code.md
-    - name: "Créer des modèles\_Bicep\_– VS\_Code"
-      href: quickstart-create-bicep-use-visual-studio-code.md
     - name: "Créer des modèles\_JSON\_– Portail"
       href: quickstart-create-templates-use-the-portal.md
     - name: Créer des specs de modèle
@@ -40,38 +36,6 @@
           href: template-tutorial-add-tags.md
         - name: 10 – Utiliser un fichier de paramètres
           href: template-tutorial-use-parameter-file.md
-    - name: Bicep pour les débutants
-      items:
-        - name: 1 – Créer un premier modèle
-          displayName: Bicep
-          href: bicep-tutorial-create-first-bicep.md
-        - name: "2\_– Ajouter des paramètres"
-          displayName: Bicep
-          href: bicep-tutorial-add-parameters.md
-        - name: "3\_– Ajouter des fonctions de modèle"
-          displayName: Bicep
-          href: bicep-tutorial-add-functions.md
-        - name: "4\_– Ajouter des variables"
-          displayName: Bicep
-          href: bicep-tutorial-add-variables.md
-        - name: "5\_– Ajouter des sorties"
-          displayName: Bicep
-          href: bicep-tutorial-add-outputs.md
-        - name: "6\_– Utiliser un modèle exporté"
-          displayName: Bicep
-          href: bicep-tutorial-export-template.md
-        - name: "7\_– Utiliser un modèle de démarrage rapide"
-          displayName: Bicep
-          href: bicep-tutorial-quickstart-template.md
-        - name: "8\_– Ajouter des étiquettes"
-          displayName: Bicep
-          href: bicep-tutorial-add-tags.md
-        - name: "9\_– Utiliser un fichier de paramètres"
-          displayName: Bicep
-          href: bicep-tutorial-use-parameter-file.md
-        - name: "10\_– Ajouter des modules"
-          displayName: Bicep
-          href: bicep-tutorial-add-modules.md
     - name: Déploiement
       items:
         - name: 1 – Déployer un modèle local
@@ -325,45 +289,34 @@
 - name: Concepts
   items:
     - name: Bonnes pratiques pour les modèles
-      href: template-best-practices.md
-    - name: Bicep
-      items:
-        - name: Installer Bicep
-          href: bicep-install.md
-        - name: Conversion entre JSON et Bicep
-          href: bicep-decompile.md
-        - name: Comparer JSON et Bicep
-          href: compare-template-syntax.md
+      href: best-practices.md
     - name: Types de données
       href: data-types.md
     - name: Forum aux questions
       href: frequently-asked-questions.md
     - name: Modèles pour la cohérence du cloud
-      href: templates-cloud-consistency.md
+      href: template-cloud-consistency.md
     - name: Modes de déploiement
       href: deployment-modes.md
     - name: Suppressions de l’historique de déploiement
       href: deployment-history-deletions.md
-    - name: Effectuer la suppression du mode
-      href: complete-mode-deletion.md
+    - name: Suppression du mode de déploiement complet
+      href: deployment-complete-mode-deletion.md
 - name: Procédures
   items:
     - name: Créer des modèles
       items:
         - name: Structure JSON
           displayName: 'parameters,variables,resources,outputs,condition'
-          href: template-syntax.md
-        - name: Structure Bicep
-          displayName: 'parameters,variables,resources,outputs,condition'
-          href: bicep-file.md
+          href: syntax.md
         - name: Écrire des expressions de modèle
           href: template-expressions.md
         - name: Paramètres
-          href: template-parameters.md
+          href: parameters.md
         - name: Variables
-          href: template-variables.md
+          href: variables.md
         - name: Fonctions définies par l’utilisateur
-          href: template-user-defined-functions.md
+          href: user-defined-functions.md
         - name: Ressources
           items:
             - name: Déclaration de ressource
@@ -373,13 +326,13 @@
             - name: Déploiement conditionnel
               href: conditional-resource-deployment.md
             - name: Définir des dépendances de ressources
-              href: define-resource-dependency.md
+              href: resource-dependency.md
             - name: Définir l’emplacement des ressources
               href: resource-location.md
             - name: Utiliser des extensions de modèle
-              href: add-resource-extensions.md
+              href: resource-extensions.md
         - name: Sorties
-          href: template-outputs.md
+          href: outputs.md
         - name: Script de déploiement
           displayName: custom script
           href: deployment-script-template.md
@@ -390,8 +343,6 @@
             - name: Modulariser les modèles
               displayName: 'linked templates, nested templates'
               href: linked-templates.md
-            - name: Modules Bicep
-              href: bicep-modules.md
         - name: Créer plusieurs instances
           items:
             - name: Ressources
@@ -441,7 +392,7 @@
             - name: Fonctions dans les étendues
               href: scope-functions.md
         - name: Déploiement What-if
-          href: template-deploy-what-if.md
+          href: deploy-what-if.md
         - name: Redéployer sur une erreur
           displayName: rollback
           href: rollback-on-error.md
@@ -467,7 +418,7 @@
         - name: Créer et déployer des spécifications de modèle
           href: template-specs.md
         - name: Convertir la Galerie de modèles du portail
-          href: convert-to-template-spec.md
+          href: template-spec-convert.md
     - name: CI/CD
       items:
         - name: Modèles ARM avec pipelines
@@ -530,8 +481,6 @@
       items:
         - name: Toutes les fonctions
           href: template-functions.md
-        - name: Toute fonction (Bicep)
-          href: template-functions-any.md
         - name: Fonctions Tableau
           href: template-functions-array.md
         - name: Fonctions de comparaison
@@ -550,16 +499,6 @@
           href: template-functions-resource.md
         - name: Fonctions de chaînes
           href: template-functions-string.md
-    - name: Opérateurs Bicep
-      items:
-        - name: Tous les opérateurs
-          href: bicep-operators.md
-        - name: Opérateurs de comparaison
-          href: bicep-operators-comparison.md
-        - name: Opérateurs logiques
-          href: bicep-operators-logical.md
-        - name: Opérateurs numériques
-          href: bicep-operators-numeric.md
     - name: REST
       href: /rest/api/resources/
     - name: Azure PowerShell

@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 03/23/2021
-ms.openlocfilehash: aa65989953f761ff915383fcb59da7f36ea98dab
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.date: 06/10/2021
+ms.openlocfilehash: 13f5bb8245ecc57c01d4236dfea7c9e4a2f7ae75
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600480"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111986315"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center gratuit et Azure Defender activé
 Azure Defender est gratuit pendant les 30 premiers jours. Une fois les 30 jours écoulés, si vous décidez de continuer à utiliser le service, votre utilisation est automatiquement facturée.
@@ -87,7 +87,9 @@ Une alternative consiste à activer Azure Defender pour les serveurs au niveau d
 ### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Si j’ai déjà une licence Microsoft Defender for Endpoint, puis-je bénéficier d’une remise pour Azure Defender ?
 Si vous disposez déjà d’une licence pour Microsoft Defender for Endpoint, vous n’aurez pas à payer pour cette partie de votre licence Azure Defender.
 
-Pour valider votre remise, contactez l’équipe du support technique Security Center, et fournissez l’ID d’espace de travail, la région et les informations de licence nécessaires pour chaque licence concernée.
+Pour demander votre remise, contactez l’équipe de support de Security Center et fournissez l’ID d’espace de travail, la région et le nombre de licences Microsoft Defender for Endpoint qui sont appliquées sur les ordinateurs de l’espace de travail donné.
+
+La remise est effective à compter de la date d’approbation et ne sera pas rétroactive.
 
 ### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>Azure Defender pour les serveurs est activé pour Mon abonnement, dois-je payer pour les serveurs qui ne sont pas en cours d’exécution ? 
 Non. Quand vous activez [Azure Defender pour les serveurs](defender-for-servers-introduction.md) sur un abonnement, vous n’êtes pas facturé pour les machines qui sont dans l’état d’alimentation désalloué pendant qu’elles sont dans cet état. Les machines sont facturées en fonction de leur état d’alimentation comme indiqué dans le tableau suivant :
@@ -107,10 +109,10 @@ Non. Quand vous activez [Azure Defender pour les serveurs](defender-for-servers-
 Oui. Lorsque vous activez [Azure Defender pour les serveurs](defender-for-servers-introduction.md) sur un abonnement, les machines de cet abonnement bénéficient d’une série de protections, même si vous n’avez pas installé l’agent Log Analytics.
 
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice"></a>Si un agent Log Analytics émet un rapport dans plusieurs espaces de travail, est-il facturé deux fois ? 
-Oui. Si vous avez configuré votre agent Log Analytics pour envoyer des données à deux espaces de travail de Log Analytics différents ou plus (multihébergement), chaque espace de travail sur lequel sont installées des solutions « sécurité » ou « logiciel anti-programme malveillant » vous est facturé. 
+Oui. Si vous avez configuré votre agent Log Analytics pour envoyer des données à deux espaces de travail de Log Analytics différents ou plus (multihébergement), chaque espace de travail sur lequel est installée une solution « sécurité » ou « logiciel anti-programme malveillant » vous est facturé. 
 
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them"></a>Si un agent Log Analytics émet un rapport dans plusieurs espaces de travail, l’ingestion de données gratuite de 500 Mo est-elle disponible sur chacun d’eux ?
-Oui. Si vous avez configuré votre agent Log Analytics pour envoyer des données à deux espaces de travail Log Analytics différents ou plus (multihébergement), vous obtenez une ingestion de données gratuite de 500 Mo. Cela est calculé par nœud, par espace de travail signalé, par jour et disponible pour chaque espace de travail sur lequel les solutions « Sécurité » ou « Logiciel anti-programme malveillant » sont installées. Toutes les données ingérées au-delà de 500 Mo vous seront facturées.
+Oui. Si vous avez configuré votre agent Log Analytics pour envoyer des données à deux espaces de travail Log Analytics différents ou plus (multihébergement), vous obtenez une ingestion de données gratuite de 500 Mo. Cela est calculé par nœud, par espace de travail signalé, par jour et disponible pour chaque espace de travail sur lequel la solution « Sécurité » ou « Logiciel anti-programme malveillant » est installée. Toutes les données ingérées au-delà de la limite de 500 Mo vous seront facturées.
 
 ### <a name="is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine"></a>L’ingestion de données gratuite de 500 Mo est-elle calculée pour un espace de travail entier ou strictement machine par machine ?
 Vous obtiendrez une ingestion de données gratuite de 500 Mo par jour, pour chaque machine connectée à l’espace de travail. Spécifiquement pour les types de données de sécurité directement collectés par Azure Security Center.
@@ -120,7 +122,6 @@ Ces données correspondent à un tarif journalier moyenné sur l’ensemble des 
 ### <a name="what-data-types-are-included-in-the-500-mb-data-daily-allowance"></a>Quels sont les types de données inclus dans l’allocation quotidienne de données de 500 Mo ?
 
 La facturation de Security Center est étroitement liée à la facturation de Log Analytics. Security Center permet une attribution de 500 Mo/nœud/jour par rapport au sous-ensemble de [types de données de sécurité](/azure/azure-monitor/reference/tables/tables-category#security)suivant :
-- WindowsEvent
 - SecurityAlert
 - SecurityBaseline
 - SecurityBaselineSummary
@@ -128,7 +129,6 @@ La facturation de Security Center est étroitement liée à la facturation de Lo
 - SecurityEvent
 - WindowsFirewall
 - MaliciousIPCommunication
-- LinuxAuditLog
 - SysmonEvent
 - ProtectionStatus
 - Les types de données Update et UpdateSummary sont activés lorsque la solution Update Management n’est pas exécutée sur l’espace de travail ou le ciblage de solution

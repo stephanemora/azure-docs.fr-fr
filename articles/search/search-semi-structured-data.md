@@ -8,23 +8,23 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/25/2021
-ms.openlocfilehash: a7a010e3c60d6b96947597878fcd870e9845b2b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a17356495eea160134f80d57527a814b8fda4ee
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98746135"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560291"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutoriel : Indexer des objets blob JSON à partir de Stockage Azure avec REST
 
-La recherche cognitive Azure peut indexer des tableaux et documents JSON dans le stockage d’objets blob Azure à l’aide d’un [indexeur](search-indexer-overview.md) qui sait comment lire des données semi-structurées. Les données semi-structurées contiennent des balises ou des marquages qui séparent le contenu au sein des données. Elles séparent les données non structurées, qui doivent être indexées entièrement, des données formellement structurées qui respectent un modèle de données (tel qu’un schéma de base de données relationnelle), qui peuvent être indexées par champ.
+Le service Recherche cognitive Azure peut indexer des tableaux et des documents JSON dans le service Stockage Blob Azure à l’aide d’un [indexeur](search-indexer-overview.md), qui sait lire les données semi-structurées. Les données semi-structurées contiennent des balises ou des marquages qui séparent le contenu au sein des données. Elles séparent les données non structurées, qui doivent être indexées entièrement, des données formellement structurées qui respectent un modèle de données (tel qu’un schéma de base de données relationnelle), qui peuvent être indexées par champ.
 
 Ce tutoriel utilise Postman et les [API REST de Recherche](/rest/api/searchservice/) pour effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Configurer une source de données de recherche cognitive Azure pour un conteneur d’objets blob Azure
 > * Créer un index de recherche cognitive Azure où stocker le contenu pouvant faire l’objet d’une recherche
-> * Configurer et exécuter un indexeur pour lire le conteneur et extraire le contenu de recherche à partir du stockage d’objets blob Azure
+> * Configurer et exécuter un indexeur pour lire le conteneur et extraire le contenu de recherche à partir du Stockage Blob Azure
 > * Effectuer une recherche dans l’index que vous venez de créer
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -44,7 +44,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="1---create-services"></a>1 - Créer les services
 
-Ce tutoriel utilise Recherche cognitive Azure pour l’indexation et les requêtes, et Stockage Blob Azure pour fournir les données. 
+Ce tutoriel utilise Recherche cognitive Azure pour l’indexation et les requêtes ainsi que Stockage Blob Azure pour fournir les données. 
 
 Si possible, créez les deux services dans la même région et le même groupe de ressources pour des raisons de proximité et de facilité de gestion. Dans la pratique, votre compte de stockage Azure peut être dans une région quelconque.
 
@@ -88,7 +88,7 @@ Une fois le chargement terminé, les fichiers doivent apparaître dans leur prop
 
 La ressource suivante est Recherche cognitive Azure, que vous pouvez [créer dans le portail](search-create-service-portal.md). Vous pouvez utiliser le niveau gratuit pour effectuer cette procédure pas à pas. 
 
-Comme avec le stockage Blob Azure, prenez un moment pour collecter la clé d’accès. Par ailleurs, lorsque vous commencez à structurer les demandes, vous devez fournir le point de terminaison et la clé API d’administration utilisés pour authentifier chaque demande.
+Comme pour le service Stockage Blob Azure, prenez un moment pour collecter la clé d’accès. Par ailleurs, lorsque vous commencez à structurer les demandes, vous devez fournir le point de terminaison et la clé API d’administration utilisés pour authentifier chaque demande.
 
 ### <a name="get-a-key-and-url"></a>Obtenir une clé et une URL
 

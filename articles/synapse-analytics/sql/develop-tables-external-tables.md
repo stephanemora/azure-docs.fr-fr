@@ -9,28 +9,28 @@ ms.subservice: sql
 ms.date: 04/26/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 41825ceed38203c88ddfc28eca9a738663b9d7e6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: fad0da60ab19a8614e25a56701c5ee2d1a80548c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378663"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410510"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utiliser des tables externes avec Synapse SQL
 
 Une table externe pointe vers des données situées dans Hadoop, Stockage Blob Azure ou Azure Data Lake Storage. Les tables externes sont utilisées pour lire des données à partir de fichiers ou écrire des données dans des fichiers dans Stockage Azure. Avec Synapse SQL, vous pouvez utiliser des tables externes pour lire des données externes en utilisant le pool SQL dédié ou le pool SQL serverless.
 
 Selon le type de la source de données externe, vous pouvez utiliser deux types de tables externes :
-- Les tables externes Hadoop que vous pouvez utiliser pour lire et exporter des données dans différents formats de données tels que CSV, Parquet et ORC. Les tables externes Hadoop sont disponibles dans les pools Synapse SQL dédiés, mais pas dans les pools SQL serverless.
-- Les tables externes natives que vous pouvez utiliser pour lire et exporter des données dans différents formats de données tels que CSV ou Parquet. Les tables externes natives sont disponibles dans les pools Synapse SQL serverless, et elles sont en préversion dans les pools Synapse SQL dédiés.
+- Les tables externes Hadoop que vous pouvez utiliser pour lire et exporter des données dans différents formats de données tels que CSV, Parquet et ORC. Les tables externes Hadoop sont disponibles dans les pools SQL dédiés, mais pas dans les pools SQL serverless.
+- Les tables externes natives que vous pouvez utiliser pour lire et exporter des données dans différents formats de données tels que CSV et Parquet. Les tables externes natives sont disponibles dans les pools SQL serverless et en préversion dans les pools Synapse SQL dédiés.
 
 Les principales différences entre les tables externes Hadoop et natives sont présentées dans le tableau suivant :
 
 | Type de table externe | Hadoop | Natif |
 | --- | --- | --- |
-| Pool SQL dédié | Disponible | Les tables Parquet sont disponibles dans la **préversion contrôlée** : contactez votre responsable technique de compte Microsoft ou votre architecte de solution cloud pour vérifier que votre pool dédié peut participer à préversion. |
+| Pool SQL dédié | Disponible | Les tables Parquet sont disponibles dans la **préversion à accès contrôlé** : contactez votre responsable technique de compte Microsoft ou votre architecte de solution cloud pour savoir si vous pouvez ajouter votre pool SQL dédié à la préversion à accès contrôlé. |
 | Pool SQL serverless | Non disponible | Disponible |
-| Formats pris en charge | Délimité/CSV, Parquet, ORC, Hive RC et RC | Pool serverless : délimité/CSV, Parquet et Delta Lake (préversion)<br/>Pool dédié : Parquet |
+| Formats pris en charge | Délimité/CSV, Parquet, ORC, Hive RC et RC | Pool SQL serverless : délimité/CSV, Parquet et Delta Lake (préversion)<br/>Pool SQL dédié : Parquet |
 | Élimination des partitions de dossier | Non | Uniquement pour les tables partitionnées synchronisées à partir de pools Apache Spark dans l’espace de travail Synapse vers des pools SQL serverless |
 | Format personnalisé pour l’emplacement | Yes | Oui, avec des caractères génériques comme `/year=*/month=*/day=*` |
 | Analyse récursive des dossiers | No | Uniquement dans les pools SQL serverless quand `/**` est spécifié à la fin du chemin d’accès d’emplacement |
@@ -64,7 +64,7 @@ Vous pouvez créer des tables externes dans des pools Synapse SQL en effectuant
 L’utilisateur doit disposer de l’autorisation `SELECT` sur une table externe pour lire les données.
 Les tables externes accèdent au stockage Azure sous-jacent à l’aide des informations d’identification étendues à la base de données définies dans la source de données selon les règles suivantes :
 - La source de données sans informations d’identification permet aux tables externes d’accéder aux fichiers en disponibilité publique sur le stockage Azure.
-- La source de données peut comporter des informations d’identification permettant aux tables externes d’accéder uniquement aux fichiers sur le stockage Azure à l’aide d’un jeton SAP ou de l’identité gérée de l’espace de travail. Pour voir des exemples, consultez l’article [Développement du contrôle d’accès au stockage des fichiers de stockage](develop-storage-files-storage-access-control.md#examples).
+- La source de données peut comporter des informations d’identification permettant aux tables externes d’accéder uniquement aux fichiers sur le stockage Azure à l’aide d’un jeton SAP ou de l’identité managée de l’espace de travail. Pour voir des exemples, consultez l’article [Développement du contrôle d’accès au stockage des fichiers de stockage](develop-storage-files-storage-access-control.md#examples).
 
 ## <a name="create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE
 

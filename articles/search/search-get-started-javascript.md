@@ -8,14 +8,14 @@ ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/02/2021
+ms.date: 06/11/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 7d31201f9d1a4519538aba3ac57ddfd340d936d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3ca078bd712d711f4c8883360eb121287662a16
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99509399"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018348"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en utilisant le SDK JavaScript
 > [!div class="op_single_selector"]
@@ -607,9 +607,8 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide JavaScript, vous avez effectué une série de tâches pour créer un index, le charger avec des documents et exécuter des requêtes. 
+Dans ce guide de démarrage rapide JavaScript, vous avez effectué une série de tâches pour créer un index, le charger avec des documents et exécuter des requêtes. Pour poursuivre l’apprentissage, essayez le tutoriel et l’exemple suivants comme point de départ pour essayer des suggesteurs (requêtes avec suggestions ou auto-complétion), des filtres et une navigation par facettes. 
 
-Si vous connaissez déjà la Recherche cognitive Azure, vous pouvez utiliser cet exemple comme tremplin pour tester des suggesteurs (requêtes prédictives ou d’autocomplétion), des filtres et la navigation par facettes. Si vous débutez avec la Recherche cognitive Azure, nous vous recommandons de suivre d’autres tutoriels pour mieux comprendre ce que vous pouvez créer. Consultez les autres ressources disponibles dans notre [page de documentation](https://azure.microsoft.com/documentation/services/search/) . 
++ [Tutoriel : Ajouter la recherche à des applications web](tutorial-csharp-overview.md)
 
-> [!div class="nextstepaction"]
-> [Créer un front-end React pour Recherche cognitive Azure](https://github.com/dereklegenzoff/azure-search-react-template)
++ [Exemple : Créer un front-end React pour Recherche cognitive Azure](https://github.com/dereklegenzoff/azure-search-react-template)

@@ -1,21 +1,23 @@
 ---
 title: Démarrage rapide Azure – Création d’un compte Batch – Modèle Azure Resource Manager
 description: Ce guide de démarrage rapide montre comment créer un compte Batch à l’aide d’un modèle ARM.
-ms.date: 08/17/2020
+ms.date: 05/25/2021
 ms.topic: quickstart
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: ae481d6dd9a21281c2026eb9a3609094a09ad475
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: d28a60fd3476877bf79fa8ea542db074c565fc89
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109838390"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005678"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Démarrage rapide : Créer un compte Batch à l’aide d’un modèle ARM
 
-Un compte Batch est nécessaire pour créer des ressources de calcul (pools de nœuds de calcul) et des travaux Batch. Vous pouvez lier un compte de stockage Azure avec votre compte Batch, ce qui est utile pour déployer des applications et stocker des données d’entrée et de sortie pour la plupart des charges de travail réelles. Ce guide de démarrage rapide montre comment utiliser un modèle ARM (Azure Resource Manager) pour créer un compte Batch, stockage compris. À l’issue de ce démarrage rapide, vous maîtriserez les concepts clés du service Batch et serez prêt à essayer Azure Batch avec des charges de travail plus réalistes à plus grande échelle.
+Démarrage d’Azure Batch à l’aide d’un modèle ARM (Azure Resource Manager) pour créer un compte Batch, stockage compris. Un compte Batch est nécessaire pour créer des ressources de calcul (pools de nœuds de calcul) et des travaux Batch. Vous pouvez lier un compte de stockage Azure avec votre compte Batch, ce qui est utile pour déployer des applications et stocker des données d’entrée et de sortie pour la plupart des charges de travail réelles.
+
+À l'issue de ce démarrage rapide, vous maîtriserez les concepts clés du service Batch et serez prêt à essayer Azure Batch avec des charges de travail plus réalistes à plus grande échelle.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -31,7 +33,7 @@ Vous devez avoir un abonnement Azure actif.
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/batchaccount-with-storage/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.batch/batchaccount-with-storage/azuredeploy.json":::
 
@@ -48,7 +50,7 @@ Deux ressources Azure sont définies dans le modèle :
 
 1. Sélectionnez ou entrez les valeurs suivantes.
 
-   ![Modèle Resource Manager, création de compte Batch, portail de déploiement](media/quick-create-template/batch-template.png)
+   :::image type="content" source="media/quick-create-template/batch-template.png" alt-text="Modèle Resource Manager, création de compte Batch, portail de déploiement":::
 
    - **Abonnement** : sélectionnez un abonnement Azure.
    - **Groupe de ressources** : sélectionnez **Créer**, entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK**.
@@ -56,9 +58,8 @@ Deux ressources Azure sont définies dans le modèle :
    - **Nom du compte Batch** : Conservez la valeur par défaut.
    - **Référence SKU du compte de stockage** : sélectionnez un type de compte de stockage. Par exemple, **Standard_LRS**.
    - **Emplacement** : conservez la valeur par défaut afin que les ressources se trouvent au même emplacement que votre groupe de ressources.
-   - J’accepte les termes et conditions mentionnés ci-dessus : **cochez la case**.
 
-1. Sélectionnez **Achat**.
+1. Sélectionnez **Vérifier + créer**, puis sélectionnez **Créer**.
 
 Après quelques minutes, une notification indique que le compte Batch a bien été créé.
 
@@ -70,7 +71,7 @@ Pour valider le déploiement sur le Portail Azure, accédez au groupe de ressour
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous prévoyez de suivre les [tutoriels](./tutorial-parallel-dotnet.md) suivants, il peut être utile de conserver ces ressources. Si au contraire vous n’en avez plus besoin, vous pouvez [supprimer le groupe de ressources](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group), ce qui supprime également le compte Batch et le compte de stockage que vous avez créés.
+Si vous prévoyez de continuer avec d’autres [tutoriels](./tutorial-parallel-dotnet.md), vous pouvez conserver ces ressources. Si au contraire vous n’en avez plus besoin, vous pouvez [supprimer le groupe de ressources](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group), ce qui supprime également le compte Batch et le compte de stockage que vous avez créés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

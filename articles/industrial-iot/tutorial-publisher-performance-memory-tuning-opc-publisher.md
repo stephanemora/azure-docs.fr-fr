@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: 89e288d1186efd405019d6474dcbd332e7925d67
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 98bff6a72d35e2cee3157b997796bbe51795e1ea
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787274"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677852"
 ---
 # <a name="tutorial-tune-the-opc-publisher-performance-and-memory"></a>Tutoriel : Réglage de la mémoire et des performances d’OPC Publisher
 
@@ -33,7 +33,7 @@ Le paramètre `mq/om` contrôle la limite supérieure de la capacité de la file
 
 * Réduire l’intervalle d’envoi à IoT Hub (`si`)
 
-* Augmenter la taille des messages IoT Hub (`ms` , la valeur maximale pouvant être définie à 256 Ko)
+* Augmenter la taille des messages IoT Hub (`ms`, la valeur maximale pouvant être définie à 256 Ko). Dans la version 2.7 ou une version ultérieure, la valeur par défaut est déjà définie sur 256 Ko.
 
 Si la file d’attente continue de croître même si les paramètres `si` et `ms` ont été réglés, la capacité maximale de la file d’attente finit par être atteinte et les messages perdus. En effet, les paramètre `si` et `ms` ont des limites physiques et la connexion Internet entre OPC Publisher et IoT Hub n’est pas assez rapide pour le nombre de messages qui doivent être envoyés dans un scénario donné. Dans ce cas, le simple fait d’installer plusieurs serveurs OPC Publisher parallèles s’avère utile. Le paramètre `mq/om` a également l’impact le plus important sur la consommation de mémoire par OPC Publisher. 
 
@@ -41,7 +41,7 @@ Le paramètre `si` force OPC Publisher à envoyer des messages à IoT Hub à l�
 
 Le paramètre `ms` permet le traitement par lot des messages envoyés à IoT Hub. Dans la plupart des configurations réseau, la latence de l’envoi d’un message unique à IoT Hub est élevée, par rapport au temps nécessaire pour transmettre la charge utile. Cela est principalement dû aux exigences de qualité de service (QoS), car les messages ne sont reconnus qu’une fois traités par IoT Hub). Ainsi, si un délai est acceptable quant à l’arrivée des données à IoT Hub, vous devez affecter la valeur 0 au paramètre `ms` afin de configurer OPC Publisher pour qu’il utilise la taille de message maximale de 256 Ko. C’est en outre la méthode la plus économique pour utiliser OPC Publisher.
 
-La configuration par défaut envoie des données à IoT Hub toutes les 10 secondes (`si=10`) ou quand 256 Ko de données de message IoT Hub sont disponibles (`ms=0`). Elle ajoute un délai maximal de 10 secondes, mais présente la faible probabilité de perdre des données en raison de la grande taille de messages. Les métriques `monitored item notifications enqueue failure` dans OPC Publisher versions 2.5 et antérieures et `messages lost` dans la version 2.7 d’OPC Publisher indiquent le nombre de messages qui ont été perdus.
+Dans la version 2.5, la configuration par défaut envoie des données à IoT Hub toutes les 10 secondes (`si=10`) ou dès que 256 Ko de données de message IoT Hub sont disponibles (`ms=0`). Elle ajoute un délai maximal de 10 secondes, mais présente la faible probabilité de perdre des données en raison de la grande taille de messages. Dans la version 2.7 et versions ultérieures, la configuration par défaut est de 500 ms pour le mode Orchestré, et de 0 pour le mode Autonome (aucun intervalle d’envoi). Les métriques `monitored item notifications enqueue failure` dans OPC Publisher versions 2.5 et antérieures et `messages lost` dans la version 2.7 d’OPC Publisher indiquent le nombre de messages qui ont été perdus.
 
 Quand les paramètres `si` et `ms` ont la valeur 0, OPC Publisher envoie un message à IoT Hub dès que des données sont disponibles. Cela aboutit à une taille moyenne de message IoT Hub de plus de 200 octets. Toutefois, l’avantage de cette configuration est qu’OPC Publisher envoie les données à partir de la ressource connectée sans délai. Le nombre de messages perdus est élevé pour les cas d’usage où une grande quantité de données doit être publiée ; cette configuration n’est donc pas recommandée dans ces scénarios.
 

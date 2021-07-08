@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Check Point Remote Access VPN | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Check Point Remote Access VPN.
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Check Point Remote Secure Access VPN | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Check Point Remote Secure Access VPN.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2021
 ms.author: jeedes
-ms.openlocfilehash: 8c619398b357833aa5b5d996a255fb1df7bd3bb6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 39072747cd2e6b9daa62f02b198a201c5b1782ea
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776004"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451418"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-remote-access-vpn"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Check Point Remote Access VPN
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-remote-secure-access-vpn"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Check Point Remote Secure Access VPN
 
-Dans ce tutoriel, vous allez découvrir comment intégrer Check Point Remote Access VPN à Azure Active Directory (Azure AD). Quand vous intégrez Check Point Remote Access VPN à Azure AD, vous pouvez :
+Dans ce tutoriel, vous allez découvrir comment intégrer Check Point Remote Secure Access VPN à Azure Active Directory (Azure AD). Quand vous intégrez Check Point Remote Secure Access VPN à Azure AD, vous pouvez :
 
-* Contrôler, dans Azure AD, qui a accès à Check Point Remote Access VPN.
-* Permettre aux utilisateurs de se connecter automatiquement à Check Point Remote Access VPN avec leur compte Azure AD.
+* Contrôler, dans Azure AD, qui a accès à Check Point Remote Secure Access VPN.
+* Permettre aux utilisateurs de se connecter automatiquement à Check Point Remote Secure Access VPN avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -31,44 +31,44 @@ Dans ce tutoriel, vous allez découvrir comment intégrer Check Point Remote Acc
 Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Un abonnement Check Point Remote Access VPN pour lequel l’authentification SSO (authentification unique) est activée.
+* Un abonnement Check Point Remote Secure Access VPN pour lequel l’authentification SSO (authentification unique) est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Check Point Remote Access VPN prend en charge l’authentification SSO lancée par le fournisseur de services (**SP**).
+* Check Point Remote Secure Access VPN prend en charge l’authentification SSO lancée par le **fournisseur de services**.
 
-## <a name="adding-check-point-remote-access-vpn-from-the-gallery"></a>Ajout de Check Point Remote Access VPN à partir de la galerie
+## <a name="adding-check-point-remote-secure-access-vpn-from-the-gallery"></a>Ajout de Check Point Remote Secure Access VPN à partir de la galerie
 
-Pour configurer l’intégration de Check Point Remote Access VPN à Azure AD, vous devez ajouter Check Point Remote Access VPN à votre liste d’applications SaaS managées, à partir de la galerie.
+Pour configurer l’intégration de Check Point Remote Secure Access VPN à Azure AD, vous devez ajouter Check Point Remote Secure Access VPN à votre liste d’applications SaaS managées, à partir de la galerie.
 
 1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie**, dans la zone de recherche, tapez **Check Point Remote Access VPN**.
-1. Sélectionnez **Check Point Remote Access VPN** dans le panneau Résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
+1. Sous la section **Ajouter à partir de la galerie**, dans la zone de recherche, tapez **Check Point Remote Secure Access VPN**.
+1. Sélectionnez **Check Point Remote Secure Access VPN** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-sso-for-check-point-remote-access-vpn"></a>Configurer et tester l’authentification SSO Azure AD pour Check Point Remote Access VPN
+## <a name="configure-and-test-azure-ad-sso-for-check-point-remote-secure-access-vpn"></a>Configurer et tester l’authentification SSO Azure AD pour Check Point Remote Secure Access VPN
 
-Configurez et testez l’authentification SSO Azure AD avec Check Point Remote Access VPN à l’aide d’une utilisatrice de test appelée **B.Simon**. Pour que l’authentification SSO fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur associé dans Check Point Remote Access VPN.
+Configurez et testez l’authentification SSO Azure AD avec Check Point Remote Secure Access VPN à l’aide d’une utilisatrice de test appelée **B.Simon**. Pour que l’authentification SSO fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur associé dans Check Point Remote Secure Access VPN.
 
-Pour configurer et tester l’authentification SSO Azure AD avec Check Point Remote Access VPN, effectuez les étapes suivantes :
+Pour configurer et tester l’authentification SSO Azure AD avec Check Point Remote Secure Access VPN, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
     1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-1. **[Configurer l’authentification SSO de Check Point Remote Access VPN](#configure-check-point-remote-access-vpn-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configurer l’authentification SSO de Check Point Remote Secure Access VPN](#configure-check-point-remote-secure-access-vpn-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 
-    1. **[Créer une utilisatrice de test pour Check Point Remote Access VPN](#create-check-point-remote-access-vpn-test-user)** afin de disposer dans Check Point Remote Access VPN d’un équivalent de B.Simon lié à la représentation Azure AD de l’utilisatrice.
+    1. **[Créer une utilisatrice de test pour Check Point Remote Secure Access VPN](#create-check-point-remote-secure-access-vpn-test-user)** afin de disposer dans Check Point Remote Secure Access VPN d’un équivalent de B.Simon lié à la représentation Azure AD de l’utilisatrice.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le portail Azure, dans la page d’intégration de l’application **Check Point Remote Access VPN**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Check Point Remote Secure Access VPN**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
@@ -83,13 +83,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     c. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<GATEWAY_IP>/saml-vpn/`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL d’authentification et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Check Point Remote Access VPN Client](mailto:support@checkpoint.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL d’authentification et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Check Point Remote Secure Access VPN](mailto:support@checkpoint.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-1. Dans la section **Configurer Check Point Remote Access VPN**, copiez l’URL ou les URL appropriées selon vos besoins.
+1. Dans la section **Configurer Check Point Remote Secure Access VPN**, copiez l’URL ou les URL appropriées selon vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -107,17 +107,17 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentification unique Azure en lui octroyant l’accès à Check Point Remote Access VPN.
+Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentification unique Azure en lui octroyant l’accès à Check Point Remote Secure Access VPN.
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **Check Point Remote Access VPN**.
+1. Dans la liste des applications, sélectionnez **Check Point Remote Secure Access VPN**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-check-point-remote-access-vpn-sso"></a>Configurer l’authentification SSO pour Check Point Remote Access VPN
+## <a name="configure-check-point-remote-secure-access-vpn-sso"></a>Configurer l’authentification SSO pour Check Point Remote Secure Access VPN
 
 ### <a name="configure-an-external-user-profile-object"></a>Configurer un objet de profil utilisateur externe
 
@@ -201,7 +201,7 @@ Par exemple : `https://gateway1.company.com/saml-vpn`
 
     d. Copiez la valeur du champ **Reply URL**, puis collez-la dans la zone de texte **URL de réponse** de la section **Configuration SAML de base** du portail Azure.
 
-    e. Sélectionnez **Import Metadata File** (Importer le fichier de métadonnées) pour charger le **fichier XML de métadonnées de fédération** à partir du portail Azure.
+    e. Sélectionnez **Importer un fichier de métadonnées** pour charger le **XML de métadonnées de fédération** téléchargé à partir du portail Azure.
 
     > [!NOTE]
     > Vous pouvez également sélectionner **Insert Manually** pour coller manuellement les valeurs **ID d’entité** et **URL de connexion** dans les champs correspondants, et pour charger le **Fichier de certificat** à partir du portail Azure.
@@ -309,9 +309,9 @@ Ouvrez l’invite de commandes Windows en tant qu’administrateur, puis exécut
             `sudo launchctl start com.checkpoint.epc.service`
 
 
-### <a name="create-check-point-remote-access-vpn-test-user"></a>Créer l’utilisateur de test Check Point Remote Access VPN
+### <a name="create-check-point-remote-secure-access-vpn-test-user"></a>Créer l’utilisateur de test Check Point Remote Secure Access VPN
 
-Dans cette section, vous allez créer une utilisatrice appelée Britta Simon dans Check Point Remote Access VPN. Rapprochez-vous de l’[équipe du support technique de Check Point Remote Access VPN](mailto:support@checkpoint.com) pour ajouter les utilisateurs à la plateforme Check Point Remote Access VPN. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer une utilisatrice appelée Britta Simon dans Check Point Remote Secure Access VPN. Rapprochez-vous de l’[équipe du support technique de Check Point Remote Secure Access VPN](mailto:support@checkpoint.com) pour ajouter les utilisateurs à la plateforme Check Point Remote Secure Access VPN. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
@@ -327,6 +327,6 @@ Dans cette section, vous allez créer une utilisatrice appelée Britta Simon dan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré Check Point Remote Access VPN, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Une fois que vous avez configuré Check Point Remote Secure Access VPN, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 

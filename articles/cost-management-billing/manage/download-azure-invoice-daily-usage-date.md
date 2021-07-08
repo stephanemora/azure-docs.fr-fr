@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 05/13/2021
 ms.author: banders
-ms.openlocfilehash: 96ebde17272929cca424a4dddce55b194c974157
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a2f4bab7f0d2f28cdefcecd82ad9a2285cd9b41a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750596"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451906"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Télécharger ou afficher votre facture Azure et vos données d’utilisation quotidienne
 
@@ -93,7 +93,7 @@ Vous pouvez choisir de configurer des destinataires supplémentaires qui recevro
 
     ![Capture d’écran montrant l’étape 3 du flux de l’adhésion](./media/download-azure-invoice-daily-usage-date/invoicearticlestep03.png)
 
-Si vous n’obtenez pas de courrier électronique une fois ces étapes terminées, assurez-vous que votre adresse de messagerie est correcte dans les [préférences de communication sur votre profil](https://account.windowsazure.com/profile).
+Si vous ne recevez pas d’e-mail une fois ces étapes terminées, vérifiez que votre adresse e-mail est correcte dans les [préférences de communication sur votre profil](https://account.microsoft.com/profile) dans le centre de compte Microsoft.
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>Ne pas adhérer à l’obtention des factures de votre abonnement par e-mail
 

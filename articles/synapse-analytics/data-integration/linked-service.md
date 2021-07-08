@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6be76878a9a07c5f4a1e2a9348bb7b09cb1b10eb
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: efe404511b725680697c5f6601b8cb13be13910b
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567585"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109808965"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Sécuriser un service lié à l’aide de Liaisons privées (Private Links)
 
@@ -31,7 +31,7 @@ Dans cet article, vous allez découvrir comment sécuriser un service lié dans 
 
 Dans Azure Synapse Analytics, un service lié vous permet de définir vos informations de connexion à d’autres services. Dans cette section, vous allez ajouter Azure Synapse Analytics et Azure Data Lake Gen 2 en tant que services liés.
 
-1. Ouvrez Azure Synapse Studio et accédez à l’onglet **Gérer**.
+1. Ouvrez Synapse Studio et accédez à l’onglet **Gérer**.
 1. Sous **Connexions externes**, sélectionnez **Services liés**.
 1. Pour ajouter un service lié, sélectionnez **Nouveau**.
 1. Sélectionnez la vignette Azure Data Lake Storage Gen2 dans la liste, puis sélectionnez **Continuer**.

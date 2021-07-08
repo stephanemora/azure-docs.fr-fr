@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/26/2021
+ms.date: 06/10/2021
 ms.author: duau
-ms.openlocfilehash: 4291a7d46c723f799cf9d09ca0e7a3f6d614971f
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 7f2a5faebb56cfb12a62a8bdae4e6b7e56e88b57
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389738"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004706"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutoriel : Configurer HTTPS sur un domaine personnalisé Front Door
 
@@ -75,7 +75,7 @@ Pour activer HTTPS sur un domaine personnalisé, suivez ces étapes :
 
 ### <a name="option-2-use-your-own-certificate"></a>Option n°2 : utiliser votre propre certificat ;
 
-Vous pouvez utiliser votre propre certificat pour activer la fonctionnalité HTTPS. Ce processus s’effectue via une intégration à Azure Key Vault, ce qui vous permet de stocker vos certificats en toute sécurité. Azure Front Door utilise ce mécanisme sécurisé pour obtenir le certificat, et quelques étapes supplémentaires sont nécessaires. Quand vous créez votre certificat TLS/SSL, vous devez le créer avec une autorité de certification autorisée. Autrement, si vous utilisez une autorité de certification non autorisée, votre demande sera rejetée. Pour obtenir la liste des autorités de certification autorisées, consultez [Autorités de certification autorisées pour l’activation du protocole HTTPS personnalisé sur Azure Front Door](front-door-troubleshoot-allowed-ca.md).
+Vous pouvez utiliser votre propre certificat pour activer la fonctionnalité HTTPS. Ce processus s’effectue via une intégration à Azure Key Vault, ce qui vous permet de stocker vos certificats en toute sécurité. Azure Front Door utilise ce mécanisme sécurisé pour obtenir le certificat, et quelques étapes supplémentaires sont nécessaires. Quand vous créez votre certificat TLS/SSL, vous devez créer une chaîne de certificats complète avec une autorité de certification (AC) autorisée figurant dans la [liste des autorités de certification de confiance Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). Si vous utilisez une autorité de certification non autorisée, votre demande sera rejetée.  Lorsqu’un certificat sans chaîne complète est présenté, le bon fonctionnement des demandes l’impliquant n’est pas garanti.
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Préparer votre compte et votre certificat Azure Key Vault
  
@@ -87,7 +87,7 @@ Vous pouvez utiliser votre propre certificat pour activer la fonctionnalité HTT
 2. Certificats Azure Key Vault : si vous disposez déjà d’un certificat, vous pouvez le charger directement vers votre compte Azure Key Vault. Vous pouvez également en créer un directement à l’aide d’Azure Key Vault à partir d’une des autorités de certification (CA) partenaires de ce coffre Azure Key Vault. Chargez votre certificat en tant qu’objet de **certificat** et non en tant que **secret**.
 
 > [!NOTE]
-> Pour votre propre certificat TLS/SSL, Front Door ne prend pas en charge les certificats avec des algorithmes de chiffrement EC.
+> Pour votre propre certificat TLS/SSL, Front Door ne prend pas en charge les certificats avec des algorithmes de chiffrement EC. Le certificat doit posséder une chaîne de certificats complète avec des certificats feuille et intermédiaires. De plus, l’AC racine doit figurer dans la [liste des autorités de certification de confiance Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 #### <a name="register-azure-front-door"></a>Inscrire Azure Front Door
 
@@ -209,7 +209,7 @@ Le tableau suivant présente le déroulement de l’opération qui s’exécute 
 | | La requête de validation de la propriété du domaine a expiré ( le client n’a probablement pas répondu dans les 6 jours). Le protocole HTTPS ne sera pas activé sur votre domaine. * |
 | | La requête de validation de la propriété du domaine a été rejetée par le client. Le protocole HTTPS ne sera pas activé sur votre domaine. * |
 | 3 Approvisionnement du certificat | L’émission, par l’autorité de certification, du certificat nécessaire à l’activation HTTPS sur votre domaine est en cours. |
-| | Le certificat a été émis et son déploiement est en cours pour votre porte d’entrée. Ce processus peut prendre jusqu’à 1 heure. |
+| | Le certificat a été émis et son déploiement est en cours pour votre porte d’entrée. Ce processus peut prendre entre quelques minutes et une heure. |
 | | Le certificat a été correctement déployé pour votre porte d’entrée. |
 | 4 Fin | Le protocole HTTPS a été correctement activé sur votre domaine. |
 

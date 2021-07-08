@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: overview
 ms.date: 04/26/2021
-ms.openlocfilehash: e53823539194fe1082621f458e8b5b3d493c191d
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: b16c69d4a51026d3eafcb6449dd3042703269118
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166883"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111371615"
 ---
 # <a name="azure-web-pubsub-service-faq"></a>Questions fréquentes (FAQ) sur le service Azure Web PubSub
 
@@ -19,7 +19,23 @@ Voici les questions fréquemment posées sur le service Azure Web PubSub.
 
 ## <a name="is-azure-web-pubsub-service-ready-for-production-use"></a>Le service Azure Web PubSub est-il prêt pour une utilisation en production ?
 
-Le service Azure Web PubSub est en état de préversion publique sans contrat de niveau de service validé. 
+Le service Azure Web PubSub est en préversion publique et n’a pas de contrat SLA validé. 
+
+## <a name="how-do-i-choose-between-azure-signalr-service-and-azure-web-pubsub-service"></a>Comment choisir entre Azure SignalR Service et le service Azure Web PubSub ?
+
+[Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) et le [service Azure Web PubSub](https://azure.microsoft.com/services/web-pubsub) aident tous deux les clients à créer facilement des applications web temps réel à grande échelle et avec une haute disponibilité, et permettent aux clients de se concentrer sur leur logique métier au lieu de gérer l’infrastructure de messagerie. En général, vous pouvez choisir Azure SignalR Service si vous utilisez déjà la bibliothèque SignalR pour créer une application temps réel. Par contre, si vous recherchez une solution générique pour créer une application temps réel basée sur le modèle WebSocket et publication-abonnement, vous pouvez choisir le service Azure Web PubSub. Le service Azure Web PubSub ne remplace **pas** Azure SignalR Service. Ils ciblent des scénarios différents.
+
+Azure SignalR Service est plus adapté si :  
+
+- Vous utilisez déjà ASP.NET ou ASP.NET Core SignalR, principalement avec .NET ou la nécessité de s’intégrer à l’écosystème .NET (comme Blazor).
+- Un client SignalR est disponible pour votre plateforme. 
+- Vous avez besoin d’un protocole établi qui prend en charge un large éventail de modèles d’appel (RPC et streaming) et de transports (WebSocket, événements envoyés par le serveur et interrogation longue), et avec un client qui gère la durée de vie de la connexion en votre nom. 
+
+Le service Azure Web PubSub est plus adapté aux situations où :  
+
+- Vous devez créer des applications temps réel basées sur la technologie WebSocket ou publication-abonnement sur WebSocket.
+- Vous voulez créer votre propre sous-protocole ou utiliser des protocoles avancés existants sur WebSocket (par exemple MQTT, AMQP sur WebSocket). 
+- Vous recherchez un serveur léger, par exemple pour envoyer des messages au client sans passer par le back-end configuré.  
 
 ##  <a name="where-does-my-data-reside"></a>Où mes données résident-elles ?
 

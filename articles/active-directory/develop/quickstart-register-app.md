@@ -8,16 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 05/04/2021
+ms.date: 06/14/2021
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
-ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 48d214dfc256a1ed8b770df2ff54646de17b80fe
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 546e7bafe34352ff8968ce1df7cd3386f60eae59
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748742"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075490"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft
 
@@ -31,6 +30,10 @@ La plateforme d’identités Microsoft assure la gestion des identités et des a
 ## <a name="prerequisites"></a>Prérequis
 
 - Un compte Azure disposant d’un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Le compte Azure doit avoir l’autorisation de gérer les applications dans Azure Active Directory (Azure AD). Les rôles Azure AD suivants incluent les autorisations nécessaires :
+  - [Administrateur d’application](../roles/permissions-reference.md#application-administrator)
+  - [Développeur d’application](../roles/permissions-reference.md#application-developer)
+  - [Administrateur d’application cloud](../roles/permissions-reference.md#cloud-application-administrator)
 - Suivi du guide de démarrage rapide [Configurer un locataire](quickstart-create-new-tenant.md).
 
 ## <a name="register-an-application"></a>Inscrire une application
@@ -113,7 +116,7 @@ Vous pouvez ajouter des certificats et des secrets clients (une chaîne) en tant
 
 ### <a name="add-a-certificate"></a>Ajouter un certificat
 
-Parfois appelé _clé publique_, un certificat représente le type d’informations d’identification recommandé. Il offre une meilleure assurance qu’un secret client. Pour plus d’informations sur l’utilisation d’un certificat comme méthode d’authentification dans votre application, consultez [Informations d’identification de certificat d’authentification d’application de la plateforme d’identités Microsoft](active-directory-certificate-credentials.md).
+Parfois appelé _clé publique_, un certificat est le type d’informations d’identification recommandé, car il est considéré comme plus sécurisé que les secrets clients. Pour plus d’informations sur l’utilisation d’un certificat comme méthode d’authentification dans votre application, consultez [Informations d’identification de certificat d’authentification d’application de la plateforme d’identités Microsoft](active-directory-certificate-credentials.md).
 
 1. Dans **Inscriptions d’applications** du portail Azure, sélectionnez votre application.
 1. Sélectionnez **Certificats et secrets** > **Charger le certificat**.
@@ -122,18 +125,20 @@ Parfois appelé _clé publique_, un certificat représente le type d’informati
 
 ### <a name="add-a-client-secret"></a>Ajouter un secret client
 
-Le secret client est également appelé _mot de passe d’application_. Il s’agit d’une valeur de chaîne que votre application peut utiliser à la place d’un certificat pour s’identifier. Le secret client est le plus facile des deux types d’informations d’identification à utiliser. Il est souvent utilisé pendant le développement, mais il est considéré comme moins sécurisé qu’un certificat. Utilisez des certificats dans vos applications qui s’exécutent en production.
+Parfois appelé _mot de passe d’application_, un secret client est une valeur de chaîne que votre application peut utiliser à la place d’un certificat pour s’identifier elle-même.
 
-Pour plus d’informations sur les recommandations de sécurité des applications, consultez [Bonnes pratiques et recommandations relatives à la plateforme d’identités Microsoft](identity-platform-integration-checklist.md#security).
+Les secrets clients sont considérés comme moins sûrs que les informations d’identification d’un certificat. Les développeurs d’applications utilisent parfois des secrets clients lors du développement d’applications locales en raison de leur facilité d’utilisation. Cependant, vous devez utiliser des informations d’identification de certificat pour toutes les applications que vous exécutez en production.
 
 1. Dans **Inscriptions d’applications** du portail Azure, sélectionnez votre application.
 1. Sélectionnez **Certificats et secrets** > **Nouveau secret client**.
 1. Ajoutez une description pour votre clé secrète client.
-1. Sélectionnez une durée.
+1. Sélectionnez un délai d’expiration pour le secret ou spécifiez une durée de vie personnalisée.
+    - La durée de vie d’un secret client est limitée à deux ans (24 mois) ou moins. Vous ne pouvez pas spécifier une durée de vie personnalisée supérieure à 24 mois.
+    - Microsoft vous recommande de définir une valeur d’expiration inférieure à 12 mois.
 1. Sélectionnez **Ajouter**.
 1. _Enregistrez la valeur du secret_ en prévision d’une utilisation dans le code de votre application cliente. Cette valeur secrète ne sera _plus jamais affichée_ lorsque vous aurez quitté cette page.
 
-Pour des raisons de sécurité, Microsoft limite la création de secrets client de plus de 24 mois et recommande vivement de définir une valeur inférieure à 12 mois.
+Pour des recommandations sur la sécurité des applications, consultez [Bonnes pratiques et recommandations relatives à la plateforme d’identités Microsoft](identity-platform-integration-checklist.md#security).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

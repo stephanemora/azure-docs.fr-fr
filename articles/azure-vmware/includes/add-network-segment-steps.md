@@ -3,12 +3,12 @@ title: Ajouter un segment réseau NSX-T
 description: Étapes à suivre pour ajouter un segment réseau NSX-T pour Azure VMware Solution.
 ms.topic: include
 ms.date: 03/13/2021
-ms.openlocfilehash: 477533887629a88f72426a33ed38278636e72fef
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 10b04c8000b8ef440a2a729be671630b4382f3a8
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064453"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110794946"
 ---
 <!-- Used in configure-dhcp-azure-vmware-solution.md and tutorial-nsx-t-network-segment.md -->
 
@@ -24,7 +24,7 @@ ms.locfileid: "110064453"
 
    :::image type="content" source="../media/nsxt/nsxt-create-segment-specs.png" alt-text="Définissez les paramètres Segment Name, Connected Gateway and Type et Transport Zone, puis sélectionnez Set Subnet.":::
 
-1. Entrez l’adresse IP de la passerelle, puis sélectionnez **ADD**. 
+1. Entrez l’adresse IP de la passerelle, puis sélectionnez **Ajouter**. 
 
    >[!IMPORTANT]
    >L’adresse IP doit se trouver dans un bloc d’adresses RFC1918 sans chevauchement, ce qui garantit la connexion aux machines virtuelles sur le nouveau segment.

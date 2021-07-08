@@ -6,14 +6,14 @@ author: amitbapat
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 06/01/2021
 ms.author: ambapat
-ms.openlocfilehash: 01e96922d9c0c47eaf4d430e92eafcd9d0964e13
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a9594157349754c7178f3c73cfe9529ad478de4a
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557222"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411014"
 ---
 # <a name="managed-hsm-local-rbac-built-in-roles"></a>Rôles RBAC locaux intégrés au HSM managé
 
@@ -28,7 +28,7 @@ Un RBAC local de HSM managé possède plusieurs rôles intégrés. Vous pouvez a
 |Utilisateur du chiffrement du HSM managé|Accorde des autorisations pour effectuer toutes les opérations de gestion des clés à l’exception du vidage ou de la récupération des clés supprimées, et exporter des clés.|21dbd100-6940-42c2-9190-5d6cb909625b|
 |Administrateur des stratégies du HSM managé| Accorde l’autorisation de créer et de supprimer des attributions de rôles.|4bd23610-cdcf-4971-bdee-bdc562cc28e4|
 |Auditeur du chiffrement du HSM managé|Accorde une autorisation d’accès en lecture pour lire (mais pas utiliser) les attributs de clé.|2c18b078-7c48-4d3a-af88-5a3a1b3f82b3|
-|Chiffrement du service du HSM managé| Accorde l’autorisation d’utiliser une clé pour le chiffrement du service. |33413926-3206-4cdd-b39a-83574fe37a17|
+|Utilisateur du service de chiffrement du HSM managé| Accorde l’autorisation d’utiliser une clé pour le chiffrement du service. |33413926-3206-4cdd-b39a-83574fe37a17|
 |Sauvegarde du HSM managé| Accorde l’autorisation d’exécuter la sauvegarde d’une seule clé ou de l’intégralité du HSM.|7b127d3c-77bd-4e3e-bbe0-dbb8971fa7f8|
 
 ## <a name="permitted-operations"></a>Opérations autorisées

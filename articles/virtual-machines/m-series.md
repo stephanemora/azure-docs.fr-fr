@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 91c29864367380a303a006d4aac823a22a966a2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83bb3b8e2f6704c595b6398a15f620be6927f3d5
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563090"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846623"
 ---
 # <a name="m-series"></a>Série M
 
@@ -33,16 +33,16 @@ Les machines virtuelles de la série M sont dotées de la technologie Hyper-Thre
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbit/s) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_M8ms                    | 8   | 218.75 | 256   | 8  | 10 000/100 (793)     | 5 000/125   | 4|2000  |
-| Standard_M16ms                   | 16  | 437.5  | 512   | 16 | 20 000/200 (1587)    | 10 000/250  | 8|4000  |
+| Standard_M8ms<sup>3</sup>       | 8   | 218.75 | 256   | 8  | 10 000/100 (793)     | 5 000/125   | 4|2000  |
+| Standard_M16ms<sup>3</sup>      | 16  | 437.5  | 512   | 16 | 20 000/200 (1587)    | 10 000/250  | 8|4000  |
 | Standard_M32ts                   | 32  | 192    | 1 024  | 32 | 40 000/400 (3174)    | 20 000/500  | 8|8000  |
 | Standard_M32ls                   | 32  | 256    | 1 024  | 32 | 40 000/400 (3174)    | 20 000/500  | 8|8000  |
-| Standard_M32ms                   | 32  | 875    | 1 024  | 32 | 40 000/400 (3174)    | 20 000/500  | 8|8000  |
+| Standard_M32ms<sup>3</sup>      | 32  | 875    | 1 024  | 32 | 40 000/400 (3174)    | 20 000/500  | 8|8000  |
 | Standard_M64s <sup>1</sup>       | 64  | 1 024   | 2 048  | 64 | 80 000/800 (6348)    | 40 000/1 000 | 8|16000 |
 | Standard_M64ls <sup>1</sup>      | 64  | 512    | 2 048  | 64 | 80 000/800 (6348)    | 40 000/1 000 | 8|16000 |
-| Standard_M64ms <sup>1</sup>      | 64  | 1792   | 2 048  | 64 | 80 000/800 (6348)    | 40 000/1 000 | 8|16000 |
+| Standard_M64ms<sup>1,3</sup>    | 64  | 1792   | 2 048  | 64 | 80 000/800 (6348)    | 40 000/1 000 | 8|16000 |
 | Standard_M128s <sup>1</sup>    | 128 | 2 048   | 4096  | 64 | 160 000/1 600 (12696) | 80 000/2 000 | 8|30000 |
-| Standard_M128ms <sup>1,2</sup>   | 128 | 3892   | 4096  | 64 | 160 000/1 600 (12696) | 80 000/2 000 | 8|30000 |
+| Standard_M128ms <sup>1,2,3</sup> | 128 | 3892   | 4096  | 64 | 160 000/1 600 (12696) | 80 000/2 000 | 8|30000 |
 | Standard_M64 <sup>1</sup>        | 64  | 1 024   | 7168  | 64 | 80 000/800 (1228)    | 40 000/1 000 | 8|16000 |
 | Standard_M64m <sup>1</sup>       | 64  | 1792   | 7168  | 64 | 80 000/800 (1228)    | 40 000/1 000 | 8|16000 |
 | Standard_M128 <sup>1</sup>     | 128 | 2 048   | 14336 | 64 | 250 000/1 600 (2456)  | 80 000/2 000 | 8|32000 |
@@ -51,6 +51,8 @@ Les machines virtuelles de la série M sont dotées de la technologie Hyper-Thre
 <sup>1</sup> L’utilisation de plus de 64 processeurs virtuels nécessite l’une de ces versions d’invité prises en charge : Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 et Red Hat Enterprise Linux, CentOS 7.3 ou Oracle Linux 7.3 avec LIS 4.2.1.
 
 <sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.
+
+<sup>3</sup> [Tailles avec contraintes de cœurs disponibles](./constrained-vcpu.md).
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

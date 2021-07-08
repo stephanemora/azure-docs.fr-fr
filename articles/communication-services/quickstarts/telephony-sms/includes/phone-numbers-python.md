@@ -1,11 +1,14 @@
 ---
-ms.openlocfilehash: e62aed02a0ad5f26ec8fd0a79de5e91269386095
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 61648bc0eab3aba4806cf4594e6fe222ac77f93f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450363"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111993656"
 ---
+> [!NOTE]
+> Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/phone-numbers-quickstart).
+
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -53,6 +56,8 @@ pip install azure-identity
 ```
 
 Pour créer un objet `DefaultAzureCredential`, les variables d'environnement `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET` et `AZURE_TENANT_ID` doivent déjà être définies avec les valeurs correspondantes de votre application Azure AD inscrite.
+
+Pour savoir rapidement comment obtenir ces variables d’environnement, vous pouvez suivre le guide de [démarrage rapide Configurer des identités managées à partir de CLI](../../managed-identity-from-cli.md).
 
 Une fois la bibliothèque `azure-identity` installée, nous pouvons poursuivre l'authentification du client.
 
@@ -111,7 +116,7 @@ try:
         calling = PhoneNumberCapabilityType.INBOUND,
         sms = PhoneNumberCapabilityType.INBOUND_OUTBOUND
     )
-    search_poller = self.phone_number_client.begin_search_available_phone_numbers(
+    search_poller = phone_numbers_client.begin_search_available_phone_numbers(
         "US",
         PhoneNumberType.TOLL_FREE,
         PhoneNumberAssignmentType.APPLICATION,
@@ -132,7 +137,7 @@ except Exception as ex:
 
 ### <a name="purchase-phone-numbers"></a>Acheter des numéros de téléphone
 
-Le résultat de la recherche de numéros de téléphone correspond à `PhoneNumberSearchResult`. Ce résultat contient un `searchId` qui peut être transmis à l'API Acheter des numéros pour acquérir les numéros de la recherche. Notez que l'appel de l'API Acheter des numéros de téléphone sera facturé sur votre compte Azure.
+Le résultat de la recherche de numéros de téléphone correspond à `PhoneNumberSearchResult`. Ce résultat contient un élément `searchId` qui peut être transmis à l'API Acheter des numéros pour acquérir les numéros de la recherche. Notez que l'appel de l'API Acheter des numéros de téléphone sera facturé sur votre compte Azure.
 
 ```python
 import os
@@ -226,5 +231,5 @@ print('Status of the operation: ' + release_poller.status())
 À partir d’une invite de console, accédez au répertoire contenant le fichier phone_numbers_sample.py, puis exécutez la commande python suivante pour lancer l'application.
 
 ```console
-./phone_numbers_sample.py
+python phone_numbers_sample.py
 ```

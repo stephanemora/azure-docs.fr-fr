@@ -1,0 +1,432 @@
+### YamlMime:Hub 
+title: Documentation Azure Monitor Application Insights
+summary: Application Insights fait partie du service Azure Monitor
+brand: azure
+metadata:
+  title: Documentation Azure Monitor Application Insights
+  description: Application Insights fait partie du service Azure Monitor
+  ms.service: application-insights
+  ms.topic: hub-page
+  manager: carmonm
+  ms.date: 09/30/2019
+highlightedContent:
+  items:
+    - title: "Présentation d’Application\_Insights"
+      itemType: overview
+      url: ./app/app-insights-overview.md
+    - title: Notes de publication
+      itemType: whats-new
+      url: ./app/release-notes.md
+    - title: Surveiller un service d’application Azure
+      itemType: how-to-guide
+      url: ./app/azure-web-apps.md
+    - title: Surveiller des applications ASP.NET Core
+      itemType: how-to-guide
+      url: ./app/asp-net-core.md
+    - title: Créer une ressource
+      itemType: how-to-guide
+      url: ./app/create-new-resource.md
+    - title: Surveiller votre site web
+      itemType: how-to-guide
+      url: ./app/javascript.md
+conceptualContent:
+  items:
+    - title: Supervision basée sur le code
+      links:
+        - url: ./app/asp-net-core.md
+          itemType: how-to-guide
+          text: ASP.NET Core
+        - url: ./app/asp-net.md
+          itemType: how-to-guide
+          text: ASP.NET
+        - url: ./app/worker-service.md
+          itemType: how-to-guide
+          text: Service worker .NET Core
+        - url: ./app/java-2x-get-started.md
+          itemType: how-to-guide
+          text: Java
+        - url: ./app/opencensus-python.md
+          itemType: how-to-guide
+          text: Python
+        - url: ./app/javascript.md
+          itemType: how-to-guide
+          text: JavaScript
+        - url: ./app/nodejs.md
+          itemType: how-to-guide
+          text: Node.js
+    - title: Surveillance basée sur agent/sans code
+      links:
+        - url: ./app/azure-web-apps.md
+          itemType: how-to-guide
+          text: Azure App Service
+        - url: ./app/cloudservices.md
+          itemType: how-to-guide
+          text: Services cloud
+        - url: ../azure-functions/functions-monitoring.md
+          itemType: how-to-guide
+          text: Azure Functions
+        - url: ./app/kubernetes-codeless.md
+          itemType: how-to-guide
+          text: Applications Kubernetes
+        - url: ./app/cloudservices.md
+          itemType: how-to-guide
+          text: Services cloud
+        - url: ./app/status-monitor-v2-overview.md
+          itemType: how-to-guide
+          text: "Status Monitor\_V2"
+        - url: ./app/azure-vm-vmss-apps.md
+          itemType: how-to-guide
+          text: VM Azure et groupes de machines virtuelles identiques Azure
+    - title: Démarrages rapides et tutoriels
+      links:
+        - url: ./app/nodejs-quick-start.md
+          itemType: how-to-guide
+          text: Node.js
+        - url: ./app/mobile-center-quickstart.md
+          itemType: how-to-guide
+          text: Application mobile
+        - url: ./app/website-monitoring.md
+          itemType: how-to-guide
+          text: Surveillance de sites web
+        - url: ./app/tutorial-runtime-exceptions.md
+          itemType: how-to-guide
+          text: Rechercher et diagnostiquer des exceptions runtime
+        - url: ./app/tutorial-performance.md
+          itemType: how-to-guide
+          text: Rechercher et diagnostiquer des problèmes de performances
+        - url: ./app/tutorial-alert.md
+          itemType: how-to-guide
+          text: Surveiller et alerter sur l’intégrité des applications
+        - url: ./app/tutorial-users.md
+          itemType: how-to-guide
+          text: Comprendre le comportement de l’utilisateur
+        - url: ./app/tutorial-app-dashboards.md
+          itemType: how-to-guide
+          text: Créer des tableaux de bord personnalisés
+    - title: 'Suivi distribué, suivi des dépendances et corrélation'
+      links:
+        - url: ./app/distributed-tracing.md
+          itemType: overview
+          text: "Qu’est-ce que le suivi distribué\_?"
+        - url: ./app/app-map.md
+          itemType: how-to-guide
+          text: Mise en correspondance d'applications
+        - url: ./app/correlation.md
+          itemType: how-to-guide
+          text: Corrélation des données de télémétrie
+        - url: ./app/custom-data-correlation.md
+          itemType: how-to-guide
+          text: Mettre en corrélation les sources de données personnalisées
+        - url: ./app/transaction-diagnostics.md
+          itemType: how-to-guide
+          text: Diagnostics des transactions de bout en bout
+        - url: ./app/asp-net-dependencies.md
+          itemType: how-to-guide
+          text: Suivi des dépendances
+        - url: ./app/auto-collect-dependencies.md
+          itemType: how-to-guide
+          text: Collecte automatique de dépendance
+        - url: ./app/custom-operations-tracking.md
+          itemType: how-to-guide
+          text: Files d’attente et tâches en arrière-plan
+    - title: Transactions synthétiques et surveillance de la disponibilité
+      links:
+        - url: ./app/monitor-web-app-availability.md
+          itemType: how-to-guide
+          text: Tests des URL
+        - url: ./app/availability-multistep.md
+          itemType: how-to-guide
+          text: Tests web à plusieurs étapes
+        - url: ./app/availability-alerts.md
+          itemType: how-to-guide
+          text: Alertes de disponibilité
+    - title: 'Métriques, journaux et traces'
+      links:
+        - url: ./app/live-stream.md
+          itemType: how-to-guide
+          text: Métriques temps réel
+        - url: ./app/pre-aggregated-metrics-log-metrics.md
+          itemType: how-to-guide
+          text: Métriques basées sur les journaux et pré-agrégées
+        - url: ./essentials/app-insights-metrics.md
+          itemType: how-to-guide
+          text: Définitions des métriques basées sur les journaux
+        - url: ./app/ilogger.md
+          itemType: how-to-guide
+          text: ILogger
+        - url: ./app/performance-counters.md
+          itemType: how-to-guide
+          text: Compteurs de performance
+        - url: ./app/eventcounters.md
+          itemType: how-to-guide
+          text: EventCounter (.NET/.NET Core)
+        - url: ./app/asp-net-trace-logs.md
+          itemType: how-to-guide
+          text: Journaux des traces de diagnostic système
+        - url: ./app/diagnostic-search.md
+          itemType: how-to-guide
+          text: Rechercher
+    - title: Profiler et Débogueur de capture instantanée
+      links:
+        - url: ./app/profiler-overview.md
+          itemType: overview
+          text: Vue d’ensemble de Profiler
+        - url: ./app/profiler.md
+          itemType: how-to-guide
+          text: Profiler des applications Azure App Service
+        - url: ./app/profiler-cloudservice.md
+          itemType: how-to-guide
+          text: Profiler des applications Azure Cloud Services
+        - url: ./app/profiler-servicefabric.md
+          itemType: how-to-guide
+          text: Profiler des applications Service Fabric
+        - url: ./app/profiler-vm.md
+          itemType: how-to-guide
+          text: Profiler des applications de VM et de groupe de machines virtuelles identiques
+        - url: ./app/snapshot-debugger.md
+          itemType: overview
+          text: Vue d’ensemble du Débogueur de capture instantanée
+        - url: ./app/snapshot-debugger-appservice.md
+          itemType: how-to-guide
+          text: Activer le Débogueur de capture instantanée pour Azure App Service
+        - url: ./app/snapshot-debugger-vm.md
+          itemType: how-to-guide
+          text: Activer le débogueur de capture instantanée pour d’autres environnements
+        - url: ./app/snapshot-debugger-upgrade.md
+          itemType: how-to-guide
+          text: Mettre à niveau le Débogueur de capture instantanée
+    - title: Détection intelligente
+      links:
+        - url: ./app/proactive-diagnostics.md
+          itemType: overview
+          text: Vue d’ensemble de la détection intelligente
+        - url: ./app/proactive-failure-diagnostics.md
+          itemType: how-to-guide
+          text: Défaillances
+        - url: ./app/proactive-performance-diagnostics.md
+          itemType: how-to-guide
+          text: Anomalies de performance
+        - url: ./app/proactive-trace-severity.md
+          itemType: how-to-guide
+          text: Dégradation de Trace
+        - url: ./app/proactive-exception-volume.md
+          itemType: how-to-guide
+          text: Volume des exceptions
+        - url: ./app/proactive-potential-memory-leak.md
+          itemType: how-to-guide
+          text: Fuite de mémoire
+        - url: ./app/proactive-application-security-detection-pack.md
+          itemType: how-to-guide
+          text: Détections de sécurité
+        - url: ./app/proactive-cloud-services.md
+          itemType: how-to-guide
+          text: Services cloud Azure
+        - url: ./app/proactive-arm-config.md
+          itemType: how-to-guide
+          text: Gérer des règles de détection intelligente
+        - url: ./app/proactive-email-notification.md
+          itemType: how-to-guide
+          text: Notification par e-mail
+    - title: Utilisation (analytique du comportement utilisateur)
+      links:
+        - url: ./app/usage-overview.md
+          itemType: overview
+          text: Vue d’ensemble
+        - url: ./app/usage-segmentation.md
+          itemType: how-to-guide
+          text: 'Utilisateurs, sessions, événements'
+        - url: ./app/usage-funnels.md
+          itemType: how-to-guide
+          text: Entonnoirs
+        - url: ./app/usage-cohorts.md
+          itemType: how-to-guide
+          text: Cohortes
+        - url: ./app/usage-impact.md
+          itemType: how-to-guide
+          text: Impact
+        - url: ./app/usage-retention.md
+          itemType: how-to-guide
+          text: Rétention
+        - url: ./app/usage-flows.md
+          itemType: how-to-guide
+          text: Flux d’utilisateurs
+    - title: 'Confidentialité, sécurité, utilisation et coût'
+      links:
+        - url: ./logs/personal-data-mgmt.md
+          itemType: how-to-guide
+          text: Gestion des données personnelles
+        - url: ./app/data-retention-privacy.md
+          itemType: how-to-guide
+          text: 'Collecte, conservation et stockage de données'
+        - url: ./app/resources-roles-access-control.md
+          itemType: how-to-guide
+          text: Contrôle d’accès en fonction du rôle
+        - url: ./app/ip-addresses.md
+          itemType: how-to-guide
+          text: "Exception de pare-feu et d’adresse\_IP"
+        - url: ./app/ip-collection.md
+          itemType: how-to-guide
+          text: "Gestion de la géolocalisation et des adresses\_IP"
+    - title: Configuration avancée
+      links:
+        - url: ./app/sampling.md
+          itemType: how-to-guide
+          text: échantillonnage
+        - url: ./app/api-filtering-sampling.md
+          itemType: how-to-guide
+          text: Filtrage et processeurs de télémétrie
+        - url: ./app/telemetry-channels.md
+          itemType: how-to-guide
+          text: Canaux de télémétrie
+        - url: ./app/configuration-with-applicationinsights-config.md
+          itemType: how-to-guide
+          text: ApplicationInsights.config
+        - url: ./app/asp-net-exceptions.md
+          itemType: how-to-guide
+          text: Exceptions
+        - url: ./app/automate-custom-reports.md
+          itemType: how-to-guide
+          text: Rapports d’e-mail personnalisés
+        - url: ./app/usage-overview.md
+          itemType: how-to-guide
+          text: Envoyer des ID de contexte utilisateur
+        - url: ./app/custom-endpoints.md
+          itemType: how-to-guide
+          text: Remplacements de points de terminaison
+    - title: Modèle de données
+      links:
+        - url: ./app/data-model.md
+          itemType: overview
+          text: Vue d’ensemble
+        - url: ./app/data-model-request-telemetry.md
+          itemType: how-to-guide
+          text: Requête
+        - url: ./app/data-model-dependency-telemetry.md
+          itemType: how-to-guide
+          text: Dépendance
+        - url: ./app/data-model-exception-telemetry.md
+          itemType: how-to-guide
+          text: Exception
+        - url: ./app/data-model-trace-telemetry.md
+          itemType: how-to-guide
+          text: Trace
+        - url: ./app/data-model-event-telemetry.md
+          itemType: how-to-guide
+          text: Événement
+        - url: ./app/data-model-metric-telemetry.md
+          itemType: how-to-guide
+          text: Métrique
+        - url: ./app/data-model-context.md
+          itemType: how-to-guide
+          text: Context
+    - title: Azure DevOps
+      links:
+        - url: ./app/annotations.md
+          itemType: how-to-guide
+          text: Annotations de version
+        - url: ./app/continuous-monitoring.md
+          itemType: how-to-guide
+          text: Supervision continue
+    - title: Exporter
+      links:
+        - url: ./app/export-telemetry.md
+          itemType: how-to-guide
+          text: Exporter la télémétrie
+        - url: ./app/export-stream-analytics.md
+          itemType: how-to-guide
+          text: "Exporter vers Stream\_Analytics"
+        - url: ./app/code-sample-export-sql-stream-analytics.md
+          itemType: how-to-guide
+          text: "Exporter vers SQL à l’aide de Stream\_Analytics"
+        - url: ./app/code-sample-export-sql-stream-analytics.md
+          itemType: how-to-guide
+          text: Exporter le modèle de données
+        - url: ./logs/logicapp-flow-connector.md
+          itemType: how-to-guide
+          text: Intégration de Flow
+        - url: ./app/automate-with-logic-apps.md
+          itemType: how-to-guide
+          text: Intégration de Logic Apps
+    - title: Visualisations et analyse
+      links:
+        - url: ./app/overview-dashboard.md
+          itemType: how-to-guide
+          text: Tableau de bord de l’application
+        - url: ./app/export-power-bi.md
+          itemType: how-to-guide
+          text: "Intégration de Power\_BI"
+        - url: ./essentials/metrics-charts.md
+          itemType: how-to-guide
+          text: Graphiques de métrique
+        - url: ./visualize/workbooks-overview.md
+          itemType: how-to-guide
+          text: Workbooks (reporting interactif)
+        - url: ./app/change-analysis.md
+          itemType: how-to-guide
+          text: Analyse des changements (préversion)
+    - title: Visual Studio
+      links:
+        - url: ./app/visual-studio.md
+          itemType: how-to-guide
+          text: Connaissances F5
+        - url: ./app/visual-studio.md
+          itemType: how-to-guide
+          text: Trends
+        - url: ./app/visual-studio-codelens.md
+          itemType: how-to-guide
+          text: CodeLens
+    - title: Résolution des problèmes et FAQ
+      links:
+        - url: ./app/usage-troubleshoot.md
+          itemType: how-to-guide
+          text: Résolution des problèmes d’utilisation
+        - url: ./app/snapshot-debugger-troubleshoot.md
+          itemType: how-to-guide
+          text: Résolution des problèmes du débogueur de capture instantanée
+        - url: ./app/profiler-troubleshooting.md
+          itemType: how-to-guide
+          text: Résolution des problèmes de Profiler
+        - url: ./app/troubleshoot-availability.md
+          itemType: how-to-guide
+          text: Résolution des problèmes de disponibilité
+        - url: ./app/asp-net-troubleshoot-no-data.md
+          itemType: how-to-guide
+          text: Résoudre les problèmes d’absence de données
+        - url: ./faq.md
+          itemType: how-to-guide
+          text: Questions fréquentes (FAQ) sur la résolution des problèmes
+    - title: Référence
+      links:
+        - url: ./app/platforms.md
+          itemType: reference
+          text: Plateformes
+        - url: ./app/azure-functions-supported-features.md
+          itemType: reference
+          text: Intégration à Azure Functions
+        - url: /dotnet/api/overview/azure/insights
+          itemType: reference
+          text: Kit de développement logiciel (SDK) .NET
+        - url: /java/api/overview/azure/appinsights
+          itemType: reference
+          text: .Java
+        - url: /javascript/api/overview/azure/applicationinsights
+          itemType: reference
+          text: Node.js
+        - url: /rest/api/application-insights/
+          itemType: reference
+          text: API REST
+        - url: 'https://dev.applicationinsights.io/'
+          itemType: reference
+          text: Bac à sable de l’API REST
+additionalContent:
+  sections:
+    - items:
+        - title: Récapitulatif des API Application Insights
+          summary: Exemples de code pour tous les appels d’API Application Insights
+          url: ./app/api-custom-events-metrics.md
+        - title: Application Insights PowerShell
+          summary: Découvrez comment installer et utiliser les applets de commande Application Insights PowerShell.
+          url: /powershell/module/az.applicationinsights/new-azapplicationinsights
+        - title: Commandes Azure CLI pour Application Insights
+          summary: Commandes d’extension CLI Application Insights (az extension add -n application-insights).
+          url: /cli/azure/monitor/app-insights/component

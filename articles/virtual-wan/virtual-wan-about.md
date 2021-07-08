@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.author: cherylmc
-ms.openlocfilehash: ab54192480a1c36a27c175254d6d4d275b67c8b7
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 6bce9d2c39b792923f3c85e5eb42734f1a116a66
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835323"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076346"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Qu’est-ce que le WAN virtuel Azure ?
 
@@ -65,9 +65,7 @@ Pour configurer un WAN virtuel de bout en bout, vous devez créer les ressources
 
 * **Site :** Cette ressource est utilisée pour les connexions site à site uniquement. La ressource de site est **vpnsite**. Elle représente votre périphérique VPN local et ses paramètres. En faisant appel à un partenaire de WAN virtuel, vous disposez d’une solution intégrée pour exporter automatiquement ces informations vers Azure.
 
-## <a name="types-of-connectivity"></a><a name="connectivity"></a>Types de connectivité
-
-Virtual WAN permet les types de connectivité suivants : VPN site à site, VPN utilisateur (point à site) et ExpressRoute.
+## <a name="connectivity"></a><a name="connectivity"></a>Connectivité
 
 ### <a name="site-to-site-vpn-connections"></a><a name="s2s"></a>Connexion VPN site à site
 
@@ -129,7 +127,7 @@ Les tables de routage disposent désormais de fonctionnalités d’association e
 
 ## <a name="faq"></a><a name="faq"></a>Forum Aux Questions
 
-[!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
+Pour accéder aux questions fréquentes (FAQ), consultez [FAQ sur Virtual WAN](virtual-wan-faq.md).
 
 ## <a name="whats-new"></a><a name="new"></a>Nouveautés
 

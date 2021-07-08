@@ -3,49 +3,24 @@ title: Créer Datadog – Solutions de partenaires Azure
 description: Cet article explique comment utiliser le portail Azure pour créer une instance de Datadog.
 ms.service: partner-services
 ms.topic: quickstart
-ms.date: 05/05/2021
+ms.date: 05/28/2021
 author: tfitzmac
 ms.author: tomfitz
 ms.custom: references_regions
-ms.openlocfilehash: 3d9c364c1367986f4ebe47cc00b4cb8b2434b90c
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 6b2737877ecc550540761bfb704aee98f6e7c2f4
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517457"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110655238"
 ---
-# <a name="quickstart-get-started-with-datadog"></a>Démarrage rapide : Prise en main de Datadog
+# <a name="quickstart-get-started-with-datadog-by-creating-new-instance"></a>Démarrage rapide : prise en main de Datadog en créant une nouvelle instance
 
-Dans ce démarrage rapide, vous allez créer une instance de Datadog. Vous pouvez soit créer une organisation Datadog, soit établir un lien vers une organisation Datadog existante. Azure se lie uniquement aux organisations Datadog existantes dans **US3**.
+Dans ce démarrage rapide, vous allez créer une instance de Datadog. Vous pouvez soit créer une organisation Datadog, soit établir un [lien vers une organisation Datadog existante](link-to-existing-organization.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration de Datadog à Azure, vous devez disposer d’un accès **Propriétaire** sur l’abonnement Azure. Vérifiez que vous disposez de l’accès approprié avant de commencer l’installation.
-
-Pour utiliser la fonctionnalité d’authentification unique Security Assertion Markup Language (SAML) dans la ressource Datadog, vous devez configurer une application d’entreprise. Pour ajouter une application d’entreprise, vous avez besoin de l’un des rôles suivants : Administrateur général, Administrateur d’application cloud, Administrateur d’application ou Propriétaire du principal de service.
-
-Suivez les étapes suivantes pour configurer l’application d’entreprise :
-
-1. Accédez au [portail Azure](https://portal.azure.com). Sélectionnez **Azure Active Directory**.
-1. Dans le volet gauche, sélectionnez **Applications d’entreprise**.
-1. Sélectionnez **Nouvelle application**.
-1. Dans **Ajouter à partir de la galerie**, recherchez *Datadog*. Sélectionnez le résultat de la recherche, puis sélectionnez **Ajouter**.
-
-   :::image type="content" source="media/create/datadog-azure-ad-app-gallery.png" alt-text="Application Datadog dans la galerie d’entreprise AAD." border="true":::
-
-1. Une fois l’application créée, accédez aux propriétés à partir du panneau latéral. Définissez **Affectation d’utilisateur requise ?** sur **Non**, puis sélectionnez **Enregistrer**.
-
-   :::image type="content" source="media/create/user-assignment-required.png" alt-text="Définir les propriétés de l’application Datadog" border="true":::
-
-1. Accédez à **Authentification unique** à partir du panneau latéral. Sélectionnez ensuite **SAML**.
-
-   :::image type="content" source="media/create/saml-sso.png" alt-text="Authentification SAML." border="true":::
-
-1. Sélectionnez **Oui** lorsque vous êtes invité à **enregistrer les paramètres d’authentification unique**.
-
-   :::image type="content" source="media/create/save-sso.png" alt-text="Enregistrer l’authentification unique pour l’application Datadog" border="true":::
-
-1. La configuration de l’authentification unique est maintenant terminée.
+Avant de créer votre première instance de Datadog dans Azure, [configurez votre environnement](prerequisites.md). Vous devez effectuer ces étapes avant de passer aux étapes suivantes de ce démarrage rapide.
 
 ## <a name="find-offer"></a>Rechercher une offre
 
@@ -61,9 +36,15 @@ Utilisez le portail Azure pour rechercher Datadog.
 
 1. Dans l’écran de vue d’ensemble du plan, sélectionnez **Configurer + s’abonner**.
 
-   :::image type="content" source="media/create/datadog-app.png" alt-text="Application Datadog dans Place de marché Azure.":::
+   :::image type="content" source="media/create/datadog-app-2.png" alt-text="Application Datadog dans Place de marché Azure.":::
 
 ## <a name="create-a-datadog-resource-in-azure"></a>Créer une ressource Datadog dans Azure
+
+Le portail affiche une sélection vous demandant si vous souhaitez créer une organisation Datadog ou lier un abonnement Azure à une organisation Datadog existante.
+
+Si vous créez une organisation Datadog, sélectionnez **Créer** sous **Créer une organisation Datadog**
+
+:::image type="content" source="media/create/datadog-create-link-selection.png" alt-text="Créer ou lier à une organisation Datadog" border="true":::
 
 Le portail affiche un formulaire pour la création de la ressource Datadog.
 
@@ -77,25 +58,8 @@ Renseignez les valeurs suivantes.
 | Resource group | Indiquez si vous souhaitez créer un groupe de ressources Azure ou utiliser un groupe existant. Un [groupe de ressources](../../azure-resource-manager/management/overview.md#resource-groups) est un conteneur regroupant les ressources associées pour une solution Azure. |
 | Nom de la ressource | Spécifiez un nom pour la ressource Datadog. Ce nom sera celui de la nouvelle organisation Datadog, lors de la création d’une nouvelle organisation Datadog. |
 | Emplacement | Sélectionnez USA Ouest 2. À l’heure actuelle, USA Ouest 2 est la seule région prise en charge. |
-| Organisation Datadog | Pour créer une organisation Datadog, sélectionnez **Nouveau**. Pour créer un lien vers une organisation Datadog existante, sélectionnez **Existant**. |
 | Plan tarifaire | Lors de la création d’une organisation, faites votre choix dans la liste des plans Datadog disponibles. |
 | Fréquence de facturation | Mensuelle: |
-
-Si vous établissez un lien vers une organisation Datadog existante, consultez la section suivante. Dans le cas contraire, sélectionnez **Suivant : Métriques et journaux**, puis ignorez la section suivante.
-
-## <a name="link-to-existing-datadog-organization"></a>Lien vers une organisation Datadog existante
-
-Vous pouvez lier votre nouvelle ressource Datadog dans Azure à une organisation Datadog existante dans **US3**.
-
-Sélectionnez **Existant** pour Organisation Datadog, puis sélectionnez **Lier à une organisation Datadog**.
-
-:::image type="content" source="media/create/link-to-existing.png" alt-text="Lier à une organisation Datadog existante." border="true":::
-
-Le lien ouvre une fenêtre d’authentification Datadog. Connectez-vous à Datadog.
-
-Par défaut, Azure lie votre organisation Datadog actuelle à votre ressource Datadog. Si vous souhaitez créer un lien vers une autre organisation, sélectionnez l’organisation appropriée dans la fenêtre d’authentification, comme indiqué ci-dessous.
-
-:::image type="content" source="media/create/select-datadog-organization.png" alt-text="Sélectionner l’organisation Datadog appropriée à lier" border="true":::
 
 ## <a name="configure-metrics-and-logs"></a>Configurer les métriques et les journaux
 
@@ -136,10 +100,6 @@ Une fois que vous avez terminé la configuration des métriques et des journaux,
 ## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 
 Si votre organisation utilise Azure Active Directory comme fournisseur d’identité, vous pouvez établir l’authentification unique du portail Azure vers Datadog. Si votre organisation utilise un autre fournisseur d’identité ou si vous ne souhaitez pas établir l’authentification unique pour le moment, vous pouvez ignorer cette section.
-
-Si vous liez la ressource Datadog à une organisation Datadog existante, vous ne pouvez pas configurer l’authentification unique à cette étape. Vous devez plutôt configurer l’authentification unique après avoir créé la ressource Datadog. Pour plus d’informations, consultez [Reconfigurer l’authentification unique](manage.md#reconfigure-single-sign-on).
-
-:::image type="content" source="media/create/linking-sso.png" alt-text="Authentification unique pour la liaison à une organisation Datadog existante." border="true":::
 
 Pour établir l’authentification unique via Azure Active Directory, cochez la case pour **Activer l’authentification unique via Azure Active Directory**.
 

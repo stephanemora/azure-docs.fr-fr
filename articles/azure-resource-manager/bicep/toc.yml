@@ -1,0 +1,148 @@
+- name: Documentation Bicep
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+    - name: "Qu’est-ce que Bicep\_?"
+      href: overview.md
+    - name: Comparer JSON et Bicep
+      href: compare-template-syntax.md
+- name: Installer
+  items:
+    - name: Installer les outils Bicep
+      href: install.md
+- name: Démarrages rapides
+  items:
+    - name: "Créer des modèles\_Bicep\_– VS\_Code"
+      href: quickstart-create-bicep-use-visual-studio-code.md
+- name: Tutoriels
+  items:
+    - name: Microsoft Learn - Bicep
+      href: learn-bicep.md
+- name: Procédures
+  items:
+    - name: Auteur
+      items:
+        - name: Ressources
+          items:
+            - name: Déclaration de ressource
+              href: resource-declaration.md
+            - name: Déploiement conditionnel
+              href: conditional-resource-deployment.md
+            - name: Nom et type de ressource enfant
+              href: child-resource-name-type.md
+            - name: Ressources d’extension
+              href: scope-extension-resources.md
+        - name: Paramètres
+          href: parameters.md
+        - name: Variables
+          href: variables.md
+        - name: Sorties
+          href: outputs.md
+        - name: Modules
+          href: modules.md
+        - name: Boucles
+          items:
+            - name: Ressources
+              displayName: 'iteration,copy,multiple'
+              href: loop-resources.md
+            - name: Propriétés
+              displayName: 'iteration,copy,multiple'
+              href: loop-properties.md
+            - name: Variables
+              displayName: 'iteration,copy,multiple'
+              href: loop-variables.md
+            - name: Sorties
+              displayName: 'iteration,copy,multiple'
+              href: loop-outputs.md
+        - name: Étendues
+          items:
+            - name: Resource group
+              href: deploy-to-resource-group.md
+            - name: Abonnement
+              href: deploy-to-subscription.md
+            - name: Groupe d’administration
+              href: deploy-to-management-group.md
+            - name: Locataire
+              href: deploy-to-tenant.md
+        - name: Meilleures pratiques
+          href: best-practices.md
+    - name: Déployer
+      items:
+        - name: Vérifications de prédéploiement
+          items:
+            - name: Déploiement What-if
+              href: deploy-what-if.md
+        - name: Commandes de déploiement
+          items:
+            - name: Déployer – CLI
+              href: deploy-cli.md
+            - name: Déployer – PowerShell
+              href: deploy-powershell.md
+            - name: Déployer - Cloud Shell
+              href: deploy-cloud-shell.md
+        - name: Paramètres
+          items:
+            - name: Créer un fichier de paramètres
+              href: parameter-files.md
+            - name: Transmettre des valeurs sensibles
+              displayname: key vault
+              href: key-vault-parameter.md
+        - name: CI/CD
+          items:
+            - name: Bicep avec des pipelines
+              href: add-template-to-azure-pipelines.md
+            - name: Bicep avec GitHub Actions
+              href: deploy-github-actions.md
+    - name: Utiliser l’interface CLI Bicep
+      items:
+        - name: Décompiler
+          href: decompile.md
+- name: Référence
+  items:
+    - name: Structure des fichiers Bicep
+      displayName: 'parameters,variables,resources,outputs,condition'
+      href: file.md
+    - name: Types de données
+      href: data-types.md
+    - name: Fonctions
+      items:
+        - name: Toutes les fonctions
+          href: bicep-functions.md
+        - name: Toutes les fonctions
+          href: bicep-functions-any.md
+        - name: Fonctions Tableau
+          href: bicep-functions-array.md
+        - name: Fonctions de date
+          href: bicep-functions-date.md
+        - name: Fonctions de déploiement
+          href: bicep-functions-deployment.md
+        - name: Fonctions logiques
+          href: bicep-functions-logical.md
+        - name: Fonctions Numériques
+          href: bicep-functions-numeric.md
+        - name: Fonctions d’objet
+          href: bicep-functions-object.md
+        - name: Fonctions de ressource
+          href: bicep-functions-resource.md
+        - name: Fonctions de limitation
+          href: bicep-functions-scope.md
+        - name: Fonctions de chaînes
+          href: bicep-functions-string.md
+    - name: Opérateurs
+      items:
+        - name: Tous les opérateurs
+          href: operators.md
+        - name: Opérateurs de comparaison
+          href: operators-comparison.md
+        - name: Opérateurs logiques
+          href: operators-logical.md
+        - name: Opérateurs numériques
+          href: operators-numeric.md
+    - name: Interface CLI Bicep
+      href: bicep-cli.md
+    - name: Informations de référence sur les modèles
+      href: /azure/templates/
+    - name: Azure PowerShell
+      href: /powershell/module/az.resources
+    - name: Azure CLI
+      href: /cli/azure/resource

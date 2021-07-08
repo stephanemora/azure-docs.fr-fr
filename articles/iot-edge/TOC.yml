@@ -181,18 +181,30 @@
               href: how-to-deploy-cli-at-scale.md
             - name: Visual Studio Code
               href: how-to-deploy-vscode-at-scale.md
-    - name: Superviser et diagnostiquer des déploiements
+    - name: Surveiller et diagnostiquer
       items:
         - name: Superviser les déploiements IoT Edge
           href: how-to-monitor-iot-edge-deployments.md
         - name: Superviser les jumeaux de module
           href: how-to-monitor-module-twins.md
-        - name: Méthodes directes EdgeAgent
+        - name: Utiliser des méthodes directes edgeAgent
           href: how-to-edgeagent-direct-method.md
-        - name: Récupérer les journaux IoT Edge
+        - name: Récupérer les journaux avec des méthodes directes
           href: how-to-retrieve-iot-edge-logs.md
         - name: Accéder aux métriques intégrées
           href: how-to-access-built-in-metrics.md
+        - name: Intégration d’Azure Monitor
+          items:
+            - name: Collecter et transporter les métriques
+              href: how-to-collect-and-transport-metrics.md
+            - name: Explorer les visualisations organisées
+              href: how-to-explore-curated-visualizations.md
+            - name: Créer des règles d'alerte
+              href: how-to-create-alerts.md
+            - name: Ajouter des métriques personnalisées
+              href: how-to-add-custom-metrics.md
+            - name: FAQ et résolution des problèmes
+              href: how-to-troubleshoot-monitoring-and-faq.md
     - name: Utiliser des appareils IoT Edge comme passerelles
       items:
         - name: Passerelles pour les appareils IoT
@@ -239,18 +251,22 @@
               href: how-to-continuous-integration-continuous-deployment-classic.md
     - name: Dépanner
       items:
-        - name: Étapes de diagnostic standard
+        - name: Diagnostiquer des appareils IoT Edge
           href: troubleshoot.md
-        - name: Résolutions des erreurs courantes
+        - name: Résoudre les problèmes dans le portail Azure
+          href: troubleshoot-in-portal.md
+        - name: Résoudre les erreurs courantes
           href: troubleshoot-common-errors.md
-- name: Informations de référence
+- name: Référence
   items:
+    - name: Fonctions PowerShell
+      items:
+        - name: IoT Edge pour Linux sur Windows
+          href: reference-iot-edge-for-linux-on-windows-functions.md
+        - name: IoT Edge pour Windows
+          href: reference-windows-scripts.md
     - name: Créer des certificats de test
       href: how-to-create-test-certificates.md
-    - name: Scripts de gestion des appareils Windows
-      href: reference-windows-scripts.md
-    - name: "IoT\_Edge pour Linux sur les fonctions Windows"
-      href: reference-iot-edge-for-linux-on-windows-functions.md
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
 - name: Ressources

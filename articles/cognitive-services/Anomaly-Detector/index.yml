@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/12/2021
   ms.author: mbullwin
-  ms.openlocfilehash: 5737b7c44231053a3de0665bd4fd147729b53a3a
-  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+  ms.openlocfilehash: 5424c2af354bbecd124e39c7566c23d964563cac
+  ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/19/2021
-  ms.locfileid: "110082303"
+  ms.lasthandoff: 06/11/2021
+  ms.locfileid: "112005498"
 landingContent:
 - title: À propos des API Détecteur d’anomalies
   linkLists:
@@ -100,7 +100,7 @@ landingContent:
     links:
     - text: Utiliser le détecteur d’anomalies localement avec la prise en charge des conteneurs
       url: https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support
-- title: Rejoindre la communauté du détecteur d’anomalies
+- title: Aide et commentaires
   linkLists:
   - linkListType: learn
     links:
@@ -108,17 +108,17 @@ landingContent:
       url: https://aka.ms/adadvisorsjoin
     - text: Contenu recommandé généré par les utilisateurs
       url: user-generated-content.md
-- title: Aide et commentaires
-  linkLists:
   - linkListType: reference
     links:
+    - text: Résolution des problèmes multivariés
+      url: concepts/troubleshoot.md
     - text: Options d’aide et de support
       url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
 - title: Informations de référence
   linkLists:
   - linkListType: reference
     links:
-    - text: API REST
+    - text: API REST univariée
       url: https://aka.ms/anomaly-detector-rest-api-ref
     - text: Kit de développement logiciel (SDK) .NET
       url: https://aka.ms/anomaly-detector-dotnet-ref
@@ -132,3 +132,15 @@ landingContent:
       url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: Azure CLI
       url: /cli/azure/cognitiveservices#az_cognitiveservices_list
+  - linkListType: reference
+    links:
+    - text: API REST multivariée
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/DetectAnomaly
+    - text: Kit de développement logiciel (SDK) .NET
+      url: https://go.microsoft.com/fwlink/?linkid=2165601&clcid=0x409
+    - text: Kit de développement logiciel (SDK) Python
+      url: https://go.microsoft.com/fwlink/?linkid=2165298&clcid=0x409
+    - text: Kit de développement logiciel (SDK) Java
+      url: https://go.microsoft.com/fwlink/?linkid=2165600&clcid=0x409
+    - text: Kit de développement logiciel (SDK) Node.js
+      url: https://go.microsoft.com/fwlink/?linkid=2165523&clcid=0x409

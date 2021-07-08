@@ -6,13 +6,13 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 03/17/2021
-ms.openlocfilehash: 66ddc9f080383dac7703b00e62878df7714c4201
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 06/02/2021
+ms.openlocfilehash: 4c1c6303727e503bcf5596edcc7b7a6aa5dcdb2c
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061259"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111904141"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-central"></a>Démarrage rapide : Connecter un devkit MXCHIP AZ3166 à IoT Central
 
@@ -21,9 +21,9 @@ ms.locfileid: "110061259"
 
 [![Parcourir le code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
-Dans ce didacticiel, vous utilisez Azure RTOS pour connecter un DevKit IoT MXCHIP AZ3166 (ci-après, DevKit MXCHIP) à Azure IoT. Cet article fait partie de la série [Prise en main du développement d’appareils intégrés Azure IoT](quickstart-device-development.md). La série présente Azure RTOS aux développeurs d’appareils et explique la procédure de connexion de plusieurs kits d’évaluation d’appareil à Azure IoT.
+Dans ce guide de démarrage rapide, vous utilisez Azure RTOS pour connecter un DevKit IoT MXCHIP AZ3166 (ci-après DevKit MXCHIP) à Azure IoT.
 
-Vous allez effectuer les étapes suivantes :
+Vous allez effectuer les tâches suivantes :
 
 * Installer un ensemble d’outils de développement intégrés pour la programmation d’un DevKit MXCHIP en C
 * Créer une image et la flasher sur le DevKit MXCHIP
@@ -35,17 +35,17 @@ Vous allez effectuer les étapes suivantes :
 * [Git](https://git-scm.com/downloads) pour cloner le référentiel
 * Matériel
 
-    > * [DevKit IoT MXCHIP AZ3166](https://aka.ms/iot-devkit) (DevKit MXCHIP)
-    > * Wi-Fi 2,4 GHz
-    > * USB 2.0, câble mâle-mâle micro USB
+    * [DevKit IoT MXCHIP AZ3166](https://aka.ms/iot-devkit) (DevKit MXCHIP)
+    * Wi-Fi 2,4 GHz
+    * USB 2.0, câble mâle-mâle micro USB
 
 ## <a name="prepare-the-development-environment"></a>Préparer l’environnement de développement
 
-Avant de configurer votre environnement de développement, vous devez cloner un référentiel GitHub qui contient toutes les ressources dont vous avez besoin pour le didacticiel. Ensuite, vous installez un ensemble d’outils de programmation.
+Avant de configurer votre environnement de développement, vous devez cloner un référentiel GitHub contenant toutes les ressources dont vous avez besoin dans le cadre du guide de démarrage rapide. Ensuite, vous installez un ensemble d’outils de programmation.
 
-### <a name="clone-the-repo-for-the-tutorial"></a>Cloner le référentiel pour le didacticiel
+### <a name="clone-the-repo-for-the-quickstart"></a>Clonage du référentiel pour le guide de démarrage rapide
 
-Clonez le référentiel suivant pour télécharger tous les exemples de code d’appareil, les scripts d’installation et les versions hors connexion de la documentation. Si vous avez précédemment cloné ce référentiel dans un autre didacticiel, il n’est pas nécessaire de recommencer.
+Clonez le référentiel suivant pour télécharger tous les exemples de code d’appareil, les scripts d’installation et les versions hors connexion de la documentation. Si vous avez déjà cloné ce référentiel dans un autre guide de démarrage rapide, vous n’avez pas besoin de le refaire.
 
 Pour cloner le référentiel, exécutez la commande suivante :
 
@@ -55,7 +55,7 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 
 ### <a name="install-the-tools"></a>Installer les outils
 
-Le référentiel cloné contient un script d’installation qui installe et configure les outils requis. Si vous avez installé ces outils dans un autre didacticiel dans le guide de prise en main, il n’est pas nécessaire de recommencer.
+Le référentiel cloné contient un script d’installation qui installe et configure les outils requis. Si vous avez installé ces outils dans un autre guide de démarrage rapide d’appareil embarqué, vous n’avez pas besoin de le refaire.
 
 > [!NOTE]
 > Le script d’installation installe les outils suivants :
@@ -67,9 +67,9 @@ Pour installer les outils :
 
 1. Dans l’Explorateur de fichiers, accédez au chemin d’accès suivant dans le référentiel et exécutez le script d’installation nommé *get-toolchain.bat* :
 
-    > *getting-started\tools\get-toolchain.bat*
+    *getting-started\tools\get-toolchain.bat*
 
-1. Après l’installation, ouvrez une nouvelle fenêtre de console pour identifier les modifications de configuration apportées par le script d’installation. Utilisez cette console pour effectuer les tâches de programmation restantes dans le didacticiel. Vous pouvez utiliser Windows CMD, PowerShell ou Git Bash pour Windows.
+1. Après l’installation, ouvrez une nouvelle fenêtre de console pour identifier les modifications de configuration apportées par le script d’installation. Utilisez cette console pour effectuer les tâches de programmation restantes dans le guide de démarrage rapide. Vous pouvez utiliser Windows CMD, PowerShell ou Git Bash pour Windows.
 1. Exécutez le code suivant pour vérifier que CMake version 3.14 ou ultérieure est installé.
 
     ```shell
@@ -86,7 +86,7 @@ Pour connecter le DevKit MXCHIP à Azure, vous allez modifier un fichier de conf
 
 1. Ouvrez le fichier suivant dans un éditeur de texte :
 
-    > *getting-started\MXChip\AZ3166\app\azure_config.h*
+    *getting-started\MXChip\AZ3166\app\azure_config.h*
 
 1. Affectez aux constantes Wi-Fi les valeurs suivantes à partir de votre environnement local.
 
@@ -108,13 +108,13 @@ Pour connecter le DevKit MXCHIP à Azure, vous allez modifier un fichier de conf
 
 ### <a name="build-the-image"></a>Créer l’image
 
-Dans votre console ou dans l’Explorateur de fichiers, exécutez le script *rebuild.bat* à l’emplacement suivant pour générer l’image :
+1. Dans votre console ou dans l’Explorateur de fichiers, exécutez le script *rebuild.bat* à l’emplacement suivant pour générer l’image :
 
-> *getting-started\MXChip\AZ3166\tools\rebuild.bat*
+    *getting-started\MXChip\AZ3166\tools\rebuild.bat*
 
-Une fois la génération terminée, vérifiez que le fichier binaire a été créé dans le chemin d’accès suivant :
+1. Une fois la génération terminée, vérifiez que le fichier binaire a été créé dans le chemin d’accès suivant :
 
-> *getting-started\MXChip\AZ3166\build\app\mxchip_azure_iot.bin*
+    *getting-started\MXChip\AZ3166\build\app\mxchip_azure_iot.bin*
 
 ### <a name="flash-the-image"></a>Flasher l’image
 
@@ -143,7 +143,7 @@ Vous pouvez utiliser l’application **Termite** pour surveiller la communicatio
     * **Vitesse (en bauds)**  : 115 200
     * **Port** : port auquel votre DevKit MXCHIP est connecté. Si plusieurs options de port sont disponibles dans la liste déroulante, vous pouvez trouver le port approprié à utiliser. Ouvrez le **Gestionnaire d'appareils** Windows et affichez les **Ports** pour identifier le port à utiliser.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/termite-settings.png" alt-text="Vérifier les paramètres de l’application Termite":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/termite-settings.png" alt-text="Capture d’écran des paramètres de port série dans l’application Termite":::
 
 1. Sélectionnez OK.
 1. Appuyez sur le bouton **Réinitialiser** de l’appareil. Le bouton est étiqueté sur l’appareil et situé près du connecteur micro USB.
@@ -153,39 +153,38 @@ Vous pouvez utiliser l’application **Termite** pour surveiller la communicatio
     Starting Azure thread
 
     Initializing WiFi
+        MAC address: C8:93:46:8A:4C:43
         Connecting to SSID 'iot'
     SUCCESS: WiFi connected to iot
 
     Initializing DHCP
-        IP address: 10.0.0.123
+        IP address: 192.168.0.18
         Mask: 255.255.255.0
-        Gateway: 10.0.0.1
+        Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
 
     Initializing DNS client
-        DNS address: 10.0.0.1
+        DNS address: 75.75.75.75
     SUCCESS: DNS client initialized
 
     Initializing SNTP client
         SNTP server 0.pool.ntp.org
-        SNTP IP address: 185.242.56.3
-        SNTP time update: Nov 16, 2020 23:47:35.385 UTC 
+        SNTP IP address: 38.229.71.1
+        SNTP time update: May 19, 2021 20:36:6.994 UTC 
     SUCCESS: SNTP initialized
 
     Initializing Azure IoT DPS client
         DPS endpoint: global.azure-devices-provisioning.net
         DPS ID scope: ***
-        Registration ID: ***
+        Registration ID: mydevice
     SUCCESS: Azure IoT DPS client initialized
 
     Initializing Azure IoT Hub client
-        Hub hostname: ***
-        Device id: ***
+        Hub hostname: ***.azure-devices.net
+        Device id: mydevice
         Model id: dtmi:azurertos:devkit:gsgmxchip;1
-    Connected to IoTHub
+    Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
-
-    Starting Main loop
     ```
 
 Laissez Termite ouvert pour surveiller la sortie de l’appareil dans les étapes suivantes.
@@ -195,9 +194,9 @@ Laissez Termite ouvert pour surveiller la sortie de l’appareil dans les étape
 Pour consulter l’état de l’appareil dans le portail IoT Central :
 1. Dans le tableau de bord de l’application, sélectionnez **Appareils** dans le menu de navigation latéral.
 1. Vérifiez que l’**état de l'appareil** est mis à jour en **approvisionné**.
-1. Vérifiez que le **modèle d’appareil** est mis à jour en **Guide de prise en main**.
+1. Vérifiez que le **modèle d’appareil** devient **MXCHIP Getting Started Guide**.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-view-status.png" alt-text="Consulter l’état de l’appareil dans IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-view-status.png" alt-text="Capture d’écran de l’état de l’appareil dans IoT Central":::
 
 ## <a name="view-telemetry"></a>Afficher les données de télémétrie
 
@@ -209,7 +208,7 @@ Pour afficher la télémétrie dans le portail IoT Central :
 1. Sélectionnez l’appareil dans la liste.
 1. Affichez la télémétrie lorsque l’appareil envoie des messages au cloud sous l’onglet **Vue d’ensemble**.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-telemetry.png" alt-text="Afficher la télémétrie de l’appareil dans IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-telemetry.png" alt-text="Capture d’écran de la télémétrie de l’appareil dans IoT Central":::
 
     > [!NOTE]
     > Vous pouvez également surveiller la télémétrie à partir de l’appareil à l’aide de l’application Termite.
@@ -220,12 +219,12 @@ Vous pouvez également utiliser IoT Central pour appeler une méthode directe qu
 
 Pour appeler une méthode dans le portail IoT Central :
 
-1. Sélectionnez l’onglet **Commande** sur la page de l’appareil.
-1. Sélectionnez **État**, puis **Exécuter**.  Le voyant doit s’allumer.
+1. Sélectionnez l’onglet **Commandes** sur la page de l’appareil.
+1. Dans la liste déroulante **État**, sélectionnez **Vrai**, puis **Exécuter**.  Le voyant doit s’allumer.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-invoke-method.png" alt-text="Appeler une méthode directe sur un appareil":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-invoke-method.png" alt-text="Capture d’écran de l’appel d’une méthode directe sur un appareil dans IoT Central":::
 
-1. Désélectionnez **État** et sélectionnez **Exécuter**. Le voyant doit s’éteindre.
+1. Dans la liste déroulante **État**, sélectionnez **Faux**, puis **Exécuter**. Le voyant doit s’éteindre.
 
 ## <a name="view-device-information"></a>Affichage des informations sur l’appareil
 
@@ -233,15 +232,17 @@ Vous pouvez afficher les informations de l’appareil à partir d’IoT Central.
 
 Sélectionnez l’onglet **À propos de** sur la page de l’appareil.
 
-:::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-about.png" alt-text="Afficher des informations sur l’appareil dans IoT Central":::
+:::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-about.png" alt-text="Capture d’écran des informations sur l’appareil dans IoT Central":::
 
-## <a name="debugging"></a>Débogage
+## <a name="troubleshoot-and-debug"></a>Résoudre les problèmes et déboguer
+
+Si vous rencontrez des problèmes pour créer le code de l’appareil, le flasher ou vous y connecter, consultez [Résolution des problèmes](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
 
 Pour déboguer l’application, consultez [Débogage avec Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous n’avez plus besoin des ressources Azure créées dans ce didacticiel, vous pouvez les supprimer du portail IoT Central. Éventuellement, si vous poursuivez avec un autre didacticiel de ce guide Prise en main, vous pouvez conserver les ressources que vous avez déjà créées et les réutiliser.
+Si vous n’avez plus besoin des ressources Azure créées dans ce guide de démarrage rapide, vous pouvez les supprimer du portail IoT Central.
 
 Pour supprimer la totalité de l’exemple d’application Azure IoT Central et tous ses appareils et ressources :
 1. Sélectionnez **Administration** > **Votre application**.
@@ -249,12 +250,17 @@ Pour supprimer la totalité de l’exemple d’application Azure IoT Central et 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez créé une image personnalisée qui contient un exemple de code Azure RTOS, puis vous avez flashé l’image sur l’appareil DevKit MXCHIP. Vous avez également utilisé le portail IoT Central pour créer des ressources Azure, connecter DevKit MXCHIP en toute sécurité à Azure, afficher la télémétrie et envoyer des messages.
+Dans ce guide de démarrage rapide, vous avez créé une image personnalisée contenant un exemple de code Azure RTOS, puis flashé l’image sur l’appareil DevKit MXCHIP. Vous avez également utilisé le portail IoT Central pour créer des ressources Azure, connecter DevKit MXCHIP en toute sécurité à Azure, afficher la télémétrie et envoyer des messages.
 
-* Pour les développeurs d’appareils, l’étape suggérée suivante consiste à voir les autres didacticiels de la série [Prise en main du développement d’appareils intégrés Azure IoT](quickstart-device-development.md).
-* Si vous rencontrez des problèmes lors de l’initialisation ou de la connexion de votre appareil après avoir exécuté les procédures décrites dans ce guide, consultez [Résolution des problèmes](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
-* Pour en savoir plus sur l’utilisation des composants Azure RTOS dans l’exemple de code pour ce didacticiel, consultez [Utilisation d’Azure RTOS dans le guide Prise en main](https://github.com/azure-rtos/getting-started/blob/master/docs/using-azure-rtos.md).
+Maintenant, explorez les articles suivants pour savoir comment connecter des appareils à Azure IoT avec les kits IoT device SDK. 
 
-    > [!IMPORTANT]
-    > Azure RTOS fournit aux fabricants OEM les composants permettant de sécuriser la communication et de créer du code et l’isolation des données à l’aide des mécanismes sous-jacents de protection matérielle MCU/MPU. Toutefois, chaque fabricant OEM est tenu de garantir que son appareil répond aux exigences de sécurité en constante évolution.
+> [!div class="nextstepaction"]
+> [Connexion d’un DevKit MXCHIP AZ3166 à IoT Hub](quickstart-devkit-mxchip-az3166-iot-hub.md)
+> [!div class="nextstepaction"]
+> [Connexion d’un appareil simulé à IoT Central](quickstart-send-telemetry-central.md)
+> [!div class="nextstepaction"]
+> [Connexion d’un appareil simulé à IoT Hub](quickstart-send-telemetry-iot-hub.md)
+
+> [!IMPORTANT]
+> Azure RTOS fournit aux fabricants OEM les composants permettant de sécuriser la communication et de créer du code et l’isolation des données à l’aide des mécanismes sous-jacents de protection matérielle MCU/MPU. Toutefois, chaque fabricant OEM est tenu de garantir que son appareil répond aux exigences de sécurité en constante évolution.
 

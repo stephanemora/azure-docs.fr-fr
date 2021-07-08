@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 996523d507f0a4f2850e936df39a38769bc47cde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f372e72b423db17e1c11907b4a41d65c9fba2fd
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101091291"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950780"
 ---
 # <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutoriel : Migrer/Mettre à niveau Azure Database pour PostgreSQL – Serveur unique vers Azure Database pour PostgreSQL – Serveur unique en ligne utilisant DMS via le portail Azure
 
@@ -40,7 +40,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > Pour une expérience de migration optimale, Microsoft recommande de créer une instance Azure Database Migration Service dans la même région Azure que la base de données cible. Le déplacement des données entre les régions ou les zones géographiques peut ralentir le processus de migration et introduire des erreurs.
 
 > [!IMPORTANT]
-> La migration à partir d’Azure Database pour PostgreSQL est prise en charge pour PostgreSQL version 10 et versions ultérieures. Vous pouvez également utiliser ce didacticiel pour migrer d’une instance Azure Database pour PostgreSQL à une autre ou vers une instance Hyperscale (Citus).
+> La migration à partir d’Azure Database pour PostgreSQL est prise en charge pour PostgreSQL version 9.x et versions ultérieures. Vous pouvez également utiliser ce didacticiel pour migrer d’une instance Azure Database pour PostgreSQL à une autre ou vers une instance Hyperscale (Citus). Notez que la migration à partir de PostgreSQL 9.5 et 9.6 nécessite des [privilèges de réplication logique supplémentaires](#run-the-migration) dans l’instance source. 
 
 ## <a name="prerequisites"></a>Prérequis
 

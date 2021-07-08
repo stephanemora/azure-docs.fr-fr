@@ -4,16 +4,16 @@ titleSuffix: Azure App Configuration
 description: Découvrez comment créer un magasin Azure App Configuration à l’aide d’un modèle Azure Resource Manager (modèle ARM).
 author: GrantMeStrength
 ms.author: jken
-ms.date: 10/16/2020
+ms.date: 06/09/2021
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: 2bdd989f79a8a24e47698e187bfc45559e873237
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 15e0bc45bc4fea645ff0ccf7b17110ce4361a9a0
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763970"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983417"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Démarrage rapide : Créer un magasin Azure App Configuration avec un modèle Resource Manager
 
@@ -27,7 +27,7 @@ Ce guide de démarrage rapide explique comment :
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.appconfiguration%2Fapp-configuration-store-kv%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -35,14 +35,14 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-app-configuration-store-kv/). Il crée un magasin App Configuration avec deux paires clé/valeur à l’intérieur de celui-ci. Il utilise ensuite la fonction `reference` pour générer les valeurs des deux ressources clé/valeur. La lecture de la valeur de la clé de cette manière permet de l’utiliser ailleurs dans le modèle.
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/app-configuration-store-kv/). Il crée un magasin App Configuration avec deux paires clé/valeur à l’intérieur de celui-ci. Il utilise ensuite la fonction `reference` pour générer les valeurs des deux ressources clé/valeur. La lecture de la valeur de la clé de cette manière permet de l’utiliser ailleurs dans le modèle.
 
 Le guide de démarrage rapide utilise l’élément `copy` pour créer plusieurs instances de la ressource clé-valeur. Pour en savoir plus sur l’élément `copy`, consultez [Itération des ressources dans les modèles Resource Manager](../azure-resource-manager/templates/copy-resources.md).
 
 > [!IMPORTANT]
 > Ce modèle nécessite la version de fournisseur de ressources App Configuration `2020-07-01-preview` ou ultérieure. Cette version utilise la fonction `reference` pour lire les paires clé/valeur. La fonction `listKeyValue` qui était utilisée pour lire les paires clé/valeur dans la version précédente n’est pas disponible à partir de la version `2020-07-01-preview`.
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.appconfiguration/app-configuration-store-kv/azuredeploy.json":::
 
 Deux ressources Azure sont définies dans le modèle :
 
@@ -67,18 +67,21 @@ Deux ressources Azure sont définies dans le modèle :
 > az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
 > ```
 
+> [!NOTE]
+> Il existe une limitation où l’accès aux données de clé-valeur dans un modèle ARM est désactivé si l’authentification par clé d’accès est désactivée. Pour plus d’informations, consultez [Désactiver l’authentification par clé d’accès](./howto-disable-access-key-authentication.md#limitations).
+
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
 Cliquez sur l’image ci-après pour vous connecter à Azure et ouvrir un modèle. Le modèle crée un magasin App Configuration avec deux paires clé/valeur à l’intérieur de celui-ci.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.appconfiguration%2Fapp-configuration-store-kv%2Fazuredeploy.json)
 
 Vous pouvez également déployer le modèle avec l’applet de commande PowerShell suivante. Les paires clé/valeur apparaîtront dans la sortie de la console PowerShell.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-configuration-store-kv/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.appconfiguration/app-configuration-store-kv/azuredeploy.json"
 
 $resourceGroupName = "${projectName}rg"
 
@@ -110,5 +113,5 @@ Write-Host "Press [ENTER] to continue..."
 
 Pour en savoir plus sur l’ajout d’un indicateur de fonctionnalité et d’une référence Key Vault à un magasin App Configuration, consultez les exemples de modèles ARM ci-dessous.
 
-- [101-app-configuration-store-ff](https://azure.microsoft.com/resources/templates/101-app-configuration-store-ff/)
-- [101-app-configuration-store-keyvaultref](https://azure.microsoft.com/resources/templates/101-app-configuration-store-keyvaultref/)
+- [app-configuration-store-ff](https://azure.microsoft.com/resources/templates/app-configuration-store-ff/)
+- [app-configuration-store-keyvaultref](https://azure.microsoft.com/resources/templates/app-configuration-store-keyvaultref/)

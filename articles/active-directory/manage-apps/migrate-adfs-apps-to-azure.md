@@ -2,21 +2,21 @@
 title: Déplacement de l’authentification d’application d’AD FS vers Azure Active Directory
 description: Découvrez comment utiliser Azure Active Directory pour remplacer les Services de fédération Active Directory (AD FS), en donnant aux utilisateurs l’authentification unique à toutes leurs applications.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: baselden
-ms.openlocfilehash: 4e9bedc63a3b1d53222c732b6611d132249b07c6
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 616550188687823438187e1e09c90d5d3c6c6835
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320796"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078812"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory
 
@@ -326,7 +326,7 @@ Spécifiez les règles d’authentification multifacteur en fonction de l’empl
 
 1. Créez une [nouvelle stratégie d’accès conditionnel](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 1. Définissez les **Affectations** sur **Tous les utilisateurs**.
-1. [Configurez des emplacements nommés dans Azure AD](../reports-monitoring/quickstart-configure-named-locations.md). Sinon, la fédération à partir de l’intérieur de votre réseau d’entreprise est approuvée.
+1. [Configurez des emplacements nommés dans Azure AD](../conditional-access/location-condition.md). Sinon, la fédération à partir de l’intérieur de votre réseau d’entreprise est approuvée.
 1. Configurez des **Règles de conditions**  pour spécifier les emplacements pour lesquels vous souhaitez appliquer l’authentification multifacteur.
 
     ![Capture d’écran montrant le volet Emplacements pour les règles de Conditions.](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
@@ -365,7 +365,7 @@ Dans ce tableau, nous avons répertorié des options d’autorisation et d’exc
 
 | Option | Comment configurer l’option Autoriser dans Azure AD ?| Comment configurer l’option Exclure dans Azure AD ? |
 | - | - | - |
-| À partir d’un réseau spécifique| Correspond à un [Emplacement nommé](../reports-monitoring/quickstart-configure-named-locations.md) dans Azure AD| Utilisez l’option **Exclure** pour les [emplacements approuvés](../conditional-access/location-condition.md) |
+| À partir d’un réseau spécifique| Correspond à un [Emplacement nommé](../conditional-access/location-condition.md) dans Azure AD| Utilisez l’option **Exclure** pour les [emplacements approuvés](../conditional-access/location-condition.md) |
 | À partir de groupes spécifiques| [Définir une affectation Utilisateur/Groupes](assign-user-or-group-access-portal.md)| Utiliser l’option **Exclure** dans les utilisateurs et les groupes |
 | À partir d’appareils avec un niveau de confiance spécifique| Définissez cette valeur à partir du contrôle **État de l’appareil** sous Affectations -> Conditions| Utilisez l’option **Exclure** sous la condition État de l’appareil et Inclure **Tous les appareils** |
 | Avec des revendications spécifiques dans la requête| Ce paramètre ne peut pas être migré| Ce paramètre ne peut pas être migré |

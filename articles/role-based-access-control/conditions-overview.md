@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 05/13/2021
 ms.author: rolyon
-ms.openlocfilehash: 8f2849500d46c48f62ee203b7e40176b618f514c
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 6919a5b94d9122f16084933574ffc88f8c9f1249
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489650"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847415"
 ---
 # <a name="what-is-azure-attribute-based-access-control-azure-abac-preview"></a>Qu’est-ce que le contrôle d’accès en fonction des attributs Azure (Azure ABAC) ? (préversion)
 
@@ -85,6 +85,10 @@ Si Chandra tente de lire un objet blob qui ne porte pas l’étiquette Project=C
 
 ![Le diagramme de l’accès refusé avec une condition.](./media/conditions-overview/condition-access-multiple.png)
 
+Voici à quoi ressemble la condition dans le portail Azure :
+
+![Section Générer l’expression avec des valeurs pour les balises d’index d’objet blob.](./media/shared/condition-expressions.png)
+
 Voici à quoi ressemble la condition exprimée sous forme de code :
 
 ```
@@ -96,12 +100,16 @@ Voici à quoi ressemble la condition exprimée sous forme de code :
     )
     OR
     (
-        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'
+        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEqualsIgnoreCase 'Cascade'
     )
 )
 ```
 
 Pour plus d’informations sur le format des conditions, consultez [Format et syntaxe des conditions d’attribution de rôle Azure](conditions-format.md).
+
+## <a name="conditions-and-privileged-identity-management-pim"></a>Conditions et PIM (Privileged Identity Management)
+
+Vous pouvez également ajouter des conditions aux attributions de rôles éligibles en utilisant PIM (Privileged Identity Management). Avec PIM, vos utilisateurs finaux doivent activer une attribution de rôle éligible pour avoir l’autorisation d’effectuer certaines actions. L’utilisation de conditions dans PIM vous permet non seulement de limiter l’accès d’un utilisateur à une ressource à l’aide de conditions affinées, mais également d’utiliser PIM pour la sécuriser avec un paramètre de durée, un workflow d’approbation, une piste d’audit, etc. Pour plus d’informations, consultez [Attribuer des rôles de ressources Azure dans Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 ## <a name="terminology"></a>Terminologie
 

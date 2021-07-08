@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: f453370530359bc967316957b717f40904f6e392
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 18746da524c4b045471031af2330d9daba4bfcc0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125982"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949350"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Résolution des problèmes du service Azure Dedicated HSM
 
@@ -52,11 +52,11 @@ La principale cause de l’échec d’un déploiement est l’oubli de définir 
 
 ### <a name="hsm-deployment-race-condition"></a>Condition de concurrence d’un déploiement HSM
 
-Le modèle Resource Manager standard fourni pour le déploiement comprend des ressources liées aux passerelles HSM et ExpressRoute. Les ressources réseau constituent une dépendance pour un déploiement HSM réussi, et le timing peut être crucial.  Il arrive parfois que des problèmes de dépendance aboutissent à des échecs de déploiement. La réexécution du déploiement permet souvent de résoudre souvent le problème. Si ce n’est pas le cas, vous pouvez souvent parvenir à vos fins en supprimant des ressources et en réexécutant le déploiement. Si le problème persiste après ces tentatives de résolution, créez une demande de support dans le portail Azure et sélectionnez « Problèmes de configuration de l’installation d’Azure » comme type de problème.
+Le modèle ARM standard fourni pour le déploiement comprend des ressources liées aux appareils HSM et aux [passerelles ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md). Les ressources réseau constituent une dépendance pour un déploiement HSM réussi, et le timing peut être crucial.  Il arrive parfois que des problèmes de dépendance aboutissent à des échecs de déploiement. La réexécution du déploiement permet souvent de résoudre souvent le problème. Si ce n’est pas le cas, vous pouvez souvent parvenir à vos fins en supprimant des ressources et en réexécutant le déploiement. Si le problème persiste après ces tentatives de résolution, créez une demande de support dans le portail Azure et sélectionnez « Problèmes de configuration de l’installation d’Azure » comme type de problème.
 
 ### <a name="hsm-deployment-using-terraform"></a>Déploiement de HSM avec Terraform
 
-Quelques clients ont utilisé Terraform comme environnement d’automatisation à la place des modèles Resource Manager fournis lors de l’inscription à ce service. Contrairement aux ressources réseau dépendantes, les HSM ne peuvent pas être déployés de cette façon. Terraform a un module permettant d’appeler un modèle ARM minimal comprenant uniquement le déploiement HSM.  Dans ce cas, veillez à ce que les ressources réseau telles que la passerelle ExpressRoute obligatoire soient entièrement déployées avant de déployer les HSM. Vous pouvez utiliser la commande CLI suivante pour tester le déploiement terminé et l’intégrer selon les besoins. Remplacez les espaces réservés entre crochets par vos noms spécifiques. Vous devriez obtenir « provisioningState is Succeeded ».
+Quelques clients ont utilisé Terraform comme environnement d’automatisation à la place des modèles Resource Manager fournis lors de l’inscription à ce service. Contrairement aux ressources réseau dépendantes, les HSM ne peuvent pas être déployés de cette façon. Terraform a un module permettant d’appeler un modèle ARM minimal comprenant uniquement le déploiement HSM.  Dans ce cas, veillez à ce que les ressources réseau (notamment la [passerelle ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) obligatoire) soient entièrement déployées avant de déployer les appareils HSM. Vous pouvez utiliser la commande CLI suivante pour tester le déploiement terminé et l’intégrer selon les besoins. Remplacez les espaces réservés entre crochets par vos noms spécifiques. Vous devriez obtenir « provisioningState is Succeeded ».
 
 ```azurecli
 az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/providers/Microsoft.Network/virtualNetworkGateways/<myergateway>
@@ -79,7 +79,7 @@ Le déploiement de Dedicated HSM a une dépendance vis-à-vis des ressources ré
 
 ### <a name="provisioning-expressroute"></a>Provisionnement d’ExpressRoute
 
-Dedicated HSM utilise la passerelle ExpressRoute comme « tunnel » pour la communication entre l’espace d’adressage IP privé du client et le HSM physique dans un centre de donnes Azure.  Compte tenu de la restriction d’une passerelle par réseau virtuel, les clients nécessitant une connexion à leurs ressources locales par le biais d’ExpressRoute doivent utiliser un autre réseau virtuel pour cette connexion.  
+Dedicated HSM se sert de la [passerelle ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) comme d’un « tunnel » pour la communication entre l’espace d’adressage IP privé du client et l’appareil HSM physique dans un centre de données Azure.  Compte tenu de la restriction d’une passerelle par réseau virtuel, les clients nécessitant une connexion à leurs ressources locales par le biais d’ExpressRoute doivent utiliser un autre réseau virtuel pour cette connexion.  
 
 ### <a name="hsm-private-ip-address"></a>Adresse IP privée du HSM
 
@@ -116,7 +116,7 @@ Les logiciels et la documentation pour les appareils [Thales Luna 7 HSM](https:
 
 ### <a name="hsm-networking-configuration"></a>Configuration du réseau dans le HSM
 
-Soyez prudent quand vous configurez le réseau dans le HSM.  Le HSM a une connexion qui passe par la passerelle ExpressRoute pour aller de l’espace d’adressage IP privé du client directement au HSM.  Ce canal de communication est destiné uniquement à la communication avec le client. Microsoft n’y a pas accès. Si le HSM est configuré d’une façon qui impacte ce chemin réseau, toutes les communications avec le HSM sont supprimées.  Dans cette situation, la seule option consiste à créer une demande de support Microsoft par le biais du portail Azure pour réinitialiser l’appareil. Cette procédure de réinitialisation rétablit l’état initial du HSM, ce qui signifie que la configuration et les éléments de clé sont perdus.  Vous devez recréer la configuration. Ensuite, quand l’appareil rejoint le groupe HA, il récupère les éléments de clé répliqués.  
+Soyez prudent quand vous configurez le réseau dans le HSM.  L’appareil HSM possède une connexion qui passe par la [passerelle ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) pour aller directement de l’espace d’adressage IP privé du client à l’appareil HSM.  Ce canal de communication est destiné uniquement à la communication avec le client. Microsoft n’y a pas accès. Si le HSM est configuré d’une façon qui impacte ce chemin réseau, toutes les communications avec le HSM sont supprimées.  Dans cette situation, la seule option consiste à créer une demande de support Microsoft par le biais du portail Azure pour réinitialiser l’appareil. Cette procédure de réinitialisation rétablit l’état initial du HSM, ce qui signifie que la configuration et les éléments de clé sont perdus.  Vous devez recréer la configuration. Ensuite, quand l’appareil rejoint le groupe HA, il récupère les éléments de clé répliqués.  
 
 ### <a name="hsm-device-reboot"></a>Redémarrage de l’appareil HSM
 

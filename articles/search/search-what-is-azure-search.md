@@ -7,29 +7,30 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/09/2021
+ms.date: 05/26/2021
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e17d08d09814c135af3e0b4fc299b6e6f42326d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b08fe34e7ac5eede8d1435e3de3817224fafdbc6
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549887"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560166"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Qu’est-ce que la Recherche cognitive Azure ?
 
-La Recherche cognitive Azure ([anciennement la « Recherche Azure »](whats-new.md#new-service-name)) est un service de recherche cloud qui offre aux développeurs des API et des outils permettant d’élaborer une expérience de recherche riche, sur du contenu privé et hétérogène, dans les applications web, mobiles et d’entreprise. 
+La Recherche cognitive Azure ([anciennement la « Recherche Azure »](whats-new.md#new-service-name)) est un service de recherche cloud qui offre aux développeurs une architecture, des API et des outils permettant d’élaborer une expérience de recherche riche, sur du contenu privé et hétérogène, dans les applications web, mobiles et d’entreprise. 
 
-La recherche est fondamentale pour toute application exposant du contenu aux utilisateurs, avec des scénarios courants comme la recherche dans un catalogue ou dans des documents, la recherche sur un site de e-commerce ou l’exploration de connaissances pour la science des données. Les API et l’architecture de Recherche cognitive simplifient l’ajout d’une récupération d’informations sophistiquée à n’importe quelle solution.
+La recherche est fondamentale pour toute application exposant du contenu aux utilisateurs, avec des scénarios courants comme la recherche dans un catalogue ou dans des documents, la recherche sur un site de e-commerce ou l’exploration de connaissances pour la science des données.
 
-Un service de recherche comprend les composants suivants :
+Lorsque vous créez un service de recherche, vous utilisez les fonctionnalités suivantes :
 
 + Moteur de recherche pour recherche en texte intégral
-+ Stockage persistant du contenu indexé appartenant à l’utilisateur
-+ API pour l’indexation et l’interrogation de contenu
-+ [Enrichissements basés sur l’IA](cognitive-search-concept-intro.md) facultatifs, créant du contenu avec possibilité de recherche à partir d’images, de texte brut non structuré et de fichiers d’application
-+ Intégration facultative à d’autres services Azure pour les données, le machine learning et l’IA, la supervision et la sécurité
-+ Implémentation facultative de la [recherche sémantique ](semantic-search-overview.md) (préversion) pour une meilleure pertinence
++ Stockage persistant du contenu appartenant à l’utilisateur dans un index de recherche
++ Indexation complète, avec analyse de texte et [enrichissement de l’IA](cognitive-search-concept-intro.md) facultatif pour l’extraction et la transformation du contenu
++ Fonctionnalités de requête complètes, y compris la syntaxe simple, la syntaxe Lucene complète et la recherche prédictive
++ Programmabilité via les API REST et les bibliothèques clientes dans les Kits de développement logiciel (SDK) Azure pour .NET, Python, Java et JavaScript
++ Intégration d’Azure au niveau de la couche de données, de la couche Machine Learning et de l’IA (Cognitive Services)
++ Algorithmes de classement de pointe à l’aide de la [recherche sémantique (préversion)](semantic-search-overview.md)
 
 D’un point de vue architectural, un service de recherche se trouve entre les magasins de données externes qui contiennent vos données non indexées et votre application cliente qui envoie des demandes de requête à un index de recherche et gère la réponse.
 
@@ -59,7 +60,7 @@ La Recherche cognitive Azure est adaptée aux scénarios d’application suivant
 
 + Implémentez facilement les fonctionnalités de recherche : le réglage de la pertinence, la navigation par facettes, les filtres (y compris la recherche géospatiale), le mappage de synonymes et la saisie semi-automatique.
 
-+ Transformez en documents JSON recherchables de volumineux fichiers image ou texte indifférenciés ou des fichiers d’application stockés dans le stockage Blob Azure ou Cosmos DB. Cette opération est effectuée au cours de l’indexation par le biais de [compétences cognitives](cognitive-search-concept-intro.md) qui ajoutent un traitement externe.
++ Transformez en documents JSON recherchables de volumineux fichiers image ou texte indifférenciés ou des fichiers d’application stockés dans Stockage Blob Azure ou Cosmos DB. Cette opération est effectuée au cours de l’indexation par le biais de [compétences cognitives](cognitive-search-concept-intro.md) qui ajoutent un traitement externe.
 
 + Ajoutez une analyse de texte linguistique ou personnalisée. Si vous disposez d’un contenu autre que l’anglais, la Recherche cognitive Azure prend en charge les analyseurs Lucene et les processeurs de langage naturel de Microsoft. Vous pouvez également configurer des analyseurs pour obtenir un traitement spécialisé de contenu brut, tel que le filtrage des signes diacritiques, ou la reconnaissance et la conservation de modèles dans les chaînes.
 

@@ -9,12 +9,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 158eed6d287fa384023defbb20a7a1c39ea3d838
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 7c75e550c1987302559fb07e3785686244d128a0
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728587"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060981"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Démarrage rapide : Créer un compte Azure Purview dans le portail Azure
 
@@ -87,7 +87,7 @@ Dans ce guide de démarrage rapide, vous créez un compte Azure Purview.
 
     1. [Créez une affectation de stratégie](../governance/policy/assign-policy-portal.md) à l’aide de la stratégie personnalisée créée.
 
-        [ ![Capture d’écran illustrant la création d’une affectation de stratégie](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
+       :::image type="content" source="./media/create-catalog-portal/policy-assignment.png" alt-text="Capture d’écran illustrant la création d’une affectation de stratégie" lightbox="./media/create-catalog-portal/policy-assignment.png":::
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -125,8 +125,12 @@ Si nécessaire, suivez ces étapes qui permettent de configurer votre abonnement
     1. Sélectionnez un **groupe de ressources**.
     1. Entrez le **Nom du compte Purview** pour votre catalogue. Les espaces et les symboles ne sont pas autorisés.
     1. Choisissez un **Emplacement**, puis sélectionnez **Suivant : Configuration**.
-1. Sous l’onglet **Configuration**, sélectionnez la **Taille de la plateforme** souhaitée, les valeurs autorisées étant 4 et 16 unités de capacité (CU). Sélectionnez **Suivant : Balises**.
-1. Le cas échéant, sous l’onglet **Étiquettes**, vous pouvez ajouter une ou plusieurs étiquettes. Ces étiquettes sont destinées uniquement à être utilisées dans le portail Azure, et non dans Azure Purview. 
+1. Sous l’onglet **Configuration**, sélectionnez la **Taille de la plateforme** souhaitée, les valeurs autorisées étant 4 et 16 unités de capacité (CU). Si vous le souhaitez, donnez un autre nom au groupe de ressources managé Azure Purview. Sélectionnez **Suivant : Balises**.
+
+    > [!Note] 
+    > Le [groupe de ressources managé](create-catalog-portal.md#azure-purview-managed-resources) contiendra un compte de stockage managé et un espace de noms Event Hub dédié et utilisé par le compte Azure Purview.
+
+3. Le cas échéant, sous l’onglet **Étiquettes**, vous pouvez ajouter une ou plusieurs étiquettes. Ces étiquettes sont destinées uniquement à être utilisées dans le portail Azure, et non dans Azure Purview. 
 
     > [!Note] 
     > Si vous utilisez **Azure Policy** et qu’il vous faut ajouter une exception, comme dans les **Prérequis**, vous devez choisir l’étiquette appropriée. Par exemple, vous pouvez ajouter l’étiquette `resourceBypass` : :::image type="content" source="./media/create-catalog-portal/add-purview-tag.png" alt-text="Ajout d’une étiquette au compte Purview.":::
@@ -167,6 +171,13 @@ Si, après avoir cliqué sur Ajouter, deux options s’affichent marquées (dés
 1. Pour **Sélectionner**, entrez le nom de l’utilisateur, du principal de service ou du groupe Azure Active Directory que vous souhaitez affecter, puis cliquez sur son nom dans le volet des résultats.
 
 1. Cliquez sur **Save**(Enregistrer).
+
+## <a name="azure-purview-managed-resources"></a>Ressources managées Azure Purview
+Pendant le déploiement d’un compte Azure Purview, un nouveau groupe de ressources managé avec un nouveau compte de stockage Azure et un nouvel espace de noms Event Hub est également déployé, ainsi qu’un compte Azure Purview, dans votre abonnement Azure. Vous pouvez choisir une autre convention d’affectation de noms pour le groupe de ressources managé pendant le déploiement.
+
+Ces ressources sont essentielles au fonctionnement du compte Azure Purview. Elles sont utilisées pour contenir les données temporaires jusqu’à ce que les informations soient ingérées dans le catalogue de données Azure Purview. 
+
+Une attribution de refus est automatiquement ajoutée au groupe de ressources managé pour tous les principaux. L’identité managée Azure Purview constitue la seule exclusion pour permettre à Azure Purview de gérer les ressources (compte de stockage et espace de noms Event Hub) du groupe de ressources. Vous ne pouvez donc pas supprimer ni modifier le groupe de ressources managé, les ressources managées ni leur contenu dans le plan de données. Toutefois, le groupe de ressources managé et son contenu sont automatiquement supprimés en cas de suppression du compte Purview. 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

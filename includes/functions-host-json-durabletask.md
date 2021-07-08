@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d1b2cbefe64add5048d4e3c7946277b1461a5434
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e0605b5a882dcfa09b2435476a37d116f8c47286
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607085"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "111350445"
 ---
 Paramètres de configuration de [Fonctions durables](../articles/azure-functions/durable/durable-functions-overview.md).
 
@@ -103,7 +103,7 @@ Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquem
 |---------|---------|----------|
 |hubName|DurableFunctionsHub|D'autres noms de [hub de tâches](../articles/azure-functions/durable/durable-functions-task-hubs.md) peuvent être utilisés pour isoler plusieurs applications Durable Functions les unes des autres, même si elles s'appuient sur le même principal de stockage.|
 |controlQueueBatchSize|32|Nombre de messages à extraire de la file d’attente de contrôle en une seule fois.|
-|controlQueueBufferThreshold| **Plan de consommation** : 32 <br> **Plan dédié/Premium** : 256 |Nombre de messages de file d’attente de contrôle qui peuvent être mis en mémoire tampon à la fois, auquel cas le répartiteur attend avant de retirer des messages supplémentaires de la file d’attente.|
+|controlQueueBufferThreshold| **Plan de consommation pour Python** : 32 <br> **Plan de consommation pour JavaScript et C#**  : 128 <br> **Plan dédié/Premium** : 256 |Nombre de messages de file d’attente de contrôle qui peuvent être mis en mémoire tampon à la fois, auquel cas le répartiteur attend avant de retirer des messages supplémentaires de la file d’attente.|
 |partitionCount |4|Nombre de partitions pour la file d’attente de contrôle. Doit être un entier positif compris entre 1 et 16.|
 |controlQueueVisibilityTimeout |5 minutes|Délai d’expiration de la visibilité des messages supprimés de la file d’attente de contrôle.|
 |workItemQueueVisibilityTimeout |5 minutes|Délai d’expiration de la visibilité des messages supprimés de la file d’attente des éléments de travail.|

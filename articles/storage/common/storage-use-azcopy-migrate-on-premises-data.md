@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 682394329205d74859c1af0c0a68a37539da7872
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68669418a62daad2c2c5d1b9f44f66c1a5b7ebb8
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98881026"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111904082"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Tutoriel : Migrer des données locales vers le stockage cloud avec AzCopy
 
@@ -56,13 +56,13 @@ Téléchargez le fichier exécutable AzCopy V10.
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 Placez le fichier AzCopy sur votre ordinateur à l’emplacement de votre choix. Ajoutez l’emplacement du fichier à votre variable de chemin système pour pouvoir faire référence à ce fichier exécutable depuis n’importe quel dossier sur votre ordinateur.
 
 ## <a name="authenticate-with-azure-ad"></a>S’authentifier avec Azure AD
 
-Tout d’abord, attribuez le rôle [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) à votre identité. Consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](./storage-auth-aad-rbac-portal.md).
+Tout d’abord, attribuez le rôle [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) à votre identité. Consultez [Attribuer un rôle Azure pour l’accès aux données d’objet blob](../blobs/assign-azure-role-data-access.md).
 
 Ensuite, ouvrez une invite de commandes, tapez la commande suivante, puis appuyez sur la touche Entrée.
 

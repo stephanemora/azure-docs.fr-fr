@@ -277,6 +277,9 @@
         - name: Modèles
           tocHref: /azure/azure-resource-manager/templates/
           topicHref: /azure/azure-resource-manager/templates/
+        - name: Bicep
+          tocHref: /azure/azure-resource-manager/bicep/
+          topicHref: /azure/azure-resource-manager/bicep/
         - name: Gestion
           tocHref: /azure/azure-resource-manager/management/
           topicHref: /azure/azure-resource-manager/management/
@@ -292,7 +295,13 @@
       items:
         - name: Apache Kafka pour Confluent Cloud
           tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
-          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
+          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
+        - name: Datadog
+          tocHref: /azure/partner-solutions/datadog/
+          topicHref: /azure/partner-solutions/datadog/overview
+        - name: Elastic
+          tocHref: /azure/partner-solutions/elastic/
+          topicHref: /azure/partner-solutions/elastic/overview
     - name: Service SignalR
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
@@ -482,8 +491,8 @@
       topicHref: /azure/cosmos-db/
       items:
         - name: API MongoDB
-          tocHref: /azure/cosmos-db/mongodb/
-          topicHref: /azure/cosmos-db/mongodb/
+          tocHref: /azure/cosmos-db/mongodb-introduction
+          topicHref: /azure/cosmos-db/mongodb-introduction
     - name: "Managed\_Instance pour Apache\_Cassandra"
       tocHref: /azure/managed-instance-apache-cassandra/
       topicHref: /azure/managed-instance-apache-cassandra/
@@ -939,7 +948,7 @@
     - name: Calcul confidentiel
       tocHref: /azure/confidential-computing/
       topicHref: /azure/confidential-computing/overview
-    - name: Windows Virtual Desktop
+    - name: Bureau virtuel
       tocHref: /azure/virtual-desktop/
       topicHref: /azure/virtual-desktop/
     - name: Cost Management et facturation

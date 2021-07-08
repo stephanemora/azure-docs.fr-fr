@@ -29,6 +29,8 @@
       href: hsm-protected-keys-byok.md
     - name: Sauvegarde et restauration
       href: backup-restore.md
+    - name: Gestion de la récupération avec suppression réversible et protection contre la suppression définitive
+      href: recovery.md
 - name: Concepts
   items:
     - name: Domaine de sécurité
@@ -39,6 +41,8 @@
       href: access-control.md
     - name: Rôles intégrés RBAC locaux
       href: built-in-roles.md
+    - name: Suppression réversible de HSM managé
+      href: soft-delete-overview.md
 - name: Informations de référence
   items:
     - name: Azure PowerShell

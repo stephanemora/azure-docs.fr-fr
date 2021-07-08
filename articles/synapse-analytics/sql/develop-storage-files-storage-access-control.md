@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4419c9d64eac6eb468c5eb4414a3c9b844d7d8a7
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a93e63207bbbe9a2ac65823b3c22773f6cd97cf8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108181721"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110676852"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Contrôler l’accès au compte de stockage pour le pool SQL serverless dans Azure Synapse Analytics
 
@@ -102,18 +103,19 @@ Vous pouvez utiliser les combinaisons de types d’autorisations et de stockage 
 
 \* Le jeton SAP et l’identité Azure AD peuvent être utilisés pour accéder à un stockage qui n’est pas protégé par un pare-feu.
 
+## <a name="firewall-protected-storage"></a>Stockage protégé par un pare-feu
 
-### <a name="querying-firewall-protected-storage"></a>Interrogation du stockage protégé par un pare-feu
-
+Vous pouvez configurer des comptes de stockage pour autoriser l’accès à un pool SQL serverless spécifique en créant une [règle d’instance de ressource](../../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-from-azure-resource-instances-preview).
 Lors de l’accès à un stockage protégé par le pare-feu, vous pouvez utiliser une **identité utilisateur** ou une **identité managée**.
 
 > [!NOTE]
 > La fonctionnalité de pare-feu de Stockage est en préversion publique et est disponible dans toutes les régions de cloud public. 
 
-#### <a name="user-identity"></a>Identité de l’utilisateur
+
+### <a name="user-identity"></a>[Identité de l’utilisateur](#tab/user-identity)
 
 Pour accéder au stockage protégé par le pare-feu via une identité utilisateur, vous pouvez vous servir de l’interface utilisateur du portail Azure ou du module PowerShell Az.Storage.
-#### <a name="configuration-via-azure-portal"></a>Configuration via le portail Azure
+### <a name="configuration-via-azure-portal"></a>Configuration via le portail Azure
 
 1. Recherchez votre compte de stockage sur le portail Azure.
 1. Accédez à Mise en réseau sous la section Paramètres.
@@ -122,7 +124,7 @@ Pour accéder au stockage protégé par le pare-feu via une identité utilisateu
 1. Sélectionnez le nom de votre espace de travail sous forme de nom d'instance.
 1. Cliquez sur Enregistrer.
 
-#### <a name="configuration-via-powershell"></a>Configuration via PowerShell
+### <a name="configuration-via-powershell"></a>Configuration via PowerShell
 
 Suivez ces étapes pour configurer le pare-feu de votre compte de stockage et ajouter une exception pour l’espace de travail synapse.
 
@@ -189,8 +191,19 @@ Suivez ces étapes pour configurer le pare-feu de votre compte de stockage et aj
         }
     ```
 
-#### <a name="managed-identity"></a>Identité managée
+### <a name="shared-access-signature"></a>[Signature d’accès partagé](#tab/shared-access-signature)
+
+Les signatures d’accès partagé ne peuvent pas être utilisées pour accéder au stockage protégé par un pare-feu.
+
+### <a name="managed-identity"></a>[Identité gérée](#tab/managed-identity)
+
 Vous devez activer l’option [Autoriser les services Microsoft approuvés...](../../storage/common/storage-network-security.md#trusted-microsoft-services) et [Attribuer un rôle Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) de façon explicite à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle Azure affecté à l’identité managée.
+
+### <a name="anonymous-access"></a>[Accès anonyme](#tab/public-access)
+
+Vous ne pouvez pas accéder au stockage protégé par un pare-feu à l’aide d’un accès anonyme.
+
+---
 
 ## <a name="credentials"></a>Informations d'identification
 

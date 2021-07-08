@@ -6,15 +6,15 @@ metadata:
   description: Découvrez comment utiliser Azure Purview pour permettre à votre organisation de rechercher, comprendre et consommer des sources de données. Des tutoriels, des informations de référence sur les API REST et autre documentation vous montrent comment planifier et configurer un référentiel de données dans lequel les consommateurs de données peuvent découvrir les sources de données disponibles et accéder aux connaissances fournies par des experts en la matière.
   ms.service: purview
   ms.topic: landing-page
-  author: JasonWHowell
-  ms.author: jasonh
-  ms.date: 11/29/2020
-  ms.openlocfilehash: c9e9a32ca5c77082186f15a0eae3f3430347a02b
-  ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+  author: whhender
+  ms.author: whhender
+  ms.date: 06/09/2021
+  ms.openlocfilehash: 8db36ffb5f1d081e0e4dbb2cd6dbca02c7ddf726
+  ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 01/28/2021
-  ms.locfileid: "98926914"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111904010"
 landingContent:
 - title: À propos d’Azure Purview
   linkLists:
@@ -24,12 +24,16 @@ landingContent:
       url: overview.md
   - linkListType: concept
     links:
+    - text: Utiliser Purview Studio
+      url: use-purview-studio.md
     - text: Bonnes pratiques de déploiement
       url: deployment-best-practices.md
     - text: Autorisations de catalogue de données
       url: catalog-permissions.md
     - text: Sources de données et types de fichiers pris en charge
       url: sources-and-scans.md
+    - text: Traçabilité des données
+      url: concept-data-lineage.md
 - title: Bien démarrer
   linkLists:
   - linkListType: quickstart
@@ -40,8 +44,6 @@ landingContent:
       url: create-catalog-powershell.md
   - linkListType: tutorial
     links:
-    - text: Télécharger le starter kit
-      url: https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip
     - text: Exécuter le starter kit et analyser les données
       url: tutorial-scan-data.md
     - text: Parcourir la page d’accueil Purview et rechercher
@@ -52,42 +54,42 @@ landingContent:
       url: tutorial-schemas-and-classifications.md
     - text: Créer des termes de glossaire
       url: tutorial-import-create-glossary-terms.md
-- title: Analyser les sources de données Azure
+- title: Inscrire et analyser des sources de données Azure
   linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Exécuter le starter kit et analyser les données
-      url: tutorial-scan-data.md
   - linkListType: how-to-guide
     links:
+    - text: Analyser plusieurs sources Azure
+      url: register-scan-azure-multiple-sources.md
     - text: Analyser Azure SQL Database
       url: register-scan-azure-sql-database.md
     - text: Analyser Azure Data Lake Storage Gen 2
       url: register-scan-adls-gen2.md
-    - text: Analyser Azure Cosmos DB
-      url: register-scan-azure-cosmos-database.md
-    - text: Locataire Power BI
+    - text: Analyser un espace de travail Azure Synapse
+      url: register-scan-synapse-workspace.md
+    - text: Analyser un locataire Power BI
       url: register-scan-power-bi-tenant.md
-    - text: Inscrire et analyser Stockage Blob Azure
+    - text: Analyser un pool SQL dédié Azure (anciennement SQL DW)
+      url: register-scan-azure-synapse-analytics.md
+    - text: Analyser le Stockage Blob Azure
       url: register-scan-azure-blob-storage-source.md
-- title: Analyser les sources de données non-Azure
+  - linkListType: tutorial
+    links:
+    - text: Intégrer des sources Azure à grande échelle
+      url: tutorial-data-sources-readiness.md
+- title: Découvrir des données
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Parcourir et tracer
+      url: tutorial-browse-and-view-lineage.md
   - linkListType: how-to-guide
     links:
-    - text: Analyser un serveur SQL local
-      url: register-scan-on-premises-sql-server.md
-- title: Comprendre votre patrimoine de données
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Afficher des insights sur les éléments
-      url: asset-insights.md
-    - text: Afficher des insights sur les glossaires
-      url: glossary-insights.md
-    - text: Afficher des insights sur les analyses
-      url: scan-insights.md
-    - text: Afficher des insights sur les classifications
-      url: classification-insights.md
+    - text: Utiliser les fonctionnalités de traçabilité des données
+      url: catalog-lineage-user-guide.md
+    - text: Parcourir par type d’élément
+      url: how-to-browse-catalog.md
+    - text: Rechercher des éléments, des termes, des annotations et des contacts
+      url: how-to-search-catalog.md
 - title: Organiser les données
   linkLists:
   - linkListType: tutorial
@@ -102,15 +104,29 @@ landingContent:
       url: create-a-custom-classification-and-classification-rule.md
     - text: Créer, importer et exporter un glossaire
       url: how-to-create-import-export-glossary.md
-- title: Découvrir des données
+    - text: Modifier en bloc des éléments
+      url: how-to-bulk-edit-assets.md
+- title: Analyser les sources de données non-Azure
   linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Parcourir et tracer
-      url: tutorial-browse-and-view-lineage.md
   - linkListType: how-to-guide
     links:
-    - text: Parcourir par type d’élément
-      url: how-to-browse-catalog.md
-    - text: Rechercher des éléments, des termes, des annotations et des contacts
-      url: how-to-search-catalog.md
+    - text: Analyser un serveur SQL local
+      url: register-scan-on-premises-sql-server.md
+    - text: Analyser Amazon S3
+      url: register-scan-amazon-s3.md
+    - text: Analyser Oracle
+      url: register-scan-oracle-source.md
+    - text: Analyser une base de données de metastore Hive
+      url: register-scan-hive-metastore-source.md
+- title: Comprendre votre patrimoine de données
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Afficher des insights sur les étiquettes de confidentialité
+      url: sensitivity-insights.md
+    - text: Afficher des insights sur les éléments
+      url: asset-insights.md
+    - text: Afficher des insights sur les classifications
+      url: classification-insights.md
+    - text: Afficher des insights sur les glossaires
+      url: glossary-insights.md
