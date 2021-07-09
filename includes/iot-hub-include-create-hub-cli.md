@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 01/14/2021
-ms.openlocfilehash: a1e2833d49d519d563937783a64db6573414bad2
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 45a9a0821dec98637ade4940bee915483d5e9aa1
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109805363"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112041494"
 ---
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 Dans cette section, vous utilisez Azure CLI pour créer un hub IoT et un groupe de ressources.  Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un hub IoT agit en tant que hub de messages central pour la communication bidirectionnelle entre votre application IoT et les appareils.
@@ -19,8 +19,14 @@ Dans cette section, vous utilisez Azure CLI pour créer un hub IoT et un groupe 
 Pour créer un hub IoT et un groupe de ressources :
 
 1. Lancez votre application CLI.  Pour exécuter les commandes CLI dans le reste de ce guide de démarrage rapide, copiez la syntaxe de la commande, collez-la dans votre application CLI, modifiez les valeurs des variables et appuyez sur Entrée.
-    - Si vous préférez utiliser Cloud Shell, vous pouvez sélectionner le bouton **Essayer** dans les commandes CLI pour lancer Cloud Shell dans une fenêtre de navigateur fractionnée. Ou, pour ouvrir Cloud Shell dans une fenêtre distincte, cliquez avec le bouton droit sur le lien de [Cloud Shell](https://shell.azure.com/bash) et sélectionnez l’option permettant d’ouvrir dans un nouvel onglet.
+    - Si vous utilisez Cloud Shell, sélectionnez le bouton **Essayer** dans les commandes CLI pour lancer Cloud Shell dans une fenêtre de navigateur partagée. Ou vous pouvez ouvrir [Cloud Shell](https://shell.azure.com/bash) dans un onglet de navigateur distinct.
     - Si vous utilisez Azure CLI localement, démarrez votre application console CLI et connectez-vous à Azure CLI.
+
+1. Exécutez [az extension add](/cli/azure/extension?view=azure-cli-latest#az_extension_add) pour installer ou mettre à niveau l’extension *azure-iot* vers la version actuelle.
+
+    ```azurecli-interactive
+    az extension add --upgrade --name azure-iot
+    ```
 
 1. Dans votre application CLI, exécutez la commande [az group create](/cli/azure/group#az_group_create) pour créer un groupe de ressources. La commande suivante crée un groupe de ressources nommé *MyResourceGroup* à l’emplacement *eastus* : 
     >[!NOTE]

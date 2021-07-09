@@ -6,21 +6,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/19/2021
+ms.date: 06/11/2021
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 1fd102f0f94f1ce53bebfba94d4f4c1a1f9e3812
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 31a7eccb1f4b0c26640af1321b9779014f663fb4
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765092"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112083617"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[Version 3.1 preview](#tab/version-3-1)
 
-[Documentation de référence v3.1](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-preview) | [Code source de la bibliothèque v3.1](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [Package v3.1 (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.5) | [Exemples v3.1](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+[Documentation de référence v3.1](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-preview) | [Code source de la bibliothèque v3.1](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [Package v3.1 (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.7) | [Exemples v3.1](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 # <a name="version-30"></a>[Version 3.0](#tab/version-3)
 
@@ -45,7 +45,7 @@ En utilisant l’IDE Visual Studio, créez une application console .NET Core. Ce
 
 # <a name="version-31-preview"></a>[Version 3.1 preview](#tab/version-3-1)
 
-Installez la bibliothèque cliente en cliquant avec le bouton droit sur la solution dans l’**Explorateur de solutions** et en sélectionnant **Gérer les packages NuGet**. Dans le gestionnaire de package qui s’ouvre, sélectionnez **Parcourir** et recherchez `Azure.AI.TextAnalytics`. Cochez la case **inclure la préversion** , sélectionnez version `5.1.0-beta.5`, puis **Installer**. Vous pouvez aussi utiliser la [Console du Gestionnaire de package](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Installez la bibliothèque cliente en cliquant avec le bouton droit sur la solution dans l’**Explorateur de solutions** et en sélectionnant **Gérer les packages NuGet**. Dans le gestionnaire de package qui s’ouvre, sélectionnez **Parcourir** et recherchez `Azure.AI.TextAnalytics`. Cochez la case **inclure la préversion** , sélectionnez version `5.1.0-beta.7`, puis **Installer**. Vous pouvez aussi utiliser la [Console du Gestionnaire de package](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 # <a name="version-30"></a>[Version 3.0](#tab/version-3)
 
@@ -214,7 +214,7 @@ Document sentiment: Positive
         Neutral score: 0.77
 ```
 
-### <a name="opinion-mining"></a>Exploration des opinions
+## <a name="opinion-mining"></a>Exploration des opinions
 
 Créez une fonction appelée `SentimentAnalysisWithOpinionMiningExample()` qui accepte le client que vous avez créé, puis appelez sa fonction `AnalyzeSentimentBatch()` avec l’option `IncludeOpinionMining` dans le conteneur `AnalyzeSentimentOptions`. L’objet `AnalyzeSentimentResultCollection` retourné contient la collection de `AnalyzeSentimentResult` dans laquelle `Response<DocumentSentiment>` est représenté. La différence entre `SentimentAnalysis()` et `SentimentAnalysisWithOpinionMiningExample()` réside dans le fait que ce dernier contiendra des `SentenceOpinion` dans chaque phrase, ce qui montre une cible analysée et les évaluations associées. En cas d’erreur, une exception `RequestFailedException` est levée.
 
@@ -429,7 +429,78 @@ Named Entities:
                 Score: 0.80,    Length: 9,      Offset: 34
 ```
 
-### <a name="entity-linking"></a>Liaison d’entités
+### <a name="personally-identifiable-information-recognition"></a>Reconnaissance des informations d’identification personnelle
+
+Créez une fonction appelée `RecognizePIIExample()` qui accepte le client que vous avez créé, appelez sa fonction `RecognizePiiEntities()`, puis effectuez une itération dans les résultats. L’objet `PiiEntityCollection` retourné représente la liste des entités d’informations d’identification personnelle détectées. En cas d’erreur, une exception `RequestFailedException` est levée.
+
+```csharp
+static void RecognizePIIExample(TextAnalyticsClient client)
+{
+    string document = "A developer with SSN 859-98-0987 whose phone number is 800-102-1100 is building tools with our APIs.";
+
+    PiiEntityCollection entities = client.RecognizePiiEntities(document).Value;
+
+    Console.WriteLine($"Redacted Text: {entities.RedactedText}");
+    if (entities.Count > 0)
+    {
+        Console.WriteLine($"Recognized {entities.Count} PII entit{(entities.Count > 1 ? "ies" : "y")}:");
+        foreach (PiiEntity entity in entities)
+        {
+            Console.WriteLine($"Text: {entity.Text}, Category: {entity.Category}, SubCategory: {entity.SubCategory}, Confidence score: {entity.ConfidenceScore}");
+        }
+    }
+    else
+    {
+        Console.WriteLine("No entities were found.");
+    }
+}
+```
+
+### <a name="output"></a>Output
+
+```console
+Redacted Text: A developer with SSN *********** whose phone number is ************ is building tools with our APIs.
+Recognized 2 PII entities:
+Text: 859-98-0987, Category: U.S. Social Security Number (SSN), SubCategory: , Confidence score: 0.65
+Text: 800-102-1100, Category: Phone Number, SubCategory: , Confidence score: 0.8
+```
+
+# <a name="version-30"></a>[Version 3.0](#tab/version-3)
+
+Créez une fonction appelée `EntityRecognitionExample()` qui accepte le client que vous avez créé, appelez sa fonction `RecognizeEntities()`, puis effectuez une itération dans les résultats. L’objet `Response<IReadOnlyCollection<CategorizedEntity>>` retourné contient la liste des entités détectées. En cas d’erreur, une exception `RequestFailedException` est levée.
+
+```csharp
+static void EntityRecognitionExample(TextAnalyticsClient client)
+{
+    var response = client.RecognizeEntities("I had a wonderful trip to Seattle last week.");
+    Console.WriteLine("Named Entities:");
+    foreach (var entity in response.Value)
+    {
+        Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
+        Console.WriteLine($"\t\tScore: {entity.ConfidenceScore:F2}\n");
+    }
+}
+```
+
+### <a name="output"></a>Output
+
+```console
+Named Entities:
+        Text: trip,     Category: Event,        Sub-Category:
+                Score: 0.61
+
+        Text: Seattle,  Category: Location,     Sub-Category: GPE
+                Score: 0.82
+
+        Text: last week,        Category: DateTime,     Sub-Category: DateRange
+                Score: 0.80
+```
+
+--- 
+
+## <a name="entity-linking"></a>Liaison d’entités
+
+# <a name="version-31-preview"></a>[Version 3.1 preview](#tab/version-3-1)
 
 Créez une fonction appelée `EntityLinkingExample()` qui accepte le client que vous avez créé, appelez sa fonction `RecognizeLinkedEntities()`, puis effectuez une itération dans les résultats. L’objet `Response<LinkedEntityCollection>` retourné contient la collection des entités détectées `LinkedEntity`. En cas d’erreur, une exception `RequestFailedException` est levée. Les entités liées étant identifiées de manière unique, les occurrences d’une même entité sont regroupées sous un objet `LinkedEntity` sous la forme d’une liste d’objets `LinkedEntityMatch`.
 
@@ -515,80 +586,7 @@ Linked Entities:
                 Offset: 116
 ```
 
-### <a name="personally-identifiable-information-recognition"></a>Reconnaissance des informations d’identification personnelle
-
-Créez une fonction appelée `RecognizePIIExample()` qui accepte le client que vous avez créé, appelez sa fonction `RecognizePiiEntities()`, puis effectuez une itération dans les résultats. L’objet `PiiEntityCollection` retourné représente la liste des entités d’informations d’identification personnelle détectées. En cas d’erreur, une exception `RequestFailedException` est levée.
-
-```csharp
-static void RecognizePIIExample(TextAnalyticsClient client)
-{
-    string document = "A developer with SSN 859-98-0987 whose phone number is 800-102-1100 is building tools with our APIs.";
-
-    PiiEntityCollection entities = client.RecognizePiiEntities(document).Value;
-
-    Console.WriteLine($"Redacted Text: {entities.RedactedText}");
-    if (entities.Count > 0)
-    {
-        Console.WriteLine($"Recognized {entities.Count} PII entit{(entities.Count > 1 ? "ies" : "y")}:");
-        foreach (PiiEntity entity in entities)
-        {
-            Console.WriteLine($"Text: {entity.Text}, Category: {entity.Category}, SubCategory: {entity.SubCategory}, Confidence score: {entity.ConfidenceScore}");
-        }
-    }
-    else
-    {
-        Console.WriteLine("No entities were found.");
-    }
-}
-```
-
-### <a name="output"></a>Output
-
-```console
-Redacted Text: A developer with SSN *********** whose phone number is ************ is building tools with our APIs.
-Recognized 2 PII entities:
-Text: 859-98-0987, Category: U.S. Social Security Number (SSN), SubCategory: , Confidence score: 0.65
-Text: 800-102-1100, Category: Phone Number, SubCategory: , Confidence score: 0.8
-```
-
 # <a name="version-30"></a>[Version 3.0](#tab/version-3)
-
-
-> [!NOTE]
-> Nouveautés de la version `3.0` :
-> * La liaison d’entités est désormais distincte de la reconnaissance d’entités.
-
-
-Créez une fonction appelée `EntityRecognitionExample()` qui accepte le client que vous avez créé, appelez sa fonction `RecognizeEntities()`, puis effectuez une itération dans les résultats. L’objet `Response<IReadOnlyCollection<CategorizedEntity>>` retourné contient la liste des entités détectées. En cas d’erreur, une exception `RequestFailedException` est levée.
-
-```csharp
-static void EntityRecognitionExample(TextAnalyticsClient client)
-{
-    var response = client.RecognizeEntities("I had a wonderful trip to Seattle last week.");
-    Console.WriteLine("Named Entities:");
-    foreach (var entity in response.Value)
-    {
-        Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
-        Console.WriteLine($"\t\tScore: {entity.ConfidenceScore:F2}\n");
-    }
-}
-```
-
-### <a name="output"></a>Output
-
-```console
-Named Entities:
-        Text: trip,     Category: Event,        Sub-Category:
-                Score: 0.61
-
-        Text: Seattle,  Category: Location,     Sub-Category: GPE
-                Score: 0.82
-
-        Text: last week,        Category: DateTime,     Sub-Category: DateRange
-                Score: 0.80
-```
-
-### <a name="entity-linking"></a>Liaison d’entités
 
 Créez une fonction appelée `EntityLinkingExample()` qui accepte le client que vous avez créé, appelez sa fonction `RecognizeLinkedEntities()`, puis effectuez une itération dans les résultats. L’objet `Response<IReadOnlyCollection<LinkedEntity>>` retourné représente la liste des entités détectées. En cas d’erreur, une exception `RequestFailedException` est levée. Les entités liées étant identifiées de manière unique, les occurrences d’une même entité sont regroupées sous un objet `LinkedEntity` sous la forme d’une liste d’objets `LinkedEntityMatch`.
 
@@ -656,10 +654,9 @@ Linked Entities:
                 Score: 0.33
 ```
 
---- 
+---
 
-
-### <a name="key-phrase-extraction"></a>Extraction d’expressions clés
+## <a name="key-phrase-extraction"></a>Extraction d’expressions clés
 
 # <a name="version-31-preview"></a>[Version 3.1 preview](#tab/version-3-1)
 
@@ -719,7 +716,9 @@ Key phrases:
 
 ## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Utiliser l’API de manière asynchrone avec l’opération d’analyse
 
-# <a name="version-31-preview"></a>[Version 3.1 preview](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Version préliminaire de la version 3.1](#tab/version-3-1)
+
+L’opération d’analyse peut servir à effectuer différentes demandes de lot asynchrones : la reconnaissance d’entité nommée, l’extraction de phrases clés, l’analyse des sentiments et la détection d’informations d’identification personnelle. Vous trouverez ci-dessous un exemple de base sur une opération, et [sur GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeActions.md) un exemple plus avancé.
 
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
@@ -815,8 +814,6 @@ Recognized Entities
     ConfidenceScore: 0.9
     SubCategory: 
 ```
-
-Vous pouvez également utiliser l’opération d’analyse pour détecter les informations d’identification personnelle et l’extraction de phrases clés. Consultez l’[exemple d’analyse](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples) sur GitHub.
 
 # <a name="version-30"></a>[Version 3.0](#tab/version-3)
 

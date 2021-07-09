@@ -1,22 +1,22 @@
 ---
-title: Démarrage rapide - Utiliser le connecteur OLTP Cosmos DB Apache Spark 3 pour l’API SQL (préversion) et créer une base de données de documents avec Azure Cosmos DB
-description: Ce guide de démarrage rapide présente un exemple de code du connecteur OLTP Cosmos DB Apache Spark 3 pour l’API SQL (préversion) que vous pouvez utiliser pour vous connecter à l’API SQL Azure Cosmos DB et l’interroger
+title: Démarrage rapide - Gérer les données avec le connecteur OLTP Azure Cosmos DB Spark 3 pour l’API SQL
+description: Ce guide de démarrage rapide présente un exemple de code pour le connecteur OLTP Azure Cosmos DB Spark 3 pour l’API SQL que vous pouvez utiliser pour vous connecter à votre compte Azure Cosmos DB et y interroger des données.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/06/2021
+ms.date: 05/27/2021
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 0c0400c27558cfe59f1718cb9b1c00e4aa616668
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: f8a20ea2f7d68b89196af8cd339a6388033d1b16
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368464"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695967"
 ---
-# <a name="quickstart-build-a-cosmos-db-apache-spark-3-oltp-connector-for-sql-api-preview-app-to-manage-azure-cosmos-db-sql-api-data"></a>Démarrage rapide : Créer une application du connecteur OLTP Cosmos DB Apache Spark 3 pour l’API SQL (préversion) et gérer les données de l’API SQL Azure Cosmos DB
+# <a name="quickstart-manage-data-with-azure-cosmos-db-spark-3-oltp-connector-for-sql-api"></a>Démarrage rapide : Gérer les données avec le connecteur OLTP Azure Cosmos DB Spark 3 pour l’API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]

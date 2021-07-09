@@ -8,12 +8,13 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 4e8be77851d0d7102d7c0cef85d9fbfefd8dc2a2
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8a0294e205dd8a22f9847140511cbce634322c4a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137163"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285226"
 ---
 # <a name="backend-pool-management"></a>Gestion du pool back-end
 Le pool back-end est un composant essentiel de l’équilibreur de charge. Il définit le groupe de ressources qui va servir le trafic pour une règle d’équilibrage de charge donnée.
@@ -22,7 +23,7 @@ Il existe deux façons de configurer un pool back-end :
 * Carte d’interface réseau (NIC)
 * Combinaison de l’adresse IP et de l’ID de la ressource du réseau virtuel (VNET)
 
-Configurez votre pool de back-ends par carte réseau quand vous utilisez des machines virtuelles et des groupes de machines virtuelles identiques existants. Cette méthode génère le lien le plus direct entre votre ressource et le pool back-end. 
+Configurez votre pool de back-ends par carte réseau quand vous utilisez des machines virtuelles et des groupes de machines virtuelles identiques existants. Cette méthode génère le lien le plus direct entre votre ressource et le pool back-end.
 
 Lors de la préallocation de votre pool de back-ends avec une plage d’adresses IP avec laquelle vous envisagez de créer ultérieurement des machines virtuelles et des groupes de machines virtuelles identiques, configurez votre pool de back-ends par une combinaison d’adresses IP et d’ID de réseau virtuel.
 
@@ -33,7 +34,7 @@ Les sections de configuration de cet article se concentrent sur :
 * Azure PowerShell
 * Azure CLI
 * API REST
-* Modèles Microsoft Azure Resource Manager 
+* Modèles Microsoft Azure Resource Manager
 
 Ces sections permettent de comprendre comment les pools back-end sont structurés pour chaque option de configuration.
 
@@ -42,7 +43,7 @@ Le pool back-end est créé dans le cadre de l’opération de l’équilibreur 
 
 Les exemples suivants se concentrent sur les opérations de création et de remplissage du pool back-end afin de mettre en évidence ce workflow et cette relation.
 
-  >[!NOTE] 
+  >[!NOTE]
   >Il est important de noter que les pools back-end configurés par le biais de l’interface réseau ne peuvent pas être mis à jour dans le cadre d’une opération sur un pool back-end. Tout ajout ou suppression de ressources back-end doivent se produire sur l’interface réseau de la ressource.
 
 ### <a name="powershell"></a>PowerShell
@@ -53,7 +54,7 @@ $resourceGroup = "myResourceGroup"
 $loadBalancerName = "myLoadBalancer"
 $backendPoolName = "myBackendPool"
 
-$backendPool = 
+$backendPool =
 New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
 ```
 
@@ -67,10 +68,10 @@ $nicname = "myNic"
 $location = "eastus"
 $vnetname = <your-vnet-name>
 
-$vnet = 
+$vnet =
 Get-AzVirtualNetwork -Name $vnetname -ResourceGroupName $resourceGroup
 
-$nic = 
+$nic =
 New-AzNetworkInterface -ResourceGroupName $resourceGroup -Location $location -Name $nicname -LoadBalancerBackendAddressPool $backendPoolName -Subnet $vnet.Subnets[0]
 ```
 
@@ -105,9 +106,9 @@ $location = "eastus"
 $nic =
 Get-AzNetworkInterface -Name $nicname -ResourceGroupName $resourceGroup
 
-$vmConfig = 
+$vmConfig =
 New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Windows -ComputerName $vmname -Credential $cred | Set-AzVMSourceImage -PublisherName $pubname -Offer $off -Skus $sku -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
- 
+
 # Create a virtual machine using the configuration
 $vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -VM $vmConfig
 ```
@@ -119,7 +120,7 @@ Créez le pool back-end :
 az network lb address-pool create \
 --resource-group myResourceGroup \
 --lb-name myLB \
---name myBackendPool 
+--name myBackendPool
 ```
 
 Créez une interface réseau et ajoutez-la au pool back-end :
@@ -158,9 +159,9 @@ az vm create \
 
 ### <a name="resource-manager-template"></a>Modèle Resource Manager
 
-Suivez ce [modèle Resource Manager de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) pour déployer un équilibreur de charge et des machines virtuelles, puis ajouter les machines virtuelles au pool back-end par le biais d’une interface réseau.
+Suivez ce [modèle Resource Manager de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-standard-create/) pour déployer un équilibreur de charge et des machines virtuelles, puis ajouter les machines virtuelles au pool back-end par le biais d’une interface réseau.
 
-Suivez ce [modèle Resource Manager de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-ip-configured-backend-pool) pour déployer un équilibreur de charge et des machines virtuelles, puis ajouter les machines virtuelles au pool back-end par le biais d’une adresse IP.
+Suivez ce [modèle Resource Manager de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-ip-configured-backend-pool) pour déployer un équilibreur de charge et des machines virtuelles, puis ajouter les machines virtuelles au pool back-end par le biais d’une adresse IP.
 
 
 ## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>Configurer le pool back-end par adresse IP et réseau virtuel
@@ -203,7 +204,7 @@ Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBala
 Créez une interface réseau et ajoutez-la au pool back-end. Définissez l’adresse IP sur l’une des adresses back-end :
 
 ```azurepowershell-interactive
-$nic = 
+$nic =
 New-AzNetworkInterface -ResourceGroupName $resourceGroup -Location $location -Name $nicName -PrivateIpAddress 10.0.0.4 -Subnet $virtualNetwork.Subnets[0]
 ```
 
@@ -225,7 +226,7 @@ $location = "eastus"
 $nic =
 Get-AzNetworkInterface -Name $nicname -ResourceGroupName $resourceGroup
 
-$vmConfig = 
+$vmConfig =
 New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Windows -ComputerName $vmname -Credential $cred | Set-AzVMSourceImage -PublisherName $pubname -Offer $off -Skus $sku -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
 
 # Create a virtual machine using the configuration
@@ -233,7 +234,7 @@ $vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -V
 ```
 
 ### <a name="cli"></a>Interface de ligne de commande
-À l’aide de l’interface CLI, vous pouvez remplir le pool back-end par le biais de paramètres de ligne de commande ou d’un fichier de configuration JSON. 
+À l’aide de l’interface CLI, vous pouvez remplir le pool back-end par le biais de paramètres de ligne de commande ou d’un fichier de configuration JSON.
 
 Créez et remplissez le pool back-end par le biais de paramètres de ligne de commande :
 
@@ -307,17 +308,19 @@ az vm create \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
- 
+
 ### <a name="limitations"></a>Limites
 Un pool de back-ends configuré par adresse IP présente les limites suivantes :
   * Peut uniquement être utilisé pour des équilibreurs de charge standard
   * Limite de 100 adresses IP dans le pool de back-ends
   * Les ressources back-end doivent être dans le même réseau virtuel que celui de l’équilibreur de charge.
   * Un équilibreur de charge avec un pool de back-ends basé sur IP ne peut pas fonctionner en tant que service Private Link
-  * Cette fonctionnalité n’est actuellement pas prise en charge dans le portail Azure.
   * Les conteneurs ACI ne sont pas pris en charge par cette fonctionnalité
   * Vous ne pouvez pas placer des équilibreurs de charge ou des services, tels qu’Application Gateway, dans le pool principal de l’équilibreur de charge
   * Les règles NAT de trafic entrant ne peuvent pas être spécifiées par adresse IP
+
+>[!Important]
+> Lorsqu’un pool principal est configuré par adresse IP, il se comporte comme un équilibreur de charge de base avec l’option sortant par défaut activée. Pour une configuration et des applications sécurisées par défaut avec des besoins sortants exigeants, configurez le pool principal par carte réseau.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez découvert la gestion du pool back-end Azure Load Balancer et vous avez appris à configurer un pool back-end par adresse IP et réseau virtuel.

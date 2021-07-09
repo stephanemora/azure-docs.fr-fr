@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 82e21f57a22da43f904ac9a12afb016c257e5055
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: dd2ceaa97a456d72227d6180596aeccc9e00a614
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289693"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453895"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Exemple : Explorer une application de traitement d’image avec C#
 
@@ -40,7 +40,7 @@ Avant d’explorer l’exemple d’application, assurez-vous que vous avez rempl
 
 ## <a name="get-the-sample-app"></a>Obtenir l’exemple d’application
 
-L’exemple d’application Vision par ordinateur est disponible sur GitHub à partir du référentiel `Microsoft/Cognitive-Vision-Windows`. Ce référentiel inclut également le référentiel `Microsoft/Cognitive-Common-Windows` en tant que sous-module Git. Vous pouvez cloner de manière récursive ce référentiel, y compris le sous-module, en utilisant la commande `git clone --recurse-submodules` à partir de la ligne de commande, ou en utilisant le bureau GitHub.
+L’exemple d’application Vision par ordinateur est disponible sur GitHub dans le [dépôt Microsoft/Cognitive-Vision-Windows](https://github.com/microsoft/Cognitive-Vision-Windows). Ce référentiel inclut également le référentiel `Microsoft/Cognitive-Common-Windows` en tant que sous-module Git. Vous pouvez cloner de manière récursive ce référentiel, y compris le sous-module, en utilisant la commande `git clone --recurse-submodules` à partir de la ligne de commande, ou en utilisant le bureau GitHub.
 
 Par exemple, pour cloner de manière récursive le référentiel correspondant à l’exemple d’application Vision par ordinateur à partir d’une invite de commandes, exécutez la commande suivante :
 

@@ -4,14 +4,14 @@ description: Personnalisez un chatbot .NET C# à l’aide d’une boucle Persona
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 05/17/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7c4920eaa7a5619be37d38afd763e7be416d3124
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 4cc2fcfb73117edf27421dd8c91161d12bab7a7a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565719"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097909"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Tutoriel : Utiliser Personalizer dans un chatbot .NET
 
@@ -130,7 +130,7 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 
 Pour utiliser ce chatbot, vous devez créer des ressources Azure pour Personalizer et LUIS (Language Understanding).
 
-* [Créez des ressources LUIS](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal). Sélectionnez **Les deux** à l’étape de création, car vous avez besoin de ressources de création et de prédiction.
+* [Créez des ressources LUIS](../luis/luis-how-to-azure-subscription.md). Créer une ressource de création et une ressource de prédiction.
 * [Créez une ressource Personalizer](how-to-create-resource.md), puis copiez la clé et le point de terminaison à partir du portail Azure. Vous devrez définir ces valeurs dans le fichier `appsettings.json` du projet .NET.
 
 ### <a name="create-luis-app"></a>Créer une application LUIS

@@ -6,18 +6,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/07/2021
+ms.date: 05/28/2021
 ms.custom: references_regions
-ms.openlocfilehash: f636089ff37bd87802ac0335b65d20dc446290d3
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 57776654087e6e07b8515d76c955cb82ce1e07bf
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517925"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787763"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Nouveauté dans Recherche cognitive Azure
 
 Découvrir les nouveautés du service. Marquez cette page pour rester au fait des nouveautés du service. Consultez la [liste des fonctionnalités d’évaluation](search-api-preview.md) pour voir la liste complète des fonctionnalités qui ne sont pas encore en disponibilité générale.
+
+## <a name="may-2021"></a>Mai 2021
+
+|Fonctionnalité&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Disponibilité  |
+|------------------------------------|--------------|---------------|
+| [Prise en charge du connecteur Power Query (préversion)](search-how-to-index-power-query-data-sources.md) | Les indexeurs peuvent désormais indexer à partir d’autres plateformes cloud. Si vous utilisez un indexeur pour analyser des sources de données externes pour indexation, vous pouvez désormais utiliser des connecteurs Power Query pour vous connecter à Amazon Redshift, Elasticsearch, PostgreSQL, Salesforce Objects, Salesforce Reports, Smartsheet et Snowflake. </br></br>[Annonce (blog de la communauté technique)](https://techcommunity.microsoft.com/t5/azure-ai/azure-cognitive-search-indexers-allow-you-to-ingest-data-from/ba-p/2381988)  | Préversion publique ([sur demande](https://aka.ms/azure-cognitive-search/indexer-preview)) avec l’API REST api-version=2020-06-30-Preview et le portail Azure. |
+|[Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) | La source de données ADLS Gen2 utilisée par les indexeurs est désormais en disponibilité générale. | En disponibilité générale, avec l’API REST api-version=2020-06-30 et le portail Azure. |
+|[Prise en charge de MySQL (préversion)](search-howto-index-mysql.md) | Pour l’indexation basée sur un indexeur, annonce la prise en charge des sources de données en préversion pour Azure MySQL. | Préversion publique, API REST api-version=2020-06-30-Preview, [SDK .NET 11.2.1](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql) et le portail Azure. |
+| [Plus de langages de requête pour la vérification orthographique et les résultats sémantiques](/rest/api/searchservice/preview-api/search-documents#queryLanguage) | Pour les demandes de requête qui appellent la vérification orthographique ou queryType=semantic, vous pouvez désormais définir la valeur de queryLanguage sur une langue autre que l’anglais pour [38 langues](/rest/api/searchservice/preview-api/search-documents#queryLanguage). </br></br>[Annonce (blog de la communauté technique)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-multilingual-support-for-semantic-search-on-azure/ba-p/2385110) | Préversion publique ([sur demande](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Utilisez l’API [Recherche de documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview, [Azure.Search.Documents 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2) ou [Explorateur de recherche](search-explorer.md) dans le portail Azure. </br></br>Des restrictions [de région et de niveau](semantic-search-overview.md#availability-and-pricing) s’appliquent. |
+| [Disponibilité du double chiffrement](search-security-manage-encryption-keys.md#double-encryption) | Pour les index et les objets de recherche chiffrés via des clés gérées par le client, le double chiffrement (chiffrement des disques statiques et temporaires) est désormais implémenté dans toutes les régions prises en charge. | Dans toutes les régions, sous réserve des [dates de création du service](search-security-manage-encryption-keys.md#double-encryption). |
 
 ## <a name="april-2021"></a>Avril 2021
 

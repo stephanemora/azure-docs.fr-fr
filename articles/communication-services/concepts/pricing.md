@@ -2,19 +2,19 @@
 title: Scénarios de tarifs pour les appels (vocaux/vidéo) et la conversation
 titleSuffix: An Azure Communication Services concept document
 description: Découvrez le modèle tarifaire de Communication Services.
-author: mikben
-manager: jken
+author: nmurav
+manager: nmurav
 services: azure-communication-services
-ms.author: mikben
+ms.author: nmurav
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0615d95c922ef3f04618d9f2339e82b53bd359df
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 038b4df78ca7f10b0ec0e9dfe224f6aca2430e82
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763682"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111986297"
 ---
 # <a name="pricing-scenarios"></a>Scénarios de tarifs
 
@@ -51,16 +51,16 @@ Alice a effectué un appel de groupe avec ses collègues, Bob et Charlie. Alice 
 Alice appelle Bob, elle passe un appel RTC depuis une application sur son numéro de téléphone américain commençant par `+1-425`.
 
 - Alice a utilisé le kit SDK JS pour créer l’application.
-- L’appel dure 5 minutes au total.
+- L’appel dure 10 minutes au total.
 
 **Calculs des coûts**
 
 - 1 participant sur la section VoIP (Alice) depuis l’application vers les serveurs Communication Services x 10 minutes x 0,004 USD par segment de participant par minute = 0,04 USD
-- 1 participant sur la section sortante RTC (Charlie) depuis les serveurs Communication Services vers un numéro de téléphone américain x 10 minutes x 0,013 USD par segment de participant par minute = 0,13 USD
+- 1 participant sur la section sortante RTC (Bob) depuis les serveurs Communication Services vers un numéro de téléphone américain x 10 minutes x 0,013 USD par segment de participant par minute = 0,13 USD.
 
 Remarque : Le tarif mixte des États-Unis vers `+1-425` est de 0,013 USD. Pour plus de détails, consultez le lien suivant : https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
-**Coût total de l’appel de groupe** : 0,04 USD + 0,13 USD = 0,17 USD
+**Coût total de l’appel** : $0,04 + $0,13 = $0,17
 
 
 ### <a name="pricing-example-group-audio-call-using-js-sdk-and-1-pstn-leg"></a>Exemple de tarif : Appel audio de groupe à l’aide du kit SDK JS et d’une section RTC
@@ -154,7 +154,7 @@ Les appels téléphoniques traditionnels (appels pris en charge par le réseau t
 
 #### <a name="united-states-calling-prices"></a>Prix d’appel aux États-Unis
 
-Les tarifs suivants incluent les taxes et frais de communication obligatoires jusqu’au 30 juin 2021 :
+Les tarifs suivants comprennent les taxes et frais de communication :
 
 |Type de nombre   |Passer des appels   |Recevoir des appels|
 |--------------|-----------|------------|
@@ -163,7 +163,7 @@ Les tarifs suivants incluent les taxes et frais de communication obligatoires ju
 
 #### <a name="other-calling-destinations"></a>Autres destinations d’appels
 
-Les tarifs suivants comprennent les taxes et frais de communication obligatoires jusqu’au 30 juin 2021 :
+Les tarifs suivants comprennent les taxes et frais de communication :
 
 |Destinations des appels   |Prix par minute|
 |-----------|------------|
@@ -177,7 +177,7 @@ Les tarifs suivants comprennent les taxes et frais de communication obligatoires
 
 Les SMS sont facturés à l’utilisation. Le prix est fixé à l’unité, en fonction de la destination du message. Les messages peuvent être envoyés depuis des numéros gratuits vers des numéros de téléphone situés aux États-Unis. Notez que les numéros de téléphone locaux (géographiques) ne peuvent pas être utilisés pour envoyer des SMS.
 
-Les tarifs suivants comprennent les taxes et frais de communication obligatoires jusqu’au 30 juin 2021 :
+Les tarifs suivants comprennent les taxes et frais de communication :
 
 |Pays ou région   |Envoyer des messages|Recevoir des messages|
 |-----------|------------|------------|

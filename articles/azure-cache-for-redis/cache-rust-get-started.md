@@ -7,16 +7,22 @@ ms.service: cache
 ms.devlang: rust
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: 17f38d79b75179d7a54ca5ed1d20dff18d0a0363
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: acbf5933f01a465ad1855c049796901da5d1ff90
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102121097"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059731"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-rust"></a>Démarrage rapide : Utiliser Azure Cache pour Redis avec Rust
 
-Dans cet article, vous allez apprendre à utiliser le [langage de programmation Rust](https://www.rust-lang.org/) pour l’interaction avec [Azure Cache pour Redis](./cache-overview.md). Il montre des exemples de structures de données Redis couramment utilisées (telles que [String](https://redis.io/topics/data-types-intro#redis-strings), [Hash](https://redis.io/topics/data-types-intro#redis-hashes), [List](https://redis.io/topics/data-types-intro#redis-lists), etc.) qui utilisent la bibliothèque [redis-rs](https://github.com/mitsuhiko/redis-rs) pour Redis. Ce client expose à la fois les API de haut et de bas niveau, et vous verrez ces deux styles en action avec l’aide de l’exemple de code présenté dans cet article.
+Dans cet article, vous allez apprendre à utiliser le [langage de programmation Rust](https://www.rust-lang.org/) pour interagir avec [Azure Cache pour Redis](./cache-overview.md). Vous découvrirez également les structures de données Redis couramment utilisées : 
+
+* [Chaîne](https://redis.io/topics/data-types-intro#redis-strings) 
+* [Hachage](https://redis.io/topics/data-types-intro#redis-hashes) 
+* [Liste](https://redis.io/topics/data-types-intro#redis-lists) 
+
+Vous utiliserez la bibliothèque [redis-rs](https://github.com/mitsuhiko/redis-rs) pour Redis dans cet exemple. Ce client expose à la fois les API de haut et de bas niveau, et vous verrez ces deux styles en action.
 
 ## <a name="skip-to-the-code-on-github"></a>Passer au code sur GitHub
 
@@ -39,7 +45,7 @@ Pour savoir comment le code fonctionne, vous pouvez examiner les extraits suivan
 
 La fonction `connect` est utilisée pour établir une connexion à Azure Cache pour Redis. Elle attend la transmission du nom d’hôte et du mot de passe (clé d’accès) via les variables d’environnement `REDIS_HOSTNAME` et `REDIS_PASSWORD` respectivement. Le format de l’URL de connexion est `rediss://<username>:<password>@<hostname>` : Azure Cache pour Redis accepte uniquement les connexions sécurisées avec [au minimum TLS version 1.2](cache-remove-tls-10-11.md).
 
-L’appel à [redis::Client::open](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.open) effectue une validation de base pendant que [get_connection()](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.get_connection) lance réellement la connexion. Le programme s’arrête en cas d’échec de la connectivité quelle qu’en soit la raison, telle qu’un mot de passe incorrect.
+L’appel à [redis::Client::open](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.open) effectue une validation de base, tandis que [get_connection()](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.get_connection) démarre la connexion. Le programme s’arrête si la connectivité échoue pour une raison quelconque. Par exemple, une raison peut être un mot de passe incorrect.
 
 ```rust
 fn connect() -> redis::Connection {
@@ -56,7 +62,11 @@ fn connect() -> redis::Connection {
 }
 ```
 
-La fonction `basics` couvre les commandes [SET](https://redis.io/commands/set), [GET](https://redis.io/commands/get) et [INCR](https://redis.io/commands/incr). L’API de bas niveau est utilisée pour `SET` et `GET`, qui définit et récupère la valeur d’une clé nommée `foo`. La commande `INCRBY` est exécutée à l’aide d’une API de haut niveau, autrement dit [incr](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.incr) incrémente la valeur d’une clé (nommée `counter`) de `2` avant un appel à [get](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.get) pour la récupérer.
+La fonction `basics` couvre les commandes [SET](https://redis.io/commands/set), [GET](https://redis.io/commands/get) et [INCR](https://redis.io/commands/incr). 
+
+L’API de bas niveau est utilisée pour `SET` et `GET`, qui définit et récupère la valeur d’une clé nommée `foo`. 
+
+La commande `INCRBY` est exécutée à l’aide d’une API de haut niveau, autrement dit [incr](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.incr) incrémente la valeur d’une clé (nommée `counter`) de `2` avant un appel à [get](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.get) pour la récupérer.
 
 ```rust
 fn basics() {
@@ -197,7 +207,7 @@ fn set() {
 }
 ```
 
-La fonction `sorted_set` ci-dessous illustre la structure de données Sorted Set. [ZADD](https://redis.io/commands/zadd) est appelée (avec l’API de bas niveau) pour ajouter un score d’entier aléatoire pour un joueur (`player-1`). Ensuite, la méthode [zadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.zadd) (API de haut niveau) est utilisée pour ajouter d’autres joueurs (`player-2` à `player-5`) et leurs scores respectifs (générés de manière aléatoire). Le nombre d’entrées dans l’ensemble trié est déterminé à l’aide de [ZCARD](https://redis.io/commands/zcard) et utilisé comme limite de la commande [ZRANGE](https://redis.io/commands/zrange) (appelée avec l’API de bas niveau) pour lister les joueurs avec leurs scores dans l’ordre croissant.
+La fonction `sorted_set` ci-dessous illustre la structure de données Sorted Set. [ZADD](https://redis.io/commands/zadd) est appelée avec l’API de bas niveau afin d’ajouter un score d’entier aléatoire pour un joueur (`player-1`). Ensuite, la méthode [zadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.zadd) (API de haut niveau) est utilisée pour ajouter d’autres joueurs (`player-2` à `player-5`) et leurs scores respectifs (générés de manière aléatoire). Le nombre d’entrées dans l’ensemble trié est déterminé à l’aide de [ZCARD](https://redis.io/commands/zcard). Il est utilisé comme limite de la commande [ZRANGE](https://redis.io/commands/zrange) (appelée avec l’API de bas niveau) pour lister les joueurs avec leurs scores dans l’ordre croissant.
 
 ```rust
 fn sorted_set() {
@@ -247,7 +257,7 @@ Commencez par cloner l’application à partir de GitHub.
     md "C:\git-samples"
     ```
 
-1. Ouvrez une fenêtre de terminal git, comme git bash. Utilisez la commande `cd` pour passer au nouveau dossier dans lequel vous allez cloner l’exemple d’application.
+1. Ouvrez une fenêtre de terminal git, comme git bash. Utilisez `cd` pour passer au nouveau dossier dans lequel vous allez cloner l’exemple d’application.
 
     ```bash
     cd "C:\git-samples"
@@ -284,7 +294,7 @@ L’application accepte les informations de connectivité et d’identification 
     cargo run
     ```
     
-    Vous verrez un résultat similaire à ceci :
+    Vous devriez obtenir cette sortie :
     
     ```bash
     ******* Running SET, GET, INCR commands *******
@@ -328,7 +338,7 @@ L’application accepte les informations de connectivité et d’identification 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous en avez terminé avec le groupe de ressources et les ressources Azure que vous avez créés dans ce démarrage rapide, vous pouvez les supprimer pour éviter des frais.
+Vous pouvez supprimer le groupe de ressources et les ressources quand vous en avez terminé avec eux. En supprimant ce que vous avez créé dans ce guide de démarrage rapide, vous évitez d’être facturé pour leur utilisation.
 
 > [!IMPORTANT]
 > La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et l’ensemble des ressources qu’il contient sont supprimés définitivement. Si vous avez créé votre instance Azure Cache pour Redis dans un groupe de ressources existant que vous souhaitez conserver, vous pouvez supprimer uniquement le cache en sélectionnant **Supprimer** dans la page **Vue d’ensemble** du cache. 
@@ -336,7 +346,7 @@ Si vous en avez terminé avec le groupe de ressources et les ressources Azure qu
 Pour supprimer le groupe de ressources et son instance Azure Cache pour Redis :
 
 1. Dans le **portail Azure**, recherchez et sélectionnez [Groupes de ressources](https://portal.azure.com).
-1. Dans la zone de texte **Filtrer par nom**, entrez le nom du groupe de ressources contenant votre instance de cache, puis sélectionnez-le dans les résultats de la recherche. 
+1. Dans la zone de texte **Filtrer par nom**, entrez le nom du groupe de ressources contenant votre instance de cache. Sélectionnez-le ensuite dans les résultats de la recherche. 
 1. Dans la page de votre groupe de ressources, sélectionnez **Supprimer le groupe de ressources**.
 1. Tapez le nom du groupe de ressources, puis sélectionnez **Supprimer**.
    
