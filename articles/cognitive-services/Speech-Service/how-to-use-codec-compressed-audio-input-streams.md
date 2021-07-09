@@ -12,16 +12,16 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: db902019b4fb1237c8403c719862d8fca4ba4f28
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 183679eb9c4eb2480736dfb4cec8a343c67d0ed7
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772520"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854480"
 ---
-# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Utiliser une entrée audio compressée par codec avec le SDK Speech
+# <a name="use-codec-compressed-audio-input"></a>Utiliser une entrée audio compressée par codec
 
-Le kit de développement logiciel (SDK) du service Speech peut accepter des formats audio compressés. Il décompresse l’audio avant de l’envoyer sur le réseau service Speech en tant que PCM brut.
+Le SDK Speech et l’interface de ligne de commande Speech peuvent accepter des formats audio compressés à l’aide de GStreamer. GStreamer décompresse l’audio avant de l’envoyer sur le réseau au service Speech sous forme de PCM brut.
 
 Plateforme | Languages | Version de GStreamer prise en charge
 | :--- | ---: | :---:
@@ -32,7 +32,7 @@ Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.
 ## <a name="speech-sdk-version-required-for-compressed-audio-input"></a>Version du SDK Speech requise pour l’entrée audio compressée
 * Le Kit de développement logiciel (SDK) Speech version 1.10.0 ou ultérieure est requis pour RHEL 8 et CentOS 8.
 * Le Kit de développement logiciel (SDK) Speech version 1.11.0 ou ultérieure est requis pour Windows.
-* Le Kit de développement logiciel (SDK) Speech version 1.16.0 ou ultérieure pour la version la plus récente de GStreamer sur Windows et Android.
+* Le SDK Speech version 1.16.0 ou ultérieure pour la version la plus récente de GStreamer sur Windows et Android.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 

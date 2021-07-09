@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/25/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 68c76c92f37ae424bd7e8bc85557e6c204ba742e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6243fce7ad7f83b747e678a25eb20aaea7a4cf76
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108734198"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616203"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-portal"></a>Activer l’accès privé avec Private Link (préversion) : Portail Azure
 
@@ -28,7 +28,7 @@ Les étapes décrites dans cet article sont les suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de pouvoir configurer un point de terminaison privé, vous avez besoin d’un [réseau virtuel Azure (VNet)](../virtual-network/virtual-networks-overview.md)  où le point de terminaison peut être déployé. Si vous ne disposez pas déjà d’un réseau virtuel, vous pouvez suivre l’un des [démarrages rapides](../virtual-network/quick-create-portal.md) de réseau virtuel Azure pour en configurer un.
+Avant de pouvoir configurer un point de terminaison privé, vous avez besoin d’un [réseau virtuel Azure (VNet)](../virtual-network/virtual-networks-overview.md)  où le point de terminaison peut être déployé. Si vous ne disposez pas d’un réseau virtuel, vous pouvez suivre l’un des [guides de démarrage rapide de réseau virtuel Azure](../virtual-network/quick-create-portal.md) pour le configurer.
 
 ## <a name="add-a-private-endpoint-for-an-azure-digital-twins-instance"></a>Ajouter un point de terminaison privé pour une instance Azure Digital Twins 
 
@@ -51,7 +51,7 @@ Dans cet onglet, vous pouvez activer des points de terminaison privés en sélec
 
 Cette étape ajoute une section appelée **Connexions des points de terminaison privés**, dans laquelle vous pouvez configurer les détails de votre point de terminaison privé. Sélectionnez le bouton **Ajouter** pour continuer.
 
-:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-1.png" alt-text="Capture d’écran du portail Azure, montrant l’onglet Mise en réseau de la boîte de dialogue Créer une ressource pour Azure Digital Twins. Une mise en surbrillance est appliquée au nom de l’onglet, à l’option Point de terminaison privé pour la méthode de connectivité, et au bouton Ajouter pour créer une connexion de point de terminaison privé." lightbox="media/how-to-enable-private-link/create-instance-networking-1.png":::
+:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-1.png" alt-text="Capture d’écran du portail Azure montrant l’onglet mise en réseau d’une nouvelle instance Azure Digital Twins et mettant en évidence comment créer un point de terminaison privé. Le bouton « Ajouter » est en surbrillance." lightbox="media/how-to-enable-private-link/create-instance-networking-1.png":::
 
 Une page s’ouvre, permettant d’entrer les détails d’un nouveau point de terminaison privé.
 
@@ -65,9 +65,9 @@ Une page s’ouvre, permettant d’entrer les détails d’un nouveau point de t
 
 Après avoir défini les options de configuration, sélectionnez **OK** pour terminer.
 
-Vous revenez alors à l’onglet **Mise en réseau** de la configuration de l’instance Azure Digital Twins, où votre nouveau point de terminaison doit être visible sous **Connexions des points de terminaison privés.
+Vous revenez alors à l’onglet **Mise en réseau** de la configuration de l’instance Azure Digital Twins, où votre nouveau point de terminaison doit être visible sous **Connexions des points de terminaison privés**.
 
-:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-2.png" alt-text="Capture d’écran du portail Azure, montrant l’onglet Mise en réseau de la boîte de dialogue Créer une ressource pour Azure Digital Twins. Une mise en surbrillance est appliquée à la nouvelle connexion de point de terminaison privé et aux boutons de navigation (Vérifier+ créer, Précédent, Suivant : Avancé)." lightbox="media/how-to-enable-private-link/create-instance-networking-2.png":::
+:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-2.png" alt-text="Capture d’écran du portail Azure montrant l’onglet Mise en réseau d’Azure Digital Twins avec un point de terminaison privé nouvellement créé" lightbox="media/how-to-enable-private-link/create-instance-networking-2.png":::
 
 Vous pouvez ensuite utiliser les boutons de navigation inférieurs pour continuer le reste de la configuration de l’instance.
 
@@ -83,7 +83,7 @@ Dans cette section, vous allez activer Private Link avec un point de terminaison
 
 1. Sélectionnez **Point de terminaison privé** pour ouvrir la boîte de dialogue **Créer un point de terminaison privé**.
 
-    :::image type="content" source="media/how-to-enable-private-link/add-endpoint-digital-twins.png" alt-text="Capture d’écran du portail Azure, montrant la page Mise en réseau (préversion) pour une instance Azure Digital Twins. L’onglet Connexions des points de terminaison privés est mis en surbrillance, tout comme le bouton Point de terminaison privé." lightbox="media/how-to-enable-private-link/add-endpoint-digital-twins.png":::
+    :::image type="content" source="media/how-to-enable-private-link/add-endpoint-digital-twins.png" alt-text="Capture d’écran du portail Azure montrant la page Mise en réseau pour une instance Azure Digital Twins existante et mettant en évidence comment créer des points de terminaison privés." lightbox="media/how-to-enable-private-link/add-endpoint-digital-twins.png":::
 
 1. Dans l’onglet  **De base** , entrez ou sélectionnez l’**abonnement** et le **groupe de ressources** de votre projet, puis le **nom** et la **région** de votre point de terminaison. La région doit être la même que celle du réseau virtuel que vous utilisez.
 
@@ -137,7 +137,7 @@ Pour désactiver ou activer l’accès public au réseau dans le [portail Azure]
 
     :::row:::
         :::column:::
-            :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Capture d’écran du portail Azure, montrant la page Mise en réseau (préversion) pour une instance Azure Digital Twins. L’onglet Accès public est mis en surbrillance, et l’option permettant de choisir d’autoriser ou non l’accès public au réseau est également mise en surbrillance." lightbox="media/how-to-enable-private-link/network-flag-portal.png":::
+            :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Capture d’écran du portail Azure montrant la page Mise en réseau pour une instance Azure Digital Twins et mettant en évidence comment activer ou désactiver l’accès public" lightbox="media/how-to-enable-private-link/network-flag-portal.png":::
         :::column-end:::
         :::column:::
         :::column-end:::

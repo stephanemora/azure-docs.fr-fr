@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8aaa1b2865b1d0f39e6cb224c3979b4f53eeee81
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2ce667363c2bd3251eba1a0e4829c60d99d3a4bf
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066715"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456597"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Connecter des applications de fonction dans Azure pour le traitement des données
 
@@ -40,7 +40,7 @@ Dans Visual Studio 2019, sélectionnez **Fichier** > **Nouveau** > **Projet**. 
 
 Spécifiez un nom pour l’application de fonction, puis sélectionnez __Créer__.
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Capture d’écran de Visual Studio montrant la boîte de dialogue permettant de configurer un nouveau projet. Les paramètres comprennent le nom du projet, l’emplacement de l’enregistrement, l’option Créer une solution et le nom de la solution.":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Capture d’écran de Visual Studio montrant la boîte de dialogue permettant de configurer un nouveau projet, y compris le nom du projet, l’emplacement et le choix de créer ou non une nouvelle solution":::
 
 Sélectionnez le type d’application de fonction **Déclencheur Event Grid**, puis __Créer__.
 
@@ -107,7 +107,7 @@ Maintenant que votre application est écrite, vous pouvez la publier sur Azure.
     > [!Note] 
     > Vous devrez peut-être attendre quelques minutes ou actualiser la page avant que votre fonction s’affiche dans la liste des fonctions publiées.
 
-    :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="Affichez les fonctions publiées dans le portail Azure." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
+    :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="Capture d’écran montrant les fonctions publiées dans le portail Azure" lightbox="media/how-to-create-azure-function/view-published-functions.png":::
 
 Pour accéder à Azure Digital Twins, votre application de fonction devra disposer d’une identité managée par le système avec les autorisations nécessaires pour accéder à votre instance d’Azure Digital Twins. Vous allez maintenant configurer cela.
 
@@ -132,14 +132,14 @@ Pour vous assurer que le jeton du porteur est transmis, configurez les autorisat
 1. Utilisez la commande suivante pour consulter les détails de l’identité managée par le système pour la fonction. Prenez note du champ `principalId` dans la sortie.
 
     ```azurecli-interactive 
-    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>   
+    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-function-app-name> 
     ```
 
     >[!NOTE]
     > Si le résultat est vide au lieu d’afficher les détails d’une identité, créez une autre identité managée par le système pour la fonction à l’aide de cette commande :
     > 
     >```azurecli-interactive    
-    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>    
+    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-function-app-name>  
     >```
     >
     > La sortie affiche alors les détails de l’identité, notamment la valeur `principalId` nécessaire pour la prochaine étape. 
@@ -158,7 +158,7 @@ Rendez l’URL de votre instance accessible à votre fonction en définissant un
 > L’URL de l’instance Azure Digital Twins est créée en ajoutant *https://* au début du nom d’hôte de votre instance. Pour afficher le nom d’hôte, ainsi que toutes les propriétés de votre instance, exécutez `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
 ```azurecli-interactive 
-az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-function-app-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
@@ -198,7 +198,7 @@ Le cycle de vie de ce type d’identité managée est lié au cycle de vie de ce
 
     Enregistrez les détails en sélectionnant __Enregistrer__.
 
-    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Capture d’écran du portail Azure, montrant comment ajouter une nouvelle attribution de rôle. La boîte de dialogue affiche les champs de l’étendue, de l’abonnement, du groupe de ressources et du rôle.":::
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Capture d’écran du portail Azure, montrant comment ajouter une nouvelle attribution de rôle. La boîte de dialogue montre les champs Étendue, Abonnement, Groupe de ressources et Rôle.":::
 
 ### <a name="configure-application-settings"></a>Configurer les paramètres de l’application
 
@@ -224,7 +224,7 @@ Vous pouvez maintenant créer un paramètre d’application :
 
 1. Dans la fenêtre qui s’ouvre, utilisez la valeur de nom d’hôte copiée pour créer un paramètre d’application.
     * **Nom** : ADT_SERVICE_URL
-    * **Valeur** : https://{nom-hôte-azure-digital-twins}
+    * **Valeur** : https://<your-Azure-Digital-Twins-host-name>
     
     Sélectionnez __OK__ pour créer un paramètre d’application.
     
@@ -232,11 +232,11 @@ Vous pouvez maintenant créer un paramètre d’application :
 
 1. Une fois le paramètre créé, il doit apparaître sous l’onglet __Paramètres de l’application__ . Vérifiez qu’**ADT_SERVICE_URL** apparaît dans la liste. Enregistrez ensuite le nouveau paramètre d’application en sélectionnant __Enregistrer__.
 
-    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Capture d’écran du portail Azure. Dans l’onglet Paramètres de l’application, le nouveau paramètre ADT_SERVICE_URL est mis en surbrillance. Le bouton Enregistrer est également mis en surbrillance.":::
+    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Capture d’écran du portail Azure. Sous l’onglet des paramètres de l’application, le nouveau paramètre ADT_SERVICE_URL et le bouton Enregistrer sont tous les deux en surbrillance.":::
 
 1. Tout changement apporté aux paramètres d’application nécessite un redémarrage de l’application. Par conséquent, sélectionnez __Continuer__ pour redémarrer votre application quand vous y êtes invité.
 
-    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Capture d’écran du portail Azure. Une notification indique que toute modification apportée aux paramètres d’application entraînera le redémarrage de votre application. Le bouton Continuer est mis en évidence.":::
+    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Capture d’écran du portail Azure. Une note indique que toute modification apportée aux paramètres d’application entraînera le redémarrage de votre application.":::
 
 ---
 

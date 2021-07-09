@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 301e4d4fe3efa9821c2f63948bc3d3c528de4254
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9b4d896edea86d85b650325ac5efb7f3cf439b17
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772798"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953935"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Déplacer une instance Azure Digital Twins vers une autre région Azure
 
@@ -52,71 +52,26 @@ Voici quelques questions à considérer :
     - Service Azure IoT Hub Device Provisioning
 * Quelles autres *applications personnelles ou d’entreprise* se connectent à mon instance ?
 
-Vous pouvez collecter ces informations en utilisant le [portail Azure](https://portal.azure.com), les [API et SDK Azure Digital Twins](concepts-apis-sdks.md), les [commandes CLI Azure Digital Twins](concepts-cli.md) ou l’exemple [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+Vous pouvez collecter ces informations en utilisant le [portail Azure](https://portal.azure.com), les [API et kits SDK Azure Digital Twins](concepts-apis-sdks.md), les [commandes CLI Azure Digital Twins](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) ou [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md).
 
 ## <a name="prepare"></a>Préparation
 
-Dans cette section, vous allez préparer la recréation de votre instance en téléchargeant vos modèles, jumeaux et graphe d’origine à partir de votre instance de départ. Cet article utilise l’exemple [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) pour cette tâche.
+Dans cette section, vous allez préparer la recréation de votre instance en téléchargeant vos modèles, jumeaux et graphe d’origine à partir de votre instance de départ. Cet article utilise [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) pour cette tâche.
 
 >[!NOTE]
 >Vous avez peut-être déjà des fichiers qui contiennent les modèles ou le graphe dans votre instance. Si c’est le cas, vous n’avez pas besoin de tout retélécharger, mais uniquement ce qui vous manque ou ce qui a été modifié depuis le chargement initial de ces fichiers. Par exemple, vous pouvez avoir des jumeaux qui ont été mis à jour avec de nouvelles données.
 
-### <a name="limitations-of-azure-digital-twins-explorer"></a>Limitations d’Azure Digital Twins Explorer
+### <a name="download-models-twins-and-graph-with-azure-digital-twins-explorer"></a>Télécharger les modèles, les jumeaux et le graphe à l’aide d’Azure Digital Twins Explorer
 
-L’[exemple Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) est un exemple d’application cliente qui prend en charge une représentation visuelle de votre graphe et fournit une interaction visuelle avec votre instance. Cet article explique comment l’utiliser pour télécharger, puis recharger ultérieurement vos modèles, jumeaux et graphes.
+Tout d’abord, ouvrez **Azure Digital Twins Explorer** pour votre instance Azure Digital Twins dans le [portail Azure](https://portal.azure.com). Pour ce faire, accédez à l’instance Azure Digital Twins dans le portail en recherchant son nom dans la barre de recherche du portail. Ensuite, sélectionnez le bouton **Atteindre l’Explorateur (préversion)** . 
 
-Cet exemple n’est pas un outil complet. Il n’a fait l’objet d’aucun test de contrainte et n’est pas conçu pour gérer des graphes de grande taille. Par conséquent, n’oubliez pas les limites suivantes de cet exemple prêt à l’emploi :
+:::image type="content" source="media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Capture d’écran du portail Azure montrant la page de présentation d’une instance Azure Digital Twins. Le bouton Atteindre l’Explorateur (préversion) est en évidence." lightbox="media/includes/azure-digital-twins-explorer-portal-access.png":::
 
-* Pour l’instant, l’exemple a été testé uniquement sur des tailles de graphes allant jusqu’à 1 000 nœuds et 2 000 relations.
-* L’exemple ne prend pas en charge les nouvelles tentatives en cas de défaillance intermittente.
-* L’exemple n’avertit pas nécessairement l’utilisateur si les données chargées sont incomplètes.
-* L’exemple ne gère pas les erreurs dues au dépassement des ressources disponibles comme la mémoire par les graphes très volumineux.
+Cela ouvre une fenêtre Azure Digital Twins Explorer connectée à cette instance.
 
-Si l’exemple n’est pas en mesure de gérer la taille de votre graphe, vous pouvez exporter et importer ce dernier à l’aide d’autres outils de développement Azure Digital Twins :
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="Capture d’écran du portail Azure dans un navigateur Internet. Le portail affiche Azure Digital Twins Explorer, qui ne contient pas de données." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
 
-* [Commandes CLI Azure Digital Twins](concepts-cli.md)
-* [API et SDK Azure Digital Twins](concepts-apis-sdks.md)
-
-### <a name="set-up-the-azure-digital-twins-explorer-application"></a>Configurer l’application Azure Digital Twins Explorer
-
-Pour continuer avec Azure Digital Twins Explorer, commencez par télécharger l’exemple de code d’application, puis configurez-le pour qu’il s’exécute sur votre machine.
-
-Pour obtenir l’exemple, accédez à [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Sélectionnez le bouton **Parcourir le code** sous le titre afin d’accéder au référentiel GitHub de l’exemple. Sélectionnez le bouton **Code** et **Télécharger ZIP** pour télécharger l’exemple sous forme de fichier .zip sur votre machine.
-
-:::image type="content" source="media/how-to-move-regions/download-repo-zip.png" alt-text="Capture d’écran du référentiel digital-twins-explorer sur GitHub. Le bouton Code est sélectionné et une petite boîte de dialogue s’ouvre, dans laquelle le bouton Télécharger ZIP est mis en évidence." lightbox="media/how-to-move-regions/download-repo-zip.png":::
-
-Décompressez le fichier.
-
-Ensuite, définissez et configurez les autorisations pour Azure Digital Twins Explorer. Suivez les instructions mentionnées dans la section [Configurer Azure Digital Twins et Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md#set-up-azure-digital-twins-and-azure-digital-twins-explorer) du guide de démarrage rapide Azure Digital Twins. Cette section vous permet de vous familiariser avec les étapes suivantes :
-
-1. Configurer une instance Azure Digital Twins. Vous pouvez ignorer cette partie, car vous avez déjà une instance.
-1. Configurer des informations d’identification Azure locales pour fournir l’accès à votre instance.
-1. Exécutez Azure Digital Twins Explorer, puis configurez-le pour qu’il se connecte à votre instance. Vous allez utiliser le *nom d’hôte* de l’instance Azure Digital Twins d’origine que vous déplacez.
-
-L’exemple d’application Azure Digital Twins Explorer doit désormais s’exécuter dans un navigateur sur votre machine. L’exemple doit être connecté à votre instance Azure Digital Twins d’origine.
-
-:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Fenêtre de navigateur présentant une application exécutée sur localhost:3000. L’application s’appelle Azure Digital Twins Explorer. Elle contient les zones suivantes : Explorateur de requêtes, Modèles, Graphique de jumeaux et Propriétés. Il n’y a pas encore de données à l’écran." lightbox="media/how-to-move-regions/explorer-blank.png":::
-
-Afin de vérifier la connexion, vous pouvez sélectionner le bouton **Exécuter la requête** pour exécuter la requête par défaut qui affiche tous les jumeaux et les relations du graphique dans la zone **GRAPHIQUE DE JUMEAUX**.
-
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Un bouton nommé Exécuter la requête dans le coin supérieur droit de la fenêtre est mis en évidence." lightbox="media/how-to-move-regions/run-query.png":::
-
-Vous pouvez laisser Azure Digital Twins Explorer s’exécuter, car vous allez le réutiliser plus loin dans cet article pour recharger ces éléments sur votre nouvelle instance dans la région cible.
-
-### <a name="download-models-twins-and-graph"></a>Télécharger les modèles, les jumeaux et le graphe
-
-Ensuite, téléchargez les modèles, les jumeaux et le graphe dans votre solution sur votre machine.
-
-Pour télécharger tous ces éléments en même temps, vérifiez d’abord que le graphique complet apparaît dans la zone **GRAPHIQUE DE JUMEAUX**. Si le graphe complet n’apparaît pas déjà, réexécutez la requête par défaut de `SELECT * FROM digitaltwins` dans la section **EXPLORATEUR DE REQUÊTES**.
- 
-Ensuite, sélectionnez l’icône **Exporter le graphique** dans la zone **GRAPHIQUE DE JUMEAUX**.
-
-:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Dans la zone Graphique de jumeaux, une icône est mise en évidence. On peut y voir une flèche pointant vers le bas, à partir d’un nuage." lightbox="media/how-to-move-regions/export-graph.png":::
-
-Cette action active un lien **Télécharger** dans la zone **GRAPHIQUE DE JUMEAUX**. Sélectionnez-le pour télécharger une représentation JSON du résultat de la requête incluant vos modèles, jumeaux et relations. Cette action doit permettre de télécharger un fichier .json sur votre machine.
-
->[!NOTE]
->Si le fichier téléchargé semble présenter une extension de fichier différente, essayez de modifier l’extension directement en la remplaçant par .json.
+Suivez les instructions d’Azure Digital Twins Explorer pour [exporter le graphe et les modèles](how-to-use-azure-digital-twins-explorer.md#export-graph-and-models). Cela permet de télécharger un fichier JSON sur votre ordinateur, qui contient le code pour vos modèles, jumeaux et relations (y compris les modèles qui ne sont pas actuellement utilisés dans le graphe).
 
 ## <a name="move"></a>Déplacer
 
@@ -131,65 +86,23 @@ Tout d’abord, créez une instance d’Azure Digital Twins dans votre région c
 
 Cette étape terminée, vous allez avoir besoin du nom d’hôte de votre nouvelle instance pour continuer sa configuration avec vos données. Si vous n’avez pas noté le nom d’hôte pendant la configuration, suivez [ces instructions](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) pour le récupérer maintenant à partir du portail Azure.
 
-### <a name="repopulate-the-old-instance"></a>Reremplir l’ancienne instance
+À présent, vous allez configurer les données de la nouvelle instance pour en faire une copie de l’instance d’origine.
 
-À présent, vous allez configurer la nouvelle instance pour en faire une copie de l’original.
-
-#### <a name="upload-the-original-models-twins-and-graph-by-using-azure-digital-twins-explorer"></a>Charger les modèles, les jumeaux et le graphe d’origine à l’aide d’Azure Digital Twins Explorer
+#### <a name="upload-models-twins-and-graph-with-azure-digital-twins-explorer"></a>Charger les modèles, les jumeaux et le graphe à l’aide d’Azure Digital Twins Explorer
 
 Dans cette section, vous pouvez recharger vos modèles, jumeaux et graphe dans la nouvelle instance. Si votre instance d’origine ne comporte aucun modèle, jumeau ou graphe, ou si vous ne voulez pas les déplacer vers la nouvelle instance, passez à la [section suivante](#re-create-endpoints-and-routes).
 
-Sinon, revenez à la fenêtre du navigateur qui exécute Azure Digital Twins Explorer, puis suivez ces étapes.
+Tout d’abord, accédez à **Azure Digital Twins Explorer** pour la nouvelle instance dans le [portail Azure](https://portal.azure.com). 
 
-##### <a name="connect-to-the-new-instance"></a>Se connecter à la nouvelle instance
+Importez le [fichier JSON que vous avez téléchargé](#download-models-twins-and-graph-with-azure-digital-twins-explorer) plus tôt dans cet article dans votre nouvelle instance, en suivant les étapes décrites dans les instructions d’Azure Digital Twins Explorer pour [importer un fichier dans Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md#import-file-to-azure-digital-twins-explorer). Cela permet de charger tous les modèles, jumeaux et relations à partir de votre instance d’origine dans la nouvelle instance.
 
-Pour le moment, Azure Digital Twins Explorer est connecté à votre instance Azure Digital Twins d’origine. Changez la connexion pour pointer vers votre nouvelle instance en sélectionnant le bouton **Se connecter** dans le coin supérieur droit de la fenêtre.
+Pour vérifier que tout a été correctement chargé, retournez sous l’onglet **Graphe de jumeaux** et sélectionnez le bouton **Exécuter la requête** dans le panneau **Explorateur de requêtes** pour exécuter la requête par défaut, qui affiche tous les jumeaux et relations dans le graphe. Cette action actualise aussi la liste des modèles dans le panneau **Modèles**.
 
-:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Azure Digital Twins Explorer avec mise en évidence de l’icône Se connecter en haut à droite de la fenêtre. L’icône représente la silhouette d’une personne à laquelle est superposée une clé." lightbox="media/how-to-move-regions/sign-in.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Capture d’écran d’Azure Digital Twins Explorer, mettant en évidence le bouton « Exécuter la requête » en haut à droite de la fenêtre" lightbox="media/how-to-move-regions/run-query.png":::
 
-Remplacez l’**URL ADT** de façon à refléter votre nouvelle instance. Remplacez cette valeur par *https://{nom d’hôte de la nouvelle instance}* .
+Vous devez voir votre graphe, avec tous ses jumeaux et toutes ses relations affichés dans le panneau **Graphe de jumeaux**. Vous devez également voir vos modèles listés dans le panneau **Modèles**.
 
-Sélectionnez **Connecter**. Vous serez peut-être amené à vous reconnecter à l’aide de vos informations d’identification Azure ou à accorder ce consentement d’application pour votre instance.
-
-##### <a name="upload-models-twins-and-graph"></a>Charger les modèles, les jumeaux et le graphe
-
-À présent, dans votre nouvelle instance, chargez les composants de la solution que vous avez téléchargés précédemment.
-
-Pour charger vos modèles, vos jumeaux et votre graphique, sélectionnez l’icône **Importer le graphique** dans la zone **GRAPHIQUE DE JUMEAUX**. Cette option permet de charger les trois composants en même temps. Elle permet même de charger les modèles qui ne sont pas en cours d’utilisation dans le graphe.
-
-:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Dans la zone Graphique de jumeaux, une icône est mise en évidence. On peut voir une flèche pointant vers un nuage." lightbox="media/how-to-move-regions/import-graph.png":::
-
-Dans la zone de sélection des fichiers, accédez à votre graphe téléchargé. Sélectionnez le fichier **.json** du graphe, puis **Ouvrir**.
-
-Après quelques secondes, Azure Digital Twins Explorer ouvre la vue **Importer** dans laquelle vous pouvez voir un aperçu du graphe à charger.
-
-Pour confirmer le chargement du graphique, sélectionnez l’icône **Enregistrer** en haut à droite de la zone **GRAPHIQUE DE JUMEAUX**.
-
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Icône Enregistrer mise en évidence dans le volet Aperçu du graphe" lightbox="media/how-to-move-regions/graph-preview-save.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
-
-Azure Digital Twins Explorer charge à présent vos modèles et votre graphe (notamment les jumeaux et les relations) dans votre nouvelle instance Azure Digital Twins. Vous devez voir un message de réussite indiquant le nombre de modèles, de jumeaux et de relations qui ont été chargés.
-
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Boîte de dialogue indiquant la réussite de l’importation du graphe. Le message dit « Importation réussie. 2 modèles ont été importés. 4 jumeaux ont été importés. 2 relations ont été importées. »" lightbox="media/how-to-move-regions/import-success.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
-
-Pour vérifier que tout a été correctement chargé, retournez dans l’onglet **GRAPHIQUE DE JUMEAUX** et sélectionnez le bouton **Exécuter la requête** dans la zone **EXPLORATEUR DE REQUÊTES** pour exécuter la requête par défaut qui affiche l’intégralité des jumeaux et des relations dans le graphique. Cette action actualise aussi la liste des modèles dans la zone **MODÈLES**.
-
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Le bouton Exécuter la requête est mis en évidence dans le coin supérieur droit de la fenêtre." lightbox="media/how-to-move-regions/run-query.png":::
-
-Vous devez voir votre graphique, avec tous ses jumeaux et toutes ses relations affichés dans la zone **GRAPHIQUE DE JUMEAUX**. Vous devez également voir vos modèles listés dans la zone **MODÈLES**.
-
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Vue d’Azure Digital Twins Explorer mettant en évidence deux modèles dans la zone Modèles et un graphique dans la zone Graphique de jumeaux." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Capture d’écran d’Azure Digital Twins Explorer montrant deux modèles en évidence dans la zone Modèles et un graphe en évidence dans la zone Graphe de jumeaux" lightbox="media/how-to-move-regions/post-upload.png":::
 
 Ces vues confirment que vos modèles, jumeaux et graphe ont été rechargés dans la nouvelle instance de la région cible.
 
@@ -220,7 +133,7 @@ Les ressources exactes que vous devez modifier varient en fonction de votre scé
 * Azure Maps.
 * Service IoT Hub Device Provisioning.
 * Applications personnelles ou d’entreprise en dehors d’Azure, comme l’application cliente créée dans le [Tutoriel : Coder une application cliente](tutorial-code.md), qui se connecte à l’instance et appelle les API Azure Digital Twins.
-* Les inscriptions d’applications Azure AD n’ont *pas* besoin d’être recréées. Si vous utilisez une [inscription d’application](how-to-create-app-registration.md) pour vous connecter aux API Azure Digital Twins, vous pouvez réutiliser la même inscription d’application avec votre nouvelle instance.
+* Les inscriptions d’applications Azure AD n’ont *pas* besoin d’être recréées. Si vous utilisez une [inscription d’application](./how-to-create-app-registration-portal.md) pour vous connecter aux API Azure Digital Twins, vous pouvez réutiliser la même inscription d’application avec votre nouvelle instance.
 
 À l’issue de cette étape, votre nouvelle instance située dans la région cible doit être une copie de l’instance d’origine.
 
@@ -229,7 +142,7 @@ Les ressources exactes que vous devez modifier varient en fonction de votre scé
 Pour confirmer que votre nouvelle instance a été correctement configurée, utilisez les outils suivants :
 
 * [Portail Azure](https://portal.azure.com). Le portail est une bonne solution pour vérifier que votre nouvelle instance existe et qu’elle se trouve dans la bonne région cible. Il permet aussi de vérifier les points de terminaison, les routes et les connexions à d’autres services Azure.
-* [Commandes CLI Azure Digital Twins](concepts-cli.md). Ces commandes sont une bonne solution pour vérifier que votre nouvelle instance existe et qu’elle se trouve dans la bonne région cible. Elles peuvent aussi servir à vérifier les données d’instance.
+* [Commandes CLI Azure Digital Twins](/cli/azure/dt?view=azure-cli-latest&preserve-view=true). Ces commandes sont une bonne solution pour vérifier que votre nouvelle instance existe et qu’elle se trouve dans la bonne région cible. Elles peuvent aussi servir à vérifier les données d’instance.
 * [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Azure Digital Twins Explorer s’avère pratique pour vérifier des données d’instance, comme les modèles, les jumeaux et les graphes.
 * [API et SDK Azure Digital Twins](concepts-apis-sdks.md). Ces ressources s’avèrent pratiques pour vérifier des données d’instance, comme les modèles, les jumeaux et les graphes. Elles s’avèrent aussi utiles pour vérifier les points de terminaison et les routes.
 
@@ -239,10 +152,10 @@ Vous pouvez aussi essayer d’exécuter les applications personnalisées ou les 
 
 Maintenant que votre nouvelle instance est configurée dans la région cible, avec une copie des données et des connexions de l’instance originale, vous pouvez supprimer l’instance d’origine.
 
-Vous pouvez utiliser le [portail Azure](https://portal.azure.com), [Azure CLI](concepts-cli.md) ou les [API du plan de contrôle](concepts-apis-sdks.md#overview-control-plane-apis).
+Vous pouvez utiliser le [portail Azure](https://portal.azure.com), [Azure CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) ou les [API du plan de contrôle](concepts-apis-sdks.md#overview-control-plane-apis).
 
 Pour supprimer l’instance à l’aide du portail Azure, [ouvrez le portail](https://portal.azure.com) dans une fenêtre de navigateur et accédez à votre instance Azure Digital Twins d’origine en recherchant son nom dans la barre de recherche du portail.
 
 Sélectionnez le bouton **Supprimer** et suivez les invites pour finaliser la suppression.
 
-:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Affichage des détails de l’instance Azure Digital Twins dans l’onglet Vue d’ensemble du portail Azure. Le bouton Supprimer est mis en évidence.":::
+:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Capture d’écran des détails de l’instance Azure Digital Twins sous l’onglet Vue d’ensemble du portail Azure. Le bouton Supprimer est en évidence.":::

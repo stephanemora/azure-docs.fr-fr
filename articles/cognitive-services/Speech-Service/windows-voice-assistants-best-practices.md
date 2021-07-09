@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 76a29af80891142fcf7f56f93f5c7acc5c58ab04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77074d7781b913c41e4ab81e9f582511febd714f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92165143"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110058921"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Concevoir des expériences d’assistant pour Windows 10
 
@@ -153,7 +153,7 @@ L’assistant Contoso a une icône circulaire en forme de tourbillon dans la bar
 
 ![Capture d’écran de l’assistant vocal sur Windows à l’écoute en mode compact](media/voice-assistants/windows_voice_assistant/compact_view_listening.png)
 
-Des **réponses rapides** peuvent être présentées dans l’aperçu de l’activation vocale. Un TryResizeView permet aux assistants de demander des tailles différentes.
+Des **réponses rapides** peuvent apparaître dans l’aperçu de l’activation vocale. Un TryResizeView permet aux assistants de demander des tailles différentes.
 
 ![Capture d’écran de l’assistant vocal sur Windows envoyant une réponse en mode compact](media/voice-assistants/windows_voice_assistant/compact_view_response.png)
 

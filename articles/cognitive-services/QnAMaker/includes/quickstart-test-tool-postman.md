@@ -8,21 +8,33 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
 ms.date: 11/09/2020
-ms.openlocfilehash: fa497b69b067d5556f11effdb52505895ecc3bdd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eca47e26f497b1e8bb54e99cf49fcf326f9e5255
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94386482"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110486974"
 ---
 Ce guide de démarrage rapide basé sur Postman vous aide à obtenir une réponse de votre base de connaissances.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Dernière version de [**Postman**](https://www.getpostman.com/).
 * Vous devez avoir :
-    * Un [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
-    * Une [base de connaissances entraînée et publiée avec des questions et des réponses](../Quickstarts/add-question-metadata-portal.md), issue du précédent démarrage rapide, configurée avec des métadonnées et un échange de conversation
+    * Dernière version de [**Postman**](https://www.getpostman.com/).
+    * Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+
+> * Une [ressource QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) créée dans le portail Azure. Rappelez-vous l’ID Azure Active Directory, l’abonnement et le nom de ressource QnA que vous avez sélectionnés au moment de créer la ressource.
+
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
+
+> * Une [ressource Analyse de texte](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) avec la fonctionnalité de réponses aux questions personnalisées activée dans le Portail Azure. Rappelez-vous l’ID Azure Active Directory, l’abonnement et le nom de ressource Analyse de texte que vous avez sélectionnés au moment de créer la ressource.
+
+---
+
+   * Une base de connaissances entraînée et publiée avec des questions et des réponses, issue du précédent [démarrage rapide](../Quickstarts/add-question-metadata-portal.md), configurée avec des métadonnées et un échange de conversation
+
 
 > [!NOTE]
 > Quand vous êtes prêt à générer une réponse à une question issue de votre base de connaissances, vous devez [entraîner](../Quickstarts/create-publish-knowledge-base.md#save-and-train) et [publier](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) votre base de connaissances. Une fois votre base de connaissances publiée, la page **Publier** affiche les paramètres de requête HTTP pour générer une réponse. L’onglet **Postman** présente les paramètres nécessaires pour générer une réponse.
@@ -47,7 +59,7 @@ Utilisez cette procédure pour configurer Postman, puis lisez chaque section sui
 
 1. Ouvrez Postman et créez un requête **POST** de base avec les paramètres de votre base de connaissances publiée. Dans les sections suivantes, modifiez le JSON du corps POST pour changer la requête adressée à votre base de connaissances.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
 Ce guide de démarrage rapide utilise les mêmes paramètres pour la requête **POST** Postman, puis configure le JSON du corps POST envoyé au service en fonction de ce que vous essayez d’interroger.
 
@@ -425,3 +437,53 @@ Vous pouvez demander un seuil minimal pour la réponse. Si le seuil n’est pas 
         "activeLearningEnabled": true
     }
     ```
+## <a name="use-unstructured-data-sources"></a>Utiliser des sources de données non structurées
+    
+Nous prenons désormais en charge la possibilité d’ajouter des documents non structurés qui ne peuvent pas être utilisés pour extraire des questions-réponses. L’utilisateur peut choisir d’inclure ou d’exclure des jeux de données non structurées dans l’API GenerateAnswer lors de la récupération d’une réponse à la requête.
+     
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+Nous ne prenons pas en charge les jeux de données non structurées dans le service GA.
+
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
+
+1. Affectez la valeur true au paramètre *includeUnstructuredResources* si vous souhaitez inclure des sources de données non structurées lors de l’évaluation de la réponse à l’API de génération de réponse, et vice-versa.
+   ```json
+    {
+       "question": "what is Surface Headphones 2+ priced at?",
+       "includeUnstructuredSources":true,
+       "top": 2
+    }
+    ```
+2. La réponse inclut la source de la réponse. 
+    ```json
+       {
+     "answers": [
+       {
+         "questions": [],
+         "answer": "Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.\n\nMicrosoft Modern USB and Wireless Headsets:\n\nCertified for Microsoft Teams, these Microsoft Modern headsets enable greater focus and call privacy, especially in shared workspaces.",
+         "score": 82.11,
+         "id": 0,
+         "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
+         "isDocumentText": false,
+         "metadata": [],
+         "answerSpan": {
+           "text": "$299.99 USD",
+           "score": 0.0,
+           "startIndex": 34,
+           "endIndex": 45
+         }
+       },
+       {
+         "questions": [],
+         "answer": "Now certified for Microsoft Teams with the included dongle, Surface Headphones 2+ provides an even more robust meeting experience with on‐ear Teams controls and improved remote calling. Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.",
+         "score": 81.95,
+         "id": 0,
+         "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
+         "isDocumentText": false,
+         "metadata": []
+       }
+     ],
+     "activeLearningEnabled": true
+   }
+    ```
+---

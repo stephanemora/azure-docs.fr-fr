@@ -4,18 +4,20 @@ titleSuffix: An Azure Communication Services quickstart
 description: Dans ce démarrage rapide, vous allez découvrir comment ajouter des capacités d’appel vidéo à votre application en utilisant Azure Communication Services.
 author: xumo-95
 ms.author: mikben
-ms.date: 06/01/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.openlocfilehash: 49ab4c48f6604855e08a76dfc414fbec95da27e9
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: eba7e8e2b84bcb5a86f7406b23c9b2b78df2f5b7
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560680"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113111693"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app"></a>Démarrage rapide : Ajouter l’appel vidéo 1 à 1 à votre application
+
+[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Video calling with JavaScript](./includes/video-calling/video-calling-javascript.md)]

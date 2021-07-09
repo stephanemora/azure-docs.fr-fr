@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/25/2021
+ms.date: 05/19/2021
 ms.author: victorh
-ms.openlocfilehash: 35bede052f06c0fcffe46460a376d10690fd4417
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f72706d4bb1d9470518fb3b14ee756a1fe1551db
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559624"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480543"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Tutoriel : Créer une passerelle d’application avec un pare-feu d’applications web à l’aide du portail Azure
 
@@ -66,7 +66,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
     - **Nom de sous-réseau** (sous-réseau de serveur principal) : Dans la deuxième ligne de la grille **Sous-réseaux**, entrez *myBackendSubnet* dans la colonne **Nom de sous-réseau**.
 
-    - **Plage d’adresses** (sous-réseau de serveur principal) : Dans la deuxième ligne de la grille **Sous-réseaux**, entrez une plage d’adresses qui ne chevauche pas la plage d’adresses de *myAGSubnet*. Par exemple, si la plage d’adresses de *myAGSubnet* est 10.0.0.0/24, entrez *10.0.1.0/24* pour la plage d’adresses de *myBackendSubnet*.
+    - **Plage d’adresses** (sous-réseau de serveur principal) : Dans la deuxième ligne de la grille **Sous-réseaux**, entrez une plage d’adresses qui ne chevauche pas la plage d’adresses de *myAGSubnet*. Par exemple, si la plage d'adresses de *myAGSubnet* est 10.21.0.0/24, entrez *10.21.1.0/24* pour la plage d'adresses de *myBackendSubnet*.
 
     Sélectionnez **OK** pour fermer la fenêtre **Créer un réseau virtuel** et enregistrez les paramètres du réseau virtuel.
 
@@ -151,19 +151,22 @@ Pour ce faire, vous allez effectuer les opérations suivantes :
 ### <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
 1. Dans le portail Azure, sélectionnez **Créer une ressource**. La fenêtre **Nouvelle** apparaît.
-2. Sélectionnez **Windows Server 2016 Datacenter** dans la liste **Populaire**. La page **Créer une machine virtuelle** s’affiche.<br>Application Gateway peut acheminer le trafic vers n’importe quel type de machine virtuelle utilisée dans son pool principal. Dans cet exemple, vous utilisez un serveur Windows Server 2016 Datacenter.
+2. Sélectionnez **Windows Server 2019 Datacenter** dans la liste **Populaire**. La page **Créer une machine virtuelle** s’affiche.<br>Application Gateway peut acheminer le trafic vers n’importe quel type de machine virtuelle utilisée dans son pool principal. Dans cet exemple, vous utilisez un serveur Windows Server 2019 Datacenter.
 3. Sous l’onglet **De base**, entrez ces valeurs pour les paramètres de machine virtuelle suivants :
 
     - **Groupe de ressources** : sélectionnez **myResourceGroupAG** comme nom de groupe de ressources.
     - **Nom de la machine virtuelle** : entrez *myVM* comme nom de machine virtuelle.
     - **Nom d’utilisateur** : Entrez un nom d’utilisateur administrateur.
     - **Mot de passe** : Entrez un mot de passe comme mot de passe d’administrateur.
+    - **Ports d'entrée publics** : sélectionnez **Aucun**.
 4. Acceptez les autres valeurs par défaut, puis sélectionnez **Suivant : Disques**.  
 5. Acceptez les valeurs par défaut sous l’onglet **Disques**, puis sélectionnez **Suivant : Mise en réseau**.
-6. Sous l’onglet **Mise en réseau**, vérifiez que **myVNet** est sélectionné comme **Réseau virtuel** et que **Sous-réseau** est défini sur  **myBackendSubnet**. Acceptez les autres valeurs par défaut, puis sélectionnez **Suivant : Gestion**.<br>Application Gateway peut communiquer avec des instances en dehors du réseau virtuel dans lequel il réside, mais vous devez vérifier qu’il existe une connectivité IP.
-7. Sous l’onglet **Gestion**, définissez **Diagnostics de démarrage** sur **Désactiver**. Acceptez les autres valeurs par défaut, puis sélectionnez **Vérifier + créer**.
-8. Sous l’onglet **Vérifier + créer**, passez en revue les paramètres, corrigez les éventuelles erreurs de validation et sélectionnez **Créer**.
-9. Attendez la fin de la création de la machine virtuelle avant de continuer.
+6. Sous l’onglet **Mise en réseau**, vérifiez que **myVNet** est sélectionné comme **Réseau virtuel** et que **Sous-réseau** est défini sur  **myBackendSubnet**.
+1. Pour **Adresse IP publique**, sélectionnez **Aucune**.
+1. Acceptez les autres valeurs par défaut, puis sélectionnez **Suivant : Gestion**.
+1. Sous l’onglet **Gestion**, définissez **Diagnostics de démarrage** sur **Désactiver**. Acceptez les autres valeurs par défaut, puis sélectionnez **Vérifier + créer**.
+1. Sous l’onglet **Vérifier + créer**, passez en revue les paramètres, corrigez les éventuelles erreurs de validation et sélectionnez **Créer**.
+1. Attendez la fin de la création de la machine virtuelle avant de continuer.
 
 ### <a name="install-iis-for-testing"></a>Installer IIS pour les tests
 
@@ -225,21 +228,17 @@ Créez une stratégie WAF de base avec un ensemble de règles par défaut manag�
    |Abonnement     |Sélectionnez le nom de votre abonnement|
    |Resource group     |Sélectionnez **myResourceGroupAG**|
    |Nom de stratégie     |Tapez un nom unique pour votre stratégie WAF.|
-1. Sélectionnez **Suivant : Paramètres de stratégie**.
-1. Acceptez les valeurs par défaut, puis sélectionnez **Suivant : Règles managées**.
+1. Sélectionnez **Suivant : Règles managées**.
+1. Acceptez les valeurs par défaut, puis sélectionnez **Suivant : Paramètres de stratégie**.
 1. Acceptez les valeurs par défaut, puis sélectionnez **Suivant : Règles personnalisées**.
 1. Sélectionnez **Suivant : Association**.
 1. Sélectionnez **Ajouter une association**, puis **Application Gateway**.
 1. Cochez la case correspondant à **Appliquer la configuration de stratégie de pare-feu d’applications web même si elle est différente de la configuration actuelle**.
 1. Sélectionnez **Ajouter**.
-1. Sous l’onglet **Association**, sélectionnez **Ajouter une association**, puis **Application Gateway**.
 
    > [!NOTE]
    > Si vous attribuez une stratégie à votre Application Gateway (ou à votre écouteur) qui a déjà une stratégie en place, la stratégie d’origine est remplacée par la nouvelle.
 4. Sélectionnez **Vérifier + créer**, puis sélectionnez **Créer**.
-1. Sélectionnez **Suivant : Balises**.
-1. Sélectionnez **Revoir + créer**.
-1. Sélectionnez **Create** (Créer).
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 

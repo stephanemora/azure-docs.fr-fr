@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/09/2020
-ms.openlocfilehash: 91feb714c6054fedcab556fc2e6ed218d7c7db25
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d9050b0b414ef6ca49f9376e20498b14a8952480
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476032"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072574"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Résolution des problèmes pour QnA Maker
 
@@ -279,7 +279,7 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 <details>
 <summary><b>J’ai supprimé l’index `testkb` de mon service de recherche. Comment puis-je résoudre ce problème ?</b></summary>
 
-**Réponse** : Vos anciennes données ne peuvent pas être récupérées. Créez une ressource QnA Maker, puis recréez votre base de connaissances.
+**Réponse** : Si vous avez supprimé l’index `testkb` dans votre service Search, vous pouvez restaurer les données à partir de la dernière base de connaissances publiée. Utilisez l’outil de récupération [RestoreTestKBIndex](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/RestoreTestKBFromProd) disponible sur GitHub. 
 
 </details>
 
@@ -367,9 +367,9 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 </details>
 
 <details>
-<summary><b>J’ai supprimé l’index `testkb` de mon service de recherche. Comment puis-je résoudre ce problème ?</b></summary>
+<summary><b>J’ai supprimé l’index `testkbv2` de mon service de recherche. Comment puis-je résoudre ce problème ?</b></summary>
 
-**Réponse** : Vos anciennes données ne peuvent pas être récupérées. Créez une ressource QnA Maker, puis recréez votre base de connaissances.
+**Réponse** : Si vous avez supprimé l’index `testkbv2` dans votre service Search, vous pouvez restaurer les données à partir de la dernière base de connaissances publiée. Utilisez l’outil de récupération [RestoreTestKBIndex](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/RestoreTestKBFromProd) disponible sur GitHub. 
 
 </details>
 

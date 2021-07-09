@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/09/2020
+ms.date: 05/18/2021
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: f5b63503792b13e089568004ba67e5be8a3d0c7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 348805670187f2362eb17dae40aa94e70f1daa24
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98932372"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084679"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Décalages de texte dans la sortie de l’API Analyse de texte
 
@@ -26,7 +26,7 @@ En raison des différentes longueurs des codages multilingues et d’emojis poss
 
 ## <a name="offsets-in-the-api-response"></a>Décalages dans la réponse de l’API. 
 
-Chaque fois que des décalages sont renvoyés dans la réponse de l’API, par exemple [Reconnaissance d’entité nommée](../how-tos/text-analytics-how-to-entity-linking.md) ou [Analyse des sentiments](../how-tos/text-analytics-how-to-sentiment-analysis.md), gardez à l’esprit ce qui suit :
+Chaque fois que des décalages sont retournés dans la réponse de l’API, par exemple [Reconnaissance d’entité nommée](../how-tos/text-analytics-how-to-entity-linking.md) ou [Analyse des sentiments](../how-tos/text-analytics-how-to-sentiment-analysis.md), gardez à l’esprit ce qui suit :
 
 * Les éléments de la réponse peuvent être spécifiques du point de terminaison appelé. 
 * Les charges utiles HTTP POST/GET sont encodées au format [UTF-8](https://www.w3schools.com/charsets/ref_html_utf8.asp), qui peut être ou non l’encodage de caractères par défaut sur votre compilateur ou système d’exploitation côté client.
@@ -42,11 +42,11 @@ L’API Analyse de texte retourne également ces éléments textuels pour des ra
 
 ## <a name="offsets-in-api-version-31-preview"></a>Décalages dans la version 3.1-preview de l'API
 
-À partir de la version 3.1-preview.1 de l'API, tous les points de terminaison de l'API Analyse de texte qui renverront un décalage prendront en charge le paramètre `stringIndexType`. Ce paramètre ajuste les attributs `offset` et `length` dans la sortie de l'API pour qu'ils correspondent au schéma d'itération de chaîne demandé. Actuellement, trois types sont pris en charge :
+Dans la version 3.1 de l’API, tous les points de terminaison de l’API Analyse de texte qui retourneront un décalage prendront en charge le paramètre `stringIndexType`. Ce paramètre ajuste les attributs `offset` et `length` dans la sortie de l'API pour qu'ils correspondent au schéma d'itération de chaîne demandé. Actuellement, trois types sont pris en charge :
 
 1. `textElement_v8` (par défaut) : itération sur les graphèmes, comme défini par la norme [Unicode 8.0.0](https://unicode.org/versions/Unicode8.0.0)
 2. `unicodeCodePoint` : itération sur les [points de code Unicode](http://www.unicode.org/versions/Unicode13.0.0/ch02.pdf#G25564), le schéma par défaut pour Python 3
-3. `utf16CodeUnit` : itération sur les [unités de code UTF-16](https://unicode.org/faq/utf_bom.html#UTF16), le schéma par défaut pour Javascript, Java et .NET
+3. `utf16CodeUnit` : itération sur les [unités de code UTF-16](https://unicode.org/faq/utf_bom.html#UTF16), le schéma par défaut pour JavaScript, Java et .NET
 
 Si le `stringIndexType` demandé correspond à l'environnement de programmation de votre choix, l'extraction de sous-chaîne peut être effectuée à l'aide des méthodes substring ou slice standard. 
 

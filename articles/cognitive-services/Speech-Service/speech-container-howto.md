@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: local, Docker, conteneur
-ms.openlocfilehash: e4b79dc278bf41015c84f72994dd68419ae6e230
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5c16a0245361dfa7e3ff160f5ffa45154555aa0b
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110097945"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495328"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installer et exécuter des conteneurs Docker pour les API du service Speech 
 
@@ -34,7 +34,7 @@ Les conteneurs Speech permettent aux clients de créer une architecture d’appl
 > * Synthèse vocale neuronale
 >
 > Les conteneurs Speech suivants sont en préversion contrôlée.
-> * Détection de langue vocale 
+> * Identification de la langue parlée 
 >
 > Pour utiliser les conteneurs Speech, vous devez envoyer une demande en ligne et obtenir son approbation. Pour plus d’informations, consultez la section **Demande d’approbation pour l’exécution du conteneur** ci-dessous.
 
@@ -43,7 +43,7 @@ Les conteneurs Speech permettent aux clients de créer une architecture d’appl
 | Reconnaissance vocale | Analyse les sentiments et transcrit de façon continue de la parole en temps réel ou des enregistrements audio par lots, avec des résultats intermédiaires.  | 2.12.0 |
 | Reconnaissance vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Speech](https://speech.microsoft.com/customspeech), transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.12.0 |
 | Synthèse vocale | Convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.14.0 |
-| Détection de langue vocale | Permet de détecter la langue parlée en fichiers audio. | 1.0 |
+| Identification de la langue parlée | Permet de détecter la langue parlée en fichiers audio. | 1.0 |
 | Synthèse vocale neuronale | Convertit du texte en parole naturelle grâce à la technologie de réseau neuronal profond qui permet d’obtenir une parole synthétisée plus naturelle. | 1.6.0 |
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
@@ -83,7 +83,7 @@ Le tableau suivant indique l’allocation de ressources minimale et recommandée
 | Reconnaissance vocale | 2 cœurs, 2 Go de mémoire | 4 cœurs, 4 Go de mémoire |
 | Reconnaissance vocale personnalisée | 2 cœurs, 2 Go de mémoire | 4 cœurs, 4 Go de mémoire |
 | Synthèse vocale | 1 cœur, 2 Go de mémoire | 2 cœur, 3 Go de mémoire |
-| Détection de langue vocale | 1 cœur, 1 Go de mémoire | 1 cœur, 1 Go de mémoire |
+| Identification de la langue parlée | 1 cœur, 1 Go de mémoire | 1 cœur, 1 Go de mémoire |
 | Synthèse vocale neuronale | 6 cœurs, 12 Go de mémoire | 8 cœurs, 16 Go de mémoire |
 
 * Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
@@ -128,14 +128,14 @@ Les images conteneur pour Speech sont disponibles dans le service Container Regi
 |-----------|------------|
 | Synthèse vocale neuronale | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest` |
 
-# <a name="speech-language-detection"></a>[Détection de langue vocale](#tab/lid)
+# <a name="speech-language-identification"></a>[Identification de la langue parlée](#tab/lid)
 
 > [!TIP]
-> Pour obtenir les résultats les plus utiles, nous vous recommandons d’utiliser le conteneur de détection de langue vocale avec les conteneurs de reconnaissance vocale ou de reconnaissance vocale personnalisée. 
+> Pour obtenir les résultats les plus utiles, nous vous recommandons d’utiliser le conteneur d’identification de la langue parlée avec les conteneurs de reconnaissance vocale ou de reconnaissance vocale personnalisée. 
 
 | Conteneur | Référentiel |
 |-----------|------------|
-| Détection de langue vocale | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest` |
+| Identification de la langue parlée | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest` |
 
 ***
 
@@ -249,9 +249,9 @@ Pour tous les paramètres régionaux et les voix correspondantes pris en charge 
 > [!IMPORTANT]
 > Lors de la construction d’une requête HTTP POST de *synthèse vocale neuronale*, le message [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) nécessite un élément `voice` avec un attribut `name`. La valeur correspond aux paramètres régionaux et à la voix du conteneur correspondant, également appelés [« nom court »](language-support.md#neural-voices). Par exemple, le nom de la voix pour la balise `latest` est `en-US-AriaNeural`.
 
-# <a name="speech-language-detection"></a>[Détection de langue vocale](#tab/lid)
+# <a name="speech-language-identification"></a>[Identification de la langue parlée](#tab/lid)
 
-#### <a name="docker-pull-for-the-speech-language-detection-container"></a>Docker pull du conteneur Détection de langue vocale
+#### <a name="docker-pull-for-the-speech-language-identification-container"></a>Docker pull du conteneur Identification de la langue parlée
 
 Utilisez la commande [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur à partir du registre de conteneurs Microsoft.
 
@@ -498,9 +498,9 @@ Cette commande :
 * Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
 
-# <a name="speech-language-detection"></a>[Détection de langue vocale](#tab/lid)
+# <a name="speech-language-identification"></a>[Identification de la langue parlée](#tab/lid)
 
-Pour exécuter le conteneur *Détection de langue vocale*, exécutez la commande `docker run` suivante.
+Pour exécuter le conteneur *Identification de la langue parlée*, exécutez la commande `docker run` suivante.
 
 ```bash
 docker run --rm -it -p 5003:5003 --memory 1g --cpus 1 \
@@ -517,7 +517,7 @@ Cette commande :
 * Expose le port TCP 5003 et alloue un pseudo-TTY pour le conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
 
-Si vous envoyez uniquement des requêtes Détection de langue Speech, vous devrez définir la valeur `phraseDetection` du client Speech sur `None`.  
+Si vous envoyez uniquement des demandes d’identification de la langue parlée, vous devez définir la valeur `phraseDetection` du client Speech sur `None`.  
 
 ```python
 speech_config.set_service_property(
@@ -534,7 +534,7 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 ```
 
 > [!NOTE]
-> Une augmentation du nombre d’appels simultanés peut avoir un impact sur la fiabilité et la latence. Pour la détection de la langue, nous vous recommandons de ne pas dépasser 4 appels simultanés avec 1 processeur et 1 Go de mémoire. Pour des hôtes dotés de 2 processeurs et de 2 Go de mémoire, nous recommandons un maximum de 6 appels simultanés.
+> Une augmentation du nombre d’appels simultanés peut avoir un impact sur la fiabilité et la latence. Pour l’identification de la langue, nous vous recommandons de ne pas dépasser 4 appels simultanés avec 1 processeur et 1 Go de mémoire. Pour des hôtes dotés de 2 processeurs et de 2 Go de mémoire, nous recommandons un maximum de 6 appels simultanés.
 
 ***
 
@@ -549,7 +549,7 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 | Containers | URL de l’hôte du SDK | Protocol |
 |--|--|--|
 | Reconnaissance vocale standard et reconnaissance vocale personnalisée | `ws://localhost:5000` | WS |
-| Synthèse vocale (standard et neurale), détection de langue vocale | `http://localhost:5000` | HTTP |
+| Synthèse vocale (standard et neuronale), Identification de la langue parlée | `http://localhost:5000` | HTTP |
 
 Pour plus d’informations sur l’utilisation des protocoles WSS et HTTPS, consultez [Sécurité des conteneurs](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
@@ -714,7 +714,7 @@ Dans cet article, vous avez découvert des concepts et le flux de travail pour l
   * *Synthèse vocale*
   * *Synthèse vocale personnalisée*
   * *Synthèse vocale neuronale*
-  * *Détection de langue vocale*
+  * *Identification de la langue parlée*
 * Les images conteneur sont téléchargées à partir du registre de conteneurs dans Azure.
 * Les images conteneurs s’exécutent dans Docker.
 * Que vous utilisiez l'API REST (synthèse vocale uniquement) ou le kit SDK (reconnaissance vocale ou synthèse vocale), vous spécifiez l'URI de l'hôte du conteneur. 

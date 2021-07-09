@@ -10,12 +10,12 @@ ms.author: petrodeg
 ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: d0c2884b9c080c214cbebd666cbf4df62a8efcf2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f493cfc21ff3f5e2aa122bbbc08f24e1a759558e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382611"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480942"
 ---
 # <a name="troubleshooting-managed-online-endpoints-deployment-and-scoring-preview"></a>Résolution des problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)
 
@@ -50,6 +50,8 @@ Le déploiement local inclut les étapes suivantes :
 
 - Docker génère une nouvelle image conteneur ou tire (pull) une image existante du cache Docker local. Si une image existante correspond à la partie environnement du fichier de spécification, elle est utilisée.
 - Docker démarre un nouveau conteneur avec les artefacts locaux montés tels que les fichiers de code et de modèle.
+
+Pour plus d’informations, consultez [Déployer localement dans Déployer et scorer un modèle Machine Learning avec un point de terminaison en ligne managé (préversion)](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-using-local-endpoints).
 
 ## <a name="get-container-logs"></a>Obtenir les journaux de conteneur
 
@@ -164,7 +166,10 @@ az ml endpoint get-logs
 
 Pour exécuter le code `score.py` fourni dans le cadre du déploiement, Azure crée un conteneur qui comprend toutes les ressources qui lui sont nécessaires, puis exécute le script de scoring sur ce conteneur.  Dans ce scénario, l’erreur est la suivante : ce conteneur plante à l’exécution, ce qui signifie que le scoring n’a pas pu être effectué. Cette erreur se produit dans les cas suivants :
 
-- Il y a une erreur dans `score.py`.
+- Il y a une erreur dans `score.py`. Utilisez `get--logs` pour aider à diagnostiquer les problèmes courants :
+    - Un package qui a été importé mais qui n’est pas dans l’environnement Conda
+    - Une erreur de syntaxe
+    - Un échec dans la méthode `init()`
 - Les probes readiness ou liveness ne sont pas configurées correctement.
 - Il y a une erreur dans la configuration de l’environnement du conteneur, par exemple, une dépendance manquante.
 

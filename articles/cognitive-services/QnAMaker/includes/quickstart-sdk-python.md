@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Bibliothèque de client QnA Maker pour Python'
 description: Ce guide de démarrage rapide montre comment commencer à utiliser la bibliothèque de client QnA Maker pour Python.
 ms.topic: include
 ms.date: 06/18/2020
-ms.openlocfilehash: 7c897b524f7038f4ff7b18e273202bd02886c0e8
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: d64946d60162f322d940d4bee7203bfd4b77a4f5
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609531"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110487126"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/version-1)
 
@@ -25,7 +25,7 @@ Utilisez la bibliothèque de client QnA Maker pour Python afin de :
 
 [Documentation de référence](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-knowledge-qnamaker) | [Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/0.2.0/) | [Exemples Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/QnAMaker/sdk/quickstart.py)
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
 Utilisez la bibliothèque de client QnA Maker pour Python afin de :
 
@@ -53,14 +53,12 @@ Utilisez la bibliothèque de client QnA Maker pour Python afin de :
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API QnA Maker. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
-* Une fois en possession de votre abonnement Azure, créez une [ressource QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) sur le portail Azure pour obtenir vos clé et point de terminaison de création.
-    * REMARQUE : Veillez à cocher la case **Managé**.
-    * Après le déploiement de votre ressource QnA Maker, sélectionnez **Accéder à la ressource**. Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API QnA Maker. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
-    * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
+* * Les questions et réponses personnalisées nécessitent une [ressource Analyse de texte](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) avec la fonctionnalité de réponses aux questions personnalisées activée pour générer une clé d’API et un point de terminaison.
+    * Après le déploiement de votre ressource Analyse de texte, sélectionnez **Accéder à la ressource**. Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API QnA Maker. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
 
 ---
 
@@ -76,7 +74,7 @@ Après avoir installé Python, vous pouvez installer la bibliothèque de client 
 pip install azure-cognitiveservices-knowledge-qnamaker==0.2.0
 ```
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
 Après avoir installé Python, vous pouvez installer la bibliothèque de client avec :
 
@@ -94,7 +92,7 @@ Créez un fichier Python nommé `quickstart-file.py` et importez les bibliothèq
 
 [!code-python[Dependencies](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=Dependencies)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
 [!code-python[Dependencies](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/preview-sdk/quickstart.py?name=Dependencies)]
 
@@ -118,13 +116,14 @@ Créez des variables pour le point de terminaison et la clé Azure de votre ress
 
 [!code-python[Resource variables](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=Resourcevariables)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
-- Nous utilisons une clé d’abonnement et une clé de création de manière interchangeable. Pour plus d’informations sur la clé de création, consultez [Clés dans QnA Maker](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
+- Nous utilisons une clé d’abonnement et une clé de création de manière interchangeable. Pour plus d’informations sur la clé de création, consultez [Clés](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
 
-- Le format de la valeur de QNA_MAKER_ENDPOINT est `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Accédez au portail Azure, puis recherchez la ressource QnA Maker que vous avez créée à l’étape des prérequis. Cliquez sur la page **Clés et point de terminaison**, sous **Gestion des ressources** pour localiser la clé de création (abonnement) et le point de terminaison QnA Maker.
+- Le format de la valeur de QNA_MAKER_ENDPOINT est `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Accédez au portail Azure, puis recherchez la ressource Analyse de texte que vous avez créée à l’étape des prérequis. Cliquez sur la page **Clés et point de terminaison**, sous **Gestion des ressources** pour trouver la clé de création (abonnement) et le point de terminaison.
 
- ![Point de terminaison de création QnA Maker](../media/keys-endpoint.png)
+> [!div class="mx-imgBorder"]
+> ![Point de terminaison de création de questions-réponses personnalisées](../media/qnamaker-how-to-key-management/custom-qna-keys-and-endpoint.png)
  
 - Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Par exemple, [Azure Key Vault](../../../key-vault/general/overview.md) fournit un stockage de clé sécurisé.
 
@@ -140,7 +139,7 @@ Créez des variables pour le point de terminaison et la clé Azure de votre ress
 * **[QnAMakerClient](#qnamakerclient-object-model)** est l’objet utilisé pour créer, gérer, publier et télécharger la base de connaissances.
 * **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** est l’objet utilisé pour interroger la base de connaissances avec l’API GenerateAnswer et envoyer de nouvelles questions suggérées avec l’API Train (dans le cadre de l’[apprentissage actif](../how-to/use-active-learning.md)).
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
 [QnA Maker](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker) utilise le modèle objet suivant :
 * **[QnAMakerClient](#qnamakerclient-object-model)** est l’objet utilisé pour créer, gérer, publier, télécharger et interroger la base de connaissances.
@@ -165,9 +164,9 @@ Le client QnA Maker de prédiction est un objet `QnAMakerRuntimeClient` qui s’
 
 Utilisez la méthode `generate_answer` pour obtenir une réponse du runtime de requête.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
-Une ressource managée QnA Maker ne nécessite pas d’utiliser l’objet QnAMakerRuntimeClient. Vous appelez plutôt [generate_answer](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebase_operations.knowledgebaseoperations#generate-answer-kb-id--generate-answer-payload--custom-headers-none--raw-false----operation-config-) directement sur l’objet [QnAMakerClient](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.qn_amaker_client.qnamakerclient).
+La réponse à une question personnalisée ne nécessite pas l’utilisation de l’objet QnAMakerRuntimeClient. Vous appelez plutôt [generate_answer](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebase_operations.knowledgebaseoperations#generate-answer-kb-id--generate-answer-payload--custom-headers-none--raw-false----operation-config-) directement sur l’objet [QnAMakerClient](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.qn_amaker_client.qnamakerclient).
 
 ---
 
@@ -179,7 +178,7 @@ Instanciez un client avec votre point de terminaison et la clé. Créez un objet
 
 [!code-python[Authorization to resource key](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=AuthorizationAuthor)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
 [!code-python[Authorization to resource key](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/preview-sdk/quickstart.py?name=AuthorizationAuthor)]
 
@@ -204,7 +203,7 @@ La dernière ligne du code suivant retourne l’ID de la base de connaissances �
 
 [!code-python[Create knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=CreateKBMethod)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
 [!code-python[Create knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/preview-sdk/quickstart.py?name=CreateKBMethod)]
 
@@ -220,7 +219,7 @@ Vous pouvez mettre à jour une base de connaissances en passant l’ID de celle-
 
 [!code-python[Update a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=UpdateKBMethod)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
 [!code-python[Update a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/preview-sdk/quickstart.py?name=UpdateKBMethod)]
 
@@ -236,7 +235,7 @@ Utilisez la méthode [download](/python/api/azure-cognitiveservices-knowledge-qn
 
 [!code-python[Download a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=DownloadKB)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
 [!code-python[Download a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/preview-sdk/quickstart.py?name=DownloadKB)]
 
@@ -250,7 +249,7 @@ Publiez la base de connaissances à l’aide de la méthode [publish](/python/ap
 
 [!code-python[Publish a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=PublishKB)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
 [!code-python[Publish a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/preview-sdk/quickstart.py?name=PublishKB)]
 
@@ -284,7 +283,7 @@ Générez une réponse à partir d’une base de connaissances publiée à l’a
 
 [!code-python[Generate an answer from a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=GenerateAnswer)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
 ### <a name="generate-an-answer-from-the-knowledge-base"></a>Générer une réponse à partir de la base de connaissances
 
@@ -304,7 +303,7 @@ Supprimez la base de connaissances à l’aide de la méthode [delete](/python/a
 
 [!code-python[Delete a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=DeleteKB)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
 [!code-python[Delete a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/preview-sdk/quickstart.py?name=DeleteKB)]
 
@@ -320,7 +319,7 @@ L’appel _setTimeout_ dans le bloc de code suivant est utilisé pour simuler le
 
 [!code-python[Monitor an operation](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=MonitorOperation)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
 [!code-python[Monitor an operation](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/preview-sdk/quickstart.py?name=MonitorOperation)]
 
@@ -338,7 +337,7 @@ python quickstart-file.py
 
 Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/QnAMaker/sdk/quickstart.py).
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/version-2)
 
 Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/QnAMaker/sdk/preview-sdk/quickstart.py).
 

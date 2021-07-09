@@ -8,14 +8,14 @@ manager: nitinme
 keywords: services cognitifs, intelligence cognitive, solutions cognitives, services ia
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 06/04/2021
 ms.author: aahi
-ms.openlocfilehash: de855e53f6d54c9175963b34d8cd3da572e02790
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: fb28a431f9f2f136d177a5d51398bc2427a7134d
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736535"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540153"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure
 
@@ -114,6 +114,8 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez **Groupes de ressources** pour afficher la liste de vos groupes de ressources.
 2. Localisez le groupe de ressources contenant la ressource à supprimer.
 3. Cliquez avec le bouton droit sur la liste des groupes de ressources. Sélectionnez **Supprimer le groupe de ressources** et confirmez.
+
+Si vous devez récupérer une ressource supprimée, consultez [Récupérer des ressources Cognitive Services supprimées](manage-resources.md).
 
 ## <a name="see-also"></a>Voir aussi
 

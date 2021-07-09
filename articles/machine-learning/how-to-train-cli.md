@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: how-to
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 05/25/2021
+ms.date: 06/08/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 92397e1648afe8e92cd810827b75cb23c2dac09f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 141f1ac9cefa91c93a6f2e0cb8500f378ae4700b
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110458273"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112008018"
 ---
 # <a name="train-models-create-jobs-with-the-20-cli-preview"></a>Entraîner des modèles (créer des travaux) avec l’interface CLI 2.0 (préversion)
 
@@ -79,7 +79,7 @@ Le travail à la commande de base est configuré via `job.yml` :
 
 Ce travail peut être créé et exécuté via `az ml job create` en utilisant le paramètre `--file/-f`. Cependant, le travail cible une capacité de calcul nommée `cpu-cluster` qui n’existe pas encore. Pour exécuter le travail d’abord en local, vous pouvez remplacer la cible de calcul par `--set` :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="lightgbm_iris_local":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris_local":::
 
 Même si l’exécution locale de ce travail est plus lente que l’exécution de `python main.py` dans un environnement Python local avec les packages nécessaires, le premier vous permet de :
 
@@ -99,9 +99,9 @@ Même si l’exécution locale de ce travail est plus lente que l’exécution d
 
 Vous pouvez créer un cluster de calcul Azure Machine Learning à partir de la ligne de commande. Par exemple, les commandes suivantes créent un cluster nommé `cpu-cluster` et un autre nommé `gpu-cluster`.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="create_computes":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/create-compute.sh" id="create_computes":::
 
-Notez que le calcul ne vous est pas facturé à ce stade, car `cpu-cluster` et `gpu-cluster` restent aux nœuds 0 tant qu’aucun travail n’est envoyé. Apprenez-en davantage sur la [planification et la gestion des coûts pour AmlCompute](concept-plan-manage-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
+Notez que le calcul ne vous est pas facturé à ce stade, car `cpu-cluster` et `gpu-cluster` restent aux nœuds 0 tant qu’aucun travail n’est envoyé. Apprenez-en davantage sur [la gestion et l’optimisation des coûts pour AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
 Utilisez `az ml compute create -h` pour plus d’informations sur les options de création de capacités de calcul.
 
@@ -126,11 +126,11 @@ La création de ce travail a pour effet de charger les ressources locales spéci
 
 Pour exécuter le travail d’entraînement lightgbm/iris :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="lightgbm_iris":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris":::
 
 Une fois le travail terminé, vous pouvez télécharger les sorties :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="download_outputs":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="download_outputs":::
 
 > [!IMPORTANT]
 > Remplacez `$run_id` par votre ID d’exécution, qui se trouve dans la sortie de la console ou dans la page des détails de l’exécution du studio.
@@ -139,7 +139,7 @@ Cela a pour effet de télécharger les journaux et les artefacts éventuellement
 
 ## <a name="sweep-hyperparameters"></a>Balayer les hyperparamètres
 
-Azure Machine Learning vous permet également de régler plus efficacement les hyperparamètres pour vos modèles de machine learning. Vous pouvez configurer un travail de réglage hyperparamétrique, appelé travail de balayage, et l’envoyer via l’interface CLI. Pour plus d’informations sur l’offre de réglage hyperparamétrique d’Azure Machine Learning, consultez [Hyperparamètres réglant un modèle](how-to-tune-hyperparameters.md).
+Azure Machine Learning vous permet également de régler plus efficacement les hyperparamètres pour vos modèles de machine learning. Vous pouvez configurer un travail de réglage hyperparamétrique, appelé travail de balayage, et l’envoyer via l’interface CLI.
 
 Vous pouvez changer `job.yml` en `job-sweep.yml` pour balayer les hyperparamètres :
 
@@ -160,7 +160,7 @@ Vous pouvez changer `job.yml` en `job-sweep.yml` pour balayer les hyperparamètr
 
 Créez le travail et ouvrez-le dans le studio :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="lightgbm_iris_sweep":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris_sweep":::
 
 > [!TIP]
 > Les balayages hyperparamétriques peuvent être utilisés avec des travaux de commande distribués.
@@ -179,11 +179,11 @@ Exemple de fichier YAML pour l’entraînement PyTorch distribué sur le jeu de 
 
 Notez qu’il fait référence à des données locales, qui ne sont pas présentes dans le référentiel d’exemples cloné. Vous devez commencer par télécharger, extraire et déplacer le jeu de données CIFAR-10 localement, en le plaçant à l’emplacement approprié dans le répertoire du projet :
 
-:::code language="bash" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="download_cifar":::
+:::code language="bash" source="~/azureml-examples-main/cli/train.sh" id="download_cifar":::
 
 Créez le travail et ouvrez-le dans le studio :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="pytorch_cifar":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="pytorch_cifar":::
 
 ### <a name="tensorflow"></a>TensorFlow
 
@@ -193,7 +193,7 @@ Exemple de fichier YAML pour l’entraînement TensorFlow distribué sur le jeu 
 
 Créez le travail et ouvrez-le dans le studio :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="tensorflow_mnist":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="tensorflow_mnist":::
 
 ### <a name="mpi"></a>MPI
 
@@ -207,7 +207,7 @@ Exemple de spécification YAML, qui exécute un travail TensorFlow sur MNIST en 
 
 Créez le travail et ouvrez-le dans le studio :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="tensorflow_mnist_horovod":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="tensorflow_mnist_horovod":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

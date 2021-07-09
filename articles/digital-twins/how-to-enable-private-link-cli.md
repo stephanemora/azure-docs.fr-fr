@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 47299467c51d128a228e4120eb8e0d0ff4deebc4
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0a9b92eb4d49274c23d89674e6f97f906dc28b43
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456459"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616135"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-cli"></a>Activer l’accès privé avec Private Link (préversion) : Azure CLI
 
@@ -28,7 +28,7 @@ Les étapes décrites dans cet article sont les suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de pouvoir configurer un point de terminaison privé, vous avez besoin d’un [réseau virtuel Azure (VNet)](../virtual-network/virtual-networks-overview.md)  où le point de terminaison peut être déployé. Si vous ne disposez pas déjà d’un réseau virtuel, vous pouvez suivre l’un des [démarrages rapides](../virtual-network/quick-create-portal.md) de réseau virtuel Azure pour en configurer un.
+Avant de pouvoir configurer un point de terminaison privé, vous avez besoin d’un [réseau virtuel Azure (VNet)](../virtual-network/virtual-networks-overview.md)  où le point de terminaison peut être déployé. Si vous ne disposez pas déjà d’un réseau virtuel, vous pouvez suivre l’un des [guides de démarrage rapide de réseau virtuel Azure](../virtual-network/quick-create-portal.md) pour en configurer un.
 
 ## <a name="manage-private-endpoints-for-an-azure-digital-twins-instance"></a>Gérer les points de terminaison privés d’une instance d’Azure Digital Twins 
 

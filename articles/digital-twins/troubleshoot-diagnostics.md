@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/24/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4ca6989a6c446c543c35d8e35e5e27aefef118c2
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ced6f28bb7174bc3510de9025569646210e87782
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205680"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475703"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Dépannage d’Azure Digital Twins : Journalisation des diagnostics
 
@@ -32,7 +32,7 @@ Activez les paramètres de diagnostic pour démarrer la collecte des journaux su
 
 2. Sélectionnez **Paramètres de diagnostic** dans le menu, puis **Ajouter un paramètre de diagnostic**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Capture d’écran montrant la page des paramètres de diagnostic et le bouton à ajouter" lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Capture d’écran montrant la page des paramètres de diagnostic dans le portail Azure et le bouton à ajouter" lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
 
 3. Dans la page qui suit, renseignez les valeurs suivantes :
      * **Nom du paramètre de diagnostic** : Nommez les paramètres de diagnostic.
@@ -53,7 +53,7 @@ Activez les paramètres de diagnostic pour démarrer la collecte des journaux su
     
 4. Enregistrez les nouveaux paramètres. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Capture d'écran montrant la page des paramètres de diagnostic où l'utilisateur a renseigné un nom de paramètre de diagnostic et coché quelques cases en rapport avec les détails de la catégorie et de la destination. Le bouton Enregistrer est en surbrillance." lightbox="media/troubleshoot-diagnostics/diagnostic-settings-details.png":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Capture d’écran montrant la page de paramètres de diagnostic dans le portail Azure où l’utilisateur a rempli des informations de paramètres de diagnostic" lightbox="media/troubleshoot-diagnostics/diagnostic-settings-details.png":::
 
 Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux réapparaissent dans la cible configurée sur la page **Paramètres de diagnostic** de votre instance. 
 
@@ -351,14 +351,14 @@ Voici comment interroger les journaux de votre instance.
 
 2. Sélectionnez **Journaux** dans le menu pour ouvrir la page d’interrogation de journal. Cette page s’ouvre dans une fenêtre nommée *Requêtes*.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Capture d’écran montrant la page Journaux d’une instance Azure Digital Twins. Elle est recouverte par une fenêtre Requêtes qui montre des requêtes prédéfinies nommées selon les différentes options de journalisation, comme Latence de l’API DigitalTwin et Latence de l’API de modèle." lightbox="media/troubleshoot-diagnostics/logs.png":::
+    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Capture d’écran montrant la page Journaux pour une instance Azure Digital Twins dans le portail Azure avec la fenêtre Requêtes superposée, montrant les requêtes prédéfinies" lightbox="media/troubleshoot-diagnostics/logs.png":::
 
     Il s’agit d’exemples de requêtes prédéfinies écrites pour divers journaux. Vous pouvez sélectionner l’une des requêtes pour la charger dans l’éditeur de requête, puis l’exécuter afin de voir ces journaux pour votre instance.
 
     Vous pouvez aussi fermer la fenêtre *Requêtes* sans rien exécuter pour accéder directement à la page de l’éditeur de requête, où vous pouvez écrire ou modifier du code de requête personnalisé.
 
 3. Après avoir quitté la fenêtre *Requêtes*, la page principale de l’éditeur de requête s’affiche. Ici, vous pouvez voir et modifier le texte des exemples de requêtes, ou écrire vos propres requêtes ex nihilo.
-    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Capture d’écran montrant la page Journaux d’une instance Azure Digital Twins. La fenêtre Requêtes a disparu et, à la place, figure la liste des différents journaux, un volet d’édition présentant du code de requête modifiable et un volet présentant l’historique des requêtes." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
+    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Capture d’écran montrant la page Journaux pour une instance Azure Digital Twins dans le portail Azure. Elle comprend la liste des journaux, le code de requête et l’historique des requêtes." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
 
     Dans le volet gauche : 
     - L’onglet *Tables* présente les différentes [catégories de journaux](#log-categories) Azure Digital Twins utilisables dans vos requêtes. 

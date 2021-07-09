@@ -6,16 +6,16 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
-ms.openlocfilehash: aa5d24229bae0e459471dc40ca375d42ccc1405c
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b24fbcafa917e4577dc0b13b83e83cf105174332
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293231"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113113187"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Démarrage rapide : Créer et gérer des ressources Communication Services
 
@@ -23,7 +23,7 @@ Commencez avec Azure Communication Services en provisionnant votre première res
 
 
 > [!WARNING]
-> Notez que bien que Communication Services soit disponible dans plusieurs zones géographiques, afin d’obtenir un numéro de téléphone, l’emplacement des données de la ressource doit être défini sur « US ». Notez également que les ressources Communication ne peuvent pas être transférées vers un autre abonnement durant cette période de préversion publique.
+> Notez que bien que Communication Services soit disponible dans plusieurs zones géographiques, afin d’obtenir un numéro de téléphone, l’emplacement des données de la ressource doit être défini sur « US ». Notez également qu’il n’est pas possible de créer un groupe de ressources en même temps qu’une ressource pour Azure Communication Services. Lors de la création d’une ressource, un groupe de ressources qui a déjà été créé doit être utilisé.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]
@@ -118,9 +118,12 @@ Après avoir ajouté la variable d’environnement, exécutez `source ~/.bash_pr
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées.
+Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. 
 
-Si des numéros de téléphone sont encore associés à votre ressource au moment de la suppression de la ressource, ils sont automatiquement libérés de votre ressource en même temps.
+Si des numéros de téléphone sont encore associés à votre ressource au moment de la suppression de la ressource, ils sont automatiquement libérés de votre ressource en même temps. 
+
+> [!Note]
+> La suppression d’une ressource est **définitive** et aucune donnée, y compris les filtres d’événements, les numéros de téléphone ou autres informations liées à votre ressource, ne peut être récupérée si vous supprimez la ressource.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

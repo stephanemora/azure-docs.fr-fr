@@ -11,12 +11,12 @@ ms.reviewer: sgilley
 ms.date: 04/19/2021
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f61e1a604c9296f85bbfd508f39dcbc74e256caf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 564b193a355ecc7bc11bef874c80ddc881c362cb
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110098719"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111895935"
 ---
 # <a name="start-monitor-and-track-run-history"></a>Démarrer, surveiller et suivre l’historique des exécutions
 
@@ -182,7 +182,8 @@ Vous devez disposer des éléments suivants :
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
     
-    ---
+    ---    
+   
 ## <a name="custom-view"></a>Vue personnalisée 
     
 Pour afficher vos exécutions dans Studio : 
@@ -195,17 +196,18 @@ Dans la page **Toutes les exécutions**, vous pouvez filtrer la liste des exécu
     
 1. Personnalisez la page en sélectionnant les exécutions que vous souhaitez comparer, en ajoutant des graphiques ou en appliquant des filtres. Ces modifications peuvent être enregistrées sous la forme d’un **affichage personnalisé** afin que vous puissiez facilement revenir à votre travail. Les utilisateurs disposant d’autorisations d’espace de travail peuvent modifier ou consulter l’affichage personnalisé. Partagez également la vue personnalisée avec les membres de l’équipe pour une meilleure collaboration en sélectionnant **Partager l’affichage**.   
 
-1. Pour afficher les journaux d’exécution, sélectionnez une exécution spécifique. Vous trouverez les journaux de diagnostic et d’erreurs de votre exécution sous l’onglet **Sorties + journaux**.    
+1. Pour afficher les journaux d’exécution, sélectionnez une exécution spécifique. Vous trouverez les journaux de diagnostic et d’erreurs de votre exécution sous l’onglet **Sorties + journaux**.
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views.gif" alt-text="Capture d’écran : créer un affichage personnalisé":::
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views-2.gif" alt-text="Capture d’écran : créer un affichage personnalisé":::
     
+
 ## <a name="run-description"></a>Description de l’exécution 
 
 Une description de l’exécution peut être ajoutée à une exécution pour fournir davantage de contexte et d’informations relatifs à l’exécution. Vous pouvez également rechercher ces descriptions à partir de la liste des exécutions et ajouter la description de l’exécution en tant que colonne dans la liste des exécutions. 
 
 Accédez à la page **Détails de l’exécution** de votre exécution, puis sélectionnez l’icône de modification ou en forme de crayon pour ajouter, modifier ou supprimer des descriptions pour votre exécution. Pour conserver les modifications apportées à la liste des exécutions, enregistrez-les dans votre vue personnalisée existante ou dans une nouvelle vue personnalisée. Le format Markdown est pris en charge pour les descriptions d’exécution, ce qui permet d’intégrer des images et de créer des liens profonds, comme indiqué ci-dessous.
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description.gif" alt-text="Capture d’écran : créer une description de l’exécution"::: 
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description-2.gif" alt-text="Capture d’écran : créer une description de l’exécution"::: 
 
 ## <a name="tag-and-find-runs"></a>Identifier et rechercher des exécutions
 
@@ -347,7 +349,7 @@ Pour annuler une exécution dans le studio, procédez comme suit :
 
 1. Sélectionnez le numéro d’exécution du pipeline que vous souhaitez annuler.
 
-1. Dans la barre d’outils, sélectionnez **Annuler**
+1. Dans la barre d’outils, sélectionnez **Annuler**.
 
 ---
 

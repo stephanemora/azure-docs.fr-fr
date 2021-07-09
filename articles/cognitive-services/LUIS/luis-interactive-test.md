@@ -4,17 +4,24 @@ description: Utilisez LUIS (Language Understanding) pour travailler en continu s
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 31885eba16d59e2e48a08f84c56271b84e6c565f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: aahi
+author: aahill
+ms.manager: nitinme
+ms.date: 06/01/2021
+ms.openlocfilehash: d5263f85fa8cc2a9f1b55da32b4aa1418e304347
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98790916"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954254"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Tester votre application LUIS dans le portail LUIS
 
-[Le test](luis-concept-test.md) d’une application est un processus itératif. Après avoir formé votre application LUIS, testez-la avec des exemples d’énoncés afin de voir si les intentions et les entités sont reconnues correctement. Si ce n’est pas le cas, apportez des mises à jour à l’application LUIS, puis formez-la et testez-la à nouveau.
+
+Le test est le processus consistant à fournir des exemples d’énoncés à LUIS et obtenir une réponse des intentions et des entités reconnues par LUIS. Vous pouvez tester LUIS de manière interactive, un énoncé à la fois, ou fournir un ensemble d'énoncés. Pendant le test, vous pouvez comparer la réponse de prédiction du modèle actif actuel à la réponse de prédiction du modèle publié. 
+
+
+Le test d’une application est un processus itératif. Après avoir formé votre application LUIS, testez-la avec des exemples d’énoncés afin de voir si les intentions et les entités sont reconnues correctement. Si ce n’est pas le cas, apportez des mises à jour à l’application LUIS, puis formez-la et testez-la à nouveau.
 
 <!-- anchors for H2 name changes -->
 <a name="train-your-app"></a>
@@ -22,13 +29,31 @@ ms.locfileid: "98790916"
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
 
-## <a name="train-before-testing"></a>Effectuer l’apprentissage avant le test
+## <a name="interactive-testing"></a>Test interactif
 
-1. Connectez-vous au [portail LUIS](https://www.luis.ai) et sélectionnez vos **abonnement** et **ressource de création** pour voir les applications affectées à cette dernière.
-1. Ouvrez votre application en sélectionnant son nom dans la page **My Apps** (Mes applications).
-1. Pour tester la version la plus récente de l’application active, sélectionnez **Effectuer l’apprentissage** dans le menu supérieur avant de réaliser le test.
+Le test interactif s’effectue à partir du panneau **Test** du portail LUIS. Vous pouvez entrer un énoncé pour voir comment les entités et les intentions sont identifiées et évaluées. Si LUIS ne prévoit pas les intentions et les entités comme prévu sur un énoncé dans le panneau de test, copiez l’énoncé dans la page **Intention** en tant que nouvel énoncé. Puis, étiquetez les parties de cet énoncé pour les entités et effectuez l’apprentissage de LUIS. 
+
+Consultez [Test par lot](./luis-how-to-batch-test.md) si vous testez plusieurs énoncés à la fois, et l’article sur les [scores de prédiction](luis-concept-prediction-score.md) pour en savoir plus sur les scores de prédiction.
+
+Vous pouvez tester en utilisant le [point de terminaison](luis-glossary.md#endpoint) avec deux versions maximum de votre application. Avec la version principale ou live de votre application définie en tant que point de terminaison de **production**, ajoutez une deuxième version au point de terminaison **intermédiaire**. Cette approche vous offre trois versions d’un énoncé : le modèle actuel dans le volet Test du portail [LUIS](luis-reference-regions.md) et les deux versions sur les deux points de terminaison différents. 
+
+Tous les tests sur votre point de terminaison sont inclus dans votre quota d’utilisation. 
+
+## <a name="logging"></a>Journalisation
+
+LUIS stocke tous les énoncés enregistrés dans le journal des requêtes, disponible au téléchargement sur le portail LUIS à la page **Applications**, ainsi que les [API de création](https://go.microsoft.com/fwlink/?linkid=2092087) LUIS. 
+
+Si vous testez sur un point de terminaison et que vous ne souhaitez pas que l’énoncé soit enregistré, pensez à utiliser la configuration de la chaîne de requête `logging=false`.
+
+Les énoncés dont LUIS n’est pas sûr sont listés dans la page **[Passer en revue les énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md)** du portail [LUIS](luis-reference-regions.md).  
 
 ## <a name="test-an-utterance"></a>Tester un énoncé
+
+> [!NOTE]
+> Pensez à [former](luis-how-to-train.md) LUIS après avoir apporté des modifications au modèle. Les modifications apportées à l’application LUIS ne sont pas visibles dans le test avant que l’application ait été formée.
+> 1. Connectez-vous au portail LUIS, puis sélectionnez votre abonnement et votre ressource de création pour voir les applications affectées à cette dernière.
+> 2. Ouvrez votre application en sélectionnant son nom dans la page My Apps (Mes applications).
+> 3. Pour tester la version la plus récente de l’application active, sélectionnez Effectuer l’apprentissage dans le menu supérieur avant de réaliser le test.
 
 L’énoncé de test ne doit pas être exactement le même que les exemples d’énoncés donnés dans l’application. Il doit inclure le choix de mots, la longueur de l’expression et l’utilisation de l’entité que vous attendez d’un utilisateur.
 
@@ -127,3 +152,4 @@ Si le test indique que votre application LUIS ne reconnaît pas les entités et 
 
 * [Étiqueter des énoncés suggérés avec LUIS](luis-how-to-review-endpoint-utterances.md)
 * [Utiliser les fonctionnalités pour améliorer les performances de votre application LUIS](luis-how-to-add-features.md)
+* [bonnes pratiques](luis-concept-best-practices.md)

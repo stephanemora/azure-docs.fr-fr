@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: e3b7da30f54b9d9468b46a2cd0972a3397e5cdce
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 46348fe35f425811e2ff03208feeae6ab7a112bd
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107865103"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453577"
 ---
 # <a name="cancel-translation"></a>Annuler la traduction
 
@@ -26,7 +26,7 @@ Annule une opération en cours de traitement ou en file d’attente. Une opérat
 Envoyez une demande `DELETE` à :
 
 ```DELETE HTTP
-https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
+https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}
 ```
 
 Découvrez comment déterminer votre [nom de domaine personnalisé](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -42,7 +42,7 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
 
 |Paramètre de requête.|Obligatoire|Description|
 |-----|-----|-----|
-|id|Vrai|operation-id|
+|id|Vrai|ID de l’opération.|
 
 ## <a name="request-headers"></a>En-têtes de requête
 
@@ -92,9 +92,10 @@ Les informations suivantes sont retournées dans une réponse positive.
 |code|string|Enums contenant des codes d’erreur généraux. Valeurs possibles :<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Non autorisé</li></ul>|
 |message|string|Obtient un message d’erreur général.|
 |target|string|Obtient la source de l’erreur. Par exemple, il s’agirait de « documents » ou « document id » pour un document non valide.|
-|innerError|InnerErrorV2|Nouveau format d’erreur interne, conforme aux instructions de l’API Cognitive Services. Il contient les propriétés requises ErrorCode, message, et propriétés facultatives cibles, Details (paire clé-valeur), erreur interne (peut être imbriquée).|
+|innerError|InnerTranslationError|Nouveau format d’erreur interne qui est conforme aux instructions de l’API Cognitive Services. Ce format contient les propriétés obligatoires ErrorCode, message et les propriétés facultatives target, details (paire clé-valeur), et l’erreur interne (qui peut être imbriquée).|
 |innerError.code|string|Obtient la chaîne d’erreur de code.|
-|inner.Eroor.message|string|Obtient un message d’erreur général.|
+|innerError.message|string|Obtient un message d’erreur général.|
+|innerError.target|string|Obtient la source de l’erreur. Par exemple, « documents » ou « document ID » en présence d’un document non valide.|
 
 ## <a name="examples"></a>Exemples
 

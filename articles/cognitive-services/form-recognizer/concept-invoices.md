@@ -5,17 +5,17 @@ description: Découvrez les concepts liés à l’analyse des factures avec l’
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: effe9a1f4959748ee04fadff2bd733c52c14a790
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: fc00e651cf8ec61a884864c57c0cafd2551f1a38
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374865"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890687"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modèle de facture prédéfini Form Recognizer
 
@@ -78,7 +78,9 @@ La sortie JSON comporte trois parties :
 
 Le service de facture extrait le texte, les tables, ainsi que 26 champs de facture. Voici les champs extraits d’une facture dans la réponse de sortie JSON (la sortie ci-dessous utilise cet [exemple de facture](media/sample-invoice.jpg)).
 
-|Name| Type | Description | Texte | Valeur (sortie standardisée) |
+### <a name="key-value-pairs"></a>Paires clé/valeur 
+
+|Nom| Type | Description | Texte | Valeur (sortie standardisée) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Client destinataire de la facture | Microsoft Corp |  |
 | CustomerId | string | ID de référence du client | CID-12345 |  |
@@ -107,6 +109,8 @@ Le service de facture extrait le texte, les tables, ainsi que 26 champs de fact
 | ServiceEndDate | Date | Date de fin de la période de service (par exemple, pour une période de service de facturation d’utilitaire) | 14/11/2019 | 2019-11-14 |
 | PreviousUnpaidBalance | nombre | Solde précédent impayé explicite | 500,00 $ | 500 |
 
+### <a name="line-items"></a>Éléments de ligne
+
 Voici les élément de ligne extraits d’une facture dans la réponse de la sortie JSON (la sortie ci-dessous utilise cet [exemple de facture](./media/sample-invoice.jpg)) :
 
 |Name| Type | Description | Texte (élément de ligne no 1) | Valeur (sortie standardisée) |
@@ -121,6 +125,7 @@ Voici les élément de ligne extraits d’une facture dans la réponse de la sor
 | Date | date| Date correspondant à chaque élément de ligne. Il s’agit souvent de la date d’expédition de l’élément de ligne | 04/03/2021| 04-03-2021 |
 | Taxe | nombre | Taxe associée à chaque élément de ligne. Les valeurs possibles incluent le montant des taxes, le pourcentage de la taxe et la valeur d’application de la taxe (O/N) | 10 % | |
 
+Les paires clé/valeur et les éléments de ligne de facture extraits se trouvent dans la section documentResults de la sortie JSON. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

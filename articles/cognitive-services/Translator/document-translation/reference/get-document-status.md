@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 4c6e82af46a012ad53dfa1cc1db1252ef2c0443e
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 69172956d36aa4b43c88858a65771fdb183a39f6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107864934"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453612"
 ---
 # <a name="get-document-status"></a>Obtenir l’état d’un document
 
@@ -25,7 +25,7 @@ La méthode Get Document Status retourne l’état d’un document spécifique. 
 
 Envoyez une demande `GET` à :
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/documents/{documentId}
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}/documents/{documentId}
 ```
 
 Découvrez comment déterminer votre [nom de domaine personnalisé](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -70,10 +70,11 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
 |Nom|Type|Description|
 |--- |--- |--- |
 |path|string|Emplacement du document ou du dossier.|
+|sourcePath|string|Emplacement du document source.|
 |createdDateTimeUtc|string|Date et heure de création de l’opération.|
 |lastActionDateTimeUtc|string|Date et heure de mise à jour de l’état de l’opération.|
 |status|String|Liste des états possibles pour un travail ou un document. <ul><li>Opération annulée</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>En cours d’exécution</li><li>Succès</li><li>ValidationFailed</li></ul>|
-|to|string|Code de langue à deux lettres de la langue cible. Voir la liste des langues.|
+|to|string|Code de langue à deux lettres de la langue cible. [Voir la liste des langues](../../language-support.md).|
 |progress|nombre|Progression de la traduction, si elle est disponible.|
 |id|string|ID du document.|
 |characterCharged|entier|Caractères facturés par l’API.|
@@ -84,9 +85,10 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
 |--- |--- |--- |
 |code|string|Enums contenant des codes d’erreur généraux. Valeurs possibles :<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Non autorisé</li></ul>|
 |message|string|Obtient un message d’erreur général.|
-|innerError|InnerErrorV2|Nouveau format d’erreur interne, conforme aux instructions de l’API Cognitive Services. Il contient les propriétés requises ErrorCode, message, et propriétés facultatives cibles, Details (paire clé-valeur), erreur interne (peut être imbriquée).|
+|innerError|InnerTranslationError|Nouveau format d’erreur interne qui est conforme aux instructions de l’API Cognitive Services. Ce format contient les propriétés obligatoires ErrorCode, message et les propriétés facultatives target, details (paire clé-valeur), et l’erreur interne (qui peut être imbriquée).|
 |innerError.code|string|Obtient la chaîne d’erreur de code.|
 |innerError.message|string|Obtient un message d’erreur général.|
+|innerError.target|string|Obtient la source de l’erreur. Par exemple, « documents » ou « document id » en présence d’un document non valide.|
 
 ## <a name="examples"></a>Exemples
 
@@ -96,6 +98,7 @@ L’objet JSON suivant est un exemple de réponse positive.
 ```JSON
 {
   "path": "https://myblob.blob.core.windows.net/destinationContainer/fr/mydoc.txt",
+  "sourcePath": "https://myblob.blob.core.windows.net/sourceContainer/fr/mydoc.txt",
   "createdDateTimeUtc": "2020-03-26T00:00:00Z",
   "lastActionDateTimeUtc": "2020-03-26T01:00:00Z",
   "status": "Running",

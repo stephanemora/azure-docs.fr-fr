@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2021
 ms.author: mbullwin
-ms.openlocfilehash: 30aeace7bfd4743d76948b7a24dcdc4830c27bcb
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 087640433d592c7e2885e68240e98e7283bf3407
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108333494"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110164971"
 ---
 Démarrez avec la bibliothèque de client Détecteur d’anomalies (multivarié) pour JavaScript. Effectuez les étapes suivantes pour installer le package et commencer à utiliser les algorithmes fournis par le service. Les nouvelles API de détection d’anomalie multivariée permettent aux développeurs d’intégrer facilement l’intelligence artificielle avancée pour détecter les anomalies à partir de groupes de métriques, sans avoir besoin d’une connaissance du machine learning ni de données étiquetées. Les dépendances et inter-corrélations entre différents signes sont automatiquement comptabilisées comme des facteurs clés. Cela vous permet de protéger de manière proactive vos systèmes complexes contre les défaillances.
 
@@ -60,6 +60,10 @@ const { AzureKeyCredential } = require('@azure/core-auth');
 ```
 
 Créez des variables pour le point de terminaison et la clé Azure de votre ressource. Créez une autre variable pour l’exemple de fichier de données.
+
+> [!NOTE]
+> Vous avez toujours la possibilité d’utiliser l’une des deux clés. Cela permet d’autoriser la rotation des clés sécurisées. Dans le cadre de ce guide de démarrage rapide, utilisez la première clé. 
+   
 
 ```javascript
 const apiKey = "YOUR_API_KEY";
@@ -174,6 +178,9 @@ while (result_status != 'READY'){
 
 ## <a name="export-model"></a>Exporter le modèle
 
+> [!NOTE]
+> L’utilisation de la commande d’exportation est prévue pour permettre l’exécution de modèles multivariés du Détecteur d’anomalies dans un environnement en conteneur. Cette possibilité n’est pas reconnue actuellement pour l’élément multivarié, mais une prise en charge sera ajoutée à l’avenir.
+
 Pour exporter votre modèle entraîné, utilisez la fonction `exportModel`.
 
 ```javascript
@@ -203,6 +210,14 @@ Exécutez l’application avec la commande `node` de votre fichier de démarrage
 node index.js
 ```
 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources liées au groupe de ressources.
+
+* [Portail](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Bonnes pratiques concernant le Détecteur d’anomalies (multivarié)](../../concepts/best-practices-multivariate.md)
+* [Présentation de l’API Détecteur d’anomalies](../../overview-multivariate.md)
+* [Bonnes pratiques concernant l’utilisation de l’API Détecteur d’anomalies.](../../concepts/best-practices-multivariate.md) 

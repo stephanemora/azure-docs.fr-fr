@@ -7,12 +7,12 @@ ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4840fc27133b1d92cb8aaad80921f9d21901569d
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 282777a692b7b0fe54415ef09c2cf1879868dd3b
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107010690"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854429"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduction à Azure Defender pour des registres de conteneurs
 
@@ -28,7 +28,7 @@ Security Center identifie les registres ACR basés sur Azure Resource Manager da
 
 **Azure Defender pour les registres de conteneurs** inclut un scanner de vulnérabilité pour analyser les images dans vos registres Azure Container Registry basés sur Azure Resource Manager et fournir une visibilité plus poussée des vulnérabilités de vos images. L'analyseur intégré est proposé par Qualys, un leader dans le secteur des solutions d’identification des vulnérabilités.
 
-Si des problèmes sont détectés par Qualys ou Security Center, vous recevez une notification dans le tableau de bord de Security Center. Pour chaque vulnérabilité, Security Center fournit des recommandations actionnables, accompagnées d’une classification de gravité et de conseils sur la façon de corriger le problème. Pour plus d’informations concernant les recommandations de Security Center pour les conteneurs, consultez la [liste de référence des recommandations](recommendations-reference.md#recs-compute).
+Si des problèmes sont détectés par Qualys ou Security Center, vous recevez une notification dans le tableau de bord de Security Center. Pour chaque vulnérabilité, Security Center fournit des recommandations actionnables, accompagnées d’une classification de gravité et de conseils sur la façon de corriger le problème. Pour plus d’informations concernant les recommandations de Security Center pour les conteneurs, consultez la [liste de référence des recommandations](recommendations-reference.md#recs-container).
 
 Security Center filtre et classifie les résultats à partir de l’analyseur. Quand une image est saine, Security Center la marque comme telle. Security Center génère des recommandations de sécurité uniquement pour les images qui ont des problèmes à résoudre. Security Center fournit des détails sur chaque vulnérabilité signalée et une classification de gravité. En outre, il fournit des conseils sur la façon de corriger les vulnérabilités spécifiques détectées sur chaque image.
 
@@ -65,7 +65,7 @@ Vous trouverez ci-dessous un diagramme de haut niveau des composants et des avan
 
 
 
-## <a name="faq-for-azure-container-registry-image-scanning"></a>FAQ sur l’analyse des images Azure Container Registry
+## <a name="faq---azure-container-registry-image-scanning"></a>FAQ - Analyse d’images Azure Container Registry
 
 ### <a name="how-does-security-center-scan-an-image"></a>Comment Security Center analyse-t-il une image ?
 Security Center extrait l’image du registre et l’exécute dans un bac à sable isolé avec l’analyseur Qualys. L’analyseur extrait une liste des vulnérabilités connues.
@@ -88,6 +88,8 @@ Oui. Si votre organisation préfère ignorer un résultat, plutôt que de le cor
 ### <a name="why-is-security-center-alerting-me-to-vulnerabilities-about-an-image-that-isnt-in-my-registry"></a>Pourquoi Security Center m’alerte au sujet de vulnérabilités concernant une image qui ne se trouve pas dans mon registre ?
 Security Center fournit des évaluations de vulnérabilité pour chaque image envoyée ou extraite dans un registre. Certaines images peuvent réutiliser des étiquettes à partir d’une image déjà analysée. Par exemple, vous pouvez réassigner l’étiquette « latest » chaque fois que vous ajoutez une image à une synthèse. Dans ce cas, l’« ancienne » image existe toujours dans le registre et peut encore être extraite par sa synthèse. Si l’image présente des résultats de sécurité et qu’elle est extraite, elle expose des vulnérabilités de sécurité.
 
+### <a name="what-should-i-do-if-the-scan-results-for-my-image-arent-shown"></a>Que dois-je faire si les résultats de l’analyse pour mon image ne sont pas affichés ?
+Patientez quelques minutes et, si les résultats ne s’affichent pas, essayez de renvoyer l’image pour déclencher une nouvelle analyse. S’ils n’apparaissent toujours pas, contactez notre équipe du support technique. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

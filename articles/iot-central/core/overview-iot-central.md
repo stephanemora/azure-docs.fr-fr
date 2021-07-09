@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, contperf-fy21q2
-ms.openlocfilehash: 88f59c1b3fc1014cef5035845f1f2e8616bea908
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: ed15d75836f3642622f963ac8c0185c1520bce2b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739905"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112281302"
 ---
 # <a name="what-is-azure-iot-central"></a>Qu’est-ce que Azure IoT Central
 
@@ -34,7 +34,7 @@ Cet article décrit, en ce qui concerne IoT Central :
 
 La documentation IoT Central fait référence à quatre rôles d'utilisateur qui interagissent avec une application IoT Central :
 
-- Un _générateur de solutions_ est responsable de la [création d’une d’application](quick-deploy-iot-central.md), de la [configuration des règles et des actions](quick-configure-rules.md), de la [définition des intégrations à d’autres services](howto-export-data.md) et de la personnalisation de l’application pour les opérateurs et les développeurs d’appareils.
+- Un _générateur de solutions_ est responsable de la [création d’une d’application](quick-deploy-iot-central.md), de la [configuration des règles et des actions](quick-configure-rules.md), de la [définition des intégrations à d’autres services](quick-export-data.md) et de la personnalisation de l’application pour les opérateurs et les développeurs d’appareils.
 - Un _opérateur_ [gère les appareils](howto-manage-devices.md) connectés à l’application.
 - Un _administrateur_ est responsable des tâches d’administration comme la gestion des [rôles et des autorisations des utilisateurs](howto-administer.md) au sein de l’application.
 - Un _développeur d’appareil_ [crée le code qui s’exécute sur un appareil](concepts-telemetry-properties-commands.md) ou un [module IoT Edge](concepts-iot-edge.md) connecté à votre application.
@@ -77,8 +77,6 @@ Plusieurs choix s’offrent à vous pour créer des modèles d’appareil :
 - Concevez le modèle d’appareil dans IoT Central, puis implémentez son modèle de capacité d’appareil dans le code de votre appareil.
 - Créez un de capacité d’appareil avec du code Visual Studio et publiez le modèle de capacité dans un référentiel. Implémentez votre code d’appareil à partir du modèle et connectez votre appareil à votre application IoT Central. IoT Central recherche le modèle de capacité d’appareil dans le référentiel et crée automatiquement un modèle d’appareil simple.
 - Créez un modèle de capacité d’appareil avec Visual Studio Code. Implémentez votre code d’appareil à partir du modèle. Importez manuellement le modèle de capacité d’appareil dans votre application IoT Central, puis ajoutez les propriétés cloud, les personnalisations et les tableaux de bord nécessaires à votre application IoT Central.
-
-Pour une procédure pas à pas sur la création et la connexion de votre premier appareil, consultez le guide de démarrage rapide [Ajouter un appareil simulé](quick-create-simulated-device.md).
 
 ### <a name="customize-the-ui"></a>Personnaliser l’interface utilisateur
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 48a5ddcdb3d66e54b2405a67f0f66d17b8080882
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: edadf3ad7e86572c758a90fd35a941024b0aa60e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108734396"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475754"
 ---
 # <a name="extending-ontologies"></a>Extension d’ontologies 
 
@@ -28,7 +28,7 @@ Dans l’ontologie RealEstateCore DTDL, la hiérarchie Space permet de définir 
 
 Une partie de la hiérarchie ressemble au diagramme ci-dessous. 
 
-:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Diagramme de flux illustrant une partie de la hiérarchie Space de RealEstateCore. Au niveau supérieur, il existe un élément appelé Space (Espace). Il est connecté par une flèche « extends » (extension) qui va au niveau inférieur jusqu’à l’élément Room (Pièce). Room est connecté par deux flèches « extends » qui vont au niveau inférieur jusqu’aux éléments ConferenceRoom (Salle de conférence) et Office (Bureau)."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Diagramme illustrant une partie de la hiérarchie des espaces RealEstateCore. Il montre des éléments pour Space, Room, ConferenceRoom et Office."::: 
 
 Pour plus d’informations sur l’ontologie RealEstateCore, consultez [Concepts : Adoption d’ontologies conformes aux standards du secteur](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
 
@@ -51,7 +51,7 @@ Pour étendre l’ontologie du secteur avec ce nouveau concept, créez une inter
 
 Une fois l’interface de la salle de concentration ajoutée, la hiérarchie étendue montre le nouveau type de salle. 
 
-:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-1.png" alt-text="Diagramme de flux illustrant la hiérarchie Space de RealEstateCore ci-dessus, avec un nouvel ajout. Au niveau inférieur, qui comprend les éléments ConferenceRoom et Office, il existe un nouvel élément appelé FocusRoom (également connecté via une flèche « extends » en provenance de Room)"::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-1.png" alt-text="Diagramme illustrant une partie de la hiérarchie des espaces RealEstateCore, y compris le nouvel ajout"::: 
 
 ### <a name="add-additional-capabilities-to-existing-interfaces"></a>Ajouter des fonctionnalités supplémentaires à des interfaces existantes 
 
@@ -69,7 +69,7 @@ Pour étendre l’ontologie du secteur, vous créez vos propres interfaces qui s
 
 Après l’extension de la partie de la hiérarchie présentée ci-dessus, la hiérarchie étendue ressemble au diagramme ci-dessous. Ici, l’interface Space étendue ajoute la propriété `drawingId` qui va contenir un ID associant le jumeau numérique au dessin 3D. De plus, l’interface ConferenceRoom ajoute une propriété « online », qui contient l’état en ligne de la salle de conférence. Grâce à l’héritage, l’interface ConferenceRoom contient toutes les fonctionnalités de l’interface ConferenceRoom de RealEstateCore ainsi que toutes les fonctionnalités de l’interface Space étendue. 
 
-:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-2.png" alt-text="Diagramme de flux illustrant l’extension de la hiérarchie Space de RealEstateCore depuis le niveau supérieur, avec de nouveaux ajouts. L’élément Room partage à présent son niveau avec un élément Space, qui est connecté par une flèche « extends » au niveau inférieur à un nouvel élément Room, à côté des éléments ConferenceRoom et Office.  Les nouveaux éléments sont connectés à l’ontologie existante avec davantage de relations « extends »."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-2.png" alt-text="Diagramme illustrant la hiérarchie étendue des espaces RealEstateCore, avec les nouveaux ajouts selon la description"::: 
 
 ## <a name="using-the-extended-space-hierarchy"></a>Utilisation de la hiérarchie Space étendue 
 
@@ -77,7 +77,7 @@ Quand vous créez des jumeaux numériques à l’aide de la hiérarchie Space é
 
 Le modèle de chaque jumeau numérique correspond à une interface provenant de la hiérarchie étendue, comme illustré dans le diagramme ci-dessous. 
  
-:::image type="content" source="media/concepts-ontologies-extend/ontology-with-models.png" alt-text="Extrait de la hiérarchie Space étendue de RealEstateCore, comprenant l’élément Space (niveau supérieur), un élément Room (niveau intermédiaire) ainsi que les éléments ConferenceRoom, Office et FocusRoom (niveau inférieur). Les noms des modèles sont connectés à chaque élément (par exemple, Room est connecté à un modèle appelé Room101)."::: 
+:::image type="content" source="media/concepts-ontologies-extend/ontology-with-models.png" alt-text="Diagramme illustrant la hiérarchie étendue des espaces RealEstateCore, y compris les modèles connectés Space, Room, ConferenceRoom, Office et FocusRoom"::: 
 
 Durant l’interrogation de jumeaux numériques à l’aide de l’ID de modèle (opérateur `IS_OF_MODEL`), les ID de modèle de la hiérarchie étendue doivent être utilisés. Par exemple : `SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:com:example:Office;1')`. 
 

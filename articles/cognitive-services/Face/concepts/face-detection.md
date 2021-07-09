@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 5a8abb31b2442a8823437bb155b5b9970db1d181
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: cb005621a3439d5c7976221d816536b46efb986c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742262"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744991"
 ---
 # <a name="face-detection-and-attributes"></a>Détection et attributs de visage
 
@@ -48,7 +48,7 @@ Les attributs sont un ensemble de fonctionnalités qui peuvent éventuellement �
 * **gender**. Le sexe estimé de la personne détentrice du visage donné. Les valeurs possibles sont male (homme), female (femme) et genderless (sexe indéterminé).
 * **glasses**. Indique si le visage donné porte des lunettes. Les valeurs possibles sont NoGlasses (pas de lunettes), ReadingGlasses (lunettes de lecture), Sunglasses (lunettes de soleil) et Swimming Goggles (lunettes de natation).
 * **hair**. Type de cheveux du visage. Cet attribut indique si les cheveux sont visibles, si une calvitie est détectée et les couleurs de cheveux détectées.
-* **headPose**. Orientation du visage dans l’espace 3D. Cet attribut est défini par des angles de roulis, de tangage et de lacet, mesurés en degrés Les plages de valeurs vont de -90 degrés à 90 degrés, - 90 degrés à 90 degrés, et -90 degrés à 90 degrés, respectivement. Consultez le diagramme suivant pour les mappages des angles :
+* **headPose**. Orientation du visage dans l’espace 3D. Cet attribut est décrit par les angles d’inclinaison latérale (roll), de lacet (yaw) et d’inclinaison longitudinale (pitch), en degrés, qui sont définis en fonction de la [règle de droite](https://en.wikipedia.org/wiki/Right-hand_rule). L’ordre de trois angles est inclinaison latérale-lacet-inclinaison longitudinale, et la plage de valeurs de chaque angle est comprise entre -180 degrés et 180 degrés. L’orientation 3D du visage est estimée par les angles d’inclinaison latérale (roll), de lacet (yaw) et d’inclinaison longitudinale, dans cet ordre. Consultez le diagramme suivant pour les mappages des angles :
 
     ![Tête avec les axes d’inclinaison longitudinale (pitch), d’inclinaison latérale (roll) et de lacet (yaw) étiquetés](../Images/headpose.1.jpg)
 * **makeup**. Indique si le visage comporte du maquillage. Cet attribut retourne une valeur booléenne pour eyeMakeup (maquillage des yeux) et lipMakeup (maquillage des lèvres).
@@ -70,6 +70,12 @@ Utilisez les conseils suivants pour vous assurer que vos images d’entrée four
 * La taille de visage maximale détectable est de 4096 x 4096 pixels.
 * Les visages dont la taille n’est pas comprise entre 36 x 36 et 4096 x 4096 pixels ne sont pas détectés.
 * Certains visages peuvent ne pas être détectés en raison de défis techniques. Un angle extrême du visage (posture de la tête) ou l’obstruction du visage (des objets tels que des lunettes de soleil ou les mains obstruent une partie du visage) peuvent affecter la détection. Les visages frontaux et quasi-frontaux fournissent les meilleurs résultats.
+
+Données d’entrée avec les informations d’orientation :
+* Certaines images d’entrée au format JPEG peuvent contenir des informations d’orientation dans les métadonnées EXIF (Exchangeable Image File Format). Si l’orientation EXIF est disponible, les images sont automatiquement pivotées dans l’orientation appropriée avant d’être envoyées pour une détection de visages. Le rectangle de visage, les points de repère et la posture de tête de chaque visage détecté sont estimés en fonction de l’image pivotée.
+* Pour afficher correctement le rectangle de visage et les points de repère, vous devez vérifier que l’image est correctement pivotée. La plupart des outils de visualisation d’image effectuent par défaut une rotation automatique de l’image en fonction de son orientation EXIF. Pour d’autres outils, vous devrez peut-être appliquer la rotation à l’aide de votre propre code. Les exemples suivants montrent un rectangle de visage sur une image pivotée (à gauche) et une image non pivotée (à droite).
+
+![Deux images de visage avec/sans rotation](../Images/image-rotation.png)
 
 Si vous détectez les visages à partir d’un flux vidéo, vous pouvez éventuellement améliorer les performances en ajustant certains paramètres de votre caméra vidéo :
 

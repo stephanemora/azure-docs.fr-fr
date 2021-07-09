@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: fe3f3e49805d0702bfe0baf9ff0c6fa3d779208c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 2879ecbc6b50c3cd2bd7541357886f5d6dfe483b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379351"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752492"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -36,103 +36,109 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Langage                 | Paramètres régionaux (BCP-47) | Personnalisations  | [Détection de la langue](how-to-automatic-language-detection.md) |
-|------------------------------------|--------|---------------------------------------------------|-------------------------------|
-| Arabe (Bahreïn), standard moderne  | `ar-BH` | Texte                                   |                           | 
-| Arabe (Égypte)                     | `ar-EG` | Texte                                   | Oui                          |
-| Arabe (Irak)                      | `ar-IQ` | Texte                                   |                           |
-| Arabe (Israël)                    | `ar-IL` | Texte                                   |                           |
-| Arabe (Jordanie)                    | `ar-JO` | Texte                                   |                           |
-| Arabe (Koweït)                    | `ar-KW` | Texte                                   |                           |
-| Arabe (Liban)                   | `ar-LB` | Texte                                   |                           |
-| Arabe (Oman)                      | `ar-OM` | Texte                                   |                           |
-| Arabe (Qatar)                     | `ar-QA` | Texte                                   |                           |
-| Arabe (Arabie saoudite)              | `ar-SA` | Texte                                   |                           |
-| Arabe (État de Palestine)        | `ar-PS` | Texte                                   |                           |
-| Arabe (Syrie)                     | `ar-SY` | Texte                                   |                           |
-| Arabe (Émirats arabes unis)      | `ar-AE` | Texte                                   |                           |
-| Bulgare (Bulgarie)               | `bg-BG` | Texte                                   |                           |
-| Catalan (Espagne)                    | `ca-ES` | Texte                                   | Oui                          |
-| Chinois (cantonais, traditionnel)   | `zh-HK` | Audio (20201015)<br>Texte                 |        Oui                   |
-| Chinois (mandarin, simplifié)     | `zh-CN` | Audio (20200910)<br>Texte                 |     Oui                      |
-| Chinois (mandarin, taïwanais)       | `zh-TW` | Audio (20190701, 20201015)<br>Texte                 |           Oui                |
-| Croate (Croatie)                 | `hr-HR` | Texte                                   |                           |
-| Tchèque (République tchèque)             | `cs-CZ` | Texte                                   |                           |
-| Danois (Danemark)                   | `da-DK` | Texte                                   | Oui                          |
-| Néerlandais (Pays-Bas)                | `nl-NL` | Audio (20201015)<br>Texte<br>Prononcer|    Oui                       |
-| Anglais (Australie)                | `en-AU` | Audio (20201019)<br>Texte                 | Oui                          |
-| Anglais (Canada)                   | `en-CA` | Audio (20201019)<br>Texte                 | Oui                          |
-| Anglais (Ghana)                    | `en-GH` | Texte                                   |                           |
-| Anglais (Hong Kong)                | `en-HK` | Texte                                   |                           |
-| Anglais (Inde)                    | `en-IN` | Audio (20200923)<br>Texte                 |                          |
-| Anglais (Irlande)                  | `en-IE` | Texte                                   |                           |
-| Anglais (Kenya)                    | `en-KE` | Texte                                   |                           |
-| Anglais (Nouvelle-Zélande)              | `en-NZ` | Audio (20201019)<br>Texte                 |                          |
-| Anglais (Nigeria)                  | `en-NG` | Texte                                   |                           |
-| Anglais (Philippines)              | `en-PH` | Texte                                   |                           |
-| Anglais (Singapour)                | `en-SG` | Texte                                   |                           |
-| Anglais (Afrique du Sud)             | `en-ZA` | Texte                                   |                           |
-| Anglais (Tanzanie)                 | `en-TZ` | Texte                                   |                           |
-| Anglais (Royaume-Uni)           | `en-GB` | Audio (20201019)<br>Texte<br>Prononcer| Oui                          |
-| Anglais (États-Unis)            | `en-US` | Audio (20201019)<br>Texte<br>Prononcer| Oui                          |
-| Estonien (Estonie)                  | `et-EE` | Texte                                   |                           |
-| Filipino (Philippines)             | `fil-PH`| Texte                                   |                           |
-| Finnois (Finlande)                  | `fi-FI` | Texte                                   |     Oui                      |
-| Français (Canada)                    | `fr-CA` | Audio (20201015)<br>Texte<br>Prononcer|     Oui                      |
-| Français (France)                    | `fr-FR` | Audio (20201015)<br>Texte<br>Prononcer|      Oui                     |
-| Français (Suisse)               | `fr-CH` | Texte<br>Prononcer                  |                           |
-| Allemand (Autriche)                   | `de-AT` | Texte<br>Prononcer                  |                           |
-| Allemand (Allemagne)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Texte<br>Prononcer|  Oui                         |
-| Grec (Grèce)                     | `el-GR` | Texte                                   |  Oui                         |
-| Goudjrati (Inde)                  | `gu-IN` | Texte                                   |                           |
-| Hindi (Inde)                      | `hi-IN` | Audio (20200701)<br>Texte                 |     Oui                      |
-| Hongrois (Hongrie)                | `hu-HU` | Texte                                   |                           |
-| Indonésien (Indonésie)             | `id-ID` | Texte                                   |                           |
-| Irlandais (Irlande)                     | `ga-IE` | Texte                                   |                           |
-| Italien (Italie)                    | `it-IT` | Audio (20201016)<br>Texte<br>Prononcer|      Oui                     |
-| Japonais (Japon)                   | `ja-JP` | Texte                                   |      Oui                     |
-| Coréen (Corée)                     | `ko-KR` | Audio (20201015)<br>Texte                 |      Oui                     |
-| Letton (Lettonie)                   | `lv-LV` | Texte                                   |                           |
-| Lituanien (Lituanie)             | `lt-LT` | Texte                                   |                           |
-| Malais (Malaisie)                   | `ms-MY` | Texte                                   |                           |
-| Maltais (Malte)                    | `mt-MT` | Texte                                   |                           |
-| Marathi (Inde)                    | `mr-IN` | Texte                                   |                           |
-| Norvégien (bokmål, Norvège)         | `nb-NO` | Texte                                   |     Oui                      |
-| Polonais (Pologne)                    | `pl-PL` | Texte                                   |       Oui                    |
-| Portugais (Brésil)                | `pt-BR` | Audio (20190620, 20201015)<br>Texte<br>Prononcer|          Oui                 |
-| Portugais (Portugal)              | `pt-PT` | Texte<br>Prononcer                  |             Oui              |
-| Roumain (Roumanie)                 | `ro-RO` | Texte                                   |  Oui                         |
-| Russe (Russie)                   | `ru-RU` | Audio (20200907)<br>Texte                 |                Oui           |
-| Slovaque (Slovaquie)                  | `sk-SK` | Texte                                   |                           |
-| Slovène (Slovénie)               | `sl-SI` | Texte                                   |                           |
-| Espagnol (Argentine)                | `es-AR` | Texte<br>Prononcer                  |                           |
-| Espagnol (Bolivie)                  | `es-BO` | Texte<br>Prononcer                  |                           |
-| Espagnol (Chili)                    | `es-CL` | Texte<br>Prononcer                  |                           |
-| Espagnol (Colombie)                 | `es-CO` | Texte<br>Prononcer                  |                           |
-| Espagnol (Costa Rica)               | `es-CR` | Texte<br>Prononcer                  |                           |
-| Espagnol (Cuba)                     | `es-CU` | Texte<br>Prononcer                  |                           |
-| Espagnol (République dominicaine)       | `es-DO` | Texte<br>Prononcer                  |                           |
-| Espagnol (Équateur)                  | `es-EC` | Texte<br>Prononcer                  |                           |
-| Espagnol (Salvador)              | `es-SV` | Texte<br>Prononcer                  |                           |
-| Espagnol (Guinée équatoriale)        | `es-GQ` | Texte                                   |                           |
-| Espagnol (Guatemala)                | `es-GT` | Texte<br>Prononcer                  |                           |
-| Espagnol (Honduras)                 | `es-HN` | Texte<br>Prononcer                  |                           |
-| Espagnol (Mexique)                   | `es-MX` | Audio (20200907)<br>Texte<br>Prononcer|    Oui                       |
-| Espagnol (Nicaragua)                | `es-NI` | Texte<br>Prononcer                  |                           |
-| Espagnol (Panama)                   | `es-PA` | Texte<br>Prononcer                  |                           |
-| Espagnol (Paraguay)                 | `es-PY` | Texte<br>Prononcer                  |                           |
-| Espagnol (Pérou)                     | `es-PE` | Texte<br>Prononcer                  |                           |
-| Espagnol (Porto Rico)              | `es-PR` | Texte<br>Prononcer                  |                           |
-| Espagnol (Espagne)                    | `es-ES` | Audio (20201015)<br>Texte<br>Prononcer|  Oui                         |
-| Espagnol (Uruguay)                  | `es-UY` | Texte<br>Prononcer                  |                           |
-| Espagnol (États-Unis)                      | `es-US` | Texte<br>Prononcer                  |                           |
-| Espagnol (Venezuela)                | `es-VE` | Texte<br>Prononcer                  |                           |
-| Suédois (Suède)                   | `sv-SE` | Texte                                   |   Oui                        |
-| Tamoul (Inde)                      | `ta-IN` | Texte                                   |                           |
-| Télougou (Inde)                     | `te-IN` | Texte                                   |                           |
-| Thaï (Thaïlande)                    | `th-TH` | Texte                                   |      Oui                     |
-| Turc (Turquie)                   | `tr-TR` | Texte                                   |                           |
-| Vietnamien (Vietnam)               | `vi-VN` | Texte                                   |                           |
+| Langage                 | Paramètres régionaux (BCP-47) | Personnalisations  | [Identification de la langue](how-to-automatic-language-detection.md) | [Évaluation de la prononciation](how-to-pronunciation-assessment.md) |
+|------------------------------------|--------|---------------------------------------------------|-------------------------------|--------------------------|
+| Arabe (Algérie)                   | `ar-DZ` | Text                                   |                           |                          |
+| Arabe (Bahreïn), standard moderne  | `ar-BH` | Texte                                   |                           |                          |
+| Arabe (Égypte)                     | `ar-EG` | Texte                                   | Oui                          |                          |
+| Arabe (Irak)                      | `ar-IQ` | Texte                                   |                           |                          |
+| Arabe (Israël)                    | `ar-IL` | Texte                                   |                           |                          |
+| Arabe (Jordanie)                    | `ar-JO` | Texte                                   |                           |                          |
+| Arabe (Koweït)                    | `ar-KW` | Texte                                   |                           |                          |
+| Arabe (Liban)                   | `ar-LB` | Texte                                   |                           |                          |
+| Arabe (Libye)                     | `ar-LY` | Text                                   |                           |                          |
+| Arabe (Maroc)                   | `ar-MA` | Texte                                   |                           |                          |
+| Arabe (Oman)                      | `ar-OM` | Texte                                   |                           |                          |
+| Arabe (Qatar)                     | `ar-QA` | Texte                                   |                           |                          |
+| Arabe (Arabie saoudite)              | `ar-SA` | Texte                                   |                           |                          |
+| Arabe (Autorité palestinienne)     | `ar-PS` | Texte                                   |                           |                          |
+| Arabe (Syrie)                     | `ar-SY` | Texte                                   |                           |                          |
+| Arabe (Tunisie)                   | `ar-TN` | Texte                                   |                           |                          |
+| Arabe (Émirats arabes unis)      | `ar-AE` | Texte                                   |                           |                          |
+| Arabe (Yémen)                     | `ar-YE` | Texte                                   |                           |                          |
+| Bulgare (Bulgarie)               | `bg-BG` | Texte                                   |                           |                          |
+| Catalan (Espagne)                    | `ca-ES` | Texte                                   | Oui                          |                          |
+| Chinois (cantonais, traditionnel)   | `zh-HK` | Audio (20201015)<br>Texte                 |        Oui                   |                          |
+| Chinois (mandarin, simplifié)     | `zh-CN` | Audio (20200910)<br>Texte                 |     Oui                      | Oui                         |
+| Chinois (mandarin, taïwanais)       | `zh-TW` | Audio (20190701, 20201015)<br>Texte                 |           Oui                |                          |
+| Croate (Croatie)                 | `hr-HR` | Texte                                   |                           |                          |
+| Tchèque (République tchèque)             | `cs-CZ` | Texte                                   |                           |                          |
+| Danois (Danemark)                   | `da-DK` | Texte                                   | Oui                          |                          |
+| Néerlandais (Pays-Bas)                | `nl-NL` | Audio (20201015)<br>Texte<br>Prononcer|    Oui                       |                          |
+| Anglais (Australie)                | `en-AU` | Audio (20201019)<br>Texte                 | Oui                          |                          |
+| Anglais (Canada)                   | `en-CA` | Audio (20201019)<br>Texte                 | Oui                          |                          |
+| Anglais (Ghana)                    | `en-GH` | Texte                                   |                           |                          |
+| Anglais (Hong Kong)                | `en-HK` | Texte                                   |                           |                          |
+| Anglais (Inde)                    | `en-IN` | Audio (20200923)<br>Texte                 |                          |                          |
+| Anglais (Irlande)                  | `en-IE` | Texte                                   |                           |                          |
+| Anglais (Kenya)                    | `en-KE` | Texte                                   |                           |                          |
+| Anglais (Nouvelle-Zélande)              | `en-NZ` | Audio (20201019)<br>Texte                 |                          |                          |
+| Anglais (Nigeria)                  | `en-NG` | Texte                                   |                           |                          |
+| Anglais (Philippines)              | `en-PH` | Texte                                   |                           |                          |
+| Anglais (Singapour)                | `en-SG` | Texte                                   |                           |                          |
+| Anglais (Afrique du Sud)             | `en-ZA` | Texte                                   |                           |                          |
+| Anglais (Tanzanie)                 | `en-TZ` | Texte                                   |                           |                          |
+| Anglais (Royaume-Uni)           | `en-GB` | Audio (20201019)<br>Texte<br>Prononcer| Oui                          | Oui                         |
+| Anglais (États-Unis)            | `en-US` | Audio (20201019, 20210223)<br>Texte<br>Prononcer| Oui                          | Oui                         |
+| Estonien (Estonie)                  | `et-EE` | Texte                                   |                           |                          |
+| Filipino (Philippines)             | `fil-PH`| Texte                                   |                           |                          |
+| Finnois (Finlande)                  | `fi-FI` | Texte                                   |     Oui                      |                          |
+| Français (Canada)                    | `fr-CA` | Audio (20201015)<br>Texte<br>Prononcer|     Oui                      |                          |
+| Français (France)                    | `fr-FR` | Audio (20201015)<br>Texte<br>Prononcer|      Oui                     |                          |
+| Français (Suisse)               | `fr-CH` | Texte<br>Prononcer                  |                           |                          |
+| Allemand (Autriche)                   | `de-AT` | Texte<br>Prononcer                  |                           |                          |
+| Allemand (Allemagne)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Texte<br>Prononcer|  Oui                         |                          |
+| Grec (Grèce)                     | `el-GR` | Texte                                   |  Oui                         |                          |
+| Goudjrati (Inde)                  | `gu-IN` | Texte                                   |                           |                          |
+| Hébreu (Israël)                    | `he-IL` | Texte                                   |                           |                          |
+| Hindi (Inde)                      | `hi-IN` | Audio (20200701)<br>Texte                 |     Oui                      |                          |
+| Hongrois (Hongrie)                | `hu-HU` | Texte                                   |                           |                          |
+| Indonésien (Indonésie)             | `id-ID` | Texte                                   |                           |                          |
+| Irlandais (Irlande)                     | `ga-IE` | Texte                                   |                           |                          |
+| Italien (Italie)                    | `it-IT` | Audio (20201016)<br>Texte<br>Prononcer|      Oui                     |                          |
+| Japonais (Japon)                   | `ja-JP` | Texte                                   |      Oui                     |                          |
+| Coréen (Corée)                     | `ko-KR` | Audio (20201015)<br>Texte                 |      Oui                     |                          |
+| Letton (Lettonie)                   | `lv-LV` | Texte                                   |                           |                          |
+| Lituanien (Lituanie)             | `lt-LT` | Texte                                   |                           |                          |
+| Malais (Malaisie)                   | `ms-MY` | Texte                                   |                           |                          |
+| Maltais (Malte)                    | `mt-MT` | Texte                                   |                           |                          |
+| Marathi (Inde)                    | `mr-IN` | Texte                                   |                           |                          |
+| Norvégien (bokmål, Norvège)         | `nb-NO` | Texte                                   |     Oui                      |                          |
+| Polonais (Pologne)                    | `pl-PL` | Texte                                   |       Oui                    |                          |
+| Portugais (Brésil)                | `pt-BR` | Audio (20190620, 20201015)<br>Texte<br>Prononcer|          Oui                 |                          |
+| Portugais (Portugal)              | `pt-PT` | Texte<br>Prononcer                  |             Oui              |                          |
+| Roumain (Roumanie)                 | `ro-RO` | Texte                                   |  Oui                         |                          |
+| Russe (Russie)                   | `ru-RU` | Audio (20200907)<br>Texte                 |                Oui           |                          |
+| Slovaque (Slovaquie)                  | `sk-SK` | Texte                                   |                           |                          |
+| Slovène (Slovénie)               | `sl-SI` | Texte                                   |                           |                          |
+| Espagnol (Argentine)                | `es-AR` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Bolivie)                  | `es-BO` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Chili)                    | `es-CL` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Colombie)                 | `es-CO` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Costa Rica)               | `es-CR` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Cuba)                     | `es-CU` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (République dominicaine)       | `es-DO` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Équateur)                  | `es-EC` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Salvador)              | `es-SV` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Guinée équatoriale)        | `es-GQ` | Texte                                   |                           |                          |
+| Espagnol (Guatemala)                | `es-GT` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Honduras)                 | `es-HN` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Mexique)                   | `es-MX` | Audio (20200907)<br>Texte<br>Prononcer|    Oui                       |                          |
+| Espagnol (Nicaragua)                | `es-NI` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Panama)                   | `es-PA` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Paraguay)                 | `es-PY` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Pérou)                     | `es-PE` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Porto Rico)              | `es-PR` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Espagne)                    | `es-ES` | Audio (20201015)<br>Texte<br>Prononcer|  Oui                         |                          |
+| Espagnol (Uruguay)                  | `es-UY` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (États-Unis)                      | `es-US` | Texte<br>Prononcer                  |                           |                          |
+| Espagnol (Venezuela)                | `es-VE` | Texte<br>Prononcer                  |                           |                          |
+| Suédois (Suède)                   | `sv-SE` | Texte                                   |   Oui                        |                          |
+| Tamoul (Inde)                      | `ta-IN` | Texte                                   |                           |                          |
+| Télougou (Inde)                     | `te-IN` | Texte                                   |                           |                          |
+| Thaï (Thaïlande)                    | `th-TH` | Texte                                   |      Oui                     |                          |
+| Turc (Turquie)                   | `tr-TR` | Texte                                   |                           |                          |
+| Vietnamien (Vietnam)               | `vi-VN` | Texte                                   |                           |                          |
 
 ## <a name="text-to-speech"></a>Synthèse vocale
 
@@ -449,30 +455,31 @@ Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètr
 
 ### <a name="customization"></a>Personnalisation
 
-Custom Voice est disponible au niveau neuronal (Voix neuronale personnalisée). Vérifiez ci-dessous les langues prises en charge. 
+Custom Voice est disponible au niveau neuronal (Voix neuronale personnalisée). S’appuyant sur la technologie TTS neuronale et le modèle universel multi-voix multilingue, la voix neuronale personnalisée vous permet de créer des voix de synthèse riches en termes de styles d’élocution ou de plurilinguisme. Vérifiez ci-dessous les langues prises en charge.  
 
 > [!IMPORTANT]
 > Le niveau standard, y compris les méthodes de formation paramétrique statistique et par concaténation de Custom Voice, est déprécié et sera retiré le 2/29/2024. Si vous utilisez une instance Custom Voice non neurale/standard, migrez immédiatement vers la Voix neuronale personnalisée pour profiter de la meilleure qualité et déployer les voix de manière responsable. 
 
-| Langage | Paramètres régionaux | Neuronale |
-|--|--|--|
-| Bulgare (Bulgarie)| `bg-BG` | Oui |
-| Chinois (mandarin, simplifié) | `zh-CN` | Oui |
-| Chinois (mandarin, simplifié), anglais bilingue | `zh-CN` bilingue | Oui |
-| Néerlandais (Pays-Bas)   | `nl-NL` | Oui |
-| Anglais (Australie) | `en-AU` | Oui |
-| Anglais (Inde) | `en-IN` | Oui |
-| Anglais (Royaume-Uni) | `en-GB` | Oui |
-| Anglais (États-Unis) | `en-US` | Oui |
-| Français (Canada) | `fr-CA` | Oui |
-| Français (France) | `fr-FR` | Oui |
-| Allemand (Allemagne) | `de-DE` | Oui |
-| Italien (Italie) | `it-IT` | Oui |
-| Japonais (Japon) | `ja-JP` | Oui |
-| Coréen (Corée) | `ko-KR` | Oui |
-| Portugais (Brésil) | `pt-BR` | Oui |
-| Espagnol (Mexique) | `es-MX` | Oui |
-| Espagnol (Espagne) | `es-ES` | Oui |
+| Langage | Paramètres régionaux | Neuronale | Multilingue |
+|--|--|--|--|
+| Bulgare (Bulgarie)| `bg-BG` | Oui | Non |
+| Chinois (mandarin, simplifié) | `zh-CN` | Oui | Oui |
+| Chinois (mandarin, simplifié), anglais bilingue | `zh-CN` bilingue | Oui | Oui |
+| Néerlandais (Pays-Bas)   | `nl-NL` | Oui | Non |
+| Anglais (Australie) | `en-AU` | Oui | Oui |
+| Anglais (Inde) | `en-IN` | Oui | Non |
+| Anglais (Royaume-Uni) | `en-GB` | Oui | Oui |
+| Anglais (États-Unis) | `en-US` | Oui | Oui |
+| Français (Canada) | `fr-CA` | Oui | Oui |
+| Français (France) | `fr-FR` | Oui | Oui |
+| Allemand (Allemagne) | `de-DE` | Oui | Oui |
+| Italien (Italie) | `it-IT` | Oui | Oui |
+| Japonais (Japon) | `ja-JP` | Oui | Oui |
+| Coréen (Corée) | `ko-KR` | Oui | Oui |
+| Norvégien (bokmål, Norvège) | `nb-NO` | Oui | Non |
+| Portugais (Brésil) | `pt-BR` | Oui | Oui |
+| Espagnol (Mexique) | `es-MX` | Oui | Oui |
+| Espagnol (Espagne) | `es-ES` | Oui | Oui |
 
 Sélectionnez les paramètres régionaux qui correspondent aux données d’apprentissage servant à entraîner un modèle vocal personnalisé. Par exemple, si vos données d’enregistrement sont en anglais avec un accent britannique, sélectionnez `en-GB`.
 
@@ -565,19 +572,19 @@ Consultez le tableau suivant qui répertorie les langues prises en charge pour l
 
 | Langage | Paramètres régionaux (BCP-47) | Vérification dépendante du texte | Vérification indépendante du texte | Identification indépendante du texte |
 |----|----|----|----|----|
-|Anglais (US)  |  en-US  |  Oui  |  oui  |  Oui |
-|Chinois (mandarin, simplifié) | zh-CN     |     n/a |     oui |     Oui|
-|Anglais (Australie)     | en-AU     | n/a     | oui     | Oui|
-|Anglais (Canada)     | en-CA     | n/a |     oui |     Oui|
-|Anglais (Royaume-Uni)     | en-GB     | n/a     | oui     | Oui|
-|Français (Canada)     | fr-CA     | n/a     | oui |     Oui|
-|Français (France)     | fr-FR     | n/a     | oui     | Oui|
-|Allemand (Allemagne)     | de-DE     | n/a     | oui     | Oui|
-|Italien | it-IT     |     n/a     | oui |     Oui|
-|Japonais     | ja-JP | n/a     | oui     | Oui|
-|Portugais (Brésil) | pt-br |     n/a |     oui |     Oui|
-|Espagnol (Mexique)     | es-MX     | n/a |     oui |     Oui|
-|Espagnol (Espagne)     | es-ES | n/a     | oui |     oui|
+|Anglais (US)  |  en-US  |  Oui  |  Oui  |  Oui |
+|Chinois (mandarin, simplifié) | zh-CN     |     n/a |     Oui |     Oui|
+|Anglais (Australie)     | en-AU     | n/a     | Oui     | Oui|
+|Anglais (Canada)     | en-CA     | n/a |     Oui |     Oui|
+|Anglais (Royaume-Uni)     | en-GB     | n/a     | Oui     | Oui|
+|Français (Canada)     | fr-CA     | n/a     | Oui |     Oui|
+|Français (France)     | fr-FR     | n/a     | Oui     | Oui|
+|Allemand (Allemagne)     | de-DE     | n/a     | Oui     | Oui|
+|Italien | it-IT     |     n/a     | Oui |     Oui|
+|Japonais     | ja-JP | n/a     | Oui     | Oui|
+|Portugais (Brésil) | pt-br |     n/a |     Oui |     Oui|
+|Espagnol (Mexique)     | es-MX     | n/a |     Oui |     Oui|
+|Espagnol (Espagne)     | es-ES | n/a     | Oui |     oui|
 
 ## <a name="custom-keyword-and-keyword-verification"></a>Vérification par mot clé et mot clé personnalisé
 

@@ -6,18 +6,19 @@ ms.subservice: language-understanding
 author: aahill
 ms.author: aahi
 ms.topic: reference
-ms.date: 04/07/2021
+ms.date: 05/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: fd02bf5c3291569b71416392b651967e0da701d9
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 160a12139054f5ee887a540a4d838d124dd34840
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226665"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617327"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Création et la publication de régions et des clés associées
 
 Les régions de création LUIS sont prises en charge par le portail LUIS. Pour publier une application LUIS dans plusieurs régions, vous avez besoin d’au moins une clé par région.
+
 
 <a name="luis-website"></a>
 
@@ -25,9 +26,15 @@ Les régions de création LUIS sont prises en charge par le portail LUIS. Pour p
 
 [!INCLUDE [portal consolidation](includes/portal-consolidation.md)]
 
-LUIS a un portail que vous pouvez utiliser quelle que soit la région, [www.luis.ai](https://www.luis.ai). Vous devez toujours créer et publier dans la même région.
+Les régions de création suivantes sont disponibles pour LUIS :
+    
+* Australie Est
+* Europe Ouest
+* USA Ouest
+* Suisse Nord
 
-Les régions de création ont des [régions de basculement appairées](../../best-practices-availability-paired-regions.md).
+
+LUIS a un portail que vous pouvez utiliser quelle que soit la région, [www.luis.ai](https://www.luis.ai). Vous devez toujours créer et publier dans la même région. Les régions de création ont [des régions de basculement jumelées](../../best-practices-availability-paired-regions.md).
 
 <a name="regions-and-azure-resources"></a>
 

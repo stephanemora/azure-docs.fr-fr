@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 31c99fbac936ab6ec96d6e24bc824d9cb2069e0f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c48f62d193af953ec080fcd559c9d7593428d99e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078775"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454605"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gérer un graphique de jumeaux numériques à l’aide de relations
 
@@ -28,9 +28,10 @@ Cet article se concentre sur la gestion des relations et du graphique dans son e
 
 [!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
-Vous pouvez également apporter des changements à votre graphe à l’aide de l’exemple Azure Digital Twins Explorer, qui vous permet de visualiser vos jumeaux et votre graphe, et qui utilise le SDK en arrière-plan. La section suivante décrit cet exemple en détail.
-
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Capture d’écran d’Azure Digital Twins Explorer montrant des exemples de modèles et de jumeaux" lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
+
 
 ## <a name="create-relationships"></a>Créer des relations
 
@@ -198,7 +199,7 @@ Vous avez terminé la configuration et pouvez à présent exécuter l’exemple 
 
 Voici la sortie de la console du programme : 
 
-:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Sortie de la console présentant les détails sur les jumeaux, les relations entrantes et sortantes des jumeaux." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
+:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Capture d’écran de la sortie de la console montrant les détails sur les jumeaux, avec les relations entrantes et sortantes des jumeaux" lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
 
 > [!TIP]
 > Le graphe de jumeaux est un concept en lien avec la création de relations entre les jumeaux. Si vous souhaitez afficher la représentation visuelle du graphe de jumeaux, consultez la section [Visualisation](how-to-manage-graph.md#visualization) de cet article. 

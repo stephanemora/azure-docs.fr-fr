@@ -10,13 +10,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/21/2021
-ms.openlocfilehash: 5ca13784fe2f9a6a5b448bc838bf508f01b0a9fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/17/2021
+ms.openlocfilehash: 044c690688bfc83ce1b4ebc13008ad9a2f37034a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101095182"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112026882"
 ---
 # <a name="add-contributors-to-your-app"></a>Ajouter des contributeurs à votre application
 
@@ -26,18 +26,7 @@ Un propriétaire d’application peut ajouter des contributeurs à des applicati
 
 Vous avez migré si votre expérience de création LUIS est liée à une ressource de création dans la page **Gérer -> Ressources Azure** du portail LUIS.
 
-1. Dans le portail Azure, recherchez la ressource de création Language Understanding (LUIS). Son type est `LUIS.Authoring`.
-1. Dans la page **Contrôle d’accès (IAM)** de cette ressource, sélectionnez **+Ajouter**, puis **Ajouter une attribution de rôle**.
-
-    ![Dans le portail Azure, ajoutez une attribution de rôle à la ressource de création.](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)
-
-1. Dans la fenêtre **Ajouter une attribution de rôle**, sélectionnez le **Rôle** du contributeur. Pour l’option **Attribuer l’accès à**, sélectionnez un **utilisateur, un groupe ou un principal de service Azure AD**. Pour l’option **Sélectionner**, entrez l’adresse e-mail de l’utilisateur. Si l’utilisateur a plus de 1 adresse e-mail pour le même domaine, veillez à entrer le compte de courrier _principal_.
-
-    ![Ajouter l’e-mail de l’utilisateur au rôle contributeur pour Azure AD](./media/luis-how-to-collaborate/add-role-assignment-for-contributor.png)
-
-    Lorsque l’e-mail de l’utilisateur est trouvé, sélectionnez le compte, puis **Enregistrer**.
-
-    Si vous rencontrez des problèmes avec cette attribution de rôle, consultez [Affecter des rôles Azure](../../role-based-access-control/role-assignments-portal.md) et [Résolution des problèmes liés au contrôle d’accès Azure](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
+Dans le portail Azure, recherchez votre ressource de création LUIS (Language Understanding). Son type est `LUIS.Authoring`. Dans la page **Contrôle d’accès (IAM)** de la ressource, ajoutez le rôle **Contributeur** pour l’utilisateur que vous voulez ajouter. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](/azure/role-based-access-control/role-assignments-portal).
 
 ## <a name="view-the-app-as-a-contributor"></a>Afficher l’application en tant que contributeur
 
@@ -80,6 +69,6 @@ Découvrez-en plus sur les utilisateurs Azure Active Directory et le consentemen
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez [comment utiliser des versions](luis-how-to-manage-versions.md) pour contrôler le cycle de vie de votre application.
-* Découvrez les concepts de [ressource de création](luis-how-to-azure-subscription.md#authoring-key) et de [contributeurs](luis-how-to-azure-subscription.md#contributions-from-other-authors).
+* Découvrez la [création de ressources](luis-how-to-azure-subscription.md) et l’[ajout de contributeurs](luis-how-to-collaborate.md) à ces ressources.
 * Découvrez [comment créer](luis-how-to-azure-subscription.md) des ressources de création et de runtime.
 * Migrez vers la nouvelle [ressource de création](luis-migration-authoring.md).

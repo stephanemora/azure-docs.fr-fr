@@ -8,16 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 06/14/2021
 ms.author: aahi
-ms.openlocfilehash: b1af4e147f960e8e241a2d49ac94b7fb2594207f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 0e897b71f1f5f99ce2834768a72bf99b9773301f
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078199"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078255"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Prise en charge linguistique de l’API Analyse de texte v3 
+
+> [!NOTE]
+> Des langues sont ajoutées à mesure que de nouvelles versions de modèle sont publiées pour des fonctionnalités Analyse de texte spécifiques. Consultez [Gestion des versions des modèles](concepts/model-versioning.md) pour connaître la version de modèle la plus récente pour les fonctionnalités que vous utilisez, et obtenir plus d’informations.   
 
 #### <a name="sentiment-analysis"></a>[Analyse des sentiments](#tab/sentiment-analysis)
 
@@ -79,28 +82,42 @@ ms.locfileid: "110078199"
 
 #### <a name="key-phrase-extraction"></a>[Extraction de phrases clés](#tab/key-phrase-extraction)
 
-| Langage              | Code langue |  Prise en charge de v3 | Disponible à partir de la version de modèle v3 : |       Notes        |
+| Langage              | Code langue |  Prise en charge de v3 | À partir de la version de modèle v3 : |       Notes        |
 |:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|
-| Danois                |     `da`      |     ✓     |                2019-10-01                 |                    |
+| Afrikaans             |     `af`      |     ✓      |                2020-07-01                 |                    |
+| Bulgare             |     `bg`      |     ✓      |                2020-07-01                 |                    |
+| Catalan               |     `ca`      |     ✓      |                2020-07-01                 |                    |
+| Chinois simplifié    |     `zh-hans` |     ✓      |                2021-06-01                 |                    |
+| Croate              |     `hr`      |     ✓      |                2020-07-01                 |                    |
+| Danois                |     `da`      |     ✓      |                2019-10-01                 |                    |
 | Néerlandais                 |     `nl`      |     ✓      |                2019-10-01                 |                    |
 | Anglais               |     `en`      |     ✓      |                2019-10-01                 |                    |
+| Estonien              |     `et`      |     ✓      |                2020-07-01                 |                    |
 | Finnois               |     `fi`      |     ✓      |                2019-10-01                 |                    |
 | Français                |     `fr`      |     ✓      |                2019-10-01                 |                    |
 | Allemand                |     `de`      |     ✓      |                2019-10-01                 |                    |
+| Grec                 |     `el`      |     ✓      |                2020-07-01                 |                    |
+| Hongrois             |     `hu`      |     ✓      |                2020-07-01                 |                    |
 | Italien               |     `it`      |     ✓      |                2019-10-01                 |                    |
+| Indonésien            |     `id`      |     ✓      |                2020-07-01                 |                    |
 | Japonais              |     `ja`      |     ✓      |                2019-10-01                 |                    |
 | Coréen                |     `ko`      |     ✓      |                2019-10-01                 |                    |
+| Letton               |     `lv`      |     ✓      |                2020-07-01                 |                    |
 | Norvégien (Bokmål)   |     `no`      |     ✓      |                2020-07-01                 | `nb` également accepté |
 | Polonais                |     `pl`      |    ✓      |                2019-10-01                 |                    |
 | Portugais (Brésil)   |    `pt-BR`    |     ✓      |                2019-10-01                 |                    |
 | Portugais (Portugal) |    `pt-PT`    |    ✓      |                2019-10-01                 | `pt` également accepté |
+| Roumain              |     `ro`      |     ✓      |                2020-07-01                 |                    |
 | Russe               |     `ru`      |     ✓      |                2019-10-01                 |                    |
 | Espagnol               |     `es`      |     ✓      |                2019-10-01                 |                    |
+| Slovaque                |     `sk`      |     ✓      |                2020-07-01                 |                    |
+| Slovène             |     `sl`      |     ✓      |                2020-07-01                 |                    |
 | Suédois               |     `sv`      |     ✓      |                2019-10-01                 |                    |
+| Turc               |     `tr`      |     ✓      |                2020-07-01                 |                    |
 
 #### <a name="entity-linking"></a>[Liaison d’entités](#tab/entity-linking)
 
-| Langage | Code langue |  Prise en charge de v3 | Disponible à partir de la version de modèle v3 : | Notes |
+| Langage | Code langue |  Prise en charge de v3 | À partir de la version de modèle v3 : | Notes |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
 | Anglais  |     `en`      |     ✓      |                2019-10-01                 |       |
 | Espagnol  |     `es`      |    ✓      |                2019-10-01                 |       |
@@ -126,7 +143,7 @@ L’API Analyse de texte peut détecter une grande variété de langues, de vari
 
 Si vous avez du contenu exprimé dans une langue moins fréquemment utilisée, vous pouvez essayer Détection de langue pour voir si elle retourne un code. La réponse pour les langues qui ne peuvent pas être détectées est `unknown`.
 
-| Langage | Code de langue | Prise en charge de v3 | Disponible à partir de la version de modèle v3 : |
+| Langage | Code de langue | Prise en charge de v3 | À partir de la version de modèle v3 : |
 |:-|:-:|:-:|:-:|
 |Afrikaans|`af`|✓|    |
 |Albanais|`sq`|✓|    |
@@ -250,3 +267,4 @@ Si vous avez du contenu exprimé dans une langue moins fréquemment utilisée, v
 ## <a name="see-also"></a>Voir aussi
 
 * [Qu’est-ce que l’API Analyse de texte ?](overview.md)   
+* [Versions des modèles](concepts/model-versioning.md)

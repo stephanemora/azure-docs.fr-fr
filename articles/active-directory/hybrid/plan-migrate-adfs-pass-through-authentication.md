@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a10c4c0e6e40636e4803e054155d6fdaa12a9366
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba41c8e7c63888212a9a59c33e0d7efb2b9fb54d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96858550"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965959"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrer de la fédération à l’authentification directe pour Azure Active Directory
 
@@ -144,7 +144,7 @@ Cette section décrit les personnalisations courantes d’AD FS.
 
 AD FS émet la revendication **InsideCorporateNetwork** si l’utilisateur qui s’authentifie se trouve dans le réseau d’entreprise. Cette revendication est ensuite passée à Azure AD. La revendication est utilisée pour contourner l’authentification multifacteur en fonction de l’emplacement réseau de l’utilisateur. Pour savoir comment déterminer si cette fonctionnalité est actuellement disponible dans AD FS, consultez [Adresses IP de confiance pour les utilisateurs fédérés](../authentication/howto-mfa-adfs.md).
 
-La revendication **InsideCorporateNetwork** n’est plus disponible une fois que vos domaines sont convertis à l’authentification directe. Vous pouvez utiliser des [emplacements nommés dans Azure AD](../reports-monitoring/quickstart-configure-named-locations.md) pour remplacer cette fonctionnalité.
+La revendication **InsideCorporateNetwork** n’est plus disponible une fois que vos domaines sont convertis à l’authentification directe. Vous pouvez utiliser des [emplacements nommés dans Azure AD](../conditional-access/location-condition.md) pour remplacer cette fonctionnalité.
 
 Une fois que vous avez configuré des emplacements nommés, vous devez mettre à jour toutes les stratégies d’accès conditionnel configurées de façon à inclure ou à exclure les valeurs **Tous les emplacements approuvés** ou **Adresses IP approuvées MFA** pour refléter les emplacements nommés nouvellement créés.
 

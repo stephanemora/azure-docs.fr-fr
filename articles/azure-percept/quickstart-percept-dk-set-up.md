@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 94c1bc1b5dc61ac30d2adfb1bc42e13128de054d
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 3bc89555f3526048f2e4876724503d0137f21fbf
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105533"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964389"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Configurer votre DK Azure Percept et déployer votre premier modèle IA
 
@@ -170,7 +170,7 @@ Pour vérifier si votre compte Azure est un « propriétaire » ou un « cont
 
 1. Cliquez sur **View your device stream** (Afficher le flux de votre appareil). S’il s’agit de la première fois que vous affichez le flux vidéo de votre appareil, une notification indiquant qu’un nouveau modèle est déployé s’affiche dans le coin supérieur droit. Cela peut prendre quelques minutes.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/view-stream.png" alt-text="Affichez votre flux vidéo.":::
+    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-03-1-start-video-stream.png" alt-text="Affichez votre flux vidéo.":::
 
     Une fois que le modèle est déployé, vous obtenez une autre notification avec un lien **Afficher le flux**. Cliquez sur le lien pour afficher le flux vidéo de votre caméra Azure Percept Vision dans une nouvelle fenêtre de navigateur. Le kit de développement est préchargé avec un modèle d’IA qui effectue automatiquement la détection d’objets pour de nombreux objets communs.
 
@@ -178,7 +178,7 @@ Pour vérifier si votre compte Azure est un « propriétaire » ou un « cont
 
 1. Azure Percept Studio possède également un certain nombre d’échantillons de modèles d’IA. Pour déployer un échantillon de modèle dans votre kit de développement, revenez à la page de votre appareil, puis cliquez sur **Déployer un échantillon de modèle**.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/deploy-sample-model.png" alt-text="Explorez les modèles prédéfinis.":::
+    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-04-explore-prebuilt.png" alt-text="Explorez les modèles prédéfinis.":::
 
 1. Sélectionnez un échantillon de modèle dans la bibliothèque et cliquez sur **Déployer sur l’appareil**.
 

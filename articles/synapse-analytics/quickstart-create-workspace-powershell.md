@@ -2,7 +2,7 @@
 title: 'Démarrage rapide : Créer un espace de travail Synapse avec Azure PowerShell'
 description: Créez un espace de travail Azure Synapse avec Azure PowerShell en suivant les étapes décrites dans ce guide.
 services: synapse-analytics
-author: alehall
+author: lenadroid
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: alehall
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1f02833ef7497c34b72db6b858a51c6046bbf3df
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 1b602ecb096293df7071489262175ae4bb7d71b0
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567568"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113113532"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>Démarrage rapide : Créer un espace de travail Azure Synapse avec Azure PowerShell
 
@@ -91,8 +91,8 @@ Install-Module -Name Az.Synapse
 1. Obtenez l’URL dev et web de l’espace de travail Azure Synapse :
 
    ```azurepowershell-interactive
-   $WorkspaceWeb = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.Web
-   $WorkspaceDev = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.Dev
+   $WorkspaceWeb = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.web
+   $WorkspaceDev = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.dev
    ```
 
 1. Créez une règle de pare-feu pour autoriser votre accès à l’espace de travail Azure Synapse depuis votre machine :

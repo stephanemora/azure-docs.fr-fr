@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: b19b55945d3c252d01cf3544f8931580b7fc6710
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 3c506baa2b267ea0fbd2ecb05c805145a0619451
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100552678"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110164928"
 ---
 Ce guide explique comment installer le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour .NET Framework (Windows).
 
@@ -29,8 +29,6 @@ Ce démarrage rapide nécessite :
 ## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Créer un projet Visual Studio et installer le Kit de développement logiciel (SDK) Speech
 
 [!INCLUDE [Quickstart C++ project](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
-
-Vous pouvez maintenant passer aux [étapes suivantes](#next-steps) ci-dessous.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

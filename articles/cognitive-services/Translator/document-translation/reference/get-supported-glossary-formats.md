@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: ea22e6a3afe8ee90cb7b59d1aca0a37fc4fa03d6
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 0185a4b18ed56899de9c235bbd0438ef1dedf7c4
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107864916"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412724"
 ---
 # <a name="get-supported-glossary-formats"></a>Obtenir les formats de glossaire pris en charge
 
@@ -25,7 +25,7 @@ La méthode get supported glossary formats retourne une liste des formats de glo
 
 Envoyez une demande `GET` à :
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/glossaries/formats
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/glossaries/formats
 ```
 
 Découvrez comment déterminer votre [nom de domaine personnalisé](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -62,11 +62,14 @@ Type de base pour le retour de l’API get supported glossary formats.
 
 Type de base pour le retour de l’API get supported glossary formats.
 
-|Code d’état|Description|
-|--- |--- |
-|200|OK. Retourne la liste des formats de fichiers de glossaires pris en charge.|
-|500|Erreur interne du serveur.|
-|Autres codes d’état|Trop de demandes Serveur temporairement indisponible|
+|Nom|Type|Description|
+|--- |--- |--- |
+|value|FileFormat []|FileFormat [] contient les détails listés ci-dessous.|
+|value.contentTypes|string []|Content-Types pris en charge pour ce format.|
+|value.defaultVersion|string|Version par défaut si aucune n’est spécifiée.|
+|value.fileExtensions|string []| Extension de fichier prise en charge pour ce format.|
+|value.format|string|Nom du format.|
+|value.versions|string []| Version prise en charge.|
 
 ### <a name="error-response"></a>Réponse d’erreur
 
@@ -74,9 +77,10 @@ Type de base pour le retour de l’API get supported glossary formats.
 |--- |--- |--- |
 |code|string|Enums contenant des codes d’erreur généraux. Valeurs possibles :<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Non autorisé</li></ul>|
 |message|string|Obtient un message d’erreur général.|
-|innerError|InnerErrorV2|Nouveau format d’erreur interne, conforme aux instructions de l’API Cognitive Services. Il contient les propriétés obligatoires ErrorCode, message et les propriétés facultatives target, details(paire clé-valeur), et l’erreur interne (qui peut être imbriquée).|
+|innerError|InnerTranslationError|Nouveau format d’erreur interne qui est conforme aux instructions de l’API Cognitive Services. Ce format contient les propriétés obligatoires ErrorCode, message et les propriétés facultatives target, details (paire clé-valeur), et l’erreur interne (qui peut être imbriquée).|
 |innerError.code|string|Obtient la chaîne d’erreur de code.|
 |innerError.message|string|Obtient un message d’erreur général.|
+|innerError.target|string|Obtient la source de l’erreur. Par exemple, « documents » ou « document id » en présence d’un document non valide.|
 
 ## <a name="examples"></a>Exemples
 
@@ -95,6 +99,7 @@ Voici un exemple de réponse positive :
             "contentTypes": [
                 "application/xliff+xml"
             ],
+            "defaultVersion": "1.2",
             "versions": [
                 "1.0",
                 "1.1",
@@ -109,11 +114,20 @@ Voici un exemple de réponse positive :
             ],
             "contentTypes": [
                 "text/tab-separated-values"
+            ]
+        },
+        {
+            "format": "CSV",
+            "fileExtensions": [
+                ".csv"
             ],
-            "versions": []
+            "contentTypes": [
+                "text/csv"
+            ]
         }
     ]
 }
+
 ```
 
 ### <a name="example-error-response"></a>Exemple de réponse d’erreur

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 03/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 1fd42f7b2da82da17dc19f2a57ea9b64f78f3fe0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5cccfb2b750e9ea1a167f8bbbddcb2621bd19b5b
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102049700"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112008081"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-unity-with-mrtk"></a>Démarrage rapide : Créer une application HoloLens avec Azure Object Anchors, dans Unity avec MRTK
 
@@ -110,3 +110,6 @@ Exemple `subscription.json`:
 
 > [!div class="nextstepaction"]
 > [FORUM AUX QUESTIONS](../faq.md)
+
+> [!div class="nextstepaction"]
+> [Kit SDK de conversion](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)

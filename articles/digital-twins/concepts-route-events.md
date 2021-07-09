@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 540631db87807312f96c96ddd5b8144d4e22ff91
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a63390073f92625788dfbf43fc1183cc1812024a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095569"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460324"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Acheminer des événements à l’intérieur et à l’extérieur d’Azure Digital Twins
 
@@ -32,7 +32,7 @@ Une route d’événement vous permet d’envoyer des données d’événements 
 
 Le diagramme suivant illustre le flux des données d’événement via une solution IoT plus grande avec un aspect Azure Digital Twins :
 
-:::image type="content" source="media/concepts-route-events/routing-workflow.png" alt-text="Acheminement des données de Azure Digital Twins via des points de terminaison vers plusieurs services en aval" border="false":::
+:::image type="content" source="media/concepts-route-events/routing-workflow.png" alt-text="Diagramme des données de routage Azure Digital Twins via les points de terminaison vers plusieurs services en aval" border="false":::
 
 Les cibles en aval classiques pour les routes d’événements sont des ressources comme TSI, Azure Maps, le stockage et les solutions d’analyse.
 
@@ -95,7 +95,7 @@ Lorsqu’un point de terminaison ne peut pas remettre un événement dans un lap
 
 Si l’une des conditions est remplie, l’événement est abandonné ou mis en file d’attente de lettres mortes. Par défaut, chaque point de terminaison **n’active pas** la mise en file d’attente de lettres mortes. Pour l’activer, vous devez spécifier le compte de stockage dans lequel les événements non remis seront conservés au moment de créer le point de terminaison. Vous pouvez ensuite extraire les événements de ce compte de stockage pour résoudre les remises.
 
-Avant de définir l’emplacement des lettres mortes, vous devez disposer d’un compte de stockage avec un conteneur. Vous devez indiquer l’URL de ce conteneur au moment de créer le point de terminaison. La mise en file d’attente de lettres mortes est fournie sous la forme d’une URL de conteneur avec un jeton SAP. Ce jeton n’a besoin que de l’autorisation `write` pour le conteneur de destination dans le compte de stockage. L’URL complète sera au format : `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+Avant de définir l’emplacement des lettres mortes, vous devez disposer d’un compte de stockage avec un conteneur. Vous devez indiquer l’URL de ce conteneur au moment de créer le point de terminaison. La mise en file d’attente de lettres mortes est fournie sous la forme d’une URL de conteneur avec un jeton SAP. Ce jeton n’a besoin que de l’autorisation `write` pour le conteneur de destination dans le compte de stockage. L’URL complète sera au format : `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>`
 
 Pour en savoir plus sur les jetons SAS, consultez : [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)](../storage/common/storage-sas-overview.md)
 
