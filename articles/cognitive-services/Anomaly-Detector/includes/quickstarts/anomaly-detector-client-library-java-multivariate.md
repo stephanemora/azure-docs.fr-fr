@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2021
 ms.author: mbullwin
-ms.openlocfilehash: 871c93251f76313f66b10bdfabd0e97f6acff433
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 43ad5918f882a9496cfb9ee7ded13314cfdd87c1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108333383"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110163994"
 ---
 Démarrez avec la bibliothèque de client Détecteur d’anomalies (multivarié) pour Java. Procédez comme suit pour installer le package de démarrage à l’aide des algorithmes fournis par le service. Les nouvelles API de détection d’anomalie multivariée permettent aux développeurs d’intégrer facilement l’intelligence artificielle avancée pour détecter les anomalies à partir de groupes de métriques, sans avoir besoin d’une connaissance du machine learning ni de données étiquetées. Les dépendances et inter-corrélations entre différents signes sont automatiquement comptabilisées comme des facteurs clés. Cela vous permet de protéger de manière proactive vos systèmes complexes contre les défaillances.
 
@@ -105,12 +105,15 @@ import java.util.stream.Collectors;
 
 Créez des variables pour le point de terminaison et la clé Azure de votre ressource. Créez une autre variable pour l’exemple de fichier de données.
 
+> [!NOTE]
+> Vous avez toujours la possibilité d’utiliser l’une des deux clés. Cela permet d’autoriser la rotation des clés sécurisées. Dans le cadre de ce guide de démarrage rapide, utilisez la première clé. 
+
 ```java
 String key = "YOUR_API_KEY";
 String endpoint = "YOUR_ENDPOINT";
 ```
 
-Pour utiliser les API multivariées Détecteur d’anomalies, vous devez d’abord entraîner vos propres modèles. Les données d’entraînement sont un ensemble de plusieurs séries chronologiques qui répondent aux conditions suivantes :
+Pour utiliser les API multivariées Détecteur d’anomalies, vous devez d’abord entraîner vos propres modèles. Les données d’entraînement sont un ensemble de plusieurs séries chronologiques qui satisfont les exigences suivantes :
 
 Chaque série chronologique doit être un fichier CSV comportant deux (et seulement deux) colonnes, « timestamp » et « value » (tout en minuscules) en ligne d’en-tête. Les valeurs « timestamp » doivent être conformes à la norme ISO 8601 ; la colonne « value » peut contenir des entiers ou des nombres décimaux avec n’importe quel nombre de décimales. Par exemple :
 
@@ -241,6 +244,9 @@ while (true) {
 
 ## <a name="export-model"></a>Exporter le modèle
 
+> [!NOTE]
+> L’utilisation de la commande d’exportation est prévue pour permettre l’exécution de modèles multivariés du Détecteur d’anomalies dans un environnement en conteneur. Cette possibilité n’est pas reconnue actuellement pour l’élément multivarié, mais une prise en charge sera ajoutée à l’avenir.
+
 Pour exporter votre modèle entraîné, utilisez `exportModelWithResponse`.
 
 ```java
@@ -275,6 +281,14 @@ Exécutez l’application avec l’objectif `run` :
 gradle run
 ```
 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources liées au groupe de ressources.
+
+* [Portail](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Bonnes pratiques concernant le Détecteur d’anomalies (multivarié)](../../concepts/best-practices-multivariate.md)
+* [Présentation de l’API Détecteur d’anomalies](../../overview-multivariate.md)
+* [Bonnes pratiques concernant l’utilisation de l’API Détecteur d’anomalies.](../../concepts/best-practices-multivariate.md) 

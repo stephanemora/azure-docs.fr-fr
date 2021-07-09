@@ -5,17 +5,17 @@ description: ajouter des flux de données différents à Metrics Advisor
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
-ms.openlocfilehash: 4fd01256d94fbcb18fe8437be00c84e49d98f7d0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8ed4f3463a4061fffe480da7006e8660e95a5af6
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606145"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891173"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Ajouter des flux de données à partir de différentes sources dans Metrics Advisor
 
@@ -216,7 +216,7 @@ The timestamp field must match one of these two formats:
 
 * **Nom de la table** : Spécifiez une table à interroger. Il se trouve dans votre instance de compte de Stockage Azure. Cliquez sur **Tables** dans la section **Service de table**.
 
-* **Requête** Vous pouvez utiliser le `@StartTime` dans votre requête. `@StartTime` est remplacé par une chaîne de format aaaa-MM-jjThh:mm:ss dans le script. Conseil : Utilisez l’Explorateur Stockage Azure pour créer une requête avec une plage de temps spécifique et vérifiez qu’elle s’exécute correctement, puis effectuez le remplacement.
+* **Requête** Vous pouvez utiliser le `@StartTime` dans votre requête. `@StartTime` est remplacé par une chaîne de format aaaa-MM-jjThh:mm:ss dans le script. Conseil : Utilisez l’Explorateur Stockage Azure pour créer une requête avec un intervalle de temps spécifique et vérifiez qu’elle s’exécute correctement, puis effectuez le remplacement.
 
     ``` mssql
     date ge datetime'@StartTime' and date lt datetime'@EndTime'

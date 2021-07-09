@@ -1,16 +1,19 @@
 ---
-title: Workflows continus pour les applications LUIS
+title: Workflows d’intégration continue et de livraison continue pour les applications LUIS
 description: Implémenter des flux de travail CI/CD pour DevOps pour Language Understanding (LUIS).
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/5/2020
-ms.openlocfilehash: 215399e4b131162097e54c15b84cb6fa7dac72e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/01/2021
+ms.author: aahi
+author: aahill
+ms.manager: nitinme
+ms.openlocfilehash: 550af8bda0768738dc2162a0dc0bf767d1c54741
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98932536"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783027"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Flux de travail d’intégration continue et de livraison continue pour LUIS DevOps
 
@@ -34,6 +37,9 @@ Le **flux de travail CI/CD** combine deux processus de développement complémen
 L’objectif de l’intégration continue et de la livraison continue est de s’assurer que la branche principale est toujours accessible. Pour une application LUIS, cela signifie que nous pourrions, si nécessaire, prendre n’importe quelle version de l’application de la branche principale LUIS et la livrer en production.
 
 ### <a name="tools-for-building-automation-workflows-for-luis"></a>Outils de génération de flux de travail automatisés pour LUIS
+
+> [!TIP]
+> Vous trouverez une solution complète pour l’implémentation de DevOps dans le [dépôt de modèles LUIS DevOps ](#apply-devops-to-luis-app-development-using-github-actions).
 
 Il existe différentes technologies de génération d’automatisation pour créer ce type de flux de travail. Il est nécessaire de pouvoir écrire des étapes à l’aide d’une interface de ligne de commande (CLI) ou d’appels REST pour que tous ces outils puissent s’exécuter sur un serveur de génération de flux.
 
@@ -96,7 +102,26 @@ Il existe d'autres options pour déployer une version de l'application :
 
 En règle générale, nous vous recommandons d'effectuer des livraisons continues uniquement vers vos environnements de non-production, par exemple pour le développement et la mise en lots. La plupart des équipes requièrent un processus de révision et d’approbation manuel pour le déploiement dans un environnement de production. Pour un déploiement de production, vous souhaiterez peut-être vous assurer qu’il se produit lorsque des personnes clés de l’équipe de développement sont disponibles pour assurer un support, ou pendant des périodes de faible trafic.
 
+
+## <a name="apply-devops-to-luis-app-development-using-github-actions"></a>Appliquer DevOps au développement d’applications LUIS à l’aide de GitHub Actions
+
+Accédez au [référentiel de modèles DevOps LUIS](https://github.com/Azure-Samples/LUIS-DevOps-Template) pour obtenir une solution complète qui implémente les pratiques recommandées de DevOps et d’ingénierie logicielle pour LUIS. Vous pouvez utiliser ce dépôt de modèles pour créer votre propre dépôt avec la prise en charge intégrée des workflows CI/CD et des pratiques qui permettent d’activer le [contrôle de code source](luis-concept-devops-sourcecontrol.md), les builds automatisées, les [tests](luis-concept-devops-testing.md) et la gestion des versions avec LUIS pour votre propre projet.
+
+Le [référentiel de modèles DevOps LUIS](https://github.com/Azure-Samples/LUIS-DevOps-Template) vous indique comment effectuer les tâches suivantes :
+
+* **Cloner le référentiel de modèles** - Copiez le modèle dans votre propre référentiel GitHub.
+* **Configurer les ressources LUIS** - Créez les [ressources LUIS de création et de prédiction dans Azure](./luis-how-to-azure-subscription.md) qui seront utilisées par les flux de travail d’intégration en continu.
+* **Configurer les flux de travail CI/CD** - Configurez les paramètres des flux de travail CI/CD et stockez-les dans [GitHub Secrets](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
+* **Décrit la [« boucle interne de développement »](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/docker-apps-inner-loop-workflow)** - Le développeur apporte des mises à jour à un exemple d’application LUIS tout en travaillant dans une branche de développement, teste les mises à jour, puis lève une demande de tirage (pull request) pour proposer des modification et obtenir une approbation après révision.
+* **Exécuter des flux de travail CI/CD** - Exécutez des [flux de travail d’intégration en continu pour générer et tester une application LUIS](#build-automation-workflows-for-luis) à l’aide de GitHub Actions.
+* **Exécuter des tests automatisés** - Exécutez des [tests automatisés par lot pour une application LUI](luis-concept-devops-testing.md) afin d’évaluer la qualité de l’application.
+* **Déployer l’application LUIS** - Exécutez un [travail de livraison continue (CD)](#continuous-delivery-cd) pour publier l’application LUIS.
+* **Utiliser le référentiel avec votre propre projet** - Explique comment utiliser référentiel avec votre propre application LUIS.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Comment [implémenter DevOps pour LUIS avec GitHub](luis-how-to-devops-with-github.md)
 * Comment écrire un [flux de travail GitHub Actions avec NLU.DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template/blob/master/docs/4-pipeline.md)
+
+* Utilisez le [référentiel de modèles DevOps LUIS](https://github.com/Azure-Samples/LUIS-DevOps-Template) pour appliquer DevOps avec votre propre projet.
+* [Stratégies de contrôle de code source et de branche pour LUIS](luis-concept-devops-sourcecontrol.md)
+* [Test de LUIS DevOps](luis-concept-devops-testing.md)

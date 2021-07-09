@@ -8,20 +8,40 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 06/03/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 21f072747c9184fa15fd7e3477c0b4009cd885fc
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 63063ef205b456c368cec2d5c1a8ce1f456aaa59
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376235"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756470"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
 L’API Analyse de texte est mise à jour de manière continue. Pour vous informer des développements récents, cet article vous fournit des informations sur les nouvelles versions et fonctionnalités.
 
+## <a name="june-2021"></a>Juin 2021
+
+### <a name="general-api-updates"></a>Mises à jour générales de l’API
+
+* Nouvelle version de modèle `2021-06-01` pour l’extraction d’expressions clés, qui ajoute la prise en charge du chinois simplifié.
+* La version du modèle `2021-06-01` pour [Reconnaissance d’entité nommée](how-tos/text-analytics-how-to-entity-linking.md) v3.x, qui fournit 
+  * Amélioration de la qualité de l’intelligence artificielle et extension de la prise en charge linguistique à la catégorie d’entité *Compétence*. 
+  * Ajout de la prise en charge de l’espagnol, du français, de l’allemand, de l’italien et du portugais pour la catégorie d’entité *Compétence*.
+* Mise à disposition des opérations asynchrones et de l’Analyse de texte pour l’intégrité dans toutes les régions 
+
+### <a name="text-analytics-for-health-updates"></a>Analyse de texte pour des mises à jour de l’intégrité
+
+* Vous n’avez plus besoin de demander l’accès à la préversion d’Analyse de texte pour l’intégrité.
+* Nouvelle version de modèle `2021-05-15` pour le point de terminaison `/health` et le conteneur local fournit
+    * 5 nouveaux types d’entités : `ALLERGEN`, `CONDITION_SCALE`, `COURSE`, `EXPRESSION` et `MUTATION_TYPE`,
+    * 14 nouveaux types de relations,
+    * Détection d’assertion étendue aux nouveaux types d’entités, et
+    * Prise en charge de la liaison pour le type d’entité ALLERGEN
+
+ 
 ## <a name="may-2021"></a>Mai 2021
 
 * [Réponse à une question personnalisée](../qnamaker/custom-question-answering.md) (précédemment QnA Maker) est à présent accessible à l’aide d’une ressource Analyse de texte. 

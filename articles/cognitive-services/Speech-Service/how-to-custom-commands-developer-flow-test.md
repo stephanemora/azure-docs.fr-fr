@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c0bd21f55fee4d8487826deae23093ede293c8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d97ab241120ddc4c8e7434591b866312ea7708ae
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95021811"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890111"
 ---
 # <a name="test-your-custom-commands-application"></a>Tester votre application Commandes personnalisées
 
@@ -40,8 +40,17 @@ Pour configurer le client, extrayez le [client Assistant vocal Windows](https://
 > [!div class="mx-imgBorder"]
 > ![Création d’un profil WVAC](media/custom-commands/conversation.png)
 
-## <a name="test-with-speech-sdk-enabled-client-applications"></a>Test avec les applications clientes compatibles avec le kit de développement logiciel (SDK) Speech 
-Le kit de développement logiciel (SDK) Speech expose de nombreuses fonctionnalités du service Speech pour vous permettre de développer des applications à reconnaissance vocale. Il est également disponible dans de nombreux langages de programmation et sur toutes les plateformes.
+## <a name="test-programatically-with-the-cognitive-services-voice-assistant-test-tool"></a>Tester par programmation avec l’outil de test Assistant vocal Cognitive Services
+
+L’outil de test Assistant vocal est une application console C# .NET Core configurable pour les tests de régression fonctionnelle de bout en bout de votre Assistant vocal Microsoft. 
+
+L’outil peut s’exécuter manuellement en tant que commande de console ou être automatisé dans le cadre d’un pipeline Azure DevOps CI/CD pour empêcher les régressions dans votre bot.
+
+Pour apprendre à configurer l’outil, consultez [Outil de test Assistant vocal](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/main/clients/csharp-dotnet-core/voice-assistant-test).
+
+## <a name="test-with-speech-sdk-enabled-client-applications"></a>Test avec les applications clientes compatibles avec le kit de développement logiciel (SDK) Speech
+
+Le kit de développement logiciel (SDK) Speech expose de nombreuses fonctionnalités du service Speech pour vous permettre de développer des applications à reconnaissance vocale. Il est disponible dans de nombreux langages de programmation sur la plupart des plateformes.
 
 Pour configurer une application cliente plateforme Universal Windows Platform (UWP) avec le kit de développement logiciel (SDK) Speech et l’intégrer à votre application Commandes personnalisées :  
 - [Procédure : Intégration à une application cliente à l’aide du SDK Speech](./how-to-custom-commands-setup-speech-sdk.md)

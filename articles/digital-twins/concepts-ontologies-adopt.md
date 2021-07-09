@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 589e7ea53f6f247d18d4a2b532af3c87a8b0230c
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 73b115ad6f49d943c423c7490df347afce7c5869
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787884"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110668419"
 ---
 # <a name="adopting-an-industry-ontology"></a>Adoption de l’ontologie d’un secteur
 
@@ -20,7 +20,9 @@ Dans la mesure où il est peut-être plus facile de commencer avec une ontologie
 
 Il en résulte un ensemble d’ontologies open source en langage DTDL, qui reposent sur des standards du secteur, en tirent parti ou les utilisent directement. Ces ontologies sont conçues pour répondre aux besoins des développeurs en aval. Elles ont le potentiel nécessaire pour être largement adoptées et/ou étendues par le secteur.
 
-À l’heure actuelle, Microsoft travaille avec des partenaires pour développer une ontologie des [bâtiments intelligents](#realestatecore-smart-building-ontology) et une ontologie des [villes intelligentes](#smart-cities-ontology). Ces initiatives visent à fournir une base commune à la modélisation conformément aux normes de ces secteurs pour éviter de réinventer ce qui existe déjà. 
+À ce stade, Microsoft a travaillé avec des partenaires pour développer des ontologies des [bâtiments intelligents](#realestatecore-smart-building-ontology), des [villes intelligentes](#smart-cities-ontology) et des [réseaux énergétiques](#energy-grid-ontology). Ces initiatives visent à fournir une base commune à la modélisation, conformément aux normes de ces secteurs pour éviter d’avoir à réinventer ce qui existe déjà. 
+
+Chaque ontologie porte sur un ensemble initial de modèles. Les auteurs de l’ontologie vous invitent à contribuer à l’extension de l’ensemble initial de cas d’usage et à l’amélioration des modèles existants. 
 
 ## <a name="realestatecore-smart-building-ontology"></a>Ontologie des bâtiments intelligents RealEstateCore
 
@@ -40,11 +42,19 @@ Vous pouvez également en savoir plus sur le partenariat avec RealEstateCore et 
 
 Microsoft a collaboré avec des [OASC (Open Agile Smart Cities)](https://oascities.org/) et [Sirus](https://sirus.be/) pour fournir une ontologie basée sur DTDL pour les villes intelligentes, en commençant par [ETSI CIM NGSI-LD](https://www.etsi.org/committee/cim). Outre ETSI NGSI-LD, nous avons également évalué Saref4City, CityGML et ISO, entre autres.
 
-La version actuelle de l’ontologie se concentre sur un ensemble initial de modèles. Les auteurs de l’ontologie vous invitent à contribuer à l’extension de l’ensemble initial de cas d’usage et à l’amélioration des modèles existants. 
-
 Pour en savoir plus sur l’ontologie, sur la façon de l’utiliser et sur la façon d’y contribuer, accédez à son dépôt sur GitHub : [Azure/opendigitaltwins-smartcities](https://github.com/Azure/opendigitaltwins-smartcities). 
 
 Vous pouvez également obtenir plus d’informations sur les partenariats et l’approche pour les villes intelligentes dans le billet de blog suivant et la vidéo qui l’accompagne : [Ontologie des villes intelligentes pour Digital Twins](https://techcommunity.microsoft.com/t5/internet-of-things/smart-cities-ontology-for-digital-twins/ba-p/2166585).
+
+## <a name="energy-grid-ontology"></a>Ontologie des réseaux énergétiques
+
+*Cette ontologie est disponible dans le dépôt suivant :* [Ontologie DTDL (Digital Twins Definition Language) pour les réseaux énergétiques](https://github.com/Azure/opendigitaltwins-energygrid/).
+
+Cette ontologie a été créée pour aider les fournisseurs de solutions à accélérer le développement de solutions Digital Twins pour les cas d’utilisation d’énergie (surveillance des ressources réseau, analyse des défaillances et des impacts, simulation et maintenance prédictive) et faciliter la transition numérique et la modernisation du réseau énergétique. Elle a été adaptée à partir du [Common Information Model (CIM)](https://cimug.ucaiug.org/), norme internationale pour la gestion des ressources des réseaux énergétiques, la modélisation des opérations du système d’alimentation et le marché des produits énergétiques physiques.
+
+Pour en savoir plus sur cette ontologie, sur la façon de l’utiliser et la manière d’y contribuer, accédez à son dépôt sur GitHub : [Azure/opendigitaltwins-energygrid](https://github.com/Azure/opendigitaltwins-energygrid/). 
+
+Vous pouvez également en savoir plus sur les partenariats et l’approche pour les réseaux énergétiques dans le billet de blog suivant : [Ontologie des réseaux énergétiques pour Digital Twins](https://techcommunity.microsoft.com/t5/internet-of-things/energy-grid-ontology-for-digital-twins-is-now-available/ba-p/2325134).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

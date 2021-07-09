@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt, troubleshoot
-ms.openlocfilehash: c36e1221c77d7f2b285419be705990405965c005
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 598c578c445cbd7dc7086f22e3c8d4885d67b112
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382608"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537328"
 ---
 # <a name="troubleshooting-prebuilt-docker-images-for-inference-preview"></a>Résolution des problèmes liés aux images Docker prédéfinies pour l’inférence (préversion)
 
@@ -47,7 +47,7 @@ docker run -it -v $(pwd):/var/azureml-app -e AZUREML_EXTRA_REQUIREMENTS_TXT="req
 
 ## <a name="enable-local-debugging"></a>Activer le débogage local
 
-Le serveur d’inférence local vous permet de déboguer rapidement votre script d’entrée (`score.py`). Si un bogue affecte le script de scoring sous-jacent, le serveur ne pourra pas initialiser ou traiter le modèle. Au lieu de cela, il lèvera une exception là où les problèmes se sont produits.
+Le serveur d’inférence local vous permet de déboguer rapidement votre script d’entrée (`score.py`). Si un bogue affecte le script de scoring sous-jacent, le serveur ne pourra pas initialiser ou traiter le modèle. Au lieu de cela, il lèvera une exception là où les problèmes se sont produits. [Apprenez-en davantage sur le serveur HTTP d’inférence Azure Machine Learning](how-to-inference-server-http.md)
 
 ## <a name="for-common-model-deployment-issues"></a>Pour les problèmes de déploiement de modèle courants
 

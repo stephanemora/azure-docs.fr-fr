@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 4/8/2021
-ms.openlocfilehash: 59d2d561945ed55f3140099117c2f8dc9d8cc766
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a91053f9a21aebf1a99c35a3a982fd3ad5514d04
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084553"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475652"
 ---
 # <a name="authentication-failed"></a>Échec de l'authentification.
 
@@ -21,39 +21,19 @@ Cet article décrit les causes et les étapes de résolution en cas de réceptio
 
 Lors de la configuration et de l’exécution de l’application Azure Digital Twins Explorer, les tentatives d’authentification auprès de l’application se heurtent au message d’erreur suivant :
 
-:::image type="content" source="media/troubleshoot-error-azure-digital-twins-explorer-authentication/authentication-error.png" alt-text="Capture d’écran d’un message d’erreur dans Azure Digital Twins Explorer avec le texte suivant : « Échec de l’authentification ». Si vous exécutez l’application localement, vérifiez que vous êtes connecté à Azure sur votre ordinateur hôte, par exemple en exécutant « az login » dans une invite de commandes, en vous connectant à Visual Studio ou VS Code ou en définissant des variables d’environnement. Si vous avez besoin de plus d’informations, consultez le fichier Lisez-moi ou recherchez DefaultAzureCredential dans la documentation Azure.Identity. Si vous exécutez adt-explorer hébergé dans le cloud, assurez-vous que votre fonction Azure d’hébergement dispose d’une identité managée affectée par le système. Pour plus d’informations, consultez le fichier Lisez-moi.":::
+:::image type="content" source="media/troubleshoot-error-azure-digital-twins-explorer-authentication/authentication-error.png" alt-text="Capture d’écran d’un message d’erreur d’échec d’authentification dans Azure Digital Twins Explorer":::
 
 ## <a name="causes"></a>Causes
 
 ### <a name="cause-1"></a>Cause no 1
 
-L’application Azure Digital Twins Explorer utilise [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) (qui fait partie de la bibliothèque `Azure.Identity`), qui recherche les informations d’identification dans votre environnement local.
-
-Comme l’indique le texte de l’erreur, cette erreur peut se produire si vous n’avez pas fourni d’informations d’identification locales que `DefaultAzureCredential` puisse récupérer.
-
-Pour plus d’informations sur l’utilisation des informations d’identification locales avec Azure Digital Twins Explorer, consultez la section [Configurer les informations d’identification Azure locales](./quickstart-azure-digital-twins-explorer.md#set-up-local-azure-credentials) du guide *Démarrage rapide : Explorer un exemple de scénario* d’Azure Digital Twins Explorer.
-
-### <a name="cause-2"></a>Cause no 2
-
-Cette erreur peut également se produire si votre compte Azure ne dispose pas des autorisations de contrôle d’accès en fonction du rôle Azure (Azure RBAC) requises définies sur votre instance Azure Digital Twins. Pour accéder aux données de votre instance, vous devez avoir le rôle **Lecteur des données Azure Digital Twins** ou **Propriétaire des données Azure Digital Twins** sur l’instance que vous essayez de lire ou de gérer, respectivement. 
+Cette erreur peut se produire si votre compte Azure ne dispose pas des autorisations de contrôle d’accès en fonction du rôle Azure (Azure RBAC) requises définies sur votre instance Azure Digital Twins. Pour accéder aux données de votre instance, vous devez avoir le rôle **Lecteur des données Azure Digital Twins** ou **Propriétaire des données Azure Digital Twins** sur l’instance que vous essayez de lire ou de gérer, respectivement. 
 
 Pour plus d’informations sur la sécurité et les rôles dans Azure Digital Twins, consultez [Concepts : Sécurité pour les solutions Azure Digital Twins](concepts-security.md).
 
 ## <a name="solutions"></a>Solutions
 
 ### <a name="solution-1"></a>Solution no 1
-
-Tout d’abord, assurez-vous que vous avez fourni les informations d’identification nécessaires à l’application.
-
-#### <a name="provide-local-credentials"></a>Fournir les informations d’identification locales
-
-`DefaultAzureCredential` s’authentifie auprès du service en utilisant les informations d’une connexion Azure locale. Vous pouvez fournir vos informations d’identification Azure en vous connectant à votre compte Azure dans une fenêtre [Azure CLI](/cli/azure/install-azure-cli) locale, ou dans Visual Studio ou Visual Studio Code.
-
-Vous pouvez consulter les types d’informations d’identification que `DefaultAzureCredential` accepte, ainsi que l’ordre dans lequel ils sont tentés, dans la [documentation Azure Identity pour DefaultAzureCredential](/dotnet/api/overview/azure/identity-readme#defaultazurecredential).
-
-Si vous êtes déjà connecté localement au compte Azure approprié et que le problème n’est pas résolu, passez à la solution suivante.
-
-### <a name="solution-2"></a>Solution no 2
 
 Vérifiez que votre utilisateur Azure dispose du rôle **Lecteur des données Azure Digital Twins** sur l’instance Azure Digital Twins si vous tentez simplement de lire ses données ou du rôle **Propriétaire des données Azure Digital Twins** sur l’instance si vous essayez de gérer ses données.
 

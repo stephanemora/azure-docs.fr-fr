@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 93a3e6aca050c6fcf74008e7fac23c6f146c984f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 839ce4df4a79b34890a19d3beb470b77fef1f19d
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090187"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617653"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Comment utiliser Postman pour envoyer des demandes aux API Azure Digital Twins
 
@@ -23,9 +23,9 @@ Cet article décrit comment configurer le [client REST Postman](https://www.getp
 
 1. Utilisez l’interface de ligne de commande Azure pour [obtenir un jeton du porteur](#get-bearer-token) permettant d’effectuer des demandes API dans Postman.
 1. Créez une [collection Postman](#about-postman-collections) et configurez le client REST Postman afin qu’il utilise votre jeton du porteur pour s’authentifier. Lors de la configuration de la collection, vous avez le choix entre les options suivantes :
-    1. [Importer](#import-collection-of-azure-digital-twins-apis) une collection prédéfinie de demandes API Azure Digital Twins ;
-    1. [Créer](#create-your-own-collection) votre propre collection à partir de rien.
-1. [Ajoutez des demandes](#add-an-individual-request) à votre collection configurée, et envoyez-les aux API Azure Digital Twins.
+    1. [Importer une collection prédéfinie de demandes d’API Azure Digital Twins](#import-collection-of-azure-digital-twins-apis).
+    1. [Créer votre propre collection à partir de rien](#create-your-own-collection).
+1. [Ajouter des demandes à votre collection configurée ](#add-an-individual-request) et les envoyer aux API Azure Digital Twins.
 
 Azure Digital Twins comprend deux ensembles API que vous pouvez utiliser : un **plan de données** et un **plan de contrôle**. Pour plus d’informations sur la différence entre ces ensembles API, consultez [Concepts : API et kits de développement logiciel (SDK) Azure Digital Twins](concepts-apis-sdks.md). Cet article contient des informations sur les deux ensembles API.
 
@@ -39,7 +39,7 @@ Pour utiliser Postman pour accéder aux API Azure Digital Twins, vous devez conf
 
 ### <a name="download-postman"></a>Téléchargez Postman.
 
-Téléchargez ensuite la version de bureau du client Postman. Accédez à [www.getpostman.com/apps](https://www.getpostman.com/apps) et suivez les invites pour télécharger l’application.
+Ensuite, [téléchargez la version de bureau du client Postman](https://www.getpostman.com/apps).
 
 ## <a name="get-bearer-token"></a>Obtenir un jeton du porteur
 
@@ -47,7 +47,7 @@ Téléchargez ensuite la version de bureau du client Postman. Accédez à [www.g
 
 Il existe plusieurs façons d’obtenir ce jeton. Dans le cadre de cet article, vous allez utiliser l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli) pour vous connecter à votre compte Azure et obtenir un jeton de cette façon.
 
-Si vous disposez d’une interface de ligne de commande Azure [installée localement](/cli/azure/install-azure-cli), vous pouvez démarrer une invite de commandes sur votre ordinateur pour exécuter les commandes suivantes.
+Si vous disposez d’une [interface de ligne de commande Azure installée localement](/cli/azure/install-azure-cli), vous pouvez démarrer une invite de commandes sur votre ordinateur pour exécuter les commandes suivantes.
 Dans le cas contraire, vous pouvez ouvrir une fenêtre [Azure Cloud Shell](https://shell.azure.com) dans votre navigateur et y exécuter les commandes.
 
 1. Tout d’abord, assurez-vous que vous êtes connecté à Azure avec les informations d’identification appropriées, en exécutant la commande suivante :
@@ -82,7 +82,7 @@ Dans le cas contraire, vous pouvez ouvrir une fenêtre [Azure Cloud Shell](https
 
 3. Copiez la valeur de `accessToken` dans le résultat, puis enregistrez-la pour l’utiliser dans la section suivante. Il s’agit de la **valeur de jeton** que vous allez fournir à Postman pour autoriser vos demandes.
 
-    :::image type="content" source="media/how-to-use-postman/console-access-token.png" alt-text="Capture d’écran de la console montrant le résultat de la commande az account-access-token. Le champ accessToken et son exemple de valeur sont mis en évidence.":::
+    :::image type="content" source="media/how-to-use-postman/console-access-token.png" alt-text="Capture d’écran de la console montrant le résultat de la commande az account get-access-token. Le champ accessToken et son exemple de valeur sont mis en évidence.":::
 
 >[!TIP]
 >Ce jeton est valide pendant au minimum cinq minutes et au maximum 60 minutes. Si le temps alloué ne suffit pas pour le jeton actuel, vous pouvez répéter les étapes décrites dans cette section pour en obtenir un nouveau.
@@ -172,7 +172,7 @@ Si vous créez une collection [plan de données](concepts-apis-sdks.md#overview-
 
 1. Toujours dans la boîte de dialogue de modification de votre collection, accédez à l’onglet **Variables** .
 
-1. Utilisez le **nom d’hôte** de votre instance figurant dans la section [Conditions préalables](#prerequisites) pour définir le champ VALEUR ACTUELLE de la variable pertinente. Sélectionnez **Enregistrer**.
+1. Utilisez le **nom d’hôte** de votre instance figurant dans la [section Prérequis](#prerequisites) pour définir le champ VALEUR ACTUELLE de la variable pertinente. Sélectionnez **Enregistrer**.
 
     :::image type="content" source="media/how-to-use-postman/postman-variables-imported.png" alt-text="Capture d’écran de la boîte de dialogue de modification de la collection importée dans Postman, montrant l’onglet « Variables », avec le champ « CURRENT VALUE » (Valeur actuelle) mis en évidence." lightbox="media/how-to-use-postman/postman-variables-imported.png":::
 
@@ -277,7 +277,7 @@ Pour envoyer une demande Postman à l’une des API Azure Digital Twins, vous av
 Pour continuer avec un exemple de requête, cet article utilise l’API de requête (et sa [documentation de référence](/rest/api/digital-twins/dataplane/query/querytwins)) pour interroger tous les jumeaux numériques dans une instance.
 
 1. Trouvez l’URL et le type de la demande dans la documentation de référence. Pour l’API de requête, il s’agit actuellement de *POST*  `https://digitaltwins-host-name/query?api-version=2020-10-31`.
-1. Dans Postman, définissez le type de la demande, puis entrez son URL en remplissant les espaces réservés dans l’URL de manière appropriée. C’est là que vous allez utiliser le **nom d’hôte** de votre instance, évoqué dans la section [Conditions préalables](#prerequisites).
+1. Dans Postman, définissez le type de la demande, puis entrez son URL en remplissant les espaces réservés dans l’URL de manière appropriée. C’est là que vous allez utiliser le **nom d’hôte** de votre instance, issu de la [section Prérequis](#prerequisites).
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Capture d’écran des détails de la nouvelle demande dans Postman, avec l’URL de requête de la documentation de référence renseignée dans la zone URL de demande." lightbox="media/how-to-use-postman/postman-request-url.png":::
     

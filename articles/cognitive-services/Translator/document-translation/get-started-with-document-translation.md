@@ -6,14 +6,14 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: a9ec36483196ea6214742522f88ddffcd8a3b899
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 32ad688a2b42f2699933f2e26aed44122f36ff40
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292825"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409574"
 ---
-# <a name="get-started-with-document-translation-preview"></a>Bien démarrer avec la Traduction de documentation (préversion)
+# <a name="get-started-with-document-translation"></a>Bien démarrer avec la traduction de documents
 
  Dans cet article, vous allez apprendre à utiliser la Traduction de documentation avec les méthodes de l’API REST HTTP. La Traduction de documentation est une fonctionnalité cloud du service [Azure Translator](../translator-info-overview.md).  L’API Traduction de documentation permet de traduire des documents entiers tout en conservant la structure et la mise en forme du texte du document source.
 
@@ -22,7 +22,7 @@ ms.locfileid: "108292825"
 > [!NOTE]
 >
 > 1. En général, quand vous créez une ressource Cognitive Services dans le portail Azure, vous avez la possibilité de créer une clé d’abonnement multiservice ou une clé d’abonnement monoservice. Toutefois, la Traduction de documentation est actuellement prise en charge dans la ressource Translator (monoservice) uniquement, et n’est **pas** incluse dans la ressource Cognitive Services (multiservice).
-> 2. La traduction de documentation est actuellement disponible dans le **Plan de service standard S1**. _Voir_ [Tarification de Cognitive Services - Traducteur](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+> 2. La Traduction de documentation est disponible **uniquement** dans le plan de service Standard S1 (paiement à l’utilisation) ou dans le plan de remise sur la quantité D3. _Voir_ [Tarification de Cognitive Services - Traducteur](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
 
 Avant de commencer, vérifiez que vous disposez des éléments suivants :
@@ -45,7 +45,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 Le point de terminaison de domaine personnalisé est une URL mise en forme avec votre nom de ressource, votre nom d’hôte et les sous-répertoires de Translator :
 
 ```http
-https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1
+https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0
 ```
 
 ### <a name="find-your-custom-domain-name"></a>Rechercher votre nom de domaine personnalisé
@@ -195,6 +195,7 @@ Les en-têtes suivants sont inclus avec chaque demande d’API du Traducteur de 
 
 ### <a name="post-request-body-properties"></a>Propriétés du corps de la requête POST
 
+* L’URL de la requête POST est POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches`
 * Le corps de la requête POST est un objet JSON nommé `inputs`.
 * L’objet `inputs` contient à la fois les adresses de conteneur `sourceURL` et `targetURL` pour vos paires de langue source et cible, et peut éventuellement contenir une adresse de conteneur `glossaryURL`.
 * Les champs `prefix` et `suffix` (facultatifs) sont utilisés pour filtrer les documents présents dans le conteneur, dont les dossiers.
@@ -214,11 +215,11 @@ Les en-têtes suivants sont inclus avec chaque demande d’API du Traducteur de 
     "inputs": [
         {
             "source": {
-                "sourceUrl": https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D
+                "sourceUrl": "https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D"
             },
             "targets": [
                 {
-                    "targetUrl": https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D,
+                    "targetUrl": "https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
                     "language": "fr"
                 }
             ]
@@ -241,15 +242,15 @@ Les en-têtes suivants sont inclus avec chaque demande d’API du Traducteur de 
         {
             "storageType": "File",
             "source": {
-                "sourceUrl": https://my.blob.core.windows.net/source-en/source-english.docx?sv=2019-12-12&st=2021-01-26T18%3A30%3A20Z&se=2021-02-05T18%3A30%3A00Z&sr=c&sp=rl&sig=d7PZKyQsIeE6xb%2B1M4Yb56I%2FEEKoNIF65D%2Fs0IFsYcE%3D
+                "sourceUrl": "https://my.blob.core.windows.net/source-en/source-english.docx?sv=2019-12-12&st=2021-01-26T18%3A30%3A20Z&se=2021-02-05T18%3A30%3A00Z&sr=c&sp=rl&sig=d7PZKyQsIeE6xb%2B1M4Yb56I%2FEEKoNIF65D%2Fs0IFsYcE%3D"
             },
             "targets": [
                 {
-                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-Spanish.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
+                    "targetUrl": "https://my.blob.core.windows.net/target/try/Target-Spanish.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D",
                     "language": "es"
                 },
                 {
-                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-German.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
+                    "targetUrl": "https://my.blob.core.windows.net/target/try/Target-German.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D",
                     "language": "de"
                 }
             ]
@@ -279,7 +280,7 @@ Les en-têtes suivants sont inclus avec chaque demande d’API du Traducteur de 
 
 |**En-tête de réponse**|**URL de résultat**|
 |-----------------------|----------------|
-Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
+Operation-Location   | https://<<span>NOM-DE-VOTRE-RESSOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
 
 * Vous pouvez également utiliser une requête **GET Jobs** pour récupérer un `id` de tâche de Traduction de documentation.
 
@@ -304,11 +305,11 @@ Envoyez une demande de Traduction de documentation par lot au service de traduct
 
         static readonly string route = "/batches";
 
-        private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+        private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
 
         private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
 
-        static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS",\"storageSource\": \"AzureBlob\",\"language\": \"en\",\"filter\":{\"prefix\": \"Demo_1/\"} }, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
+        static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"language\": \"en\",\"filter\":{\"prefix\": \"Demo_1/\"} }, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
         
         static async Task Main(string[] args)
         {
@@ -349,7 +350,7 @@ Envoyez une demande de Traduction de documentation par lot au service de traduct
 
 const axios = require('axios').default;
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
 let route = '/batches';
 let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
 
@@ -398,7 +399,7 @@ axios(config)
 
 import requests
 
-endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
+endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
 subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
 path = '/batches'
 constructed_url = endpoint + path
@@ -446,7 +447,7 @@ import com.squareup.okhttp.*;
 
 public class DocumentTranslation {
     String subscriptionKey = "'<YOUR-SUBSCRIPTION-KEY>'";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String path = endpoint + "/batches";
 
     OkHttpClient client = new OkHttpClient();
@@ -488,7 +489,7 @@ import (
 )
 
 func main() {
-endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
+endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
 subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
 uri := endpoint + "/batches"
 method := "POST"
@@ -535,7 +536,7 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
 
     static readonly string route = "/documents/formats";
 
@@ -569,7 +570,7 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
 let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
 let route = '/documents/formats';
 
@@ -602,7 +603,7 @@ import com.squareup.okhttp.*;
 public class GetFileFormats {
 
     String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/documents/formats";
     OkHttpClient client = new OkHttpClient();
 
@@ -632,7 +633,7 @@ public class GetFileFormats {
 import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.0-preview.1/documents/formats'
+parameters = '//translator/text/batch/v1.0/documents/formats'
 subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
@@ -661,7 +662,7 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
   subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
   uri := endpoint + "/documents/formats"
   method := "GET"
@@ -713,7 +714,7 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
 
     static readonly string route = "/batches/{id}";
 
@@ -747,7 +748,7 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
 let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
 let route = '/batches/{id}';
 
@@ -781,7 +782,7 @@ import com.squareup.okhttp.*;
 public class GetJobStatus {
 
     String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/batches/{id}";
     OkHttpClient client = new OkHttpClient();
 
@@ -811,7 +812,7 @@ public class GetJobStatus {
 import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.0-preview.1/batches/{id}'
+parameters = '//translator/text/batch/v1.0/batches/{id}'
 subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
@@ -840,7 +841,7 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
   subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
   uri := endpoint + "/batches/{id}"
   method := "GET"
@@ -893,7 +894,7 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
 
     static readonly string route = "/{id}/document/{documentId}";
 
@@ -927,7 +928,7 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
 let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
 let route = '/{id}/document/{documentId}';
 
@@ -961,7 +962,7 @@ import com.squareup.okhttp.*;
 public class GetDocumentStatus {
 
     String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/{id}/document/{documentId}";
     OkHttpClient client = new OkHttpClient();
 
@@ -991,7 +992,7 @@ public class GetDocumentStatus {
 import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.0-preview.1/{id}/document/{documentId}'
+parameters = '//translator/text/batch/v1.0/{id}/document/{documentId}'
 subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
@@ -1020,7 +1021,7 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
   subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
   uri := endpoint + "/{id}/document/{documentId}"
   method := "GET"
@@ -1073,7 +1074,7 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
 
     static readonly string route = "/batches/{id}";
 
@@ -1107,7 +1108,7 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
 let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
 let route = '/batches/{id}';
 
@@ -1141,7 +1142,7 @@ import com.squareup.okhttp.*;
 public class DeleteJob {
 
     String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/batches/{id}";
     OkHttpClient client = new OkHttpClient();
 
@@ -1171,7 +1172,7 @@ public class DeleteJob {
 import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.0-preview.1/batches/{id}'
+parameters = '//translator/text/batch/v1.0/batches/{id}'
 subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
@@ -1200,7 +1201,7 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
   subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
   uri := endpoint + "/batches/{id}"
   method := "DELETE"
@@ -1236,7 +1237,7 @@ func main() {
 
 ## <a name="content-limits"></a>Limites de contenu
 
-Le tableau ci-dessous liste les limites applicables aux données que vous envoyez au service Traduction de documentation (préversion).
+Le tableau ci-dessous liste les limites applicables aux données que vous envoyez au service Traduction de documentation.
 
 |Attribut | Limite|
 |---|---|
@@ -1246,8 +1247,7 @@ Le tableau ci-dessous liste les limites applicables aux données que vous envoye
 |Nombre de langues cibles dans un lot| ≤ 10 Mo |
 |Taille du fichier de mémoire de traduction| ≤ 10 Mo|
 
-> [!NOTE]
-> Les limites de contenu ci-dessus sont susceptibles de changer avant la version publique.
+La Traduction de documentation ne peut pas être utilisée pour traduire des documents sécurisés, tels que ceux définis avec un mot de passe chiffré ou avec un accès restreint pour copier le contenu.
 
 ## <a name="learn-more"></a>En savoir plus
 

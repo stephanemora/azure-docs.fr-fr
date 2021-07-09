@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: db99fa5caff27a24aa04e4780b25ade3f7c25496
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d686ea40b08139b9d16ade16d6e401db8300db0f
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101699927"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081116"
 ---
 # <a name="plan-and-manage-costs-for-azure-cognitive-services"></a>Planifier et gérer les coûts pour Azure Cognitive Services
 
@@ -36,7 +36,30 @@ Pour plus d’informations, consultez [Tarifs Azure Cognitive Services](https://
 
 ## <a name="understand-the-full-billing-model-for-cognitive-services"></a>Comprendre l’ensemble du modèle de facturation pour Cognitive Services
 
-Cognitive Services s’exécute sur l’infrastructure Azure qui [accumule les coûts](https://azure.microsoft.com/pricing/details/cognitive-services/) lorsque vous déployez la nouvelle ressource. Il est important de comprendre qu’une infrastructure supplémentaire peut accumuler des frais. Vous devez gérer ce coût lorsque vous apportez des modifications aux ressources déployées. 
+Cognitive Services s’exécute sur l’infrastructure Azure qui [accumule les coûts](https://azure.microsoft.com/pricing/details/cognitive-services/) lorsque vous déployez la nouvelle ressource. Il est important de comprendre qu’une infrastructure plus grande peut accroître les coûts. Vous devez gérer ce coût lorsque vous apportez des modifications aux ressources déployées. 
+
+### <a name="how-youre-charged-for-cognitive-services"></a>Facturation des ressources Cognitive Services
+
+Lorsque vous créez ou utilisez des ressources Cognitive Services, vous pouvez être facturé pour les compteurs suivants en fonction des services que vous utilisez :
+
+| Service | Compteur(s) | Informations de facturation | 
+|---------|-------|---------------------|
+| **Vision** | | |
+| [Vision par ordinateur](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) | Gratuit, Standard (S1) | Facturation basée sur le nombre de transactions. Le prix par transaction varie selon la fonctionnalité (lecture, OCR, analyse spatiale). Pour plus d’informations, consultez les [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/). |
+| [Custom Vision](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) | Gratuit, Standard | <li>Les prédictions sont facturées sur la base du nombre de transactions.</li><li>L’entraînement est facturé par heure(s) de calcul.</li><li>Le stockage d’images est facturé au nombre d’images (jusqu’à 6 Mo par image).</li>|
+| [Visage](https://azure.microsoft.com/pricing/details/cognitive-services/face-api/) | Gratuit, Standard | Facturation basée sur le nombre de transactions. |
+| **Speech** | | |
+| [Service Speech](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) | Gratuit, Standard | La facturation varie selon la fonctionnalité (reconnaissance vocale, synthèse vocale, traduction vocale, reconnaissance de l’orateur). La facturation est basée sur le nombre de transactions ou le nombre de caractères. Pour plus d’informations, consultez les [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). |
+| **Langage** | | |
+| [Language Understanding (LUIS)](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) | Création gratuite, Prédiction gratuite, Standard | Facturation basée sur le nombre de transactions. Le prix par transaction varie selon la fonctionnalité (demandes vocales, demandes de texte). Pour plus d’informations, consultez les [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). |
+| [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/) | Gratuit, Standard | Frais d’abonnement facturés tous les mois. Pour plus d’informations, consultez les [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). | 
+| [Analyse de texte](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) | Gratuit, Standard | Facturation basée sur le nombre d’enregistrements texte. | 
+| [Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/) | Gratuit, Paiement à l’utilisation (S1), Remise sur la quantité (S2, S3, S4, C2, C3, C4, D3) | Les prix varient selon le compteur et la fonctionnalité. Pour plus d’informations, consultez les [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/translator/). <li>La traduction de texte est facturée sur la base du nombre de caractères traduits.</li><li>La traduction de documents est facturée sur la base du nombre de caractères traduits.</li><li>La traduction personnalisée est facturée sur la base du nombre de caractères source et cible de données d’entraînement.</li> |  
+| **Décision** | | |
+| [Détecteur d’anomalies](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/) | Gratuit, Standard | Facturation basée sur le nombre de transactions. | 
+| [Content Moderator](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/) | Gratuit, Standard | Facturation basée sur le nombre de transactions. |
+| [Personalizer](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/) | Gratuit, Standard (S0) | Facturation basée sur le nombre de transactions par mois. Des quotas de stockage et de transactions s’appliquent. Pour plus d’informations, consultez les [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/). | 
+
 
 ### <a name="costs-that-typically-accrue-with-cognitive-services"></a>Coûts qui s’accumulent généralement avec Cognitive Services
 
@@ -62,7 +85,7 @@ Une fois que vous avez supprimé les ressources QnA Maker, les ressources suivan
 
 ### <a name="using-azure-prepayment-credit-with-cognitive-services"></a>Utilisation du crédit Paiement anticipé Azure avec Cognitive Services
 
-Vous pouvez payer les frais Cognitive Services avec votre crédit Paiement anticipé Azure (anciennement appelé engagement financier). Vous ne pouvez cependant pas utiliser le crédit Paiement anticipé Azure pour payer des frais pour des produits et services tiers, y compris ceux de la Place de marché Azure.
+Vous pouvez payer les frais Cognitive Services avec votre crédit Paiement anticipé Azure (anciennement appelé engagement financier). Vous ne pouvez cependant pas utiliser le crédit Paiement anticipé Azure pour payer des frais pour des produits et services tiers, notamment ceux de la Place de marché Azure.
 
 ## <a name="monitor-costs"></a>Superviser les coûts
 
@@ -98,7 +121,7 @@ Vous pouvez créer des budgets avec des filtres pour des ressources ou des servi
 
 ## <a name="export-cost-data"></a>Exporter des données de coûts
 
-Vous pouvez également [exporter vos données de coûts](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) vers un compte de stockage. C’est utile quand vous ou d’autres personnes avez besoin d’effectuer des analyses supplémentaires des données concernant les coûts. Par exemple, les équipes financières peuvent analyser les données avec Excel ou Power BI. Vous pouvez exporter vos coûts selon une planification quotidienne, hebdomadaire ou mensuelle, et définir une plage de dates personnalisée. L’exportation des données des coûts est la méthode recommandée pour récupérer les jeux de données des coûts.
+Vous pouvez également [exporter vos données de coûts](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) vers un compte de stockage. C’est utile quand vous ou d’autres personnes avez besoin d’effectuer une analyse supplémentaire des données concernant les coûts. Par exemple, les équipes financières peuvent analyser les données avec Excel ou Power BI. Vous pouvez exporter vos coûts selon une planification quotidienne, hebdomadaire ou mensuelle, et définir une plage de dates personnalisée. L’exportation des données des coûts est la méthode recommandée pour récupérer les jeux de données des coûts.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

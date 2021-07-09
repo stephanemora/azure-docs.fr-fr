@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 59ea778009400e73b13eee8a1987bd39f22493fe
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 902a028b77352a09fe4c615992192bc9246e9aa5
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078991"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616050"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Intégrer Azure Digital Twins avec le service Azure SignalR
 
@@ -37,9 +37,9 @@ Vous devez également vous connecter au [portail Azure](https://portal.azure.com
 
 ## <a name="solution-architecture"></a>Architecture de solution
 
-Vous allez attacher Azure SignalR Service à Azure Digital Twins par le biais du chemin ci-dessous. Dans le diagramme, les sections A, B et C sont tirées du diagramme d’architecture des [prérequis du tutoriel de bout en bout](tutorial-end-to-end.md). Dans cet article de guide pratique, vous allez générer la section D sur l’architecture existante.
+Vous allez attacher Azure SignalR Service à Azure Digital Twins par le biais du chemin ci-dessous. Dans le diagramme, les sections A, B et C sont tirées du diagramme d’architecture des [prérequis du tutoriel de bout en bout](tutorial-end-to-end.md). Dans cet article de procédure, vous allez générer la section D sur l’architecture existante, qui comprend deux nouvelles fonctions Azure qui communiquent avec SignalR et les applications clientes.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="Une vue des services Azure dans un scénario de bout en bout. Décrit le flux de données depuis un appareil vers successivement IoT Hub, une fonction Azure (flèche B), une instance Azure Digital Twins (section A), Event Grid et une autre fonction Azure en vue du traitement (flèche C). La section D illustre le flux de données à partir du même Event Grid en flèche C vers une fonction Azure appelée « broadcast ». « broadcast » communique avec une autre fonction Azure nommée « negotiate », et les fonctions « broadcast » et « negotiate » communiquent toutes deux avec les appareils informatiques." lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="Diagramme des services Azure dans un scénario de bout en bout, qui décrit la transmission des données dans et hors d’Azure Digital Twins" lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
 
 ## <a name="download-the-sample-applications"></a>Téléchargement des exemples d'applications
 
@@ -47,7 +47,7 @@ Tout d’abord, téléchargez les exemples d’applications requis. Vous aurez b
 * [Exemples Azure Digital Twins de bout en bout](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) : cet exemple comprend une application *AdtSampleApp* contenant deux fonctions Azure pour déplacer des données dans une instance Azure Digital Twins (vous pouvez découvrir ce scénario plus en détail dans le [Tutoriel : Connecter une solution de bout en bout](tutorial-end-to-end.md)). Il contient également un exemple d’application *DeviceSimulator* qui simule un appareil IoT générant une nouvelle valeur de température chaque seconde.
     - Si vous n’avez pas encore téléchargé l’exemple dans le cadre des [prérequis](#prerequisites) du tutoriel, [accédez à l’exemple](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) et sélectionnez le bouton *Browse code* (Parcourir le code) situé sous le titre. Vous accédez alors au référentiel GitHub d’exemples, que vous pouvez télécharger au format .zip en sélectionnant le bouton *Code*, puis *Download ZIP* (Télécharger le ZIP).
 
-        :::image type="content" source="media/includes/download-repo-zip.png" alt-text="Vue du dépôt digital-twins-samples sur GitHub. La sélection du bouton Code entraîne l’ouverture d’une petite boîte de dialogue dans laquelle le bouton Download ZIP est mis en évidence." lightbox="media/includes/download-repo-zip.png":::
+        :::image type="content" source="media/includes/download-repo-zip.png" alt-text="Capture d’écran du dépôt digital-twins-samples sur GitHub et des étapes permettant de le télécharger sous la forme d’un fichier zip" lightbox="media/includes/download-repo-zip.png":::
 
     Cette opération télécharge une copie du dépôt d’exemples sur votre machine : **digital-twins-samples-master.zip**. Décompressez le dossier.
 * [Exemple d’application web d’intégration SignalR](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/) : il s’agit d’un exemple d’application web React qui consomme des données de télémétrie Azure Digital Twins à partir d’un service Azure SignalR Service.
@@ -86,17 +86,17 @@ Configurez ensuite les fonctions pour communiquer avec votre instance Azure Sign
 1. Sélectionnez **Clés** dans le menu d’instance pour afficher les chaînes de connexion de l’instance du service SignalR.
 1. Sélectionnez l’icône *Copier* pour copier la chaîne de connexion principale.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Capture d’écran du Portail Azure montrant la page Clés pour l’instance SignalR. L’icône « Copier dans le Presse-papiers » en regard de la CHAÎNE DE CONNEXION PRINCIPALE est mise en surbrillance." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Capture d’écran du portail Azure montrant la page de clés pour l’instance SignalR. La chaîne de connexion est en cours de copie." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-1. Enfin, ajoutez votre **chaîne de connexion** Azure SignalR aux paramètres d’application de la fonction, en utilisant la commande Azure CLI suivante. Remplacez également les espaces réservés par le nom de votre groupe de ressources et le nom App Service/de l’application de fonction dans les [prérequis du tutoriel](how-to-integrate-azure-signalr.md#prerequisites). La commande peut être exécutée dans [Azure Cloud Shell](https://shell.azure.com) ou localement si Azure CLI est [installée sur votre ordinateur](/cli/azure/install-azure-cli) :
+1. Enfin, ajoutez votre **chaîne de connexion** Azure SignalR aux paramètres d’application de la fonction, en utilisant la commande Azure CLI suivante. Remplacez également les espaces réservés par le nom de votre groupe de ressources et le nom App Service/de l’application de fonction dans les [prérequis du tutoriel](how-to-integrate-azure-signalr.md#prerequisites). La commande peut être exécutée dans [Azure Cloud Shell](https://shell.azure.com) ou localement si [Azure CLI est installé sur votre ordinateur](/cli/azure/install-azure-cli) :
  
     ```azurecli-interactive
-    az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
+    az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-function-app-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
     ```
 
     La sortie de cette commande imprime tous les paramètres d’application configurés pour votre fonction Azure. Recherchez l’élément `AzureSignalRConnectionString` en bas de la liste pour vérifier qu’il a été ajouté.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="Extrait de sortie dans une fenêtre de commande, avec affichage d’un élément de liste appelé « AzureSignalRConnectionString »":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="Capture d’écran de la sortie dans une fenêtre de commande, montrant un élément de liste appelé « AzureSignalRConnectionString »":::
 
 #### <a name="connect-the-function-to-event-grid"></a>Connecter la fonction à Event Grid
 
@@ -106,7 +106,7 @@ Pour ce faire, vous allez créer un **abonnement à un événement** à partir d
 
 Dans le [portail Azure](https://portal.azure.com/), accédez à votre rubrique Event Grid en recherchant son nom dans la barre de recherche supérieure. Sélectionnez *+ Abonnement aux événements*.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="Portail Azure : abonnement aux événements Event Grid":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="Capture d’écran montrant comment créer un abonnement aux événements dans le portail Azure":::
 
 Dans la page *Créer un abonnement aux événements*, renseignez les champs comme suit (les champs remplis par défaut ne sont pas mentionnés) :
 * *DÉTAILS DE L’ABONNEMENT AUX ÉVÉNEMENTS* > **Nom** : Donnez un nom à votre abonnement aux événements.
@@ -115,13 +115,13 @@ Dans la page *Créer un abonnement aux événements*, renseignez les champs comm
     - Renseignez vos **Abonnement**, **Groupe de ressources**, **Application de fonction** et **Fonction** (*broadcast*). Il est possible que certaines de ces informations soient automatiquement renseignées une fois que vous avez sélectionné l’abonnement.
     - Sélectionnez **Confirmer la sélection**.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Vue du Portail Azure de la création d’un abonnement aux événements. Les champs ci-dessus sont renseignés et les boutons « Confirmer la sélection » et « Créer » sont mis en surbrillance.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Capture d’écran du formulaire de création d’un abonnement aux événements dans le portail Azure":::
 
 Dans la page *Créer un abonnement aux événements*, sélectionnez **Créer**.
 
 À ce stade, vous devez normalement voir deux abonnements à des événements dans la page *Rubrique Event Grid*.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/view-event-subscriptions.png" alt-text="Portail Azure : vue de deux abonnements à des événements dans la page Rubrique Event Grid." lightbox="media/how-to-integrate-azure-signalr/view-event-subscriptions.png":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/view-event-subscriptions.png" alt-text="Capture d’écran du portail Azure montrant deux abonnements aux événements dans la page Rubrique Event Grid" lightbox="media/how-to-integrate-azure-signalr/view-event-subscriptions.png":::
 
 ## <a name="configure-and-run-the-web-app"></a>Configurer et exécuter l’application web
 
@@ -133,11 +133,11 @@ Vous allez ensuite configurer l’exemple d’application web cliente. Commencez
 
 1. Accédez à la page [Applications de fonctions](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) du portail Azure, puis sélectionnez votre application de fonction dans la liste. Dans le menu de l’application, sélectionnez *Fonctions* et choisissez la fonction *negotiate*.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Vue du Portail Azure de l’application de fonction, avec « Fonctions » mis en surbrillance dans le menu. La liste des fonctions est affichée dans la page, et la fonction « negotiate » est également mise en évidence.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Capture d’écran des applications de fonction du portail Azure, avec « Functions » en surbrillance dans le menu et « negotiate » en surbrillance dans la liste des fonctions":::
 
 1. Sélectionnez *Obtenir l’URL de la fonction* et copiez la valeur **jusqu’à _/api_ (n’incluez pas la partie _/negotiate?_ à la fin)** . Vous l’utiliserez à l’étape suivante.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Vue de la fonction « negotiate » dans le Portail Azure. Le bouton « Obtenir l’URL de la fonction » est mis en surbrillance, avec la partie de l’URL du début jusqu’à « /api »":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Capture d’écran du portail Azure montrant la fonction « negotiate » avec le bouton « Obtenir l’URL de la fonction » et l’URL de la fonction en surbrillance":::
 
 1. À l’aide de Visual Studio ou de l’éditeur de code de votre choix, ouvrez le dossier décompressé _**digitaltwins-signalr-webapp-sample-main**_ que vous avez téléchargé dans la section [Télécharger les exemples d’application](#download-the-sample-applications).
 
@@ -145,7 +145,7 @@ Vous allez ensuite configurer l’exemple d’application web cliente. Commencez
 
     ```javascript
         const hubConnection = new HubConnectionBuilder()
-            .withUrl('<Function URL>')
+            .withUrl('<Function-URL>')
             .build();
     ```
 1. Dans l’*invite de commandes développeur* de Visual Studio ou dans toute fenêtre de commande sur votre machine, accédez au dossier *digitaltwins-signalr-webapp-sample-main\src*. Exécutez la commande suivante pour installer les packages des nœuds dépendants :
@@ -159,7 +159,7 @@ Ensuite, définissez les autorisations dans votre application de fonction dans l
 
 1. Faites défiler le menu de l’instance et sélectionnez *CORS*. Sur la page CORS, ajoutez `http://localhost:3000` comme origine autorisée en l’entrant dans la zone vide. Cochez la case *Activer Access-Control-Allow-Credentials* et sélectionnez *Enregistrer*.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="Paramètre CORS dans la fonction Azure":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="Capture d’écran du portail Azure montrant le paramètre CORS dans Azure Function":::
 
 ### <a name="run-the-device-simulator"></a>Exécuter le simulateur d’appareil
 
@@ -167,7 +167,7 @@ Au cours du tutoriel de bout en bout prérequis, vous avez [configuré le simula
 
 Maintenant, il vous suffit de démarrer le projet de simulateur, situé dans *digital-twins-samples-master > DeviceSimulator > DeviceSimulator.sln*. Si vous utilisez Visual Studio, vous pouvez ouvrir le projet, puis l’exécuter avec ce bouton dans la barre d’outils :
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Bouton de démarrage dans Visual Studio (projet DeviceSimulator)":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Capture d’écran du bouton de démarrage de Visual Studio avec le projet DeviceSimulator ouvert":::
 
 Une fenêtre de console s’ouvre, affichant les messages de télémétrie de température simulée. Ils sont envoyés par le biais de votre instance Azure Digital Twins, où ils sont ensuite récupérés par les fonctions Azure et SignalR.
 
@@ -183,7 +183,7 @@ npm start
 
 Cela ouvre une fenêtre de navigateur exécutant l’exemple d’application, qui affiche une jauge de température visuelle. Une fois que l’application est en cours d’exécution, vous devriez commencer à voir les valeurs de télémétrie de température du simulateur d’appareil qui se propagent via Azure Digital Twins reflétées par l’application web en temps réel.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Extrait de l’exemple d’application web cliente, présentant une jauge de température visuelle. La température reflétée est 67,52":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Capture d’écran de l’exemple d’application web cliente, montrant une jauge de température visuelle. La température reflétée est 67,52.":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

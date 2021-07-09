@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/28/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e45f6078bd2cd078202cbe30462614961cfa7404
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: e03552bc3be1a4d124a46c437b60ac2d4e466940
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203646"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476768"
 ---
 # <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-original-version-2018"></a>Qu’est-ce que la nouvelle version Azure Digital Twins ? En quoi est-elle différente de la version originale (2018) ?
 
@@ -42,6 +42,6 @@ Pour obtenir la liste des limites d’Azure Digital Twins, consultez [Limites du
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez en détail comment utiliser la version actuelle dans le démarrage rapide suivant : [Démarrage rapide : Explorer un exemple de scénario](quickstart-azure-digital-twins-explorer.md).
+* Découvrez en détail comment utiliser la version actuelle dans le guide de démarrage rapide : [Démarrage rapide : Bien démarrer avec Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
 
 * Ou découvrez les concepts clés en lisant [Concepts : Modèles personnalisés](concepts-models.md).

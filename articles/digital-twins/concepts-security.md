@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5224804b1e0d306bfca8e9e42511ad908a3bb5c1
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: db58b523f1280847815587a5037c2348335482b6
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787740"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616169"
 ---
 # <a name="secure-azure-digital-twins"></a>Sécuriser Azure Digital Twins
 
-Pour assurer la sécurité, Azure Digital Twins permet un contrôle d’accès précis sur des données, ressources et actions spécifiques de votre déploiement. En effet, il utilise une gestion granulaire des rôles et une stratégie de gestion des autorisations appelée **contrôle d’accès en fonction du rôle Azure (Azure RBAC)** . Pour plus d’informations sur les principaux généraux d’Azure RBAC, voir [ici](../role-based-access-control/overview.md).
+Pour assurer la sécurité, Azure Digital Twins permet un contrôle d’accès précis sur des données, ressources et actions spécifiques de votre déploiement. En effet, il utilise une gestion granulaire des rôles et une stratégie de gestion des autorisations appelée [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) .
 
 Azure Digital Twins prend également en charge le chiffrement des données au repos.
 
@@ -102,7 +102,7 @@ De même, vous pouvez utiliser des points de terminaison privés pour votre inst
 
 Le point de terminaison privé utilise une adresse IP de l’espace d’adressage de votre réseau virtuel Azure. Le trafic entre un client de votre réseau privé et l’instance Azure Digital Twins traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine son exposition à l’Internet public. Voici une représentation visuelle de ce système :
 
-:::image type="content" source="media/concepts-security/private-link.png" alt-text="Diagramme montrant un réseau pour une société PowerGrid, constitué d’un réseau virtuel protégé sans accès à Internet/à un cloud public, se connectant via une liaison privée vers une instance Azure Digital Twins appelée CityOfTwins.":::
+:::image type="content" source="media/concepts-security/private-link.png" alt-text="Diagramme montrant un réseau qui est un réseau virtuel protégé sans accès au cloud public, et qui se connecte par le biais de Private Link à une instance d’Azure Digital Twins.":::
 
 La configuration d’un point de terminaison privé pour votre instance Azure Digital Twins vous permet de sécuriser cette instance et d’éliminer l’exposition publique, tout en évitant l’exfiltration de données à partir de votre réseau virtuel.
 

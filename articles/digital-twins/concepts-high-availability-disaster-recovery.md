@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ee2bd4ab66b7a67be04c1a710caa12c57c705d19
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 05713c5a27a8b42ce9b6967212bf1414c841788c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209964"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474574"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence pour Azure Digital Twins
 
@@ -34,10 +34,15 @@ Azure Digital Twins fournit la haute disponibilité intra-région en implémenta
 
 Il peut arriver à de rares occasions qu’un centre de données connaisse une interruption prolongée en raison de pannes d’alimentation ou d’autres événements dans la région. Ces événements se produisent rarement et, lors de tels problèmes, la fonction de haute disponibilité intra-région décrite ci-dessus ne peut pas nécessairement s’appliquer dans ces situations. Azure Digital Twins répond à cela avec le basculement initié par Microsoft.
 
-Le **basculement initié par Microsoft** est déclenché par Microsoft dans de rares situations pour faire basculer tous les Azure Digital Twins entre une région affectée et la région géographiquement associée. Ce processus représente l’option par défaut (sans aucun moyen pour les utilisateurs d’y renoncer) et ne nécessite aucune intervention de la part de l’utilisateur. Microsoft se réserve le droit de déterminer dans quelles circonstances exercer cette option. Ce mécanisme n’implique pas le consentement de l’utilisateur avant le basculement de l’instance de l’utilisateur.
+Le **basculement initié par Microsoft** est déclenché dans de rares situations pour faire basculer toutes les instances Azure Digital Twins entre une région affectée et la [région géographiquement associée](../best-practices-availability-paired-regions.md). Ce processus représente l’option par défaut (sans aucun moyen pour les utilisateurs d’y renoncer) et ne nécessite aucune intervention de la part de l’utilisateur. Microsoft se réserve le droit de déterminer dans quelles circonstances exercer cette option. Ce mécanisme n’implique pas le consentement de l’utilisateur avant le basculement de l’instance de l’utilisateur.
 
 >[!NOTE]
-> Certains services Azure fournissent également une option supplémentaire appelée **basculement initié par le client**, qui permet aux clients de lancer un basculement uniquement pour leur instance, par exemple pour exécuter un exercice de récupération d’urgence. Ce mécanisme n’est actuellement **pas pris en charge** par Azure Digital Twins. 
+> Certains services Azure fournissent une option supplémentaire appelée **basculement initié par le client**, qui permet aux clients de lancer un basculement uniquement pour leur instance, par exemple pour exécuter un exercice de reprise d’activité après sinistre. Ce mécanisme n’est actuellement **pas pris en charge** par Azure Digital Twins. 
+
+Si vous devez conserver toutes les données dans certaines zones géographiques, vérifiez l’emplacement de la [région géographiquement associée](../best-practices-availability-paired-regions.md#azure-regional-pairs) pour la région où vous créez votre instance, afin de vous assurer qu’elle répond à vos besoins de résidence des données.
+
+>[!NOTE]
+> Certains services Azure offrent une option permettant aux utilisateurs de configurer une autre région pour le basculement afin de répondre aux besoins de résidence des données. Cette fonctionnalité n’est actuellement **pas prise en charge** par Azure Digital Twins. 
 
 ## <a name="monitor-service-health"></a>Suivi de l’intégrité des services
 
@@ -50,14 +55,14 @@ Pour afficher les événements Service Health...
 1. Utilisez le menu de gauche pour basculer vers la page de l’*historique d’intégrité*.
 1. Recherchez un *nom de problème* commençant par **Azure Digital Twins**, puis sélectionnez-le.
 
-    :::image type="content" source="media/concepts-high-availability-disaster-recovery/navigate.png" alt-text="Capture d’écran du portail Azure montrant la page de l’historique d’intégrité. Il y a là une liste de plusieurs problèmes survenus au cours des derniers jours, avec un problème nommé « Azure Digital Twins - West Europe - Mitigated » en surbrillance." lightbox="media/concepts-high-availability-disaster-recovery/navigate.png":::
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/navigate.png" alt-text="Capture d’écran du portail Azure montrant la page de l’historique d’intégrité. Un problème nommé « Azure Digital Twins - Europe Ouest - Atténué » est mis en évidence." lightbox="media/concepts-high-availability-disaster-recovery/navigate.png":::
 
 1. Pour obtenir des informations générales sur la panne, affichez l’onglet *Résumé*.
 
-    :::image type="content" source="media/concepts-high-availability-disaster-recovery/summary.png" alt-text="Dans la page de l’historique d’intégrité, l’onglet Résumé est en surbrillance. L’onglet affiche des informations générales, telles que la ressource affectée, sa région et son abonnement." lightbox="media/concepts-high-availability-disaster-recovery/summary.png":::
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/summary.png" alt-text="Capture d’écran du portail Azure montrant la page « Historique des états » avec l’onglet « Résumé » en surbrillance. Cet onglet affiche des informations générales." lightbox="media/concepts-high-availability-disaster-recovery/summary.png":::
 1. Pour obtenir plus d’informations et des mises à jour concernant l’évolution du problème au fil du temps, consultez l’onglet des *mises à jour du problème*.
 
-    :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="Dans la page de l’historique d’intégrité, l’onglet des mises à jour est en surbrillance. L’onglet affiche plusieurs entrées indiquant l’évolution des états depuis un jour jusqu’à l’état actuel." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="Capture d’écran du portail Azure montrant la page « Historique des états » avec l’onglet « Mises à jour du problème » en surbrillance. Cet onglet affiche l’état des entrées." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
 
 
 Notez que les informations affichées dans cet outil ne sont pas spécifiques d’une seule instance Azure Digital. Après avoir utilisé Service Health pour comprendre ce qui se passe avec le service Azure Digital Twins dans une région ou un abonnement sonnés, vous pouvez effectuer une analyse plus poussée à l’aide de l’outil [Resource Health](troubleshoot-resource-health.md) pour explorer des instances spécifiques et voir si elles sont affectées.
@@ -73,4 +78,4 @@ Pour connaître les meilleures pratiques en matière de haute disponibilité/ré
 En savoir plus sur la prise en main des solutions Azure Digital Twins :
  
 * [Qu’est-ce qu’Azure Digital Twins ?](overview.md)
-* [Démarrage rapide : Explorer un exemple de scénario](quickstart-azure-digital-twins-explorer.md)
+* [Démarrage rapide : Bien démarrer avec Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md)

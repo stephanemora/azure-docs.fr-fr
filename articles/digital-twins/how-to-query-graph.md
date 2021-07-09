@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 67d09eb3420143c362914a7903b181a419d7a388
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f279ea2011b37c01b1ef9ec67a2b5642f7e640b8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786876"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078091"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Interroger le graphe de jumeaux Azure Digital Twins
 
@@ -167,10 +167,7 @@ Vous pouvez sélectionner les meilleurs éléments dans une requête à l’aide
 
 ## <a name="filter-results-specify-return-set-with-projections"></a>Filtrer les résultats : spécifier un jeu de retour avec des projections
 
-En utilisant des projections dans l’instruction `SELECT`, vous pouvez choisir les colonnes qui sont renvoyées par une requête.
-
->[!NOTE]
->À ce stade, les propriétés complexes ne sont pas prises en charge. Pour vous assurer que les propriétés de projection sont valides, combinez les projections avec un contrôle `IS_PRIMITIVE`.
+En utilisant des projections dans l’instruction `SELECT`, vous pouvez choisir les colonnes qui sont renvoyées par une requête. La projection est désormais prise en charge pour les propriétés primitives et complexes. Pour plus d’informations sur les projections avec Azure Digital Twins, consultez la [documentation de référence sur la clause SELECT](reference-query-clause-select.md#select-columns-with-projections).
 
 Voici un exemple de requête qui utilise la projection pour retourner les jumeaux et les relations. La requête ci-dessous projette Consumer, Factory et Edge dans un scénario où une Factory avec l’ID *ABC* est liée au Consumer via une relation *Factory.customer*, et cette relation est présentée en tant que *Edge*.
 
@@ -233,11 +230,11 @@ Une fois que vous avez choisi une chaîne de requête, exécutez-la en appelant 
 
 Vous pouvez appeler l’API directement ou utiliser l’un des [SDK](concepts-apis-sdks.md#overview-data-plane-apis) disponibles pour Azure Digital Twins.
 
-L’extrait de code suivant illustre l’appel au [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) à partir de l’application cliente :
+L’extrait de code suivant illustre l’appel au [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) à partir de l’application cliente :
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-La requête utilisée dans cet appel retourne une liste de jumeaux numériques, que l’exemple ci-dessus représente avec des objets [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin). Le type de retour de vos données pour chaque requête dépend des termes que vous spécifiez avec l’ instruction `SELECT` :
+La requête utilisée dans cet appel retourne une liste de jumeaux numériques, que l’exemple ci-dessus représente avec des objets [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true). Le type de retour de vos données pour chaque requête dépend des termes que vous spécifiez avec l’ instruction `SELECT` :
 * Les requêtes qui commencent par `SELECT * FROM ...` retournent une liste de jumeaux numériques (qui peuvent être sérialisés sous la forme d’objets `BasicDigitalTwin` ou d’autres types de jumeaux numériques personnalisés que vous avez peut-être créés).
 * Les requêtes qui commencent au format `SELECT <A>, <B>, <C> FROM ...` retournent un dictionnaire avec des clés `<A>`, `<B>` et `<C>`.
 * D’autres formats d’instructions `SELECT` peuvent être élaborés pour retourner des données personnalisées. Vous pouvez envisager de créer vos propres classes pour gérer des jeux de résultats très personnalisés. 

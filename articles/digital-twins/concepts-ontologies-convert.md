@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bd761ba9785d491e9577dab828f84580d7a08bba
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: ebe6a96c88d061138eb629f50aa37ea90fe40eb4
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787776"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475876"
 ---
 # <a name="convert-industry-standard-ontologies-to-dtdl-for-azure-digital-twins"></a>Convertir des ontologies conformes aux standards du secteur en langage DTDL pour Azure Digital Twins
 
@@ -49,7 +49,7 @@ L’exemple est une [application en ligne de commande .NET Core appelée RdfToD
 
 Pour télécharger le code sur votre ordinateur, sélectionnez le bouton **Parcourir le code** sous le titre sur la page de l’exemple, qui vous permet d’accéder au référentiel GitHub de l’exemple. Sélectionnez le bouton **Code** et **Télécharger le fichier ZIP** pour télécharger l’exemple sous la forme d’un fichier .zip appelé *RdfToDtdlConverter-main.zip*. Vous pouvez ensuite décompresser le fichier et explorer le code.
 
-:::image type="content" source="media/concepts-ontologies-convert/download-repo-zip.png" alt-text="Capture d’écran du dépôt RdfToDtdlConverter sur GitHub. Le bouton Code est sélectionné et une petite boîte de dialogue s’ouvre, dans laquelle le bouton Download ZIP est mis en évidence." lightbox="media/concepts-ontologies-convert/download-repo-zip.png":::
+:::image type="content" source="media/concepts-ontologies-convert/download-repo-zip.png" alt-text="Capture d’écran du dépôt RdfToDtdlConverter sur GitHub. Le bouton Code est sélectionné, générant une boîte de dialogue, dans laquelle le bouton Télécharger le zip est en surbrillance." lightbox="media/concepts-ontologies-convert/download-repo-zip.png":::
 
 Vous pouvez utiliser cet exemple pour voir les modèles de conversion en contexte et comme bloc de construction pour vos propres applications effectuant des conversions de modèle en fonction de vos besoins spécifiques.
 

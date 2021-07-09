@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 3cb6ee3162c70d2d07c4868ae90ecc54bd489966
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d561f9c99641beba8a5092df447f3d18da050e9
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98622489"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190114"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Tutoriel : Intégrer Displayr à Azure Active Directory
 
@@ -33,11 +33,11 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Abonnement Displayr pour lequel l’authentification unique est activée.
+* Entreprise Displayr pour laquelle l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. Displayr prend en charge l’authentification unique lancée par le **fournisseur de services**.
+Dans ce tutoriel, vous apprendrez à configurer Azure AD SSO dans votre société Displayr. Displayr prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
 ## <a name="adding-displayr-from-the-gallery"></a>Ajout de Displayr depuis la galerie
 
@@ -50,17 +50,13 @@ Pour configurer l’intégration de Displayr à Azure AD, vous devez ajouter Di
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Displayr** dans la zone de recherche.
 1. Sélectionnez **Displayr** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+## <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Configurez et testez l’authentification unique Azure AD avec Displayr à l’aide d’un utilisateur de test appelé **Britta Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Displayr associé.
-
-Pour configurer et tester l’authentification unique Azure AD avec Displayr, suivez les indications des sections ci-après :
+Pour configurer Azure AD SSO avec Displayr, suivez les indications des sections ci-après :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer Displayr](#configure-displayr)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Displayr](#create-displayr-test-user)** pour avoir un équivalent de Britta Simon dans Displayr lié à la représentation Azure AD associée.
+4. **[Restreindre l’accès à des utilisateurs spécifiques](#restrict-access-to-specific-users)** pour limiter les utilisateurs Azure AD qui peuvent se connecter à Displayr.
 6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -104,10 +100,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    c. Sélectionnez **Attribut source** de **ID de groupe**.
 
-   d. Cochez **Personnaliser le nom de la revendication de groupe**.
-
-   e. Cochez **Émettre des revendications de groupes en tant que rôles**.
-
    f. Cliquez sur **Enregistrer**.
 
 1. Dans la section **ConfigurerDisplayr**, copiez la ou les URL appropriées en fonction de vos besoins.
@@ -126,7 +118,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 3. Si vous souhaitez configurer manuellement Displayr, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise Displayr en tant qu’administrateur et effectuez les étapes suivantes :
 
-4. Cliquez sur **Settings** (Paramètres), puis accédez à **Account** (Compte).
+4. Cliquez sur l’icône **Utilisateur**, puis accédez à **Paramètres du compte**.
 
     ![Capture d’écran montrant l’icône « Paramètres » et l’option « Compte » sélectionnés.](./media/displayr-tutorial/config01.png)
 
@@ -152,67 +144,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     g. Cliquez sur **Enregistrer**.  
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+### <a name="restrict-access-to-specific-users"></a>Restreindre l’accès à des utilisateurs spécifiques
 
-Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le Portail Azure.
-
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
-1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `Britta Simon`.  
-   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `BrittaSimon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
-   1. Cliquez sur **Créer**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Displayr.
-
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **Displayr**.
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
-1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
-
-### <a name="create-displayr-test-user"></a>Créer un utilisateur de test Displayr
-
-Pour se connecter à Displayr, les utilisateurs Azure AD doivent être attribués dans Displayr. Dans Displayr, le provisionnement est une tâche manuelle.
-
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
-
-1. Connectez-vous à Displayr en tant qu’administrateur.
-
-2. Cliquez sur **Settings** (Paramètres), puis accédez à **Account** (Compte).
-
-    ![Capture d’écran montrant l’icône « Paramètres (roue dentée) » avec l’option « Compte » sélectionnée.](./media/displayr-tutorial/config01.png)
-
-3. Passez à **Settings** (Paramètres) à partir du menu supérieur et faites défiler la page vers le bas jusqu'à la section **Users** (Utilisateurs), puis cliquez sur **New user** (Nouvel utilisateur).
-
-    ![Capture d’écran montrant l’onglet « Paramètres » avec « Utilisateurs » mis en évidence et le bouton « Nouvel utilisateur » sélectionné.](./media/displayr-tutorial/config07.png)
-
-4. Sur la page **New user** (Nouvel utilisateur), effectuez les opérations suivantes :
-
-    ![Configuration de Displayr](./media/displayr-tutorial/config06.png)
-
-    a. Dans la zone de texte **Name** (Nom), entrez le nom d’un utilisateur, par exemple **Brittasimon**.
-
-    b. Dans la zone de texte **E-mail**, entrez l’adresse e-mail de l’utilisateur, comme `Brittasimon@contoso.com`.
-
-    c. Sélectionnez votre **Appartenance au groupe**.
-
-    d. Cliquez sur **Enregistrer**.
+Par défaut, tous les utilisateurs du locataire dans lequel vous avez ajouté l’application Displayr peuvent se connecter à Displayr à l’aide de l’authentification unique. Si vous souhaitez restreindre l’accès à des utilisateurs ou des groupes spécifiques, consultez [Limiter votre application Azure AD à un ensemble d’utilisateurs dans un locataire Azure AD](../develop/howto-restrict-your-app-to-a-set-of-users.md).
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Quand vous sélectionnez la vignette Displayr dans le panneau d’accès, vous devez être connecté automatiquement à l’application Displayr pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous sélectionnez la vignette Displayr dans le panneau d’accès, vous devez être connecté automatiquement à l’entreprise Displayr pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

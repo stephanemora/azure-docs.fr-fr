@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1dce7795b8c62c36b80c51d5ba0dd8bc9b667e0e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3ba86c8f0d28e48e0c93834b30afe0ad77bfa87d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107759684"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477410"
 ---
 # <a name="azure-files-networking-considerations"></a>Considérations relatives à la mise en réseau Azure Files 
 Vous pouvez vous connecter à un partage de fichiers Azure de deux manières :
@@ -23,6 +23,9 @@ Vous pouvez vous connecter à un partage de fichiers Azure de deux manières :
 Cet article explique comment configurer la mise en réseau lorsque votre cas d’utilisation demande à accéder directement au partage de fichiers Azure au lieu d’utiliser Azure File Sync. Pour plus d’informations sur les considérations relatives à la mise en réseau pour un déploiement Azure File Sync, consultez [Considérations relatives à la mise en réseau Azure File Sync](../file-sync/file-sync-networking-overview.md).
 
 La configuration réseau des partages de fichiers Azure s’effectue sur le compte de stockage Azure. Un compte de stockage est une construction de gestion qui représente un pool de stockage partagé dans lequel vous pouvez déployer plusieurs partages de fichiers, ainsi que d’autres ressources de stockage, telles que des conteneurs d’objets blob ou des files d’attente. Les comptes de stockage présentent plusieurs paramètres qui permettent sécuriser l’accès réseau à vos partages de fichiers : points de terminaison réseau, paramètres de pare-feu de compte de stockage et chiffrement en transit. 
+
+> [!Important]  
+> Azure Files prend en charge plusieurs options de routage réseau. L’option par défaut, routage Microsoft, fonctionne avec toutes les configurations d’Azure Files. L’option de routage Internet ne prend pas en charge les scénarios de jonction de domaine AD ou Azure File Sync.
 
 Avant d’entamer la lecture de ce guide conceptuel, nous vous recommandons de lire [Planification d’un déploiement Azure Files](storage-files-planning.md).
 
@@ -38,7 +41,7 @@ Avant d’entamer la lecture de ce guide conceptuel, nous vous recommandons de l
 ## <a name="accessing-your-azure-file-shares"></a>Accès à vos partages de fichiers Azure
 Quand vous déployez un partage de fichiers Azure dans un compte de stockage, le partage de fichiers est immédiatement accessible via le point de terminaison public du compte de stockage. Cela signifie que les demandes authentifiées, comme celles qui sont autorisées par l’identité d’ouverture de session d’un utilisateur, peuvent provenir de l’intérieur ou de l’extérieur d’Azure en toute sécurité. 
 
-Dans de nombreux environnements de clients, un montage initial du partage de fichiers Azure sur votre station de travail locale échouera, alors même que les montages à partir de machines virtuelles Azure réussissent. L’explication tient au fait que de nombreuses organisations et autres fournisseurs de services Internet bloquent le port dont se sert SMB pour communiquer, à savoir le port 445. Les partages NFS n’ont pas ce problème. Cette pratique résulte des recommandations de sécurité concernant les versions héritées et déconseillées du protocole SMB. Même si SMB 3.0 est un protocole sécurisé pour Internet, les versions antérieures de SMB, en particulier SMB 1.0, ne le sont pas. Les partages de fichiers Azure sont uniquement accessibles en externe via SMB 3.0 et le protocole FileREST (qui est également un protocole sécurisé pour Internet) via le point de terminaison public.
+Dans de nombreux environnements de clients, un montage initial du partage de fichiers Azure sur votre station de travail locale échouera, alors même que les montages à partir de machines virtuelles Azure réussissent. Cela est dû au fait que de nombreuses organisations et autres fournisseurs de services Internet bloquent le port dont se sert SMB pour communiquer, à savoir le port 445. Cette pratique résulte des recommandations de sécurité concernant les versions héritées et déconseillées du protocole SMB. Même si SMB 3.x est un protocole sécurisé pour Internet, les versions antérieures de SMB, en particulier SMB 1.0, ne le sont pas. Les partages de fichiers Azure sont uniquement accessibles en externe via SMB 3.x et le protocole FileREST (qui est également un protocole sécurisé pour Internet) via le point de terminaison public.
 
 Sachant que le moyen le plus simple d’accéder à votre partage de fichiers SMB Azure en local est d’ouvrir votre réseau local au port 445, Microsoft recommande d’effectuer les étapes suivantes de façon à supprimer SMB 1.0 de votre environnement :
 
@@ -158,9 +161,9 @@ Pour en savoir plus sur la façon de configurer le pare-feu de compte de stockag
 > [!IMPORTANT]
 > Cette section traite en détail du chiffrement en transit pour les partages SMB. Pour plus d’informations sur le chiffrement en transit avec les partages NFS, consultez [Sécurité](storage-files-compare-protocols.md#security).
 
-Par défaut, le chiffrement en transit est activé pour tous les comptes de stockage Azure. Cela signifie que, lorsque vous montez un partage de fichiers sur SMB ou y accédez en utilisant le protocole FileREST (par exemple, via le portail Azure, PowerShell/CLI ou des kits de développement logiciel (SDK) Azure), Azure Files n’autorise la connexion que si elle est établie à l’aide des protocoles SMB 3.0+ avec chiffrement ou HTTPS. Les clients qui ne prennent pas en charge le protocole SMB 3.0, ou qui prennent en charge le protocole SMB 3.0 mais pas le chiffrement SMB, ne peuvent pas monter le partage de fichiers Azure si le chiffrement en transit est activé. Pour plus d’informations sur les systèmes d’exploitation prenant en charge SMB 3.0 avec chiffrement, consultez notre documentation détaillée pour [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) et [Linux](storage-how-to-use-files-linux.md). Toutes les versions actuelles de PowerShell, de CLI et des SDK prennent en charge le protocole HTTPS.  
+Par défaut, le chiffrement en transit est activé pour tous les comptes de stockage Azure. Cela signifie que, quand vous montez un partage de fichiers sur SMB ou y accédez en utilisant le protocole FileREST (par exemple, via le portail Azure, PowerShell/CLI ou des SDK Azure), Azure Files n’autorise la connexion que si elle est établie à l’aide des protocoles SMB 3.x avec chiffrement ou HTTPS. Les clients qui ne prennent pas en charge le protocole SMB 3.x, ou qui prennent en charge le protocole SMB 3.x mais pas le chiffrement SMB, ne peuvent pas monter le partage de fichiers Azure si le chiffrement en transit est activé. Pour plus d’informations sur les systèmes d’exploitation prenant en charge SMB 3.x avec chiffrement, consultez notre documentation détaillée pour [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) et [Linux](storage-how-to-use-files-linux.md). Toutes les versions actuelles de PowerShell, de CLI et des SDK prennent en charge le protocole HTTPS.  
 
-Vous pouvez désactiver le chiffrement en transit pour un compte de stockage Azure. Lorsque le chiffrement est désactivé, Azure Files autorise également les protocoles SMB 2.1 et SMB 3.0 sans chiffrement, ainsi que les appels d’API FileREST non chiffrés via le protocole HTTP. La principale raison justifiant de désactiver le chiffrement en transit est la nécessité de prendre en charge une application héritée devant être exécutée sur un système d’exploitation plus ancien, tel que Windows Server 2008 R2 ou une distribution Linux non récente. Azure Files n’autorise que les connexions SMB 2.1 au sein de la même région Azure que le partage de fichiers Azure. Ainsi, un client SMB 2.1 situé en dehors de la région Azure dans laquelle se trouve le partage de fichiers Azure, par exemple, localement ou dans une autre région Azure, ne peut pas accéder au partage de fichiers.
+Vous pouvez désactiver le chiffrement en transit pour un compte de stockage Azure. Quand le chiffrement est désactivé, Azure Files autorise également les protocoles SMB 2.1 et SMB 3.x sans chiffrement ainsi que les appels d’API FileREST non chiffrés via le protocole HTTP. La principale raison justifiant de désactiver le chiffrement en transit est la nécessité de prendre en charge une application héritée devant être exécutée sur un système d’exploitation plus ancien, tel que Windows Server 2008 R2 ou une distribution Linux non récente. Azure Files n’autorise que les connexions SMB 2.1 au sein de la même région Azure que le partage de fichiers Azure. Ainsi, un client SMB 2.1 situé en dehors de la région Azure dans laquelle se trouve le partage de fichiers Azure, par exemple, localement ou dans une autre région Azure, ne peut pas accéder au partage de fichiers.
 
 Pour plus d’informations sur le chiffrement en transit, voir [ Exiger un transfert sécurisé dans Stockage Azure](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 

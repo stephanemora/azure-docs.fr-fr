@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 531917d9c48915f71354b4cd35747ecd9d33a6f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ef7137460c997b3685e75d5a37b7949fee86255
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100385028"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111895745"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Utilisez le mode Apprenti pour effectuer l'apprentissage de Personalizer sans affecter l'application existante
 
@@ -71,6 +71,23 @@ Remarque sur l'efficacité du mode Apprenti :
 
 * L'efficacité de Personalizer en mode Apprenti se rapproche rarement des 100 % de la référence de l'application ; et il ne fait jamais mieux.
 * Les bonnes pratiques consistent à ne pas essayer d’atteindre 100 %. Selon le cas d’usage, une fourchette de 60 à 80 % doit être ciblée.
+
+## <a name="limitations-of-apprentice-mode"></a>Limitations du mode Apprenti
+Le mode Apprenti tente d’entraîner le modèle Personalizer en essayant d’imiter votre algorithme existant qui choisit des éléments de référence. Pour ce faire, il utilise les fonctionnalités présentes dans votre contexte, ainsi que les actions utilisées dans les appels à Rank et les commentaires résultant des appels à Reward. Les facteurs suivants ont un effet si, ou quand, le mode Apprenti de Personalizer trouve un nombre suffisant de récompenses en correspondance.
+
+### <a name="scenarios-where-apprentice-mode-may-not-be-appropriate"></a>Scénarios où le mode Apprenti peut ne pas convenir :
+
+* **Contenu choisi de manière éditoriale** : dans certains scénarios, comme les actualités ou les loisirs, la base de référence peut être affectée manuellement par une équipe éditoriale. Cela signifie que des êtres humains utilisent leurs connaissances sur le vaste monde et leur compréhension de ce qui peut être un contenu attrayant pour choisir des articles ou des médias spécifiques dans un pool et les marquent comme des articles « préférés » ou « cultes ». Étant donné que ces éditeurs ne sont pas un algorithme, et que les facteurs qu’ils prennent en compte peuvent être nuancés et ne pas être inclus comme fonctionnalités du contexte et des actions, il est peu probable que le mode Apprenti puisse prédire l’action de référence suivante. Dans les situations suivantes : ** Tester Personalizer en mode En ligne : le mode Apprenti sans prédiction des bases de référence n’implique pas que Personalizer ne peut pas obtenir d’aussi bons résultats, voire meilleurs. Envisagez de placer Personalizer en mode En ligne pendant un certain temps ou dans un test A/B si vous disposez de l’infrastructure, puis exécutez une évaluation hors connexion pour évaluer la différence.
+** Ajoutez des considérations et des recommandations éditoriales comme fonctionnalités : demandez à vos éditeurs quels facteurs influencent leurs choix et voyez si vous pouvez les ajouter comme fonctionnalités dans votre contexte et votre action. Par exemple, les éditeurs d’une société de médias peuvent mettre en évidence du contenu quand une célébrité donnée fait la une de l’actualité : cette connaissance peut être ajoutée comme fonctionnalité de contexte.
+
+### <a name="factors-that-will-improve-and-accelerate-apprentice-mode"></a>Facteurs qui améliorent et accélèrent le mode Apprenti
+Si le mode Apprenti est en cours d’apprentissage et qu’il obtient un nombre de récompenses en correspondance supérieur à zéro, mais que celui-ci semble augmenter lentement (pas 60 % à 80 % de récompenses en correspondance en 2 semaines), il est possible que la demande dispose de trop peu de données. Effectuer les étapes suivantes peut accélérer l’apprentissage. 
+
+1. Ajout d’événements supplémentaires avec des récompenses positives au fil du temps : le mode Apprenti est plus performant dans les cas d’utilisation où votre application obtient plus de 100 récompenses positives par jour. Par exemple, si un site web récompensant un clic a 2 % de rapports générés interactifs, il doit avoir au moins 5 000 visites par jour pour avoir un apprentissage notable. Vous pouvez également tester une récompense plus simple et qui se produit plus fréquemment. Par exemple, de « Les utilisateurs ont-ils terminé la lecture de l’article » à « Les utilisateurs ont-ils commencé la lecture de l’article ».
+2. Ajout de fonctionnalités de différenciation : vous pouvez effectuer une inspection visuelle des actions dans un appel à Rank et de leurs fonctionnalités. L’action de référence a-t-elle des fonctionnalités différentes de celles des autres actions ? Si elles semblent quasiment identiques, ajoutez des fonctionnalités supplémentaires qui les rendront moins similaires.
+3. Réduction des actions par événement : Personalizer utilise le paramètre Explorer % pour découvrir les préférences et les tendances. Quand un appel à Rank comporte plus d’actions, la probabilité qu’une action soit choisie à des fins d’exploration est plus faible. Réduisez le nombre d’actions envoyées dans chaque appel à Rank (moins de 10). Il peut s’agir d’un ajustement temporaire permettant de montrer que le mode Apprenti dispose des données appropriées pour mettre en correspondance des récompenses.
+
+
 
 ## <a name="using-apprentice-mode-to-train-with-historical-data"></a>Utilisation du mode Apprenti pour effectuer l'apprentissage avec des données historiques
 

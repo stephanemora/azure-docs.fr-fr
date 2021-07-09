@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 611d41b166a283dffd36729c0f4516ff80ecd35f
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 73e42ac1f076b67d31cbad0823ea63db40045c1e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803077"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746030"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Activer la journalisation dans le SDK Speech
 
@@ -68,18 +68,15 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-Vous trouverez des informations supplémentaires sur l’autorisation d’accès aux fichiers pour les applications UWP [ici](/windows/uwp/files/file-access-permissions).
-
-### <a name="universal-windows-platform-uwp-on-unity"></a>Plateforme Windows universelle (UWP) sur Unity
-
-Dans une application Unity et UWP, un fichier journal peut être créé dans le dossier persistant de l’application comme suit :
+Au sein d’une application UWP Unity, un fichier journal peut être créé en utilisant le dossier du chemin des données persistantes de l’application, comme suit :
 
 ```csharp
 #if ENABLE_WINMD_SUPPORT
-        string logFile = Application.persistentDataPath + "/logFile.txt";
-        config.SetProperty(PropertyId.Speech_LogFilename, logFile);
+    string logFile = Application.persistentDataPath + "/logFile.txt";
+    config.SetProperty(PropertyId.Speech_LogFilename, logFile);
 #endif
 ```
+Pour plus d’informations sur les autorisations d’accès aux fichiers dans les applications UWP, consultez [Autorisations d’accès aux fichiers](/windows/uwp/files/file-access-permissions).
 
 ### <a name="android"></a>Android
 
@@ -103,11 +100,21 @@ Vous devez aussi demander une autorisation `WRITE_EXTERNAL_STORAGE` dans le fich
 </manifest>
 ```
 
+Au sein d’une application Android Unity, le fichier journal peut être créé en utilisant le dossier du chemin des données persistantes de l’application, comme suit :
+
+```csharp
+string logFile = Application.persistentDataPath + "/logFile.txt";
+config.SetProperty(PropertyId.Speech_LogFilename, logFile);
+```
+De plus, vous avez aussi besoin de définir l’autorisation d’écriture dans les paramètres de votre lecteur Unity pour Android sur « External (SDCard) ». Le journal est écrit dans un répertoire que vous pouvez obtenir à l’aide d’un outil comme AndroidStudio Device File Explorer. Le chemin exact du répertoire peut varier d’un appareil Android à l’autre. Son emplacement est généralement le répertoire `sdcard/Android/data/your-app-packagename/files`.
+
 Vous trouverez des informations supplémentaires sur le stockage de données et de fichiers pour les applications Android [ici](https://developer.android.com/guide/topics/data/data-storage.html).
 
 #### <a name="ios"></a>iOS
 
-Seuls les répertoires à l’intérieur du bac à sable d’application sont accessibles. Des fichiers peuvent être créés dans les répertoires documents, library et temp. Les fichiers contenus dans le répertoire documents peuvent être mis à la disposition d’un utilisateur. L’extrait de code suivant illustre la création d’un fichier journal dans le répertoire documents de l’application :
+Seuls les répertoires à l’intérieur du bac à sable d’application sont accessibles. Des fichiers peuvent être créés dans les répertoires documents, library et temp. Les fichiers contenus dans le répertoire documents peuvent être mis à la disposition d’un utilisateur. 
+
+Si vous utilisez Objective-C sur iOS, utilisez l’extrait de code suivant pour créer un fichier journal dans le répertoire document de l’application :
 
 ```objc
 NSString *filePath = [
@@ -123,6 +130,14 @@ Pour accéder à un fichier créé, ajoutez les propriétés ci-dessous à la li
 <true/>
 <key>LSSupportsOpeningDocumentsInPlace</key>
 <true/>
+```
+
+Si vous utilisez Swift sur iOS, utilisez l’extrait de code suivant pour activer les journaux :
+```swift
+let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
+let logFilePath = documentsDirectoryPath.appendingPathComponent("swift.log")
+self.speechConfig!.setPropertyTo(logFilePath!.absoluteString, by: SPXPropertyId.speechLogFilename)
 ```
 
 Vous trouverez des informations complémentaires sur le système de fichiers iOS [ici](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html).
