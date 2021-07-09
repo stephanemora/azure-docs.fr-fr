@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 06/01/2021
 ms.author: jeedes
-ms.openlocfilehash: c26224f388c09ec758373c877004f5485bb420df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec6de7ea5c9da4402126990d1c165d4f4ad6d12f
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97725076"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111557447"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-terraform-cloud"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Terraform Cloud
 
@@ -37,11 +37,10 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Terraform Cloud prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
-* Terraform Cloud prend en charge l’attribution d’utilisateurs **juste-à-temps**
+* Terraform Cloud prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**.
+* Terraform Cloud prend en charge l’affectation d’utilisateurs **juste-à-temps**.
 
-
-## <a name="adding-terraform-cloud-from-the-gallery"></a>Ajout de Terraform Cloud à partir de la galerie
+## <a name="add-terraform-cloud-from-the-gallery"></a>Ajouter Terraform Cloud à partir de la galerie
 
 Pour configurer l’intégration de Terraform Cloud à Azure AD, vous devez ajouter Terraform Cloud, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
@@ -51,7 +50,6 @@ Pour configurer l’intégration de Terraform Cloud à Azure AD, vous devez ajo
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Terraform Cloud** dans la zone de recherche.
 1. Sélectionnez **Terraform Cloud** dans le volet des résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-terraform-cloud"></a>Configurer et tester l’authentification unique Azure AD pour Terraform Cloud
 
@@ -72,24 +70,27 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Terraform Cloud**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://app.terraform.io/sso/saml/samlconf-<ID>/metadata`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://app.terraform.io/sso/saml/samlconf-<ID>/metadata`
+
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://app.terraform.io/sso/saml/samlconf-<ID>/acs`
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     Dans la zone de texte **URL de connexion**, tapez l’URL : `https://app.terraform.io/session`
 
     > [!NOTE]
-    > La valeur de l'identificateur n'est pas réelle. Mettez à jour cette valeur avec l’identificateur réel. Pour obtenir ces valeurs, contactez l’[équipe de support technique Terraform Cloud](mailto:tf-cloud@hashicorp.support). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Terraform Cloud](mailto:tf-cloud@hashicorp.support). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -126,7 +127,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 3. Si vous souhaitez configurer Terraform Cloud manuellement, dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Terraform Cloud en tant qu’administrateur.
 
-2. Accédez à **Settings > SSO > Edit Settings** (Paramètres > SSO > Modifier les paramètres)
+2. Accédez à **Settings(Paramètres) > SSO > Edit Settings (Modifier les paramètres)** .
 
     ![Paramètres Terraform Cloud](./media/terraform-cloud-tutorial/sso-settings.png)
 
@@ -158,11 +159,10 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 #### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors automatiquement connecté à l’instance de Terraform Cloud pour laquelle vous avez configuré l’authentification unique. 
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors automatiquement connecté à l’instance de Terraform Cloud pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser le panneau d’accès Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Terraform Cloud dans le volet d’accès, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Terraform Cloud pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
-
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Terraform Cloud dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Terraform Cloud pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Terraform Cloud, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré Terraform Cloud, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

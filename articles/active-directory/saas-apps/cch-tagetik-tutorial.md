@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/15/2020
+ms.date: 05/24/2021
 ms.author: jeedes
-ms.openlocfilehash: 10b33a111b4702c4d5f8deaebf3fc0c64716602f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df15ea6a55400a82b236a39535693a21401d4ba8
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92456396"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478759"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cch-tagetik"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à CCH Tagetik
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez apprendre à intégrer CCH Tagetik à Azure Active 
 * Contrôler, dans Azure AD, qui a accès à CCH Tagetik.
 * Permettre aux utilisateurs de se connecter automatiquement à CCH Tagetik avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,26 +37,25 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* CCH Tagetik prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
-* CCH Tagetik prend en charge le provisionnement d’utilisateurs **juste-à-temps**
-* Après avoir configuré CCH Tagetik, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* CCH Tagetik prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
+* CCH Tagetik prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
 
-## <a name="adding-cch-tagetik-from-the-gallery"></a>Ajout de CCH Tagetik à partir de la galerie
+## <a name="add-cch-tagetik-from-the-gallery"></a>Ajout de CCH Tagetik à partir de la galerie
 
 Pour configurer l’intégration de CCH Tagetik à Azure AD, vous devez ajouter CCH Tagetik à partir de la galerie à votre liste d’applications SaaS managées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **CCH Tagetik** dans la zone de recherche.
 1. Sélectionnez **CCH Tagetik** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-cch-tagetik"></a>Configurer et tester l’authentification unique Azure AD pour CCH Tagetik
+## <a name="configure-and-test-azure-ad-sso-for-cch-tagetik"></a>Configurer et tester Azure AD SSO pour CCH Tagetik
 
 Configurez et testez l’authentification unique Azure AD avec CCH Tagetik à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur CCH Tagetik associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec CCH Tagetik, suivez les indications des modules ci-après :
+Pour configurer et tester Azure AD SSO avec CCH Tagetik, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -71,13 +68,13 @@ Pour configurer et tester l’authentification unique Azure AD avec CCH Tagetik
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **CCH Tagetik**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **CCH Tagetik**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes : 
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<CUSTOMER_NAME>.saastagetik.com/prod/5/`
 
@@ -117,15 +114,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **CCH Tagetik**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-cch-tagetik-sso"></a>Configurer l’authentification unique CCH Tagetik
@@ -138,20 +129,20 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans CCH Tage
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette CCH Tagetik dans le volet d’accès, vous devez être connecté automatiquement à l’application CCH Tagetik pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à CCH Tagetik à partir de laquelle vous pouvez lancer le flux de connexion.  
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Accédez directement à l’URL de connexion à CCH Tagetik et lancez le flux de connexion.
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous devez être connecté automatiquement à l’instance de CCH Tagetik pour laquelle vous avez configuré l’authentification unique. 
 
-- [Essayer CCH Tagetik avec Azure AD](https://aad.portal.azure.com/)
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette CCH Tagetik dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de CCH Tagetik pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Guide pratique pour protéger CCH Tagetik avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)
+Après avoir configuré CCH Tagetik, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

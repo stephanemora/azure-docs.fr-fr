@@ -6,14 +6,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 3/22/2021
+ms.date: 06/04/2021
 ms.author: pafarley
-ms.openlocfilehash: 4c0d4dd1a834e42a75da5199b7aaed0e123f8e63
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: dc9b5b3fae714319e48bcdfe1b2ce8a684a03854
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104879628"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111594203"
 ---
 [Documentation de référence](/java/api/com.microsoft.azure.management.cognitiveservices) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
@@ -22,6 +22,7 @@ ms.locfileid: "104879628"
 * Un abonnement Azure valide - [Créer un abonnement gratuitement](https://azure.microsoft.com/free/)
 * La version actuelle du [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * L’[outil de génération Gradle](https://gradle.org/install/) ou un autre gestionnaire de dépendances.
+* [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
@@ -121,6 +122,8 @@ Pour afficher toutes les ressources disponibles sous votre compte Azure (dans to
 La méthode suivante supprime la ressource spécifiée du groupe de ressources donné.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_delete)]
+
+Si vous devez récupérer une ressource supprimée, consultez [Récupérer des ressources Cognitive Services supprimées](../../manage-resources.md).
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/06/2021
+ms.date: 05/13/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3214069f68233fb3cb4facc08a409f4b1e05222a
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 248aa55a05267f7cbabae0c0c4b7a69b6a3837b4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109654865"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110060852"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Ajouter l’accès conditionnel à des flux d’utilisateurs dans Azure Active Directory B2C
 
@@ -27,8 +27,6 @@ L’accès conditionnel peut être ajouté à vos flux d’utilisateurs Azure Ac
 ![Flux d’accès conditionnel](media/conditional-access-user-flow/conditional-access-flow.png)
 
 Automatiser l’évaluation des risques avec des conditions de stratégie signifie que les connexions risquées sont immédiatement identifiées, puis corrigées ou bloquées.
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="service-overview"></a>Présentation du service
 
@@ -56,12 +54,12 @@ Lors de la phase de *correction* qui s’ensuit, l’utilisateur reçoit une dem
 
 La correction peut aussi se produire par le biais d’autres canaux, par exemple, quand le mot de passe du compte est réinitialisé, soit par l’administrateur, soit par l’utilisateur. Vous pouvez vérifier l’*état du risque* de l’utilisateur dans le [rapport sur les utilisateurs à risque](identity-protection-investigate-risk.md#navigating-the-risky-users-report).
 
+::: zone pivot="b2c-custom-policy"
+
 > [!IMPORTANT]
 > Pour corriger correctement le risque dans le parcours, vérifiez que le profil technique *Correction* est appelé après l’exécution du profil technique *Évaluation*. Si *Évaluation* est appelé sans *Correction*, l’état du risque est *Risqué*.
 
 Quand la recommandation du profil technique *Évaluation* retourne `Block`, l’appel du profil technique *Évaluation* n’est pas nécessaire. L’état du risque est défini sur *Risqué*.
-
-::: zone pivot="b2c-custom-policy"
 
 L’exemple suivant présente un profil technique d’accès conditionnel utilisé pour corriger la menace identifiée :
 
@@ -127,7 +125,7 @@ Une stratégie d’accès conditionnel est une instruction if-then des affectati
 Pour ajouter une stratégie d’accès conditionnel :
 
 1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
-1. Sous **Sécurité**, sélectionnez **Accès conditionnel (préversion)** . La page **Stratégies d’accès conditionnel** s’ouvre.
+1. Sous **Sécurité**, sélectionnez **Accès conditionnel**. La page **Stratégies d’accès conditionnel** s’ouvre.
 1. Sélectionnez **+ Nouvelle stratégie**.
 1. Entrez le nom de la stratégie, par exemple *Bloquer une connexion risquée*.
 1. Sous **Affectations**, choisissez **Utilisateurs et groupes**, puis sélectionnez l’une des configurations prises en charge suivantes :
@@ -237,11 +235,17 @@ Plusieurs stratégies d’accès conditionnel peuvent s’appliquer à un utilis
 
 ## <a name="enable-multi-factor-authentication-optional"></a>Activer l’authentification multifacteur (facultatif)
 
-Lorsque vous ajoutez un accès conditionnel à un flux d’utilisateur, envisagez l’utilisation de l'**authentification multifacteur (MFA)** . Les utilisateurs peuvent utiliser un code à usage unique par SMS ou voix, ou un mot de passe à usage unique par e-mail pour l’authentification multifacteur. Les paramètres MFA sont indépendants des paramètres d’accès conditionnel. Vous pouvez choisir parmi les options MFA suivantes :
+Quand vous ajoutez un accès conditionnel à un flux d’utilisateur, envisagez d’utiliser l’**authentification multifacteur (MFA)** . Les utilisateurs peuvent utiliser un code à usage unique par SMS ou voix, ou un mot de passe à usage unique par e-mail pour l’authentification multifacteur. Les paramètres MFA sont configurés séparément des paramètres d’accès conditionnel. Vous pouvez choisir parmi les options MFA suivantes :
 
-   - **Désactivé** – MFA n’est jamais appliquée pendant la connexion, et les utilisateurs ne sont pas invités à s’inscrire à MFA dans le cadre de l’inscription ou de la connexion.
-   - **Toujours activé** – MFA est toujours requise quelle que soit votre configuration de l’accès conditionnel. Si les utilisateurs ne sont pas déjà inscrits dans MFA, ils sont invités à s’inscrire lors de la connexion. Lors de l’inscription, les utilisateurs sont invités à s’inscrire dans MFA.
-   - **Conditionnel (préversion)** – MFA est requise uniquement quand une stratégie d’accès conditionnel active l’exige. Si le résultat de l’évaluation de l’accès conditionnel est un défi d’authentification MFA sans risque, l’authentification MFA est appliquée lors de la connexion. Si le résultat est un défi d’authentification MFA en raison d’un risque *et* que l’utilisateur n’est pas inscrit dans MFA, la connexion est bloquée. Lors de l’inscription, les utilisateurs ne sont pas invités à s’inscrire dans MFA.
+- **Désactivé** – MFA n’est jamais appliquée pendant la connexion, et les utilisateurs ne sont pas invités à s’inscrire à MFA dans le cadre de l’inscription ou de la connexion.
+- **Toujours activé** – MFA est toujours requise, quelle que soit votre configuration de l’accès conditionnel. Lors de l’inscription, les utilisateurs sont invités à s’inscrire dans MFA. Lors de la connexion, si les utilisateurs ne sont pas déjà inscrits à l’authentification multifacteur, ils sont invités à s’y inscrire.
+- **Conditionnel** – Lors de l’inscription et de la connexion, les utilisateurs sont invités à s’inscrire à l’authentification MFA (à la fois les nouveaux utilisateurs et les utilisateurs existants qui ne sont pas inscrits à l’authentification MFA). Lors de la connexion, l’authentification MFA est appliquée uniquement quand une évaluation de la stratégie d’accès conditionnel active l’exige :
+
+   - Si le résultat est un défi d’authentification MFA sans risque, l’authentification MFA est appliquée. Si l’utilisateur n’est pas déjà inscrit à l’authentification multifacteur, il est invité à s’y inscrire.
+   - Si le résultat est un défi d’authentification MFA en raison d’un risque *et* que l’utilisateur n’est pas inscrit dans MFA, la connexion est bloquée.
+
+   > [!NOTE]
+   > Avec la disponibilité générale de l’accès conditionnel dans Azure AD B2C, les utilisateurs sont désormais invités à s’inscrire à une méthode d’authentification multifacteur lors de l’inscription. Les flux d’utilisateur d’inscription que vous avez créés avant la mise à disposition générale ne reflètent pas automatiquement ce nouveau comportement, mais vous pouvez inclure le comportement en créant des flux d’utilisateurs.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -259,9 +263,9 @@ Pour activer l’accès conditionnel pour un flux d’utilisateur, assurez-vous 
  
    ![Configurer l’authentification multifacteur et l’accès conditionnel dans les propriétés](media/conditional-access-user-flow/add-conditional-access.png)
 
-1. Dans la section **Authentification multifacteur**, sélectionnez le **Type de méthode** souhaité, puis, sous **Application MFA**, sélectionnez **Conditionnel (préversion)** .
+1. Dans la section **Authentification multifacteur**, sélectionnez le **Type de méthode** souhaité, puis, sous **Application MFA**, sélectionnez **Conditionnel**.
  
-1. Dans la section **Accès conditionnel (préversion)** , cochez la case **Appliquer les stratégies d’accès conditionnel**.
+1. Dans la section **Accès conditionnel**, cochez la case **Appliquer les stratégies d’accès conditionnel**.
 
 1. Sélectionnez **Enregistrer**.
 

@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 29e117ef7eb763ddcb4bd903ede84a0c11967a67
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 3bc18e02345915c5446895a9acc5a33bd0b33431
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382600"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746804"
 ---
 # <a name="prebuilt-docker-images-for-inference-preview"></a>Images Docker prédéfinies pour l’inférence (préversion)
 
@@ -33,28 +33,26 @@ Les images conteneur Docker prédéfinies pour l’inférence [(préversion)](ht
 * Cela limite les dépendances et droits d’accès à l’image/au conteneur à ce qui est nécessaire. 
 * Le processus d’inférence dans le déploiement s’exécute de façon non-racine.
 
-## <a name="how-can-i-use-prebuilt-images"></a>Comment utiliser des images prédéfinies ?
-
-Reportez-vous à notre exemple de notebook.
-
 ## <a name="list-of-prebuilt-docker-images-for-inference"></a>Liste des images Docker prédéfinies pour l’inférence 
 
-### <a name="tensorflow"></a>Tensorflow
+* Toutes les images Docker s’exécutent en tant qu’utilisateur non racine.
+
+### <a name="tensorflow"></a>TensorFlow
 
 Version du framework | UC/GPU | Packages préinstallés | Chemin MCR | Environnement organisé
  --- | --- | --- | --- | --- |
  1.15 | Processeur | pandas==0.25.1 </br> numpy=1.20.1 | `mcr.microsoft.com/azureml/tensorflow-1.15-ubuntu18.04-py37-cpu-inference:latest`  | AzureML-tensorflow-1.15-ubuntu18.04-py37-cpu-inference | 
-2.4 | Processeur | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/xgboost-0.9-ubuntu18.04-py37-cpu-inference:latest` | AzureML-tensorflow-2.4-ubuntu18.04-py37-cpu-inference |
+2.4 | Processeur | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/tensorflow-2.4-ubuntu18.04-py37-cpu-inference:latest` | AzureML-tensorflow-2.4-ubuntu18.04-py37-cpu-inference |
 2.4 | GPU | numpy >= 1.16.0 </br> pandas~=1.1.x </br> CUDA==11.0.3 </br> CuDNN==8.0.5.39 | `mcr.microsoft.com/azureml/tensorflow-2.4-ubuntu18.04-py37-cuda11.0.3-gpu-inference:latest` | AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11.0.3-gpu-inference |
 
-### <a name="pytorch"></a>Pytorch
+### <a name="pytorch"></a>PyTorch
 
 Version du framework | UC/GPU | Packages préinstallés | Chemin MCR | Environnement organisé
  --- | --- | --- | --- | --- |
  1.6 | Processeur | numpy==1.20.1 </br> pandas==0.25.1 | `mcr.microsoft.com/azureml/pytorch-1.6-ubuntu18.04-py37-cpu-inference:latest` | AzureML-pytorch-1.6-ubuntu18.04-py37-cpu-inference |
 1.7 | Processeur | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/pytorch-1.7-ubuntu18.04-py37-cpu-inference:latest` | AzureML-pytorch-1.7-ubuntu18.04-py37-cpu-inference |
 
-### <a name="scikit-learn"></a>Scikit-Learn
+### <a name="scikit-learn"></a>SciKit-Learn
 
 Version du framework | UC/GPU | Packages préinstallés | Chemin MCR | Environnement organisé
  --- | --- | --- | --- | --- |

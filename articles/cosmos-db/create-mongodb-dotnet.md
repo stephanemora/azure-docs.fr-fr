@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20c6b7286ca769de97e0b694a3b9bf37583678bc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 387455f170d64c78ba4e1aab700a91a81bef2ed0
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070909"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112235578"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Démarrage rapide : Générer une application web .NET à l’aide de l’API d’Azure Cosmos DB pour MongoDB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "110070909"
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
-> * [Node.js](create-mongodb-nodejs.md)
+> * [Node.JS](create-mongodb-nodejs.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  
@@ -43,7 +43,7 @@ Si vous ne disposez pas de Visual Studio, téléchargez [Visual Studio 2019 Comm
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 L’exemple décrit dans cet article est compatible avec la version 2.6.1 du pilote MongoDB.Driver.
 
@@ -158,11 +158,11 @@ Vous venez de mettre à jour votre application avec toutes les informations néc
 -->
 ## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

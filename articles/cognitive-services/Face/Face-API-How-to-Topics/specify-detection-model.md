@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d5fc09bd554bc61f38a3b208de808a621cbfda80
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: da05251dab17aeb086be53a8583110dd5f12d7b3
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748022"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541629"
 ---
 # <a name="specify-a-face-detection-model"></a>Spécifier un modèle de détection des visages
 
@@ -102,8 +102,8 @@ Les différents modèles de détection sont optimisés pour différentes tâches
 |---------|---------|---|
 |Choix par défaut pour toutes les opérations de détection de visage. | Publié en mai 2019 et disponible si vous le souhaitez dans toutes les opérations de détection de visage. |  Publié en février 2021 et disponible si vous le souhaitez dans toutes les opérations de détection de visage.
 |Non optimisé pour les visages petits, pris de côté ou flous.  | Amélioration de la précision pour les visages petits, pris de côté ou flous. | Amélioration de la précision, notamment sur les visages plus petits (64x64 pixels) et les orientations de visages tournés.
-|Retourne les principaux attributs du visage (posture de la tête, âge, émotion, etc.) s’ils sont spécifiés dans l’appel de détection. |  Ne retourne pas les attributs du visage.     | Retourne l’attribut « Mask » s’il est spécifié dans l’appel de détection.
-|Retourne les points de repère du visage s’ils sont spécifiés dans l’appel de détection.   | Ne retourne pas les points de repère du visage.  | Ne retourne pas les points de repère du visage.
+|Retourne les principaux attributs du visage (posture de la tête, âge, émotion, etc.) s’ils sont spécifiés dans l’appel de détection. |  Ne retourne pas les attributs du visage.     | Retourne les attributs de masque et de posture de tête s’ils sont spécifiés dans l’appel de détection.
+|Retourne les points de repère du visage s’ils sont spécifiés dans l’appel de détection.   | Ne retourne pas les points de repère du visage.  | Retourne les points de repère du visage s’ils sont spécifiés dans l’appel de détection.
 
 La meilleure façon de comparer les performances des modèles de détection consiste à les utiliser sur un exemple de jeu de données. Nous vous recommandons d’appeler l’API [Visage - Détecter] sur un grand nombre d’images, en particulier les images avec de nombreux visages ou des visages qui sont difficiles à voir, avec chaque modèle de détection. Prêtez attention au nombre de visages que chaque modèle retourne.
 

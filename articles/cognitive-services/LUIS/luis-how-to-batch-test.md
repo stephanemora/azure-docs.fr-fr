@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 04/13/2021
-ms.openlocfilehash: 9fe4f21a5c9e9e26a2f94b8a60cba47916842fe3
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.date: 05/18/2021
+ms.openlocfilehash: b6d007d3020d3fa2b001178bd23d721ea6a6aa6b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501788"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067831"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test par lot avec un ensemble d’exemples d’énoncés
 
@@ -87,7 +87,19 @@ L’exemple JSON comprend un énoncé avec une entité étiquetée pour illustre
 
 5. Nommez le jeu de données `pizza test` et sélectionnez **Terminé**.
 
-6. Sélectionnez le bouton **Run**. Après l’exécution du test par lot, sélectionnez **Afficher les résultats**. 
+6. Sélectionnez le bouton **Run**. 
+
+7. Une fois le test par lot terminé, vous pouvez voir les colonnes suivantes :
+
+    | Colonne | Description |
+    | -------- | ------------- |
+    | State | État du test. **Afficher les résultats** n’est visible qu’une fois le test terminé. |
+    | Nom | Nom que vous avez donné au test. |
+    | Size | Nombre de tests dans ce fichier de test par lot. |
+    | Dernière exécution | Date de la dernière exécution de ce fichier de test par lot. |
+    | Dernier résultat | Nombre de prédictions réussies dans le test. |
+
+8. Pour afficher les résultats détaillés du test, sélectionnez **Afficher les résultats**. 
 
     > [!TIP]
     > * Si vous sélectionnez **Télécharger** vous téléchargerez le même fichier que celui que vous avez chargé.

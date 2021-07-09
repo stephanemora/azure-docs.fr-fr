@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5847fcb2cf553e1fcc744877e52dbbdf1f24d992
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: f6d467b2480ded274699e7274edcf745eaa4980a
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751829"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748478"
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 
@@ -176,8 +176,8 @@ Le tableau ci-après répertorie les valeurs **operationName** et les commandes 
 | **CertificateEnroll** |Inscrire un certificat |
 | **CertificateRenew** |Renouveler un certificat |
 | **CertificatePendingGet** |Récupérer le certificat en attente |
-| **CertificatePendingMerge** |En attente d’une fusion de certificats |
-| **CertificatePendingUpdate** |En attente d’une mise à jour de certificat |
+| **CertificatePendingMerge** | La fusion du certificat est en attente |
+| **CertificatePendingUpdate** | La mise à jour du certificat est en attente |
 | **CertificatePendingDelete** |Supprimer un certificat en attente |
 | **CertificateNearExpiryEventGridNotification** |Événement lié à un certificat proche de l’expiration publié |
 | **CertificateExpiredEventGridNotification** |Événement lié à un certificat expiré publié |

@@ -7,12 +7,12 @@ ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c500c7b7afb36ffbe04fb63551c3a7d17c1347d9
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: acf038d6e1ead94bdfb2e00ffe225e566faa6c44
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029078"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854897"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Présentation d’Azure Defender pour Kubernetes
 
@@ -44,7 +44,7 @@ La détection des menaces au niveau de l’hôte sur les nœuds AKS Linux est di
 
 Azure Defender pour Kubernetes fournit une **protection contre les menaces au niveau du cluster** en supervisant les journaux de vos clusters.
 
-Les tableaux de bord Kubernetes exposés, la création de rôles dotés de privilèges élevés et la création de montages sensibles sont des exemples d’événements de sécurité qu’Azure Defender pour Kubernetes supervise. Pour obtenir la liste complète des alertes au niveau du cluster, consultez la [Table de référence des alertes](alerts-reference.md#alerts-akscluster).
+Les tableaux de bord Kubernetes exposés, la création de rôles dotés de privilèges élevés et la création de montages sensibles sont des exemples d’événements de sécurité qu’Azure Defender pour Kubernetes supervise. Pour obtenir la liste complète des alertes au niveau du cluster, consultez la [Table de référence des alertes](alerts-reference.md#alerts-k8scluster).
 
 > [!TIP]
 > Vous pouvez simuler des alertes de conteneur en suivant les instructions données dans [ce billet de blog](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
@@ -57,7 +57,7 @@ De plus, notre équipe mondiale d’experts en sécurité surveille en permanenc
 
 
 
-## <a name="azure-defender-for-kubernetes---faq"></a>Azure Defender pour Kubernetes – FAQ
+## <a name="faq---azure-defender-for-kubernetes"></a>FAQ - Azure Defender pour Kubernetes
 
 ### <a name="can-i-still-get-cluster-protections-without-the-log-analytics-agent"></a>Est-ce que je peux quand même bénéficier des protections de cluster sans l’agent Log Analytics ?
 

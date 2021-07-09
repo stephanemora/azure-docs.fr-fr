@@ -8,12 +8,12 @@ ms.date: 4/22/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e311a39a68a5fb03c68a1685996a8e0fbde206e8
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8a5a092da37b453b719669109bd4924b032c0604
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108734342"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616220"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>À propos du langage de requête pour Azure Digital Twins
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser le langage de requête Azure Digital Twins pour récupérer
 * relationships
   - leurs propriétés des relations
 
-Pour soumettre une requête au service à partir d’une application cliente, vous allez utiliser l [’API de requête](/rest/api/digital-twins/dataplane/query) Azure Digital Twins. L’une des façons d’utiliser l’API consiste à utiliser l’un des [SDK](concepts-apis-sdks.md#overview-data-plane-apis) pour Azure Digital Twins.
+Pour soumettre une requête au service à partir d’une application cliente, vous allez utiliser l [’API de requête](/rest/api/digital-twins/dataplane/query) Azure Digital Twins. L’une des façons d’utiliser l’API consiste à utiliser l’un des [kits SDK pour Azure Digital Twins](concepts-apis-sdks.md#overview-data-plane-apis).
 
 [!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
 

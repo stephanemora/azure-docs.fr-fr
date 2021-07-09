@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: 87a7295c785c08fcf3faffc20d34ceef45144848
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 995ee04e913ad4e363045e0aacc295aaec25f3e6
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787289"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677923"
 ---
 # <a name="tutorial-deploy-the-azure-industrial-iot-platform"></a>Tutoriel : Déployer la plateforme Azure Industrial IoT
 
@@ -56,25 +56,27 @@ Dans ce tutoriel, vous allez voir comment :
 
 2. Démarrez le déploiement guidé. Le script collecte les informations requises, telles que le compte Azure, l’abonnement, la ressource cible et le nom du groupe et de l’application.
 
-Sur Windows :
-    ```
-    .\deploy
-    ```
+    Sur Windows :
+        ```
+        .\deploy -version <version>
+        ```
 
-Sur Linux ou Mac :
-    ```
-    ./deploy.sh
-    ```
+    Sur Linux ou Mac :
+        ```
+        ./deploy.sh -version <version>
+        ```
+
+    Remplacez \<version> par la version à déployer.
 
 3. Les microservices et l’interface utilisateur sont des applications web qui requièrent une authentification. Cela nécessite trois inscriptions d’applications dans AAD. Si les droits requis sont manquants, il existe deux solutions possibles :
 
-- Demander à l’administrateur AAD d’accorder le consentement de l’administrateur au niveau du locataire pour l’application
-- Un administrateur AAD peut créer les applications AAD. Le dossier deploy/scripts contient le script aad- register.ps1 pour effectuer l’inscription AAD séparément du déploiement. La sortie du script est un fichier contenant les informations pertinentes à utiliser dans le cadre du déploiement. Il doit être passé au script deploy.ps1 dans le même dossier à l’aide de l’argument - aadConfig.
-    ```bash
-    cd deploy/scripts
-    ./aad-register.ps1 -Name <application-name> -Output aad.json
-    ./deploy.ps1 -aadConfig aad.json
-    ```
+    - Demander à l’administrateur AAD d’accorder le consentement de l’administrateur au niveau du locataire pour l’application
+    - Un administrateur AAD peut créer les applications AAD. Le dossier deploy/scripts contient le script aad- register.ps1 pour effectuer l’inscription AAD séparément du déploiement. La sortie du script est un fichier contenant les informations pertinentes à utiliser dans le cadre du déploiement. Il doit être passé au script deploy.ps1 dans le même dossier à l’aide de l’argument - aadConfig.
+        ```bash
+        cd deploy/scripts
+        ./aad-register.ps1 -Name <application-name> -Output aad.json
+        ./deploy.ps1 -aadConfig aad.json
+        ```
 
 Pour les déploiements de production qui requièrent la mise en lots, la restauration, la mise à l’échelle et la résilience, la plateforme peut être déployée dans [AKS (Azure Kubernetes Service)](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/howto-deploy-aks.md)
 

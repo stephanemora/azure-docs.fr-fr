@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: a195567117378a118b9bea8d15a7cb0a661d284a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9bfb125a9906c89fb7c607ce241a9b7696b805bc
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303523"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537603"
 ---
-# <a name="language-and-region-support-for-text-and-speech-translation"></a>Langues et régions prises en charge pour la traduction de texte et vocale
+# <a name="language-support-for-text-and-speech-translation"></a>Prise en charge linguistique pour la traduction de texte et la traduction vocale
 
 Utilisez Traducteur pour traduire vers et depuis plus de 90 langues et dialectes de traduction de texte. La traduction automatique neuronale (NMT) constitue la nouvelle référence en matière de traductions automatiques de grande qualité reposant sur l’intelligence artificielle, et est proposée par défaut dans Translator v3 lorsqu’un système neuronal est disponible.
 
@@ -129,6 +129,9 @@ Translator prend en charge les langues suivantes pour la traduction de texte en 
 
 > [!NOTE]
 > Par défaut, le code de langue `pt` sera `pt-br`, Portugais (Brésil).
+
+> [!NOTE]
+> Les langues suivantes ne sont actuellement pas disponibles dans les conteneurs : Samoan, Tahitien, Klingon, Klingon (plqaD) et Thaï.
 
 ### <a name="detect"></a>Detect
 

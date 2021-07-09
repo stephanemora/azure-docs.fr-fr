@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 05/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 3392cc5f3ee9daef1ae8397f6829f4ca7a42373a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8dfe8711733efeb33561531c85925111799daba
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98871398"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479302"
 ---
 # <a name="limits-and-quotas"></a>Limites et quotas
 
@@ -23,13 +23,13 @@ Il existe deux niveaux de clés pour le service Vision personnalisée. Vous pouv
 
 Le nombre d’images d’apprentissage par projet et le nombre de balises par projet sont censés augmenter au fil du temps pour les projets S0.
 
-|Factor|**F0**|**S0**|
+|Factor|**F0 (gratuit)**|**S0 (standard)**|
 |-----|-----|-----|
 |Projets|2|100|
 |Images d’apprentissage par projet |5 000|100 000|
 |Prédictions/mois|10 000 |Illimité|
 |Étiquettes/projet|50|500|
-|Itérations |10|10|
+|Itérations |20|20|
 |Nombre minimal d’images étiquetées par balise, classification (recommandation : plus de 50) |5|5|
 |Nombre minimal d’images étiquetées par balise, détection d’objets (recommandation : plus de 50)|15|15|
 |Durée de stockage des images de prédiction|30 jours|30 jours|

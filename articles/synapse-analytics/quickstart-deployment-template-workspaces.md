@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer un espace de travail Azure Synapse avec un modèle Azure Resource Manager'
+title: 'Démarrage rapide : Créer un espace de travail Azure Synapse avec un modèle ARM (Azure Resource Manager)'
 description: Découvrez comment créer un espace de travail Synapse en utilisant un modèle Azure Resource Manager (modèle ARM).
 services: azure-resource-manager
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 08/07/2020
-ms.openlocfilehash: 7317b7f51c6d0f9d72e3aad81794a569276d2145
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: e00047ee4d77d0ad5464b9802ab15a7af026f493
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566118"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111437961"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-using-an-arm-template"></a>Démarrage rapide : Créer un espace de travail Azure Synapse en utilisant un modèle ARM
 

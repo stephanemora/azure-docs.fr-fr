@@ -9,20 +9,20 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f0abef835e406b442239cecd81fed5751f1c9a92
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: a09dfb2b8e29ba925a702c169a1a79c13016d5dc
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378157"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421703"
 ---
 # <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Pool SQL serverless dans Azure Synapse Analytics 
 
-Chaque espace de travail Azure Synapse Analytics est fourni avec des points de terminaison de pool SQL serverless que vous pouvez utiliser pour interroger les données du lac.
+Chaque espace de travail Azure Synapse Analytics comprend des points de terminaison de pool SQL serverless que vous pouvez utiliser pour interroger des données dans [Azure Data Lake](query-data-storage.md) (formats [Parquet](query-data-storage.md#query-parquet-files), [Delta Lake](query-delta-lake-format.md), [texte délimité](query-data-storage.md#query-csv-files)), [Cosmos DB](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key) ou Dataverse.
 
 Le pool SQL serverless est un service de requête sur les données de votre lac de données. Il vous permet d’accéder à vos données par le biais des fonctionnalités suivantes :
  
-- Une syntaxe T-SQL familière pour interroger des données sur place sans avoir besoin de les copier ou de les charger dans un magasin spécialisé 
+- Une [syntaxe T-SQL](overview-features.md) familière pour interroger des données sur place sans avoir besoin de les copier ou de les charger dans un magasin spécialisé. 
 - Une connectivité intégrée via l’interface T-SQL qui offre un large éventail d’outils décisionnels et d’outils de requête ad hoc, y compris les pilotes les plus populaires 
 
 Le pool SQL serverless est un système de traitement de données distribué, conçu pour des fonctions de calcul et de données à grande échelle. Le pool SQL serverless vous permet d’analyser vos données Big Data en quelques secondes ou quelques minutes, selon la charge de travail. Grâce à la tolérance de panne de l’exécution intégrée des requêtes, le système fournit des taux de réussite et de fiabilité élevés, même pour les requêtes longues qui impliquent des jeux de données volumineux.
@@ -38,7 +38,7 @@ Si vous utilisez Apache Spark pour Azure Synapse dans votre pipeline de données
 Si vous devez explorer les données du lac de données, obtenir des insights à partir de celles-ci ou optimiser votre pipeline de transformation de données existant, vous pouvez tirer parti de l’utilisation du pool SQL serverless. Il convient aux scénarios suivants :
 
 - Découverte et exploration de base : comprenez rapidement les données de différents formats (Parquet, CSV, JSON) présentes dans votre lac de données, afin de planifier l’extraction d’insights à partir de celles-ci.
-- Entrepôt de données logique : fournissez une abstraction relationnelle pour les données brutes ou disparates, sans déplacer ni transformer ces données, afin de toujours avoir une vue de vos données qui soit actuelle.
+- Entrepôt de données logique : fournissez une abstraction relationnelle pour les données brutes ou disparates, sans déplacer ni transformer ces données, afin de toujours avoir une vue de vos données qui soit actuelle. Apprenez-en davantage sur la [création d’un entrepôt de données logique](tutorial-logical-data-warehouse.md).
 - Transformation des données : méthode simple, scalable et performante pour transformer les données d’un lac à l’aide de T-SQL, en vue de les envoyer vers des outils décisionnels ou autre, ou en vue de les charger dans un magasin de données relationnelles (bases de données Synapse SQL, Azure SQL Database, etc.).
 
 Différents rôles professionnels peuvent tirer parti du pool SQL serverless :
@@ -52,6 +52,8 @@ Différents rôles professionnels peuvent tirer parti du pool SQL serverless :
 
 Un point de terminaison de pool SQL serverless est fourni dans chacun des espaces de travail Azure Synapse. Vous pouvez créer un espace de travail et commencer à interroger les données instantanément à l’aide des outils que vous connaissez.
 
+Veillez à appliquer [les meilleures pratiques](best-practices-serverless-sql-pool.md) pour obtenir des performances optimales.
+
 ## <a name="client-tools"></a>Outils clients
 
 Le pool SQL serverless permet aux outils de requêtes SQL ad hoc et aux outils décisionnels existants d’exploiter les données du lac. Étant donné qu’il fournit une syntaxe T-SQL que vous connaissez déjà, tous les outils capables d’établir des connexions TDS aux offres SQL peuvent [se connecter à Synapse SQL et l’interroger](connect-overview.md). Vous pouvez vous connecter avec Azure Data Studio et exécuter des requêtes ad hoc, ou vous connecter avec Power BI pour obtenir des insights en quelques minutes.
@@ -63,7 +65,7 @@ Le pool SQL serverless offre une surface d’exposition de requête T-SQL qui a
 - La charge de travail peut être organisée à l’aide de concepts familiers :
 - Bases de données : le point de terminaison du pool SQL serverless peut avoir plusieurs bases de données.
 - Schémas : dans une base de données, il existe un ou plusieurs groupes d’appropriation d’objets appelés « schémas ».
-- Les vues
+- Vues, procédures stockées, fonctions de valeur de table incluse
 - Ressources externes : sources de données, formats de fichiers et tables
 
 La sécurité peut être appliquée à l’aide des éléments suivants :
@@ -93,9 +95,13 @@ Pour faciliter l’interrogation sur place des données qui se trouvent dans des
 
 [Interrogation de plusieurs fichiers ou dossiers](query-data-storage.md#query-multiple-files-or-folders)
 
-[Format de fichier PARQUET](query-data-storage.md#query-parquet-files)
+[Interrogation de format de fichier PARQUET](query-data-storage.md#query-parquet-files)
 
-[Options supplémentaires pour l’utilisation d’un texte délimité (marque de fin de champ, marque de fin de ligne, caractère d’échappement)](query-data-storage.md#query-csv-files)
+[Interrogation de format DELTA](query-delta-lake-format.md)
+
+[Différents formats de texte délimité (avec marque de fin de champ, marque de fin de ligne, caractère d’échappement personnalisés)](query-data-storage.md#query-csv-files)
+
+[Magasin analytique Cosmos DB](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key)
 
 [Lire un sous-ensemble choisi de colonnes](query-data-storage.md#read-a-chosen-subset-of-columns)
 
@@ -139,9 +145,15 @@ Si l’authentification Azure AD est utilisée, un utilisateur peut se connecte
 
 Un utilisateur connecté au service de pool SQL serverless doit être autorisé à accéder aux fichiers présents dans Stockage Azure et à les interroger. Le pool SQL serverless prend en charge les types d’autorisation suivants :
 
-- Une **signature d’accès partagé (SAS)** fournit un accès délégué aux ressources du compte de stockage. Avec une signature d’accès partagé, vous pouvez accorder aux clients l’accès aux ressources d’un compte de stockage sans partager les clés du compte. Une signature d’accès partagé vous fournit un contrôle précis sur le type d’accès que vous accordez aux clients qui disposent de la signature SAS : intervalle de validité, autorisations accordées, plage d’adresses IP acceptée, protocole accepté (https/http).
+- Une **[signature d’accès partagé (SAP)](develop-storage-files-storage-access-control.md?tabs=shared-access-signature)** fournit un accès délégué aux ressources du compte de stockage. Avec une signature d’accès partagé, vous pouvez accorder aux clients l’accès aux ressources d’un compte de stockage sans partager les clés du compte. Une signature d’accès partagé vous fournit un contrôle précis sur le type d’accès que vous accordez aux clients qui disposent de la signature SAS : intervalle de validité, autorisations accordées, plage d’adresses IP acceptée, protocole accepté (https/http).
 
-- L’**identité de l’utilisateur** (également appelée « pass-through ») est un type d’autorisation où l’identité de l’utilisateur Azure AD qui s’est connecté au pool SQL serverless est utilisée pour autoriser l’accès aux données. Avant d’accéder aux données, l’administrateur du stockage Azure doit accorder des autorisations à l’utilisateur Azure AD pour accéder aux données. Ce type d’autorisation utilise l’utilisateur Azure AD qui s’est connecté au pool SQL serverless : il n’est donc pas pris en charge pour les types d’utilisateurs SQL.
+- L’ **[identité de l’utilisateur](develop-storage-files-storage-access-control.md?tabs=user-identity)** (également appelée « pass-through ») est un type d’autorisation où l’identité de l’utilisateur Azure AD qui s’est connecté au pool SQL serverless est utilisée pour autoriser l’accès aux données. Avant d’accéder aux données, l’administrateur du stockage Azure doit accorder des autorisations à l’utilisateur Azure AD pour accéder aux données. Ce type d’autorisation utilise l’utilisateur Azure AD qui s’est connecté au pool SQL serverless : il n’est donc pas pris en charge pour les types d’utilisateurs SQL.
+
+- L’ **[identité de l’espace de travail](develop-storage-files-storage-access-control.md?tabs=managed-identity)** est un type d’autorisation où l’identité de l’espace de travail Synapse est utilisée pour autoriser l’accès aux données. Avant d’accéder aux données, l’administrateur du Stockage Azure doit accorder des autorisations à l’identité de l’espace de travail pour accéder aux données.
+
+### <a name="access-to-cosmos-db"></a>Accéder à Cosmos DB
+
+Vous devez créer des informations d’identification au niveau du serveur ou incluses dans l’étendue de la base de données avec la clé en lecture seule du compte Cosmos DB pour [accéder au magasin analytique Cosmos DB](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la connexion aux points de terminaison et sur l’interrogation des fichiers, consultez les articles suivants : 

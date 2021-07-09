@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.custom: references_regions
-ms.openlocfilehash: da6d19a20a31e4cc4c4fac5bb704cb193611dbbc
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6e8f9a26836be14d4952ba309933511635ff673a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382520"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982643"
 ---
 # <a name="qna-maker-managed-is-now-renamed-to-custom-question-answering"></a>La fonctionnalité QnA Maker managé est désormais nommée Réponses aux questions personnalisées
 
@@ -41,7 +41,7 @@ Vous ne pouvez plus créer de ressource managée QnA Maker à partir du flux de 
 
 - Toutes les ressources QnA Maker managé (préversion) existantes continuent de fonctionner comme avant. Vous n’avez aucune action à effectuer pour ces ressources.
 - Le flux de création pour le service Réponses aux questions personnalisées (préversion) est la principale modification. Le service, le portail, les points de terminaison, le Kit de développement logiciel (SDK) et le reste ne changent pas.
-- Le service Réponses aux questions personnalisées (préversion) continue à être proposé en préversion publique gratuite.
+- Le service Réponses aux questions personnalisées (préversion) continue à être proposé en préversion publique gratuite. Cette fonctionnalité est disponible uniquement dans le cadre des ressources Analyse de texte standard. Ne définissez pas votre niveau tarifaire pour les ressources Analyse de texte sur Gratuit.
 - Le service Réponses aux questions personnalisées (préversion) est disponible dans les régions suivantes :
     - États-Unis - partie centrale méridionale
     - Europe Nord
@@ -51,5 +51,4 @@ Vous ne pouvez plus créer de ressource managée QnA Maker à partir du flux de 
 
 * [Démarrer avec la bibliothèque de client QnA Maker](./quickstarts/quickstart-sdk.md)
 * [Démarrer avec le portail QnA Maker](./quickstarts/create-publish-knowledge-base.md)
-
 

@@ -10,61 +10,52 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 6d2ad87f6a8c79f61d62140a1549968cd88d83aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c58369392940dbb34e222693cb026f4fd84c8bd
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101722311"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110458980"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Enregistrer des échantillons vocaux pour créer une voix personnalisée
 
-La création d’une voix personnalisée de qualité production à partir de zéro n’est pas une tâche épisodique. Une voix personnalisée se compose avant tout d’une grande collection d’échantillons audio de voix humaine. Il est essentiel que ces enregistrements audio soient de haute qualité. Choisissez une voix professionnelle ayant une expérience dans ces types d’enregistrements, et enregistrez-la en faisant appel à un ingénieur spécialisé disposant d’un matériel professionnel.
+La création d’une voix neuronale personnalisée de qualité production à partir de zéro n’est pas une mince affaire. Une voix neuronale personnalisée se compose avant tout d’une grande collection d’échantillons audio de voix humaine. Il est essentiel que ces enregistrements audio soient de haute qualité. Choisissez un talent vocal ayant une expérience dans ces types d’enregistrements, et enregistrez-le en faisant appel à un ingénieur spécialisé disposant d’un matériel professionnel.
 
-Mais avant de pouvoir effectuer ces enregistrements, vous avez besoin d’un script, c’est-à-dire les mots qui seront énoncés par votre voix professionnelle pour créer les échantillons audio. Pour de meilleurs résultats, votre script doit avoir une bonne couverture phonétique et être suffisamment varié pour former le modèle vocal personnalisé.
+Mais avant de pouvoir effectuer ces enregistrements, vous avez besoin d’un script, c’est-à-dire les mots qui seront énoncés par votre voix professionnelle pour créer les échantillons audio. Pour de meilleurs résultats, votre script doit avoir une bonne couverture phonétique et être suffisamment varié pour entraîner le modèle vocal neuronal personnalisé.
 
 L’enregistrement d’une voix professionnelle implique de nombreux petits détails très importants. Ce guide est une feuille de route détaillant le processus qui vous aidera à obtenir des résultats homogènes.
 
 > [!NOTE]
-> Si vous souhaitez entraîner une voix neuronale, vous devez spécifier un profil de voix professionnelle avec le fichier de consentement audio fourni par la voix professionnelle qui a accepté que ses données vocales soient utilisées pour entraîner un modèle vocal personnalisé. Quand vous préparez votre script d’enregistrement, veillez à inclure la phrase ci-dessous. 
+> Pour entraîner une voix neuronale, vous devez spécifier un profil de talent vocal avec le fichier de consentement audio fourni par le talent vocal qui a accepté que ses données vocales soient utilisées pour entraîner un modèle vocal neuronal personnalisé. Quand vous préparez votre script d’enregistrement, veillez à inclure la phrase ci-dessous. 
 
 > « Je, soussigné(e) [indiquez votre nom et votre prénom], avoir compris que les enregistrements de ma voix seront utilisés par [indiquez le nom de la société] pour créer et utiliser une version synthétique de ma voix. »
 Cette phrase servira à vérifier si les données d’entraînement sont enregistrées par la personne qui a donné son consentement. Découvrez ici davantage d’informations sur la [vérification des voix professionnelles](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
-> La voix neuronale personnalisée est disponible avec un accès limité. Assurez-vous de bien comprendre les [exigences en matière d’IA responsable](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) et [demandez l’accès ici](https://aka.ms/customneural). 
+> La voix neuronale personnalisée est disponible avec un accès limité. Veillez à bien comprendre les [conditions de l’IA responsable](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) et [demandez l’accès ici](https://aka.ms/customneural). 
 
 > [!TIP]
-> Pour optimiser au maximum ces résultats, n’hésitez pas à contacter Microsoft, qui vous aidera à développer votre voix personnalisée. Microsoft possède une grande expérience dans la production de voix de haute qualité pour ses propres produits, y compris Cortana et Office.
+> Pour optimiser ces résultats, n’hésitez pas à contacter Microsoft, qui vous aidera à développer votre voix neuronale personnalisée. Microsoft possède une grande expérience dans la production de voix de haute qualité pour ses propres produits, y compris Cortana et Office.
 
 ## <a name="voice-recording-roles"></a>Rôles lors d’un enregistrement vocal
 
-Un projet d’enregistrement d’une voix personnalisée implique quatre rôles de base :
+Un projet d’enregistrement d’une voix neuronale personnalisée implique quatre rôles de base :
 
 Rôle|Objectif
 -|-
-Voix professionnelle        |La voix de cette personne servira de base à la voix personnalisée.
+Voix professionnelle        |La voix de cette personne servira de base à la voix neuronale personnalisée.
 Ingénieur du son  |Surveille les aspects techniques de l’enregistrement et commande le matériel d’enregistrement.
 Directeur            |Prépare le script et dirige l’enregistrement de la voix professionnelle.
-Éditeur              |Finalise les fichiers audio et prépare leur transfert vers le portail de la voix professionnelle.
+Éditeur              |Finalise les fichiers audio et prépare leur transfert vers Speech Studio.
 
 Une même personne peut remplir plusieurs rôles. Ce guide part du principe que vous tiendrez principalement le rôle de directeur et que recruterez la voix professionnelle et l’ingénieur du son. Si vous souhaitez effectuer vous-même les enregistrements, cet article fournit certaines informations sur le rôle d’ingénieur du son. Le rôle Éditeur n’est nécessaire qu’après la session, et peut donc être rempli par le directeur ou l’ingénieur du son.
 
 ## <a name="choose-your-voice-talent"></a>Choisir votre voix professionnelle
 
-Les acteurs spécialisés dans la voix off ou le doublage sont de bons candidats. Vous trouverez également de bons profils parmi les annonceurs et les présentateurs.
+Les acteurs spécialisés dans la voix off ou le doublage sont de bons candidats. Vous trouverez également de bons profils parmi les annonceurs et les présentateurs. Choisissez une personne dont la voix naturelle vous plaît. Il est possible de créer une voix de « personnage », unique, mais il est beaucoup plus difficile pour la plupart des acteurs de reproduire cette voix de manière cohérente, et cet effort risque d’entraîner une déformation de la voix. Le principal facteur quant au choix de la voix professionnelle est l’homogénéité. Vos enregistrements doivent donner l’impression qu’ils ont été réalisés le même jour et dans la même pièce. Pour tendre à cet idéal, vous devez suivre de bonnes pratiques en matière d’enregistrement et d’ingénierie.
 
-Choisissez une personne dont la voix naturelle vous plaît. Il est possible de créer une voix de « personnage », unique, mais il est beaucoup plus difficile pour la plupart des acteurs de reproduire cette voix de manière cohérente, et cet effort risque d’entraîner une déformation de la voix.
+Votre voix professionnelle représente l’autre moitié de l’équation. Le débit, le volume, la hauteur et la tonalité de la voix doivent être réguliers. Une parfaite diction est indispensable. L’acteur doit aussi pouvoir contrôler de manière stricte ses variations de tonalité, ses émotions ou ses tics de langage. Les enregistrements d’échantillons de voix peuvent être plus fatigants que d’autres types d’exercices vocaux. La plupart des voix professionnelles peuvent effectuer des sessions d’enregistrement de deux ou trois heures par jour. Limitez-vous à trois ou quatre sessions par semaine, en accordant si possible un jour de repos entre deux sessions.
 
-> [!TIP]
-> En règle générale, évitez d’utiliser des voix facilement reconnaissables pour créer une voix personnalisée, à moins, bien sûr, que votre objectif est de reproduire une voix célèbre. Les voix plus anonymes sont mieux acceptées par les utilisateurs.
-
-Le principal facteur quant au choix de la voix professionnelle est l’homogénéité. Vos enregistrements doivent donner l’impression qu’ils ont été réalisés le même jour et dans la même pièce. Pour tendre à cet idéal, vous devez suivre de bonnes pratiques en matière d’enregistrement et d’ingénierie.
-
-Votre voix professionnelle représente l’autre moitié de l’équation. Le débit, le volume, la hauteur et la tonalité de la voix doivent être réguliers. Une parfaite diction est indispensable. L’acteur doit aussi pouvoir contrôler de manière stricte ses variations de tonalité, ses émotions ou ses tics de langage.
-
-Les enregistrements d’échantillons de voix personnalisées peuvent être plus fatigants que d’autres types d’exercices vocaux. La plupart des voix professionnelles peuvent effectuer des sessions d’enregistrement de deux ou trois heures par jour. Limitez-vous à trois ou quatre sessions par semaine, en accordant si possible un jour de repos entre deux sessions.
-
-Travaillez avec votre acteur pour créer un « personnage » qui définit le ton global et le niveau d’émotion de la voix personnalisée. Dans ce processus, vous allez identifier les sons « neutres » de ce personnage. À l’aide de la fonctionnalité de voix neuronale personnalisée, vous pouvez entraîner un modèle vocal capable de refléter des émotions. Définissez les « styles de voix » et demandez à votre voix professionnelle de lire le script d’une manière qui reproduit les styles souhaités.  
+Travaillez avec votre acteur pour créer un « personnage » qui définit le ton global et le niveau d’émotion de la voix neuronale personnalisée. Dans ce processus, vous allez identifier les sons « neutres » de ce personnage. À l’aide de la fonctionnalité de voix neuronale personnalisée, vous pouvez entraîner un modèle vocal capable de refléter des émotions. Définissez les « styles de voix » et demandez à votre voix professionnelle de lire le script d’une manière qui reproduit les styles souhaités.  
 
 Par exemple, un personnage peut avoir une personnalité naturellement chaleureuse. Par conséquent, « sa » voix peut véhiculer une note d’optimisme même quand il parle de façon neutre. Mais un tel trait de caractère doit rester subtil et homogène. Écoutez des énoncés de voix existantes pour avoir une idée de ce que vous recherchez.
 
@@ -73,7 +64,7 @@ Par exemple, un personnage peut avoir une personnalité naturellement chaleureus
 
 ## <a name="create-a-script"></a>Créer un script
 
-Le point de départ de toute session d’enregistrement de voix personnalisée est le script, qui contient les énoncés qui seront lus par votre acteur. (Le terme « énoncés » englobe les phrases complètes et les expressions plus courtes.)
+Le point de départ de toute session d’enregistrement de voix neuronale personnalisée est le script, qui contient les énoncés qui seront lus par votre acteur. (Le terme « énoncés » englobe les phrases complètes et les expressions plus courtes.)
 
 Les énoncés de votre script peuvent provenir de n’importe quelle source : fiction, non-fiction, transcription de discours, bulletin d’informations ou tout autre document imprimé. Si vous souhaitez vous assurer que votre voix est parfaitement adaptée à l’énoncé de mots spécifiques (par exemple, la terminologie médicale ou le jargon de la programmation), vous pouvez inclure des phrases tirées d’ouvrages spécialisés ou de documents techniques. Pour obtenir une brève description des potentiels problèmes juridiques, consultez la section [« Aspects juridiques »](#legalities). Vous pouvez également écrire votre propre texte.
 
@@ -83,13 +74,13 @@ L’homogénéité est essentielle dans le choix d’une voix professionnelle, m
 
 En outre, le texte doit inclure toutes les représentations d’un son particulier par écrit et placer chaque son à différents endroits dans les phrases. Les phrases déclaratives et les questions doivent être incluses et lues avec l’intonation appropriée.
 
-Il est difficile d’écrire un script qui fournit *juste assez* de données pour permettre au portail Custom Speech de générer une bonne voix. En pratique, le moyen le plus simple de créer un script permettant d’obtenir une couverture phonétique efficace consiste à inclure un grand nombre d’échantillons. Les voix standard fournies par Microsoft ont été créées à partir de dizaines de milliers d’énoncés. Vous devez être prêt à enregistrer au moins quelques-uns voire plusieurs milliers énoncés pour générer une voix personnalisée de qualité production.
+Il est difficile d’écrire un script qui fournit *juste assez* de données pour permettre à Speech Studio de générer une bonne voix. En pratique, le moyen le plus simple de créer un script permettant d’obtenir une couverture phonétique efficace consiste à inclure un grand nombre d’échantillons. Les voix standard fournies par Microsoft ont été créées à partir de dizaines de milliers d’énoncés. Vous devez être prêt à enregistrer au moins quelques-uns voire plusieurs milliers énoncés pour générer une voix neuronale personnalisée de qualité production.
 
 Vérifiez attentivement que le script ne contient pas d’erreurs. Si possible, demandez aussi à un tiers d’effectuer cette vérification. Lorsque vous parcourez le script avec votre acteur, vous allez probablement trouver d’autres erreurs.
 
 ### <a name="script-format"></a>Format de script
 
-Vous pouvez écrire votre script dans Microsoft Word. Ce script sera utilisé lors de la session d’enregistrement et vous pouvez le configurer comme vous le souhaitez. Créez séparément le fichier texte requis par le portail Custom Voice.
+Vous pouvez écrire votre script dans Microsoft Word. Ce script sera utilisé lors de la session d’enregistrement et vous pouvez le configurer comme vous le souhaitez. Créez le fichier texte exigé par Speech Studio séparément.
 
 Un format de script de base contient trois colonnes :
 
@@ -108,7 +99,7 @@ Imprimez trois copies du script : une pour l’acteur, une pour l’ingénieur 
 
 ### <a name="legalities"></a>Aspects juridiques
 
-Conformément à la législation, la lecture par un acteur d’un texte protégé par un copyright est un travail impliquant la rémunération de l’auteur du texte. Ce travail ne sera pas identifiable dans le produit final, la voix personnalisée. Pourtant, le droit d’utiliser un travail protégé par un copyright à cet effet n’est pas bien établi. Microsoft ne peut pas fournir de conseils juridiques à ce sujet ; consultez votre propre conseiller juridique.
+Conformément à la législation, la lecture par un acteur d’un texte protégé par un copyright est un travail impliquant la rémunération de l’auteur du texte. Ce travail ne sera pas identifiable dans le produit final, la voix neuronale personnalisée. Pourtant, le droit d’utiliser un travail protégé par un copyright à cet effet n’est pas bien établi. Microsoft ne peut pas fournir de conseils juridiques à ce sujet ; consultez votre propre conseiller juridique.
 
 Heureusement, il est possible d’éviter totalement ces problèmes. Il existe de nombreuses sources de texte que vous pouvez utiliser sans licence ou autorisation.
 
@@ -118,7 +109,7 @@ Heureusement, il est possible d’éviter totalement ces problèmes. Il existe d
 |Œuvres libres<br>de droits|Il s’agit en général, d’œuvres publiées avant 1923. En anglais, le [projet Gutenberg](https://www.gutenberg.org/) propose des dizaines de milliers de ces œuvres. Vous pouvez vous concentrer sur des œuvres plus récentes car leur contenu sera plus proche de l’anglais moderne.|
 |Œuvres&nbsp;du gouvernement|Les œuvres créées par l’état fédéral des États-Unis ne sont pas soumises au copyright, mais cela peut être le cas dans d’autres pays/régions.|
 |Domaine public|Œuvres pour lesquelles tout copyright a été explicitement exclu, ou qui sont destinées au domaine public. Certaines juridictions interdisent tout renoncement total au copyright.|
-|Œuvres cédées sous licence|Œuvres distribuées sous licence comme Creative Commons ou la Licence de documentation libre GNU (GFDL). Wikipédia utilise une licence GFDL. Certaines licences, toutefois, peuvent imposer des restrictions quant à une utilisation du contenu sous licence qui pourrait avoir un impact sur la création d’un modèle de voix personnalisée. Par conséquent, lisez attentivement la licence.|
+|Œuvres cédées sous licence|Œuvres distribuées sous licence comme Creative Commons ou la Licence de documentation libre GNU (GFDL). Wikipédia utilise une licence GFDL. Certaines licences, toutefois, peuvent imposer des restrictions quant à une utilisation du contenu sous licence qui pourrait avoir un impact sur la création d’un modèle vocal neuronal personnalisé. Par conséquent, lisez attentivement la licence.|
 
 ## <a name="recording-your-script"></a>Enregistrement de votre script
 
@@ -159,7 +150,7 @@ Ici, la majeure partie de la plage (hauteur) est utilisée, mais les pics les pl
 
 Enregistrez directement sur l’ordinateur par le biais d’une interface audio de haute qualité ou d’un port USB, en fonction du micro que vous utilisez. Pour un système analogique, gardez une chaîne audio simple : micro, préampli, interface audio, ordinateur. Vous pouvez acheter à un prix raisonnable une licence des logiciels [Avid Pro Tools](https://www.avid.com/en/pro-tools) et [Adobe Audition](https://www.adobe.com/products/audition.html). Si votre budget est extrêmement serré, essayez la version gratuite d’[Audacity](https://www.audacityteam.org/).
 
-Effectuez un enregistrement de type 44,1 kHz 16 bits monophonique (qualité CD) ou plus. Si votre équipement le permet, utilisez un échantillonnage 48 kHz 24 bits pour obtenir un son exceptionnel. Vous réduirez l’échantillonnage à 16 kHz 16 bits avant de l’envoyer au portail Custom Voice. Mais il est préférable de disposer d’un enregistrement original de haute qualité, si des modifications s’avèrent nécessaires.
+Effectuez un enregistrement de type 44,1 kHz 16 bits monophonique (qualité CD) ou plus. Si votre équipement le permet, utilisez un échantillonnage 48 kHz 24 bits pour obtenir un son exceptionnel. Vous réduirez l’échantillonnage à 24 kHz 16 bits avant de l’envoyer à Speech Studio. Mais il est préférable de disposer d’un enregistrement original de haute qualité, si des modifications s’avèrent nécessaires.
 
 Dans l’idéal, différentes personnes occupent les rôles de directeur, ingénieur du son et acteur. N’essayez pas de tout faire vous-même. Faute de mieux, une même personne peut endosser le costume de directeur et d’ingénieur du son.
 
@@ -191,15 +182,15 @@ Le fichier de correspondance est particulièrement important pour reprendre l’
 
 Demandez à l’acteur de respirer profondément et de faire une pause avant chaque énoncé. Enregistrez quelques secondes de silence entre les énoncés. Les mots doivent être prononcés de la même façon chaque fois qu’ils apparaissent, en prenant en compte le contexte.
 
-Enregistrez cinq bonnes secondes de silence avant le premier enregistrement pour saisir la « tonalité de la pièce ». Cette pratique aide le portail Custom Voice à atténuer les éventuels bruits parasites restants.
+Enregistrez environ cinq secondes de silence avant le premier enregistrement pour saisir la « tonalité de la pièce ». Cette pratique permet à Speech Studio d’atténuer les éventuels bruits parasites restants.
 
 > [!TIP]
-> Comme vous avez avant tout besoin de la voix de l’acteur, vous pouvez effectuer un enregistrement monophonique (monocanal) de ces lignes. Mais s’il s’agit d’un enregistrement en stéréo, vous pouvez utiliser le second canal pour capturer le son provenant de la salle de contrôle et écouter ainsi les discussions concernant des lignes ou des prises particulières. Supprimez cette piste de la version chargée sur le portail Custom Voice.
+> Comme vous avez avant tout besoin de la voix de l’acteur, vous pouvez effectuer un enregistrement monophonique (monocanal) de ces lignes. Mais s’il s’agit d’un enregistrement en stéréo, vous pouvez utiliser le second canal pour capturer le son provenant de la salle de contrôle et écouter ainsi les discussions concernant des lignes ou des prises particulières. Supprimez cette piste de la version chargée dans Speech Studio.
 
 Écoutez attentivement, à l’aide d’un casque, les enregistrements de la voix professionnelle. Vous devez obtenir une diction naturelle et une prononciation claire, sans bruits parasites. N’hésitez pas à demander à l’acteur de répéter un énoncé, si vous estimez que ces critères ne sont pas remplis.
 
 > [!TIP]
-> Si vous utilisez un grand nombre d’énoncés, un énoncé unique peut ne pas avoir d’effet notable sur la voix personnalisée finale. Il est parfois préférable de noter simplement les énoncés qui posent problème, puis de les exclure de votre jeu de données pour examiner le résultat final de la voix personnalisée. Vous pourrez toujours retourner en studio afin d’y enregistrer les échantillons manquants.
+> Si vous utilisez un grand nombre d’énoncés, un énoncé unique peut ne pas avoir d’effet notable sur la voix neuronale personnalisée finale. Il est parfois préférable de noter simplement les énoncés qui posent problème, puis de les exclure de votre jeu de données pour examiner le résultat final de la voix neuronale personnalisée. Vous pourrez toujours retourner en studio afin d’y enregistrer les échantillons manquants.
 
 Pour chaque énoncé, notez sur le script le numéro de la prise ou le code temporel. Demandez également à l’ingénieur du son de marquer si possible chaque énoncé dans les métadonnées ou le « cue sheet » de l’enregistrement.
 
@@ -209,23 +200,23 @@ Faites régulièrement des pauses et proposez une boisson à l’acteur pour mai
 
 Les studios d’enregistrement modernes travaillent sur ordinateur. À la fin de la session, vous recevez un ou plusieurs fichiers audio, pas une bande. Ces fichiers seront probablement au format WAV ou AIFF en qualité CD (44,1 kHz 16 bits) ou plus. Un échantillonnage 48 kHz 24 bits est courant et recommandé. Les taux d’échantillonnage plus élevés, par exemple 96 kHz, ne sont généralement pas nécessaires.
 
-Le portail Custom Voice nécessite la création d’un fichier spécifique pour chaque énoncé. Chaque fichier audio fourni par le studio contient plusieurs énoncés. Par conséquent, la principale tâche de post-production consiste à diviser les enregistrements et à les préparer pour l’envoi. L’ingénieur du son de l’enregistrement peut avoir placé des marqueurs dans le fichier (ou créé un « cue sheet » distinct) pour indiquer où chaque énoncé commence.
+Avec Speech Studio, chaque énoncé fourni doit être dans son propre fichier. Chaque fichier audio fourni par le studio contient plusieurs énoncés. Par conséquent, la principale tâche de post-production consiste à diviser les enregistrements et à les préparer pour l’envoi. L’ingénieur du son de l’enregistrement peut avoir placé des marqueurs dans le fichier (ou créé un « cue sheet » distinct) pour indiquer où chaque énoncé commence.
 
 Utilisez vos notes pour identifier exactement vos prises, puis un utilitaire de montage comme [Avid Pro Tools](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html) ou la version gratuite d’[Audacity](https://www.audacityteam.org/) pour copier chaque énoncé dans un nouveau fichier.
 
-Laissez seulement environ 0,2 seconde de silence au début et à la fin de chaque clip, à l’exception du premier. Ce fichier doit commencer par cinq secondes de silence. N’utilisez pas d’éditeur audio pour supprimer les blancs du fichier. Ajoutez la « tonalité de la pièce » pour aider les algorithmes Custom Voice à atténuer les bruits de fond résiduels.
+Laissez seulement environ 0,2 seconde de silence au début et à la fin de chaque clip, à l’exception du premier. Ce fichier doit commencer par cinq secondes de silence. N’utilisez pas d’éditeur audio pour supprimer les blancs du fichier. Ajoutez la « tonalité de la pièce » pour aider les algorithmes à atténuer les bruits de fond résiduels.
 
 Écoutez attentivement chaque fichier. À ce stade, vous pouvez modifier les petits sons indésirables que vous avez manqués pendant l’enregistrement, par exemple un léger bruit de bouche avant une ligne, mais veillez à ne pas supprimer l’énoncé. Si vous ne pouvez pas corriger un fichier, supprimez-le de votre jeu de données et prenez note de cette opération.
 
-Convertissez chaque fichier au format 16 bits et à un taux d’échantillonnage de 16 kHz avant l’enregistrement et, si vous avez enregistré les conversations du studio, supprimez le second canal. Enregistrez chaque fichier au format WAV, puis nommez les fichiers à l’aide des numéros d’énoncé de votre script.
+Convertissez chaque fichier au format 16 bits et à un taux d’échantillonnage de 24 kHz avant l’enregistrement et, si vous avez enregistré les conversations du studio, supprimez le second canal. Enregistrez chaque fichier au format WAV, puis nommez les fichiers à l’aide des numéros d’énoncé de votre script.
 
-Pour finir, créez la *transcription* qui associe chaque fichier WAV à une version texte de l’énoncé correspondant. [Création de voix personnalisées](./how-to-custom-voice-create-voice.md) fournit des informations sur le format requis. Vous pouvez copier le texte directement à partir de votre script. Créez ensuite un fichier Zip contenant les fichiers WAV et la transcription du texte.
+Pour finir, créez la *transcription* qui associe chaque fichier WAV à une version texte de l’énoncé correspondant. La section [Créer et utiliser votre modèle vocal](./how-to-custom-voice-create-voice.md) comprend des informations sur le format nécessaire. Vous pouvez copier le texte directement à partir de votre script. Créez ensuite un fichier Zip contenant les fichiers WAV et la transcription du texte.
 
 Archivez les enregistrements originaux dans un endroit sûr afin de pouvoir les réutiliser ultérieurement si nécessaire. Conservez également votre script et vos notes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous êtes prêt à charger vos enregistrements et à créer votre voix personnalisée.
+Vous êtes prêt à charger vos enregistrements et à créer votre voix neuronale personnalisée.
 
 > [!div class="nextstepaction"]
-> [Créer des polices de la voix personnalisées](./how-to-custom-voice-create-voice.md)
+> [Créer et utiliser votre modèle vocal](./how-to-custom-voice-create-voice.md)

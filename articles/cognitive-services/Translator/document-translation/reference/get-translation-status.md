@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: c17cd6cb97aaac3cd08342270e4eafa07eb5fd7d
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: e6ec2289b272ae4c9d7d0c8eaca84b05d718908c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107864880"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451138"
 ---
 # <a name="get-translation-status"></a>Obtenir l’état de la traduction
 
@@ -25,7 +25,7 @@ La méthode get translation status retourne l’état d’une demande de traduct
 
 Envoyez une demande `GET` à :
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}
 ```
 
 Découvrez comment déterminer votre [nom de domaine personnalisé](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -85,16 +85,17 @@ Les informations suivantes sont retournées dans une réponse positive.
 |summary.cancelled|entier|Nombre de documents annulés.|
 |summary.totalCharacterCharged|entier|Nombre total de caractères facturés par l’API.|
 
-###<a name="error-response"></a>Réponse d’erreur
+### <a name="error-response"></a>Réponse d’erreur
 
 |Nom|Type|Description|
 |--- |--- |--- |
 |code|string|Enums contenant des codes d’erreur généraux. Valeurs possibles :<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Non autorisé</li></ul>|
 |message|string|Obtient un message d’erreur général.|
 |target|string|Obtient la source de l’erreur. Par exemple, il s’agirait de « documents » ou « document id » pour un document non valide.|
-|innerError|InnerErrorV2|Nouveau format d’erreur interne, conforme aux instructions de l’API Cognitive Services. Il contient les propriétés requises ErrorCode, message, et propriétés facultatives cibles, Details (paire clé-valeur), erreur interne (peut être imbriquée).|
+|innerError|InnerTranslationError|Nouveau format d’erreur interne qui est conforme aux instructions de l’API Cognitive Services. Ce format contient les propriétés obligatoires ErrorCode, message et les propriétés facultatives target, details (paire clé-valeur), et l’erreur interne (qui peut être imbriquée).|
 |innerError.code|string|Obtient la chaîne d’erreur de code.|
 |innerError.message|string|Obtient un message d’erreur général.|
+|innerError.target|string|Obtient la source de l’erreur. Par exemple, « documents » ou « document id » en présence d’un document non valide.|
 
 ## <a name="examples"></a>Exemples
 

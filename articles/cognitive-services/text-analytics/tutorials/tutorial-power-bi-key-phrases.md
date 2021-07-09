@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 05/19/2021
 ms.author: aahi
-ms.openlocfilehash: 47feddb88fd7ddae1f8be54709019b4c339d177d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e8ce559b180169468a5c53e5aa1d742dd4cdfc83
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599168"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110450872"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutoriel : Intégrer Power BI au service cognitif Analyse de texte
 
@@ -219,20 +219,21 @@ Le service Analyse de texte, appartenant à la gamme Cognitive Services proposé
 
 Ces deux autres API sont très semblables à l’API d’extraction de phrases clés. Cela signifie que vous pouvez les intégrer à Power BI Desktop à l’aide de fonctions personnalisées qui sont presque identiques à celle que vous avez créée dans ce tutoriel. Il vous suffit de créer une requête vide et de coller le code approprié ci-après dans l’Éditeur avancé, comme vous l’avez fait précédemment. (N’oubliez pas votre clé d’accès !) Ensuite, comme auparavant, utilisez la fonction pour ajouter une nouvelle colonne à la table.
 
-La fonction Analyse des sentiments ci-après renvoie un score évaluant le caractère positif du sentiment exprimé dans le texte.
+La fonction Analyse des sentiments ci-après retourne une étiquette évaluant le caractère positif du sentiment exprimé dans le texte.
 
 ```fsharp
-// Returns the sentiment score of the text, from 0.0 (least favorable) to 1.0 (most favorable)
+// Returns the sentiment label of the text, for example, positive, negative or mixed.
 (text) => let
-    apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.0/sentiment",
-    jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
-    jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
-    bytesbody   = Text.ToBinary(jsonbody),
-    headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
-    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
-    jsonresp    = Json.Document(bytesresp),
-    sentiment   = jsonresp[documents]{0}[detectedLanguage][confidenceScore] in  sentiment
+    apikey = "YOUR_API_KEY_HERE",
+    endpoint = "<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1-preview.5/sentiment",
+    jsontext = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
+    jsonbody = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
+    bytesbody = Text.ToBinary(jsonbody),
+    headers = [#"Ocp-Apim-Subscription-Key" = apikey],
+    bytesresp = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
+    jsonresp = Json.Document(bytesresp),
+    sentiment   = jsonresp[documents]{0}[sentiment] 
+    in sentiment
 ```
 
 Voici deux versions d’une fonction Détection de langue. La première retourne le code de langue ISO (par exemple, `en` pour l’anglais), alors que la seconde retourne le nom « convivial » de la langue (par exemple, `English`). Vous pouvez constater que seule la dernière ligne du corps diffère entre les deux versions.

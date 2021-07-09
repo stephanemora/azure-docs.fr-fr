@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: beaeb0131a2c9b326d663f6fcbb8273a9b52b412
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 450dd67c272de8ee250f0af66522ab3be26f63e5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100965"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077209"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Corrélation de télémétrie dans Application Insights
 
@@ -291,7 +291,7 @@ Le kit de développement logiciel (SDK) .NET d’Application Insights utilise `D
 <a name="java-correlation"></a>
 ## <a name="telemetry-correlation-in-java"></a>Corrélation de télémétrie dans Java
 
-L’[agent Java](./java-in-process-agent.md) ainsi que le [Kit de développement logiciel (SDK) Java](../../azure-monitor/app/java-get-started.md) version 2.0.0 ou ultérieure prennent en charge la corrélation automatique de télémétrie. Il renseigne automatiquement `operation_id` pour toutes les données de télémétrie (comme les traces, les exceptions et les événements personnalisés) émises dans l’étendue d’une requête. Il propage aussi les en-têtes de corrélation (décrits plus haut) pour les appels entre les services via le protocole HTTP si l’[agent du SDK Java](../../azure-monitor/app/java-agent.md) est configuré.
+[L’agent Java](./java-in-process-agent.md) prend en charge la corrélation automatique des données de télémétrie. Il renseigne automatiquement `operation_id` pour toutes les données de télémétrie (comme les traces, les exceptions et les événements personnalisés) émises dans l’étendue d’une requête. Il propage aussi les en-têtes de corrélation (décrits plus haut) pour les appels entre les services via le protocole HTTP si l’[agent du SDK Java](java-2x-agent.md) est configuré.
 
 > [!NOTE]
 > L’agent Java Application Insights collecte automatiquement les demandes et les dépendances pour JMS, Kafka, net/webflux et bien plus. Pour le Kit de développement logiciel (SDK) Java, seuls les appels effectués via Apache HttpClient sont pris en charge pour la fonctionnalité de corrélation. La propagation automatique de contexte entre les technologies de messagerie (comme Kafka, RabbitMQ et Azure Service Bus) n’est pas prise en charge dans le Kit de développement logiciel (SDK). 

@@ -4,17 +4,17 @@ description: La création v3 offre un nouveau type d’entité, l’entité issu
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/08/2020
-ms.openlocfilehash: 667226770d25ef1687420b1c13bc71863f987e33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/28/2021
+ms.openlocfilehash: 6808c5d84a1be6a2e9b262eab00010d4a962c259
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91324686"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110701170"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Migrer vers l’entité de création v3
 
-La création v3 offre un nouveau type d’entité, l’entité issue du Machine Learning, ainsi que la possibilité d’ajouter des relations à l’entité issue du Machine Learning et à d’autres entités ou fonctionnalités de l’application.
+La création v3 offre un nouveau type d’entité, l’entité issue du Machine Learning, ainsi que la possibilité d’ajouter des relations à l’entité issue du Machine Learning et à d’autres entités ou fonctionnalités de l’application. Il n’existe actuellement aucune date à laquelle la migration doit être effectuée.
 
 ## <a name="entities-are-decomposable-in-v3"></a>Entités décomposables dans la v3
 

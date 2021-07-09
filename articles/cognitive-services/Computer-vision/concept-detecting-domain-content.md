@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b0a046441466efeef559544814f5471b5802b1d4
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: ff00d61c5f53d0c702e16d8223a330cb09ee619e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714833"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465397"
 ---
 # <a name="detect-domain-specific-content"></a>Détecter le contenu spécifique à un domaine
 
@@ -137,6 +137,8 @@ L'appel de l'API [Models](https://westcentralus.dev.cognitive.microsoft.com/docs
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="use-the-api"></a>Utilisation de l’API
 
-Découvrez les concepts liés à la [catégorisation des images](concept-categorizing-images.md).
+Cette fonctionnalité est disponible par le biais de l’API [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). Vous pouvez appeler cette API via un SDK natif ou via des appels REST. Incluez `Celebrities` ou `Landmarks` dans le paramètre de requête **details**. Ensuite, lorsque vous obtenez la réponse JSON complète, analysez simplement la chaîne de contenu de la section `"details"`.
+
+* [Démarrage rapide : API REST ou bibliothèques de client Vision par ordinateur](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bcfaf250aa5ebf29f51fae22f87c14c29416107e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "68945236"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465328"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Génération de miniatures rognées intelligemment avec Vision par ordinateur
 
@@ -48,6 +48,8 @@ Le tableau suivant montre les miniatures standard générées par l’API Vision
 |![Fleur blanche sur fond vert](./Images/flower.png) | ![Miniature Analyse Vision fleur](./Images/flower_thumbnail.png) |
 |![Femme sur le toit d’un immeuble d’appartements](./Images/woman_roof.png) | ![Miniature représentant une femme sur le toit d’un immeuble d’appartements](./Images/woman_roof_thumbnail.png) |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="use-the-api"></a>Utilisation de l’API
 
-Apprenez-en davantage sur le [balisage d’images](concept-tagging-images.md) et la [catégorisation des images](concept-categorizing-images.md).
+La fonctionnalité de génération de miniature est disponible par le biais des API d’[obtention de miniature](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20c) et d’[obtention de zone d’intérêt](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/b156d0f5e11e492d9f64418d). Vous pouvez appeler cette API via un SDK natif ou via des appels REST. 
+
+* [Démarrage rapide : API REST ou bibliothèques de client Vision par ordinateur](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

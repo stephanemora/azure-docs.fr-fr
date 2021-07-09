@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: a5a7af768875efd4733070b85bacd1916f897f27
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: b30fee5d269a633173b8524ed6c902517063b2a2
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063778"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985991"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Démarrage rapide : Intégrer Azure Sentinel
 
@@ -43,9 +43,9 @@ Après avoir connecté vos sources de données, opérez votre choix dans une gal
 
 - Azure Sentinel peut s’exécuter sur des espaces de travail dans la plupart des [régions couvertes par la mise à disposition générale de Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), à l’exception des régions Chine et Allemagne (souveraines). Parfois, l’intégration du service Azure Sentinel par les nouvelles régions Log Analytics peut prendre un certain temps. 
 
-- Les données générées par Azure Sentinel, telles que les incidents, les signets et les règles d’analyse, peuvent contenir des données client provenant des espaces de travail Log Analytics du client. Les données générées par Azure Sentinel sont enregistrées dans la zone géographique indiquée dans le tableau suivant, en fonction de la zone géographique dans laquelle se trouve l’espace de travail :
+- Les données générées par Azure Sentinel, telles que les incidents, les signets et les règles d’analyse, peuvent contenir des données client provenant des espaces de travail Log Analytics du client. Les données générées par Azure Sentinel sont enregistrées dans la zone géographique ou la région indiquée dans le tableau suivant, en fonction de celle dans laquelle se trouve l’espace de travail :
 
-    | Zone géographique de l’espace de travail | Zone géographique des données générées par Azure Sentinel |
+    | Zone géographique/région de l’espace de travail | Zone géographique/région des données générées par Azure Sentinel |
     | --- | --- |
     | États-Unis<br>Inde<br>Brésil<br>Afrique<br>Corée du Sud<br>Émirats arabes unis | États-Unis |
     | Europe<br>France<br>Suisse | Europe |
@@ -53,7 +53,13 @@ Après avoir connecté vos sources de données, opérez votre choix dans une gal
     | Royaume-Uni | Royaume-Uni |
     | Canada | Canada |
     | Japon | Japon |
+    | Asie Sud-Est (Singapour) | Asie Sud-Est (Singapour)* |
     |
+    
+    \* Il n’existe aucune région associée pour l’Asie Sud-Est.
+
+    > [!IMPORTANT]
+    > - En activant certaines règles qui utilisent le moteur Machine Learning (ML), **vous autorisez Microsoft à copier les données ingérées pertinentes en dehors de la zone géographique de votre espace de travail Azure Sentinel** en fonction de ce dont le moteur Machine Learning a besoin pour traiter ces règles.
 
 ## <a name="enable-azure-sentinel"></a>Activer Azure Sentinel <a name="enable"></a>
 

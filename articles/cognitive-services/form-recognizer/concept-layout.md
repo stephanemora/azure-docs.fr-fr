@@ -5,17 +5,17 @@ description: Découvrez les concepts liés à l’analyse des dispositions avec 
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 453df5f88613d5e7b4257583af2778a389ae2dba
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: edf8c0282b96685623e1d1ed01cbed84adfe728f
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374764"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890705"
 ---
 # <a name="form-recognizer-layout-service"></a>Service Layout de Form Recognizer
 
@@ -32,7 +32,7 @@ L’API de disposition extrait du texte, des tableaux avec leurs en-têtes inclu
 Pour tester le service Layout de Form Recognizer, accédez à l’outil d’exemple d’interface utilisateur en ligne :
 
 > [!div class="nextstepaction"]
-> [Essayer Form Recognizer](https://fott-preview.azurewebsites.net)
+> [Essayer Form Recognizer](https://aka.ms/fott-2.1-ga)
 
 Vous aurez besoin d’un abonnement Azure ([créez-en un gratuitement](https://azure.microsoft.com/free/cognitive-services)), ainsi que d’un point de terminaison et d’une clé de [ressource Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) pour tester l’API Layout de Form Recognizer.
 
@@ -48,19 +48,7 @@ Tout d’abord, appelez l’opération [Analyze Layout](https://westcentralus.de
 
 |En-tête de réponse| URL de résultat |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
-
-### <a name="natural-reading-order-output-latin-only"></a>Sortie de l’ordre de lecture naturel (langues latines uniquement)
-
-Vous pouvez spécifier l’ordre dans lequel les lignes de texte sont générées avec le paramètre de requête `readingOrder`. Utilisez `natural` pour une sortie d’ordre de lecture plus conviviale, comme illustré dans l’exemple suivant. Cette fonctionnalité est prise en charge uniquement pour les langues latines.
-
-:::image type="content" source="./media/layout-reading-order-example.png" alt-text="Disposition – Exemple d’ordre de lecture" lightbox="../Computer-vision/Images/ocr-reading-order-example.png":::
-
-### <a name="select-page-numbers-or-ranges-for-text-extraction"></a>Sélectionner des numéros de page ou des plages de pages pour l’extraction de texte
-
-Pour les documents volumineux comportant plusieurs pages, utilisez le paramètre de requête `pages` pour indiquer des numéros de page ou des plages de pages spécifiques pour l’extraction de texte. L’exemple suivant montre un document de 10 pages, avec le texte extrait pour les deux cas : toutes les pages (1 à 10) et certaines pages (3 à 6).
-
-:::image type="content" source="./media/layout-select-pages.png" alt-text="Disposition – Sortie des pages sélectionnées":::
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/layout/analyzeResults/{resultId}' |
 
 ## <a name="the-get-analyze-layout-result-operation"></a>Opération d’obtention du résultat de l’analyse de la disposition
 
@@ -74,13 +62,7 @@ Appelez cette opération de façon itérative jusqu’à ce qu’elle renvoie la
 
 Quand le champ **status** a la valeur `succeeded`, la réponse JSON inclut la mise en page, le texte, les tableaux et les marques de sélection extraits. Les données extraites comprennent les lignes de texte et les mots extraits, les cadres englobants, l’aspect du texte avec indication manuscrite, les tableaux et les marques de sélection avec indication de sélection/non sélection.
 
-### <a name="handwritten-classification-for-text-lines-latin-only"></a>Classification manuscrite pour les lignes de texte (Latin uniquement)
-
-La réponse inclut le classement de chaque ligne de texte selon qu’elle est de style manuscrit ou non, avec un score de confiance. Cette fonctionnalité est prise en charge uniquement pour les langues latines. L’exemple suivant illustre la classification manuscrite pour le texte de l’image.
-
-:::image type="content" source="./media/layout-handwriting-classification.png" alt-text="Exemple de classification d’écriture manuscrite":::
-
-### <a name="sample-json-output"></a>Exemple de sortir JSON
+## <a name="sample-json-output"></a>Exemple de sortir JSON
 
 La réponse à l’opération *Get Analyze Layout Result* est une représentation structurée du document avec toutes les informations extraites.
 Reportez-vous à cet [exemple de fichier de document](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-layout.pdf) et cet [exemple de sortie de disposition](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-layout-output.json) structurée.
@@ -90,25 +72,47 @@ La sortie JSON comporte deux parties :
 * Le nœud `readResults` contient tout le texte reconnu et toutes les marques de sélection. Le texte est organisé par page, puis par ligne, puis par mots individuels.
 * Le nœud `pageResults` contient les tables et les cellules extraites avec leurs cadres englobants, la confiance et une référence aux lignes et aux mots dans « readResults ».
 
-## <a name="example-output"></a>Exemple de sortie
+## <a name="features"></a>Fonctionnalités
 
-### <a name="text"></a>Texte
-
-L’API de disposition extrait du texte des documents et des images avec plusieurs angles et couleurs de texte. Elle accepte les photos de documents, les télécopies, les textes imprimés et/ou manuscrits (en anglais uniquement) et les modes mixtes. Le texte est extrait avec des informations fournies sur les lignes, les mots, les cadres englobants, les scores de confiance et le style (manuscrit ou autre). Toutes les informations textuelles sont incluses dans la section `readResults` de la sortie JSON.
-
-### <a name="tables-with-headers"></a>Tableaux avec en-têtes
+### <a name="tables-and-table-headers"></a>Tableaux et en-têtes de tableau
 
 L’API de disposition extrait des tableaux dans la section `pageResults` de la sortie JSON. Les documents peuvent être scannés, photographiés ou numériques. Les tableaux peuvent être complexes avec des cellules ou des colonnes fusionnées, avec ou sans bordures et avec des angles irréguliers. Les informations extraites d’un tableau comprennent le nombre de colonnes et de lignes, la portée des lignes et la portée des colonnes. Chaque cellule avec son cadre englobant est une sortie avec des informations indiquant si elle soit reconnue comme faisant partie, ou non, d’un en-tête. Les cellules d’en-tête prédites du modèle peuvent s’étendre sur plusieurs lignes et ne sont pas nécessairement les premières lignes d’un tableau. Elles fonctionnent également avec les tableaux pivotés. Chaque cellule de tableau comprend également le texte complet avec des références aux mots individuels de la section `readResults`.
 
-![Exemple de table](./media/layout-table-header-demo.gif)
+:::image type="content" source="./media/layout-table-headers-example.png" alt-text="Sortie des en-têtes de tableau de disposition":::
 
 ### <a name="selection-marks"></a>Marques de sélection
 
 L’API de disposition extrait aussi les marques de sélection des documents. Les marques de sélection extraites incluent le cadre englobant, la confiance et l’état (sélectionné/non sélectionné). Les informations sur les marques de sélection sont extraites dans la section `readResults` de la sortie JSON.
 
+:::image type="content" source="./media/layout-selection-marks.png" alt-text="Sortie des marques de sélection de disposition":::
+
+### <a name="text-lines-and-words"></a>Lignes de texte et mots
+
+L’API de disposition extrait du texte des documents et des images avec plusieurs angles et couleurs de texte. Elle accepte les photos de documents, les télécopies, les textes imprimés et/ou manuscrits (en anglais uniquement) et les modes mixtes. Le texte est extrait avec des informations fournies sur les lignes, les mots, les cadres englobants, les scores de confiance et le style (manuscrit ou autre). Toutes les informations textuelles sont incluses dans la section `readResults` de la sortie JSON.
+
+:::image type="content" source="./media/layout-text-extraction.png" alt-text="Sortie d’extraction de texte de disposition":::
+
+### <a name="natural-reading-order-for-text-lines-latin-only"></a>Ordre de lecture naturel pour les lignes de texte (langues latines uniquement)
+
+Vous pouvez spécifier l’ordre dans lequel les lignes de texte sont générées avec le paramètre de requête `readingOrder`. Utilisez `natural` pour une sortie d’ordre de lecture plus conviviale, comme illustré dans l’exemple suivant. Cette fonctionnalité est prise en charge uniquement pour les langues latines.
+
+:::image type="content" source="./media/layout-reading-order-example.png" alt-text="Disposition – Exemple d’ordre de lecture" lightbox="../Computer-vision/Images/ocr-reading-order-example.png":::
+
+### <a name="handwritten-classification-for-text-lines-latin-only"></a>Classification manuscrite pour les lignes de texte (Latin uniquement)
+
+La réponse inclut le classement de chaque ligne de texte selon qu’elle est de style manuscrit ou non, avec un score de confiance. Cette fonctionnalité est prise en charge uniquement pour les langues latines. L’exemple suivant illustre la classification manuscrite pour le texte de l’image.
+
+:::image type="content" source="./media/layout-handwriting-classification.png" alt-text="Exemple de classification d’écriture manuscrite":::
+
+### <a name="select-page-numbers-or-ranges-for-text-extraction"></a>Sélectionner des numéros de page ou des plages de pages pour l’extraction de texte
+
+Pour les documents volumineux comportant plusieurs pages, utilisez le paramètre de requête `pages` pour indiquer des numéros de page ou des plages de pages spécifiques pour l’extraction de texte. L’exemple suivant montre un document de 10 pages, avec le texte extrait pour les deux cas : toutes les pages (1 à 10) et certaines pages (3 à 6).
+
+:::image type="content" source="./media/layout-select-pages-for-text.png" alt-text="Disposition – Sortie des pages sélectionnées":::
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Testez l’extraction d’une mise en page à l’aide de l’[outil d’exemple d’interface utilisateur Form Recognizer](https://fott-preview.azurewebsites.net/).
+* Testez l’extraction d’une mise en page à l’aide de l’[outil d’exemple d’interface utilisateur Form Recognizer](https://aka.ms/fott-2.1-ga).
 * Suivez un [démarrage rapide Form Recognizer](quickstarts/client-library.md#analyze-layout) pour commencer à extraire des layouts dans le langage de développement de votre choix.
 
 ## <a name="see-also"></a>Voir aussi

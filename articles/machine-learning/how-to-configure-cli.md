@@ -10,16 +10,16 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 05/25/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 19534a5b55ea666233bb1a9b66916791e934908a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e93985b6583f164e1ea497f5d8cad7352b60f556
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476610"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755552"
 ---
 # <a name="install-set-up-and-use-the-20-cli-preview"></a>Installer, configurer et utiliser l’interface CLI 2.0 (préversion)
 
-L’extension `ml` (préversion) d’[Azure CLI](/cli/azure/) est l’interface de nouvelle génération d’Azure Machine Learning. Elle permet d’entraîner et de déployer des modèles à partir de la ligne de commande, avec des fonctionnalités qui accélèrent le scale-up et le scale-out pour la science des données tout en assurant le suivi du cycle de vie des modèles.
+L’extension `ml` (préversion) d’[Azure CLI](/cli/azure/) est l’interface améliorée d’Azure Machine Learning. Elle permet d’entraîner et de déployer des modèles à partir de la ligne de commande, avec des fonctionnalités qui accélèrent le scale-up et le scale-out pour la science des données tout en assurant le suivi du cycle de vie des modèles.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -43,11 +43,11 @@ Si ce n’est pas le cas, [mettez à niveau votre interface Azure CLI](/cli/azu
 
 Vérifiez les extensions Azure CLI que vous avez installées :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_extension_list":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_list":::
 
 Vérifiez qu’aucune extension en conflit utilisant l’espace de noms `ml` n’est installée, notamment l’extension `azure-cli-ml` :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_extension_remove":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_remove":::
 
 À présent, installez l’extension `ml` :
 
@@ -55,11 +55,11 @@ Vérifiez qu’aucune extension en conflit utilisant l’espace de noms `ml` n�
 
 Exécutez la commande help pour vérifier votre installation et voir les sous-commandes disponibles :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_ml_verify":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_verify":::
 
 Vous pouvez mettre à niveau l’extension vers la dernière version :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_ml_update":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_update":::
 
 ## <a name="set-up"></a>Configurer
 
@@ -71,7 +71,7 @@ az login
 
 Si vous avez accès à plusieurs abonnements Azure, vous pouvez définir votre abonnement actif :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_account_set":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_account_set":::
 
 S’il n’existe pas déjà, vous pouvez créer le groupe de ressources Azure :
 
@@ -106,13 +106,13 @@ Pour exécuter Hello World localement via Python, reportez-vous à l’exemple s
 
 Envoyez le travail en streamant les journaux vers la sortie de la console et en ouvrant l’exécution dans le studio Azure Machine Learning :
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="hello_world":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/hello-world.sh" id="hello_world":::
 
 > [!IMPORTANT]
 > La première exécution peut prendre plusieurs minutes, car l’image Docker est extraite localement et le travail Azure ML est exécuté. Pour les exécutions suivantes, l’image est mise en cache localement, ce qui accélère le processus.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer l’extension Visual Studio Code d’Azure Machine Learning](how-to-setup-vs-code.md)
 - [Entraîner des modèles à l’aide de l’extension CLI Machine Learning (préversion)](how-to-train-cli.md)
+- [Configurer l’extension Visual Studio Code d’Azure Machine Learning](how-to-setup-vs-code.md)
 - [Entraîner un modèle de classification d’images TensorFlow à l’aide de l’extension Visual Studio Code d’Azure Machine Learning](tutorial-train-deploy-image-classification-model-vscode.md)

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: b53afb530cc49ad72ebfcbe7659fab787cc51995
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3e7eb12cad8e16d8baa1713d1b6c815e12d4de53
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069937"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475669"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problèmes connus dans Azure Digital Twins
 
@@ -24,7 +24,7 @@ Cet article fournit des informations sur les problèmes connus associés à Azur
 
 | Cela me concerne-t-il ? | Cause | Résolution |
 | --- | --- | --- |
-| Dans&nbsp;Azure&nbsp;Digital&nbsp;Twins, cela concerne les groupes de commandes suivants :<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | Voici le résultat d’un problème connu dans Cloud Shell : [L’obtention d’un jeton à partir de Cloud Shell échoue par intermittence avec l’Erreur 400 du client : Requête incorrecte](https://github.com/Azure/azure-cli/issues/11749).<br><br>Cela pose un problème avec les jetons d’authentification d’instance Azure Digital Twins et l’authentification par défaut basée sur l’[identité managée](../active-directory/managed-identities-azure-resources/overview.md) de Cloud Shell. <br><br>Cela n’affecte pas les commandes Azure Digital Twins des groupes de commandes `az dt` ou `az dt endpoint`, car elles utilisent un autre type de jeton d’authentification (basé sur Azure Resource Manager) qui n’a pas de problème avec l’authentification par identité managée de Cloud Shell. | Une façon de résoudre ce problème est de réexécuter la commande `az login` dans Cloud Shell et de suivre les étapes de connexion suivantes. Ainsi, votre session ne sera plus soumise à une authentification par identité managée, ce qui permet d’éviter le problème de fond. Après cela, vous devriez pouvoir réexécuter la commande.<br><br>Autrement, vous pouvez ouvrir le volet Cloud Shell dans le portail Azure et effectuer votre travail Cloud Shell à partir de là.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Image de l’icône de Cloud Shell dans la barre d’icônes de Portail Azure" lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>Une dernière solution consiste à [installer Azure CLI](/cli/azure/install-azure-cli) sur votre ordinateur afin de pouvoir exécuter les commandes Azure CLI localement. L’interface CLI locale ne rencontre pas ce problème. |
+| Dans&nbsp;Azure&nbsp;Digital&nbsp;Twins, cela concerne les groupes de commandes suivants :<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | Voici le résultat d’un problème connu dans Cloud Shell : [L’obtention d’un jeton à partir de Cloud Shell échoue par intermittence avec l’Erreur 400 du client : Requête incorrecte](https://github.com/Azure/azure-cli/issues/11749).<br><br>Cela pose un problème avec les jetons d’authentification d’instance Azure Digital Twins et l’authentification par défaut basée sur l’[identité managée](../active-directory/managed-identities-azure-resources/overview.md) de Cloud Shell. <br><br>Cela n’affecte pas les commandes Azure Digital Twins des groupes de commandes `az dt` ou `az dt endpoint`, car elles utilisent un autre type de jeton d’authentification (basé sur Azure Resource Manager) qui n’a pas de problème avec l’authentification par identité managée de Cloud Shell. | Une façon de résoudre ce problème est de réexécuter la commande `az login` dans Cloud Shell et de suivre les étapes de connexion suivantes. Ainsi, votre session ne sera plus soumise à une authentification par identité managée, ce qui permet d’éviter le problème de fond. Après cela, vous devriez pouvoir réexécuter la commande.<br><br>Autrement, vous pouvez ouvrir le volet Cloud Shell dans le portail Azure et effectuer votre travail Cloud Shell à partir de là.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Capture d’écran de l’icône Cloud Shell dans la barre d’icônes du portail Azure" lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>Une dernière solution consiste à [installer Azure CLI](/cli/azure/install-azure-cli) sur votre ordinateur afin de pouvoir exécuter les commandes Azure CLI localement. L’interface CLI locale ne rencontre pas ce problème. |
 
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Attribution de rôle manquante après l’installation par script

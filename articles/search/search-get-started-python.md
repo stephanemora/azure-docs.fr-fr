@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/12/2021
+ms.date: 06/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 8b9c4792fa6dbdc70f657ce3c5f1757473a22fda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2bac4baea6421c0e4a1f6e3b956245202eef18e1
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103225215"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018277"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebook"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en Python à l’aide de Jupyter Notebook
 
@@ -348,7 +348,7 @@ Cette étape vous montre comment interroger un index à l’aide de la méthode 
 
 ## <a name="clean-up"></a>Nettoyer
 
-Lorsque vous travaillez dans votre propre abonnement, il est recommandé, à la fin de chaque projet, de déterminer si vous avez toujours besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
+Lorsque vous travaillez dans votre propre abonnement, il est judicieux à la fin d’un projet de déterminer si vous avez encore besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
 
 Vous pouvez rechercher et gérer les ressources dans le portail à l’aide des liens **Toutes les ressources** ou **Groupes de ressources** situés dans le volet de navigation de gauche.
 
@@ -356,7 +356,7 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Par souci de simplification, ce démarrage rapide utilise une version abrégée de l’index Hotels. Vous pouvez créer la version complète pour essayer des requêtes plus intéressantes. Pour obtenir la version complète et les 50 documents, exécutez l’Assistant **Importation de données** en sélectionnant *hotels-sample* à partir des exemples de sources de données intégrés.
+Dans ce guide de démarrage rapide JavaScript, vous avez effectué une série de tâches pour créer un index, le charger avec des documents et exécuter des requêtes. Pour poursuivre votre apprentissage, essayez le tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Créer un index dans le portail Azure](search-get-started-portal.md)
+> [Tutoriel : Ajout de la recherche à des applications web](tutorial-python-overview.md)

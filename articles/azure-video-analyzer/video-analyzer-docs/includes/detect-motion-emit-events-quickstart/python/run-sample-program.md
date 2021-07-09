@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 05/05/2021
 ms.author: faneerde
-ms.openlocfilehash: edf0e4b8ddb3ca4361296856672fd92c92c40254
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: b66de47b5429f869b798092475ce93e1c1f740a2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385943"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110486689"
 ---
 Pour exécuter l’exemple de code, effectuez les étapes suivantes :
 
@@ -25,10 +25,10 @@ Pour exécuter l’exemple de code, effectuez les étapes suivantes :
    > :::image type="content" source="../../../media/vscode-common-screenshots/verbose-message.png" alt-text="Afficher le message détaillé":::
 
 1. Dans Visual Studio Code, accédez à _src/cloud-to-device-console-app/operations.json_.
-1. Sur le nœud `pipelineTopologySet`, vérifiez que vous voyez la valeur suivante :
+1. Dans le nœud `pipelineTopologySet`, vérifiez que vous voyez la valeur suivante :
 
    ```
-   "topologyUrl" : "https://raw.githubusercontent.com/azure/azure-video-analyzer/main/pipelines/live/topologies/motion-detection/topology.json"
+   "topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/motion-detection/topology.json"
    ```
 
 1. Dans les nœuds `livePipelineSet` et `livePipelineDelete`, vérifiez que la valeur de **topologyName** correspond à celle de la propriété **name** dans la topologie de pipeline :
@@ -90,7 +90,7 @@ Pour exécuter l’exemple de code, effectuez les étapes suivantes :
 
 1. La sortie affichée dans la fenêtre **TERMINAL** fait une pause au niveau de `Press Enter to continue`. Ne sélectionnez pas encore Entrée. Faites défiler vers le haut pour voir les charges utiles de réponse JSON pour les méthodes directes que vous avez invoquées.
 1. Basculez vers la fenêtre **SORTIE** de Visual Studio Code. Vous voyez des messages indiquant que le module Azure Video Analyzer envoie des messages au hub IoT. La section suivante de ce guide de démarrage rapide décrit ces messages.
-1. Le pipeline en direct continue à s’exécuter et affiche des résultats. Le simulateur RTSP continue de boucler la vidéo source. Pour arrêter le pipeline en direct, retournez à la fenêtre **TERMINAL** et sélectionnez Entrée.
+1. Le pipeline en direct continue à s’exécuter et imprime des résultats. Le simulateur RTSP continue de boucler la vidéo source. Pour arrêter le pipeline en direct, retournez à la fenêtre **TERMINAL** et sélectionnez Entrée.
 
    La série d’appels suivante nettoie les ressources :
 
