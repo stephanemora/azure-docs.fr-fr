@@ -2,20 +2,23 @@
 title: Vue d'ensemble des serveurs avec Azure Arc
 description: Apprenez à utiliser les serveurs avec Azure Arc afin de gérer les serveurs hébergés en dehors d'Azure comme une ressource Azure.
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update Management, Change Tracking, inventaire, runbooks, Python, graphique, hybride
-ms.date: 04/21/2021
+ms.date: 05/26/2021
 ms.topic: overview
-ms.openlocfilehash: 324f6cc29bd9e4eca1a20413032c213c2618a11e
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 307d09f23c5c1e74e2e4c81d77a3521652598fa4
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831993"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110585491"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Qu’est-ce qu’un serveur avec Azure Arc ?
 
 Les serveurs avec Azure Arc vous permettent de gérer vos machines virtuelles et vos serveurs physiques Windows et Linux hébergés *en dehors* d’Azure sur votre réseau d’entreprise ou un autre fournisseur de cloud. Cette expérience de gestion est conçue pour être cohérente avec la manière dont vous gérez les machines virtuelles Azure natives. Quand une machine hybride est connectée à Azure, elle devient une machine connectée et est traitée comme une ressource dans Azure. Chaque machine connectée possède un ID de ressource, est incluse dans un groupe de ressources et tire parti des constructions Azure standard, comme Azure Policy et l’application d’étiquettes. Les fournisseurs de services qui gèrent l'infrastructure locale d'un client peuvent gérer ses machines hybrides (comme ils le font déjà avec les ressources Azure natives) dans différents environnements clients à l'aide d'[Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) avec Azure Arc.
 
 Pour bénéficier de cette expérience avec vos machines hybrides hébergées en dehors d’Azure, vous devez installer Azure Connected Machine sur chaque machine que vous envisagez de connecter à Azure. Cet agent ne fournit aucune autre fonctionnalité et ne remplace pas l’agent Azure [Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez superviser de manière proactive le système d’exploitation et les charges de travail en cours d’exécution sur la machine, gérer le système d’exploitation à l’aide de runbooks Automation ou de solutions comme Update Management ou utiliser d’autres services Azure tels qu’[Azure Security Center](../../security-center/security-center-introduction.md).
+
+>[!NOTE]
+> [L’agent Azure Monitor](../../azure-monitor/agents/azure-monitor-agent-overview.md) (AMA), actuellement en préversion, ne remplace pas Connected Machine Agent. Il remplace en revanche l’agent Log Analytics, l’extension Diagnostics et l’agent Telegraf pour les ordinateurs Windows et Linux. Pour plus d’informations, consultez la documentation Azure Monitor sur le nouvel agent.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 

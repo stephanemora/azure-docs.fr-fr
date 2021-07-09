@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/28/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: aba837ab590ae941e161e10e88782dcce944c085
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b38b5303f21cb31115a2279648c8d631e31aa8bf
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760460"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459311"
 ---
 # <a name="tutorial-create-logical-data-warehouse-with-serverless-sql-pool"></a>Tutoriel : Créer un entrepôt de données logique avec un pool SQL serverless
 
@@ -88,8 +88,10 @@ Les formats de fichiers externes définissent la structure des fichiers stockés
 ```sql
 CREATE EXTERNAL FILE FORMAT ParquetFormat WITH (  FORMAT_TYPE = PARQUET );
 GO
-CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = CSV );
+CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = DELIMITEDTEXT );
 ```
+
+Pour plus d’informations, consultez [cet article](develop-tables-external-tables.md?tabs=native#syntax-for-create-external-file-format)
 
 ## <a name="explore-your-data"></a>Exploration de vos données
 
@@ -98,7 +100,7 @@ Une fois que vous avez configuré vos sources de données, vous pouvez utiliser 
 ```sql
 select top 10  *
 from openrowset(bulk 'latest/ecdc_cases.parquet',
-                data_source = 'ecdc_cases'
+                data_source = 'ecdc_cases',
                 format='parquet') as a
 ```
 
@@ -177,11 +179,23 @@ Pour optimiser les performances, vous devez utiliser les plus petits types possi
 ## <a name="access-and-permissions"></a>Accès et autorisations
 
 Pour finir, vous devez créer des utilisateurs de base de données en mesure d’accéder à votre entrepôt de données logique, puis leur octroyer des autorisations de sélectionner des données dans les tables et vues externes.
-Dans le script suivant, vous pouvez voir comment ajouter un nouvel utilisateur et fournir des autorisations de lecture des données :
+Le script suivant vous montre comment ajouter un nouvel utilisateur qui sera authentifié en utilisant l’identité Azure AD :
 
 ```sql
 CREATE USER [jovan@contoso.com] FROM EXTERNAL PROVIDER;
 GO
+```
+
+Au lieu des principaux Azure AD, vous pouvez créer des principaux SQL qui s’authentifient avec l’ID de connexion et le mot de passe.
+
+```sql
+CREATE LOGIN [jovan] WITH PASSWORD = 'My Very strong Password ! 1234';
+CREATE USER [jovan] FROM LOGIN [jovan];
+```
+
+Dans les deux cas, vous pouvez affecter des autorisations aux utilisateurs.
+
+```sql
 DENY ADMINISTER DATABASE BULK OPERATIONS TO [jovan@contoso.com]
 GO
 GRANT SELECT ON SCHEMA::ecdc_adls TO [jovan@contoso.com]
@@ -202,6 +216,31 @@ Cet utilisateur dispose des autorisations minimales nécessaires pour interroger
 ```sql
 GRANT CONTROL TO [jovan@contoso.com]
 ```
+
+### <a name="role-based-security"></a>Sécurité basée sur les rôles
+
+Au lieu d’attribuer des autorisations aux utilisations individuelles, une bonne pratique consiste à regrouper les utilisateurs par rôle et à gérer les autorisations au niveau de chaque rôle.
+L’exemple de code suivant crée un nouveau rôle représentant les personnes qui peuvent analyser les cas COVID-19, et attribue ce rôle à trois utilisateurs :
+
+```sql
+CREATE ROLE CovidAnalyst;
+
+ALTER ROLE CovidAnalyst ADD MEMBER [jovan@contoso.com];
+ALTER ROLE CovidAnalyst ADD MEMBER [milan@contoso.com];
+ALTER ROLE CovidAnalyst ADD MEMBER [petar@contoso.com];
+```
+
+Vous pouvez attribuer les autorisations à tous les utilisateurs qui appartiennent au groupe :
+
+```sql
+GRANT SELECT ON SCHEMA::ecdc_cosmosdb TO [CovidAnalyst];
+GO
+DENY SELECT ON SCHEMA::ecdc_adls TO [CovidAnalyst];
+GO
+DENY ADMINISTER DATABASE BULK OPERATIONS TO [CovidAnalyst];
+```
+
+Ce contrôle d’accès avec sécurité basé sur les rôles peut simplifier la gestion de vos règles de sécurité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

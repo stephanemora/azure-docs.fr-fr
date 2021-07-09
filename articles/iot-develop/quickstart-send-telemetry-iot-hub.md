@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/04/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: 70fc2edbf9ae342f91913f0345db3bb1ac0332a3
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: dc59905351da364ed23b5cbc59b972feb0497a9e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592636"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294928"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-hub"></a>Démarrage rapide : Envoyer des données de télémétrie depuis un appareil à Azure IoT Hub
 
@@ -85,9 +85,11 @@ Pour supprimer un groupe de ressources par nom :
 
 Dans ce démarrage rapide, vous avez appris un workflow de base d’application Azure IoT pour connecter de façon sécurisée un appareil au cloud et envoyer des données de télémétrie appareil-à-cloud. Vous avez utilisé Azure CLI pour créer un hub Azure IoT et une instance d’appareil. Vous avez ensuite utilisé Azure IoT device SDK pour créer un appareil simulé, le connecter au hub et envoyer des données de télémétrie. Vous avez aussi utilisé le portail Azure pour superviser les données de télémétrie.
 
-Ensuite, explorez les guides de démarrage rapide suivants pour en savoir plus sur la création de solutions d’appareils avec Azure IoT.
+À présent, explorez les articles suivants pour en savoir plus sur la création de solutions d’appareils avec Azure IoT. 
 
+> [!div class="nextstepaction"]
+> [Contrôler un appareil connecté à un hub IoT](../iot-hub/quickstart-control-device-dotnet.md)
 > [!div class="nextstepaction"]
 > [Envoyer des données de télémétrie à IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Connecter un devkit MXCHIP AZ3166 à IoT Central](quickstart-devkit-mxchip-az3166.md)
+> [Connecter un DevKit MXCHIP AZ3166 à IoT Central](quickstart-devkit-mxchip-az3166.md)

@@ -11,16 +11,14 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 843db24707b8c826fe48e9d50aa7ec5bc135399f
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: d2d9838d0e4a0714690de1433a107bf2ac9e355c
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107863602"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323391"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT et les surveiller avec Azure CLI
-
-[!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 IoT Hub est un service Azure qui vous permet de traiter de gros volumes de données de télémétrie envoyées par vos appareils IoT dans le cloud à des fins de stockage ou de traitement. Dans ce guide de démarrage rapide, vous utilisez Azure CLI pour créer un hub IoT et un appareil simulé, envoyer les données de télémétrie de l’appareil au hub et envoyer un message cloud-à-appareil. Vous utilisez également le portail Azure pour visualiser les métriques des appareils. Il s’agit d’un flux de travail de base pour les développeurs qui utilisent l’interface CLI pour interagir avec une application IoT Hub.
 
@@ -200,5 +198,7 @@ Dans ce démarrage rapide, vous utilisez Azure CLI pour créer un hub IoT, crée
 
 Si vous êtes un développeur d’appareils, l’étape suivante suggérée est de consulter le guide de démarrage rapide de télémétrie qui utilise le kit de développement logiciel Azure IoT Device SDK for C. Si vous le souhaitez, consultez l’un des articles de démarrage rapide de télémétrie Azure IoT Hub disponibles dans votre langue ou votre kit de développement logiciel (SDK).
 
+Pour savoir comment contrôler votre appareil simulé à partir d’une application back-end, passez au démarrage rapide suivant.
+
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un IoT Hub (C)](quickstart-send-telemetry-c.md)
+> [Démarrage rapide : Contrôler un appareil connecté à un hub IoT](quickstart-control-device-dotnet.md)

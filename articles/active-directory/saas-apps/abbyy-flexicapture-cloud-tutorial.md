@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 06/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 359511e653231ee25f0cd09f32448a0b66b40d3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb7bef1b2c197268e7810001f845c89788579e5b
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97586735"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891129"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-abbyy-flexicapture-cloud"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à ABBYY FlexiCapture Cloud
 
@@ -37,10 +37,10 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* ABBYY FlexiCapture Cloud prend en charge l’authentification unique initiée par le **fournisseur de services et le fournisseur d’identité**
-* ABBYY FlexiCapture Cloud prend en charge le provisionnement d’utilisateurs **juste-à-temps**
+* ABBYY FlexiCapture Cloud prend en charge l’authentification unique initiée par **le fournisseur de services et le fournisseur d’identité**.
+* ABBYY FlexiCapture Cloud prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
 
-## <a name="adding-abbyy-flexicapture-cloud-from-the-gallery"></a>Ajout d’ABBYY FlexiCapture Cloud à partir de la galerie
+## <a name="add-abbyy-flexicapture-cloud-from-the-gallery"></a>Ajouter ABBYY FlexiCapture Cloud à partir de la galerie
 
 Pour configurer l’intégration d’ABBYY FlexiCapture Cloud à Azure AD, vous devez ajouter ABBYY FlexiCapture Cloud à votre liste d’applications SaaS gérées à partir de la galerie.
 
@@ -50,7 +50,6 @@ Pour configurer l’intégration d’ABBYY FlexiCapture Cloud à Azure AD, vous
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **ABBYY FlexiCapture Cloud** dans la zone de recherche.
 1. Sélectionnez **ABBYY FlexiCapture Cloud** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-abbyy-flexicapture-cloud"></a>Configurer et tester l’authentification unique Azure AD pour ABBYY FlexiCapture Cloud
 
@@ -71,11 +70,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Sur le portail Azure, accédez à la page d’intégration de l’application **ABBYY FlexiCapture Cloud**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<SUBDOMAIN>.flexicapture.com/FlexiCapture12/Login/<TENANT_NAME>/AccessToken/Saml`
 
@@ -95,6 +94,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la section **Configurer ABBYY FlexiCapture Cloud**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -139,9 +139,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 #### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-* Cliquez sur **Tester cette application** sur le portail Azure. Vous êtes alors connecté automatiquement à ABBYY FlexiCapture Cloud pour lequel vous avez configuré l’authentification unique 
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors connecté automatiquement à l’instance ABBYY FlexiCapture Cloud pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser le panneau d’accès Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette ABBYY FlexiCapture Cloud dans le volet d’accès, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour initier le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à ABBYY FlexiCapture Cloud pour lequel vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette ABBYY FlexiCapture Cloud dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’instance ABBYY FlexiCapture Cloud pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

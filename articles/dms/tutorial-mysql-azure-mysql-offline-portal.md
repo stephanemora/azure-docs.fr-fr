@@ -12,24 +12,24 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2021
-ms.openlocfilehash: d1a8cc9a615474685222d0339ec948401fb8cdff
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 45d9104c5669b3b0adef2c32757076097656ae87
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128007"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967897"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-offline-using-dms"></a>Tutoriel : Migration de MySQL vers Azure Database pour MySQL hors connexion à l’aide de DMS
 
 Vous pouvez utiliser Azure Database Migration Service pour effectuer une migration ponctuelle de base de données complète d’une instance de MySQL locale vers [Azure Database pour MySQL](../mysql/index.yml), avec une fonctionnalité de migration de données haut débit. Dans ce tutoriel, nous allons effectuer la migration d’un exemple de base de données à partir d’une instance locale de MySQL 5.7 vers Azure Database pour MySQL (v5.7), en utilisant une activité de migration hors connexion dans Azure Database Migration Service. Bien que les articles partent du principe que la source est une instance de base de données MySQL et la cible Azure Database pour MySQL, la procédure peut être utilisée pour effectuer une migration depuis une source Azure Database pour MySQL vers une même cible, en modifiant simplement le nom du serveur source et les informations d’identification. De plus, la migration de serveurs MySQL d’une version antérieure (v5.6 et versions ultérieures) vers des versions ultérieures est également prise en charge.
 
 > [!IMPORTANT]
-> Pour les migrations en ligne, vous pouvez utiliser des outils open source comme [MyDumper/MyLoader](https://centminmod.com/mydumper.html) avec [réplication des données entrantes](/azure/mysql/concepts-data-in-replication). 
+> Pour les migrations en ligne, vous pouvez utiliser des outils open source comme [MyDumper/MyLoader](https://centminmod.com/mydumper.html) avec [réplication des données entrantes](../mysql/concepts-data-in-replication.md). 
 
 [!INCLUDE [preview features callout](../../includes/dms-boilerplate-preview.md)]
 
 > [!NOTE]
-> Pour obtenir une version scriptable PowerShell de cette expérience de migration, consultez [Migration hors connexion scriptable vers Azure Database pour MySQL](https://docs.microsoft.com/azure/dms/migrate-mysql-to-azure-mysql-powershell).
+> Pour obtenir une version scriptable PowerShell de cette expérience de migration, consultez [Migration hors connexion scriptable vers Azure Database pour MySQL](./migrate-mysql-to-azure-mysql-powershell.md).
 
 > [!NOTE]
 > Amazon Relational Database Service (RDS) pour MySQL et Amazon Aurora (MySQL) sont également pris en charge en tant que sources pour la migration.
@@ -50,6 +50,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 * Vous devez disposer d’un compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free).
 * Vous devez disposer d’une base de données MySQL locale de version 5.7. Si ce n’est pas le cas, téléchargez et installez [MySQL Community Edition](https://dev.mysql.com/downloads/mysql/) 5.7.
+* La migration hors connexion MySQL est prise en charge uniquement pour la référence SKU DMS Premium.
 * [Créez une instance dans Azure Database pour MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Consultez l’article [Utiliser MySQL Workbench pour se connecter et interroger des données](../mysql/connect-workbench.md) pour plus d’informations sur la connexion et la création d’une base de données à l’aide de l’application Workbench. La version d’Azure Database pour MySQL doit être supérieure ou égale à la version locale de MySQL. Par exemple, MySQL 5.7 peut migrer vers Azure Database pour MySQL 5.7 ou sa mise à niveau vers la version 8. 
 * Créez un réseau virtuel Microsoft Azure pour Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité site à site à vos serveurs sources locaux via [ExpressRoute](../expressroute/expressroute-introduction.md) ou un [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](../virtual-network/index.yml), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
 
@@ -157,7 +158,7 @@ L’inscription du fournisseur de ressources doit être effectuée sur chaque ab
   
 3. Dans l’écran **Créer un service de migration**, spécifiez un nom pour le service, l’abonnement, et un réseau virtuel nouveau ou existant.
 
-4. Sélectionnez un niveau tarifaire et accédez à l’écran de mise en réseau. La fonctionnalité de migration hors connexion est disponible dans les niveaux tarifaires Standard et Premium.
+4. Sélectionnez un niveau tarifaire et accédez à l’écran de mise en réseau. La fonctionnalité de migration hors connexion est disponible uniquement avec le niveau tarifaire Premium.
 
     Pour plus d’informations sur les coûts et les niveaux de tarification, consultez la [page de tarification](https://aka.ms/dms-pricing).
 

@@ -6,14 +6,14 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 05/20/2021
 ms.author: banders
-ms.openlocfilehash: 4f7179a5ad35b4d3ca9a92119fb7b492e2aff779
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: b4a4bd73672b36e8301d33618701a5d6b43926a5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122518"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474870"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Bien démarrer avec votre compte de facturation Azure mis à jour
 
@@ -115,7 +115,7 @@ Dans la nouvelle expérience, votre facture est générée le neuvième jour de 
 
 **Factures du premier mois suivant la migration**
 
-Le jour où votre compte est mis à jour, les frais existants non facturés sont calculés et vous recevez les factures correspondantes le jour où vous recevez généralement vos factures. Par exemple, John a deux abonnements Azure : Azure sub 01 avec un cycle de facturation entre le cinquième jour du mois et le quatrième jour du mois suivant, et Azure sub 02 avec un cycle de facturation entre le dixième jour du mois et le neuvième jour du mois suivant. Généralement, John reçoit les factures des deux abonnements Azure le cinq du mois. Si le compte de John est mis à jour le 4 avril, les frais sont calculés entre le 5 mars et le 4 avril pour Azure sub 01, et entre le 10 mars et le 4 avril pour Azure sub 02. John reçoit deux factures, une pour chaque abonnement le 5 avril. Une fois le compte mis à jour, le cycle de facturation de John est basé sur le mois calendaire et couvre tous les frais engagés entre le début et la fin du mois calendaire.  La facture des frais du mois calendaire précédent est disponible le 9 de chaque mois. Ainsi, dans l’exemple ci-dessus, John reçoit une autre facture le 5 mai pour la période de facturation du 5 avril au 30 avril. 
+Le jour où votre compte est mis à jour, les frais existants non facturés sont calculés et vous recevez les factures correspondantes le jour où vous recevez généralement vos factures. Par exemple, John a deux abonnements Azure : Azure sub 01 avec un cycle de facturation entre le cinquième jour du mois et le quatrième jour du mois suivant, et Azure sub 02 avec un cycle de facturation entre le dixième jour du mois et le neuvième jour du mois suivant. Généralement, John reçoit les factures des deux abonnements Azure le cinq du mois. Si le compte de John est mis à jour le 4 avril, les frais sont calculés entre le 5 mars et le 4 avril pour Azure sub 01, et entre le 10 mars et le 4 avril pour Azure sub 02. John reçoit deux factures, une pour chaque abonnement le 5 avril. Une fois le compte mis à jour, le cycle de facturation de John est basé sur le mois calendaire et couvre tous les frais engagés entre le début et la fin du mois calendaire. La facture des frais d’un mois calendaire est disponible au cours des premiers jours du mois suivant. Ainsi, dans l’exemple ci-dessus, John reçoit au début du mois de mai une facture couvrant la période de facturation du 5 au 30 avril.
 
 
 **Nouvelles API de facturation et de gestion des coûts**

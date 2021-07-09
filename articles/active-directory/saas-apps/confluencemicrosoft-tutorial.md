@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/25/2020
+ms.date: 05/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 34365a8bd7a15f502aa89a966adb14807e802cc4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77e98560ee483f55fc4a808a8c888f20af983a90
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736997"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478491"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Confluence SAML SSO by Microsoft
 
@@ -62,7 +62,7 @@ Les versions suivantes de Confluence sont actuellement prises en charge :
 
 - Confluence : 5.0 à 5.10
 - Confluence : 6.0.1 à 6.15.9
-- Confluence : 7.0.1 à 7.9.3
+- Confluence : 7.0.1 à 7.10.0
 
 > [!NOTE]
 > Veuillez noter que nos plug-ins Confluence fonctionnent également sur Ubuntu Version 16.04
@@ -71,7 +71,7 @@ Les versions suivantes de Confluence sont actuellement prises en charge :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Confluence SAML SSO by Microsoft prend en charge l’authentification unique initiée par le **fournisseur de services**
+* Confluence SAML SSO by Microsoft prend en charge l’authentification unique initiée par le **fournisseur de services**.
 
 ## <a name="adding-confluence-saml-sso-by-microsoft-from-the-gallery"></a>Ajout de Confluence SAML SSO by Microsoft à partir de la galerie
 
@@ -109,11 +109,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<domain:port>/plugins/servlet/saml/auth`.
+    a. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://<DOMAIN:PORT>/`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://<domain:port>/`
-
-    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<domain:port>/plugins/servlet/saml/auth`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<DOMAIN:PORT>/plugins/servlet/saml/auth`
+    
+    c. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<DOMAIN:PORT>/plugins/servlet/saml/auth`.
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Le port est facultatif s’il s’agit d’une URL nommée. Ces valeurs sont reçues durant la configuration du plug-in Confluence qui est décrite plus loin dans le didacticiel.
@@ -152,11 +152,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Pointez sur le roue dentée, puis cliquez sur **Modules complémentaires**.
 
-    ![Capture d’écran montrant l’icône « Roue dentée » sélectionnée et « Add-ons » mis en évidence dans le menu déroulant.](./media/confluencemicrosoft-tutorial/addon1.png)
+    ![Capture d’écran montrant l’icône « Roue dentée » sélectionnée et « Add-ons » mis en évidence dans le menu déroulant.](./media/confluencemicrosoft-tutorial/add-on-1.png)
 
 1. Téléchargez le plug-in depuis le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=56503). Chargez manuellement le plug-in fourni par Microsoft à l’aide du menu **Upload add-on** (Charger le module complémentaire). Le téléchargement du plug-in est couvert dans [Contrat de Services Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Capture d’écran montrant la page « Manage add-ons » avec l’action « Upload add-on » sélectionnée.](./media/confluencemicrosoft-tutorial/addon12.png)
+    ![Capture d’écran montrant la page « Manage add-ons » avec l’action « Upload add-on » sélectionnée.](./media/confluencemicrosoft-tutorial/add-on-12.png)
 
 1. Pour exécuter le scénario de proxy inverse Confluence ou le scénario d’équilibreur de charge, effectuez les étapes suivantes :
 
@@ -167,19 +167,19 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Capture d’écran montrant le fichier « server.xml » avec l’attribut ajouté au port « connecteur ».](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
+    ![Capture d’écran montrant le fichier « server.xml » avec l’attribut ajouté au port « connecteur ».](./media/confluencemicrosoft-tutorial/reverse-proxy-1.png)
 
     b. Modifiez l’**URL de base** dans les **paramètres système** en fonction du proxy/de l’équilibreur de charge.
 
-    ![Capture d’écran montrant la page « Administration - Settings » avec « Base URL » mis en évidence.](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
+    ![Capture d’écran montrant la page « Administration - Settings » avec « Base URL » mis en évidence.](./media/confluencemicrosoft-tutorial/reverse-proxy-2.png)
 
 1. Une fois que le plug-in est installé, il s’affiche sous **User Installed** (Installé par l’utilisateur), dans la section **Manage add-ons** (Gérer les modules complémentaires). Cliquez sur **Configurer** pour configurer le nouveau plug-in.
 
-    ![Capture d’écran montrant la section « User Installed » avec le bouton « Configure » mis en évidence.](./media/confluencemicrosoft-tutorial/addon15.png)
+    ![Capture d’écran montrant la section « User Installed » avec le bouton « Configure » mis en évidence.](./media/confluencemicrosoft-tutorial/add-on-15.png)
 
 1. Effectuez les opérations suivantes dans la page de configuration :
 
-    ![Capture d’écran montrant la page de configuration de l’authentification unique.](./media/confluencemicrosoft-tutorial/addon54.png)
+    ![Capture d’écran montrant la page de configuration de l’authentification unique.](./media/confluencemicrosoft-tutorial/add-on-53.png)
 
     > [!TIP]
     > Vérifiez qu’un seul certificat est associé à l’application pour éviter toute erreur liée à la résolution des métadonnées. Si plusieurs certificats sont associés, l’administrateur verra un message d’erreur s’afficher lors de la résolution des métadonnées.
@@ -209,7 +209,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
        > [!Note]
        > Si vous souhaitez activer le formulaire de connexion par défaut pour la connexion d’administrateur dans la page de connexion quand l’option Force Azure Login est activée, ajoutez le paramètre de requête dans l’URL du navigateur.
-       > `https://<domain:port>/login.action?force_azure_login=false`
+       > `https://<DOMAIN:PORT>/login.action?force_azure_login=false`
 
     1. Cliquez sur **Enregistrer** pour enregistrer les paramètres.
 
@@ -226,11 +226,11 @@ Pour pouvoir se connecter à un serveur local Confluence, les utilisateurs Azure
 
 1. Pointez sur la roue dentée, puis cliquez sur **Gestion des utilisateurs**.
 
-    ![Ajouter un employé](./media/confluencemicrosoft-tutorial/user1.png)
+    ![Ajouter un employé](./media/confluencemicrosoft-tutorial/user-1.png)
 
 1. Dans la section Utilisateurs, cliquez sur l’onglet **Add users** (Ajouter des utilisateurs). Dans la page de boîte de dialogue **Add a User** (Ajouter un utilisateur), procédez comme suit :
 
-    ![Capture d’écran montrant l’administration Confluence avec l’onglet « Add Users » sélectionné et les informations « Add a User » entrées.](./media/confluencemicrosoft-tutorial/user2.png)
+    ![Capture d’écran montrant l’administration Confluence avec l’onglet « Add Users » sélectionné et les informations « Add a User » entrées.](./media/confluencemicrosoft-tutorial/user-2.png)
 
     a. Dans la zone de texte **Username** (Nom d’utilisateur), tapez le nom d’un utilisateur, par exemple B.Simon.
 

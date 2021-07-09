@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: ab3fdd24446448e9c21a1e4867c26c960f814c7a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 57c152546bfdbcdfbeba45536990c6c204106e7a
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105958375"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109858152"
 ---
 Commencez à utiliser la reconnaissance faciale avec la bibliothèque de client Visage pour Go. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
@@ -272,10 +272,10 @@ Si vous avez créé un objet **PersonGroup** dans le cadre de ce guide de démar
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le cadre de ce guide de démarrage rapide, vous avez appris à utiliser la bibliothèque de client Visage pour Go afin d’effectuer des tâches de reconnaissance faciale basiques. Pour plus d’informations sur la bibliothèque, reportez-vous à la documentation de référence.
+Dans le cadre de ce guide de démarrage rapide, vous avez appris à utiliser la bibliothèque de client Visage pour Go afin d’effectuer des tâches de reconnaissance faciale basiques. Découvrez à présent les différents modèles de détection de visage, et la façon de spécifier le modèle adapté à votre cas d’usage.
 
 > [!div class="nextstepaction"]
-> [Informations de référence sur l’API Visage (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face)
+> [Spécifier une version de modèle de détection des visages](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [Qu’est ce que le service Visage ?](../../overview.md)
 * Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/Face/FaceQuickstart.go).

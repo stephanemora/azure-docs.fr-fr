@@ -6,15 +6,15 @@ author: joseys
 manager: anvalent
 services: azure-communication-services
 ms.author: joseys
-ms.date: 04/14/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 486dbc4e3bafe34fad9f6eeb00460ee6b9bf5613
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: e7a114c5ce31ff4df96648ba2545c2222ba4893d
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292807"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113111606"
 ---
 # <a name="record-and-download-calls-with-event-grid"></a>Enregistrer et télécharger des appels avec Event Grid
 
@@ -34,7 +34,7 @@ Nous allons tout d’abord créer un webhook. Votre ressource Communication Serv
 
 Vous pouvez écrire votre propre webhook personnalisé pour recevoir ces notifications d’événements. Il est important que ce webhook réponde aux messages entrants avec le code de validation pour abonner correctement le webhook auprès du service d’événements.
 
-```
+```csharp
 [HttpPost]
 public async Task<ActionResult> PostAsync([FromBody] object request)
   {
@@ -63,7 +63,6 @@ public async Task<ActionResult> PostAsync([FromBody] object request)
   }
 ```
 
-
 Le code ci-dessus dépend du package NuGet `Microsoft.Azure.EventGrid`. Pour en savoir plus sur la validation du point de terminaison Event Grid, consultez la [documentation sur la validation des points de terminaison](../../../event-grid/receive-events.md#endpoint-validation)
 
 Nous abonnerons ensuite ce webhook à l’événement `recording` :
@@ -81,7 +80,7 @@ Votre webhook sera désormais averti à chaque fois que votre ressource Communic
 ## <a name="notification-schema"></a>Schéma de notification
 Lorsque l’enregistrement sera disponible au téléchargement, votre ressource Communication Services émettra une notification avec le schéma d’événement suivant. Les ID de document de l’enregistrement peuvent être récupérés à partir des champs `documentId` de chaque `recordingChunk`.
 
-```
+```json
 {
     "id": string, // Unique guid for event
     "topic": string, // Azure Communication Services resource id
@@ -130,7 +129,7 @@ Pour télécharger les métadonnées et les données multimédias enregistrées,
 
 Créez un `HttpClient` et ajoutez les en-têtes nécessaires à l’aide de `HmacAuthenticationUtils` fourni ci-dessous :
 
-```
+```csharp
   var client = new HttpClient();
 
   // Set Http Method
@@ -156,7 +155,7 @@ Créez un `HttpClient` et ajoutez les en-têtes nécessaires à l’aide de `Hma
   // Hash the content of the request.
   var contentHashed = HmacAuthenticationUtils.CreateContentHash(serializedPayload);
 
-  // Add HAMC headers.
+  // Add HMAC headers.
   HmacAuthenticationUtils.AddHmacHeaders(request, contentHashed, accessKey, method);
 
   // Make a request to the Azure Communication Services APIs mentioned above
@@ -168,7 +167,7 @@ Les utilitaires ci-après peuvent servir à gérer votre workflow HMAC.
 
 **Créer un hachage de contenu**
 
-```
+```csharp
 public static string CreateContentHash(string content)
 {
     var alg = SHA256.Create();
@@ -191,7 +190,7 @@ public static string CreateContentHash(string content)
 
 **Ajouter des en-têtes HMAC**
 
-```
+```csharp
 public static void AddHmacHeaders(HttpRequestMessage requestMessage, string contentHash, string accessKey)
 {
     var utcNowString = DateTimeOffset.UtcNow.ToString("r", CultureInfo.InvariantCulture);

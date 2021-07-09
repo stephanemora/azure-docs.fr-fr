@@ -9,16 +9,16 @@ ms.date: 03/12/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 69d8910ffe0e45c4c47a035d5c32e71f19d9e04a
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 768cc936964d216ce3f477fde48071aa0eb39162
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107870658"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902064"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-partner-agreement-with-the-latest-apis"></a>Créer des abonnements Azure pour un Contrat Partenaire Microsoft programmatiquement avec les API les plus récentes
 
-Cet article vous aide à créer des abonnements Azure pour un Contrat Partenaire Microsoft programmatiquement à l’aide des versions les plus récentes des API. Si vous utilisez toujours la préversion, consultez [Créer des abonnements Azure programmatiquement avec des API en préversion](programmatically-create-subscription-preview.md). 
+Cet article vous aide à créer des abonnements Azure pour un Contrat Partenaire Microsoft programmatiquement à l’aide des versions les plus récentes des API. Si vous utilisez toujours la préversion, consultez [Créer des abonnements Azure programmatiquement avec des API héritées](programmatically-create-subscription-preview.md). 
 
 Dans cet article, vous apprenez à créer des abonnements par programmation en utilisant Azure Resource Manager.
 
@@ -389,7 +389,7 @@ Passez la valeur *resellerId* facultative, que vous avez copiée à la deuxième
 
 ## <a name="use-arm-template"></a>Utiliser un modèle ARM
 
-La section précédente vous a montré comment créer un abonnement avec PowerShell, Azure CLI ou l’API REST. Si vous devez automatiser la création des abonnements, utilisez plutôt un modèle Azure Resource Manager (modèle ARM).
+La section précédente vous a montré comment créer un abonnement avec PowerShell, Azure CLI ou l’API REST. Si vous devez automatiser la création des abonnements, utilisez plutôt un modèle ARM (Azure Resource Manager).
 
 Le modèle suivant permet de créer un abonnement. Pour `billingScope`, indiquez l’ID client. Pour `targetManagementGroup`, indiquez le groupe d’administration dans lequel vous souhaitez créer l’abonnement.
 

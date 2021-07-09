@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7dcfc5d990d1ea75da20aa324f8361a7fc930c14
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 76d6574be61b7d1cd92733496d335c64d64bf7a1
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967271"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031388"
 ---
 # <a name="what-is-azure-virtual-desktop"></a>Qu’est-ce qu’Azure Virtual Desktop ?
 
@@ -107,11 +107,11 @@ Vous pouvez consulter une configuration architecturale classique d’Azure Virtu
 
 Les clients Bureau à distance suivants prennent en charge Azure Virtual Desktop :
 
-* [Windows Desktop](connect-windows-7-10.md)
-* [Web](connect-web.md)
-* [macOS](connect-macos.md)
-* [iOS](connect-ios.md)
-* [Android](connect-android.md)
+* [Windows Desktop](./user-documentation/connect-windows-7-10.md)
+* [Web](./user-documentation/connect-web.md)
+* [macOS](./user-documentation/connect-macos.md)
+* [iOS](./user-documentation/connect-ios.md)
+* [Android](./user-documentation/connect-android.md)
 * Client Microsoft Store
 
 > [!IMPORTANT]

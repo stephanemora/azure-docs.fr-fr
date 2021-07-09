@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 05/04/2021
 ms.author: jeffme
-ms.openlocfilehash: 10c6dc0643a8b2e84985697212912bc5854c0613
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: b4c22f8b6825b2955ba7c50e2ef1ff5f3ee00464
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386011"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958185"
 ---
 # <a name="what-are-azure-applied-ai-services"></a>Qu’est-ce qu’Azure Applied AI Services ?
 
@@ -51,17 +51,17 @@ Améliorer la lecture et sa compréhension avec l’IA. Azure Immersive Reader e
 
 Facilitez la création d’expériences personnalisées, sophistiquées et conversationnelles avec des composants de conversation prédéfinis, permettant une valeur ajoutée sans configuration supplémentaire.  Azure Bot Service Composer est un canevas de création visuelle open source destiné aux développeurs et aux équipes pluridisciplinaires pour créer des bots. Composer intègre des services de compréhension du langage tels que LUIS et QnA Maker et permet de composer des réponses de bot sophistiquées à l’aide de la génération de langage. Azure Bot Service repose sur la parole/téléphonie, LUIS et QnA Maker d’Azure Cognitive Services.
 
-[En savoir plus sur Azure Bot Service](https://docs.microsoft.com/composer/)
+[En savoir plus sur Azure Bot Service](/composer/)
 
 ## <a name="azure-video-analyzer"></a>Azure Video Analyzer 
 
 Permettre aux entreprises de créer des applications automatisées reposant sur la vidéo sans être un expert en vidéo ou en IA.  Azure Video Analyzer est un service qui vous aide à créer des solutions et des applications vidéo basées sur l’intelligence artificielle. Vous pouvez générer des insights professionnels en temps réel à partir de flux vidéo, en traitant les données à proximité de la source et en appliquant l’IA de votre choix. Enregistrez des vidéos d’intérêt sur la périphérie ou dans le cloud et associez-les à d’autres données pour conduire vos décisions professionnelles.  Azure Video Analyzer repose sur l’analyse spatiale d’Azure Cognitive Services.  Azure Video Analyzer for Media est conçu à l’aide des modules visage, parole, traduction, analyse de texte, vision personnalisée et modération du contenu textuel d’Azure Cognitive Services.  
 
-[En savoir plus sur Azure Video Analytics](https://aka.ms/video-analyzer-hub)
+[En savoir plus sur Azure Video Analytics](../azure-video-analyzer/index.yml)
 
 ## <a name="certifications-and-compliance"></a>Certifications et conformité
 
-Applied AI Services a reçu des certifications telles que la Certification de CSA STAR, FedRAMP Moderate et HIPAA BAA. Vous pouvez [télécharger](https://aka.ms/applied-ai-download-certifications "télécharger") des certifications pour vos propres audits et révisions de sécurité.
+Applied AI Services a reçu des certifications telles que la Certification de CSA STAR, FedRAMP Moderate et HIPAA BAA. Vous pouvez [télécharger](/samples/browse/?redirectedfrom=TechNet-Gallery "télécharger") des certifications pour vos propres audits et révisions de sécurité.
 
 Pour comprendre la gestion de la confidentialité et des données, accédez au [Centre de gestion de la confidentialité](https://servicetrust.microsoft.com/ "Centre de gestion de la confidentialité").
 
@@ -70,5 +70,5 @@ Pour comprendre la gestion de la confidentialité et des données, accédez au [
 Applied AI Services propose plusieurs options de support pour vous aider à créer des applications intelligentes. Applied AI Services a également une communauté forte de développeurs qui peuvent vous aider à répondre à vos questions spécifiques. Pour une liste complète des options qui s’offrent à vous, consultez :
 
 - [Envoyer des commentaires sur UserVoice](https://aka.ms/AppliedAIUserVoice)
-- [Poser des questions sur Microsoft Q&A](https://aka.ms/AppliedAIMSFTQandA)
+- [Poser des questions sur Microsoft Q&A](/answers/topics/azure-applied-ai-services.html)
 - [Résoudre les problèmes sur StackOverflow](https://aka.ms/AppliedAIStackOverflow)

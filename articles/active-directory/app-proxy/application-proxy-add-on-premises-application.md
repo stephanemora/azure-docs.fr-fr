@@ -12,12 +12,12 @@ ms.date: 02/17/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q3-portal
-ms.openlocfilehash: 2fd08e6534ce5500e3872afceb72c932d14d1ab4
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 5734d7a1f889c6e7334d0a088fecdfdcd39936c5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108185341"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964919"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutoriel : Ajouter une application locale pour un accès à distance via le service Proxy d'application d'Azure Active Directory
 
@@ -72,7 +72,7 @@ Pour bénéficier d'une haute disponibilité dans votre environnement de product
 #### <a name="recommendations-for-the-connector-server"></a>Recommandations pour le serveur de connecteurs
 
 1. Placez physiquement le serveur de connecteurs à proximité des serveurs d'applications afin d'optimiser les performances entre le connecteur et l'application. Pour plus d’informations, consultez [Optimiser le flux de trafic avec le proxy d’application Azure Active Directory](application-proxy-network-topology.md).
-1. Le serveur de connecteurs et les serveurs d’applications web doivent appartenir au même domaine Active Directory ou chevaucher des domaines approbateurs. Les serveurs doivent impérativement se trouver dans le même domaine ou dans des domaines approbateurs pour utiliser l’authentification unique avec l’authentification Windows intégrée (IWA) et la délégation Kerberos contrainte (KCD). Si le serveur de connecteurs et les serveurs d'applications web se trouvent dans des domaines Active Directory différents, vous devez utiliser la délégation basée sur les ressources pour l'authentification unique. Pour plus d’informations, consultez [KCD pour l’authentification unique avec le proxy d’application](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md).
+1. Le serveur de connecteurs et les serveurs d’applications web doivent appartenir au même domaine Active Directory ou chevaucher des domaines approbateurs. Les serveurs doivent impérativement se trouver dans le même domaine ou dans des domaines approbateurs pour utiliser l’authentification unique avec l’authentification Windows intégrée (IWA) et la délégation Kerberos contrainte (KCD). Si le serveur de connecteurs et les serveurs d'applications web se trouvent dans des domaines Active Directory différents, vous devez utiliser la délégation basée sur les ressources pour l'authentification unique. Pour plus d’informations, consultez [KCD pour l’authentification unique avec le proxy d’application](./application-proxy-configure-single-sign-on-with-kcd.md).
 
 > [!WARNING]
 > Si vous avez déployé le proxy de protection de mot de passe Azure AD, n’installez pas le proxy d’application Azure AD et le proxy de protection de mot de passe Azure AD sur le même ordinateur. Le proxy d’application Azure AD et le proxy de protection de mot de passe Azure AD installent différentes versions du programme de mise à jour de l’agent Azure AD Connect. Ces différentes versions sont incompatibles quand elles sont installées ensemble sur le même ordinateur.
@@ -134,6 +134,8 @@ Autorisez l'accès aux URL suivantes :
 | ctldl.windowsupdate.com                                      | 80/HTTP   | Le connecteur utilise cette URL lors du processus d’inscription. |
 
 Vous pouvez autoriser les connexions à &ast;.msappproxy.net, &ast;.servicebus.windows.net et les autres URL ci-dessus si votre pare-feu ou proxy vous permet de configurer des règles d’accès basées sur des suffixes de domaine. Si ce n’est pas le cas, vous devez autoriser l’accès aux [Plages d’adresses IP et étiquettes des services Azure – Cloud public](https://www.microsoft.com/download/details.aspx?id=56519). Ces dernières sont mises à jour chaque semaine.
+> [!IMPORTANT]
+> Évitez toutes les formes d’inspection et de terminaison en ligne sur les communications TLS sortantes entre les points de terminaison du Proxy d’application Azure AD et les services cloud du Proxy d’application Azure AD.
 
 ### <a name="dns-name-resolution-for-azure-ad-application-proxy-endpoints"></a>Résolution de noms DNS pour les points de terminaison du Proxy d’application Azure AD
 
@@ -162,13 +164,13 @@ Pour installer le connecteur :
 
 ### <a name="general-remarks"></a>Remarques générales
 
-Si vous avez déjà installé un connecteur, réinstallez-le pour obtenir la dernière version. Pour avoir des informations sur les versions précédentes et les changements qu’elles incluent, consultez [Proxy d’application : historique des versions](../manage-apps/application-proxy-release-version-history.md).
+Si vous avez déjà installé un connecteur, réinstallez-le pour obtenir la dernière version. Pour avoir des informations sur les versions précédentes et les changements qu’elles incluent, consultez [Proxy d’application : historique des versions](./application-proxy-release-version-history.md).
 
-Si vous choisissez d'utiliser plusieurs serveurs Windows pour vos applications locales, vous devez installer et inscrire le connecteur sur chaque serveur. Vous pouvez organiser les connecteurs en groupes de connecteurs. Pour plus d'informations, consultez [Groupes de connecteurs](../manage-apps/application-proxy-connector-groups.md).
+Si vous choisissez d'utiliser plusieurs serveurs Windows pour vos applications locales, vous devez installer et inscrire le connecteur sur chaque serveur. Vous pouvez organiser les connecteurs en groupes de connecteurs. Pour plus d'informations, consultez [Groupes de connecteurs](./application-proxy-connector-groups.md).
 
 Si vous avez installé des connecteurs dans différentes régions, vous pouvez optimiser le trafic en sélectionnant la région de service cloud de proxy d’application la plus proche à utiliser avec chaque groupe de connecteurs (consultez [Optimiser le flux de trafic avec le proxy d’application Azure Active Directory](application-proxy-network-topology.md)).
 
-Si votre organisation utilise des serveurs proxy pour se connecter à Internet, vous devez les configurer pour le proxy d’application.  Pour plus d’informations, consultez [Utiliser des serveurs proxy locaux existants](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md). 
+Si votre organisation utilise des serveurs proxy pour se connecter à Internet, vous devez les configurer pour le proxy d’application.  Pour plus d’informations, consultez [Utiliser des serveurs proxy locaux existants](./application-proxy-configure-connectors-with-proxy-servers.md). 
 
 Pour plus d'informations sur les connecteurs, la planification de capacité et leur mise à jour, consultez [Présentation des connecteurs du service Proxy d'application d'Azure AD](application-proxy-connectors.md).
 
@@ -186,7 +188,7 @@ Pour vérifier que le connecteur est correctement installé et inscrit :
 
     ![Connecteurs de proxy d’application Azure AD](./media/application-proxy-add-on-premises-application/app-proxy-connectors.png)
 
-Pour obtenir de l’aide sur l’installation d’un connecteur, consultez [Problèmes liés à l’installation du connecteur Proxy d’application](../manage-apps/application-proxy-connector-installation-problem.md).
+Pour obtenir de l’aide sur l’installation d’un connecteur, consultez [Problèmes liés à l’installation du connecteur Proxy d’application](./application-proxy-connector-installation-problem.md).
 
 ### <a name="verify-the-installation-through-your-windows-server"></a>Vérifier l’installation par le biais de votre serveur Windows
 
@@ -215,7 +217,7 @@ Maintenant que vous avez préparé votre environnement et installé un connecteu
     | :--------------------- | :----------------------------------------------------------- |
     | **Nom** | Nom de l’application qui apparaîtra dans Mes applications et sur le portail Azure. |
     | **URL interne** | URL permettant d'accéder à l'application depuis votre réseau privé. Vous pouvez spécifier un chemin spécifique sur le serveur principal à publier, alors que le reste du serveur n’est pas publié. De cette façon, vous pouvez publier des sites différents sur le même serveur en tant qu’applications distinctes et donner à chacun d’eux son propre nom et ses propres règles d’accès.<br><br>Si vous publiez un chemin d’accès, vérifiez qu’il inclut l’ensemble des images, des scripts et des feuilles de style nécessaires pour votre application. Par exemple, si votre application est sur https:\//yourapp/app et utilise des images situées dans https:\//yourapp/media, vous devez publier https:\//yourapp/ comme chemin d’accès. Cette URL interne n’est pas nécessairement la page d’accueil que vos utilisateurs voient. Pour plus d’informations, consultez [Définir une page d’accueil personnalisée pour les applications publiées](application-proxy-configure-custom-home-page.md). |
-    | **URL externe** | Adresse permettant aux utilisateurs d'accéder à l'application de l'extérieur de votre réseau. Si vous ne souhaitez pas utiliser le domaine de proxy d’application par défaut, lisez la documentation relative aux [domaines personnalisés dans le proxy d’application Azure AD](../manage-apps/application-proxy-configure-custom-domain.md). |
+    | **URL externe** | Adresse permettant aux utilisateurs d'accéder à l'application de l'extérieur de votre réseau. Si vous ne souhaitez pas utiliser le domaine de proxy d’application par défaut, lisez la documentation relative aux [domaines personnalisés dans le proxy d’application Azure AD](./application-proxy-configure-custom-domain.md). |
     | **Pré-authentification** | Façon dont le service Proxy d'application vérifie les utilisateurs avant de leur donner accès à votre application.<br><br>**Azure Active Directory** : le service Proxy d'application redirige les utilisateurs pour la connexion à Azure AD, qui authentifie leurs autorisations pour le répertoire et l'application. Nous vous recommandons de conserver cette option par défaut, qui vous permet d’utiliser les fonctionnalités de sécurité Azure AD, comme l’accès conditionnel et l’authentification multifacteur. **Azure Active Directory** est nécessaire pour la supervision de l’application avec Microsoft Cloud App Security.<br><br>**Direct** : les utilisateurs n’ont pas besoin de s’authentifier auprès d’Azure AD pour accéder à l’application. Vous pouvez toujours configurer les exigences d’authentification sur le serveur principal. |
     | **Groupe de connecteurs** | Les connecteurs gèrent l'accès à distance à votre application et les groupes de connecteurs vous aident à organiser des connecteurs et des applications par région, réseau ou objectif. Si aucun groupe de connecteurs n’est encore créé, votre application est assignée au groupe **Par défaut**.<br><br>Si votre application utilise des WebSockets pour se connecter, tous les connecteurs du groupe doivent être de la version 1.5.612.0 ou ultérieure. |
 
@@ -226,9 +228,9 @@ Maintenant que vous avez préparé votre environnement et installé un connecteu
     | **Expiration de l'application principale** | Définissez cette valeur sur **Long** uniquement si l'authentification et la connexion de votre application sont lentes. Par défaut, le délai d’expiration de l’application principale est de 85 secondes. Si cette valeur est trop importante, le délai d’expiration de l’application principale passe à 180 secondes. |
     | **Utiliser un cookie HTTP-only** | Définissez cette valeur sur **Oui** pour que les cookies du service Proxy d'application incluent un indicateur HTTPOnly dans l'en-tête de réponse HTTP. Si vous utilisez les services Bureau à distance, définissez cette valeur sur **Non**. |
     | **Utiliser un cookie sécurisé**| Définissez cette valeur sur **Oui** pour transmettre les cookies sur un canal sécurisé, comme une requête HTTPS chiffrée.
-    | **Utiliser un cookie persistant**| Conservez cette valeur sur **Non**. Utilisez ce paramètre uniquement pour les applications qui ne peuvent pas partager de cookies entre les processus. Pour plus d’informations sur les paramètres de cookies, consultez [Paramètres de cookies pour l’accès aux applications locales dans Azure Active Directory](../manage-apps/application-proxy-configure-cookie-settings.md).
+    | **Utiliser un cookie persistant**| Conservez cette valeur sur **Non**. Utilisez ce paramètre uniquement pour les applications qui ne peuvent pas partager de cookies entre les processus. Pour plus d’informations sur les paramètres de cookies, consultez [Paramètres de cookies pour l’accès aux applications locales dans Azure Active Directory](./application-proxy-configure-cookie-settings.md).
     | **Traduire l'URL dans les en-têtes** | Conservez la valeur **Oui**, sauf si votre application a demandé l'en-tête d'hôte d'origine dans la requête d'authentification. |
-    | **Traduire les URL dans le corps de l'application** | Conservez la valeur **Non**, sauf si vous avez codé en dur des liens HTML vers d’autres applications locales et que vous n’utilisez pas de domaines personnalisés. Pour plus d’informations, consultez [Rediriger les liens codés en dur pour les applications publiées avec le Proxy d’application Azure AD](../manage-apps/application-proxy-configure-hard-coded-link-translation.md).<br><br>Définissez cette valeur sur **Oui** si vous envisagez de superviser cette application avec Microsoft Cloud App Security (MCAS). Pour plus d’informations, consultez [Configurer la supervision de l’accès aux applications en temps réel avec Microsoft Cloud App Security et Azure Active Directory](../manage-apps/application-proxy-integrate-with-microsoft-cloud-application-security.md). |
+    | **Traduire les URL dans le corps de l'application** | Conservez la valeur **Non**, sauf si vous avez codé en dur des liens HTML vers d’autres applications locales et que vous n’utilisez pas de domaines personnalisés. Pour plus d’informations, consultez [Rediriger les liens codés en dur pour les applications publiées avec le Proxy d’application Azure AD](./application-proxy-configure-hard-coded-link-translation.md).<br><br>Définissez cette valeur sur **Oui** si vous envisagez de superviser cette application avec Microsoft Cloud App Security (MCAS). Pour plus d’informations, consultez [Configurer la supervision de l’accès aux applications en temps réel avec Microsoft Cloud App Security et Azure Active Directory](./application-proxy-integrate-with-microsoft-cloud-application-security.md). |
 
 7. Sélectionnez **Ajouter**.
 
@@ -257,7 +259,7 @@ Pour tester l’authentification auprès de l’application :
 2. En haut de la page, sélectionnez **Tester l’application** pour exécuter un test sur l’application et vérifier les éventuels problèmes de configuration.
 3. Veillez à lancer d’abord l’application pour tester la connexion à l’application, puis téléchargez le rapport de diagnostic pour consulter les conseils de dépannage en fonction des problèmes détectés.
 
-Pour tout dépannage, consultez [Résoudre les problèmes de proxy d'application et les messages d'erreur](../manage-apps/application-proxy-troubleshoot.md).
+Pour tout dépannage, consultez [Résoudre les problèmes de proxy d'application et les messages d'erreur](./application-proxy-troubleshoot.md).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

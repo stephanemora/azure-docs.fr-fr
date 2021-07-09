@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: b38f2831136b0ccec4aa241135f2fd342c939845
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ae33d1695188e103c7c56374a5f39e8fc0d27430
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936884"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061405"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Démarrage rapide : Créer et configurer Azure DDoS Protection Standard
 
@@ -42,7 +42,7 @@ Dans ce démarrage rapide, vous allez créer un plan de protection DDoS et le li
 3. Sélectionnez **Create** (Créer).
 4. Entrez ou sélectionnez les valeurs suivantes, puis sélectionnez **Créer** :
 
-    |Paramètre        |Valeur                                              |
+    |Paramètre        |Value                                              |
     |---------      |---------                                          |
     |Nom           | Entrez _MyDdosProtectionPlan_.                     |
     |Abonnement   | Sélectionnez votre abonnement.                         |
@@ -57,7 +57,7 @@ Dans ce démarrage rapide, vous allez créer un plan de protection DDoS et le li
 2. Sélectionnez **Mise en réseau**, puis **Réseau virtuel**.
 3. Entrez ou sélectionnez les valeurs suivantes, acceptez les autres valeurs par défaut, puis sélectionnez **Créer** :
 
-    | Paramètre         | Valeur                                           |
+    | Paramètre         | Value                                           |
     | ---------       | ---------                                       |
     | Nom            | Entrez _MyVnet_.                                 |
     | Abonnement    | Sélectionnez votre abonnement.                                    |
@@ -76,7 +76,7 @@ Vous ne pouvez pas déplacer un réseau virtuel vers un autre groupe de ressourc
 
 ### <a name="enable-ddos-protection-for-all-virtual-networks"></a>Activer la protection DDoS pour tous les réseaux virtuels
 
-Cette [stratégie](https://aka.ms/ddosvnetpolicy) détecte tous les réseaux virtuels dans une étendue définie pour lesquels Azure DDoS Protection standard n’est pas activé, puis crée éventuellement une tâche de correction qui crée l’association pour protéger le réseau virtuel. Pour obtenir des instructions pas à pas détaillées sur le déploiement de cette stratégie, consultez https://aka.ms/ddosvnetpolicy-techcommunity.
+Cette [stratégie intégrée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d) détecte tous les réseaux virtuels configurés dans une étendue définie pour lesquels DDoS Protection Standard n’est pas activé, puis crée éventuellement une tâche de correction qui établit l’association pour protéger le réseau virtuel. Pour connaître la liste complète des stratégies intégrées, consultez [Définitions intégrées Azure Policy pour Azure DDoS Protection Standard](policy-reference.md). 
 
 ## <a name="validate-and-test"></a>Valider et tester
 

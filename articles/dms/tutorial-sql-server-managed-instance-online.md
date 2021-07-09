@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 9285928c94f0e1ce3de37f357aed57c32b5be01d
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 70793c997979be1c94dda0a5198df8c450e16496
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713033"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031004"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutoriel : Procéder à la migration en ligne de SQL Server vers Azure SQL Managed Instance à l'aide de DMS
 
@@ -34,8 +34,8 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Effectuer le basculement de la migration lorsque vous êtes prêt.
 
 > [!IMPORTANT]
-> Pour procéder à une migration en ligne de SQL Server vers SQL Managed Instance à l'aide d'Azure Database Migration Service, vous devez fournir la sauvegarde de la base de données complète et les sauvegardes des journaux associés dans le partage réseau SMB que le service peut utiliser pour la migration de vos bases de données. Azure Database Migration Service ne lance pas les sauvegardes. Il utilise les sauvegardes existantes (qui peuvent déjà faire partie de votre plan de récupération d'urgence) pour la migration.
-> N’oubliez pas d’effectuer des [sauvegardes à l’aide de l’option WITH CHECKSUM](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?preserve-view=true&view=sql-server-2017). Par ailleurs, vous ne devez pas ajouter plusieurs sauvegardes (c'est-à-dire la sauvegarde complète et les journaux de transactions) sur un même support de sauvegarde. Vous devez placer chaque sauvegarde sur un fichier de sauvegarde distinct. Enfin, vous pouvez utiliser des sauvegardes compressées pour réduire le risque de problèmes liés à la migration de sauvegardes volumineuses.
+> Pour les migrations en ligne de SQL Server vers SQL Managed Instance à l’aide d’Azure Database Migration Service, vous devez fournir la sauvegarde de la base de données complète et les sauvegardes des journaux associés dans le partage réseau SMB que le service peut utiliser pour la migration de vos bases de données. Azure Database Migration Service ne lance pas les sauvegardes. Il utilise les sauvegardes existantes (qui peuvent déjà faire partie de votre plan de récupération d'urgence) pour la migration.
+> N’oubliez pas d’effectuer des [sauvegardes à l’aide de l’option WITH CHECKSUM](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?preserve-view=true&view=sql-server-2017). Chaque sauvegarde peut être enregistrée dans un fichier de sauvegarde distinct ou dans plusieurs fichiers de sauvegarde. Toutefois, l’ajout de plusieurs sauvegardes (par exemple, full et t-log) sur un seul support de sauvegarde n’est pas pris en charge. Enfin, vous pouvez utiliser des sauvegardes compressées pour réduire le risque de problèmes liés à la migration de sauvegardes volumineuses.
 
 > [!NOTE]
 > L’utilisation d’Azure Database Migration Service pour effectuer une migration en ligne nécessite la création d’une instance basée sur le niveau tarifaire Premium.

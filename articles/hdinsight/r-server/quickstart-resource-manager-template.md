@@ -5,14 +5,17 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 9ead752258596e9beb2bc112296d9275092ea8bb
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ROBOTS: NOINDEX
+ms.openlocfilehash: 86d43a09e4c739cc588848429dcaf6276f68dbf2
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556817"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299390"
 ---
 # <a name="quickstart-create-ml-services-cluster-in-azure-hdinsight-using-arm-template"></a>Démarrage rapide : Créer un cluster ML Services dans Azure HDInsight à l’aide d’un modèle Resource Manager
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 Dans ce guide de démarrage rapide, vous utilisez un modèle Resource Manager (Azure Resource Manager) pour créer un cluster [ML Services](./r-server-overview.md) dans Azure HDInsight. Microsoft Machine Learning Server vous est proposé comme option de déploiement au moment de créer des clusters HDInsight dans Azure. Le type de cluster qui fournit cette option est appelé ML Services. Cette fonctionnalité offre aux experts en science des données, aux statisticiens et aux programmeurs R un accès à la demande à des méthodes d’analyse extensibles et distribuées sur HDInsight.
 

@@ -3,17 +3,17 @@ title: Configurer l’intégration de AWS avec Azure Cost Management
 description: Cet article vous guide tout au long de la configuration de l'intégration des rapports de coûts et d'utilisation AWS avec Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/10/2021
+ms.date: 06/08/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: e1d332ba3ff2da50db9f59ce844844ac4c87cc0b
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 098766674e3bd665bb533fbf4d78fe1b0b1aebda
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738443"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756038"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Configurer l'intégration des rapports sur les coûts et l'utilisation AWS
 
@@ -27,7 +27,7 @@ Regardez la vidéo [Comment configurer des connecteurs pour AWS dans Cost Manage
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>Créer un rapport sur les coûts et l’utilisation dans AWS
 
-L'utilisation d'un rapport sur les coûts et l'utilisation est la méthode recommandée par AWS pour recueillir et traiter les coûts AWS. Pour plus d'informations, consultez la documentation [Rapport sur les coûts et l’utilisation AWS](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-costusage.html).
+L'utilisation d'un rapport sur les coûts et l'utilisation est la méthode recommandée par AWS pour recueillir et traiter les coûts AWS. Le connecteur Cost Management Cross Cloud prend en charge les rapports d’utilisation et de coût configurés au niveau du compte de gestion (consolidé). Pour plus d'informations, consultez la documentation [Rapport sur les coûts et l’utilisation AWS](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-costusage.html).
 
 Utilisez la page **Cost & Usage Reports** (Rapports sur les coûts et l'utilisation) de la console Facturation et gestion des coûts d’AWS pour créer un rapport sur les coûts et l'utilisation en procédant comme suit :
 
@@ -53,6 +53,9 @@ Si vous ne spécifiez pas de préfixe, le préfixe par défaut est le nom que vo
     Notez le nom du rapport. Vous l’utiliserez plus tard.
 
 Il peut s'écouler jusqu'à 24 heures avant qu'AWS commence à distribuer des rapports à votre compartiment Amazon S3. Après chaque distribution, AWS met à jour au moins une fois par jour les fichiers du rapport sur les coûts et l'utilisation AWS. Vous pouvez continuer à configurer votre environnement AWS sans attendre le début de la distribution.
+
+> [!NOTE]
+> Les rapports d’utilisation et de coût configurés au niveau du compte membre (lié) ne sont pas pris en charge actuellement.
 
 ## <a name="create-a-role-and-policy-in-aws"></a>Créer un rôle et une stratégie dans AWS
 
