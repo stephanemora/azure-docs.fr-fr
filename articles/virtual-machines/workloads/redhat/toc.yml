@@ -8,8 +8,16 @@
       href: redhat-imagelist.md
 - name: Démarrages rapides sur Red Hat Java
   items:
-    - name: JBoss EAP + RHEL sur VM/VMSS
+    - name: JBoss EAP + RHEL sur des machines virtuelles
       href: jboss-eap-on-rhel.md
+    - name: Image de la place de marché de JBoss EAP
+      href: jboss-eap-marketplace-image.md
+    - name: Bonnes pratiques pour JBoss EAP sur Azure
+      href: jboss-eap-on-azure-best-practices.md
+    - name: Migrer JBoss EAP vers des machines virtuelles Azure
+      href: jboss-eap-on-azure-migration.md
+    - name: Migrer JBoss EAP vers App Service
+      href: /azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
     - name: WildFly + CentOS sur VM
       href: wildfly-on-centos.md
 - name: Infrastructure de mise à jour Red Hat dans Azure

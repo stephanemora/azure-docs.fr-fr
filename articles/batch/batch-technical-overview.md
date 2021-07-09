@@ -1,14 +1,14 @@
 ---
 title: Azure Batch exécute des travaux parallèles à grande échelle dans le cloud
-description: Découvrez l’utilisation d’Azure Batch pour les charges de travail HPC et parallèles à grande échelle
+description: Découvrez comment utiliser Azure Batch pour les charges de travail HPC et parallèles à grande échelle.
 ms.topic: overview
-ms.date: 07/30/2020
-ms.openlocfilehash: dbd27dc1a00966a2d71952335cfb47c7ca55bc24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: 9061da0b479f77353554ef1c9eb311f22220f02d
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743098"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007118"
 ---
 # <a name="what-is-azure-batch"></a>Présentation d’Azure Batch
 
@@ -22,7 +22,7 @@ Pour obtenir une comparaison entre Batch et d’autres solutions HPC utilisées
 
 ## <a name="run-parallel-workloads"></a>Exécuter des charges de travail parallèles
 
-Le service Batch fonctionne parfaitement avec les charges de travail intrinsèquement parallèles (ou « massivement parallèles »). Les charges de travail intrinsèquement parallèles ont des applications qui peuvent s’exécuter indépendamment, chaque instance terminant une partie du travail. Lorsque les applications sont en cours d’exécution, elles peuvent accéder à certaines données communes, mais elles ne communiquent pas avec d’autres instances de l’application. Les charges de travail intrinsèquement parallèles peuvent donc être exécutées à grande échelle, déterminée par la quantité de ressources de calcul disponibles pour exécuter simultanément des applications.
+Le service Batch fonctionne parfaitement avec les charges de travail intrinsèquement parallèles (ou « massivement parallèles »). Ces charges de travail ont des applications qui peuvent s’exécuter indépendamment, chaque instance terminant une partie du travail. Lorsque les applications sont en cours d’exécution, elles peuvent accéder à certaines données communes, mais elles ne communiquent pas avec d’autres instances de l’application. Les charges de travail intrinsèquement parallèles peuvent donc être exécutées à grande échelle, déterminée par la quantité de ressources de calcul disponibles pour exécuter simultanément des applications.
 
 Voici quelques exemples de charges de travail intrinsèquement parallèles que vous pouvez utiliser dans Azure Batch :
 
@@ -43,14 +43,11 @@ Voici quelques exemples de charges de travail fortement couplées :
 - Dynamique des fluides
 - Formation d’intelligence artificielle à nœuds multiples
 
-De nombreux travaux fortement couplés peuvent être exécutés en parallèle à l’aide d’Azure Batch. Par exemple, effectuez plusieurs simulations de liquide transitant via un canal avec des largeurs de canal différentes.
+De nombreux travaux fortement couplés peuvent être exécutés en parallèle à l’aide d’Azure Batch. Par exemple, vous pouvez effectuer plusieurs simulations de liquide transitant via un canal avec des largeurs de canal différentes.
 
 ## <a name="additional-batch-capabilities"></a>Fonctionnalités supplémentaires d’Azure Batch
 
-Des fonctionnalités de niveau supérieur, spécifiques à la charge de travail sont également disponibles pour Azure Batch :
-
-- Azure Batch prend en charge les [charges de travail de rendu](batch-rendering-service.md) à grande échelle avec les outils de rendu notamment Autodesk Maya, 3ds Max, Arnold et V-Ray. 
-- Les utilisateurs R peuvent installer le [package doAzureParallel R](https://github.com/Azure/doAzureParallel) pour facilement effectuer un scale-out de l’exécution d’algorithmes R sur les pools Batch.
+Azure Batch prend en charge les [charges de travail de rendu](batch-rendering-service.md) à grande échelle avec les outils de rendu notamment Autodesk Maya, 3ds Max, Arnold et V-Ray. 
 
 Vous pouvez également exécuter des travaux Batch dans le cadre d’un plus grand flux de travail Azure pour transformer des données, gérées par des outils comme [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md).
 
@@ -76,12 +73,15 @@ Gardez à l’esprit que le flux de travail décrit ci-dessus n’est qu’une d
 Pour une vue d’ensemble de fonctionnalités comme les pools, les nœuds, les travaux et les tâches, consultez [Workflow et les ressources du service Batch](batch-service-workflow-features.md) . Consultez également les dernières [mises à jour du service Batch](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="in-region-data-residency"></a>Résidence des données dans la région
+
 Azure Batch ne déplace pas et ne stocke pas les données client en dehors de la région dans laquelle il a été déployé. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Bien démarrer avec Azure Batch grâce à l’un de ces guides de démarrage rapide :
+
 - [Exécutez votre premier travail Batch avec l’interface de ligne de commande Azure](quick-create-cli.md)
 - [Exécutez votre premier travail Batch avec le portail Azure](quick-create-portal.md)
 - [Exécutez votre premier travail Batch avec l’API .NET](quick-run-dotnet.md)
 - [Exécutez votre premier travail Batch avec l’API Python](quick-run-python.md)
+- [Créer un compte Batch avec des modèles ARM](quick-create-template.md)

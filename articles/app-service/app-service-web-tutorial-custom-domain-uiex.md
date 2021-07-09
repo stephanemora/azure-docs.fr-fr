@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1fcf8c681f4fad65209c27663045d4974be633f7
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: bfd3429531f1473e099e3296ebfebd50c6d4d864
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833241"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787905"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutoriel : Mapper un nom DNS personnalisé existant à Azure App Service
 
@@ -314,7 +314,7 @@ Accédez aux noms DNS que vous avez configurés précédemment.
 <details>
 <summary>J’obtiens une erreur HTTP 404 (introuvable).</summary>
 <ul>
-<li>Un enregistrement A et/ou un enregistrement CNAME est manquant dans le domaine personnalisé configuré.</li>
+<li>Un enregistrement A et/ou un enregistrement CNAME est manquant dans le domaine personnalisé configuré.  Vérifiez si les enregistrements DNS sont exposés en utilisant un outil de <a href="https://www.nslookup.io/">recherche DNS en ligne</a>.</li>
 <li>Le client du navigateur a mis en cache l'ancienne adresse IP de votre domaine. Effacez le cache et testez à nouveau la résolution DNS. Sur une machine Windows, effacez le cache avec <code>ipconfig /flushdns</code>.</li>
 </ul>
 </details>

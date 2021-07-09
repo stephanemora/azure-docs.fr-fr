@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 11cd17041ce110cca4f3cd5bce5cc98ccc0ed7af
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c087533958665eb71e046d3bab1f03265adbd3ba
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373048"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111853565"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Ajouter un certificat TLS/SSL dans Azure App Service
 
@@ -20,7 +20,7 @@ ms.locfileid: "110373048"
 Une fois le certificat ajouté à votre application App Service ou à votre [application de fonction](../azure-functions/index.yml), vous pouvez [sécuriser un nom DNS personnalisé avec celui-ci](configure-ssl-bindings.md) ou l’[utiliser dans votre code d’application](configure-ssl-certificate-in-code.md).
 
 > [!NOTE]
-> Quand un certificat est chargé dans une application, celui-ci est stocké dans une unité de déploiement qui est liée à la combinaison Groupe de ressources/Région de l’application (appelée en interne *espace web*). De cette façon, le certificat est accessible aux autres applications qui sont associées à la même combinaison Groupe de ressources/Région. 
+> Quand un certificat est chargé dans une application, celui-ci est stocké dans une unité de déploiement qui est liée à la combinaison Groupe de ressources/Région (appelée en interne *espace web*) du plan App Service. De cette façon, le certificat est accessible aux autres applications qui sont associées à la même combinaison Groupe de ressources/Région. 
 
 Le tableau suivant répertorie les options permettant d’ajouter des certificats dans App Service :
 
@@ -63,7 +63,9 @@ Pour sécuriser un domaine personnalisé dans une liaison TLS/SSL, votre certif
 > [!NOTE]
 > Avant de créer un certificat managé gratuit, assurez-vous que vous avez [rempli les conditions préalables](#prerequisites) pour votre application.
 
-Le certificat managé App Service gratuit est une solution clé en main pour la sécurisation de votre nom DNS personnalisé dans App Service. Il s’agit d’un certificat TLS/SSL entièrement fonctionnel géré par App Service et renouvelé automatiquement. Le certificat gratuit comprend les limitations suivantes :
+Le certificat managé App Service gratuit est une solution clé en main pour la sécurisation de votre nom DNS personnalisé dans App Service. Il s’agit d’un certificat de serveur TLS/SSL entièrement géré par App Service et renouvelé en continu et automatiquement par incréments de six mois, 45 jours avant l’expiration. Vous créez le certificat, vous le liez à un domaine personnalisé et vous laissez App Service faire le reste.
+
+Le certificat gratuit comprend les limitations suivantes :
 
 - Ne prend pas en charge les certificats avec caractères génériques.
 - Ne prend pas en charge l’utilisation en tant que certificat client par empreinte numérique de certificat (la suppression de l’empreinte numérique de certificat est planifiée).
@@ -155,6 +157,10 @@ Dans la page **État de Key Vault**, cliquez sur **Référentiel Key Vault** pou
 
 Une fois que vous avez sélectionné le coffre, fermez la page **Référentiel Key Vault**. L’option **Étape 1 : Stocker** doit afficher une coche verte de réussite. Gardez cette page ouverte pour l’étape suivante.
 
+> [!NOTE]
+> Actuellement, App Service Certificate prend en charge uniquement la stratégie d’accès Key Vault, mais pas le modèle RBAC.
+>
+
 ### <a name="verify-domain-ownership"></a>Vérifier la propriété du domaine
 
 Dans la même page **Configuration du certificat** utilisée à l’étape précédente, cliquez sur **Étape 2 : Vérifier**.
@@ -197,6 +203,10 @@ Si vous utilisez Azure Key Vault pour gérer vos certificats, vous pouvez import
 Par défaut, le fournisseur de ressources App Service n’a pas accès au coffre de clés. Si vous souhaitez utiliser un coffre de clés pour un déploiement de certificats, vous devez [autoriser le fournisseur de ressources à accéder en lecture aux données du coffre de clés](../key-vault/general/assign-access-policy-cli.md). 
 
 `abfa0a7c-a6b6-4736-8310-5855508787cd` est le nom du principal de service du fournisseur de ressources App Service, et il est identique pour tous les abonnements Azure. Pour un environnement cloud Azure Government, utilisez `6a02c803-dafd-4136-b4c3-5a6f318b4714` plutôt que le nom du principal de service du fournisseur de ressources.
+
+> [!NOTE]
+> Actuellement, Key Vault Certificate prend uniquement en charge la stratégie d’accès Key Vault, mais pas le modèle RBAC.
+> 
 
 ### <a name="import-a-certificate-from-your-vault-to-your-app"></a>Importer un certificat dans votre application à partir de votre coffre
 
@@ -379,11 +389,11 @@ Dans votre certificat, recherchez le verrou de type **Supprimer**. À droite de 
 
 Vous pouvez maintenant supprimer le certificat App Service. Dans le volet de navigation de gauche, sélectionnez **Vue d’ensemble** > **Supprimer**. Dans la boîte de dialogue de confirmation, tapez le nom du certificat, puis sélectionnez **OK**.
 
-## <a name="automate-with-scripts&quot;></a>Automatiser des tâches à l’aide de scripts
+## <a name="automate-with-scripts"></a>Automatiser des tâches à l’aide de scripts
 
-### <a name=&quot;azure-cli&quot;></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 &quot;Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 

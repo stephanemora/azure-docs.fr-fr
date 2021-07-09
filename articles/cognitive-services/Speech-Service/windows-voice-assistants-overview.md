@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 9e8b009ecc2181edfaad5da3d8d05ad0c1909051
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 989e4e48b03f976a647a542771ade053d9229ec7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95024753"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110058903"
 ---
 # <a name="voice-assistants-on-windows"></a>Assistants vocaux Windows
 
@@ -45,7 +45,7 @@ Cela signifie qu'une application ne peut pas être activée par la voix tant qu'
 
 Dès réception de la requête du runtime AAR, le service d'arrière-plan lance l'application. L'application reçoit un signal via la méthode de cycle de vie OnBackgroundActivated de `App.xaml.cs` avec un argument d'événement unique. Cet argument indique à l'application qu'elle a été activée par le runtime AAR et qu'elle doit lancer la vérification du mot clé.
 
-Si la vérification du mot clé est un succès, l'application peut effectuer une requête pour être affichée au premier plan. Lorsque cette requête aboutit, l'application affiche l'interface utilisateur et poursuit son interaction avec l'utilisateur.
+Si la vérification du mot clé est un succès, l’application peut effectuer une demande qui apparaît au premier plan. Lorsque cette requête aboutit, l'application affiche l'interface utilisateur et poursuit son interaction avec l'utilisateur.
 
 Le runtime AAR signale toujours les applications actives lorsque leur mot clé est prononcé. Mais plutôt que d'effectuer ce signalement via la méthode de cycle de vie de `App.xaml.cs`, il l'effectue via un événement des API ConversationalAgent.
 

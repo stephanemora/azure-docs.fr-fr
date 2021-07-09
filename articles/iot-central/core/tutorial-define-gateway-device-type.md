@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: d1a730a20ef2ab0fe5e455ef86a428aa1d83fc19
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 55cd7c86ae4f0110618745459cea48abe5e144d0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683926"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084571"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutoriel - Définir un nouveau type d’appareil de passerelle IoT dans votre application Azure IoT Central
 
@@ -115,14 +115,14 @@ Pour ajouter des propriétés cloud au modèle **Smart Building gateway device**
 
 1. Dans le modèle **Smart Building gateway device**, sélectionnez **Propriétés du cloud**.
 
-1.  Utilisez les informations du tableau suivant pour ajouter deux propriétés cloud à votre modèle d’appareil de passerelle.
+1. Utilisez les informations du tableau suivant pour ajouter deux propriétés cloud à votre modèle d’appareil de passerelle.
 
     | Nom complet      | Type sémantique | schéma |
     | ----------------- | ------------- | ------ |
     | Dernière date de service | None          | Date   |
     | Nom du client     | None          | String |
 
-2. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 ### <a name="create-views"></a>Créer des vues
 
@@ -151,7 +151,9 @@ Pour publier le modèle d’appareil de passerelle :
 
 3. Dans la boîte de dialogue **Publier un modèle d’appareil**, choisissez **Publier**.
 
-Une fois qu’un modèle d’appareil a été publié, il est visible dans la page **Appareils** et par l’opérateur. Dans un modèle d’appareil publié, vous ne pouvez pas modifier un modèle d’appareil sans créer de version. En revanche, vous pouvez effectuer des mises à jour des propriétés du cloud, des personnalisations et des vues dans un modèle d’appareil publié. Ces mises à jour n’entraînent pas la création d’une version. Après avoir apporté des modifications, sélectionnez **Publier** pour envoyer ces modifications à votre opérateur.
+Une fois qu’un modèle d’appareil a été publié, il est visible dans la page **Appareils** et par l’opérateur. L’opérateur peut utiliser le modèle pour créer des instances d’appareil ou établir des règles et la supervision. La modification d’un modèle publié peut affecter le comportement à l’échelle de l’application.
+
+Pour en savoir plus sur la modification d’un modèle d’appareil après sa publication, consultez [Modifier un modèle d’appareil existant](howto-edit-device-template.md).
 
 ## <a name="create-the-simulated-devices"></a>Créer les appareils simulés
 

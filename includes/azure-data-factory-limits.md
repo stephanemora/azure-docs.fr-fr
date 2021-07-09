@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 5efc74ec150dcd18181404d93dc2142552a2c792
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 6c991188c266d2e169a7a1d50f4c2ea61f3a51f3
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108807450"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "111351006"
 ---
 Azure Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. Pour augmenter les limites jusqu'à la limite maximale pour votre abonnement, contactez le support.
 
@@ -21,11 +21,10 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 
 | Ressource | Limite par défaut | Limite maximale |
 | -------- | ------------- | ------------- |
-| Fabriques de données par groupe de ressources | 800 | 800 |
 | Nombre total d’entités, telles que les pipelines, les jeux de données, les déclencheurs, les services liés, les points de terminaison privés et les runtimes d’intégration, dans une fabrique de données | 5 000 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Nombre total de cœurs d’UC pour les runtimes d’intégration Azure-SSIS d’un même abonnement | 256 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Exécutions de pipeline simultanés par fabrique de données qui sont partagées entre tous les pipelines de l’usine | 10 000  | 10 000 |
-| Les exécutions d’activités externes simultanées par abonnement par [région d’Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>Les activités externes sont gérées sur le runtime d’intégration, mais s’exécutent sur des services liés, notamment Databricks, une procédure stockée, HDInsights, le web et autres. Cette limite ne s’applique pas au runtime d’intégration auto-hébergé.</small> | 3 000 | 3 000 |
+| Les exécutions d’activités externes simultanées par abonnement par [région d’Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>Les activités externes sont gérées sur le runtime d’intégration mais s’exécutent sur des services liés, dont Databricks, les procédures stockées, le web et autres. Cette limite ne s’applique pas à l’IR auto-hébergé.</small> | 3 000 | 3 000 |
 | Les exécutions d’activités de pipeline simultanées par abonnement par [région d’Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location) <br><small>Les activités de pipeline s’exécutent sur le runtime d’intégration, notamment Lookup, GetMetadata et Delete. Cette limite ne s’applique pas au runtime d’intégration auto-hébergé.</small> | 1 000 | 1 000                                                        |
 | Les opérations de création simultanées par abonnement pour chaque [région d’Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>Notamment tester la connexion, parcourir la liste des dossiers des tables, afficher un aperçu des données. Cette limite ne s’applique pas au runtime d’intégration auto-hébergé.</small> | 200 | 200                                                          |
 | Unités d’intégration simultanée de données<sup>1</sup> consommation par abonnement pour chaque [région Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Groupe de régions 1<sup>2</sup> : 6 000 / 750<br>Groupe de régions 2<sup>2</sup> : 3 000<br>Groupe de régions 3<sup>2</sup> : 1 500 | Groupe de régions 1<sup>2</sup> : 6 000 / 750<br/>Groupe de régions 2<sup>2</sup> : 3 000<br/>Groupe de régions 3<sup>2</sup> : 1 500 |

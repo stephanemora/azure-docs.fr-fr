@@ -7,17 +7,17 @@ ms.manager: nitinme
 ms.author: aahi
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 04/21/2021
-ms.openlocfilehash: 957da9d5d26e5e7eaf27433807f700f4d3243765
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.date: 05/28/2021
+ms.openlocfilehash: 6eb5e54f2c1d8a4e7d05204fcfa111ddcb9f951a
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897682"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110692678"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifications de point de terminaison de prédiction pour V3
 
-Les API V3 de point de terminaison de prédiction de requête ont évolué. Servez-vous de ce guide pour comprendre comment migrer vers les API de point de terminaison de version 3.
+Les API V3 de point de terminaison de prédiction de requête ont évolué. Servez-vous de ce guide pour comprendre comment migrer vers les API de point de terminaison de version 3. Il n’existe actuellement aucune date à laquelle la migration doit être effectuée.
 
 **État généralement disponible** : cette API V3 inclut des modifications significatives de requête et de réponse JSON par rapport à l’API V2.
 

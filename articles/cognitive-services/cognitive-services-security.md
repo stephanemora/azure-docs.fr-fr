@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 90fbc41edbfea0ea99d436906d3052e43bfb4fb8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a720eec0c112b54fab0a1651c388b6e0514128c3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043870"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094939"
 ---
 # <a name="azure-cognitive-services-security"></a>Sécurité Azure Cognitive Services
 
@@ -199,7 +199,7 @@ NSString* value =
 
 [Customer Lockbox pour Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md) fournit une interface dans laquelle les clients peuvent vérifier et approuver/refuser les demandes d'accès aux données client. Il est utilisé lorsqu’un ingénieur Microsoft doit accéder aux données client dans le cadre d’une demande de support. Pour plus d'informations sur la façon dont les demandes Customer Lockbox sont initiées, suivies et stockées en vue d'audits et de révisions ultérieures, consultez [Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md). 
 
-Customer Lockbox est disponible pour le service cognitif suivant :
+Customer Lockbox est disponible pour ce service :
 
 * Convertisseur
 

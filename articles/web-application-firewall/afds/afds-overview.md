@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 06/09/2021
 ms.author: victorh
-ms.openlocfilehash: 0e3073c491b251a1dbb505d4656de9c6a1e0ac7f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d7e0cc01d15e33e86f7e9446537fff6d43652256
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048491"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892846"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Pare-feu d’applications web Azure sur Azure Front Door
 
@@ -71,15 +71,15 @@ Vous pouvez configurer des règles WAF personnalisées comme expliqué ci-dessou
 
 - **Contrôle d’accès en fonction des paramètres HTTP :** Vous pouvez baser des règles sur des correspondances de chaîne dans les paramètres de requête HTTP/HTTPS.  Par exemple, les chaînes de requête, les arguments POST, l’URI de la demande, l’en-tête de la demande et le corps de la demande.
 
-- **Contrôle d’accès en fonction de la méthode de requête :** Vous basez les règles sur la méthode de requête HTTP de la demande. Par exemple, GET, PUT ou HEAD.
+- **Contrôle d’accès en fonction de la méthode de demande :** Vous basez les règles sur la méthode de requête HTTP de la demande. Par exemple, GET, PUT ou HEAD.
 
 - **Contrainte de taille :** Vous pouvez baser les règles sur la longueur de parties spécifiques d’une requête, comme la chaîne de requête, l’URI ou le corps de la demande.
 
-- **Règles de limitation du débit :** Une règle de contrôle du débit consiste à limiter un trafic élevé anormal en provenance de toute adresse IP de client. Vous pouvez configurer un seuil sur le nombre de requêtes web autorisées à partir d’une adresse IP cliente pendant une durée d’une minute. Cette règle est différente d’une règle personnalisée basée sur une liste d’adresses autorisées ou bloquées, qui autorise ou bloque toutes les requêtes provenant d’une adresse IP cliente. Des limitations de débit peuvent être combinées avec des conditions de correspondance supplémentaires, comme la mise en correspondance de paramètres HTTP/HTTPS pour un contrôle du débit plus précis.
+- **Règle de limitation du débit :**  Une règle de contrôle de débit limite le trafic anormalement élevé en provenance de n’importe quelle adresse IP cliente. Vous pouvez configurer un seuil sur le nombre de requêtes web autorisées à partir d’une adresse IP cliente pendant une durée d’une minute. Cette règle est différente d’une règle personnalisée basée sur une liste d’adresses autorisées ou bloquées, qui autorise ou bloque toutes les requêtes provenant d’une adresse IP cliente. Des limitations de débit peuvent être combinées avec des conditions de correspondance supplémentaires, comme la mise en correspondance de paramètres HTTP/HTTPS pour un contrôle du débit plus précis.
 
 ### <a name="azure-managed-rule-sets"></a>Ensembles de règles managées par Azure
 
-Les ensembles de règles managées par Azure fournissent un moyen simple de déployer une solution de protection contre diverses menaces de sécurité courantes. Dans la mesure où ces ensembles de règles sont managées par Azure, les règles sont mises à jour comme il convient pour vous protéger contre les nouvelles signatures d’attaque. L’ensemble de règles par défaut managées par Azure inclut des règles de protection contre les catégories de menaces suivantes :
+Les ensembles de règles managées par Azure fournissent un moyen simple de déployer une solution de protection contre diverses menaces de sécurité courantes. Dans la mesure où ces ensembles de règles sont managées par Azure, les règles sont mises à jour comme il convient pour vous protéger contre les nouvelles signatures d’attaque. L’ensemble de règles par défaut managé par Azure comprend des règles de protection contre les catégories de menaces suivantes :
 
 - Scripts intersites (XSS)
 - Attaques Java
@@ -91,14 +91,10 @@ Les ensembles de règles managées par Azure fournissent un moyen simple de dép
 - Protection contre les injections de code SQL
 - Attaquants de protocole
 
-Le numéro de version de l’ensemble de règles par défaut s’incrémente quand de nouvelles signatures d’attaque sont ajoutées à l’ensemble de règles.
-L’ensemble de règles par défaut est activé en mode Détection par défaut dans vos stratégies WAF. Vous pouvez activer ou désactiver des règles individuellement dans l’ensemble de règles par défaut en fonction des exigences propres à votre application. Vous pouvez également définir des actions spécifiques (AUTORISER/BLOQUER/REDIRIGER/JOURNALISER) pour chaque règle.
-
-Parfois, il peut se révéler utile d’omettre certains attributs de demande d’une évaluation de pare-feu d’applications web (WAF). Les jetons insérés par Active Directory qui sont utilisés pour l’authentification en sont un exemple courant. Vous pouvez configurer une liste d’exclusion pour une règle managée, pour un groupe de règles ou pour la totalité de l’ensemble de règles.  
-
-L’action par défaut est BLOQUER. De plus, des règles personnalisées peuvent être configurées dans la même stratégie WAF si vous souhaitez ignorer les règles préconfigurées de l’ensemble de règles par défaut.
-
 Les règles personnalisées sont toujours appliquées avant l’évaluation des règles de l’ensemble de règles par défaut. Si une demande correspond à une règle personnalisée, l’action de la règle correspondante est appliquée. La demande est bloquée ou transmise au back-end. Aucune autre règle personnalisée ou les règles de l’ensemble de règles par défaut ne sont traitées. Vous pouvez aussi supprimer l’ensemble de règles par défaut de vos stratégies WAF.
+
+Pour plus d’informations, consultez [Règles et groupes de règles DRS Web Application Firewall](waf-front-door-drs.md).
+
 
 ### <a name="bot-protection-rule-set-preview"></a>Ensemble de règles de protection des bots (préversion)
 

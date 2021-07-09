@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9ebc6e266c93e55bc250e8450356f8b695dd9080
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 37aa8c954f847002ad69fa17ee1f025049ec9bb6
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714989"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110785761"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutoriel : Implémenter l’analytique spatiale IoT avec Azure Maps
 
@@ -24,7 +24,7 @@ Dans ce tutoriel vous allez :
 
 > [!div class="checklist"]
 > * Créer un compte Stockage Azure pour journaliser les données de suivi de véhicule.
-> * Charger une limite géographique sur le service Data d’Azure Maps (préversion) à l’aide de l’API de chargement de données.
+> * Charger une limite géographique dans le service Azure Maps Data à l’aide de l’API de chargement de données.
 > * Créer un hub dans Azure IoT Hub et inscrire un appareil.
 > * Créer une fonction dans Azure Functions, en implémentant une logique métier basée sur l’analytique spatiale Azure Maps.
 > * Vous abonner aux événements de télémétrie de l’appareil IoT à partir de la fonction Azure par le biais d’Azure Event Grid.
@@ -126,33 +126,28 @@ Effectuez les étapes suivantes pour charger la limite géographique à l’aide
 3. Sélectionnez la méthode HTTP **POST** sous l’onglet du générateur, puis entrez l’URL suivante pour charger la limite géographique dans l’API de chargement de données. Remplacez `{subscription-key}` par la clé de votre abonnement principal.
 
     ```HTTP
-    https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
+    https://us.atlas.microsoft.com/mapData?subscription-key={subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
     Dans le chemin d’URL, la valeur `geojson` définie pour le paramètre `dataFormat` représente le format des données en cours de chargement.
 
 4. Sélectionnez **Body** > **raw** comme format d’entrée, puis choisissez **JSON** dans la liste déroulante. [Ouvrez le fichier de données JSON](https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4) et copiez le code JSON dans la section du corps. Sélectionnez **Envoyer**.
 
-5. Sélectionnez **Send** et attendez que la requête soit traitée. Une fois la requête terminée, accédez à l’onglet **En-têtes** de la réponse. Copiez la valeur de la **Emplacement**, qui est l’URL `status URL`.
+5. Sélectionnez **Send** et attendez que la requête soit traitée. Une fois la requête terminée, accédez à l’onglet **En-têtes** de la réponse. Copiez la valeur de la clé **Operation-Location**, qui correspond à `status URL`.
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0
+    https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0
     ```
 
 6. Pour vérifier l’état de l’appel d’API, créez une requête HTTP **GET** sur `status URL`. Vous devez ajouter votre clé d’abonnement principale à l’URL pour l’authentification. La requête **GET** doit ressembler à l’URL suivante :
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/<operationId>/status?api-version=1.0&subscription-key={subscription-key}
+   https://us.atlas.microsoft.com/mapData/<operationId>/status?api-version=2.0&subscription-key={subscription-key}
    ```
-   
-7. Lorsque la requête HTTP **GET** se termine avec succès, elle retourne un `resourceLocation`. Le `resourceLocation` contient également la valeur unique `udid` pour les données chargées. Copiez ce `udid` pour une utilisation ultérieure dans ce tutoriel.
 
-      ```json
-      {
-          "status": "Succeeded",
-          "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
-      }
-      ```
+7. Quand la requête s’est effectuée avec succès, sélectionnez l’onglet **En-têtes** dans la fenêtre de réponse. Copiez la valeur de la clé **Resource-Location**, qui correspond à `resource location URL`.  `resource location URL` contient l’identificateur unique (`udid`) des données chargées. Copiez la valeur `udid` (Clé) pour une utilisation ultérieure dans ce tutoriel.
+
+    :::image type="content" source="./media/tutorial-iot-hub-maps/resource-location-url.png" alt-text="Copiez l’URL de l’emplacement de la ressource.":::
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 

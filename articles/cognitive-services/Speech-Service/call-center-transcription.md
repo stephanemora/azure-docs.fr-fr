@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 19d4cc388494e149b7f258a8e9f154041a3dd070
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f83948fe0805229c0f01accb9e2b51112da599aa
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95021964"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838174"
 ---
 # <a name="speech-service-for-telephony-data"></a>Service Speech pour les données de téléphonie
 
@@ -103,7 +103,7 @@ En interne, nous utilisons les technologies ci-dessus pour prendre en charge les
 
 Certaines entreprises sont amenées à transcrire des conversations en temps réel. La transcription en temps réel permet d’identifier les mots clés et de déclencher des recherches de contenu et de ressources pertinents pour la conversation, à des fins de supervision des sentiments, d’améliorer l’accessibilité ou de fournir des traductions pour les clients et les agents qui ne sont pas des locuteurs natifs.
 
-Pour les scénarios qui nécessitent une transcription en temps réel, nous vous recommandons d’utiliser le [SDK Speech](speech-sdk.md). La reconnaissance vocale est disponible dans [plus de 20 langues](language-support.md), tandis que le SDK est disponible en C++, C#, Java, Python, Node.js, Objective-C et JavaScript. Vous trouverez des exemples dans chaque langage sur [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). Pour les dernières actualités et mises à jour, consultez [Notes de publication](releasenotes.md).
+Pour les scénarios qui nécessitent une transcription en temps réel, nous vous recommandons d’utiliser le [SDK Speech](speech-sdk.md). La reconnaissance vocale est disponible dans [plus de 20 langues](language-support.md), tandis que le SDK est disponible en C++, C#, Java, Python, JavaScript, Objective-C et Go. Vous trouverez des exemples dans chaque langage sur [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). Pour les dernières actualités et mises à jour, consultez [Notes de publication](releasenotes.md).
 
 En interne, nous utilisons les technologies ci-dessus pour analyser en temps réel les appels des clients de Microsoft, comme l’illustre le diagramme suivant.
 

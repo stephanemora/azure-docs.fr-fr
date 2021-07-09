@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/18/2020
-ms.openlocfilehash: 2dd06a7b4c8e6296cda747d17fd3d5be5db0af6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/13/2021
+ms.openlocfilehash: 31316a5d0688c7cee0bc15f6e7cebdea23d0f29d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95018886"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097086"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Créer une application LUIS dans le portail LUIS
 Il existe deux façons de créer une application LUIS. Vous pouvez créer une application LUIS dans le portail LUIS ou par le biais des [API](developer-reference-resource.md) de création LUIS.
@@ -44,13 +44,12 @@ Vous pouvez créer une application avec les API de création de deux manières 
 ## <a name="create-new-app-in-luis"></a>Créer une application dans LUIS
 
 1. Dans la page **Mes applications**, sélectionnez votre **Abonnement** et **Ressource de création**, puis **+ Créer**. 
-
-> [!div class="mx-imgBorder"]
-> ![Liste des applications LUIS](./media/create-app-in-portal.png)
+    
+    :::image type="content" source="media/create-app-in-portal.png" alt-text="Liste des applications LUIS" lightbox="media/create-app-in-portal.png":::
 
 1. Dans la boîte de dialogue, entrez le nom de votre application, par exemple `Pizza Tutorial`.
 
-    ![Boîte de dialogue Créer une application](./media/create-pizza-tutorial-app-in-portal.png)
+    :::image type="content" source="media/create-pizza-tutorial-app-in-portal.png" alt-text="Boîte de dialogue Créer une application" lightbox="media/create-pizza-tutorial-app-in-portal.png":::
 
 1. Choisissez la culture de votre application, puis sélectionnez **Terminé**. La description et la ressource de prédiction sont facultatives à ce stade. Vous pouvez les définir à tout moment dans la section **Gérer** du portail.
 
@@ -59,8 +58,7 @@ Vous pouvez créer une application avec les API de création de deux manières 
 
     Une fois l’application créée, le portail LUIS présente la liste **Intentions** dans laquelle figure l’intention `None` déjà créée pour vous. Vous avez maintenant une application vide.
 
-    > [!div class="mx-imgBorder"]
-    > ![Liste des intentions avec l’intention None créée sans aucun exemple d’énoncé.](media/pizza-tutorial-new-app-empty-intent-list.png)
+    :::image type="content" source="media/pizza-tutorial-new-app-empty-intent-list.png" alt-text="Liste des intentions avec une intention None et sans exemple d’énoncé" lightbox="media/pizza-tutorial-new-app-empty-intent-list.png":::
 
 ## <a name="other-actions-available-on-my-apps-page"></a>Autres actions disponibles sur la page Mes applications
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/2/2021
 ms.author: heikora
-ms.openlocfilehash: b82a732533c3d069b519b07c3209d4b96c472900
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 701a16779a7a485f33e5af44ec30d48801b7c1fd
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385023"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440805"
 ---
 # <a name="model-and-endpoint-lifecycle"></a>Cycle de vie des modèles et des points de terminaison
 
@@ -102,7 +102,7 @@ Ce qui se passe quand un modèle expire et la façon de le mettre à jour dépen
 ### <a name="batch-transcription"></a>Transcription Batch
 Si un modèle qui est utilisé avec la [transcription par lots](batch-transcription.md) expire, les demandes de transcription échoueront avec une erreur 4xx. Pour empêcher cela, mettez à jour le paramètre `model` dans le JSON envoyé dans le corps de la requête **Créer une transcription** pour pointer vers un modèle de base plus récent ou un modèle personnalisé plus récent. Vous pouvez également supprimer l’entrée `model` du JSON pour toujours utiliser le modèle de base le plus récent.
 ### <a name="custom-speech-endpoint"></a>Point de terminaison de voix personnalisé
-Si un modèle expire et qu’il est utilisé par un [point de terminaison vocal personnalisé](how-to-custom-speech-train-model.md), le service revient automatiquement à l’utilisation du modèle de base le plus récent pour la langue que vous utilisez. Vous pouvez sélectionner **Déploiement** dans le menu **Custom Speech** en haut de la page, puis cliquer sur le nom du point de terminaison pour afficher ses détails. En haut de la page de détails, vous verrez un bouton **Mettre à jour le modèle**, qui vous permet de mettre à jour en toute transparence le modèle utilisé par ce point de terminaison sans temps d’arrêt. Vous pouvez également effectuer cette modification par programme à l’aide de l’API REST [**Mise à jour du modèle**](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel).
+Si un modèle expire et qu’il est utilisé par un [point de terminaison vocal personnalisé](how-to-custom-speech-train-model.md), le service revient automatiquement à l’utilisation du modèle de base le plus récent pour la langue que vous utilisez. Pour mettre à jour un modèle, vous pouvez sélectionner **Déploiement** dans le menu **Custom Speech** en haut de la page, puis cliquer sur le nom du point de terminaison pour afficher ses détails. En haut de la page de détails, vous verrez un bouton **Mettre à jour le modèle**, qui vous permet de mettre à jour en toute transparence le modèle utilisé par ce point de terminaison sans temps d’arrêt. Vous pouvez également effectuer cette modification par programme à l’aide de l’API REST [**Mise à jour du modèle**](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

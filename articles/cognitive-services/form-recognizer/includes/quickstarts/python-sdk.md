@@ -4,23 +4,25 @@ description: Utilisez la bibliothèque de client Form Recognizer pour Python afi
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 0210ef3d82997887cd306098d4db7934443cd300
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7bee493f86a215f4c90624e0c4dcded43e83b827
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374197"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894361"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 
 > [!IMPORTANT]
+>
+> * Ce guide de démarrage rapide utilise la version **3.1.0** du kit SDK et cible la version **2.1** de l’API.
 >
 > * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Consultez la documentation de référence ci-dessous.
 
@@ -42,25 +44,9 @@ ms.locfileid: "110374197"
 
 Après avoir installé Python, vous pouvez installer la dernière version de la bibliothèque cliente Form Recognizer avec :
 
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
 ```console
-pip install azure-ai-formrecognizer --pre
+pip install azure-ai-formrecognizer 
 ```
-
-> [!NOTE]
-> Form Recognizer 3.1.0b4 est la dernière préversion du SDK et reflète la _version 2.1 preview.3 de l’API_.
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-```console
-pip install azure-ai-formrecognizer
-```
-
-> [!NOTE]
-> Le SDK Form Recognizer 3.0.0 reflète la version 2.0 de l’API
-
----
 
 ### <a name="create-a-new-python-application"></a>Créer une application Python
 
@@ -69,7 +55,7 @@ Créez une application Python dans votre éditeur ou IDE favori. Importez ensuit
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_imports)]
 
 > [!TIP]
-> Vous voulez voir l’intégralité du fichier de code de démarrage rapide à la fois ? Vous le trouverez sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/FormRecognizerQuickstart.py), qui contient les exemples de code utilisés dans ce guide de démarrage rapide.
+> Vous trouverez la totalité du fichier avec les exemples de code de ce guide de démarrage rapide sur [**GitHub**](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/FormRecognizerQuickstart.py).
 
 Créez des variables pour le point de terminaison et la clé Azure de votre ressource.
 
@@ -99,34 +85,6 @@ Avec Form Recognizer, vous pouvez créer deux types de client différents. Le pr
 > [!NOTE]
 > Les modèles peuvent aussi être entraînés à partir d’une interface graphique utilisateur comme l’[outil d’étiquetage Form Recognizer](../../label-tool.md).
 
-## <a name="code-examples"></a>Exemples de code
-
-Ces extraits de code montrent comment effectuer les tâches suivantes avec la bibliothèque de client Form Recognizer pour Python :
-<!-- markdownlint-disable MD001 -->
-<!-- markdownlint-disable MD024 -->
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
-* [Authentifier le client](#authenticate-the-client)
-* [Analyser la disposition](#analyze-layout)
-* [Analyser les reçus](#analyze-receipts)
-* [Analyser les cartes de visite](#analyze-business-cards)
-* [Analyser les factures](#analyze-invoices)
-* [Analyser les documents d’identité](#analyze-identity-documents)
-* [Analyser les formulaires avec un modèle personnalisé](#analyze-forms-with-a-custom-model)
-* [Entraîner un modèle personnalisé](#train-a-custom-model)
-* [Gérer des modèles personnalisés](#manage-custom-models)
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-* [Authentifier le client](#authenticate-the-client)
-* [Analyser la disposition](#analyze-layout)
-* [Analyser les reçus](#analyze-receipts)
-* [Entraîner un modèle personnalisé](#train-a-custom-model)
-* [Analyser les formulaires avec un modèle personnalisé](#analyze-forms-with-a-custom-model)
-* [Gérer des modèles personnalisés](#manage-custom-models)
-
----
-
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
 Ici, vous allez authentifier deux objets clients à l’aide des variables d’abonnement que vous avez définies ci-dessus. Vous allez utiliser un objet **AzureKeyCredential** pour que, le cas échéant, vous puissiez mettre à jour la clé d’API sans créer de nouveaux objets clients.
@@ -155,7 +113,7 @@ Pour analyser le contenu d’un fichier à une URL donnée, utilisez la méthode
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_getcontent)]
 
 > [!TIP]
-> Vous pouvez également obtenir le contenu à partir d’images locales. Consultez les méthodes [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), telles que `begin_recognize_content`. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) pour obtenir des scénarios impliquant des images locales.
+> Vous pouvez également récupérer du contenu à partir d’images locales avec les méthodes [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), par exemple `begin_recognize_content`. 
 
 ### <a name="output"></a>Output
 
@@ -187,7 +145,7 @@ Cette section montre comment analyser et extraire les champs communs de tickets 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
 
 > [!TIP]
-> Vous pouvez également analyser les images de tickets de caisse locales. Consultez les méthodes [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), telles que `begin_recognize_receipts`. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) pour obtenir des scénarios impliquant des images locales.
+> Vous pouvez également analyser des images locales de tickets de caisse avec les méthodes [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), par exemple `begin_recognize_receipts`. 
 
 ### <a name="output"></a>Output
 
@@ -213,63 +171,36 @@ Total: 1203.39 has confidence 0.774
 
 ## <a name="analyze-business-cards"></a>Analyser les cartes de visite
 
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
-Cette section montre comment analyser et extraire les champs courants des cartes de visite en anglais en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des cartes de visite, consultez le [guide conceptuel des cartes de visite](../../concept-business-cards.md).
+Cette section montre comment analyser et extraire les champs courants des cartes de visite en anglais en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des cartes de visite, consultez le [guide conceptuel des cartes de visite](../../concept-business-cards.md). 
 
 Pour analyser des cartes de visite à partir d’une URL, utilisez la méthode `begin_recognize_business_cards_from_url`.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_bc)]
 
 > [!TIP]
-> Vous pouvez également analyser les images de cartes de visite locales. Consultez les méthodes [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), telles que `begin_recognize_business_cards`. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) pour obtenir des scénarios impliquant des images locales.
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-> [!IMPORTANT]
-> Cette fonctionnalité n’est pas disponible dans la version de l’API sélectionnée.
-
----
+ > Vous pouvez également analyser des images locales de cartes de visite avec les méthodes [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), par exemple `begin_recognize_business_cards`. 
 
 ## <a name="analyze-invoices"></a>Analyser les factures
 
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
-Cette section montre comment analyser et extraire les champs communs de factures de vente en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des factures, consultez le [guide conceptuel des factures](../../concept-invoices.md).
+Cette section montre comment analyser et extraire les champs communs de factures de vente en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des factures, consultez le [guide conceptuel des factures](../../concept-invoices.md). 
 
 Pour analyser des factures à partir d’une URL, utilisez la méthode `begin_recognize_invoices_from_url`.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_invoice)]
 
 > [!TIP]
-> Vous pouvez également analyser des images de factures locales. Consultez les méthodes [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), telles que `begin_recognize_invoices`. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) pour obtenir des scénarios impliquant des images locales.
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-> [!IMPORTANT]
-> Cette fonctionnalité n’est pas disponible dans la version de l’API sélectionnée.
-
----
+> Vous pouvez également analyser des images locales de factures avec les méthodes [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), par exemple `begin_recognize_invoices`. 
 
 ## <a name="analyze-identity-documents"></a>Analyser les documents d’identité
 
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
-Cette section montre comment analyser et extraire des informations clés de documents d’identité gouvernementaux (passeports internationaux et permis de conduire émis aux États-Unis) à l’aide du modèle de document d’identification prédéfini Form Recognizer. Pour plus d’informations sur l’analyse des factures, consultez notre [guide conceptuel sur le modèle de document d’identification prédéfini](../../concept-identification-cards.md).
+Cette section montre comment analyser et extraire des informations clés de documents d’identité gouvernementaux (passeports internationaux et permis de conduire émis aux États-Unis) à l’aide du modèle de document d’identification prédéfini Form Recognizer. Pour plus d’informations sur l’analyse des documents d’identité, consultez notre [guide conceptuel sur le modèle de document d’identification prédéfini](../../concept-identification-cards.md).
 
 Pour analyser des documents d’identité à partir d’une URL, utilisez la méthode `begin_recognize_id_documents_from_url`.
 
-:::code language="python" source="~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py" id="snippet_id":::
+[!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_id)]
 
 > [!TIP]
-> Vous pouvez également analyser les images des documents d’identité. _Consultez_ les méthodes [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true#methods), par exemple, `begin_recognize_id_documents`. _Vous pouvez aussi consulter_ l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) pour les scénarios impliquant des images locales.
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-> [!IMPORTANT]
-> Cette fonctionnalité n’est pas disponible dans la version de l’API sélectionnée.
-
----
+ > Vous pouvez également analyser des images locales de pièces d’identité avec les méthodes [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true#methods), par exemple `begin_recognize_identity_documents`. 
 
 ## <a name="train-a-custom-model"></a>Entraîner un modèle personnalisé
 

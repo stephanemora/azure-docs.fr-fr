@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 06/01/2021
 ms.author: ambapat
-ms.openlocfilehash: 86d0a336a7d3f5d12ed8e53de802616f839f9eba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b29a292dae570d368f54f65773ce72a54de2e2d
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91756813"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413984"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>Démarrage rapide : Provisionner et activer un HSM managé à l’aide d’Azure CLI
 
@@ -63,11 +63,11 @@ Vous devez fournir les entrées suivantes pour créer une ressource Managed HSM�
 - Emplacement Azure.
 - Liste des administrateurs initiaux.
 
-L’exemple ci-dessous crée un HSM nommé **ContosoMHSM** dans le groupe de ressources **ContosoResourceGroup**, qui réside à l’emplacement **USA Est 2**, avec l’**utilisateur actuellement connecté** comme unique administrateur.
+L’exemple ci-dessous crée un HSM nommé **ContosoMHSM** dans le groupe de ressources **ContosoResourceGroup**, qui réside à l’emplacement **USA Est 2**, avec **l’utilisateur actuellement connecté** comme unique administrateur et **une période de conservation de 28 jours** pour la suppression réversible. En savoir plus sur la [suppression réversible d’un HSM managé](soft-delete-overview.md)
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
-az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "East US 2" --administrators $oid
+az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "East US 2" --administrators $oid --retention-days 28
 ```
 
 > [!NOTE]

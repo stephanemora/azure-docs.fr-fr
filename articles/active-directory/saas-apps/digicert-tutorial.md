@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 05/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 1b4bf5b9d9b0341609d4caf0647c849ba92b073f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00f6de3b18ac4c5abbe87777957ac171617c4a0e
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101647215"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555745"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Didacticiel : Intégration d’Azure Active Directory à DigiCert
 
@@ -38,6 +38,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * DigiCert prend en charge l’authentification unique lancée par le **fournisseur d’identité**.
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="add-digicert-from-the-gallery"></a>Ajouter DigiCert à partir de la galerie
 
@@ -75,7 +78,14 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    Dans la zone de texte **Identificateur**, tapez l’URL : `https://www.digicert.com/sso`
+    a. Dans la zone de texte **Identificateur**, tapez une l’URL : `https://www.digicert.com/account/sso/metadata`
+
+    b. Dans la zone **URL de réponse**, tapez l’URL : `https://www.digicert.com/account/sso/`
+
+    c. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://www.digicert.com/account/sso/<FEDERATION_NAME>/login`
+
+    > [!NOTE]
+    > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe du support technique DigiCert](mailto:support@digicert.com) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. L’application DigiCert attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
 

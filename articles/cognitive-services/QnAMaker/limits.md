@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: c654153340586004415b9d2fd8744fb539726960
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0d9e3d4c9ec9eab75ce5917e9ea20011653ff133
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369404"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790191"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites de la base de connaissances QnA Maker
 
@@ -60,15 +60,31 @@ Le nombre maximal de liens ciblés pouvant être analysés pour l’extraction d
 
 ## <a name="metadata-limits"></a>Limites de métadonnées
 
-Les métadonnées sont présentées sous la forme d’une paire clé-valeur textuelle, telle que `product:windows 10`. Elles sont stockées et comparées en minuscules.
+Les métadonnées sont présentées sous la forme d’une paire clé-valeur textuelle, telle que `product:windows 10`. Elles sont stockées et comparées en minuscules. Le nombre maximal de champs de métadonnées est basé sur les **[limites du niveau de Recherche cognitive Azure](../../search/search-limits-quotas-capacity.md)** .
 
-### <a name="by-azure-cognitive-search-pricing-tier"></a>Par niveau tarifaire de Recherche cognitive Azure
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
-Le nombre maximal de champs de métadonnées par base de connaissances est basé sur les **[limites de niveau de Recherche cognitive Azure](../../search/search-limits-quotas-capacity.md)** .
+Pour la version en disposition générale, étant donné que l’index de test est partagé entre toutes les bases de connaissances, la limite est appliquée à toutes les bases de connaissances du service QnA Maker.
+
+|**Niveau de Recherche cognitive Azure** | **Gratuit** | **De base** |**S1** | **S2**| **S3** |**S3 HD**|
+|---|---|---|---|---|---|----|
+|Nombre maximal de champs de métadonnées par service QnA Maker (pour tous les Kbits/s)|1 000|100*|1 000|1 000|1 000|1 000|
+
+# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
+
+Si vous choisissez d’avoir des bases de connaissances en plusieurs langues dans un service, il y a un index de test dédié par base de connaissances. Par conséquent, la limite est appliquée par base de connaissances dans le service QnA Maker.
+
+|**Niveau de Recherche cognitive Azure** | **Gratuit** | **De base** |**S1** | **S2**| **S3** |**S3 HD**|
+|---|---|---|---|---|---|----|
+|Nombre maximal de champs de métadonnées par service QnA Maker (par base de connaissances)|1 000|100*|1 000|1 000|1 000|1 000|
+
+Si vous ne choisissez pas l’option permettant d’avoir les bases de connaissance dans plusieurs langues, les limites sont appliquées à toutes les bases de connaissance du service QnA Maker.
 
 |**Niveau de Recherche cognitive Azure** | **Gratuit** | **De base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Nombre maximal de champs de métadonnées par service QnA Maker (pour tous les Kbits/s)|1 000|100*|1 000|1 000|1 000|1 000|
+
+---
 
 ### <a name="by-name-and-value"></a>Par nom et valeur
 

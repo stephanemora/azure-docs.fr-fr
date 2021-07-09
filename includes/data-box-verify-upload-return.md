@@ -3,20 +3,33 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 09/30/2019
+ms.date: 05/07/2021
 ms.author: alkohli
-ms.openlocfilehash: ca7b83d24f2416b224963559361faf5a7775cd0d
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: a46552639b9cdea135216e544ec4c51f4d9dda3d
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631532"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736166"
 ---
 Lorsque Microsoft reçoit et analyse l’appareil, l’état de la commande est mis à jour sur **Reçue**. L’appareil subit une vérification physique afin de détecter des dommages ou des signes d’altération potentiels.
 
 Une fois la vérification terminée, la Data Box est connectée au réseau du centre de données Azure. La copie des données démarre automatiquement. Selon la taille des données, l’opération de copie peut prendre de quelques heures à quelques jours. Vous pouvez suivre la progression du travail de copie dans le portail.
 
-Une fois la copie terminée, la commande passe à l’état **Completed (Terminée)** .
+### <a name="review-copy-errors-from-upload"></a>Examiner les erreurs de copie du chargement
+
+Lorsque les fichiers ne peuvent pas être chargés en raison d’une erreur non renouvelable, vous êtes invité à examiner les erreurs avant de continuer. Les erreurs sont répertoriées dans le journal de copie des données.
+
+Vous ne pouvez pas corriger ces erreurs. Le chargement s’est terminé avec des erreurs. La notification vous informe des problèmes de configuration que vous devez résoudre avant d’essayer un autre chargement par le biais d’un transfert réseau ou d’une nouvelle commande d’importation. Pour obtenir des conseils, consultez [Passer en revue les erreurs de copie dans les chargements à partir d’appareils Azure Data Box et Azure Data Box Heavy](../articles/databox/data-box-troubleshoot-data-upload.md).
+
+Lorsque vous confirmez que vous avez vérifié les erreurs et que vous êtes prêt à continuer, les données sont effacées de manière sécurisée de l’appareil. La commande est exécutée automatiquement après 14 jours. En agissant sur la notification, vous pouvez déplacer des éléments plus rapidement.
+
+[!INCLUDE [data-box-review-nonretryable-errors](data-box-review-nonretryable-errors.md)]
+
+
+### <a name="verify-data-in-completed-upload"></a>Vérifier les données dans le chargement terminé
+
+Une fois le chargement des données terminé, la commande passe à l’état **Completed** (Terminé).
 
 Vérifiez que vos données ont été chargées dans Azure avant de les supprimer de la source. Vos données peuvent se trouver aux emplacements suivants :
 
@@ -50,7 +63,7 @@ Une fois que le chargement des données vers Azure est terminé, la Data Box eff
 Ce tutoriel vous a apporté des connaissances concernant Azure Data Box, notamment concernant les points suivants :
 
 > [!div class="checklist"]
-> * Conditions préalables requises
+> * Prérequis
 > * Préparer l’expédition
 > * Expédier la Data Box à Microsoft
 > * Vérifier le chargement des données dans Azure

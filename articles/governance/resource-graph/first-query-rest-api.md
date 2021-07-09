@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Votre première requête d’API REST'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes permettant d’appeler le point de terminaison Resource Graph pour l’API REST et exécutez votre première requête.
 ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: ef157eebbdd562262bb33f32e726d0d567c421d5
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: cab1cdd30403ffb8c055016afe21a45fe0b73f98
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324938"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112320853"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’API REST
 
@@ -125,7 +125,7 @@ Le corps de la demande de chaque appel d’API REST contient une variable que vo
 
 Si votre environnement ne change pas et si vous exécutez plusieurs fois la requête finale, les résultats retournés sont cohérents et classés en fonction de la propriété **Name**, mais toujours limités aux cinq premiers.
 
-Pour obtenir plus d’exemples d’appels d’API REST pour Azure Resource Graph, consultez les [exemples REST Azure Resource Graph](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#examples).
+Pour obtenir plus d’exemples d’appels d’API REST pour Azure Resource Graph, consultez les [exemples REST Azure Resource Graph](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#examples).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

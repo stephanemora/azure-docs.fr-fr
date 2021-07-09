@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/13/2021
+ms.date: 05/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 650df4d85d01b9617e094faf4cf7952da1f8eb9f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ac95a6eecba6311f81b4dc871775c99698be2244
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134507"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467198"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cerby"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Cerby
 
@@ -96,13 +96,14 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL d’authentification et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Cerby](mailto:help@cerby.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Votre application Cerby s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre un exemple : La valeur par défaut **Nom** est **user.userprincipalname**, mais Cerby s’attend à ce qu’elle soit mappée avec le prénom de l’utilisateur. Pour cela, vous pouvez utiliser l’attribut **user.givenname** dans la liste ou utiliser la valeur d’attribut appropriée en fonction de la configuration de votre organisation.
 
-    ![Lien Téléchargement de certificat](common/certificatebase64.png)
+    ![image](common/default-attributes.png)
 
-1. Dans la section **Configurer Cerby**, copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
-    ![Copier les URL de configuration](common/copy-configuration-urls.png)
+    ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -129,7 +130,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-cerby-sso"></a>Configurer l’authentification unique Cerby
 
-Pour configurer l’authentification unique côté **Cerby**, vous devez envoyer le **certificat (en base64)** téléchargé et les URL appropriées, copiées à partir du portail Azure à l’[équipe du support technique de Cerby](mailto:help@cerby.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté Cerby, vous devez envoyer l’**URL des métadonnées de fédération de l’application** à l’[équipe du support technique de Cerby](mailto:help@cerby.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-cerby-test-user"></a>Créer un utilisateur de test Cerby
 

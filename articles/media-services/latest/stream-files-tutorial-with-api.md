@@ -2,7 +2,7 @@
 titre : Charger, encoder et diffuser avec Media Services v3 : Description d’Azure Media Services : Didacticiel illustrant le chargement d’un fichier, l’encodage d'une vidéo et la diffusion de contenu avec Azure Media Services v3.
 services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
 
-ms.service: media-services ms.workload: ms.topic: tutorial ms.custom: mvc ms.date: 03/17/2021 ms.author: inhenkel
+ms.service: media-services ms.workload: ms.topic: tutorial ms.custom: mvc ms.date: 05/25/2021 ms.author: inhenkel
 ---
 
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Tutoriel : Télécharger, encoder et diffuser des vidéos avec Media Services v3
@@ -41,13 +41,13 @@ Clonez un référentiel GitHub contenant l’exemple .NET de diffusion en contin
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
-L’exemple se trouve dans le dossier [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles).
+L’exemple se trouve dans le dossier [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/main/AMSV3Tutorials/UploadEncodeAndStreamFiles).
 
-Ouvrez [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) dans votre projet téléchargé. Remplacez les valeurs par les informations d’identification que vous avez obtenues en [accédant aux API](./access-api-howto.md).
+Ouvrez [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) dans votre projet téléchargé. Remplacez les valeurs par les informations d’identification que vous avez obtenues en [accédant aux API](./access-api-howto.md).
 
 ## <a name="examine-the-code-that-uploads-encodes-and-streams"></a>Examiner le code qui charge, encode et diffuse en continu
 
-Cette section examine les fonctions définies dans le fichier [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) du projet *UploadEncodeAndStreamFiles*.
+Cette section examine les fonctions définies dans le fichier [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) du projet *UploadEncodeAndStreamFiles*.
 
 L’exemple effectue les actions suivantes :
 
@@ -59,11 +59,19 @@ L’exemple effectue les actions suivantes :
 6. Crée un **localisateur de streaming**.
 7. Crée des URL de diffusion en continu.
 
-### <a name="start-using-media-services-apis-with-net-sdk"></a>Commencer à utiliser les API Media Services avec le Kit de développement logiciel (SDK) .NET
+### <a name="start-using-media-services-apis-with-the-net-sdk"></a>Commencer à utiliser les API Media Services avec le SDK .NET
 
-Pour commencer à utiliser les API Media Services avec .NET, vous devez créer un objet **AzureMediaServicesClient**. Pour créer l’objet, vous devez fournir les informations d’identification permettant au client de se connecter à Azure à l’aide d’Azure AD. Dans le code que vous avez cloné au début de l’article, la fonction **GetCredentialsAsync** crée l’objet ServiceClientCredentials basé sur les informations d’identification fournies dans le fichier de configuration local.
+Pour commencer à utiliser les API Media Services avec .NET, vous devez créer un objet `AzureMediaServicesClient`. Pour créer l’objet, vous devez fournir des informations d’identification pour que le client puisse se connecter à Azure avec Azure Active Directory. Une autre option consiste à utiliser l’authentification interactive, qui est implémentée dans `GetCredentialsInteractiveAuthAsync`.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateMediaServicesClient)]
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#CreateMediaServicesClientAsync)]
+
+Dans le code que vous avez cloné au début de l’article, la fonction `GetCredentialsAsync`crée l’objet `ServiceClientCredentials` en fonction des informations d’identification fournies dans le fichier de configuration local (*appsettings.json*) ou par le biais du fichier de variables d’environnement *.env* à la racine du dépôt.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsAsync)]
+
+Dans le cas de l’authentification interactive, la fonction `GetCredentialsInteractiveAuthAsync` crée l’objet `ServiceClientCredentials` en fonction d’une authentification interactive et des paramètres de connexion fournis dans le fichier config local (*appsettings.json*) ou via le fichier de variables d’environnement *.env* situé à la racine du dépôt. Dans ce cas, AADCLIENTID et AADSECRET ne sont pas nécessaires dans le fichier config ou le fichier de variables d’environnement.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsInteractiveAuthAsync)]
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Créer une ressource d’entrée et charger un fichier local dans celle-ci
 

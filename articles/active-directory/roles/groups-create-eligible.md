@@ -8,25 +8,34 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 11/05/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69662ca24ab135db549ee108e93f9276e154e58
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 4fb616bce2f169061a6384148e3cbbe463c83be8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106906"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085903"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Créer un groupe avec attribution de rôle dans Azure Active Directory
 
-Vous pouvez attribuer un rôle uniquement à un groupe qui a été créé avec la propriété « isAssignableToRole » définie sur True ou qui a été créé dans le portail Azure AD avec l’option **Des rôles Azure AD peuvent être attribués au groupe** activée. Avec cet attribut, le groupe peut être attribué à un rôle dans Azure AD (Azure Active Directory). Cet article explique comment créer ce type de groupe spécial. **Remarque :** Un groupe dont la propriété isAssignableToRole a la valeur true ne peut pas être de type d’appartenance dynamique. Pour plus d’informations, consultez [Utilisation d’un groupe pour gérer des attributions de rôles Azure AD](groups-concept.md).
+Il n’est possible d’attribuer un rôle qu’à un groupe créé avec la propriété « isAssignableToRole » définie sur True ou créé sur le Portail Azure avec l’option **Des rôles Azure AD peuvent être attribués au groupe** activée. Avec cet attribut, le groupe peut être attribué à un rôle dans Azure AD (Azure Active Directory). Cet article explique comment créer ce type de groupe spécial. **Remarque :** Un groupe dont la propriété isAssignableToRole a la valeur true ne peut pas être de type d’appartenance dynamique. Pour plus d’informations, consultez [Utilisation d’un groupe pour gérer des attributions de rôles Azure AD](groups-concept.md).
 
-## <a name="using-azure-ad-admin-center"></a>Utilisation du Centre d’administration Azure AD
+## <a name="prerequisites"></a>Prérequis
 
-1. Connectez-vous au [Centre d’administration Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) avec des autorisations Administrateur de rôle privilégié ou Administrateur général dans l’organisation Azure AD.
+- Licence Azure AD Premium P1 ou P2
+- Administrateur de rôle privilégié ou Administrateur général
+- Module AzureADPreview (avec PowerShell)
+- Consentement administrateur (avec l’Afficheur Graph pour l’API Microsoft Graph)
+
+Pour plus d’informations, consultez [Prérequis pour utiliser PowerShell ou de l’Afficheur Graph](prerequisites.md).
+
+## <a name="azure-portal"></a>Portail Azure
+
+1. Connectez-vous au [Centre d’administration Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
 1. Sélectionnez **Groupes** > **Tous les groupes** > **Nouveau groupe**.
 
     [![Ouvrez Azure Active Directory et créez un groupe.](./media/groups-create-eligible/new-group.png "Ouvrez Azure Active Directory et créez un groupe.")](./media/groups-create-eligible/new-group.png#<lightbox>)
@@ -46,20 +55,7 @@ Vous pouvez attribuer un rôle uniquement à un groupe qui a été créé avec l
 
 Le groupe est créé avec tous les rôles que vous lui avez attribués.
 
-## <a name="using-powershell"></a>Utilisation de PowerShell
-
-### <a name="install-the-azure-ad-preview-module"></a>Installer le module Azure AD en préversion
-
-```powershell
-Install-Module -Name AzureADPreview
-Import-Module -Name AzureADPreview
-```
-
-Pour vérifier que le module est prêt à l’emploi, exécutez la commande suivante :
-
-```powershell
-Get-Module -Name AzureADPreview
-```
+## <a name="powershell"></a>PowerShell
 
 ### <a name="create-a-group-that-can-be-assigned-to-role"></a>Créer un groupe auquel un rôle peut être attribué
 
@@ -103,7 +99,7 @@ Add-AzureADGroupMember -ObjectId $roleAssignablegroup.Id -RefObjectId $member.Ob
 }
 ```
 
-## <a name="using-microsoft-graph-api"></a>Utilisation de l’API Microsoft Graph
+## <a name="microsoft-graph-api"></a>API Microsoft Graph
 
 ### <a name="create-a-role-assignable-group-in-azure-ad"></a>Créer un groupe avec attribution de rôle dans Azure AD
 

@@ -6,14 +6,14 @@ author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: tutorial
-ms.date: 03/22/2021
+ms.date: 05/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5155ffed26daaf53b991a84971929500057d0007
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: b6e1deb15f5efe8441624a3c00f72efc1ba38138
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275275"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955431"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutoriel : Analyser des vidéos avec Media Services v3
 
@@ -34,7 +34,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 ## <a name="compliance-privacy-and-security"></a>Conformité, confidentialité et sécurité
  
-Il est important de vous rappeler que vous devez vous conformer à toutes les réglementations applicables dans le cadre de votre utilisation du service Video Indexer. Vous ne devez pas utiliser Video Indexer ou tout autre service Azure d’une manière qui ne respecte pas les droits d’autrui. Avant de charger des vidéos, y compris des données biométriques, vers le service Video Indexer à des fins de traitement et de stockage, vous devez disposer de tous les droits appropriés sur les vidéos, y compris avoir obtenu le consentement des personnes apparaissant dans les vidéos. Pour découvrir la conformité, la confidentialité et la sécurité dans Video Indexer, consultez les [Conditions générales d’utilisation d’Azure Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Pour connaître les obligations de Microsoft en matière de confidentialité et de traitement de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions des Services en Ligne](https://www.microsoft.com/licensing/product-licensing/products) (OST) et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations complémentaires sur la confidentialité, notamment sur la conservation, la suppression et la destruction des données, sont disponibles dans l’OST et [ici](../video-indexer/faq.md). En utilisant Video Indexer, vous acceptez de vous conformer aux Conditions d’utilisation de Cognitive Services, à l’OST, au DPA et à la Déclaration de confidentialité.
+Il est important de vous rappeler que vous devez vous conformer à toutes les réglementations applicables dans le cadre de votre utilisation du service Video Indexer. Vous ne devez pas utiliser Video Indexer ou tout autre service Azure d’une manière qui ne respecte pas les droits d’autrui. Avant de charger des vidéos, y compris des données biométriques, vers le service Video Indexer à des fins de traitement et de stockage, vous devez disposer de tous les droits appropriés sur les vidéos, y compris avoir obtenu le consentement des personnes apparaissant dans les vidéos. Pour découvrir la conformité, la confidentialité et la sécurité dans Video Indexer, consultez les [Conditions générales d’utilisation d’Azure Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Pour connaître les obligations de Microsoft en matière de confidentialité et de traitement de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions des Services en Ligne](https://www.microsoft.com/licensing/product-licensing/products) (OST) et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations complémentaires sur la confidentialité, notamment sur la conservation, la suppression et la destruction des données, sont disponibles dans l’OST et [ici](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md). En utilisant Video Indexer, vous acceptez de vous conformer aux Conditions d’utilisation de Cognitive Services, à l’OST, au DPA et à la Déclaration de confidentialité.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -50,13 +50,13 @@ Clonez un référentiel GitHub qui contient l’exemple .NET sur votre machine �
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
-L’exemple se trouve dans le dossier [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
+L’exemple se trouve dans le dossier [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/main/AMSV3Tutorials/AnalyzeVideos).
 
-Ouvrez [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) dans votre projet téléchargé. Remplacez les valeurs par les informations d’identification que vous avez obtenues en [accédant aux API](./access-api-howto.md).
+Ouvrez [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/AnalyzeVideos/appsettings.json) dans votre projet téléchargé. Remplacez les valeurs par les informations d’identification que vous avez obtenues en [accédant aux API](./access-api-howto.md).
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Examiner le code qui analyse la vidéo spécifiée
 
-Cette section examine les fonctions définies dans le fichier [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) du projet *AnalyzeVideos*.
+Cette section examine les fonctions définies dans le fichier [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/AnalyzeVideos/Program.cs) du projet *AnalyzeVideos*.
 
 L’exemple effectue les actions suivantes :
 
@@ -67,11 +67,19 @@ L’exemple effectue les actions suivantes :
 5. Vérifier l’état du travail.
 6. Télécharger les fichiers qui résultent de l’exécution du travail.
 
-### <a name="start-using-media-services-apis-with-net-sdk"></a>Commencer à utiliser les API Media Services avec le Kit de développement logiciel (SDK) .NET
+### <a name="start-using-media-services-apis-with-the-net-sdk"></a>Commencer à utiliser les API Media Services avec le SDK .NET
 
-Pour commencer à utiliser les API Media Services avec .NET, vous devez créer un objet **AzureMediaServicesClient**. Pour créer l’objet, vous devez fournir les informations d’identification nécessaires pour que le client puisse se connecter à Azure à l’aide d’Azure AD. Dans le code que vous avez cloné au début de l’article, la fonction **GetCredentialsAsync** crée l’objet ServiceClientCredentials basé sur les informations d’identification fournies dans le fichier de configuration local. 
+Pour commencer à utiliser les API Media Services avec .NET, vous devez créer un objet `AzureMediaServicesClient`. Pour créer l’objet, vous devez fournir des informations d’identification pour que le client puisse se connecter à Azure avec Azure Active Directory. Une autre option consiste à utiliser l’authentification interactive, qui est implémentée dans `GetCredentialsInteractiveAuthAsync`.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateMediaServicesClient)]
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#CreateMediaServicesClientAsync)]
+
+Dans le code que vous avez cloné au début de l’article, la fonction `GetCredentialsAsync`crée l’objet `ServiceClientCredentials` en fonction des informations d’identification fournies dans le fichier de configuration local (*appsettings.json*) ou par le biais du fichier de variables d’environnement *.env* à la racine du dépôt.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsAsync)]
+
+Dans le cas d’une authentification interactive, la fonction `GetCredentialsInteractiveAuthAsync` crée l’objet `ServiceClientCredentials` en fonction d’une authentification interactive et des paramètres de connexion fournis dans le fichier de configuration local (*appsettings.json*) ou via le fichier de variables d’environnement *.env* à la racine du référentiel. Dans ce cas, AADCLIENTID et AADSECRET ne sont pas nécessaires dans le fichier de variables d’environnement ou la configuration.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsInteractiveAuthAsync)]
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Créer une ressource d’entrée et charger un fichier local dans celle-ci 
 

@@ -8,20 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 06/07/2021
 ms.author: aahi
-ms.custom: references_regions
-ms.openlocfilehash: 80a943d235783852f57832363b5af8048f010575
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 37dd6eddc302062d756df79a03bd13cfc8c881e1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599428"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757172"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procédure : Utiliser l’Analyse de texte pour la santé (préversion)
 
 > [!IMPORTANT] 
-> L’Analyse de texte pour l’intégrité est une fonctionnalité en version préliminaire fournie « en l’état » et « avec toutes les erreurs ». Par conséquent, **l’Analyse de texte pour l’intégrité (préversion) ne doit pas être implémentée ou déployée dans le cadre d’une utilisation en production.** L’Analyse de texte pour l’intégrité n’est pas destinée à être utilisée en tant que dispositif médical, support clinique, outil de diagnostic ou autre technologie destinée à être utilisée dans le diagnostic, la guérison, l’atténuation, le traitement ou la prévention de maladies ou d’autres conditions, et aucune licence ou droit n’est accordé par Microsoft pour utiliser cette fonctionnalité à ces fins. Cette fonctionnalité n’est pas conçue ou destinée à être mise en œuvre ou déployée en remplacement de conseils médicaux professionnels ou d’avis de santé, de diagnostic, de traitement ou de jugement clinique d’un professionnel de la santé, et ne doit pas être utilisé en tant que tel. Le client est seul responsable de l’utilisation de l’Analyse de texte pour l’intégrité. Microsoft ne garantit pas que l’Analyse de texte pour l’intégrité ou les ressources fournies dans le cadre de la fonctionnalité sont suffisantes pour des raisons médicales ou répondent aux exigences médicales de toute personne. 
+> L’Analyse de texte pour l’intégrité est une fonctionnalité en version préliminaire fournie « en l’état » et « avec toutes les erreurs ». Par conséquent, l’Analyse de texte pour l’intégrité (préversion) ne doit pas être implémentée ou déployée dans le cadre d’une utilisation en production. L’Analyse de texte pour l’intégrité n’est pas destinée à être utilisée en tant que dispositif médical, support clinique, outil de diagnostic ou autre technologie destinée à être utilisée dans le diagnostic, la guérison, l’atténuation, le traitement ou la prévention de maladies ou d’autres conditions, et aucune licence ou droit n’est accordé par Microsoft pour utiliser cette fonctionnalité à ces fins. Cette fonctionnalité n’est pas conçue ou destinée à être mise en œuvre ou déployée en remplacement de conseils médicaux professionnels ou d’avis de santé, de diagnostic, de traitement ou de jugement clinique d’un professionnel de la santé, et ne doit pas être utilisé en tant que tel. Le client est seul responsable de l’utilisation de l’Analyse de texte pour l’intégrité. Le client doit disposer séparément d’une licence pour tous les vocabulaires sources qu’il envisage d’utiliser selon les conditions définies dans cette [Annexe du Contrat de licence du métathésaurus de l’UMLS](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) ou de tout lien équivalent futur. Il incombe au client de s’assurer de la conformité avec les termes du contrat de licence, y compris en ce qui concerne les restrictions géographiques ou autres restrictions applicables.
 
 
 Analyse de texte pour la santé est une fonctionnalité du service de l’API Analyse de texte qui extrait et étiquette des informations médicales pertinentes à partir de textes non structurés, tels que les notes du médecin, les bilans de sortie d’hospitalisation, les documents cliniques et les dossiers médicaux électroniques.  Il existe deux façons d’utiliser ce service : 
@@ -74,22 +73,9 @@ La signification du contenu médical est fortement affectée par les modificateu
 
 Consultez les [catégories d’entité](../named-entity-types.md?tabs=health) retournées par l’Analyse de texte pour la santé pour obtenir un liste complète des entités prises en charge. Pour plus d’informations sur les scores de confiance, consultez la [note de transparence relative à Analyse de texte](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
 
-### <a name="supported-languages-and-regions"></a>Langues et régions prises en charge
+### <a name="supported-languages"></a>Langues prises en charge
 
 L’Analyse de texte pour la santé prend uniquement en charge les documents en langue anglaise. 
-
-L’API web hébergée Analyse de texte pour la santé est actuellement disponible uniquement dans les régions suivantes : USA Ouest 2, USA Est 2, USA Centre, Europe Nord et Europe Ouest.
-
-## <a name="request-access-to-the-public-preview"></a>Demander accès à la préversion publique
-
-Renseignez et envoyez le [formulaire de demande Cognitive Services](https://aka.ms/csgate) pour demander l’accès à la préversion publique d’Analyse de texte pour la santé. Vous ne serez pas facturé pour l’utilisation de l’Analyse de texte pour la santé. 
-
-Le formulaire demande des informations sur vous, votre entreprise et le scénario d’utilisateur pour lequel vous allez utiliser le conteneur. Une fois le formulaire envoyé, l’équipe Azure Cognitive Services Azure l’examinera et vous informera de sa décision par courrier électronique.
-
-> [!IMPORTANT]
-> * Dans le formulaire, vous devez utiliser une adresse e-mail associée à un ID d’abonnement Azure.
-> * La ressource Azure que vous utilisez doit avoir été créée avec l’ID d’abonnement Azure approuvé. 
-> * Vérifiez votre adresse e-mail (boîtes de réception et dossiers de courrier indésirable) pour obtenir des mises à jour sur l’état de votre application auprès de Microsoft.
 
 ## <a name="using-the-docker-container"></a>Utilisation du conteneur Docker 
 
@@ -116,12 +102,9 @@ La taille du document doit être inférieure à 5 120 caractères par document.
 
 ### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>Structurer la requête d’API pour l’API web asynchrone hébergée
 
-Pour le conteneur et l’API web hébergée, vous devez créer une requête POST. Vous pouvez [utiliser Postman](text-analytics-how-to-call-api.md), une commande cURL ou la **console de test d’API** indiquée dans les [informations de référence sur l’API hébergée Analyse de texte pour la santé](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) pour créer et envoyer rapidement une requête POST à l’API web hébergée dans la région de votre choix. 
+Pour le conteneur et l’API web hébergée, vous devez créer une requête POST. Vous pouvez [utiliser Postman](text-analytics-how-to-call-api.md), une commande cURL ou la **console de test d’API** indiquée dans les [informations de référence sur l’API hébergée Analyse de texte pour la santé](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Health) pour créer et envoyer rapidement une requête POST à l’API web hébergée dans la région de votre choix. Dans le point de terminaison v3.1-preview.5 de l’API, le paramètre de requête booléen `loggingOptOut` peut être utilisé pour activer la journalisation à des fins de dépannage.  La valeur par défaut est TRUE si aucune valeur n’est spécifiée dans la requête demandée.
 
-> [!NOTE]
-> Les points de terminaison asynchrones `/analyze` et `/health` sont uniquement disponibles dans les régions suivantes : USA Ouest 2, USA Est 2, USA Centre, Europe Nord et Europe Ouest.  Pour que ces points de terminaison acceptent les requêtes, vérifiez que votre ressource est créée dans l’une de ces régions.
-
-Voici un exemple de fichier JSON joint au corps POST de la requête d’API Analyse de texte pour la santé :
+Envoyez la requête POST vers `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/health/jobs` Voici un exemple de fichier JSON joint au corps POST de la requête d’API Analyse de texte pour la santé :
 
 ```json
 example.json
@@ -141,11 +124,11 @@ example.json
 
 Étant donné que cette requête POST est utilisée pour envoyer un travail pour l’opération asynchrone, il n’y a pas de texte dans l’objet de la réponse.  Toutefois, vous avez besoin de la valeur operation-location KEY dans les en-têtes de réponse pour effectuer une requête GET afin de vérifier l’état du travail et de la sortie.  Voici un exemple de valeur operation-location KEY dans l’en-tête de réponse de la requête POST :
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/health/jobs/<jobID>`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/health/jobs/<jobID>`
 
 Pour vérifier l’état du travail, faites une requête GET à l’URL dans la valeur de l’en-tête operation-location KEY de la réponse POST.  Les états suivants sont utilisés pour refléter l’état d’un travail : `NotStarted`, `running`, `succeeded`, `failed`, `rejected`, `cancelling` et `cancelled`.  
 
-Vous pouvez annuler un travail dont l’état est `NotStarted` ou `running` avec un appel DELETE HTTP à la même URL que la requête GET.  Pour plus d’informations sur l’appel DELETE, consultez les [informations de référence sur l’API hébergée Analyse de texte pour la santé](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/CancelHealthJob).
+Vous pouvez annuler un travail dont l’état est `NotStarted` ou `running` avec un appel DELETE HTTP à la même URL que la requête GET.  Pour plus d’informations sur l’appel DELETE, consultez les [informations de référence sur l’API hébergée Analyse de texte pour la santé](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/CancelHealthJob).
 
 Voici un exemple de réponse d’une requête GET.  La sortie est disponible et récupérable jusqu’à ce que le délai `expirationDateTime` (24 heures à partir de l’heure de création du travail) soit écoulé, après quoi la sortie est purgée.
 
@@ -302,7 +285,7 @@ Voici un exemple de réponse d’une requête GET.  La sortie est disponible et 
 Vous pouvez [utiliser Postman](text-analytics-how-to-call-api.md) ou l’exemple de requête cURL ci-dessous pour envoyer une requête au conteneur que vous avez déployé, en remplaçant la variable `serverURL` par la valeur appropriée.  Notez que la version de l’API dans l’URL du conteneur est différente de celle de l’API hébergée.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1-preview.5/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
@@ -501,17 +484,17 @@ La détection d’assertion représente des entités inversées comme une valeur
                         "category": "SymptomOrSign",
                         "confidenceScore": 0.98,
                         "assertion": {
-                            "certainty&quot;: &quot;negative"
+                            "certainty": "negative"
                         },
                         "name": "Dyspnea",
                         "links": [
                             {
                                 "dataSource": "UMLS",
-                                "id&quot;: &quot;C0013404"
+                                "id": "C0013404"
                             },
                             {
                                 "dataSource": "AOD",
-                                "id&quot;: &quot;0000005442"
+                                "id": "0000005442"
                             },
     ...
 ```
@@ -521,6 +504,18 @@ La détection d’assertion représente des entités inversées comme une valeur
 L’analyse de texte pour la santé reconnaît les relations entre les différents concepts, y compris les relations entre l’attribut et l’entité (par exemple, la direction de la structure du corps, la posologie du médicament) et entre les entités (par exemple, la détection des abréviations).
 
 **ABBREVIATION**
+
+**BODY_SITE_OF_CONDITION**
+
+**BODY_SITE_OF_TREATMENT**
+
+**COURSE_OF_CONDITION**
+
+**COURSE_OF_EXAMINATION**
+
+**COURSE_OF_MEDICATION**
+
+**COURSE_OF_TREATMENT**
 
 **DIRECTION_OF_BODY_STRUCTURE**
 
@@ -532,17 +527,31 @@ L’analyse de texte pour la santé reconnaît les relations entre les différen
 
 **DOSAGE_OF_MEDICATION**
 
+**EXAMINATION_FINDS_CONDITION**
+
+**EXPRESSION_OF_GENE**
+
+**EXPRESSION_OF_VARIANT**
+
 **FORM_OF_MEDICATION**
+
+**FREQUENCY_OF_CONDITION**
 
 **FREQUENCY_OF_MEDICATION**
 
 **FREQUENCY_OF_TREATMENT**
+
+**MUTATION_TYPE_OF_GENE**
+
+**MUTATION_TYPE_OF_VARIANT**
 
 **QUALIFIER_OF_CONDITION**
 
 **RELATION_OF_EXAMINATION**
 
 **ROUTE_OF_MEDICATION** 
+
+**SCALE_OF_CONDITION**
 
 **TIME_OF_CONDITION**
 
@@ -561,6 +570,8 @@ L’analyse de texte pour la santé reconnaît les relations entre les différen
 **VALUE_OF_CONDITION**  
 
 **VALUE_OF_EXAMINATION**
+
+**VARIANT_OF_GENE**
 
 > [!NOTE]
 > * Les relations faisant référence à la CONDITION peuvent faire référence au type d’entité DIAGNOSIS ou SYMPTOM_OR_SIGN.

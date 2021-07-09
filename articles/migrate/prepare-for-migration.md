@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: b8c9610ca7043ed6b8baa86e35ea76c74ed75bba
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: f434d20a79baf7c0b0210e3eb790b50a153d2d7a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107883991"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969026"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Préparer des ordinateurs locaux à une migration vers Azure
 
@@ -111,14 +111,12 @@ Configurez ce paramètre manuellement de la façon suivante :
 
 Azure Migrate effectue automatiquement ces actions pour les versions suivantes
 
-- Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x (l’agent VM Linux Azure est également installé automatiquement pendant la migration)
-- CentOS 7.7, 7.6, 7.5, 7.4, 6.x (l’agent VM Linux Azure est également installé automatiquement pendant la migration)
-- SUSE Linux Enterprise Server 12 SP1+
-- SUSE Linux Enterprise Server 15 SP1
+- Red Hat Enterprise Linux 8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x (l’agent VM Azure Linux est également installé automatiquement pendant la migration)
+- CentOS 8, 7.7, 7.6, 7.5, 7.4, 6.x (l’agent VM Azure Linux est également installé automatiquement pendant la migration)
+- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11
 - Ubuntu 19.04, 19.10, 18.04 LTS, 16.04 LTS, 14.04 LTS (l’agent VM Linux Azure est également installé automatiquement pendant la migration)
-- Ubuntu 18.04 LTS, 16.04 LTS
 - Debian 9, 8, 7
-- Oracle Linux 7.7, 7.7-CI
+- Oracle Linux 6, 7.7, 7.7-CI 
 
 Pour les autres versions, préparez les machines comme cela est résumé dans le tableau.  
 

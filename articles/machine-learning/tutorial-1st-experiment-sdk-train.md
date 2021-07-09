@@ -1,7 +1,7 @@
 ---
-title: 'Tutoriel : Entraîner votre premier modèle Machine Learning — Python'
+title: 'Tutoriel : Entraîner un premier modèle Machine Learning Python '
 titleSuffix: Azure Machine Learning
-description: La partie 2 de la série de tutoriels sur la prise en main d’Azure Machine Learning explique comment entraîner un modèle Machine Learning.
+description: Guide pratique pour entraîner un modèle Machine Learning dans Azure Machine Learning. Il s’agit de la deuxième partie d’une série de prise en main qui en compte trois.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
-ms.custom: devx-track-python, contperf-fy21q3
-ms.openlocfilehash: 65ff353469b884948e3de83e4b3ecafd1272cca5
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q
+ms.openlocfilehash: 616723e66dceeb3c0de21b36e3af3039dafbe63e
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809505"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028268"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-2-of-3"></a>Tutoriel : Entraîner votre premier modèle Machine Learning (partie 2 sur 3)
 
-Ce tutoriel vous montre comment former un modèle Machine Learning dans Azure Machine Learning.
+Ce tutoriel vous montre comment former un modèle Machine Learning dans Azure Machine Learning.  Ce tutoriel est la *deuxième partie d’une série de tutoriels qui en compte trois*.
 
-Ce tutoriel constitue la *partie 2 d’une série de trois tutoriels* où vous découvrez les principes fondamentaux d’Azure Machine Learning ainsi que l’exécution de tâches de machine learning basées sur des travaux dans Azure. Ce tutoriel s’appuie sur le travail que vous avez effectué dans [Partie 1 : Exécuter « Hello World! »](tutorial-1st-experiment-hello-world.md) de la série.
+ Dans la [Partie 1 : Exécuter « Hello World ! »](tutorial-1st-experiment-hello-world.md) de la série, vous avez appris à utiliser un script de contrôle pour exécuter un tâches dans le cloud.  
 
 À présent, vous allez soumettre un script qui forme un modèle Machine Learning. Cet exemple vous permettra de comprendre comment Azure Machine Learning facilite la cohérence entre les procédures de débogage local et d’exécutions distantes.
 
@@ -351,7 +351,7 @@ Cette fois, quand vous accédez au studio, accédez à l’onglet **Métriques**
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cette session, vous avez effectué une mise à niveau à partir d’un script « Hello World » de base vers un script de formation plus réaliste qui nécessitait l’exécution d’un environnement Python spécifique. Vous avez vu comment adopter un environnement Conda local dans le cloud avec des environnements Azure Machine Learning. Enfin, vous avez vu comment l’ajout de quelques lignes de code vous permet de journaliser des métriques dans Azure Machine Learning.
+Dans cette session, vous avez effectué une mise à niveau à partir d’un script « Hello World » de base vers un script de formation plus réaliste qui nécessitait l’exécution d’un environnement Python spécifique. Vous avez vu comment utiliser des environnements Azure Machine Learning organisés. Enfin, vous avez vu comment l’ajout de quelques lignes de code vous permet de journaliser des métriques dans Azure Machine Learning.
 
 Il existe d’autres façons de créer des environnements Azure Machine Learning, y compris [à partir d’un fichier pip requirements.txt](/python/api/azureml-core/azureml.core.environment.environment#from-pip-requirements-name--file-path-) ou [à partir d’un environnement Conda existant](/python/api/azureml-core/azureml.core.environment.environment#from-existing-conda-environment-name--conda-environment-name-).
 

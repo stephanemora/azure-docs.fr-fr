@@ -11,10 +11,12 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Télécharger un rapport de connexion
-      href: quickstart-download-sign-in-report.md
-    - name: Télécharger un rapport d’audit
-      href: quickstart-download-audit-report.md
+    - name: Filtrer votre journal d’audit
+      href: quickstart-filter-audit-log.md
+    - name: Analyser les connexions
+      href: quickstart-analyze-sign-in.md
+    - name: Accéder aux journaux avec l’API Graph
+      href: quickstart-access-log-with-graph-api.md
     - name: Acheminer des journaux d’activité vers un compte de stockage
       href: quickstart-azure-monitor-route-logs-to-storage-account.md
 - name: Tutoriels

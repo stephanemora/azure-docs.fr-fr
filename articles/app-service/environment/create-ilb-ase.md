@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be936bf8799d3e16679cf337e2425543163fe8f3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96009549"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110063295"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Créer et utiliser un environnement App Service Environment avec équilibreur de charge interne 
 
@@ -129,7 +129,7 @@ Le nom du site SCM vous dirige vers la console Kudu nommée **Portail avancé** 
 
 Les systèmes d’intégration continue basés sur Internet, comme GitHub et Azure DevOps, continueront de fonctionner avec un environnement ASE d’équilibreur de charge interne si l’agent de build est accessible par Internet et se trouve sur le même réseau que l’environnement ASE d’équilibreur de charge interne. Par conséquent, avec Azure DevOps, si l’agent de build est créé sur le même réseau virtuel que l’environnement ASE d’équilibreur de charge interne (vous pouvez utiliser un autre sous-réseau), il ne pourra pas extraire le code d’Azure DevOps Git et se déployer dans l’environnement ASE d’équilibreur de charge interne. Si vous ne souhaitez pas créer votre propre agent de build, vous devez utiliser un système d’intégration continue qui utilise un modèle d’extraction, par exemple Dropbox.
 
-Les points de terminaison de publication pour les applications d’un environnement ASE d’équilibreur de charge interne utilisent le domaine avec lequel l’environnement ASE d’équilibreur de charge interne a été créé. Ce domaine apparaît dans le profil de publication de l’application et sur le panneau du portail de l’application (**Vue d’ensemble** > **Bases** et également **Propriétés**). Si vous avez un ASE ILB avec le suffixe de domaine *&lt;nom ASE&gt;.appserviceenvironment.net* et une application nommée *mytest*, utilisez *mytest.&lt;nom ASE&gt;.appserviceenvironment.net* pour FTP et *mytest.scm.contoso.net* pour le déploiement web.
+Les points de terminaison de publication pour les applications d’un environnement ASE d’équilibreur de charge interne utilisent le domaine avec lequel l’environnement ASE d’équilibreur de charge interne a été créé. Ce domaine apparaît dans le profil de publication de l’application et sur le panneau du portail de l’application (**Vue d’ensemble** > **Bases** et également **Propriétés**). Si vous avez un ASE ILB avec le suffixe de domaine *&lt;nom ASE&gt;.appserviceenvironment.net* et une application nommée *mytest*, utilisez *mytest.&lt;nom ASE&gt;.appserviceenvironment.net* pour FTP et *mytest.scm.contoso.net* pour le déploiement MSDeploy.
 
 ## <a name="configure-an-ilb-ase-with-a-waf-device"></a>Configurer un ASE ILB avec un appareil WAF ##
 

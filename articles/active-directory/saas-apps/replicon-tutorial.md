@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/10/2019
+ms.date: 05/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 8915d780e79fa219428c54bad5458ab5966df6c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ccabdb23f1d06dc45ebfd06117cc8c9a168a8ad
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688499"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064729"
 ---
 # <a name="tutorial-integrate-replicon-with-azure-active-directory"></a>Tutoriel : Intégrer Replicon à Azure Active Directory
 
@@ -26,13 +26,11 @@ Dans ce didacticiel, vous allez apprendre à intégrer Replicon à Azure Active 
 * Permettre à vos utilisateurs de se connecter automatiquement à Replicon avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
-
 ## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’en avez pas, vous pouvez obtenir un essai gratuit d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Replicon pour lequel l’authentification unique est activée.
 
 > [!NOTE]
@@ -40,54 +38,56 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. Replicon prend en charge l’authentification unique initiée par le **SP**.
+Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. 
 
-## <a name="adding-replicon-from-the-gallery"></a>Ajout de Replicon à partir de la galerie
+* Replicon prend en charge l’authentification unique initiée par le **SP**.
+
+## <a name="add-replicon-from-the-gallery"></a>Ajouter Replicon à partir de la galerie
 
 Pour configurer l’intégration de Replicon à Azure AD, vous devez ajouter Replicon à partir de la galerie à votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Replicon** dans la zone de recherche.
 1. Sélectionnez **Replicon** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-replicon"></a>Configurer et tester l’authentification unique Azure AD pour Replicon
 
 Configurez et testez l’authentification unique Azure AD avec Replicon pour un utilisateur de test nommé **B. Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Replicon associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Replicon, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec Replicon, procédez comme suit :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique Replicon](#configure-replicon-sso)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Replicon](#create-replicon-test-user)** pour avoir un équivalent de B. Simon dans Replicon lié à la représentation Azure AD de l’utilisateur.
-6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique Replicon](#configure-replicon-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test Replicon](#create-replicon-test-user)** pour avoir un équivalent de B. Simon dans Replicon lié à la représentation Azure AD de l’utilisateur.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Replicon**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Replicon**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la boîte de dialogue **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la page **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    1. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://global.replicon.com/!/saml2/<client name>/sp-sso/post`.
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://global.replicon.com/!/saml2/<client name>/sp-sso/post`.
 
-    1. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://global.replicon.com/!/saml2/<client name>`
+    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://global.replicon.com/!/saml2/<client name>`
 
-    1. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://global.replicon.com/!/saml2/<client name>/sso/post`
+    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://global.replicon.com/!/saml2/<client name>/sso/post`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Replicon](https://www.replicon.com/customerzone/contact-support). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Cliquez sur l’icône de modification/de crayon pour **Certificat de signature SAML** pour modifier les paramètres.
+1. Cliquez sur l’icône de crayon pour **Certificat de signature SAML** pour modifier les paramètres.
 
     ![Algorithme de signature](common/signing-algorithm.png)
 
@@ -98,26 +98,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
    ![Lien Téléchargement de certificat](common/metadataxml.png)
-
-### <a name="configure-replicon-sso"></a>Configurer l’authentification unique de Replicon
-
-1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Replicon en tant qu’administrateur.
-
-2. Procédez comme suit pour configurer SAML 2.0 :
-
-    ![Activer l’authentification SAML](./media/replicon-tutorial/ic777805.png "Activer l’authentification SAML")
-
-    a. Pour afficher la boîte de dialogue **EnableSAML Authentication2**, ajoutez ce qui suit à votre URL, après la clé de votre entreprise : `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
-
-    * Voici une illustration du schéma de l’URL complète : `https://na2.replicon.com/<YourCompanyKey>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
-
-   b. Cliquez sur **+** pour développer la section **v20Configuration**.
-
-   c. Cliquez sur **+** pour développer la section **metaDataConfiguration**.
-
-   d. Sélectionnez **SHA256** pour xmlSignatureAlgorithm
-
-   e. Cliquez sur **Choose File** pour sélectionner votre fichier XML de métadonnées de fournisseur d’identité, puis cliquez sur **Submit**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -138,16 +118,30 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificati
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Replicon**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+## <a name="configure-replicon-sso"></a>Configurer l’authentification unique de Replicon
+
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Replicon en tant qu’administrateur.
+
+2. Procédez comme suit pour configurer SAML 2.0 :
+
+    ![Activer l’authentification SAML](./media/replicon-tutorial/authentication.png "Activer l’authentification SAML")
+
+    a. Pour afficher la boîte de dialogue **EnableSAML Authentication2**, ajoutez ce qui suit à votre URL, après la clé de votre entreprise : `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
+
+    1. Voici une illustration du schéma de l’URL complète : `https://na2.replicon.com/<YourCompanyKey>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
+
+   b. Cliquez sur **+** pour développer la section **v20Configuration**.
+
+   c. Cliquez sur **+** pour développer la section **metaDataConfiguration**.
+
+   d. Sélectionnez **SHA256** pour xmlSignatureAlgorithm
+
+   e. Cliquez sur **Choose File** pour sélectionner votre fichier XML de métadonnées de fournisseur d’identité, puis cliquez sur **Submit**.
 
 ### <a name="create-replicon-test-user"></a>Créer un utilisateur de test Replicon
 
@@ -159,15 +153,15 @@ L’objectif de cette section est de créer un utilisateur appelé B. Simon dans
 
 2. Accédez à **Administration \> Users**.
 
-    ![Utilisateurs](./media/replicon-tutorial/ic777806.png "Utilisateurs")
+    ![Utilisateurs](./media/replicon-tutorial/administration.png "Utilisateurs")
 
 3. Cliquez sur **+Add User**.
 
-    ![Ajouter un utilisateur](./media/replicon-tutorial/ic777807.png "Ajouter un utilisateur")
+    ![Ajouter un utilisateur](./media/replicon-tutorial/user.png "Ajouter un utilisateur")
 
 4. Dans la section **User Profile** , procédez comme suit :
 
-    ![Profil utilisateur](./media/replicon-tutorial/ic777808.png "User Profile")
+    ![Profil utilisateur](./media/replicon-tutorial/profile.png "User Profile")
 
     a. Dans la zone de texte **ID de connexion**, tapez l’adresse de messagerie Azure AD de l’utilisateur Azure AD que vous souhaitez approvisionner, comme `B.Simon@contoso.com`.
 
@@ -187,14 +181,16 @@ L’objectif de cette section est de créer un utilisateur appelé B. Simon dans
 > [!NOTE]
 > Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par Replicon, pour provisionner des comptes utilisateur Azure AD.
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO)
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Lorsque vous sélectionnez la vignette Replicon dans le volet d’accès, vous devez être connecté automatiquement à l’application Replicon pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Replicon à partir de laquelle vous pouvez lancer le flux de connexion. 
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Accédez directement à l’URL de connexion Replicon pour lancer le flux de connexion.
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Replicon dans Mes applications vous redirige vers l’URL de connexion à Replicon. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Étapes suivantes
+
+Après avoir configuré Replicon, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
