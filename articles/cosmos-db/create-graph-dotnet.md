@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: chrande
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 1953f4a21df6f550320592fbe009834a7b573887
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8bf24a3fa23880d9656ae6ce525f7877a6599e4
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93360528"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411968"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Démarrage rapide : Créer une application .NET Framework ou Core à l’aide du compte d’API Gremlin Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -73,11 +73,14 @@ Si vous n’avez pas encore installé Visual Studio 2019, vous pouvez téléchar
 5. Restaurez les packages NuGet dans le projet. Sont concernés ici le pilote Gremlin.Net et le package Newtonsoft.Json.
 
 
-6. Vous pouvez également installer le pilote Gremlin.Net manuellement à l’aide du gestionnaire de package Nuget ou de [l’utilitaire de ligne de commande nuget](/nuget/install-nuget-client-tools) : 
+6. Vous pouvez également installer le pilote Gremlin.Net@v3.4.6 manuellement à l’aide du gestionnaire de package NuGet ou de [l’utilitaire de ligne de commande NuGet](/nuget/install-nuget-client-tools) : 
 
     ```bash
-    nuget install Gremlin.Net
+    nuget install Gremlin.NET -Version 3.4.6
     ```
+    
+> [!NOTE]
+> Actuellement, l’API Gremlin [prend en charge Gremlin.Net uniquement jusqu’à la version 3.4.6](gremlin-support.md#compatible-client-libraries). Si vous installez la version la plus récente, vous recevrez des erreurs lors de l’utilisation du service.
 
 ## <a name="review-the-code"></a>Vérifier le code
 

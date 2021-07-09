@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: c3f4d883dcc9b79ddab77bb8779e52e629226631
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 021f7aeda86f5ff9f11eb2991a74c6ad37a203e6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950337"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469780"
 ---
 # <a name="3---deploy-the-search-enabled-website"></a>3 - Déployer le site web avec fonctionnalité de recherche
 
@@ -26,6 +26,15 @@ L’application web statique extrait les informations et les fichiers en vue du 
 ## <a name="create-a-static-web-app-in-visual-studio-code"></a>Créer une application web statique dans Visual Studio Code
 
 1. Sélectionnez **Azure** dans la barre d’activités, puis sélectionnez **Applications web statiques** dans la barre latérale. 
+
+1. Si une fenêtre contextuelle s’affiche dans VS Code vous demandant la branche à partir de laquelle vous souhaitez effectuer le déploiement, sélectionnez la branche par défaut, généralement la branche **maître** ou **principale**. 
+
+    Ce paramètre signifie que seules les modifications de cette branche que vous validez sont déployées vers votre application web statique. 
+
+1. Si une fenêtre contextuelle s’affiche vous demandant de valider vos modifications, ne le faites pas. Les secrets de l’étape d’importation en bloc ne doivent pas être validés dans le référentiel. 
+
+    Pour restaurer les modifications, dans VS Code, sélectionnez l’icône Contrôle de code source dans la barre Activité, choisissez chaque fichier modifié dans la liste Modifications, puis sélectionnez l’icône **Ignorer les modifications**.
+
 1. Cliquez avec le bouton droit sur le nom de l’abonnement, puis sélectionnez **Créer une application web statique (avancé)** .    
 
     :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="Cliquez avec le bouton droit sur le nom de l’abonnement, puis sélectionnez **Créer une application web statique (avancé)**.":::
@@ -34,16 +43,13 @@ L’application web statique extrait les informations et les fichiers en vue du 
 
     |Prompt|Entrez|
     |--|--|
-    |Comment voulez-vous créer une application web statique ?|Utiliser le référentiel GitHub existant|
-    |Choisir une organisation|Sélectionnez votre _propre_ alias GitHub en tant qu’organisation.|
-    |Choisir un référentiel|Sélectionnez **azure-search-javascript-samples** dans la liste. |
-    |Choisir une branche pour le référentiel|Dans la liste, sélectionnez **master**. |
     |Entrez le nom de la nouvelle application web statique.|Créez un nom unique pour votre ressource. Vous pouvez ajouter votre nom au nom du référentiel, par exemple, `joansmith-azure-search-javascript-samples`. |
     |Sélectionnez un groupe de ressources pour les nouvelles ressources.|Utilisez le groupe de ressources que vous avez créé pour ce tutoriel.|
+    |Sélectionner une référence| Sélectionnez la référence (SKU) gratuite pour ce tutoriel.|
     |Choisissez Générer une présélection pour configurer la structure de projet par défaut.|Sélectionnez **Personnalisée**.|
-    |Sélectionnez l’emplacement du code de votre application.|`search-website`|
-    |Sélectionnez l’emplacement de votre code Azure Function.|`search-website/api`|
-    |Entrez le chemin d’accès de la sortie générée...|build|
+    |Sélectionnez l’emplacement du code de votre application.|`search-website`<br><br>Il s’agit du chemin d’accès à votre application web statique Azure, à partir de la racine du référentiel. |
+    |Sélectionnez l’emplacement de votre code Azure Function.|`search-website/api`<br><br>Il s’agit du chemin d’accès à votre application Azure Function, à partir de la racine du référentiel. |
+    |Entrez le chemin d’accès de la sortie générée...|`build`<br><br>Il s’agit du chemin d’accès à vos fichiers générés, à partir de votre application web statique Azure.|
     |Sélectionnez un emplacement pour les nouvelles ressources.|Sélectionnez une région proche de chez vous.|
 
 1. La ressource est créée. Sélectionnez **Actions d’ouverture dans GitHub** dans les notifications. Cela ouvre une fenêtre de navigateur pointée vers votre référentiel dupliqué. 
@@ -84,7 +90,7 @@ L’application Azure Function ne retourne pas de données de recherche tant que
     |SearchIndexName|`good-books`|
     |SearchFacets|`authors*,language_code`|
 
-    Pour filtrer les collections, la Recherche cognitive Azure nécessite une syntaxe différente de celle qu’elle utilise pour les chaînes. Ajoutez un `*` après un nom de champ pour indiquer que le champ est de type `Collection(Edm.String)`. Cela permet à la fonction Azure d’ajouter correctement des filtres aux requêtes.
+    La Recherche cognitive Azure nécessite une syntaxe différente pour filtrer les collections par rapport à celle qu’elle utilise pour les chaînes. Ajoutez un `*` après un nom de champ pour indiquer que le champ est de type `Collection(Edm.String)`. Cela permet à la fonction Azure d’ajouter correctement des filtres aux requêtes.
 
 1. Sélectionnez **Enregistrer** pour enregistrer les paramètres. 
 

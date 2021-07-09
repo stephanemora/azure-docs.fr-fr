@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f108062c04292c322d07980155fea9c8808beb0a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 07fbe0cff104c25eca6db2750c2db692429ada65
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326738"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786511"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>Tutoriel : Migrer un service web à partir de Bing Cartes
 
@@ -44,7 +44,7 @@ Le tableau suivant présente les API du service Azure Maps qui offrent des fonct
 | Services de données spatiales           | [Recherche](/rest/api/maps/search) + [Itinéraires](/rest/api/maps/route) + autres services Azure |
 | Time Zone (Fuseau horaire)                             | [Fuseau horaire](/rest/api/maps/timezone)  |
 | Incidents de trafic                     | [Détails des incidents de trafic](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
-| Elevation                             | [Élévation (préversion)](/rest/api/maps/elevation)
+| Elevation                             | [Élévation](/rest/api/maps/elevation)
 
 Actuellement, les API de service suivantes ne sont pas disponibles dans Azure Maps :
 
@@ -53,7 +53,7 @@ Actuellement, les API de service suivantes ne sont pas disponibles dans Azure Ma
 
 Azure Maps offre plusieurs autres services web REST qui peuvent être utiles :
 
--   [Azure Maps Creator (préversion)](./creator-indoor-maps.md) : créez un jumeau numérique privé et personnalisé de bâtiments et d’espaces.
+-   [Créateur Azure Maps](./creator-indoor-maps.md) : créez un jumeau numérique privé et personnalisé de bâtiments et d’espaces.
 -   [opérations spatiales](/rest/api/maps/spatial) : déplacez vers un service les calculs et les opérations spatiales complexes, par exemple le geofencing.
 -   [Mosaïques](/rest/api/maps/render/getmaptile) : accédez aux mosaïques d’imagerie et de route à partir d’Azure Maps en tant que mosaïques vectorielles et raster.
 -   [Itinéraires par lot](/rest/api/maps/route/postroutedirectionsbatchpreview) : permet d’effectuer jusqu’à 1000 requêtes d’itinéraires dans un lot unique sur une période donnée. Les itinéraires sont calculés en parallèle sur le serveur pour un traitement plus rapide.

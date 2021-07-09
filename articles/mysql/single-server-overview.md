@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: b0f8c5806ba22708db6dc537d391c1f1b1a183ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9752b97e2f9bcff2f08dd2a280014e2c3d4a06c6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92543812"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470267"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Azure Database pour MySQL - Serveur unique
 
@@ -61,7 +61,7 @@ Trois références SKU sont disponibles pour le service à serveur unique : De 
 
 Le service à serveur unique utilise le module de chiffrement conforme à la norme FIPS 140-2 pour chiffrer le stockage des données au repos. Toutes les données sont chiffrées, y compris les sauvegardes et les fichiers temporaires créés lors de l'exécution des requêtes. Le service utilise le chiffrement AES 256 bits inclus dans le chiffrement du stockage Azure, et les clés peuvent être gérées par le système (par défaut) ou [par le client](concepts-data-encryption-mysql.md). Le service chiffre les données en mouvement avec les protocoles SSL/TLS appliqués par défaut. Le service prend en charge les versions 1.2, 1.1 et 1.0 du protocole TLS, avec la possibilité d'appliquer la [version minimum de TLS](concepts-ssl-connection-security.md). 
 
-Le service permet un accès privé aux serveurs via une [liaison privée](concepts-data-access-security-private-link.md) et fournit la fonctionnalité [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md). Advanced Threat Protection détecte les activités anormales indiquant des tentatives inhabituelles et potentiellement dangereuses d'accès à vos bases de données ou d'exploitation de celles-ci.
+Le service autorise l’accès privé aux serveurs avec une [liaison privée](concepts-data-access-security-private-link.md) et offre une protection contre les menaces par le biais du plan facultatif [Azure Defender pour les bases de données relationnelles open source](../security-center/defender-for-databases-introduction.md). Azure Defender détecte les activités anormales indiquant des tentatives inhabituelles et potentiellement dangereuses pour accéder à des bases de données ou les exploiter.
 
 Outre l'authentification native, le service à serveur unique prend en charge l'authentification [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). L'authentification Azure AD est un mécanisme de connexion aux serveurs MySQL utilisant des identités définies et gérées dans Azure AD. Avec l'authentification Azure AD, vous pouvez gérer les identités des utilisateurs de la base de données et d'autres services Azure à un emplacement central, ce qui simplifie et centralise le contrôle d'accès.
 

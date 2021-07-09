@@ -6,13 +6,13 @@ ms.author: banders
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/12/2020
-ms.openlocfilehash: ca4c1810912771f56661ca5b682b6991735f526e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 06/10/2021
+ms.openlocfilehash: 476e2bfb6883307fa243cfdc7af3d54d7fde6921
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023140"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006092"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Comprendre comment la remise de réservation est appliquée à Azure Cosmos DB
 
@@ -62,7 +62,7 @@ La remise de réservation est appliquée aux coûts de débit d’Azure Cosmos D
 |Azure Cosmos DB - 100 RU/s/heure - Japon Ouest|     Japon Ouest    |   1,125       |
 |Azure Cosmos DB - 100 RU/s/heure - Inde Ouest|     Inde Ouest    |    1,1375     |
 |Azure Cosmos DB - 100 RU/s/heure - Inde Centre|    Inde Centre     |  1,1375       |
-|Azure Cosmos DB - 100 RU/s/heure - Australie Est|     Australie Est    |   1,15       |
+|Azure Cosmos DB - 100 RU/s/heure - Australie Est|     Australie Est    |   1.15       |
 |Azure Cosmos DB - 100 RU/s/heure - Canada Centre|  Canada Centre       |   1.2       |
 |Azure Cosmos DB - 100 RU/s/heure - France Centre|   France Centre      |    1,25      |
 |Azure Cosmos DB - 100 RU/s/heure - Brésil Sud|  Brésil Sud       |   1.5      |
@@ -74,23 +74,23 @@ La remise de réservation est appliquée aux coûts de débit d’Azure Cosmos D
 
 Imaginons les exigences suivantes pour une réservation :
 
-* Débit nécessaire : 50 000 RU/s  
+* Débit requis : 50 000 RU/s  
 * Régions utilisées : 2
 
 Dans ce cas, votre total de frais à la demande correspond à une quantité de 500, par compteur de 100 RU/s dans ces deux régions. La consommation de RU/s totale est de 100 000 par heure.
 
-**Scénario 1**
+**Scénario 1**
 
 Par exemple, supposons que vous avez besoin de déployer Azure Cosmos DB dans les régions USA Centre Nord et USA Ouest. Chaque région dispose d’une consommation de débit de 50 000 RU/s. un achat de réservation de 100 000 RU/s couvrirait complètement vos frais à la demande.
 
-La remise qu’une réservation couvre est calculée comme suit : consommation de débit * taux de la remise de réservation pour la région concernée. Pour les régions USA Centre Nord et USA Ouest, le taux de la remise de réservation est 1. Ainsi, la remise totale de RU/s est de 100 000. Cette valeur est calculée comme suit . 50 000 * 1 + 50 000 * 1 = 100 000 RU/s. Vous ne payez aucun frais supplémentaire au tarif habituel du paiement à l’utilisation.
+La remise qu’une réservation couvre est calculée comme suit : consommation de débit * taux de la remise de réservation pour la région concernée. Pour les régions USA Centre Nord et USA Ouest, le taux de la remise de réservation est 1. Ainsi, la remise totale de RU/s est de 100 000. Cette valeur est calculée comme suit : 50 000 * 1 + 50 000 * 1 = 100 000 RU/s. Vous ne payez aucun frais supplémentaire au tarif habituel du paiement à l’utilisation.
 
 |Description du compteur | Région |Consommation de débit (RU/s) |Remise de réservation appliquée aux RU/s |
 |---------|---------|---------|---------|
 |Azure Cosmos DB - 100 RU/s/heure - USA Centre Nord  |   USA Centre Nord  | 50 000  | 50 000  |
 |Azure Cosmos DB - 100 RU/s/heure - USA Ouest  |  USA Ouest   |  50 000  |  50 000 |
 
-**Scénario 2**
+**Scénario 2**
 
 Par exemple, supposons que vous avez besoin de déployer Azure Cosmos DB dans les régions Australie Centre 2 et France Sud. Chaque région dispose d’une consommation de débit de 50 000 RU/s. un achat de réservation de 100 000 RU/s serait applicable comme suit (en supposant que l’utilisation dans la région Australie Centre 2 a fait l’objet d’une remise en premier) :
 
@@ -99,9 +99,15 @@ Par exemple, supposons que vous avez besoin de déployer Azure Cosmos DB dans le
 |Azure Cosmos DB - 100 RU/s/heure - Australie Centre 2  |  Australie Centre 2   |  50 000  |  50 000   |
 |Azure Cosmos DB - 100 RU/s/heure - France Sud  |  France Sud   |  50 000 |  15 384  |
 
-Une utilisation de 50 000 unités dans la région Australie Centre 2 correspond à 75 000 RU/s d’utilisation facturable (ou utilisation normalisée). Cette valeur est calculée comme suit : consommation de débit * taux de la remise de réservation pour la région concernée. Le total est de 75 000 RU/s d’utilisation facturable ou normalisée. Cette valeur est calculée comme suit . 50 000 * 1.5 = 75 000 RU/s.
+*  Une utilisation de 50 000 unités dans la région Australie Centre 2 correspond à 75 000 RU/s d’utilisation de réservation facturable (ou utilisation normalisée). Cette valeur est calculée comme suit : consommation de débit * taux de la remise de réservation pour la région concernée. Le total est de 75 000 RU/s d’utilisation facturable ou normalisée. Cette valeur est calculée comme suit : 50 000 * 1,5 = 75 000 RU/s.
 
-L’achat d’une réservation de 100 000 RU/s absorbe les 75 000 RU/s dans la région Australie Centre 2. Il reste 25 000 RU/s pour la région France Sud. Sur les 25 000 RU/s restantes, une remise de réservation de 15 384 RU/s est appliquée à la région France Sud. Cette valeur de remise est calculée comme suit : 25 000 / 1,625 = 15 384 RU/s. Les 34 616 RU/s restantes dans la région France Sud sont facturées au tarif habituel du paiement à l’utilisation.
+* Une utilisation de 50 000 unités dans la région France Sud correspond à une réservation nécessaire de 50 000 * 1,625 = 81 250 RU/s.
+
+* L’achat total de réservation est de 100 000. En effet la région Australie Centre 2 utilise 75 000 RU/s, ce qui laisse 25 000 RU/s pour l’autre région.
+
+* Pour la région France Sud, l’achat de réservation de 25 000 RU/s est utilisé et il reste 56 250 RU/S de réservation (81 250 – 25 000 = 56 250 RU/s).
+
+* 56 250 RU/s sont requises lors de l’utilisation de la réservation. Pour payer ces RU/s avec une tarification régulière, vous devez les convertir en RU/s standard en divisant le taux de réservation 56 250/1,625 = 34 616 RU/s. Les RU/s standard sont facturées au tarif normal du paiement à l’utilisation.
 
 Le système de facturation Azure fait bénéficier de l’avantage lié à la facturation de la réservation, la première instance qui est traitée et qui satisfait à la configuration de la réservation. En l’occurrence, dans notre exemple, Australie Centre 2.
 
@@ -113,7 +119,7 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
+Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
 
 * [Qu’est-ce qu’une réservation Azure ?](save-compute-costs-reservations.md)  
 * [Prépayer des ressources Azure Cosmos DB avec une capacité réservée Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)  

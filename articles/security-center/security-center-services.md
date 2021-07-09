@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 02/16/2021
+ms.date: 05/13/2021
 ms.author: memildin
-ms.openlocfilehash: 070f35dc3efea4a3f05ec36cc3860fa589aa87e3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b68a9946908697d6e9113af586a134b0b3d8784a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437908"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468336"
 ---
 # <a name="feature-coverage-for-machines"></a>Couverture des fonctionnalités pour les machines
 
@@ -125,6 +125,7 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 |[Azure Defender pour DNS](defender-for-dns-introduction.md)|-|-|
 |[Azure Defender pour les registres de conteneurs](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
 |[Azure Defender pour Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Azure Defender pour les bases de données relationnelles open source](defender-for-databases-introduction.md)|-|-|
 |[Protection de charge de travail Kubernetes](kubernetes-workload-protections.md)|✔|✔|
 |||
 

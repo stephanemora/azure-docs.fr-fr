@@ -6,12 +6,12 @@ ms.author: mimcco
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/25/2021
-ms.openlocfilehash: fa3dad8cdd38e6db621d8194cc9472430c7c5008
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ae2720c321e701d14e91f8aee7a6dfbfc5f15739
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605788"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071341"
 ---
 # <a name="azure-percept-audio-setup"></a>Installation d’Azure Percept Audio
 
@@ -22,7 +22,7 @@ Azure Percept Audio est prêt à l’emploi avec le DK Azure Percept. Aucune con
 - DK (devkit) Azure Percept
 - Azure Percept Audio
 - [Abonnement Azure](https://azure.microsoft.com/free/)
-- [Expérience d’installation du DK Azure Percept](./quickstart-percept-dk-set-up.md) : vous avez connecté votre devkit à un réseau Wi-Fi, créé un hub IoT et connecté votre devkit au hub IoT
+- [Expérience d’installation du DK Azure Percept](./quickstart-percept-dk-set-up.md) : vous avez connecté votre devkit à un réseau Wi-Fi, créé un hub IoT et connecté votre devkit au hub IoT.
 - Haut-parleur ou casque qui peut être branché à une prise audio de 3,5 mm (facultatif)
 
 ## <a name="connecting-your-devices"></a>Connexion de vos appareils
@@ -31,14 +31,14 @@ Azure Percept Audio est prêt à l’emploi avec le DK Azure Percept. Aucune con
 
 1. (Facultatif) Branchez votre haut-parleur ou votre casque sur l’appareil Azure Percept Audio en utilisant la prise audio étiquetée « Line Out » (sortie de ligne). De cette façon, vous pourrez entendre les réponses audio.
 
-1. Mettez sous tension le devkit. La LED L02 sur la carte d’interposeur audio passe au blanc clignotant pour indiquer que l’appareil a été mis sous tension et que Audio SoM s’authentifie.
+1. Mettez sous tension le devkit. La LED L02 passe au blanc clignotant pour indiquer que l’appareil a été mis sous tension et qu’il s’authentifie.
 
-1. Attendez que le processus d’authentification se termine. Cette opération peut prendre jusqu’à 3 minutes.
+1. Attendez que le processus d’authentification se termine, ce qui prend jusqu’à 5 minutes.
 
-1. Vous pouvez commencer le prototypage quand vous voyez l’une des choses suivantes :
+1. Vous pouvez commencer le prototypage quand vous voyez l’un des états suivants de la LED :
 
-    - La LED L02 passe au blanc fixe : l’authentification est terminée et le devkit n’a pas encore été configuré avec un mot clé.
-    - Les trois LED deviennent bleues : l’authentification est terminée et le devkit a été configuré avec un mot clé.
+    - La LED L02 passe au blanc fixe, indiquant que l’authentification est terminée et que le devkit est configuré sans mot clé.
+    - Les trois LED deviennent bleues, indiquant que l’authentification est terminée et que le devkit a été configuré avec un mot clé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

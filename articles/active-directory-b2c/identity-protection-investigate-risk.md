@@ -5,22 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 05/13/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f15fd789264922865acb792bdb766b9624665d91
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 072278ab70484eb427bafafc3e644e39e47eb8a8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109654757"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960491"
 ---
 # <a name="investigate-risk-with-identity-protection-in-azure-ad-b2c"></a>Examiner les risques avec Identity Protection dans Azure AD B2C
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 Identity Protection assure la détection des risques en continu pour votre locataire Azure AD B2C. Le service permet aux organisations de découvrir, d’examiner et de corriger les risques basés sur l’identité. Identity Protection est fourni avec des rapports sur les risques qui peuvent être utilisés pour examiner les risques liés à l’identité dans les locataires Azure AD B2C. Dans cet article, vous allez apprendre à examiner et à atténuer les risques.
 
@@ -83,7 +81,7 @@ Les administrateurs peuvent ensuite choisir d’agir sur ces événements. Les a
 - Empêcher l’utilisateur de se connecter
 - Effectuer d’autres examens au moyen d’Azure ATP
 
-Un administrateur peut choisir d’ignorer le risque d’un utilisateur dans le portail Azure ou par programmation par le biais de l’API Microsoft Graph [Ignorer le risque lié à l’utilisateur](https://docs.microsoft.com/graph/api/riskyusers-dismiss?view=graph-rest-beta&preserve-view=true). Des privilèges d’administrateur sont nécessaires pour ignorer le risque lié à un utilisateur. La correction d’un risque peut être effectuée par l’utilisateur à risque ou par un administrateur au nom de l’utilisateur, notamment par le biais d’une réinitialisation de mot de passe.
+Un administrateur peut choisir d’ignorer le risque d’un utilisateur dans le portail Azure ou par programmation par le biais de l’API Microsoft Graph [Ignorer le risque lié à l’utilisateur](/graph/api/riskyusers-dismiss?preserve-view=true&view=graph-rest-beta). Des privilèges d’administrateur sont nécessaires pour ignorer le risque lié à un utilisateur. La correction d’un risque peut être effectuée par l’utilisateur à risque ou par un administrateur au nom de l’utilisateur, notamment par le biais d’une réinitialisation de mot de passe.
 
 ### <a name="navigating-the-risky-users-report"></a>Consultation du rapport sur les utilisateurs à risque
 
@@ -93,7 +91,7 @@ Un administrateur peut choisir d’ignorer le risque d’un utilisateur dans le 
 
 1. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
 
-1. Sous **Sécurité**, sélectionnez **Utilisateurs à risque (préversion)** .
+1. Sous **Sécurité**, sélectionnez **Utilisateurs à risque**.
 
    ![Utilisateurs à risque](media/identity-protection-investigate-risk/risky-users.png)
 
@@ -117,7 +115,7 @@ Les administrateurs peuvent ensuite choisir de revenir au rapport des risques ou
 ### <a name="navigating-the-risk-detections-report"></a>Consultation du rapport sur les détections de risque
 
 1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
-1. Sous **Sécurité**, sélectionnez **Détections de risque (préversion)** .
+1. Sous **Sécurité**, sélectionnez **Détections de risque**.
 
    ![Détections de risques](media/identity-protection-investigate-risk/risk-detections.png)
 

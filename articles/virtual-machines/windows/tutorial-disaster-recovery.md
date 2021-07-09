@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: recovery
 ms.topic: tutorial
-ms.date: 11/05/2020
+ms.date: 05/18/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fd5d8c3e2c6e4ee5556568ebd23ac99b48300e9d
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: e76245c9ad08a9a826e1d0431c2dd01b61a6b860
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382013"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077569"
 ---
 # <a name="tutorial-enable-disaster-recovery-for-windows-vms"></a>Tutoriel : Activer la reprise d’activité pour les machines virtuelles Windows
 
@@ -37,21 +37,21 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
         - Créer une machine virtuelle dans le réseau virtuel sélectionné
         - Écrire sur un compte de stockage Azure.
         - Écrire des données sur un disque managé Azure.
-    - Le rôle intégré Contributeur Site Recovery pour gérer les opérations Site Recovery dans le coffre. 
+    - Le rôle intégré Contributeur Site Recovery pour gérer les opérations Site Recovery dans le coffre.
 3. Nous vous recommandons d’utiliser une machine virtuelle Windows exécutant Windows Server 2012 ou une version ultérieure. Pour ce tutoriel, le disque de machine virtuelle ne doit pas être chiffré.
 4. Si les connexions sortantes de la machine virtuelle utilisent un proxy basé sur une URL, vérifiez que celui-ci peut accéder à ces URL. L’utilisation d’un proxy authentifié n’est pas prise en charge.
 
     **Nom** | **Cloud public** | **Cloud du secteur public** | **Détails**
     --- | --- | --- | ---
-    Stockage | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| Écrit des données entre la machine virtuelle et le compte de stockage de cache situé dans la région source. 
-    Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Autorise et authentifie les URL du service Site Recovery. 
-    Réplication | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`  |Communication entre la machine virtuelle et le service Site Recovery. 
-    Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | La machine virtuelle écrit des données de supervision et de diagnostic concernant Site Recovery. 
+    Stockage | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| Écrit des données entre la machine virtuelle et le compte de stockage de cache situé dans la région source.
+    Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Autorise et authentifie les URL du service Site Recovery.
+    Réplication | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`  |Communication entre la machine virtuelle et le service Site Recovery.
+    Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | La machine virtuelle écrit des données de supervision et de diagnostic concernant Site Recovery.
 
 4. Si vous utilisez des groupes de sécurité réseau pour limiter le trafic réseau des machines virtuelles, créez des règles de groupe de sécurité réseau qui autorisent la connectivité sortante (HTTPS 443) pour la machine virtuelle à l’aide de ces étiquettes de service (groupes d’adresses IP). Essayez d’abord ces règles sur un groupe de sécurité réseau de test.
 
-    **Tag** | **Autoriser** 
-    --- | --- 
+    **Tag** | **Autoriser**
+    --- | ---
     Étiquette du stockage | Permet d’écrire des données entre la machine virtuelle et le compte de stockage de cache.
     Étiquette Azure AD | Autorise l’accès à toutes les adresses IP qui correspondent à Azure AD.
     Étiquette EventsHub | Permet d’accéder à la supervision de Site Recovery.
@@ -70,10 +70,10 @@ Lorsque vous créez une machine virtuelle, vous avez la possibilité d'activer l
 5. Dans **Coffre Recovery Services**, sélectionnez le coffre que vous souhaitez utiliser pour la réplication. Si vous n’avez pas de coffre, cliquez sur **Créer**. Sélectionnez le groupe de ressources dans lequel vous souhaitez placer le coffre, ainsi qu'un nom de coffre.
 6. Dans **Stratégie Site Recovery**, conservez la stratégie par défaut, ou sélectionnez **Créer** pour définir des valeurs personnalisées.
 
-    - Les points de récupération sont créés à partir de captures instantanées des disques des machines virtuelles qui sont prises à un moment précis dans le temps. Lorsque vous basculez une machine virtuelle, vous utilisez un point de récupération pour la restaurer dans la région cible. 
-    - Un point de récupération de cohérence en cas d'incident est créé toutes les cinq minutes. Ce paramètre ne peut pas être modifié. Un instantané de cohérence en cas d'incident capture les données qui se trouvaient sur le disque lorsque l'instantané a été pris. Il n’ajoute aucune donnée en mémoire. 
+    - Les points de récupération sont créés à partir de captures instantanées des disques des machines virtuelles qui sont prises à un moment précis dans le temps. Lorsque vous basculez une machine virtuelle, vous utilisez un point de récupération pour la restaurer dans la région cible.
+    - Un point de récupération de cohérence en cas d'incident est créé toutes les cinq minutes. Ce paramètre ne peut pas être modifié. Un instantané de cohérence en cas d'incident capture les données qui se trouvaient sur le disque lorsque l'instantané a été pris. Il n’ajoute aucune donnée en mémoire.
     - Par défaut, Site Recovery conserve les points de récupération de cohérence en cas d'incident pendant 24 heures. Vous pouvez définir une valeur personnalisée comprise entre 0 et 72 heures.
-    - Un instantané de cohérence des applications est pris toutes les 4 heures. Un instantané de cohérence des applications 
+    - Un instantané de cohérence des applications est pris toutes les 4 heures. Un instantané de cohérence des applications
     - Par défaut, Site Recovery conserve les points de récupération pendant 24 heures.
 
 7. Dans **Options de disponibilité**, spécifiez si la machine virtuelle est déployée de manière autonome, dans une zone de disponibilité ou dans un groupe à haute disponibilité.
@@ -82,6 +82,9 @@ Lorsque vous créez une machine virtuelle, vous avez la possibilité d'activer l
 
 8. Finalisez la création de la machine virtuelle.
 
+>[!NOTE]
+> Lorsque vous activez la réplication lors de la création d’une machine virtuelle Windows, seul le disque du système d’exploitation est répliqué. Vous devez initialiser les disques de données, après quoi Azure Site Recovery les réplique automatiquement.
+
 ## <a name="enable-disaster-recovery-for-an-existing-vm"></a>Activer la récupération d'urgence sur une machine virtuelle Linux existante
 
 Si vous souhaitez activer la récupération d'urgence sur une machine virtuelle existante plutôt que sur une nouvelle machine virtuelle, utilisez cette procédure.
@@ -89,7 +92,7 @@ Si vous souhaitez activer la récupération d'urgence sur une machine virtuelle 
 1. Dans le portail Azure, ouvrez la page des propriétés de la machine virtuelle.
 2. Dans **Opérations**, sélectionnez **Récupération d’urgence**.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/existing-vm.png" alt-text="Ouvrez les options de récupération d'urgence d'une machine virtuelle existante.":::
+    :::image type="content" source="./media/tutorial-disaster-recovery/existing-vm.png" alt-text="Ouvrir les options de récupération d'urgence d'une machine virtuelle existante.":::
 
 3. Dans **De base**, si la machine virtuelle est déployée dans une zone de disponibilité, vous pouvez sélectionner la récupération d'urgence entre les zones de disponibilité.
 4. Dans **Région cible**, sélectionnez la région vers laquelle vous souhaitez répliquer la machine virtuelle. Les régions source et cible doivent se trouver dans le même locataire Azure Active Directory.
@@ -131,7 +134,7 @@ Une fois la réplication terminée, vous pouvez vérifier l’état de réplicat
 1. Ouvrez la page des propriétés de la machine virtuelle.
 2. Dans **Opérations**, sélectionnez **Récupération d’urgence**.
 3. Développez la section **Essentials** pour passer en revue les paramètres par défaut concernant le coffre, la stratégie de réplication et la cible.
-4. Dans **Intégrité et état**, obtenez des informations sur l’état de réplication de la machine virtuelle, la version de l’agent, la préparation au basculement et les points de récupération les plus récents. 
+4. Dans **Intégrité et état**, obtenez des informations sur l’état de réplication de la machine virtuelle, la version de l’agent, la préparation au basculement et les points de récupération les plus récents.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/essentials.png" alt-text="Vue Essentials pour la reprise d’activité après sinistre de la machine virtuelle.":::
 
@@ -142,22 +145,22 @@ Une fois la réplication terminée, vous pouvez vérifier l’état de réplicat
 
 ## <a name="run-a-drill"></a>Effectuer un test
 
-Procédez à un test pour vérifier que la reprise d’activité après sinistre fonctionne comme prévu. Lorsque vous effectuez un basculement de test, cela crée une copie de la machine virtuelle dans Azure sans impacter la réplication en cours, ou cela crée une copie dans votre environnement de production. 
+Procédez à un test pour vérifier que la reprise d’activité après sinistre fonctionne comme prévu. Lorsque vous effectuez un basculement de test, cela crée une copie de la machine virtuelle dans Azure sans impacter la réplication en cours, ou cela crée une copie dans votre environnement de production.
 
 1. Dans la page de reprise d’activité après sinistre de la machine virtuelle, sélectionnez **Test de basculement**.
 2. Dans **Test de basculement**, conservez le paramètre par défaut **Dernier point traité (objectif de délai de récupération faible)** pour le point de récupération.
 
    Cette option fournit l’objectif de point de récupération (RPO) le plus faible et constitue généralement l’option la plus rapide pour créer la machine virtuelle cible. Il traite tout d’abord toutes les données qui ont été envoyées au service Site Recovery, afin de créer un point de récupération pour chaque machine virtuelle avant de basculer vers celle-ci. Toutes les données sont répliquées sur ce point de récupération sur Site Recovery lorsque le basculement a été déclenché.
 
-3. Sélectionnez le réseau virtuel dans lequel la machine virtuelle sera située après le basculement. 
+3. Sélectionnez le réseau virtuel dans lequel la machine virtuelle sera située après le basculement.
 
      :::image type="content" source="./media/tutorial-disaster-recovery/test-failover-settings.png" alt-text="Page dans laquelle définir les options de test de basculement":::
 
 4. Le test de basculement commence. Vous pouvez superviser la progression dans les notifications.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/test-failover-notification.png" alt-text="Notifications concernant le test de basculement."::: 
-    
-   Une fois le test de basculement terminé, la machine virtuelle indique l’état *Nettoyage du basculement de test en attente* dans la page **Essentials**. 
+    :::image type="content" source="./media/tutorial-disaster-recovery/test-failover-notification.png" alt-text="Notifications concernant le test de basculement.":::
+
+   Une fois le test de basculement terminé, la machine virtuelle indique l’état *Nettoyage du basculement de test en attente* dans la page **Essentials**.
 
 
 
@@ -167,15 +170,15 @@ La machine virtuelle est automatiquement nettoyée par Site Recovery après le t
 
 1. Pour démarrer le nettoyage automatique, sélectionnez **Nettoyer le test de basculement**.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/start-cleanup.png" alt-text="Démarrage du nettoyage dans la page Essentials."::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/start-cleanup.png" alt-text="Démarrage du nettoyage dans la page Essentials.":::
 
 2. Dans **Nettoyer le test de basculement**, tapez les notes que vous souhaitez enregistrer pour le basculement, puis sélectionnez **Le test est terminé. Supprimez la ou les machines virtuelles du test du basculement**. Sélectionnez ensuite **OK**.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test.png" alt-text="Page où enregistrer les notes et supprimer la machine virtuelle de test."::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test.png" alt-text="Page où enregistrer les notes et supprimer la machine virtuelle de test.":::
 
 7. Le processus de suppression démarre. Vous pouvez superviser la progression dans les notifications.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test-notification.png" alt-text="Notifications pour superviser la suppression de la machine virtuelle de test."::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test-notification.png" alt-text="Notifications pour superviser la suppression de la machine virtuelle de test.":::
 
 ### <a name="stop-replicating-the-vm"></a>Arrêter la réplication de la machine virtuelle
 
@@ -190,10 +193,10 @@ Arrêtez la réplication comme suit :
 1. Dans la page de reprise d’activité après sinistre de la machine virtuelle, sélectionnez **Désactiver la réplication**.
 2. Dans **Désactiver la réplication**, sélectionnez les raisons pour lesquelles vous souhaitez désactiver la réplication. Sélectionnez ensuite **OK**.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/disable-replication.png" alt-text="Page où désactiver la réplication et indiquer la raison de la désactivation."::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/disable-replication.png" alt-text="Page où désactiver la réplication et indiquer la raison de la désactivation.":::
 
 
-L’extension Site Recovery installée sur la machine virtuelle pendant la réplication n’est pas supprimée automatiquement. Si vous désactivez la réplication pour la machine virtuelle et ne souhaitez pas la réactiver, vous pouvez supprimer manuellement l’extension Site Recovery de la façon suivante : 
+L’extension Site Recovery installée sur la machine virtuelle pendant la réplication n’est pas supprimée automatiquement. Si vous désactivez la réplication pour la machine virtuelle et ne souhaitez pas la réactiver, vous pouvez supprimer manuellement l’extension Site Recovery de la façon suivante :
 
 1. Accédez à la machine virtuelle > **Paramètres** > **Extensions**.
 2. Dans la page **Extensions**, sélectionnez chacune des entrées *Microsoft.Azure.RecoveryServices* pour Linux.

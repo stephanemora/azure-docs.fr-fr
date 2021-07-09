@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: 21f0d141567f17c470732088c6a93a2ae7ed3c67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 878bdc1224134f7b9de684635cde77d057b221a7
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94738048"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555989"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutoriel : Utiliser REST et l’IA pour générer du contenu pouvant faire l’objet de recherches à partir d’objets blob Azure
 
-Si vous avez du texte non structuré ou des images dans le stockage Blob Azure, un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) peut extraire des informations et créer du contenu à partir des blobs utiles pour les scénarios de recherche en texte intégral ou d’exploration des connaissances. Bien qu’un pipeline puisse traiter des images, ce tutoriel REST se concentre sur du texte, en appliquant la détection de la langue et le traitement en langage naturel pour créer des champs exploitables dans des requêtes, des facettes et des filtres.
+Si vous avez du texte non structuré ou des images dans le Stockage Blob Azure, un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) peut extraire des informations et créer du contenu à partir des blobs utiles pour les scénarios de recherche en texte intégral ou d’exploration des connaissances. Bien qu’un pipeline puisse traiter des images, ce tutoriel REST se concentre sur du texte, en appliquant la détection de la langue et le traitement en langage naturel pour créer des champs exploitables dans des requêtes, des facettes et des filtres.
 
 Ce tutoriel utilise Postman et les [API REST de Recherche](/rest/api/searchservice/) pour effectuer les tâches suivantes :
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, ouvrez un [compte gratuit](https://az
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Ce tutoriel utilise C# et les API REST Recherche cognitive Azure pour créer une source de données, un index, un indexeur et des compétences. Vous allez commencer par des documents entiers (texte non structuré) tels que PDF, HTML, DOCX et PPTX dans le stockage Blob Azure, puis les exécuter via des compétences pour extraire des entités, des expressions clés et d’autres textes dans les fichiers de contenu.
+Ce tutoriel utilise C# et les API REST Recherche cognitive Azure pour créer une source de données, un index, un indexeur et des compétences. Vous allez commencer par des documents entiers (texte non structuré) tels que PDF, HTML, DOCX et PPTX dans le Stockage Blob Azure, puis les exécuter via un ensemble de compétences pour extraire des entités, des expressions clés et d’autres textes dans les fichiers de contenu.
 
 Cet ensemble de compétences utilise des compétences intégrées basées sur les API Cognitive Services. Les étapes du pipeline incluent la détection de la langue d’un texte, l’extraction des expressions clés et la reconnaissance d’entités (organisations). Les nouvelles informations sont stockées dans de nouveaux champs que vous pouvez exploiter dans les requêtes, les facettes et les filtres.
 
@@ -113,7 +113,7 @@ Cependant, dans le cadre de cet exercice, vous pouvez ignorer le provisionnement
 
 Le troisième composant est Recherche cognitive Azure, que vous pouvez [créer dans le portail](search-create-service-portal.md). Vous pouvez utiliser le niveau gratuit pour effectuer cette procédure pas à pas. 
 
-Comme avec le stockage Blob Azure, prenez un moment pour collecter la clé d’accès. Par ailleurs, lorsque vous commencez à structurer les demandes, vous devez fournir le point de terminaison et la clé API d’administration utilisés pour authentifier chaque demande.
+Comme avec Stockage Blob Azure, prenez un moment pour collecter la clé d’accès. Par ailleurs, lorsque vous commencez à structurer les demandes, vous devez fournir le point de terminaison et la clé API d’administration utilisés pour authentifier chaque demande.
 
 ### <a name="copy-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Copier une clé API d’administration et une URL pour Recherche cognitive Azure
 
@@ -185,7 +185,7 @@ Un [objet Ensemble de compétences](/rest/api/searchservice/create-skillset) est
 
    | Compétence                 | Description    |
    |-----------------------|----------------|
-   | [Reconnaissance d’entités](cognitive-search-skill-entity-recognition.md) | Extrait les noms des personnes, des organisations et des emplacements à partir du contenu figurant dans le conteneur d’objets blob. |
+   | [Reconnaissance d’entités](cognitive-search-skill-entity-recognition-v3.md) | Extrait les noms des personnes, des organisations et des emplacements à partir du contenu figurant dans le conteneur d’objets blob. |
    | [Détection de la langue](cognitive-search-skill-language-detection.md) | Détecte la langue du contenu. |
    | [Fractionnement de texte](cognitive-search-skill-textsplit.md)  | Divise un long contenu en plus petits morceaux avant d’appeler la compétence d’extraction de phrases clés. L’extraction de phrases clés accepte des entrées de 50 000 caractères au maximum. Certains fichiers d’exemple doivent être fractionnés pour satisfaire cette limite. |
    | [Extraction d’expressions clés](cognitive-search-skill-keyphrases.md) | Extrait les principales expressions clés. |

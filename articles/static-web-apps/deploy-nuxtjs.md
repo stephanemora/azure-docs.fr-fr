@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 8f21f5fa8ee9035fe594cecff37a63b1ef2115cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7654546ba52406aed5659cc736bb9a538a73ac7f
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97563464"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813233"
 ---
-# <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Déployer des sites Web Nuxt.js rendus côté serveur sur Azure Static Web Apps Preview
+# <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps"></a>Déployer des sites web Nuxt.js rendus côté serveur sur Azure Static Web Apps
 
 Ce tutoriel permet d’apprendre à déployer un site web statique généré [Nuxt.js](https://nuxtjs.org) sur [Azure Static Web Apps](overview.md). Pour commencer, vous apprendrez à créer, configurer et déployer une application Nuxt.js. Au cours de ce processus, vous apprendrez aussi à gérer les problèmes courants rencontrés lors de la génération de pages statiques avec Nuxt.js
 
@@ -31,7 +31,7 @@ Pour créer un projet Nuxt.js, utilisez `create-nuxt-app`. Dans ce tutoriel, au 
 
 1. Créez un référentiel sous votre compte GitHub à partir d’un référentiel de modèles.
 1. Accédez à [http://github.com/staticwebdev/nuxtjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nuxtjs-starter/generate)
-1. Nommez le référentiel **nuxtjs-Starter**
+1. Nommez le référentiel **nuxtjs-starter**.
 1. Ensuite, clonez le nouveau référentiel sur votre ordinateur. Veillez à remplacer <YOUR_GITHUB_ACCOUNT_NAME> par le nom de votre compte.
 
     ```bash
@@ -116,49 +116,49 @@ Azure Static Web Apps déploie votre application à partir d’un référentiel 
 
 La procédure suivante vous indique comment lier Azure Static Web Apps à l’application que vous venez de transmettre à GitHub. Puis, une fois dans Azure, vous pourrez déployer l’application dans un environnement de production.
 
-### <a name="create-an-azure-static-web-apps-preview-resource"></a>Créer une ressource Azure Static Web Apps Preview
+### <a name="create-an-azure-static-web-apps-resource"></a>Créer une ressource Azure Static Web Apps
 
 1. Accédez au [portail Azure](https://portal.azure.com).
-1. Cliquez sur **Create a Resource** (Créer une ressource).
-1. Recherchez **Applications web statiques**
-1. Cliquez sur **Static Web Apps (Preview)** (Static Web Apps (préversion))
-1. Cliquez sur **Créer**
+1. Sélectionnez **Créer une ressource**.
+1. Recherchez **Static Web Apps**.
+1. Sélectionnez **Static Web Apps**.
+1. Sélectionnez **Create** (Créer).
+1. Sous l’onglet _Informations de base_, entrez les valeurs suivantes.
 
-1. Sélectionnez un abonnement dans la liste déroulante *Subscription* (Abonnement) ou utilisez la valeur par défaut.
-1. Cliquez sur le lien **New (Nouveau)** sous la liste déroulante *Resource group* (Groupe de ressources). Dans *New resource group name* (Nouveau nom de groupe de ressources), tapez **mystaticsite**, puis cliquez sur **OK**.
-1. Indiquez ensuite un nom unique pour votre application dans la zone **Name** (Nom). Les caractères valides sont `a-z`, `A-Z`, `0-9` et `-`. Cette valeur est utilisée comme préfixe d’URL pour votre application statique au format `https://<APP_NAME>.azurestaticapps.net`.
-1. Dans la liste déroulante *Region* (Région), choisissez une région la plus proche de vous.
-1. Dans la liste déroulante SKU, sélectionnez **Free** (Gratuit).
+    | Propriété | Valeur |
+    | --- | --- |
+    | _Abonnement_ | Le nom de votre abonnement Azure. |
+    | _Groupe de ressources_ | **my-nuxtjs-group**  |
+    | _Nom_ | **my-nuxtjs-app** |
+    | _Type de plan_ | **Gratuit** |
+    | _Région de l’API Azure Functions et des environnements intermédiaires_ | Sélectionnez la région la plus proche de vous. |
+    | _Source_ | **GitHub** |
 
-   :::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Création d’application web statique":::
+1. Sélectionnez **Se connecter avec GitHub** et authentifiez-vous auprès de GitHub.
 
-### <a name="add-a-github-repository"></a>Ajouter un référentiel GitHub
+1. Entrez les valeurs GitHub suivantes.
 
-Le nouveau compte Static Web Apps doit pouvoir accéder au référentiel avec votre application Nuxt.js. Cela lui permet de déployer automatiquement les validations.
+    | Propriété | Valeur |
+    | --- | --- |
+    | _Organisation_ | Sélectionnez l’organisation GitHub de votre choix. |
+    | _Dépôt_ | Sélectionnez le référentiel que vous avez créé précédemment. |
+    | _Branche_ | Sélectionnez **principal**. |
 
-1. Cliquez sur le bouton **Sign in with GitHub** (Se connecter avec GitHub).
-1. Sélectionnez l’**organisation** sous laquelle vous avez créé le référentiel pour votre projet Nuxt.js. Il peut s’agir de votre nom d’utilisateur GitHub.
-1. Recherchez et sélectionnez le nom du référentiel que vous avez créé précédemment.
-1. Choisissez **main** (principale) comme branche dans la liste déroulante *Branch* (Branche).
+1. Dans la section _Détails de build_, sélectionnez **Personnalisé** dans la liste déroulante _Présélections de build_ et conservez les valeurs par défaut.
 
-   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Connexion à GitHub":::
+1. Dans _Emplacement de l’application_, entrez **./** .
+1. Laissez la zone _Emplacement de l’API_ vide.
+1. Dans la zone _Emplacement de la sortie_, entrez **out**.
 
-### <a name="configure-the-build-process"></a>Configurer le processus de génération
+### <a name="review-and-create"></a>Examiner et créer
 
-Azure Static Web Apps est conçu pour effectuer automatiquement des tâches courantes telles que l’installation de modules NPM et l’exécution de `npm run build` lors de chaque déploiement. Cependant, vous devez configurer vous-même certains paramètres, tels que le dossier source de l’application et le dossier de destination du build.
+1. Pour vérifier que les informations sont correctes, sélectionnez le bouton **Vérifier + créer**.
 
-1. Cliquez sur l’onglet **Build** pour configurer le dossier de sortie statique.
+1. Pour démarrer la création de l’application web statique App Service et le provisionnement d’une action GitHub pour le déploiement, sélectionnez **Créer**.
 
-      :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Onglet Build":::
+1. Une fois le déploiement terminé, cliquez sur **Accéder à la ressource**.
 
-1. Dans la zone de texte *App artifact location* (Emplacement de l’artefact d’application), tapez **dist**.
-
-### <a name="review-and-create"></a>Vérifier et créer
-
-1. Pour vérifier que les informations sont correctes, cliquez sur le bouton **Review + Create** (Vérifier + créer).
-1. Pour démarrer la création de la ressource et la configuration d’une action GitHub pour le déploiement, cliquez sur **Create** (Créer).
-1. Une fois le déploiement terminé, cliquez sur **Go to resource** (Accéder à la ressource).
-1. Dans la fenêtre _Overview_ (Présentation), cliquez sur le lien *URL* pour ouvrir l’application que vous avez déployée. 
+1. Dans la fenêtre _Overview_ (Présentation), cliquez sur le lien *URL* pour ouvrir l’application que vous avez déployée.
 
 Si le site web ne se charge pas immédiatement, c’est que le workflow GitHub Actions est toujours en cours d’exécution en arrière-plan. Lorsqu’il sera terminé, actualisez votre navigateur pour afficher votre application web.
 

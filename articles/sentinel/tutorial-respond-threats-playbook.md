@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2021
 ms.author: yelevin
-ms.openlocfilehash: b2a98e92630fcdc46228cc36579cfe9787b92daf
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: af5e0e6a8f019d0b35d73b49f6efb45c2195d62d
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786642"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072628"
 ---
 # <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>Didacticiel : utiliser des règles d’automatisation dans Azure Sentinel
 
@@ -159,7 +159,7 @@ Pour créer une tâche d'automatisation :
 
 1. Choisissez les actions que vous souhaitez que cette règle d’automatisation prenne. Les actions disponibles incluent **Attribuer un propriétaire**, **Modifier le statut**, **Modifier la sévérité**, **Ajouter des balises** et **Exécuter le playbook**. Vous pouvez ajouter autant d’actions que vous le souhaitez.
 
-1. Si vous ajoutez une action **Exécuter le playbook**, vous serez invité à choisir dans la liste déroulante des règles disponibles. Seuls les playbooks qui commencent par le **déclencheur d’incident** peuvent être exécutés à partir de règles d’automatisation, de sorte qu’ils s’affichent uniquement dans la liste.
+1. Si vous ajoutez une action **Exécuter le playbook**, vous serez invité à choisir dans la liste déroulante des règles disponibles. Seuls les playbooks qui commencent par le **déclencheur d’incident** peuvent être exécutés à partir de règles d’automatisation, de sorte qu’ils s’affichent uniquement dans la liste.<a name="permissions-to-run-playbooks"></a>
 
     > [!IMPORTANT]
     > Azure Sentinel doit recevoir des autorisations explicites pour pouvoir exécuter des règles à partir de règles d’automatisation. Si un playbook apparaît « grisé » dans la liste déroulante, cela signifie que Sentinel n’a pas d’autorisation sur le groupe de ressources de ce playbook. Cliquez sur le lien **Gérer les autorisations du playbook** pour affecter des autorisations.
@@ -170,6 +170,22 @@ Pour créer une tâche d'automatisation :
     >    1. Dans le menu de navigation Azure Sentinel du locataire des playbooks, sélectionnez **Paramètres**.
     >    1. Dans le panneau **Paramètres**, sélectionnez l’onglet **Paramètres**, puis l’expander **Autorisations du Playbook**.
     >    1. Cliquez sur le bouton **Configurer les autorisations** pour ouvrir le panneau **Gérer les autorisations** repris ci-dessus, puis continuez comme décrit ici.
+    > - Si, dans un scénario **MSSP**, vous souhaitez [exécuter le playbook d’un locataire client](automate-incident-handling-with-automation-rules.md#permissions-in-a-multi-tenant-architecture) à partir d’une règle d’automatisation créée lors de la connexion au locataire du fournisseur de services, vous devez accorder à Azure Sentinel l’autorisation d’exécuter le playbook dans les **_deux clients_ *_. Pour le client _* customer**, suivez les instructions de déploiement de plusieurs locataires, énoncées dans le point précédent. Dans le locataire du **fournisseur de services** , vous devez ajouter l’application Azure Security Insights à votre modèle d’intégration Azure Lighthouse :
+    >    1. Dans le portail Azure, accédez à **Azure Active Directory**.
+    >    1. Cliquez sur **Applications d’entreprise**.
+    >    1. Sélectionnez le **type d’application** et filtrez par **Applications Microsoft**.
+    >    1. Dans la zone de recherche, tapez **Azure Security Insights**.
+    >    1. Copiez le champ **ID de l’objet**. Vous devrez ajouter cette autorisation supplémentaire à votre délégation Azure Lighthouse existante.
+    >
+    >    Le rôle **Contributeur Automatisation Azure Sentinel** possède le GUID fixe `f4c81013-99ee-4d62-a7ee-b3f1f648599a`. Un exemple d’autorisation Azure Lighthouse devrait ressembler à ceci dans votre modèle de paramètres :
+    >    
+    >    ```json
+    >    {
+    >        "principalId": "<Enter the Azure Security Insights app Object ID>", 
+    >        "roleDefinitionId": "f4c81013-99ee-4d62-a7ee-b3f1f648599a",
+    >        "principalIdDisplayName": "Azure Sentinel Automation Contributors" 
+    >    }
+    >    ```
 
 1. Définissez une date d’expiration pour votre règle d’automatisation si vous souhaitez qu’elle en ait une.
 

@@ -7,16 +7,16 @@ ms.service: cache
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: 04b582b5ef31e61039c5513ea2a4aa60f1c638e7
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 5303289cd0629fea1c78e4ae746427e875f80520
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102121335"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891627"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-go"></a>Démarrage rapide : Utiliser Azure Cache pour Redis avec Go
 
-Dans cet article, vous allez apprendre à créer une API REST dans Go qui stockera et récupérera des informations utilisateur avec une structure de données [HASH](https://redis.io/topics/data-types-intro#redis-hashes) dans [Azure Cache pour Redis](./cache-overview.md). 
+Dans cet article, vous apprenez à créer une API REST dans Go qui stocke et récupère des informations utilisateur avec une structure de données [HASH](https://redis.io/topics/data-types-intro#redis-hashes) dans [Azure Cache pour Redis](./cache-overview.md).
 
 ## <a name="skip-to-the-code-on-github"></a>Passer au code sur GitHub
 
@@ -30,6 +30,7 @@ Si vous souhaitez passer directement au code, consultez le [démarrage rapide Go
 - Client HTTP tel que [curl](https://curl.se/)
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Créer une instance Cache Redis Azure
+
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
@@ -49,7 +50,7 @@ func main() {
 ...
 ```
 
-Nous établissons ensuite la connexion à Azure Cache pour Redis. Notez que [tls.Config](https://golang.org/pkg/crypto/tls/#Config) est utilisé : Azure Cache pour Redis accepte uniquement les connexions sécurisées avec [au minimum TLS version 1.2](cache-remove-tls-10-11.md).
+Nous établissons ensuite la connexion à Azure Cache pour Redis. Nous utilisons [tls.Config](https://golang.org/pkg/crypto/tls/#Config) : Azure Cache pour Redis accepte uniquement les connexions sécurisées avec [au minimum TLS version 1.2](cache-remove-tls-10-11.md).
 
 ```go
 ...
@@ -64,9 +65,9 @@ if err != nil {
 ...
 ```
 
-Si la connexion réussit, les [gestionnaires HTTP](https://golang.org/pkg/net/http/#HandleFunc) sont configurés pour gérer les opérations `POST` et `GET`, et le serveur HTTP est démarré. 
+Si la connexion réussit, les [gestionnaires HTTP](https://golang.org/pkg/net/http/#HandleFunc) sont configurés pour gérer les opérations `POST` et `GET`, et le serveur HTTP est démarré.
 
-> [!NOTE] 
+> [!NOTE]
 > La [bibliothèque gorilla mux](https://github.com/gorilla/mux) est utilisée pour le routage (sachez toutefois qu’elle n’est pas strictement nécessaire et que nous pourrions très bien utiliser la bibliothèque standard pour cet exemple d’application).
 >
 
@@ -80,7 +81,7 @@ router.HandleFunc("/users/{userid}", uh.getUser).Methods(http.MethodGet)
 log.Fatal(http.ListenAndServe(":8080", router))
 ```
 
-Le struct `userHandler` encapsule un [redis.Client](https://pkg.go.dev/github.com/go-redis/redis/v8#Client), qui est utilisé par les méthodes `createUser` et `getUser` (le code de ces méthodes n’est pas inclus ici pour rester bref). 
+Le struct `userHandler` encapsule un [redis.Client](https://pkg.go.dev/github.com/go-redis/redis/v8#Client), qui est utilisé par les méthodes `createUser` et `getUser` (le code de ces méthodes n’est pas inclus ici pour rester bref).
 
 - `createUser`: accepte une charge utile JSON (contenant des informations utilisateur) et l’enregistre en tant que `HASH` dans Azure Cache pour Redis.
 - `getUser` : récupère les informations utilisateur de `HASH` ou retourne une réponse HTTP `404` si elles sont introuvables.
@@ -111,7 +112,7 @@ Commencez par cloner l’application à partir de GitHub.
     md "C:\git-samples"
     ```
 
-1. Ouvrez une fenêtre de terminal git, comme git bash. Utilisez la commande `cd` pour passer au nouveau dossier dans lequel vous allez cloner l’exemple d’application.
+1. Ouvrez une fenêtre de terminal git, comme git bash. La commande `cd` permet de passer au nouveau dossier dans lequel vous voulez cloner l’exemple d’application.
 
     ```bash
     cd "C:\git-samples"
@@ -125,7 +126,7 @@ Commencez par cloner l’application à partir de GitHub.
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
-L’application accepte les informations de connectivité et d’identification sous la forme de variables d’environnement. 
+L’application accepte les informations de connectivité et d’identification sous la forme de variables d’environnement.
 
 1. Récupérez le **nom d’hôte** et les **clés d’accès** (disponibles par le biais de Clés d’accès) pour l’instance d’Azure Cache pour Redis dans le [portail Azure](https://portal.azure.com/).
 
@@ -167,7 +168,7 @@ Le serveur HTTP démarre sur le port `8080`.
     ```
 
     Vous devez obtenir une réponse JSON semblable à la suivante :
-    
+
     ```json
     {
         "email": "foo1@bar",
@@ -193,20 +194,20 @@ Le serveur HTTP démarre sur le port `8080`.
 Si vous en avez terminé avec le groupe de ressources et les ressources Azure que vous avez créés dans ce démarrage rapide, vous pouvez les supprimer pour éviter des frais.
 
 > [!IMPORTANT]
-> La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et l’ensemble des ressources qu’il contient sont supprimés définitivement. Si vous avez créé votre instance Azure Cache pour Redis dans un groupe de ressources existant que vous souhaitez conserver, vous pouvez supprimer uniquement le cache en sélectionnant **Supprimer** dans la page **Vue d’ensemble** du cache. 
+> La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et l’ensemble des ressources qu’il contient sont supprimés définitivement. Si vous avez créé votre instance Azure Cache pour Redis dans un groupe de ressources existant que vous souhaitez conserver, vous pouvez supprimer uniquement le cache en sélectionnant **Supprimer** dans la page **Vue d’ensemble** du cache.
 
 Pour supprimer le groupe de ressources et son instance Azure Cache pour Redis :
 
 1. Dans le **portail Azure**, recherchez et sélectionnez [Groupes de ressources](https://portal.azure.com).
-1. Dans la zone de texte **Filtrer par nom**, entrez le nom du groupe de ressources contenant votre instance de cache, puis sélectionnez-le dans les résultats de la recherche. 
+1. Dans la zone de texte **Filtrer par nom**, entrez le nom du groupe de ressources contenant votre instance de cache, puis sélectionnez-le dans les résultats de la recherche.
 1. Dans la page de votre groupe de ressources, sélectionnez **Supprimer le groupe de ressources**.
 1. Tapez le nom du groupe de ressources, puis sélectionnez **Supprimer**.
-   
+
    ![Supprimer votre groupe de ressources pour Azure Cache pour Redis](./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à utiliser Go avec Azure Cache pour Redis. Vous avez configuré et exécuté une application simple basée sur l’API REST pour créer et obtenir des informations utilisateur avec une structure de données `HASH`.
+Dans ce guide de démarrage rapide, vous avez appris à utiliser Go avec Azure Cache pour Redis. Vous avez configuré et exécuté une application simple basée sur l’API REST pour créer et obtenir des informations utilisateur avec une structure de données Redis `HASH`.
 
 > [!div class="nextstepaction"]
 > [Créer une application web ASP.NET simple qui utilise un cache Azure pour Redis.](./cache-web-app-howto.md)

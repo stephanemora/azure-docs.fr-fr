@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 2262290486047c225cec8e8f6bb73242df7258fa
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: d31e52763ed69303ee6ea9bf44fd85403c810179
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106271507"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111993652"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’**Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
@@ -46,13 +46,14 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Tables d’itinéraires définies par l’utilisateur |200 |
 | Itinéraires définis par l’utilisateur par table d’itinéraire |400 |
 | Certificats racines point à site pour chaque passerelle VPN Azure |20 |
+| Certificats clients révoqués point à site pour chaque passerelle VPN Azure |300 |
 | TAP de réseau virtuel |100 |
 | Configurations TAP d’interface réseau de chaque réseau virtuel TAP |100 |
 
 #### <a name="public-ip-address-limits"></a><a name="publicip-address"></a>Limites de l’adresse IP publique
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
-| Adresse IP publique<sup>1</sup> | 10 pour De base. | Contactez le support technique. |
+| Adresses IP publiques<sup>1,2</sup> | 10 pour De base. | Contactez le support technique. |
 | Adresses IP publiques statiques<sup>1</sup> | 10 pour De base. | Contactez le support technique. |
 | Adresses IP publiques standard<sup>1</sup> | 10 | Contactez le support technique. |
 | [Adresses IP publiques par groupe de ressources](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | Contactez le support technique. | 
@@ -60,6 +61,8 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Taille de préfixe d’adresse IP publique | /28 | Contactez le support technique. |
 
 <sup>1</sup>Les limites par défaut pour les adresses IP publiques varient selon le type de catégorie d’offre, comme Essai gratuit, Paiement à l’utilisation, CSP. Par exemple, la valeur par défaut pour les abonnements Accord Entreprise est 1 000.
+
+<sup>2</sup>La limite d’adresses IP publiques fait référence à la quantité totale d’adresses IP publiques, notamment De base et Standard. 
 
 #### <a name="load-balancer-limits"></a><a name="load-balancer"></a>Limites de l’équilibreur de charge
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).

@@ -1,7 +1,7 @@
 ---
-title: 'Tutoriel : Exécuter un script Python « Hello World! »'
+title: 'Tutoriel : prise en main d’un script Python'
 titleSuffix: Azure Machine Learning
-description: La partie 1 de la série de tutoriels sur la prise en main d’Azure Machine Learning explique comment soumettre un script Python « Hello World! » simple dans le cloud.
+description: Commencez avec votre premier script Python dans Azure Machine Learning. Il s’agit de la première partie d’une série de prise en main qui en compte trois.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
-ms.custom: devx-track-python
-ms.openlocfilehash: d50105b88c7c719aa1d89aaa3f29fad43abc0a28
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: ccc28c5a20fd31d3200f6473210150587fd5b4ad
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740760"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028628"
 ---
-# <a name="tutorial-run-a-hello-world-python-script-part-1-of-3"></a>Tutoriel : Exécuter un script Python « Hello World! » (partie 1 sur 3)
+# <a name="tutorial-get-started-with-a-python-script-in-azure-machine-learning-part-1-of-3"></a>Tutoriel : prise en main d’un script Python dans Azure Machine Learning (partie 1 sur 3)
 
-Dans ce tutoriel, vous allez découvrir comment utiliser le SDK Azure Machine Learning pour Python pour soumettre et exécuter un script Python « Hello World! ».
+Dans ce tutoriel, vous allez exécuter votre premier script Python dans le cloud avec Azure Machine Learning. Ce tutoriel est la *première partie d’une série de tutoriels qui en compte trois*.
 
-Ce tutoriel constitue la *partie 1 d’une série de trois tutoriels* où vous découvrez les principes fondamentaux d’Azure Machine Learning ainsi que l’exécution de tâches de machine learning basées sur des travaux dans Azure. 
+Ce tutoriel évite la complexité de l’apprentissage d’un modèle de Machine Learning. Vous allez exécuter un script Python « Hello World » dans le cloud. Vous allez apprendre comment un script de contrôle est utilisé pour configurer et créer une exécution dans Azure Machine Learning.
 
 Ce didacticiel présente les procédures suivantes :
 
@@ -129,7 +129,7 @@ Voici une description du fonctionnement du script de contrôle :
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) encapsule votre code `hello.py` et le transmet à votre espace de travail. Comme son nom l’indique, vous pouvez utiliser cette classe pour _configurer_ la manière dont vous souhaitez que votre _script_ _s’exécute_ dans Azure Machine Learning. Il spécifie également la cible de calcul sur laquelle le script s’exécutera. Dans ce code, la cible est le cluster de calcul que vous avez créé dans le [tutoriel de configuration](tutorial-1st-experiment-sdk-setup-local.md).
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) encapsule votre code `hello.py` et le transmet à votre espace de travail. Comme son nom l’indique, vous pouvez utiliser cette classe pour _configurer_ la manière dont vous souhaitez que votre _script_ _s’exécute_ dans Azure Machine Learning. Il spécifie également la cible de calcul sur laquelle le script s’exécutera. Dans ce code, la cible est le cluster de calcul que vous avez créé dans le [tutoriel de configuration](./quickstart-create-resources.md).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -157,6 +157,9 @@ Voici une description du fonctionnement du script de contrôle :
 Sélectionnez **Enregistrer et exécuter le script dans le terminal** pour exécuter le script de contrôle, qui à son tour exécute `hello.py` sur le cluster de calcul que vous avez créé dans le [tutoriel de configuration](quickstart-create-resources.md).
 
 Dans le terminal, vous pouvez être invité à vous connecter pour vous authentifier.  Copiez le code et suivez le lien pour effectuer cette étape.
+
+> [!TIP]
+> Si vous venez de terminer la création du cluster de calcul, vous risquez de voir s’afficher l’erreur « UserError : image de l’ancrage requis introuvable... ». Attendez environ 5 minutes, puis réessayez.  Le cluster de calcul peut avoir besoin de plus de temps avant d’être prêt à créer des nœuds.
 
 > [!div class="nextstepaction"]
 > [J’ai soumis le code dans le cloud](?success=submit-to-cloud#monitor) [J’ai rencontré un problème](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)

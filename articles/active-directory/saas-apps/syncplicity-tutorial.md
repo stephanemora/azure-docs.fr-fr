@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/10/2019
+ms.date: 05/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 3c665795325ed3863583eb0f21f3e0d3f534154a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0da89d8dfa4c577648429892dec731a08f1bed7
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201487"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110458109"
 ---
 # <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Tutoriel : Intégrer Syncplicity à Azure Active Directory
 
@@ -26,63 +26,62 @@ Dans ce didacticiel, vous allez apprendre à intégrer Syncplicity à Azure Acti
 * Permettre à vos utilisateurs de se connecter automatiquement à Syncplicity avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
-
 ## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’en avez pas, vous pouvez obtenir un essai gratuit de 12 mois [ici](https://azure.microsoft.com/free/).
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Abonnement Syncplicity pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. Syncplicity prend en charge l’authentification unique lancée par le **fournisseur de services**.
+Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. 
+* Syncplicity prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
-## <a name="adding-syncplicity-from-the-gallery"></a>Ajout de Syncplicity à partir de la galerie
+## <a name="add-syncplicity-from-the-gallery"></a>Ajout de Syncplicity à partir de la galerie
 
 Pour configurer l’intégration de Syncplicity à Azure AD, vous devez ajouter Syncplicity à partir de la galerie à votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Sous **Créer**, cliquez sur **Application d’entreprise**.
 1. Dans la section **Parcourir la galerie Azure AD**, tapez **Syncplicity** dans la zone de recherche.
 1. Sélectionnez **Syncplicity** dans le volet de résultats, puis cliquez sur **Créer** pour ajouter l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-syncplicity"></a>Configurer et tester Azure AD SSO pour Syncplicity
 
 Configurez et testez l’authentification unique Azure AD avec Syncplicity pour un utilisateur de test nommé **B. Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Syncplicity associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Syncplicity, suivez les indications des sections ci-après :
+Pour configurer et tester Azure AD SSO avec Syncplicity, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique Syncplicity](#configure-syncplicity-sso)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Syncplicity](#create-syncplicity-test-user)** pour avoir un équivalent de B. Simon dans Syncplicity lié à la représentation Azure AD de l’utilisateur.
-6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
-7. **[Mettre à jour l’authentification unique](#update-sso)** ) pour apporter les modifications nécessaires dans Syncplicity, si vous avez modifié les paramètres d’authentification unique dans Azure AD.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique Syncplicity](#configure-syncplicity-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test Syncplicity](#create-syncplicity-test-user)** pour avoir un équivalent de B. Simon dans Syncplicity lié à la représentation Azure AD de l’utilisateur.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
+1. **[Mettre à jour l’authentification unique](#update-sso)** pour apporter les modifications nécessaires dans Syncplicity, si vous avez modifié les paramètres d’authentification unique dans Azure AD.
 
 ### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Syncplicity**, recherchez la section **Mise en route** et sélectionnez **Configurer l’authentification unique**.
-2. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Syncplicity**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<companyname>.syncplicity.com/sp`
+    a. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<COMPANY_NAME>.syncplicity.com/sp`
 
-    b. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.syncplicity.com`
+    b. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<COMPANY_NAME>.syncplicity.com`
     
-    c. Dans la zone de texte **URL de réponse (URL Assertion Consumer Service)** , tapez une URL à l’aide du modèle suivant : `https://<companyname>.syncplicity.com/Auth/AssertionConsumerService.aspx`
+    c. Dans la zone de texte **URL de réponse (URL Assertion Consumer Service)** , tapez une URL à l’aide du modèle suivant : `https://<COMPANY_NAME>.syncplicity.com/Auth/AssertionConsumerService.aspx`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Syncplicity](https://www.syncplicity.com/contact-us). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse, l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Syncplicity](https://www.syncplicity.com/contact-us). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Modifier**. Ensuite, dans la boîte de dialogue, cliquez sur le bouton de sélection en regard de votre certificat actif, puis sélectionnez **Téléchargement du certificat PEM**.
 
@@ -95,17 +94,41 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-### <a name="configure-syncplicity-sso"></a>Configurer l’authentification unique Syncplicity
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
+
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser B. Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Syncplicity.
+
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Syncplicity**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+## <a name="configure-syncplicity-sso"></a>Configurer l’authentification unique Syncplicity
 
 1. Connectez-vous à votre client **Syncplicity**.
 
 1. Dans le menu en haut, cliquez sur **Admin**, sélectionnez **Settings**, puis cliquez sur **Custom domain and single sign-on** (Domaine personnalisé et authentification unique).
 
-    ![Syncplicity](./media/syncplicity-tutorial/ic769545.png "Syncplicity")
+    ![Syncplicity](./media/syncplicity-tutorial/admin.png "Syncplicity")
 
 1. Dans la page de boîte de dialogue **Single Sign-On (SSO)**, procédez comme suit :
 
-    ![Authentification unique \(SSO\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")
+    ![Authentification unique \(SSO\)](./media/syncplicity-tutorial/configuration.png "Single Sign-On \\\(SSO\\\)")
 
     a. Dans la zone de texte **Custom Domain**, tapez le nom de votre domaine.
   
@@ -121,40 +144,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     g. Cliquez sur **ENREGISTRER LES MODIFICATIONS**.
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
-
-Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
-
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
-2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-3. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-
-   a. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-
-   b. Dans le champ **Nom**, entrez `B.Simon`.  
-   
-   c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
-   
-   d. Cliquez sur **Créer**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser B. Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Syncplicity.
-
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **Syncplicity**.
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
-1. Sélectionner **Ajouter un utilisateur/groupe**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-1. Dans la page **Ajouter une affectation**, sélectionnez **Utilisateurs**. 
-1. Dans la boîte de dialogue **Utilisateurs**, sélectionnez **B.Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Dans le volet **Ajouter une affectation**, cliquez sur le bouton **Affecter**.
-
 ### <a name="create-syncplicity-test-user"></a>Créer un utilisateur de test Syncplicity
 
 Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être provisionnés pour l’application Syncplicity. Cette section explique comment créer des comptes d’utilisateurs Azure AD dans Syncplicity.
@@ -165,32 +154,38 @@ Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être prov
 
 1. Cliquez sur **Admin** et sélectionnez **User Accounts**, puis cliquez sur **Add a User**.
 
-    ![Gérer les utilisateurs](./media/syncplicity-tutorial/ic769764.png "Manage Users")
+    ![Gérer les utilisateurs](./media/syncplicity-tutorial/users.png "Manage Users")
 
 1. Entrez l’**adresse e-mail** d’un compte Azure AD que vous souhaitez provisionner, sélectionnez **User** pour **Role**, puis cliquez sur **Next**.
 
-    ![Informations sur le compte](./media/syncplicity-tutorial/ic769765.png "Informations sur le compte")
+    ![Informations sur le compte](./media/syncplicity-tutorial/roles.png "Informations sur le compte")
 
     > [!NOTE]
     > Le titulaire du compte Azure AD reçoit un e-mail contenant un lien pour confirmer et activer le compte.
 
 1. Sélectionnez un groupe de votre société auquel le nouvel utilisateur doit appartenir, puis cliquez sur **Next**.
 
-    ![Group Membership](./media/syncplicity-tutorial/ic769772.png "Appartenance au groupe") (Appartenance aux groupes)
+    ![Group Membership](./media/syncplicity-tutorial/group.png "Appartenance au groupe") (Appartenance aux groupes)
 
     > [!NOTE]
     > Si aucun groupe n’est listé, cliquez sur **Next**.
 
 1. Sélectionnez les dossiers que vous souhaitez placer sous le contrôle de Syncplicity sur l'ordinateur de l'utilisateur, puis cliquez sur **Next**.
 
-    ![Syncplicity Folders](./media/syncplicity-tutorial/ic769773.png "Dossiers Syncplicity") (Dossiers Syncplicity)
+    ![Syncplicity Folders](./media/syncplicity-tutorial/folder.png "Dossiers Syncplicity") (Dossiers Syncplicity)
 
 > [!NOTE]
 > Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Syncplicity pour provisionner des comptes d’utilisateurs Azure AD.
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO)
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Le fait de sélectionner la vignette Syncplicity dans le panneau d’accès doit vous connecter automatiquement à l’application Syncplicity pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
+
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL d’authentification Syncplicity, d’où vous pouvez lancer le processus de connexion. 
+
+* Accédez directement à l’URL de connexion de Syncplicity pour lancer le flux de connexion.
+
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Syncplicity dans Mes applications vous redirige vers l’URL de connexion Syncplicity. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ### <a name="update-sso"></a>Mettre à jour l’authentification unique
 
@@ -198,10 +193,6 @@ Chaque fois que vous devez apporter des modifications à l’authentification un
 
 Si vous utilisez l’application mobile Syncplicity, contactez le support client de Syncplicity (support@syncplicity.com) pour obtenir de l’aide.
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
-
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+Après avoir configuré Syncplicity, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

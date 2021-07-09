@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Créer une application de fonction sur Azure Arc'
 description: Démarrez avec Azure Functions sur Azure Arc en déployant votre première application de fonction.
 ms.topic: quickstart
 ms.date: 05/10/2021
-ms.openlocfilehash: 8e65eeaae942eafa34a89054ff06951f2bde8741
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: da00cc070e14490bcd3f4661d30b65bd97553c2e
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371856"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111528465"
 ---
 # <a name="create-your-first-function-on-azure-arc-preview"></a>Créer votre première fonction sur Azure Arc (préversion)
 
@@ -26,19 +26,19 @@ Sur votre ordinateur local :
 # <a name="c"></a>[C\#](#tab/csharp)
 
 + [Kit SDK .NET Core 3.1](https://dotnet.microsoft.com/download)
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
++ [Azure Functions Core Tools](functions-run-local.md#v2), version 3.0.3245 ou supérieure.
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 ou ultérieure.
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 + [Node.js](https://nodejs.org/) version 12. La version 10 de Node.js est également prise en charge.
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
++ [Azure Functions Core Tools](functions-run-local.md#v2), version 3.0.3245 ou supérieure.
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 ou ultérieure.
 
 # <a name="python"></a>[Python](#tab/python)
 
 + [Versions de Python prises en charge par Azure Functions](supported-languages.md#languages-by-runtime-version)
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
++ [Azure Functions Core Tools](functions-run-local.md#v2), version 3.0.3245 ou supérieure.
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 ou ultérieure.
 
 ---

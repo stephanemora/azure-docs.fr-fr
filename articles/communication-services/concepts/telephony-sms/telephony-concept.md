@@ -8,12 +8,12 @@ ms.author: bobazile
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3e698abbdad4b45a58f14e350e1f2b268a7de371
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 5fba53125e22eed6797db7ada6b99e679e136ea8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324488"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092401"
 ---
 # <a name="telephony-concepts"></a>Concepts de la téléphonie
 
@@ -40,7 +40,9 @@ Avec cette option :
 - Vous n’avez pas besoin de déploiement ou de maintenance d’un déploiement local, car les appels vocaux (RTC) fonctionnent à partir d’Azure Communication Services.
 - Remarque : Si nécessaire, vous pouvez choisir de connecter un SBC pris en charge via le routage direct Azure pour l’interopérabilité avec des PABX de tiers, des appareils analogiques et d’autres équipements de téléphonie de tiers pris en charge par le SBC.
 
-Cette option nécessite une connexion sans interruptions à Azure Communication Services.
+Cette option nécessite une connexion sans interruptions à Azure Communication Services.  
+
+Pour l’appel au cloud, les appels sortants sont facturés par minute en fonction du pays cible. Consultez la [liste des tarifs actuels pour les appels RTC](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv).
 
 ### <a name="azure-direct-routing"></a>Routage direct Azure
 

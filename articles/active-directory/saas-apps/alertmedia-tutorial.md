@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/17/2020
+ms.date: 05/13/2021
 ms.author: jeedes
-ms.openlocfilehash: e876c819ea797eb75ca8b2365fba83d416ff6168
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5affe9f8876ef8d69a585119155d6cdd77ab46ac
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92318888"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078726"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alertmedia"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à AlertMedia
 
@@ -25,8 +25,6 @@ Ce tutoriel explique comment intégrer AlertMedia à Azure Active Directory (Azu
 * Contrôler qui dans Azure AD a accès à AlertMedia
 * Permettre aux utilisateurs de se connecter automatiquement à AlertMedia avec leur compte Azure AD
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,27 +37,25 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* AlertMedia prend en charge l’authentification unique initiée par le **fournisseur d’identité**.
-* AlertMedia prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
-* Après avoir configuré AlertMedia, vous pouvez appliquer le contrôle de session qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* AlertMedia prend en charge l'authentification unique lancée par le **fournisseur d'identité**.
+* AlertMedia prend en charge l'approvisionnement d'utilisateurs **juste-à-temps**.
 
-## <a name="adding-alertmedia-from-the-gallery"></a>Ajout d’AlertMedia à partir de la galerie
+## <a name="add-alertmedia-from-the-gallery"></a>Ajouter AlertMedia à partir de la galerie
 
 Pour configurer l’intégration d’AlertMedia à Azure AD, vous devez ajouter AlertMedia à partir de la galerie à votre liste d’applications SaaS managées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **AlertMedia** dans la zone de recherche.
 1. Sélectionnez **AlertMedia** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-alertmedia"></a>Configurer et tester l’authentification unique Azure AD pour AlertMedia
+## <a name="configure-and-test-azure-ad-sso-for-alertmedia"></a>Configurer et tester l'authentification unique Azure AD pour AlertMedia
 
 Configurez et testez l’authentification unique Azure AD avec AlertMedia à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur AlertMedia associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec AlertMedia, suivez les modules ci-après :
+Pour configurer et tester l'authentification unique Azure AD auprès d'AlertMedia, suivez les étapes ci-dessous :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -72,13 +68,13 @@ Pour configurer et tester l’authentification unique Azure AD avec AlertMedia,
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **AlertMedia**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Sur le portail Azure, accédez à la page d'intégration de l'application **AlertMedia**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, entrez les valeurs pour les champs suivants :
+1. Dans la page **Configurer l’authentification unique avec SAML**, effectuez les étapes suivantes :
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<SUBDOMAIN>.alertmedia.com`
 
@@ -122,15 +118,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **AlertMedia**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-alertmedia-sso"></a>Configurer l’authentification unique AlertMedia
@@ -138,12 +128,13 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise AlertMedia en tant qu’administrateur.
 1. Accédez à **Company**, puis sélectionnez **Single Sign-On**.
 
-    ![Bouton Compte](./media/alertmedia-tutorial/Configure1.png)
-1. Sous **Authentication Method**, sélectionnez **Remote SAML Metadata**.
-1. Activez l’option **Sign Request**.
-1. Activez l’option **Allow Passive Requests**.
+    ![Bouton Compte](./media/alertmedia-tutorial/account.png)
+
+1. Sous **Méthode d'authentification**, sélectionnez **Métadonnées SAML distantes**.
+1. Activez l'option **Signer la requête**.
+1. Activez l'option **Autoriser les requêtes passives**.
 1. Dans la zone de texte **MetaData URL**, collez la valeur **URL des métadonnées de fédération d’application** que vous avez copiée à partir du portail Azure.
-1. Pour **Requested Authentication Context Comparison** (Comparaison du contexte de l’authentification demandée), choisissez **exact**.
+1. Pour **Comparaison du contexte de l'authentification demandée**, choisissez **exact**.
 1. Dans la zone de texte **IDP Login URL**, collez l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 1. Cliquez sur **Enregistrer**.
 
@@ -153,20 +144,12 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans AlertMed
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-Quand vous cliquez sur la vignette AlertMedia dans le volet d’accès, vous devez être automatiquement connecté à l’application AlertMedia pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur Tester cette application sur le portail Azure. Vous êtes alors automatiquement connecté à l'instance d'AlertMedia pour laquelle vous avez configuré l'authentification unique.
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette AlertMedia dans Mes applications, vous devez être automatiquement connecté à l'application AlertMedia pour laquelle vous avez configuré l'authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer AlertMedia avec Azure AD](https://aad.portal.azure.com/)
-
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
-
-- [Guide pratique pour protéger AlertMedia avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)
+Après avoir configuré AlertMedia, vous pouvez appliquer le contrôle de session qui protège en temps réel contre l'exfiltration et l'infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

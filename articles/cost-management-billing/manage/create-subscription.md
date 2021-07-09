@@ -5,20 +5,20 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 05/13/2021
 ms.author: banders
-ms.openlocfilehash: 27594ff4d7673038e9de38c5969a615be60aeadf
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d82599831d0495df5dba4758976e70b3119a8018
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844691"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451853"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Créer un abonnement Azure supplémentaire
 
 Vous pouvez créer un abonnement supplémentaire pour votre compte de facturation [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Contrat Client Microsoft](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) ou [Contrat Partenaire Microsoft](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement) dans le portail Azure. Vous pouvez souhaiter avoir un abonnement supplémentaire pour ne pas dépasser les limites d’un abonnement, pour créer des environnements de sécurité distincts, ou pour isoler des données à des fins de conformité.
 
-Si vous avez un compte de facturation Microsoft Online Service Program (MOSP), vous pouvez créer des abonnements supplémentaires dans le [portail d’inscription Azure](https://account.azure.com/signup?offer=ms-azr-0003p).
+Si vous avez un compte de facturation Microsoft Online Service Program (MOSP), vous pouvez créer des abonnements supplémentaires dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 Pour plus d’informations sur les comptes de facturation et savoir comment identifier le type de votre compte de facturation, consultez [Afficher les comptes de facturation dans le portail Azure](view-all-accounts.md).
 

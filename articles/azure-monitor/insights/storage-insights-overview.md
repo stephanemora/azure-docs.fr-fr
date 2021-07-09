@@ -1,26 +1,26 @@
 ---
-title: Analyser les services de stockage Azure avec Azure Monitor pour le stockage | Microsoft Docs
-description: Cet article décrit la fonctionnalité Azure Monitor pour le stockage, qui fournit aux administrateurs du stockage une compréhension rapide des problèmes de performances et d’utilisation avec leurs comptes de stockage Azure.
+title: Analyse des services de stockage Azure avec Azure Monitor Storage Insights | Microsoft Docs
+description: Cet article décrit la fonctionnalité Storage Insights d’Azure Monitor, qui donne aux administrateurs du stockage une compréhension rapide des problèmes de performances et d’utilisation de leurs comptes de stockage Azure.
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/11/2020
-ms.openlocfilehash: 0baaca8df8865061b51f1629da14c3b18a527047
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba0e788aab7eb7165d718466791629ecc3e3de4e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708065"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081241"
 ---
-# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Analyse de votre service de stockage avec Azure Monitor pour le stockage
+# <a name="monitoring-your-storage-service-with-azure-monitor-storage-insights"></a>Analyse des services de stockage avec Azure Monitor Storage Insights
 
-Azure Monitor pour le stockage fournit une analyse complète de vos comptes de stockage Azure grâce à une vue unifiée des performances, des capacités et de la disponibilité de vos services de stockage Azure. Vous pouvez observer la capacité de stockage et les performances de deux manières, en les affichant directement à partir d’un compte de stockage ou d’une vue dans Azure Monitor pour voir les différents groupes de comptes de stockage. 
+Storage Insights assure une analyse complète de vos comptes de stockage Azure en vous offrant une vision unifiée du niveau de performance, des capacités et de la disponibilité de vos services de stockage Azure. Vous pouvez observer la capacité de stockage et les performances de deux manières, en les affichant directement à partir d’un compte de stockage ou d’une vue dans Azure Monitor pour voir les différents groupes de comptes de stockage. 
 
-Cet article vous aidera à comprendre l’expérience Azure Monitor pour le stockage pour en tirer des connaissances exploitables sur l’intégrité et les performances des comptes de stockage à l’échelle, avec la possibilité de se concentrer sur les zones réactives et de diagnostiquer les problèmes de latence, de limitation de bande passante et de disponibilité.
+Cet article vous aide à comprendre l’expérience offerte par Storage Insights pour dégager des connaissances exploitables sur l’intégrité et le niveau de performance des comptes de stockage à grande échelle. Cette fonctionnalité offre la possibilité de se concentrer sur les zones réactives et de diagnostiquer les problèmes de latence, de limitation et de disponibilité.
 
-## <a name="introduction-to-azure-monitor-for-storage"></a>Présentation d’Azure Monitor pour le stockage
+## <a name="introduction-to-storage-insights"></a>Présentation de Storage Insights
 
-Avant d’entrer dans les détails de l’expérience avec la fonctionnalité, vous devez comprendre comment cette fonctionnalité présente et affiche les informations. Que vous désélectionniez la fonctionnalité de stockage directement à partir d’un compte de stockage ou d’Azure Monitor, Azure Monitor pour le stockage offre une expérience cohérente. 
+Avant d’entrer dans les détails de l’expérience avec la fonctionnalité, vous devez comprendre comment cette fonctionnalité présente et affiche les informations. Que vous sélectionniez la fonctionnalité de stockage directement à partir d’un compte de stockage ou dans Azure Monitor, Storage Insights offre une expérience cohérente. 
 
 La solution offre les avantages suivants :
 
@@ -134,7 +134,7 @@ Les classeurs **Vue d’ensemble** et **Capacité** du compte de stockage et mul
 
 ![Exemple d’exportation de résultats de grille de classeur](./media/storage-insights-overview/workbook-export-example.png)
 
-## <a name="customize-azure-monitor-for-storage"></a>Personnaliser Azure Monitor pour le stockage
+## <a name="customize-storage-insights"></a>Personnalisation de Storage Insights
 
 Cette section présente les scénarios courants de modification du classeur pour le personnaliser en fonction de vos besoins d’analyse de données :
 
@@ -226,11 +226,11 @@ Dans cet exemple, nous travaillons avec le classeur Capacité du compte de stock
 
 Pour obtenir des conseils généraux sur la résolution des problèmes, reportez-vous à [l’article de résolution des problèmes](troubleshoot-workbooks.md) pour les insights basés sur les workbooks.
 
-Cette section est destinée à vous aider à diagnostiquer et résoudre certains des problèmes communs que vous êtes susceptible de rencontrer lors de l’utilisation d’Azure Monitor pour le stockage. La liste ci-dessous permet d’identifier les informations pertinentes pour un problème spécifique.
+Cette section vise à vous aider à diagnostiquer et à résoudre quelques-uns des problèmes courants que vous risquez de rencontrer avec Storage Insights. La liste ci-dessous permet d’identifier les informations pertinentes pour un problème spécifique.
 
 ### <a name="resolving-performance-capacity-or-availability-issues"></a>Résolution des problèmes de performances, de capacité et de disponibilité
 
-Pour résoudre les problèmes liés au stockage que vous identifiez avec Azure Monitor pour le stockage, consultez le [guide de résolution des problèmes](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance) pour le stockage Azure.  
+Pour résoudre les problèmes liés au stockage que vous identifiez avec Storage Insights, consultez [l’aide à la résolution des problèmes](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance) du Stockage Azure.  
 
 ### <a name="why-can-i-only-see-200-storage-accounts"></a>Pourquoi ne puis-je voir que 200 comptes de stockage ?
 
@@ -240,9 +240,9 @@ Le nombre de comptes de stockage sélectionnés est limité à 200, quel que soi
 
 Reportez-vous à la section [Modifier le seuil de disponibilité](#modify-the-availability-threshold) pour obtenir des instructions détaillées sur la façon de modifier les couleurs et seuils de disponibilité.
 
-### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Comment analyser et dépanner les données affichées dans Azure Monitor pour le stockage ?
+### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-storage-insights"></a>Comment analyser et résoudre les problèmes liés aux données affichées dans Storage Insights ?
 
- Pour plus d’informations sur l’analyse et la résolution des problèmes liés aux données de stockage Azure affichées dans Azure Monitor pour le stockage, consultez l’article [Analyser, diagnostiquer et dépanner Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
+ Pour plus d’informations sur l’analyse et la résolution des problèmes liés aux données du Stockage Azure affichées dans Storage Insights, consultez l’article [Analyse, diagnostic et résolution des problèmes du Stockage Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 
 ### <a name="why-dont-i-see-all-the-types-of-errors-in-metrics"></a>Pourquoi ne puis-je pas voir tous les types d’erreur dans les métriques ?
 

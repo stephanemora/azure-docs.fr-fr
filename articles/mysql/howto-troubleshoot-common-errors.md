@@ -7,22 +7,22 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 5/21/2021
-ms.openlocfilehash: ff038a585d1c11c318c3d3225ef6cc45a8865659
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: d095eddf150990ac5ab76f0753cae2bc44537c88
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113088545"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471807"
 ---
 # <a name="commonly-encountered-errors-during-or-post-migration-to-azure-database-for-mysql"></a>Erreurs généralement rencontrées pendant ou après la migration vers Azure Database pour MySQL
 
-[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 Azure Database pour MySQL est un service complètement managé, reposant sur MySQL Community Edition. L’expérience MySQL dans un environnement de service managé peut différer de l’exécution de MySQL dans votre environnement spécifique. Dans cet article, vous verrez certaines des erreurs courantes que les utilisateurs peuvent rencontrer en migrant vers Azure Database pour MySQL ou en y développant pour la première fois.
 
 ## <a name="common-connection-errors"></a>Erreurs de connexion courantes
 
-### <a name="error-1184-08s01-aborted-connection-22-to-db-db-name-user-user-host-hostip-init_connect-command-failed"></a>ERREUR 1184 (08S01) : La connexion 22 à la base de connaissances a été abandonnée : 'db-name' user: 'user' host: 'hostIP' (échec de la commande init_connect)
+#### <a name="error-1184-08s01-aborted-connection-22-to-db-db-name-user-user-host-hostip-init_connect-command-failed"></a>ERREUR 1184 (08S01) : La connexion 22 à la base de connaissances a été abandonnée : 'db-name' user: 'user' host: 'hostIP' (échec de la commande init_connect)
 
 L’erreur ci-dessus se produit après la réussite de la connexion mais avant l’exécution de toute commande quand la session est établie. Le message ci-dessus indique que vous avez affecté une valeur incorrecte au paramètre de serveur `init_connect`, qui provoque l’échec de l’initialisation de la session.
 
@@ -36,7 +36,7 @@ mysql> show databases; ERREUR 2006 (HY000) : Le serveur MySQL a disparu. Aucune
 
 Le SUPER privilège et le rôle DBA ne sont pas pris en charge sur ce service. Par conséquent, vous pouvez rencontrer certaines erreurs courantes listées ci-dessous :
 
-### <a name="error-1419-you-do-not-have-the-super-privilege-and-binary-logging-is-enabled-you-might-want-to-use-the-less-safe-log_bin_trust_function_creators-variable"></a>ERREUR 1419 : Vous n’avez pas le SUPER privilège et la journalisation binaire est activée (vous *pouvez* utiliser la variable log_bin_trust_function_creators moins sécurisée)
+#### <a name="error-1419-you-do-not-have-the-super-privilege-and-binary-logging-is-enabled-you-might-want-to-use-the-less-safe-log_bin_trust_function_creators-variable"></a>ERREUR 1419 : Vous n’avez pas le SUPER privilège et la journalisation binaire est activée (vous *pouvez* utiliser la variable log_bin_trust_function_creators moins sécurisée)
 
 L’erreur ci-dessus peut se produire lors de la création d’une fonction, d’un déclencheur comme ci-dessous ou de l’importation d’un schéma. Les instructions DDL telles que CREATE FUNCTION ou CREATE TRIGGER sont écrites dans le journal binaire, de sorte que le réplica secondaire peut les exécuter. Le thread SQL de réplica a des privilèges complets, qui peuvent être exploités pour élever les privilèges. Pour vous protéger contre ce danger sur les serveurs où la journalisation binaire est activée, le moteur MySQL exige que les créateurs de fonction stockée aient le privilège SUPER en plus du privilège CREATE ROUTINE habituel.
 
@@ -102,7 +102,7 @@ SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN ; SET @@SESSION.SQL_LOG_BIN
 
 Quand un serveur Azure Database pour MySQL est créé, une connexion d’administrateur de serveur est fournie par l’utilisateur final lors de la création du serveur. La connexion d’administrateur du serveur vous permet de créer des bases de données, d’ajouter de nouveaux utilisateurs et d’accorder des autorisations. Si la connexion d’administrateur du serveur est supprimée, ses autorisations sont révoquées ou son mot de passe est changé, vous pouvez commencer à voir des erreurs de connexion dans votre application pendant les connexions. Voici quelques erreurs parmi les plus courantes :
 
-### <a name="error-1045-28000-access-denied-for-user-usernameip-address-using-password-yes"></a>ERREUR 1045 (28000) : Accès refusé pour l’utilisateur 'nom_utilisateur'@'adresse IP' (utilisant le mot de passe : OUI)
+#### <a name="error-1045-28000-access-denied-for-user-usernameip-address-using-password-yes"></a>ERREUR 1045 (28000) : Accès refusé pour l’utilisateur 'nom_utilisateur'@'adresse IP' (utilisant le mot de passe : OUI)
 
 L’erreur ci-dessus se produit dans les cas suivants :
 

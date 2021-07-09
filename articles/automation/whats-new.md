@@ -1,18 +1,17 @@
 ---
 title: Nouveautés d’Azure Automation
 description: Chaque mois, Azure Automation fait l’objet de mises à jour importantes.
+services: automation
 ms.subservice: ''
 ms.topic: overview
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/09/2021
+ms.date: 06/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: f8b4d6965a8a1f046fd2459ce9fe5cce8ea45443
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 6eae4a65412ad922724d4c35b7628b15698ba841
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531074"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982931"
 ---
 # <a name="whats-new-in-azure-automation"></a>Nouveautés d’Azure Automation
 
@@ -23,6 +22,36 @@ Azure Automation bénéficie d’améliorations en continu. Pour vous informer d
 - Résolution des bogues
 
 Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement.
+
+## <a name="june-2021"></a>Juin 2021
+
+### <a name="support-for-automation-and-state-configuration-available-in-west-us-3"></a>Prise en charge d’Automation et de State Configuration disponible dans la région USA Ouest 3
+
+**Type :** Nouvelle fonctionnalité
+
+Pour plus d’informations, consultez [Résidence des données dans Azure](https://azure.microsoft.com/global-infrastructure/data-residency/) et sélectionnez votre région dans la liste déroulante.
+
+## <a name="may-2021"></a>Mai 2021
+
+### <a name="startstop-vms-during-off-hours-v1"></a>Start/Stop VMs during off-hours (v1)
+
+**Type :** Modification planifiée
+
+Start/Stop VMs during off-hours (v1) sera déprécié le 21 mai 2022. Les clients doivent évaluer et planifier la migration vers Start/Stop VMs v2 (préversion). Pour plus d’informations, consultez [Vue d’ensemble de Start/Stop VMs v2](../azure-functions/start-stop-vms/overview.md) (préversion).
+
+## <a name="april-2021"></a>Avril 2021
+
+### <a name="support-for-update-management-and-change-tracking"></a>Pris en charge d’Update Management et de Change Tracking
+
+**Type :** Nouvelle fonctionnalité
+
+Le mappage des régions a été mis à jour pour prendre en charge Update Management et Change Tracking dans les régions Norvège Est, Émirats arabes unis Nord, USA Centre Nord, Brésil Sud et Corée Centre. Pour plus d’informations, consultez [Mappages pris en charge](./how-to/region-mappings.md#supported-mappings).
+
+### <a name="support-for-system-assigned-managed-identities"></a>Prise en charge des identités managées affectées par le système
+
+**Type :** Nouvelle fonctionnalité
+
+Azure Automation prend désormais en charge les [identités managées affectées par le système](./automation-security-overview.md#managed-identities-preview) pour les travaux cloud et hybrides dans les régions Azure publiques et Government. Lisez cette [annonce](https://azure.microsoft.com/updates/azure-automation-system-assigned-managed-identities/) pour plus d’informations.
 
 ## <a name="march-2021"></a>Mars 2021
 
@@ -38,7 +67,7 @@ Azure Automation a ajouté 5 nouvelles stratégies intégrées :
 - Configurer des connexions de point de terminaison privé sur des comptes Azure Automation
 - Les connexions de point de terminaison privé sur les comptes Automation doivent être activées
 
-Pour plus d’informations, consultez l’article [Référence de stratégie](./policy-reference.md).
+Pour plus d’informations, consultez [Informations de référence sur les stratégies](./policy-reference.md).
 
 ### <a name="support-for-automation-and-state-configuration-declared-ga-in-south-india"></a>Disponibilité générale déclarée de la prise en charge d’Automation et de State Configuration dans la région Inde Sud
 
@@ -58,7 +87,7 @@ Utilisez les fonctionnalités Process Automation et State Configuration dans la 
 
 Utilisez les fonctionnalités Process Automation et State Configuration dans la région Émirats arabes unis Centre. Lisez cette [annonce](https://azure.microsoft.com/updates/azure-automation-in-uae-central-region/) pour plus d’informations.
 
-### <a name="support-for-automation-and-state-configuration-available-in-australia-central-2--norway-west-and-france-south"></a>Disponibilité de la prise en charge d’Automation et de State Configuration dans Australie Centre 2, Norvège Ouest et France Sud
+### <a name="support-for-automation-and-state-configuration-available-in-australia-central-2-norway-west-and-france-south"></a>Prise en charge d’Automation et de State Configuration disponible dans les régions Australie Centre 2, Norvège Ouest et France Sud
 
 **Type :** Nouvelle fonctionnalité
 
@@ -80,13 +109,13 @@ Pour plus d’informations, consultez [Utiliser un webhook à partir d’un mod�
 
 **Type :** Nouvelle fonctionnalité
 
-Pour plus d’informations, consultez la [liste complète](./update-management/overview.md#supported-operating-systems) des systèmes d’exploitation Linux pris en charge.
+Pour plus d’informations, consultez la [liste complète](./update-management/operating-system-requirements.md) des systèmes d’exploitation Linux pris en charge.
 
 ### <a name="in-region-data-residency-support-for-brazil-south-and-south-east-asia"></a>Prise en charge de la résidence des données dans la région, pour Brésil Sud et Asie Sud-Est 
 
 **Type :** Nouvelle fonctionnalité
 
-Dans toutes les régions, à l’exception de Brésil Sud et d’Asie Sud-Est, les données Azure Automation sont stockées dans une région différente (région jumelée Azure) pour assurer la continuité d’activité et reprise d’activité (BCDR). Pour les régions Brésil Sud et Asie Sud-Est seulement, nous stockons maintenant les données Azure Automation dans la même région, afin de répondre aux exigences de résidence des données pour ces régions. Pour plus d’informations, consultez [Géo-réplication dans Azure Automation](./automation-managing-data.md#geo-replication-in-azure-automation).
+Dans toutes les régions, à l’exception de Brésil Sud et d’Asie Sud-Est, les données Azure Automation sont stockées dans une région différente (région jumelée Azure) pour assurer la continuité d’activité et reprise d’activité (BCDR). Pour les régions Brésil Sud et Asie Sud-Est seulement, nous stockons maintenant les données Azure Automation dans la même région, afin de répondre aux exigences de résidence des données pour ces régions. Pour plus d’informations, consultez [Géoréplication dans Azure Automation](./automation-managing-data.md#geo-replication-in-azure-automation).
 
 ## <a name="february-2021"></a>Février 2021
 
@@ -100,7 +129,7 @@ Disponibilité du compte Automation et de State Configuration dans la région Ja
 
 **Type :** nouvelle fonctionnalité
 
-Vous pouvez utiliser la nouvelle règle de conformité du service Azure Policy pour autoriser la création de travaux, webhooks et de planifications de travaux à exécuter uniquement sur des groupes de Workers hybrides.
+Vous pouvez utiliser la nouvelle règle de conformité Azure Policy pour autoriser la création de travaux, de webhooks et de planifications de travaux à exécuter seulement sur des groupes de Workers hybrides.
 
 ### <a name="update-management-availability-in-east-us-france-central-and-north-europe-regions"></a>Disponibilité d’Update Management dans les régions USA Est, France Centre et Europe Nord
 
@@ -128,11 +157,11 @@ Le script est disponible en téléchargement à partir de notre [dépôt GitHub]
 
 La fonctionnalité Runbook Worker hybride prend en charge les distributions CentOS 8.x, REHL 8.x et SLES 15 uniquement pour l’automatisation des processus sur les Runbook Workers hybrides. Consultez [Systèmes d’exploitation pris en charge](automation-linux-hrw-install.md#supported-linux-operating-systems) pour voir les mises à jour de la documentation en lien avec ces changements.
 
-### <a name="update-management-and-change-tracking-availability-in-australia-east-east-asia-west-us-and-central-us-regions"></a>Disponibilité d’Update Management et de Change Tracking dans les régions Australie Est, Asie Est, Asie Est, USA Ouest et USA Centre
+### <a name="update-management-and-change-tracking-availability-in-australia-east-east-asia-west-us-and-central-us-regions"></a>Disponibilité d’Update Management et de Change Tracking dans les régions Australie Est, Asie Est, USA Ouest et USA Centre
 
 **Type :** Nouvelle fonctionnalité
 
-Le compte Automation, le Suivi des modifications et inventaire, ainsi que Update Management sont disponibles dans les régions Australie Est, Asie Est, USA Ouest et USA Centre. 
+Le compte Automation, Suivi des modifications et inventaire, et Update Management sont disponibles dans les régions Australie Est, Asie Est, USA Ouest et USA Centre. 
 
 ### <a name="introduced-public-preview-of-python-3-runbooks-in-us-government-cloud"></a>Introduction de la préversion publique des runbooks Python 3 dans le cloud US Government
 
@@ -180,7 +209,7 @@ Gérez les machines Oracle Linux 6 et 7 avec Automation State Configuration. Con
 
 **Type :** Nouvelle fonctionnalité
 
-Azure Automation prend désormais en charge l’exécution des runbooks cloud et hybrides Python 3 en préversion publique dans toutes les régions du cloud mondial Azure. Consultez cette [annonce]((https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/) pour plus d’informations.
+Azure Automation prend désormais en charge l’exécution des runbooks cloud et hybrides Python 3 en préversion publique dans toutes les régions du cloud mondial Azure. Pour plus d’informations, consultez l’[annonce]((https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/).
 
 ## <a name="november-2020"></a>Novembre 2020
 
@@ -244,7 +273,7 @@ La fonctionnalité Automation Runbook Worker hybride prend en charge le système
 
 **Type :** Nouvelle fonctionnalité
 
-Update Management prend en charge l’évaluation et la mise à jour corrective du système d’exploitation Windows Server 2008 R2. Consultez [Systèmes d’exploitation pris en charge](update-management/overview.md#clients) pour voir les mises à jour de la documentation en lien avec ces changements.
+Update Management prend en charge l’évaluation et la mise à jour corrective du système d’exploitation Windows Server 2008 R2. Consultez [Systèmes d’exploitation pris en charge](update-management/operating-system-requirements.md) pour voir les mises à jour de la documentation en lien avec ces changements.
 
 ### <a name="automation-diagnostic-logs-schema-update"></a>Mise à jour du schéma des journaux de diagnostic Automation
 
@@ -334,7 +363,7 @@ Les clients peuvent gérer et sécuriser le chiffrement des ressources Azure Aut
 
 **Type :** Mise hors service
 
-Les API REST Gestion des services Azure (ASM) pour Azure Automation seront mises hors service après le 30 janvier 2020 et leur support prendra également fin à cette date. Pour en savoir plus, lisez cette [annonce](https://azure.microsoft.com/updates/azure-automation-service-management-rest-apis-are-being-retired-april-30-2019/).
+Les API REST d’Azure Service Management (ASM) pour Azure Automation seront mises hors service et ne seront plus prises en charge à partir du 30 janvier 2020. Pour en savoir plus, lisez cette [annonce](https://azure.microsoft.com/updates/azure-automation-service-management-rest-apis-are-being-retired-april-30-2019/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

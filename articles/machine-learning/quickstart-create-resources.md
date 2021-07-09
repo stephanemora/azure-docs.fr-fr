@@ -1,23 +1,24 @@
 ---
-title: 'Démarrage rapide : Bien démarrer avec Azure Machine Learning'
+title: 'Démarrage rapide : créer des ressources d’espace de travail'
 titleSuffix: Azure Machine Learning
-description: Prise en main d’Azure Machine Learning.  Configurez un espace de travail et ajoutez des ressources de calcul pour créer votre environnement de développement.
+description: Créez un espace de travail Azure Machine Learning et des ressources cloud qui peuvent être utilisées pour l’apprentissage des modèles de Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 04/26/2021
+ms.date: 06/10/2021
 adobe-target: true
-ms.openlocfilehash: 596c6252b1ed7a0aa4d6f9554e6b417ccf131755
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: contperf-fy21q4
+ms.openlocfilehash: d12b9229fdf4b8cfe32a9db375b9c0943ce53507
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785309"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033452"
 ---
-# <a name="quickstart-create-resources-youll-need-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : Créer les ressources nécessaires pour commencer à utiliser Azure Machine Learning
+# <a name="quickstart-create-workspace-resources-you-need-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : créer les ressources d’espace de travail nécessaires pour commencer à utiliser Azure Machine Learning
 
 Dans ce guide de démarrage rapide, vous allez créer un espace de travail auquel vous ajouterez des ressources de calcul. Vous aurez alors tout ce dont vous avez besoin pour commencer à utiliser Azure Machine Learning.  
 

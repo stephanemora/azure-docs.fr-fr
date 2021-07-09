@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/04/2021
+ms.date: 06/11/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: cb1059d77c2c75e2dbb395483e37c8467c83ce2a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 66c74e5615718fff2ccffe4239ba8cb5dc27fd20
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762041"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112019467"
 ---
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -25,3 +25,5 @@ ms.locfileid: "108762041"
 |[Configurer les espaces de travail Azure Machine Learning avec des points de terminaison privés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7838fd83-5cbb-4b5d-888c-bfa240972597) |Les points de terminaison privés vous permettent de connecter votre réseau virtuel aux services Azure sans IP publique au niveau de la source ou de la destination. En mappant des points de terminaison privés à votre espace de travail Azure Machine Learning, vous pouvez réduire les risques de fuite de données. En savoir plus sur les liaisons privées : [https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link). |DeployIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_PrivateEndpoint_DeployIfNotExists.json) |
 |[\[Préversion\] : Configurer la signature de code afin d’entraîner le code pour les capacités de calcul Azure Machine Learning spécifiées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6a6f7384-63de-11ea-bc55-0242ac130003) |Fournissez un code de signature pour l’entraînement du code dans les capacités de calcul Azure Machine Learning spécifiées ; cette stratégie peut être attribuée au niveau de l’espace de travail. Pour plus d’informations, consultez [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc). |enforceSetting, désactivé |[2.1.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedSigningKey_EnforceSetting.json) |
 |[\[Préversion\] : Configurer les expressions de filtre de journal et le magasin de données à utiliser pour les journaux complets des capacités de calcul Azure Machine Learning spécifiées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d413020-63de-11ea-bc55-0242ac130003) |Fournissez l’expression de filtre de journal et le magasin de données à utiliser pour les journaux complets dans les capacités de calcul Azure Machine Learning spécifiées. Cette stratégie peut être attribuée à l’espace de travail. Pour plus d’informations, consultez [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc). |enforceSetting, désactivé |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedLogFilter_EnforceSetting.json) |
+|[Configurer les capacités de calcul Machine Learning pour désactiver les méthodes d’authentification locales](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6f9a2d0-cff7-4855-83ad-4cd750666512) |Désactivez les méthodes d’authentification d’emplacement de sorte que vos capacités de calcul Machine Learning nécessitent des identités Azure Active Directory exclusivement pour l’authentification. Pour en savoir plus : [https://aka.ms/azure-ml-aad-policy](https://aka.ms/azure-ml-aad-policy). |Modifier, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/MachineLearningServices_DisableLocalAuth_Modify.json) |
+|[Les méthodes d’authentification locales doivent être désactivées pour les capacités de calcul Machine Learning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe96a9a5f-07ca-471b-9bc5-6a0f33cbd68f) |La désactivation des méthodes d’authentification locale renforce la sécurité en veillant à ce que les capacités de calcul Machine Learning nécessitent des identités Azure Active Directory exclusivement pour l’authentification. Pour en savoir plus : [https://aka.ms/azure-ml-aad-policy](https://aka.ms/azure-ml-aad-policy). |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/MachineLearningServices_DisableLocalAuth_Audit.json) |

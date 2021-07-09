@@ -6,13 +6,13 @@ ms.author: srranga
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 04/26/2021
-ms.openlocfilehash: ad417bc44de7d13594f003f7aa1e39b2308204ed
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.date: 05/25/2021
+ms.openlocfilehash: 4ed84ab94173961412a7769da89136c39413a92e
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064860"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983075"
 ---
 # <a name="release-notes---azure-database-for-postgresql---flexible-server"></a>Notes de publication - Azure Database pour PostgreSQL - Serveur flexible
 
@@ -21,6 +21,12 @@ Cette page fournit les toutes dernières informations concernant les ajouts de f
 > [!IMPORTANT]
 > Le serveur flexible Azure Database pour PostgreSQL est en préversion
 
+## <a name="release-may-25-2021"></a>Publication : 25 mai 2021
+
+* Prise en charge de la [version majeure 13 de PostgreSQL](./concepts-supported-versions.md).
+* Prise en charge des extensions, notamment pg_partman, pg_cron et pgaudit. Consultez la [page des extensions](./concepts-extensions.md) pour les versions prises en charge avec chaque version majeure.
+* Plusieurs corrections de bogues, et amélioration de la stabilité et des performances.
+
 ## <a name="release-april-26-2021"></a>Version : 26 avril 2021
 
 * Prise en charge des [dernières versions mineures de PostgreSQL](./concepts-supported-versions.md) 12.6 et 11.11 avec les nouvelles créations de serveur
@@ -28,7 +34,7 @@ Cette page fournit les toutes dernières informations concernant les ajouts de f
 * Prise en charge du choix de la zone de disponibilité pendant l’opération de récupération jusqu’à une date et heure
 * Prise en charge de nouvelles [régions](./overview.md#azure-regions), y compris Australie Est, Canada Centre et France Centre
 * Prise en charge du pooler de connexions [PgBouncer intégré](./concepts-pgbouncer.md) 
-* Prise en charge de la version 2.3.2 de l’extension [pglogical](https://github.com/2ndQuadrant/pglogical)
+<!--- * Support for [pglogical](https://github.com/2ndQuadrant/pglogical) extension version 2.3.2. -->
 * [Performances intelligentes](concepts-query-store.md) en préversion
 * Plusieurs corrections de bogues et amélioration de la stabilité et des performances
 

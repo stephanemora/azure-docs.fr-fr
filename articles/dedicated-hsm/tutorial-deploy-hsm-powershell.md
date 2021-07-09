@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 5ed5ac90f446f74c54488f6d0cf23adbd63a3e1e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2b93496244ed36ce2ca08dfd48b7bb176d6cdd40
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606876"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949449"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutoriel : Déploiement de modules HSM sur un réseau virtuel existant à l’aide de PowerShell
 
@@ -33,7 +33,7 @@ Voici une architecture typique de déploiement multirégion et haute disponibili
 
 ![déploiement multirégion](media/tutorial-deploy-hsm-powershell/high-availability.png)
 
-Ce tutoriel concerne l’intégration d’une paire de modules de sécurité matériels (HSM) et l’intégration de la passerelle ExpressRoute nécessaire (voir le sous-réseau 1 ci-dessus) à un réseau virtuel existant (voir le réseau virtuel 1 ci-dessus).  Toutes les autres ressources sont des ressources Azure standard. Le même processus d’intégration peut être utilisé pour les modules HSM situés sur le sous-réseau 4 du réseau virtuel 3 ci-dessus.
+Ce tutoriel concerne l’intégration d’une paire de modules de sécurité matériels (HSM) et l’intégration de la [passerelle ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) nécessaire (voir le sous-réseau 1 ci-dessus) à un réseau virtuel existant (voir le réseau virtuel 1 ci-dessus).  Toutes les autres ressources sont des ressources Azure standard. Le même processus d’intégration peut être utilisé pour les modules HSM situés sur le sous-réseau 4 du réseau virtuel 3 ci-dessus.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -52,7 +52,7 @@ Toutes les instructions ci-dessous supposent que vous avez déjà ouvert le port
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Provisionnement d’un module HSM dédié
 
-Le provisionnement des modules HSM et leur intégration à un réseau virtuel existant via la passerelle ExpressRoute seront vérifiés à l’aide de l’outil en ligne de commande ssh afin de garantir l’accessibilité et la disponibilité de base du module HSM en vue d’une configuration supplémentaire. Les commandes suivantes utilisent un modèle Resource Manager pour créer les ressources HSM et les ressources réseau associées.
+Le provisionnement des modules HSM et leur intégration à un réseau virtuel existant via la [passerelle ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) seront vérifiés à l’aide de l’outil en ligne de commande ssh afin de garantir l’accessibilité et la disponibilité de base du module HSM en vue d’une configuration supplémentaire. Les commandes suivantes utilisent un modèle Resource Manager pour créer les ressources HSM et les ressources réseau associées.
 
 ### <a name="validating-feature-registration"></a>Vérification de la fonctionnalité d’inscription
 
@@ -66,11 +66,11 @@ Pour continuer, vous devez attendre que la commande retourne l’état « Regis
 
 ![État de l’abonnement](media/tutorial-deploy-hsm-powershell/subscription-status.png)
 
-### <a name="creating-hsm-resources&quot;></a>Création de ressources HSM
+### <a name="creating-hsm-resources"></a>Création de ressources HSM
 
-Un modèle HSM est provisionné dans le réseau virtuel d’un client. Cela nécessite l’ajout d’un sous-réseau. Pour permettre la communication entre le réseau virtuel et l’appareil physique, vous devez utiliser une passerelle ExpressRoute. En outre, vous devez utiliser une machine virtuelle pour accéder au module HSM à l’aide du logiciel client Thales. Ces ressources ont été rassemblées dans un fichier de modèle, avec le fichier de paramètres correspondant, pour une plus grande facilité d’utilisation. Pour obtenir ces fichiers, contactez Microsoft directement à l’adresse HSMrequest@Microsoft.com.
+Un modèle HSM est provisionné dans le réseau virtuel d’un client. Cela nécessite l’ajout d’un sous-réseau. Pour permettre la communication entre le réseau virtuel et l’appareil physique, vous devez utiliser une [passerelle ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md). En outre, vous devez utiliser une machine virtuelle pour accéder au module HSM à l’aide du logiciel client Thales. Ces ressources ont été rassemblées dans un fichier de modèle, avec le fichier de paramètres correspondant, pour une plus grande facilité d’utilisation. Pour obtenir ces fichiers, contactez Microsoft directement à l’adresse HSMrequest@Microsoft.com.
 
-Une fois que vous avez reçu ces fichiers, vous devez insérer les noms choisis pour vos ressources dans le fichier de paramètres. Les noms doivent être insérés là où la valeur est vide (&quot;value&quot;: &quot;").
+Une fois que vous avez reçu ces fichiers, vous devez insérer les noms choisis pour vos ressources dans le fichier de paramètres. Les noms doivent être insérés là où la valeur est vide ("value": "").
 
 - `namingInfix` Préfixe des noms de ressources HSM
 - `ExistingVirtualNetworkName` Nom du réseau virtuel utilisé pour les modules HSM

@@ -6,12 +6,12 @@ ms.author: lichris
 ms.date: 2/17/2021
 ms.topic: troubleshooting
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 3c1f60b214397b1f97e0157b5beca32d504102d6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f5ea8cfe1df2ae89bb67675c9bf235d62dca4bf5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030628"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082069"
 ---
 # <a name="device-update-for-iot-hub-troubleshooting-guide"></a>Guide de dépannage de Device Update pour IoT Hub
 
@@ -66,6 +66,9 @@ _Ceci peut avoir été provoqué par un bogue du service ou de l’expérience u
 
 ### <a name="q-i-started-a-deployment-but-it-isnt-reaching-an-end-state"></a>Q : J’ai démarré un déploiement, mais il n’atteint pas un état de finalisation.
 _Ceci peut avoir été provoqué par un problème de performance du service, un bogue du service ou un bogue du client. Réessayez votre déploiement après 10 minutes. Si vous rencontrez le même problème, extrayez les journaux de vos appareils et reportez-vous à la section Défaillances des appareils de ce guide de dépannage. Si le même problème persiste, suivez les instructions de la section [Contacter le support technique de Microsoft](#contact) pour créer une demande de support auprès de Microsoft._
+
+### <a name="q-i-migrated-from-a-device-level-agent-to-adding-the-agent-as-a-module-identity-on-the-device-and-my-update-shows-as-in-progress-even-though-it-has-been-applied-to-the-device"></a>Q : J’ai migré de l’agent au niveau de l’appareil vers l’agent ajouté comme identité de module sur l’appareil. Ma mise à jour apparaît comme « en cours » alors qu’elle a été appliquée à l’appareil.
+La raison peut être que vous n’avez pas supprimé l’ancien agent qui était en communication sur le jumeau d’appareil. Lorsque vous provisionnez l’agent Device Update en tant que module (cf. [procédure](device-update-agent-provisioning.md)), toutes les communications qui ont lieu entre l’appareil et le service Device Update se produisent sur le jumeau de module. N’oubliez pas d’étiqueter le jumeau de module de l’appareil lorsque vous créez des [groupes](device-update-groups.md) et que toutes les [communications](device-update-plug-and-play.md) doivent avoir lieu sur le jumeau de module.
 
 ## <a name="downloading-updates-onto-devices"></a><a name="download"></a> Téléchargement des mises à jour sur les appareils
 

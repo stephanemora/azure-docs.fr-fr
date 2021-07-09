@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: ee7ccb126eb04e168ccc213f0429d41a76a8bc2f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 704697a88a723182c2dbbcb2f25eb18df7be34c1
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103021247"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111430644"
 ---
 **Volume et rétention de collecte de données** 
 
@@ -37,7 +37,7 @@ ms.locfileid: "103021247"
 
 | Category | Limite | Commentaires |
 |:---|:---|:---|
-| Nombre maximum d’enregistrements retournés par une requête de journal | 10 000 | Réduisez les résultats à l’aide d’une étendue de requête, d’un intervalle de temps et de filtres dans la requête. |
+| Nombre maximum d’enregistrements retournés par une requête de journal | 30,000 | Réduisez les résultats à l’aide d’une étendue de requête, d’un intervalle de temps et de filtres dans la requête. |
 
 
 **API de collecte de données**
@@ -52,7 +52,7 @@ ms.locfileid: "103021247"
 | Category | Limite | Commentaires |
 |:---|:---|:---|
 | Nombre maximal d’enregistrements retournés dans une requête | 500 000 | |
-| Taille maximale des données retournées | 64 000 000 octets (~ 61 Mio)| |
+| Taille maximale des données retournées | ~ 104 Mo (~ 100 Mio)| |
 | Durée maximale d’exécution de requête | 10 minutes | Consultez [Délais d’expiration](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) pour plus d’informations.  |
 | Taux maximum de requêtes | 200 requêtes par 30 secondes par utilisateur Azure AD ou adresse IP du client | Consultez [Limites de taux](https://dev.loganalytics.io/documentation/Using-the-API/Limits) pour plus d’informations. |
 
@@ -61,6 +61,7 @@ ms.locfileid: "103021247"
 | Category | Limite | Commentaires |
 |:---|:---|:---|
 | Nombre maximal d’enregistrements | 500 000 | |
+| Taille maximale des données retournées | ~ 104 Mo (~ 100 Mio) | |
 | Délai d’expiration maximal des requêtes | 110 secondes | |
 | Graphiques | | La visualisation dans la page Journaux et le connecteur utilisent des bibliothèques graphiques différentes, et certaines fonctionnalités ne sont actuellement pas disponibles dans le connecteur. |
 

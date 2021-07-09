@@ -2,13 +2,13 @@
 title: Tutoriel - Liste de vérification pour la planification réseau
 description: Découvrez la configuration réseau requise pour la connectivité réseau et les ports réseau dans Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 04/23/2021
-ms.openlocfilehash: 2e7854100df7e19ec8cfcc9b6de647fa8ed31d38
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.date: 06/08/2021
+ms.openlocfilehash: 5719ec1a2495c6a225c35ec46cdf19506a10ba6f
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107945446"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017268"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Liste de vérification pour la planification réseau pour Azure VMware Solution 
 
@@ -52,7 +52,13 @@ Les sous-réseaux :
 | Gestion de cloud privé  | `/26`  | `10.10.0.0/26`   |
 | Migrations de la gestion HCX       | `/26`  | `10.10.0.64/26`  |
 | Global Reach, réservé     | `/26`  | `10.10.0.128/26` |
-| ExpressRoute, réservé     | `/27`  | `10.10.0.192/27` |
+| Service DNS NSX-T         | `/32`  | `10.10.0.192/32` |
+| Réservé                  | `/32`  | `10.10.0.193/32` |
+| Réservé                  | `/32`  | `10.10.0.194/32` |
+| Réservé                  | `/32`  | `10.10.0.195/32` |
+| Réservé                  | `/30`  | `10.10.0.196/30` |
+| Réservé                  | `/29`  | `10.10.0.200/29` |
+| Réservé                  | `/28`  | `10.10.0.208/28` |
 | Appairage ExpressRoute      | `/27`  | `10.10.0.224/27` |
 | Gestion ESXi           | `/25`  | `10.10.1.0/25`   |
 | Réseau vMotion           | `/25`  | `10.10.1.128/25` |
@@ -85,9 +91,8 @@ Les sous-réseaux :
 | Réseau vCenter local | Réseau de gestion de cloud privé | TCP | 8000 |  vMotion des machines virtuelles d’un vCenter local vers un vCenter de cloud privé   |     
 
 ## <a name="dhcp-and-dns-resolution-considerations"></a>Éléments à prendre en considération pour la résolution DNS et DHCP
-Les applications et les charges de travail exécutées dans un environnement de cloud privé nécessitent une résolution de nom et des services DHCP pour la recherche et les affectations d’adresses IP. Une infrastructure DHCP et DNS appropriée est requise pour fournir ces services. Vous pouvez configurer une machine virtuelle pour fournir ces services dans votre environnement de cloud privé.  
 
-Utilisez le service DHCP intégré à NSX ou un serveur DHCP local dans le cloud privé au lieu de router le trafic DHCP de diffusion sur le réseau étendu (WAN) vers l’emplacement local.
+[!INCLUDE [dhcp-dns-in-azure-vmware-solution-description](includes/dhcp-dns-in-azure-vmware-solution-description.md)]
 
 
 ## <a name="next-steps"></a>Étapes suivantes

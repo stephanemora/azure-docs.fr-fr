@@ -1,5 +1,5 @@
 ---
-title: Présentation d’Azure Machine Learning
+title: Qu'est-ce que Azure Machine Learning ?
 description: Azure Machine Learning est une solution de science des données intégrée pour scientifiques des données et MLops, qui permet de modéliser et de déployer des applications ML à l’échelle du cloud.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: BlackMist
 ms.date: 04/08/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: 086c1f6ebd1b9e448a8f5e229bc6706493729422
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 89d839a9b507530eb0b3fc763b2fbba36208f79c
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762890"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081890"
 ---
 # <a name="what-is-azure-machine-learning"></a>Qu'est-ce que Azure Machine Learning ?
 
@@ -44,8 +44,6 @@ Azure Machine Learning fournit tous les outils dont les développeurs et les sci
 
 + Notebooks Jupyter : utilisez nos [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks) ou créez vos propres notebooks pour tirer parti de nos exemples de <a href="/python/api/overview/azure/ml/intro" target="_blank">Kits de développement logiciel (SDK) Python</a> pour votre Machine Learning. 
 
-+ Utilisez des scripts R ou des notebooks dans lesquels vous utilisez le <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">Kit de développement logiciel (SDK) pour R</a> pour écrire votre propre code, ou utilisez les modules R dans le concepteur.
-
 + L’[accélérateur de solution de nombreux modèles](https://aka.ms/many-models) (préversion) s’appuie sur Azure Machine Learning et vous permet d’effectuer l’apprentissage, l’utilisation et la gestion de centaines, voire de milliers de modèles Machine Learning.
 
 + L’[extension Machine Learning pour Visual Studio Code (préversion)](how-to-set-up-vs-code-remote.md) vous fournit un environnement de développement complet pour la génération et la gestion de vos projets Machine Learning.
@@ -58,9 +56,9 @@ Azure Machine Learning fournit tous les outils dont les développeurs et les sci
 
 Vous pouvez même utiliser [MLflow pour suivre des métriques et déployer des modèles](how-to-use-mlflow.md) ou Kubeflow pour [générer des pipelines de flux de travail de bout en bout](https://www.kubeflow.org/docs/azure/).
 
-## <a name="build-ml-models-in-python-or-r"></a>Générer des modèles ML en Python ou R
+## <a name="build-ml-models-in-with-the-python-sdk"></a>Créer des modèles ML avec le kit SDK Python
 
-Commencez l’entraînement sur votre ordinateur local en utilisant le <a href="/python/api/overview/azure/ml/intro" target="_blank">Kit de développement logiciel (SDK) Python</a> ou le <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">Kit de développement logiciel (SDK) R</a> Azure Machine Learning. Vous pouvez ensuite effectuer un scale-out sur le cloud. 
+Commencez l’apprentissage sur votre ordinateur local en utilisant le <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK Python</a> Azure Machine Learning. Vous pouvez ensuite effectuer un scale-out sur le cloud. 
 
 Les nombreuses [cibles de calcul](how-to-create-attach-compute-studio.md) disponibles, comme la Capacité de calcul Azure Machine Learning et [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks), ainsi que les [services de réglage d’hyperparamètres avancés](how-to-tune-hyperparameters.md), vous permettent de générer de meilleurs modèles plus rapidement en tirant parti de la puissance du cloud.
 
@@ -134,7 +132,7 @@ Commencez par [Démarrage rapide : Bien démarrer avec Azure Machine Learning](
   + [Gérer des ressources dans Visual Studio Code](how-to-manage-resources-vscode.md)
   + [Utiliser Visual Studio Code pour l’entraînement et le déploiement d’un modèle de classification d’images](tutorial-train-deploy-image-classification-model-vscode.md)
   + [Utiliser les fonctionnalités glisser-déplacer du concepteur pour entraîner et déployer](tutorial-designer-automobile-price-train-score.md) 
-  + [Utiliser l’interface CLI Machine Learning pour entraîner et déployer un modèle](tutorial-train-deploy-model-cli.md)
+  + [Utiliser l’interface CLI Machine Learning pour effectuer l’apprentissage d’un modèle](how-to-train-cli.md)
 
 - Découvrez les [pipelines de machine learning](concept-ml-pipelines.md) pour générer, optimiser et gérer vos scénarios d’apprentissage.
 

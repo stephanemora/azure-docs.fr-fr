@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 05/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 5e78ca99d3f339e6b4e9c8bc00fd9e2c68c50777
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2d2e22ac1dc0be8e6db37e837cb8361e33b2b6e7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92454563"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072643"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-drift"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Drift
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez apprendre à intégrer Drift à Azure AD (Azure Ac
 * Contrôler dans Azure AD qui a accès à Drift.
 * Permettre à vos utilisateurs de se connecter automatiquement à Drift avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,28 +37,28 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Drift prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
-* Drift prend en charge le provisionnement d’utilisateurs **juste-à-temps**
+* Drift prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
+* Drift prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
-## <a name="adding-drift-from-the-gallery"></a>Ajout de Drift à partir de la galerie
+## <a name="add-drift-from-the-gallery"></a>Ajouter Drift à partir de la galerie
 
 Pour configurer l’intégration de Drift dans Azure AD, vous devez ajouter Drift, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Drift** dans la zone de recherche.
 1. Sélectionnez **Drift** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-drift"></a>Configurer et tester l’authentification unique Azure AD pour Drift
+## <a name="configure-and-test-azure-ad-sso-for-drift"></a>Configurer et tester l’authentification unique Azure AD pour Drift
 
 Configurez et testez l’authentification unique Azure AD avec Drift à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Drift associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Drift, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification SSO Azure AD avec Drift, procédez comme suit :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -73,9 +71,9 @@ Pour configurer et tester l’authentification unique Azure AD avec Drift, suive
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Drift**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Drift**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -83,11 +81,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     a. Cliquez sur **Définir des URL supplémentaires**.
  
-    b. Dans la zone de texte **État de relais**, tapez une URL : `https://app.drift.com` 
+    b. Dans la zone de texte **État de relais**, tapez l’URL : `https://app.drift.com` 
 
-    c. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service**, effectuez les étapes suivantes :
+1. Procédez comme suit si vous souhaitez configurer l’application en mode lancé par le fournisseur de services, cliquez sur Définir des URL supplémentaires :
 
-    d. Dans la zone de texte **URL de connexion**, tapez une URL : `https://start.drift.com`
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://start.drift.com`
 
 6. Votre application Drift s’attend à recevoir les assertions SAML dans un format spécifique. Vous devez donc ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
@@ -126,15 +124,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Drift**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-drift-sso"></a>Configurer l’authentification unique Drift
@@ -151,7 +143,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 4. Sur le côté gauche de la barre de menus, cliquez sur l’**icône des paramètres** > **Paramètres de l’application** > **Authentification**, puis effectuez les étapes suivantes :
 
-    ![Lien Admin](./media/drift-tutorial/tutorial_drift_admin.png)
+    ![Lien Admin](./media/drift-tutorial/admin.png)
 
     a. Chargez le fichier **XML de métadonnées de fédération** que vous avez téléchargé à partir du portail Azure. Pour cela, indiquez-le dans la zone de texte **Chargez le fichier de métadonnées issu de votre fournisseur d’identité**.
 
@@ -168,16 +160,20 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Drift. D
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette Drift dans le volet d’accès, vous devez être connecté automatiquement à l’application Drift pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Drift à partir de laquelle vous pouvez lancer le flux de connexion.  
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Accédez directement à l’URL de connexion à Drift pour lancer le flux de connexion.
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+* Cliquez sur **Tester cette application** dans le portail Azure : vous devez être connecté automatiquement à l’instance Drift pour laquelle vous avez configuré l’authentification unique. 
 
-- [Essayer Drift avec Azure AD](https://aad.portal.azure.com/)
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Drift dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’instance Drift pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Une fois que vous avez configuré Drift, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

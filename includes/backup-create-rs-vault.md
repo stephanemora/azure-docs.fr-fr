@@ -6,15 +6,15 @@ author: v-amallick
 manager: carmonm
 ms.service: backup
 ms.topic: include
-ms.date: 10/18/2018
+ms.date: 06/01/2021
 ms.author: v-amallick
 ms.custom: include file
-ms.openlocfilehash: c126c349897016a00753b402b696c60fdd7b1b2e
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: 7d354ce3e69f075d2f523a75ba96f9a6efb7d797
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106294101"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783574"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -24,23 +24,21 @@ Pour créer un coffre Recovery Services, effectuez les étapes suivantes.
 
 1. Connectez-vous à votre abonnement sur le [portail Azure](https://portal.azure.com/).
 
-1. Dans le menu de gauche, sélectionnez **Tous les services**.
+1. Recherchez **Centre de sauvegarde** dans le portail Azure, puis accédez au tableau de bord du **Centre de sauvegarde**.
 
-    ![Sélectionner Tous les services](./media/backup-create-rs-vault/click-all-services.png)
+    ![Sélectionner Centre de sauvegarde](../includes/media/backup-create-rs-vault/backup-center-search-backup-center.png)
 
-1. Dans la boîte de dialogue **Tous les services**, entrez *Recovery Services*. Liste des filtres de ressources variant en fonction de votre entrée. Dans la liste des ressources, sélectionnez **Coffres Recovery Services**.
+1. Sélectionnez **+Coffre** sous l’onglet **Vue d’ensemble**.
 
-    ![Entrée et choisir Coffres Recovery Services](./media/backup-create-rs-vault/all-services.png)
+    ![Création d'un coffre](./media/backup-create-rs-vault/backup-center-create-vault.png) 
 
-    La liste des coffres Recovery Services de l’abonnement s’affiche.
+1. Sélectionnez **Coffre Recovery Services**, puis cliquez sur **Continuer**.
 
-1. Dans le tableau de bord **Coffres Recovery Services**, cliquez sur **Ajouter**.
+    ![Sélectionner le coffre Recovery Services](./media/backup-create-rs-vault/backup-center-select-recovery-services-vault.png) 
 
-    ![Ajouter un coffre Recovery Services](./media/backup-create-rs-vault/add-button-create-vault.png)
+1. La boîte de dialogue **Coffre Recovery Services** s’ouvre. Attribuez des valeurs aux champs **Nom**, **Abonnement**, **Groupe de ressources** et **Emplacement**.
 
-    La boîte de dialogue **Coffre Recovery Services** s’ouvre. Attribuez des valeurs aux champs **Nom**, **Abonnement**, **Groupe de ressources** et **Emplacement**.
-
-    ![Configurer le coffre Recovery Services](./media/backup-create-rs-vault/create-new-vault-dialog.png)
+    ![Configurer le coffre Recovery Services](./media/backup-create-rs-vault/backup-center-add-vault-details.png)
 
    - **Name** : entrez un nom convivial pour identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Spécifiez un nom composé d’au moins deux caractères, mais sans dépasser 50 caractères. Il doit commencer par une lettre et ne peut être constitué que de lettres, chiffres et traits d’union.
    - **Abonnement**: choisissez l’abonnement à utiliser. Si vous êtes membre d’un seul abonnement, son nom s’affiche. Si vous ne savez pas quel abonnement utiliser, utilisez l’abonnement par défaut (suggéré). Vous ne disposez de plusieurs choix que si votre compte professionnel ou scolaire est associé à plusieurs abonnements Azure.

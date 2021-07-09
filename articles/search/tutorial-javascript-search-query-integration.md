@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/09/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: f6c23c7b0870fe8caed1f82e8ce102539aa2e950
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 3353ff11a93fa4a79c266b7bd323071b55cd76c6
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950222"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109848102"
 ---
 # <a name="4---javascript-search-integration-cheat-sheet"></a>4 - Aide-mémoire de l’intégration de la recherche JavaScript
 
@@ -66,7 +66,7 @@ Le routage de l’API Suggest est contenu dans les liaisons [function.json](http
 
 ## <a name="client-suggestions-from-the-catalog"></a>Client : suggestions à partir du catalogue
 
-L’API de fonction Suggest est appelée dans l’application React à l’emplacement `\src\components\SearchBar\SearchBar.js` dans le cadre de l’initialisation du composant :
+L'API de fonction Suggest est appelée dans l'application React à l'emplacement `\src\components\SearchBar\SearchBar.js` dans le cadre de l'initialisation du composant :
 
 :::code language="javascript" source="~/azure-search-javascript-samples/search-website/src/components/SearchBar/SearchBar.js" highlight="52-60" :::
 
