@@ -5,13 +5,29 @@ ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 8efdb20b463e9021f298597cd94dabbdbf9e62c0
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 2fb04acd75d607772b6582882b98f9ed222f070c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109663890"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111429574"
 ---
+Dans ce guide de démarrage rapide, vous allez découvrir comment rejoindre une conversation dans une réunion Teams à l’aide du kit SDK Conversation Azure Communication Services pour JavaScript.
+
+> [!NOTE]
+> Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
+
+## <a name="prerequisites"></a>Prérequis 
+
+*  [Déploiement Teams](/deployoffice/teams-install). 
+* [Application de conversation](../get-started.md) opérationnelle. 
+
+## <a name="enable-teams-interoperability"></a>Activer l’interopérabilité de Teams 
+
+Un utilisateur Communication Services qui rejoint une réunion Teams en tant qu’utilisateur invité ne peut accéder à la conversation de la réunion qu’après avoir rejoint l’appel de réunion Teams. Consultez la documentation [Interopérabilité de Teams](../../voice-video-calling/get-started-teams-interop.md) pour savoir comment ajouter un utilisateur Communication Services à un appel de réunion Teams.
+
+Vous devez être membre de l’organisation propriétaire des deux entités pour pouvoir utiliser cette fonctionnalité.
+
 ## <a name="joining-the-meeting-chat"></a>Participation à la conversation d’une réunion 
 
 Une fois l’interopérabilité de Teams activée, un utilisateur de Communication Services peut rejoindre l’appel Teams en tant qu’utilisateur externe à l’aide du kit de développement logiciel (SDK) Calling. En rejoignant l’appel, il est également ajouté comme participant à la conversation de la réunion, où il peut échanger des messages avec d’autres utilisateurs lors de l’appel. L’utilisateur n’aura pas accès aux messages de conversation qui ont été envoyés avant qu’il ne rejoigne l’appel. Pour participer à la réunion et commencer à converser, vous pouvez suivre les étapes suivantes.
@@ -62,7 +78,7 @@ Créez un fichier **index.html** dans le répertoire racine de votre projet. Nou
 
 Remplacez le code dans index.html par l’extrait de code suivant.
 Les zones de texte en haut de la page sont utilisées pour entrer le contexte de réunion et l’ID de thread de réunion de l’équipe. Le bouton « Participer à la réunion Teams » sera utilisé pour rejoindre la réunion spécifiée.
-Une fenêtre de conversation contextuelle s’affiche au bas de la page. Elle permet d’envoyer des messages sur le thread de la réunion et affiche en temps réel tous les messages envoyés sur ce thread tant que l’utilisateur ACS en est membre.
+Une fenêtre de conversation contextuelle s’affiche au bas de la page. Elle permet d’envoyer des messages sur le thread de la réunion et affiche en temps réel tous les messages envoyés sur ce thread tant que l’utilisateur Communication Services en est membre.
 
 ```html
 <!DOCTYPE html>
@@ -327,9 +343,9 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Ouvrez votre navigateur et accédez à http://localhost:8080/. Les éléments suivants doivent s’afficher :
 
-:::image type="content" source="../acs-join-teams-meeting-chat-quickstart.png" alt-text="Capture d’écran de l’application JavaScript terminée.":::
+:::image type="content" source="../join-teams-meeting-chat-quickstart.png" alt-text="Capture d’écran de l’application JavaScript terminée.":::
 
-Insérez le lien de réunion et l’ID de thread Teams dans les zones de texte. Appuyez sur *Participer à une réunion Teams* pour participer à la réunion Teams. Une fois l’utilisateur ACS admis à la réunion, vous pouvez converser à partir de votre application Azure Communication Services. Accédez à la zone en bas de la page pour commencer la conversation.
+Insérez le lien de réunion et l’ID de thread Teams dans les zones de texte. Appuyez sur *Participer à une réunion Teams* pour participer à la réunion Teams. Une fois que l’utilisateur Communication Services est admis à la réunion, vous pouvez converser à partir de votre application Azure Communication Services. Accédez à la zone en bas de la page pour commencer la conversation.
 
 > [!NOTE] 
-> Actuellement, seuls l’envoi, la réception et la modification de messages sont pris en charge pour les scénarios d’interopérabilité avec Teams. D’autres fonctionnalités, telles que les indicateurs de saisie et les utilisateurs Communication Services qui ajoutent ou suppriment d’autres utilisateurs dans la réunion Teams, ne sont pas prises en charge pour l’instant.  
+> Actuellement, seuls l’envoi, la réception et la modification de messages sont pris en charge pour les scénarios d’interopérabilité avec Teams. D’autres fonctionnalités, telles que les indicateurs de saisie et les utilisateurs Communication Services qui ajoutent ou suppriment d’autres utilisateurs dans la réunion Teams, ne sont pas prises en charge pour l’instant.

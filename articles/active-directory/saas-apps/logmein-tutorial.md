@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2021
 ms.author: jeedes
-ms.openlocfilehash: e5b28c70f19d651212cc7af54968ce60c6daeb38
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 09c46efab8eea797b10b2724c3c19c7b1b34c87f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125388"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467658"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-logmein"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à LogMeIn
 
@@ -80,6 +80,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://authentication.logmeininc.com/login?service=https%3A%2F%2Fmyaccount.logmeininc.com`
 
+1. Votre application LogMeIn s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **Identificateur d’utilisateur unique** est mappé avec **user.userprincipalname**. L’application LogMeIn s’attendant à ce que **Identificateur d’utilisateur unique** soit mappé avec **user.mail**, vous devez modifier le mappage d’attributs en cliquant sur l’icône **Modifier**, et changer le mappage d’attributs.
+
+    ![image](common/default-attributes.png)
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
