@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 02/24/2021
 ms.custom: mvc
-ms.openlocfilehash: 1cddd39d0b95e021478235fcdafbacd40eb4097c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 315230a19967e4006e378b836b0ea70f6b5c19b9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105253"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094291"
 ---
 # <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
@@ -117,13 +117,9 @@ Pour vous familiariser avec le trafic d’entrée, consultez [Routage d’applic
 
 ## <a name="development-tooling-integration"></a>Intégration d’outils de développement
 
-Kubernetes dispose d’un riche écosystème d’outils de développement et de gestion qui fonctionnent de façon harmonieuse avec AKS. Parmi ces outils figurent Helm et l’extension Kubernetes pour Visual Studio Code.   
+Kubernetes dispose d’un riche écosystème d’outils de développement et de gestion qui fonctionnent de façon harmonieuse avec AKS. Parmi ces outils figurent Helm et l’extension Kubernetes pour Visual Studio Code. 
 
-Azure fournit plusieurs outils qui permettent de rationaliser Kubernetes, tels que les services Azure Dev Spaces et DevOps Starter.  
-
-### <a name="azure-dev-spaces"></a>Azure Dev Spaces
-
-Azure Dev Spaces offre aux équipes une expérience de développement Kubernetes rapide et itérative. Avec une configuration minimale, vous pouvez exécuter et déboguer des conteneurs directement dans AKS. Pour commencer, consultez [Azure Dev Spaces][azure-dev-spaces].
+Azure propose plusieurs outils qui permettent de rationaliser Kubernetes, comme DevOps Starter.  
 
 ### <a name="devops-starter"></a>DevOps Starter
 

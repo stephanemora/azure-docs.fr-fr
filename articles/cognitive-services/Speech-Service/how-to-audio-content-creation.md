@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: f14883632e2a6cb741f86c7393bad3fb2305b397
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 94e060176b921529a42e28e8c735b0f1cdda5293
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161372"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075075"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Améliorer la synthèse avec l’outil de création de contenu audio
 
@@ -23,9 +23,9 @@ ms.locfileid: "108161372"
 
 L’outil est basé sur le [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md). Elle vous permet d’ajuster les attributs de sortie de conversion de texte par synthèse vocale en temps réel ou en synthèse par lot, comme les caractères vocaux, les styles vocaux, la vitesse d’élocution, la prononciation et la prosodie.
 
-Vous pouvez accéder facilement à plus de 150 voix prégénérées dans près de 50 différentes langues, y compris des voix de synthèse vocale de pointe et votre voix personnalisée si vous en avez créé une.
+Vous pouvez accéder facilement à plus de 150 voix prédéfinies dans plus de 60 langues différentes, y compris des voix de synthèse vocale de pointe et votre voix personnalisée si vous en avez créé une.
 
-Pour la création de contenu audio, consultez le [tutoriel vidéo](https://www.youtube.com/watch?v=O1wIJ7mts_w).
+Pour la création de contenu audio, consultez le [tutoriel vidéo](https://youtu.be/ygApYuOOG6w).
 
 ## <a name="how-to-get-started"></a>Bien démarrer
 
@@ -49,8 +49,10 @@ Le déploiement de votre nouvelle ressource Speech prend quelques instants. Une 
 ### <a name="step-3---log-into-the-audio-content-creation-with-your-azure-account-and-speech-resource"></a>Étape 3 : Se connecter à Création de contenu audio avec votre compte Azure et votre ressource Speech
 
 1. Après avoir obtenu le compte Azure et la ressource Speech, vous pouvez vous connecter à [Création de contenu audio](https://aka.ms/audiocontentcreation) en cliquant sur **Démarrage**.
-2. La page de la **ressource Speech** s’affiche. Sélectionnez la ressource Speech sur laquelle vous voulez travailler. Cliquez sur **Accéder à Studio** pour démarrer la création audio. Vous pouvez également créer une ressource Speech ici en cliquant sur **Créer nouveau**. Quand vous vous connectez à l’outil Création de contenu audio la fois suivante, nous vous envoyons directement les fichiers de travail audio sous la ressource Speech actuelle.
-3. Vous pouvez modifier votre ressource Speech à tout moment avec l’option **Paramètres**, située dans le haut de la section.
+2. La page d’accueil liste tous les produits sous Speech Studio. Cliquez sur **Création de contenu audio** pour démarrer.
+3. La page **Bienvenue dans Speech Studio** s’affiche et vous permet de configurer le service Speech. Sélectionnez l’abonnement Azure et la ressource Speech sur lesquels vous voulez travailler. Cliquez sur **Utiliser la ressource** pour renseigner les paramètres. Quand vous vous connectez à l’outil Création de contenu audio la fois suivante, nous vous envoyons directement les fichiers de travail audio sous la ressource Speech actuelle. Vous pouvez vérifier les détails et l’état de vos abonnements Azure dans le [portail Azure](https://portal.azure.com/). Si vous n’avez pas de ressource vocale disponible et que vous êtes propriétaire ou administrateur d’un abonnement Azure, vous pouvez aussi créer une ressource Speech dans Speech Studio en cliquant sur **Créer une ressource**. Si vous êtes utilisateur d’un abonnement Azure donné, vous n’êtes peut-être pas autorisé à créer une ressource Speech. Contactez alors votre administrateur pour obtenir l’accès à des ressources vocales. 
+4. Vous pouvez modifier votre ressource Speech à tout moment avec l’option **Paramètres**, située dans le haut de la section.
+5. Pour changer d’annuaire, accédez aux **paramètres** ou à votre profil. 
 
 ## <a name="how-to-use-the-tool"></a>Comment utiliser l’outil ?
 
@@ -64,8 +66,9 @@ Ce diagramme vous montre les étapes nécessaires pour régler les sorties de la
    > [!NOTE]
    > L’accès contrôlé est disponible pour les voix neuronales personnalisées, ce qui vous permet de créer des voix haute définition similaires à une voix naturelle. Pour plus d’informations, consultez [Processus de vérification](./text-to-speech.md).
 
-4. Cliquez sur l’icône **Lire** (un triangle) pour afficher un aperçu de la sortie de synthèse par défaut. Améliorez ensuite la sortie en ajustant la prononciation, les pauses, le ton, le débit, l’intonation, le style vocal, etc. Pour obtenir la liste complète des options, consultez [Langage de balisage de synthèse vocale](speech-synthesis-markup.md). Voici une [vidéo](https://www.youtube.com/watch?v=O1wIJ7mts_w) illustrant comment ajuster la sortie vocale avec la Création de contenu audio.
-5. Enregistrez et [exportez vos audio réglés](#export-tuned-audio). Lorsque vous enregistrez la piste de paramétrage dans le système, vous pouvez continuer à travailler et itérer sur la sortie. Lorsque vous êtes satisfait de la sortie, vous pouvez créer une tâche de création audio avec la fonctionnalité d’exportation. Vous pouvez observer l’état de la tâche d’exportation et télécharger la sortie à utiliser avec vos applications et produits.
+4. Sélectionnez le contenu à prévisualiser, puis cliquez sur l’icône de **lecture** (un triangle) pour afficher un aperçu de la sortie de synthèse par défaut. Notez que si vous apportez des modifications au texte, vous devez cliquer sur l’icône **Arrêter**, puis recliquer sur l’icône de **lecture** pour regénérer l’audio avec les scripts modifiés. 
+5. Améliorez la sortie en ajustant la prononciation, les pauses, le ton, le débit, l’intonation, le style vocal, etc. Pour obtenir la liste complète des options, consultez [Langage de balisage de synthèse vocale](speech-synthesis-markup.md). Voici une [vidéo](https://youtu.be/ygApYuOOG6w) illustrant comment ajuster la sortie vocale avec la Création de contenu audio.
+6. Enregistrez et [exportez vos audio réglés](#export-tuned-audio). Lorsque vous enregistrez la piste de paramétrage dans le système, vous pouvez continuer à travailler et itérer sur la sortie. Lorsque vous êtes satisfait de la sortie, vous pouvez créer une tâche de création audio avec la fonctionnalité d’exportation. Vous pouvez observer l’état de la tâche d’exportation et télécharger la sortie à utiliser avec vos applications et produits.
 
 ## <a name="create-an-audio-tuning-file"></a>Créer un fichier de réglage audio
 
@@ -73,7 +76,7 @@ Il existe deux façons d’intégrer votre contenu dans l’outil Création de c
 
 **Option 1 :**
 
-1. Cliquez sur l’icône **Nouveau fichier** en haut à droite pour créer un fichier de réglage audio.
+1. Cliquez sur **Nouveau** > **Fichier** pour créer un fichier de réglage audio.
 2. Tapez ou collez votre contenu dans la fenêtre d’édition. Chaque fichier ne doit pas excéder 20 000 caractères. Si votre script dépasse cette limite, vous pouvez utiliser l’option 2 pour fractionner automatiquement votre contenu en plusieurs fichiers.
 3. N’oubliez pas d’enregistrer.
 
@@ -127,6 +130,9 @@ Une fois que vous avez vérifié la sortie audio et que vous êtes satisfait de 
 
 Si plusieurs utilisateurs souhaitent utiliser l’outil Création de contenu audio, vous pouvez leur octroyer l’accès à l’abonnement Azure et à la ressource Speech. Si vous ajoutez un utilisateur à un abonnement Azure, l’utilisateur peut accéder à toutes les ressources sous l’abonnement Azure. Toutefois, si vous ajoutez uniquement un utilisateur à une ressource Speech, l’utilisateur n’aura accès qu’à la ressource Speech et ne pourra pas accéder aux autres ressources sous cet abonnement Azure. Un utilisateur ayant accès à la ressource Speech peut utiliser Création de contenu audio.
 
+L’utilisateur doit préparer un [compte Microsoft](https://account.microsoft.com/account). Si l’utilisateur n’a pas de compte Microsoft, créez-en un en quelques minutes. L’utilisateur peut utiliser l’adresse e-mail et le lien existants comme compte Microsoft, ou créer une adresse e-mail Outlook en tant que compte Microsoft.
+
+
 ### <a name="add-users-to-a-speech-resource"></a>Ajouter des utilisateurs à une ressource Speech
 
 Procédez comme suit pour ajouter un utilisateur à une ressource Speech afin qu’il puisse utiliser Création de contenu audio.
@@ -134,13 +140,13 @@ Procédez comme suit pour ajouter un utilisateur à une ressource Speech afin qu
 1. Recherchez **Cognitive Services** dans le [portail Azure](https://portal.azure.com/), sélectionnez la ressource Speech à laquelle vous souhaitez ajouter des utilisateurs.
 2. Cliquez sur **Contrôle d’accès (IAM)** . Cliquez sur l’onglet **Attributions de rôles** afin d’afficher toutes les attributions de rôles pour cet abonnement.
     :::image type="content" source="media/audio-content-creation/access-control-roles.png" alt-text="Onglet d’attribution de rôle":::
-1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir le volet Ajouter une attribution de rôle. Dans la liste déroulante Rôle, sélectionnez le rôle **Utilisateur du service cognitif**. Si vous souhaitez attribuer à l’utilisateur la propriété de cette ressource Speech, vous pouvez sélectionner le rôle **Propriétaire**.
-1. Sélectionnez un utilisateur dans la liste. Si vous ne voyez pas l’utilisateur dans la liste, vous pouvez taper dans la zone Sélectionner pour rechercher des noms d’affichage et des adresses e-mail dans l’annuaire. Si l'utilisateur ne se trouve pas dans ce répertoire, vous pouvez entrer le [compte Microsoft](https://account.microsoft.com/account) de l'utilisateur (qui est approuvé par Azure Active Directory).
-1. Cliquez sur **Enregistrer** pour attribuer le rôle. Après quelques instants, l’utilisateur se voit attribuer le rôle Utilisateur du service cognitif au niveau de l’étendue de la ressource Speech.
+3. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir le volet Ajouter une attribution de rôle. Dans la liste déroulante Rôle, sélectionnez le rôle **Utilisateur du service cognitif**. Si vous souhaitez attribuer à l’utilisateur la propriété de cette ressource Speech, vous pouvez sélectionner le rôle **Propriétaire**.
+4. Sélectionnez un utilisateur dans la liste. Si vous ne voyez pas l’utilisateur dans la liste, vous pouvez taper dans la zone Sélectionner pour rechercher des noms d’affichage et des adresses e-mail dans l’annuaire. Si l'utilisateur ne se trouve pas dans ce répertoire, vous pouvez entrer le [compte Microsoft](https://account.microsoft.com/account) de l'utilisateur (qui est approuvé par Azure Active Directory).
+5. Cliquez sur **Enregistrer** pour attribuer le rôle. L’utilisateur va recevoir une invitation par e-mail. Acceptez l’invitation en cliquant sur **Accepter l’invitation** > **Accepter de rejoindre Azure** dans l’e-mail. L’utilisateur est ensuite redirigé vers le portail Azure. L’utilisateur n’a pas besoin d’effectuer autre chose dans le portail Azure.
+6. Après quelques instants, l’utilisateur se voit attribuer le rôle Utilisateur du service cognitif au niveau de l’étendue de la ressource Speech. L’utilisateur peut visiter ou actualiser la page [Création de contenu audio](https://aka.ms/audiocontentcreation), puis choisir la ressource vocale pour démarrer. 
 
     :::image type="content" source="media/audio-content-creation/add-role-first.png" alt-text="Boîte de dialogue Ajouter un rôle":::
 
-1. Les utilisateurs que vous ajoutez recevront un e-mail d’invitation. Une fois qu’ils cliquent sur **Accepter l’invitation** > **Accepter de rejoindre Azure**, ils peuvent utiliser [Création de contenu audio](https://aka.ms/audiocontentcreation).
 
 Les utilisateurs qui se trouvent dans la même ressource Speech voient le travail des autres dans le studio Création de contenu audio. Si vous souhaitez que chaque utilisateur individuel dispose d’un espace de travail unique et privé dans Création de contenu audio, veuillez [créer une ressource Speech](#step-2---create-a-speech-resource) pour chaque utilisateur et octroyer à chaque utilisateur l’accès unique à la ressource Speech.
 
@@ -156,7 +162,7 @@ Les utilisateurs qui se trouvent dans la même ressource Speech voient le travai
 Si vous souhaitez qu’un des utilisateurs puisse donner l’accès à d’autres utilisateurs, vous devez lui attribuer le rôle Propriétaire pour la ressource Speech et définir l’utilisateur en tant que lecteur de répertoires Azure.
 1. Ajoutez l’utilisateur en tant que propriétaire de la ressource Speech. Consultez [Comment ajouter des utilisateurs à une ressource Speech](#add-users-to-a-speech-resource).
     :::image type="content" source="media/audio-content-creation/add-role.png" alt-text="Champ Propriétaire du rôle":::
-1. Sélectionnez le menu réduit dans le coin supérieur gauche. Cliquez sur **Azure Active Directory**, puis sur **Utilisateurs**.
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez le menu réduit dans le coin supérieur gauche. Cliquez sur **Azure Active Directory**, puis sur **Utilisateurs**.
 1. Recherchez le compte Microsoft de l’utilisateur et accédez à la page de détails de l’utilisateur. Cliquez sur **Rôles affectés**.
 1. Cliquez sur **Ajouter des affectations** -> **Lecteurs de répertoires**.
 

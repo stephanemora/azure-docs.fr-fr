@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 691d35267c255c933a8098b99301fbb795a3cd0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 172ffe8b5028032c38f5c86a7289cef4250653a4
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181065"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614946"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Tutoriel : Configurer Atlassian Cloud pour le provisionnement automatique d’utilisateurs
 
@@ -104,7 +104,9 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 8. Sous la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Atlassian Cloud**.
 
-9. Passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers Atlassian Cloud dans la section **Mappages d’attributs**. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondance des comptes d’utilisateur dans Atlassian Cloud dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers Atlassian Cloud dans la section **Mappages d’attributs**.
+   L’attribut d’e-mail est utilisé pour faire correspondre les comptes Atlassian Cloud avec vos comptes Azure AD.
+   Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|
    |---|---|
@@ -116,7 +118,9 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 10. Sous la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory sur Atlassian Cloud**.
 
-11. Passez en revue les attributs de groupe qui sont synchronisés d’Azure AD vers Atlassian Cloud dans la section **Mappages d’attributs**. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondance des groupes dans Atlassian Cloud dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Passez en revue les attributs de groupe qui sont synchronisés d’Azure AD vers Atlassian Cloud dans la section **Mappages d’attributs**.
+    L’attribut de nom d’affichage est utilisé pour faire correspondre les comptes Atlassian Cloud avec vos comptes Azure AD.
+    Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
       |Attribut|Type|
       |---|---|
@@ -134,7 +138,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-16. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
+15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 

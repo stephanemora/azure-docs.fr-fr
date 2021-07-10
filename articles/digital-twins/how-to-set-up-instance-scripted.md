@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 8d23fd6b1b16f794e504b68f3b88d50b04922ba9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f56d1c305f5d18d82ae79781a7b60fd6b429357b
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110068029"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613815"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurer une instance Azure Digital Twins et l’authentification (procédure scriptée)
 
@@ -34,7 +34,7 @@ Cette version de cet article effectue ces étapes en exécutant un exemple de [s
 
 L’exemple de script est écrit dans PowerShell. Il fait partie des [exemples Azure Digital Twins de bout en bout](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que vous pouvez télécharger sur votre ordinateur en suivant ce lien et en sélectionnant le bouton *Browse code* (Parcourir le code) sous le titre. Vous accédez alors au dépôt GitHub d’exemples, que vous pouvez télécharger au format .zip en sélectionnant le bouton *Code*, puis *Download ZIP* (Télécharger le ZIP).
 
-:::image type="content" source="media/includes/download-repo-zip.png" alt-text="Vue du dépôt digital-twins-samples sur GitHub. La sélection du bouton Code entraîne l’ouverture d’une petite boîte de dialogue dans laquelle le bouton Download ZIP est mis en évidence." lightbox="media/includes/download-repo-zip.png":::
+:::image type="content" source="media/includes/download-repo-zip.png" alt-text="Capture d’écran du dépôt digital-twins-samples sur GitHub, mettant en évidence les étapes permettant de le télécharger sous la forme d’un fichier zip." lightbox="media/includes/download-repo-zip.png":::
 
 Ceci télécharge un dossier .zip sur votre machine sous le nom **digital-twins-samples-master.zip**. Accédez au dossier sur votre ordinateur et décompressez-le pour extraire les fichiers.
 
@@ -55,11 +55,11 @@ Voici les étapes à suivre pour exécuter le script de déploiement dans Cloud 
  
 2. Dans la barre d’icônes Cloud Shell, vérifiez que Cloud Shell est configuré pour exécuter la version PowerShell.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Fenêtre Cloud Shell présentant la sélection de la version PowerShell":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Capture d’écran de la fenêtre Cloud Shell dans le portail Azure, montrant la sélection de la version de PowerShell.":::
 
 1. Sélectionnez l’icône « Charger/Télécharger des fichiers » et choisissez « Charger ».
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Fenêtre Cloud Shell présentant la sélection de l’icône Charger":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Capture d’écran de la fenêtre Cloud Shell dans le portail Azure, montrant la sélection de l’icône Charger.":::
 
     Accédez au fichier _**deploy.ps1**_ sur votre ordinateur (dans _digital-twins-samples-master > scripts > **deploy.ps1**_) et sélectionnez « Ouvrir ». Cette opération charge le fichier dans Cloud Shell pour que vous puissiez l’exécuter dans la fenêtre Cloud Shell.
 
@@ -79,12 +79,12 @@ Voici les étapes à suivre pour exécuter le script de déploiement dans Cloud 
 
 Voici un extrait du journal de sortie du script :
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Fenêtre Cloud Shell présentant le journal d’entrée et de sortie par le biais de l’exécution du script de déploiement" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Capture d’écran de la fenêtre Cloud Shell dans le portail Azure montrant un journal d’entrée et de sortie de l’exécution du script de déploiement." lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 Si le script s’exécute correctement, l’affichage final indique `Deployment completed successfully`. Sinon, traitez le message d’erreur et réexécutez le script. Cela permet de contourner les étapes que vous avez déjà effectuées et de demander une nouvelle entrée au stade où vous vous étiez arrêté.
 
 > [!NOTE]
-> Le script attribue actuellement le rôle de gestion requis dans Azure Digital Twins (*Propriétaire de données Azure Digital Twins*) au même utilisateur qui exécute ce script à partir de Cloud Shell. Si vous devez attribuer ce rôle à une autre personne chargée de gérer cette instance, vous pouvez le faire via le portail Azure ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) ou l’interface CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+> Le script attribue actuellement le rôle de gestion requis dans Azure Digital Twins (*Propriétaire de données Azure Digital Twins*) au même utilisateur qui exécute ce script à partir de Cloud Shell. Si vous devez attribuer ce rôle à une autre personne chargée de gérer cette instance, vous pouvez le faire dès maintenant en suivant les [instructions pour le portail Azure](how-to-set-up-instance-portal.md#set-up-user-access-permissions) ou les [instructions pour l’interface CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 
 >[!NOTE]
 >Il existe actuellement un **problème connu** avec l’installation par script, qui a pour effet que certains utilisateurs (en particulier, des utilisateurs de [comptes Microsoft (MSA)](https://account.microsoft.com/account) personnel) peuvent découvrir que l’**attribution de rôle au _Propriétaire de données Azure Digital Twins_ n’a pas été créée**.
@@ -111,7 +111,7 @@ Si la vérification a échoué, vous pouvez réessayer de créer une instance à
 
 Sélectionnez le nom de votre instance dans la [page Azure Digital Twins](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) pour ouvrir la page *Vue d’ensemble* de l’instance. Notez son *nom*, son *groupe de ressources* et son *nom d’hôte*. Vous en aurez peut-être besoin plus tard pour identifier votre instance et vous y connecter.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Mise en surbrillance des valeurs importantes de la page de présentation de l’instance":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Capture d’écran du portail Azure, mettant en évidence les valeurs importantes de la page de présentation de l’instance Azure Digital Twins.":::
 
 ### <a name="verify-user-role-assignment"></a>Vérifier l’attribution du rôle utilisateur
 

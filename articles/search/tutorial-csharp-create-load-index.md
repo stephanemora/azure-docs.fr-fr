@@ -7,15 +7,15 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 04/23/2021
+ms.date: 05/21/2021
 ms.custom: devx-track-csharp
 ms.devlang: dotnet
-ms.openlocfilehash: b7bbf9f1ec572680f02e4b6d3adca6d807b45f83
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 7822f86b52bf3b8fce9ee144797d8a9b83d90a9b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107981954"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469849"
 ---
 # <a name="2---create-and-load-search-index-with-net"></a>2 - Créer et charger un index de recherche avec .NET
 
@@ -103,6 +103,14 @@ Notez le **nom de votre ressource de recherche**. Vous en aurez besoin pour conn
 
 > [!CAUTION]
 > Vous pouvez être tenté d’utiliser votre clé d’administration de recherche dans Azure Function, qui ne suit pas le principe du privilège minimum. Azure Function utilise la clé de requête pour se conformer au privilège minimum. 
+
+## <a name="rollback-bulk-import-file-changes"></a>Annuler les modifications apportées au fichier d'importation en bloc
+
+Dans le terminal intégré VS Code, appliquez la commande Git suivante au répertoire `bulk-insert` pour annuler les modifications. Celles-ci ne sont pas nécessaires pour poursuivre le tutoriel, et vous ne devez pas enregistrer ou transmettre ces secrets à votre référentiel. 
+
+```git
+git checkout .
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

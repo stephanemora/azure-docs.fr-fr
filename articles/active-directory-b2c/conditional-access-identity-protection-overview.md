@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/13/2021
+ms.date: 05/28/2021
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37118a84468743053e6f825bf982b3073c5545d3
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 739c20cb39db5fda3a182bc4c5379d0bc9c4d06e
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110060798"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690332"
 ---
 # <a name="identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Identity Protection et accès conditionnel pour Azure AD B2C
 
@@ -26,7 +26,7 @@ Si vous connaissez déjà [Identity Protection](../active-directory/identity-pro
 ![Accès conditionnel dans un locataire B2C](media/conditional-access-identity-protection-overview/conditional-access-b2c.png)
 
 > [!NOTE]
-> Pour utiliser l’accès conditionnel, Azure AD B2C Premium P2 est nécessaire.
+> Azure AD B2C **Premium P2** est nécessaire pour créer des stratégies de connexion risquée. Les locataires **Premium P1** peuvent créer une stratégie basée sur l’emplacement, l’application, des stratégies basées sur l’utilisateur ou le groupe. Pour plus d’informations, consultez [Modifier votre niveau tarifaire Azure AD B2C](billing.md#change-your-azure-ad-pricing-tier).
 
 ## <a name="benefits-of-identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Avantages d’Identity Protection et de l’accès conditionnel pour Azure AD B2C  
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 80f3af135f32bcb8fefd2d786da767e32a2f9368
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 55dcda4c323700caa030fb87768d36a702d1c501
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203664"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476751"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Dépannage d’Azure Digital Twins : Alertes
 
@@ -36,7 +36,7 @@ Voici comment activer des alertes pour votre instance Azure Digital Twins :
 
 4. Sélectionnez le bouton _Créer une règle d’alerte_ pour créer votre règle d’alerte.
 
-:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Capture d’écran montrant la page Créer une règle d’alerte avec des sections pour l’étendue, la condition, groupe d’actions et les détails de la règle d’alerte" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Capture d’écran du portail Azure montrant la page Créer une règle d’alerte avec des sections pour l’étendue, la condition, le groupe d’actions et les détails de la règle d’alerte" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
 Pour une procédure pas à pas guidée de la saisie de ces champs, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). Voici quelques exemples de ce à quoi ressemblera les étapes pour Azure Digital Twins.
 
@@ -44,17 +44,17 @@ Pour une procédure pas à pas guidée de la saisie de ces champs, consultez [Vu
 
 Voici un extrait du processus *Sélectionner une condition* illustrant les types de signaux d’alerte disponibles pour Azure Digital Twins. Sur cette page, vous pouvez filtrer le type de signal et sélectionner le signal souhaité dans une liste.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Capture d’écran montrant la première page Configurer la logique du signal. La zone Type de signal est mise en surbrillance pour sélectionner des métriques ou des journaux d’activité, ainsi qu’une liste des métriques que vous pouvez sélectionner en dessous":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Capture d’écran du portail Azure montrant la première page Configurer la logique du signal. La zone Type de signal et la liste des métriques sont mises en évidence.":::
 
 Après avoir sélectionné un signal, vous êtes invité à configurer la logique de l’alerte. Vous pouvez filtrer sur une dimension, définir une valeur seuil pour votre alerte et définir la fréquence des vérifications pour la condition. Voici un exemple de configuration d’une alerte lorsque la métrique du taux moyen d’échec de routage dépasse 5 %.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Capture d’écran montrant la deuxième page Configurer la logique du signal. La page affiche l’historique des métriques, a une zone à filtrer sur une dimension telle que les opérations Event Grid et une section pour la définition de la logique d’alerte telle que « moyenne est supérieure à 5 ».":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Capture d’écran du portail Azure montrant la deuxième page Configurer la logique du signal":::
 
 ### <a name="verify-success"></a>Vérifier la réussite de l’exécution
 
 Une fois les alertes configurées, elles s’affichent sur la page *Alertes* de votre instance.
  
-:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Capture d’écran montrant la page Alertes et le bouton à ajouter. Une alerte est configurée" lightbox="media/troubleshoot-alerts/alerts-post.png":::
+:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Capture d’écran du portail Azure montrant la page Alertes et le bouton d’ajout. Une alerte est configurée." lightbox="media/troubleshoot-alerts/alerts-post.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

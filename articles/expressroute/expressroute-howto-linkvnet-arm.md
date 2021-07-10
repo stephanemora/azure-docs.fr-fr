@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/06/2020
 ms.author: duau
-ms.custom: seodec18
-ms.openlocfilehash: eda575e0f29abbe18750a24fbfc212a9d84819cf
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: 7242749958d12b8d93f667b91ed005096d75f1e4
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110357"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538722"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit"></a>Tutoriel : Connecter un réseau virtuel à un circuit ExpressRoute
 > [!div class="op_single_selector"]
@@ -31,6 +31,8 @@ Cet article vous aide à lier des réseaux virtuels à des circuits Azure Expres
 * Un réseau virtuel unique peut être lié à 16 circuits ExpressRoute maximum. Utilisez les étapes de cet article pour créer un objet de connexion pour chaque circuit ExpressRoute auquel vous vous connectez. Les circuits ExpressRoute peuvent être dans le même abonnement, dans des abonnements différents ou dans une combinaison des deux.
 
 * Si vous activez le module complémentaire ExpressRoute Premium, vous pouvez lier des réseaux virtuels à l’extérieur de la région géopolitique du circuit ExpressRoute. Le module complémentaire Premium vous permet également de connecter plus de 10 réseaux virtuels à votre circuit ExpressRoute en fonction de la bande passante choisie. Pour plus d’informations sur le module complémentaire Premium, consultez le [FAQ](expressroute-faqs.md) .
+
+* Pour créer la connexion entre le circuit ExpressRoute et la passerelle de réseau virtuel ExpressRoute cible, le nombre d’espaces d’adressage publiés à partir des réseaux virtuels locaux ou appairés doit être inférieur ou égal à **200**. Une fois la connexion établie, vous pouvez ajouter des espaces d’adressage supplémentaires (jusqu’à 1 000) aux réseaux virtuels locaux ou appairés.
 
 Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]

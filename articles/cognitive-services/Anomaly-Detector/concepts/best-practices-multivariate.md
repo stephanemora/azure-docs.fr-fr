@@ -11,28 +11,39 @@ ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: mbullwin
 keywords: détection d’anomalie, Machine Learning, algorithmes
-ms.openlocfilehash: 7de25b4a099c706c05b32b52492096923033f822
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 30778cf48efda57fc0d50964611d5616ce7a84d5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107318819"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062251"
 ---
 # <a name="multivariate-time-series-anomaly-detector-best-practices"></a>Bonnes pratiques concernant le Détecteur d’anomalies (multivarié) de série chronologique
 
 Cet article fournit des conseils concernant les pratiques recommandées à suivre lors de l’utilisation des API Détecteur d’anomalies (multivarié).
 
-## <a name="how-to-prepare-data-for-training"></a>Préparer les données pour l’entraînement
+## <a name="training-data"></a>Données de formation 
 
-Pour utiliser les API Détecteur d’anomalies (multivarié), nous devons effectuer l’entraînement de notre propre modèle avant d’utiliser la détection. Les données utilisées pour l’entraînement sont un lot de séries chronologiques. Chaque série chronologique doit être au format CSV avec deux colonnes, horodatage et valeur. Toutes les séries chronologiques doivent être compressées dans un fichier zip, et chargées dans le stockage d’objets blob Azure. Par défaut, le nom de fichier est utilisé pour représenter la variable pour la série chronologique. En guise d’alternative, un fichier meta.json supplémentaire peut être inclus dans le fichier zip si vous souhaitez que le nom de la variable soit différent du nom du fichier .zip. Une fois que nous avons généré une [URL de signature d’accès partagé (SAS) d’objet blob](../../../storage/common/storage-sas-overview.md), nous pouvons l’utiliser pour l’entraînement.
+### <a name="data-schema"></a>Schéma de données
+Pour utiliser les API multivariées Détecteur d’anomalies, vous devez d’abord entraîner vos propres modèles. Les données d’entraînement sont un ensemble de plusieurs séries chronologiques qui satisfont les exigences suivantes :
 
-## <a name="data-quality-and-quantity"></a>Qualité et quantité des données
+Chaque série chronologique doit être un fichier CSV comportant deux (et seulement deux) colonnes, avec **« timestamp »** et **« value »** (tout en minuscules) comme ligne d’en-tête. Les valeurs « timestamp » doivent être conformes à la norme ISO 8601 ; la colonne « value » peut contenir des entiers ou des nombres décimaux avec n’importe quel nombre de décimales. Par exemple :
 
-L’API Détecteur d’anomalies (multivarié) utilise des réseaux neuronaux profonds de pointe pour apprendre des patterns normaux à partir de données historiques et prédire si les valeurs futures sont des anomalies. La qualité et la quantité des données d’entraînement sont importantes pour l’entraînement d’un modèle optimal. Étant donné que le modèle apprend les patterns normaux à partir de données historiques, les données d’entraînement doivent représenter l’état normal global du système. Il est difficile pour le modèle d’apprendre ces types de patterns si les données d’entraînement sont pleines d’anomalies. Par ailleurs, le modèle a des millions de paramètres, et il a besoin d’une quantité minimale de points de données pour apprendre un ensemble optimal de paramètres. La règle générale est que vous devez fournir au moins 15 000 points de données par variable pour entraîner correctement le modèle. Plus il y a de données, mieux c’est.
+|timestamp | value|
+|-------|-------|
+|2019-04-01T00:00:00Z| 5|
+|2019-04-01T00:01:00Z| 3.6|
+|2019-04-01T00:02:00Z| 4|
+|`...`| `...` |
 
-Il arrive souvent que de nombreuses séries chronologiques aient des valeurs manquantes, ce qui peut affecter les performances des modèles entraînés. Le ratio de valeurs manquantes de chaque série chronologique doit être contrôlé et maintenu sous une valeur raisonnable. Une série chronologique ayant 90 % de valeurs manquantes fournit peu d’informations sur les patterns normaux du système. Pire encore, le modèle peut considérer les valeurs remplies comme des patterns normaux, qui sont généralement des segments droits ou des valeurs constantes. Lorsque de nouvelles données arrivent, elles risquent d’être détectées comme des anomalies.
+Chaque fichier CSV doit être nommé d’après une variable différente qui sera utilisée pour entraîner le modèle. Par exemple, « température.csv » et « humidité.csv ». Tous les fichiers CSV doivent être compressés dans un seul fichier zip ne contenant aucun sous-dossier. Le fichier zip peut porter le nom de votre choix. Le fichier zip doit être chargé dans le stockage Blob Azure. Une fois que vous avez généré l’[URL des signatures d’accès partagé (SAS) des objets blob](../../../storage/common/storage-sas-overview.md) pour le fichier zip, vous pouvez l’utiliser pour l’entraînement. Reportez-vous à ce document pour savoir comment générer des URL SAS à partir du stockage Blob Azure.
 
-Le seuil maximal de valeur manquantes recommandé est de 20 %, mais un seuil plus élevé peut être acceptable dans certaines circonstances. Par exemple si vous avez une série chronologique avec une précision d’une minute et une autre série chronologique avec une précision horaire,  chaque heure il y a 60 points de données par minute de données et un point de données pour les données horaires, ce qui signifie que le ratio de valeurs manquantes pour les données horaires est de 98,33 %. Toutefois, il est acceptable de remplir les données horaires avec l’unique valeur si la série chronologique ne fluctue pas trop.
+### <a name="data-quality"></a>Qualité des données
+- Étant donné que le modèle apprend les patterns normaux à partir de données historiques, les données d’entraînement doivent **représenter l’état normal global du système**. Il est difficile pour le modèle d’apprendre ces types de patterns si les données d’entraînement sont pleines d’anomalies. 
+-  Le modèle a des millions de paramètres, et il a besoin d’une quantité minimale de points de données pour apprendre un ensemble optimal de paramètres. La règle générale est que vous devez fournir **au moins 15 000 points de données par variable** pour entraîner correctement le modèle. Plus il y a de données, mieux c’est.
+- En général, le **ratio des valeurs manquantes des données d’entraînement doit être inférieur à 20 %** . Une trop grande quantité de données peut finir par des valeurs renseignées automatiquement (généralement des segments droits ou des valeurs constantes) appris comme des patterns normaux. Cela peut entraîner la détection de points de données réels comme des anomalies. 
+
+    Toutefois, il existe des cas où un ratio élevé est acceptable. Par exemple, si vous avez deux séries chronologiques dans un groupe utilisant le mode `Outer` pour aligner des horodatages. L’une d’elles a une précision d’une minute, l’autre a une précision horaire. Ensuite, la série chronologique horaire a, par nature, au moins 59 points de données manquants sur 60, soit 98,33 %. Dans ce cas, il est généralement bien de remplir la série chronologique horaire en utilisant la seule valeur disponible si elle ne fluctue pas trop.
 
 ## <a name="parameters"></a>Paramètres
 

@@ -20,6 +20,12 @@ items:
         href: manage-kafka-dotnet.md
   - name: Tutoriels
     items:
+      - name: Intégration de sources de données Azure à grande échelle
+        items:
+          - name: Vérification de la disponibilité des sources de données Azure à grande échelle
+            href: tutorial-data-sources-readiness.md
+          - name: Configuration de MSI Azure Purview à grande échelle
+            href: tutorial-msi-configuration.md
       - name: Starter kit
         items:
           - name: Analyser les données
@@ -196,6 +202,8 @@ items:
     items:
       - name: Classifications prises en charge
         href: supported-classifications.md
+      - name: Glossaire du produit Azure Purview
+        href: reference-purview-glossary.md
       - name: Guide de déploiement de la fonction ABAP
         href: abap-functions-deployment-guide.md
   - name: Ressources

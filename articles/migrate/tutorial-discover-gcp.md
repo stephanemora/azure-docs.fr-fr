@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/13/2021
 ms.custom: mvc
-ms.openlocfilehash: 5a581652bfd084118b47b5693a2b2ca9e92feda9
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 187808cacd40d2be0b122263e4c10672ef90fff3
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751182"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412454"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir des instances GCP (Google Cloud Platform) avec Azure Migrate : découverte et évaluation
 
@@ -87,7 +87,7 @@ Configurez un compte que l’appliance peut utiliser pour accéder aux serveurs 
         * Utilisateurs du journal de performances.
 * Pour les **serveurs Linux** :
     * Vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir. Si vous n’êtes pas en mesure de fournir un compte racine, vous trouverez une solution de remplacement dans les instructions de la [matrice de prise en charge](migrate-support-matrix-physical.md#physical-server-requirements).
-    * Azure Migrate utilise l’authentification par mot de passe lors de la découverte des instances AWS. Les instances AWS ne prennent pas en charge l’authentification par mot de passe par défaut. Avant de pouvoir découvrir l’instance, vous devez activer l’authentification par mot de passe.
+    * Azure Migrate utilise l’authentification par mot de passe pour la découverte d’instances de GCP. Les instances GCP ne prennent pas en charge l’authentification par mot de passe par défaut. Avant de pouvoir découvrir l’instance, vous devez activer l’authentification par mot de passe.
         1. Connectez-vous à chaque machine Linux.
         2. Ouvrez le fichier sshd_config : vi /etc/ssh/sshd_config
         3. Dans le fichier, localisez la ligne **PasswordAuthentication**, puis remplacez la valeur par **Oui**.

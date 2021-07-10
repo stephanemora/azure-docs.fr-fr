@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92ab043d4fccbe0764e361eac6f71ef69a5963cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0bfdb7017a5042787e7e33e05e52bd90d67deb0e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98939852"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110058869"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Implémentation des assistants vocaux sur Windows
 
@@ -124,7 +124,7 @@ Quand une application affiche une vue au-dessus du verrou, elle est considérée
 
 Une activation au-dessus du verrou est semblable à une activation en-dessous du verrou. S’il n’y a aucune instance active de l’application, une nouvelle instance est démarrée en arrière-plan et `OnBackgroundActivated` dans App.xaml.cs est appelé. S’il existe une instance de l’application, cette instance recevra une notification par le biais de l’événement `ConversationalAgentSession.SignalDetected`.
 
-Si l’application n’est pas déjà affichée au-dessus du verrou, elle doit appeler `ConversationalAgentSession.RequestForegroundActivationAsync`. Cela déclenche la méthode `OnLaunched` dans App.xaml.cs qui doit accéder à la vue qui sera affichée au-dessus du verrou.
+Si l’application n’apparaît pas au-dessus du verrou, elle doit appeler `ConversationalAgentSession.RequestForegroundActivationAsync`. Cela déclenche la méthode `OnLaunched` dans App.xaml.cs qui doit accéder à la vue qui va apparaître au-dessus du verrou.
 
 ### <a name="detecting-lock-screen-transitions"></a>Détection des transitions de l’écran de verrouillage
 

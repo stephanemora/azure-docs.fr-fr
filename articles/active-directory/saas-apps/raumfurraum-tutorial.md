@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 05/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 29040795f16ee804e2413b52d2692b38ab0f814c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 64638141e4e14d2913698d1be6622c083994e1b5
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92510557"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572230"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-raumfrraum"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à raum]für[raum
 
@@ -38,7 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * raum]für[raum prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**.
-* raum]für[raum prend en charge le provisionnement d’utilisateurs **Juste-à-temps**
+* raum]für[raum prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
 
 ## <a name="add-raumfrraum-from-the-gallery"></a>Ajouter raum]für[raum à partir de la galerie
 
@@ -50,7 +50,6 @@ Pour configurer l’intégration de raum]für[raum à Azure AD, vous devez ajout
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **raum]für[raum** dans la zone de recherche.
 1. Sélectionnez **raum]für[raum** dans le volet des résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-raumfrraum"></a>Configurer et tester l’authentification unique Azure AD pour raum]für[raum
 
@@ -71,11 +70,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Sur le portail Azure, dans la page d’intégration de l’application **raum]für[raum**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
     a. Dans la zone de texte **Identificateur**, tapez une URL en utilisant un des modèles suivants :
 
@@ -155,9 +154,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 #### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-* Cliquez sur **Tester cette application** dans le portail Azure : vous devez être connecté automatiquement à l’instance de raum]für[raum pour laquelle vous configurez l’authentification unique. 
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous devez alors être automatiquement connecté à l’instance de raum]für[raum pour laquelle vous configurez l’authentification unique. 
 
-Vous pouvez aussi utiliser le panneau d’accès Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette raum]für[raum dans le panneau d’accès, s’il est configuré en mode Fournisseur de services, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion et, si elle est configurée en mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de raum]für[raum pour lequel vous configurez l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette raum]für[raum dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de raum]für[raum pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Après avoir configuré raum]für[raum, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration de données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

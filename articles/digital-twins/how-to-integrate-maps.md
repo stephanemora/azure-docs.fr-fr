@@ -2,18 +2,18 @@
 title: Intégrer à Azure Maps
 titleSuffix: Azure Digital Twins
 description: Découvrez comment utiliser Azure Functions pour créer une fonction capable d’utiliser le graphique de jumeaux et les notifications Azure Digital Twins afin de mettre à jour une carte d’intérieur Azure Maps.
-author: alexkarcher-msft
-ms.author: alkarche
+author: baanders
+ms.author: baanders
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: b2b6e045a86fff7ba8a0d88a938fae93a0c6812a
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 69a02db3eafa9c75808eece69ce8ed676adf0ab2
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790448"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110615812"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Utiliser Azure Digital Twins pour mettre à jour un plan intérieur Azure Maps
 
@@ -37,7 +37,7 @@ Cette procédure couvre les sujets suivants :
 
 L’image ci-dessous illustre où les éléments d’intégration des plans intérieurs de ce didacticiel s’intègrent dans un scénario Azure Digital Twins de bout en bout plus grand.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-integration-topology.png" alt-text="Vue des services Azure dans un scénario de bout en bout, mise en surbrillance de l’élément d’intégration de plans intérieurs" lightbox="media/how-to-integrate-maps/maps-integration-topology.png":::
+:::image type="content" source="media/how-to-integrate-maps/maps-integration-topology.png" alt-text="Diagramme des services Azure dans un scénario de bout en bout, mettant en évidence l’élément d’intégration Indoor Maps" lightbox="media/how-to-integrate-maps/maps-integration-topology.png":::
 
 ## <a name="create-a-function-to-update-a-map-when-twins-update"></a>Créer une fonction pour mettre une carte à jour en cas de mise à jour des jumeaux
 
@@ -67,7 +67,7 @@ Ce modèle lit directement à partir du jumeau de la pièce, plutôt que de l’
     >Pour le résoudre, exécutez `az login` dans Cloud Shell avant d’exécuter la commande, ou utilisez la [CLI locale](/cli/azure/install-azure-cli) au lieu de Cloud Shell. Pour plus d’informations, consultez [résolution des problèmes : Problèmes connus dans Azure Digital Twins](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli-interactive
-    az dt route create --dt-name <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
+    az dt route create --dt-name <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
 ## <a name="create-a-function-to-update-maps"></a>Créer une fonction pour mettre les cartes à jour
@@ -83,8 +83,8 @@ Remplacez le code de fonction par le code suivant. Vous appliquez ainsi un filtr
 Vous allez devoir définir deux variables d’environnement dans votre application de fonction. L’une est votre [clé d’abonnement principal Azure Maps](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account) et l’autre est votre [ID d’ensemble d’états Azure Maps](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <your-App-Service-(function-app)-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
-az functionapp config appsettings set --name <your-App-Service-(function-app)-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
+az functionapp config appsettings set --name <your-App-Service-function-app-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
+az functionapp config appsettings set --name <your-App-Service-function-app-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
 ```
 
 ### <a name="view-live-updates-on-your-map"></a>Afficher les mises à jour en direct sur votre carte
@@ -92,14 +92,14 @@ az functionapp config appsettings set --name <your-App-Service-(function-app)-na
 Pour afficher la température mise à jour en direct, procédez comme suit :
 
 1. Commencez à envoyer des données IoT simulées en exécutant le projet **DeviceSimulator** à partir du [Didacticiel Azure Digital Twins : Connecter une solution de bout en bout](tutorial-end-to-end.md). Les instructions correspondantes se trouvent dans la section [Configurer et exécuter la simulation](././tutorial-end-to-end.md#configure-and-run-the-simulation).
-2. Le [module **Plans intérieurs Azure**](../azure-maps/how-to-use-indoor-module.md) vous permet d’afficher des plans intérieurs créés dans Azure Maps Creator.
+2. Utilisez le [module Plans intérieurs Azure](../azure-maps/how-to-use-indoor-module.md) pour afficher des plans intérieurs créés dans Azure Maps Creator.
     1. Copiez le code HTML de la section [Exemple : Utiliser le module Indoor Maps](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) du [Didacticiel : Utiliser le module Indoor Maps d’Azure Maps](../azure-maps/how-to-use-indoor-module.md) des cartes d’intérieur dans un fichier local.
     1. Remplacez la *clé d’abonnement*, *tilesetId* et *statesetID* dans le fichier HTML local par vos valeurs.
     1. Ouvrez ce fichier dans votre navigateur.
 
 Les deux exemples envoient la température dans une plage compatible. Vous devez donc voir la couleur de la mise à jour de la salle 121 sur la carte toutes les 30 secondes environ.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Carte Office illustrant la salle 121 colorée en orange":::
+:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Capture d’écran d’une carte Office illustrant la salle 121 colorée en orange":::
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Stocker les informations de vos cartes dans Azure Digital Twins
 

@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversion de texte par synthèse vocale
-ms.openlocfilehash: edde973b8b3abf2ef370195d4903927fa9eba9fb
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 53b4d7a3e8b0831856f2b43fac40962fe81065d1
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732863"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478085"
 ---
 # <a name="what-is-text-to-speech"></a>Qu’est-ce que la synthèse vocale ?
 
@@ -44,7 +44,7 @@ Cette documentation contient les types d’articles suivants :
 
 * Voix neuronales : les réseaux neuronaux profonds sont utilisés pour surmonter les limites de la synthèse vocale traditionnelle en ce qui concerne les accents toniques et les intonations dans le langage parlé. La prédiction prosodique et la synthèse vocale sont effectuées de façon simultanée, ce qui aboutit à un résultat plus fluide et plus naturel. Les voix neurales peuvent être utilisées pour rendre les interactions avec les chatbots et les assistants vocaux plus naturelles et plus agréables, pour convertir des textes numériques comme les livres électroniques en livres audio et pour améliorer les systèmes de navigation embarqués. Grâce à la prosodie naturelle quasi humaine et à la bonne articulation des mots, les voix neuronales réduisent considérablement la fatigue d’écoute lorsque vous interagissez avec des systèmes d’intelligence artificielle. Vous trouverez une liste complète des voix neuronales dans [Langues prises en charge](language-support.md#text-to-speech).
 
-* Ajuster les styles de voix avec SSML : SSML (Speech Synthesis Markup Language) est un langage de balisage basé sur XML, utilisé pour personnaliser les résultats de la reconnaissance vocale. Avec SSML, vous pouvez ajuster la tonalité, ajouter des pauses, améliorer la prononciation, accélérer ou ralentir le débit des paroles, augmenter ou réduire le volume, et attribuer plusieurs voix à un même document. Consultez [cet article](speech-synthesis-markup.md) pour savoir comment ajuster les styles de voix.
+* Ajuster la sortie TTS avec SSML : SSML (Speech Synthesis Markup Language) est un langage de balisage basé sur XML, utilisé pour personnaliser les résultats de la synthèse vocale. Avec SSML, vous pouvez non seulement ajuster la tonalité, ajouter des pauses, améliorer la prononciation, changer le débit de parole, ajuster le volume et attribuer plusieurs voix à un seul document, mais également définir vos propres lexiques ou basculer vers des styles d’élocution différents. Avec les voix multilingues, vous pouvez également ajuster les langues parlées par le biais de SSML. Consultez [Guide pratique pour utiliser SSML](speech-synthesis-markup.md) pour ajuster la sortie vocale pour votre scénario. 
 
 * Visèmes : Les [visèmes](how-to-speech-synthesis-viseme.md) sont les principaux éléments de parole observés, y compris la position des lèvres, de la mâchoire et de la langue lors de la production d’un phonème particulier. Les visèmes ont une corrélation forte avec les voix et les phonèmes. À l’aide des événements de visème dans le kit de développement logiciel (SDK) Speech, vous pouvez générer des données d’animation faciale qui peuvent être utilisées pour animer des visages dans la communication, l’enseignement, le divertissement et le service à la clientèle. Visème est actuellement pris en charge uniquement pour les `en-US` [voix neuronales](language-support.md#text-to-speech) en anglais (États-Unis).
 
@@ -61,7 +61,7 @@ Un exemple de code pour la synthèse vocale est disponible sur GitHub. Ces exemp
 
 ## <a name="customization"></a>Personnalisation
 
-En plus des voix neurales, vous pouvez créer et affiner des voix personnalisées propres à votre produit ou à votre marque. Pour commencer, vous n’avez besoin que de quelques fichiers audio et des transcriptions associées. Pour plus d’informations, consultez [Bien démarrer avec Custom Voice](how-to-custom-voice.md).
+En plus des voix neurales, vous pouvez créer et affiner des voix personnalisées propres à votre produit ou à votre marque. Pour commencer, vous n’avez besoin que de quelques fichiers audio et des transcriptions associées. Pour plus d’informations, consultez [Bien démarrer avec la voix neuronale personnalisée](how-to-custom-voice.md).
 
 ## <a name="pricing-note"></a>Remarque sur la tarification
 

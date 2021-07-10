@@ -1,23 +1,23 @@
 ---
 title: Résoudre les problèmes de refus de carte lors de l'inscription à Azure
-description: Résolvez les problèmes de refus de carte de crédit lors de l'inscription à Azure sur le portail Azure ou dans le Centre des comptes.
+description: Résolvez les problèmes de refus de carte de crédit lors de l'inscription à Azure sur le portail Azure.
 author: v-miegge
 ms.reviewer: judupont
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 05/13/2021
 ms.author: banders
-ms.openlocfilehash: 5b53d1855abb3114be1ab31e19af3bb3a11d722f
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e2295a974baec9a841e79873568f3f3c7c835544
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132157"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470846"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Résoudre les problèmes de refus de carte lors de l'inscription à Azure
 
-Il est possible que votre carte de crédit soit refusée lors de l’inscription à Azure dans le portail Microsoft Azure ou dans le Centre des comptes Azure.
+Il est possible que votre carte de crédit soit refusée lors de l'inscription à Azure sur le portail Microsoft Azure.
 
 Pour résoudre votre problème, dans la liste ci-dessous, sélectionnez la rubrique qui se rapproche le plus de votre erreur.
 
@@ -42,9 +42,9 @@ Contactez votre banque pour vérifier que votre carte est active.
 
 Vous rencontrez peut-être d'autres problèmes d'inscription.
 
-Pour plus d'informations sur la résolution des problèmes liés à l'inscription à Azure, consultez l'article suivant de la base de connaissances :
+Pour plus d'informations sur la résolution des problèmes liés à l'inscription à Azure, consultez l'article suivant :
 
-[Vous ne parvenez pas à vous inscrire à Azure depuis le portail Azure ou le Centre des comptes Azure](troubleshoot-azure-sign-up.md)
+[Vous ne parvenez pas à vous inscrire à Azure depuis le portail Azure](troubleshoot-azure-sign-up.md)
 
 ## <a name="you-represent-a-business-that-doesnt-want-to-pay-by-card"></a>Vous représentez une entreprise qui ne souhaite pas payer par carte
 

@@ -13,63 +13,68 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/04/2021
+ms.date: 05/10/2021
 ms.author: yelevin
-ms.openlocfilehash: d393b325d30e2136ac08741c4b5010130535300a
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: 1f782228866d73c84409f394a014bad519d988a9
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109664615"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809631"
 ---
 # <a name="azure-sentinel-ueba-enrichments-reference"></a>Informations de référence sur les enrichissements UEBA Azure Sentinel
 
-Cet article décrit le tableau **Analyse des comportements** qui se trouve sur les [pages de détails des entités](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages), ainsi que d’autres enrichissements d’entités que vous pouvez utiliser pour cibler et affiner vos enquêtes sur les incidents de sécurité.
+Cet article décrit la table Azure Sentinel **BehaviorAnalytics** figurant dans **Journaux** et mentionnée dans les [pages de détails de l’entité](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages). Il précise les détails des champs d’enrichissements d’entités de cette table, dont vous pouvez utiliser le contenu pour orienter et affûter votre examen des incidents de sécurité.
 
-Le [tableau Insights sur les utilisateurs](#user-insights-table) et le [tableau Insights sur les appareils](#device-insights-table) contiennent des informations sur les entités provenant des sources Active Directory/Azure AD et Microsoft Threat Intelligence.
+Les trois champs dynamiques suivants de la table BehaviorAnalytics sont décrits dans les [tableaux ci-dessous](#entity-enrichments-dynamic-fields).
 
-D’autres tableaux, décrits dans la section [Tableaux d’insights sur les activités](#activity-insights-tables), contiennent des informations sur les entités basées sur les profils comportementaux établis par l’analyse du comportement des entités d’Azure Sentinel. 
+Les champs [UsersInsights](#usersinsights-field) et [DevicesInsights](#devicesinsights-field) contiennent des informations sur les entités provenant des sources Active Directory/Azure AD et Microsoft Threat Intelligence.
 
-<a name="baseline-explained"></a>Les activités des utilisateurs sont analysées par rapport à une ligne de base qui est compilée de façon dynamique à chaque utilisation. Chaque activité a sa période de référence définie à partir de laquelle la base de référence dynamique est dérivée. La période de référence est spécifiée dans la colonne [**Ligne de base**](#activity-insights-tables) de ce tableau.
+Le champ [ActivityInsights](#activityinsights-field) contient des informations sur les entités basées sur les profils de comportement produits par l’analyse du comportement des entités d’Azure Sentinel. 
+
+<a name="baseline-explained"></a>Les activités des utilisateurs sont analysées par rapport à une ligne de base qui est compilée de façon dynamique à chaque utilisation. Chaque activité a sa période de référence définie à partir de laquelle la base de référence dynamique est dérivée. La période de référence est spécifiée dans la colonne [**Ligne de base**](#activityinsights-field) de ce tableau.
 
 > [!NOTE] 
-> Le champ **Nom d’enrichissement** des tableaux [Insights sur les utilisateurs](#user-insights-table), [Insights sur les appareils](#device-insights-table) et [Insights sur les activités](#activity-insights-tables) affiche deux lignes d’informations. 
+> La colonne **Nom de l’enrichissement** de toutes les tables de champs [Enrichissement d’entité](#entity-enrichments-dynamic-fields) présente deux lignes d’informations. 
 > 
-> La première, en **gras**, est le « nom convivial » de l’enrichissement. La deuxième, *(en italiques et entre parenthèses)* , est le nom de champ de l’enrichissement, tel qu’il est stocké dans le [**tableau d’analyse comportementale**](#behavior-analytics-table).
+> - La première, en **gras**, est le « nom convivial » de l’enrichissement.
+> - La deuxième, *(en italiques et entre parenthèses)* , est le nom de champ de l’enrichissement, tel qu’il est stocké dans le [**tableau d’analyse comportementale**](#behavioranalytics-table).
 
-## <a name="behavior-analytics-table"></a>Tableau d’analyse des comportements
+## <a name="behavioranalytics-table"></a>Table BehaviorAnalytics
 
 Le tableau suivant décrit les données d’analyse des comportements affichées sur chaque [page de détails de l’entité](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages) dans Azure Sentinel.
 
-| Champ                     | Description                                                         |
-|---------------------------|---------------------------------------------------------------------|
-| **TenantId**                  | Numéro d’identification unique du locataire                                      |
-| **SourceRecordId**            | Numéro d’identification unique de l’événement EBA                                   |
-| **TimeGenerated**             | Horodateur de l’occurrence de l’activité                              |
-| **TimeProcessed**             | Horodateur du traitement de l’activité par le moteur EBA            |
-| **ActivityType**              | Catégorie de haut niveau de l’activité                                 |
-| **ActionType**                | Nom normalisé de l’activité                                     |
-| **UserName**                  | Nom d’utilisateur de l’utilisateur ayant lancé l’activité                    |
-| **UserPrincipalName**         | Nom d’utilisateur complet de l’utilisateur ayant lancé l’activité               |
-| **EventSource**               | Source de données ayant fourni l’événement d’origine                        |
-| **SourceIPAddress**           | Adresse IP à partir de laquelle l’activité a été lancée                        |
-| **SourceIPLocation**          | Pays à partir duquel l’activité a été lancée, enrichie à partir de l’adresse IP |
-| **SourceDevice**              | nom d’hôte de l’appareil ayant lancé l’activité                  |
-| **DestinationIPAddress**      | Adresse IP de la cible de l’activité                            |
-| **DestinationIPLocation**     | Pays de la cible de l’activité, enrichi à partir de l’adresse IP     |
-| **DestinationDevice**         | Nom de l’appareil cible                                           |
-| **UsersInsights**         | Enrichissements contextuels des utilisateurs impliqués                            |
-| **DevicesInsights**       | Enrichissements contextuels des appareils concernés                          |
-| **ActivityInsights**      | Analyse contextuelle de l’activité basée sur notre profilage              |
-| **InvestigationPriority** | Score d’anomalie, entre 0 et 10 (0 = bénigne, 10 = très anormale)         |
+| Champ                     | Type | Description                                                  |
+|---------------------------|------|--------------------------------------------------------------|
+| **TenantId**              | string | Numéro d’identification unique du locataire                             |
+| **SourceRecordId**        | string | Numéro d’identification unique de l’événement EBA                          |
+| **TimeGenerated**         | DATETIME | Horodateur de l’occurrence de l’activité                   |
+| **TimeProcessed**         | DATETIME | Horodateur du traitement de l’activité par le moteur EBA |
+| **ActivityType**          | string | Catégorie de haut niveau de l’activité                        |
+| **ActionType**            | string | Nom normalisé de l’activité                            |
+| **UserName**              | string | Nom d’utilisateur de l’utilisateur ayant lancé l’activité           |
+| **UserPrincipalName**     | string | Nom d’utilisateur complet de l’utilisateur ayant lancé l’activité      |
+| **EventSource**           | string | Source de données ayant fourni l’événement d’origine               |
+| **SourceIPAddress**       | string | Adresse IP à partir de laquelle l’activité a été lancée               |
+| **SourceIPLocation** | string | Pays à partir duquel l’activité a été lancée, enrichie à partir de l’adresse IP |
+| **SourceDevice**          | string | nom d’hôte de l’appareil ayant lancé l’activité         |
+| **DestinationIPAddress**  | string | Adresse IP de la cible de l’activité                   |
+| **DestinationIPLocation** | string | Pays de la cible de l’activité, enrichi à partir de l’adresse IP |
+| **DestinationDevice**     | string | Nom de l’appareil cible                                  |
+| **UsersInsights**         | dynamique | Enrichissements contextuels des utilisateurs impliqués ([voir les détails ci-dessous](#usersinsights-field)) |
+| **DevicesInsights**       | dynamique | Enrichissements contextuels des appareils impliqués ([voir les détails ci-dessous](#devicesinsights-field)) |
+| **ActivityInsights**      | dynamique | Analyse contextuelle de l’activité basée sur notre profilage ([voir les détails ci-dessous](#activityinsights-field)) |
+| **InvestigationPriority** | int | Score d’anomalie, entre 0 et 10 (0 = bénigne, 10 = très anormale)   |
 |
 
-## <a name="user-insights-table"></a>Tableau d’insights sur les utilisateurs
+## <a name="entity-enrichments-dynamic-fields"></a>Champs dynamiques des enrichissements d’entités
 
-Le tableau suivant décrit les <?> listés dans le tableau **Insights sur les utilisateurs** dans Azure Sentinel (où ?).
+### <a name="usersinsights-field"></a>Champ UsersInsights
+
+Le tableau suivant décrit les enrichissements qui figurent dans le champ dynamique **UsersInsights** de la table BehaviorAnalytics :
 
 | Nom d’enrichissement | Description | Exemple de valeur |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Nom complet du compte**<br>*(AccountDisplayName)* | Nom complet du compte de l’utilisateur. | Admin, Hayden Cook |
 | **Domaine du compte**<br>*(AccountDomain)* | Nom de domaine du compte de l’utilisateur. |  |
 | **ID d’objet du compte**<br>*(AccountObjectID)* | ID de l’objet du compte de l’utilisateur. | a58df659-5cab-446c-9dd0-5a3af20ce1c2 |
@@ -80,10 +85,12 @@ Le tableau suivant décrit les <?> listés dans le tableau **Insights sur les ut
 | **ID de sécurité local**<br>*(OnPremisesSID)* | ID de sécurité local de l’utilisateur associé à l’action. | S-1-5-21-1112946627-1321165628-2437342228-1103 |
 |
 
-## <a name="device-insights-table"></a>Tableau d’insights sur les appareils
+### <a name="devicesinsights-field"></a>Champ DevicesInsights
+
+Le tableau suivant décrit les enrichissements qui figurent dans le champ dynamique **DevicesInsights** de la table BehaviorAnalytics :
 
 | Nom d’enrichissement | Description | Exemple de valeur |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Browser**<br>*(Browser)* | Navigateur utilisé dans l’action. | Edge, Chrome |
 | **Famille de périphériques**<br>*(DeviceFamily)* | Famille d’appareils utilisée dans l’action. | Windows |
 | **Type d’appareil**<br>*(DeviceType)* | Type d’appareil client utilisé dans l’action. | Bureau |
@@ -95,9 +102,11 @@ Le tableau suivant décrit les <?> listés dans le tableau **Insights sur les ut
 | **Famille d’agents utilisateur**<br>*(UserAgentFamily)* | Famille d’agents utilisateur utilisée dans l’action. | Chrome, Edge, Firefox |
 |
 
-## <a name="activity-insights-tables"></a>Tableaux d’insights sur les activités
+### <a name="activityinsights-field"></a>Champ ActivityInsights
 
-### <a name="action-performed"></a>Action effectuée
+Les tableaux suivants décrivent les enrichissements qui figurent dans le champ dynamique **ActivityInsights** de la table BehaviorAnalytics :
+
+#### <a name="action-performed"></a>Action effectuée
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -108,7 +117,7 @@ Le tableau suivant décrit les <?> listés dans le tableau **Insights sur les ut
 | **Action effectuée de façon inhabituelle dans le locataire**<br>*(ActionUncommonlyPerformedInTenant)* | 180 | L’action n’est généralement pas effectuée dans l’organisation. | True, False |
 |
 
-### <a name="app-used"></a>Application utilisée
+#### <a name="app-used"></a>Application utilisée
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -119,7 +128,7 @@ Le tableau suivant décrit les <?> listés dans le tableau **Insights sur les ut
 | **Application utilisée de façon inhabituelle dans le locataire**<br>*(AppUncommonlyUsedInTenant)* | 180 | L’application n’est généralement pas utilisée dans l’organisation. | True, False |
 | 
 
-### <a name="browser-used"></a>Navigateur utilisé
+#### <a name="browser-used"></a>Navigateur utilisé
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -130,7 +139,7 @@ Le tableau suivant décrit les <?> listés dans le tableau **Insights sur les ut
 | **Navigateur utilisé de façon inhabituelle dans le locataire**<br>*(BrowserUncommonlyUsedInTenant)* | 30 | Le navigateur n’est généralement pas utilisé dans l’organisation. | True, False |
 | 
 
-### <a name="country-connected-from"></a>Pays à partir duquel la connexion est établie
+#### <a name="country-connected-from"></a>Pays à partir duquel la connexion est établie
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -141,7 +150,7 @@ Le tableau suivant décrit les <?> listés dans le tableau **Insights sur les ut
 | **Pays d’où la connexion est inhabituelle dans le locataire**<br>*(CountryUncommonlyConnectedFromInTenant)* | 90 | L’emplacement géographique, tel que résolu à partir de l’adresse IP, n’est généralement pas utilisé dans l’organisation pour établir une connexion. | True, False |
 | 
 
-### <a name="device-used-to-connect"></a>Appareil utilisé pour se connecter
+#### <a name="device-used-to-connect"></a>Appareil utilisé pour se connecter
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -152,7 +161,7 @@ Le tableau suivant décrit les <?> listés dans le tableau **Insights sur les ut
 | **Appareil utilisé de façon inhabituelle dans le locataire**<br>*(DeviceUncommonlyUsedInTenant)* | 180 | L’appareil n’est généralement pas utilisé dans l’organisation. | True, False |
 | 
 
-### <a name="other-device-related"></a>Autres insights relatifs aux appareils
+#### <a name="other-device-related"></a>Autres insights relatifs aux appareils
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -160,7 +169,7 @@ Le tableau suivant décrit les <?> listés dans le tableau **Insights sur les ut
 | **Famille d’appareils utilisée de façon inhabituelle dans le locataire**<br>*(DeviceFamilyUncommonlyUsedInTenant)* | 30 | La famille d’appareils n’est généralement pas utilisée dans l’organisation. | True, False |
 | 
 
-### <a name="internet-service-provider-used-to-connect"></a>Fournisseur de services Internet utilisé pour la connexion
+#### <a name="internet-service-provider-used-to-connect"></a>Fournisseur de services Internet utilisé pour la connexion
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -171,7 +180,7 @@ Le tableau suivant décrit les <?> listés dans le tableau **Insights sur les ut
 | **ISP utilisé de façon inhabituelle dans le locataire**<br>*(ISPUncommonlyUsedInTenant)* | 30 | L’ISP n’est généralement pas utilisé dans l’organisation. | True, False |
 | 
 
-### <a name="resource-accessed"></a>Ressource consultée
+#### <a name="resource-accessed"></a>Ressource consultée
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -182,7 +191,7 @@ Le tableau suivant décrit les <?> listés dans le tableau **Insights sur les ut
 | **Ressource consultée de façon inhabituelle dans le locataire**<br>*(ResourceUncommonlyAccessedInTenant)* | 180 | La ressource n’est généralement pas consultée dans l’organisation. | True, False |
 | 
 
-### <a name="miscellaneous"></a>Divers
+#### <a name="miscellaneous"></a>Divers
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
@@ -195,3 +204,10 @@ Le tableau suivant décrit les <?> listés dans le tableau **Insights sur les ut
 | **Nombre inhabituel d’appareils supprimés**<br>*(UnusualNumberOfDevicesDeleted)* | 5 | Un utilisateur a supprimé un nombre inhabituel d’appareils. | True, False |
 | **Nombre inhabituel d’utilisateurs ajoutés au groupe**<br>*(UnusualNumberOfUsersAddedToGroup)* | 5 | Un utilisateur a ajouté un nombre d’utilisateurs à un groupe. | True, False |
 |
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce document, nous avons décrit le schéma de la table d’analyse du comportement des entités Azure Sentinel.
+
+- En savoir plus sur [l’analyse du comportement des entités](identify-threats-with-entity-behavior-analytics.md).
+- [Mise en pratique d’UEBA](investigate-with-ueba.md) dans les examens.

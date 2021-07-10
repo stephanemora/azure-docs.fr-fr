@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d2b80dfa091d6a2b892c8baf8e9c35084c5bee4e
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: caed40f91ef6a6c1e8bdb353c6548aee699dbc07
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076386"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110795425"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>Tutoriel : Migrer un service web à partir de Google Maps
 
@@ -50,7 +50,7 @@ Le tableau suivant présente les API du service Azure Maps, qui offrent des fonc
 | Speed Limits            | Consultez la section [Géocodage inverse d’une coordonnée](#reverse-geocode-a-coordinate).         |         
 | Carte statique              | [Render](/rest/api/maps/render/getmapimage)                       |                         
 | Time Zone (Fuseau horaire)               | [Fuseau horaire](/rest/api/maps/timezone)                              |                         
-| Elevation               | [Élévation (préversion)](/rest/api/maps/elevation)                   | 
+| Elevation               | [Élévation](/rest/api/maps/elevation)                   | 
 
 Actuellement, les API de service suivantes ne sont pas disponibles dans Azure Maps :
 
@@ -203,7 +203,7 @@ Le service de routage Azure Maps fournit les API suivantes pour le calcul des it
 
 - [**Calculer l’itinéraire**](/rest/api/maps/route/getroutedirections) : Calculez un itinéraire et traitez aussitôt la requête. Cette API prend en charge les requêtes GET et POST. Les requêtes POST sont recommandées lors de la spécification d’un grand nombre de points de cheminement ou lors de l’utilisation de nombreuses options de routage pour s’assurer que la requête URL ne devienne pas trop longue et n’entraîne des problèmes. L’opération POST Route Direction dans Azure Maps permet d’utiliser des milliers de [points de référence](/rest/api/maps/route/postroutedirections#supportingpoints) et de recréer un itinéraire logique entre eux (« alignement sur la route »). 
 - [**Itinéraire par lots**](/rest/api/maps/route/postroutedirectionsbatchpreview) : Créez une requête contenant jusqu'à 1 000 requêtes d’itinéraire, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
-- [**Services Mobility (préversion) **](/rest/api/maps/mobility) : Calculez des itinéraires et des directions en utilisant les transports en commun.
+- [**Services Mobility (préversion)** ](/rest/api/maps/mobility) : calculez des itinéraires et des directions en utilisant les transports en commun.
 
 Le tableau suivant référence de manière croisée les paramètres de l’API Google Maps et les paramètres d’API comparables dans Azure Maps.
 

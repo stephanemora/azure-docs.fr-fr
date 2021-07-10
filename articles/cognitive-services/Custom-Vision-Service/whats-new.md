@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 05/24/2021
 ms.author: pafarley
-ms.openlocfilehash: 57f3cf0cb15243d054da0111366f3a1dc0fb5349
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 78986eca3d1db65afb8ac4e0ca8ff76a0e3201eb
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95739755"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451959"
 ---
 # <a name="whats-new-in-custom-vision"></a>Nouveautés de Custom Vision
 
-Découvrir les nouveautés du service. Ces éléments peuvent être des notes de publication, des vidéos, des billets de blog et d’autres types d’informations. Marquez cette page pour rester aux faits des nouveautés du service.
+Découvrir les nouveautés du service. Ces éléments peuvent être des notes de publication, des vidéos, des billets de blog et d’autres types d’informations. Marquez cette page pour rester au fait des nouveautés du service.
 
 
 ## <a name="october-2020"></a>Octobre 2020 
@@ -34,7 +34,7 @@ Découvrir les nouveautés du service. Ces éléments peuvent être des notes de
 
 ### <a name="training-divergence-feedback"></a>Commentaires sur la divergence d’entraînement
 
-- L’API de la préversion publique de Custom Vision 3.4 retourne désormais **TrainingErrorDetails** à partir de l’appel de **GetIteration**. Si une itération échoue, cela indique si l’échec est dû à une divergence d’entraînement, qui peut être corrigée avec des données d’entraînement plus nombreuses et de meilleure qualité.
+- L’API en préversion publique Custom Vision 3.4 retourne désormais **TrainingErrorDetails** à partir de l’appel de **GetIteration**. Si une itération échoue, cela indique si l’échec est dû à une divergence d’entraînement, qui peut être corrigée avec des données d’entraînement plus nombreuses et de meilleure qualité.
 
 ## <a name="july-2020"></a>Juillet 2020
 

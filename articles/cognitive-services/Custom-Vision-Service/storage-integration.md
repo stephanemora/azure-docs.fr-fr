@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: fd4ad1443f466a78abfc569d5f52f6bdeff2d5be
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 92a9b79e4de60e7308224b435953ac7b3eefc8a1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048882"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951072"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>Intégrer le stockage Azure pour les notifications et la sauvegarde
 
@@ -28,8 +28,8 @@ Ce guide vous montre comment utiliser ces API REST avec cURL. Vous pouvez égale
 ## <a name="prerequisites"></a>Prérequis
 
 - Ressource Custom Vision dans Azure. À défaut, accédez au portail Azure et [créez une ressource Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true). Actuellement, cette fonctionnalité ne prend pas en charge la ressource Cognitive Service (dans une même clé).
-- Compte Stockage Azure avec conteneur d’objets blob. Suivez les [exercices 1 du lab Azure Storage](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) si vous avez besoin d’aide pour cette étape.
-* [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows) ou une application en ligne de commande similaire.
+- Compte Stockage Azure avec conteneur d’objets blob. Suivez le [guide de démarrage rapide du stockage](../../storage/blobs/storage-quickstart-blobs-portal.md) si vous avez besoin d’aide pour cette étape.
+- [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows) ou une application en ligne de commande similaire.
 
 ## <a name="set-up-azure-storage-integration"></a>Configurer l’intégration du stockage Azure
 

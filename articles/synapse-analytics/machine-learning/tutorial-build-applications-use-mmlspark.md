@@ -9,12 +9,12 @@ ms.reviewer: ''
 ms.date: 03/08/2021
 author: ruixinxu
 ms.author: ruxu
-ms.openlocfilehash: aeb0e84400ae4a4d48bd070e9c9902c5b005ac9e
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: 8a4c5892e5b7b542177376fcd0adae76527957a8
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109664867"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578082"
 ---
 # <a name="tutorial-build-machine-learning-applications-using-microsoft-machine-learning-for-apache-spark-preview"></a>Tutoriel : Créer des applications Machine Learning avec Microsoft Machine Learning pour Apache Spark (préversion)
 
@@ -39,7 +39,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit avant de co
 ## <a name="prerequisites"></a>Prérequis 
 
 - [Espace de travail Azure Synapse Analytics](../get-started-create-workspace.md) avec un compte de stockage Azure Data Lake Storage Gen2 configuré comme stockage par défaut. Vous devez être le *contributeur aux données Blob du stockage* du système de fichiers Data Lake Storage Gen2 que vous utilisez.
-- Pool Spark dans votre espace de travail Azure Synapse Analytics. Pour plus d’informations, consultez [Créer un pool Spark dans Azure Synapse](../quickstart-create-sql-pool-studio.md).
+- Pool Spark dans votre espace de travail Azure Synapse Analytics. Pour plus d’informations, consultez [Créer un pool Spark dans Azure Synapse](../get-started-analyze-spark.md).
 - Avoir effectué les étapes de pré-configuration décrites dans le tutoriel [Configurer Cognitive Services dans Azure Synapse](./tutorial-configure-cognitive-services-synapse.md).
 
 
@@ -81,7 +81,7 @@ df_sentences = spark.createDataFrame([
 # Run the Text Analytics service with options
 sentiment = (TextSentiment()
     .setTextCol("text")
-    .setLocation("eastasia")
+    .setLocation("eastasia") # Set the location of your cognitive service
     .setSubscriptionKey(cognitive_service_key)
     .setOutputCol("sentiment")
     .setErrorCol("error")
@@ -114,7 +114,7 @@ df_images = spark.createDataFrame([
 
 # Run the Computer Vision service. Analyze Image extracts information from/about the images.
 analysis = (AnalyzeImage()
-    .setLocation("eastasia")
+    .setLocation("eastasia") # Set the location of your cognitive service
     .setSubscriptionKey(cognitive_service_key)
     .setVisualFeatures(["Categories","Color","Description","Faces","Objects","Tags"])
     .setOutputCol("analysis_results")
@@ -240,6 +240,39 @@ display(anamoly_detector.transform(df_timeseriesdata).select("timestamp", "value
 |1973-01-01T00:00:00Z|881.0|false|
 |1973-02-01T00:00:00Z|837.0|false|
 |1973-03-01T00:00:00Z|9000.0|true|
+
+
+## <a name="speech-to-text-sample"></a>Exemple de reconnaissance vocale
+
+Le service [Reconnaissance vocale](../../cognitive-services/speech-service/index-text-to-speech.yml) convertit des flux ou des fichiers de contenu audio en texte. Dans cet exemple, nous transcrivons un fichier audio en texte. 
+
+```python
+# Create a dataframe with our audio URLs, tied to the column called "url"
+df = spark.createDataFrame([("https://mmlspark.blob.core.windows.net/datasets/Speech/audio2.wav",)
+                           ], ["url"])
+
+# Run the Speech-to-text service to translate the audio into text
+speech_to_text = (SpeechToTextSDK()
+    .setSubscriptionKey(service_key)
+    .setLocation("northeurope") # Set the location of your cognitive service
+    .setOutputCol("text")
+    .setAudioDataCol("url")
+    .setLanguage("en-US")
+    .setProfanity("Masked"))
+
+# Show the results of the translation
+display(speech_to_text.transform(df).select("url", "text.DisplayText"))
+```
+### <a name="expected-results"></a>Résultats attendus
+
+|url | DisplayText |
+|--|--|
+| `https://mmlspark.blob.core.windows.net/datasets/Speech/audio2.wav` | Custom Speech propose des outils qui vous permettent d’inspecter visuellement la qualité de la reconnaissance d’un modèle en comparant les données audio au résultat de la reconnaissance correspondante provenant du portail Custom Speech. Vous pouvez lire un contenu audio chargé pour déterminer si le résultat proposé de la reconnaissance est correct. Cet outil vous permet d’inspecter rapidement la qualité du modèle de référence de reconnaissance vocale de Microsoft ou d’un modèle personnalisé entraîné sans qu’il soit nécessaire de transcrire des données audio.|
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+Pour vous assurer que l’instance Spark est arrêtée, mettez fin aux sessions connectées (notebooks). Le pool s’arrête quand la **durée d’inactivité** spécifiée dans le pool Apache Spark est atteinte. Vous pouvez également sélectionner **Arrêter la session** dans la barre d’état en haut à droite du notebook.
+
+![screenshot-showing-stop-session](./media/tutorial-build-applications-use-mmlspark/stop-session.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

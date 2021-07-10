@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8a56b325dd5e1180b1229465965167241fab76a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d2b0bbe7bb1fbfcc3de0ef39fe0b31b11b6ff10
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676455"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407666"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Démarrage rapide : Créer un espace de travail Azure Synapse avec Azure CLI
 
@@ -30,7 +30,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à créer un espace de 
 - [Compte de stockage Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md)
 
     > [!IMPORTANT]
-    > L’espace de travail Azure Synapse doit pouvoir lire et écrire dans le compte ADLS Gen2 sélectionné. De plus, pour tout compte de stockage que vous liez en tant que compte de stockage principal, vous devez avoir activé l’**espace de noms hiérarchique** lors de la création du compte de stockage, et tel que décrit dans la page [Créer un compte de stockage](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account). 
+    > L’espace de travail Azure Synapse doit pouvoir lire et écrire dans le compte ADLS Gen2 sélectionné. De plus, pour tout compte de stockage que vous liez en tant que compte de stockage principal, vous devez avoir activé **l’espace de noms hiérarchique** lors de la création du compte de stockage, tel que décrit dans la page [Créer un compte de stockage](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account). 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 

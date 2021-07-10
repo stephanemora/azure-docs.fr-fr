@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/21/2021
 ms.author: baanders
-ms.openlocfilehash: ddc56ab05a087c9e86d67a13aebcfb8e65fbd78f
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 49f57f39ba59575417f3336d395b1cfa6cf97eb6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480729"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451115"
 ---
 Pour publier le projet dans une application de fonction située dans Azure, commencez dans l’Explorateur de solutions. Cliquez avec le bouton droit sur le projet, puis choisissez **Publier**.
 
@@ -37,13 +37,13 @@ Dans la fenêtre **Application Azure Function - Créer**, renseignez les champs 
 * Sélectionnez l’**Emplacement** de votre groupe de ressources.
 * Créez une ressource **Stockage Azure** en sélectionnant le lien **Nouveau**. Définissez l’emplacement pour qu’il corresponde à votre groupe de ressources, utilisez les autres valeurs par défaut, puis sélectionnez **OK**.
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Capture d’écran de Visual Studio dans la boîte de dialogue Publier une fonction Azure. Les détails d’une nouvelle application de fonction sont renseignés, notamment Nom, Abonnement, Groupe de ressources, Type de plan, Emplacement et Stockage Azure.":::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Capture d’écran de Visual Studio montrant la page de la boîte de dialogue Publier une fonction Azure, dans laquelle les détails d’une nouvelle application de fonction sont remplis.":::
 
 Sélectionnez ensuite **Créer**.
 
 Une fois le service d’application créé, l’onglet **Instance de Functions** s’ouvre. Votre nouvelle application de fonction apparaît dans la zone **Applications de fonction** sous votre groupe de ressources. Sélectionnez **Terminer**.
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Capture d’écran de Visual Studio montrant la boîte de dialogue Publier une fonction Azure. L’onglet Instances de Functions est sélectionné. La nouvelle application Functions s’affiche sous le groupe de ressources.":::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Capture d’écran de Visual Studio montrant la boîte de dialogue Publier une fonction Azure, dans laquelle l’onglet Instances de Functions est sélectionné.":::
 
 Dans le volet **Publier** qui s’ouvre dans la fenêtre principale de Visual Studio, vérifiez que toutes les informations sont correctes. Sélectionnez ensuite **Publier**.
 
@@ -51,7 +51,7 @@ Dans le volet **Publier** qui s’ouvre dans la fenêtre principale de Visual St
 
 > [!NOTE]
 > Si une fenêtre contextuelle semblable à celle de l’exemple suivant s’affiche, sélectionnez **Tentative de récupération des informations d’identification à partir d’Azure**, puis sélectionnez **Enregistrer**.
-> :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Capture d’écran de Visual Studio montrant la fenêtre contextuelle Informations d’identification de publication. Celle-ci contient les champs Nom d’utilisateur et Mot de passe, ainsi que le bouton Tentative de récupération des informations d’identification à partir d’Azure." border="false":::
+> :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Capture d’écran d’une fenêtre contextuelle de Visual Studio appelée Informations d’identification de publication." border="false":::
 >
 > Si vous voyez l’un des avertissements suivants, suivez les invites pour effectuer une mise à niveau vers la dernière version du runtime Azure Functions :
 > * « Mettre à niveau la version de Functions sur Azure »

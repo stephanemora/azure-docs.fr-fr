@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 04/30/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 801cb9ad60d6dae0c8f69cb3ab004f94a2badacf
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2ae52b60b425f113c57950e816d93d1adc2f52ea
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108778366"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616271"
 ---
 # <a name="azure-digital-twins-apis-and-sdks"></a>API et SDK Azure Digital Twins
 
@@ -31,13 +31,13 @@ La version la plus récente de l’API de plan de contrôle est _**2020-12-01**_
 Pour utiliser les API de plan de contrôle :
 * Vous pouvez appeler les API directement en référençant le dossier Swagger le plus récent dans le [référentiel Swagger du plan de contrôle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable). Ce dossier contient également un dossier d’exemples qui en montrent l’utilisation.
 * Vous pouvez accéder aux SDK des API de contrôle en...
-  - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([référence [générée automatiquement]](/dotnet/api/overview/azure/digitaltwins/management)) ([source](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
-  - [Java](https://search.maven.org/search?q=a:azure-mgmt-digitaltwins) ([référence [générée automatiquement]](/java/api/overview/azure/digitaltwins)) ([source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins))
+  - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([référence [générée automatiquement]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([source](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
+  - [Java](https://search.maven.org/search?q=a:azure-mgmt-digitaltwins) ([référence [générée automatiquement]](/java/api/overview/azure/digitaltwins?view=azure-java-stable&preserve-view=true)) ([source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins))
   - [JavaScript](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([source](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([source](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
   - [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt) ([source](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt))
 
-Vous pouvez également utiliser des API de plan de contrôle en interagissant avec Azure Digital Twins via le [portail Azure](https://portal.azure.com) et l’[interface de ligne de commande](concepts-cli.md).
+Vous pouvez également utiliser des API de plan de contrôle en interagissant avec Azure Digital Twins via le [portail Azure](https://portal.azure.com) et l’[interface de ligne de commande](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="overview-data-plane-apis"></a>Vue d’ensemble : API de plan de données
 
@@ -55,23 +55,23 @@ Pour utiliser les API de plan de données :
    - vous servant de la [documentation de référence d’API](/rest/api/azure-digitaltwins/).
 * Vous pouvez utiliser le **SDK .NET (C#)** . Pour utiliser le SDK .NET...
    - Vous pouvez afficher et ajouter le package à partir de NuGet : [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
-   - vous pouvez consulter la [documentation de référence du SDK](/dotnet/api/overview/azure/digitaltwins/client).
+   - vous pouvez consulter la [documentation de référence du SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
    - vous pouvez trouver la source du SDK, y compris un dossier d’exemples, sur GitHub : [Bibliothèque de client Azure IoT Digital Twins pour .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - vous pouvez obtenir des informations détaillées et des exemples d’utilisation en passant à la section [SDK .NET (C#) (plan de données)](#net-c-sdk-data-plane) de cet article.
 * Vous pouvez utiliser le **SDK Java**. Pour utiliser le Kit de développement logiciel (SDK) Java…
    - vous pouvez afficher et installer le package à partir de Maven : [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar).
-   - vous pouvez consulter la [documentation de référence du Kit de développement logiciel (SDK)](/java/api/overview/azure/digitaltwins/client).
+   - vous pouvez consulter la [documentation de référence du Kit de développement logiciel (SDK)](/java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true).
    - vous pouvez trouver la source du Kit de développement logiciel (SDK) dans GitHub : [Bibliothèque de client Azure IoT Digital Twins pour Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core).
 * Vous pouvez utiliser le **SDK JavaScript**. Pour utiliser le SDK JavaScript...
    - Vous pouvez afficher et installer le package à partir de npm : [Bibliothèque de client Core Azure Digital Twins pour JavaScript](https://www.npmjs.com/package/@azure/digital-twins-core).
-   - vous pouvez consulter la [documentation de référence du SDK](/javascript/api/@azure/digital-twins-core/).
+   - vous pouvez consulter la [documentation de référence du SDK](/javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true).
    - vous pouvez trouver la source du Kit de développement logiciel (SDK) dans GitHub : [Bibliothèque de client Core Azure Digital Twins pour JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
 * Vous pouvez utiliser le **SDK Python**. Pour utiliser le Kit de développement logiciel (SDK) Python…
    - Vous pouvez afficher et installer le package à partir de PyPi : [Bibliothèque de client Core Azure Digital Twins pour Python](https://pypi.org/project/azure-digitaltwins-core/).
-   - vous pouvez consulter la [documentation de référence du SDK](/python/api/azure-digitaltwins-core/azure.digitaltwins.core).
+   - vous pouvez consulter la [documentation de référence du SDK](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true).
    - vous pouvez trouver la source du Kit de développement logiciel (SDK) dans GitHub : [Bibliothèque de client Core Azure Digital Twins pour Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 
-Vous pouvez également utiliser des API de plan de données en interagissant avec Azure Digital Twins via l’[interface de ligne de commande](concepts-cli.md).
+Vous pouvez également utiliser des API de plan de données en interagissant avec Azure Digital Twins via l’[interface de ligne de commande](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="net-c-sdk-data-plane"></a>SDK .NET (C#) (plan de données)
 
@@ -81,7 +81,7 @@ Le SDK .NET (C#) Azure Digital Twins fait partie du SDK Azure pour .NET. Il est 
 > Pour obtenir des informations détaillées sur la conception des kit de développement logiciel (SDK), consultez les [principes de conception pour les kits de développement logiciel (SDK) Azure](https://azure.github.io/azure-sdk/general_introduction.html) généraux, ainsi que les [instructions de conception de .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html) spécifiques.
 
 Pour utiliser le SDK, incluez le package NuGet **Azure.DigitalTwins.Core** dans votre projet. Vous aurez également besoin de la dernière version du package **Azure.Identity**. Dans Visual Studio, vous pouvez ajouter ces packages à l’aide du gestionnaire de package NuGet (accessible via *Outils > Gestionnaire de package NuGet > Gérer les packages NuGet pour la solution*). Vous pouvez également utiliser l’outil de ligne de commande .NET avec les commandes disponibles dans les liens des packages NuGet ci-dessous pour les ajouter à votre projet :
-* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Il s’agit du package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client). 
+* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Il s’agit du package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 * [Azure.Identity](https://www.nuget.org/packages/Azure.Identity). Cette bibliothèque fournit des outils pour faciliter l’authentification auprès d’Azure.
 
 Pour obtenir une procédure détaillée de l’utilisation des API dans la pratique, consultez le [Tutoriel : Coder une application cliente](tutorial-code.md). 
@@ -177,16 +177,16 @@ Les appels de mise à jour pour les jumeaux et les relations utilisent une struc
 La liste suivante fournit des instructions générales et des détails supplémentaires concernant l’utilisation des API et des SDK.
 
 * Vous pouvez utiliser un outil de test REST HTTP comme Postman pour effectuer des appels directs aux API Azure Digital Twins. Pour plus d’informations sur ce processus, consultez [Procédure : Faire des demandes avec Postman](how-to-use-postman.md).
-* Pour utiliser le SDK, instanciez la classe `DigitalTwinsClient`. Le constructeur exige des informations d’identification qui peuvent être obtenues avec diverses méthodes d’authentification dans le package `Azure.Identity`. Pour plus d’informations sur `Azure.Identity`, consultez la [documentation sur son espace de noms](/dotnet/api/azure.identity). 
-* Vous pourrez trouver `InteractiveBrowserCredential` utile dans les débuts. Toutefois, il existe plusieurs autres options, comme les informations d’identification pour l’[identité managée](/dotnet/api/azure.identity.interactivebrowsercredential), qui permettent d’authentifier les [fonctions Azure configurées avec MSI](../app-service/overview-managed-identity.md?tabs=dotnet) dans Azure Digital Twins. Pour plus d’informations sur `InteractiveBrowserCredential`, consultez la [documentation sur sa classe](/dotnet/api/azure.identity.interactivebrowsercredential).
+* Pour utiliser le SDK, instanciez la classe `DigitalTwinsClient`. Le constructeur exige des informations d’identification qui peuvent être obtenues avec diverses méthodes d’authentification dans le package `Azure.Identity`. Pour plus d’informations sur `Azure.Identity`, consultez la [documentation sur son espace de noms](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true). 
+* Vous pourrez trouver `InteractiveBrowserCredential` utile dans les débuts. Toutefois, il existe plusieurs autres options, comme les informations d’identification pour l’[identité managée](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true), qui permettent d’authentifier les [fonctions Azure configurées avec MSI](../app-service/overview-managed-identity.md?tabs=dotnet) dans Azure Digital Twins. Pour plus d’informations sur `InteractiveBrowserCredential`, consultez la [documentation sur sa classe](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true).
 * Les demandes envoyées aux API Azure Digital Twins nécessitent un utilisateur ou un principal de service qui fait partie du locataire [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) où réside l’instance Azure Digital Twins. Pour empêcher l’analyse malveillante des points de terminaison Azure Digital Twins, les demandes avec des jetons d’accès qui ne proviennent pas du locataire d’origine recevront le message d’erreur « 404 Sous-domaine introuvable ». Cette erreur est retournée *même si* l’utilisateur ou le principal de service a reçu le rôle de Lecteur de données Azure Digital Twins Data ou de Propriétaire de données Azure Digital Twins Data par le biais de la collaboration [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md). Pour savoir comment accéder à plusieurs locataires, consultez  [Écrire le code d’authentification de l’application cliente](how-to-authenticate-client.md#authenticate-across-tenants).
 * Tous les appels d’API de service sont exposés comme des fonctions membres dans la classe `DigitalTwinsClient`.
 * Toutes les fonctions de service existent dans une version synchrone et une version asynchrone.
-* Toutes les fonctions de service lèvent une exception pour tout état de retour de 400 (ou supérieur). Veillez à wrapper les appels dans une section `try` et à intercepter au moins `RequestFailedExceptions`. Pour plus d’informations sur ce type d’exception, [cliquez ici](/dotnet/api/azure.requestfailedexception).
-* La plupart des méthodes de service retournent `Response<T>` (ou `Task<Response<T>>` pour les appels asynchrones), où `T` correspond à la classe de l’objet de retour pour l’appel de service. La classe [`Response`](/dotnet/api/azure.response-1) encapsule le retour de service et présente les valeurs de retour dans son champ `Value`.  
-* Les méthodes de service ayant des résultats paginés retournent des résultats `Pageable<T>` ou `AsyncPageable<T>`. Pour plus d’informations sur la classe `Pageable<T>`, [cliquez ici](/dotnet/api/azure.pageable-1). Pour plus d’informations sur `AsyncPageable<T>`, [cliquez ici](/dotnet/api/azure.asyncpageable-1).
-* Vous pouvez effectuer une itération sur des résultats paginés à l’aide d’une boucle `await foreach`. Pour plus d’informations sur ce processus, [cliquez ici](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
-* Le SDK sous-jacent est `Azure.Core`. Pour plus d’informations sur l’infrastructure et les types de SDK, consultez la [documentation sur les espaces de noms Azure](/dotnet/api/azure).
+* Toutes les fonctions de service lèvent une exception pour tout état de retour de 400 (ou supérieur). Veillez à wrapper les appels dans une section `try` et à intercepter au moins `RequestFailedExceptions`. Pour plus d’informations sur ce type d’exception, consultez sa [documentation de référence](/dotnet/api/azure.requestfailedexception?view=azure-dotnet&preserve-view=true).
+* La plupart des méthodes de service retournent `Response<T>` (ou `Task<Response<T>>` pour les appels asynchrones), où `T` correspond à la classe de l’objet de retour pour l’appel de service. La classe [Response](/dotnet/api/azure.response-1?view=azure-dotnet&preserve-view=true) encapsule le retour de service et présente les valeurs de retour dans son champ `Value`.  
+* Les méthodes de service ayant des résultats paginés retournent des résultats `Pageable<T>` ou `AsyncPageable<T>`. Pour plus d’informations sur la classe `Pageable<T>`, consultez sa [documentation de référence](/dotnet/api/azure.pageable-1?view=azure-dotnet&preserve-view=true). Pour plus d’informations sur `AsyncPageable<T>`, consultez sa [documentation de référence](/dotnet/api/azure.asyncpageable-1?view=azure-dotnet&preserve-view=true).
+* Vous pouvez effectuer une itération sur des résultats paginés à l’aide d’une boucle `await foreach`. Pour plus d’informations sur ce processus, consultez la [documentation correspondante](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
+* Le SDK sous-jacent est `Azure.Core`. Pour plus d’informations sur l’infrastructure et les types de SDK, consultez la [documentation sur les espaces de noms Azure](/dotnet/api/azure?view=azure-dotnet&preserve-view=true).
 
 
 Les méthodes de service retournent des objets fortement typés dès que cela est possible. Toutefois, étant donné qu’Azure Digital Twins est basé sur des modèles personnalisés configurés par l’utilisateur au moment de l’exécution (via des modèles DTDL chargés dans le service), de nombreuses API de service acceptent et retournent des données de jumeau au format JSON.
@@ -197,7 +197,7 @@ Les métriques d’API, comme celles concernant les requêtes, la latence et le 
 
 Dans la page d’accueil du portail, recherchez votre instance Azure Digital Twins pour consulter les informations la concernant. Sélectionnez l’option **Métriques** dans le menu de l’instance Azure Digital Twins pour afficher la page *Métriques*.
 
-:::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Capture d’écran montrant la page des métriques pour Azure Digital Twins":::
+:::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Capture d’écran montrant la page des métriques pour Azure Digital Twins.":::
 
 À partir de là, vous pouvez afficher les métriques de votre instance et créer des vues personnalisées.
 

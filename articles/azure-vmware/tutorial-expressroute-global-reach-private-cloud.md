@@ -3,13 +3,13 @@ title: Appairer des environnements locaux à Azure VMware Solution
 description: Découvrez comment créer un peering ExpressRoute Global Reach à un cloud privé dans Azure VMware Solution.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
-ms.date: 04/27/2021
-ms.openlocfilehash: fb0d8bc8391c96449cdf260c543cfed1af1125f5
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.date: 05/14/2021
+ms.openlocfilehash: 2b2fdf739b8e690b3210e1ba975ef14125e51c11
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176105"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110086857"
 ---
 # <a name="peer-on-premises-environments-to-azure-vmware-solution"></a>Appairer des environnements locaux à Azure VMware Solution
 
@@ -33,7 +33,7 @@ Avant d’activer la connectivité entre deux circuits ExpressRoute à l’aide 
 - Vérifiez que toutes les passerelles, y compris le service du fournisseur ExpressRoute, prennent en charge un numéro de système autonome (ASN) à 4 octets. Azure VMware Solution utilise des numéros de système autonome (ASN) publics à 4 octets pour publier les routes.
 
 
-## <a name="create-an-expressroute-authorization-key-in-the-on-premises-expressroute-circuit"></a>Créez une clé d’autorisation ExpressRoute dans le circuit ExpressRoute local.
+## <a name="create-an-expressroute-auth-key-in-the-on-premises-expressroute-circuit"></a>Créer une clé d’autorisation ExpressRoute dans le circuit ExpressRoute local
 
 1. Dans le panneau **Circuits ExpressRoute**, sous Paramètres, sélectionnez **Autorisations**.
 

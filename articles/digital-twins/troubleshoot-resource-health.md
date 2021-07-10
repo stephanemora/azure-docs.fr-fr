@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/6/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 20afd0a696a2bbeda0e2fa8bb114ecb8b5b6a76b
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: f62e07bbc5b61ce07299f1d617b8aea1b331024e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205536"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475587"
 ---
 # <a name="troubleshooting-azure-digital-twins-resource-health"></a>Dépannage d’Azure Digital Twins : Intégrité des ressources
 
@@ -30,7 +30,7 @@ Pour vérifier l’intégrité de votre instance, procédez comme suit :
 
 2. Dans le menu de votre instance, sélectionnez _**Intégrité des ressources**_ sous *Support + résolution des problèmes*. Cela vous permet d’accéder à la page d’affichage de l’historique d’intégrité des ressources. 
 
-    :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Capture d’écran montrant la page « Intégrité des ressources ». La section « Historique d’intégrité » présente un rapport quotidien pour les neuf derniers jours. Chaque jour indique un état « Disponible ».":::
+    :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Capture d’écran montrant la page « Intégrité des ressources ». La section « Historique des états » montre un rapport quotidien des neuf derniers jours.":::
 
 Dans l’image ci-dessus, cette instance est affichée comme étant *Disponible*, et ce depuis neuf jours. Pour en savoir plus sur l’état *Disponible* et les autres types d’état qui peuvent apparaître, consultez [Vue d’ensemble d’Azure Resource Health](../service-health/resource-health-overview.md).
 

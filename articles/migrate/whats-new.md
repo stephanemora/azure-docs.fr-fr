@@ -7,16 +7,22 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 3f49c0acc99f82cc2986ca896d40b3998cf47c5c
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: dadde132effe24fa1cdffd8830139573de4ee5d4
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834999"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439976"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nouveautés d’Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) vous aide à découvrir, à évaluer et à migrer localement des serveurs, applications et données vers le cloud Microsoft Azure. Cet article synthétise les nouvelles versions et fonctionnalités d’Azure Migrate.
+
+## <a name="update-june-2021"></a>Mise à jour (juin 2021)
+- Azure Migrate offre la possibilité d’inscrire des serveurs SQL Server avec une machine virtuelle SQL lors de la réplication pour installer automatiquement l’extension SQL IaaS Agent. Cette fonctionnalité est disponible pour les migrations VMware sans agent, les migrations Hyper-V sans agent et les migrations avec agent.
+
+## <a name="update-may-2021"></a>Mise à jour (mai 2021)
+- La migration des machines virtuelles et des serveurs physiques dont le disque de système d’exploitation ne dépasse pas 4 To est maintenant prise en charge suivant la méthode avec agent.
 
 ## <a name="update-march-2021"></a>Mise à jour (mars 2021)
 - Prise en charge de la fourniture d’informations d’identification de plusieurs serveurs sur l’appliance Azure Migrate pour découvrir les applications installées (inventaire des logiciels), l’analyse des dépendances sans agent et la détection des instances et bases de données SQL Server dans votre environnement VMware. [En savoir plus](tutorial-discover-vmware.md#provide-server-credentials)
@@ -59,7 +65,7 @@ ms.locfileid: "107834999"
 
 ## <a name="update-april-2020"></a>Mise à jour (avril 2020)
 
-Azure Migrate prend en charge les déploiements dans Azure Government. 
+Azure Migrate prend en charge les déploiements dans Azure Government.
 
 - Vous pouvez découvrir et évaluer des machines virtuelles VMware, des machines virtuelles Hyper-V et des serveurs physiques.
 - Vous pouvez migrer des machines virtuelles Hyper-V, des machines virtuelles VMware et des serveurs physiques vers Azure.

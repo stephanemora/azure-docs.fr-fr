@@ -6,12 +6,12 @@ ms.date: 03/23/2021
 ms.topic: quickstart
 ms.author: thweiss
 zone_pivot_groups: programming-languages-set-functions-temp
-ms.openlocfilehash: 0a0c63ee54699185bcd02104b1a3f4d0070ea808
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 884ed08dc6dc6587b4f464c18e8231a7f5342422
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023246"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234539"
 ---
 # <a name="connect-azure-functions-to-azure-cosmos-db-using-visual-studio-code"></a>Connecter Azure Functions à Azure Cosmos DB avec Visual Studio Code
 
@@ -39,7 +39,7 @@ Avant de commencer, veillez à installer l’[extension Azure Databases](https:/
 
 2. Cliquez sur **Créer une ressource** > **Bases de données** > **Azure Cosmos DB**.
    
-    :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png" alt-text="Volet Bases de données du portail Azure" border="true":::
+    :::image type="content" source="../cosmos-db/includes/media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png" alt-text="Volet Bases de données du portail Azure" border="true":::
 
 3. Dans la page **Créer un compte Azure Cosmos DB**, entrez les paramètres de votre nouveau compte Azure Cosmos DB. 
  
