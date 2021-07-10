@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7f8448b7abcc16d2151ec10dbab9028eb8c4e984
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f37699e9710acc9e4098fd38f0d9da0f50e65a58
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099278"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953977"
 ---
 # <a name="write-client-app-authentication-code"></a>Écrire le code d’authentification de l’application cliente
 
@@ -87,10 +87,10 @@ Dans une fonction Azure, vous pouvez utiliser les informations d’identificatio
 
 La méthode [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) est destinée aux applications interactives et affiche un navigateur web pour l’authentification. Vous pouvez l’utiliser à la place de `DefaultAzureCredential` lorsque vous avez besoin d’une authentification interactive.
 
-Pour utiliser les informations d’identification du navigateur interactif, vous avez besoin d’une **inscription d’application** disposant d’autorisations sur les API Azure Digital Twins. Pour plus d’informations sur la configuration de cette inscription d’application, consultez [Guide pratique : Créer une inscription d’application](how-to-create-app-registration.md). Une fois l’inscription d’application configurée, vous avez besoin de...
-* l’*ID (client) d’application* de l’inscription d’application ([instructions pour le trouver](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
-* l’*ID (locataire) de répertoire* de l’inscription d’application ([instructions pour le trouver](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
-* l’URL de l’instance Azure Digital Twins ([instructions pour la trouver](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
+Pour utiliser les informations d’identification du navigateur interactif, vous avez besoin d’une **inscription d’application** disposant d’autorisations sur les API Azure Digital Twins. Pour plus d’informations sur la configuration de cette inscription d’application, consultez [Guide pratique : Créer une inscription d’application](./how-to-create-app-registration-portal.md). Une fois l’inscription d’application configurée, vous avez besoin de...
+* [l’ID d’application (client) de l’inscription d’application](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
+* [l’ID de répertoire (locataire) de l’inscription d’application](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
+* [l’URL de l’instance Azure Digital Twins](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 
 Voici un exemple de code permettant de créer un client du kit de développement logiciel (SDK) authentifié à l’aide de `InteractiveBrowserCredential`.
 

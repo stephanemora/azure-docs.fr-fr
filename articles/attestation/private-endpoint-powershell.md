@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 03/26/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ceefd4695583822536d8cc4c14614af7f6736f70
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: bafefd37647ee9d1f880c076348e4d20bead41c8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830121"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754256"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Démarrage rapide : Création d’un point de terminaison privé avec Azure PowerShell
 
@@ -38,9 +38,9 @@ Créez un groupe de ressources avec [New-AzResourceGroup](/powershell/module/az.
 ```azurepowershell-interactive
 ## Create to your Azure account subscription and create a resource group in a desired location. ##
 Connect-AzAccount
-Set-AzSubscription “mySubscription”
-$rg = “CreateAttestationPrivateLinkTutorial-rg”
-$loc= "eastus”
+Set-AzSubscription "mySubscription"
+$rg = "CreateAttestationPrivateLinkTutorial-rg"
+$loc= "eastus"
 New-AzResourceGroup -Name $rg -Location $loc
 ```
 
@@ -111,14 +111,14 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig
 $attestationProviderName = "myattestationprovider"
 $attestationProvider = New-AzAttestation -Name $attestationProviderName -ResourceGroupName $rg -Location $loc
 $attestationProviderId = $attestationProvider.Id
-
+```
+## <a name="access-the-attestation-provider-from-local-machine"></a>Accéder au fournisseur d’attestation à partir de l’ordinateur local ##
+Entrez `nslookup <provider-name>.attest.azure.net`. Remplacez **\<provider-name>** par le nom de l’instance du fournisseur d’attestation que vous avez créé lors des étapes précédentes. 
+```azurepowershell-interactive
 ## Access the attestation provider from local machine ##
-Enter nslookup <provider-name>.attest.azure.net. Replace <provider-name> with the name of the attestation provider instance you created in the previous steps. 
-
-You'll receive a message similar to what is displayed below:
-
-## PowerShell copy. ##
 nslookup myattestationprovider.eus.attest.azure.net
+
+<# You'll receive a message similar to what is displayed below:
 
 Server:  cdns01.comcast.net
 Address:  2001:558:feed::1
@@ -128,6 +128,8 @@ Name:    eus.service.attest.azure.net
 Address:  20.62.219.160
 Aliases:  myattestationprovider.eus.attest.azure.net
     attesteusatm.trafficmanager.net
+
+#>
 ```
 
 ## <a name="create-private-endpoint"></a>Créer un point de terminaison privé
@@ -142,7 +144,7 @@ Dans cette section, vous allez créer un point de terminaison privé et une conn
 $privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnection" -PrivateLinkServiceId $attestationProviderId -GroupID "Standard"
 
 ## Disable private endpoint network policy ##
- $vnet.Subnets[0].PrivateEndpointNetworkPolicies = "Disabled" 
+$vnet.Subnets[0].PrivateEndpointNetworkPolicies = "Disabled" 
 $vnet | Set-AzVirtualNetwork
 
 ## Create private endpoint
@@ -191,23 +193,30 @@ Dans cette section, vous allez utiliser la machine virtuelle que vous avez cré�
 
 8. Ouvrez Windows PowerShell sur le serveur après vous être connecté.
 
-9. Entrez `nslookup <provider-name>.attest.azure.net`. Remplacez **\<provider-name>** par le nom de l’instance du fournisseur d’attestation que vous avez créé lors des étapes précédentes. Vous recevez un message similaire à ce qui est montré ci-dessous :
+9. Entrez `nslookup <provider-name>.attest.azure.net`. Remplacez **\<provider-name>** par le nom de l’instance du fournisseur d’attestation que vous avez créé lors des étapes précédentes :
 
-    ```powershell
-
+    ```azurepowershell-interactive
     ## Access the attestation provider from local machine ##
     nslookup myattestationprovider.eus.attest.azure.net
-
+    
+    <# You'll receive a message similar to what is displayed below:
+    
     Server:  cdns01.comcast.net
     Address:  2001:558:feed::1
 
     cdns01.comcast.net can't find myattestationprovider.eus.attest.azure.net: Non-existent domain
-
+    
+    #>
+    
     ## Access the attestation provider from the VM created in the same virtual network as the private endpoint.   ##
     nslookup myattestationprovider.eus.attest.azure.net
-
+    
+    <# You'll receive a message similar to what is displayed below:
+    
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
     Name:    myattestationprovider.eastus.test.attest.azure.net
+    
+    #>
     ```

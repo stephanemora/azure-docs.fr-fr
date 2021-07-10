@@ -6,12 +6,12 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/25/2021
 ms.topic: quickstart
-ms.openlocfilehash: c0e2a4422cea681a3bccee0739b8c26350803eb8
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d29583cecb1498c10320a844923067a48693480a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385656"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030302"
 ---
 # <a name="route-cloud-events-to-webhooks-with-azure-event-grid-on-kubernetes"></a>Router des événements cloud vers des Webhooks avec Azure Event Grid sur Kubernetes
 Dans ce guide de démarrage rapide, vous allez créer une rubrique dans Event Grid sur Kubernetes, créer un abonnement pour la rubrique, puis envoyer un exemple d’événement à la rubrique pour tester le scénario. 
@@ -23,7 +23,7 @@ Dans ce guide de démarrage rapide, vous allez créer une rubrique dans Event Gr
 
 1. [Connecter votre cluster Kubernetes à Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
 1. [Installer l’extension Event Grid sur le cluster Kubernetes](install-k8s-extension.md). Cette extension déploie Event Grid sur un cluster Kubernetes. 
-1. [Créer un emplacement personnalisé](../../azure-arc/kubernetes/custom-locations.md). Un emplacement personnalisé représente un espace de noms dans le cluster, et est l’endroit où les rubriques et les abonnements aux événements sont déployés.
+1. [Créer un emplacement personnalisé](../../azure-arc/kubernetes/custom-locations.md). Un emplacement personnalisé représente un espace de noms dans le cluster et est l’endroit où les rubriques et les abonnements à des événements sont déployés.
 
 ## <a name="create-a-topic"></a>Création d'une rubrique
 
@@ -99,11 +99,12 @@ Pour plus d’informations sur cette commande CLI, consultez [`az eventgrid even
     ```azurecli
     az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv
     ```
-3. Créez un fichier nommé **evt.json** avec le contenu suivant : 
+1. Exécutez la commande **Curl** suivante pour publier l’événement : Spécifiez l’URL et la clé du point de terminaison de l’étape 1 et 2 avant d’exécuter la commande. 
 
-    ```json
-    [{
-          "specVersion": "1.0",
+    ```bash
+    curl  -k -X POST -H "Content-Type: application/cloudevents-batch+json" -H "aeg-sas-key: <KEY_FROM_STEP_2>" -g <ENDPOINT_URL_FROM_STEP_1> \
+    -d  '[{ 
+          "specversion": "1.0",
           "type" : "orderCreated",
           "source": "myCompanyName/us/webCommerceChannel/myOnlineCommerceSiteBrandName",
           "id" : "eventId-n",
@@ -115,13 +116,48 @@ Pour plus d’informations sur cette commande CLI, consultez [`az eventgrid even
              "orderType" : "PO",
              "reference" : "https://www.myCompanyName.com/orders/123"
           }
-    }]
+    }]'
     ```
-4. Exécutez la commande **Curl** suivante pour publier l’événement : Spécifiez l’URL et la clé du point de terminaison de l’étape 1 et 2 avant d’exécuter la commande. 
+    
+    Si l’URL du point de terminaison de la rubrique de l’étape 1 est une adresse IP privée, comme dans le cas où le type de service du répartiteur Event Grid est ClusterIP, vous pouvez exécuter **Curl** à partir d’un autre pod du cluster pour avoir accès à cette adresse IP. Par exemple, vous pouvez effectuer les opérations suivantes :
 
-    ```
-    curl -k -X POST -H "Content-Type: application/cloudevents-batch+json" -H "aeg-sas-key: <KEY FROM STEP 2>" -g -d @evt.json <ENDPOINT URL from STEP 1>
-    ```
+    1. Créez un fichier manifeste avec la configuration suivante. Vous pouvez ajuster le ``dnsPolicy`` en fonction de vos besoins. Pour plus d’informations, consultez [DNS pour services et pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/).
+    
+        ```yml
+        apiVersion: v1
+        dnsPolicy: ClusterFirstWithHostNet
+        hostNetwork: true
+        kind: Pod
+        metadata: 
+          name: test-pod
+        spec: 
+          containers: 
+            - 
+              name: nginx
+          emptyDir: {}
+          image: nginx
+          volumeMounts: 
+            - 
+              mountPath: /usr/share/nginx/html
+              name: shared-data
+          volumes: 
+            - 
+              name: shared-data  
+        ```
+    1. Créez le pod.
+        ```bash
+            kubectl apply -f <name_of_your_yaml_manifest_file>
+        ```
+    1. Vérifiez que le pod est en cours d’exécution.
+        ```bash
+            kubectl get pod test-pod
+        ```
+    1. Démarrer une session shell à partir du conteneur
+        ```bash
+            kubectl exec --stdin --tty test-pod -- /bin/bash
+        ```
+
+    À ce stade, vous disposez d’une session shell à partir d’un conteneur en cours d’exécution dans le cluster à partir duquel vous pouvez exécuter la commande **Curl** décrite ci-dessus.
 
     > [!NOTE]
     > Pour savoir comment envoyer des événements cloud en utilisant des langages de programmation, consultez les exemples suivants : 

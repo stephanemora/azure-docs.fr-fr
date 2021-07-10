@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: b845ecabe74040e154886476a8ba28efecc99325
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 2ffb38d334aa5b0abefa3398a5c2a7608f448025
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868858"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965316"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Tutoriel : Déploiement de modules HSM sur un réseau virtuel existant à l’aide d’Azure CLI
 
@@ -34,7 +34,7 @@ Voici une architecture typique de déploiement multirégion et haute disponibili
 
 ![déploiement multirégion](media/tutorial-deploy-hsm-cli/high-availability-architecture.png)
 
-Ce tutoriel concerne l’intégration d’une paire de modules de sécurité matériels (HSM) et l’intégration de la passerelle ExpressRoute nécessaire (voir le sous-réseau 1 ci-dessus) à un réseau virtuel existant (voir le réseau virtuel 1 ci-dessus).  Toutes les autres ressources sont des ressources Azure standard. Le même processus d’intégration peut être utilisé pour les modules HSM situés sur le sous-réseau 4 du réseau virtuel 3 ci-dessus.
+Ce tutoriel concerne l’intégration d’une paire de modules de sécurité matériels (HSM) et l’intégration de la [passerelle ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) nécessaire (voir le sous-réseau 1 ci-dessus) à un réseau virtuel existant (voir le réseau virtuel 1 ci-dessus).  Toutes les autres ressources sont des ressources Azure standard. Le même processus d’intégration peut être utilisé pour les modules HSM situés sur le sous-réseau 4 du réseau virtuel 3 ci-dessus.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -51,7 +51,7 @@ Toutes les instructions ci-dessous supposent que vous avez déjà accédé au po
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Provisionnement d’un module HSM dédié
 
-Le provisionnement des modules HSM et leur intégration à un réseau virtuel existant via la passerelle ExpressRoute seront vérifiés à l’aide de ssh. Cette vérification a pour but de garantir l’accessibilité et la disponibilité de base du module HSM en vue d’une configuration supplémentaire.
+Le provisionnement des modules HSM et leur intégration à un réseau virtuel existant via la [passerelle ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) seront vérifiés à l’aide de ssh. Cette vérification a pour but de garantir l’accessibilité et la disponibilité de base du module HSM en vue d’une configuration supplémentaire.
 
 ### <a name="validating-feature-registration"></a>Vérification de la fonctionnalité d’inscription
 

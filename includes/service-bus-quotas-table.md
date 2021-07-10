@@ -5,23 +5,22 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 02/17/2021
+ms.date: 06/08/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: e160b21581bc7b5fa38b12309bd9deb90bfbbe51
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: dc0ea990b9bb41279e5670456c6a81d11a4753c2
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107251282"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111761493"
 ---
 Le tableau suivant répertorie les informations de quota propres à la messagerie Azure Service Bus. Pour plus d’informations sur la tarification et d’autres quotas pour Service Bus, voir la [Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) .
 
 | Nom du quota | Étendue | Notes | Valeur |
 | --- | --- | --- | --- |
-| Nombre maximal d’espaces de noms de base/standard par abonnement Azure |Espace de noms |Les demandes suivantes d’espaces de noms de base/standard supplémentaires sont rejetées par le portail Azure. | La valeur par défaut est 100. <br/> La valeur maximale est 1 000. <br/><br/> Pour augmenter la limite, contactez le support Azure. |
-| Nombre maximal d’espaces de noms premium par abonnement Azure |Espace de noms |Les demandes suivantes d’espaces de noms premium supplémentaires sont rejetées par le portail. | La valeur par défaut est 100. <br/> La valeur maximale est 1 000. <br/><br/> Pour augmenter la limite, contactez le support Azure. |
-| Taille de la file d’attente ou de la rubrique |Entité |Définie lors de la création de la file d’attente/rubrique. <br/><br/> Les messages entrants suivants sont rejetés et le code appelant reçoit une exception. |1, 2, 3, 4 ou 5 Go.<br /><br />Dans la référence SKU Premium, ainsi que la référence SKU Standard avec le [partitionnement](../articles/service-bus-messaging/service-bus-partitioning.md) activé, la taille maximale de file d’attente/rubrique est de 80 Go. |
+| Nombre maximal d’espaces de noms par abonnement Azure |Espace de noms | Les demandes suivantes d’espaces de noms supplémentaires sont rejetées. | 1 000 (valeur par défaut et maximale) |
+| Taille de la file d’attente ou de la rubrique |Entité |Définie lors de la création/mise à jour de la file d’attente ou de la rubrique. <br/><br/> Les messages entrants suivants sont rejetés et le code appelant reçoit une exception. |1, 2, 3, 4 ou 5 Go.<br /><br />Dans la référence SKU Premium, ainsi que la référence SKU Standard avec le [partitionnement](../articles/service-bus-messaging/service-bus-partitioning.md) activé, la taille maximale de file d’attente/rubrique est de 80 Go. |
 | Nombre de connexions simultanées sur un espace de noms |Espace de noms |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. Les opérations REST ne sont pas comptées parmi les connexions TCP simultanées. |Messagerie Net : 1 000.<br /><br />AMQP : 5 000. |
 | Nombre de demandes de réception simultanées sur une entité de file d’attente/rubrique/abonnement |Entité |Les demandes de réception suivantes sont rejetées et le code appelant reçoit une exception. Ce quota s’applique au nombre combiné d’opérations de réception simultanées sur tous les abonnements à une rubrique. |5 000 |
 | Nombre de rubriques/files d’attente par espace de noms |Espace de noms |Les requêtes suivantes de création de rubrique ou de file d’attente dans l’espace de noms sont rejetées. Par conséquent, en cas de configuration via le [portail Azure][Azure portal], un message d’erreur est généré. Si elle est appelée à partir de l’API de gestion, une exception est reçue par le code appelant. |10 000 pour le niveau De base ou Standard. Le nombre total de rubriques et de files d’attente dans un espace de noms doit être inférieur ou égal à 10 000. <br/><br/>Pour le niveau Premium, 1 000 par unité de messagerie. |
@@ -30,8 +29,8 @@ Le tableau suivant répertorie les informations de quota propres à la messageri
 | Taille maximale de tout nom d’entité de messagerie : espace de noms, abonnement ou règle d’abonnement |Entité |- |50 caractères. |
 | Taille maximale de l’ID d’un message | Entité |- | 128 |
 | Taille maximale de l’ID de session d’un message | Entité |- | 128 |
-| Taille de message d’une entité de file d’attente/rubrique/abonnement |Entité |Les messages entrants dont la taille dépasse ces quotas sont rejetés et le code appelant reçoit une exception. |Taille de message maximale : 256 Ko pour le [niveau Standard](../articles/service-bus-messaging/service-bus-premium-messaging.md), 1 Mo pour le [niveau Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />En raison d’une surcharge du système, cette limite est inférieure à ces valeurs.<br /><br />Taille d’en-tête maximale : 64 Ko.<br /><br />Nombre maximal de propriétés d’en-tête dans le conteneur de propriétés : **byte/int.MaxValue**.<br /><br />Taille maximale d’une propriété dans le conteneur de propriétés : pas de limite explicite. Cette valeur est limitée par la taille d’en-tête maximale. |
-| Taille de propriété de message d’une entité de file d’attente/rubrique/abonnement |Entité | L’exception `SerializationException` est générée. |La taille de propriété de message maximale pour chaque propriété est de 32 000. La taille cumulée de toutes les propriétés ne peut pas dépasser 64 000. La limite s’applique à l’intégralité de l’en-tête du message réparti, qui inclut les propriétés de l’utilisateur ainsi que les propriétés système telles que le numéro de séquence, l’étiquette et l’ID de message. |
+| Taille de message d’une entité de file d’attente/rubrique/abonnement |Entité |Les messages entrants dont la taille dépasse ces quotas sont rejetés et le code appelant reçoit une exception. |Taille de message maximale : 256 Ko pour le [niveau Standard](../articles/service-bus-messaging/service-bus-premium-messaging.md), 1 Mo pour le [niveau Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />En raison d’une surcharge du système, cette limite est inférieure à ces valeurs.<br /><br />Taille d’en-tête maximale : 64 Ko.<br /><br />Nombre maximal de propriétés d’en-tête dans le conteneur de propriétés : **byte/int.MaxValue**.<br /><br />Taille maximale de la propriété dans le conteneur de propriétés : le nom et la valeur de la propriété sont limités à 32 Ko. |
+| Taille de propriété de message d’une entité de file d’attente/rubrique/abonnement |Entité | L’exception `SerializationException` est générée. |La taille de propriété de message maximale pour chaque propriété est de 32 Ko. La taille cumulée de toutes les propriétés ne peut pas dépasser 64 Ko. La limite s’applique à l’intégralité de l’en-tête du message réparti, qui inclut les propriétés de l’utilisateur ainsi que les propriétés système telles que le numéro de séquence, l’étiquette et l’ID de message. |
 | Nombre d’abonnements par rubrique |Entité |Les requêtes suivantes de création d’abonnements supplémentaires à la rubrique sont rejetées. Par conséquent, en cas de configuration via le portail, un message d’erreur est affiché. Si elle est appelée à partir de l’API de gestion, une exception est reçue par le code appelant. |2 000 par rubrique pour le niveau Standard et le niveau Premium. |
 | Nombre de filtres SQL par rubrique |Entité |Les requêtes suivantes de création de filtres supplémentaires sur la rubrique sont rejetées et le code appelant reçoit une exception. |2 000 |
 | Nombre de filtres de corrélation par rubrique |Entité |Les requêtes suivantes de création de filtres supplémentaires sur la rubrique sont rejetées et le code appelant reçoit une exception. |100 000 |

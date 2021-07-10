@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: fdf24fdc56d39d93fed0009e2fadbafd7f97db6c
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: e25851bc9d3cba6e71056a6fb6a24ff9a0cee6ce
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280494"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968047"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemple : Comment extraire des phrases clés avec l’Analyse de texte
 
@@ -131,7 +131,7 @@ Toutes les demandes POST retournent une réponse au format JSON avec les ID et l
 
 La sortie est retournée immédiatement. Vous pouvez diffuser en continu les résultats dans une application qui accepte le code JSON ou enregistrer la sortie dans un fichier sur le système local, puis l’importer dans une application qui vous permet de trier, rechercher et manipuler les données.
 
-Voici un exemple de sortie pour l’extraction de phrases clés du point de terminaison v3.1-preview.2 :
+Voici un exemple de sortie pour l’extraction de phrases clés du point de terminaison v3.1-preview :
 
 ### <a name="synchronous-result"></a>Résultat synchrone
 
@@ -269,3 +269,4 @@ Dans cet article, vous avez vu les concepts et le flux de travail lié à l’ex
 * [Vue d’ensemble d’Analyse de texte](../overview.md)
 * [Utilisation de la bibliothèque cliente Analyse de texte](../quickstarts/client-libraries-rest-api.md)
 * [Nouveautés](../whats-new.md)
+* [Versions du modèle](../concepts/model-versioning.md)

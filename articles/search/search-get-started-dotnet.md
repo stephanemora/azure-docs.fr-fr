@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/20/2020
+ms.date: 06/11/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f0d912d5b14932c43d109f8f955d5f16381cf773
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11870ed112f4d342bf6df95185d1005004df3f67
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98180096"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029276"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Démarrage rapide : Créer un index de recherche à l’aide de la bibliothèque de client Azure.Search.Documents
 
@@ -507,12 +507,7 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide C#, vous avez effectué un ensemble de tâches pour créer un index, le charger avec des documents et exécuter des requêtes. À différents stades, nous avons pris des raccourcis afin de simplifier le code pour une meilleure lisibilité et compréhension. Si vous êtes familiarisé avec les concepts de base, nous vous recommandons l’article suivant pour explorer d’autres approches et concepts afin d’approfondir vos connaissances. 
+Dans ce guide de démarrage rapide C#, vous avez effectué un ensemble de tâches pour créer un index, le charger avec des documents et exécuter des requêtes. À différents stades, nous avons pris des raccourcis afin de simplifier le code pour une meilleure lisibilité et compréhension. Maintenant que vous êtes familiarisé avec les concepts de base, essayez le tutoriel suivant pour appeler des API Recherche cognitive dans le contexte d’une application web.
 
 > [!div class="nextstepaction"]
-> [Guide pratique pour développer dans .NET](search-howto-dotnet-sdk.md)
-
-Vous souhaitez optimiser et réduire vos coûts de cloud ?
-
-> [!div class="nextstepaction"]
-> [Démarrer l’analyse des coûts avec Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Tutoriel : Ajout de la recherche à des applications web](tutorial-csharp-overview.md)
