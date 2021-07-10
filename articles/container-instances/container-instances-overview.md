@@ -4,12 +4,12 @@ description: Le service Azure Container Instances offre le moyen le plus simple 
 ms.topic: overview
 ms.date: 03/22/2021
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c445687db7a154b6fc86e962d2c2340ad6297431
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a93bb81fc2d9f3abc9994921ad3ec689737d4588
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799069"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214494"
 ---
 # <a name="what-is-azure-container-instances"></a>Présentation d’Azure Container Instances
 
@@ -21,7 +21,7 @@ Azure Container Instances est une excellente solution pour les scénarios qui pe
 
 Les conteneurs offrent des avantages de démarrage conséquents sur les machines virtuelles. Azure Container Instances peut démarrer des conteneurs dans Azure en quelques secondes, sans avoir à configurer ni gérer des machines virtuelles.
 
-Récupérez les images conteneur Linux ou Windows à partir de Docker Hub, d’un [registre de conteneurs Azure](../container-registry/index.yml) privé ou d’un autre registre Docker cloud. Consultez la [FAQ](container-instances-faq.md) pour savoir quels registres sont pris en charge par ACI. Azure Container Instances met en cache plusieurs images de systèmes d’exploitation de base courants, accélérant ainsi le déploiement de vos images d’application personnalisées.
+Récupérez les images conteneur Linux ou Windows à partir de Docker Hub, d’un [registre de conteneurs Azure](../container-registry/index.yml) privé ou d’un autre registre Docker cloud. Consultez la [FAQ](container-instances-faq.yml) pour savoir quels registres sont pris en charge par ACI. Azure Container Instances met en cache plusieurs images de systèmes d’exploitation de base courants, accélérant ainsi le déploiement de vos images d’application personnalisées.
 
 ## <a name="container-access"></a>Accès au conteneur
 
@@ -64,7 +64,7 @@ Certaines fonctionnalités sont actuellement restreintes aux conteneurs Linux :
 * [Déploiement d’un réseau virtuel](container-instances-vnet.md)
 * [Ressources GPU](container-instances-gpu.md) (préversion)
 
-Pour les déploiements de conteneurs Windows, utilisez des images basées sur des [images de base Windows](container-instances-faq.md#what-windows-base-os-images-are-supported) communes.
+Pour les déploiements de conteneurs Windows, utilisez des images basées sur des [images de base Windows](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported) communes.
 
 ## <a name="co-scheduled-groups"></a>Groupes co-planifiés
 

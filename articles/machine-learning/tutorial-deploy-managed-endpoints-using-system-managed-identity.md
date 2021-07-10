@@ -11,12 +11,12 @@ author: rsethur
 ms.date: 05/25/2021
 ms.topic: tutorial
 ms.custom: tutorial
-ms.openlocfilehash: 6e8f176df9a87f10af89b71d35b1d5577a223424
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 731d9a64c9ef144e8e51e9bce319a031056958ae
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382177"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071548"
 ---
 # <a name="tutorial-access-azure-resources-with-a-managed-online-endpoint-and-system-managed-identity-preview"></a>Tutoriel : Accéder aux ressources Azure avec un point de terminaison en ligne managé et une identité managée par le système (préversion)
 
@@ -45,6 +45,7 @@ Ce tutoriel montre comment effectuer les actions suivantes avec Azure CLI et son
 * Vous devez avoir un espace de travail Azure Machine Learning. Vous disposez d’un tel espace de travail si vous avez configuré votre extension ML conformément à l’article ci-dessus.
 
 * Un modèle Machine Learning entraîné prêt pour le scoring et le déploiement.
+
 
 ## <a name="set-the-defaults-for-azure-cli"></a>Définir les paramètres par défaut pour Azure CLI
 
@@ -77,13 +78,13 @@ L’exemple de code suivant crée un point de terminaison managé, qui
 
 Configurez les noms de variables pour l’espace de travail, l’emplacement de l’espace de travail et le point de terminaison que vous souhaitez créer. Le code suivant exporte ces valeurs en tant que variables d’environnement dans votre point de terminaison :
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="set_variables" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="set_variables" :::
 
 Ensuite, spécifiez les noms que vous voulez donner à vos compte Stockage Blob, conteneur d’objets blob et fichier. Ces noms de variables sont définis ici et sont référencés dans les commandes `az storage account create` et `az storage container create` dans la section suivante.
 
 Le code suivant exporte ces valeurs en tant que variables d’environnement :
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="configure_storage_names" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="configure_storage_names" :::
 
 
 Une fois ces variables exportées, créez un fichier texte localement. Lorsque le point de terminaison est déployé, le script de scoring accède à ce fichier texte à l’aide de l’identité managée affectée par le système qui est générée lors de la création du point de terminaison.
@@ -94,15 +95,15 @@ Pour cet exemple, vous allez créer un compte Stockage Blob et un conteneur d’
 
 En premier lieu, créez un compte de stockage. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="create_storage_account" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="create_storage_account" :::
 
 Ensuite, créez le conteneur d’objets blob dans le compte de stockage. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="create_storage_container" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="create_storage_container" :::
 
 Chargez alors votre fichier texte dans le conteneur d’objets blob. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="upload_file_to_storage" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="upload_file_to_storage" :::
 
 ## <a name="create-a-managed-online-endpoint"></a>Créer un point de terminaison en ligne managé
 
@@ -113,11 +114,11 @@ Lorsque vous créez un point de terminaison managé, une identité managée affe
 >[!IMPORTANT]
 > Les identités managées affectées par le système sont immuables et ne peuvent pas être modifiées une fois créées.
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="create_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="create_endpoint" :::
 
 Vérifiez l’état du point de terminaison avec les éléments suivants. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
 
 
 ## <a name="give-storage-permission-to-system-assigned-managed-identity"></a>Accorder l’autorisation de stockage à l’identité managée affectée par le système
@@ -126,11 +127,11 @@ Vous pouvez autoriser le point de terminaison managé à accéder à votre stock
 
 Récupérez l’identité managée affectée par le système qui a été créée pour votre point de terminaison. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="get_system_identity" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="get_system_identity" :::
 
 À partir de là, vous pouvez accorder à l’identité managée affectée par le système l’autorisation d’accéder à votre stockage.
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="give_permission_to_user_storage_account" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="give_permission_to_user_storage_account" :::
 
 ## <a name="scoring-script-to-access-azure-resource"></a>Script de scoring pour accéder à la ressource Azure
 
@@ -144,18 +145,18 @@ Créez un déploiement associé au point de terminaison managé.
 
 Ce déploiement peut prendre approximativement entre 8 et 14 minutes selon que l’environnement/l’image sous-jacent est généré pour la première fois ou non. Les déploiements ultérieurs avec le même environnement seront plus rapides.
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="deploy" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="deploy" :::
 
 Vérifiez l’état du déploiement. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deploy_Status" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deploy_Status" :::
 
 > [!NOTE]
 > La méthode init du script de scoring lit le fichier à partir de votre compte de stockage à l’aide du jeton d’identité managée affectée par le système. 
 
 Pour vérifier la sortie de la méthode init, consultez le journal de déploiement avec le code suivant. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deployment_log" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deployment_log" :::
 
 Une fois cette commande terminée, vous aurez inscrit le modèle, l’environnement et le point de terminaison dans votre espace de travail Azure Machine Learning.
 
@@ -167,15 +168,15 @@ Une fois votre point de terminaison déployé, confirmez son fonctionnement. Les
 
 Pour appeler votre point de terminaison, exécutez : 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="test_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="test_endpoint" :::
 
 
 ## <a name="delete-the-endpoint-and-storage-account"></a>Supprimer le point de terminaison et le compte de stockage
 
 Si vous n’envisagez pas de continuer à utiliser le point de terminaison déployé et le stockage, supprimez-les pour réduire les coûts. Lorsque vous supprimez le point de terminaison, tous ses déploiements associés sont également supprimés. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_endpoint" :::
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_storage_account" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_storage_account" :::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -191,3 +192,4 @@ Dans ce tutoriel sur Azure Machine Learning, vous avez utilisé l’interface CL
 
 * Pour plus d’informations sur l’utilisation de l’interface CLI, consultez [Utiliser l’extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Pour affiner les requêtes JSON afin de retourner uniquement des données spécifiques, consultez [Interroger la sortie de commande Azure CLI](/cli/azure/query-azure-cli).
+* Pour plus d’informations sur le schéma YAML, consultez le document [Référence YAML sur les points de terminaison en ligne](reference-online-endpoint-yaml.md).

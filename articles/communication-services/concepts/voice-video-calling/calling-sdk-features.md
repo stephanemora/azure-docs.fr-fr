@@ -6,17 +6,19 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 298e22388290d16b2dec76aabc9f32ad493ed341
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 7173c625ef56ea9e4d4d43d90adc18ba4fe167ab
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111986279"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113109284"
 ---
 # <a name="calling-sdk-overview"></a>Vue d’ensemble du kit SDK Appel
+
+[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
 
 Le kit SDK Appel permet aux appareils des utilisateurs finals de conduire des expériences de communication vocale et vidéo. Cette page offre une description détaillée des fonctionnalités d’appel, y compris les informations de prise en charge des plateformes et des navigateurs. Pour commencer sans attendre, consultez [Démarrages rapides Appel](../../quickstarts/voice-video-calling/getting-started-with-calling.md) ou [Exemple de bannière Appel](../../samples/calling-hero-sample.md). 
 

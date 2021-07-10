@@ -6,21 +6,22 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: ''
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/23/2020
+ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4c7612188043be070ead92c88838b567b22787d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e927415e0a1d2ce7d52e602eddfffb0eae5387b5
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98131268"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076561"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Didacticiel : Utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder au Stockage Azure 
 
@@ -76,21 +77,12 @@ Les fichiers nécessitent un stockage d’objets blob, vous devez donc créer un
 
 ## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Accorder à votre machine virtuelle l’accès au conteneur de stockage Azure 
 
-Vous pouvez utiliser les identités gérées de la machine virtuelle pour récupérer les données dans l’objet blob de stockage Azure.
+Vous pouvez utiliser les identités gérées de la machine virtuelle pour récupérer les données dans l’objet blob de stockage Azure. Les identités managées pour les ressources Azure peuvent servir à l’authentification auprès des ressources prenant en charge l’authentification Azure AD.  Accordez l’accès en affectant le rôle [storage-blob-data-reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) à l’identité managée au niveau de l’étendue du groupe de ressources qui contient votre compte de stockage.
+ 
+Pour connaître la procédure détaillée, consultez [Attribution de rôles Azure à l’aide du Portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 >[!NOTE]
 > Pour plus d’informations sur les différents rôles que vous pouvez utiliser pour accorder des autorisations sur le stockage, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
-
-1. Revenez à votre compte de stockage nouvellement créé.  
-2. Cliquez sur le lien **(IAM) de contrôle d’accès** dans le panneau de gauche.  
-3. Cliquez sur **+ Ajouter une attribution de rôle** en haut de la page pour ajouter une nouvelle attribution de rôle à votre machine virtuelle.
-4. Sous **Rôle**, dans la liste déroulante, sélectionnez **Lecteur des données Blob du stockage**. 
-5. Dans la liste déroulante suivante, sous **Attribuer l’accès à**, choisissez **Machine virtuelle**.  
-6. Ensuite, assurez-vous que l’abonnement approprié est répertorié dans la liste déroulante **Abonnement**, puis définissez **Groupe de ressources** sur **Tous les groupes de ressources**.  
-7. Sous **Sélectionner**, choisissez votre machine virtuelle, puis cliquez sur **Enregistrer**.
-
-    ![Affecter des autorisations](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
-
 ## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Obtenir un jeton d’accès et l’utiliser pour appeler le stockage Azure
 
 Le stockage Azure prend en charge l’authentification Azure AD en mode natif, il peut donc accepter directement des jetons d’accès obtenus à l’aide d’une identité gérée. Cela fait partie de l’intégration du stockage Azure avec Azure AD, et diffère de la fourniture d’informations d’identification sur la chaîne de connexion.

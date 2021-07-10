@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: tracych
 ms.author: tracych
 ms.reviewer: laobri
-ms.date: 5/20/2021
+ms.date: 5/25/2021
 ms.custom: how-to
-ms.openlocfilehash: b4484a22d8839e758f7ccbb0a43904b81b028909
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 53fa68fdffd27c1d48322104c541894c6f9c4dd8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382583"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751250"
 ---
 # <a name="use-batch-endpoints-preview-for-batch-scoring"></a>Utiliser des points de terminaison de traitement de lots (préversion) pour le scoring par lots
 
@@ -61,14 +61,14 @@ az upgrade
 Ajoutez et configurez l’extension Azure ML :
 
 ```azurecli
-az extension add  ml
+az extension add -n ml
 ```
 
 Pour plus d’informations sur la configuration de l’extension ML, consultez [Installer, configurer et utiliser l’interface CLI 2.0 (préversion)](how-to-configure-cli.md).
 
 * Référentiel d’exemples
 
-Clonez le [dépôt d’exemples AzureML](https://github.com/Azure/azureml-examples). Cet article utilise les ressources figurant dans `/cli-preview/experiment/using-cli/assets/endpoints/batch`.
+Clonez le [dépôt d’exemples AzureML](https://github.com/Azure/azureml-examples). Cet article utilise les ressources figurant dans `/cli/endpoints/batch`.
 
 ## <a name="create-a-compute-target"></a>Créer une cible de calcul
 
@@ -90,7 +90,7 @@ az ml endpoint create --type batch --file cli/endpoints/batch/create-batch-endpo
 
 Fichier YAML définissant le point de terminaison de traitement de lots MLFlow :
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/create-batch-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/create-batch-endpoint.yml":::
 
 | Clé | Description |
 | --- | ----------- |
@@ -99,7 +99,7 @@ Fichier YAML définissant le point de terminaison de traitement de lots MLFlow 
 | type | Type du point de terminaison. Utilisez `batch` pour le point de terminaison de traitement de lots. |
 | auth_mode | Utilisez `aad_token` pour l’authentification basée sur les jetons Azure. |
 | traffic | Pourcentage du trafic routé vers ce déploiement. Pour les points de terminaison de traitement de lots, les seules valeurs valides pour `traffic` sont `0` et `100`. Le déploiement avec une valeur de traffic de `100` est actif. Lorsqu’elles sont appelées, toutes les données sont envoyées au déploiement actif. |
-| deployments | Liste des déploiements à créer dans le point de terminaison de traitement de lots. L’exemple n’a qu’un seul déploiement nommé `autolog_deployment`. |
+| deployments | Liste des déploiements à créer dans le point de terminaison de traitement de lots. L’exemple n’a qu’un seul déploiement nommé `autolog-deployment`. |
 
 Attributs du déploiement :
 
@@ -182,7 +182,7 @@ Certains paramètres peuvent être remplacés quand vous démarrez un travail de
 
 * Utilisez `--mini-batch-size` pour remplacer `mini_batch_size` si une taille différente des données d’entrée est utilisée. 
 * Utilisez `--instance-count` pour remplacer `instance_count` si une ressource de calcul différente est nécessaire pour ce travail. 
-* Utilisez `--set` pour remplacer d’autres paramètres, notamment `max_retries`, `timeout`, `error_threshold` et `logging_level`.
+* Utilisez `--set` pour remplacer d’autres paramètres, notamment `max_retries`, `timeout` et `error_threshold`.
 
 ```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --set retry_settings.max_retries=1
@@ -240,7 +240,7 @@ az ml endpoint update --name mybatchedp --type batch --deployment-file cli/endpo
 
 Cet exemple utilise un modèle non-MLflow. Lors de l’utilisation d’un modèle non-MLflow, vous devez spécifier l’environnement et un script de scoring dans le fichier YAML :
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/add-deployment.yml" :::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/add-deployment.yml" :::
 
 Autres attributs de déploiement pour le modèle non-MLflow :
 
@@ -261,7 +261,7 @@ az ml endpoint show --name mybatchedp --type batch
 Pour l’inférence par lots, vous devez envoyer 100 % des demandes au déploiement souhaité. Pour définir votre déploiement nouvellement créé comme cible, utilisez :
 
 ```azurecli
-az ml endpoint update --name mybatchedp --type batch --traffic mnist_deployment:100
+az ml endpoint update --name mybatchedp --type batch --traffic mnist-deployment:100
 ```
 
 Si vous réexaminez les détails de votre déploiement, vous verrez vos modifications :
@@ -289,13 +289,13 @@ scoring_uri=$(az ml endpoint show --name mybatchedp --type batch --query scoring
 2. Obtenez le jeton d’accès :
 
 ```azurecli
-auth_token=$(az account get-access-token --resource https://ml.azure.com --query accessToken -o tsv)
+auth_token=$(az account get-access-token --query accessToken -o tsv)
 ```
 
 3. Utilisez `scoring_uri`, le jeton d’accès et les données JSON pour publier (POST) une demande et démarrer un travail de scoring par lots :
 
 ```bash
-curl --location --request POST '$scoring_uri' --header "Authorization: Bearer $auth_token" --header 'Content-Type: application/json' --data-raw '{
+curl --location --request POST "$scoring_uri" --header "Authorization: Bearer $auth_token" --header 'Content-Type: application/json' --data-raw '{
 "properties": {
   "dataset": {
     "dataInputType": "DataUrl",

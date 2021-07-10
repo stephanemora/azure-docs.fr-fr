@@ -6,13 +6,13 @@ ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 05/08/2021
-ms.openlocfilehash: 47cc0eeb052d980e5c33061dc4721e2f819b3b34
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.date: 06/08/2021
+ms.openlocfilehash: da265e1be47a7ee1a98f6e8169f2531110b5c772
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109654919"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756596"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Inscrire et analyser une base de données Azure SQL
 
@@ -28,7 +28,6 @@ La source de données Azure SQL Database prend en charge les fonctionnalités su
 
 ### <a name="known-limitations"></a>Limitations connues
 
-> * Azure Purview ne prend pas en charge l’analyse des [vues](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) dans Azure SQL Database.
 > * Azure Purview prend en charge 300 colonnes au maximum sous l’onglet Schéma. Au-delà, il affiche « Additional-Columns-Truncated » (Colonnes-Supplémentaires-Tronquées). 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -90,13 +89,13 @@ Vous pouvez utiliser un principal de service existant ou en créer un nouveau.
 Le principal de service ou l’identité managée doivent avoir l’autorisation d’obtenir des métadonnées pour la base de données, les schémas et les tables. Ils doivent également être en mesure d’interroger les tables à échantillonner pour la classification.
 
 - [Configurer et gérer l’authentification Azure AD avec Azure SQL](../azure-sql/database/authentication-aad-configure.md)
-- Si vous utilisez une identité managée, votre compte Purview possède sa propre identité managée, qui est fondamentalement votre nom Purview lorsque vous l’avez créé. Vous devez créer un utilisateur Azure AD dans Azure SQL Database avec l’identité managée exacte de Purview ou votre propre principal de service en suivant le tutoriel [Créer l’utilisateur de principal de service dans Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Vous devez affecter l’autorisation adaptée (par exemple, `db_owner` ou `db_datareader`) à l’identité. Exemple de syntaxe SQL pour créer l’utilisateur et accorder l’autorisation :
+- Si vous utilisez une identité managée, votre compte Purview possède sa propre identité managée, qui est fondamentalement votre nom Purview lorsque vous l’avez créé. Vous devez créer un utilisateur Azure AD dans Azure SQL Database avec l’identité managée exacte de Purview ou votre propre principal de service en suivant le tutoriel [Créer l’utilisateur de principal de service dans Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Vous devez affecter l’autorisation appropriée (par exemple `db_datareader`) à l’identité. Exemple de syntaxe SQL pour créer l’utilisateur et accorder l’autorisation :
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER
     GO
     
-    EXEC sp_addrolemember 'db_owner', [Username]
+    EXEC sp_addrolemember 'db_datareader', [Username]
     GO
     ```
 

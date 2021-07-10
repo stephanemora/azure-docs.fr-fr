@@ -3,12 +3,12 @@ title: 'Documentation Azure Monitor : Nouveautés pour mai 2021'
 description: Nouveautés dans la documentation Azure Monitor pour mai 2021.
 ms.topic: conceptual
 ms.date: 06/03/2021
-ms.openlocfilehash: 543cfc80cac144b4ff729338442b5169e0f3a5e1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 26fe99f92656940616f09419674a02c046214dd0
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747452"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112292282"
 ---
 # <a name="azure-monitor-docs-whats-new-for-may-2021"></a>Documentation Azure Monitor : Nouveautés pour mai 2021
 
@@ -18,7 +18,7 @@ Bienvenue dans les nouveautés de la documentation Azure Monitor pour mai 2021.
 
 **Articles mis à jour**
 
-- [Questions fréquemment posées sur Azure Monitor](faq.md)
+- [Questions fréquemment posées sur Azure Monitor](faq.yml)
 - [Intégrations partenaires d’Azure Monitor](partners.md)
 
 ## <a name="alerts"></a>Alertes
@@ -67,7 +67,7 @@ Bienvenue dans les nouveautés de la documentation Azure Monitor pour mai 2021.
 - [Surveillance de votre service de coffre de clés avec les insights Key Vault](insights/key-vault-insights-overview.md)
 - [Analyse de votre service de stockage avec les insights Stockage Azure Monitor](insights/storage-insights-overview.md)
 
-## <a name="logs"></a>Journaux d’activité
+## <a name="logs"></a>Journaux
 
 **Nouveaux articles**
 

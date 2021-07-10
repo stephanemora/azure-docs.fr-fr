@@ -16,12 +16,12 @@ ms.date: 12/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 759781fd61cd42d05f2823d390e99d128dd2fcac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83aa5f4527885fbb0a02c70857cdd8409f0fa554
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96512390"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892721"
 ---
 # <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>Fonctionnalités de gestion pour les groupes Azure AD d’accès privilégié (préversion)
 
@@ -36,7 +36,7 @@ Certaines organisations utilisent des outils comme la collaboration B2B (busines
 
 ## <a name="activate-multiple-role-assignments-in-a-single-request"></a>Activer plusieurs attributions de rôle avec une requête unique
 
-Avec la préversion des groupes d’accès privilégié, vous pouvez accorder aux administrateurs spécifiques à une charge de travail un accès rapide à plusieurs rôles avec une seule requête juste-à-temps. Par exemple, les administrateurs Office de niveau 3 peuvent avoir besoin d’un accès juste-à-temps aux rôles Administrateur Exchange, Administrateur des applications Office, Administrateur Teams et Administrateur de recherche pour examiner minutieusement les incidents tous les jours. Jusqu’à présent, quatre requêtes consécutives étaient nécessaires, ce qui représentait un processus particulièrement long. Au lieu de cela, vous pouvez créer un groupe avec attribution de rôle appelé « Administrateurs Office de niveau 3 », l’attribuer à chacun des quatre rôles mentionnés précédemment (ou à n’importe quel rôle intégré Azure AD) et l’activer pour l’accès privilégié dans la section Activité du groupe. Après avoir activé le groupe pour l’accès privilégié, vous pouvez configurer les paramètres juste-à-temps pour les membres du groupe et définir vos administrateurs et propriétaires comme éligibles. Quand l’accès privilégié est accordé aux administrateurs dans le groupe, ces derniers deviennent membres des quatre rôles Azure AD.
+Avec la préversion des groupes d’accès privilégié, vous pouvez accorder aux administrateurs spécifiques à une charge de travail un accès rapide à plusieurs rôles avec une seule requête juste-à-temps. Par exemple, les administrateurs Office de niveau 0 peuvent avoir besoin d’un accès juste-à-temps aux rôles Administrateur Exchange, Administrateur des applications Office, Administrateur Teams et Administrateur de recherche pour examiner minutieusement les incidents au quotidien. Jusqu’à présent, quatre requêtes consécutives étaient nécessaires, ce qui représentait un processus particulièrement long. Vous pouvez maintenant créer un groupe avec attribution de rôle nommé « Administrateurs Office de niveau 0 », lui attribuer chacun des quatre rôles mentionnés précédemment (ou n’importe quel rôle intégré Azure AD) et activer l’accès privilégié dans la section Activité du groupe. Après avoir activé le groupe pour l’accès privilégié, vous pouvez configurer les paramètres juste-à-temps pour les membres du groupe et définir vos administrateurs et propriétaires comme éligibles. Quand l’accès privilégié est accordé aux administrateurs dans le groupe, ces derniers deviennent membres des quatre rôles Azure AD.
 
 ## <a name="extend-and-renew-group-assignments"></a>Étendre et renouveler les attributions de groupe
 

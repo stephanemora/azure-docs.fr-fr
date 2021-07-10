@@ -5,17 +5,17 @@ description: Découvrez les concepts liés à l’analyse des tickets de caisse 
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: 9d37811c89cd42053333bfb8ddc17dfbb47b907c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f6fccecca72e106f42ccd185a7c2cb3ba9fe4a53
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374684"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887798"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modèle de reçu prédéfini dans Form Recognizer
 
@@ -60,7 +60,7 @@ Le service Receipt prédéfini extrait le contenu des reçus, c’est-à-dire le
 
 |Nom| Type | Description | Texte | Valeur (sortie standardisée) |
 |:-----|:----|:----|:----| :----|
-| ReceiptType | string | Type de reçu | Itemized |  |
+| ReceiptType | string | Type de reçu |  | Itemized |
 | MerchantName | string | Nom du commerçant émettant le reçu | Contoso |  |
 | MerchantPhoneNumber | phoneNumber | Numéro de téléphone de la liste de commerçants | 987-654-3210 | +19876543210 |
 | MerchantAddress | string | Adresse répertoriée du commerçant | 123 Main St Redmond WA 98052 |  |
@@ -72,7 +72,7 @@ Le service Receipt prédéfini extrait le contenu des reçus, c’est-à-dire le
 | Conseil | nombre | Pourboire inclus par l’acheteur | $1.00 | 1.00 |
 | Éléments | tableau d’objets | Lignes extraites, avec le nom, la quantité, le prix unitaire et le prix total extraits | |
 | Nom | string | Nom de l’élément | Surface Pro 6 | |
-| Quantité | nombre | Quantité de chaque élément | 1 | |
+| Quantité | nombre | Quantité de chaque élément | 1 | 1 |
 | Price | nombre | Prix individuel de chaque unité d’article | $999.00 | 999.00 |
 | Prix total | nombre | Prix total de la ligne de facturation | $999.00 | 999.00 |
 
@@ -91,17 +91,12 @@ L’API Receipt renvoie également les informations suivantes :
 ## <a name="supported-locales"></a>Paramètres régionaux pris en charge
 
 * **Receipt v2.0 intégré** prend en charge les tickets de caisse dans les paramètres régionaux **en-us**
-* **Receipt v2.1 intégré** ajoute une prise en charge supplémentaire pour les paramètres régionaux de ticket de caisse anglais suivants :
-
-* **en-au**
-* **en-ca**
-* **en-gb**
-* **en-in**
+* **Pre-built Receipt v2.1** ajoute une prise en charge supplémentaire pour les paramètres régionaux de ticket de caisse anglais suivants : **en-au**, **en-ca**, **en-gb**, **en-in**
 
   > [!NOTE]
   > Entrée de langue
   >
-  > Receipt v2.1 intégré comprend un paramètre de demande facultatif qui permet de spécifier des paramètres régionaux de tickets de caisse provenant de marchés anglophones supplémentaires. Pour les tickets de caisse en anglais émis en Australie (en-au), au Canada (en-ca), en Grande-Bretagne (en-gb) et en Inde (en-in), vous pouvez spécifier les paramètres régionaux correspondants pour obtenir des résultats améliorés. Si aucun paramètre régional n’est spécifié dans la version v2.1, le modèle utilise par défaut le modèle en-us.
+  > Receipt v2.1 intégré comprend un paramètre de demande facultatif qui permet de spécifier des paramètres régionaux de tickets de caisse provenant de marchés anglophones supplémentaires. Pour les tickets de caisse en anglais émis en Australie (en-au), au Canada (en-ca), en Grande-Bretagne (en-gb) et en Inde (en-in), vous pouvez spécifier les paramètres régionaux correspondants pour obtenir des résultats améliorés. Si aucun paramètre régional n’est spécifié dans la version v2.1, le modèle détecte automatiquement le paramètre régional.
 
 ## <a name="the-analyze-receipt-operation"></a>Opération Analyser le ticket de caisse
 
@@ -130,7 +125,7 @@ Quand le champ d’**état** a la valeur de **réussite**, la réponse JSON incl
 
 La réponse à l’opération d’obtention du résultat de l’analyse du ticket de caisse va correspondre à la représentation structurée du ticket de caisse avec toutes les informations extraites.  Consultez ici un [exemple de fichier de ticket de caisse](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) et sa sortie structurée dans l’[exemple de sortie de ticket de caisse](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json).
 
-Voici un exemple de réponse JSON correcte :
+Voici un exemple de réponse JSON correcte (la sortie a été raccourcie à des fins de simplicité) :
 * Le nœud `"readResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels.
 * Le nœud `"documentResults"` contient les valeurs spécifiques de la carte de visite découvertes par le modèle. C’est là que vous trouverez des paires clé/valeur utiles comme le prénom, le nom, le nom de la société, etc.
 

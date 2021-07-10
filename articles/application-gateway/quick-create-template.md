@@ -5,20 +5,22 @@ description: Dans ce guide de démarrage rapide, découvrez comment utiliser un 
 services: application-gateway
 author: vhorne
 ms.author: victorh
-ms.date: 01/20/2021
+ms.date: 06/14/2021
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: devx-track-azurepowershell - mvc - subject-armqs - mode-arm
-ms.openlocfilehash: ab9a586e657652c50f182fd1dcb7e085e2e8dac7
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: 1436a029185ed30b1c45ea11db484d5f53f3b2a2
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839164"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072184"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Modèle ARM
 
 Dans ce guide de démarrage rapide, vous allez utiliser un modèle Azure Resource Manager (modèle ARM) pour créer une instance Azure Application Gateway. Ensuite, vous la testerez pour être sûr qu’elle fonctionne correctement.
+
+:::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="ressources Application Gateway":::
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

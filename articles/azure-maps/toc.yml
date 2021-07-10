@@ -67,10 +67,14 @@
       href: choose-pricing-tier.md
     - name: Creator pour les plans intérieurs
       items:
+        - name: Limite géographique du service Creator
+          href: creator-geographic-scope.md
         - name: Concepts de plans intérieurs
           href: creator-indoor-maps.md
         - name: Erreurs et avertissements liés à la conversion de dessin
           href: drawing-conversion-error-codes.md
+    - name: Chiffrement des données au repos
+      href: ../security/fundamentals/encryption-atrest.md
     - name: Couverture
       items:
         - name: Couverture
@@ -300,6 +304,8 @@
       items:
         - name: Exigences du package de dessin
           href: drawing-requirements.md
+        - name: Guide sur les packages de dessins
+          href: drawing-package-guide.md
         - name: Cartes dynamiques StylesObject
           href: schema-stateset-stylesobject.md
         - name: Modèle de consommation du véhicule
@@ -310,10 +316,12 @@
           href: geofence-geojson.md
         - name: Catégories de recherche prise en charge
           href: supported-search-categories.md
+        - name: Facility Ontology
+          href: creator-facility-ontology.md
     - name: REST
       items:
         - name: Service de données
-          href: /rest/api/maps/data
+          href: /rest/api/maps/data-v2
         - name: Service d’élévation
           href: /rest/api/maps/elevation
         - name: Service de géolocalisation
@@ -339,17 +347,17 @@
         - name: Service de création de cartes
           items:
             - name: Service d’alias
-              href: /rest/api/maps/alias
+              href: /rest/api/maps/v2/alias
             - name: Service de conversion
-              href: /rest/api/maps/conversion
+              href: /rest/api/maps/v2/conversion
             - name: Service de jeu de données
-              href: /rest/api/maps/dataset
+              href: /rest/api/maps/v2/dataset
             - name: Service d’état de la fonctionnalité
-              href: /rest/api/maps/featurestate
+              href: /rest/api/maps/v2/feature-state
             - name: Service d’ensemble de vignettes
-              href: /rest/api/maps/tileset
+              href: /rest/api/maps/v2/tileset
             - name: Service WFS
-              href: /rest/api/maps/wfs
+              href: /rest/api/maps/v2/wfs
         - name: Gestion de compte Maps
           href: /rest/api/maps-management
     - name: JavaScript

@@ -2,13 +2,13 @@
 title: Quotas et limites d’abonnement Azure
 description: Fournit une liste des abonnements Azure et des limites, quotas et contraintes de service habituels. Cet article inclut des informations sur la façon d’augmenter les limites ainsi que les valeurs maximales.
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: 3feb0c0ac40812ef628281d93d5848c2d60df6eb
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/09/2021
+ms.openlocfilehash: 1831b103dc037b5f92f9ca53be1c71ce1bb3f558
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375841"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111889798"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 
@@ -182,7 +182,9 @@ Les valeurs les plus récentes des quotas de calcul Azure Machine Learning sont 
 
 [!INCLUDE [quantum-limits](../../../includes/azure-quantum-limits.md)]
 
-## <a name="azure-role-based-access-control-limits"></a>Limites de contrôle d’accès en fonction du rôle Azure
+## <a name="azure-rbac-limits"></a>Limites d’Azure RBAC
+
+Les limites suivantes s’appliquent au [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control/limits.md)]
 
