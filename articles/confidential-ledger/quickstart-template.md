@@ -8,30 +8,48 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: mbaldwin
 ms.date: 04/15/2021
-ms.openlocfilehash: 1110d1441c63f3af1f7c31b9ac090c9693b36be1
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: dd6dd17db52ea0ecbd2793f62bf319ce36321f98
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385992"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752097"
 ---
 # <a name="quickstart-create-an-microsoft-azure-confidential-ledger-with-an-arm-template"></a>Démarrage rapide : Créer un Registre confidentiel Microsoft Azure avec un modèle ARM
 
-Le [Registre confidentiel Microsoft Azure](overview.md) est un nouveau service, hautement sécurisé, pour la gestion des enregistrements de données sensibles. Ce guide de démarrage rapide se concentre sur le processus de déploiement d’un modèle Azure Resource Manager (modèle ARM ) pour créer un Registre.
+Le [Registre confidentiel Microsoft Azure](overview.md) est un nouveau service, hautement sécurisé, pour la gestion des enregistrements de données sensibles. Ce guide de démarrage rapide explique comment utiliser un modèle Azure Resource Manager (ARM) pour créer un nouveau registre.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-confidential-ledger-create%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.confidentialledger%2Fconfidential-ledger-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
+### <a name="azure-subscription"></a>Abonnement Azure
+
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+### <a name="register-the-resource-provider"></a>Inscrire le fournisseur de ressources
+
+[!INCLUDE [Register the microsoft.ConfidentialLedger resource provider](../../includes/confidential-ledger-register-rp.md)]
+
+### <a name="obtain-your-principal-id"></a>Récupération de l’ID de principal
+
+Un ID de principal est nécessaire pour le modèle. Vous pouvez obtenir le vôtre en exécutant la commande Azure CLI [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list), avec l’indicateur `--show-mine` :
+
+```azurecli-interactive
+az ad sp list --show-mine -o table
+```
+
+Votre ID de principal est indiqué dans la colonne « ObjectId ».
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates).
+
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.confidentialledger/confidential-ledger-create/azuredeploy.json":::
 
 Ressources Azure définies dans le modèle :
 
@@ -41,7 +59,7 @@ Ressources Azure définies dans le modèle :
 
 1. Sélectionnez l’image ci-après pour vous connecter à Azure et ouvrir le modèle.
 
-    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-confidential-ledger-create%2Fazuredeploy.json)
+    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.confidentialledger%2Fconfidential-ledger-create%2Fazuredeploy.json)
 
 1. Sélectionnez ou entrez les valeurs suivantes.
 
@@ -49,6 +67,7 @@ Ressources Azure définies dans le modèle :
 
     - **Nom du registre** : sélectionnez un nom pour votre registre. Un nom de registre doit être globalement unique.
     - **Emplacement** : Sélectionnez un emplacement. Par exemple, **USA Est**.
+    - **PrincipalId** : indiquez l’ID de principal que vous avez noté dans la section [Prérequis](#obtain-your-principal-id) ci-dessus.
 
 1. Sélectionnez **Achat**. Une fois la ressource de Registre confidentiel déployée, vous recevez une notification.
 
@@ -86,5 +105,3 @@ Write-Host "Press [ENTER] to continue..."
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez créé une ressource de Registre confidentiel à l’aide d’un modèle ARM, et validé le déploiement. Pour en savoir plus sur le service, consultez [Vue d’ensemble du Registre confidentiel Microsoft Azure](overview.md).
-
-

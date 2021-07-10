@@ -8,26 +8,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 01/13/2021
+ms.date: 05/24/2021
 ms.author: pafarley
-ms.openlocfilehash: 2e0a04cef7952822931887f038410ff867cc2afe
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: ce04187cb513712998b6c4ba26d5210bb56ca5df
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286723"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453753"
 ---
 # <a name="whats-new-in-computer-vision"></a>Nouveautés de Vision par ordinateur
 
 Découvrir les nouveautés du service. Ces éléments peuvent être des notes de publication, des vidéos, des billets de blog et d’autres types d’informations. Marquez cette page pour rester informé des nouveautés du service.
+
+## <a name="may-2021"></a>Mai 2021
+
+### <a name="spatial-analysis-container-update"></a>Mise à jour du conteneur Analyse spatiale
+
+Une nouvelle version du [conteneur Analyse spatiale](spatial-analysis-container.md) a été publiée avec un nouvel ensemble de fonctionnalités. Ce conteneur Docker vous permet d’analyser des vidéos en streaming en temps réel afin de comprendre les relations spatiales entre les personnes et leurs déplacements dans des environnements physiques. 
+
+* Les [opérations d’analyse spatiale](spatial-analysis-operations.md) peuvent désormais être configurées pour détecter l’orientation à laquelle une personne fait face. 
+    * Un classifieur d’orientation peut être activé pour les opérations `personcrossingline` et `personcrossingpolygon` en configurant le paramètre `enable_orientation`. Il est défini par défaut sur désactivé.
+
+* Les [opérations d’analyse spatiale](spatial-analysis-operations.md) proposent également maintenant une configuration pour détecter la vitesse d’une personne lorsqu’elle marche ou qu’elle court.
+     * La vitesse peut être détectée pour les opérations `personcrossingline` et `personcrossingpolygon` en activant le classifieur `enable_speed`, qui est désactivé par défaut. Le résultat est reflété dans les sorties `speed`, `avgSpeed` et `minSpeed`.
+
 
 ## <a name="april-2021"></a>Avril 2021
 
 ### <a name="computer-vision-v32-ga"></a>Vision par ordinateur v3.2 en disponibilité générale
 
 L’API Vision par ordinateur v3.2 est maintenant en disponibilité générale avec les mises à jour suivantes :
-* Modèle d’étiquetage d’image amélioré : analyse le contenu visuel et génère des étiquettes pertinentes en fonction des objets, des actions et du contenu affichés dans l’image. Il est disponible par le biais de l’[API Étiqueter l’image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200). Pour en savoir plus, consultez le [guide pratique](./vision-api-how-to-topics/howtocallvisionapi.md) et la [vue d’ensemble](./overview-image-analysis.md) de l’Analyse d’images.
-* Modèle de modération du contenu mis à jour : détecte la présence de contenu pour adultes et fournit des indicateurs permettant de filtrer les images contenant du contenu visuel pour adultes, osé et choquant. Il est disponible par le biais de l’[API Analyser](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). Pour en savoir plus, consultez le [guide pratique](./vision-api-how-to-topics/howtocallvisionapi.md) et la [vue d’ensemble](./overview-image-analysis.md) de l’Analyse d’images.
+* Modèle d’étiquetage d’image amélioré : analyse le contenu visuel et génère des étiquettes pertinentes en fonction des objets, des actions et du contenu affichés dans l’image. Ce modèle est disponible par le biais de l’[API Étiqueter l’image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200). Pour en savoir plus, consultez le [guide pratique](./vision-api-how-to-topics/howtocallvisionapi.md) et la [vue d’ensemble](./overview-image-analysis.md) de l’Analyse d’images.
+* Modèle de modération du contenu mis à jour : détecte la présence de contenu pour adultes et fournit des indicateurs permettant de filtrer les images qui contiennent du contenu visuel pour adultes, osé et choquant. Ce modèle est disponible par le biais de l’[API Analyser](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). Pour en savoir plus, consultez le [guide pratique](./vision-api-how-to-topics/howtocallvisionapi.md) et la [vue d’ensemble](./overview-image-analysis.md) de l’Analyse d’images.
 * [OCR (lecture) disponible pour 73 langues](./language-support.md#optical-character-recognition-ocr), dont le chinois simplifié, le chinois traditionnel, le japonais, le coréen et le latin.
 * [OCR (lecture)](./overview-ocr.md) également disponible en tant que [conteneur Distroless](./computer-vision-how-to-install-containers.md?tabs=version-3-2) pour un déploiement local.
 
@@ -86,7 +99,7 @@ L’API Vision par ordinateur en disponibilité générale a été mise à nivea
 
 ### <a name="spatial-analysis-container-preview"></a>Conteneur Analyse spatiale en préversion
 
-Le [conteneur Analyse spatiale](spatial-analysis-container.md) est désormais disponible en préversion. La fonctionnalité Analyse spatiale de Vision par ordinateur vous permet d'analyser les vidéos en streaming en temps réel afin d'analyser les relations spatiales entre les personnes et leurs déplacements dans des environnements physiques. Analyse spatiale est un conteneur Docker que vous pouvez utiliser localement. 
+Le [conteneur Analyse spatiale](spatial-analysis-container.md) est désormais disponible en préversion. La fonctionnalité Analyse spatiale de Vision par ordinateur vous permet d’analyser les vidéos en streaming en temps réel, afin d’analyser les relations spatiales entre les personnes et leurs déplacements dans des environnements physiques. Analyse spatiale est un conteneur Docker que vous pouvez utiliser localement. 
 
 ### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>La préversion publique de l’API Lire v3.1 ajoute la reconnaissance optique de caractères (OCR) pour le japonais
 La préversion publique de l’API Lire v3.1 de Vision par ordinateur ajoute les fonctionnalités suivantes :
@@ -131,11 +144,11 @@ Pour en savoir plus, consultez la [Présentation de la Reconnaissance optique de
 
 ### <a name="read-api-30-public-preview"></a>Préversion publique de l’API de lecture 3.0
 
-Vous avez maintenant la possibilité d’utiliser la version 3.0 de l’API Lire pour extraire du texte imprimé ou manuscrit à partir d’images. Par rapport aux versions antérieures, 3.0 fournit :
+Vous avez maintenant utiliser la version 3.0 de l’API Lire pour extraire du texte imprimé ou manuscrit à partir d’images. Par rapport aux versions antérieures, 3.0 fournit :
 * Précision accrue
 * Nouveau format de sortie
 * Score de confiance pour chaque mot extrait
-* Prise en charge de l’espagnol et de l’anglais avec le paramètre de langue supplémentaire
+* Prise en charge de l’espagnol et de l’anglais avec le paramètre de langue
 
 Suivez [Démarrage rapide : Extraire du texte](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-hand-text.md?tabs=version-3) pour commencer à utiliser l’API 3.0.
 

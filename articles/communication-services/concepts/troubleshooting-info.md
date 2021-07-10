@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: db6aafc8c9db7a67c9ee70d524d17a642d03dfd8
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: b1fcf708a7275c60e3f6e7fc15f2247fb088bc47
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259062"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077299"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Résolution des problèmes dans Azure Communication Services
 
@@ -160,8 +160,20 @@ Lors du développement pour Android, vos journaux sont stockés dans des fichier
 
 Sur Android Studio, accédez à l’Explorateur de fichiers de l’appareil en sélectionnant View (Affichage) > Tool Windows (Fenêtres Outil) > Device File Explorer (Explorateur de fichiers de l’appareil) à partir du simulateur et de l’appareil. Le fichier `.blog` se trouve dans le répertoire de votre application, qui doit ressembler à ce qui suit `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. Vous pouvez joindre ce fichier à votre demande de support.
 
-
 ---
+
+## <a name="enable-and-access-call-logs-windows"></a>Activer et accéder aux journaux des appels (Windows)
+
+Lors du développement pour Windows, vos journaux sont stockés dans des fichiers `.blog`. Notez que vous ne pouvez pas afficher les journaux directement, car ils sont chiffrés.
+
+Vous pouvez y accéder en recherchant l’emplacement où votre application conserve ses données locales. Il existe de nombreuses façons de déterminer où une application UWP conserve ses données locales. Les étapes suivantes montrent l’une de ces façons :
+1. Ouvrir une invite de commande Windows (touche Windows + R)
+2. Saisissez `cmd.exe`
+3. Saisissez `where /r %USERPROFILE%\AppData acs*.blog`
+4. Veuillez vérifier si l’ID d’application de votre application correspond à celui renvoyé par la commande précédente.
+5. Ouvrez le dossier contenant les fichiers journaux en saisissant `start ` suivi du chemin retourné par l’étape 3. Par exemple : `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
+6. Veuillez joindre tous les fichiers `*.blog` et `*.etl` à votre demande de support Azure.
+
 
 ## <a name="calling-sdk-error-codes"></a>Codes d’erreur du kit SDK Appel
 
@@ -169,7 +181,7 @@ Le kit SDK Appel Azure Communication Services utilise les codes d’erreur suiva
 
 | Code d'erreur | Description | Action à effectuer |
 | -------- | ---------------| ---------------|
-| 403 | Interdit / Échec de l’authentification. | Vérifiez que votre jeton Communication Services est valide et qu’il n’a pas expiré. |
+| 403 | Interdit / Échec de l’authentification. | Vérifiez que votre jeton Communication Services est valide et qu’il n’a pas expiré. Si vous utilisez l’interopérabilité Teams, assurez-vous que votre locataire Teams a été ajouté à la liste d’autorisation d’accès à la préversion. Pour activer/désactiver l’[interopérabilité des locataires Teams](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop), remplissez [ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).|
 | 404 | Appel introuvable. | Assurez-vous que le numéro que vous appelez (ou l’appel que vous êtes en train de joindre) existe. |
 | 408 | Le délai d’attente du contrôleur d’appel a expiré. | Le contrôleur d’appel a atteint le délai d’attente des messages de protocole provenant des points de terminaison utilisateur. Vérifiez que les clients sont connectés et disponibles. |
 | 410 | Erreur locale de pile multimédia ou d’infrastructure multimédia. | Veillez à utiliser le kit SDK le plus récent dans un environnement pris en charge. |
@@ -180,6 +192,17 @@ Le kit SDK Appel Azure Communication Services utilise les codes d’erreur suiva
 | 490, 491, 496, 487, 498 | Problèmes de réseau de point de terminaison local. | Vérifiez votre réseau. |
 | 500, 503, 504 | Erreur d’infrastructure Communication Services. | Soumettez une demande de support via le portail Azure. |
 | 603 | Appel global refusé par le participant Communication Services distant | Comportement attendu. |
+
+## <a name="chat-sdk-error-codes"></a>Codes d’erreur du Kit SDK Conversation
+
+Le kit SDK Appel Azure Communication Conversation utilise les codes d’erreur suivants pour vous aider à résoudre des problèmes de conversation. Les codes d’erreur sont exposés via la propriété `error.code` dans la réponse d’erreur.
+
+| Code d'erreur | Description | Action à effectuer |
+| -------- | ---------------| ---------------|
+| 401 | Non autorisé | Vérifiez que votre jeton Communication Services est valide et qu’il n’a pas expiré. |
+| 403 | Interdit | Assurez-vous que l’initiateur de la demande a accès à la ressource. |
+| 429 | Trop de demandes | Assurez-vous que votre application côté client gère ce scénario de manière conviviale. Si l’erreur persiste, envoyez une demande de support. |
+| 503 | Service indisponible | Soumettez une demande de support via le portail Azure. |
 
 ## <a name="related-information"></a>Informations connexes
 - [Journaux et diagnostics](logging-and-diagnostics.md)

@@ -1,7 +1,7 @@
 ---
-title: Créer des modèles de classification de ML automatisé
+title: 'Tutoriel : AutoML – Entraînement de modèles de classification sans code'
 titleSuffix: Azure Machine Learning
-description: Entraînez et déployez des modèles de classification sans écrire de code, avec l’interface du machine learning automatisé (ML automatisé) d’Azure Machine Learning.
+description: Entraînez un modèle de classification sans écrire une seule ligne de code avec le ML automatisé Azure Machine Learning dans l’interface utilisateur du studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 12/21/2020
+ms.date: 06/11/2021
 ms.custom: automl
-ms.openlocfilehash: d0e236891e48a20adf1901d2f95a90ae25969c49
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: e088184cadea64b769faf75c6455b720f45d91cc
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210844"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028718"
 ---
-# <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutoriel : Créer un modèle de classification avec le ML automatisé dans Azure Machine Learning
+# <a name="tutorial-train-a-classification-model-with-no-code-automl-in-the-azure-machine-learning-studio"></a>Tutoriel : Entraînement d’un modèle de classification avec AutoML sans code dans Azure Machine Learning studio
 
-Découvrez comment créer un [modèle de classification simple](concept-automated-ml.md#classification) sans écrire une seule ligne de code, en utilisant le machine learning automatisé dans le studio Azure Machine Learning. Ce modèle de classification prédit si un client va souscrire à un compte à terme auprès d’une institution financière.
+Découvrez comment entraîner un modèle de classification avec AutoML sans code en utilisant le ML automatisé Azure Machine Learning dans Azure Machine Learning studio. Ce modèle de classification prédit si un client va souscrire à un compte à terme auprès d’une institution financière.
 
 Avec le machine learning automatisé, vous pouvez automatiser des tâches fastidieuses. Le machine learning automatisé itère rapidement sur de nombreuses combinaisons d’algorithmes et d’hyperparamètres pour vous aider à trouver le meilleur modèle basé sur une métrique de réussite de votre choix.
 
@@ -35,7 +35,7 @@ Dans ce tutoriel, vous n’allez pas écrire de code. Vous allez utiliser l’in
 Essayez également le machine learning automatisé pour ces autres types de modèles :
 
 * Pour obtenir un exemple sans code de prévision, consultez [Tutoriel : Prévision de la demande et AutoML](tutorial-automated-ml-forecast.md).
-* Pour obtenir un exemple basé sur le code d’un modèle de régression, consultez le [Tutoriel : Utiliser le machine learning automatisé pour prédire le prix des courses de taxi](tutorial-auto-train-models.md).
+* Pour un exemple Code First d’un modèle de régression, consultez [Tutoriel : Modèle de régression avec AutoML](tutorial-auto-train-models.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -56,7 +56,7 @@ Il existe de nombreuses [façons de créer un espace de travail](how-to-manage-w
 
 ## <a name="sign-in-to-the-studio"></a>Se connecter au studio
 
-Vous effectuez les étapes de configuration et d’exécution d’expérience suivantes via Azure Machine Learning Studio, accessible à l’adresse https://ml.azure.com. Cette interface web centralisée comprend des outils de machine learning permettant de mettre en œuvre des scénarios de science des données pour les utilisateurs de science des données de tous niveaux de compétence. Le studio n’est pas pris en charge par les navigateurs Internet Explorer.
+Vous effectuez les étapes de configuration et d’exécution d’expérience suivantes via Azure Machine Learning Studio, accessible à l’adresse https://ml.azure.com. Cette interface web centralisée comprend des outils de machine learning permettant de mettre en œuvre des scénarios de science des données pour les utilisateurs de science des données de tous niveaux de compétence. Studio n’est pas prise en charge par les navigateurs Internet Explorer.
 
 1. Connectez-vous au [studio Azure Machine Learning](https://ml.azure.com).
 
@@ -172,7 +172,7 @@ Une fois que vous avez chargé et configuré vos données, vous pouvez configure
         
         Sélectionnez **Enregistrer**.
     
-1. Sélectionnez **Terminer** pour exécuter l’expérience. L’écran **Détails de l’exécution** s’ouvre et affiche l’**État de l’exécution** dans la partie supérieure au début de la préparation de l’expérience. Cet état est mis à jour à mesure que l’expérience progresse. Les notifications s’affichent également en haut à droite du studio pour vous informer de l’état de votre expérience.
+1. Sélectionnez **Terminer** pour exécuter l’expérience. L’écran **Détails de l’exécution** s’ouvre et affiche l’**État de l’exécution** dans la partie supérieure au début de la préparation de l’expérience. Cet état est mis à jour à mesure que l’expérience progresse. Les notifications s’affichent également en haut à droite de Studio pour vous informer de l’état de votre expérience.
 
 >[!IMPORTANT]
 > La préparation nécessaire à l’exécution de l’expérience prend **10 à 15** minutes.

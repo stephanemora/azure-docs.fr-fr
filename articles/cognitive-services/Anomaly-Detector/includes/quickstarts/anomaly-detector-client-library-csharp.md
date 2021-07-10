@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
-ms.openlocfilehash: 50c22bdda667e8b5762f660fae673628323ee143
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: f526038a37e6f4e4a5d03c516446653a95c08be4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445620"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110165779"
 ---
-Commencez à utiliser la bibliothèque de client Détecteur d’anomalies pour .NET. Procédez comme suit pour installer le package de démarrage à l’aide des algorithmes fournis par le service. Le service Détecteur d’anomalies vous permet de rechercher des anomalies dans vos données de séries chronologiques en utilisant automatiquement les modèles les mieux adaptés sur celles-ci, quel que soit le secteur d’activité, le scénario ou le volume de données.
+Commencez à utiliser la bibliothèque de client Détecteur d’anomalies pour C#. Procédez comme suit pour installer le package de démarrage à l’aide des algorithmes fournis par le service. Le service Détecteur d’anomalies vous permet de rechercher des anomalies dans vos données de séries chronologiques en utilisant automatiquement les modèles les mieux adaptés sur celles-ci, quel que soit le secteur d’activité, le scénario ou le volume de données.
 
-Utilisez la bibliothèque de client Détecteur d’anomalies pour .NET pour :
+Utilisez la bibliothèque de client Détecteur d’anomalies pour C# afin de :
 
 * Détecter les anomalies dans votre jeu de données de série chronologique, comme une requête de lots
 * Détecter l’état d’anomalie du dernier point de données dans vos séries chronologiques

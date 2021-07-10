@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 05/25/2021
 ms.author: banders
-ms.openlocfilehash: d89f890d3e2bb8238a00b4a529b8804a8c38fa6f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 80c0627cdc2169ce3301ee56a449442387d8f6e1
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684743"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481099"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Déterminer la réservation à acheter
 
@@ -97,7 +97,7 @@ Apprenez-en davantage sur les [recommandations](reserved-instance-purchase-recom
 
 ## <a name="recommendations-in-the-cost-management-power-bi-app"></a>Recommandations dans l’application Cost Management pour Power BI
 
-Les clients Accord Entreprise et Contrat client Microsoft peuvent utiliser les rapports de couverture des instances de machine virtuelle réservées et les recommandations d’achat. Les rapports de couverture indiquent l’utilisation totale et l’utilisation couverte par les instances réservées.
+Les clients Accord Entreprise peuvent utiliser les rapports de couverture des instances réservées de machines virtuelles et les suggestions d’achat. Les rapports de couverture indiquent l’utilisation totale et l’utilisation couverte par les instances réservées.
 
 1. Procurez-vous l’[application Cost Management](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp).
 2. Accédez au rapport de couverture des instances de machine virtuelle réservées. Choisissez une étendue unique ou partagée selon l’étendue faisant l’objet de l’achat.

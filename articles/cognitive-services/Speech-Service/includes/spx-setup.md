@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 3221712fcf74022f2899380b4573ab3a821dce4d
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 32f28a6fa056819081804a3ccb919436c3f50bae
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109627248"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112039894"
 ---
 ## <a name="download-and-install"></a>Télécharger et installer
 
@@ -55,6 +55,9 @@ Procédez ainsi pour installer l’interface CLI Speech sur Linux, sur un proces
 2. Installez l’interface CLI Speech à l’aide de NuGet en entrant cette commande :
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI`
+
+3. Sur RHEL/CentOS Linux, [configurez OpenSSL pour Linux](../how-to-configure-openssl-linux.md).
+4. Sur Ubunutu 20.04 Linux, [installez GStreamer](../how-to-use-codec-compressed-audio-input-streams.md).
 
 Tapez `spx` pour afficher l’aide de l’interface CLI Speech.
 

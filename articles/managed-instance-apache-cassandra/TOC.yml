@@ -26,9 +26,21 @@
       href: compare-cosmosdb-managed-instance.md
 - name: Guides pratiques
   items:
+    - name: Migration
+      items:
+        - name: Migration dynamique
+          items:
+            - name: Utilisation d’un proxy en double écriture
+              href: dual-write-proxy-migration.md
+        - name: Migration hors connexion
+          items:
+            - name: Utilisation d’Apache Spark
+              href: spark-migration.md
     - name: Gérer avec Azure CLI
       displayName: 'az managed-cassandra, cluster, datacenter'
       href: manage-resources-cli.md
+    - name: Règles de trafic réseau sortant requises
+      href: network-rules.md
     - name: Visualiser les métriques dans Prometheus avec Grafana
       href: visualize-prometheus-grafana.md
 - name: Informations de référence

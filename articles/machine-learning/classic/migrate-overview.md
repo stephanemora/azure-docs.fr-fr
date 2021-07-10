@@ -8,12 +8,12 @@ ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: fafb9f7e84263c33cf1b15a52742ec9cd0380a40
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 7bb7c3a2d19b4dbb84d09829e2ed181a62ef7fbe
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311853"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901292"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Migrer vers Azure Machine Learning
 
@@ -134,7 +134,6 @@ Dans Azure Machine Learning, les **jeux de données** sont inscrits dans l’esp
 
 Dans Studio (classique), les **expériences** contenaient la logique de traitement de votre travail. Vous avez créé des expériences avec des modules de glisser-déplacer.
 
-
 ![automobile-price-classic-experiment](./media/migrate-overview/studio-classic-experiment.png)
 
 Dans Azure Machine Learning, les **pipelines** contiennent la logique de traitement de votre travail. Vous pouvez créer des pipelines à l’aide de modules de glisser-déplacer ou en écrivant du code.
@@ -143,14 +142,13 @@ Dans Azure Machine Learning, les **pipelines** contiennent la logique de traitem
 
 ### <a name="web-service-endpoint"></a>Point de terminaison de service Web
 
-Dans Studio (classique), l’**API REQUEST/RESPOND** a été utilisée pour la prédiction en temps réel. L’**API BATCH EXECUTION** a été utilisée pour la prédiction par lots ou la reformation.
+Studio (classique) utilisait l’**API REQUEST/RESPOND** pour la prédiction en temps réel et l’**API BATCH EXECUTION** pour le réentraînement ou la prédiction par lot.
 
 ![automobile-price-classic-webservice](./media/migrate-overview/studio-classic-web-service.png)
 
-Dans Azure Machine Learning, les **points de terminaison en temps réel** sont utilisés pour la prédiction en temps réel. Les **points de terminaison de pipeline** sont utilisés pour la prédiction par lots ou la reformation.
+Azure Machine Learning utilise des **points de terminaison en temps réel** pour la prédiction en temps réel et des **points de terminaison de pipeline** pour le réentraînement ou la prédiction par lot.
 
 ![automobile-price-aml-endpoint](./media/migrate-overview/aml-endpoint.png)
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

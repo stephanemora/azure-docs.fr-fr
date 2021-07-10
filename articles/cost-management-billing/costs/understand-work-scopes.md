@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: afa2811fe6e0dab3bc5c114febeec8aae25bd891
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 67d8ef5bf6960ca03d8d2d36efbe4461e1124190
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108765572"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695246"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -73,7 +73,7 @@ Le rôle recommandé avec le niveau de privilège minimum est celui de Contribut
 - **Planifier l’exportation des données de coût** : les Contributeurs Cost Management ont également besoin d’un accès à la gestion des comptes de stockage afin de planifier une exportation pour copier les données dans un compte de stockage. Envisagez d’accorder le rôle [Collaborateur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor) à un groupe de ressources contenant le compte de stockage vers lequel les données de coût de coûts seront exportées.
 - **Affichage des recommandations pour réaliser des économies** : les Lecteurs Cost Management et les Contributeurs Cost Management peuvent *afficher* les recommandations en matière de coûts par défaut. Toutefois, la possibilité de suivre ces recommandations requiert l’accès aux ressources individuelles. Envisagez d’accorder un [rôle propre au service](../../role-based-access-control/built-in-roles.md#all) si vous souhaitez suivre une recommandation en matière de coûts.
 
-Les groupes d’administration sont pris en charge uniquement s’ils contiennent des abonnements Accord Entreprise (EA), Paiement à l’utilisation (PAYG) ou un abonnement interne Microsoft. Les groupes d'administration associés à d'autres types d'abonnements, comme le Contrat client Microsoft ou les abonnements Azure Active Directory, ne peuvent pas afficher les coûts. Si vous disposez d’un mélange d’abonnements, déplacez les abonnements non pris en charge vers une autre branche de la hiérarchie du groupe d’administration pour activer Cost Management sur les abonnements pris en charge. Par exemple, créez deux groupes d’administration sous le groupe d’administration racine : **Azure AD** et **Mon organisation**. Déplacez votre abonnement Azure AD vers le groupe d’administration **Azure AD**, puis affichez et gérez les coûts à l’aide du groupe d’administration **Mon organisation**.
+Les groupes d’administration sont pris en charge uniquement s’ils contiennent jusqu’à 3 000 abonnements Contrat Entreprise (EA), Paiement à l’utilisation (PAYG) ou internes Microsoft. Les groupes d’administration avec plus de 3 000 abonnements ou abonnements avec d’autres types d’offre, comme les abonnements Contrat client Microsoft ou Azure Active Directory, ne peuvent pas voir les coûts. Si vous disposez d’un mélange d’abonnements, déplacez les abonnements non pris en charge vers une autre branche de la hiérarchie du groupe d’administration pour activer Cost Management sur les abonnements pris en charge. Par exemple, créez deux groupes d’administration sous le groupe d’administration racine : **Azure AD** et **Mon organisation**. Déplacez votre abonnement Azure AD vers le groupe d’administration **Azure AD**, puis affichez et gérez les coûts à l’aide du groupe d’administration **Mon organisation**.
 
 ### <a name="feature-behavior-for-each-role"></a>Comportement des fonctionnalités pour chaque rôle
 

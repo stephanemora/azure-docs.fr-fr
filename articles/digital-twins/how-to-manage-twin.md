@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 19e679b3bc899053ddcf75ff058ec19165b785cc
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 2c83ac769cc4a8aec6148e1a45ec6435f117d73a
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790466"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812030"
 ---
 # <a name="manage-digital-twins"></a>Gérer des jumeaux numériques
 
@@ -28,6 +28,10 @@ Cet article se concentre sur la gestion des jumeaux numériques. Pour utiliser d
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 [!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Capture d’écran d’Azure Digital Twins Explorer montrant des exemples de modèles et de jumeaux." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
 ## <a name="create-a-digital-twin"></a>Créer un jumeau numérique
 
@@ -137,7 +141,7 @@ Pour plus d’informations sur les classes d’assistance de sérialisation tell
 
 ## <a name="view-all-digital-twins"></a>Supprimer tous les jumeaux numériques
 
-Pour afficher tous les représentations numériques présents dans votre instance, utilisez une [requête](how-to-query-graph.md). Vous pouvez exécuter une requête avec les [API de requête](/rest/api/digital-twins/dataplane/query) ou les [commandes CLI](concepts-cli.md).
+Pour afficher tous les représentations numériques présents dans votre instance, utilisez une [requête](how-to-query-graph.md). Vous pouvez exécuter une requête avec les [API de requête](/rest/api/digital-twins/dataplane/query) ou les [commandes CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
 
 Voici le corps de la requête de base qui retourne la liste de tous les jumeaux numériques dans l’instance :
 
@@ -158,17 +162,58 @@ Voici un exemple de code de correctif JSON. Ce document remplace les valeurs des
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-Vous pouvez créer des correctifs à l’aide du document [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument) du SDK Azure .NET. Voici un exemple.
+Vous pouvez créer des correctifs à l’aide du document [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true) du SDK Azure .NET. Voici un exemple.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
-### <a name="update-properties-in-digital-twin-components"></a>Mettre à jour les propriétés dans les composants des jumeaux numériques
+### <a name="update-sub-properties-in-digital-twin-components"></a>Mettre à jour les sous-propriétés dans les composants des jumeaux numériques
 
 Rappelez-vous qu’un modèle peut contenir des composants, ce qui lui permet d’être constitué d’autres modèles. 
 
 Pour corriger les propriétés dans les composants d’un jumeau numérique, vous pouvez utiliser la syntaxe du chemin dans le correctif JSON :
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch-component.json":::
+
+### <a name="update-sub-properties-in-object-type-properties"></a>Mettre à jour les sous-propriétés dans les propriétés de type Object
+
+Les modèles peuvent contenir des propriétés qui sont d’un type Object. Ces objets peuvent avoir leurs propres propriétés, et vous pouvez mettre à jour l’une de ces sous-propriétés appartenant à la propriété de type Object. Ce processus est similaire au processus de [mise à jour des sous-propriétés dans les composants](#update-sub-properties-in-digital-twin-components), mais peut nécessiter des étapes supplémentaires. 
+
+Prenons l’exemple d’un modèle avec une propriété de type Object, `ObjectProperty`. `ObjectProperty` a une propriété de chaîne nommée `StringSubProperty`.
+
+Quand un jumeau est créé à l’aide de ce modèle, il n’est pas nécessaire d’instancier l’`ObjectProperty` à ce moment-là. Si la propriété d’objet n’est pas instanciée lors de la création d’un jumeau, aucun chemin par défaut n’est créé pour accéder à `ObjectProperty` et à sa `StringSubProperty` pour une opération de correctif. Vous devez ajouter le chemin à `ObjectProperty` vous-même avant de pouvoir mettre à jour ses propriétés.
+
+Pour ce faire, vous pouvez utiliser une opération de correctif JSON `add`, comme suit :
+
+```json
+[
+  {
+    "op": "add", 
+    "path": "/ObjectProperty", 
+    "value": {"StringSubProperty":"<string-value>"}
+  }
+]
+```
+
+>[!NOTE]
+> Si `ObjectProperty` a plusieurs propriétés, vous devez toutes les inclure dans le champ `value` de cette opération, même si vous n’en mettez qu’une seule à jour :
+> ```json
+>... "value": {"StringSubProperty":"<string-value>", "Property2":"<property2-value>", ...}
+>```
+
+
+Une fois cette opération effectuée, il existe un chemin à `StringSubProperty` et il peut désormais être mis à jour directement avec une opération `replace` ordinaire :
+
+```json
+[
+  {
+    "op": "replace",
+    "path": "/ObjectProperty/StringSubProperty",
+    "value": "<string-value>"
+  }
+]
+```
+
+Bien que la première étape ne soit pas nécessaire dans les cas où `ObjectProperty` a été instanciée lors de la création du jumeau, nous vous recommandons de l’utiliser chaque fois que vous mettez à jour une sous-propriété pour la première fois, car vous ne serez pas toujours certain que la propriété de l’objet a été instanciée initialement.
 
 ### <a name="update-a-digital-twins-model"></a>Mettre à jour le modèle d’un jumeau numérique
 
@@ -233,7 +278,7 @@ Puis, **copiez le code suivant** de l’exemple exécutable dans votre projet :
 Ensuite, effectuez les étapes ci-après pour configurer votre code de projet :
 1. Ajoutez le fichier **Room.json** que vous avez téléchargé précédemment à votre projet et remplacez l’espace réservé `<path-to>` dans le code pour indiquer à votre programme où le trouver.
 2. Remplacez l’espace réservé `<your-instance-hostname>` par le nom d’hôte de votre instance Azure Digital Twins.
-3. Ajoutez deux dépendances à votre projet. Elles seront nécessaires pour travailler avec Azure Digital Twins. La première est le package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client), et la seconde fournit des outils facilitant l’authentification auprès d’Azure.
+3. Ajoutez deux dépendances à votre projet. Elles seront nécessaires pour travailler avec Azure Digital Twins. La première correspond au package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), et la seconde fournit des outils facilitant l’authentification auprès d’Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
@@ -249,7 +294,7 @@ Vous avez terminé la configuration. Vous pouvez à présent exécuter l’exemp
 
 Voici la sortie de la console du programme ci-dessus : 
 
-:::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Sortie de la console indiquant que le jumeau est créé, mis à jour et supprimé" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
+:::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Capture d’écran de la sortie de la console indiquant que le jumeau est créé, mis à jour et supprimé." lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

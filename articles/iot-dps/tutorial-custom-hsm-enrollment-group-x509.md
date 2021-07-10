@@ -3,17 +3,17 @@ title: 'Tutoriel : Provisionner des appareils X.509 dans Azure IoT Hub avec un 
 description: Ce tutoriel utilise des groupes d’inscriptions. Dans ce tutoriel, vous allez apprendre à provisionner des appareils X.509 à l’aide d’un module de sécurité matériel (HSM) personnalisé et du SDK d’appareil C pour le service Azure IoT Hub Device Provisioning (DPS).
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/28/2021
+ms.date: 05/24/2021
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: b178aa4a524cb7fcc85c7fc68ac5f772747787a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e7d024d4d5b1e058e7a0b895faae5d2e7425f44
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99052361"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472124"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Tutoriel : Provisionner plusieurs appareils X.509 à l’aide de groupes d’inscriptions
 
@@ -121,6 +121,10 @@ Dans cette section, vous allez générer une chaîne de trois certificats X.509
 #### <a name="create-root-and-intermediate-certificates"></a>Créer des certificats racines et intermédiaires
 
 Pour créer les parties racine et intermédiaire de la chaîne de certificats :
+
+> [!IMPORTANT]
+> Pour cet article, utilisez uniquement l'approche de l'interpréteur de commandes Bash. L'utilisation de PowerShell est possible, mais elle n'est pas abordée dans cet article.
+
 
 1. Ouvrez une invite de commandes Git Bash. Effectuez les étapes 1 et 2 en suivant les instructions de l’interpréteur de commandes Bash qui se trouvent dans [Gestion des certificats d’autorité de certification de test pour les exemples et les tutoriels](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md#managing-test-ca-certificates-for-samples-and-tutorials).
 
@@ -233,7 +237,7 @@ Pour créer les certificats d’appareil signés par le certificat intermédiair
     >
     > En revanche, l’appareil doit également avoir accès à la clé privée du certificat d’appareil. Cet accès est nécessaire, car l’appareil doit effectuer la vérification à l’aide de cette clé au moment de l’exécution pendant la tentative de provisionnement. La sensibilité de cette clé est l’une des principales raisons pour lesquelles il est recommandé d’utiliser un stockage matériel dans un réel HSM pour mieux sécuriser les clés privées.
 
-4. Répétez les étapes 1 à 3 pour un deuxième appareil ayant l’ID d’appareil `custom-hsm-device-02`. Utilisez les valeurs suivantes pour cet appareil :
+4. Supprimez *./certs/new-device.cert.pem* et répétez les étapes 1 à 3 pour un deuxième appareil avec l'ID `custom-hsm-device-02`. Vous devez supprimer *./certs/new-device.cert.pem* ou la génération du certificat échouera pour le deuxième appareil. Seuls les fichiers de certificat de chaîne complète seront utilisés par cet article. Utilisez les valeurs suivantes pour le deuxième appareil :
 
     |   Description                 |  Valeur  |
     | :---------------------------- | :--------- |
@@ -290,7 +294,7 @@ Pour ajouter les certificats de signature au magasin de certificats dans des app
     winpty openssl pkcs12 -inkey ../private/azure-iot-test-only.intermediate.key.pem -in ./azure-iot-test-only.intermediate.cert.pem -export -out ./intermediate.pfx
     ```
 
-2. Cliquez avec le bouton droit sur le bouton **Démarrer** de Windows. Cliquez ensuite sur **Exécuter**. Entrez *certmgr.mcs*, puis cliquez sur **OK** pour démarrer le composant logiciel enfichable MMC du gestionnaire de certificats.
+2. Cliquez avec le bouton droit sur le bouton **Démarrer** de Windows. Cliquez ensuite sur **Exécuter**. Entrez *certmgr.msc*, puis cliquez sur **OK** pour démarrer le composant logiciel enfichable MMC du gestionnaire de certificats.
 
 3. Dans le gestionnaire de certificats, sous **Certificats - Utilisateur actuel**, cliquez sur **Autorités de certification racines de confiance**. Ensuite, dans le menu, cliquez sur **Action** > **Toutes les tâches** > **Importer** pour importer `root.pfx`.
 

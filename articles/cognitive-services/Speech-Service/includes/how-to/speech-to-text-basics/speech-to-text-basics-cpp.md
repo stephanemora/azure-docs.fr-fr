@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: 3d8558fbee05f663d72be64cb45ed4a2481513a3
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 4848f698490f6a79f9f1664b0011e5aec465ed81
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105188"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110165005"
 ---
 L’une des principales fonctionnalités du service de reconnaissance vocale est la possibilité de reconnaître et de transcrire la voix humaine (souvent appelée « reconnaissance vocale »). Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le SDK de reconnaissance vocale dans vos applications et produits afin d’effectuer une conversion de voix en texte de qualité.
 
@@ -229,7 +229,11 @@ Par exemple, si vous disposez d’une commande « Move to » et que parmi les 
 Il est possible d’ajouter des mots uniques ou des expressions entières à une liste d’expressions. Pendant le processus de reconnaissance, une entrée de la liste d’expressions est utilisée pour renforcer la reconnaissance des mots et des expressions de la liste, même lorsque les entrées apparaissent au milieu de l’énoncé. 
 
 > [!IMPORTANT]
-> La fonctionnalité Liste d’expressions est disponible pour les langues suivantes : en-US, de-DE, en-AU, en-CA, en-GB, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN
+> La fonctionnalité de liste d’expressions est disponible pour les langues suivantes : en-US, de-DE, en-AU, en-CA, en-GB, en-IN, es-ES, fr-FR, it-IT, ja-JP, pt-BR, zh-CN
+>
+> Pour les autres paramètres régionaux, et si vous avez un grand nombre d’expressions, l’[apprentissage d’un modèle personnalisé](../../../custom-speech-overview.md) est probablement le meilleur choix permettant d’améliorer la précision.
+>
+> N’utilisez pas la fonctionnalité de liste d’expressions avec les points de terminaison personnalisés. Préférez plutôt l’entraînement d’un modèle personnalisé qui comprend les expressions.
 
 Pour utiliser une liste d’expressions, commencez par créer un objet [`PhraseListGrammar`](/cpp/cognitive-services/speech/phraselistgrammar), puis ajoutez des mots et des expressions spécifiques avec [`AddPhrase`](/cpp/cognitive-services/speech/phraselistgrammar#addphrase).
 

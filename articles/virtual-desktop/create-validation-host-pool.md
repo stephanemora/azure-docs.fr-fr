@@ -1,38 +1,39 @@
 ---
-title: Mises à jour du service de pool d'hôtes Windows Virtual Desktop - Azure
+title: Mises à jour du service de pool d’hôtes Azure Virtual Desktop – Azure
 description: Comment créer un pool d’hôtes de validation pour surveiller les mises à jour de service avant de déployer les mises à jour en production.
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 12/15/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 66279c2ea798a7edb21795f368011b00bdf6297e
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 2c944d1068ae74a97c8a6315e98a1348f9378b8c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447809"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749126"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutoriel : Créer un pool d’hôtes pour valider les mises à jour de service
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (Classic) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md).
 
-Les pools d’hôtes comprennent une ou plusieurs machines virtuelles identiques situées dans un environnement Windows Virtual Desktop. Nous vous recommandons vivement de créer un pool d’hôtes de validation dans lequel les mises à jour de service seront appliquées en premier. Cela vous permet de superviser les mises à jour de service avant que le service ne les applique à votre environnement standard ou non validé. Sans pool d’hôtes de validation, vous risquez de ne pas détecter les modifications qui génèrent des erreurs, ce qui peut entraîner des temps d’arrêt pour les utilisateurs de votre environnement standard.
+Les pools d’hôtes consistent en une collection d’une ou plusieurs machines virtuelles identiques situées dans un environnement Azure Virtual Desktop. Nous vous recommandons vivement de créer un pool d’hôtes de validation dans lequel les mises à jour de service seront appliquées en premier. Cela vous permet de superviser les mises à jour de service avant que le service ne les applique à votre environnement standard ou non validé. Sans pool d’hôtes de validation, vous risquez de ne pas détecter les modifications qui génèrent des erreurs, ce qui peut entraîner des temps d’arrêt pour les utilisateurs de votre environnement standard.
 
 Pour veiller à ce que vos applications fonctionnent avec les dernières mises à jour, le pool d’hôtes de validation doit également être aussi semblable que possible aux pools d’hôtes de votre environnement non validé. Les utilisateurs sont invités à se connecter aussi fréquemment au pool d’hôtes de validation qu’au pool d’hôtes standard. Si vous disposez de tests automatisés sur votre pool d’hôtes, vous devez inclure ces tests au pool d’hôtes de validation.
 
-Vous pouvez déboguer les problèmes dans le pool d’hôtes de validation à l'aide de [la fonctionnalité de diagnostic](diagnostics-role-service.md) ou des [articles de résolution des problèmes Windows Virtual Desktop](troubleshoot-set-up-overview.md).
+Vous pouvez déboguer les problèmes du pool d’hôtes de validation avec la [fonctionnalité de diagnostic](diagnostics-role-service.md) ou les [articles de résolution des problèmes Azure Virtual Desktop](troubleshoot-set-up-overview.md).
 
 >[!NOTE]
 > Nous vous recommandons d'utiliser le pool d’hôtes de validation pour tester toutes les mises à jour à venir.
 
 >[!IMPORTANT]
->Windows Virtual Desktop avec l’intégration Azure Resource Management a actuellement des difficultés à activer et désactiver les environnements de validation. Nous mettrons à jour cet article quand nous aurons résolu le problème.
+>Des problèmes se posent actuellement pour activer et désactiver les environnements de validation avec l’intégration entre Azure Virtual Desktop et Azure Resource Management. Nous mettrons à jour cet article quand nous aurons résolu le problème.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, suivez les instructions fournies dans [Configurer le module PowerShell Windows Virtual Desktop](powershell-module.md) pour configurer votre module PowerShell et vous connecter à Azure.
+Avant de commencer, suivez les instructions fournies dans [Configuration du module PowerShell Azure Virtual Desktop](powershell-module.md) pour configurer votre module PowerShell et vous connecter à Azure.
 
 ## <a name="create-your-host-pool"></a>Créer votre pool d'hôtes
 
@@ -74,8 +75,8 @@ Vous pouvez également utiliser le portail Azure pour activer votre environnemen
 Pour utiliser le portail Azure pour configurer votre pool d’hôtes de validation :
 
 1. Connectez-vous au portail Azure sur <https://portal.azure.com>.
-2. Recherchez et sélectionnez **Windows Virtual Desktop**.
-3. Dans la page Windows Virtual Desktop, sélectionnez **Pools d’hôtes**.
+2. Recherchez et sélectionnez **Azure Virtual Desktop**.
+3. Sur la page Azure Virtual Desktop, sélectionnez **Pools d’hôtes**.
 4. Sélectionnez le nom du pool d’hôtes que vous souhaitez modifier.
 5. Sélectionner **Propriétés**.
 6. Dans le champ d’environnement de validation, sélectionnez **Oui** pour activer l’environnement de validation.
@@ -89,7 +90,7 @@ S’il existe des mises à jour de service, vérifiez que vous avez au moins un 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Un pool d’hôtes de validation étant créé, vous pouvez apprendre à utiliser Azure Service Health pour superviser votre déploiement de Windows Virtual Desktop.
+Maintenant que vous avez créé un pool d’hôtes de validation, vous pouvez apprendre à utiliser Azure Service Health pour superviser votre déploiement Azure Virtual Desktop.
 
 > [!div class="nextstepaction"]
 > [Configurer des alertes de service](./set-up-service-alerts.md)

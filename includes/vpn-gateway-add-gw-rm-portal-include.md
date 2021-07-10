@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/19/2020
+ms.date: 05/27/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6bc8b6cc18f4a4bc41cabf7f8fefe78a5aaf7827
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1894f38a92fe839dcf44cc3265aa1ca25c05d6f6
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94427845"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111564601"
 ---
 1. À partir du [portail Azure](https://portal.azure.com), dans **Rechercher dans les ressources, services et documents (G+/)** , entrez **Passerelle de réseau virtuel**. Recherchez la **passerelle de réseau virtuel** dans les résultats de la recherche et sélectionnez-la.
 
@@ -37,7 +37,7 @@ ms.locfileid: "94427845"
    * **Région** : Sélectionnez la région où vous voulez créer cette ressource. La région de la passerelle doit être la même que celle du réseau virtuel.
    * **Type de passerelle** : Sélectionnez **VPN**. Les passerelles VPN utilisent le type de passerelle de réseau virtuel **VPN**.
    * **Type de VPN** : sélectionnez le type de VPN spécifié pour votre configuration. La plupart des configurations requièrent un type de VPN basé sur un itinéraire.
-   * **SKU** : Sélectionnez la référence SKU de la passerelle dans la liste déroulante. Les références répertoriées dans la liste déroulante dépendent du type de VPN que vous sélectionnez. Pour plus d’informations sur les références de passerelle, consultez [Références (SKU) de passerelle](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+   * **SKU** : Sélectionnez la référence SKU de la passerelle dans la liste déroulante. Les références répertoriées dans la liste déroulante dépendent du type de VPN que vous sélectionnez. Veillez à sélectionner une référence (SKU) qui prend en charge les fonctionnalités que vous voulez utiliser. Pour plus d’informations sur les références de passerelle, consultez [Références (SKU) de passerelle](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
    * **Génération** : pour plus d’informations sur la génération de passerelles VPN, consultez [SKU de passerelle](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
    * **Réseau virtuel** : sélectionnez le réseau virtuel auquel vous souhaitez ajouter cette passerelle dans la liste déroulante.
    * **Plage d’adresses de sous-réseau de la passerelle** : Ce champ apparaît uniquement si votre réseau virtuel n’a pas de sous-réseau de passerelle. Dans la mesure du possible, utilisez la plage /27 ou au-delà (/26, /25, etc.). Nous vous déconseillons de créer une plage inférieure à /28. Si vous disposez déjà d’un sous-réseau de passerelle, vous pouvez en voir les détails en accédant à votre réseau virtuel. Cliquez sur **Sous-réseaux** pour afficher la plage. Si vous souhaitez modifier la plage, vous pouvez supprimer et recréer le sous-réseau de passerelle.
