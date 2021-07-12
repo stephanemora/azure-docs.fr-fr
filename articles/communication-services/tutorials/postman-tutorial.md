@@ -5,15 +5,15 @@ description: Découvrez comment signer et envoyer des requêtes pour les service
 author: ProbablePrime
 services: azure-communication-services
 ms.author: rifox
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5805734a9253962d672a4236a5650e9de8b37f0a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 45e65b164849a34560279b049bbd96ec9bf84058
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044292"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113107502"
 ---
 # <a name="tutorial-sign-and-make-requests-with-postman"></a>Tutoriel : Signer et envoyer des requêtes avec Postman
 Dans ce tutoriel, nous allons configurer et utiliser Postman pour effectuer une requête auprès d’Azure Communication Services (ACS) à l’aide du protocole HTTP. À la fin de ce tutoriel, vous aurez envoyé avec succès un message SMS à l’aide des services ACS et de Postman, et pourrez utiliser Postman pour explorer d’autres API dans ACS.

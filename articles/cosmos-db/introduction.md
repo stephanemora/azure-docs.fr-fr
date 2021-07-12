@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 05/07/2021
-ms.openlocfilehash: f435ed599e39b2dd0c204ef8c2cdcbb23146bc08
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/04/2021
+ms.openlocfilehash: 3681164f1b7415679ed599a70faf6453ab0a5c87
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367864"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968004"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenue dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -20,13 +20,13 @@ Les applications actuelles doivent être hautement réactives et toujours en lig
 
 Azure Cosmos DB est une base de données NoSQL complètement managée pour le développement d’applications modernes. Les temps de réponse inférieurs à dix millisecondes et la scalabilité automatique et instantanée garantissent une vitesse, quelle que soit l’échelle. La continuité de l’activité est garantie par la disponibilité [assurée par un contrat SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) et une sécurité de qualité professionnelle. Le développement d’applications est plus rapide et plus productif grâce à la distribution de données multirégion clé en main dans le monde entier, aux API open source et aux kits SDK pour les langages les plus courants. En tant que service complètement managé, Azure Cosmos DB prend en charge l’administration de bases de données grâce à une gestion, des mises à jour et des mises à jour correctives automatiques. Il traite également la gestion de la capacité avec des options économiques de mise à l’échelle automatique et serverless qui répondent aux besoins de l’application pour faire correspondre la capacité à la demande.
 
-> [!NOTE]
-> Voulez-vous contribuer à améliorer la documentation Azure Cosmos DB en participant à une enquête utilisateur ? Merci de prendre quelques minutes pour répondre à cette [enquête de présélection](https://aka.ms/cosmosdb-documentation-screener-survey) de 5 minutes. Si vous êtes éligible, vous accéderez à un outil de planification dans lequel vous pourrez réserver un créneau pour rejoindre une session de recherche interactive. Aucune donnée personnelle n’est collectée au cours de ce processus, conformément à notre [déclaration de confidentialité](https://go.microsoft.com/fwlink/?LinkId=521839).
-
 Vous pouvez [essayer gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, sans frais ni engagement, ou utiliser le [niveau gratuit d’Azure Cosmos DB](free-tier.md) pour obtenir un compte avec les 1000 premières RU/s (unités de requête par seconde) et les 25 premiers Go de stockage gratuits.
 
 > [!div class="nextstepaction"]
 > [Essayer gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
+
+> [!TIP]
+> Pour en savoir plus sur Azure Cosmos DB, rejoignez-nous tous les jeudis à 13H00 Heure du Pacifique sur Azure Cosmos DB Live TV. Consultez le [programme des sessions à venir et les épisodes précédents](https://gotcosmos.com/tv).
 
 :::image type="content" source="./media/introduction/azure-cosmos-db.png" alt-text="Azure Cosmos DB est une base de données NoSQL complètement managée pour le développement d’applications modernes." border="false":::
 
@@ -77,6 +77,7 @@ Toutes les [applications web, mobiles, IoT ou de jeux](use-cases.md) qui ont bes
 
 Bien démarrer avec Azure Cosmos DB grâce à l’un de nos guides de démarrage rapide :
 
+- Apprendre [à choisir une API](choose-api.md) dans Azure Cosmos DB
 - [Prise en main de l’API SQL Azure Cosmos DB](create-sql-api-dotnet.md)
 - [Bien démarrer avec l’API Azure Cosmos DB pour MongoDB](create-mongodb-nodejs.md)
 - [Prise en main de l’API Cassandra Azure Cosmos DB](create-cassandra-dotnet.md)
