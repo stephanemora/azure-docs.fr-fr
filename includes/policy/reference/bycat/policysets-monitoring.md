@@ -2,18 +2,21 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 638ac6cdeb82cde707d2a036a3be97a7756f7400
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c39c6d6530e94e8e84211b9950cd66f5b33c8c3c
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059943"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112041483"
 ---
 |Nom |Description |Stratégies |Version |
 |---|---|---|---|
+|[\[Préversion\] : configurer les agents Azure Defender pour SQL sur les machines virtuelles](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitoring_AzureDefenderForSql.json) |Configurez les machines virtuelles pour qu’elles installent automatiquement les agents Azure Defender pour SQL quand l’agent Azure Monitor est installé. Security Center collecte les événements provenant des agents, et les utilise pour communiquer des alertes de sécurité et des tâches personnalisées de sécurisation renforcée (recommandations). Crée un groupe de ressources et un espace de travail Log Analytics dans la même région que la machine. Cette stratégie s’applique uniquement aux machines virtuelles de certaines régions. |2 |1.0.0-preview |
+|[Configurer l’agent Azure Monitor sur des machines virtuelles Linux et l’associer à la règle de collecte de données](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AMCS_LinuxPlatform_EnableDCR.json) |Déployez l’agent Azure Monitor pour les machines virtuelles Linux si l’image de machine virtuelle (SE) et l’emplacement se trouvent dans la liste définie et que l’agent n’est pas installé.  Déployez ensuite l’association pour lier la machine virtuelle à la règle de collecte de données spécifiée. La liste des images de système d’exploitation est mise à jour à mesure que la prise en charge est étendue. |2 |1.0.0 |
+|[Configurer l’agent Azure Monitor sur des machines virtuelles Windows et l’associer à la règle de collecte de données](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AMCS_WindowsPlatform_EnableDCR.json) |Déployez l’agent Azure Monitor pour les machines virtuelles Windows si l’image de machine virtuelle (SE) et l’emplacement se trouvent dans la liste définie et que l’agent n’est pas installé.  Déployez ensuite l’association pour lier la machine virtuelle à la règle de collecte de données spécifiée. La liste des images de système d’exploitation est mise à jour à mesure que la prise en charge est étendue. |2 |1.0.0 |
 |[\[Préversion\] : Déployer - Configurer les prérequis pour activer les agents Azure Monitor et de sécurité Azure sur les machines virtuelles](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitoring_Prerequisites.json) |Configurez des machines de manière à installer automatiquement les agents Azure Monitor et Azure Security. Security Center collecte les événements provenant des agents, et les utilise pour communiquer des alertes de sécurité et des tâches personnalisées de sécurisation renforcée (recommandations). Créez un groupe de ressources et un espace de travail Log Analytics dans la même région que la machine pour stocker les enregistrements d’audit. Cette stratégie s’applique uniquement aux machines virtuelles de certaines régions. |5 |1.0.0-preview |
 |[Activer Azure Monitor pour les groupes de machines virtuelles identiques](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VMSS.json) |Activez Azure Monitor pour les groupes de machines virtuelles identiques dans l’étendue spécifiée (groupe d’administration, abonnement ou groupe de ressources). Utilise l’espace de travail Log Analytics comme paramètre. Remarque : Si la valeur upgradePolicy du groupe identique est définie sur Manuel, vous devez appliquer l’extension à toutes les machines virtuelles du groupe en appelant une mise à niveau. Dans l’interface de ligne de commande, cela se traduirait par az vmss update-instances. |6 |1.0.1 |
 |[Activer Azure Monitor pour machines virtuelles](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VM.json) |Activez Azure Monitor pour les machines virtuelles dans l’étendue spécifiée (groupe d’administration, abonnement ou groupe de ressources). Utilise l’espace de travail Log Analytics comme paramètre. |10 |2.0.0 |

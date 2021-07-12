@@ -2,14 +2,14 @@
 author: amitbapat
 ms.service: key-vault
 ms.topic: include
-ms.date: 03/09/2021
+ms.date: 05/28/2021
 ms.author: ambapat
-ms.openlocfilehash: 9ecfcff00e6f44f5c739513c063baaa3fa02a3db
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 3539e222407fee63a829e80db986f2b0eed02e24
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753292"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111761253"
 ---
 Le service Azure Key Vault prend en charge deux types de ressources : les coffres et les HSM managés. Les deux sections suivantes décrivent les limites de service pour chacun d’entre eux.
 
@@ -62,6 +62,12 @@ Quand vous sauvegardez un objet d’un coffre de clés (secret, clé ou certific
 > [!NOTE]
 > Toute tentative de sauvegarde d’un objet clé, secret ou certificat avec un nombre de versions supérieur à la limite mentionnée ci-dessus génère une erreur. Il est impossible de supprimer les versions précédentes d’une clé, d’un secret ou d’un certificat. 
 
+### <a name="limits-on-count-of-keys-secrets-and-certificates"></a>Limites du nombre de clés, de secrets et de certificats :
+
+Key Vault ne limite pas le nombre de clés, de secrets ou de certificats qui peuvent être stockés dans un coffre. Les limites de transaction sur le coffre doivent être prises en compte afin de s’assurer que les opérations ne sont pas limitées.
+
+Key Vault ne limite pas le nombre de versions sur un secret, une clé ou un certificat. Toutefois, le stockage d’un grand nombre de versions (+ de 500) peut avoir un impact sur les performances des opérations de sauvegarde. Consultez [Sauvegarde Azure Key Vault](../articles/key-vault/general/backup.md).
+
 #### <a name="azure-private-link-integration"></a>Intégration d’Azure Private Link
 
 > [!NOTE]
@@ -72,7 +78,7 @@ Quand vous sauvegardez un objet d’un coffre de clés (secret, clé ou certific
 | Points de terminaison privés par coffre de clés | 64 |
 | Coffres de clés avec points de terminaison privés par abonnement | 400 |
 
-### <a name="resource-type-managed-hsm-preview"></a>Type de ressource : HSM managé (préversion)
+### <a name="resource-type-managed-hsm"></a>Type de ressource : HSM managé
 
 Cette section décrit les limites de service pour le type de ressource `managed HSM`.
 
@@ -80,7 +86,7 @@ Cette section décrit les limites de service pour le type de ressource `managed 
 
 |Élément|Limites|
 |----|------:|
-Nombre d’instances HSM par région et par abonnement|1 (pendant la préversion)
+Nombre d’instances HSM par région et par abonnement|1 
 Nombre de clés par pool HSM|5 000
 Nombre de versions par clé|100
 Nombre de définitions de rôles personnalisées par HSM|50
