@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: overview
 ms.date: 03/11/2021
-ms.openlocfilehash: 41d60c8e565655793dd33393f41876438c7eab66
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 573e0dc028391c2eea9d412bfe68c07a2e95aec3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166887"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963137"
 ---
 # <a name="quickstart-create-a-serverless-simple-chat-application-with-azure-functions-and-azure-web-pubsub-service"></a>Démarrage rapide : Créer une application de conversation simple serverless avec Azure Functions et le service Azure Web PubSub 
 
@@ -58,7 +58,7 @@ Pendant le déploiement du service, passons à l’utilisation du code. Clonez l
   Ouvrez le dossier */samples/functions/js/simplechat* dans le dépôt cloné. Modifiez *local.settings.json* pour ajouter une chaîne de connexion de service.
   Dans *local.settings.js*, apportez les modifications suivantes, puis enregistrez le fichier.
     - Remplacez l’espace réservé *<connection-string>* par la chaîne de connexion copiée à partir du **portail Azure** pour le paramètre **`WebPubSubConnectionString`** . 
-    - Pour le paramètre **`AzureWebJobsStorage`** , cela est nécessaire, car [Azure Functions nécessite un compte de stockage Azure](https://docs.microsoft.com/azure/azure-functions/storage-considerations).
+    - Pour le paramètre **`AzureWebJobsStorage`** , cela est nécessaire, car [Azure Functions nécessite un compte de stockage Azure](../azure-functions/storage-considerations.md).
         - Si l’émulateur de stockage Azure est exécuté localement, conservez les paramètres d’origine « UseDevelopmentStorage=true ».
         - Si vous disposez d’une chaîne de connexion de stockage Azure, remplacez la valeur par celle-ci.
  

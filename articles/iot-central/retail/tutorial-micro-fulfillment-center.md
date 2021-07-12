@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 78536867efa4894f1041a340b9d6347a4e030a69
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: d70a15456ecc688b6bc8137223d36164545c0123
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685654"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956213"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutoriel : Déployer et parcourir un modèle d’application Centre de microtraitement
 
@@ -57,6 +57,8 @@ Pour créer une application de centre de microtraitement qui utilise les fonctio
 
     ![Capture d’écran de la page Nouvelle application dans Azure IoT Central](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc.png)
 
+    ![Capture d’écran des informations de facturation dans Azure IoT Central](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc-billing.png)
+
 ## <a name="walk-through-the-application"></a>examiner l’application 
 
 Une fois le modèle d’application déployé, le **tableau de bord du centre de microtraitement de Northwind Traders** s’affiche. Northwind Trader est un détaillant fictif dont le centre de microtraitement est géré dans cette application Azure IoT Central. Dans ce tableau de bord d’opérateur figurent des informations et autres données de télémétrie sur les appareils de ce modèle ainsi qu’un ensemble de commandes, de tâches et d’actions que vous pouvez effectuer. Le tableau de bord se divise logiquement en deux parties. À gauche, vous pouvez superviser les conditions ambiantes au sein de la structure de traitement et à droite, vous pouvez superviser l’intégrité d’un robot porteur au sein de l’installation.  
@@ -66,11 +68,11 @@ Une fois le modèle d’application déployé, le **tableau de bord du centre de
    * Examiner le plan d’étage et l’emplacement des robots porteurs au sein de la structure de traitement.
    * Déclencher des commandes pour réinitialiser le système de contrôle, mettre à jour le microprogramme du porteur et reconfigurer le réseau, par exemple.
 
-     ![Capture d’écran montrant la moitié supérieure du tableau de bord du centre de microtraitement de Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Capture d’écran montrant la moitié supérieure du tableau de bord du centre de microtraitement de Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard-1.png)
    * Consulter un exemple du tableau de bord dont peut se servir un opérateur pour superviser les conditions au sein du centre de traitement. 
    * Superviser l’intégrité des charges utiles qui s’exécutent sur l’appareil de passerelle au sein du centre de traitement.    
 
-     ![Capture d’écran montrant la moitié inférieure du tableau de bord du centre de microtraitement de Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Capture d’écran montrant la moitié inférieure du tableau de bord du centre de microtraitement de Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard-2.png)
 
 ## <a name="device-template"></a>Modèle d’appareil
 Si vous sélectionnez l’onglet Modèles d’appareil, vous constatez qu’il existe deux types d’appareils dans le modèle : 

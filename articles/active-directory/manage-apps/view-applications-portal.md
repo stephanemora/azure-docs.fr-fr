@@ -2,22 +2,22 @@
 title: 'Démarrage rapide : Afficher la liste des applications qui utilisent votre locataire Azure Active Directory (Azure AD) à des fins de gestion des identités'
 description: Dans ce guide de démarrage rapide, utilisez le portail Azure afin d’afficher la liste des applications qui sont inscrites pour utiliser votre locataire Azure Active Directory (Azure AD) à des fins de gestion des identités.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 04/09/2019
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: c4a03e85798d4406068bd5923dbc753d8e5d31b6
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: c1022ddae7fdd00731f17a1e62e024a6ebfaebcb
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376441"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080594"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Démarrage rapide : Afficher la liste des applications qui utilisent votre locataire Azure Active Directory (Azure AD) à des fins de gestion des identités
 
@@ -32,11 +32,17 @@ Pour afficher les applications qui ont été inscrites dans votre locataire Azur
 >[!IMPORTANT]
 >Nous vous recommandons d’utiliser un environnement de non-production pour tester les étapes de ce guide de démarrage rapide.
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Pour installer et utiliser l’interface CLI en local, exécutez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
+
 ## <a name="find-the-list-of-applications-in-your-tenant"></a>Rechercher la liste des applications dans votre locataire
 
-Les applications qui sont inscrites auprès de votre locataire Azure AD sont visibles dans la section **Applications d’entreprise** du portail Azure.
-
 Pour afficher les applications inscrites dans votre locataire :
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
+
+Les applications qui sont inscrites auprès de votre locataire Azure AD sont visibles dans la section **Applications d’entreprise** du portail Azure.
 
 1. Connectez-vous à votre [portail Azure](https://portal.azure.com).
 2. Dans le volet de navigation de gauche, sélectionnez **Azure Active Directory**.
@@ -44,9 +50,23 @@ Pour afficher les applications inscrites dans votre locataire :
 4. À partir du menu déroulant **Type d’Application**, sélectionnez **Toutes les Applications**, puis choisissez **Appliquer**. Un échantillon aléatoire des applications de votre tenant s’affiche.
 5. Pour afficher davantage d’applications, sélectionnez **Charger plus** en bas de la liste. S’il y a de nombreuses applications dans votre locataire, il peut être plus facile de rechercher une application particulière que de faire défiler la liste. La recherche d’une application particulière est traitée plus loin dans ce guide de démarrage rapide.
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Connectez-vous et utilisez des applications avec les commandes [az ad app](/cli/azure/ad/app).
+
+```azurecli
+az login
+
+az ad app list --all
+```
+
+---
+
 ## <a name="select-viewing-options"></a>Sélectionner les options d'affichage
 
 Sélectionnez les options correspondant à ce que vous recherchez.
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Vous pouvez afficher les applications par **Type d’application**, **État de l’application** et **Visibilité de l’application**.
 2. Sous **Type d’Application**, choisissez l’une des options suivantes :
@@ -57,9 +77,19 @@ Sélectionnez les options correspondant à ce que vous recherchez.
 4. Sous **Visibilité de l’Application**, choisissez **Quelconque** ou **Masqué**. L’option **Masqué** affiche les applications qui sont dans le locataire, mais ne sont pas visibles pour les utilisateurs.
 5. Après avoir choisi les options souhaitées, sélectionnez **Appliquer**.
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+az ad app list --filter "displayname eq 'test' and servicePrincipalType eq 'Application'"
+```
+
+---
+
 ## <a name="search-for-an-application"></a>Rechercher une application
 
 Pour rechercher une application particulière :
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. À partir du menu déroulant **Type d’application**, sélectionnez **Toutes les applications**, puis sélectionnez **Appliquer**.
 2. Entrez le nom de l’application recherchée. Si l’application a été ajoutée à votre locataire Azure AD, elle apparaît dans les résultats de recherche. Cet exemple montre que GitHub n’a pas été ajouté aux applications du locataire.
@@ -67,10 +97,16 @@ Pour rechercher une application particulière :
 3. Essayez d’entrer les premières lettres du nom de l’application. Cet exemple montre toutes les applications qui commencent par **Sales**.
     ![L’exemple affiche toutes les applications qui commencent par Sales](media/view-applications-portal/search-by-prefix.png)
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+az ad app show --id 710abb12-abeb-40ba-91ab-4b1f44f9ceb8 --query 'objectId' -o json
+```
+
+---
 
 > [!TIP]
 > Vous pouvez automatiser la gestion des applications à l’aide de l’API Graph. Consultez [Automatiser la gestion des applications avec l’API Microsoft Graph](/graph/application-saml-sso-configure-api).
-
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
