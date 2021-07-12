@@ -6,15 +6,15 @@ author: chpalm
 manager: chpalm
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3fd6aa705a2220483534761c185ca7cac01e148e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 142b4635bed6361987c21173245bb4d4e7557f90
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110093607"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108096"
 ---
 # <a name="teams-interoperability"></a>Interopérabilité de Teams
 
@@ -43,13 +43,11 @@ L’architecture générale de ce cas d’usage se présente comme suit :
 
 ![Architecture de l’interopérabilité de Teams](./media/call-flows/teams-interop.png)
 
-Tandis que certaines fonctionnalités de réunion de Teams comme la main levée, le mode Ensemble et les salles pour petit groupe sont disponibles seulement pour les utilisateurs Teams, votre application personnalisée a accès aux principales fonctionnalités audio, vidéo, conversation et partage d’écran de la réunion. La conversation de réunion sera accessible à votre utilisateur d’application personnalisée pendant l’appel. Il ne pourra pas envoyer ou recevoir de messages avant de rejoindre ou de quitter l’appel. 
+Les utilisateurs Communication Services peuvent rejoindre les réunions Teams planifiées tant que les participations anonymes sont autorisées dans les [paramètres de la réunion](/microsoftteams/meeting-settings-in-teams). 
+
+Tandis que certaines fonctionnalités de réunion de Teams comme la main levée, le mode Ensemble et les salles pour petit groupe sont disponibles seulement pour les utilisateurs Teams, votre application personnalisée a accès aux principales fonctionnalités audio, vidéo, conversation et partage d’écran de la réunion. La conversation de réunion sera accessible à votre utilisateur d’application personnalisée pendant l’appel. Il ne pourra pas envoyer ou recevoir de messages avant de rejoindre ou de quitter l’appel. Si la réunion est planifiée pour un canal, les utilisateurs Communication Services ne pourront pas rejoindre la discussion ni envoyer et recevoir des messages.
 
 Lorsqu'un utilisateur Communication Services rejoint la réunion Teams, le nom complet fourni par le biais du SDK Calling est présenté aux utilisateurs Teams. Sinon, l’utilisateur Communication Services est traité comme un utilisateur anonyme dans Teams.  Votre application personnalisée doit envisager l’authentification des utilisateurs et d’autres mesures de sécurité pour protéger les réunions Teams. Pensez à ce que cela implique en terme de sécurité si vous autorisez les utilisateurs anonymes à rejoindre des réunions et utilisez le [Guide sur la sécurité de Teams](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) pour configurer les fonctionnalités disponibles pour les utilisateurs anonymes.
-
-L’interopérabilité entre Communication Services et Teams est actuellement en préversion privée. Quand elle sera en disponibilité générale, les utilisateurs Communication Services sont traités comme des « utilisateurs avec accès externe ». Pour plus d’informations sur l’accès externe, consultez [Appeler, converser et collaborer avec des personnes extérieures à votre organisation dans Microsoft Teams](/microsoftteams/communicate-with-users-from-other-organizations).
-
-Les utilisateurs Communication Services peuvent rejoindre les réunions Teams planifiées tant que les participations anonymes sont autorisées dans les [paramètres de la réunion](/microsoftteams/meeting-settings-in-teams). Si la réunion est planifiée pour un canal, les utilisateurs Communication Services ne pourront pas rejoindre la discussion ni envoyer et recevoir des messages.
 
 ## <a name="teams-in-government-clouds-gcc"></a>Teams dans les clouds gouvernementaux (GCC)
 L’interopérabilité d’Azure Communication Services n’est pour l’instant pas compatible avec les déploiement Teams utilisant des [clouds gouvernementaux (GCC) Microsoft 365](/MicrosoftTeams/plan-for-government-gcc). 

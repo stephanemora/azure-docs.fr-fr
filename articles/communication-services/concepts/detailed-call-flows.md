@@ -5,15 +5,15 @@ description: Découvrez les topologies de flux d’appels dans Azure Communicati
 author: nmurav
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f25f7504c8962643176785f62e0d5d33928726bb
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: b2a9f53dd2513baaa60ba39b2eaae7b11fe9f4b8
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325442"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113112704"
 ---
 # <a name="call-flow-topologies"></a>Topologies des flux d’appels
 Cet article décrit les topologies de flux d’appels Azure Communication Services. Si vous êtes un client d’entreprise intégrant Communication Services dans un réseau que vous gérez, vous avez tout intérêt à lire cet article. Pour une présentation des flux d’appels Communication Services, consultez la [documentation conceptuelle sur les flux d’appels](./call-flows.md).
