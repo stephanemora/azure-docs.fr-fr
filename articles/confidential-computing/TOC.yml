@@ -23,7 +23,7 @@
         - name: Nœuds confidentiels avec Azure CLI
           href: confidential-nodes-aks-get-started.md
         - name: Questions fréquentes (FAQ) relatives aux nœuds confidentiels sur AKS
-          href: confidential-nodes-aks-faq.md
+          href: confidential-nodes-aks-faq.yml
 - name: Concepts
   expanded: true
   items:
@@ -34,7 +34,7 @@
         - name: Solutions sur les machines virtuelles
           href: virtual-machine-solutions.md
         - name: Questions fréquentes (FAQ) sur les machines virtuelles d’informatique confidentielle
-          href: faq.md
+          href: faq.yml
     - name: Compute conteneur
       expanded: true
       items:

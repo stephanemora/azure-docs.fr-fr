@@ -83,7 +83,7 @@
             - name: Transférer les listes ACL et les métadonnées
               href: data-box-file-acls-preservation.md
             - name: Questions fréquentes (FAQ)
-              href: data-box-faq.md
+              href: data-box-faq.yml
         - name: Procédures
           items:
             - name: Gérer via le portail Azure
@@ -155,7 +155,7 @@
             - name: Vérifier la sécurité
               href: data-box-disk-security.md
             - name: Questions fréquentes (FAQ)
-              href: data-box-disk-faq.md
+              href: data-box-disk-faq.yml
         - name: Procédures
           items:
             - name: Gérer via le portail Azure

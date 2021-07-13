@@ -51,9 +51,9 @@ productDirectory:
           text: Livres
         - url: resources/events.md
           text: Événements
-        - url: articles/code.md
+        - url: articles/code.yml
           text: "Questions fréquentes\_: SRE et codage"
-        - url: articles/devops.md
+        - url: articles/devops.yml
           text: "Questions fréquentes\_: SRE et DevOps"
         - url: resources/links.md
           text: Liens et synthèses

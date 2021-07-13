@@ -918,7 +918,7 @@
 - name: Ressources
   items:
     - name: Questions courantes sur les clusters managés Service Fabric
-      href: faq-managed-cluster.md
+      href: faq-managed-cluster.yml
     - name: Questions courantes
       href: service-fabric-common-questions.md
     - name: Feuille de route Azure

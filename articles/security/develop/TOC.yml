@@ -24,7 +24,7 @@
         - name: Configuration
           href: security-code-analysis-customize.md
         - name: FAQ
-          href: security-code-analysis-faq.md
+          href: security-code-analysis-faq.yml
         - name: Configuration YAML
           href: yaml-configuration.md
         - name: Mises en production et feuille de route

@@ -149,7 +149,7 @@
           href: ../virtual-machines/sizes-hpc.md
           maintainContext: true
         - name: Machines virtuelles Azure sans disque temporaire
-          href: ../virtual-machines/azure-vms-no-temp-disk.md
+          href: ../virtual-machines/azure-vms-no-temp-disk.yml
           maintainContext: true
         - name: Conventions de nommage pour les tailles de machine virtuelle Azure
           href: ../virtual-machines/vm-naming-conventions.md

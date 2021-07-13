@@ -319,4 +319,4 @@
     - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=devtest-lab'
     - name: Forum aux questions
-      href: devtest-lab-faq.md
+      href: devtest-lab-faq.yml

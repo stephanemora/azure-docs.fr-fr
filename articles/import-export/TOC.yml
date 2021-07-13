@@ -10,7 +10,7 @@
     - name: Examiner les conditions requises
       href: storage-import-export-requirements.md
     - name: Questions fréquentes (FAQ)
-      href: storage-import-export-service-faq.md
+      href: storage-import-export-service-faq.yml
 - name: Procédures
   expanded: true
   items:

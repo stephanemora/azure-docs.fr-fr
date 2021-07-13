@@ -81,7 +81,7 @@
     - name: Historique des versions de l’agent de provisionnement cloud Azure AD Connect
       href: reference-version-history.md
     - name: "FAQ sur la synchronisation cloud Azure\_AD Connect"
-      href: reference-cloud-sync-faq.md
+      href: reference-cloud-sync-faq.yml
     - name: Module PowerShell AADCloudSyncTools
       href: reference-powershell.md
     - name: Attributs qui sont synchronisés

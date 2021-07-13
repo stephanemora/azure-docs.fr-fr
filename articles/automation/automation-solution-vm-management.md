@@ -3,27 +3,29 @@ title: Présentation de Start/Stop VMs during off-hours d’Azure Automation
 description: Cet article décrit la fonctionnalité Start/Stop VMs during off-hours, qui démarre ou arrête des machines virtuelles selon une planification et les surveille de façon proactive à partir des journaux Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/04/2020
+ms.date: 05/25/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b28367aa242d5fab71dc5046ff6188c634883f03
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 0ac3a2dccecf50b53917d878535ce62e124f8f8e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834513"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479545"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Vue d’ensemble de Start/Stop VMs during off-hours
 
 La fonctionnalité Start/Stop VMs during off-hours démarre ou arrête les machines virtuelles Azure activées. Elle démarre ou arrête les machines selon une planification définie par l’utilisateur. En outre, elle fournit des informations via Azure les Azure journaux Azure Monitor et peut envoyer des e-mails à l’aide de [groupes d’actions](../azure-monitor/alerts/action-groups.md). La fonctionnalité peut être activée sur Azure Resource Manager et les machines virtuelles classiques dans la plupart des scénarios.
 
+> [!NOTE]
+> Avant que vous n’installiez cette version (v1), nous voudrions vous parler de la [prochaine version](../azure-functions/start-stop-vms/overview.md), qui est actuellement en préversion. Cette nouvelle version (v2) offre les mêmes fonctionnalités que celle-ci, mais elle est conçue pour tirer parti des dernières technologies Azure. Elle comprend de nouvelles fonctionnalités fréquemment demandées par les clients, comme la prise en charge de plusieurs abonnements à partir d’une même opération de démarrage ou d’arrêt d’une instance. 
+>
+> Start/Stop VMs during off-hours (v1) deviendra obsolète à partir du 21 mai 2022. 
+
 Cette fonctionnalité utilise l’applet de commande [Start-AzVm](/powershell/module/az.compute/start-azvm) pour démarrer des machines virtuelles. Elle utilise [Stop-AzVM](/powershell/module/az.compute/stop-azvm) pour l’arrêt des machines virtuelles.
 
 > [!NOTE]
-> Les runbooks ont été mis à jour pour utiliser les nouvelles applets de commande du module Azure Az et utilisent l’alias de préfixe AzureRM.
-
-> [!NOTE]
-> Start/Stop VMs during off-hours a été mise à jour pour prendre en charge les versions les plus récentes des modules Azure disponibles. La version mise à jour de cette fonctionnalité, disponible sur Place de marché, ne prend pas en charge les modules AzureRM, car nous avons migré des modules AzureRM vers des modules Az.
+> Start/Stop VMs during off-hours a été mise à jour pour prendre en charge les versions les plus récentes des modules Azure disponibles. La version mise à jour de cette fonctionnalité, disponible sur Place de marché, ne prend pas en charge les modules AzureRM, car nous avons migré des modules AzureRM vers des modules Az. Les runbooks ont été mis à jour pour utiliser les nouvelles applets de commande du module Azure Az et utilisent l’alias de préfixe AzureRM.
 
 La fonctionnalité offre une option décentralisée pour les utilisateurs souhaitant réduire les coûts de leurs machines virtuelles. Vous pouvez utiliser la fonctionnalité pour :
 
@@ -36,14 +38,11 @@ Les limitations de la fonctionnalité actuelle sont les suivantes :
 - Elle permet de gérer les machines virtuelles de toutes les régions, mais seulement dans le même abonnement que le compte Azure Automation.
 - Elle est disponible dans Azure et Azure Government pour toutes les régions qui prennent en charge un espace de travail Log Analytics, un compte Azure Automation et les alertes. À l’heure actuelle, les régions Azure Government ne gèrent pas les fonctionnalités de messagerie électronique.
 
-> [!NOTE]
-> Avant que vous n’installiez cette version, nous voudrions vous parler de la [prochaine version](https://github.com/microsoft/startstopv2-deployments), qui est actuellement en préversion.  Cette nouvelle version (v2) offre les mêmes fonctionnalités que celle-ci, mais elle est conçue pour tirer parti des dernières technologies Azure. Elle comprend de nouvelles fonctionnalités fréquemment demandées par les clients, comme la prise en charge de plusieurs abonnements à partir d’une même opération de démarrage ou d’arrêt d’une instance.
-
 ## <a name="prerequisites"></a>Prérequis
 
 - Les runbooks de la fonctionnalité Start/Stop VMs during off-hours fonctionnent avec un [compte d’identification Azure](./automation-security-overview.md#run-as-accounts). Le compte d’identification est la méthode d’authentification recommandée, car elle utilise l’authentification par certificat au lieu d’un mot de passe, susceptible d’expirer ou de changer fréquemment.
 
-- Un [espace de travail Azure Monitor Log Analytics](../azure-monitor/logs/design-logs-deployment.md) qui stocke les journaux des travaux de runbook et les résultats du flux de travaux dans un espace de travail pour interrogation et analyse. Le compte Automation peut être lié à un espace de travail Log Analytics nouveau ou existant, et les deux ressources doivent se trouver dans le même groupe de ressources.
+- Un [espace de travail Azure Monitor Log Analytics](../azure-monitor/logs/design-logs-deployment.md) qui stocke les journaux des travaux de runbook et les résultats du flux de travaux dans un espace de travail pour interrogation et analyse. Le compte Automation et l’espace de travail Log Analytics liés doivent correspondre au même abonnement et à la même région prise en charge. L’espace de travail doit déjà exister, vous ne pouvez pas créer un nouvel espace de travail pendant le déploiement de cette fonctionnalité.
 
 Il vous est recommandé d’utiliser un compte Automation distinct pour travailler avec la fonctionnalité Start/Stop VMs during off-hours. Les versions de module Azure sont fréquemment mises à niveau et leurs paramètres peuvent changer. La fonctionnalité n’est pas mise à niveau à la même cadence et il est possible qu’elle ne fonctionne pas avec des versions plus récentes des cmdlets qu’elle utilise. Avant d’importer les modules mis à jour dans vos comptes Automation de production, nous vous recommandons de les importer dans un compte Automation de test afin de vérifier qu’il n’y a aucun problème de compatibilité.
 
@@ -80,7 +79,7 @@ Afin d’activer des machines virtuelles pour la fonctionnalité Start/Stop VMs 
 
 ### <a name="permissions-for-new-automation-account-and-new-log-analytics-workspace"></a>Autorisations pour un nouveau compte Automation et un nouvel espace de travail Log Analytics
 
-Vous pouvez activer des machines virtuelles pour la fonctionnalité Start/Stop VMs during off-hours à l’aide d’un compte Automation et d’un espace de travail Log Analytics nouvellement créés. Dans ce cas, vous avez non seulement besoin des autorisations définies dans la section précédente, mais encore de celles définies dans cette section. Vous avez également besoin des rôles suivants :
+Vous pouvez activer des machines virtuelles pour la fonctionnalité Start/Stop VMs during off-hours à l’aide d’un compte Automation et d’un espace de travail Log Analytics nouvellement créés. Dans ce cas, vous avez non seulement besoin des autorisations définies dans la section précédente, mais aussi de celles définies dans cette section. Vous avez également besoin des rôles suivants :
 
 - Coadministrateur pour l’abonnement. Ce rôle est requis pour créer le compte d’identification Classic si vous comptez gérer des machines virtuelles classiques. Les [comptes d’identification Classic](automation-create-standalone-account.md#create-a-classic-run-as-account) ne sont plus créés par défaut.
 - Appartenance au rôle Développeur d’applications [Azure AD](../active-directory/roles/permissions-reference.md). Pour plus d’informations sur la configuration de comptes d’identification, voir [Autorisations pour configurer des comptes d’identification](automation-security-overview.md#permissions).
