@@ -5,7 +5,7 @@
     - name: "Qu’est-ce qu’Azure Monitor\_?"
       href: overview.md
     - name: Questions fréquentes (FAQ)
-      href: faq.md
+      href: faq.yml
     - name: Nouveautés
       href: whats-new.md
     - name: Migrer depuis Operations Manager
@@ -31,6 +31,8 @@
           href: vm/quick-collect-windows-computer.md
     - name: Surveillance des applications
       items:
+        - name: Application ASP.NET Core
+          href: app/dotnet-quickstart.md
         - name: Application Node.js
           href: app/nodejs-quick-start.md
         - name: Application mobile
@@ -105,6 +107,8 @@
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
+    - name: Requêtes Azure Resource Graph
+      href: ./resource-graph-samples.md
 - name: Concepts
   items:
     - name: "Que pouvez-vous superviser\_?"
@@ -156,8 +160,20 @@
       items:
         - name: Superviser une ressource azure
           href: essentials/monitor-azure-resource.md
-        - name: Superviser des machines virtuelles Azure
-          href: vm/monitor-vm-azure.md
+        - name: Surveillance des machines virtuelles
+          items:
+            - name: Vue d’ensemble
+              href: vm/monitor-virtual-machine.md
+            - name: Configuration de l’analyse
+              href: vm/monitor-virtual-machine-configure.md
+            - name: Analyser des données
+              href: vm/monitor-virtual-machine-analyze.md
+            - name: Superviser la sécurité
+              href: vm/monitor-virtual-machine-security.md
+            - name: Créez des alertes
+              href: vm/monitor-virtual-machine-alerts.md
+            - name: Superviser les charges de travail
+              href: vm/monitor-virtual-machine-workloads.md
           displayname: VM
     - name: Déployer
       items:
@@ -362,7 +378,7 @@
         - name: Vue d’ensemble
           href: agents/agents-overview.md
         - name: Questions fréquentes (FAQ)
-          href: faq.md#agents
+          href: /azure/azure-monitor/faq#agents
         - name: Agent Azure Monitor
           items:
             - name: Vue d’ensemble
@@ -376,10 +392,10 @@
               href: agents/data-collection-rule-azure-monitor-agent.md
             - name: Déployer à l’échelle
               displayname: Deploy Azure Monitor agent at scale
-              href: deploy-scale.md#azure-monitor-agent-preview
+              href: deploy-scale.md#azure-monitor-agent
             - name: Questions fréquentes (FAQ)
               displayname: Azure Monitor agent FAQ
-              href: faq.md#azure-monitor-agent-preview
+              href: /azure/azure-monitor/faq#azure-monitor-agent
         - name: Agent Log Analytics
           items:
             - name: Vue d’ensemble
@@ -629,7 +645,7 @@
         - name: Vue d'ensemble d’Application Insights
           href: app/app-insights-overview.md
         - name: Questions fréquentes (FAQ)
-          href: ./faq.md
+          href: /azure/azure-monitor/faq#application-insights
         - name: Supervision basée sur le code
           items:
             - name: .NET
@@ -763,15 +779,12 @@
                       href: app/status-monitor-v2-troubleshoot.md
                     - name: Informations de référence sur l'API
                       href: app/status-monitor-v2-api-reference.md
-                    - name: Status Monitor (existant)
-                      displayname: 'IIS monitoring, on premises monitoring, on prem'
-                      href: app/monitor-performance-live-website-now.md
                 - name: Java
                   href: app/java-on-premises.md
         - name: OpenTelemetry
           items:
             - name: Questions fréquentes (FAQ)
-              href: faq.md#opentelemetry
+              href: /azure/azure-monitor/faq#opentelemetry
         - name: Créer une ressource (classique)
           href: app/create-new-resource.md
         - name: Créer une ressource (basée sur un espace de travail)
@@ -925,6 +938,8 @@
           items:
             - name: Contrôle d’accès
               href: app/resources-roles-access-control.md
+            - name: Authentification Azure AD
+              href: app/azure-ad-authentication.md
             - name: Collecte d’adresses IP
               href: app/ip-collection.md
               displayname: 'geolocation, IP collection, IP tracking, IP storage'
@@ -1011,9 +1026,9 @@
         - name: Vue d’ensemble
           href: vm/vminsights-overview.md
         - name: Questions fréquentes (FAQ) sur la disponibilité générale
-          href: vm/vminsights-ga-release-faq.md
+          href: vm/vminsights-ga-release-faq.yml
         - name: Questions fréquentes (FAQ)
-          href: faq.md#vm-insights
+          href: /azure/azure-monitor/faq#vm-insights
         - name: Configurer l’espace de travail
           href: vm/vminsights-configure-workspace.md
         - name: Installer des agents
@@ -1052,8 +1067,6 @@
               href: vm/vminsights-health-troubleshoot.md
         - name: Analyser des données avec des requêtes de journal
           href: vm/vminsights-log-search.md
-        - name: Alertes
-          href: vm/vminsights-alerts.md
         - name: Superviser les changements
           href: vm/vminsights-change-analysis.md
         - name: Visualiser des données dans des classeurs
@@ -1067,7 +1080,7 @@
         - name: Vue d’ensemble
           href: containers/container-insights-overview.md
         - name: Questions fréquentes (FAQ)
-          href: faq.md#container-insights
+          href: /azure/azure-monitor/faq#container-insights
         - name: Activer la supervision
           items:
             - name: Vue d’ensemble de l’activation de la supervision
@@ -1159,7 +1172,7 @@
             - name: Vue d’ensemble
               href: insights/sql-insights-overview.md
             - name: Questions fréquentes (FAQ)
-              href: faq.md#sql-insights-preview
+              href: /azure/azure-monitor/faq#sql-insights-preview
             - name: Activer
               href: insights/sql-insights-enable.md
             - name: Alertes

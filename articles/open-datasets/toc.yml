@@ -16,7 +16,7 @@
   items:
     - name: Jeux de données dans Azure Machine Learning
       href: how-to-create-azure-machine-learning-dataset-from-open-dataset.md
-- name: Groupes de données
+- name: Catalogue de jeux de données
   items:
     - name: Catalogue de jeux de données
       href: dataset-catalog.md

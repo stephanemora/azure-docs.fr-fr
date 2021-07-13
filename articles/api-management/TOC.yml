@@ -338,7 +338,7 @@
 - name: Ressources
   items:
     - name: Questions fréquentes (FAQ)
-      href: api-management-faq.md
+      href: api-management-faq.yml
     - name: Tarifs
       href: 'https://aka.ms/apimpricing'
     - name: Mises à jour produit

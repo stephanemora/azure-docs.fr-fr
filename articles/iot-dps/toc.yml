@@ -118,8 +118,6 @@
   items:
     - name: Développement
       items:
-        - name: Connecter MXChip IoT DevKit à IoT Hub
-          href: how-to-connect-mxchip-iot-devkit.md
         - name: Guide pratique pour envoyer des données supplémentaires depuis les appareils
           href: how-to-send-additional-data.md
         - name: Provisionner des appareils à l’aide de stratégies d’allocation personnalisées
