@@ -101,6 +101,8 @@
           href: deploy-iot-edge-device.md
         - name: Déployer sur IoT Edge pour Linux sur Windows
           href: deploy-iot-edge-linux-on-windows.md
+        - name: Effectuer un déploiement sur Azure Stack Edge
+          href: deploy-on-stack-edge.md
     - name: Lecture
       items:
         - name: Lecture d’un enregistrement
@@ -157,6 +159,8 @@
       href: 'https://azure.microsoft.com/updates/?category=media'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/video-analyzer/'
+    - name: Régions disponibles
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all'
     - name: FAQ
       href: faq-edge.md
     - name: Quotas et limitations

@@ -1,0 +1,41 @@
+### YamlMime:Landing
+title: Documentation sur le processus TDSP (Team Data Science Process)
+summary: Apprenez à utiliser le processus Team Data Science Process, méthodologie de science des données agile et itérative pour des solutions d’analytique prédictive et des applications intelligentes.
+metadata:
+  title: Documentation sur le processus TDSP (Team Data Science Process)
+  description: Apprenez à utiliser le processus Team Data Science Process, méthodologie de science des données agile et itérative pour des solutions d’analytique prédictive et des applications intelligentes.
+  ms.service: machine-learning
+  ms.subservice: team-data-science-process
+  ms.topic: landing-page
+  author: marktab
+  ms.author: marktab
+  ms.date: 03/10/2020
+  ms.openlocfilehash: cfa2721328eb5cbe9a9a5b1db663702cc47fbec0
+  ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 06/24/2021
+  ms.locfileid: "112678231"
+landingContent:
+- title: Découvrir le processus
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que le processus Team Data Science Process ?
+      url: /azure/architecture/data-science-process/overview
+  - linkListType: concept
+    links:
+    - text: Cycle de vie du processus
+      url: /azure/architecture/data-science-process/lifecycle
+    - text: Présentation de l’entreprise
+      url: /azure/architecture/data-science-process/lifecycle-business-understanding
+    - text: Acquisition de données
+      url: /azure/architecture/data-science-process/lifecycle-data
+- title: Planifier et développer un projet
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Planification du projet
+      url: /azure/architecture/team-data-science-process-project-templates
+    - text: Développement agile
+      url: /azure/architecture/agile-development
