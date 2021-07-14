@@ -2,14 +2,13 @@
 title: Configurer des identités managées dans des pools Batch
 description: Découvrez comment activer des identités managées affectées par l’utilisateur sur des pools Batch et comment utiliser des identités managées dans les nœuds.
 ms.topic: conceptual
-ms.date: 03/23/2021
-ms.custom: references_regions
-ms.openlocfilehash: d69e983a4b17298150942c924a3c694e2cceaf72
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.date: 05/25/2021
+ms.openlocfilehash: 243cf375b3ebf8bd64d73022ba44c3224b58872d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967249"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457767"
 ---
 # <a name="configure-managed-identities-in-batch-pools"></a>Configurer des identités managées dans des pools Batch
 
@@ -18,9 +17,9 @@ Les [identités managées pour les ressources Azure](../active-directory/managed
 Cette rubrique explique comment activer des identités managées affectées par l’utilisateur sur des pools Batch et comment utiliser des identités managées dans les nœuds.
 
 > [!IMPORTANT]
-> La prise en charge des pools Azure Batch avec des identités managées affectées par l’utilisateur est actuellement en préversion publique pour les régions suivantes : USA Ouest 2, USA Centre Sud, USA Est, US Gov Arizona et US Gov Virginie.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Les pools doivent être configurés à l’aide de la [configuration de la machine virtuelle](nodes-and-pools.md#virtual-machine-configuration) afin d’utiliser des identités managées.
+>
+> La création de pools avec des identités managées est possible à l’aide de la [bibliothèque de gestion .NET Batch](/dotnet/api/overview/azure/batch#management-library), mais elle n’est actuellement pas prise en charge avec la [bibliothèque de client .NET Batch](/dotnet/api/overview/azure/batch#client-library).
 
 ## <a name="create-a-user-assigned-identity"></a>Créer une identité attribuée par l’utilisateur
 
@@ -29,9 +28,6 @@ Tout d’abord, [créez votre identité managée affectée par l’utilisateur](
 ## <a name="create-a-batch-pool-with-user-assigned-managed-identities"></a>Créer un pool Batch avec des identités managées affectées par l’utilisateur
 
 Une fois que vous avez créé une ou plusieurs identités managées affectées par l’utilisateur, vous pouvez créer un pool Batch avec cette identité managée à l’aide de la [bibliothèque de gestion .NET Batch](/dotnet/api/overview/azure/batch#management-library).
-
-> [!IMPORTANT]
-> Les pools doivent être configurés à l’aide de la [configuration de la machine virtuelle](nodes-and-pools.md#virtual-machine-configuration) afin d’utiliser des identités managées.
 
 ```csharp
 var poolParameters = new Pool(name: "yourPoolName")
@@ -72,9 +68,6 @@ var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
     parameters: poolParameters,
     cancellationToken: default(CancellationToken)).ConfigureAwait(false);    
 ```
-
-> [!NOTE]
-> La création de pools avec des identités managées n’est pas prise en charge actuellement avec la [bibliothèque de client .NET Batch](/dotnet/api/overview/azure/batch#client-library).
 
 ## <a name="use-user-assigned-managed-identities-in-batch-nodes"></a>Utiliser des identités managées affectées par l’utilisateur dans des nœuds Batch
 
