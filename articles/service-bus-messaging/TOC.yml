@@ -34,14 +34,14 @@
               href: service-bus-python-how-to-use-queues.md
             - name: JavaScript (@azure/service-bus)
               href: service-bus-nodejs-how-to-use-queues.md
-            - name: PHP
-              href: service-bus-php-how-to-use-queues.md
         - name: Envoyer et recevoir des messages (versions/packages anciens)
           items:
             - name: .NET (Microsoft.Azure.ServiceBus)
               href: service-bus-dotnet-get-started-with-queues-legacy.md
             - name: Java (azure-servicebus)
               href: service-bus-java-how-to-use-queues-legacy.md
+            - name: PHP
+              href: service-bus-php-how-to-use-queues.md
     - name: Rubriques et abonnements Service Bus
       items:
         - name: Créer des rubriques et des abonnements
@@ -62,14 +62,14 @@
               href: service-bus-python-how-to-use-topics-subscriptions.md
             - name: JavaScript (@azure/service-bus)
               href: service-bus-nodejs-how-to-use-topics-subscriptions.md
-            - name: PHP
-              href: service-bus-php-how-to-use-topics-subscriptions.md
         - name: Publier et s’abonner à des messages (versions/packages anciens)
           items:
             - name: .NET (Microsoft.Azure.ServiceBus)
               href: service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md
             - name: Java (azure-servicebus)
               href: service-bus-java-how-to-use-topics-subscriptions-legacy.md
+            - name: PHP
+              href: service-bus-php-how-to-use-topics-subscriptions.md
 - name: Tutoriels
   items:
     - name: Mettre à jour l’inventaire
