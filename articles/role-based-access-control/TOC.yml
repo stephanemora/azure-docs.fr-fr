@@ -100,6 +100,8 @@
           href: conditions-role-assignments-cli.md
         - name: API REST
           href: conditions-role-assignments-rest.md
+        - name: Modèle ARM
+          href: conditions-role-assignments-template.md
         - name: Résoudre les problèmes liés aux conditions
           href: conditions-troubleshoot.md
     - name: Supprimer les attributions de rôles

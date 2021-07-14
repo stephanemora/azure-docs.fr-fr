@@ -44,7 +44,7 @@
     - name: Sources de données prises en charge
       href: analysis-services-datasource.md
     - name: Questions fréquentes (FAQ) sur la connectivité réseau
-      href: analysis-services-network-faq.md
+      href: analysis-services-network-faq.yml
 - name: Procédures
   items:
     - name: Serveur

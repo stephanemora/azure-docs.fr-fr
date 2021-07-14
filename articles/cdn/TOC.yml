@@ -74,7 +74,7 @@
         - name: Intégrer un domaine racine ou apex
           href: onboard-apex-domain.md
         - name: Limiter l’accès par pays ou région
-          href: cdn-restrict-access-by-country.md
+          href: cdn-restrict-access-by-country-region.md
         - name: Compression des fichiers pour améliorer les performances
           href: cdn-improve-performance.md
         - name: Plusieurs origines de point de terminaison

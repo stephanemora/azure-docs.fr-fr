@@ -401,7 +401,7 @@
         - name: Notes de publication pour les fournisseurs de solutions Cloud
           href: 'https://partner.microsoft.com/Support/whats-new'
         - name: "StorSimple pour les fournisseurs de solutions cloud\_: Questions fréquentes (FAQ)"
-          href: storsimple-partner-csp-faq.md
+          href: storsimple-partner-csp-faq.yml
 - name: Rubriques connexes
   items:
     - name: Gamme StorSimple 5000-7000
