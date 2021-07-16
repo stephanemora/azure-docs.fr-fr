@@ -148,6 +148,8 @@
           href: expressroute-network-insights.md
         - name: 'Supervision, métriques et alertes ExpressRoute'
           href: expressroute-monitoring-metrics-alerts.md
+        - name: Supervision d’ExpressRoute
+          href: monitor-expressroute.md
         - name: Afficher et configurer des alertes de maintenance
           href: maintenance-alerts.md
         - name: Configurer Network Performance Monitor pour ExpressRoute
@@ -210,6 +212,8 @@
           href: expressroute-troubleshooting-arp-classic.md
 - name: Informations de référence
   items:
+    - name: Superviser la référence des données
+      href: monitor-expressroute-reference.md
     - name: Azure PowerShell
       href: /powershell/module/az.network#expressroute
     - name: Azure CLI

@@ -7,11 +7,11 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Créer un hôte en utilisant les paramètres de machine virtuelle
+    - name: Configurer Bastion à partir des paramètres de la machine virtuelle
       href: quickstart-host-portal.md
 - name: Tutoriels
   items:
-    - name: Créer un hôte et se connecter à une machine virtuelle Windows
+    - name: Configurer Bastion et se connecter
       href: tutorial-create-host-portal.md
 - name: Concepts
   items:
@@ -29,7 +29,7 @@
           href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
 - name: Guides pratiques
   items:
-    - name: Créer un hôte
+    - name: Configurer Bastion
       items:
         - name: Portail Azure
           href: tutorial-create-host-portal.md
@@ -55,12 +55,14 @@
           href: bastion-vm-full-screen.md
     - name: Utiliser des groupes de sécurité réseau
       href: bastion-nsg.md
-    - name: Configurer et accéder aux journaux de diagnostic
-      href: diagnostic-logs.md
-    - name: Superviser et gérer les sessions
-      href: session-monitoring.md
-    - name: 'Métriques, supervision et alertes'
-      href: howto-metrics-monitor-alert.md
+    - name: Surveillance de l’intégrité
+      items:
+        - name: Supervision d’Azure Bastion
+          href: howto-metrics-monitor-alert.md
+        - name: Configurer et accéder aux journaux de diagnostic
+          href: diagnostic-logs.md
+        - name: Superviser et gérer les sessions
+          href: session-monitoring.md
     - name: Dépanner
       href: troubleshoot.md
 - name: Informations de référence

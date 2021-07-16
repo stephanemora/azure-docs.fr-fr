@@ -10,7 +10,7 @@
       href: subscription-requirements.md
     - name: Rôles que vous ne pouvez pas gérer avec PIM
       href: pim-roles.md
-    - name: Sécuriser l’accès privilégié
+    - name: "Sécuriser l’accès privilégié dans Azure\_AD"
       href: ../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
     - name: Authentification multifacteur et gestion des informations personnelles
       href: pim-how-to-require-mfa.md
@@ -27,80 +27,62 @@
       href: pim-deployment-plan.md
     - name: Commencer à utiliser PIM
       href: pim-getting-started.md
-    - name: Gérer les rôles Azure AD
+    - name: Affecter
       items:
-        - name: Présentation des fonctionnalités
-          href: azure-ad-roles-features.md
-        - name: PowerShell pour les rôles Azure AD
-          href: powershell-for-azure-ad-roles.md
-        - name: Découverte et insights
-          href: pim-security-wizard.md
-        - name: Déléguer l’accès PIM
-          href: pim-how-to-give-access-to-pim.md
-        - name: Attribuer des rôles
+        - name: Rôles Azure AD
           href: pim-how-to-add-role-to-user.md
-        - name: Activer des rôles
-          href: pim-how-to-activate-role.md
-        - name: Approuver les demandes
-          href: azure-ad-pim-approval-workflow.md
-        - name: Configurer les paramètres de rôle
-          href: pim-how-to-change-default-settings.md
-        - name: Configurer des alertes
-          href: pim-how-to-configure-security-alerts.md
-        - name: Aperçu des rôles personnalisés
-          items:
-            - name: Activer un rôle personnalisé
-              href: azure-ad-custom-roles-activate.md
-            - name: Attribuer un rôle personnalisé
-              href: azure-ad-custom-roles-assign.md
-            - name: Supprimer une attribution de rôle
-              href: azure-ad-custom-roles-update-remove.md
-            - name: Configurer des rôles personnalisés
-              href: azure-ad-custom-roles-configure.md
-        - name: Afficher l’historique d'audit
-          href: pim-how-to-use-audit-log.md
-    - name: Gérer les rôles Azure
-      items:
-        - name: Découvrir les ressources Azure
-          href: pim-resource-roles-discover-resources.md
-        - name: Élever l’accès pour gérer tous les abonnements
-          href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-        - name: Attribuer des rôles
+        - name: Rôles Azure
           href: pim-resource-roles-assign-roles.md
-        - name: Inviter des utilisateurs externes
-          href: pim-resource-roles-external-users.md
-        - name: Activer des rôles
-          href: pim-resource-roles-activate-your-roles.md
-        - name: Approuver les demandes
-          href: pim-resource-roles-approval-workflow.md
-        - name: Étendre ou renouveler des rôles
-          href: pim-resource-roles-renew-extend.md
-        - name: Configurer les paramètres de rôle
-          href: pim-resource-roles-configure-role-settings.md
-        - name: Configurer des alertes
-          href: pim-resource-roles-configure-alerts.md
-        - name: Afficher l’historique d'audit
-          href: azure-pim-resource-rbac.md
-        - name: Utiliser des rôles personnalisés
-          href: pim-resource-roles-custom-role-policy.md
-    - name: Gérer les groupes d’accès privilégié (préversion)
-      items:
-        - name: Vue d’ensemble de l’accès privilégié
-          href: groups-features.md
-        - name: Placer des groupes sous administration
-          href: groups-discover-groups.md
-        - name: Affecter un membre ou un propriétaire
+        - name: Groupes d’accès privilégiés
           href: groups-assign-member-owner.md
-        - name: Approuver les demandes
+    - name: Activer
+      items:
+        - name: Rôles Azure AD
+          href: pim-how-to-activate-role.md
+        - name: Rôles Azure
+          href: pim-resource-roles-activate-your-roles.md
+    - name: Approuver
+      items:
+        - name: Rôles Azure AD
+          href: pim-how-to-activate-role.md
+        - name: Rôles Azure
+          href: pim-resource-roles-approval-workflow.md
+        - name: Groupes d’accès privilégiés
           href: groups-approval-workflow.md
-        - name: Étendre ou renouveler les attributions
+    - name: Placer sous administration
+      items:
+        - name: Ressources Azure
+          href: pim-resource-roles-discover-resources.md
+        - name: Groupes d’accès privilégiés
+          href: groups-discover-groups.md
+    - name: Étendre ou renouveler
+      items:
+        - name: Rôles Azure
+          href: pim-resource-roles-renew-extend.md
+        - name: Groupes d’accès privilégiés
           href: groups-renew-extend.md
-        - name: Configurer les paramètres de rôle
+    - name: Paramètres
+      items:
+        - name: Rôles Azure AD
+          href: pim-how-to-change-default-settings.md
+        - name: Rôles Azure
+          href: pim-resource-roles-configure-role-settings.md
+        - name: Groupes d’accès privilégiés
           href: groups-role-settings.md
-        - name: Afficher l’historique d'audit
+    - name: Alertes
+      items:
+        - name: Rôles Azure AD
+          href: pim-how-to-configure-security-alerts.md
+        - name: Rôles Azure
+          href: pim-resource-roles-configure-alerts.md
+    - name: Journaux d’audit
+      items:
+        - name: Rôles Azure AD
+          href: pim-how-to-use-audit-log.md
+        - name: Rôles Azure
+          href: azure-pim-resource-rbac.md
+        - name: Groupes d’accès privilégiés
           href: groups-audit.md
-    - name: Résoudre les problèmes de PIM
-      href: pim-troubleshoot.md
     - name: Révisions d’accès
       items:
         - name: Rôles Azure AD
@@ -119,6 +101,12 @@
               href: pim-resource-roles-perform-access-review.md
             - name: Effectuer une révision d’accès
               href: pim-resource-roles-complete-access-review.md
+    - name: "Découverte et insights pour les rôles Azure\_AD"
+      href: pim-security-wizard.md
+    - name: Élever l’accès pour gérer les abonnements Azure
+      href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: Résoudre les problèmes d’accès aux ressources refusé
+      href: pim-troubleshoot.md
 - name: Informations de référence
   items:
     - name: API Graph
@@ -127,5 +115,7 @@
       href: /cli/azure/ad
     - name: Azure AD PowerShell pour Graph
       href: /powershell/azure/active-directory/install-adv2
+    - name: "Exemples PowerShell pour les rôles Azure\_AD"
+      href: powershell-for-azure-ad-roles.md
     - name: Limites du service Azure AD
       href: ../users-groups-roles/directory-service-limits-restrictions.md

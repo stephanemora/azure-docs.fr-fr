@@ -30,6 +30,8 @@
   items:
     - name: Moniteur de connexion
       href: connection-monitor-overview.md
+    - name: Schéma du Moniteur de connexion
+      href: connection-monitor-schema.md
     - name: Diagnostiquer des problèmes de filtre de trafic réseau sur une machine virtuelle
       href: network-watcher-ip-flow-verify-overview.md
     - name: Diagnostiquer le filtrage du trafic et les règles de groupe de sécurité réseau
@@ -139,10 +141,13 @@
             - name: Lire des journaux de flux NSG
               href: network-watcher-read-nsg-flow-logs.md
             - name: Utiliser l’analyse du trafic
-              href: traffic-analytics.md
               items:
+                - name: Vue d’ensemble de Traffic Analytics
+                  href: traffic-analytics.md
                 - name: Forum aux questions
                   href: traffic-analytics-faq.yml
+                - name: Stratégie intégrée
+                  href: traffic-analytics-policy-portal.md
                 - name: Agrégation de schémas et de données
                   href: traffic-analytics-schema.md
                 - name: "Mise à jour de schéma (août\_2019)"

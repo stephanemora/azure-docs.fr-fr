@@ -82,6 +82,8 @@
           href: howto-sspr-windows.md
     - name: "Authentification multifacteur Azure\_AD"
       items:
+        - name: Guide de planification
+          href: concept-mfa-plan.md
         - name: Guide de déploiement
           href: howto-mfa-getstarted.md
         - name: Configurer les paramètres
@@ -160,6 +162,8 @@
       href: howto-authentication-temporary-access-pass.md
     - name: Utiliser une authentification par SMS
       href: howto-authentication-sms-signin.md
+    - name: Applications prises en charge pour l’authentification par SMS
+      href: how-to-authentication-sms-supported-apps.md
     - name: SMS bidirectionnel non pris en charge
       href: how-to-authentication-two-way-sms-unsupported.md
     - name: Utiliser une connexion par adresse e-mail
@@ -187,6 +191,14 @@
           href: howto-mfa-reporting-datacollection.md
     - name: Serveur MFA
       items:
+        - name: "Migrer un serveur MFA vers Azure\_AD MFA"
+          items:
+            - name: Vue d’ensemble
+              href: how-to-migrate-mfa-server-to-azure-mfa.md
+            - name: Migrer vers Azure MFA et l’authentification utilisateur
+              href: how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md
+            - name: Migrer vers Azure MFA avec fédération
+              href: how-to-migrate-mfa-server-to-azure-mfa-with-federation.md
         - name: Déployer MFA en local
           href: howto-mfaserver-deploy.md
         - name: Installation du portail de l'utilisateur

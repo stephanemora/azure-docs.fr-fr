@@ -55,10 +55,10 @@
   items:
     - name: Installer et utiliser l’explorateur IoT
       href: howto-use-iot-explorer.md
-    - name: Installer et utiliser les outils de création DTDL
-      href: howto-use-dtdl-authoring-tools.md
     - name: Gérer des jumeaux numériques
       href: howto-manage-digital-twin.md
+    - name: Convertir un appareil en IoT Plug-and-Play
+      href: howto-convert-to-pnp.md
     - name: Guide pratique pour connecter un exemple de pont IoT Plug-and-Play
       href: howto-use-iot-pnp-bridge.md
     - name: Créer et déployer un pont IoT Plug-and-Play
