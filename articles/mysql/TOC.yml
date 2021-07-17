@@ -7,6 +7,10 @@
       href: overview.md
     - name: "Quelle option MySQL dois-je choisir\_?"
       href: select-right-deployment-type.md
+    - name: Nouveautés du déploiement Serveur unique
+      href: single-server-whats-new.md
+    - name: Nouveautés du serveur flexible
+      href: flexible-server/whats-new.md
     - name: Politique de support des versions
       href: concepts-version-policy.md
       displayName: version policy
@@ -21,8 +25,6 @@
           href: single-server-overview.md
         - name: Versions prises en charge
           href: concepts-supported-versions.md
-        - name: Nouveautés du déploiement Serveur unique
-          href: single-server-whats-new.md
         - name: Niveaux tarifaires
           items:
             - name: Niveaux de tarification
@@ -144,10 +146,8 @@
               items:
                 - name: Configuration de SSL
                   href: concepts-ssl-connection-security.md
-            - name: Advanced Threat Protection
-              items:
-                - name: Protection contre les menaces avec Azure Defender
-                  href: ../security-center/defender-for-databases-introduction.md
+            - name: Protection contre les menaces avec Azure Defender
+              href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
             - name: Chiffrement au repos
               items:
                 - name: Chiffrement des données
@@ -583,6 +583,9 @@
     - name: Migrer des données avec mysqldump ou phpmyadmin
       href: concepts-migrate-dump-restore.md
       displayName: 'migrate, mysqldump'
+    - name: Migrer des bases de données volumineuses vers Azure Database pour MySQL avec mydumper/myloader
+      href: concepts-migrate-mydumper-myloader.md
+      displayName: 'migrate, mydumper/myloader'
     - name: Migrer des données avec dbForge Studio pour MySQL
       href: concepts-migrate-dbforge-studio-for-mysql.md
       displayName: 'migrate, dbforge'
@@ -592,6 +595,9 @@
     - name: Migrer des données RDS MySQL avec MySQL Workbench
       href: how-to-migrate-rds-mysql-workbench.md
       displayName: 'import , migrate, export'
+    - name: "Migrer Azure\_DB pour MySQL – Serveur unique vers Azure\_DB pour MySQL – Serveur flexible"
+      href: howto-migrate-single-flexible-minimum-downtime.md
+      displayName: 'migrate, Single to Flexible'
     - name: Migration avec temps d’arrêt minimal avec DMS
       href: howto-migrate-online.md
       displayName: 'migrate, dms, database migration service'

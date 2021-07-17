@@ -97,6 +97,8 @@
       items:
         - name: Encodage de base Python
           href: encode-basic-encoding-python-quickstart.md
+        - name: Édition des visages basée sur des événements
+          href: face-redaction-event-based-python-quickstart.md
     - name: Portail Azure
       items:
         - name: Tutoriel sur les clés gérées par le client ou BYOK
@@ -226,6 +228,8 @@
           href: stream-streaming-policy-concept.md
         - name: Stratégies de clé de contenu
           href: drm-content-key-policy-concept.md
+        - name: "Liste d’adresses\_IP autorisées pour la remise de clés"
+          href: drm-content-protection-key-delivery-ip-allow.md
     - name: Surveillance
       items:
         - name: Surveiller avec Azure Monitor
@@ -452,6 +456,9 @@
           href: asset-publish-cli-how-to.md
     - name: Sécurité
       items:
+        - name: Base de référence de la sécurité
+          href: 'https://docs.microsoft.com/security/benchmark/azure/baselines/media-services-security-baseline'
+          displayName: 'security, baseline'
         - name: "Azure\_RBAC"
           href: security-rbac-concept.md
         - name: Rotation des clés d’accès de stockage
@@ -470,6 +477,9 @@
           href: security-access-storage-managed-identity-cli-tutorial.md
         - name: Donner un accès Function App à un compte Media Services
           href: security-function-app-managed-identity-cli-tutorial.md
+        - name: "Créer un compte Media\_Services et un compte de stockage avec une liaison privée"
+          href: security-private-link-how-to.md
+          displayName: 'security, private link, links, firewall'
     - name: Utiliser des lecteurs multimédias
       items:
         - name: Installation complète du Lecteur multimédia Azure

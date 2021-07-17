@@ -52,8 +52,10 @@
               href: class-type-database-management.md
             - name: Deep Learning pour le traitement en langage naturel
               href: class-type-deep-learning-natural-language-processing.md
-            - name: Piratage éthique
+            - name: Piratage éthique avec Hyper-V
               href: class-type-ethical-hacking.md
+            - name: Piratage éthique avec VirtualBox
+              href: class-type-ethical-hacking-virtualbox.md
             - name: MATLAB
               href: class-type-matlab.md
             - name: Réseau avec GNS3
@@ -205,4 +207,4 @@
     - name: Forum de la communauté technique
       href: 'https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices'
     - name: Forum aux questions
-      href: classroom-labs-faq.md
+      href: classroom-labs-faq.yml

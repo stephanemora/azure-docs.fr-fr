@@ -1,6 +1,6 @@
 ---
 title: Didacticiel-da Vinci plan net-Azure API pour FHIR
-description: Ce didacticiel vous guide dans la configuration de l’API Azure pour FHIR afin de passer des tests Touchstone pour le Guide d’implémentation de l’échange de données Azure Vinci.
+description: ce didacticiel vous guide dans la configuration de l’API Azure pour FHIR afin de passer des tests Touchstone pour le Guide d’implémentation de l’Exchange de données du payeur de vinci.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,14 +9,14 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
 ms.date: 06/25/2021
-ms.openlocfilehash: b91fc4d01a9279d6f2ce58b15fc8b8c00790ea57
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: bb7b7e3813a317aa1b1a9f97ab4f80650eb2fd1e
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113012925"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285909"
 ---
-# <a name="da-vinci-plan-net"></a>Réseau du plan de Vinci da
+# <a name="da-vinci-plan-net"></a>Da Vinci Plan Net
 
 Dans ce didacticiel, nous allons passer en revue la configuration de l’API Azure pour FHIR afin de transmettre les tests [Touchstone](https://touchstone.aegis.net/touchstone/) pour le Guide d’implémentation de da Vinci PDEX payeur réseau (plan-net).
 
@@ -26,7 +26,7 @@ Le premier test sur lequel nous allons nous concentrer consiste à tester l’AP
 
 ## <a name="define-search-parameters"></a>Définir les paramètres de recherche
 
-Dans le cadre de la Plan-Net IG de Vinci, vous devez définir six [nouveaux paramètres de recherche](https://docs.microsoft.com/azure/healthcare-apis/fhir/how-to-do-custom-search) pour les ressources service de santé, plan d’assurance, rôle du praticien, organisation et affiliation à l’organisation. Les six sont testés dans l’instruction de fonctionnalité :
+Dans le cadre de la Plan-Net IG de Vinci, vous devez définir six [nouveaux paramètres de recherche](./how-to-do-custom-search.md) pour les ressources service de santé, plan d’assurance, rôle du praticien, organisation et affiliation à l’organisation. Les six sont testés dans l’instruction de fonctionnalité :
 
 * [Zone de couverture du service de santé](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/SearchParameter-healthcareservice-coverage-area.html)
 * [Zone couverture du plan Insurance](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/SearchParameter-insuranceplan-coverage-area.html)
@@ -42,7 +42,7 @@ Le reste des paramètres de recherche nécessaires pour le da Vinci Plan-Net GI 
 
 ## <a name="store-profiles"></a>Stocker les profils
 
-En dehors de la définition des paramètres de recherche, vous devez charger les [profils et extensions requis](https://docs.microsoft.com/azure/healthcare-apis/fhir/validation-against-profiles#storing-profiles) pour réussir ce test. Neuf profils sont utilisés dans le cadre de la da Vinci Plan-Net GI :
+En dehors de la définition des paramètres de recherche, vous devez charger les [profils et extensions requis](./validation-against-profiles.md#storing-profiles) pour réussir ce test. Neuf profils sont utilisés dans le cadre de la da Vinci Plan-Net GI :
 
 * [Plan-point de terminaison net](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/StructureDefinition-plannet-Endpoint.html)
 * [Plan-service net Healthcare](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/StructureDefinition-plannet-HealthcareService.html)
@@ -75,7 +75,7 @@ Le prochain test que nous allons examiner est le [test des fonctionnalités de r
 > [!NOTE]
 > Avec les exemples de ressources fournis, vous devez vous attendre à un taux de réussite de 98% des tests de requête :
 
-> * Il existe un problème GitHub ouvert sur le serveur FHIR qui provoque l’échec de l’un de ces tests : la [ressource est retournée plusieurs fois si elle répond à la fois à des critères de base et à des critères de _include · #2037 du problème · Microsoft/fhir-Server (github.com)](https://github.com/microsoft/fhir-server/issues/2037)
+> * il existe un problème d’GitHub ouvert sur le serveur FHIR qui entraîne l’échec de l’un de ces tests : la [ressource est retournée plusieurs fois si elle répond à la fois à des critères de base et à des critères de _include · #2037 du problème · Microsoft/fhir-Server (github.com)](https://github.com/microsoft/fhir-server/issues/2037)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

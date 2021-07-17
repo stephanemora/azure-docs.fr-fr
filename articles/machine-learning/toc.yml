@@ -1,7 +1,6 @@
 - name: Documentation Azure Machine Learning
   href: index.yml
 - name: Vue d’ensemble
-  expanded: true
   items:
     - name: "Qu'est-ce que Azure Machine Learning\_?"
       displayName: 'AML, services, overview, introduction'
@@ -29,6 +28,12 @@
           href: tutorial-1st-experiment-sdk-train.md
         - name: 3. Utiliser vos propres données
           href: tutorial-1st-experiment-bring-data.md
+    - name: "CLI\_2.0"
+      items:
+        - name: "Entraîner des modèles avec CLI\_2.0"
+          href: how-to-train-cli.md
+        - name: Accéder aux ressources avec des points de terminaison managés
+          href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
     - name: Notebooks Jupyter
       items:
         - name: Classification d’images (données MNIST)
@@ -50,7 +55,6 @@
           displayName: 'mlops, mlopspython, production'
           href: tutorial-convert-ml-experiment-to-production.md
     - name: Studio
-      expanded: true
       items:
         - name: ML automatisé (IU)
           items:
@@ -71,12 +75,6 @@
         - name: Étiqueter les données d’image
           displayName: 'tag, tagging, images'
           href: tutorial-labeling.md
-    - name: Interface de ligne de commande
-      items:
-        - name: "Entraîner des modèles avec CLI\_2.0"
-          href: how-to-train-cli.md
-        - name: Accéder aux ressources Azure avec des points de terminaison managés
-          href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
     - name: Visual Studio Code
       items:
         - name: Entraîner un modèle de classification d’images TensorFlow
@@ -93,6 +91,8 @@
               href: tutorial-power-bi-automated-model.md
         - name: "Deuxième partie\_: Consommer dans Power\_BI"
           href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
+    - name: Créer un espace de travail sécurisé
+      href: tutorial-create-secure-workspace.md
 - name: Exemples
   items:
     - name: Notebooks Jupyter
@@ -110,39 +110,83 @@
       href: ../open-datasets/samples.md?context=azure%2fmachine-learning%2fcontext%2fml-context
 - name: Concepts
   items:
-    - name: Prévoir et gérer les coûts
-      displayName: low priority VM
-      href: concept-plan-manage-cost.md
-    - name: Concepteur (ML par glisser-déposer)
+    - name: Entraîner des modèles
       items:
-        - name: Vue d’ensemble du concepteur
-          displayName: studio
-          href: concept-designer.md
-        - name: Aide-mémoire d’algorithme
-          href: algorithm-cheat-sheet.md
-        - name: Guide pratique pour sélectionner des algorithmes
-          href: how-to-select-algorithms.md
-    - name: ML automatisé
+        - name: Apprentissage du modèle
+          displayName: 'run config, machine learning pipeline, ml pipeline, train model'
+          href: concept-train-machine-learning-model.md
+        - name: Entraînement distribué
+          displayName: 'parallellization, deep learning, deep neural network, dnn'
+          href: concept-distributed-training.md
+        - name: Apprentissage approfondi
+          displayName: 'deep learning vs machine learning, deep learning, vs, versus'
+          href: concept-deep-learning-vs-machine-learning.md
+        - name: AutoML
+          items:
+            - name: Vue d’ensemble du ML automatisé
+              displayName: 'automl, auto ml'
+              href: concept-automated-ml.md
+            - name: Surajustement et données déséquilibrées
+              displayName: 'automl, auto ml, risks'
+              href: concept-manage-ml-pitfalls.md
+        - name: Concepteur (ML par glisser-déposer)
+          items:
+            - name: Vue d’ensemble du concepteur
+              displayName: studio
+              href: concept-designer.md
+            - name: Aide-mémoire d’algorithme
+              href: algorithm-cheat-sheet.md
+            - name: Guide pratique pour sélectionner des algorithmes
+              href: how-to-select-algorithms.md
+    - name: Déployer des modèles
       items:
-        - name: Vue d’ensemble du ML automatisé
-          displayName: 'automl, auto ml'
-          href: concept-automated-ml.md
-        - name: Surajustement et données déséquilibrées
-          displayName: 'automl, auto ml, risks'
-          href: concept-manage-ml-pitfalls.md
-    - name: Espace de travail
-      href: concept-workspace.md
-    - name: Environnements
-      href: concept-environments.md
-    - name: Images Docker prédéfinies pour l’inférence
-      href: concept-prebuilt-docker-images-inference.md
-    - name: Instance de calcul
-      displayName: 'resource, dsvm, Data Science Virtual Machine'
-      href: concept-compute-instance.md
-    - name: Cible de calcul
-      displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
-      href: concept-compute-target.md
-    - name: Données
+        - name: Points de terminaison
+          href: concept-endpoints.md
+        - name: Portabilité de modèles (ONNX)
+          href: concept-onnx.md
+        - name: Images Docker prédéfinies pour l’inférence
+          href: concept-prebuilt-docker-images-inference.md
+    - name: Gérer le cycle de vie du ML (MLOps)
+      items:
+        - name: Fonctionnalités de MLOps
+          displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
+          href: concept-model-management-and-deployment.md
+        - name: Intégrations open source
+          href: concept-open-source.md
+        - name: Pipelines ML
+          href: concept-ml-pipelines.md
+        - name: MLflow
+          href: concept-mlflow.md
+        - name: ML responsable
+          items:
+            - name: Vue d’ensemble du ML responsable
+              displayName: 'responsible,ml'
+              href: concept-responsible-ml.md
+            - name: Interprétabilité de modèles
+              displayName: explainability
+              href: how-to-machine-learning-interpretability.md
+            - name: Équité dans Machine Learning
+              displayName: fairness
+              href: concept-fairness-ml.md
+            - name: Confidentialité différentielle
+              displayName: 'differential,privacy'
+              href: concept-differential-privacy.md
+    - name: Espace de travail et ressources de calcul
+      items:
+        - name: Espace de travail
+          href: concept-workspace.md
+        - name: Environnements
+          href: concept-environments.md
+        - name: Instance de calcul
+          displayName: 'resource, dsvm, Data Science Virtual Machine'
+          href: concept-compute-instance.md
+        - name: Cible de calcul
+          displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
+          href: concept-compute-target.md
+        - name: Prévoir et gérer les coûts
+          displayName: low priority VM
+          href: concept-plan-manage-cost.md
+    - name: Utilisation des données
       items:
         - name: Accès aux données
           href: concept-data.md
@@ -150,26 +194,6 @@
           href: concept-data-ingestion.md
         - name: Traitement des données
           href: concept-optimize-data-processing.md
-    - name: Apprentissage du modèle
-      displayName: 'run config, machine learning pipeline, ml pipeline, train model'
-      href: concept-train-machine-learning-model.md
-    - name: Entraînement distribué
-      displayName: 'parallellization, deep learning, deep neural network, dnn'
-      href: concept-distributed-training.md
-    - name: Apprentissage approfondi
-      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
-      href: concept-deep-learning-vs-machine-learning.md
-    - name: Points de terminaison
-      href: concept-endpoints.md
-    - name: Gestion de modèles (MLOps)
-      displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
-      href: concept-model-management-and-deployment.md
-    - name: Portabilité de modèles (ONNX)
-      href: concept-onnx.md
-    - name: Intégrations open source
-      href: concept-open-source.md
-    - name: Pipelines ML
-      href: concept-ml-pipelines.md
     - name: Sécurité
       items:
         - name: Vue d’ensemble de la sécurité en entreprise
@@ -181,20 +205,6 @@
           href: ./security-controls-policy.md
         - name: Chiffrement des données
           href: concept-data-encryption.md
-    - name: ML responsable
-      items:
-        - name: Vue d’ensemble du ML responsable
-          displayName: 'responsible,ml'
-          href: concept-responsible-ml.md
-        - name: Interprétabilité de modèles
-          displayName: explainability
-          href: how-to-machine-learning-interpretability.md
-        - name: Équité dans Machine Learning
-          displayName: fairness
-          href: concept-fairness-ml.md
-        - name: Confidentialité différentielle
-          displayName: 'differential,privacy'
-          href: concept-differential-privacy.md
 - name: Guides pratiques
   items:
     - name: Sécurité
@@ -227,7 +237,7 @@
             - name: Utiliser studio dans un réseau virtuel
               displayName: vnet
               href: how-to-enable-studio-virtual-network.md
-            - name: Utiliser Private Link
+            - name: Utiliser un point de terminaison privé
               displayName: private endpoint
               href: how-to-configure-private-link.md
             - name: Utiliser le DNS personnalisé
@@ -252,40 +262,45 @@
         - name: Auditer et gérer la conformité
           href: how-to-integrate-azure-policy.md
           displayName: policy
-    - name: Créer et gérer des espaces de travail
+    - name: Espaces de travail et ressources de calcul
       items:
-        - name: Utiliser le portail Azure ou le kit SDK Python
-          href: how-to-manage-workspace.md
-        - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
-          href: how-to-manage-workspace-cli.md
-        - name: Utiliser REST
-          href: how-to-manage-rest.md
-        - name: Utilisation d’un modèle Resource Manager
-          displayName: arm
-          href: how-to-create-workspace-template.md
-        - name: Lier à un espace de travail Azure Synapse Analytics
-          href: how-to-link-synapse-ml-workspaces.md
-    - name: Créer et gérer des ressources de calcul
-      items:
-        - name: Instance de calcul
-          displayName: compute target
-          href: how-to-create-manage-compute-instance.md
-        - name: Cluster de calcul
-          displayName: 'compute target, low priority, managed identity'
-          href: how-to-create-attach-compute-cluster.md
-        - name: Mettre à niveau le système d’exploitation hôte
-          displayName: 'upgrade compute cluster, upgrade compute instance, upgrade ubuntu'
-          href: how-to-compute-cluster-instance-os-upgrade.md
-        - name: Azure Kubernetes Service
-          displayName: 'AKS, inference'
-          href: how-to-create-attach-kubernetes.md
-        - name: Attacher les vôtres
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
-          href: how-to-attach-compute-targets.md
-        - name: Utiliser le studio
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity'
-          href: how-to-create-attach-compute-studio.md
-    - name: Configurer votre environnement
+        - name: Créer et gérer des espaces de travail
+          items:
+            - name: Utiliser le portail Azure ou le kit SDK Python
+              href: how-to-manage-workspace.md
+            - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
+              href: how-to-manage-workspace-cli.md
+            - name: Utiliser REST
+              href: how-to-manage-rest.md
+            - name: Utilisation d’un modèle Resource Manager
+              displayName: arm
+              href: how-to-create-workspace-template.md
+            - name: Lier à un espace de travail Azure Synapse Analytics
+              href: how-to-link-synapse-ml-workspaces.md
+        - name: Créer et gérer des ressources de calcul
+          items:
+            - name: Instance de calcul
+              displayName: compute target
+              href: how-to-create-manage-compute-instance.md
+            - name: Cluster de calcul
+              displayName: 'compute target, low priority, managed identity'
+              href: how-to-create-attach-compute-cluster.md
+            - name: Mettre à niveau le système d’exploitation hôte
+              displayName: 'upgrade compute cluster, upgrade compute instance, upgrade ubuntu'
+              href: how-to-compute-cluster-instance-os-upgrade.md
+            - name: Machine Learning avec Azure Arc
+              displayName: 'Azure Arc, Kubernetes, on-premise, multi-cloud'
+              href: how-to-attach-arc-kubernetes.md
+            - name: Azure Kubernetes Service
+              displayName: 'AKS, inference'
+              href: how-to-create-attach-kubernetes.md
+            - name: Attacher les vôtres
+              displayName: 'compute target, dsvm, Data Science Virtual Machine, local, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+              href: how-to-attach-compute-targets.md
+            - name: Utiliser le studio
+              displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity'
+              href: how-to-create-attach-compute-studio.md
+    - name: Configurer un environnement
       items:
         - name: "Installer et configurer l’interface CLI\_2.0"
           displayName: 'azurecli, mlops'
@@ -379,9 +394,14 @@
             - name: Gérer les versions et faire le suivi de jeux de données
               displayName: 'data, data set'
               href: how-to-version-track-datasets.md
+        - name: Conformité
+          items:
             - name: Préserver la confidentialité des données
               displayName: 'data,privacy,differential privacy'
               href: how-to-differential-privacy.md
+            - name: Exporter et supprimer des données
+              displayName: GDPR
+              href: how-to-export-delete-data.md
     - name: Entraîner des modèles
       items:
         - name: "Entraîner avec l’interface CLI\_2.0"
@@ -449,46 +469,45 @@
               href: how-to-machine-learning-interpretability-automl.md
         - name: Évaluer et atténuer l’impartialité d’un modèle
           href: how-to-machine-learning-fairness-aml.md
-    - name: Machine learning automatisé
-      displayName: 'automl, auto ml'
-      items:
-        - name: Utiliser le machine learning automatisé (Python)
-          displayName: SDK automl
-          href: how-to-configure-auto-train.md
-        - name: Utiliser le ML automatisé (interface)
-          href: how-to-use-automated-ml-for-ml-models.md
-        - name: Utiliser le ML automatisé avec Databricks
-          displayName: automl
-          href: how-to-configure-databricks-automl-environment.md
-        - name: Entraîner automatiquement un modèle de prévision
-          displayName: time series
-          href: how-to-auto-train-forecast.md
-        - name: Divisions des données et validation croisée (Python)
-          displayName: 'automl, feature engineering, feature importance'
-          href: how-to-configure-cross-validation-data-splits.md
-        - name: Caractérisation dans le ML automatisé (Python)
-          displayName: 'automl, feature engineering, feature importance, BERT'
-          href: how-to-configure-auto-features.md
-        - name: Utiliser le ML automatisé dans des pipelines ML (Python)
-          displayName: machine learning automl
-          href: how-to-use-automlstep-in-pipelines.md
-        - name: Comprendre les graphiques et les métriques
-          href: how-to-understand-automated-ml.md
-        - name: "Utiliser un modèle ONNX dans une application\_.NET"
-          href: how-to-use-automl-onnx-model-dotnet.md
-        - name: Résoudre les problèmes du ML automatisé
-          href: how-to-troubleshoot-auto-ml.md
-    - name: Déployer et traiter des modèles
+        - name: Machine learning automatisé
+          displayName: 'automl, auto ml'
+          items:
+            - name: Utiliser le machine learning automatisé (Python)
+              displayName: SDK automl
+              href: how-to-configure-auto-train.md
+            - name: Utiliser le ML automatisé (interface)
+              href: how-to-use-automated-ml-for-ml-models.md
+            - name: Utiliser le ML automatisé avec Databricks
+              displayName: automl
+              href: how-to-configure-databricks-automl-environment.md
+            - name: Entraîner automatiquement un modèle de prévision
+              displayName: time series
+              href: how-to-auto-train-forecast.md
+            - name: Divisions des données et validation croisée (Python)
+              displayName: 'automl, feature engineering, feature importance'
+              href: how-to-configure-cross-validation-data-splits.md
+            - name: Caractérisation dans le ML automatisé (Python)
+              displayName: 'automl, feature engineering, feature importance, BERT'
+              href: how-to-configure-auto-features.md
+            - name: Comprendre les graphiques et les métriques
+              href: how-to-understand-automated-ml.md
+            - name: "Utiliser un modèle ONNX dans une application\_.NET"
+              href: how-to-use-automl-onnx-model-dotnet.md
+            - name: Résoudre les problèmes du ML automatisé
+              href: how-to-troubleshoot-auto-ml.md
+    - name: Déployer des modèles
       items:
         - name: Où et comment déployer
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
-        - name: Déployer et traiter avec des points de terminaison
+        - name: Déployer avec des points de terminaison
           items:
             - name: En ligne
               items:
                 - name: Déployer un modèle ML avec un point de terminaison en ligne managé
                   href: how-to-deploy-managed-online-endpoints.md
+                - name: Déployer un conteneur personnalisé avec un point de terminaison en ligne managé
+                  href: how-to-deploy-custom-container.md
                 - name: Déploiement sécurisé pour les points de terminaison en ligne
                   href: how-to-safely-rollout-managed-endpoints.md
                 - name: Utiliser des points de terminaison en ligne managés dans le studio
@@ -501,13 +520,13 @@
                   href: reference-managed-online-endpoints-vm-sku-list.md
                 - name: Surveillance des points de terminaison en ligne managés
                   href: how-to-monitor-online-endpoints.md
-                - name: Résolution des problèmes de points de terminaison en ligne managés
+                - name: Résoudre les problèmes liés aux points de terminaison en ligne managés
                   href: how-to-troubleshoot-managed-online-endpoints.md
             - name: Batch
               items:
                 - name: Scoring par lots avec des points de terminaison de traitement de lots
                   href: how-to-use-batch-endpoint.md
-                - name: Résolution des problèmes de points de terminaison de traitement de lots
+                - name: Résoudre les problèmes liés aux points de terminaison de traitement de lots
                   href: how-to-troubleshoot-batch-endpoints.md
         - name: Cibles de déploiement
           items:
@@ -529,8 +548,6 @@
               href: how-to-deploy-functions.md
             - name: Recherche cognitive Azure
               href: how-to-deploy-model-cognitive-search.md
-            - name: Utiliser une image Docker personnalisée
-              href: how-to-deploy-custom-docker-image.md
             - name: IoT Edge
               href: ../iot-edge/tutorial-deploy-machine-learning.md?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context
             - name: Inférence de FPGA
@@ -543,9 +560,9 @@
               href: how-to-extend-prebuilt-docker-image-inference.md
             - name: Résoudre les problèmes liés aux images Docker prédéfinies
               href: how-to-troubleshoot-prebuilt-docker-image-inference.md
-        - name: Résolution des problèmes de déploiement
+        - name: Résoudre les problèmes de déploiement
           href: how-to-troubleshoot-deployment.md
-        - name: Résolution des problèmes de déploiement (local)
+        - name: Résoudre les problèmes de déploiement (local)
           href: how-to-troubleshoot-deployment-local.md
         - name: Utiliser un service web
           displayName: create client consume request response synchronous
@@ -586,70 +603,78 @@
         - name: Modèles de package
           displayName: docker file download
           href: how-to-deploy-package-models.md
-    - name: Créer et utiliser des pipelines ML
-      displayName: pipelines
+    - name: Gérer le cycle de vie du ML
       items:
-        - name: Créer des pipelines ML (Python)
-          href: how-to-create-machine-learning-pipelines.md
-        - name: "Déplacement de données au sein d’un pipeline\_ML et vers un autre pipeline\_ML (Python)"
-          href: how-to-move-data-in-out-of-pipelines.md
-        - name: Déployer des pipelines ML (Python)
-          href: how-to-deploy-pipelines.md
-        - name: Utiliser des pools Azure Synapse Apache Spark dans un pipeline ML (Python)
-          href: how-to-use-synapsesparkstep.md
-        - name: Déclencher un pipeline
-          href: how-to-trigger-published-pipeline.md
-        - name: Concepteur (glisser-déposer)
+        - name: Automatisation
           items:
-            - name: Journaliser les métriques
-              displayName: 'designer, logging'
-              href: how-to-track-designer-experiments.md
-            - name: Transformer les données
-              displayName: pipeline
-              href: how-to-designer-transform-data.md
-            - name: Utiliser des paramètres de pipeline
-              displayName: 'designer, pipeline parameters'
-              href: how-to-use-pipeline-parameter.md
-            - name: Réentraîner en utilisant des pipelines publiés
-              displayName: 'retrain, designer, published pipeline'
-              href: how-to-retrain-designer.md
-            - name: Prédictions par lot
-              displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-              href: how-to-run-batch-predictions-designer.md
-            - name: Exécuter du code Python
-              displayName: 'feature extraction, feature engineering'
-              href: how-to-designer-python.md
-        - name: Résolution des problèmes de pipelines
+            - name: Pipelines Azure pour CI/CD
+              displayName: 'continuous, integration, delivery'
+              href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
+            - name: GitHub Actions pour CI/CD
+              href: how-to-github-actions-machine-learning.md
+            - name: Créer des workflows pilotés par les événements
+              displayName: event grid
+              href: how-to-use-event-grid.md
+        - name: Créer et utiliser des pipelines ML
+          displayName: pipelines
+          items:
+            - name: Créer des pipelines ML (Python)
+              href: how-to-create-machine-learning-pipelines.md
+            - name: "Déplacement de données au sein d’un pipeline\_ML et vers un autre pipeline\_ML (Python)"
+              href: how-to-move-data-in-out-of-pipelines.md
+            - name: Utiliser le ML automatisé dans des pipelines ML (Python)
+              displayName: machine learning automl
+              href: how-to-use-automlstep-in-pipelines.md
+            - name: Déployer des pipelines ML (Python)
+              href: how-to-deploy-pipelines.md
+            - name: Utiliser des pools Azure Synapse Apache Spark dans un pipeline ML (Python)
+              href: how-to-use-synapsesparkstep.md
+            - name: Déclencher un pipeline
+              href: how-to-trigger-published-pipeline.md
+            - name: Concepteur (glisser-déposer)
+              items:
+                - name: Journaliser les métriques
+                  displayName: 'designer, logging'
+                  href: how-to-track-designer-experiments.md
+                - name: Transformer les données
+                  displayName: pipeline
+                  href: how-to-designer-transform-data.md
+                - name: Utiliser des paramètres de pipeline
+                  displayName: 'designer, pipeline parameters'
+                  href: how-to-use-pipeline-parameter.md
+                - name: Réentraîner en utilisant des pipelines publiés
+                  displayName: 'retrain, designer, published pipeline'
+                  href: how-to-retrain-designer.md
+                - name: Prédictions par lot
+                  displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+                  href: how-to-run-batch-predictions-designer.md
+                - name: Exécuter du code Python
+                  displayName: 'feature extraction, feature engineering'
+                  href: how-to-designer-python.md
+        - name: Gérer les quotas de ressources
+          displayName: limits
+          href: how-to-manage-quotas.md
+        - name: Gérer et optimiser les coûts
+          displayName: 'cost-management,cost-optimization'
+          href: how-to-manage-optimize-cost.md
+        - name: Gérer les ressources VS Code
+          displayName: 'vscode,resources'
+          href: how-to-manage-resources-vscode.md
+- name: Résoudre les problèmes et déboguer
+  items:
+    - name: Débogage interactif VS Code
+      displayName: 'vscode,remote,debug,pipelines,deployments,ssh'
+      href: how-to-debug-visual-studio-code.md
+    - name: Problèmes liés au pipeline
+      items:
+        - name: Résoudre les problèmes liés aux pipelines
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Journaliser les données du pipeline sur Application Insights
           href: how-to-log-pipelines-application-insights.md
-        - name: Résolution des problèmes de ParallelRunStep
+        - name: Résoudre les problèmes de ParallelRunStep
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
-    - name: Pipelines Azure pour CI/CD
-      displayName: 'continuous, integration, delivery'
-      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
-    - name: GitHub Actions pour CI/CD
-      href: how-to-github-actions-machine-learning.md
-    - name: Gérer les quotas de ressources
-      displayName: limits
-      href: how-to-manage-quotas.md
-    - name: Gérer et optimiser les coûts
-      displayName: 'cost-management,cost-optimization'
-      href: how-to-manage-optimize-cost.md
-    - name: Gérer les ressources VS Code
-      displayName: 'vscode,resources'
-      href: how-to-manage-resources-vscode.md
-    - name: Débogage interactif VS Code
-      displayName: 'vscode,remote,debug,pipelines,deployments,ssh'
-      href: how-to-debug-visual-studio-code.md
-    - name: Exporter et supprimer des données
-      displayName: GDPR
-      href: how-to-export-delete-data.md
-    - name: Créer des workflows basés sur les événements
-      displayName: event grid
-      href: how-to-use-event-grid.md
 - name: Informations de référence
   items:
     - name: API REST
@@ -676,8 +701,6 @@
       href: reference-online-endpoint-yaml.md
     - name: Informations de référence YAML sur les pipelines de machine learning
       href: reference-pipeline-yaml.md
-    - name: Disponibilité des fonctionnalités dans les régions
-      href: reference-machine-learning-cloud-parity.md
     - name: Éléments intégrés Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
@@ -701,6 +724,8 @@
       href: /legal/machine-learning/conda-licensing
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Disponibilité des fonctionnalités dans les régions
+      href: reference-machine-learning-cloud-parity.md
     - name: Forum des utilisateurs
       href: /answers/topics/azure-machine-learning.html
     - name: Microsoft Learn
