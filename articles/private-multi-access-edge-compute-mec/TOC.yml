@@ -1,0 +1,46 @@
+- name: Documentation sur le calcul de périphérie multi-accès privé Azure
+  href: index.yml
+  items:
+    - name: Vue d’ensemble
+      expanded: true
+      items:
+        - name: Présentation de la solution MEC privée Azure
+          href: overview.md
+        - name: Solutions partenaires MEC privées Azure
+          href: partner-programs.md
+    - name: "Connectivité de la périphérie avec Metaswitch\_5G Fusion Core"
+      items:
+        - name: Vue d’ensemble
+          items:
+            - name: Présentation de Fusion Core
+              href: metaswitch-fusion-core-overview.md
+        - name: Guides pratiques
+          items:
+            - name: Déployer Fusion Core sur Azure Stack Edge
+              href: deploy-metaswitch-fusion-core-solution.md
+    - name: Réseaux privés utilisant Affirmed Private Network Service
+      items:
+        - name: Vue d’ensemble
+          items:
+            - name: Présentation d’Affirmed Private Network Service sur Azure
+              href: affirmed-private-network-service-overview.md
+        - name: Guides pratiques
+          items:
+            - name: Déployer Affirmed Private Network Service sur Azure
+              href: deploy-affirmed-private-network-service-solution.md
+    - name: Rubriques connexes
+      items:
+        - name: Azure Network Function Manager
+          href: ../network-function-manager/index.yml
+    - name: Ressources
+      items:
+        - name: Page produit de la solution MEC privée Azure
+          href: 'https://go.microsoft.com/fwlink/?linkid=2165610'
+        - name: Page produit de Network Function Manager
+          href: 'https://go.microsoft.com/fwlink/?linkid=2166098'
+        - name: Place de marché Azure
+          href: 'https://azuremarketplace.microsoft.com/marketplace/'
+        - name: Feuille de route Azure
+          href: 'https://azure.microsoft.com/roadmap/?category=networking'
+        - name: Blog
+          href: 'https://azure.microsoft.com/blog/topics/networking'

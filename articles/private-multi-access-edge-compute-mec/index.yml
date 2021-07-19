@@ -1,0 +1,58 @@
+### YamlMime:Landing
+title: Documentation sur le calcul de périphérie multi-accès privé Azure
+summary: La solution Azure de calcul de périphérie multi-accès privé (MEC) permet aux opérateurs et aux intégrateurs système de fournir des performances élevées, une connectivité à faible latence et des applications IoT à la périphérie de l’entreprise.
+metadata:
+  title: Documentation sur le calcul de périphérie multi-accès privé Azure
+  description: La solution Azure de calcul de périphérie multi-accès privé (MEC) permet aux opérateurs et aux intégrateurs système de fournir des performances élevées, une connectivité à faible latence et des applications IoT à la périphérie de l’entreprise.
+  ms.service: private-multi-access-edge-compute-mec
+  ms.topic: landing-page
+  author: kumud
+  ms.author: KumudD
+  ms.date: 06/15/2021
+  ms.openlocfilehash: 57bd78341606ee1b15afbd3a37363fa6d84f95a0
+  ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 06/22/2021
+  ms.locfileid: "112458359"
+landingContent:
+- title: À propos de la solution MEC privée Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation de la solution MEC privée Azure
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Solutions de partenaires
+      url: partner-programs.md
+- title: Connectivité de la périphérie avec la solution Metaswitch
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Présentation de Fusion Core
+      url: metaswitch-fusion-core-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Déployer Fusion Core sur un appareil Azure Stack Edge
+      url: deploy-metaswitch-fusion-core-solution.md
+- title: À propos d’Affirmed Private Network Service sur Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Présentation d’Affirmed Private Network Service sur Azure
+      url: affirmed-private-network-service-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Déployer Affirmed Private Network Service sur Azure
+      url: deploy-affirmed-private-network-service-solution.md
+- title: À propos d’Azure Network Function Manager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation d’Azure Network Function Manager
+      url: ../network-function-manager/overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Déployer une fonction réseau
+      url: ../network-function-manager/deploy-functions.md

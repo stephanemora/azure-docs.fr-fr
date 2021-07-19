@@ -54,12 +54,18 @@
       href: ./tutorials/create-share-query.md
 - name: Exemples
   items:
-    - name: Requêtes de démarrage
-      displayName: 'query language, data explorer, count, list, show'
-      href: ./samples/starter.md
-    - name: Requêtes avancées
-      displayName: 'query language, data explorer, list, regex'
-      href: ./samples/advanced.md
+    - name: Exemples de langage
+      items:
+        - name: Requêtes de démarrage
+          displayName: 'query language, data explorer, count, list, show'
+          href: ./samples/starter.md
+        - name: Requêtes avancées
+          displayName: 'query language, data explorer, list, regex'
+          href: ./samples/advanced.md
+    - name: Indexer par catégorie
+      href: ./samples/samples-by-category.md
+    - name: Indexer par table
+      href: ./samples/samples-by-table.md
 - name: Concepts
   items:
     - name: Compréhension du langage de requête
