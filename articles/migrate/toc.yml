@@ -79,7 +79,11 @@
         - name: Conteneuriser les applications ASP.NET et migrer vers AKS
           href: tutorial-app-containerization-aspnet-kubernetes.md
         - name: Conteneuriser les applications web Java et migrer vers AKS
-          href: tutorial-containerize-java-kubernetes.md
+          href: tutorial-app-containerization-java-kubernetes.md
+        - name: Conteneuriser des applications ASP.NET et migrer vers App Service
+          href: tutorial-app-containerization-aspnet-app-service.md
+        - name: Conteneuriser les applications web Java et les migrer vers App Service
+          href: tutorial-app-containerization-java-app-service.md
 - name: Concepts
   items:
     - name: Général
@@ -128,6 +132,9 @@
           href: migrate-replication-appliance.md
         - name: Architecture de migration sans agent VMware
           href: concepts-vmware-agentless-migration.md
+          items:
+            - name: Préparer la migration sans agent VMware
+              href: prepare-for-agentless-migration.md
         - name: Architecture de la migration Hyper-V
           href: hyper-v-migration-architecture.md
         - name: Architecture de la migration basée sur agent VMware
@@ -235,11 +242,15 @@
           href: troubleshoot-project.md
     - name: Découvrez
       items:
-        - name: Résoudre les problèmes de la découverte/l’appliance Azure Migrate
-          href: troubleshoot-appliance-discovery.md
+        - name: Résoudre les problèmes de l’appliance Azure Migrate
+          href: troubleshoot-appliance.md
+        - name: Résoudre les problèmes de découverte
+          href: troubleshoot-discovery.md
+        - name: Résoudre les problèmes de visualisation des dépendances
+          href: troubleshoot-dependencies.md
     - name: Évaluer
       items:
-        - name: Résoudre les problèmes de l’évaluation/la visualisation des dépendances
+        - name: Résoudre les problèmes d’évaluation
           href: troubleshoot-assessment.md
     - name: Migrate
       items:

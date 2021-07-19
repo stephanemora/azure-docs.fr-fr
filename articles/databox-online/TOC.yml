@@ -218,6 +218,8 @@
                   href: azure-stack-edge-gpu-deploy-arc-data-controller.md
         - name: Configurer Azure Resource Manager (préversion)
           items:
+            - name: Présentation d’Azure Resource Manager
+              href: azure-stack-edge-gpu-local-resource-manager-overview.md
             - name: Se connecter via Azure PowerShell
               href: azure-stack-edge-gpu-connect-resource-manager.md
             - name: Définir un mot de passe Azure Resource Manager
@@ -280,20 +282,30 @@
                   items:
                     - name: Se connecter à la console de la machine virtuelle
                       href: azure-stack-edge-gpu-connect-virtual-machine-console.md
+                    - name: Collecter les journaux invités des machines virtuelles
+                      href: azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md
                     - name: Chargement d’images de VM
                       href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md
                     - name: Déploiement de machine virtuelle
                       href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
                     - name: Problèmes d’extension GPU
                       href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
-        - name: Gérer des certificats
+        - name: À propos des certificats
           items:
-            - name: Configuration requise
+            - name: Que sont les certificats ?
+              href: azure-stack-edge-gpu-certificates-overview.md
+            - name: Voir la configuration requise
               href: azure-stack-edge-gpu-certificate-requirements.md
-            - name: Apporter votre propre
+            - name: Créer des certificats
+              items:
+                - name: Avec Azure PowerShell
+                  href: azure-stack-edge-gpu-create-certificates-powershell.md
+                - name: Avec l’outil Azure Stack Readiness Checker
+                  href: azure-stack-edge-gpu-create-certificates-tool.md
+            - name: Préparer les certificats à charger sur l’appareil
+              href: azure-stack-edge-gpu-prepare-certificates-device-upload.md
+            - name: 'Charger, importer, afficher l’expiration'
               href: azure-stack-edge-gpu-manage-certificates.md
-            - name: Créer via l’outil Azure Stack Readiness Checker
-              href: azure-stack-edge-gpu-create-certificates-tool.md
             - name: Résoudre les erreurs de certificat
               href: azure-stack-edge-gpu-certificate-troubleshooting.md
         - name: Gérer le computing en périphérie

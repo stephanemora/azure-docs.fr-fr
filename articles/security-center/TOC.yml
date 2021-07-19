@@ -174,8 +174,11 @@
           href: defender-for-sql-usage.md
           displayName: 'hybrid, arc, Azure Defender'
         - name: Vue d’ensemble d’Azure Defender pour les bases de données relationnelles open source
-          displayName: 'PG, PostgreSQL, MySQL, MariaDB'
+          displayName: 'PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB'
           href: defender-for-databases-introduction.md
+        - name: Activer Defender pour les RDB open source et répondre aux alertes
+          displayName: 'PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB'
+          href: defender-for-databases-usage.md
         - name: Analyser vos ressources SQL à la recherche de vulnérabilités
           href: defender-for-sql-on-machines-vulnerability-assessment.md
           displayName: 'hybrid, arc, Azure Defender, VA, registry, vulnerabilities'

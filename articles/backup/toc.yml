@@ -238,6 +238,12 @@
               href: backup-managed-disks-ps.md
             - name: Restaurer
               href: restore-managed-disks-ps.md
+        - name: Avec l’interface CLI
+          items:
+            - name: Sauvegarde
+              href: backup-managed-disks-cli.md
+            - name: Restaurer
+              href: restore-managed-disks-cli.md
     - name: Sauvegarde des objets BLOB Azure
       items:
         - name: Vue d’ensemble
@@ -254,6 +260,20 @@
               href: backup-blobs-storage-account-ps.md
             - name: Restaurer
               href: restore-blobs-storage-account-ps.md
+        - name: Avec l’interface CLI
+          items:
+            - name: Sauvegarde
+              href: backup-blobs-storage-account-cli.md
+            - name: Restaurer
+              href: restore-blobs-storage-account-cli.md
+        - name: Avec l’API REST
+          items:
+            - name: Stratégie d’objet blob
+              href: backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md
+            - name: Sauvegarde
+              href: backup-azure-dataprotection-use-rest-api-backup-blobs.md
+            - name: Restaurer
+              href: backup-azure-dataprotection-use-rest-api-restore-blobs.md
     - name: Sauvegarde des partages de fichiers Azure
       items:
         - name: Vue d’ensemble
@@ -334,6 +354,8 @@
               href: backup-azure-sql-mabs.md
             - name: Protéger l’état du système et la récupération complète
               href: backup-mabs-system-state-and-bmr.md
+            - name: Utilisation de scripts de présauvegarde et de postsauvegarde
+              href: pre-backup-post-backup-scripts.md
         - name: Récupérer des données depuis Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
         - name: Restaurer des machines virtuelles VMware avec le serveur de sauvegarde Azure
@@ -440,6 +462,8 @@
               href: backup-azure-arm-userestapi-restoreazurevms.md
             - name: Gérer les travaux de sauvegarde Azure
               href: backup-azure-arm-userestapi-managejobs.md
+        - name: Utiliser l’API REST de protection des données Azure
+          href: backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md
         - name: Interroger les informations de sauvegarde avec ARG
           href: query-backups-using-azure-resource-graph.md
         - name: Modèles Resource Manager

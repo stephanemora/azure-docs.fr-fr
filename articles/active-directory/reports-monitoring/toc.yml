@@ -45,6 +45,8 @@
       href: concept-activity-logs-azure-monitor.md
     - name: Planifier un déploiement de rapport et de supervision
       href: plan-monitoring-and-reporting.md
+    - name: Scénarios de diagnostics de connexion
+      href: concept-sign-in-diagnostics-scenarios.md
 - name: Guides pratiques
   expanded: true
   items:
