@@ -1,86 +1,71 @@
-### YamlMime:Landing
-title: Documentation Azure Defender pour IoT
-summary: 'Azure Defender pour IoT offre une détection complète des menaces pour les environnements IoT/OT, avec plusieurs options de déploiement : entièrement local, connecté au cloud ou hybride.'
+### YamlMime:Hub
+title: Azure Defender pour IoT
+summary: "Azure Defender pour IoT offre une détection complète des menaces pour les environnements IoT/OT, avec plusieurs options de déploiement\_: entièrement local, connecté au cloud ou hybride."
+brand: azure
 metadata:
   title: Documentation Azure Defender pour IoT
-  description: Découvrez comment Azure Defender pour IoT, un service de sécurité cloud basé sur Azure, fournit une protection complète contre les menaces sur les appareils IoT.
+  description: 'Découvrez comment Azure Defender pour IoT, un service de sécurité cloud basé sur Azure, fournit une protection complète contre les menaces sur les appareils IoT.'
   services: service
   ms.service: defender-for-iot
   ms.topic: landing-page
   ms.collection: M365-security-compliance
-  author: mlottner
-  ms.author: mlottner
-  ms.date: 09/07/2020
-  ms.openlocfilehash: 1e7f3b151691c80861c9add3188a3d4479fac059
-  ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
-  ms.translationtype: HT
-  ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/16/2021
-  ms.locfileid: "103496097"
-landingContent:
-- title: Bien démarrer avec Azure Defender pour IoT
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Qu’est-ce que Azure Defender pour IoT ?
-      url: overview.md
-    - text: Architecture de solution
-      url: architecture.md
-    - text: Vue d’ensemble de la configuration de la solution
-      url: getting-started.md
-    - text: Nouveautés
-      url: release-notes.md
-- title: Configurer et intégrer - solution sans agent
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Configurer votre réseau
-      url: how-to-set-up-your-network.md
-    - text: Identifier les appareils nécessaires
-      url: how-to-identify-required-appliances.md
-    - text: Installer les logiciels
-      url: how-to-install-software.md
-- title: Superviser votre réseau - solution sans agent
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Afficher les appareils connectés
-      url: how-to-work-with-the-sensor-device-map.md
-    - text: Afficher les inventaires d’appareils
-      url: how-to-investigate-sensor-detections-in-a-device-inventory.md
-    - text: Examen des alertes
-      url: how-to-work-with-alerts-on-your-sensor.md
-    - text: Contrôler quel trafic est détecté
-      url: how-to-control-what-traffic-is-monitored.md
-    - text: Se connecter à Azure Sentinel
-      url: how-to-configure-with-sentinel.md
-- title: Azure Defender pour IoT - solution basée sur un agent
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Micro-agent Defender-IoT Edge
-      url: security-edge-architecture.md
-  - linkListType: quickstart
-    links:
-    - text: Activer IoT Hub - solutions basées sur un agent
-      url: quickstart-onboard-iot-hub.md
-    - text: Configurer votre solution de sécurité IoT
-      url: quickstart-configure-your-solution.md
-    - text: Configurer le micro-agent Defender-IoT pour Azure RTOS
-      url: quickstart-azure-rtos-security-module.md
-    - text: Créer un jumeau de module Azure Defender pour IoT
-      url: quickstart-create-security-twin.md
-    - text: Créer des alertes de sécurité personnalisées
-      url: quickstart-create-custom-alerts.md
-    - text: Investiguer les alertes de sécurité
-      url: quickstart-investigate-security-alerts.md
-- title: Ressources de la solution Azure Defender pour IoT
-  linkLists:
-  - linkListType: video
-    links:
-    - text: Take
-      url: https://myignite.microsoft.com/sessions/973175b0-2a2d-4b41-99f8-051e42ac575a
-  - linkListType: reference
-    links:
-    - text: Forum aux questions
-      url: resources-frequently-asked-questions.md
+  author: elazark
+  ms.author: v-ekrieg
+  manager: raynew
+  ms.date: 06/16/2021
+highlightedContent:
+  items:
+    - title: Présentation d’Azure Defender pour IoT pour les organisations
+      itemType: overview
+      url: organizations/overview.md
+    - title: Nouveautés pour les organisations
+      itemType: whats-new
+      url: organizations/release-notes.md
+    - title: Solution sans agent pour les organisations
+      itemType: overview
+      url: organizations/architecture.md
+    - title: Présentation d’Azure Defender pour IoT pour les fabricants d’appareils
+      itemType: overview
+      url: device-builders/overview.md
+    - title: Nouveautés pour les fabricants d’appareils
+      itemType: whats-new
+      url: device-builders/release-notes.md
+    - title: Solution basée sur un agent pour les fabricants d’appareils
+      itemType: overview
+      url: device-builders/architecture-agent-based.md
+conceptualContent:
+  items:
+    - title: Azure Defender pour IoT pour les organisations
+      links:
+        - url: organizations/quickstart-system-prerequisites.md
+          itemType: quickstart
+          text: Prérequis système
+        - url: organizations/getting-started.md
+          itemType: quickstart
+          text: Bien démarrer avec Defender pour IoT pour les organisations
+        - url: organizations/concept-key-concepts.md
+          itemType: quickstart
+          text: Concepts clés
+        - url: organizations/how-to-set-up-your-network.md
+          itemType: how-to-guide
+          text: À propos de la configuration du réseau d’Azure Defender pour IoT
+      footerLink:
+        url: organizations/index.yml
+        text: En savoir plus
+    - title: Azure Defender pour IoT pour les fabricants d’appareils
+      links:
+        - url: device-builders/quickstart-onboard-iot-hub.md
+          itemType: quickstart
+          text: Intégrer Defender pour IoT à une solution basée sur un agent
+        - url: device-builders/quickstart-configure-your-solution.md
+          itemType: quickstart
+          text: Configurer votre solution Azure Defender pour IoT
+        - url: device-builders/concept-recommendations.md
+          itemType: concept
+          text: Recommandations de sécurité pour IoT Hub
+        - url: device-builders/how-to-configure-agent-based-solution.md
+          itemType: how-to-guide
+          text: Configurer Azure Defender pour IoT
+      footerLink:
+        url: device-builders/index.yml
+        text: En savoir plus

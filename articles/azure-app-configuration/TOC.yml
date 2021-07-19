@@ -152,6 +152,8 @@
       href: howto-backup-config-store.md
     - name: Utiliser des identités managées pour accéder à App Configuration
       href: howto-integrate-azure-managed-service-identity.md
+    - name: Mettre à jour vers la nouvelle bibliothèque Spring Boot
+      href: howto-convert-to-the-new-spring-boot.md
 - name: Informations de référence
   items:
     - name: Bibliothèques clientes

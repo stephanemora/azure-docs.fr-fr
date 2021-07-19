@@ -217,7 +217,7 @@
         - name: Prendre en main l'authentification directe
           href: how-to-connect-pta-quick-start.md
         - name: FAQ sur l’authentification directe
-          href: how-to-connect-pta-faq.md
+          href: how-to-connect-pta-faq.yml
         - name: "Désactiver PTA avec «\_Ne pas configurer\_» d’Azure AD Connect"
           href: how-to-connect-pta-disable-do-not-configure.md
     - name: Gérer les services de fédération
@@ -244,12 +244,14 @@
           href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
         - name: "Rotation d’urgence de certificats AD\_FS"
           href: how-to-connect-emergency-ad-fs-certificate-rotation.md
+        - name: Surperviser les modifications apportées à la configuration de fédération
+          href: how-to-connect-monitor-federation-changes.md
     - name: Gérer l'authentification unique
       items:
         - name: Prendre en main l’authentification unique
           href: how-to-connect-sso-quick-start.md
         - name: FAQ sur l’authentification unique
-          href: how-to-connect-sso-faq.md
+          href: how-to-connect-sso-faq.yml
     - name: Gérer Azure AD Connect Health
       items:
         - name: Opérations Azure AD Connect Health
@@ -357,9 +359,9 @@
     - name: Comptes et autorisations
       href: reference-connect-accounts-permissions.md
     - name: "FAQ\_Azure\_AD\_Connect"
-      href: reference-connect-faq.md
+      href: reference-connect-faq.yml
     - name: "Forum Aux Questions\_(FAQ) Azure\_AD\_Connect\_Health"
-      href: reference-connect-health-faq.md
+      href: reference-connect-health-faq.yml
     - name: Considérations sur les identités hybrides pour Azure Government
       href: reference-connect-government-cloud.md
     - name: Confidentialité des utilisateurs d’Azure AD Connect
@@ -378,6 +380,8 @@
       href: how-to-connect-fed-compatibility.md
     - name: Application de TLS 1.2
       href: reference-connect-tls-enforcement.md
+    - name: Référence ADSync
+      href: reference-connect-adsync.md
     - name: Référence ADSyncConfig
       href: reference-connect-adsyncconfig.md
     - name: Référence ADSyncTools

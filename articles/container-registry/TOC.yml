@@ -139,8 +139,6 @@
               displayName: 'permissions, authorization'
             - name: Approbation du contenu
               href: container-registry-content-trust.md
-            - name: Analyse des images avec Security Center
-              href: ../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json
         - name: Registres et autres services Azure
           expanded: false
           items:
@@ -157,6 +155,13 @@
               href: monitor-service.md
             - name: Auditer la conformité avec Azure Policy
               href: container-registry-azure-policy.md
+            - name: Analyser des images conteneur
+              expanded: false
+              items:
+                - name: Analyser avec Azure Defender
+                  href: scan-images-defender.md
+                - name: Analyser avec GitHub Actions
+                  href: github-action-scan.md
         - name: Dépanner
           expanded: false
           items:

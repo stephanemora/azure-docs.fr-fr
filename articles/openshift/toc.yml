@@ -48,6 +48,8 @@
           href: configure-azure-ad-ui.md
         - name: Mettre à jour un secret de tirage pour un cluster ARO
           href: howto-add-update-pull-secret.md
+        - name: Effectuer une rotation des informations d’identification du principal de service pour un cluster Azure Red Hat OpenShift (ARO)
+          href: howto-service-principal-credential-rotation.md
     - name: Sauvegarde et restauration
       items:
         - name: Créer une sauvegarde d’une application cluster avec Velero
@@ -120,7 +122,7 @@
 - name: Ressources
   items:
     - name: Forum aux questions
-      href: openshift-faq.md
+      href: openshift-faq.yml
     - name: Résolution des problèmes
       href: troubleshoot.md
     - name: "Politiques de support pour ARO\_4"

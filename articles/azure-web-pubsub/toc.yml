@@ -7,7 +7,7 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Tester la démonstration en direct
+    - name: Essayer la démonstration en direct de salon de conversation
       href: quickstart-live-demo.md
     - name: Démarrer avec une application simple serverless de salon de conversation
       href: quickstart-serverless.md

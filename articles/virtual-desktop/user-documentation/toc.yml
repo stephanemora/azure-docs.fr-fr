@@ -1,0 +1,18 @@
+- name: Accéder à Windows Virtual Desktop
+  href: index.yml
+- name: Procédures
+  items:
+    - name: Se connecter avec le client Windows Desktop
+      href: connect-windows-7-10.md
+    - name: Se connecter avec le client web
+      href: connect-web.md
+    - name: Se connecter avec le client Android
+      href: connect-android.md
+    - name: Se connecter avec le client macOS
+      href: connect-macos.md
+    - name: Se connecter avec le client iOS
+      href: connect-ios.md
+    - name: Se connecter avec le client Microsoft Store
+      href: connect-microsoft-store.md
+    - name: Se connecter avec des clients légers
+      href: linux-overview.md

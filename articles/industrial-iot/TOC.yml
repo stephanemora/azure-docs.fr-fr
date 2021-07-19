@@ -22,8 +22,8 @@
           href: tutorial-deploy-industrial-iot-platform.md
         - name: Configurer les composants IIoT
           href: tutorial-configure-industrial-iot-components.md
-        - name: Extraire les données IIoT dans ADX
-          href: tutorial-industrial-iot-azure-data-explorer.md
+        - name: Utilisation de l’IoT industriel pour tirer (pull) des données dans Azure Data Explorer
+          href: tutorial-data-explorer-import.md
         - name: Visualiser et analyser les données avec Time Series Insights
           href: tutorial-visualize-data-time-series-insights.md
 - name: Informations de référence

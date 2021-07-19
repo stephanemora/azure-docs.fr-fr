@@ -10,12 +10,12 @@ metadata:
   ms.service: dms
   ms.topic: landing-page
   ms.custom: seo-azure-migrate
-  ms.openlocfilehash: ee391bd02762b1a76edf33d5dda5ba49a9147c23
-  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.openlocfilehash: 27ed450f436ef75799eb9ca3d5d3e6fd67240785
+  ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111967831"
+  ms.lasthandoff: 06/23/2021
+  ms.locfileid: "112522362"
 landingContent:
 - title: Présentation d’Azure Database Migration Service
   linkLists:
@@ -87,10 +87,10 @@ landingContent:
       url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
     - text: Migrer entre instances d’Azure DB pour PostgreSQL en ligne par le biais du portail
       url: tutorial-azure-postgresql-to-azure-postgresql-online-portal.md
-    - text: Migrer vers Azure DB pour MySQL - En ligne
-      url: tutorial-mysql-azure-mysql-online.md
-    - text: Migrer RDS MySQL vers Azure DB pour MySQL - en ligne
-      url: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
+    - text: Migrer vers Azure DB pour MySQL - hors connexion
+      url: tutorial-mysql-azure-mysql-offline-portal.md
+    - text: Migrer RDS MySQL vers Azure DB pour MySQL - hors connexion
+      url: tutorial-mysql-azure-mysql-offline-portal.md
     - text: Migrer vers l’API Mongo Azure Cosmos DB - en ligne
       url: tutorial-mongodb-cosmos-db-online.md
     - text: Migrer vers l’API Mongo Azure Cosmos DB - hors connexion
@@ -99,8 +99,6 @@ landingContent:
     links:
     - text: Problèmes connus - Migration en ligne vers Azure DB pour PostgreSQL
       url: known-issues-azure-postgresql-online.md
-    - text: Problèmes connus - Migration en ligne vers Azure DB pour MySQL
-      url: known-issues-azure-mysql-online.md
     - text: Problèmes connus - Migration de MongoDB vers Azure Cosmos DB
       url: known-issues-mongo-cosmos-db.md
   - linkListType: video

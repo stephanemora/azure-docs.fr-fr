@@ -69,6 +69,16 @@
               href: ../virtual-machines/workloads/sap/troubleshooting-monitoring.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
             - name: Surveillance et dépannage à partir de HANA
               href: ../virtual-machines/workloads/sap/hana-monitor-troubleshoot.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: Vue d’ensemble d’Azure Monitor pour SAP Solutions
+              href: ../virtual-machines/workloads/sap/azure-monitor-overview.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: Fournisseurs Azure Monitor pour SAP Solutions
+              href: ../virtual-machines/workloads/sap/azure-monitor-providers.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: Déployer Azure Monitor pour SAP Solutions - Portail Azure
+              href: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: Déployer Azure Monitor pour SAP Solutions - Azure PowerShell
+              href: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart-powershell.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: Questions fréquentes (FAQ) sur Azure Monitor pour solutions SAP
+              href: ../virtual-machines/workloads/sap/azure-monitor-faq.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
         - name: Procédures
           items:
             - name: Configuration de la haute disponibilité avec STONITH

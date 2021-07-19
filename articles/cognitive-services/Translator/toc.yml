@@ -90,14 +90,20 @@
   items:
     - name: "Qu’est-ce que la traduction de documents\_?"
       href: document-translation/overview.md
+    - name: Bibliothèques de client et kits SDK
+      href: document-translation/client-sdks.md
     - name: Démarrage rapide
       href: document-translation/get-started-with-document-translation.md
     - name: Guides pratiques
       items:
         - name: Créer des jetons SAS pour la traduction de documents
           href: document-translation/create-sas-tokens.md
-    - name: Informations de référence
+        - name: Créer et utiliser une identité managée
+          href: document-translation/managed-identity.md
+    - name: Référence
       items:
+        - name: Guide de référence sur les API REST
+          href: document-translation/reference/rest-api-guide.md
         - name: Obtenir les formats de document pris en charge
           href: document-translation/reference/get-supported-document-formats.md
         - name: Obtenir les formats de glossaire pris en charge

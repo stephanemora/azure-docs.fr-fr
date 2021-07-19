@@ -1,0 +1,43 @@
+### YamlMime:Landing
+title: Documentation sur le service NAT de réseau virtuel
+summary: Apprenez à utiliser le service NAT de réseau virtuel Azure. Apprenez à déployer une passerelle NAT avec des guides de démarrage rapide, des tutoriels, des exemples, etc.
+metadata:
+  title: Documentation sur le service NAT de réseau virtuel Azure - Tutoriels, guides de démarrage rapide, informations de référence sur les API
+  description: Apprenez à utiliser le service NAT de réseau virtuel Azure. Apprenez à déployer une passerelle NAT avec des guides de démarrage rapide, des tutoriels, des exemples, etc.
+  services: virtual-network
+  ms.service: virtual-network
+  ms.subservice: nat
+  ms.topic: landing-page
+  ms.collection: collection
+  author: asudbring
+  ms.author: allensu
+  ms.date: 04/05/2021
+  ms.openlocfilehash: cb818fd91d9777a8579a6dd31189511b4ff472b2
+  ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 07/07/2021
+  ms.locfileid: "113438708"
+landingContent:
+- title: À propos du service NAT de Réseau virtuel Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation du service NAT de Réseau virtuel Azure
+      url: nat-overview.md
+  - linkListType: concept
+    links:
+    - text: Conception de réseaux virtuels avec des ressources de passerelle NAT
+      url: nat-gateway-resource.md
+- title: Bien démarrer
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Créer et valider une passerelle NAT
+      url: tutorial-create-nat-gateway-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Intégrer la passerelle NAT à un équilibreur de charge public
+      url: tutorial-nat-gateway-load-balancer-public-portal.md
+    - text: Intégrer la passerelle NAT à un équilibreur de charge interne
+      url: tutorial-nat-gateway-load-balancer-internal-portal.md

@@ -25,6 +25,8 @@
   items:
     - name: Gérer les paramètres et les préférences du portail Azure
       href: set-preferences.md
+    - name: Gérer les paramètres du portail Azure (ancienne version)
+      href: original-preferences.md
     - name: 'Ajouter, supprimer et trier des favoris'
       href: azure-portal-add-remove-sort-favorites.md
     - name: Afficher et filtrer les informations sur les ressources
@@ -74,7 +76,7 @@
   items:
     - name: Raccourcis clavier
       href: azure-portal-keyboard-shortcuts.md
-    - name: Mettre sur liste fiable les URL du portail Azure
+    - name: URL du portail Azure
       href: azure-portal-safelist-urls.md
     - name: Structure des tableaux de bord Azure
       href: azure-portal-dashboards-structure.md

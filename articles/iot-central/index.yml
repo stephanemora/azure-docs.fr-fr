@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   ms.date: 09/02/2021
   ms.custom: contperf-fy21q3
-  ms.openlocfilehash: b863c90897fb9fdd67ced188747f31411d37bdac
-  ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+  ms.openlocfilehash: 76c00322bd14c20b85ecd6d248fb5d35b226aace
+  ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/25/2021
-  ms.locfileid: "105109146"
+  ms.lasthandoff: 07/09/2021
+  ms.locfileid: "113587987"
 landingContent:
 - title: À propos d’Azure IoT Central
   linkLists:
@@ -58,8 +58,6 @@ landingContent:
       url: core/concepts-telemetry-properties-commands.md
   - linkListType: how-to-guide
     links:
-    - text: Connecter un appareil Azure Sphere
-      url: core/howto-connect-sphere.md
     - text: Résolution des problèmes de connectivité des appareils
       url: core/troubleshoot-connection.md
 - title: Créer des solutions intégrées
@@ -75,13 +73,11 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Créer un tableau de bord
-      url: core/howto-create-personal-dashboards.md
+      url: core/howto-manage-dashboards.md
     - text: Analyser les données de votre appareil
       url: core/howto-create-analytics.md
     - text: Exporter des données vers des destinations cloud
       url: core/howto-export-data.md
-    - text: Déplacer des appareils depuis IoT Hub
-      url: core/how-to-move-device-to-iot.md
   - linkListType: reference
     links:
     - text: API REST
@@ -98,10 +94,10 @@ landingContent:
       url: core/tutorial-use-device-groups.md
   - linkListType: how-to-guide
     links:
-    - text: Ajouter, importer et exporter des appareils
-      url: core/howto-manage-devices.md
-    - text: Exécuter une tâche
-      url: core/howto-run-a-job.md
+    - text: Gérer des appareils individuellement
+      url: core/howto-manage-devices-individually.md
+    - text: Gérer des appareils en bloc
+      url: core/howto-manage-devices-in-bulk.md
 - title: Administration
   linkLists:
   - linkListType: overview
@@ -114,8 +110,6 @@ landingContent:
       url: core/howto-administer.md
     - text: Gérer les utilisateurs et les rôles
       url: core/howto-manage-users-roles.md
-    - text: Consulter votre facture
-      url: core/howto-view-bill.md
     - text: Personnaliser l’interface utilisateur de l’application
       url: core/howto-customize-ui.md
   - linkListType: sample
@@ -138,6 +132,8 @@ landingContent:
       url: /learn/modules/manage-iot-central-apps-with-rest-api/
     - text: 'Module Learn : Configurer l’exportation continue des données depuis Azure IoT Central vers une application Power BI'
       url: /learn/modules/continuously-export-data-from-iot-central-power-bi/
+    - text: 'Module Learn : Connecter un appareil IoT Edge à votre application IoT Central'
+      url: /learn/modules/connect-iot-edge-device-to-iot-central/
 - title: Modèles d’applications par secteur
   linkLists:
   - linkListType: tutorial

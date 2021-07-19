@@ -46,9 +46,9 @@
     - name: Passerelle NAT
       items:
         - name: "Intégrer l’équilibreur de charge public de la passerelle\_NAT"
-          href: ../virtual-network/tutorial-nat-gateway-load-balancer-public-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+          href: ../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-public-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
         - name: "Intégrer l’équilibreur de charge interne de la passerelle\_NAT"
-          href: ../virtual-network/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+          href: ../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
     - name: Back-end basé sur IP
       items:
         - name: "Créer un équilibreur de charge public avec un back-end basé sur\_IP\_- Portail Azure"
@@ -75,14 +75,16 @@
       href: skus.md
     - name: Surveillance de l’intégrité
       items:
+        - name: Superviser l’équilibreur de charge
+          href: monitor-load-balancer.md
+        - name: Informations de référence sur les données de supervision
+          href: monitor-load-balancer-reference.md
         - name: Sondes d’intégrité
           href: load-balancer-custom-probe-overview.md
         - name: Azure Monitor Insights pour Load Balancer
           href: load-balancer-insights.md
         - name: Mesures et diagnostics de l’équilibreur de charge standard
           href: load-balancer-standard-diagnostics.md
-        - name: Journaux Azure Monitor pour Load Balancer
-          href: load-balancer-monitor-log.md
         - name: Obtenir les métriques d’équilibreur de charge Load Balancer avec REST
           href: load-balancer-query-metrics-rest-api.md
     - name: Ports à haute disponibilité
@@ -220,4 +222,4 @@
     - name: Mises à jour produit
       href: 'https://azure.microsoft.com/updates/?product=load-balancer'
     - name: Questions fréquentes (FAQ)
-      href: load-balancer-faqs.md
+      href: load-balancer-faqs.yml

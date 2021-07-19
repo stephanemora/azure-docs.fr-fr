@@ -251,7 +251,7 @@
         - name: Équilibreur de charge - public
           href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Passerelle NAT
-          href: ../../virtual-network/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+          href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Point de terminaison privé
           href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Service de liaison privée
@@ -293,7 +293,7 @@
     - name: Types de données
       href: data-types.md
     - name: Forum aux questions
-      href: frequently-asked-questions.md
+      href: frequently-asked-questions.yml
     - name: Modèles pour la cohérence du cloud
       href: template-cloud-consistency.md
     - name: Modes de déploiement
@@ -346,16 +346,16 @@
         - name: Créer plusieurs instances
           items:
             - name: Ressources
-              displayName: 'iteration,copy,multiple'
+              displayName: 'iteration,copy'
               href: copy-resources.md
             - name: Propriétés
-              displayName: 'iteration,copy,multiple'
+              displayName: 'iteration,copy'
               href: copy-properties.md
             - name: Variables
-              displayName: 'iteration,copy,multiple'
+              displayName: 'iteration,copy'
               href: copy-variables.md
             - name: Sorties
-              displayName: 'iteration,copy,multiple'
+              displayName: 'iteration,copy'
               href: copy-outputs.md
     - name: Déployer des modèles
       items:
@@ -413,6 +413,8 @@
           href: test-toolkit.md
         - name: Scénarios de test
           href: test-cases.md
+        - name: Cas de test CreateUiDefinition
+          href: createuidefinition-test-cases.md
     - name: Spécifications de modèle
       items:
         - name: Créer et déployer des spécifications de modèle

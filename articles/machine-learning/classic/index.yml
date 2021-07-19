@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentation Azure Machine Learning Studio (classique)
+title: Documentation sur Machine Learning Studio (classique)
 summary: Machine Learning Studio (classique) est un outil fonctionnant par glisser-déplacer qui vous permet de générer, tester et déployer des solutions d’analytique prédictive.
 metadata:
   title: Documentation Machine Learning Studio (classique) - Azure
@@ -12,12 +12,12 @@ metadata:
   ms.author: peterlu
   author: peterclu
   ms.date: 03/05/2020
-  ms.openlocfilehash: 27be00a986b27f4203e2cbfce568603aa7880802
-  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+  ms.openlocfilehash: 34cebaa3b352d64ba5ebeadbc1fc84c5e53bfefe
+  ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100520338"
+  ms.lasthandoff: 06/24/2021
+  ms.locfileid: "112581247"
 landingContent:
 - title: Bien démarrer avec Studio (classique)
   linkLists:
