@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.author: rabhaiya
-ms.openlocfilehash: f17223fbada3dabbf0126f6f841e36ace6d0215c
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 7f6fb6abdf2e73985b8c15e63af588b20feb4f45
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112283858"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297982"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Tutoriel : Recevoir des données d’appareil via Azure IoT Hub
 
@@ -23,7 +23,7 @@ Le Connecteur Azure IoT pour Fast Healthcare Interoperability Resources (FHIR&#1
 
 - Un abonnement Azure actif - [En créer un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Une ressource d’API Azure pour FHIR avec au moins un Connecteur Azure IoT pour FHIR - [Déployer le Connecteur Azure IoT pour FHIR (préversion) à l’aide du portail Azure](iot-fhir-portal-quickstart.md)
-- Une ressource Azure IoT Hub connectée à un ou plusieurs appareils réels ou simulés - [Créer un hub IoT à l’aide du portail Azure](../../iot-hub/quickstart-send-telemetry-dotnet.md)
+- Une ressource Azure IoT Hub connectée à un ou plusieurs appareils réels ou simulés - [Créer un hub IoT à l’aide du portail Azure](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 
 > [!TIP]
 > Si vous utilisez une application d’appareil simulé Azure IoT Hub, vous pouvez librement choisir entre les différents langages et systèmes pris en charge.

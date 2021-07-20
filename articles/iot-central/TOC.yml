@@ -8,6 +8,8 @@
       href: core/overview-iot-central-tour.md
     - name: Mises à jour récentes
       items:
+        - name: "Fonctionnalités nouvelles et mises à jour - Mai\_2021"
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-may-2021/'
         - name: "Fonctionnalités nouvelles et mises à jour - Avril\_2021"
           href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-april-2021/'
         - name: "Fonctionnalités nouvelles et mises à jour - Mars\_2021"
@@ -45,12 +47,10 @@
   items:
     - name: 1. Créer une application
       href: core/quick-deploy-iot-central.md
-    - name: 2. Utiliser un appareil simulé
-      href: core/quick-create-simulated-device.md
-    - name: 3. Configurer des règles et des actions
+    - name: 2. Configurer des règles et des actions
       href: core/quick-configure-rules.md
-    - name: 4. Superviser vos appareils
-      href: core/quick-monitor-devices.md
+    - name: 3. Exporter des données
+      href: core/quick-export-data.md
 - name: Tutoriels
   items:
     - name: Développer et connecter des appareils
@@ -60,7 +60,7 @@
         - name: Créer un modèle d’appareil de passerelle
           href: core/tutorial-define-gateway-device-type.md
         - name: Connecter un appareil IoT Edge
-          href: core/tutorial-add-edge-as-leaf-device.md
+          href: /learn/modules/connect-iot-edge-device-to-iot-central
     - name: Créer des solutions intégrées
       items:
         - name: Créer un groupe d’appareils
@@ -197,10 +197,10 @@
       href: core/concepts-best-practices.md
 - name: Guides pratiques
   items:
+    - name: Créer une application
+      href: core/howto-create-iot-central-application.md
     - name: Développer et connecter des appareils
       items:
-        - name: Créer une application
-          href: core/howto-create-iot-central-application.md
         - name: Configurer un modèle d’appareil
           href: core/howto-set-up-template.md
         - name: Modifier un modèle d’appareil
@@ -216,21 +216,19 @@
         - name: Connecter des appareils via une passerelle transparente IoT Edge
           href: core/how-to-connect-iot-edge-transparent-gateway.md
         - name: Préparer et connecter un kit de développement Azure Sphere
-          href: core/howto-connect-sphere.md
+          href: /azure-sphere/app-development/setup-iot-central
         - name: Préparer et connecter un appareil RuuviTag
           href: core/howto-connect-ruuvi.md
         - name: "Préparer et connecter un Rigado Cascade\_500"
           href: core/howto-connect-rigado-cascade-500.md
     - name: Créer des solutions intégrées
       items:
-        - name: Ajouter des vignettes à votre tableau de bord
-          href: core/howto-add-tiles-to-your-dashboard.md
+        - name: Créer des tableaux de bord
+          href: core/howto-manage-dashboards.md
+        - name: Utiliser les données de localisation
+          href: core/howto-use-location-data.md
         - name: Configurer des règles
           href: core/howto-configure-rules.md
-        - name: Créer des webhooks sur des règles
-          href: core/howto-create-webhooks.md
-        - name: Connecter des groupes d’actions Azure Monitor sur des règles
-          href: core/howto-use-action-groups.md
         - name: Analyser les données de votre appareil
           href: core/howto-create-analytics.md
         - name: Exporter des données vers des destinations cloud
@@ -259,60 +257,42 @@
           href: core/howto-manage-users-roles-with-rest-api.md
         - name: Contrôle les appareils
           href: core/howto-control-devices-with-rest-api.md
+        - name: Gestion des travaux
+          href: core/howto-manage-jobs-with-rest-api.md
     - name: Gestion de vos appareils
       items:
-        - name: Ajouter et supprimer des appareils
-          href: core/howto-manage-devices.md
-        - name: Exécuter une tâche
-          href: core/howto-run-a-job.md
-        - name: Déplacer des appareils depuis IoT Hub
-          href: core/how-to-move-device-to-iot.md
+        - name: Gérer des appareils individuellement
+          href: core/howto-manage-devices-individually.md
+        - name: Gérer des appareils en bloc
+          href: core/howto-manage-devices-in-bulk.md
     - name: Administrer votre solution
       items:
         - name: Changer les paramètres d’application
           href: core/howto-administer.md
         - name: Gérer les utilisateurs et les rôles
           href: core/howto-manage-users-roles.md
-        - name: Gérer votre facture
-          href: core/howto-view-bill.md
         - name: Personnaliser l’interface utilisateur de l’application
           href: core/howto-customize-ui.md
-        - name: Exporter votre application
-          href: core/howto-use-app-templates.md
         - name: Migrer une application V2 vers V3
           href: core/howto-migrate.md
-        - name: Superviser l’intégrité de l’application
-          href: core/howto-monitor-application-health.md
-        - name: À propos de votre application
-          href: core/howto-get-app-info.md
         - name: Configurer et utiliser des chargements de fichiers
           href: core/howto-configure-file-uploads.md
-        - name: "Déployer des certificats\_X.509"
-          href: core/how-to-roll-x509-certificates.md
-        - name: Gérer à partir du portail Azure
+        - name: Gérer et superviser dans le portail Azure
           href: core/howto-manage-iot-central-from-portal.md
-        - name: Gérer à partir d’Azure CLI
+        - name: Gérer à partir de la ligne de commande
           href: core/howto-manage-iot-central-from-cli.md
-        - name: Gérer à partir d’Azure PowerShell
-          href: core/howto-manage-iot-central-from-powershell.md
-        - name: Gérer par programme
-          href: core/howto-manage-iot-central-programmatically.md
         - name: Gérer à partir du portail CSP
           href: core/howto-create-and-manage-applications-csp.md
-    - name: Personnaliser votre solution
-      items:
-        - name: Créer un tableau de bord personnel
-          href: core/howto-create-personal-dashboards.md
-        - name: Gérer vos préférences personnelles
-          href: core/howto-manage-preferences.md
-        - name: Activer ou désactiver les conversations en direct
-          href: core/howto-show-hide-chat.md
     - name: Dépanner
       items:
         - name: Connexions d’appareils
           href: core/troubleshoot-connection.md
     - name: Questions fréquentes (FAQ)
       href: core/howto-faq.md
+    - name: Gérer vos préférences personnelles
+      href: core/howto-manage-preferences.md
+    - name: Activer ou désactiver les conversations en direct
+      href: core/howto-show-hide-chat.md
 - name: Informations de référence
   items:
     - name: Azure CLI
