@@ -25,8 +25,10 @@
   items:
     - name: Planification d’un déploiement Azure Files
       href: storage-files-planning.md
-    - name: Protocoles de partage de fichiers disponibles
-      href: storage-files-compare-protocols.md
+    - name: Partages de fichiers SMB
+      href: files-smb-protocol.md
+    - name: Partages de fichiers NFS
+      href: files-nfs-protocol.md
     - name: Authentification et autorisation basées sur l’identité
       href: storage-files-active-directory-overview.md
     - name: Considérations réseau pour l’accès direct
@@ -35,26 +37,6 @@
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Instantanés de partage de fichiers Azure
       href: storage-snapshots-files.md
-    - name: Développement
-      items:
-        - name: Authentification par clé partagée
-          href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
-        - name: Signatures d’accès partagé (SAP)
-          href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Superviser et dépanner
-      items:
-        - name: Transition à partir de métriques classiques
-          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Supervision (classique)
-          items:
-            - name: Storage Analytics
-              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Mesures
-              href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Journaux d’activité
-              href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: 'Surveiller, diagnostiquer et résoudre les problèmes'
-              href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Performances et mise à l’échelle
       items:
         - name: Performances de SMB Multichannel
@@ -83,10 +65,10 @@
       items:
         - name: créer un partage de fichiers SMB
           href: storage-how-to-create-file-share.md
+        - name: Créer un partage de fichiers NFS
+          href: storage-files-how-to-create-nfs-shares.md
         - name: "Utiliser DFS-N avec Azure\_Files"
           href: files-manage-namespaces.md
-        - name: Créer un partage NFS
-          href: storage-files-how-to-create-nfs-shares.md
         - name: Instance de cluster de basculement SQL Server avec partages de fichiers Premium
           href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Acheter des réservations de stockage
@@ -141,8 +123,6 @@
       items:
         - name: Activer la suppression réversible
           href: storage-files-enable-soft-delete.md
-        - name: Changer le mode de réplication des données
-          href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Gérer la redondance des données
           items:
             - name: Changer le mode de réplication des données
@@ -217,8 +197,6 @@
       items:
         - name: Activer SMB Multichannel
           href: storage-files-enable-smb-multichannel.md
-        - name: Activer les partages de fichiers volumineux
-          href: storage-files-how-to-create-large-file-share.md
     - name: Développer
       items:
         - name: Configuration des chaînes de connexion
@@ -251,6 +229,10 @@
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Exiger un transfert sécurisé
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: "Désactiver SMB\_1 sur le client SMB Windows"
+          href: /windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Désactiver SMB sur le client SMB Linux
+          href: files-remove-smb1-linux.md
         - name: Gérer TLS (Transport Layer Security)
           items:
             - name: Appliquer la version TLS minimale pour les demandes entrantes
@@ -275,8 +257,6 @@
           href: storage-troubleshooting-files-performance.md
         - name: Résoudre les problèmes d’Azure Files sur Linux (NFS)
           href: storage-troubleshooting-files-nfs.md
-        - name: Résoudre les problèmes de suppression de partages de fichiers Azure
-          href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
         - name: Résoudre les problèmes de sauvegarde des partages de fichiers
           href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Informations de référence
@@ -306,6 +286,8 @@
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
     - name: Comparaison entre Azure Files et Azure NetApp Files
       href: storage-files-netapp-comparison.md
+    - name: 'Comparer l’accès avec NFS à Azure Files, Stockage Blob et NetApp Files'
+      href: ../common/nfs-comparison.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Packages NuGet (.NET)
       items:
         - name: "Microsoft.Azure.Storage.Common (version\_11.x)"

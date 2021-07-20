@@ -6,6 +6,8 @@
       href: overview.md
     - name: Nouveautés
       href: whats-new.md
+    - name: Nouveautés d’Azure Monitor
+      href: whats-new-azure-monitor.md
     - name: Documentation Azure Virtual Desktop (classique)
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutoriels
@@ -22,22 +24,22 @@
   items:
     - name: Migrer manuellement
       href: manual-migration.md
-    - name: Se connecter aux ressources Azure Virtual Desktop
+    - name: Se connecter à des ressources Azure Virtual Desktop
       items:
         - name: Se connecter avec le client Windows Desktop
-          href: connect-windows-7-10.md
+          href: ./user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Se connecter avec le client web
-          href: connect-web.md
+          href: ./user-documentation/connect-web.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Se connecter avec le client Android
-          href: connect-android.md
+          href: ./user-documentation/connect-android.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Se connecter avec le client macOS
-          href: connect-macos.md
+          href: ./user-documentation/connect-macos.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Se connecter avec le client iOS
-          href: connect-ios.md
+          href: ./user-documentation/connect-ios.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Se connecter avec le client Microsoft Store
-          href: connect-microsoft-store.md
+          href: ./user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Se connecter avec des clients légers
-          href: linux-overview.md
+          href: ./user-documentation/linux-overview.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Configurer des redirections d’appareil
       href: configure-device-redirections.md
     - name: Configurer le module PowerShell
@@ -138,6 +140,8 @@
       href: drain-mode.md
 - name: Concepts
   items:
+    - name: Recommandations en matière de gestion
+      href: management.md
     - name: Rôles intégrés
       href: rbac.md
     - name: Authentification
@@ -212,12 +216,12 @@
       href: remotefx-graphics-performance-counters.md
     - name: Azure Monitor
       href: troubleshoot-azure-monitor.md
+    - name: Problèmes de gestion
+      href: troubleshoot-management-issues.md
 - name: Informations de référence
   items:
     - name: Bonnes pratiques de sécurité
       href: security-guide.md
-    - name: Prise en charge Linux
-      href: linux-overview.md
     - name: Azure CLI
       href: /cli/azure/desktopvirtualization
     - name: Estimer les coûts d’Azure Monitor

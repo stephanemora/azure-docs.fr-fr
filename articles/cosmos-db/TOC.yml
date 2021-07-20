@@ -698,6 +698,10 @@
               href: how-to-define-unique-keys.md
             - name: Effectuer des opérations de traitement par lots transactionnelles
               href: transactional-batch.md
+        - name: Bonnes pratiques
+          items:
+            - name: .NET
+              href: best-practice-dotnet.md
         - name: Performances
           items:
             - name: Requête
@@ -769,6 +773,8 @@
                   href: troubleshoot-dot-net-sdk-request-header-too-large.md
                 - name: Résoudre les problèmes d’expiration de demande
                   href: troubleshoot-dot-net-sdk-request-timeout.md
+                - name: Résoudre les problèmes liés aux demandes lentes
+                  href: troubleshoot-dot-net-sdk-slow-request.md
                 - name: Résoudre les problèmes de service indisponible
                   href: troubleshoot-service-unavailable.md
             - name: .Java
@@ -915,7 +921,7 @@
               href: sql-api-sdk-java-spring-v2.md
             - name: "Spring Data Connector\_v3"
               href: sql-api-sdk-java-spring-v3.md
-            - name: "Connecteur OLTP Spark\_3 (préversion)"
+            - name: "Connecteur OLTP Spark\_3"
               href: sql-api-sdk-java-spark-v3.md
             - name: "Connecteur OLTP Spark\_2"
               href: sql-api-sdk-java-spark.md
@@ -930,7 +936,7 @@
         - name: REST (plan de données)
           href: /rest/api/cosmos-db/
         - name: REST (plan de gestion)
-          href: /rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-15/sql-resources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Modèle Resource Manager
@@ -1014,6 +1020,8 @@
           href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Résolution des problèmes courants
           href: cassandra-troubleshoot.md
+        - name: Superviser avec des journaux de diagnostic
+          href: queries-cassandra.md
         - name: Cassandra et Spark
           items:
             - name: Introduction
@@ -1048,7 +1056,7 @@
     - name: Informations de référence
       items:
         - name: Fournisseur de ressources REST
-          href: /rest/api/cosmos-db-resource-provider/2021-04-15/cassandraresources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-15/cassandra-resources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Modèle Resource Manager
@@ -1125,6 +1133,8 @@
               href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Database Migration Service (hors ligne)
               href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Azure Databricks et Spark (hors connexion)
+              href: mongodb-migrate-databricks.md
             - name: Guide de post-migration
               href: mongodb-post-migration.md
         - name: Mettre à niveau vers la version 4.0 ou 3.6 de l’API
@@ -1153,6 +1163,8 @@
         - name: Estimer les RU/s avec Capacity Planner
           displayName: 'request units, RUs, RU, capacity'
           href: mongodb/estimate-ru-capacity-planner.md
+        - name: Optimiser les performances d’écriture
+          href: mongodb/optimize-write-performance.md
         - name: Créer un conteneur - API MongoDB
           href: how-to-create-container-mongodb.md
         - name: Provisionner le débit - API MongoDB
@@ -1161,6 +1173,8 @@
         - name: Rechercher des frais d’unités de requête
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge-mongodb.md
+        - name: Superviser avec des journaux de diagnostic
+          href: queries-mongo.md
         - name: Dépannage de la performance des requêtes
           href: mongodb-troubleshoot-query.md
         - name: Résolution des problèmes courants
@@ -1182,7 +1196,7 @@
     - name: Informations de référence
       items:
         - name: Fournisseur de ressources REST
-          href: /rest/api/cosmos-db-resource-provider/2021-04-15/mongodbresources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-15/mongo-db-resources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Modèle Resource Manager
@@ -1250,6 +1264,8 @@
           href: how-to-access-system-properties-gremlin.md
         - name: Visualiser les données de graphe
           href: graph-visualization.md
+        - name: Superviser avec des journaux de diagnostic
+          href: queries-gremlin.md
         - name: Stocker et gérer Spring Data
           href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Gérer avec des modèles Resource Manager
@@ -1266,7 +1282,7 @@
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Fournisseur de ressources REST
-          href: /rest/api/cosmos-db-resource-provider/2021-04-15/gremlinresources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-15/gremlin-resources
         - name: Modèle Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
         - name: Azure CLI
@@ -1330,8 +1346,6 @@
         - name: Rechercher des frais d’unités de requête
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge-table.md
-        - name: Guide de conception du stockage de tables
-          href: table-storage-design-guide.md
         - name: Gérer avec des modèles Resource Manager
           href: templates-samples-table.md
           displayName: ARM
@@ -1480,6 +1494,8 @@
               href: cosmosdb-monitor-resource-logs.md
             - name: Résoudre les problèmes avec des requêtes simples
               href: cosmosdb-monitor-logs-basic-queries.md
+            - name: Résoudre les problèmes avec des requêtes avancées
+              href: cosmos-db-advanced-queries.md
             - name: Auditer les journaux du plan de contrôle
               href: audit-control-plane-logs.md
         - name: Configurer des alertes

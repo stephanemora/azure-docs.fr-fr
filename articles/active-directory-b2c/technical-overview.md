@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/07/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29fc4028308d2d1fd9a23aa37d635f6b9fb0e68c
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 7fb3dcb07b8b868dda7bfef587b930765c4f661e
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111570650"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112199235"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Vue d’ensemble technique et fonctionnelle d’Azure Active Directory B2C
 
@@ -28,14 +28,14 @@ Dans Azure Active Directory B2C (Azure AD B2C), un *locataire* représente votre
 Les ressources principales que vous utilisez dans un locataire Azure AD B2C sont les suivantes :
 
 * **Annuaire** – L’*annuaire* est là où Azure AD B2C stocke les informations d’identification et les données de profil de vos utilisateurs, ainsi que les inscriptions de vos applications.
-* **Inscriptions d’applications** : vous inscrivez vos applications web, mobiles et natives auprès d’Azure AD B2C pour activer la gestion des identités. Il en va de même pour toute API que vous souhaitez protéger avec Azure AD B2C.
-* **Flux utilisateur** et **stratégies personnalisées** : il s’agit des expériences d’identités intégrées (flux utilisateur) et entièrement personnalisables (stratégies personnalisées) pour vos applications.
-  * Utilisez les *flux utilisateur* pour une configuration rapide et l’activation de tâches d’identité courantes, telles que l’inscription, la connexion et la modification de profil.
-  * Utilisez les *stratégies personnalisées* pour des workflows d’identités complexes, propres à votre organisation, à vos clients, employés, partenaires et citoyens.
-* **Fournisseurs d’identités** : les paramètres de fédération pour les acteurs suivants :
-  * les fournisseurs d’identités *de réseau social*, comme Facebook, LinkedIn ou Twitter, que vous souhaitez prendre en charge dans vos applications ;
-  * les fournisseurs d’identités *externes* qui prennent en charge les protocoles d’identité standard, tels que OAuth 2.0, OpenID Connect, etc.
-  * les comptes *locaux* qui permettent aux utilisateurs de s’inscrire et de se connecter au moyen d’un nom d’utilisateur (d’une adresse e-mail ou d’un autre ID) et d’un mot de passe.
+* **Inscriptions d’applications** : inscrivez vos applications web, mobiles et natives auprès d’Azure AD B2C pour activer la gestion des identités. Vous pouvez également inscrire toute API que vous souhaitez protéger avec Azure AD B2C.
+* **Flux d’utilisateurs** et **stratégies personnalisées** : créez des expériences d’identité pour vos applications avec des flux d’utilisateurs intégrés et des stratégies personnalisées entièrement configurables :
+  * Les **flux d’utilisateurs** permettent de rapidement activer des tâches d’identité courantes, telles que l’inscription, la connexion et la modification de profil.
+  * Les **stratégies personnalisées** permettent de créer des workflows d’identité complexes, propres à votre organisation, à vos clients, employés, partenaires et citoyens.
+* **Options de connexion** : Azure AD B2C offre différentes [options d’inscription et de connexion](sign-in-options.md) pour les utilisateurs de vos applications :
+  * **Nom d’utilisateur, adresse de messagerie et connexion par téléphone** : configurez vos comptes locaux Azure AD B2C pour autoriser l’inscription et la connexion avec un nom d’utilisateur, une adresse de messagerie, un numéro de téléphone ou une combinaison de méthodes.
+  * **Fournisseurs d’identité sociale** : fédérez avec des fournisseurs de réseaux sociaux tels que Facebook, LinkedIn ou Twitter.
+  * **Fournisseurs d’identité externes** : fédérez avec des protocoles d’identité standard, tels que OAuth 2.0, OpenID Connect, etc.
 * **Clés** : ajoutez et gérez des clés de chiffrement pour la signature et la validation des jetons, des secrets clients, des certificats et des mots de passe.
 
 Un locataire Azure AD B2C est la première ressource que vous devez créer pour commencer à utiliser Azure AD B2C. Découvrez comment :
@@ -72,7 +72,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des comptes d’utilisat
 
 Azure AD B2C propose différents moyens d’authentifier des utilisateurs. Les utilisateurs peuvent se connecter à un compte local en utilisant un nom d’utilisateur et un mot de passe, et une vérification par téléphone (également appelée authentification sans mot de passe). L’inscription par e-mail est activée par défaut dans les paramètres du fournisseur d’identité de votre compte local.
 
-Pour plus d’informations, consultez [Configurer le fournisseur d’identité du compte local](identity-provider-local.md).
+Apprenez-en davantage sur les [options de connexion](sign-in-options.md) ou la [configuration du fournisseur d’identité de compte local](identity-provider-local.md).
 
 ## <a name="user-profile-attributes"></a>Attributs de profil utilisateur
 

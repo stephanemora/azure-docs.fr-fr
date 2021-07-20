@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: memildin
-ms.openlocfilehash: 01036343e2585adf7c09ad3f0d236948a537fc29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea5522cfd8f407ffd7259335706cc69555ce2329
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103016557"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238241"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Activer Security Center sur tous les abonnements d’un groupe d’administration
 
@@ -22,18 +22,18 @@ Pour intégrer un groupe d’administration et tous ses abonnements :
 
 1. En tant qu’utilisateur disposant des autorisations **Administration de sécurité**, ouvrez Azure Policy et recherchez la définition **Activer Azure Security Center sur votre abonnement**.
 
-    :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="Définition Azure Policy Activer Azure Security Center sur votre abonnement":::
+    :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="Définition Azure Policy Activer Azure Security Center sur votre abonnement.":::
 
 1. Sélectionnez **Affecter** et veillez à définir l’étendue sur le niveau du groupe d’administration.
 
-    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Affectation de la définition Activer Azure Security Center sur votre abonnement":::
+    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Affectation de la définition Activer Azure Security Center sur votre abonnement.":::
 
     > [!TIP]
     > Hormis l’étendue, il n’existe aucun paramètre obligatoire.
 
 1. Sélectionnez **Créer une tâche de correction** afin que soient intégrés tous les abonnements existants pour lesquels Security Center n’est pas activé.
 
-    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Création d’une tâche de correction pour la définition Azure Policy Activer Azure Security Center sur votre abonnement":::
+    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Création d’une tâche de correction pour la définition Azure Policy Activer Azure Security Center sur votre abonnement.":::
 
 1. Quand la définition est assignée, elle effectue les opérations suivantes :
 

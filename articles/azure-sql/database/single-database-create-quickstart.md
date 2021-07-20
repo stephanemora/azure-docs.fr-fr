@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 01/27/2021
-ms.openlocfilehash: 51c7f4fe8a82e1960e51312d8d806cbff5ba0a0c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 98d692c304c4d25412dcaf26fd0779b1b446e252
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693068"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113218058"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Démarrage rapide : Créer une base de données Azure SQL
 
@@ -27,6 +27,7 @@ Dans ce guide de démarrage rapide, vous créez une [base de données unique](si
 ## <a name="prerequisite"></a>Configuration requise
 
 - Un abonnement Azure actif. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/).
+- Vous pouvez également avoir besoin de la dernière version d’[Azure PowerShell](/powershell/azure/install-az-ps) ou d’[Azure CLI](/cli/azure/install-azure-cli-windows), selon la méthode de création que vous choisissez. 
 
 ## <a name="create-a-single-database"></a>Créer une base de données unique
 

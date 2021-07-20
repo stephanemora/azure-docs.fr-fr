@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 16902a8733c4b4d423deb47c5a8980284d8e690e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f7b09c47d94443edc81a66028fa687aa48e843e7
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964073"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113002339"
 ---
 # <a name="configure-auto-provisioning-for-agents-and-extensions-from-azure-security-center"></a>Configurer le provisionnement automatique d’agents et d’extensions depuis Azure Security Center
 
@@ -28,7 +28,7 @@ Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à 
 | État de sortie :          | **Caractéristique** : Le provisionnement automatique est en disponibilité générale<br>**Agent et extensions** : L’agent Log Analytics pour les machines virtuelles Azure est en disponibilité générale, Microsoft Dependency Agent est en préversion, le module complémentaire Policy pour Kubernetes est en disponibilité générale                |
 | Prix :                | Gratuit                                                                                                                                                                                                                         |
 | Destinations prises en charge : | ![Oui](./media/icons/yes-icon.png) Machines Azure<br>![Non](./media/icons/no-icon.png) Machines Azure Arc<br>![Non](./media/icons/no-icon.png) Nœuds Kubernetes<br>![Non](./media/icons/no-icon.png) Virtual Machine Scale Sets |
-| Clouds :                 | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov, China Gov, autres Gov                                                                                                      |
+| Clouds :                 | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov, Azure Chine                                                                                                      |
 |                         |                                                                                                                                                                                                                              |
 
 ## <a name="how-does-security-center-collect-data"></a>Comment Security Center collecte-t-il des données ?
@@ -69,11 +69,11 @@ Pour activer le provisionnement automatique de l’agent Log Analytics :
 1. Sélectionnez l’abonnement approprié.
 1. Dans la page **Provisionnement automatique**, définissez l’état de l’agent Log Analytics sur **Activé**.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Activation du provisionnement automatique de l’agent Log Analytics":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Activation de l’approvisionnement automatique de l’agent Log Analytics.":::
 
 1. Dans le volet des options de configuration, définissez l’espace de travail à utiliser.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/log-analytics-agent-deploy-options.png" alt-text="Options de configuration du provisionnement automatique des agents Log Analytics sur les machines virtuelles" lightbox="./media/security-center-enable-data-collection/log-analytics-agent-deploy-options.png":::
+    :::image type="content" source="./media/security-center-enable-data-collection/log-analytics-agent-deploy-options.png" alt-text="Options de configuration du provisionnement automatique des agents Log Analytics sur les machines virtuelles." lightbox="./media/security-center-enable-data-collection/log-analytics-agent-deploy-options.png":::
 
     - **Connecter les machines virtuelles Azure aux espaces de travail par défaut créés par Security Center** – Security Center crée un groupe de ressources et un espace de travail par défaut dans la même zone géographique, et connecte l’agent à cet espace de travail. Si un abonnement contient des machines virtuelles de plusieurs zones géographiques, Security Center crée plusieurs espaces de travail pour garantir la conformité aux exigences de confidentialité des données.
 
@@ -86,9 +86,9 @@ Pour activer le provisionnement automatique de l’agent Log Analytics :
         > [!TIP]
         > Pour toute question concernant les espaces de travail par défaut, consultez :
         >
-        > - [Est-ce que je suis facturé pour Journaux Azure Monitor sur des espaces de travail créés par Security Center ?](/azure/security-center/faq-data-collection-agents.yml#am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center)
-        > - [Où est créé l’espace de travail Log Analytics par défaut ?](/azure/security-center/faq-data-collection-agents.yml#where-is-the-default-log-analytics-workspace-created)
-        > - [Puis-je supprimer les espaces de travail par défaut créés par Security Center ?](/azure/security-center/faq-data-collection-agents.yml#can-i-delete-the-default-workspaces-created-by-security-center)
+        > - [Est-ce que je suis facturé pour Journaux Azure Monitor sur des espaces de travail créés par Security Center ?](/azure/security-center/faq-data-collection-agents#am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center-)
+        > - [Où est créé l’espace de travail Log Analytics par défaut ?](/azure/security-center/faq-data-collection-agents#where-is-the-default-log-analytics-workspace-created-)
+        > - [Puis-je supprimer les espaces de travail par défaut créés par Security Center ?](/azure/security-center/faq-data-collection-agents#can-i-delete-the-default-workspaces-created-by-security-center-)
 
     - **Connecter les machines virtuelles Azure à un autre espace de travail** – Dans la liste déroulante, sélectionnez l’espace de travail où stocker les données collectées. La liste déroulante comprend tous les espaces de travail de tous vos abonnements. Vous pouvez utiliser cette option pour collecter les données de machines virtuelles qui s’exécutent dans différents abonnements et les stocker dans l’espace de travail que vous avez sélectionné.  
 
@@ -118,7 +118,7 @@ Pour activer le provisionnement automatique de l’agent Log Analytics :
     1. Si vous activez le provisionnement automatique pour Microsoft Dependency Agent, vérifiez que l’agent Log Analytics est configuré pour le déploiement automatique.
     1. Basculez l’état sur **Activé** pour l’extension appropriée.
 
-        :::image type="content" source="./media/security-center-enable-data-collection/toggle-kubernetes-add-on.png" alt-text="Activer le provisionnement automatique pour le module complémentaire de stratégie K8s":::
+        :::image type="content" source="./media/security-center-enable-data-collection/toggle-kubernetes-add-on.png" alt-text="Activer l’approvisionnement automatique pour le module complémentaire de stratégie K8s.":::
 
     1. Sélectionnez **Enregistrer**. La stratégie Azure est affectée et une tâche de correction est créée.
 
@@ -133,7 +133,7 @@ Pour activer le provisionnement automatique de l’agent Log Analytics :
 
 1. Il vous sera demandé si vous voulez reconfigurer les machines virtuelles surveillées précédemment connectées à un espace de travail par défaut :
 
-    :::image type="content" source="./media/security-center-enable-data-collection/reconfigure-monitored-vm.png" alt-text="Passer en revue les options pour reconfigurer les machines virtuelles surveillées":::
+    :::image type="content" source="./media/security-center-enable-data-collection/reconfigure-monitored-vm.png" alt-text="Passez en revue les options pour reconfigurer les machines virtuelles surveillées.":::
 
     - **Non** – Vos nouveaux paramètres d’espace de travail s’appliqueront uniquement aux machines virtuelles nouvellement détectées sur lesquelles l’agent Log Analytics n’est pas installé.
     - **Oui** – Vos nouveaux paramètres d’espace de travail s’appliqueront à toutes les machines virtuelles et chaque machine virtuelle actuellement connectée à un espace de travail créé par Security Center sera reconnectée au nouvel espace de travail cible.
@@ -181,7 +181,7 @@ Voici le détail complet des ID d’événement App Locker et de sécurité pour
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> - Si vous utilisez l’objet de stratégie de groupe (GPO), il est recommandé d’activer les stratégies d’audit d’événement de création de processus 4688 et le champ *CommandLine* à l’intérieur de l’événement 4688. Pour plus d’informations sur l’événement de création de processus 4688, consultez la [FAQ](/azure/security-center/faq-data-collection-agents.yml#what-happens-when-data-collection-is-enabled) de Security Center. Pour plus d’informations sur ces stratégies d’audit, consultez les [recommandations pour la stratégie d’audit](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+> - Si vous utilisez l’objet de stratégie de groupe (GPO), il est recommandé d’activer les stratégies d’audit d’événement de création de processus 4688 et le champ *CommandLine* à l’intérieur de l’événement 4688. Pour plus d’informations sur l’événement de création de processus 4688, consultez la [FAQ](/azure/security-center/faq-data-collection-agents#what-happens-when-data-collection-is-enabled-) de Security Center. Pour plus d’informations sur ces stratégies d’audit, consultez les [recommandations pour la stratégie d’audit](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
 > -  Pour activer la collecte de données pour les [Contrôles d’application adaptatifs](security-center-adaptive-application.md), Security Center configure une stratégie AppLocker locale en mode Audit pour autoriser toutes les applications. Cela amène AppLocker à générer des événements qui sont ensuite recueillis et exploités par Security Center. Il est important de noter que cette stratégie ne sera configurée sur aucun ordinateur sur lequel une stratégie AppLocker est déjà configurée. 
 > - Pour collecter la plateforme de filtrage Windows [ID d’événement 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156), vous devez activer [Connexion de la plateforme de filtrage d’audits](/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategory:"Filtering Platform Connection" /Success:Enable)
 >
@@ -193,7 +193,7 @@ Vous pouvez définir le niveau des données d’événement de sécurité à sto
 1. Dans le menu de Security Center dans le portail Azure, sélectionnez **Tarification et paramètres**.
 1. Sélectionnez l’espace de travail approprié. Les seuls événements de collecte de données pour un espace de travail sont les événements de sécurité Windows décrits dans cette page.
 
-    :::image type="content" source="media/security-center-enable-data-collection/event-collection-workspace.png" alt-text="Définition des données d’événement de sécurité à stocker dans un espace de travail":::
+    :::image type="content" source="media/security-center-enable-data-collection/event-collection-workspace.png" alt-text="Définition des données d’événement de sécurité à stocker dans un espace de travail.":::
 
 1. Sélectionnez la quantité de données d’événement brutes à stocker, puis sélectionnez **Enregistrer**.
 
@@ -263,7 +263,7 @@ Pour désactiver le provisionnement automatique d’un agent :
 1. Sélectionnez **Provisionnement automatique**.
 1. Basculez l’état sur **Désactivé** pour l’agent approprié.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Désactiver le provisionnement automatique par type d’agent":::
+    :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Désactivez l’approvisionnement automatique par type d’agent.":::
 
 1. Sélectionnez **Enregistrer**. Quand le provisionnement automatique est désactivé, la section de configuration de l’espace de travail par défaut n’est pas affichée :
 
@@ -271,7 +271,7 @@ Pour désactiver le provisionnement automatique d’un agent :
 
 
 > [!NOTE]
->  La désactivation de l’approvisionnement automatique ne supprime pas le Log Analytics Agent des machines virtuelles Azure sur lesquelles l’agent était approvisionné. Pour plus d’informations sur la suppression de l’extension OMS, consultez [Comment supprimer des extensions OMS installées par Security Center](/azure/security-center/faq-data-collection-agents.yml#remove-oms).
+>  La désactivation de l’approvisionnement automatique ne supprime pas le Log Analytics Agent des machines virtuelles Azure sur lesquelles l’agent était approvisionné. Pour plus d’informations sur la suppression de l’extension OMS, consultez [Comment supprimer des extensions OMS installées par Security Center](/azure/security-center/faq-data-collection-agents#how-do-i-remove-oms-extensions-installed-by-security-center-).
 >
 
 

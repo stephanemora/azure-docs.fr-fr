@@ -7,19 +7,21 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: dadde132effe24fa1cdffd8830139573de4ee5d4
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 3e6644f8d1956b69390e8bb3bb49bfbc3c7b0621
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439976"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988766"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nouveautés d’Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) vous aide à découvrir, à évaluer et à migrer localement des serveurs, applications et données vers le cloud Microsoft Azure. Cet article synthétise les nouvelles versions et fonctionnalités d’Azure Migrate.
 
 ## <a name="update-june-2021"></a>Mise à jour (juin 2021)
+- Azure Migrate prend désormais en charge de nouvelles régions et zones géographiques du cloud public. [En savoir plus](migrate-support-matrix.md#supported-geographies-public-cloud)
 - Azure Migrate offre la possibilité d’inscrire des serveurs SQL Server avec une machine virtuelle SQL lors de la réplication pour installer automatiquement l’extension SQL IaaS Agent. Cette fonctionnalité est disponible pour les migrations VMware sans agent, les migrations Hyper-V sans agent et les migrations avec agent.
+- L’importation d’un fichier CSV pour l’évaluation prend désormais en charge jusqu’à 20 disques. Précédemment, ce nombre était limité à huit disques par serveur.
 
 ## <a name="update-may-2021"></a>Mise à jour (mai 2021)
 - La migration des machines virtuelles et des serveurs physiques dont le disque de système d’exploitation ne dépasse pas 4 To est maintenant prise en charge suivant la méthode avec agent.
@@ -28,6 +30,9 @@ ms.locfileid: "111439976"
 - Prise en charge de la fourniture d’informations d’identification de plusieurs serveurs sur l’appliance Azure Migrate pour découvrir les applications installées (inventaire des logiciels), l’analyse des dépendances sans agent et la détection des instances et bases de données SQL Server dans votre environnement VMware. [En savoir plus](tutorial-discover-vmware.md#provide-server-credentials)
 - La découverte et l’évaluation d’instances et de bases de données SQL Server s’exécutant dans votre environnement VMware sont actuellement en préversion. [En savoir plus](concepts-azure-sql-assessment-calculation.md) Reportez-vous aux tutoriels sur la [découverte](tutorial-discover-vmware.md) et l’[évaluation](tutorial-assess-sql.md) pour démarrer.
 - La migration VMware sans agent prend désormais en charge la réplication simultanée de 500 machines virtuelles par vCenter.
+- Azure Migrate : l’outil Conteneurisation d’applications vous permet désormais de mettre en package des applications s’exécutant sur des serveurs dans une image conteneur et de déployer l’application en conteneurisée dans le Azure Kubernetes Service.  
+Pour plus d’informations et bien démarrer, reportez-vous au tutoriels [Conteneurisation d’applications ASP.NET et migration vers Azure Kubernetes Service](tutorial-app-containerization-aspnet-kubernetes.md) et [Conteneurisation d’applications web Java et migration vers Azure Kubernetes Service](tutorial-app-containerization-java-kubernetes.md).
+
 
 ## <a name="update-january-2021"></a>Mise à jour (janvier 2021)
 -  Azure Migrate : L’outil Migration de serveur permet désormais de migrer des machines virtuelles VMware, des serveurs physiques et des machines virtuelles d’autres clouds vers des machines virtuelles Azure avec des disques chiffrés à l’aide du chiffrement côté serveur et avec des clés gérées par le client (CMK).
@@ -72,7 +77,7 @@ Azure Migrate prend en charge les déploiements dans Azure Government.
 - Pour la migration VMware, vous pouvez utiliser la migration sans agent ou basée sur un agent. [Plus d’informations](server-migrate-overview.md)
 - [Passez en revue](migrate-support-matrix.md#supported-geographies-azure-government) les zones géographiques et régions prises en charge pour Azure Government.
 - L’[analyse des dépendances basée sur les agents](concepts-dependency-visualization.md#agent-based-analysis) n’est pas prise en charge dans Azure Government.
-- Les fonctionnalités d’évaluation sont prises en charge dans Azure Government, plus spécifiquement l’[analyse des dépendances sans agent](concepts-dependency-visualization.md#agentless-analysis) et la [découverte d’application](how-to-discover-applications.md).
+- Les fonctionnalités en préversion sont prises en charge dans Azure Government, à savoir l’[analyse des dépendances sans agent](concepts-dependency-visualization.md#agentless-analysis) et la [découverte d’application](how-to-discover-applications.md).
 
 
 ## <a name="update-march-2020"></a>Mise à jour (mars 2020)
@@ -84,7 +89,7 @@ Une installation basée sur un script est désormais disponible pour configurer 
 
 ## <a name="update-november-2019"></a>Mise à jour (novembre 2019)
 
-Un certain nombre de nouvelles fonctionnalités ont été ajoutées à Azure Migrate :
+De nombreuses nouvelles fonctionnalités ont été ajoutées à Azure Migrate :
 
 - **Évaluation des serveurs physiques**. L’évaluation des serveurs physiques locaux est désormais prise en charge, en plus de la migration du serveur physique qui est déjà prise en charge.
 - **Évaluation basée sur l’importation**. L’évaluation des machines à l’aide des métadonnées et des données de performances fournies dans un fichier CSV est désormais prise en charge.
@@ -102,7 +107,7 @@ De nouveaux outils d’évaluation et de migration ont été ajoutés à Azure M
 
 ## <a name="azure-migrate-current-version"></a>Version actuelle d’Azure Migrate
 
-La version actuelle d’Azure Migrate (publiée en juillet 2019) propose un certain nombre de nouvelles fonctionnalités :
+La version actuelle d’Azure Migrate (publiée en juillet 2019) propose de nombreuses nouvelles fonctionnalités :
 
 - **Plateforme de migration unifiée** : Azure Migrate offre désormais un portail unique pour centraliser, gérer et suivre votre parcours de migration vers Azure, avec une expérience de flux de déploiement et de portail améliorée.
 - **Outils d’évaluation et de migration** : Azure Migrate fournit des outils natifs et s’intègre avec d’autres services Azure, ainsi qu’avec des outils d’éditeurs de logiciels indépendants (ISV). [Apprenez-en davantage](migrate-services-overview.md#isv-integration) sur l’intégration d’éditeurs de logiciels indépendants.

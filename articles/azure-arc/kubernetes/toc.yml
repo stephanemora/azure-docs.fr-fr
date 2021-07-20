@@ -34,6 +34,8 @@
       href: faq.md
     - name: Workflow CI/CD avec GitOps
       href: conceptual-gitops-ci-cd.md
+    - name: Expérience de développement avec des boucles internes
+      href: conceptual-inner-loop-gitops.md
 - name: Guides pratiques
   items:
     - name: Connecter un cluster avec un principal de service
@@ -64,7 +66,9 @@
           href: custom-locations.md
         - name: Déployer des charges de travail IoT
           href: deploy-azure-iot-edge-workloads.md
-    - name: Dépannage
+        - name: Machine Learning avec Arc
+          href: ../../machine-learning/how-to-attach-arc-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+    - name: Résolution des problèmes
       href: Troubleshooting.md
 - name: Informations de référence
   items:

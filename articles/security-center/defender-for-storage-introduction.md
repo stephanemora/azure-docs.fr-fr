@@ -7,12 +7,12 @@ ms.date: 02/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 42aa07ccf8d886dc7eb7109bc405c730331b2c3b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 3d14a4a569d59b8bc9cac1334da1486960288412
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095627"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003527"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Présentation d’Azure Defender pour le stockage
 
@@ -27,7 +27,7 @@ Les alertes de sécurité sont déclenchées lorsque des anomalies se produisent
 |État de sortie :|Disponibilité générale (GA)|
 |Prix :|**Azure Defender pour Stockage** est facturé conformément à la [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/)|
 |Types de stockage protégés :|[Stockage Blob](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure Files](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Azure Chine|
 |||
 
 
@@ -39,7 +39,7 @@ Azure Defender pour le stockage offre les avantages suivants :
 - **Suite de détection riche** : la technologie Microsoft Threat Intelligence permet aux détections dans Defender pour le stockage de couvrir les principales menaces de stockage telles que l’accès anonyme, les informations d’identification compromises, l’ingénierie sociale, les abus de privilèges et le contenu malveillant.
 - **Réponse à grande échelle** : les outils d’automatisation de Security Center facilitent la prévention et la réponse par rapport aux menaces identifiées. Pour en savoir plus, consultez [Automatiser les réponses aux déclencheurs Security Center](workflow-automation.md).
 
-:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="Présentation générale des fonctionnalités d’Azure Defender pour le stockage":::
+:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="Présentation générale des fonctionnalités d’Azure Defender pour le stockage.":::
 
 
 ## <a name="what-kind-of-alerts-does-azure-defender-for-storage-provide"></a>Quels sont les types d’alertes fournis par Azure Defender pour le stockage ?
@@ -74,7 +74,7 @@ Pour tester les alertes de sécurité depuis Azure Defender pour le stockage dan
 1. Ouvrez un compte de stockage bénéficiant de la protection Azure Defender pour le stockage activée.
 1. Dans la barre latérale, sélectionnez « Conteneurs », puis ouvrez un conteneur existant ou créez-en un nouveau.
 
-    :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Ouverture d’un conteneur d’objets blob à partir d’un compte de stockage Azure" lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::
+    :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Ouverture d’un conteneur d’objets blob à partir d’un compte de stockage Azure." lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::
 
 1. Chargez un fichier dans ce conteneur.
 
@@ -83,7 +83,7 @@ Pour tester les alertes de sécurité depuis Azure Defender pour le stockage dan
 
 1. Utilisez le menu contextuel du fichier chargé pour sélectionner « Générer une signature d’accès partagé ».
 
-    :::image type="content" source="media/defender-for-storage-introduction/generate-sas.png" alt-text="L’option Générer une signature d’accès partagé d’un fichier dans un conteneur d’objets blob":::
+    :::image type="content" source="media/defender-for-storage-introduction/generate-sas.png" alt-text="L’option Générer une signature d’accès partagé d’un fichier dans un conteneur d’objets blob.":::
 
 1. Laissez les options par défaut et sélectionnez **Générer une URL et un jeton SAS**.
 
@@ -100,7 +100,7 @@ Pour tester les alertes de sécurité depuis Azure Defender pour le stockage dan
 
     En moins de deux heures, vous obtenez l’alerte de sécurité suivante à partir de Security Center :
 
-    :::image type="content" source="media/defender-for-storage-introduction/tor-access-alert-storage.png" alt-text="Alerte de sécurité concernant l’accès à partir d’un nœud de sortie Tor":::
+    :::image type="content" source="media/defender-for-storage-introduction/tor-access-alert-storage.png" alt-text="Alerte de sécurité concernant l’accès à partir d’un nœud de sortie Tor.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

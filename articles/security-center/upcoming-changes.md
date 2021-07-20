@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 06/13/2021
+ms.date: 07/01/2021
 ms.author: memildin
-ms.openlocfilehash: a490a08946a7357af41cce04051ef01765c8fbe5
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: cff1215fadcd26f18b75c33bba6794c625729e5d
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062241"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113225585"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Changements importants à venir sur Azure Security Center
 
@@ -26,19 +26,56 @@ Si vous recherchez les notes de publication les plus récentes, vous les trouver
 
 ## <a name="planned-changes"></a>Changements planifiés
 
-| Modifications planifiées                                                                                                                                                        | Date estimée de la modification |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [L’implémentation héritée de la norme ISO 27001 est remplacée par la nouvelle norme ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)          | Juin 2021                 |
-| [Améliorations apportées à la recommandation de classification des données SQL](#enhancements-to-sql-data-classification-recommendation)                                                     | T3 2021                   |
-| [Activer le contrôle de sécurité Azure Defender à inclure au degré de sécurisation](#enable-azure-defender-security-control-to-be-included-in-secure-score)                       | T3 2021                   |
-|                                                                                                                                                                       |                           |
+| Modifications planifiées                                                                                                                                                                                          | Date estimée de la modification |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| [Exportations CSV à limiter à 20 Mo](#csv-exports-to-be-limited-to-20-mb)                                                                                                                               | Juillet 2021                 |
+| [L’implémentation héritée de la norme ISO 27001 est remplacée par la nouvelle norme ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                                            | Juillet 2021                 |
+| [Dépréciation de la recommandation « Les problèmes d’intégrité de l’agent Log Analytics doivent être résolus sur vos machines »](#deprecating-recommendation-log-analytics-agent-health-issues-should-be-resolved-on-your-machines) | Juillet 2021                 |
+| [Améliorations apportées à la recommandation de classification des données SQL](#enhancements-to-sql-data-classification-recommendation)                                                                                       | T3 2021                   |
+| [Activer le contrôle de sécurité Azure Defender à inclure au degré de sécurisation](#enable-azure-defender-security-control-to-be-included-in-secure-score)                                                         | T3 2021                   |
+|                                                                                                                                                                                                         |                           |
 
+
+### <a name="csv-exports-to-be-limited-to-20-mb"></a>Exportations CSV à limiter à 20 Mo
+
+**Date estimée de la modification :** juillet 2021
+
+Lors de l’exportation des données de recommandations Security Center, il n’existe actuellement aucune limite quant au volume de données que vous pouvez télécharger.
+
+:::image type="content" source="media/upcoming-changes/download-csv-report.png" alt-text="Bouton « Télécharger le rapport CSV » de Security Center pour exporter les données de recommandation.":::
+
+Avec cette modification, nous instaurons une limite de 20 Mo.
+
+S’il vous faut exporter de plus grands volumes de données, utilisez les filtres disponibles avant sélection ou sélectionnez des sous-ensembles de vos abonnements et téléchargez les données par lots.
+
+:::image type="content" source="media/upcoming-changes/filter-subscriptions.png" alt-text="Filtrage des abonnements dans le portail Azure.":::
+
+Apprenez-en davantage sur [l’exécution d’une exportation CSV de vos recommandations de sécurité](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations).
 
 ### <a name="legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013"></a>L’implémentation héritée de la norme ISO 27001 est remplacée par la nouvelle norme ISO 27001:2013
+
+**Date estimée de la modification :** juillet 2021
 
 L’implémentation héritée de la norme ISO 27001 sera supprimée du tableau de bord de conformité réglementaire de Security Center. Si vous effectuez le suivi de la conformité ISO 27001 avec Security Center, intégrez la nouvelle norme ISO 27001:2013 pour tous les groupes d’administration ou abonnements appropriés, car la norme ISO 27001 actuelle sera bientôt supprimée du tableau de bord.
 
 :::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Tableau de bord de conformité réglementaire Security Center présentant le message relatif à la suppression de l’implémentation héritée de la norme ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
+
+### <a name="deprecating-recommendation-log-analytics-agent-health-issues-should-be-resolved-on-your-machines"></a>Dépréciation de la recommandation « Les problèmes d’intégrité de l’agent Log Analytics doivent être résolus sur vos machines »
+
+**Date estimée de la modification :** juillet 2021
+
+Nous avons constaté que la recommandation **Les problèmes d’intégrité de l’agent Log Analytics doivent être résolus sur vos machines** influe sur les scores de sécurité de manière incohérente avec le focus CSPM (Cloud Security Posture Management) de Security Center. En règle générale, CSPM est associé à l’identification des erreurs de configuration de sécurité. Les problèmes d’intégrité de l’agent n’entrent pas dans cette catégorie de problèmes.
+
+En outre, la recommandation est une anomalie par rapport aux autres agents liés à Security Center : il s’agit du seul agent présentant une recommandation relative aux problèmes d’intégrité.
+
+Cette recommandation sera dépréciée.
+
+À la suite de cette dépréciation, nous allons également apporter des modifications mineures aux recommandations relatives à l’installation de l’agent de Log Analytics (**L’agent Log Analytics doit être installé sur...** ).
+
+Il est probable que cette modification influe sur vos scores de sécurité. Pour la plupart des abonnements, nous pensons que cette modification se traduira par un score plus élevé, mais il est possible que les mises à jour apportées à la recommandation d’installation se traduisent par un score moins élevé dans certains cas.
+
+> [!TIP]
+> La page [Inventaire des ressources](asset-inventory.md) est également concernée par cette modification, car elle affiche aussi des informations indiquant si une machine est surveillée, non surveillée ou partiellement surveillée (un état qui fait référence à un agent avec problèmes d’intégrité). 
 
 ### <a name="enhancements-to-sql-data-classification-recommendation"></a>Améliorations apportées à la recommandation de classification des données SQL
 

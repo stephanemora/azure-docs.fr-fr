@@ -7,12 +7,12 @@ ms.date: 05/12/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a7292d08d2505b63e97c76ca3f40ad573690c173
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 7d564d3d3a27d4ddba50ab05644d612e9bb63645
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846407"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113002573"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Présentation d’Azure Defender pour Resource Manager
 
@@ -28,7 +28,7 @@ Azure Defender pour Resource Manager supervise automatiquement les opérations d
 |----|:----|
 |État de sortie :|Disponibilité générale (GA)|
 |Prix :|**Azure Defender pour Resource Manager** est facturé conformément à la [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/)|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov, autres zones Gov<br>![Non](./media/icons/no-icon.png) Azure Chine|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-resource-manager"></a>Quels sont les avantages d’Azure Defender pour Resource Manager ?
@@ -39,7 +39,7 @@ Azure Defender pour Resource Manager protège contre certains problèmes, notamm
 - **L’utilisation de kits de ressources d’exploitation**, comme Microburst ou PowerZure
 - **Le mouvement latéral**, depuis la couche de gestion Azure vers le plan de données des ressources Azure
 
-:::image type="content" source="media/defender-for-resource-manager-introduction/consistent-management-layer-with-defender.png" alt-text="Diagramme de présentation d’Azure Resource Manager":::
+:::image type="content" source="media/defender-for-resource-manager-introduction/consistent-management-layer-with-defender.png" alt-text="Diagramme de présentation d’Azure Resource Manager.":::
 
 La liste complète des alertes fournies par Azure Defender pour Resource Manager se trouve dans la [page de référence des alertes](alerts-reference.md#alerts-resourcemanager).
 
@@ -54,7 +54,7 @@ Pour examiner les alertes de sécurité depuis Azure Defender pour Resource Mana
 
 1. Ouvrez le journal d’activité Azure.
 
-    :::image type="content" source="media/defender-for-resource-manager-introduction/opening-azure-activity-log.png" alt-text="Comment ouvrir le journal d’activité Azure":::
+    :::image type="content" source="media/defender-for-resource-manager-introduction/opening-azure-activity-log.png" alt-text="Comment ouvrir le journal d’activité Azure.":::
 
 1. Filtrez les événements sur :
     - L’abonnement mentionné dans l’alerte

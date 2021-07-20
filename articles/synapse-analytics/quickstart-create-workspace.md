@@ -9,12 +9,13 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d38f1f294f60b73e8f1e69169a75333eb175c9f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 0f593d801bdcc477d6084a395630211393ffa9c7
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600154"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217284"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Démarrage rapide : Créer un espace de travail Synapse
 Ce guide de démarrage rapide décrit les étapes à suivre pour créer un espace de travail Azure Synapse à l’aide du portail Azure.
@@ -48,9 +49,17 @@ Après avoir créé votre espace de travail Azure Synapse, vous pouvez ouvrir Sy
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
 1. Accéder à un compte de stockage ADLSGEN2 existant
-1. Sélectionnez **Contrôle d’accès (IAM)** dans le volet gauche. Attribuez ensuite les rôles suivants ou vérifiez qu’ils sont déjà attribués :
-    * Attribuez-vous le rôle **Propriétaire**.
-    * Attribuez-vous le rôle **Propriétaire des données Blob du stockage**.
+1. Sélectionnez **Contrôle d’accès (IAM)** .
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
+1. Attribuez le rôle suivant. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Role | Propriétaire et rôle Propriétaire des données Blob du stockage |
+    | Attribuer l’accès à | [USER |
+    | Membres | Votre nom d’utilisateur |
+
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 1. Dans le volet de gauche, sélectionnez **Conteneurs** et créez un conteneur.
 1. Attribuez au conteneur un nom de votre choix. Dans ce document, nous appellerons le conteneur **users**.
 1. Acceptez le paramètre par défaut **Niveau d’accès public**, puis sélectionnez **Créer**.
@@ -60,11 +69,20 @@ Après avoir créé votre espace de travail Azure Synapse, vous pouvez ouvrir Sy
 Les identités managées pour votre espace de travail Azure Synapse ont peut-être déjà accès au compte de stockage. Vérifiez ce point en effectuant ces étapes :
 
 1. Ouvrez le [Portail Azure](https://portal.azure.com) et le compte de stockage principal choisi pour votre espace de travail.
-1. Dans le volet de gauche, sélectionnez **Contrôle d’accès (IAM)** .
-1. Attribuez les rôles suivants ou vérifiez qu’ils sont déjà attribués. Nous utilisons le même nom pour l’identité de l’espace de travail et le nom de l’espace de travail.
-    * Pour le rôle **Contributeur aux données Blob du stockage** sur le compte de stockage, affectez **myworkspace** comme identité de l’espace de travail.
-    * Attribuez le nom **myworkspace** à l’espace de travail.
+1. Sélectionnez **Contrôle d’accès (IAM)** .
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
+1. Attribuez le rôle suivant. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Role | Contributeur aux données Blob du stockage |
+    | Attribuer l’accès à | MANAGEDIDENTITY |
+    | Membres | myworkspace  |
 
+    > [!NOTE]
+    > Le nom de l’identité managée correspond également au nom de l’espace de travail.
+
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 1. Sélectionnez **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes

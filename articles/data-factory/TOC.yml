@@ -113,6 +113,8 @@
           items:
             - name: "Bonnes pratiques pour écrire des données dans le lac de données avec ADLS\_Gen2"
               href: tutorial-data-flow-write-to-lake.md
+            - name: Définir des noms de colonnes de manière dynamique
+              href: tutorial-data-flow-dynamic-columns.md
             - name: Transformer les données du lac avec Delta Lake
               href: tutorial-data-flow-delta-lake.md
             - name: Transformer des données avec des flux de données de mappage
@@ -476,6 +478,8 @@
           href: delete-activity.md
         - name: Outil de copie des données
           href: copy-data-tool.md
+        - name: Copie de données pilotée par les métadonnées
+          href: copy-data-tool-metadata-driven.md
         - name: Prise en charge du format et de la compression
           href: supported-file-formats-and-compression-codecs.md
           displayName: zip
@@ -881,7 +885,7 @@
           href: ssis-integration-runtime-management-troubleshoot.md
           displayName: timeout
         - name: Exécution de packages dans Azure-SSIS IR
-          href: ssis-integration-runtime-ssis-activity-faq.md
+          href: ssis-integration-runtime-ssis-activity-faq.yml
           displayName: 'retry, timeout'
         - name: Diagnostiquer la connectivité dans Azure-SSIS IR
           href: ssis-integration-runtime-diagnose-connectivity-faq.md
@@ -927,3 +931,5 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Options de support
       href: 'https://azure.microsoft.com/support/options/'
+    - name: Limites
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits

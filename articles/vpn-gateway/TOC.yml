@@ -57,6 +57,8 @@
       href: point-to-site-about.md
     - name: À propos du routage VPN point à site
       href: vpn-gateway-about-point-to-site-routing.md
+    - name: À propos de NAT et de la passerelle VPN
+      href: nat-overview.md
     - name: À propos des passerelles redondantes interzone pour les Zones de disponibilité
       href: about-zone-redundant-vnet-gateways.md
     - name: Sécurité
@@ -225,6 +227,8 @@
               href: vpn-gateway-about-forced-tunneling.md
         - name: Configurer le transit de passerelle pour le peering de réseau virtuel
           href: vpn-gateway-peering-gateway-transit.md
+    - name: Configurer NAT pour la passerelle VPN
+      href: nat-howto.md
     - name: Modifier une passerelle de réseau local
       items:
         - name: Portail Azure
@@ -241,10 +245,10 @@
           href: vpn-gateway-download-vpndevicescript.md
         - name: 'Exemple : Appareil Cisco ASA (IKEv2/pas de BGP)'
           href: vpn-gateway-3rdparty-device-config-cisco-asa.md
-    - name: Supervision et alertes
+    - name: Surveillance de l’intégrité
       items:
-        - name: Afficher les métriques de la passerelle VPN
-          href: vpn-gateway-howto-view-virtual-network-gateway-metrics.md
+        - name: Supervision de la passerelle VPN
+          href: monitor-vpn-gateway.md
         - name: Configurer des alertes basées sur des métriques
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
         - name: Configurer des alertes basées sur des journaux de ressources

@@ -98,6 +98,8 @@
       href: ingress-controller-overview.md
     - name: Surveillance de l’intégrité
       items:
+        - name: Superviser Azure Application Gateway
+          href: monitor-application-gateway.md
         - name: Sonde d’intégrité
           href: application-gateway-probe-overview.md
         - name: Journaux de diagnostic et intégrité du back-end
@@ -282,6 +284,8 @@
       href: migrate-v1-v2.md
 - name: Informations de référence
   items:
+    - name: Données de surveillance
+      href: monitor-application-gateway-reference.md
     - name: Entrée pour les annotations AKS
       href: ingress-controller-annotations.md
     - name: Azure CLI

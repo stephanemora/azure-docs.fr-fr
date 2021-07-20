@@ -53,7 +53,7 @@
   items:
     - name: Comparer les solutions pour les identités externes
       href: ../active-directory/external-identities/compare-with-b2c.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-    - name: Apprendre les bases
+    - name: Apprendre les principes de base de l’authentification
       items:
         - name: Authentification et autorisation
           href: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
@@ -84,6 +84,8 @@
     - name: Expérience utilisateur
       expanded: true
       items:
+        - name: Options de connexion
+          href: sign-in-options.md
         - name: Flux d’utilisateurs et stratégies personnalisées
           href: user-flow-overview.md
         - name: Vue d’ensemble des stratégies personnalisées
@@ -109,7 +111,7 @@
           items:
             - name: Configurer un exemple d’application web
               href: configure-authentication-sample-web-app.md
-            - name: Activer l’authentification dans votre application
+            - name: Activer l’authentification dans votre application web
               href: enable-authentication-web-application.md
             - name: Options d’authentification
               href: enable-authentication-web-application-options.md
@@ -117,7 +119,7 @@
           items:
             - name: Configurer un exemple d’application web qui appelle l’API
               href: configure-authentication-sample-web-app-with-api.md
-            - name: Activer l’authentification dans votre application
+            - name: Activer l’authentification dans votre application web
               href: enable-authentication-web-app-with-api.md
             - name: Options d’authentification
               href: enable-authentication-web-app-with-api-options.md
@@ -125,8 +127,20 @@
           items:
             - name: Configurer un exemple d’application SPA
               href: configure-authentication-sample-spa-app.md
+            - name: Activer l’authentification dans votre application SPA
+              href: enable-authentication-spa-app.md
             - name: Options d’authentification
               href: enable-authentication-spa-app-options.md
+        - name: Applications mobiles Android
+          items:
+            - name: Configurer un exemple d’application Android
+              href: configure-authentication-sample-android-app.md
+            - name: Activer l’authentification dans votre application Android
+              href: enable-authentication-android-app.md
+            - name: Options d’authentification
+              href: enable-authentication-android-app-options.md
+        - name: Activer l’authentification dans votre API web
+          href: enable-authentication-web-api.md
         - name: Inscrire une application monopage (SPA)
           href: tutorial-register-spa.md
         - name: Application SAML
@@ -148,6 +162,8 @@
           href: signin-appauth-ios.md
         - name: Android utilisant AppAuth
           href: signin-appauth-android.md
+        - name: "Publier votre application sur la galerie d’applications Azure\_AD"
+          href: publish-app-to-azure-ad-app-gallery.md
         - name: Sécuriser l’API Gestion des API
           href: secure-api-management.md
           displayName: 'apim, api management, migrate, b2clogin.com'
@@ -358,6 +374,8 @@
           href: partner-onfido.md
     - name: Sécuriser l’accès aux applications héritées et locales
       items:
+        - name: Datawiza
+          href: partner-datawiza.md
         - name: Identité Ping
           href: partner-ping-identity.md
         - name: Strata

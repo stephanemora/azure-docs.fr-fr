@@ -5,27 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 01/05/2021
+ms.date: 06/15/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e274d35fde6a3d55c05bcb5a9f22e75a37aa3c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77305f9f2216adba8fb46cf2d4ee6b0da8c10e5f
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97955397"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105990"
 ---
 # <a name="what-is-identity-protection"></a>Qu’est-ce qu’Identity Protection ?
 
 Identity Protection est un outil qui permet aux organisations d'accomplir trois tâches principales :
 
-- Automatiser la détection et la correction des risques liés à l'identité
-- Examiner les risques à l'aide des données disponibles sur le portail
-- Exporter les données de détection des risques vers des utilitaires tiers pour une analyse plus approfondie
+- [Automatiser la détection et la correction des risques liés à l'identité](howto-identity-protection-configure-risk-policies.md).
+- [Examiner les risques](howto-identity-protection-investigate-risk.md) à l'aide des données disponibles sur le portail.
+- [Exporter les données de détection des risques vers votre serveur SIEM](../../sentinel/connect-azure-ad-identity-protection.md).
 
 Pour protéger vos utilisateurs, Identity Protection s'appuie sur les connaissances acquises par Microsoft au niveau des organisations avec Azure AD, de l'espace grand public avec les comptes Microsoft et des jeux avec Xbox. Microsoft analyse 6 500 milliards de signaux par jour pour identifier les menaces et protéger les clients.
 
@@ -45,22 +45,17 @@ Dans son [billet de blog d'octobre 2018](https://techcommunity.microsoft.com/t5/
 
 ## <a name="risk-detection-and-remediation"></a>Détection d'événements à risque et solutions pour y remédier
 
-Identity Protection identifie les risques selon les classifications suivantes :
+Identity Protection identifie les risques de nombreux types, notamment :
 
-| Type de détection des risques | Description |
-| --- | --- |
-| Adresse IP anonyme | Connexion à partir d'une adresse IP anonyme (par exemple : navigateur Tor, VPN anonymes). |
-| Voyage inhabituel | Connexion à partir d’un emplacement inhabituel par rapport aux dernières connexions de l’utilisateur. |
-| Adresse IP liée à un programme malveillant | Connexion à partir d’une adresse IP liée à un programme malveillant. |
-| Propriétés de connexion inhabituelles | Connexion avec des propriétés inhabituelles pour l’utilisateur concerné. |
-| Informations d'identification divulguées | Indique que les informations d’identification valides de l’utilisateur ont été divulguées. |
-| Pulvérisation de mots de passe | Indique que plusieurs noms d’utilisateurs font l’objet d’une attaque par force brute unifiée avec des mots de passe courants. |
-| Azure AD Threat Intelligence | Les sources de renseignements sur les menaces internes et externes de Microsoft ont identifié un modèle d’attaque connu. |
-| Nouveau pays | Cette détection est découverte par [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). |
-| Activité depuis une adresse IP anonyme | Cette détection est découverte par [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). |
-| Transfert de boîte de réception suspect | Cette détection est découverte par [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). |
+- Utilisation d’une adresse IP anonyme
+- Voyage inhabituel
+- Adresse IP liée à un programme malveillant
+- Propriétés de connexion inhabituelles
+- Informations d’identification divulguées
+- Pulvérisation de mots de passe
+- Etc.
 
-Pour plus de détails sur ces risques et sur la façon dont ils sont calculés, consultez l'article [Qu'est-ce qu'un risque ?](concept-identity-protection-risks.md).
+Pour plus d’informations sur ces risques ainsi que d’autres risques, notamment sur la façon dont ils sont calculés, consultez l'article [Qu'est-ce qu'un risque ?](concept-identity-protection-risks.md).
 
 Les signaux de risque peuvent déclencher des mesures correctives (par exemple en obligeant les utilisateurs à utiliser Azure AD Multi-Factor Authentication ou à réinitialiser leur mot de passe à l’aide de la réinitialisation de mot de passe en libre-service) ou bloquer les utilisateurs jusqu’à ce qu’un administrateur intervienne.
 

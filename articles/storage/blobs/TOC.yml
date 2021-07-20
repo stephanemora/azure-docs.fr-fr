@@ -175,10 +175,10 @@
               href: data-protection-overview.md
             - name: Suppression réversible pour les conteneurs
               href: soft-delete-container-overview.md
-            - name: Contrôle de version
-              href: versioning-overview.md
             - name: Suppression réversible pour les objets blob
               href: soft-delete-blob-overview.md
+            - name: Gestion de version
+              href: versioning-overview.md
             - name: Restauration dans le temps
               href: point-in-time-restore-overview.md
             - name: Instantanés
@@ -229,14 +229,14 @@
                   href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Trouver, rechercher et comprendre les données blob'
           items:
-            - name: Utiliser des balises d’index blob pour gérer et trouver des données blob
-              href: storage-manage-find-blobs.md
-            - name: Utiliser l’IA pour comprendre les données blob
-              href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Recherche en texte intégral pour les données blob
-              href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Utiliser un inventaire de blobs pour gérer les données de blob
+            - name: Inventaire des objets blob
               href: blob-inventory.md
+            - name: Étiquettes d’index d’objet blob
+              href: storage-manage-find-blobs.md
+            - name: Recherche en texte intégral
+              href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Recherche cognitive Azure
+              href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Migration des données
           items:
             - name: Vue d’ensemble de la migration du stockage
@@ -274,6 +274,8 @@
               href: network-file-system-protocol-support.md
             - name: Considérations relatives aux performances
               href: network-file-system-protocol-support-performance.md
+            - name: Problèmes connus
+              href: network-file-system-protocol-known-issues.md
         - name: Gestion des événements
           href: storage-blob-event-overview.md
         - name: Fonctionnalités d’objet blob de pages
@@ -291,7 +293,7 @@
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: récupérer un compte de stockage supprimé
               href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Obtenir le type de compte et le nom de la référence SKU (.NET)
+            - name: Obtenir les propriétés de configuration du compte
               href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Gérer le niveau d’accès par défaut d’un compte de stockage
               href: ../common/manage-account-default-access-tier.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -315,6 +317,8 @@
               href: storage-blob-copy.md
             - name: Utiliser des balises d’index blob
               href: storage-blob-index-how-to.md
+            - name: Activer l’inventaire d’objets blob
+              href: blob-inventory-how-to.md
             - name: Calculer le nombre d’objets blob et la taille totale
               href: calculate-blob-count-size.md
         - name: Autoriser l’accès aux données d’objets blob
@@ -591,6 +595,8 @@
               href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Se connecter à l’Explorateur Stockage
               href: ../common/storage-explorer-sign-in.md
+            - name: Explorateur Stockage - Réseau
+              href: ../common/storage-explorer-network.md
             - name: Notes de version de l’Explorateur de stockage
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Résoudre les problèmes de l’Explorateur de stockage
@@ -619,6 +625,8 @@
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Vidéos
           href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+        - name: 'Comparer l’accès avec NFS à Stockage Blob Azure, Azure Files et Azure NetApp Files'
+          href: ../common/nfs-comparison.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Packages NuGet (.NET)
           items:
             - name: "Microsoft.Azure.Storage.Common (version\_11.x)"

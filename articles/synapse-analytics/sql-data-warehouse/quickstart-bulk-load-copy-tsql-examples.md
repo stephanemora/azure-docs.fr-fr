@@ -9,12 +9,13 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 510f2556fba42176817b782fe48d01d76eaa3fd7
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 3873ae1dd4ab230e5e0c3424341722e76aeb48fb
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568452"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113216222"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Charger des données de façon sécurisée à l’aide de SQL Synapse
 
@@ -105,7 +106,20 @@ L’authentification de l’identité managée est requise lorsque votre compte 
    > - Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez **d’abord le mettre à niveau avec v2** en vous aidant de ce [guide](../../storage/common/storage-account-upgrade.md).
    > - Pour examiner les problèmes connus liés à Azure Data Lake Storage Gen2, consultez ce [guide](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle**. Attribuez le rôle Azure de **Contributeur aux données blob du stockage** au serveur ou à l’espace de travail hébergeant votre pool SQL dédié que vous avez inscrit auprès d'Azure Active Directory (AAD).
+1. Sous votre compte de stockage, sélectionnez **Contrôle d’accès (IAM)** .
+
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
+
+1. Attribuez le rôle suivant. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Role | Contributeur aux données Blob du stockage |
+    | Attribuer l’accès à | SERVICEPRINCIPAL |
+    | Membres | Serveur ou espace de travail hébergeant votre pool SQL dédié que vous avez inscrit auprès d’Azure Active Directory (AAD)  |
+
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
 
    > [!NOTE]
    > Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés Azure, consultez ce [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
@@ -129,16 +143,28 @@ L’authentification de l’identité managée est requise lorsque votre compte 
 ## <a name="d-azure-active-directory-authentication"></a>D. Authentification Azure Active Directory
 #### <a name="steps"></a>Étapes
 
-1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle**. Attribuez le rôle Azure **Propriétaire, Contributeur ou Lecteur des données Blob du stockage** à votre utilisateur Azure AD. 
+1. Sous votre compte de stockage, sélectionnez **Contrôle d’accès (IAM)** .
+
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
+
+1. Attribuez le rôle suivant. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Role | Propriétaire, contributeur ou lecteur des données blob du stockage |
+    | Attribuer l’accès à | Utilisateur |
+    | Membres | Utilisateur Azure AD |
+
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
     > [!IMPORTANT]
     > Spécifiez le rôle Azure Propriétaire, Contributeur ou Lecteur des **données Blob** de **stockage**. Ces rôles sont différents des rôles Azure intégrés Propriétaire, Collaborateur et Lecteur.
 
     ![Octroi d’une autorisation Azure RBAC pour le chargement](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-2. Configurez l’authentification Azure AD en parcourant la [documentation](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell) suivante. 
+1. Configurez l’authentification Azure AD en parcourant la [documentation](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell) suivante. 
 
-3. Connectez-vous à votre pool SQL à l’aide d’Active Directory. Vous pouvez maintenant exécuter l’instruction COPY sans spécifier d’informations d’identification :
+1. Connectez-vous à votre pool SQL à l’aide d’Active Directory. Vous pouvez maintenant exécuter l’instruction COPY sans spécifier d’informations d’identification :
 
     ```sql
     COPY INTO dbo.target_table

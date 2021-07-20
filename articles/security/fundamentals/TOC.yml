@@ -1,5 +1,7 @@
 - name: Documentation relative aux notions de base
   href: index.yml
+- name: Récupération après une compromission de l’identité système
+  href: recover-from-identity-compromise.md
 - name: Vue d’ensemble
   items:
     - name: Présentation de la sécurité Azure

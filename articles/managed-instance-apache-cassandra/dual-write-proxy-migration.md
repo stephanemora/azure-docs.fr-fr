@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: overview
 ms.date: 06/02/2021
-ms.openlocfilehash: 2d82e4fa00c387ca2b7de58b223a6abf11ad1491
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 104ee2d6238b32be32df0fb19d06f0bc5c9d4865
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956026"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112970028"
 ---
 # <a name="live-migration-to-azure-managed-instance-for-apache-cassandra-using-dual-write-proxy"></a>Migration dynamique vers Azure Managed Instance pour Apache Cassandra à l’aide d’un proxy de double écriture
 
@@ -84,21 +84,34 @@ Nous vous recommandons d’installer le proxy sur tous les nœuds dans votre clu
 ```bash
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password>
 ```
-Pour SSL, vous pouvez soit implémenter un magasin de clés existant (par exemple, celui qu’utilise votre cluster source), soit créer un certificat auto-signé à l’aide de keytool :
-
-```bash
-keytool -genkey -keyalg RSA -alias selfsigned -keystore keystore.jks -storepass password -validity 360 -keysize 2048
-```
-
-> [!NOTE]
-> Assurez-vous que votre application cliente utilise les mêmes magasin de clés et mot de passe que ceux utilisés pour le proxy de double écriture lors de la création de connexions SSL à la base de données via le proxy.
 
 Le démarrage du proxy de cette façon suppose que les conditions suivantes sont réunies :
 
 - Les points de terminaison source et cible ont les mêmes nom d’utilisateur et mot de passe.
 - Les points de terminaison source et cible implémentent le protocole SSL.
 
-Par défaut, les informations d’identification sources sont transmises à partir de votre application cliente, et utilisées par le proxy pour établir des connexions aux clusters source et cible. Si nécessaire, vous pouvez spécifier les nom d’utilisateur et mot de passe du point de terminaison Cassandra cible séparément lors du démarrage du proxy :
+Si vos points de terminaison source et cible ne peuvent pas répondre à ces critères, consultez les informations ci-dessous afin de découvrir d’autres options de configuration. 
+
+### <a name="configure-ssl"></a>Configuration du chiffrement SSL
+
+Pour SSL, vous pouvez soit implémenter un magasin de clés existant (par exemple, celui qu’utilise votre cluster source), soit créer un certificat auto-signé à l’aide de keytool :
+
+```bash
+keytool -genkey -keyalg RSA -alias selfsigned -keystore keystore.jks -storepass password -validity 360 -keysize 2048
+```
+Vous pouvez également désactiver le protocole SSL pour les points de terminaison source ou cible s’ils n’implémentent pas le protocole SSL. Utilisez les indicateurs `--disable-source-tls` ou `--disable-target-tls` :
+
+```bash
+java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --source-port 9042 --target-port 10350 --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password> --target-username <username> --target-password <password> --disable-source-tls true  --disable-target-tls true 
+```
+
+> [!NOTE]
+> Assurez-vous que votre application cliente utilise les mêmes magasin de clés et mot de passe que ceux utilisés pour le proxy de double écriture lors de la création de connexions SSL à la base de données via le proxy.
+
+
+### <a name="configure-credentials-and-port"></a>Configurer les informations d’identification et le port
+
+Par défaut, les informations d’identification sources sont transmises à partir de votre application cliente, et utilisées par le proxy pour établir des connexions aux clusters source et cible. Comme indiqué ci-dessus, cela suppose que les informations d’identification de la source et de la cible soient identiques. Si nécessaire, vous pouvez spécifier un nom d’utilisateur et un mot de passe différents pour le point de terminaison Cassandra cible séparément lors du démarrage du proxy :
 
 ```bash
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password> --target-username <username> --target-password <password>
@@ -110,11 +123,7 @@ Si les ports source et cible ne sont pas spécifiés, le port par défaut est `9
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --source-port 9042 --target-port 10350 --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password> --target-username <username> --target-password <password>
 ```
 
-Vous pouvez également désactiver le protocole SSL pour les points de terminaison source ou cible s’ils n’implémentent pas le protocole SSL. Utilisez les indicateurs `--disable-source-tls` ou `--disable-target-tls` :
-
-```bash
-java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --source-port 9042 --target-port 10350 --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password> --target-username <username> --target-password <password> --disable-source-tls true  --disable-target-tls true 
-```
+### <a name="deploy-proxy-remotely"></a>Déployer le proxy à distance
 
 Il peut arriver que vous ne souhaitiez pas installer le proxy sur les nœuds de cluster proprement dits, et préfériez l’installer sur un ordinateur distinct. Dans ce scénario, vous devez spécifier l’adresse IP du `<source-server>` :
 
@@ -125,16 +134,23 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar <source-server> <destinati
 > [!NOTE]
 > Si vous n’installez et n’exécutez pas le proxy sur tous les nœuds dans un cluster Apache Cassandra natif, cela aura une incidence sur les performances de votre application, car le pilote du client ne sera pas en mesure d’ouvrir des connexions à tous les nœuds au sein du cluster. 
 
-Par défaut, le proxy écoute sur le port 29042. Toutefois, vous pouvez modifier le port sur lequel le proxy écoute. Vous pouvez être amené à faire cela si vous souhaitez éliminer les modifications du code au niveau de l’application en faisant en sorte que le serveur Cassandra source s’exécute sur un autre port et que le proxy s’exécute sur le port Cassandra standard :
+### <a name="allow-zero-application-code-changes"></a>Autoriser les modifications sans aucun code d’application
+
+Par défaut, le proxy écoute sur le port `29042`. Pour ce faire, le code d’application doit être modifié de manière à pointer vers ce port. Toutefois, vous pouvez modifier le port sur lequel le proxy écoute. Vous pouvez être amené à faire cela si vous souhaitez éliminer les modifications du code au niveau de l’application en faisant en sorte que le serveur Cassandra source s’exécute sur un autre port et que le proxy s’exécute sur le port Cassandra standard `9042` :
 
 ```bash
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar source-server destination-server --proxy-port 9042
 ```
 
 > [!NOTE]
-> L’installation du proxy sur des nœuds de cluster ne nécessite pas de redémarrage des nœuds. En revanche, si vous avez de nombreux clients d’application et préférez que le proxy s’exécute sur le port Cassandra standard 9042 afin d’éliminer toute modification du code au niveau de l’application, vous devez redémarrer votre cluster. 
+> L’installation du proxy sur des nœuds de cluster ne nécessite pas de redémarrage des nœuds. En revanche, si vous avez de nombreux clients d’application et préférez que le proxy s’exécute sur le port Cassandra standard `9042` afin d’éliminer toute modification du code au niveau de l’application, vous devez modifier le [port par défaut Apache Cassandra](https://cassandra.apache.org/doc/latest/faq/#what-ports-does-cassandra-use). Vous devez ensuite redémarrer les nœuds de votre cluster et configurer le port source pour qu’il corresponde au nouveau port que vous avez défini pour votre cluster Cassandra source. Dans l’exemple ci-dessous, nous allons modifier le cluster Cassandra source pour qu’il s’exécute sur le port 3074 et démarrer le cluster sur le port 9042.
+>```bash
+>java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar source-server destination-server --proxy-port 9042 --source-port 3074
+>``` 
 
-Le proxy dispose de certaines fonctionnalités pour forcer les protocoles, qui peuvent être nécessaires si le point de terminaison source est plus avancé, que la cible. Dans ce cas, vous pouvez spécifier `--protocol-version` et `--cql-version` :
+### <a name="force-protocols"></a>Forcer les protocoles
+
+Le proxy dispose de fonctionnalités pour forcer les protocoles, qui peuvent être nécessaires si le point de terminaison source est plus avancé, que la cible, voire non pris en charge. Dans ce cas, vous pouvez spécifier `--protocol-version` et `--cql-version` pour forcer le protocole à se conformer à la cible :
 
 ```bash
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar source-server destination-server --protocol-version 4 --cql-version 3.11
@@ -202,7 +218,7 @@ DFfromSourceCassandra
 ```
 
 > [!NOTE]
-> Dans l’échantillon Scala ci-dessus, vous remarquerez que `timestamp` est défini sur l’heure actuelle avant la lecture de toutes les données dans la table source, puis que `writetime` est défini sur cet horodatage antidaté. Cela permet de s’assurer que les enregistrements écrits à partir du chargement des données d’historique vers le point de terminaison cible ne peuvent pas remplacer les mises à jour qui arrivent avec un horodatage ultérieur en provenance du proxy de double écriture pendant la lecture des données d’historique. Si, pour une raison quelconque, vous devez conserver les horodatages *exacts*, vous devez adopter une approche de la migration des données d’historique qui conserve les horodatages, tel [cet](https://github.com/scylladb/scylla-migrator) échantillon. 
+> Dans l’échantillon Scala ci-dessus, vous remarquerez que `timestamp` est défini sur l’heure actuelle avant la lecture de toutes les données dans la table source, puis que `writetime` est défini sur cet horodatage antidaté. Cela permet de s’assurer que les enregistrements écrits à partir du chargement des données d’historique vers le point de terminaison cible ne peuvent pas remplacer les mises à jour qui arrivent avec un horodatage ultérieur en provenance du proxy de double écriture pendant la lecture des données d’historique. Si, pour une raison quelconque, vous devez conserver les timestamps *exacts*, il vous faut adopter une approche de la migration des données d’historique qui conserve les timestamps, comme [cet](https://github.com/scylladb/scylla-migrator) exemple. 
 
 ## <a name="validation"></a>Validation
 

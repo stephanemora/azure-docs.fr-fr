@@ -13,16 +13,14 @@ items:
     items:
       - name: Créer une ressource Communication Services
         href: quickstarts/create-communication-resource.md
-      - name: Créer et gérer des jetons d’accès
-        href: quickstarts/access-tokens.md
-      - name: Utiliser des identités managées
-        href: quickstarts/managed-identity.md
-      - name: Configurer des identités managées à partir de CLI
+      - name: Identité et accès
+        items:
+          - name: Créer et gérer des jetons d’accès
+            href: quickstarts/access-tokens.md
+          - name: Utiliser des identités managées
+            href: quickstarts/managed-identity.md
+          - name: Configurer des identités managées à partir de CLI
         href: quickstarts/managed-identity-from-cli.md
-      - name: Exporter les données de télémétrie du SDK vers Application Insights
-        href: quickstarts/telemetry-application-insights.md
-      - name: Obtenir un jeton de relais
-        href: quickstarts/relay-token.md
       - name: Conversation
         items:
           - name: Ajouter la conversation à votre application
@@ -45,14 +43,18 @@ items:
             href: quickstarts/telephony-sms/logic-app.md
       - name: Appel vocal et appel vidéo
         items:
-          - name: Ajouter l’appel vocal à votre application
+          - name: Ajouter un appel vocal à votre application cliente
             href: quickstarts/voice-video-calling/getting-started-with-calling.md
-          - name: Ajouter l’appel vidéo à votre application
+          - name: Ajouter un appel vidéo à votre application cliente
             href: quickstarts/voice-video-calling/get-started-with-video-calling.md
           - name: Utiliser le SDK Calling
             href: quickstarts/voice-video-calling/calling-client-samples.md
-          - name: Joindre votre application d’appel à une réunion Teams
+          - name: Joindre votre application cliente d’appel à une réunion Teams
             href: quickstarts/voice-video-calling/get-started-teams-interop.md
+          - name: Joindre un service à un appel
+            href: quickstarts/voice-video-calling/call-automation-api-sample.md
+          - name: Enregistrer les appels
+            href: quickstarts/voice-video-calling/call-recording-sample.md
       - name: Bibliothèque d’interface utilisateur
         items:
           - name: Bien démarrer avec les composites
@@ -61,15 +63,19 @@ items:
             href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page'
           - name: Bien démarrer avec les composants IU
             href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page'
+      - name: Accéder aux relais TURN
+        href: quickstarts/relay-token.md
   - name: Didacticiels
     expanded: false
     items:
       - name: Créer un service d’authentification approuvé à l’aide d’Azure Functions
         href: tutorials/trusted-service-tutorial.md
-      - name: Signer une requête HTTP avec une signature HMAC en utilisant C#
-        href: tutorials/hmac-header-tutorial.md
+      - name: Exporter les données de télémétrie du SDK vers Application Insights
+        href: quickstarts/telemetry-application-insights.md
       - name: Préparer une application web pour Communication Services (Node.js)
         href: tutorials/building-app-start.md
+      - name: Signer une requête HTTP avec une signature HMAC en utilisant C#
+        href: tutorials/hmac-header-tutorial.md
       - name: Signer et envoyer des requêtes à l’API SMS d’ACS avec Postman
         href: tutorials/postman-tutorial.md
   - name: Concepts
@@ -93,6 +99,10 @@ items:
             href: concepts/telephony-sms/plan-solution.md
           - name: Conditions requises de l’infrastructure de routage direct Azure
             href: concepts/telephony-sms/sip-interface-infrastructure.md
+          - name: Contrôleurs de frontière de session certifiés pour le routage direct Azure
+            href: concepts/telephony-sms/certified-session-border-controllers.md
+          - name: Associer le contrôleur de frontière de session et configurer le routage vocal
+            href: concepts/telephony-sms/direct-routing-provisioning.md
           - name: FAQ relative aux SMS
             href: concepts/telephony-sms/sms-faq.md
           - name: Stratégie de messagerie
@@ -101,14 +111,20 @@ items:
         items:
           - name: Vue d’ensemble du kit SDK Appel
             href: concepts/voice-video-calling/calling-sdk-features.md
-          - name: Concepts vocaux et vidéo
+          - name: Terminologie relative à la voix et aux vidéos
             href: concepts/voice-video-calling/about-call-types.md
-          - name: Configuration requise pour le réseau
+          - name: Automatisation d’appel
+            href: concepts/voice-video-calling/call-automation-apis.md
+          - name: Enregistrement d’appel
+            href: concepts/voice-video-calling/call-recording.md
+          - name: Recommandations pour le réseau
             href: concepts/voice-video-calling/network-requirements.md
           - name: Flux d’appels
             href: concepts/call-flows.md
           - name: Topologies des flux d’appels
             href: concepts/detailed-call-flows.md
+          - name: Bonnes pratiques du web
+            href: concepts/best-practices.md
           - name: Problèmes connus
             href: concepts/known-issues.md
       - name: Bibliothèque d’interface utilisateur

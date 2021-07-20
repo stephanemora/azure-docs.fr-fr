@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperf-fy21q1
 ms.date: 08/21/2020
-ms.openlocfilehash: cbaa84c73a5e332dca60286bc35200761e546dd3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 144e9eb84b6add1c10103148b374aeeeca0e6c6d
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864225"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112293416"
 ---
 # <a name="what-is-azure-hdinsight"></a>Qu’est-ce qu’Azure HDInsight ?
 
@@ -32,7 +32,7 @@ Cette section répertorie les fonctionnalités d’Azure HDInsight.
 
 |Fonctionnalité  |Description  |
 |---------|---------|
-|Cloud natif     |     Azure HDInsight vous permet de créer des clusters optimisés pour Hadoop, Spark,  [Interactive query (LLAP)](./interactive-query/apache-interactive-query-get-started.md), Kafka, Storm, HBase et ML Services sur Azure. HDInsight fournit également un contrat SLA de bout en bout sur toutes vos charges de travail de production.  |
+|Cloud natif     |     Azure HDInsight vous permet de créer des clusters optimisés pour Hadoop, Spark, [Interactive Query (LLAP)](./interactive-query/apache-interactive-query-get-started.md), Kafka, Storm, HBase sur Azure. HDInsight fournit également un contrat SLA de bout en bout sur toutes vos charges de travail de production.  |
 |Économique et évolutif     | HDInsight vous permet d’effectuer un scale-up ou un scale-down de charges de travail. Vous pouvez réduire les coûts en créant des clusters à la demande et payer seulement pour ce que vous utilisez. Vous pouvez également créer des pipelines de données pour faire fonctionner vos travaux. Le stockage et le calcul découplés améliorent les performances et la flexibilité. |
 |Sécurité et conformité    | HDInsight vous permet de protéger les ressources de données de votre entreprise à l’aide du réseau virtuel Azure, du chiffrementet de l’intégration avec Azure Active Directory. HDInsight répond également aux normes de conformité du gouvernement et du secteur les plus populaires.        |
 |Supervision    | Azure HDInsight s’intègre aux journaux d’activité Azure Monitor pour fournir une interface unique permettant de superviser tous vos clusters.        |
@@ -81,7 +81,6 @@ HDInsight comprend des types de cluster spécifiques et des fonctionnalités de 
 |[Apache Hadoop](./hadoop/apache-hadoop-introduction.md)|infrastructure qui utilise HDFS, la gestion de ressources YARN et un modèle de programmation MapReduce simple pour traiter et analyser les lots de données en parallèle.|
 |[Apache Spark](./spark/apache-spark-overview.md)|infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d’analyse du Big Data. Consultez [Présentation d’Apache Spark dans HDInsight](./spark/apache-spark-overview.md).|
 |[Apache HBase](./hbase/apache-hbase-overview.md)|base de données NoSQL basée sur Hadoop qui fournit un accès aléatoire et une forte cohérence pour de vastes quantités de données non structurées et semi-structurées (potentiellement, des milliards de lignes multipliées par des millions de colonnes). Consultez [Qu’est-ce que HBase sur HDInsight ?](./hbase/apache-hbase-overview.md)|
-|[ML Services](./r-server/r-server-overview.md)|serveur d’hébergement et de gestion de processus R distribués en parallèle. Ce serveur offre aux experts en science des données, aux statisticiens et aux programmeurs R un accès à la demande à des méthodes d’analyse évolutives et distribuées sur HDInsight. Consultez [Vue d’ensemble de ML Services sur HDInsight](./r-server/r-server-overview.md).|
 |[Apache Storm](./storm/apache-storm-overview.md)|système de calcul distribué et en temps réel permettant le traitement rapide de vastes flux de données. Storm est fourni en tant que cluster géré dans HDInsight. Consultez la rubrique [Analyse de données de capteur en temps réel au moyen de Storm et de Hadoop](./storm/apache-storm-overview.md).|
 |[Requête interactive Apache](./interactive-query/apache-interactive-query-get-started.md)|mise en cache pour des requêtes Hive interactives et plus rapides. Consultez l’article [Utilisation d’Interactive Query dans HDInsight](./interactive-query/apache-interactive-query-get-started.md).|
 |[Apache Kafka](./kafka/apache-kafka-introduction.md)|plateforme open source utilisée pour créer des applications et des pipelines de données de diffusion en continu. Kafka fournit également une fonctionnalité de file d’attente de messages qui vous permet de publier des flux de données et de vous abonner à ces derniers. Consultez l’article [Présentation d’Apache Kafka sur HDInsight](./kafka/apache-kafka-introduction.md).|

@@ -6,22 +6,20 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 04/06/2020
+ms.date: 06/13/2021
 ms.author: JenCook
-ms.openlocfilehash: be935dbd7e4559bcad8c5cf78622a5c63810f54c
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 1bf3dd7fadea22c4266f87373c09c16f08349f7c
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812387"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113107246"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Démarrage rapide : Déployer une machine virtuelle d’informatique confidentielle Azure dans la Place de marché
 
-Découvrez comment commencer à utiliser l’informatique confidentielle Azure avec la Place de marché Azure pour créer une machine virtuelle reposant sur Intel SGX. Vous installerez ensuite le kit SDK Open Enclave pour configurer votre environnement de développement. 
+Découvrez comment commencer à utiliser l’informatique confidentielle Azure avec le portail Azure pour créer une machine virtuelle reposant sur Intel SGX. Vous pouvez également tester une application enclave créée à l’aide du SDK Open Enclave. 
 
-Ce tutoriel est recommandé si vous souhaitez démarrer rapidement le déploiement d’une machine virtuelle d’informatique confidentielle. Les machines virtuelles fonctionnent sur du matériel spécialisé et nécessitent des entrées de configuration spécifiques pour fonctionner comme prévu. L’offre de la Place de marché décrite dans ce guide de démarrage rapide facilite le déploiement en restreignant les entrées utilisateur.
-
-Si vous souhaitez déployer une machine virtuelle d’informatique confidentielle avec une configuration plus personnalisée, suivez les [étapes de déploiement d’une machine virtuelle d’informatique confidentielle dans le portail Azure](quick-create-portal.md).
+Nous vous recommandons de suivre ce tutoriel si vous souhaitez déployer une machine virtuelle d’informatique confidentielle avec une configuration du modèle. Dans le cas contraire, nous vous recommandons d’utiliser le [portail ou l’interface CLI](quick-create-portal.md) pour suivre le déroulement standard du déploiement d’une machine virtuelle Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,22 +28,27 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.micr
 > [!NOTE]
 > Les comptes associés à un essai gratuit n’ont pas accès aux machines virtuelles utilisées dans ce tutoriel. Veuillez passer à un abonnement avec paiement à l’utilisation.
 
+
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1. Dans la barre de recherche située en haut, tapez **Informatique confidentielle Azure**.
+1. En haut, sélectionnez **Créer une ressource**.
 
-1. Sélectionnez **Informatique confidentielle Azure (machine virtuelle)** dans la section **Place de marché**. 
+1. Dans le volet **Prise en main** par défaut, recherchez **Informatique confidentielle Azure (machine virtuelle)** .
 
-    ![Sélectionnez Place de marché](media/quick-create-marketplace/portal-search-marketplace.png)    
+1. Cliquez sur le modèle **Informatique confidentielle Azure (machine virtuelle)** .
 
-1. Dans la page d’arrivée du déploiement de l’informatique confidentielle Azure, sélectionnez **Créer**.
- 
+    ![Déployer une machine virtuelle](media/quick-create-marketplace/portal-search-marketplace.png)
 
-## <a name="configure-your-virtual-machine"></a>Configurer votre machine virtuelle
+1. Dans la page d’arrivée Machine virtuelle, sélectionnez **Créer**.
 
-1. Sous l’onglet **De base**, sélectionnez votre **Abonnement** et votre **Groupe de ressources**. Votre groupe de ressources doit être vide pour pouvoir y déployer une machine virtuelle à partir de ce modèle.
+
+## <a name="configure-a-confidential-computing-virtual-machine"></a>Configurer une machine virtuelle d’informatique confidentielle
+
+1. Dans l’onglet **Informations de base**, sélectionnez votre **Abonnement** et votre **Groupe de ressources** (le groupe doit être vide pour déployer ce modèle).
+
+1. Dans **Nom de la machine virtuelle**, indiquez le nom de votre nouvelle machine virtuelle.
 
 1. Tapez ou sélectionnez les valeurs suivantes :
 
@@ -53,48 +56,45 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.micr
 
         > [!NOTE]
         > Les machines virtuelles d’informatique confidentielle fonctionnent uniquement sur du matériel spécialisé disponible dans des régions spécifiques. Pour connaître les régions prenant en charge les machines virtuelles de la série DCsv2, consultez la [liste des produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
-    
-    * **Choisir une image** : Sélectionnez une image. Si vous souhaitez suivre ce didacticiel spécifique, sélectionnez Ubuntu 18.04 (2e génération). Sinon, vous serez redirigé vers des procédures appropriées ci-dessous. 
 
-    * Dans **Nom de la machine virtuelle**, entrez le nom de votre nouvelle machine virtuelle.
+1. Configurez l’image du système d’exploitation à utiliser pour votre machine virtuelle. Cette configuration prend uniquement en charge les déploiements d’images et de machines virtuelles Gen 2.
 
-    * **Type d'authentification** : Sélectionnez **Clé publique SSH** si vous créez une machine virtuelle Linux. 
+    * **Choisir une image** : pour ce tutoriel, sélectionnez Ubuntu 18.04 LTS (Gen 2). Vous pouvez également sélectionner Windows Server Datacenter 2019, Windows Server Datacenter 2016 ou Ubuntu 16.04 LTS. Dans ce cas, vous serez redirigé en conséquence dans ce tutoriel.
+   
+1. Sous l’onglet Informations de base, renseignez ce qui suit :
 
-         > [!NOTE]
-         > Vous pouvez choisir d’utiliser une clé publique SSH ou un mot de passe pour l’authentification. L’utilisation d’une clé SSH est plus sécurisée. Pour savoir comment générer une clé SSH, consultez [Créer des clés SSH sur Linux et Mac pour les machines virtuelles Linux dans Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+   * **Type d'authentification** : Sélectionnez **Clé publique SSH** si vous créez une machine virtuelle Linux. 
+
+        > [!NOTE]
+        > Vous pouvez choisir d’utiliser une clé publique SSH ou un mot de passe pour l’authentification. L’utilisation d’une clé SSH est plus sécurisée. Pour savoir comment générer une clé SSH, consultez [Créer des clés SSH sur Linux et Mac pour les machines virtuelles Linux dans Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
     * **Nom d’utilisateur** : indiquez le nom d’administrateur pour la machine virtuelle.
 
     * **Clé publique SSH** : le cas échéant, entrez votre clé publique RSA.
     
     * **Mot de passe** : le cas échéant, entrez votre mot de passe pour l’authentification.
- 
-1. Sélectionnez le bouton **Suivant : Paramètres de machine virtuelle** en bas de l’écran.
+    
+1. Sous l’onglet « Paramètres de machine virtuelle », renseignez ce qui suit :
 
-    > [!IMPORTANT]
-    > Patientez pendant la mise à jour de la page. Vous *ne devriez pas* voir un message indiquant que les machines virtuelles d’informatique confidentielle de la série DCsv2 sont disponibles dans un nombre limité de régions. Si ce message persiste, revenez à la page précédente et sélectionnez une région dans laquelle la série DCsv2 est disponible.
+   * Choisir la taille de référence (SKU) de machine virtuelle
+   * Si vous avez choisi une machine virtuelle **DC1s_v2**, **DC2s_v2** ou **DC4s_V2**, optez pour un type de disque **SSD Standard** ou **SSD Premium**. Pour la machine virtuelle **DC8_v2**, vous pouvez uniquement choisir **SSD standard** comme type de disque.
 
-1. Pour **changer la taille**, choisissez une machine virtuelle dotée de capacités d’informatique confidentielle dans le sélecteur de taille. 
+   * **Ports d’entrée publics** : choisissez **Autoriser les ports sélectionnés**, puis sélectionnez **SSH (22)** et **HTTP (80)** dans la liste **Sélectionner les ports d’entrée publics**. Si vous déployez une machine virtuelle Windows, sélectionnez **HTTP (80)** et **RDP (3389)** . Dans ce démarrage rapide, cette étape est nécessaire pour se connecter à la machine virtuelle.
+   
+    >[!Note]
+    > Autoriser les ports RDP/SSH n’est pas recommandé pour les déploiements de production.  
 
-    > [!TIP]
-    > Vous devriez voir les tailles **DC1s_v2**, **DC2s_v2**, **DC4s_V2** et **DC8_v2**. Seules ces tailles de machines virtuelles prennent actuellement en charge l’informatique confidentielle. [Plus d’informations](virtual-machine-solutions.md)
+     ![Ports entrants](media/quick-create-portal/inbound-port-virtual-machine.png)
 
-1. **Type de disque du système d’exploitation** : sélectionnez un type de disque.
 
-1. **Réseau virtuel** : créez-en un ou choisissez une ressource existante.
-
-1. **Sous-réseau** : créez-en un ou choisissez une ressource existante.
-
-1. **Sélectionner des ports d’entrée publics** : choisissez **SSH(Linux)/RDP(Windows)** . Dans ce guide de démarrage rapide, cette étape est nécessaire pour se connecter à la machine virtuelle et terminer la configuration du SDK Open Enclave. 
-
-1. Laissez la case **Diagnostics de démarrage**, décochée pour ce guide de démarrage rapide. 
+1. Choisissez l’option **Surveillance**, si nécessaire.
 
 1. Sélectionnez **Revoir + créer**.
 
 1. Dans le volet **Vérifier + créer**, sélectionnez **Créer**.
 
 > [!NOTE]
-> Si vous avez déployé une machine virtuelle Linux, passez à la section suivante de ce tutoriel. Si vous avez déployé une machine virtuelle Windows, [suivez cette procédure pour vous connecter à votre machine virtuelle Windows](../virtual-machines/windows/connect-logon.md), puis [installez le SDK OE sur Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md).
+> Si vous avez déployé une machine virtuelle Linux, passez à la section suivante de ce tutoriel. Si vous avez déployé une machine virtuelle Windows, [suivez cette procédure pour vous connecter à votre machine virtuelle Windows](../virtual-machines/windows/connect-logon.md).
 
 
 ## <a name="connect-to-the-linux-vm"></a>Se connecter à la machine virtuelle Linux
@@ -107,7 +107,7 @@ ssh azureadmin@40.55.55.555
 
 Vous trouverez l’adresse IP publique de votre machine virtuelle dans le portail Azure, sous la section Vue d’ensemble de votre machine virtuelle.
 
-![Adresse IP dans le portail Azure](media/quick-create-portal/public-ip-virtual-machine.png)
+:::image type="content" source="media/quick-create-portal/public-ip-virtual-machine.png" alt-text="Adresse IP dans le portail Azure":::
 
 Si vous êtes sous Windows et que vous n’avez pas d’interpréteur de commandes BASH, installez un client SSH, tel que PuTTY.
 
@@ -124,57 +124,20 @@ Pour en savoir plus la connexion aux machines virtuelles Linux, consultez [Créa
 > [!NOTE]
 > Si vous voyez une alerte de sécurité PuTTY relative à la clé d’hôte du serveur non mise en cache dans le Registre, choisissez parmi les options suivantes. Si vous faites confiance à cet ordinateur hôte, sélectionnez **Yes** (Oui) pour ajouter la clé à la mémoire cache de PuTTy et poursuivre la connexion. Si vous souhaitez vous connecter une seule fois, sans ajouter la clé dans le cache, sélectionnez **No** (Non). Si vous ne faites pas confiance à cet ordinateur hôte, sélectionnez **Cancel** (Annuler) pour abandonner la connexion.
 
-## <a name="install-the-open-enclave-sdk-oe-sdk"></a>Installer le SDK Open Enclave (SDK OE) <a id="Install"></a>
+## <a name="intel-sgx-drivers"></a>Pilotes Intel SGX
+
+> [!NOTE]
+> Les pilotes Intel SGX font déjà partie des images de la galerie Azure Ubuntu et Windows. Aucune installation spéciale des pilotes n’est requise. Vous pouvez également mettre à jour les pilotes existants fournis dans les images en consultant la [liste des pilotes Intel SGX DCAP](https://01.org/intel-software-guard-extensions/downloads).
+
+## <a name="optional-testing-enclave-apps-built-with-open-enclave-sdk-oe-sdk"></a>Facultatif : test des applications enclave créées avec le SDK Open Enclave SDK (OE SDK) <a id="Install"></a>
 
 Suivez les instructions pas à pas pour installer le [SDK OE](https://github.com/openenclave/openenclave) sur votre machine virtuelle de la série DCsv2 exécutant une image Ubuntu 18.04 LTS Gen 2. 
 
-Si votre machine virtuelle s’exécute sur Ubuntu 18.04 LTS Gen 2, vous devez suivre les [instructions d’installation pour Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md). 
+Si votre machine virtuelle s’exécute sur Ubuntu 18.04 LTS Gen 2, vous devez suivre les [instructions d’installation pour Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md).
 
-#### <a name="1-configure-the-intel-and-microsoft-apt-repositories"></a>1. Configurer les dépôts APT Intel et Microsoft
 
-```bash
-echo 'deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu bionic main' | sudo tee /etc/apt/sources.list.d/intel-sgx.list
-wget -qO - https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key | sudo apt-key add -
-
-echo "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-7 main" | sudo tee /etc/apt/sources.list.d/llvm-toolchain-bionic-7.list
-wget -qO - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-
-echo "deb [arch=amd64] https://packages.microsoft.com/ubuntu/18.04/prod bionic main" | sudo tee /etc/apt/sources.list.d/msprod.list
-wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-```
-
-#### <a name="2-install-the-intel-sgx-dcap-driver"></a>2. Installer le pilote Intel SGX DCAP
-Il se peut que le pilote Intel SGX soit déjà installé sur certaines versions d’Ubuntu. Vérifiez-le à l’aide de la commande suivante : 
-
-```bash
-dmesg | grep -i sgx
-[  106.775199] sgx: intel_sgx: Intel SGX DCAP Driver {version}
-``` 
-Si la sortie est vide, installez le pilote : 
-
-```bash
-sudo apt update
-sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.7/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.35.bin -O sgx_linux_x64_driver.bin
-chmod +x sgx_linux_x64_driver.bin
-sudo ./sgx_linux_x64_driver.bin
-```
-
-> [!WARNING]
-> Utilisez la dernière version du pilote Intel SGX DCAP disponible sur le [site SGX d’Intel](https://01.org/intel-software-guard-extensions/downloads).
-
-#### <a name="3-install-the-intel-and-open-enclave-packages-and-dependencies"></a>3. Installer les packages et dépendances Intel et Open Enclave
-
-```bash
-sudo apt -y install clang-8 libssl-dev gdb libsgx-enclave-common libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
-```
-
-> [!NOTE] 
-> Cette étape installe également le package [az-dcap-client](https://github.com/microsoft/azure-dcap-client) qui est nécessaire pour effectuer une attestation distante dans Azure.
-
-#### <a name="4-verify-the-open-enclave-sdk-install"></a>4. **Vérifier l’installation du SDK Open Enclave**
-
-Consultez [Utilisation du SDK Open Enclave](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/Linux_using_oe_sdk.md) sur GitHub pour vérifier et utiliser le SDK installé.
+> [!NOTE]
+> Les pilotes Intel SGX font déjà partie des images de la galerie Azure Ubuntu et Windows. Aucune installation spéciale des pilotes n’est requise. Vous pouvez également mettre à jour les pilotes existants fournis dans les images.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

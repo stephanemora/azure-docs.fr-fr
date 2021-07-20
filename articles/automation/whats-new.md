@@ -6,12 +6,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 06/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 6eae4a65412ad922724d4c35b7628b15698ba841
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: bd2bd39839645aa0511a00cc7a6c87c711e33e2b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982931"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294748"
 ---
 # <a name="whats-new-in-azure-automation"></a>Nouveautés d’Azure Automation
 
@@ -24,6 +24,14 @@ Azure Automation bénéficie d’améliorations en continu. Pour vous informer d
 Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement.
 
 ## <a name="june-2021"></a>Juin 2021
+
+### <a name="security-update-for-log-analytics-contributor-role"></a>Mise à jour de sécurité pour le rôle Contributeur Log Analytics
+
+**Type :** Modification planifiée
+
+Microsoft envisage de supprimer les droits de compte Automation du rôle Contributeur Log Analytics. Actuellement, le rôle [Contributeur Log Analytics](./automation-role-based-access-control.md#log-analytics-contributor) intégré peut élever les privilèges du rôle [Contributeur](./../role-based-access-control/built-in-roles.md#contributor) d’abonnement. Les comptes d’identification de compte Automation étant initialement configurés avec des droits Contributeur sur l’abonnement, ils peuvent être utilisés par un attaquant pour créer de nouveaux runbooks et exécuter du code en tant que Contributeur sur l’abonnement.
+
+Compte tenu de ce risque de sécurité, nous vous recommandons de ne pas utiliser le rôle Contributeur Log Analytics pour exécuter des tâches Automation. Créez plutôt le rôle personnalisé Contributeur Azure Automation et utilisez-le pour les actions associées au compte Automation. Pour connaître les étapes d’implémentation, consultez [Rôle Contributeur Azure Automation personnalisé](./automation-role-based-access-control.md#custom-azure-automation-contributor-role).
 
 ### <a name="support-for-automation-and-state-configuration-available-in-west-us-3"></a>Prise en charge d’Automation et de State Configuration disponible dans la région USA Ouest 3
 

@@ -6,14 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 04/20/2021
+ms.date: 07/01/2021
 ms.author: victorh
-ms.openlocfilehash: 077de420397f3b8feab60a9f555fc26e66a5b5ff
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: e87953217fe44fedc8d693a40a1f3ae942a06a39
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110539770"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113216366"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -79,6 +79,8 @@ Les problèmes connus du service Pare-feu Azure sont les suivants :
 |IPv6 n’est pas pris en charge actuellement|Si vous ajoutez une adresse IPv6 à une règle, le pare-feu échoue.|Utilisez uniquement des adresses IPv4. La prise en charge d’IPv6 est en cours d’examen.|
 |La mise à jour de plusieurs groupes d'adresses IP échoue en générant une erreur de conflit.|Quand vous mettez à jour au moins deux groupes IP joints au même pare-feu, l’une des ressources passe en état d’échec.|Il s'agit d'un problème/d'une limitation connu(e). <br><br>Quand vous mettez à jour un groupe IP, une mise à jour est déclenchée sur tous les pare-feux auxquels ce groupe IP est joint. Si la mise à jour d’un deuxième groupe IP est lancée alors que le pare-feu est toujours à l’état *Mise à jour*, la mise à jour du groupe IP échoue.<br><br>Pour éviter l’échec, les groupes IP joints au même pare-feu doivent être mis à jour un par un. Prévoyez suffisamment de temps entre les mises à jour pour permettre au pare-feu de sortir de l'état *Mise à jour*.|
 |La suppression de RuleCollectionGroups à l’aide de modèles ARM n’est pas prise en charge.|La suppression d’un RuleCollectionGroup à l’aide de modèles ARM n’est pas prise en charge et entraîne un échec.|Cette opération n’est pas prise en charge.|
+|La règle DNAT permettant de *tout* (*) autoriser renvoie le trafic SNAT.|Si une règle DNAT autorise *tout* (*) en tant qu’adresse IP source, une règle de réseau implicite met en correspondance le traffic VNet-VNet et soumet systématiquement le trafic à cette règle SNAT.|Il s’agit d’une limitation actuelle.|
+|L’ajout d’une règle DNAT à un hub virtuel sécurisé à l’aide d’un fournisseur de sécurité n’est pas pris en charge.|Cela se traduit par un itinéraire asynchrone pour le trafic DNAT de retour, qui accède au fournisseur de sécurité.|Non pris en charge.|
 
 
 ## <a name="next-steps"></a>Étapes suivantes

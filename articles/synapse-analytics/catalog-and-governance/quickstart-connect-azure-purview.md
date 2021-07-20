@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/16/2020
 ms.author: jejiang
 ms.reviewer: jrasnick
-ms.openlocfilehash: f0af3b571b1a6d793668c33d0c76e19a3d0c9e62
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 827f1a4cd518d33ea67749482349cad9d4540c82
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109716057"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117373"
 ---
 # <a name="quickstartconnect-an-azure-purview-account-to-a-synapse-workspace"></a>Démarrage rapide : Connecter un compte Azure Purview à un espace de travail Synapse 
 
@@ -22,7 +22,7 @@ Dans ce guide de démarrage rapide, vous allez inscrire un compte Azure Purview 
 
 Vous pouvez effectuer les tâches suivantes dans Synapse : 
 - Utiliser la zone de recherche en haut pour rechercher des ressources Purview en fonction de mots clés 
-- Comprendre les données en fonction des métadonnées, de la traçabilité, des annotations 
+- Comprendre les données en fonction des métadonnées, de la [traçabilité](../../purview/catalog-lineage-user-guide.md), des annotations 
 - Connecter ces données à votre espace de travail avec des services liés ou des jeux de données d’intégration 
 - Analyser ces jeux de données avec Synapse Apache Spark, Synapse SQL et Data Flow 
 
@@ -50,3 +50,9 @@ Accédez à [https://web.azuresynapse.net](https://web.azuresynapse.net) et co
 [Inscrire et analyser des ressources Azure Synapse dans Azure Purview](../../purview/register-scan-azure-synapse-analytics.md)
 
 [Découvrir, connecter et explorer des données dans Synapse en utilisant Azure Purview](how-to-discover-connect-analyze-azure-purview.md)   
+
+[Se connecter à Azure Data Factory et Azure Purview](../../purview/how-to-link-azure-data-factory.md)
+
+[Se connecter à Azure Data Share et Azure Purview](../../purview/how-to-link-azure-data-share.md)
+
+[Tracer les données à partir de Power BI dans Azure Purview](../../purview/how-to-lineage-powerbi.md)

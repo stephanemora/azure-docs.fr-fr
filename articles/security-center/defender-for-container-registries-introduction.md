@@ -7,12 +7,12 @@ ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 282777a692b7b0fe54415ef09c2cf1879868dd3b
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: f11a9391b0a4f467cba41724b1d15493f1393201
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854429"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112992132"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduction à Azure Defender pour des registres de conteneurs
 
@@ -53,14 +53,14 @@ Il existe trois déclencheurs pour une analyse d’image :
  
 L’analyse se termine généralement dans un délai de 2 minutes, mais elle peut prendre jusqu’à 15 minutes. Les résultats sont mis à disposition en tant que recommandations du Security Center, par exemple :
 
-[![Exemple de suggestion Azure Security Center sur les vulnérabilités découvertes dans une image hébergée Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![Exemple de suggestion Azure Security Center sur les vulnérabilités découvertes dans une image hébergée Azure Container Registry (ACR).](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 
 ## <a name="how-does-security-center-work-with-azure-container-registry"></a>Interaction entre Azure Security Center et Azure Container Registry
 
 Vous trouverez ci-dessous un diagramme de haut niveau des composants et des avantages qu’offre la protection de vos registres avec Security Center.
 
-![Présentation globale d’Azure Security Center et Azure Container Registry (ACR)](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
+![Présentation globale d’Azure Security Center et Azure Container Registry (ACR).](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
 
 
 
@@ -88,8 +88,6 @@ Oui. Si votre organisation préfère ignorer un résultat, plutôt que de le cor
 ### <a name="why-is-security-center-alerting-me-to-vulnerabilities-about-an-image-that-isnt-in-my-registry"></a>Pourquoi Security Center m’alerte au sujet de vulnérabilités concernant une image qui ne se trouve pas dans mon registre ?
 Security Center fournit des évaluations de vulnérabilité pour chaque image envoyée ou extraite dans un registre. Certaines images peuvent réutiliser des étiquettes à partir d’une image déjà analysée. Par exemple, vous pouvez réassigner l’étiquette « latest » chaque fois que vous ajoutez une image à une synthèse. Dans ce cas, l’« ancienne » image existe toujours dans le registre et peut encore être extraite par sa synthèse. Si l’image présente des résultats de sécurité et qu’elle est extraite, elle expose des vulnérabilités de sécurité.
 
-### <a name="what-should-i-do-if-the-scan-results-for-my-image-arent-shown"></a>Que dois-je faire si les résultats de l’analyse pour mon image ne sont pas affichés ?
-Patientez quelques minutes et, si les résultats ne s’affichent pas, essayez de renvoyer l’image pour déclencher une nouvelle analyse. S’ils n’apparaissent toujours pas, contactez notre équipe du support technique. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

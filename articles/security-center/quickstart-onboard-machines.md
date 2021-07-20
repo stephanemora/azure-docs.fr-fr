@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 68fcf8a8feb046fca2c26041d92264dd8b3a638e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ca3f7c9104fa655536762ac38f50c78cb96ad3a
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103465495"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237943"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Connecter vos machines non-Azure à Security Center
 
@@ -55,14 +55,14 @@ Découvrez-en plus sur [Azure Arc enabled servers](../azure-arc/servers/overview
 1. Dans le menu de Security Center, ouvrez la page **Mise en route**.
 1. Sélectionnez l’onglet **Prise en main**.
 
-    :::image type="content" source="./media/security-center-onboarding/onboarding-get-started-tab.png" alt-text="Onglet Prise en main de la page Mise en route" lightbox="./media/security-center-onboarding/onboarding-get-started-tab.png":::
+    :::image type="content" source="./media/security-center-onboarding/onboarding-get-started-tab.png" alt-text="Onglet Prise en main de la page Mise en route." lightbox="./media/security-center-onboarding/onboarding-get-started-tab.png":::
 
 1. Sous **Ajouter des serveurs non-Azure**, sélectionnez **Configurer** .
 
     > [!TIP]
     > Vous pouvez également ajouter des ordinateurs à partir de la page **Inventaire**, en cliquant sur le bouton **Ajouter des serveurs non-Azure**.
     > 
-    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Ajouter des machines autres qu’Azure à partir de la page d’inventaire des ressources":::
+    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Ajouter des machines autres qu’Azure à partir de la page d’inventaire des ressources.":::
 
     Une liste de vos espaces de travail Log Analytics apparaît. Elle comprend, le cas échéant, l’espace de travail par défaut créé pour vous par Security Center à l’activation de l’approvisionnement automatique. Sélectionnez cet espace de travail ou un autre espace de travail à utiliser.
 

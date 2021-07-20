@@ -399,17 +399,17 @@
         - name: Analyser les données de télémétrie
           href: analyze-telemetry-data.md
           displayName: 'App Insights, Application Insights, Kusto'
+        - name: Mesures de surveillance
+          href: monitor-metrics.md
         - name: Diffusion de journaux d’activité
           href: streaming-logs.md
           displayName: monitoring
         - name: Journaux de diagnostic
           href: functions-monitor-log-analytics.md
           displayName: 'Azure Monitor, Kusto, Log Analytics, metrics'
-    - name: Sécuriser
+    - name: Authenticate
       items:
-        - name: Ajouter un certificat SSL
-          href: ../app-service/configure-ssl-certificate.md?toc=%2fazure%2fazure-functions%2ftoc.json
-        - name: Authentification des utilisateurs
+        - name: Configurer des fournisseurs d’authentification
           items:
             - name: S’authentifier avec Azure AD
               href: ../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fazure-functions%2ftoc.json
@@ -423,8 +423,20 @@
               href: ../app-service/configure-authentication-provider-openid-connect.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: S’authentifier en utilisant Se connecter avec Apple (préversion)
               href: ../app-service/configure-authentication-provider-apple.md?toc=%2fazure%2fazure-functions%2ftoc.json
-        - name: Authentification avancée
-          href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Personnaliser les connexions/déconnexions
+          href: ../app-service/configure-authentication-customize-sign-in-out.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Accéder aux identités utilisateur
+          href: ../app-service/configure-authentication-user-identities.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Utiliser des jetons
+          href: ../app-service/configure-authentication-oauth-tokens.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Gérer les versions d’API
+          href: ../app-service/configure-authentication-api-version.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Configuration basée sur des fichiers
+          href: ../app-service/configure-authentication-file-based.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Sécuriser
+      items:
+        - name: Ajouter un certificat SSL
+          href: ../app-service/configure-ssl-certificate.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Limiter les adresses IP
           href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Utiliser une identité managée
@@ -674,7 +686,7 @@
     - name: "Informations de référence sur host.json\_1.x"
       href: functions-host-json-v1.md
     - name: Questions fréquentes (FAQ) sur les réseaux
-      href: functions-networking-faq.md
+      href: functions-networking-faq.yml
 - name: Ressources
   items:
     - name: Développer vos compétences avec Microsoft Learn
@@ -685,6 +697,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Tarifs
       href: pricing.md
+    - name: Stratégie de prise en charge des langages
+      href: language-support-policy.md
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Informations sur les quotas

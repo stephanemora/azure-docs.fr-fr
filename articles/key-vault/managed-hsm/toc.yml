@@ -21,6 +21,8 @@
       href: role-management.md
     - name: Sécuriser l’accès à votre HSM managé
       href: secure-your-managed-hsm.md
+    - name: Utiliser des points de terminaison privés
+      href: private-link.md
     - name: Configurer la journalisation pour HSM managé
       href: logging.md
     - name: Récupération d'urgence
@@ -64,14 +66,16 @@
       displayName: ARM
 - name: Ressources
   items:
+    - name: Solutions tierces
+      href: third-party-solutions.md
     - name: Développer vos compétences avec Microsoft Learn
       href: /learn/browse/?products=azure-key-vault
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: Disponibilité des régions
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault&regions=all'
     - name: Contrat de Niveau de Service (SLA)
-      href: 'https://azure.microsoft.com/support/legal/sla/key-vault/'
+      href: 'https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/'
     - name: Limites du service
       href: ../general/service-limits.md
     - name: État du service

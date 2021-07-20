@@ -6,18 +6,18 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 02/18/2021
+ms.date: 06/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: e51d8633418a0a00afb8a6055c05f9c77d93f3cb
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 67211215b3dac9ad8774dc4e3c67a869bd031646
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110540450"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113111264"
 ---
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>Démarrage rapide : Se connecter de manière sécurisée à une machine virtuelle par le biais d’un navigateur via une adresse IP privée
 
-Vous pouvez vous connecter à une machine virtuelle par le biais de votre navigateur en utilisant le portail Azure et Azure Bastion. Cet article de démarrage rapide vous explique comment configurer Azure Bastion en fonction des paramètres de votre machine virtuelle, puis vous connecter à celle-ci par le biais du portail. La machine virtuelle n’a pas besoin d’une adresse IP publique, d’un logiciel client, d’un agent ou d’une configuration spéciale. Une fois le service approvisionné, l’expérience RDP/SSH est disponible pour toutes les machines virtuelles du même réseau virtuel. Pour plus d’informations sur Azure Bastion, consultez [Présentation d’Azure Bastion](bastion-overview.md).
+Vous pouvez vous connecter à une machine virtuelle par le biais de votre navigateur en utilisant le portail Azure et Azure Bastion. Cet article de démarrage rapide vous explique comment configurer Azure Bastion en fonction des paramètres de votre machine virtuelle. Une fois le service approvisionné, l’expérience RDP/SSH est disponible pour toutes les machines virtuelles du même réseau virtuel. La machine virtuelle n’a pas besoin d’une adresse IP publique, d’un logiciel client, d’un agent ou d’une configuration spéciale. Si vous n’avez pas besoin de l’adresse IP publique sur votre machine virtuelle, vous pouvez la supprimer. Vous vous connecterez alors à votre machine virtuelle via le portail à l’aide de l’adresse IP privée. Pour plus d’informations sur Azure Bastion, consultez [Présentation d’Azure Bastion](bastion-overview.md).
 
 ## <a name="prerequisites"></a><a name="prereq"></a>Configuration requise
 
@@ -99,19 +99,26 @@ Il existe différentes manières de configurer un hôte bastion. Dans les étape
    * **Nom de l’IP publique :** nom de la ressource d’IP publique.
    * **SKU de l’IP publique :** préconfiguré sur **Standard**.
    * **Attribution :** préconfiguré sur **Statique**. Vous ne pouvez pas utiliser une attribution Dynamique pour Azure Bastion.
-   * **Groupe de ressources** : Le même groupe de ressources que la machine virtuelle.
+   * **Groupe de ressources** : le même groupe de ressources que la machine virtuelle.
 
    :::image type="content" source="./media/quickstart-host-portal/create-bastion.png" alt-text="Capture d’écran de l’étape 3.":::
 1. Après avoir renseigné les valeurs, sélectionnez **Créer Azure Bastion à l’aide des valeurs par défaut**. Azure valide vos paramètres, puis crée l’hôte. La création et le déploiement de l’hôte et de ses ressources prennent environ 5 minutes.
 
-## <a name="connect"></a><a name="connect"></a>Connexion
+## <a name="remove-vm-public-ip-address"></a><a name="remove"></a>Supprimer une adresse IP publique de machine virtuelle
+
+[!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
+
+## <a name="connect-to-a-vm"></a><a name="connect"></a>Se connecter à une machine virtuelle
 
 Une fois Bastion déployé sur le réseau virtuel, l’écran devient la page de connexion.
 
 1. Entrez le nom d’utilisateur et le mot de passe pour votre machine virtuelle. puis **Connecter**.
 
    :::image type="content" source="./media/quickstart-host-portal/connect.png" alt-text="Capture d’écran montrant la boîte de dialogue Se connecter à l’aide d’Azure Bastion":::
-1. La connexion RDP à cette machine virtuelle s’ouvre directement dans le portail Azure (via le protocole HTML5) à l’aide du port 443 et le service Bastion.
+1. La connexion RDP à cette machine virtuelle avec Bastion s’ouvrira directement dans le portail Azure (en HTML5) via le port 443 et le service Bastion. 
+
+   * Lorsque vous vous connectez, le bureau de la machine virtuelle peut être différent de celui présenté dans la capture d’écran. 
+   * L’utilisation de touches de raccourci lorsque vous êtes connecté à une machine virtuelle peut ne pas s’accompagner du même comportement que les touches de raccourci sur un ordinateur local. Par exemple, lorsque vous êtes connecté à une machine virtuelle Windows à partir d’un client Windows, CTRL+ALT+FIN est le raccourci clavier pour CTRL+ALT+SUPPR sur un ordinateur local. Pour effectuer cette opération depuis un Mac alors que vous êtes connecté à une machine virtuelle Windows, le raccourci clavier est Fn+CTRL+ALT+Retour arrière.
 
    :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Connexion RDP":::
 

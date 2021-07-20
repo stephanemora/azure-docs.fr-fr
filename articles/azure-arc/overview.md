@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Azure Arc
 description: Découvrez ce qu’est le service Azure Arc et comment il permet aux clients d’activer la gestion et la gouvernance de leurs ressources hybrides avec d’autres services et fonctionnalités Azure.
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: b9e3cac865a92023d0079a5face9fbc8a3734c6e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b67c01f666916508946b49b0ad45d7151ed179ef
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967079"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287296"
 ---
 # <a name="azure-arc-overview"></a>Vue d’ensemble d’Azure Arc
 
@@ -29,7 +29,8 @@ Aujourd’hui, Azure Arc vous permet de gérer les types de ressources suivants
 
 * Serveurs : machines virtuelles et machines physiques exécutant Windows ou Linux.
 * Clusters Kubernetes : prise en charge de plusieurs distributions Kubernetes.
-* Services de données Azure : services Azure SQL Database et PostgreSQL Hyperscale.
+* Services de données - Services Azure SQL Managed Instance et PostgreSQL Hyperscale.
+* SQL Server - Inscrire des instances à partir de n’importe quel emplacement.
 
 ## <a name="what-does-azure-arc-deliver"></a>Que propose Azure Arc ?
 

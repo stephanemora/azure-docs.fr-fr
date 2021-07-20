@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
 ms.date: 06/07/2021
-ms.openlocfilehash: 4f7900c4abc37df776c231ac9d70a09862f6d49f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: bc8449950134ba8c247c57df06b7495a48558def
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111748393"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238591"
 ---
 # <a name="quickstart-enable-azure-defender"></a>Démarrage rapide : Activer Azure Defender
 
@@ -54,14 +54,14 @@ Pour activer les fonctionnalités de protection contre les menaces de Security C
 
         L’onglet **Mise à jour** répertorie les abonnements et les espaces de travail éligibles à l’intégration.
 
-        :::image type="content" source="./media/enable-azure-defender/get-started-upgrade-tab.png" alt-text="Onglet Mise à niveau de la page Prise en main"::: 
+        :::image type="content" source="./media/enable-azure-defender/get-started-upgrade-tab.png" alt-text="Onglet Mise à niveau de la page Prise en main."::: 
 
     1. Dans la liste **Sélectionner les abonnements et les espaces de travail sur lesquels activer Azure Defender**, sélectionnez les abonnements et les espaces de travail à mettre à niveau, puis sélectionnez **Mettre à niveau** pour activer Azure Defender.
 
        - Si vous sélectionnez des abonnements et des espaces de travail qui ne sont pas éligibles pour la version d’évaluation, l’étape suivante les met à niveau et des frais seront facturés depuis lors.
        - Si vous sélectionnez un espace de travail éligible à un essai gratuit, la prochaine étape activera un essai.
 
-        :::image type="content" source="./media/enable-azure-defender/upgrade-selected-workspaces-and-subscriptions.png" alt-text="Mettre à niveau tous les espaces de travail et abonnements sélectionnés à partir de la page Prise en main":::
+        :::image type="content" source="./media/enable-azure-defender/upgrade-selected-workspaces-and-subscriptions.png" alt-text="Mettre à niveau tous les espaces de travail et abonnements sélectionnés à partir de la page Prise en main.":::
 
 
 ## <a name="disable-azure-defender"></a>Désactivation d’Azure Defender
@@ -72,7 +72,7 @@ Si vous devez désactiver Azure Defender pour un abonnement, la procédure est i
 1. Sélectionnez l’abonnement approprié.
 1. Si votre abonnement a activé Azure Defender, ouvrez **Plans Azure Defender** et sélectionnez **Azure Defender désactivé**.
 
-    :::image type="content" source="./media/enable-azure-defender/disable-plans.png" alt-text="Activer ou désactiver Azure Defender":::
+    :::image type="content" source="./media/enable-azure-defender/disable-plans.png" alt-text="Activer ou désactiver Azure Defender.":::
 
 1. Sélectionnez **Enregistrer**.
 
