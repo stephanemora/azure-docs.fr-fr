@@ -6,14 +6,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/28/2021
+ms.date: 06/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: 57776654087e6e07b8515d76c955cb82ce1e07bf
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 945a11fb8d8aef3eef2d3c43a68b8c092741436e
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110787763"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003779"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Nouveauté dans Recherche cognitive Azure
 
@@ -33,16 +33,16 @@ Découvrir les nouveautés du service. Marquez cette page pour rester au fait de
 
 |Fonctionnalité&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Disponibilité  |
 |------------------------------|---------------|---------------|
-| [Prise en charge de l’API Gremlin](search-howto-index-cosmosdb-gremlin.md) | Pour une indexation basée sur un indexeur, vous pouvez maintenant créer une source de données qui récupère du contenu auprès de Cosmos DB accessible par le biais de l’API Gremlin. | Préversion publique ([sur demande](https://aka.ms/azure-cognitive-search/indexer-preview)) utilisant api-version=2020-06-30-Preview. |
+| [Prise en charge de l’API Gremlin (préversion)](search-howto-index-cosmosdb-gremlin.md) | Pour une indexation basée sur un indexeur, vous pouvez maintenant créer une source de données qui récupère du contenu auprès de Cosmos DB accessible par le biais de l’API Gremlin. | Préversion publique ([sur demande](https://aka.ms/azure-cognitive-search/indexer-preview)) utilisant api-version=2020-06-30-Preview. |
 
 ## <a name="march-2021"></a>Mars 2021
 
 |Fonctionnalité&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Disponibilité  |
 |------------------------------|---------------|---------------|
-| [Recherche sémantique](semantic-search-overview.md) | Collection de fonctionnalités liées aux requêtes qui améliorent considérablement la pertinence des résultats de recherche par des ajustements minimaux apportés à une demande de requête. </br></br>Le [classement sémantique](semantic-ranking.md) calcule les scores de pertinence en utilisant la signification sémantique des mots et du contenu. </br></br>Les [légendes sémantiques](semantic-how-to-query-request.md) retournent des passages pertinents du document qui résument le mieux le document, avec mise en évidence des termes ou expressions les plus importants. </br></br>Les [réponses sémantiques](semantic-answers.md) retournent des passages clés, extraits d’un document de recherche, qui sont formulés comme une réponse directe à une requête qui ressemble à une question. | Préversion publique ([sur demande](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Utilisez [Rechercher dans des documents (REST)](/rest/api/searchservice/preview-api/search-documents) (api-version=2020-06-30-Preview) ou l’[Explorateur de recherche](search-explorer.md) dans le portail Azure. </br></br>Des restrictions de région et de niveau s’appliquent. |
-| [Vérification orthographique des termes de la requête](speller-how-to-add.md) | Vous pouvez appliquer la vérification orthographique aux termes de la requête avant que ceux-ci ne parviennent au moteur de recherche. L’option `speller` fonctionne avec n’importe quel type de requête (simple, complète ou sémantique). |  Préversion publique, REST uniquement, api-version=2020-06-30-Preview|
-| [Indexeur SharePoint Online](search-howto-index-sharepoint-online.md) | Cet indexeur vous connecte à un site SharePoint Online, ce qui vous permet d’indexer le contenu d’une bibliothèque de documents. | Préversion publique, REST uniquement, api-version=2020-06-30-Preview |
-| [Normaliseurs](search-normalizers.md) | Les normaliseurs fournissent un prétraitement de texte simple : casse toujours identique, suppression des accents et conversion ASCII, sans appeler la chaîne d’analyse en texte intégral.| Préversion publique, REST uniquement, api-version=2020-06-30-Preview |
+| [Recherche sémantique (préversion)](semantic-search-overview.md) | Collection de fonctionnalités liées aux requêtes qui améliorent considérablement la pertinence des résultats de recherche par des ajustements minimaux apportés à une demande de requête. </br></br>Le [classement sémantique](semantic-ranking.md) calcule les scores de pertinence en utilisant la signification sémantique des mots et du contenu. </br></br>Les [légendes sémantiques](semantic-how-to-query-request.md) retournent des passages pertinents du document qui résument le mieux le document, avec mise en évidence des termes ou expressions les plus importants. </br></br>Les [réponses sémantiques](semantic-answers.md) retournent des passages clés, extraits d’un document de recherche, qui sont formulés comme une réponse directe à une requête qui ressemble à une question. | Préversion publique ([sur demande](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Utilisez [Rechercher dans des documents (REST)](/rest/api/searchservice/preview-api/search-documents) (api-version=2020-06-30-Preview) ou l’[Explorateur de recherche](search-explorer.md) dans le portail Azure. </br></br>Des restrictions de région et de niveau s’appliquent. |
+| [Vérification orthographique des termes de la requête (préversion)](speller-how-to-add.md) | Vous pouvez appliquer la vérification orthographique aux termes de la requête avant que ceux-ci ne parviennent au moteur de recherche. L’option `speller` fonctionne avec n’importe quel type de requête (simple, complète ou sémantique). |  Préversion publique, REST uniquement, api-version=2020-06-30-Preview|
+| [Indexeur SharePoint Online (préversion)](search-howto-index-sharepoint-online.md) | Cet indexeur vous connecte à un site SharePoint Online, ce qui vous permet d’indexer le contenu d’une bibliothèque de documents. | Préversion publique, REST uniquement, api-version=2020-06-30-Preview |
+| [Normaliseurs (préversion)](search-normalizers.md) | Les normaliseurs fournissent un prétraitement de texte simple : casse toujours identique, suppression des accents et conversion ASCII, sans appeler la chaîne d’analyse en texte intégral.| Préversion publique, REST uniquement, api-version=2020-06-30-Preview |
 | [Compétence de recherche d’entité personnalisée](cognitive-search-skill-custom-entity-lookup.md ) |  Compétence cognitive qui recherche du texte dans une liste personnalisée de mots et d'expressions définie par l'utilisateur. À l’aide de cette liste, elle étiquète tous les documents contenant des entités correspondantes. La compétence prend également en charge un degré de correspondance approximative qui peut être appliqué pour rechercher des correspondances similaires sans être rigoureusement exactes. | En disponibilité générale. |
 
 ## <a name="february-2021"></a>Février 2021
@@ -91,14 +91,14 @@ Découvrir les nouveautés du service. Marquez cette page pour rester au fait de
 |February | [Compétence Détection PII (préversion)](cognitive-search-skill-pii-detection.md)  | Compétence cognitive qui extrait et masque des informations personnelles. |
 |February | [Compétence Recherche d'entité personnalisée (préversion)](cognitive-search-skill-custom-entity-lookup.md) | Compétence cognitive qui recherche les mots et expressions d’une liste et étiquette tous les documents contenant des entités correspondantes.  |
 |Janvier | [Chiffrement à clé gérée par le client](search-security-manage-encryption-keys.md) | Mise à la disposition générale  |
-|Janvier | [Règles IP pour la prise en charge de pare-feu entrant (préversion)](service-configure-firewall.md) | Nouvelles propriétés **IpRule** et **NetworkRuleSet** dans l’[API CreateOrUpdate](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service).  |
+|Janvier | [Règles IP pour la prise en charge de pare-feu entrant (préversion)](service-configure-firewall.md) | Nouvelles propriétés **IpRule** et **NetworkRuleSet** dans l’[API CreateOrUpdate](/rest/api/searchmanagement/2020-08-01/services/create-or-update).  |
 |Janvier | [Créer un point de terminaison privé (préversion)](service-create-private-endpoint.md) | Configurez une liaison privée pour les connexions sécurisées à votre service de recherche. Cette fonctionnalité en préversion a une dépendance avec [Azure Private Link](../private-link/private-link-overview.md) et le [Réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) dans le cadre de la solution. |
 
 ## <a name="2019-archive"></a>Archive 2019
 
 | Month | Fonctionnalité | Description |
 |-------|---------|-------------|
-|Décembre | [Créer une application de démonstration (préversion)](search-create-app-portal.md) | Assistant qui génère un fichier HTML téléchargeable avec accès par requête (en lecture seule) à un index, conçu comme outil de validation et de test et non comme raccourci vers une application cliente complète.|
+|Décembre | [Créer une application de démonstration](search-create-app-portal.md) | Assistant qui génère un fichier HTML téléchargeable avec accès par requête (en lecture seule) à un index, conçu comme outil de validation et de test et non comme raccourci vers une application cliente complète.|
 |Novembre | [Enrichissement incrémentiel (préversion)](cognitive-search-incremental-indexing-conceptual.md) | Met en cache le traitement des ensembles de compétences pour les réutiliser ultérieurement.  |
 |Novembre | [Compétence Extraction de document (préversion)](cognitive-search-skill-document-extraction.md) | Compétence cognitive pour extraire le contenu d’un fichier à partir d’un ensemble de compétences.|
 |Novembre | [Compétence Traduction de texte](cognitive-search-skill-text-translation.md) | Compétence cognitive utilisée pendant l’indexation, qui évalue et traduit le texte. En disponibilité générale.|

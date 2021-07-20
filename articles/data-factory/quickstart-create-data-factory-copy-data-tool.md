@@ -5,13 +5,13 @@ author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: quickstart
-ms.date: 06/01/2021
-ms.openlocfilehash: a66af648abc0ae48c0a4fcc7eb33ab7c1351c41b
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.date: 06/04/2021
+ms.openlocfilehash: d78b915fc9efffd52f31b75edcb35d91fb529e4a
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111371815"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113219786"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Démarrage rapide : Utiliser l’outil Copier des données pour copier des données
 
@@ -61,9 +61,9 @@ Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer u
     
 ## <a name="start-the-copy-data-tool"></a>Démarrer l’outil Copier des données
 
-1. Sur la page **Prise en main**, sélectionnez la vignette **Copier des données** pour démarrer l’outil Copier des données.
+1. Sur la page d’accueil d’Azure Data Factory, sélectionnez la mosaïque **Ingérer** pour démarrer l’outil Copier des données.
 
-   ![Vignette « Copier des données »](./media/doc-common-process/get-started-page.png)
+   ![Capture d’écran montrant la page d'accueil Azure Data Factory.](./media/doc-common-process/get-started-page.png)
 
 1. Sur la page **Propriétés** de l’outil Copier des données, choisissez **Tâche de copie intégrée** sous **Type de tâche**, puis **Suivant**.
 

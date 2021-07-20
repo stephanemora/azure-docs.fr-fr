@@ -7,12 +7,12 @@ ms.date: 05/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: eb460fc214cd9dfb65e1ef500cfc3c152452030e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: eddab19cb46d27d0d48d1f2376cd9507b28cefc8
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110482221"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003617"
 ---
 # <a name="introduction-to-azure-defender-for-open-source-relational-databases"></a>Présentation d’Azure Defender pour les bases de données relationnelles open source
 
@@ -33,7 +33,7 @@ Azure Defender détecte les activités anormales indiquant des tentatives inhabi
 | Versions protégées de PostgreSQL :  | Monoserveur : Usage général et À mémoire optimisée. Découvrez-en plus dans [Niveaux tarifaires de PostgreSQL](../postgresql/concepts-pricing-tiers.md).   |
 | Versions protégées de MySQL :       | Monoserveur : Usage général et À mémoire optimisée. Découvrez-en plus dans [Niveaux tarifaires de MySQL](../mysql/concepts-pricing-tiers.md).                        |
 | Versions protégées de MariaDB :     | Usage général et À mémoire optimisée. Découvrez-en plus dans [Niveaux tarifaires de MariaDB](../mariadb/concepts-pricing-tiers.md).                      |
-| Clouds :                            | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov) |
+| Clouds :                            | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Azure Chine) |
 |                                    |                                                                                                                                            |
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-open-source-relational-databases"></a>Quels sont les avantages d’Azure Defender pour les bases de données relationnelles open source ?

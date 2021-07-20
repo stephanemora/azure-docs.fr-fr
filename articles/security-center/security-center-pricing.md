@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 06/10/2021
-ms.openlocfilehash: 13f5bb8245ecc57c01d4236dfea7c9e4a2f7ae75
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 52ecc8a66dfa13747daf2b4b7fd227ef7ab5a3b2
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111986315"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237162"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center gratuit et Azure Defender activé
 Azure Defender est gratuit pendant les 30 premiers jours. Une fois les 30 jours écoulés, si vous décidez de continuer à utiliser le service, votre utilisation est automatiquement facturée.
@@ -54,11 +54,11 @@ Security Center est proposé en deux modes :
 ### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Comment puis-je suivre qui a effectué des modifications au niveau d’Azure Defender dans Security Center dans mon organisation ?
 Des abonnements Azure peuvent avoir plusieurs administrateurs autorisés à modifier les paramètres de tarification. Pour savoir quel utilisateur a effectué une modification, utilisez le journal d’activité Azure.
 
-:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Journal d’activité Azure montrant un événement de modification de tarif":::
+:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Journal d’activité Azure montrant un événement de modification de tarif.":::
 
 Si les informations de l’utilisateur ne sont pas listées dans la colonne **Événement lancé par**, explorez les données JSON de l’événement pour obtenir les détails correspondants.
 
-:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Explorateur JSON du journal d’activité Azure":::
+:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Explorateur JSON du journal d’activité Azure.":::
 
 
 ### <a name="what-are-the-plans-offered-by-security-center"></a>Quels sont les plans proposés par Security Center ? 
@@ -103,7 +103,7 @@ Non. Quand vous activez [Azure Defender pour les serveurs](defender-for-servers-
 | Libération | État transitoire. À l’issue de l’opération, la machine virtuelle indique l’état Désalloué.                                                                             | Pas de facturation            |
 | Libéré  | La machine virtuelle a été arrêtée et supprimée de l’hôte.                                                                                  | Pas de facturation            |
 
-:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Machines virtuelles Azure montrant une machine désallouée":::
+:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Machines virtuelles Azure montrant une machine désallouée.":::
 
 ### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>Les machines sur lesquelles l’agent Log Analytics n’est pas installé seront-elles facturées ?
 Oui. Lorsque vous activez [Azure Defender pour les serveurs](defender-for-servers-introduction.md) sur un abonnement, les machines de cet abonnement bénéficient d’une série de protections, même si vous n’avez pas installé l’agent Log Analytics.

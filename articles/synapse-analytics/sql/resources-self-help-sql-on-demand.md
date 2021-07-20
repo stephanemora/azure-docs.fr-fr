@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: ab08832927aeb969175968b8330b4ab54fc887bf
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 848f5f13218fde513bf48575c2f9bb298521d3ad
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071296"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214746"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Aide autonome pour le pool SQL serverless
 
@@ -41,7 +41,7 @@ Si le problème persiste, créez un [ticket de support](../../azure-portal/suppo
 
 ### <a name="query-fails-because-file-cannot-be-opened"></a>La requête échoue car le fichier ne peut pas être ouvert
 
-Si votre requête échoue avec une erreur indiquant que le fichier ne peut pas être ouvert parce qu’il n’existe pas ou qu’il est utilisé par un autre processus, et que vous êtes sûr que le fichier existe et qu’il n’est pas utilisé par un autre processus, cela signifie que le pool SQL serverless ne peut pas accéder au fichier. Ce problème se produit généralement parce que votre identité Azure Active Directory ne dispose pas des droits d’accès au fichier. Par défaut, le pool SQL serverless tente d’accéder au fichier en utilisant votre identité Azure Active Directory. Pour résoudre ce problème, vous devez disposer des droits nécessaires pour accéder au fichier. Le moyen le plus simple consiste à vous accorder le rôle « Contributeur aux données Blob du stockage » pour le compte de stockage que vous tentez d’interroger. 
+Si votre requête échoue avec une erreur indiquant que le fichier ne peut pas être ouvert parce qu’il n’existe pas ou qu’il est utilisé par un autre processus, et que vous êtes sûr que le fichier existe et qu’il n’est pas utilisé par un autre processus, cela signifie que le pool SQL serverless ne peut pas accéder au fichier. Ce problème se produit généralement lorsque votre identité Azure Active Directory ne dispose pas de droits d’accès au fichier ou qu’un pare-feu bloque l’accès au fichier. Par défaut, le pool SQL serverless tente d’accéder au fichier en utilisant votre identité Azure Active Directory. Pour résoudre ce problème, vous devez disposer des droits nécessaires pour accéder au fichier. Le moyen le plus simple consiste à vous accorder le rôle « Contributeur aux données Blob du stockage » pour le compte de stockage que vous tentez d’interroger. 
 - [Pour plus d’informations, consultez le guide complet sur le contrôle d’accès Azure Active Directory pour le stockage](../../storage/common/storage-auth-aad-rbac-portal.md). 
 - [Consultez Contrôler l’accès au compte de stockage pour le pool SQL serverless dans Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
@@ -438,7 +438,7 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
 WITH ( FORMAT_TYPE = PARQUET)
 ```
 
-### <a name="operation-operation-name-is-not-allowed-for-a-replicated-database"></a>L’opération [[nom de l’opération]] n’est pas autorisée pour une base de données répliquée.
+### <a name="operation-is-not-allowed-for-a-replicated-database"></a>L'opération n'est pas autorisée pour une base de données répliquée.
    
 Si vous essayez de créer des objets SQL, des utilisateurs ou des autorisations de modification dans une base de données, vous pouvez obtenir des erreurs, telles que « L’opération CREATE USER n’est pas autorisée pour une base de données répliquée ». Cette erreur est retournée lorsque vous essayez de créer des objets dans une base de données [partagée avec le pool Spark](../metadata/database.md). Les bases de données répliquées à partir de pools Apache Spark sont en lecture seule. Vous ne pouvez pas créer d’objets dans une base de données répliquée à l’aide de T-SQL.
 
@@ -464,6 +464,14 @@ Synapse SQL retourne `NULL` au lieu des valeurs que vous voyez dans le magasin d
 
 La valeur spécifiée dans la clause `WITH` ne correspond pas aux types Cosmos DB sous-jacents dans le stockage analytique et ne peut pas être convertie de façon implicite. Utilisez le type `VARCHAR` dans le schéma.
 
+### <a name="performance-issues"></a>Problèmes de performance
+
+Si vous rencontrez des problèmes de performances inattendus, assurez-vous que vous avez appliqué les meilleures pratiques, notamment :
+- Assurez-vous que vous avez placé l’application cliente, le pool serverless et le stockage analytique Cosmos DB dans [la même région](best-practices-serverless-sql-pool.md#colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool).
+- Assurez-vous que vous utilisez la clause `WITH` avec des [types de données optimaux](best-practices-serverless-sql-pool.md#use-appropriate-data-types).
+- Assurez-vous que vous utilisez le [classement Latin1_General_100_BIN2_UTF8](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) lorsque vous filtrez vos données à l’aide de prédicats de chaîne.
+- En présence de requêtes répétitives susceptibles d’être mises en cache, essayez d’utiliser [CETAS pour stocker les résultats des requêtes dans Azure Data Lake Storage](best-practices-serverless-sql-pool.md#use-cetas-to-enhance-query-performance-and-joins).
+
 ## <a name="delta-lake"></a>Delta Lake
 
 La prise en charge de Delta Lake est actuellement disponible en préversion publique dans les pools SQL serverless. Certains problèmes connus peuvent survenir pendant la préversion.
@@ -471,10 +479,9 @@ La prise en charge de Delta Lake est actuellement disponible en préversion publ
   - Le dossier racine doit contenir un sous-dossier nommé `_delta_log`. La requête échoue en l’absence de dossier `_delta_log`. Si vous ne voyez pas ce dossier, vous référencez des fichiers Parquet bruts qui doivent être [convertis au format Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) à l’aide de pools Apache Spark.
   - Ne spécifiez pas de caractères génériques pour décrire le schéma de partition. La requête Delta Lake identifie automatiquement les partitions Delta Lake. 
 - Les tables Delta Lake créées dans les pools Apache Spark ne sont pas synchronisées dans le pool SQL serverless. Vous ne pouvez pas interroger de tables Delta Lake de pools Apache Spark à l’aide du langage T-SQL.
-- Les tables externes ne prennent pas en charge le partitionnement. Utilisez des [vues partitionnées](create-use-views.md#delta-lake-partitioned-views) dans le dossier Delta Lake pour tirer parti de l’élimination des partitions.
-  - Les [vues partitionnées](create-use-views.md#delta-lake-partitioned-views) de Delta Lake ne doivent pas avoir la fonction `OPENROWSET` avec la clause `WITH`. En raison du problème connu dans la préversion, vous devez utiliser l’inférence de schéma et supprimer la clause `WITH`.
-- Les pools SQL serverless ne prennent pas en charge les requêtes de temps de voyage ni la mise à jour des fichiers Delta Lake. Vous pouvez utiliser un pool SQL serverless pour interroger la dernière version de Delta Lake. Utilisez les pools Apache Spark dans Azure Synapse Analytics [pour mettre à jour Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data) ou [lire des données historiques](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
-- Les pools SQL serverless ne prennent pas en charge les jeux de données Delta Lake avec les partitions contenant des valeurs `null` ou vides. Mettez à jour les valeurs `null` ou vides dans vos jeux de données si vous devez les lire avec les pools SQL serverless.
+- Les tables externes ne prennent pas en charge le partitionnement. Utilisez des [vues partitionnées](create-use-views.md#delta-lake-partitioned-views) dans le dossier Delta Lake pour tirer parti de l’élimination des partitions. Consulez les roblèmes connus et solutions de contournement ci-dessous.
+- Les pools SQL serverless ne prennent pas en charge les requêtes de voyage dans le temps. Vous pouvez voter pour cette fonctionnalité sur le [site de commentaires Azure](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake)
+- Les pools SQL serverless ne prennent pas en charge la mise à jour des fichiers Delta Lake. Vous pouvez utiliser un pool SQL serverless pour interroger la dernière version de Delta Lake. Utilisez les pools Apache Spark dans Azure Synapse Analytics [pour mettre à jour Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data) ou [lire des données historiques](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - La prise en charge de Delta Lake n’est pas disponible dans les pools SQL dédiés. Assurez-vous que vous utilisez des pools serverless pour interroger les fichiers Delta Lake.
 
 Vous pouvez proposer des idées et des améliorations sur la [page de commentaires Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
@@ -488,7 +495,28 @@ Msg 13807, Level 16, State 1, Line 6
 Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.json' cannot be listed.
 ```
 
-Assurez-vous que le dossier `_delta_log` existe (vous interrogez peut-être des fichiers Parquet bruts qui ne sont pas convertis au format Delta Lake). Si le dossier `_delta_log` existe, assurez-vous que vous disposez des autorisations de lecture et de liste sur les dossiers Delta Lake sous-jacents.
+Assurez-vous que le dossier `_delta_log` existe (vous interrogez peut-être des fichiers Parquet bruts qui ne sont pas convertis au format Delta Lake).
+
+Si le dossier `_delta_log` existe, assurez-vous que vous disposez des autorisations de lecture et de liste sur les dossiers Delta Lake sous-jacents.
+Essayez de lire les fichiers \*.json directement à l’aide de FORMAT='CSV' (entrez votre URI dans le paramètre BULK) :
+
+```sql
+select top 10 * 
+from openrowset(BULK 'https://.....core.windows.net/.../_delta_log/*.json', 
+FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0b') with (line varchar(max)) as logs
+```
+
+Si cette requête échoue, l’appelant n’est pas autorisé à lire les fichiers de stockage sous-jacents. 
+
+Le moyen le plus simple consiste à vous accorder le rôle « Contributeur aux données Blob du stockage » pour le compte de stockage que vous tentez d’interroger. 
+- [Pour plus d’informations, consultez le guide complet sur le contrôle d’accès Azure Active Directory pour le stockage](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [Consultez Contrôler l’accès au compte de stockage pour le pool SQL serverless dans Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
+
+### <a name="partitioning-column-returns-null-values"></a>La colonne de partitionnement renvoie des valeurs NULL
+
+Si vous utilisez les vues sur la fonction `OPENROWSET` qui lit le dossier Delta Lake partitionné, vous pouvez obtenir la valeur `NULL` plutôt que les valeurs de colonne réelles pour les colonnes de partitionnement. En raison de ce problème connu, la fonction `OPENROWSET` avec la clause `WITH` ne peut pas lire les colonnes de partitionnement. Les [vues partitionnées](create-use-views.md#delta-lake-partitioned-views) de Delta Lake ne doivent pas avoir la fonction `OPENROWSET` avec la clause `WITH`. Vous devez utiliser la fonction `OPENROWSET` qui ne présente pas de schéma spécifié explicitement.
+
+**Solution de contournement :** supprimez le formulaire de clause `WITH` de la fonction `OPENROWSET` utilisée dans les vues.
 
 ### <a name="query-failed-because-of-a-topology-change-or-compute-container-failure"></a>Échec de la requête en raison d’un échec de modification de la topologie ou du conteneur de calcul
 
@@ -499,19 +527,42 @@ CREATE DATABASE mydb
     COLLATE Latin1_General_100_BIN2_UTF8;
 ```
 
+Les requêtes exécutées via la base de données MASTER sont concernées par ce problème.
+
+**Solution de contournement :** exécutez les requêtes sur une base de données personnalisée avec le classement de base de données `Latin1_General_100_BIN2_UTF8`.
+
 ### <a name="column-of-type-varchar-is-not-compatible-with-external-data-type-parquet-column-is-of-nested-type"></a>La colonne de type « VARCHAR » n’est pas compatible avec le type de données externe « La colonne Parquet est de type imbriqué »
 
-Vous essayez de lire des fichiers Delta Lake qui contiennent des colonnes de type imbriqué sans spécifier de clause WITH (à l’aide de l’inférence de schéma automatique). L’inférence de schéma automatique ne fonctionne pas avec les colonnes imbriquées dans Delta Lake. Utilisez la clause `WITH` et attribuez explicitement le type `VARCHAR` aux colonnes imbriquées.
+Vous essayez de lire des fichiers Delta Lake qui contiennent des colonnes de type imbriqué sans spécifier de clause WITH (à l’aide de l’inférence de schéma automatique). L’inférence de schéma automatique ne fonctionne pas avec les colonnes imbriquées dans Delta Lake.
+
+**Solution de contournement :** utilisez la clause `WITH` et attribuez explicitement le type `VARCHAR` aux colonnes imbriquées.
 
 ### <a name="cannot-find-value-of-partitioning-column-in-file"></a>Valeur de la colonne de partitionnement introuvable dans le fichier 
 
-Les jeux de données Delta Lake peuvent avoir des valeurs `NULL` dans les colonnes de partitionnement. Ceci n’est actuellement pas pris en charge dans un pool SQL serverless. Dans ce cas, vous obtenez l’erreur qui ressemble à ceci :
+Les jeux de données Delta Lake peuvent avoir des valeurs `NULL` dans les colonnes de partitionnement. Ces partitions sont stockées dans le dossier `HIVE_DEFAULT_PARTITION`. Ceci n’est actuellement pas pris en charge dans un pool SQL serverless. Dans ce cas, vous obtenez l’erreur qui ressemble à ceci :
 
 ```
-Resolving Delta logs on path 'https://....core.windows.net/.../' failed with error: Cannot find value of partitioning column '<column name>' in file 'https://......core.windows.net/...../<column name>=__HIVE_DEFAULT_PARTITION__/part-00042-2c0d5c0e-8e89-4ab8-b514-207dcfd6fe13.c000.snappy.parquet'.
+Resolving Delta logs on path 'https://....core.windows.net/.../' failed with error:
+Cannot find value of partitioning column '<column name>' in file 
+'https://......core.windows.net/...../<column name>=__HIVE_DEFAULT_PARTITION__/part-00042-2c0d5c0e-8e89-4ab8-b514-207dcfd6fe13.c000.snappy.parquet'.
 ```
 
-Essayez de mettre à jour votre jeu de données Delta Lake à l’aide de pools Apache Spark et utilisez une valeur (chaîne vide ou `"null"`) au lieu de `null` dans la colonne de partitionnement.
+**Solution de contournement :** essayez de mettre à jour votre jeu de données Delta Lake à l’aide de pools Apache Spark et utilisez une valeur (chaîne vide ou `"null"`) plutôt que `null` dans la colonne de partitionnement.
+
+## <a name="constraints"></a>Contraintes
+
+Certaines contraintes générales système peuvent affecter votre charge de travail :
+
+| Propriété | Limitation |
+|---|---|
+| Nombre maximal d’espaces de travail Synapse par abonnement | 20 |
+| Nombre maximal de bases de données par pool serverless | 20 (sans compter les bases de données synchronisées à partir du pool Apache Spark) |
+| Nombre maximal de bases de données synchronisées à partir du pool Apache Spark | Non limité |
+| Nombre maximal d’objets de bases de données par base de données | La somme du nombre de tous les objets d’une base de données ne peut pas dépasser 2 147 483 647 (voir [Limitations relatives au moteur de base de données SQL Server](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects)) |
+| Longueur maximale de l’identificateur maximale (en caractères) | 128 (voir [Limitations relatives au moteur de base de données SQL Server](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects))|
+| Durée maximale de la requête | 30 min |
+| Taille maximale du jeu de résultats | 80 Go (partagés entre toutes les requêtes simultanées en cours d’exécution) |
+| Concurrence maximale | Non limitée et basée sur la complexité des requêtes et le volume de données analysées. Un pool de SQL serverless peut simultanément gérer 1 000 sessions actives qui exécutent des requêtes légères, mais ce nombre diminue si les requêtes sont plus complexes ou analysent un plus grand volume de données. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

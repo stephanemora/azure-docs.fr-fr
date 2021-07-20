@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: ce5f1e9a7ab493bf7989a55fccb5ef696433d771
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 7dae716944426ce21cb81bdbb36992238e4bb227
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066967"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112298436"
 ---
 # <a name="register-and-scan-teradata-source"></a>Inscrire et analyser une source Teradata
 
@@ -72,11 +72,11 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
 
 1.  Dans le centre d’administration, cliquez sur **Runtimes d’intégration**. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour configurer un runtime d’intégration auto-hébergé
 
-2.  Accédez aux **Sources**.
+2.  Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
 
 3.  Sélectionnez la source Teradata inscrite.
 
-4.  Sélectionnez **+ Nouvelle analyse**.
+4.  Sélectionnez **Nouvelle analyse**.
 
 5.  Fournissez les renseignements ci-dessous :
 

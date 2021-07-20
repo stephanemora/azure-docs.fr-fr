@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble du contrôle d’accès à l’espace de travail Synapse
+title: Vue d’ensemble du contrôle d’accès à l’espace de travail Azure Synapse
 description: Cet article décrit les mécanismes utilisés pour contrôler l’accès à un espace de travail Synapse ainsi que les ressources et les artefacts de code qu’il contient.
 services: synapse-analytics
 author: RonyMSFT
@@ -9,26 +9,26 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20614b1c397bdf24e807d48d3de33f0033da14bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 574211bc426d97c5bd734dcf348b66ecce1b3ff8
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100105111"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217806"
 ---
-# <a name="synapse-access-control"></a>Contrôle d’accès Synapse 
+# <a name="azure-synapse-access-control"></a>Contrôle d’accès Azure Synapse 
 
-Cet article fournit une vue d’ensemble des mécanismes disponibles pour contrôler l’accès aux données et aux ressources de calcul de Synapse.  
+Cet article fournit une vue d’ensemble des mécanismes disponibles pour contrôler l’accès aux données et aux ressources de calcul d’Azure Synapse.  
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Synapse fournit un système de contrôle d’accès complet et affiné, qui intègre les éléments suivants : 
+Azure Synapse fournit un système de contrôle d’accès complet et affiné, qui intègre les éléments suivants : 
 - **Rôles Azure** pour la gestion des ressources et l’accès aux données dans le stockage 
 - **Rôles Synapse** pour la gestion de l’accès direct au code et à l’exécution 
 - **Rôles SQL** pour l’accès du plan de données aux données dans les pools SQL 
 - **Autorisations Git** pour le contrôle du code source, entre autres la prise en charge de l’intégration et du déploiement continus  
 
-Les rôles Synapse fournissent des ensembles d’autorisations qui peuvent être appliqués à différentes étendues. Grâce à cette granularité, il est facile d’accorder aux administrateurs, développeurs, opérateurs et personnel de sécurité un accès approprié aux données et ressources de calcul.
+Les rôles Azure Synapse fournissent des ensembles d’autorisations qui peuvent être appliqués à différentes étendues. Grâce à cette granularité, il est facile d’accorder aux administrateurs, développeurs, opérateurs et personnel de sécurité un accès approprié aux données et ressources de calcul.
 
 Le contrôle d’accès peut être simplifié en utilisant des groupes de sécurité correspondant aux rôles de travail des personnes. Il vous suffit d’ajouter ou de supprimer des utilisateurs dans les groupes de sécurité appropriés pour gérer l’accès.
 

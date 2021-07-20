@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: cfa4239fb6a3c78d861885478c1c643151ee6e13
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 0a490811250d4665531119733ab959ed2780e741
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128556"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280978"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Démarrage rapide : Configurer une application cliente pour accéder à une API web
 
@@ -128,7 +128,7 @@ Vous pouvez ajouter ou supprimer les autorisations qui s’affichent dans ce tab
 
 ### <a name="other-permissions-granted"></a>Autres autorisations accordées
 
-Vous pouvez également voir un tableau intitulée **Autres autorisations accordées pour {votre locataire}** dans le volet **Autorisations de l’API**. Le tableau **Autres autorisations accordées pour {votre locataire}** présente les autorisations accordées pour le locataire et qui n’ont pas été explicitement configurées sur l’objet application. Ces autorisations ont été demandées et accordées dynamiquement. Cette section s’affiche uniquement s’il existe au moins une autorisation qui s’applique.
+Vous pouvez également voir une table intitulée **Autres autorisations accordées pour {votre locataire}** dans le volet **Autorisations de l’API**. La table **Autres autorisations accordées pour {votre locataire}** présente les autorisations accordées pour le locataire et qui n’ont pas été explicitement configurées sur l’objet application. Ces autorisations ont été demandées dynamiquement et accordées par un administrateur, pour le compte de tous les utilisateurs. Cette section s’affiche uniquement s’il existe au moins une autorisation qui s’applique.
 
 Vous pouvez ajouter l’ensemble complet des autorisations d’une API ou des autorisations individuelles s’affichant dans ce tableau au tableau **Autorisations configurées**. En tant qu’administrateur, vous pouvez révoquer un consentement administrateur pour des API ou pour des autorisations individuelles dans cette section.
 

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd215f0c10f8aebd2a7494ecb5894484ce7bedb9
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: e0558be2ea1defb2a09e6461ba838e328cb293d6
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714041"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112201713"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Qu’est-ce qu’Azure AD Identity Governance ?
 
@@ -108,7 +108,7 @@ Il est recommandé d’utiliser le rôle le moins privilégié pour effectuer de
 
 | Fonctionnalité | Rôle moins privilégié |
 | ------- | --------------------- |
-| Gestion des droits d’utilisation | Administrateur d’utilisateurs (à l’exception de l’ajout de sites SharePoint Online aux catalogues, qui nécessite un administrateur général) |
+| Gestion des droits d’utilisation | Administrateur Identity Governance |
 | Révisions d’accès | Administrateur d’utilisateurs (à l’exception des révisions d’accès des rôles Azure ou Azure AD, qui requièrent un administrateur de rôle privilégié) |
 |Privileged Identity Management | Administrateur de rôle privilégié |
 | Conditions d’utilisation | Administrateur de la sécurité ou administrateur de l’accès conditionnel |

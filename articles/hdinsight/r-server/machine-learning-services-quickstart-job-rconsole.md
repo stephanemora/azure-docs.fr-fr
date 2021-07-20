@@ -4,15 +4,17 @@ description: Dans le guide de démarrage rapide, vous exécutez un script R sur 
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
-ms.custom: mvc
-ms.openlocfilehash: eac6fd14acfe12a0f505419a229bb78e423706d1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ROBOTS: NOINDEX
+ms.openlocfilehash: a4c724f973d2a84aada50e62b792b6b2227ecc66
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98935728"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299498"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Démarrage rapide : exécuter un script R sur un cluster ML Services dans Azure HDInsight avec une console R
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 ML Services sur Azure HDInsight permet aux scripts R d’utiliser Apache Spark et Apache Hadoop MapReduce afin d’exécuter des calculs distribués. ML Services contrôle le mode d’exécution des appels en définissant le contexte de calcul. Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R. Un nœud périphérique permet d’exécuter des fonctions distribuées parallélisées de RevoScaleR sur les différents cœurs du serveur associé. Vous pouvez également les exécuter sur les différents nœuds du cluster à l’aide des contextes de calcul Hadoop Map Reduce ou Apache Spark de RevoScaleR.
 
@@ -147,7 +149,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à exécuter un script 
     
       ---
     
-      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+      Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     
       Condition number of final variance-covariance matrix: 11904202
       Number of iterations: 7
