@@ -1,28 +1,28 @@
 ---
 title: Déployer un outil de gestion avec un modèle Azure Resource Manager - Azure
-description: Comment installer un outil d’interface utilisateur à l’aide d’un modèle Azure Resource Manager pour gérer les ressources de Windows Virtual Desktop (classique).
+description: Comment installer un outil d’interface utilisateur à l’aide d’un modèle Azure Resource Manager pour gérer les ressources d’Azure Virtual Desktop (classique).
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1d562c483b340bee5f1c1aa5f63c068de6f54e42
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 2270f514f20d4bbe0fbd4382925b485cdc236a67
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444392"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751934"
 ---
-# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Déployer un outil de gestion Windows Virtual Desktop (classique) à l’aide d’un modèle Azure Resource Manager
+# <a name="deploy-a-azure-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Déployer un outil de gestion Azure Virtual Desktop (classique) à l’aide d’un modèle Azure Resource Manager
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager.
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager.
 
 Les instructions de cet article vous indiquent comme déployer l’interface utilisateur avec un modèle Azure Resource Manager.
 
 ## <a name="important-considerations"></a>Points importants à prendre en compte
 
-Étant donné que l’application nécessite un consentement pour interagir avec Windows Virtual Desktop, cet outil ne prend pas en charge les scénarios B2B (Business-to-Business). Chaque abonnement du locataire Azure Active Directory (AAD) nécessite son propre déploiement de l’outil de gestion.
+Étant donné que l’application nécessite un consentement pour interagir avec Azure Virtual Desktop, cet outil ne prend pas en charge les scénarios B2B (Business-to-Business). Chaque abonnement du locataire Azure Active Directory (AAD) nécessite son propre déploiement de l’outil de gestion.
 
 Cet outil de gestion est un exemple. Microsoft fournira des mises à jour importantes pour la qualité et la sécurité. Le [code source est disponible sur GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Les clients et les partenaires sont encouragés à personnaliser l’outil pour l’adapter à leurs besoins métier.
 
@@ -40,11 +40,11 @@ Avant de déployer l’outil de gestion, vous avez besoin d’un utilisateur Azu
 - Il doit avoir l’autorisation de créer des ressources dans votre abonnement Azure.
 - Il doit avoir l’autorisation de créer une application Azure AD. Suivez ces étapes pour vérifier si votre utilisateur dispose des autorisations nécessaires en suivant les instructions fournies dans [Autorisations nécessaires](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
-Une fois que vous avez déployé et configuré l’outil de gestion, nous vous recommandons de demander à un utilisateur de lancer l’interface utilisateur de gestion pour vérifier que tout fonctionne correctement. L’utilisateur qui lance l’interface utilisateur de gestion doit avoir une attribution de rôle qui lui permet de voir ou de modifier le locataire Windows Virtual Desktop.
+Une fois que vous avez déployé et configuré l’outil de gestion, nous vous recommandons de demander à un utilisateur de lancer l’interface utilisateur de gestion pour vérifier que tout fonctionne correctement. L’utilisateur qui lance l’interface utilisateur de gestion doit avoir une attribution de rôle qui lui permet de voir ou de modifier le locataire Azure Virtual Desktop.
 
 ## <a name="deploy-the-management-tool"></a>Déployer l’outil de gestion
 
-Avant de commencer, vérifiez que les applications serveur et client ont le consentement nécessaire en vous rendant sur la [page de consentement de Windows Virtual Desktop](https://rdweb.wvd.microsoft.com) pour l’annuaire Azure Active Directory (AAD) représenté.
+Avant de commencer, vérifiez que les applications serveur et client ont le consentement nécessaire en vous rendant sur la [page de consentement d’Azure Virtual Desktop](https://rdweb.wvd.microsoft.com) pour l’annuaire Azure Active Directory (AAD) représenté.
 
 Suivez ces instructions pour déployer le modèle Azure Resource Management :
 
@@ -67,7 +67,7 @@ Suivez ces instructions pour déployer le modèle Azure Resource Management :
 
 Après avoir exécuté le modèle Azure Resource Manager de GitHub, vous trouverez un groupe de ressources contenant deux services d’application ainsi qu’un plan App Service dans le portail Azure.
 
-Avant de vous connecter et d’utiliser l’outil de gestion, vous devez donner un consentement pour la nouvelle application Azure AD qui est associée à l’outil de gestion. En fournissant ce consentement, vous autorisez l’outil de gestion à effectuer des appels de gestion de Windows Virtual Desktop pour le compte de l’utilisateur qui est actuellement connecté à l’outil.
+Avant de vous connecter et d’utiliser l’outil de gestion, vous devez donner un consentement pour la nouvelle application Azure AD qui est associée à l’outil de gestion. En fournissant ce consentement, vous autorisez l’outil de gestion à effectuer des appels de gestion d’Azure Virtual Desktop pour le compte de l’utilisateur qui est actuellement connecté à l’outil.
 
 > [!div class="mx-imgBorder"]
 > ![Capture d’écran montrant les autorisations fournies quand vous donnez un consentement à l’outil de gestion de l’interface utilisateur.](../media/management-ui-delegated-permissions.png)
@@ -99,7 +99,7 @@ Après avoir donné un consentement pour l’organisation ou pour un utilisateur
 Suivez ces instructions pour lancer l’outil :
 
 1. Sélectionnez la ressource Azure App Services avec le nom fourni dans le modèle (par exemple Apr3UX), puis accédez à l’URL associée, par exemple `https://rdmimgmtweb-210520190304.azurewebsites.net`.
-2. Connectez-vous avec vos informations d’identification Windows Virtual Desktop.
+2. Connectez-vous avec vos informations d’identification Azure Virtual Desktop.
 3. Quand vous êtes invité à choisir un groupe de locataires, sélectionnez **Groupe de locataires par défaut** dans la liste déroulante.
 4. Quand vous sélectionnez **Groupe de locataires par défaut**, un menu doit s’afficher du côté gauche de votre fenêtre. Dans ce menu, recherchez le nom de votre groupe de locataires et sélectionnez-le.
 
@@ -108,7 +108,7 @@ Suivez ces instructions pour lancer l’outil :
 
 ## <a name="report-issues"></a>Signaler des problèmes
 
-Si vous rencontrez des problèmes avec l’outil de gestion ou d’autres outils Windows Virtual Desktop, suivez les instructions de [Modèles Azure Resource Manager pour les services Bureau à distance](https://github.com/Azure/RDS-Templates/blob/master/README.md) pour les signaler sur GitHub.
+Si vous rencontrez des problèmes avec l’outil de gestion ou d’autres outils Azure Virtual Desktop, suivez les instructions de [Modèles Azure Resource Manager pour les services Bureau à distance](https://github.com/Azure/RDS-Templates/blob/master/README.md) pour les signaler sur GitHub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

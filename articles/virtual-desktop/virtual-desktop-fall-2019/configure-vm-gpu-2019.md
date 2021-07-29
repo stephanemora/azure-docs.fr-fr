@@ -1,25 +1,25 @@
 ---
-title: Configurer le GPU pour Windows Virtual Desktop (classique) - Azure
-description: Explique comment activer le rendu et l’encodage avec accélération GPU dans Windows Virtual Desktop (classique).
+title: Configurer le GPU pour Azure Virtual Desktop (classique) - Azure
+description: Découvrez comment activer le rendu et le codage avec accélération GPU dans Azure Virtual Desktop (classique).
 author: gundarev
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
-ms.openlocfilehash: fa7b80b021e00d25dea4f96432ae922c15474058
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ae012b1c8084c0f5f518a7e7006d7e5df9cdf4c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95023052"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750062"
 ---
-# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-classic"></a>Configurer l’accélération GPU pour Windows Virtual Desktop (classique)
+# <a name="configure-graphics-processing-unit-gpu-acceleration-for-azure-virtual-desktop-classic"></a>Configurer l’accélération GPU pour Azure Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../configure-vm-gpu.md).
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer des objets Azure Virtual Desktop pour Azure Resource Manager, consultez [cet article](../configure-vm-gpu.md).
 
-Windows Virtual Desktop prend en charge le rendu et le codage avec accélération GPU pour des performances d’applications et une extensibilité améliorées. L’accélération GPU est particulièrement importante pour les applications graphiques.
+Azure Virtual Desktop prend en charge le rendu et le codage avec accélération GPU pour des performances d’applications et une extensibilité améliorées. L’accélération GPU est particulièrement importante pour les applications graphiques.
 
-Suivez les instructions de cet article pour créer une machine virtuelle Azure optimisée pour le GPU, ajoutez-la à votre pool d’hôtes et configurez-la pour utiliser l’accélération GPU à des fins de codage et de rendu. Cet article suppose que vous avez déjà un locataire Windows Virtual Desktop configuré.
+Suivez les instructions de cet article pour créer une machine virtuelle Azure optimisée pour le GPU, ajoutez-la à votre pool d’hôtes et configurez-la pour utiliser l’accélération GPU à des fins de codage et de rendu. Cet article suppose que vous avez déjà un locataire Azure Virtual Desktop configuré.
 
 ## <a name="select-a-gpu-optimized-azure-virtual-machine-size"></a>Sélectionner une taille de machine virtuelle optimisée pour le GPU
 
@@ -29,18 +29,18 @@ Azure offre plusieurs [tailles de machine virtuelle optimisées pour le GPU](../
 
 Créez un nouveau pool d’hôtes à l’aide d’une machine virtuelle de la taille sélectionnée. Pour obtenir des instructions, consultez [Tutoriel : Créer un pool d’hôtes avec la Place de marché Azure](../create-host-pools-azure-marketplace.md).
 
-Windows Virtual Desktop prend en charge le rendu et le codage avec accélération GPU dans les systèmes d’opération suivants :
+Azure Virtual Desktop prend en charge le rendu et le codage avec accélération GPU dans les systèmes d’opération suivants :
 
 * Windows 10 version 1511 ou ultérieure
 * Windows Server 2016 ou version ultérieure
 
-Vous devez également configurer un groupe d’applications ou utilisez le groupe d’applications bureau par défaut (nommé « Groupe d’applications bureau ») qui est créé automatiquement lorsque vous créez un nouveau pool d’hôtes. Pour obtenir des instructions, consultez [Tutoriel : Gérer des groupes d’applications pour Windows Virtual Desktop](../manage-app-groups.md).
+Vous devez également configurer un groupe d’applications ou utilisez le groupe d’applications bureau par défaut (nommé « Groupe d’applications bureau ») qui est créé automatiquement lorsque vous créez un nouveau pool d’hôtes. Pour obtenir des instructions, consultez [Tutoriel : Gérer des groupes d’applications pour Azure Virtual Desktop](../manage-app-groups.md).
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Installer des pilotes graphiques pris en charge dans votre machine virtuelle
 
-Pour tirer parti des fonctionnalités GPU des machines virtuelles Azure de série N dans Windows Virtual Desktop, vous devez installer des pilotes graphiques appropriés. Suivez les instructions de la page [Systèmes d’exploitation et pilotes pris en charge](../../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) pour installer des pilotes à partir du fournisseur graphique approprié, manuellement ou à l’aide d’une extension de machine virtuelle Azure.
+Pour tirer parti des fonctionnalités GPU des machines virtuelles Azure de série N dans Azure Virtual Desktop, vous devez installer des pilotes graphiques appropriés. Suivez les instructions de la page [Systèmes d’exploitation et pilotes pris en charge](../../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) pour installer des pilotes à partir du fournisseur graphique approprié, manuellement ou à l’aide d’une extension de machine virtuelle Azure.
 
-Seuls les pilotes distribués par Azure sont pris en charge pour Windows Virtual Desktop. Par ailleurs, pour les machines virtuelles Azure dotées de GPU NVIDIA, seuls les [pilotes GRID NVIDIA](../../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers) sont pris en charge pour Windows Virtual Desktop.
+Seuls les pilotes distribués par Azure sont pris en charge pour Azure Virtual Desktop. Par ailleurs, pour les machines virtuelles Azure dotées de GPU NVIDIA, seuls les [pilotes GRID NVIDIA](../../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers) sont pris en charge pour Azure Virtual Desktop.
 
 Après l’installation du pilote, le redémarrage de la machine virtuelle est nécessaire. Utilisez les étapes de vérification dans les instructions ci-dessus pour confirmer que les pilotes graphiques ont été correctement installés.
 
@@ -82,7 +82,7 @@ Pour vérifier que les applications utilisent le GPU pour le rendu, essayez l’
 
 Pour vérifier que le Bureau à distance utilise le codage avec accélération GPU :
 
-1. Connectez-vous au bureau de la machine virtuelle à l’aide du client Windows Virtual Desktop.
+1. Connectez-vous au bureau de la machine virtuelle à l’aide du client Azure Virtual Desktop.
 2. Lancer l’Observateur d’événements et accédez au nœud suivant : **Journaux des applications et services** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Opérationnel**
 3. Pour déterminer si de codage avec accélération GPU est utilisé, recherchez l’ID d’événement 170. Si vous voyez « Encodeur matériel AVC activé : 1 » alors le codage GPU est utilisé.
 4. Pour déterminer si le mode AVC 444 est utilisé, recherchez l’ID d’événement 162. Si vous voyez « AVC disponible : 1 Profil initial : 2048 » alors AVC 444 est utilisé.

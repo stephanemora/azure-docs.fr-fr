@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 2b305955dbfcf99bccede041cbfcd18aef065cf1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e8164a6ee56a332528cdce8e81cd85460af0c1db
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770098"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752384"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Guide de configuration de la mise en cache pour l’enrichissement incrémentiel dans Recherche cognitive Azure
 
@@ -75,7 +75,7 @@ Modifiez l’objet cache pour inclure les propriétés obligatoires et facultati
 ```
 
 > [!NOTE]
-> Le cache de l’indexeur requiert un compte de stockage v2 à usage général. Pour plus d’informations, consultez les [différents types de comptes de stockage](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+> Le cache de l’indexeur requiert un compte de stockage v2 à usage général. Pour plus d’informations, consultez les [différents types de comptes de stockage](../storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 ### <a name="step-3-reset-the-indexer"></a>Étape 3 : Réinitialiser l’indexeur
 
@@ -127,7 +127,7 @@ Content-Type: application/json
 api-key: [YOUR-ADMIN-KEY]
 ```
 
-Après l’exécution de l’indexeur, vous trouverez le cache dans Stockage Blob Azure. Le nom du conteneur respecte le format suivant : `ms-az-search-indexercache-<YOUR-CACHE-ID>`
+Après l’exécution de l’indexeur, vous trouverez le cache dans Stockage blob Azure. Le nom du conteneur respecte le format suivant : `ms-az-search-indexercache-<YOUR-CACHE-ID>`
 
 > [!NOTE]
 > Une réinitialisation et une réexécution de l’indexeur entraînent une régénération complète afin que le contenu puisse être mis en cache. Tous les enrichissements cognitifs sont réexécutés sur tous les documents.

@@ -3,12 +3,12 @@ title: Configurer votre propre clé pour chiffrer les données Azure Service Bus
 description: Cet article vous explique comment configurer votre propre clé pour chiffrer les données Azure Service Bus au repos.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: de716b9f14191ba057c83a060104e64937c4192a
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 0ebce2d9b5d02f12f9f2ab363b225519fcc838d7
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816005"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854357"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Service Bus au repos à l’aide du portail Azure
 Azure Service Bus Premium fournit une fonctionnalité de chiffrement des données au repos à l’aide d’Azure Storage Service Encryption (Azure SSE). Service Bus Premium utilise Stockage Azure pour stocker les données. Toutes les données stockées avec Stockage Azure sont chiffrées à l'aide de clés gérées par Microsoft. Si vous utilisez votre propre clé (méthode également appelée Bring Your Own Key (BYOK) ou clé gérée par le client), les données sont toujours chiffrées à l'aide de la clé gérée par Microsoft, mais, en outre, la clé gérée par Microsoft est chiffrée à l'aide de la clé gérée par le client. Cette fonctionnalité vous permet de créer, de faire tourner, de désactiver et de révoquer l'accès aux clés gérées par le client et utilisées pour chiffrer les clés gérées par Microsoft. L'activation de la fonctionnalité BYOK sur votre espace de noms ne s'effectue qu'une seule fois.
@@ -103,7 +103,7 @@ Voici des informations détaillées concernant ces options :
 - Toutes les 5 minutes, le service Service Bus interroge toutes les clés gérées par le client et répertoriées dans l’enregistrement de l’espace de noms :
     - Si une clé a pivoté, l’enregistrement est mis à jour avec la nouvelle clé.
     - Si une clé a été révoquée, la clé est supprimée de l’enregistrement.
-    - Si toutes les clés ont été révoquées, l’état de chiffrement de l’espace de noms est défini sur **Révoqué**. Il sera impossible d’accéder aux données à partir de l’espace de noms Service Bus. 
+    - Si toutes les clés ont été révoquées, l’état de chiffrement de l’espace de noms est défini sur **Révoqué**. Cette mise à jour de l’état sera propagée au reste du système au cours des prochaines minutes. Après cela, il sera impossible d’accéder aux données à partir de l’espace de noms Service Bus.
     
 
 ## <a name="use-resource-manager-template-to-enable-encryption"></a>Utiliser un modèle Resource Manager pour activer le chiffrement

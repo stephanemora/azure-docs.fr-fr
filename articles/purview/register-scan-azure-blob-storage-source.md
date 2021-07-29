@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 9ae996d344604ebdaf4e166f6c0536eb6acb169b
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: a691c242cbe91ea4a3e76bd0b1a93f11a6dd7c8b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656598"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750593"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Inscrire et analyser Stockage Blob Azure
 
@@ -41,7 +41,7 @@ Lorsque vous choisissez **Identité managée**, pour configurer la connexion, vo
 
 1. Accédez à votre compte de stockage.
 1. Dans le menu de navigation de gauche, sélectionnez **Contrôle d’accès (IAM)** . 
-1. Sélectionnez **Ajouter**.
+1. Sélectionnez **+ Ajouter**.
 1. Définissez le **Rôle** sur **Lecteur de données blob de stockage**, puis entrez le nom de votre compte Azure Purview dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour fournir cette attribution de rôle à votre compte Purview.
 
 > [!Note]
@@ -91,7 +91,7 @@ Il est nécessaire de récupérer l’ID d’application et le secret du princip
 
 1. Accédez à votre compte de stockage.
 1. Dans le menu de navigation de gauche, sélectionnez **Contrôle d’accès (IAM)** . 
-1. Sélectionnez **Ajouter**.
+1. Sélectionnez **+ Ajouter**.
 1. Définissez le **Rôle** sur **Lecteur de données blob de stockage**, puis entrez le nom ou ID d’objet de votre principal de service dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour fournir cette attribution de rôle à votre principal de service.
 
 ## <a name="firewall-settings"></a>Paramètres du pare-feu
@@ -110,8 +110,8 @@ Il est nécessaire de récupérer l’ID d’application et le secret du princip
 
 Pour inscrire un nouveau compte blob dans votre catalogue de données, procédez comme suit :
 
-1. Accédez à votre compte Purview.
-1. Sélectionnez **Sources** dans le volet de navigation de gauche.
+1. Accédez à Purview Studio à partir de votre compte Purview dans le portail.
+1. Sélectionnez **Registres sources** sur la page d’accueil de Purview Studio.
 1. Sélectionnez **Inscrire**.
 1. Sous **Inscrire des sources**, sélectionnez **Stockage Blob Azure**
 1. Sélectionnez **Continue** (Continuer)
@@ -126,7 +126,35 @@ Dans l’écran **Inscrire des sources (Stockage Blob Azure)** , procédez comme
 
 :::image type="content" source="media/register-scan-azure-blob-storage-source/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## <a name="creating-and-running-a-scan"></a>Création et exécution d’une analyse
+
+Pour créer une analyse et l’exécuter, procédez comme suit :
+
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+
+1. Sélectionnez la source de données Azure Blob que vous avez inscrite.
+
+1. Sélectionnez **Nouvelle analyse**.
+
+1. Sélectionnez les informations d’identification pour vous connecter à votre source de données. 
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/set-up-scan-blob.png" alt-text="Configurer l’analyse":::
+
+1. Vous pouvez étendre votre analyse à des dossiers ou des sous-dossiers spécifiques en choisissant les éléments appropriés dans la liste.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/blob-scope-your-scan.png" alt-text="Définir la portée de votre analyse":::
+
+1. Sélectionnez ensuite un ensemble de règles pour l’analyse. Vous pouvez choisir entre l’ensemble système par défaut, les ensembles de règles personnalisés existants ou créer un ensemble de règles inline.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/blob-scan-rule-set.png" alt-text="Ensemble de règles d’analyse":::
+
+1. Choisissez votre déclencheur d’analyse. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/trigger-scan.png" alt-text="trigger":::
+
+1. Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

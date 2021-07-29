@@ -4,17 +4,16 @@ description: Découvrez les stratégies de restriction des accès disponibles da
 services: api-management
 documentationcenter: ''
 author: vladvino
-ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 02/26/2021
+ms.date: 06/02/2021
 ms.author: apimpm
-ms.openlocfilehash: 65916782d12a293226a164869264953572d2b04a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 55e87d6f0e2708e94beb1e2f9391bfa7aff44ceb
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760190"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111814077"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 
@@ -29,6 +28,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   [Set usage quota by subscription](#SetUsageQuota) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par abonnement.
 -   [Set usage quota by key](#SetUsageQuotaByKey) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par clé.
 -   [Validate JWT](#ValidateJWT) : applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.
+-  [Valider le certificat client](#validate-client-certificate) : garantit qu’un certificat présenté par un client à une instance de gestion des API correspond aux règles de validation et revendications spécifiées.
 
 > [!TIP]
 > Vous pouvez utiliser des stratégies de restriction d’accès dans différentes étendues à des fins différentes. Par exemple, vous pouvez sécuriser l’intégralité de l’API avec l’authentification AAD en appliquant la stratégie `validate-jwt` au niveau de l’API ou vous pouvez l’appliquer au niveau de l’opération d’API et utiliser `claims` pour un contrôle plus granulaire.
@@ -576,6 +576,95 @@ Cet exemple montre comment utiliser la stratégie [Validate JWT](api-management-
 | separator                       | Chaîne. Spécifie un séparateur (par exemple, « , ») à utiliser pour extraire un ensemble de valeurs à partir d’une revendication à valeurs multiples.                                                                                                                                                                                                                                                                                                                                          | Non                                                                               | N/A                                                                               |
 | url                             | URL du point de terminaison de configuration Open ID à partir de laquelle les métadonnées de configuration Open ID peuvent être récupérées. La réponse devrait correspondre aux spécifications définies dans l’URL :`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. Pour Azure Active Directory, utilisez l’URL suivante : `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration`, en remplaçant par le nom de votre client d’annuaire, par exemple, `contoso.onmicrosoft.com`. | Oui                                                                              | N/A                                                                               |
 | output-token-variable-name      | Chaîne. Nom de variable de contexte qui reçoit la valeur du jeton en tant qu’objet de type [`Jwt`](api-management-policy-expressions.md) à la validation du jeton                                                                                                                                                                                                                                                                                     | Non                                                                               | N/A                                                                               |
+
+### <a name="usage"></a>Usage
+
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
+
+-   **Sections de la stratégie :** inbound
+-   **Étendues de la stratégie :** toutes les étendues
+
+
+## <a name="validate-client-certificate"></a>Valider le certificat client
+
+Utilisez la stratégie `validate-client-certificate` pour faire en sorte qu’un certificat présenté par un client à une instance de gestion des API corresponde aux règles de validation et revendications spécifiées, comme l’objet ou émetteur pour une ou plusieurs identités de certificat.
+
+Pour être considéré comme valide, un certificat client doit répondre à toutes les règles de validation définies par les attributs de l’élément de niveau supérieur et correspondre à toutes les revendications définies pour au moins une des identités définies. 
+
+Utilisez cette stratégie pour vérifier les propriétés de certificat entrant par rapport aux propriétés souhaitées. Utilisez également cette stratégie pour remplacer la validation par défaut des certificats clients dans les cas suivants :
+
+* Si vous avez téléchargé des certificats d’autorité de certification personnalisés pour valider les demandes des clients auprès de la passerelle gérée
+* Si vous avez configuré des autorités de certification personnalisées pour valider les demandes des clients auprès d’une passerelle auto-gérée
+
+Pour plus d’informations sur les certificats d’autorité de certification personnalisés et les autorités de certification, consultez [Guide pratique pour ajouter un certificat d’autorité de certification personnalisé dans la Gestion des API Azure](api-management-howto-ca-certificates.md). 
+
+### <a name="policy-statement"></a>Instruction de la stratégie
+
+```xml
+<validate-client-certificate> 
+    validate-revocation="true|false" 
+    validate-trust="true|false" 
+    validate-not-before="true|false" 
+    validate-not-after="true|false" 
+    ignore-error="true|false"> 
+    <identities> 
+        <identity  
+            thumbprint="certificate thumbprint"  
+            serial-number="certificate serial number" 
+            common-name="certificate common name"  
+            subject="certificate subject string"  
+            dns-name="certificate DNS name" 
+            issuer="certificate issuer" 
+            issuer-thumbprint="certificate issuer thumbprint"  
+            issuer-certificate-id="certificate identifier" /> 
+    </identities> 
+</validate-client-certificate> 
+```
+
+### <a name="example"></a>Exemple
+
+L’exemple suivant valide un certificat client pour qu’il corresponde aux règles de validation par défaut de la stratégie et vérifie si l’objet et l’émetteur correspondent aux valeurs spécifiées.
+
+```xml
+<validate-client-certificate> 
+    validate-revocation="true" 
+    validate-trust="true" 
+    validate-not-before="true" 
+    validate-not-after="true" 
+    ignore-error="false"
+    <identities> 
+        <identity 
+            subject="C=US, ST=Illinois, L=Chicago, O=Contoso Corp., CN=*.contoso.com"
+            issuer="C=BE, O=FabrikamSign nv-sa, OU=Root CA, CN=FabrikamSign Root CA" />
+    </identities> 
+</validate-client-certificate> 
+```
+
+### <a name="elements"></a>Éléments
+
+| Élément             | Description                                  | Obligatoire |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| validate-client-certificate        | Élément racine.      | Oui      |
+|   Identités      |  Contient une liste d’identités avec des revendications définies sur le certificat client.       |    Non        |
+
+### <a name="attributes"></a>Attributs
+
+| Nom                            | Description      | Obligatoire |  Default    |
+| ------------------------------- |   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| validate-revocation  | Propriété booléenne. Spécifie si le certificat est validé par rapport à la liste de révocation en ligne.  | non   | True  |
+| validate-trust | Propriété booléenne. Spécifie si la validation doit échouer si la chaîne de cas ne peut pas être générée correctement pour une autorité de certification approuvée. | non | True |
+| validate-not-before | Propriété booléenne. Valide la valeur par rapport à l’heure actuelle. | non | True | 
+| validate-not-after  | Propriété booléenne. Valide la valeur par rapport à l’heure actuelle. | non | True| 
+| ignore-error  | Propriété booléenne. Spécifie si la stratégie doit aller au gestionnaire suivant ou passer à l’erreur en cas d’échec de la validation. | num. | False |  
+| identité | Chaîne. Combinaison de valeurs de revendication de certificat qui rendent le certificat valide. | Oui | N/A | 
+| thumbprint | Empreinte du certificat. | non | N/A |
+| serial-number | Numéro de série du certificat. | non | N/A |
+| common-name | Nom commun du certificat (partie de la chaîne d’objet). | non | N/A |
+| subject | Chaîne d’objet. Doit suivre le format du nom unique. | non | N/A |
+| dns-name | Valeur de l’entrée dnsName à l’intérieur de l’autre nom de la revendication. | non | N/A | 
+| émetteur | Objet de l’émetteur. Doit suivre le format du nom unique. | non | N/A | 
+| issuer-thumbprint | Empreinte de l’émetteur. | non | N/A | 
+| issuer-certificate-id | Identificateur de l’entité de certificat existante représentant la clé publique de l’émetteur. | non | N/A | 
 
 ### <a name="usage"></a>Usage
 

@@ -3,16 +3,20 @@ title: Utiliser des identités managées Azure pour créer des environnements da
 description: Découvrez comment utiliser des identités managées dans Azure pour déployer des environnements dans un labo dans Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0f3e4b4d7030eb26c25b291e03caaa430d1979c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a8afd74014cb940be17d9a84168e8bfe7daff67
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98185782"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854681"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Utiliser des identités managées Azure pour déployer des environnements dans un labo 
 
-En tant que propriétaire de labo, vous pouvez utiliser une identité managée pour déployer des environnements dans un labo. Cette fonctionnalité est utile dans les scénarios où l’environnement contient des ressources Azure (par exemple, des coffres de clés, des galeries d’images partagées et des réseaux externes au groupe de ressources de l’environnement) ou qu’il a des références à de telles ressources. Elle permet de créer des environnements de bac à sable (sandbox) qui ne sont pas limités au groupe de ressources de cet environnement.
+En tant que propriétaire de labo, vous pouvez utiliser une identité managée pour déployer des environnements dans un labo. Cette fonctionnalité est utile dans les scénarios où l’environnement contient des ressources Azure (par exemple, des coffres de clés, des galeries d’images partagées et des réseaux externes au groupe de ressources de l’environnement) ou qu’il a des références à de telles ressources. Elle permet de créer des environnements de bac à sable (sandbox) qui ne sont pas limités au groupe de ressources de cet environnement. 
+
+Par défaut, lorsque vous créez un environnement, le lab crée une identité affectée par le système pour accéder aux ressources et services Azure au nom d’un utilisateur du lab lors du déploiement du modèle Azure Resource Manager (modèle ARM). En savoir plus sur [les raisons pour lesquelles un lab crée une identité affectée par le système](configure-lab-identity.md#scenarios-for-using-labs-system-assigned-identity). Pour les labs nouveaux et existants, une identité affectée par le système est créée par défaut lors de la première création d’un environnement lab.  
+
+Notez que, en tant que propriétaire du lab, vous pouvez choisir d’accorder les autorisations d’identité affectées par le système au lab pour accéder aux ressources Azure en dehors du lab, ou vous pouvez utiliser votre propre identité affectée par l’utilisateur pour le scénario. L’identité affectée par le système du lab n’est valide que pendant la durée de vie du lab. L’identification affectée par le système est supprimée lorsque vous supprimez le lab. Lorsque vous avez des environnements dans plusieurs labs qui doivent utiliser une identité, envisagez d’utiliser une identité affectée par l’utilisateur.  
 
 > [!NOTE]
 > Actuellement, une seule identité attribuée par l’utilisateur est prise en charge par labo. 
@@ -48,44 +52,30 @@ Pour changer l’identité managée par l’utilisateur attribuée au labo, supp
 
 1. Après avoir créé une identité, notez l’ID de ressource de cette identité. Il doit ressembler à l’exemple suivant : 
 
-    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-1. Exécutez une méthode HTTPS PUT pour ajouter une nouvelle ressource `ServiceRunner` au labo similaire à l’exemple suivant. La ressource d’exécuteur de service est une ressource proxy permettant de gérer et de contrôler les identités managées dans DevTest Labs. Le nom de l’exécuteur de service peut être n’importe quel nom valide, mais nous vous recommandons d’utiliser le nom de la ressource d’identité managée. 
+    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}`.
+
+1. Exécutez une méthode HTTPS sur la ressource lab pour ajouter une identité affectée par l’utilisateur ou activer une identité affectée par le système pour le lab.
+
+   > [!NOTE]
+   > Que vous ayez créé une identité affectée par l’utilisateur ou non, le lab crée automatiquement une identité affectée par le système la première fois qu’un environnement lab est créé. Toutefois, si une identité affectée par l’utilisateur est déjà configurée pour le lab, le service lab DevTest continue à utiliser cette identité pour déployer les environnements lab. 
  
     ```json
-    PUT https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Devtestlab/labs/{yourlabname}/serviceRunners/{serviceRunnerName}
+    
+    PUT https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Devtestlab/labs/{labname}
 
     {
         "location": "{location}",
+        "properties": {
+          **lab properties**
+         } 
         "identity":{
-            "type": "userAssigned",
+            "type": "SystemAssigned,UserAssigned",
             "userAssignedIdentities":{
-                "[userAssignedIdentityResourceId]":{}
+                "/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}":{}
             }
-        }
-        "properties":{
-            "identityUsageType":"Environment"
-                     }
-          
+        } 
     }
-    ```
- 
-    Voici un exemple : 
-
-    ```json
-    PUT https://management.azure.com/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.Devtestlab/labs/mylab/serviceRunners/sampleuseridentity
-
-    {
-        "location": "eastus",
-        "identity":{
-            "type": "userAssigned",
-            "userAssignedIdentities":{
-                "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sampleuseridentity":{}
-            }
-        }
-        "properties":{
-            "identityUsageType":"Environment"
-                     }
-    }
+    
     ```
  
 Une fois que l’identité attribuée par l’utilisateur a été ajoutée au labo, le service Azure DevTest Labs l’utilise lors du déploiement d’environnements Azure Resource Manager. Par exemple, si vous avez besoin que votre modèle Resource Manager accède à une image de galerie d’images partagées externe, vérifiez que l’identité que vous avez ajoutée au labo dispose des autorisations minimales exigées pour la ressource de galerie d’images partagées. 

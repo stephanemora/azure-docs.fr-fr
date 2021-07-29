@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 5888a7cc8aa58d1c6edab191e1243ebc60000fd6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea65011a27b7dab65ea75b5365bdcdf2be67d8b2
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048865"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747128"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Comment configurer l’indexation SharePoint Online dans le service Recherche cognitive (préversion)
 
@@ -49,6 +49,10 @@ La détection des suppressions est également prise en charge par défaut. Cela 
 
 ## <a name="setting-up-sharepoint-online-indexing"></a>Configuration de l’indexation SharePoint Online
 Pour configurer l’indexeur SharePoint Online, vous devez effectuer certaines actions dans le portail Azure et d’autres à l’aide de l’API REST en préversion. Cette préversion n’est pas prise en charge par le SDK.
+
+ La vidéo suivante montre comment configurer l’indexeur SharePoint Online.
+ 
+> [!VIDEO https://www.youtube.com/embed/QmG65Vgl0JI]
 
 ### <a name="step-1-enable-system-assigned-managed-identity"></a>Étape 1 : Activer l’identité managée affectée par le système
 Quand une identité managée affectée par le système est activée, Azure crée une identité pour votre service de recherche, qui peut être utilisée par l’indexeur.
@@ -87,7 +91,7 @@ L’indexeur SharePoint Online utilisera cette application AAD pour l’authenti
 
 1.  Accordez le consentement administrateur (nécessaire uniquement pour certains locataires).
 
-    Certains locataires sont verrouillés, et le consentement administrateur est alors nécessaire pour ces autorisations d’API déléguées. Dans ce cas, vous devez demander à un administrateur d’accorder son consentement pour cette application AAD avant de créer l’indexeur. 
+    Certains locataires sont verrouillés, et le consentement administrateur est alors nécessaire pour ces autorisations d’API déléguées. Dans ce cas, vous devez demander à un administrateur d’accorder son consentement pour cette application AAD avant de créer l’indexeur.
 
     Cette exigence ne s’impose pas à tous les locataires. Nous vous recommandons donc d’ignorer cette étape pour le moment et de continuer à suivre les instructions. Vous saurez si vous avez besoin d’un consentement administrateur à la création de l’indexeur, si l’authentification échoue et que le système indique qu’un administrateur doit approuver l’authentification. Dans ce cas, demandez à un administrateur de locataire d’accorder son consentement à l’aide du bouton ci-dessous.
 

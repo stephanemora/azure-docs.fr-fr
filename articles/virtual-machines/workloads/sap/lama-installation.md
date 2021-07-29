@@ -14,12 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 4772fdae06f23430d829fa411068b7af7a85b3dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 9eca2fe92109bcd91fe5943e53d1e18734401984
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668705"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111814356"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connecteur SAP LaMa pour Azure
 
@@ -91,34 +92,19 @@ Le connecteur Azure peut utiliser un principal de service pour l’autorisation 
 1. Notez la valeur. Cette valeur est utilisée comme mot de passe pour le principal de service.
 1. Notez l’ID de l’application. Cette valeur est utilisée comme nom d’utilisateur du principal de service.
 
-Par défaut, le principal de service ne possède pas les autorisations d’accéder à vos ressources Azure. Vous devez accorder au principal de service les autorisations d’accès à ces ressources.
+Par défaut, le principal de service ne possède pas les autorisations d’accéder à vos ressources Azure.
+Affectez le rôle Contributeur au principal du service au niveau de l’étendue du groupe de ressources pour tous les groupes de ressources qui contiennent des systèmes SAP qui doivent être gérés par SAP LaMa.
 
-1. Accédez à https://portal.azure.com
-1. Ouvrez le panneau Groupes de ressources.
-1. Sélectionnez le groupe de ressources à utiliser.
-1. Cliquez sur Contrôle d’accès (IAM)
-1. Cliquez sur Ajouter une attribution de rôle.
-1. Sélectionnez le rôle Contributeur.
-1. Entrez le nom de l’application que vous avez créée ci-dessus
-1. Cliquez sur Enregistrer.
-1. Répétez les étapes 3 à 8 pour tous les groupes de ressources que vous souhaitez utiliser dans SAP LaMa.
+Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="use-a-managed-identity-to-get-access-to-the-azure-api"></a><a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Utiliser une identité managée pour accéder à l’API Azure
 
 Pour pouvoir utiliser une identité managée, votre instance SAP LaMa doit s’exécuter sur une machine virtuelle Azure disposant qui a une identité affectée par le système ou par l’utilisateur. Pour plus d’informations sur les identités managées, consultez [Qu’est-ce que les identités managées pour les ressources Azure ?](../../../active-directory/managed-identities-azure-resources/overview.md) et [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 
-Par défaut, le principal de service n’a pas les autorisations nécessaires pour accéder à vos ressources Azure. Vous devez lui accorder des autorisations pour y accéder.
+Par défaut, le principal de service n’a pas les autorisations nécessaires pour accéder à vos ressources Azure.
+Affectez le rôle Contributeur à l’identité de la machine virtuelle au niveau de l’étendue du groupe de ressources pour tous les groupes de ressources qui contiennent des systèmes SAP qui doivent être gérés par SAP LaMa.
 
-1. Accédez à https://portal.azure.com
-1. Ouvrez le panneau Groupes de ressources.
-1. Sélectionnez le groupe de ressources à utiliser.
-1. Cliquez sur Contrôle d’accès (IAM)
-1. Cliquez sur Ajouter -> Ajouter une attribution de rôle.
-1. Sélectionnez le rôle Contributeur.
-1. Sélectionnez « Machine virtuelle » pour « Attribuer l’accès à »
-1. Sélectionnez la machine virtuelle où l’instance SAP LaMa s’exécute
-1. Cliquez sur Enregistrer.
-1. Répétez les étapes pour tous les groupes de ressources que vous voulez utiliser dans SAP LaMa.
+Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../../role-based-access-control/role-assignments-portal.md).
 
 Dans la configuration de votre connecteur Azure SAP LaMa, sélectionnez « Utiliser une identité managée » pour activer l’utilisation de l’identité managée. Si vous voulez utiliser une identité affectée par le système, veillez à laisser vide le champ Nom d’utilisateur. Si vous voulez utiliser une identité affectée par l’utilisateur, entrez l’ID d’identité affecté par l’utilisateur dans le champ Nom d’utilisateur.
 

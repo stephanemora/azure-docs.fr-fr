@@ -3,12 +3,12 @@ title: Créer une bibliothèque de contenu pour déployer des machines virtuelle
 description: Créez une bibliothèque de contenu pour déployer une machine virtuelle dans un cloud privé Azure VMware Solution.
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: f8a45ce301d250aa30ec08617e0ae11bcbfbafaf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5ebd60b3c2fc8350478125e756413d0ba750a0ed
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110086875"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756830"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Créer une bibliothèque de contenu pour déployer des machines virtuelles dans Azure VMware Solution
 
@@ -18,7 +18,7 @@ Dans cet article, nous allons parcourir la procédure de création d’une bibli
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce tutoriel, un segment de commutateur logique NSX-T et un service DHCP managé.  Pour plus d’informations, consultez l’article [Comment gérer le protocole DHCP dans Azure VMWare Solution](configure-dhcp-azure-vmware-solution.md).
+Pour suivre ce tutoriel, un segment de commutateur logique NSX-T et un service DHCP managé.  Pour plus d’informations, consultez l’article [Configurer le protocole DHCP dans Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).  
 
 ## <a name="create-a-content-library"></a>Créer une bibliothèque de contenu
 
@@ -95,7 +95,7 @@ Maintenant que la bibliothèque de contenu a été créée, vous pouvez ajouter 
 Maintenant que vous savez comment créer une bibliothèque de contenu pour déployer des machines virtuelles dans Azure VMware Solution, vous souhaiterez peut-être en savoir plus sur les éléments suivants :
 
 - [Migrer des charges de travail de machine virtuelle vers votre cloud privé](tutorial-deploy-vmware-hcx.md)
-- [Surveiller et gérer des machines virtuelles Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)
+- [Intégration des services natifs Azure dans la Solution VMware Azure](integrate-azure-native-services.md)
 
 <!-- LINKS - external-->
 
