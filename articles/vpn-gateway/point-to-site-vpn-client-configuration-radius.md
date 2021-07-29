@@ -1,22 +1,23 @@
 ---
 title: 'Passerelle VPN Azure : Créer et installer les fichiers de configuration du client VPN - Connexions P2S RADIUS'
-description: Créer des fichiers config du client VPN Windows, OS X et Linux pour les connexions utilisant l’authentification RADIUS.
+description: Créer des fichiers config du client VPN Windows, macOS et Linux pour les connexions utilisant l’authentification RADIUS.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: e6d811e19bb19c8c8bf96764cfcca2b1294f4a85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 87cef7347de102244446e69049349543c77e1f60
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91440056"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558905"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Créer et installer les fichiers de configuration du client VPN pour une authentification P2S RADIUS
 
-Pour vous connecter à un réseau virtuel de point à site, vous devez configurer l’appareil client à partir duquel vous allez vous connecter. Vous pouvez créer des connexions VPN de point à site à partir d’appareils clients Windows, OS X et Linux. 
+Pour vous connecter à un réseau virtuel de point à site, vous devez configurer l’appareil client à partir duquel vous allez vous connecter. Vous pouvez créer des connexions VPN de point à site à partir d’appareils clients Windows, macOS et Linux. 
 
 Lorsque vous utilisez l’authentification RADIUS, vous disposez de plusieurs options d’authentification : authentification par nom d’utilisateur/mot de passe, authentification par certificat, et bien d’autres. La configuration du client VPN est différente pour chaque type d’authentification. Pour configurer le client VPN, vous utilisez les fichiers de configuration du client qui contiennent les paramètres requis. Cet article vous aide à créer et installer la configuration du client VPN pour le type d’authentification RADIUS que vous souhaitez utiliser.
 
@@ -36,7 +37,7 @@ Le flux de travail de configuration pour l’authentification RADIUS point à si
 >
 >
 
-Pour utiliser les sections de cet article, vous devez d’abord décider quel type d’authentification vous souhaitez utiliser : nom d’utilisateur/mot de passe, certificat ou d’autres types d’authentification. Les procédures pour Windows, OS X et Linux sont détaillées dans chaque section (pour le moment, les procédures disponibles sont limitées).
+Pour utiliser les sections de cet article, vous devez d’abord décider quel type d’authentification vous souhaitez utiliser : nom d’utilisateur/mot de passe, certificat ou d’autres types d’authentification. Les procédures pour Windows, macOS et Linux sont détaillées dans chaque section (pour le moment, les procédures disponibles sont limitées).
 
 
 ## <a name="usernamepassword-authentication"></a><a name="adeap"></a>Authentification par nom d’utilisateur/mot de passe
@@ -85,7 +86,7 @@ Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 Vous pouvez configurer les clients VPN suivants :
 
 * [Windows](#adwincli)
-* [Mac (OS X)](#admaccli)
+* [Mac (macOS)](#admaccli)
 * [Linux à l’aide de strongSwan](#adlinuxcli)
  
 #### <a name="windows-vpn-client-setup"></a><a name="adwincli"></a>Configuration d’un client VPN Windows
@@ -98,7 +99,7 @@ Suivez les étapes suivantes pour configurer le client VPN Windows natif pour un
 2. Double-cliquez pour installer le package. Si vous voyez une fenêtre contextuelle SmartScreen, sélectionnez **More info** (Plus d’informations) > **Run anyway** (Exécuter quand même).
 3. Sur l’ordinateur client, accédez à **Paramètres réseau**, puis sélectionnez **VPN**. La connexion VPN indique le nom du réseau virtuel auquel elle se connecte. 
 
-#### <a name="mac-os-x-vpn-client-setup"></a><a name="admaccli"></a>Configuration d’un client VPN Mac (OS X)
+#### <a name="mac-macos-vpn-client-setup"></a><a name="admaccli"></a>Installation du client VPN Mac (macOS)
 
 1. Sélectionnez le fichier **VpnClientSetup mobileconfig** et envoyez-le à chaque utilisateur. Vous pouvez l’envoyer par e-mail, ou par n’importe quelle autre méthode.
 
@@ -216,7 +217,7 @@ Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 Vous pouvez configurer les clients VPN suivants :
 
 * [Windows](#certwincli)
-* [Mac (OS X)](#certmaccli)
+* [Mac (macOS)](#certmaccli)
 * Linux (pris en charge, pas encore d’article sur la procédure)
 
 #### <a name="windows-vpn-client-setup"></a><a name="certwincli"></a>Configuration d’un client VPN Windows
@@ -225,7 +226,7 @@ Vous pouvez configurer les clients VPN suivants :
 2. Chaque client doit disposer d’un certificat client pour l’authentification. Installez le certificat client. Pour plus d’informations sur les certificats clients, consultez [Générer et exporter des certificats pour les connexions de point à site à l’aide de PowerShell sous Windows 10 ou Windows Server 2016](vpn-gateway-certificates-point-to-site.md). Pour installer un certificat qui a été généré, consultez [Installer un certificat sur des clients Windows](point-to-site-how-to-vpn-client-install-azure-cert.md).
 3. Sur l’ordinateur client, accédez à **Paramètres réseau**, puis sélectionnez **VPN**. La connexion VPN indique le nom du réseau virtuel auquel elle se connecte.
 
-#### <a name="mac-os-x-vpn-client-setup"></a><a name="certmaccli"></a>Configuration d’un client VPN Mac (OS X)
+#### <a name="mac-macos-vpn-client-setup"></a><a name="certmaccli"></a>Installation du client VPN Mac (macOS)
 
 Vous devez créer un profil distinct pour chaque appareil Mac qui se connecte au réseau virtuel Azure. Les appareils Mac nécessitent la spécification des certificats client pour l’authentification. Le dossier **Générique** contient toutes les informations requises pour créer un profil :
 

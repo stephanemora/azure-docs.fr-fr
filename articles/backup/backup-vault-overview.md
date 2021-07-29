@@ -3,12 +3,12 @@ title: Vue d’ensemble des coffres de sauvegarde
 description: Une vue d’ensemble des coffres de sauvegarde.
 ms.topic: conceptual
 ms.date: 04/19/2021
-ms.openlocfilehash: e2d720da9474a35870de01559201d22c9e5b567f
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 6748121bd85fe6dc26a09c038ab305bcf06e3902
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739077"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565952"
 ---
 # <a name="backup-vaults-overview"></a>Vue d’ensemble des coffres de sauvegarde
 
@@ -48,21 +48,20 @@ Connectez-vous au portail Azure sur <https://portal.azure.com>.
 ### <a name="create-backup-vault"></a>Créer un coffre de sauvegarde
 
 1. Tapez **Coffres de sauvegarde** dans la zone de recherche.
-1. Sous **Services**, sélectionnez **Coffres de sauvegarde**.
-1. Dans la page **Coffres de sauvegarde**, sélectionnez **Ajouter**.
-1. Sous l’onglet **Général**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné, puis choisissez **Créer un groupe de ressources**. Tapez *myResourceGroup* comme nom.
+2. Sous **Services**, sélectionnez **Coffres de sauvegarde**.
+3. Sur la page **Coffres de sauvegarde**, sélectionnez **Ajouter**.
+4. Sur l’onglet **Général**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné, puis choisissez **Créer un groupe de ressources**. Tapez *myResourceGroup* comme nom.
 
-  ![Créer un groupe de ressources](./media/backup-vault-overview/new-resource-group.png)
+    ![Créer un groupe de ressources](./media/backup-vault-overview/new-resource-group.png)
 
-1. Sous **Détails de l’instance**, tapez *myVault* pour **Nom du coffre de sauvegarde**, puis choisissez votre région, dans le cas présent *USA Est* pour **Région**.
-1. Choisissez maintenant votre **Redondance du stockage**. La redondance du stockage ne peut pas être changée une fois que des éléments sont protégés dans le coffre.
-1. Si vous utilisez Azure comme principal point de terminaison du stockage de sauvegarde, nous vous recommandons de continuer à utiliser le paramètre **Géoredondant** par défaut.
-1. Sinon, choisissez l’option **Redondant en local** qui réduit les coûts de stockage Azure.
-1. Informez-vous sur la redondance [géo](../storage/common/storage-redundancy.md#geo-redundant-storage) et [locale](../storage/common/storage-redundancy.md#locally-redundant-storage).
+5. Sous **Détails de l’instance**, tapez *myVault* pour **Nom du coffre de sauvegarde**, puis choisissez votre région, dans le cas présent *USA Est* pour **Région**.
+6. Choisissez maintenant votre **Redondance du stockage**. La redondance du stockage ne peut pas être changée une fois que des éléments sont protégés dans le coffre.
+7. Si vous utilisez Azure comme principal point de terminaison du stockage de sauvegarde, nous vous recommandons de continuer à utiliser le paramètre **Géoredondant** par défaut.
+8. Si vous n’utilisez pas Azure comme point de terminaison de stockage de sauvegarde, choisissez l’option **Localement redondant**, qui réduit les coûts de stockage Azure. Informez-vous sur la redondance [géo](../storage/common/storage-redundancy.md#geo-redundant-storage) et [locale](../storage/common/storage-redundancy.md#locally-redundant-storage).
 
-  ![Choisir la redondance du stockage](./media/backup-vault-overview/storage-redundancy.png)
+    ![Choisir la redondance du stockage](./media/backup-vault-overview/storage-redundancy.png)
 
-1. Sélectionnez le bouton Vérifier + créer dans le bas de la page.
+9. Sélectionnez le bouton Vérifier + créer dans le bas de la page.
 
     ![Sélectionner Vérifier + créer](./media/backup-vault-overview/review-and-create.png)
 
@@ -80,6 +79,10 @@ Vous ne pouvez pas supprimer un coffre de sauvegarde ayant une des dépendances 
 Si vous essayez de supprimer le coffre sans supprimer les dépendances, vous obtenez les messages d’erreur suivants :
 
 >Impossible de supprimer le coffre de sauvegarde, car des instances de sauvegarde ou des stratégies de sauvegarde existent dans le coffre. Supprimez toutes les instances de sauvegarde et toutes les stratégies de sauvegarde présentes dans le coffre, puis essayez de supprimer le coffre.
+
+Veillez à passer en revue les options de filtre de **Type de sources de données** dans le **Centre de sauvegarde** pour ne pas manquer les instances ou stratégies de sauvegarde existantes qui doivent être supprimées avant de pouvoir supprimer le coffre de sauvegarde.
+
+![Types de source de données](./media/backup-vault-overview/datasource-types.png)
 
 ### <a name="proper-way-to-delete-a-vault"></a>Méthode appropriée pour supprimer un coffre
 

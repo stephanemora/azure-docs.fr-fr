@@ -8,18 +8,18 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: wellee
-ms.openlocfilehash: 024d3c34094ac82e158198e569e0b6f3b12bdf4c
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: c5c85d2d24a6e1c49dd2787eeb14caabd0e3f941
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108162020"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579239"
 ---
 # <a name="scenario-custom-isolation-for-virtual-networks-and-branches"></a>Scénario : Isolation personnalisée des réseaux virtuels et des branches
 
 Lorsque vous travaillez avec le routage de hub virtuel Virtual WAN, il existe un certain nombre de scénarios disponibles. Dans un scénario d’isolation personnalisé pour les réseaux virtuels et les branches, l’objectif est d’empêcher un ensemble spécifique de réseaux virtuels d’atteindre un autre ensemble de réseaux virtuels. De même, les branches (VPN/ER/User VPN) sont uniquement autorisées à atteindre certains ensembles de réseaux virtuels.
 
-Nous présentons également la condition supplémentaire selon laquelle Pare-feu Azure doit inspecter le trafic de la branche au réseau virtuel et du réseau virtuel à la branche, mais **pas** le trafic de réseau virtuel à réseau virtuel.  
+Nous présentons également la condition supplémentaire selon laquelle le Pare-feu Azure doit inspecter le trafic de la branche au réseau virtuel et du réseau virtuel à la branche, mais **pas** le trafic de réseau virtuel à réseau virtuel.  
 
 Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
 
@@ -93,7 +93,7 @@ Suivez les étapes ci-dessous lors de la configuration du routage.
     * Exemple : **Préfixe de destination** : 0.0.0.0/0 **Tronçon suivant** : Pare-feu Azure
 
     > [!NOTE]
-    > Le routage s’effectue à l’aide de la correspondance de préfixe la plus longue. Par conséquent, les itinéraires statiques 0.0.0.0/0 ne seront **PAS** préférés aux préfixes exacts qui existent dans **BLUE_RT** et **RED_RT**. Par conséquent, le trafic intraréseau virtuel ne sera pas inspecté par Pare-feu Azure.
+    > Le routage s’effectue à l’aide de la correspondance de préfixe la plus longue. Par conséquent, les itinéraires statiques 0.0.0.0/0 ne seront **PAS** préférés aux préfixes exacts qui existent dans **BLUE_RT** et **RED_RT**. Par conséquent, le trafic intra-réseau virtuel ne sera pas inspecté par Pare-feu Azure.
 
 Cela entraîne des modifications de configuration de routage, comme illustré dans la figure ci-dessous.
 

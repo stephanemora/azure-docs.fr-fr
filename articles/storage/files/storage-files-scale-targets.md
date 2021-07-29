@@ -4,15 +4,15 @@ description: Obtenez plus d’informations sur les objectifs d’extensibilité 
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 05/28/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bdcee6b8ced45dba34309724e5a634cbb60a6d37
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 78ecf275a9c607273aef16e6351224709f230959
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107818815"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690522"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles à l’aide des protocoles SMB et de système de fichiers NFS. Cet article présente les objectifs de performance et d’extensibilité pour Azure Files et Azure File Sync.
@@ -35,7 +35,7 @@ Azure prend en charge plusieurs types de comptes de stockage pour différents sc
 | Capacité maximale du compte de stockage | 5 Pio<sup>1</sup> | 100 Tio (approvisionné) |
 | Nombre maximal de partages de fichiers | Illimité | Illimité, la taille totale approvisionnée de tous les partages doit être inférieure à la capacité maximale du compte de stockage |
 | Taux maximal de requêtes simultanées | 20 000 IOPS<sup>1</sup> | 100 000 E/S par seconde |
-| Entrée maximale | <ul><li>US/Europe : 9 536 Mio/s<sup>1</sup></li><li>Autres régions (LRS/ZRS) : 9 536 Mio/s<sup>1</sup></li><li>Autres régions (GRS) : 4 768 Gio/s<sup>1</sup></li></ul> | 4,136 Mio/s |
+| Entrée maximale | <ul><li>US/Europe : 9 536 Mio/s<sup>1</sup></li><li>Autres régions (LRS/ZRS) : 9 536 Mio/s<sup>1</sup></li><li>Autres régions (GRS) : 4 768 Mio/s<sup>1</sup></li></ul> | 4,136 Mio/s |
 | Sortie maximale | 47 683 Mio/s<sup>1</sup> | 6,204 Mio/s |
 | Nombre maximal de règles de réseau virtuel | 200 | 200 |
 | Nombre maximal de règles d’adresse IP | 200 | 200 |

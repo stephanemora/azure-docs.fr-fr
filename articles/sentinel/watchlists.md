@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: 97509b878fb5e0cb28bddc5d1b58c21b32c34675
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 493f04883aa49c8658b7b4a1996bf010992a2f55
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99555639"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792793"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Utiliser les Watchlists Azure Sentinel
 
@@ -36,17 +36,23 @@ Les scénarios courants pour l’utilisation des Watchlists sont notamment les s
 
 ## <a name="create-a-new-watchlist"></a>Création d’une nouvelle Watchlist
 
-1. À partir du Portail Azure, accédez à **Azure Sentinel** > **Configuration** > **Watchlist**, puis sélectionnez **Ajouter une nouvelle**.
+1. À partir du Portail Azure, accédez à **Azure Sentinel** > **Configuration** > **Watchlist**, puis sélectionnez **+ Ajouter une nouvelle**.
 
-    > [!div class="mx-imgBorder"]
-    > ![nouvelle Watchlist](./media/watchlists/sentinel-watchlist-new.png)
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-new.png" alt-text="nouvelle Watchlist" lightbox="./media/watchlists/sentinel-watchlist-new.png":::
 
-1. Dans la page **Général**, indiquez le nom, la description et l’alias de la Watchlist, puis sélectionnez **Suivant**.
+1. Dans la page **Général**, indiquez le nom, la description et l’alias de la Watchlist, puis sélectionnez **Suivant : Source**.
 
-    > [!div class="mx-imgBorder"]
-    > ![page général de la Watchlist](./media/watchlists/sentinel-watchlist-general.png)
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-general.png" alt-text="page général de la Watchlist":::
 
-1. Dans la page **Source**, sélectionnez le type de jeu de données, chargez un fichier, puis sélectionnez **Suivant**.
+1. Sur la page **Source**, sélectionnez le type de jeu de données (actuellement seul le volume partagé de cluster est disponible), entrez le nombre de lignes **avant la ligne d’en-tête** dans votre fichier de données, puis choisissez un fichier à charger de l’une des deux manières suivantes :
+    1. Cliquez sur le lien **Rechercher des fichiers** dans la zone **Charger un fichier**, puis sélectionnez le fichier de données à charger.
+    1. Glissez-déplacez votre fichier de données dans la zone **Charger le fichier** .
+
+    Vous verrez un aperçu des 50 premières lignes de résultats dans l’écran de l’Assistant.
+
+1. Dans le champ **SearchKey**, entrez le nom d’une colonne de votre Watchlist que vous souhaitez utiliser en tant que jointure avec d’autres données ou un objet de recherche fréquent. Par exemple, si votre serveur Watchlist contient des noms de serveur et leurs adresses IP respectives, et que vous prévoyez d’utiliser les adresses IP souvent pour la recherche ou les jointures, utilisez la colonne **d'adresse IP** en tant que SearchKey.
+
+1. Sélectionnez **Suivant : Vérifier et créer**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-source.png" alt-text="page source de la Watchlist" lightbox="./media/watchlists/sentinel-watchlist-source.png":::
 
@@ -54,10 +60,9 @@ Les scénarios courants pour l’utilisation des Watchlists sont notamment les s
     >
     > Les chargements de fichiers sont actuellement limités à des fichiers d’une taille maximale de 3,8 Mo.
 
-1. Passez en revue les informations, vérifiez qu’elles sont correctes, puis sélectionnez **Créer**.
+1. Passez en revue les informations, vérifiez qu’elles sont correctes, attendez que le message *Validation réussie*, puis sélectionnez **Créer**.
 
-    > [!div class="mx-imgBorder"]
-    > ![page de vérification de la Watchlist](./media/watchlists/sentinel-watchlist-review.png)
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-review.png" alt-text="page de vérification de la Watchlist":::
 
     Une notification s’affiche une fois que la Watchlist est créée.
 
@@ -65,27 +70,33 @@ Les scénarios courants pour l’utilisation des Watchlists sont notamment les s
 
 ## <a name="use-watchlists-in-queries"></a>Utilisation des Watchlists dans les requêtes
 
+> [!TIP]
+> Pour optimiser les performances des requêtes, utilisez **SearchKey** (représentant le champ que vous avez défini lors de la création du Watchlist) comme clé pour les jointures dans vos requêtes. Reportez-vous à l’exemple ci-dessous.
+
 1. Dans le Portail Azure, accédez à **Azure Sentinel** > **Configuration** > **Watchlist**, sélectionnez la Watchlist que vous voulez utiliser, puis sélectionnez **Afficher dans Log Analytics**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="utilisation des Watchlists dans les requêtes" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png":::
 
-1. Les éléments de votre Watchlist sont automatiquement extraits pour votre requête et s’affichent sous l’onglet **Résultats**. L’exemple ci-dessous montre les résultats de l’extraction des champs **ServerName** et **IpAddress**.
+1. Les éléments de votre Watchlist sont automatiquement extraits pour votre requête et s’affichent sous l’onglet **Résultats**. L’exemple ci-dessous montre les résultats de l’extraction des champs **Nom** et **Adresse IP** . Le **SearchKey** est indiqué comme sa propre colonne.
 
     > [!NOTE]
     > Le timestamp de vos requêtes sera ignoré à la fois dans l’interface utilisateur de la requête et dans les alertes planifiées.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-fields.png" alt-text="requêtes avec les champs de la Watchlist" lightbox="./media/watchlists/sentinel-watchlist-queries-fields.png":::
     
-1. Vous pouvez comparer les données de n’importe quelle table avec celles d’une Watchlist en traitant la Watchlist comme une table pour les jointures et les recherches.
+1. Vous pouvez comparer les données de n’importe quelle table avec celles d’une Watchlist en traitant la Watchlist comme une table pour les jointures et les recherches. Utilisez **SearchKey** comme clé pour votre jointure.
 
     ```kusto
     Heartbeat
     | lookup kind=leftouter _GetWatchlist('IPlist') 
-     on $left.ComputerIP == $right.IPAddress
+     on $left.ComputerIP == $right.SearchKey
     ```
-    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-join.png" alt-text="requêtes par rapport à la Watchlist en tant que recherche":::
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-join.png" alt-text="requêtes par rapport à la Watchlist en tant que recherche" lightbox="./media/watchlists/sentinel-watchlist-queries-join.png":::
 
 ## <a name="use-watchlists-in-analytics-rules"></a>Utilisation des Watchlists dans les règles d’analyse
+
+> [!TIP]
+> Pour optimiser les performances des requêtes, utilisez **SearchKey** (représentant le champ que vous avez défini lors de la création du Watchlist) comme clé pour les jointures dans vos requêtes. Reportez-vous à l’exemple ci-dessous.
 
 Pour utiliser des Watchlists dans les règles d’analyse, à partir du Portail Azure, accédez à **Azure Sentinel** > **Configuration** > **Analytics**, puis créez une règle à l’aide de la fonction `_GetWatchlist('<watchlist>')` de la requête.
 
@@ -93,7 +104,7 @@ Pour utiliser des Watchlists dans les règles d’analyse, à partir du Portail 
 
     :::image type="content" source="./media/watchlists/create-watchlist.png" alt-text="liste de quatre éléments pour Watchlist":::
 
-    :::image type="content" source="./media/watchlists/sentinel-watchlist-new-2.png" alt-text="créer une Watchlist avec quatre éléments":::
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-new-other.png" alt-text="créer une Watchlist avec quatre éléments":::
 
 1. Ensuite, créez la règle d’analyse.  Dans cet exemple, nous incluons uniquement les événements des adresses IP figurant dans la Watchlist :
 
@@ -105,21 +116,21 @@ Pour utiliser des Watchlists dans les règles d’analyse, à partir du Portail 
     ```
     ```kusto
     //Watchlist inline with the query
+    //Use SearchKey for the best performance
     Heartbeat
     | where ComputerIP in ( 
         (_GetWatchlist('ipwatchlist')
-        | project IPAddress)
+        | project SearchKey)
     )
     ```
 
-:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule-2.png" alt-text="utilisation des Watchlists dans les règles d’analyse":::
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="utilisation des Watchlists dans les règles d’analyse":::
 
 ## <a name="view-list-of-watchlists-aliases"></a>Afficher la liste des alias de Watchlists
 
 Pour obtenir un liste d’alias de Watchlist, à partir du Portail Azure, accédez à **Azure Sentinel** > **Général** > **Journaux**, puis exécutez la requête suivante : `_GetWatchlistAlias`. Vous pouvez voir la liste des alias dans l’onglet **Résultats**.
 
-> [!div class="mx-imgBorder"]
-> ![liste de Watchlists](./media/watchlists/sentinel-watchlist-alias.png)
+   :::image type="content" source="./media/watchlists/sentinel-watchlist-alias.png" alt-text="liste de Watchlists" lightbox="./media/watchlists/sentinel-watchlist-alias.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à utiliser les Watchlists dans Azure Sentinel pour enrichir les données et améliorer les investigations. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :

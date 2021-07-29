@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3985564d49ce8a5c62b15f9537364418c0a8f5da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83837ebc464c1168bd71cd616d0483459c8ae2cc
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97509918"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111557141"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>guide pratique pour mettre en forme et exporter des enrichissements
 
@@ -33,7 +33,7 @@ Il existe trois types de [projections](knowledge-store-projection-overview.md) :
 + Objets
 + Fichiers
 
-Les projections de table sont stockées dans le stockage Table Azure. Les projections d’objet et de fichier sont écrites dans le Stockage Blob, où les projections d’objet sont enregistrées en tant que fichiers JSON, et peuvent contenir le contenu du document source ainsi que les sorties ou enrichissements de compétence. Le pipeline d’enrichissement peut également extraire des binaires tels que des images ; ces binaires sont projetés en tant que projections de fichier. Quand un objet binaire est projeté en tant que projection d’objet, seules les métadonnées qui lui sont associées sont enregistrées en tant qu’objet blob JSON. 
+Les projections de table sont stockées dans le Stockage Table Azure. Les projections d’objet et de fichier sont écrites dans le Stockage Blob, où les projections d’objet sont enregistrées en tant que fichiers JSON, et peuvent contenir le contenu du document source ainsi que les sorties ou enrichissements de compétence. Le pipeline d’enrichissement peut également extraire des binaires tels que des images ; ces binaires sont projetés en tant que projections de fichier. Quand un objet binaire est projeté en tant que projection d’objet, seules les métadonnées qui lui sont associées sont enregistrées en tant qu’objet blob JSON. 
 
 Pour comprendre l’intersection entre la mise en forme des données et les projections, nous allons utiliser l’ensemble de compétences suivant comme base pour l’exploration de différentes configurations. Cet ensemble de compétences traite le contenu d’images et de texte brut. Pour les scénarios souhaités, les projections sont définies à partir du contenu du document et des sorties des compétences.
 

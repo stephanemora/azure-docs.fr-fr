@@ -3,13 +3,13 @@ title: Vue d’ensemble des versions du runtime Azure Functions
 description: Azure Functions prend en charge plusieurs versions du runtime. Découvrez les différences entre elles et comment choisir celle qui vous convient.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 12/09/2019
-ms.openlocfilehash: b37cf33a96452f9f3e86f853d3d87fd3b4b3879c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 05/19/2021
+ms.openlocfilehash: b3d148bbf6aadaa9ed48d234fdd22d68412f3ec5
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102431843"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789630"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
@@ -96,7 +96,7 @@ Lorsque vous exécutez des fonctions de la bibliothèque de classes .NET, la pr
 
 ## <a name="migrating-from-1x-to-later-versions"></a>Migration de la version 1.x vers les versions ultérieures
 
-Vous pouvez choisir de migrer une application existante écrite pour utiliser la version 1.x du runtime pour qu’elle utilise à la place une version plus récente. La plupart des modifications que vous devez apporter sont liées au runtime du langage, par exemple des modifications de l’API C# entre .NET Framework 4.7 et .NET Core. Vous devez également vous assurer que le code et les bibliothèques sont compatibles avec le runtime de langage choisi. Enfin, veillez à noter toutes les modifications soulignées ci-après qui affectent les déclencheurs, liaisons et fonctionnalités. Pour une migration plus performante, vous devez créer une application de fonction dans une nouvelle version et porter le code de la fonction existante en version 1.x vers la nouvelle application.  
+Vous pouvez choisir de migrer une application existante écrite pour utiliser la version 1.x du runtime pour qu’elle utilise à la place une version plus récente. La plupart des modifications que vous devez apporter sont liées au runtime du langage, par exemple des modifications de l’API C# entre .NET Framework 4.8 et .NET Core. Vous devez également vous assurer que le code et les bibliothèques sont compatibles avec le runtime de langage choisi. Enfin, veillez à noter toutes les modifications soulignées ci-après qui affectent les déclencheurs, liaisons et fonctionnalités. Pour une migration plus performante, vous devez créer une application de fonction dans une nouvelle version et porter le code de la fonction existante en version 1.x vers la nouvelle application.  
 
 Bien qu’il soit possible de procéder à une mise à niveau « sur place » en mettant à jour manuellement la configuration de l’application, passer de la version 1.x à une version ultérieure implique certains changements cassants. Par exemple, en C#, l’objet de débogage passe de `TraceWriter` à `ILogger`. Quand vous créez un projet en version 3.x, vous commencez par des fonctions mises à jour basées sur les modèles de version 3.x les plus récents.
 

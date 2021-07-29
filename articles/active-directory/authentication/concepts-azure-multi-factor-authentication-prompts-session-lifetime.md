@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0033b6985313de351ffdaf7028d2c1e9bd76ba72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47898b1708ebecc43ace9888dfd237fa72079c6b
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963517"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590357"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Optimiser les invites de réauthentification et comprendre le fonctionnement de la durée de vie des sessions Azure AD Multi-Factor Authentication
 
@@ -41,7 +41,7 @@ Pour offrir à vos utilisateurs le meilleur compromis entre sécurité et simpli
     * Gardez l’option *Rester connecté* activée et recommandez à vos utilisateurs de l’accepter.
 * Pour les scénarios d’appareils mobiles, assurez-vous que vos utilisateurs utilisent l’application Microsoft Authenticator. Cette application est utilisée en tant que répartiteur pour d’autres applications Azure AD fédérées, et réduit les invites d’authentification sur l’appareil.
 
-Les études que nous avons menées montrent que ces paramètres conviennent pour la plupart des locataires. Certaines combinaisons de ces paramètres, telles que *Mémoriser Multi-Factor Authentication* associé à *Rester connecté*, peuvent rendre les invites d’authentification des utilisateurs trop fréquentes. Les invites de réauthentification continuelles impactent la productivité des utilisateurs et risquent de les rendre plus vulnérables aux attaques.
+Les études que nous avons menées montrent que ces paramètres conviennent pour la plupart des locataires. Certaines combinaisons de ces paramètres, telles que *Mémoriser l’authentification multi-facteur* associé à *Rester connecté*, peuvent rendre les invites d’authentification des utilisateurs trop fréquentes. Les invites de réauthentification continuelles impactent la productivité des utilisateurs et risquent de les rendre plus vulnérables aux attaques.
 
 ## <a name="azure-ad-session-lifetime-configuration-settings"></a>Paramètres de configuration de la durée de vie des sessions Azure AD
 

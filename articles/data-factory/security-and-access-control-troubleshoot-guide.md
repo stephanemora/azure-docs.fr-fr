@@ -4,14 +4,14 @@ description: Découvrez comment résoudre les problèmes de sécurité et de con
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/24/2021
+ms.date: 05/31/2021
 ms.author: lle
-ms.openlocfilehash: 5e94ea989002d3d3c6d0e96123d5b8ddb5f078c3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ff95f5c3f8d978d58146529825adee94f82eaf07
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568033"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110782890"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Résoudre les problèmes de sécurité et de contrôle d’accès dans Azure Data Factory
 
@@ -188,6 +188,18 @@ ADF peut toujours utiliser le runtime d’intégration de réseau virtuel manag�
 
 - Le point de terminaison privé étant activé sur la source et également côté récepteur lors de l’utilisation du runtime d’intégration de réseau virtuel managé.
 - Si vous souhaitez toujours utiliser le point de terminaison public, vous pouvez basculer vers le runtime d’intégration public uniquement au lieu d’utiliser le runtime d’intégration de réseau virtuel managé pour la source et le récepteur. Même si vous revenez au runtime d’intégration public, ADF peut continuer à utiliser le runtime d’intégration de réseau virtuel managé si le runtime d’intégration de réseau virtuel managé est toujours présent.
+
+## <a name="sharing-self-hosted-integration-runtime"></a>Utilisation du runtime d’intégration auto-hébergé
+
+### <a name="sharing-a-self-hosted-ir-from-a-different-tenant-is-not-supported"></a>Le partage de l’IR auto-hébergé à partir d’un autre locataire n’est pas pris en charge 
+
+#### <a name="symptoms"></a>Symptômes
+
+Vous pouvez remarquer d’autres fabriques de données (sur différents locataires) lors de la tentative de partage de l’IR auto-hébergé à partir de l’interface utilisateur Azure Data Factory, mais vous ne pouvez pas le partager entre les fabriques de données qui se trouvent sur des locataires différents.
+
+#### <a name="cause"></a>Cause
+
+L’IR auto-hébergé ne peut pas être partagé entre plusieurs locataires.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

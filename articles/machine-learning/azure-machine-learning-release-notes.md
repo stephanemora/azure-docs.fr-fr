@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 332be773bca07acf178bd0754d3dad12f4879f51
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 3d7ba65e6965ff488ead6094376bea7142eb5ec9
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371133"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590591"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -27,6 +27,28 @@ __Flux RSS__ : Recevez une notification quand cette page est mise à jour en co
 ### <a name="announcing-the-20-cli-preview-for-azure-machine-learning"></a>Annonce de l’interface CLI 2.0 (préversion) pour Azure Machine Learning
 
 L’extension `ml` d’Azure CLI est l’interface de nouvelle génération d’Azure Machine Learning. Elle permet d’entraîner et de déployer des modèles à partir de la ligne de commande, avec des fonctionnalités qui accélèrent le scale-up et le scale-out pour la science des données tout en assurant le suivi du cycle de vie des modèles. [Installez l’extension et commencez](how-to-configure-cli.md).
+
+## <a name="2021-06-07"></a>2021-06-07
+
+### <a name="azure-machine-learning-sdk-for-python-v1300"></a>SDK Azure Machine Learning pour Python v1.30.0
++ **Résolutions de bogue et améliorations**
+  + **azureml-core**
+    + Épinglez la dépendance `ruamel-yaml` à < 0.17.5 comme un changement cassant a été publié dans la 0.17.5.
+    + La propriété `aml_k8s_config` est remplacée par les paramètres `namespace`, `default_instance_type` et `instance_types` pour l'attachement `KubernetesCompute`.
+    + Les clés de synchronisation de l’espace de travail ont été remplacées par une opération de longue durée.
+  + **azureml-automl-runtime**
+    + Résolution des problèmes où les exécutions avec Big Data peuvent échouer avec `Elements of y_test cannot be NaN`.
+  + **azureml-mlflow**
+    + Résolution d’un bogue ave le plugin de déploiement MLFlow pour les modèles sans signature.
+  + **azureml-pipeline-steps**
+    + ParallelRunConfig : document de mise à jour pour process_count_per_node.
+  + **azureml-train-automl-runtime**
+    + Prise en charge des quantiles définis personnalisés pendant l’inférence MM
+    + Prise en charge de forecast_quantiles pendant l’inférence de traitement par lots.
+  + **azureml-contrib-automl-pipeline-steps**
+    + Prise en charge des quantiles définis personnalisés pendant l’inférence MM
+    + Prise en charge de forecast_quantiles pendant l’inférence de traitement par lots.
+
 
 ### <a name="azure-machine-learning-sdk-for-python-v1290"></a>SDK Azure Machine Learning pour Python v1.29.0
 + **Résolutions de bogue et améliorations**

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 04/07/2021
-ms.openlocfilehash: 905224119b9df4e4003b1736443406e9548a49e3
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 9746c6509673d3268a4afa15bcbeee9fa676d8c1
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012527"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554405"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Mettre à l’échelle un groupe de serveurs Hyperscale (Citus)
 
@@ -42,6 +42,15 @@ Cliquez sur le bouton **Enregistrer** pour que la valeur modifiée prenne effet.
 Outre l’ajout de nouveaux nœuds, vous pouvez augmenter les capacités des nœuds existants. L’augmentation ou la diminution de la capacité de calcul peut être utile pour les expériences de performances, ainsi que pour les modifications à court terme ou à long terme des demandes de trafic.
 
 Pour changer le nombre de cœurs virtuels pour tous les nœuds de travail, ajustez le curseur **vCores** sous **Configuration (par nœud worker)** . Le nombre de cœurs virtuels du nœud coordinateur peut être ajusté indépendamment. Ajustez le curseur **vCores** sous  **Configuration (nœud coordinateur)** .
+
+## <a name="increase-storage-on-nodes"></a>Augmenter le stockage sur les nœuds
+
+Outre l’ajout de nouveaux nœuds, vous pouvez augmenter les capacités des nœuds existants. L’amélioration de l’espace disque peut vous permettre d’effectuer davantage de tâches avec les nœuds Worker existants avant d’avoir à ajouter davantage de nœuds Worker.
+
+Pour changer le stockage pour tous les nœuds de travail, ajustez le curseur **stockage** sous **Configuration (par nœud worker)** . Le stockage du nœud coordinateur peut être ajusté indépendamment. Ajustez le curseur **stockage** sous **Configuration (nœud coordinateur)** .
+
+> [!NOTE]
+> Une fois le stockage de nœuds augmenté et enregistré, le curseur ne permet plus de le réduire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,14 +4,14 @@ description: Découvrez comment résoudre les problèmes liés au runtime d’in
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/25/2021
+ms.date: 05/31/2021
 ms.author: lle
-ms.openlocfilehash: 2cb0e0870b32270340e37d54dc54a43b22ee014a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7abdd532e20a2514fcf96d97973a8fbfdd87d0df
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100376460"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796269"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Résoudre les problèmes liés au runtime d’intégration auto-hébergé
 
@@ -289,6 +289,61 @@ La seule façon d’éviter ce problème consiste à s’assurer que les deux n�
     ```
     certutil -importpfx FILENAME.pfx AT_KEYEXCHANGE
     ```
+
+### <a name="self-hosted-integration-runtime-nodes-out-of-the-sync-issue"></a>Problèmes de synchronisation des nœuds de runtime d'intégration auto-hébergé
+
+#### <a name="symptoms"></a>Symptômes
+
+Les nœuds de runtime d'intégration auto-hébergé essaient de synchroniser les informations d'identification entre les nœuds, mais ils restent bloqués en cours de processus, ce qui finit par déclencher le message d'erreur ci-dessous :
+
+« Le nœud Integration Runtime (auto-hébergé) essaie de synchroniser les informations d'identification entre les nœuds. Cette opération peut prendre quelques minutes.
+
+>[!Note]
+>Si cette erreur apparaît pendant plus de 10 minutes, vérifiez la connectivité avec le nœud répartiteur.
+
+#### <a name="cause"></a>Cause
+
+Cela est dû au fait que les nœuds Worker n'ont pas accès aux clés privées. Cela peut être confirmé à partir des journaux du runtime d'intégration auto-hébergé ci-dessous :
+
+`[14]0460.3404::05/07/21-00:23:32.2107988 [System] A fatal error occurred when attempting to access the TLS server credential private key. The error code returned from the cryptographic module is 0x8009030D. The internal error state is 10001.`
+
+Le processus de synchronisation ne pose aucun problème lorsque vous utilisez l'authentification du principal du service dans le service lié ADF. En revanche, lorsque vous changez de type d'authentification pour utiliser une clé de compte, un problème de synchronisation survient. En effet, le service du runtime d'intégration auto-hébergé est exécuté sous un compte de service (NT SERVICE\DIAHostService) et doit être ajouté aux autorisations des clés privées.
+ 
+
+#### <a name="resolution"></a>Résolution
+
+Pour résoudre ce problème, vous devez ajouter le compte de service du runtime d'intégration auto-hébergé (NT SERVICE\DIAHostService) aux autorisations des clés privées. Vous pouvez procéder comme suit :
+
+1. Ouvrez la Run Command de votre console MMC (Microsoft Management Console).
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/management-console-run-command.png" alt-text="Capture d'écran illustrant la Run Command de la console MMC.":::
+
+1. Dans le volet MMC, procédez comme suit :
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-1.png" alt-text="Capture d'écran illustrant la deuxième étape : l'ajoute du compte de service IR auto-hébergé aux autorisations des clés privées." lightbox="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-1-expanded.png":::
+
+    1. Sélectionnez **Fichier**.
+    1. Dans le menu déroulant, choisissez **Ajouter/supprimer un composant logiciel enfichable**.
+    1. Sélectionnez **Certificats** dans le volet « Composants logiciels enfichables disponibles ».
+    1. Sélectionnez **Ajouter**.
+    1. Dans le volet contextuel « Composant logiciel enfichable Certificats », choisissez **Compte d'ordinateur**.
+    1. Sélectionnez **Suivant**.
+    1. Dans le volet « Sélectionner un ordinateur », choisissez **L'ordinateur local (l'ordinateur sur lequel cette console s'exécute)** .
+    1. Sélectionnez **Terminer**.
+    1. Sélectionnez **OK** dans le volet « Ajouter ou supprimer des composants logiciels enfichables ».
+
+1. Dans le volet de la console MMC, procédez comme suit :
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-2.png" alt-text="Capture d'écran illustrant la troisième étape : l'ajout du compte de service IR auto-hébergé aux autorisations des clés privées." lightbox="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-2-expanded.png":::
+
+    1. Dans la liste des dossiers de gauche, sélectionnez **Racine de la console -> Certificats (ordinateur local) -> Personnel -> Certificats**.
+    1. Cliquez avec le bouton droit sur **Microsoft Intune Beta MDM**.
+    1. Dans la liste déroulante, sélectionnez **Toutes les tâches**.
+    1. Sélectionnez **Gérer les clés privées**.
+    1. Sélectionnez **Ajouter** sous « Noms de groupes ou d'utilisateurs ».
+    1. Sélectionnez **NT SERVICE\DIAHostService** pour lui accorder un accès avec contrôle total à ce certificat, l'appliquer et le sécuriser. 
+    1. Sélectionnez **Vérifier les noms**, puis **OK**.
+    1. Dans le volet « Autorisations », sélectionnez **Appliquer**, puis cliquez sur **OK**.
 
 ## <a name="self-hosted-ir-setup"></a>Installation du runtime d’intégration IR auto-hébergé
 
@@ -778,18 +833,6 @@ Nous avons déployé un nouveau certificat SSL, qui est signé à partir de Digi
 
 S’il ne se trouve pas dans l’autorité de certification racine de confiance, [téléchargez-le ici](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
 
-
-## <a name="self-hosted-ir-sharing"></a>Partage du runtime d’intégration auto-hébergé
-
-### <a name="sharing-a-self-hosted-ir-from-a-different-tenant-is-not-supported"></a>Le partage de l’IR auto-hébergé à partir d’un autre locataire n’est pas pris en charge 
-
-#### <a name="symptoms"></a>Symptômes
-
-Vous pouvez remarquer d’autres fabriques de données (sur différents locataires) lors de la tentative de partage de l’IR auto-hébergé à partir de l’interface utilisateur Azure Data Factory, mais vous ne pouvez pas le partager entre les fabriques de données qui se trouvent sur des locataires différents.
-
-#### <a name="cause"></a>Cause
-
-L’IR auto-hébergé ne peut pas être partagé entre plusieurs locataires.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

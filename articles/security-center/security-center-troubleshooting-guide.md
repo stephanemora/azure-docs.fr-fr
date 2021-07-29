@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 9822dfe50fa50fdd70f4e09e188188cad0f9b8f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 96cd715a16c06dd6e35d042a6938de083ec262a9
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438214"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556781"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guide de résolution des problèmes d’Azure Security Center
 
@@ -148,5 +148,5 @@ Dans ce document, vous avez appris à configurer des stratégies de sécurité d
 * [Gestion des incidents de sécurité dans Azure Security Center](security-center-incident.md)
 * [Fonctionnalités de détection d’Azure Security Center](./security-center-alerts-overview.md)
 * [Surveillance des solutions de partenaire avec Azure Security Center](./security-center-partner-integration.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
-* [FAQ d’Azure Security Center](faq-general.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service
+* [FAQ de Azure Security Center](faq-general.yml — Trouvez la foire aux questions concernant l’utilisation de ce service
 * [Blog sur la sécurité Azure](/archive/blogs/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.

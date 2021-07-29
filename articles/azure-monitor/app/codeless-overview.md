@@ -4,14 +4,14 @@ description: Présentation de l’instrumentation automatique Azure Monitor Appl
 ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
-ms.date: 05/31/2020
+ms.date: 05/17/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: df6271f8c036d708b93d7312076f3eee585cfcba
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 1c9d3e10ebf02016a0188617567cb2e4e2eeb036
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287281"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092707"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>Qu’est-ce que l’instrumentation automatique ou l’attachement sans code Azure Monitor Application Insights ?
 
@@ -25,12 +25,13 @@ Application Insights est intégré à différents fournisseurs de ressources et 
 
 |Environnement/fournisseur de ressources          | .NET            | .NET Core       | Java            | Node.js         | Python          |
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service sur Windows           | Disponibilité générale, APD*       | Disponibilité générale, consentement      | En cours     | En cours     | Non pris en charge   |
-|Azure App Service sur Linux             | N/A             | Non pris en charge   | En cours     | Version préliminaire publique  | Non pris en charge   |
+|Azure App Service sur Windows           | Disponibilité générale, APD*       | Disponibilité générale, consentement      | Version préliminaire publique  | Version préliminaire publique  | Non pris en charge   |
+|Azure App Service sur Linux             | N/A             | Non pris en charge   | Version préliminaire publique  | Version préliminaire publique  | Non pris en charge   |
 |Azure Functions - De base                | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       |
-|Azure Functions Windows – Dépendances | Non pris en charge   | Non pris en charge   | Version préliminaire publique  | Non pris en charge   | Non pris en charge   |
+|Azure Functions Windows – Dépendances | Non pris en charge   | Non pris en charge   | Version préliminaire publique  | Non pris en charge   | Non prise en charge   |
+|Azure Spring Cloud                     | Non prise en charge   | Non pris en charge   | Version préliminaire publique  | Non pris en charge   | Non pris en charge   |
 |Azure Kubernetes Service               | N/A             | Intégré       | Via l’agent   | Intégré       | Non pris en charge   |
-|Machines virtuelles Azure - Windows                      | Version préliminaire publique  | Non pris en charge   | Non pris en charge   | Non pris en charge   | Non pris en charge   |
+|Machines virtuelles Azure - Windows                      | Version préliminaire publique  | Non pris en charge   | Via l’agent | Non pris en charge   | Non pris en charge   |
 |Machines virtuelles locales - Windows                | Disponibilité générale, consentement      | Non pris en charge   | Via l’agent   | Non pris en charge   | Non pris en charge   |
 |Agent autonome - Tous les env.            | Non pris en charge   | Non pris en charge   | GA              | Non pris en charge   | Non pris en charge   |
 
@@ -40,35 +41,24 @@ Application Insights est intégré à différents fournisseurs de ressources et 
 
 ### <a name="windows"></a>Windows
 
-#### <a name="net"></a>.NET
-La surveillance des applications sur Azure App Service sur Windows est disponible pour les [applications .NET](./azure-web-apps.md?tabs=net) et est activée par défaut.
+La supervision des applications sur Azure App Service sous Windows est disponible pour les applications **[.NET](./azure-web-apps.md?tabs=net)** (activé par défaut), **[.NET Core](./azure-web-apps.md?tabs=netcore)** , **[Java](./azure-web-apps.md?tabs=java)** (en préversion publique) et **[Node.js](./azure-web-apps.md?tabs=nodejs)** . Pour superviser une application Python, ajoutez le [SDK](./opencensus-python.md) à votre code.
 
-#### <a name="netcore"></a>.NETCore
-La surveillance des [applications .NETCore](./azure-web-apps.md?tabs=netcore) peut être activée en un seul clic.
-
-#### <a name="java"></a>Java
-L’intégration du portail pour la surveillance des applications Java sur App Service sur Windows n’est pas disponible pour le moment. Toutefois, vous pouvez ajouter l’[agent autonome Java 3.0](./java-in-process-agent.md) d’Application Insights à votre application sans modifier le code avant de déployer les applications sur App Service. L’agent Application Insights Java 3.0 est mis à la disposition générale.
-
-#### <a name="nodejs"></a>Node.js
-La surveillance des applications Node.js sur Windows ne peut pas être activée actuellement à partir du portail. Pour superviser les applications Node.js, utilisez le [Kit de développement logiciel (SDK)](./nodejs.md).
+> [!NOTE]
+> La supervision des applications est actuellement disponible pour les applications basées sur du code Windows sur App Service. La supervision des applications sur les conteneurs Windows sur App Service n’est pas encore prise en charge via l’intégration à Application Insights.
 
 ### <a name="linux"></a>Linux
+Vous pouvez activer la supervision des applications **[Java](./azure-web-apps.md?tabs=java)** et **[Node.js](./azure-web-apps.md?tabs=nodejs)** s’exécutant sur Linux dans App Service par le biais du portail : l’expérience pour les deux langages est en préversion publique et disponible dans toutes les régions. 
 
-#### <a name="netcore"></a>.NETCore
-Pour surveiller les applications .NETCore s’exécutant sur Linux, utilisent le [Kit de développement logiciel (SDK)](./asp-net-core.md).
-
-#### <a name="java"></a>Java 
-L’activation de la surveillance des applications Java pour App Service sur Linux à partir du portail n’est pas disponible, mais vous pouvez ajouter [l’agent Java 3.0 d’Application Insights](./java-in-process-agent.md) à votre application avant de déployer les applications sur App Service. L’agent Application Insights Java 3.0 est mis à la disposition générale.
-
-#### <a name="nodejs"></a>Node.js
-La [supervision des applications Node.js dans App Service sur Linux](./azure-web-apps.md?tabs=nodejs) est en préversion publique et peut être activée dans Portail Azure. Elle est disponible dans toutes les régions. 
-
-#### <a name="python"></a>Python
-Utilisez le Kit de développement logiciel (SDK) pour [surveiller votre application Python](./opencensus-python.md). 
+Pour les autres langages, [.NET Core](./asp-net-core.md) et [Python](./opencensus-python.md), utilisez le SDK.
 
 ## <a name="azure-functions"></a>Azure Functions
 
-La supervision de base pour Azure Functions est activée par défaut afin de collecter les données de journal, de performances et d’erreur ainsi que les requêtes HTTP. Pour les applications Java, vous pouvez activer une supervision plus riche avec le suivi distribué et obtenir les détails sur les transactions de bout en bout. Cette fonctionnalité pour Java est en préversion publique et vous pouvez [l’activer dans le Portail Azure](./monitor-functions.md).
+La supervision de base pour Azure Functions est activée par défaut afin de collecter les données de journal, de performances et d’erreur ainsi que les requêtes HTTP. Pour les applications Java, vous pouvez activer une supervision plus riche avec le suivi distribué et obtenir les détails sur les transactions de bout en bout. Cette fonctionnalité pour Java est en préversion publique pour Windows et vous pouvez [l’activer dans le portail Azure](./monitor-functions.md).
+
+## <a name="azure-spring-cloud"></a>Azure Spring Cloud
+
+### <a name="java"></a>Java 
+La supervision des applications pour les applications Java s’exécutant dans Azure Spring Cloud est intégrée au portail. Vous pouvez activer Application Insights directement à partir du portail Azure, à la fois pour les ressources Azure Spring Cloud existantes et nouvellement créées.  
 
 ## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 

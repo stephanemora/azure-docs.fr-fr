@@ -1,29 +1,30 @@
 ---
 title: Déployer un modèle Machine Learning sur Azure Functions à l’aide d’Azure Cache pour Redis
-description: 'Dans cet article, vous allez déployer un modèle d’Azure Machine Learning en tant qu’application de fonction dans Azure Functions à l’aide d’une instance Azure Cache pour Redis. Azure Cache pour Redis est extrêmement performant et évolutif : lorsqu’il est associé à un modèle Azure Machine Learning, vous obtenez une latence faible et un débit élevé dans votre application.'
+description: 'Dans cet article, vous déployez un modèle d’Azure Machine Learning en tant qu’application de fonction dans Azure Functions à l’aide d’une instance Azure Cache pour Redis. Azure Cache pour Redis est performant et évolutif : lorsqu’il est associé à un modèle Azure Machine Learning, vous obtenez une latence faible et un débit élevé dans votre application.'
 author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: ec8943bc73cac2020350dd4916f040f031cd842b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0541b626168fb680daa2fc5c0c14df5bc8a4ea7c
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499694"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111904172"
 ---
-# <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Déployer un modèle Machine Learning sur Azure Functions à l’aide d’Azure Cache pour Redis 
+# <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Déployer un modèle Machine Learning sur Azure Functions à l’aide d’Azure Cache pour Redis
 
-Dans cet article, vous allez déployer un modèle d’Azure Machine Learning en tant qu’application de fonction dans Azure Functions à l’aide d’une instance Azure Cache pour Redis.  
+Dans cet article, vous déployez un modèle d’Azure Machine Learning en tant qu’application de fonction dans Azure Functions à l’aide d’une instance Azure Cache pour Redis.  
 
-Azure Cache pour Redis est extrêmement performant et évolutif : lorsqu’il est associé à un modèle Azure Machine Learning, vous obtenez une latence faible et un débit élevé dans votre application. Parmi les scénarios où un cache est particulièrement utile, on peut citer l’inférence des données et les résultats de l’inférence du modèle réel. Dans les deux cas, les métadonnées ou les résultats sont stockés en mémoire, ce qui augmente les performances. 
+Azure Cache pour Redis est performant et évolutif. Lorsque vous l’associez à un modèle Azure Machine Learning, vous bénéficiez d’une faible latence et d’un débit élevé dans votre application. Parmi les scénarios où un cache est utile : on peut citer l’inférence des données et les résultats de l’inférence du modèle réel. Dans les deux cas, les métadonnées ou les résultats sont stockés en mémoire, ce qui augmente les performances.
 
 > [!NOTE]
 > Bien qu’Azure Machine Learning et Azure Functions soient mis à la disposition générale, la possibilité d’empaqueter un modèle Machine Learning Service vers Functions est disponible en préversion.  
 >
 
 ## <a name="prerequisites"></a>Prérequis
+
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/).
 * Un espace de travail Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](../machine-learning/how-to-manage-workspace.md).
 * [Azure CLI](/cli/azure/install-azure-cli).
@@ -38,44 +39,45 @@ Azure Cache pour Redis est extrêmement performant et évolutif : lorsqu’il e
 >
 > Pour plus d’informations sur la définition de ces variables, consultez [Déployer des modèles avec Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
 
-## <a name="create-an-azure-cache-for-redis-instance"></a>Créer une instance Cache Redis Azure 
+## <a name="create-an-azure-cache-for-redis-instance"></a>Créer une instance Cache Redis Azure
+
 Vous pourrez déployer un modèle Machine Learning pour Azure Functions avec n’importe quelle instance de cache De base, Standard ou Premium. Pour créer une instance de cache, procédez comme suit.  
 
-1. Accédez à la page d’accueil du portail Azure ou ouvrez le menu latéral, puis sélectionnez **Créer une ressource**. 
-   
+1. Accédez à la page d’accueil du portail Azure ou ouvrez le menu latéral, puis sélectionnez **Créer une ressource**.
+
 1. Dans la page **Nouvelle**, sélectionnez **Bases de données**, puis **Azure Cache pour Redis**.
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Sélectionnez Azure Cache pour Redis.":::
-   
+
 1. Dans la page **Nouveau cache Redis**, configurez les paramètres du nouveau cache.
-   
+
    | Paramètre      | Valeur suggérée  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nom DNS** | Entrez un nom globalement unique. | Le nom du cache doit être une chaîne de 1 à 63 caractères ne contenant que des chiffres, des lettres et des traits d’union. Le nom doit commencer et se terminer par un chiffre ou une lettre, et ne peut pas contenir de traits d’union consécutifs. Le *nom d’hôte* de votre instance de cache sera *\<DNS name>.redis.cache.windows.net*. | 
-   | **Abonnement** | Dans la liste déroulante, sélectionnez votre abonnement. | Abonnement sous lequel créer cette nouvelle instance d’Azure Cache pour Redis. | 
-   | **Groupe de ressources** | Dans la liste déroulante, sélectionnez un groupe de ressources ou choisissez **Créer nouveau**, puis entrez un nouveau nom de groupe de ressources. | Nom du groupe de ressources dans lequel créer votre cache et d’autres ressources. En plaçant toutes les ressources de votre application dans un seul groupe de ressources, vous pouvez facilement les gérer ou les supprimer ensemble. | 
+   | **Nom DNS** | Entrez un nom globalement unique. | Le nom du cache doit être une chaîne contenant entre 1 et 63 caractères. La chaîne peut contenir uniquement des chiffres, des lettres ou des traits d’union. Le nom doit commencer et se terminer par un chiffre ou une lettre, et ne peut pas contenir de traits d’union consécutifs. Le *nom d’hôte* de votre instance de cache sera *\<DNS name>.redis.cache.windows.net*. |
+   | **Abonnement** | Dans la liste déroulante, sélectionnez votre abonnement. | Abonnement sous lequel créer cette nouvelle instance d’Azure Cache pour Redis. |
+   | **Groupe de ressources** | Dans la liste déroulante, sélectionnez un groupe de ressources ou choisissez **Créer nouveau**, puis entrez un nouveau nom de groupe de ressources. | Nom du groupe de ressources dans lequel créer votre cache et d’autres ressources. En plaçant toutes les ressources de votre application dans un seul groupe de ressources, vous pouvez facilement les gérer ou les supprimer ensemble. |
    | **Lieu** | Dans la liste déroulante, sélectionnez un emplacement. | Choisissez une [Région](https://azure.microsoft.com/regions/) proche d’autres services qui utiliseront votre cache. |
    | **Niveau tarifaire** | Sélectionnez un [Niveau tarifaire](https://azure.microsoft.com/pricing/details/cache/). |  Le niveau tarifaire détermine la taille, les performances et les fonctionnalités disponibles pour le cache. Pour plus d’informations, consultez [Présentation du cache Azure pour Redis](cache-overview.md). |
 
-1. Sélectionnez l’onglet **Réseau** ou cliquez sur le bouton **Réseau** au bas de la page.
+1. Sélectionnez l’onglet **Réseau** ou sélectionnez le bouton **Réseau** au bas de la page.
 
 1. Sous l’onglet **Réseau**, sélectionnez votre méthode de connectivité.
 
-1. Sélectionnez le bouton **Suivant : Avancé** ou cliquez sur le bouton **Suivant : Avancé** en bas de la page.
+1. Sélectionnez le bouton **Suivant : Avancé** ou sélectionnez le bouton **Suivant : Avancé** en bas de la page.
 
 1. Sous l’onglet **Avancé** d’une instance de cache de base ou standard, sélectionnez Activer/désactiver si vous souhaitez activer un port non-TLS.
 
 1. Sous l’onglet **Avancé** d’une instance de cache premium, configurez les paramètres pour le port non-TLS, le clustering et la persistance des données.
 
-1. Sélectionnez le bouton **Suivant : Étiquettes** ou cliquez sur le bouton **Suivant : Étiquettes** au bas de la page.
+1. Sélectionnez l’onglet **Suivant : Avancé** ou sélectionnez le bouton **Suivant : Étiquettes** au bas de la page.
 
-1. Si vous le voulez, sous l’onglet **Étiquettes**, entrez le nom et la valeur si vous souhaitez catégoriser la ressource. 
+1. Si vous le voulez, sous l’onglet **Étiquettes**, entrez le nom et la valeur si vous souhaitez catégoriser la ressource.
 
 1. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers l’onglet Vérifier + créer où Azure valide votre configuration.
 
 1. Une fois que le message vert Validation réussie s’affiche, sélectionnez **Créer**.
 
-La création du cache prend un certain temps. Vous pouvez surveiller la progression dans la page **Vue d’ensemble** du Azure Cache pour Redis. Lorsque **État** indique **En cours d’exécution**, le cache est prêt pour utilisation. 
+La création du cache prend un certain temps. Vous pouvez surveiller la progression dans la page **Vue d’ensemble** du Azure Cache pour Redis. Lorsque **État** indique **En cours d’exécution**, le cache est prêt pour utilisation.
 
 ## <a name="prepare-for-deployment"></a>Préparer le déploiement
 
@@ -185,7 +187,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
 
 ## <a name="deploy-image-as-a-web-app"></a>Déployer une image en tant qu’application web
 
-1. Utilisez la commande suivante pour obtenir les informations d’identification de connexion de l’instance d’Azure Container Registry qui contient l’image. Remplacez `<myacr>` par la valeur retournée précédemment par `package.location` : 
+1. Utilisez la commande suivante pour obtenir les informations d’identification de connexion de l’instance d’Azure Container Registry qui contient l’image. Remplacez `<myacr>` par la valeur retournée précédemment par `package.location` :
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -211,7 +213,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
 
     Enregistrez le nom d’utilisateur (__username__), ainsi que l’un des mots de passe (__passwords__).
 
-1. Si vous ne disposez pas déjà d’un groupe de ressources ou d’un plan App Service pour déployer le service, les commandes suivantes montrent comment créer ces deux éléments :
+1. Si vous ne disposez pas déjà d’un groupe de ressources ou d’un plan App Service pour déployer le service, ces commandes montrent comment créer ces deux éléments :
 
     ```azurecli-interactive
     az group create --name myresourcegroup --location "West Europe"
@@ -228,6 +230,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
     ```azurecli-interactive
     az storage account create --name <webjobStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
+
     ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
     ```
@@ -239,7 +242,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
     ```
 
     > [!IMPORTANT]
-    > À ce stade, l’application de fonction a été créée. Toutefois, étant donné que vous n’avez pas de chaîne de connexion pour le déclencheur HTTP et que vous n’avez pas fourni les informations d’identification à l’instance Azure Container Registry qui contient l’image, l’application de fonction n’est pas active. Dans l’étape qui suit, vous allez fournir la chaîne de connexion et les informations d’authentification pour le registre de conteneurs. 
+    > À ce stade, l’application de fonction a été créée. Toutefois, étant donné que vous n’avez pas de chaîne de connexion pour le déclencheur HTTP et que vous n’avez pas fourni les informations d’identification à l’instance Azure Container Registry qui contient l’image, l’application de fonction n’est pas active. Dans l’étape qui suit, vous allez fournir la chaîne de connexion et les informations d’authentification pour le registre de conteneurs.
 
 1. Pour fournir à l’application de fonction les informations d’identification nécessaires pour accéder au registre de conteneurs, utilisez la commande suivante. Remplacez `<app-name>` par le nom de la fonction. Remplacez `<acrinstance>` et `<imagetag>` par les valeurs de l’appel de l’interface de commande AZ CLI à l’étape précédente. Remplacez `<username>` et `<password>` par les informations de connexion ACR récupérées précédemment :
 
@@ -283,14 +286,14 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
 > [!IMPORTANT]
 > Le chargement de l’image peut prendre plusieurs minutes. Vous pouvez surveiller la progression à l’aide du portail Azure.
 
-## <a name="test-azure-functions-http-trigger"></a>Tester le déclencheur HTTP Azure Functions 
+## <a name="test-azure-functions-http-trigger"></a>Tester le déclencheur HTTP Azure Functions
 
 Nous allons maintenant exécuter et tester notre déclencheur HTTP Azure Functions.
 
 1. Accédez à votre application de fonction dans le portail Azure.
-1. Sous Développeur, sélectionnez **Code + test**. 
-1. Sur le côté droit, sélectionnez l’onglet **Entrée**. 
-1. Cliquez sur le bouton **Exécuter** pour tester le déclencheur HTTP Azure Functions. 
+1. Sous Développeur, sélectionnez **Code + test**.
+1. Sur le côté droit, sélectionnez l’onglet **Entrée**.
+1. Sélectionnez le bouton **Exécuter** pour tester le déclencheur HTTP Azure Functions.
 
 Vous avez maintenant déployé un modèle d’Azure Machine Learning en tant qu’application de fonction à l’aide d’une instance Azure Cache pour Redis. Pour en savoir plus sur Azure Cache pour Redis, cliquez sur les liens de la section ci-dessous.
 
@@ -298,7 +301,7 @@ Vous avez maintenant déployé un modèle d’Azure Machine Learning en tant qu�
 
 Si vous envisagez d’exécuter le didacticiel suivant, vous pouvez conserver les ressources créées dans le cadre de ce démarrage rapide afin de les réutiliser.
 
-Sinon, si vous en avez fini avec le démarrage rapide, vous pouvez supprimer les ressources Azure que vous y avez créées afin d’éviter des frais. 
+Sinon, si vous en avez fini avec le démarrage rapide, vous pouvez supprimer les ressources Azure que vous y avez créées afin d’éviter des frais.
 
 > [!IMPORTANT]
 > La suppression d’un groupe de ressources est irréversible. Quand vous supprimez un groupe de ressources, toutes les ressources qu’il contient sont supprimées définitivement. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. Si vous avez créé les ressources pour l’hébergement de cet exemple dans un groupe de ressources existant contenant des ressources que vous souhaitez conserver, vous pouvez supprimer chaque ressource individuellement à partir de son panneau respectif, au lieu de supprimer l’intégralité du groupe de ressources.
@@ -313,9 +316,9 @@ Vous êtes invité à confirmer la suppression du groupe de ressources. Saisisse
 
 Après quelques instants, le groupe de ressources et toutes ses ressources sont supprimés.
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur [Azure Cache pour Redis](./cache-overview.md)
 * Découvrez comment configurer votre application de fonction dans la documentation sur [Functions](../azure-functions/functions-create-function-linux-custom-image.md).
-* [Référence sur l’API](/python/api/azureml-contrib-functions/azureml.contrib.functions) 
+* [Référence sur l’API](/python/api/azureml-contrib-functions/azureml.contrib.functions)
 * Créer une [application Python qui utilise Azure Cache pour Redis](./cache-python-get-started.md)

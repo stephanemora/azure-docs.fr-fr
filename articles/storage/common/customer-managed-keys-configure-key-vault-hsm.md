@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f9b40c934cb428a31a3feb77195518d5351818d7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f340ac18cb74523d64f4dbf8d6ae1d6f4559582a
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785358"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411878"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm-preview"></a>Configurer le chiffrement avec des clés gérées par le client stockées dans un module HSM géré par Azure Key Vault Azure (préversion)
 
@@ -45,7 +45,7 @@ az storage account update \
 
 ## <a name="assign-a-role-to-the-storage-account-for-access-to-the-managed-hsm"></a>Attribuer un rôle au compte de stockage pour l'accès au module HSM géré
 
-Ensuite, attribuez le rôle **Chiffrement du service cryptographique du module HSM géré** à l'identité managée du compte de stockage afin que celui-ci dispose d'autorisations sur le module HSM géré. Microsoft vous recommande d'étendre l'attribution de rôle au niveau de la clé individuelle afin d'octroyer le moins de privilèges possible à l'identité managée.
+Ensuite, attribuez le rôle **Utilisateur de chiffrement du service cryptographique du module HSM géré** à l'identité managée du compte de stockage afin que celui-ci dispose d'autorisations sur le module HSM géré. Microsoft vous recommande d'étendre l'attribution de rôle au niveau de la clé individuelle afin d'octroyer le moins de privilèges possible à l'identité managée.
 
 Pour créer l'attribution de rôle du compte de stockage, appelez [az key vault role assignment create](/cli/azure/role/assignment#az_role_assignment_create). N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs.
   
@@ -58,7 +58,7 @@ storage_account_principal = $(az storage account show \
 
 az keyvault role assignment create \
     --hsm-name <hsm-name> \
-    --role "Managed HSM Crypto Service Encryption" \
+    --role "Managed HSM Crypto Service Encryption User" \
     --assignee $storage_account_principal \
     --scope /keys/<key-name>
 ```
@@ -102,4 +102,4 @@ Quand vous mettez à jour manuellement la version de clé, vous devez mettre à 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Chiffrement du stockage Azure pour les données au repos](storage-service-encryption.md)
-- [Clés gérées par le client pour le chiffrement du service Stockage Azure](customer-managed-keys-overview.md)
+- [Clés gérées par le client pour le chiffrement du Stockage Azure](customer-managed-keys-overview.md)

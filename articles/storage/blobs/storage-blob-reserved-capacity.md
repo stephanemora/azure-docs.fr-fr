@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 05/17/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6fd791495602846b95e2dd3e99423db5505f5307
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f130e2367ed2fa4c9095479e9ff9d9722b010e5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98600915"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098539"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimiser les coûts de stockage d’objets blob avec une capacité réservée
 
@@ -49,7 +49,7 @@ Tous les niveaux d’accès (chaud, froid et archive) sont pris en charge pour l
 Tous les types de redondance sont pris en charge pour les réservations. Pour plus d’informations sur les options de redondance, consultez [Redondance du stockage Azure](../common/storage-redundancy.md).
 
 > [!NOTE]
-> La capacité de réserve Stockage Azure n’est pas disponible pour les comptes de stockage Premium, les comptes de stockage v1 universel (GPv1), Azure Data Lake Storage Gen1, les objets blobs de pages, le Stockage File d’attente Azure, le stockage Tables Azure ou Azure Files.  
+> La capacité de réserve Stockage Azure n’est pas disponible pour les comptes de stockage Premium, les comptes de stockage v1 universel (GPv1), Azure Data Lake Storage Gen1, les objets blobs de pages, le Stockage File d’attente Azure ou le stockage Tables Azure. Pour plus d’informations sur la capacité de réserve pour Azure Files, consultez [Optimiser les coûts d’Azure Files avec la capacité de réserve](../files/files-reserve-capacity.md).  
 
 ### <a name="security-requirements-for-purchase"></a>Exigences de sécurité pour l’achat
 

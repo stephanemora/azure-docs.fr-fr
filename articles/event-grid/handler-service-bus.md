@@ -3,12 +3,12 @@ title: Files d’attente et rubriques Service Bus en tant que gestionnaires d’
 description: Décrit comment vous pouvez utiliser des files d’attente et rubriques Service Bus en tant que gestionnaires d’événements pour des événements Azure Event Grid.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 12b72420e3475b46a4cd61ce5032b478af740dde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f3aa7fedc8daa15f9de239e47f8b6a0c2fc0454
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97399857"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091287"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Service Bus des files d’attente et des rubriques comme gestionnaires d’événements pour des événements Azure Event Grid
 Un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement. Plusieurs services Azure sont automatiquement configurés pour gérer des événements et **Azure Service Bus** est l’un d’eux. 
@@ -16,6 +16,10 @@ Un gestionnaire d’événements désigne l’endroit où l’événement est en
 Vous pouvez utiliser une file d’attente ou une rubrique du service en tant que gestionnaire pour des événements Event Grid. 
 
 ## <a name="service-bus-queues"></a>Files d’attente Service Bus
+
+> [!NOTE]
+> Les files d’attente activées pour la session ne sont pas prises en charge en tant que gestionnaires d’événements pour les événements Azure Event Grid
+ 
 Vous pouvez router les événements Event Grid directement vers les files d’attente Service Bus. Cette fonctionnalité est utilisée pour les scénarios de mise en mémoire tampon ou de commande et de contrôle dans les applications d’entreprise.
 
 Dans le portail Azure, lors de la création d’un abonnement aux événements, sélectionnez **File d’attente Service Bus** comme type de point de terminaison, puis cliquez sur **Sélectionner un point de terminaison** pour choisir une file d’attente Service Bus.

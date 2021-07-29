@@ -1,6 +1,6 @@
 ---
-title: Configuration système requise pour Microsoft Azure Stack Edge Pro | Microsoft Docs
-description: Découvrez la configuration logicielle et réseau requise pour Azure Stack Edge Pro
+title: Configuration requise pour Azure Stack Edge Pro FPGA
+description: Découvrez la configuration logicielle et réseau requise pour appareil Azure Stack Edge Pro FGPA
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 0e49d460d5ba7bf9131bc0a2f7ec0c1c9a6e653b
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 7be7715586339a4d38370acbe4a047f86b3a917f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076776"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460511"
 ---
-# <a name="azure-stack-edge-pro-system-requirements"></a>Configuration système requise pour Azure Stack Edge Pro
+# <a name="azure-stack-edge-pro-fpga-system-requirements"></a>Configuration requise pour Azure Stack Edge Pro FPGA
 
-Cet article décrit la configuration système requise pour votre solution Microsoft Azure Stack Edge Pro et pour les clients se connectant à Azure Stack Edge Pro. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre solution Azure Stack Edge Pro. Reportez-vous aussi souvent que nécessaire à ces informations pendant le déploiement, et après, pour son fonctionnement.
+Cet article décrit la configuration système requise pour votre solution Microsoft Azure Stack Edge Pro FGPA et pour les clients se connectant à Azure Stack Edge Pro FGPA. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre solution Azure Stack Edge Pro FGPA. Reportez-vous aussi souvent que nécessaire à ces informations pendant le déploiement, et après, pour son fonctionnement.
 
-La configuration système requise pour Azure Stack Edge Pro inclut ce qui suit : 
+La configuration requise pour Azure Stack Edge Pro FGPA inclut ce qui suit : 
 
 - **Configuration logicielle pour les hôtes** : décrit les plateformes prises en charge, les navigateurs pour l’interface utilisateur de configuration locale, les clients SMB et les exigences supplémentaires pour les clients qui accèdent à l’appareil.
 - **Configuration réseau pour l’appareil** : fournit des informations sur la configuration réseau nécessaire au fonctionnement de l’appareil physique.
@@ -46,9 +46,9 @@ La configuration système requise pour Azure Stack Edge Pro inclut ce qui suit�
 
 ## <a name="networking-port-requirements"></a>Configuration requise du port réseau
 
-### <a name="port-requirements-for-azure-stack-edge-pro"></a>Configuration des ports requise pour Azure Stack Edge Pro
+### <a name="port-requirements-for-azure-stack-edge-pro-fpga"></a>Configuration des ports requise pour Azure Stack Edge Pro FGPA
 
-Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre pare-feu pour autoriser le trafic SMB, cloud ou de gestion. Dans ce tableau, *entrée* ou *entrant* représente la direction à partir de laquelle les requêtes clientes entrantes accèdent à votre appareil. *Sortie* ou *sortant* représente la direction vers laquelle votre appareil Azure Stack Edge Pro envoie des données de façon externe, au-delà du déploiement : par exemple, sortant vers Internet.
+Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre pare-feu pour autoriser le trafic SMB, cloud ou de gestion. Dans ce tableau, *entrée* ou *entrant* représente la direction à partir de laquelle les requêtes clientes entrantes accèdent à votre appareil. *Sortie* ou *sortant* représente la direction vers laquelle votre appareil Azure Stack Edge Pro FGPA envoie des données de façon externe, au-delà du déploiement : par exemple, sortant vers Internet.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
@@ -66,9 +66,9 @@ Pour plus d'informations, consultez [Règles de configuration du pare-feu et des
 
 ## <a name="url-patterns-for-firewall-rules"></a>Modèles d’URL pour règles de pare-feu
 
-Les administrateurs réseau peuvent souvent configurer des règles de pare-feu avancées basées sur des modèles d’URL afin de filtrer le trafic entrant et sortant. Votre appareil Azure Stack Edge Pro et le service dépendent d’autres applications Microsoft comme Azure Service Bus, Azure Active Directory Access Control, des comptes de stockage et des serveurs Microsoft Update. Les modèles d’URL associés à ces applications peuvent être utilisés pour configurer des règles de pare-feu. Il est important de comprendre que les modèles d’URL associés à ces applications peuvent changer. Ces modifications impliquent que l’administrateur réseau contrôle et mette à jour les règles de pare-feu pour votre appareil Azure Stack Edge Pro, si nécessaire.
+Les administrateurs réseau peuvent souvent configurer des règles de pare-feu avancées basées sur des modèles d’URL afin de filtrer le trafic entrant et sortant. Votre appareil Azure Stack Edge Pro FGPA et le service dépendent d’autres applications Microsoft comme Azure Service Bus, Azure Active Directory Access Control, des comptes de stockage et des serveurs Microsoft Update. Les modèles d’URL associés à ces applications peuvent être utilisés pour configurer des règles de pare-feu. Il est important de comprendre que les modèles d’URL associés à ces applications peuvent changer. Ces changements demandent que l’administrateur réseau contrôle et mette à jour les règles de pare-feu pour votre appareil Azure Stack Edge Pro FGPA, si nécessaire.
 
-Dans la plupart des cas, nous vous recommandons de définir librement les règles de pare-feu pour le trafic sortant en fonction des adresses IP fixes Azure Stack Edge Pro. Toutefois, vous pouvez utiliser les informations ci-dessous pour définir les règles de pare-feu avancées qui sont nécessaires à la création d’environnements sécurisés.
+Dans la plupart des cas, nous vous recommandons de définir librement les règles de pare-feu pour le trafic sortant en fonction des adresses IP fixes Azure Stack Edge Pro FGPA. Toutefois, vous pouvez utiliser les informations ci-dessous pour définir les règles de pare-feu avancées qui sont nécessaires à la création d’environnements sécurisés.
 
 > [!NOTE]
 > - Les adresses IP d’appareil (sources) doivent toujours être définies sur l’ensemble des interfaces réseau activées pour le cloud.
@@ -104,7 +104,7 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 ## <a name="compute-sizing-considerations"></a>Considérations relatives au dimensionnement de la capacité de calcul
 
-Utilisez votre expérience lors des phases de développement et de test de votre solution afin de vous assurer que votre appareil Azure Stack Edge Pro dispose d’une capacité suffisante et que vous en tirez des performances optimales.
+Utilisez votre expérience lors des phases de développement et de test de votre solution afin de vous assurer que votre appareil Azure Stack Edge Pro FGPA dispose d’une capacité suffisante et que vous en tirez des performances optimales.
 
 Tenez compte des facteurs suivants :
 
@@ -130,9 +130,9 @@ Pour comprendre et affiner les performances de votre solution, vous pouvez utili
 
     Pour plus d’informations sur les commandes disponibles, accédez à [Superviser et dépanner des modules de computing en périphérie](azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
 
-Pour finir, veillez à tester votre solution sur votre jeu de données et à quantifier les performances sur Azure Stack Edge Pro avant le déploiement en production.
+Pour finir, veillez à tester votre solution sur votre jeu de données et à quantifier les performances sur Azure Stack Edge Pro FGPA avant le déploiement en production.
 
 
 ## <a name="next-step"></a>Étape suivante
 
-- [Déployer votre Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)
+- [Déployer votre Azure Stack Edge Pro FGPA](azure-stack-edge-deploy-prep.md)

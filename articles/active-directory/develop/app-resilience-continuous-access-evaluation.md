@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: 5b00cca584958f3e7d741a2a4f9e6669ff0d241e
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 970985193245a4d7482979c2fc753c2c0b67834b
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904313"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111406730"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>Guide pratique pour utiliser les API d’évaluation continue de l’accès dans vos applications
 
 [Évaluation continue de l’accès](../conditional-access/concept-continuous-access-evaluation.md) (CAE) est une fonctionnalité d’Azure AD qui permet de révoquer les jetons d’accès en fonction d’[événements critiques](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) et d’une [évaluation de la stratégie](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation-preview) au lieu de s’appuyer sur l’expiration des jetons en fonction de leur durée de vie. Pour certaines API de ressources, comme les risques et les stratégies sont évalués en temps réel, cela peut augmenter la durée de vie du jeton jusqu’à 28 heures. Ces jetons de longue durée sont actualisés de manière proactive par la bibliothèque d’authentification Microsoft (MSAL), ce qui augmente la résilience de vos applications.
 
-Cet article explique comment utiliser les API prenant en charge l’évaluation continue de l’accès dans vos applications.
+Cet article explique comment utiliser les API prenant en charge l’évaluation continue de l’accès dans vos applications. Les applications qui n’utilisent pas MSAL peuvent ajouter la prise en charge des [contestations aux revendications, des demandes de revendications et des fonctionnalités clientes](claims-challenge.md) pour utiliser l’évaluation continue de l’accès.
 
 ## <a name="implementation-considerations"></a>Considérations relatives à l’implémentation
 
@@ -116,4 +116,5 @@ Vous pouvez tester votre application en connectant un utilisateur à l’applica
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez [Évaluation continue de l’accès](../conditional-access/concept-continuous-access-evaluation.md).
+- Vue d’ensemble conceptuelle de [l’évaluation continue de l’accès](../conditional-access/concept-continuous-access-evaluation.md)
+- [Contestations liées aux revendications, demandes de revendications, et capacités des clients](claims-challenge.md)

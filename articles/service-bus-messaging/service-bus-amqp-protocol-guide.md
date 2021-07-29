@@ -3,12 +3,12 @@ title: Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs | Micros
 description: Guide du protocole pour les expressions et description d’AMQP 1.0 dans Azure Service Bus et Event Hubs
 ms.topic: article
 ms.date: 04/14/2021
-ms.openlocfilehash: 8d346aeef74e1f67d3d525c061d40314ee5342aa
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 0c1c053378c8c2dec1f769fe489eb823ea81390f
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531002"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438735"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
 
@@ -404,12 +404,7 @@ Avec cette fonctionnalité, vous créez un expéditeur et établissez le lien ve
 | | <------ | attach(<br/>name={nom du lien},<br/>role=receiver,<br/>source={ID du lien client},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Pour plus d’informations sur AMQP, consultez les liens suivants :
-
-* [Vue d’ensemble du protocole AMQP de Service Bus]
-* [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]
-* [AMQP dans Service Bus pour Windows Server]
+Pour en savoir plus sur AMQP, consultez [Vue d’ensemble d’AMQP Service Bus](service-bus-amqp-overview.md).
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp-protocol-guide/amqp1.png
@@ -417,6 +412,3 @@ Pour plus d’informations sur AMQP, consultez les liens suivants :
 [3]: ./media/service-bus-amqp-protocol-guide/amqp3.png
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
-[Vue d’ensemble du protocole AMQP de Service Bus]: service-bus-amqp-overview.md
-[Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: 
-[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

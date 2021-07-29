@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 03/15/2021
+ms.date: 05/28/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99829d6afbec638f26ae91fcb73bd20220c54ffa
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 7d5e6102a46e8015fa4fb7a1a148950e98629681
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481892"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793896"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Activer mes rôles Azure AD dans PIM
 
@@ -218,4 +218,4 @@ Lorsque vous activez un rôle dans Privileged Identity Management, votre activat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Activer mes rôles Azure AD dans Privileged Identity Management](pim-how-to-activate-role.md)
+- [Voir l’historique d'audit pour les rôles Azure AD](pim-how-to-use-audit-log.md)

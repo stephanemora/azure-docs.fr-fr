@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8549592ace00e712929ebc76045a32531b9db659
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d27223906727af3b45617c7162f5c5da5133d2e3
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97358314"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569506"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>Configurer un DNN pour une instance de cluster de basculement
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,6 +47,7 @@ Avant d’effectuer les étapes décrites dans cet article, vous devez déjà di
 - Avoir décidé que le nom du réseau distribué est l’option de [connectivité appropriée pour votre solution HADR](hadr-cluster-best-practices.md#connectivity).
 - Avoir configuré vos [instances de cluster de basculement](failover-cluster-instance-overview.md). 
 - Avoir installé la version la plus récente de [PowerShell](/powershell/azure/install-az-ps). 
+- Le client qui se connecte à l’écouteur DNN doit prendre en charge le paramètre `MultiSubnetFailover=True` dans la chaîne de connexion. 
 
 ## <a name="create-dnn-resource"></a>Créer une ressource DNN 
 
@@ -203,6 +204,10 @@ Vous pouvez également configurer une carte réseau dans Azure pour réserver l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les fonctionnalités de SQL Server HADR dans Azure, consultez [Groupes de disponibilité](availability-group-overview.md) et [Instance de cluster de basculement](failover-cluster-instance-overview.md). Vous pouvez également apprendre les [meilleures pratiques](hadr-cluster-best-practices.md) en matière de configuration de votre environnement pour la haute disponibilité et la reprise d’activité. 
+Pour en savoir plus, consultez :
 
+- [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure](failover-cluster-instance-overview.md)
+- [Vue d’ensemble des instances de cluster de basculement](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Paramètres HADR pour SQL Server sur les machines virtuelles Azure](hadr-cluster-best-practices.md)
 

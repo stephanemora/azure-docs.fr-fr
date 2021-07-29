@@ -5,12 +5,12 @@ description: Consultez la foire aux questions lorsque vous exécutez des pools d
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: 192306d2aeb9abddef641c0b55adaacaf8442de2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5d3d78eb20a9ca8b663fa0cf381fcce1bd528345
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065707"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463301"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Foire aux questions relative aux pools de nœuds Windows Server dans AKS
 
@@ -175,6 +175,22 @@ Si Azure Hybrid Benefit est activé sur le cluster, la sortie de `az vmss show` 
 ## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>Puis-je utiliser le tableau de bord web Kubernetes avec des conteneurs Windows ?
 
 Oui, vous pouvez utiliser le [tableau de bord web Kubernetes][kubernetes-dashboard] pour accéder aux informations sur les conteneurs Windows, mais, pour le moment, vous ne pouvez pas exécuter *kubectl exec* dans un conteneur Windows en cours d’exécution directement à partir du tableau de bord web Kubernetes. Pour plus d’informations sur la connexion à votre conteneur Windows en cours d’exécution, consultez [Se connecter avec RDP à des nœuds Windows Server de cluster AKS (Azure Kubernetes Service) à des fins de maintenance ou de résolution des problèmes][windows-rdp].
+
+## <a name="how-do-i-change-the-time-zone-of-a-running-container"></a>Comment modifier le fuseau horaire d’un conteneur en cours d’exécution ?
+
+Pour modifier le fuseau horaire d’un conteneur Windows Server en cours d’exécution, connectez-vous au conteneur en cours d’exécution avec une session PowerShell. Par exemple :
+    
+```azurecli-interactive
+kubectl exec -it CONTAINER-NAME -- powershell
+```
+
+Dans le conteneur en cours d’exécution, utilisez [Set-TimeZone](/powershell/module/microsoft.powershell.management/set-timezone) pour définir le fuseau horaire du conteneur en cours d’exécution. Par exemple :
+
+```powershell
+Set-TimeZone -Id "Russian Standard Time"
+```
+
+Pour afficher le fuseau horaire actuel du conteneur en cours d’exécution ou une liste de fuseaux horaires disponible, utilisez [Get-TimeZone](/powershell/module/microsoft.powershell.management/get-timezone).
 
 ## <a name="what-if-i-need-a-feature-thats-not-supported"></a>Que se passe-t-il si j’ai besoin d’une fonctionnalité qui n’est pas prise en charge ?
 

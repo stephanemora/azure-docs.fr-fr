@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
 ms.date: 04/12/2021
-ms.openlocfilehash: 107d10bec77ea7bb2b67ae86f48d5b88a286869d
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 3d30bb733245c0519b73d66653b8d09cb9a4b4b9
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229501"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111528177"
 ---
 # <a name="cef-and-commonsecuritylog-field-mapping"></a>Mappage de champs CEF et CommonSecurityLog
 
@@ -60,7 +60,7 @@ Pour plus d’informations, consultez [Connecter votre solution externe à l’a
 | dproc | DestinationProcessName | Nom du processus de destination de l’événement, tel que `telnetd` ou `sshd.` |
 | dpt | DestinationPort | Port de destination. <br>Valeurs valides : `*0` - `65535` |
 | dst | DestinationIP | L’adresse IpV4 de destination à laquelle l’événement fait référence dans un réseau IP. |
-| dtz | DeviceTimeZon | Fuseau horaire de l’appareil générant l’événement |
+| dtz | DeviceTimeZone | Fuseau horaire de l’appareil générant l’événement |
 | duid |DestinationUserId | Identifie l’utilisateur de destination par son ID. |
 | duser | DestinationUserName |Identifie l’utilisateur de destination par son nom.|
 | dvc | DeviceAddress | Adresse IPv4 de l’appareil générant l’événement. |

@@ -2,13 +2,13 @@
 title: Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 description: Décrit comment sauvegarder des machines virtuelles Azure dans un coffre Recovery Services à l’aide de Sauvegarde Azure
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.openlocfilehash: 5c3bc66c2111c347f8ed0e32c9e597a52ed404ed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 06/01/2021
+ms.openlocfilehash: 42ce8990e4593fc734be619aa363f080f3055878
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670424"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783585"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
@@ -62,22 +62,23 @@ Modifiez le type de réplication de stockage comme suit :
 
 ## <a name="apply-a-backup-policy"></a>Appliquer une stratégie de sauvegarde
 
-Configurez une stratégie de sauvegarde pour le coffre.
+Pour appliquer une stratégie de sauvegarde à vos machines virtuelles Azure, procédez comme suit :
 
-1. Dans le coffre, sélectionnez **+Sauvegarde** dans la section **Vue d’ensemble**.
+1. Accédez au centre de sauvegarde, puis cliquez sur **+Sauvegarde** sous l’onglet **Vue d’ensemble**.
 
    ![Bouton de sauvegarde](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-1. Dans **Objectif de sauvegarde** > **Où s’exécute votre charge de travail ?** , sélectionnez **Azure**. Dans **Que voulez-vous sauvegarder ?** , sélectionnez **Machine virtuelle** >  **OK**. L’extension de machine virtuelle est inscrite dans le coffre.
+1. Sélectionnez **Machines virtuelles Azure** comme **Type de source de données**, puis sélectionnez le coffre que vous avez créé. Puis, cliquez sur **Continuer**.
 
    ![Volets Sauvegarde et Objectif de sauvegarde](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
-1. Dans **Stratégie de sauvegarde**, sélectionnez la stratégie à associer au coffre.
-    * La stratégie par défaut sauvegarde la machine virtuelle une fois par jour. Les sauvegardes quotidiennes sont conservées pendant 30 jours. Les instantanés de récupération instantanée sont conservés pendant deux jours.
+1. Assigner une stratégie de sauvegarde.
+
+    - La stratégie par défaut sauvegarde la machine virtuelle une fois par jour. Les sauvegardes quotidiennes sont conservées pendant 30 jours. Les instantanés de récupération instantanée sont conservés pendant deux jours.
 
       ![Stratégie de sauvegarde par défaut](./media/backup-azure-arm-vms-prepare/default-policy.png)
 
-    * Si vous ne souhaitez pas utiliser la stratégie par défaut, sélectionnez **Créer** et créez une stratégie personnalisée comme indiqué dans la prochaine procédure.
+    - Si vous ne souhaitez pas utiliser la stratégie par défaut, sélectionnez **Créer** et créez une stratégie personnalisée comme indiqué dans la prochaine procédure.
 
 1. Sous **Machines virtuelles**, sélectionnez **Ajouter**.
 
@@ -129,12 +130,13 @@ Si vous avez choisi de créer une stratégie de sauvegarde, renseignez les param
 
 La sauvegarde initiale s’exécutera conformément à la planification, mais vous pouvez l’exécuter immédiatement comme suit :
 
-1. Dans le menu du coffre, sélectionnez **Éléments de sauvegarde**.
-2. Dans **Éléments de sauvegarde**, sélectionnez **Machine virtuelle Azure**.
-3. Dans la liste **Éléments de sauvegarde**, sélectionnez le bouton de sélection (...).
-4. Sélectionnez **Sauvegarder maintenant**.
-5. Dans **Sauvegarder maintenant**, utilisez le contrôle de calendrier pour sélectionner le dernier jour de rétention du point de récupération. Sélectionnez ensuite **OK**.
-6. Surveiller les notifications du portail. Vous pouvez surveiller la progression du travail dans le tableau de bord du coffre > **Travaux de sauvegarde** > **En cours d’exécution**. Selon la taille de votre machine virtuelle, la création de la sauvegarde initiale peut prendre un certain temps.
+1. Accédez au centre de sauvegarde et sélectionnez l’élément de menu **Instances de sauvegarde** .
+1. Sélectionnez **Machines virtuelles Azure** comme **Type de source de données**. Recherchez ensuite la machine virtuelle que vous avez configurée pour la sauvegarde.
+1. Cliquez avec le bouton droit sur la ligne appropriée ou sélectionnez l’icône plus (...), puis cliquez sur **Sauvegarder maintenant**.
+1. Dans **Sauvegarder maintenant**, utilisez le contrôle de calendrier pour sélectionner le dernier jour de rétention du point de récupération. Sélectionnez ensuite **OK**.
+1. Surveiller les notifications du portail.
+   Pour surveiller la progression du travail, accédez aux **tâches de sauvegarde du** > **Centre de sauvegarde** et filtrez la liste des tâches de sauvegarde **en cours**.
+   Selon la taille de votre machine virtuelle, la création de la sauvegarde initiale peut prendre un certain temps.
 
 ## <a name="verify-backup-job-status"></a>Vérifier l’état du travail de sauvegarde
 

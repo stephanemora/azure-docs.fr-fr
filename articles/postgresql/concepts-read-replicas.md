@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.openlocfilehash: 62ef47e7d8f98241009c1c1f3d8c111113be432c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/29/2021
+ms.openlocfilehash: 635a90b70c044e1f8c49518c42b49c521dbb317e
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99220766"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110781885"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas en lecture dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -34,7 +34,10 @@ Cette fonctionnalité est destinée aux scénarios où le décalage est acceptab
 > [!NOTE]
 > Pour la plupart des charges de travail, les réplicas en lecture offrent des mises à jour en quasi-temps réel à partir du serveur principal. Toutefois, avec des charges de travail principales gourmandes en écriture, intensives et persistantes, le retard de réplication peut continuer à s’allonger et ne jamais pouvoir se réaligner sur le principal. Cela peut également augmenter l’utilisation du stockage sur le serveur principal, car les fichiers WAL ne sont pas supprimés tant qu’ils ne sont pas reçus au niveau du réplica. Si cette situation persiste, la suppression et la recréation du réplica en lecture après la fin des charges de travail gourmandes en écriture est l’option qui permet de ramener le réplica à un bon état en ce qui concerne le décalage.
 > Les réplicas en lecture asynchrone ne conviennent pas à de telles charges de travail d’écriture intensives. Lors de l’évaluation des réplicas en lecture pour votre application, surveillez le décalage sur le réplica pendant un cycle complet de charge de travail de l’application à travers ses heures de pointe et ses heures creuses afin d’accéder au décalage possible et au RTO/RPO attendu à différents points du cycle de charge de travail.
-> 
+
+> [!NOTE]
+> Des sauvegardes automatiques sont effectuées pour les serveurs de réplication configurés avec une configuration de stockage allant jusqu’à 4 to.
+
 ## <a name="cross-region-replication"></a>Réplication entre régions
 Vous pouvez créer un réplica en lecture dans une autre région à partir de votre serveur principal. La réplication entre régions peut être utile pour des scénarios tels que la planification de la récupération d’urgence ou le rapprochement des données de vos utilisateurs.
 

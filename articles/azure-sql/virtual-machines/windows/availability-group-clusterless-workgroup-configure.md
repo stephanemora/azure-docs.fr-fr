@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 0f194101720481f71434709c467d0e3130a0f1f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2daf927ff9e0a99845ec6fb0283b550856ebfc47
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359453"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572418"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configurer un groupe de disponibilité pour un groupe de travail 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -292,4 +292,11 @@ Dans cette dernière étape, vous allez configurer l’équilibreur de charge à
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez également utiliser [AZ SQL VM CLI](./availability-group-az-commandline-configure.md) pour configurer un groupe de disponibilité.
+Une fois le groupe de disponibilité déployé, envisagez d’optimiser les [paramètres HADR pour SQL Server sur les machines virtuelles Azure](hadr-cluster-best-practices.md). 
+
+
+Pour en savoir plus, consultez :
+
+- [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Groupes de disponibilité Always On avec SQL Server sur les machines virtuelles Azure](availability-group-overview.md)
+- [Vue d’ensemble des groupes de disponibilité Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)

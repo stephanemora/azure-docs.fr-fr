@@ -13,12 +13,12 @@ ms.date: 03/11/2021
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 106f44bd33fff88d93e0a4abfe678df4bdf9ca59
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f6e683977781b7522eb23a10fcdb997c3e65938d
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108761720"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783318"
 ---
 # <a name="manage-your-users-with-my-staff"></a>Gérez vos utilisateurs à l'aide de Mon personnel
 
@@ -40,7 +40,7 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 * Un locataire Azure Active Directory associé à votre abonnement.
 
   * Si nécessaire, [créez un locataire Azure Active Directory](../fundamentals/sign-up-organization.md) ou [associez un abonnement Azure à votre compte](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
-* Vous devez disposer de privilèges d’*administrateur d’entreprise* dans votre locataire Azure AD pour activer l’authentification par SMS.
+* Vous devez disposer de privilèges d'*Administrateur général* dans votre locataire Azure AD pour activer l'authentification par SMS.
 * Chaque utilisateur activé dans la stratégie de méthode d'authentification par SMS doit disposer d'une licence, même s'il ne s'en sert pas. Chaque utilisateur activé doit avoir l’une des licences Azure AD ou Microsoft 365 suivantes :
 
   * [Azure AD Premium P1 ou P2](https://azure.microsoft.com/pricing/details/active-directory/)
@@ -51,7 +51,7 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 
 Une fois que vous avez configuré les unités administratives, vous pouvez appliquer cette étendue aux utilisateurs qui accèdent à Mon personnel. Seuls les utilisateurs disposant d’un rôle d’administrateur ont accès à Mon personnel. Pour activer Mon personnel, procédez de la façon suivante :
 
-1. Connectez-vous au Portail Azure en tant qu’Administrateur d’utilisateurs.
+1. Connectez-vous au portail Azure en tant qu'Administrateur d'utilisateurs.
 2. Accédez à **Azure Active Directory** > **Paramètres utilisateur** > **Préversion des fonctionnalités utilisateur** > **Gérer les paramètres de préversion des fonctionnalités utilisateur**.
 3. Sous **Les administrateurs peuvent accéder à Mon personnel**, vous pouvez choisir d’activer l’accès pour tous les utilisateurs, les utilisateurs sélectionnés ou aucun utilisateur.
 

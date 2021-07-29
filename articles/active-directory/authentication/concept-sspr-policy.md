@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 80be5ca22f3dfb673f09327108e66fccc9de6ddd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b66ab52a65dd848997d8f13dde7bfba944ad520b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98918041"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744392"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Stratégies de mot de passe et restrictions de compte dans Azure Active Directory
 
@@ -51,7 +51,7 @@ Les options de stratégie de mot de passe Azure AD suivantes sont définies. Sau
 
 | Propriété | Spécifications |
 | --- | --- |
-| Caractères autorisés |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ' , . ? / \` ~ " ( ) ;</li> <li>espace vide</li></ul> |
+| Caractères autorisés |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ' , . ? / \` ~ " ( ) ; < ></li> <li>espace vide</li></ul> |
 | Caractères non autorisés | Caractères Unicode. |
 | Restrictions de mot de passe |<ul><li>8 caractères minimum et 256 caractères maximum.</li><li>trois des quatre éléments suivants sont requis :<ul><li>Caractères minuscules.</li><li>Caractères majuscules.</li><li>Nombres (0-9).</li><li>Symboles (voir les restrictions de mot de passe précédentes).</li></ul></li></ul> |
 | Durée d’expiration du mot de passe (âge maximum du mot de passe) |<ul><li>Valeur par défaut : **90** jours.</li><li>La valeur peut être configurée à l’aide de l’applet de commande `Set-MsolPasswordPolicy` à partir du module Azure Active Directory pour Windows PowerShell.</li></ul> |
@@ -117,7 +117,7 @@ Vous pouvez également utiliser des applets de commande PowerShell pour supprime
 Ces conseils s’appliquent à d’autres fournisseurs, tels que Intune et Microsoft 365, qui s’appuient également sur Azure AD pour les services d’identité et d’annuaire. L’expiration du mot de passe est la seule partie de la stratégie qui peut être modifiée.
 
 > [!NOTE]
-> Seuls les mots de passe de comptes d’utilisateurs non synchronisés par le biais d’Azure AD Connect peuvent être configurés pour ne pas expirer. Pour plus d’informations sur la synchronisation d’annuaires, consultez [Connecter AD à Azure AD](../hybrid/whatis-hybrid-identity.md).
+> Par défaut, seuls les mots de passe de comptes d’utilisateurs non synchronisés par le biais d’Azure AD Connect peuvent être configurés pour ne pas expirer. Pour plus d’informations sur la synchronisation d’annuaires, consultez [Connecter AD à Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization#password-expiration-policy).
 
 ### <a name="set-or-check-the-password-policies-by-using-powershell"></a>Définir ou vérifier les stratégies de mot de passe à l’aide de PowerShell
 

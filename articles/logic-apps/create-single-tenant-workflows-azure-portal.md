@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 05/25/2021
-ms.openlocfilehash: 8058f6a912981f44205a6a2739fe2be54141d3dd
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 63b3de255269d921f38374adc246fb923fdda100
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368194"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110497093"
 ---
 # <a name="create-an-integration-workflow-using-single-tenant-azure-logic-apps-and-the-azure-portal"></a>Créer un workflow d’intégration avec Azure Logic Apps monolocataire et le portail Azure
 
@@ -76,11 +76,11 @@ Bien que cet exemple de flux de travail soit basé sur le cloud et ne comporte q
    | **Abonnement** | Oui | <*Azure-subscription-name*> | Abonnement Azure à utiliser pour votre application logique. |
    | **Groupe de ressources** | Oui | <*nom-groupe-de-ressources-Azure*> | Groupe de ressources Azure dans lequel vous créez votre application logique et les ressources associées. Ce nom de ressource doit être unique d’une région à l’autre et peut uniquement contenir des lettres, des chiffres, des traits d’union ( **-** ), des traits de soulignement ( **_** ), des parenthèses [ **()** ] et des points ( **.** ). <p><p>Cet exemple crée un groupe de ressources nommé `Fabrikam-Workflows-RG`. |
    | **Nom de l’application logique** | Oui | <*logic-app-name*> | Nom à utiliser pour votre application logique. Ce nom de ressource doit être unique d’une région à l’autre et peut uniquement contenir des lettres, des chiffres, des traits d’union ( **-** ), des traits de soulignement ( **_** ), des parenthèses [ **()** ] et des points ( **.** ). <p><p>Cet exemple crée une application logique nommée `Fabrikam-Workflows`. <p><p>**Remarque** : le nom de votre application logique reçoit automatiquement le suffixe `.azurewebsites.net`, car la ressource **Application logique (standard)** est alimentée par Azure Functions, qui utilise la même convention d’affectation de noms d’application. |
-   | **Publier** | Oui | <*deployment-environment*> | Destination de déploiement pour votre application logique. Par défaut, **Flux de travail** est la seule option de portail actuellement disponible. Elle opère un déploiement sur Azure Logic Apps monolocataire. <p><p>**Remarque** : Azure crée une ressource d’application logique vide dans laquelle vous devez ajouter votre premier flux de travail. |
-   | **Région** | Oui | <*Azure-region*> | Région Azure à utiliser lors de la création de votre groupe de ressources et de vos ressources. <p><p>Cet exemple utilise la région **USA Ouest**. |
+   | **Publier** | Oui | <*deployment-environment*> | Destination de déploiement pour votre application logique. Par défaut, le **flux de travail** est sélectionné pour le déploiement sur un seul locataire Azure Logic Apps. Azure crée une ressource d’application logique vide dans laquelle vous devez ajouter votre premier flux de travail. <p><p>**Remarque** : actuellement, l’option de **conteneur Docker** requiert un [*emplacement personnalisé*](../azure-arc/kubernetes/conceptual-custom-locations.md) sur un cluster Kubernetes avec Azure Arc, que vous pouvez utiliser sur [Azure Arc avec Logic Apps (préversion)](azure-arc-enabled-logic-apps-overview.md). Les emplacements de ressources doivent tous être identiques pour votre application logique, votre emplacement personnalisé et votre cluster. |
+   | **Région** | Oui | <*Azure-region*> | L’emplacement à utiliser pour la création de votre groupe de ressources et de vos ressources. Si vous avez sélectionné **conteneur Docker**, sélectionnez votre emplacement personnalisé. <p><p>Cet exemple déploie l’exemple d’application logique sur Azure et utilise **USA Ouest**. |
    |||||
 
-   Voici un exemple :
+   L’exemple suivant illustre la page **créer une application logique (standard)** :
 
    ![Capture d’écran montrant le portail Azure et la page « Créer une application logique ».](./media/create-single-tenant-workflows-azure-portal/create-logic-app-resource-portal.png)
 

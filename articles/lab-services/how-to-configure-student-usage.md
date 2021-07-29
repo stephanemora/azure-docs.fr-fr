@@ -3,12 +3,12 @@ title: Configuration des paramètres d’utilisation dans les labos d’Azure La
 description: Découvrez comment configurer le nombre d’étudiants d’un labo, les inscrire au labo, contrôler le nombre d’heures pendant lesquelles ils peuvent utiliser la machine virtuelle, et bien plus encore.
 ms.topic: article
 ms.date: 12/01/2020
-ms.openlocfilehash: 380a587eecb276c457b93ca3c3f3ac08b2239275
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7c0fb7b0228ee17705af2dfd70279f6fc7bda3c
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791961"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190717"
 ---
 # <a name="add-and-manage-lab-users"></a>Ajouter et gérer des utilisateurs lab
 
@@ -156,6 +156,9 @@ Dans cette section, vous pouvez accéder au lien d’inscription à partir du po
     Le volet **Utilisateurs** affiche la liste des étudiants qui se sont inscrits à votre labo.  
 
     ![Liste des utilisateurs inscrits](./media/tutorial-track-usage/registered-users.png)
+
+    > [!NOTE] 
+    > Si vous [republiez un lab](how-to-create-manage-template.md#publish-the-template-vm) ou [réinitialisez les machines virtuelles des étudiants](how-to-set-virtual-machine-passwords.md#reset-vms), les étudiants restent inscrits pour les machines virtuelles du lab.  Toutefois, le contenu des machines virtuelles est supprimé et les machines virtuelles sont recréées avec l’image de la machine virtuelle du modèle.
 
 ## <a name="set-quotas-for-users"></a>Définir des quotas pour les utilisateurs
 

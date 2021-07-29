@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.workload: media
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 05/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 297520764272e2d6df54fe3a8ad734088163638d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: c5d8d5d5dbbe8e79591c735e4a6fa77f47ff9b2f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068457"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793352"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Diffusion en continu Widevine hors connexion pour Android avec Media Services v3
 
@@ -50,7 +50,7 @@ Avant de mettre en œuvre la DRM hors connexion pour Widevine sur des appareils 
     - [Utilisation du chiffrement dynamique DRM et du service de remise des licences](drm-protect-with-drm-tutorial.md)
 - Clonez https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git.
 
-    Pour ajouter des configurations Widevine, vous devrez modifier le code fourni dans [Encrypt with DRM using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM).  
+    Pour ajouter des configurations Widevine, vous devrez modifier le code fourni dans [Encrypt with DRM using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/main/AMSV3Tutorials/EncryptWithDRM).  
 - Vous familiariser avec le kit de développement logiciel (SDK) Google ExoPlayer pour Android, un kit de développement logiciel (SDK) de lecteur vidéo open source capable de prendre en charge la lecture de la DRM de Widevine hors connexion. 
     - [Kit de développement logiciel SDK ExoPlayer](https://github.com/google/ExoPlayer)
     - [Guide du Développeur Exoplayer](https://google.github.io/ExoPlayer/guide.html)
@@ -58,7 +58,7 @@ Avant de mettre en œuvre la DRM hors connexion pour Widevine sur des appareils 
 
 ## <a name="configure-content-protection-in-azure-media-services"></a>Configurer la protection du contenu dans Azure Media Services
 
-Dans la méthode [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189), les étapes nécessaires suivantes sont présentes :
+Dans la méthode [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L192), les étapes nécessaires suivantes sont présentes :
 
 1. Spécifiez comment la distribution des clés de contenu doit être autorisée dans le service de distribution des licences : 
 
@@ -91,7 +91,7 @@ Dans la méthode [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Sam
 
 ## <a name="enable-offline-mode"></a>Activer le mode hors connexion
 
-Pour activer le mode **hors connexion** pour les licences Widevine, vous devez configurer le [modèle de licence Widevine](drm-widevine-license-template-concept.md). Dans l’objet **policy_overrides**, définissez la propriété **can_persist** sur **true** (la valeur par défaut est false), comme indiqué dans [ConfigureWidevineLicenseTempate](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563). 
+Pour activer le mode **hors connexion** pour les licences Widevine, vous devez configurer le [modèle de licence Widevine](drm-widevine-license-template-concept.md). Dans l’objet **policy_overrides**, définissez la propriété **can_persist** sur **true** (la valeur par défaut est false), comme indiqué dans [ConfigureWidevineLicenseTempate](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L452). 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#ConfigureWidevineLicenseTempate)]
 

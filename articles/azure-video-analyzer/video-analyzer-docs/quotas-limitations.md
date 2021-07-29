@@ -3,13 +3,13 @@ title: Quotas et limitations d’Azure Video Analyzer – Azure
 description: Cet article décrit les quotas et les limitations d’Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 03/26/2021
-ms.openlocfilehash: ca70737fd9bcf571dd4f0ca729bbe50b540de90e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 05/26/2021
+ms.openlocfilehash: d4bc488411319832b59540fb1392b5d3259cef69
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386092"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652184"
 ---
 # <a name="video-analyzer-quotas-and-limitations"></a>Quotas et limitations de Video Analyzer
 
@@ -44,6 +44,7 @@ Voici les limitations relatives à la façon dont différents nœuds peuvent êt
    * Ne peut pas être utilisé en aval d’un processeur d’extension HTTP ou gRPC.
 * Processeur de porte de signal
    * Doit être immédiatement en aval de la source RTSP.
+   * Ne peut pas être utilisé en amont d’un processeur d’extension HTTP ou gRPC.
 * Processeur de suivi d’objet
    * Doit être immédiatement en aval d’un processeur d’extension HTTP ou gRPC. Le processeur d’extension ne doit pas appliquer un modèle IA à chaque image de la vidéo en direct.
 * Processeur de franchissement de ligne

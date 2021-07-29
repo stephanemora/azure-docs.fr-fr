@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 0c0b3bd81e0f73a7879382e28516378bd722bc17
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8bc17ef020ae61a18f5259a956c7b5d3b3998a4d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877365"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463577"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Comment utiliser des autorisations dans Azure Spring Cloud
 Cet article explique comment créer des rôles personnalisés qui délèguent des autorisations aux ressources Azure Spring Cloud. Les rôles personnalisés étendent les [rôles intégrés Azure](../role-based-access-control/built-in-roles.md) avec diverses autorisations.
@@ -29,7 +29,7 @@ Nous allons implémenter les rôles personnalisés suivants :
     * Redémarrer les applications
     * Récupérer les flux de journaux
     * Impossible de modifier les applications ou les configurations
-* **Rôle Azure Pipelines/Jenkins/Github Actions** :
+* **Rôles Azure Pipelines/Jenkins/Github Actions** :
     * Peut effectuer des opérations de création, lecture, mise à jour, suppression
     * Peut créer et configurer tout ce qui se trouve dans Azure Spring Cloud et des applications dans l’instance de service : Azure Pipelines, Jenkins ou GitHub Actions, à l’aide de modèles Resource Manager ou Terraform
 

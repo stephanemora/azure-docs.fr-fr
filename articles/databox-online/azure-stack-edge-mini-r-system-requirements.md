@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 829f89f716a29f09f88a2e02b257aba1b207d072
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31183be893a9216f33adc4f5e25a55cfb3545db8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102634190"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099565"
 ---
 # <a name="azure-stack-edge-mini-r-system-requirements"></a>Configuration requise pour Azure Stack Edge Mini R
 
@@ -107,6 +107,7 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registre de conteneurs Microsoft (obligatoire)               |
 | https://\*.azurecr.io                     | Registres de conteneurs personnels et tiers (facultatif) | 
 | https://\*.azure-devices.net              | Accès IoT Hub (obligatoire)                             | 
+| https://\*.docker.com              | StorageClass (obligatoire)                             |
 
 ### <a name="url-patterns-for-gateway-for-azure-government"></a>Modèles d’URL pour la passerelle pour Azure Government
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 22923742e5389ac2bd6e5268e6dcd9055c23a703
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 61f10707231e88130cffbfffa1c06f33084bfbbd
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656063"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792136"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Informations d'identification pour l'authentification des sources dans Azure Purview
 
@@ -25,6 +25,17 @@ Cet article explique comment créer des informations d’identification dans Azu
 ## <a name="introduction"></a>Introduction
 
 Les informations d’identification permettent à Azure Purview de s’authentifier auprès des sources de données que vous avez inscrites. Vous pouvez créer un objet d’informations d’identification pour différents scénarios d’authentification, tels que l’authentification de base nécessitant un nom d’utilisateur et un mot de passe. Les informations d’identification capturent les informations nécessaires à l’authentification, selon le type de méthode d’authentification choisi. Les informations d'identification utilisent vos secrets Azure Key Vault existants pour récupérer des informations d'authentification sensibles pendant le processus de création des informations d'identification.
+
+Dans Azure Purview, il existe quelques options à utiliser comme méthode d’authentification pour analyser des sources de données telles que les options suivantes :
+
+- Identité managée Azure Purview
+- Clé de compte (à l’aide de Key Vault)
+- Authentification SQL (à l’aide de Key Vault)
+- Principal du service (à l’aide de Key Vault)
+
+Avant de créer des informations d’identification, prenez en compte vos types de sources de données et vos besoins en matière de mise en réseau pour décider quelle méthode d’authentification est nécessaire pour votre scénario. Consultez l’arbre de décision suivant pour trouver les informations d’identification les plus appropriées :
+
+   :::image type="content" source="media/manage-credentials/manage-credentials-decision-tree-small.png" alt-text="Gérer l’arbre de décision des informations d’identification" lightbox="media/manage-credentials/manage-credentials-decision-tree.png":::
 
 ## <a name="use-purview-managed-identity-to-set-up-scans"></a>Utiliser l’identité managée Purview pour configurer des analyses
 
@@ -76,7 +87,7 @@ Suivez ces étapes uniquement si le modèle d’autorisation dans votre ressourc
 
 3. Sélectionnez **Ajouter une stratégie d’accès**.
 
-   :::image type="content" source="media/manage-credentials/add-msi-to-akv.png" alt-text="Ajouter des MSI Purview à AKV":::
+   :::image type="content" source="media/manage-credentials/add-msi-to-akv-2.png" alt-text="Ajouter des MSI Purview à AKV":::
 
 4. Dans la liste déroulante **Autorisations du secret**, sélectionnez les autorisations **Obtenir** et **Lister**.
 

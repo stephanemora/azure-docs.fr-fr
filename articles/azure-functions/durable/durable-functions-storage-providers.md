@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/05/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 090db9c84786735071ef82e60ab2234fb01d5d6e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: bf50f0bdc3c8e654a3d2f780bb7f0c32533948eb
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385751"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465797"
 ---
 # <a name="durable-functions-storage-providers"></a>Fournisseurs de stockage Durable Functions
 
@@ -39,7 +39,7 @@ Le code source des composants DTFx du fournisseur Stockage Azure se trouve dans 
 > [!NOTE]
 > Des comptes Stockage Azure standard à usage général sont requis lors de l’utilisation du fournisseur Stockage Azure. Tous les autres types de compte de stockage ne sont pas pris en charge. Nous vous recommandons vivement d’utiliser des comptes de stockage à usage général v1 hérités, car les comptes de stockage v2, plus récents, peuvent être beaucoup plus onéreux pour les charges de travail de Durable Functions. Pour plus d’informations sur les types de comptes de stockage Azure, consultez l’article [Vue d’ensemble du compte de stockage](../../storage/common/storage-account-overview.md).
 
-## <a name=""></a><a name="netherite">Netherite (préversion)</a>
+## <a name="netherite-preview"></a><a name="netherite"></a>Netherite (préversion)
 
 Le stockage principal Netherite a été conçu et développé par [Microsoft Research](https://www.microsoft.com/research). Il utilise [Azure Event Hubs](../../event-hubs/event-hubs-about.md) et la technologie de base de données [FASTER](https://www.microsoft.com/research/project/faster/) en plus d’[objets blob de pages Azure](../../storage/blobs/storage-blob-pageblob-overview.md). La conception de Netherite permet un traitement à débit beaucoup plus élevé des orchestrations et des entités par rapport aux autres fournisseurs. Dans certains scénarios de test, le débit a augmenté d’un ordre de grandeur supérieur à celui du fournisseur Stockage Azure par défaut.
 
@@ -55,7 +55,7 @@ Vous pouvez en apprendre plus sur les détails techniques du fournisseur de stoc
 > [!NOTE]
 > Le nom _Netherite_ provient du monde de [Minecraft](https://minecraft.fandom.com/wiki/Netherite).
 
-## <a name=""></a><a name="mssql">Microsoft SQL Server (MSSQL) (préversion)</a>
+## <a name="microsoft-sql-server-mssql-preview"></a><a name="mssql"></a>Microsoft SQL Server (MSSQL) (préversion)
 
 Le fournisseur de stockage Microsoft SQL Server (MSSQL) conserve tout l’état dans une base de données Microsoft SQL Server. Il est compatible avec les déploiements locaux et hébergés sur le cloud de SQL Server, y compris les [bases de données Azure SQL](../../azure-sql/database/sql-database-paas-overview.md).
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 7d64684b5e8e73e82b6d778a193de617301a14eb
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 8f11c6d02649f85eddc39aa151ab7df3d8b72ab6
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123114"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110797668"
 ---
 # <a name="live-event-types-comparison"></a>Comparaison des types d’événements en direct
 
@@ -45,7 +45,7 @@ Le tableau suivant compare les fonctionnalités des types d’événements en di
 | Bande passante agrégée maximale du flux de contribution|60 Mbits/s|N/A|
 | Débit binaire maximal pour une seule couche dans la contribution |20 Mbits/s|20 Mbits/s|
 | Prise en charge de pistes audio multilingues|Oui|Non|
-| Codecs vidéo d’entrée pris en charge |H.264/AVC et H.265/HEVC|H.264/AVC|
+| Codecs vidéo d’entrée pris en charge |H.264/AVC (RTMP et Smooth) ou H.265/HEVC (ingestion Smooth Streaming uniquement)|H.264/AVC (RTMP et ingestion Smooth Streaming)|
 | Codecs vidéo de sortie pris en charge|Comme dans l’entrée|H.264/AVC|
 | Profondeur de bit de la vidéo, entrée et sortie, prises en charge|Jusqu’à 10 bits notamment HDR 10/HLG|8 bits|
 | Codecs audio d’entrée pris en charge|AAC-LC, HE-AAC v1, HE-AAC v2|AAC-LC, HE-AAC v1, HE-AAC v2|

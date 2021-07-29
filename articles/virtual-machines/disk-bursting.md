@@ -3,25 +3,38 @@ title: Mode rafale des disques managés
 description: Découvrez le bursting de disque pour les disques Azure et les machines virtuelles Azure.
 author: albecker1
 ms.author: albecker
-ms.date: 03/02/2021
+ms.date: 06/03/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 9758b026ef205e6608f7fc4110219dc5f267369e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f9fd7d892eea43edf71da212fdba8cc1ac11c798
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568713"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111528313"
 ---
 # <a name="managed-disk-bursting"></a>Mode rafale des disques managés
-[!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
 
-Les [disques SSD Premium](disks-types.md#premium-ssd) Azure offrent deux modèles de bursting :
+Azure offre la possibilité d’accélérer les performances des E/S par seconde et des Mo/s du stockage sur disque : on parle alors de « bursting », aussi bien pour les machines virtuelles que pour les disques. Vous pouvez efficacement utiliser le bursting à la fois au niveau des machines virtuelles et au niveau des disques pour obtenir de meilleures performances.
+
+Le bursting pour les machines virtuelles Azure et le bursting pour les ressources de disque ne sont pas interdépendants. Vous n’avez pas besoin d’avoir une machine virtuelle prenant en charge le bursting pour pouvoir utiliser un disque attaché prenant en charge le bursting. De même, vous n’avez pas besoin d’avoir un disque attaché prenant en charge le bursting pour utiliser une machine virtuelle prenant en charge le bursting.
+
+## <a name="common-scenarios"></a>Scénarios courants
+Le mode rafale peut être très avantageux pour les scénarios suivants :
+- **Amélioration des temps de démarrage** : avec le bursting, le démarrage de votre instance est plus rapide. Par exemple, le disque de système d’exploitation par défaut pour les machines virtuelles Premium est le disque P4 dont les performances plafonnent à 120 IOPS et 25 Mo/s. Avec le bursting, les performances du disque P4 peuvent atteindre 3 500 IOPS et 170 Mo/s, ce qui permet de diviser jusqu’à 6 le temps de démarrage.
+- **Gestion des programmes de traitement par lots** : certaines charges de travail d’application sont cycliques par nature. Elles nécessitent une performance de base la plupart du temps et des performances supérieures pour de courtes périodes. Ce peut être le cas d’un programme de comptabilité qui traite des transactions quotidiennes nécessitant un trafic de disque assez modéré. À la fin du mois, le programme rapproche des rapports, ce qui nécessite un trafic de disque beaucoup plus élevé.
+- **Pics de trafic** : les serveurs web et leurs applications peuvent être confrontés à des pics de trafic à tout moment. Si votre serveur web est adossé à des machines virtuelles ou à des disques utilisant le bursting, il est mieux équipé pour gérer les pics de trafic. 
+
+## <a name="disk-level-bursting"></a>Bursting de disque
+
+Actuellement, il existe deux types de disques gérés qui peuvent utiliser le bursting, les [SSD Premium](disks-types.md#premium-ssd) et les [SSD standard](disks-types.md#standard-ssd). Les autres types de disque ne peuvent actuellement pas utiliser le bursting. Il existe deux modèles de bursting pour les disques :
 
 - Un modèle de bursting à la demande (préversion), où un bursting de disque a lieu chaque fois que les besoins du disque dépassent sa capacité actuelle. Ce modèle entraîne des frais supplémentaires à chaque bursting de disque. Le bursting n’utilisant pas de crédit est uniquement disponible sur les disques d’une taille supérieure à 512 Gio.
 - Un modèle basé sur les crédits, où le bursting de disque n’a lieu que si des crédits de bursting ont été accumulés dans le compartiment de crédits associé. Avec ce modèle, les burstings de disque n’entraînent pas de frais supplémentaires. Le bursting basé sur les crédits est disponible uniquement pour les disques de taille jusqu’à 512 Gio.
+
+Les disques [SSD Premium](disks-types.md#premium-ssd) d’Azure peuvent utiliser le modèle de bursting, mais les disques [SSD standard](disks-types.md#standard-ssd) ne proposent actuellement que le bursting basé sur le crédit.
 
 En outre, le [niveau de performance des disques managés peut être modifié](disks-change-performance.md), ce qui peut être idéal dans le cas où votre charge de travail s’exécuterait sinon avec le bursting.
 
@@ -31,12 +44,6 @@ En outre, le [niveau de performance des disques managés peut être modifié](di
 |**Coût**     |Gratuit         |Le coût est variable. Pour plus d’informations, consultez la section [Facturation](#billing).        |Le coût de chaque niveau de performance est fixe. Pour plus d’informations, consultez les [tarifs des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/).         |
 |**Disponibilité**     |Disponible uniquement pour les disques SSD Premium de taille jusqu’à 512 Gio.         |Disponible uniquement pour les disques SSD Premium de taille supérieure à 512 Gio.         |Disponible pour toutes les tailles de disques SSD Premium.         |
 |**Activation**     |Activé par défaut sur les disques éligibles.         |Doit être activé par l’utilisateur.         |L’utilisateur doit modifier manuellement son niveau.         |
-
-## <a name="common-scenarios"></a>Scénarios courants
-Le mode rafale peut être très avantageux pour les scénarios suivants :
-- **Amélioration des temps de démarrage** : avec le bursting, le démarrage de votre instance est sensiblement plus rapide. Par exemple, le disque de système d’exploitation par défaut pour les machines virtuelles Premium est le disque P4 dont les performances plafonnent à 120 IOPS et 25 Mo/s. Avec le bursting, les performances du disque P4 peuvent atteindre 3 500 IOPS et 170 Mo/s, ce qui permet de diviser jusqu’à 6 le temps de démarrage.
-- **Gestion des programmes de traitement par lots** : certaines charges de travail d’application sont cycliques par nature. Elles nécessitent une performance de base la plupart du temps et des performances supérieures pour de courtes périodes. Ce peut être le cas d’un programme de comptabilité qui traite des transactions quotidiennes nécessitant un trafic de disque assez modéré. À la fin du mois, le programme rapproche des rapports, ce qui nécessite un trafic de disque beaucoup plus élevé.
-- **Pics de trafic** : les serveurs web et leurs applications peuvent être confrontés à des pics de trafic à tout moment. Si votre serveur web est adossé à des machines virtuelles ou à des disques utilisant le bursting, il est mieux équipé pour gérer les pics de trafic. 
 
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting-2.md)]
 

@@ -15,14 +15,14 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5670a29e86eb201a707e5ceef28043aafe4839d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5cecf43f3795e38daa75f9463cadec94114046de
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97357974"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111568897"
 ---
-# <a name="configure-azure-load-balancer-for-failover-cluster-instance-vnn"></a>Configurer Azure Load Balancer pour l’instance de cluster de basculement VNN
+# <a name="configure-azure-load-balancer-for-an-fci-vnn"></a>Configurer Azure Load Balancer pour un VNN FCI
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Sur Machines virtuelles Microsoft Azure, les clusters utilisent un équilibreur de charge pour conserver une adresse IP qui doit se trouver sur un nœud de cluster à la fois. Dans cette solution, l’équilibreur de charge conserve l’adresse IP du nom de réseau virtuel (VNN) utilisé par la ressource en cluster dans Azure. 
@@ -36,10 +36,9 @@ Pour une autre option de connectivité pour Microsoft SQL Server 2019 CU2 et ver
 
 Avant d’effectuer les étapes décrites dans cet article, vous devez déjà disposer des éléments suivants :
 
-- Avoir décidé qu’Azure Load Balancer est [l’option de connectivité appropriée pour votre solution HADR](hadr-cluster-best-practices.md#connectivity).
-- Avoir configuré votre [écouteur de groupe de disponibilité](availability-group-overview.md) ou vos [instances de cluster de basculement](failover-cluster-instance-overview.md). 
-- Avoir installé la version la plus récente de [PowerShell](/powershell/azure/install-az-ps). 
-
+- Avoir déterminé qu’Azure Load Balancer est [l’option de connectivité appropriée pour votre FCI](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn).
+- Avoir configuré vos [instances de cluster de basculement](failover-cluster-instance-overview.md). 
+- Avoir installé la version la plus récente de [PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows). 
 
 ## <a name="create-load-balancer"></a>Créer un équilibreur de charge
 
@@ -76,7 +75,7 @@ Utilisez le [portail Azure](https://portal.azure.com) pour créer l’équilibre
 
 1. Associez le pool principal au groupe à haute disponibilité contenant les machines virtuelles.
 
-1. Sous **Configurations IP du réseau cible**, sélectionnez **MACHINE VIRTUELLE** et choisissez les machines virtuelles qui participent en tant que nœuds de cluster. Veillez à inclure toutes les machines virtuelles qui hébergeront la FCI ou le groupe de disponibilité.
+1. Sous **Configurations IP du réseau cible**, sélectionnez **MACHINE VIRTUELLE** et choisissez les machines virtuelles qui participent en tant que nœuds de cluster. Veillez à inclure toutes les machines virtuelles qui hébergeront l’infrastructure ICF.
 
 1. Sélectionnez **OK** pour créer le pool principal.
 
@@ -124,7 +123,7 @@ Pour définir le paramètre de port de sonde de cluster, mettez à jour les vari
 
 ```powershell
 $ClusterNetworkName = "<Cluster Network Name>"
-$IPResourceName = "<SQL Server FCI / AG Listener IP Address Resource Name>" 
+$IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
 $ILBIP = "<n.n.n.n>" 
 [int]$ProbePort = <nnnnn>
 
@@ -151,6 +150,25 @@ Après avoir défini la sonde du cluster, vous pouvez voir tous les paramètres 
 Get-ClusterResource $IPResourceName | Get-ClusterParameter
 ```
 
+## <a name="modify-connection-string"></a>Modifier la chaîne de connexion 
+
+Pour les clients qui le prennent en charge, ajoutez `MultiSubnetFailover=True` à la chaîne de connexion.  Alors que l’option de connexion MultiSubnetFailover n’est pas obligatoire, elle offre l’avantage d’un basculement de sous-réseau plus rapide. Cela est dû au fait que le pilote client essaie d'ouvrir un socket TCP pour chaque adresse IP en parallèle. Le pilote client attend une réponse correcte de la première adresse IP et, ceci fait, l'utilise pour la connexion.
+
+Si votre client ne prend pas en charge le paramètre MultiSubnetFailover, vous pouvez modifier les paramètres RegisterAllProvidersIP et HostRecordTTL pour éviter les retards de la connectivité après le basculement. 
+
+Utilisez PowerShell pour modifier les paramètres RegisterAllProvidersIp et HostRecordTTL : 
+
+```powershell
+Get-ClusterResource yourFCIname | Set-ClusterParameter RegisterAllProvidersIP 0  
+Get-ClusterResource yourFCIname | Set-ClusterParameter HostRecordTTL 300 
+```
+
+Pour plus d’informations, consultez la documentation relative au [délai de connexion de l’écouteur](/troubleshoot/sql/availability-groups/listener-connection-times-out) SQL Server. 
+
+> [!TIP]
+> - Définissez le paramètre MultiSubnetFailover = true dans la chaîne de connexion même pour les solutions HADR qui couvrent un seul sous-réseau afin de prendre en charge la répartition future des sous-réseaux sans avoir à mettre à jour les chaînes de connexion.  
+> - Par défaut, le service DNS en cluster du cache des clients enregistre pendant 20 minutes. En réduisant HostRecordTTL, vous réduisez la durée de vie (TTL) de l’enregistrement mis en cache, les clients hérités peuvent se reconnecter plus rapidement. Ainsi, la réduction du paramètre HostRecordTTL peut également entraîner une augmentation du trafic vers les serveurs DNS.
+
 
 ## <a name="test-failover"></a>Test de basculement
 
@@ -176,9 +194,17 @@ Pour tester la connectivité, connectez-vous à une autre machine virtuelle sur 
 
 
 
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les fonctionnalités de SQL Server HADR dans Azure, consultez [Groupes de disponibilité](availability-group-overview.md) et [Instance de cluster de basculement](failover-cluster-instance-overview.md). Vous pouvez également apprendre les [meilleures pratiques](hadr-cluster-best-practices.md) en matière de configuration de votre environnement pour la haute disponibilité et la reprise d’activité. 
+Pour en savoir plus, consultez :
+
+- [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure](failover-cluster-instance-overview.md)
+- [Vue d’ensemble d’une instance de cluster de basculement](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Paramètres HADR pour SQL Server sur les machines virtuelles Azure](hadr-cluster-best-practices.md)
+
 
 
 
