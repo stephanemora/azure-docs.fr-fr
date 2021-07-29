@@ -3,12 +3,12 @@ title: Résoudre des problèmes de connexion à un registre
 description: Symptômes, causes et résolution de problèmes courants de connexion à un registre de conteneurs Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 47186cc8256836e5367ecee520787b67662eb42f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d8579d2a590f722c40dc3582a03efb602dde6520
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780728"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078145"
 ---
 # <a name="troubleshoot-registry-login"></a>Résoudre des problèmes de connexion au registre
 
@@ -131,11 +131,11 @@ Liens connexes :
 
 ## <a name="advanced-troubleshooting"></a>Dépannage avancé
 
-Si la [collecte des journaux de ressources](container-registry-diagnostics-audit-logs.md) est activée dans le registre, consultez le journal ContainterRegistryLoginEvents. Ce journal stocke les événements d’authentification et l’état, y compris l’identité et l’adresse IP entrantes. Interrogez le journal sur les [échecs d’authentification du registre](container-registry-diagnostics-audit-logs.md#registry-authentication-failures). 
+Si la [collecte des journaux de ressources](monitor-service.md) est activée dans le registre, consultez le journal ContainterRegistryLoginEvents. Ce journal stocke les événements d’authentification et l’état, y compris l’identité et l’adresse IP entrantes. Interrogez le journal sur les [échecs d’authentification du registre](monitor-service.md#registry-authentication-failures). 
 
 Liens connexes :
 
-* [Journaux pour l’évaluation et l’audit de diagnostics](container-registry-diagnostics-audit-logs.md)
+* [Superviser Azure Container Registry](monitor-service.md)
 * [FAQ sur le registre de conteneurs](container-registry-faq.md)
 * [Meilleures pratiques pour Azure Container Registry](container-registry-best-practices.md)
 

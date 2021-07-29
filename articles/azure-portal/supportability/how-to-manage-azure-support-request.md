@@ -4,13 +4,13 @@ description: Décrit les procédures d’affichage des demandes de support, d’
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 12/14/2020
-ms.openlocfilehash: 4d0c03e0035f6b71a23891ac1691f5421c1bdb76
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/25/2021
+ms.openlocfilehash: bc9edecd918668e76c36308a660c47d3a8fd9e8b
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102502516"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110496512"
 ---
 # <a name="manage-an-azure-support-request"></a>Gérer une demande de support Azure
 
@@ -56,17 +56,17 @@ Sur cette page, vous pouvez rechercher, filtrer et trier des demandes de support
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Partager des informations de diagnostic avec le support Azure
 
-Lors de la création d’une demande de support, par défaut, l’option **Partager les informations de diagnostic** est sélectionnée. Cela permet au support Azure de collecter des [informations de diagnostic](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) à partir de vos ressources Azure :
+Lors de la création d’une requête de support, l’option **Partager les informations de diagnostic** est sélectionnée par défaut. Cette option permet au support Azure de collecter des [informations de diagnostic](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) à partir de vos ressources Azure qui peuvent éventuellement vous aider à résoudre votre problème.
 
-* Vous ne pouvez pas désactiver cette option après la création d’une demande.
+Pour modifier la sélection des **informations de diagnostic de partage** après la création de la requête :
 
-* Si vous avez désactivé l’option lors de la création d’une demande, vous pouvez la sélectionner après la création de la demande.
-
-    1. Sur la page **Toutes les demandes de support**, sélectionnez la demande de support.
+1. Sur la page **Toutes les demandes de support**, sélectionnez la demande de support.
     
-    1. Sur la page **Demande de support**, sélectionnez **Accorder l’autorisation**, puis sélectionnez **Oui** et **OK**.
+1. Sur la page **Demande de support**, recherchez **Informations de diagnostic de partage**, puis sélectionnez **Modifier**.
     
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Accorder des autorisations pour les informations de diagnostic":::
+1.  Sélectionnez **Oui** ou **Non**, puis cliquez sur **OK** pour confirmer.
+    
+    :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Accorder des autorisations pour les informations de diagnostic":::
 
 ## <a name="upload-files"></a>Charger des fichiers
 

@@ -6,13 +6,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 11/17/2020
-ms.openlocfilehash: 83d6e051f520737e750e6c46c192eb698e7bf0e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/17/2021
+ms.openlocfilehash: 2da352a10f5ff9bacdfb28de8752e5ffefa3fd82
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94842255"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068191"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Monter ou démonter un volume pour des machines virtuelles Windows ou Linux 
 
@@ -39,7 +39,7 @@ Vous pouvez monter ou démonter un volume pour des machines virtuelles Windows o
     * Si vous montez un volume NFS, assurez-vous d’utiliser l’option `vers` dans la commande `mount` pour spécifier la version du protocole NFS qui correspond au volume que vous souhaitez monter. 
     * Si vous utilisez NFSv4.1, utilisez la commande suivante pour monter votre système de fichiers : `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
         > [!NOTE]
-        > Si vous utilisez NFSv4.1, vérifiez que toutes machines procédant au montage de l’exportation utilisent des noms d’hôte uniques.
+        > Si vous utilisez NFSv4.1 et si votre cas d’usage implique l’utilisation de machines virtuelles avec les mêmes noms d’hôte (par exemple, dans un test DR), consultez [Configurer deux machines virtuelles avec le même nom d’hôte pour accéder aux volumes NFSv4.1](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes).
 
 3. Si vous souhaitez qu’un volume NFS soit automatiquement monté lors du démarrage ou du redémarrage d’une machine virtuelle Azure ajoutez une entrée au fichier `/etc/fstab` sur l’hôte. 
 
@@ -63,3 +63,4 @@ Vous pouvez monter ou démonter un volume pour des machines virtuelles Windows o
 * [FAQ relatifs au NFS](./azure-netapp-files-faqs.md#nfs-faqs)
 * [Vue d’ensemble du système de fichiers NFS](/windows-server/storage/nfs/nfs-overview)
 * [Monter un volume Kerberos NFS](configure-kerberos-encryption.md#kerberos_mount)
+* [Configurer deux machines virtuelles avec le même nom d’hôte pour accéder aux volumes NFSv4.1](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes) 

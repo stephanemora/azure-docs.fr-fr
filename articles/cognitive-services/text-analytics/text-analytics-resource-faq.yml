@@ -1,0 +1,64 @@
+### YamlMime:FAQ
+metadata:
+  title: Questions fréquentes sur l’API Analyse de texte
+  titleSuffix: Azure Cognitive Services
+  description: Trouvez les réponses aux questions courantes sur les concepts, le code et les scénarios relatifs à l’API Analyse de texte pour Azure Cognitive Services.
+  services: cognitive-services
+  author: aahill
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: text-analytics
+  ms.topic: conceptual
+  ms.date: 03/29/2021
+  ms.author: aahi
+  ms.openlocfilehash: 98867bd23e8f52d76aff724228ea0c2588a9fda6
+  ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 07/04/2021
+  ms.locfileid: "113288827"
+title: Questions fréquentes (FAQ) sur l’API Analyse de texte
+summary: Trouvez les réponses aux questions courantes sur les concepts, le code et les scénarios relatifs à l’API Analyse de texte pour Azure Cognitive Services.
+sections:
+- name: Général
+  questions:
+  - question: >
+      Quelle est la taille maximale et le nombre de requêtes que je peux envoyer à l’API ?
+    answer: >
+      Consultez l’article [Limites de données](concepts/data-limits.md) pour connaître la taille et le nombre de demandes que vous pouvez envoyer par minute et seconde.
+  - question: >
+      L’analyse de texte permet-elle de repérer le sarcasme ?
+    answer: >
+      L’analyse concerne les sentiments négatifs et positifs plutôt que la détection de l’humeur.
+
+
+      Il y a toujours une certaine imprécision dans l’analyse des sentiments, mais le modèle est particulièrement efficace lorsqu’il n’existe aucun sous-entendu dans le contenu. L’ironie, le sarcasme, l’humeur et tout contenu nuancé reposent sur un contexte culturel et des normes. Ce type de contenu est parmi les plus difficiles à analyser. En règle générale, le plus grand écart entre un score donné produit par l’analyseur et une évaluation subjective par un être humain concerne le contenu nuancé.
+  - question: >
+      Puis-je ajouter mes propres données de formation ou mes propres modèles ?
+    answer: >
+      Non, les modèles sont préintégrés. Les seules opérations disponibles sur les données téléchargées sont le calcul du score, l’extraction d’expressions clés et la détection de la langue. Nous n’hébergeons pas de modèles personnalisés. Si vous souhaitez créer et héberger des modèles de Machine Learning personnalisés, tournez-vous vers [les modèles de Machine Learning de Microsoft R Server](/r-server/r/concept-what-is-the-microsoftml-package).
+  - question: >
+      Puis-je demander des langues supplémentaires ?
+    answer: "L’analyse des sentiments et l’extraction des expressions clés sont disponibles pour un [certain nombre de langues](./language-support.md). Le traitement du langage naturel est complexe et nécessite de nombreux tests avant de pouvoir publier de nouvelles fonctionnalités. Pour cette raison, nous évitons d’annoncer une prise en charge à l’avance, afin que personne n’attende une fonctionnalité dont le développement nécessite plus de temps que prévu. \n\nPour nous aider à hiérarchiser les langues à ajouter, votez pour des langues spécifiques sur [User Voice](https://www.uservoice.com/). \n"
+  - question: >
+      Pourquoi l’extraction d’expressions clés renvoie-t-elle certains mots, mais pas d’autres ?
+    answer: >
+      L’extraction des expressions clés élimine les mots non essentiels et les adjectifs isolés. Les combinaisons adjectif-nom, telles que « vues spectaculaires » ou « temps brumeux », sont renvoyées ensemble.
+
+
+      En règle générale, la sortie se compose des noms et des objets de la phrase. La sortie est classée par ordre d’importance, la première expression étant la plus importante. L’importance est mesurée par le nombre de fois où un concept spécifique est mentionné, ou par la relation de cet élément avec d’autres éléments dans le texte.
+  - question: >
+      Pourquoi la sortie varie-t-elle même si les entrées sont identiques ?
+    answer: >
+      Les améliorations apportées aux modèles et aux algorithmes sont annoncées lorsque la modification est importante ou si elle est intégrée en mode silencieux dans le service lorsque la mise à jour est mineure. Au fil du temps, vous pourrez constater que les mêmes entrées de texte engendrent un autre score de sentiment ou une sortie d’expressions clés différente. Il s’agit d’une conséquence normale et intentionnelle de l’utilisation des ressources de Machine Learning dans le cloud.
+- name: Disponibilité et redondance du service
+  questions:
+  - question: >
+      Le service Analyse de texte est-il résilient aux zones ?
+    answer: >
+      Oui. Le service Analyse de texte est résilient aux zones par défaut.
+  - question: >
+      Comment configurer le service Analyse de texte pour le rendre résilient aux zones ?
+    answer: >
+      Aucune configuration client n’est nécessaire pour activer la résilience des zones. La résilience aux zones pour les ressources Analyse de texte est disponible par défaut et gérée par le service lui-même.
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\nVotre question concerne-t-elle une fonctionnalité manquante ? Demandez-la ou votez pour elle sur notre [site web UserVoice](https://www.uservoice.com/).\n        \n## <a name=\"see-also\"></a>Voir aussi\n\n* [StackOverflow : API Analyse de texte](https://stackoverflow.com/questions/tagged/text-analytics-api)   \n* [StackOverflow : Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)"

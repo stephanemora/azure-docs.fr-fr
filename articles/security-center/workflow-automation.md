@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 05/03/2021
 ms.author: memildin
-ms.openlocfilehash: bc9c12338610b81e23d5b850fe53aa3c5731a03a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6fbfb138f8c4605b12c5c4ff6cd0ac8c9b0c43dd
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770278"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537713"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatiser les réponses aux déclencheurs Security Center
 
@@ -143,7 +143,7 @@ Pour implémenter ces stratégies :
 Pour consulter les schémas d’événements bruts des alertes de sécurité ou les recommandations que les événements ont transmises à l’instance Logic App, consultez [Schémas des types de données pour l’automatisation du workflow](https://aka.ms/ASCAutomationSchemas). Cela peut se révéler utile si vous n’utilisez pas les connecteurs Logic App intégrés du Centre de sécurité mentionnés plus haut, mais le connecteur HTTP générique de Logic App. Vous pouvez utiliser le schéma JSON d’événement pour l’analyser manuellement si vous le souhaitez.
 
 
-## <a name="faq-for-workflow-automation"></a>FAQ pour l’automatisation des workflows
+## <a name="faq---workflow-automation"></a>FAQ : Automatisation du workflow
 
 ### <a name="does-workflow-automation-support-any-business-continuity-or-disaster-recovery-bcdr-scenarios"></a>L’automatisation des workflows prend-elle en charge les scénarios de continuité d'activité et reprise d'activité (BCDR) ?
 

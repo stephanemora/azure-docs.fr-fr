@@ -5,15 +5,15 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 05/26/2021
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 63d349c8cfff52932d51ce7143aba33521c43890
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d05322c8124372f7fe032165c9c28daa03142d4
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96549185"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110539203"
 ---
 # <a name="mathematical-functions-azure-cosmos-db"></a>Fonctions mathématiques (Azure Cosmos DB)  
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,35 +34,33 @@ Le résultat est le suivant :
 
 ## <a name="functions"></a>Fonctions
 
-Les fonctions suivantes sont des fonctions mathématiques intégrées prises en charge, qui effectuent un calcul, généralement basé sur des arguments d’entrée, et retournent une expression numérique :
+Les fonctions suivantes sont des fonctions mathématiques intégrées prises en charge, qui effectuent un calcul (généralement basé sur des arguments d’entrée) et retournent une expression numérique. La colonne **Utilisation de l’index** suppose, le cas échéant, que vous comparez la fonction système mathématique à une autre valeur avec un filtre d’égalité.
  
-* [ABS](sql-query-abs.md)
-* [ACOS](sql-query-acos.md)
-* [ASIN](sql-query-asin.md)
-* [ATAN](sql-query-atan.md)
-* [ATN2](sql-query-atn2.md)
-* [CEILING](sql-query-ceiling.md)
-* [COS](sql-query-cos.md)
-* [COT](sql-query-cot.md)
-* [DEGREES](sql-query-degrees.md)
-* [EXP](sql-query-exp.md)
-* [FLOOR](sql-query-floor.md)
-* [LOG](sql-query-log.md)
-* [LOG10](sql-query-log10.md)
-* [PI](sql-query-pi.md)
-* [POWER](sql-query-power.md)
-* [RADIANS](sql-query-radians.md)
-* [RAND](sql-query-rand.md)
-* [ROUND](sql-query-round.md)
-* [SIGN](sql-query-sign.md)
-* [SIN](sql-query-sin.md)
-* [SQRT](sql-query-sqrt.md)
-* [SQUARE](sql-query-square.md)
-* [TAN](sql-query-tan.md)
-* [TRUNC](sql-query-trunc.md)
-
-  
-Toutes les fonctions mathématiques, à l’exception de RAND, sont des fonctions déterministes. Cela signifie qu’elles retournent les mêmes résultats chaque fois qu’elles sont appelées avec un ensemble spécifique de valeurs d’entrée.
+| Fonction système                 | Utilisation de l’index | [Utilisation de l’index dans les requêtes avec les fonctions d’agrégation scalaires](index-overview.md#index-utilization-for-scalar-aggregate-functions) | Notes                                                      |
+| ------------------------------- | ----------- | ------------------------------------------------------ | ------------------------------------------------------------ |
+| [ABS](sql-query-abs.md)         | Recherche dans l'index  | Recherche dans l'index                                             |                                                              |
+| [ACOS](sql-query-acos.md)       | Analyse complète   | Analyse complète                                              |                                                              |
+| [ASIN](sql-query-asin.md)       | Analyse complète   | Analyse complète                                              |                                                              |
+| [ATAN](sql-query-atan.md)       | Analyse complète   | Analyse complète                                              |                                                              |
+| [ATN2](sql-query-atn2.md)       | Analyse complète   | Analyse complète                                              |                                                              |
+| [CEILING](sql-query-ceiling.md) | Recherche dans l'index  | Recherche dans l'index                                             |                                                              |
+| [COS](sql-query-cos.md)         | Analyse complète   | Analyse complète                                              |                                                              |
+| [COT](sql-query-cot.md)         | Analyse complète   | Analyse complète                                              |                                                              |
+| [DEGREES](sql-query-degrees.md) | Recherche dans l'index  | Recherche dans l'index                                             |                                                              |
+| [EXP](sql-query-exp.md)         | Analyse complète   | Analyse complète                                              |                                                              |
+| [FLOOR](sql-query-floor.md)     | Recherche dans l'index  | Recherche dans l'index                                             |                                                              |
+| [LOG](sql-query-log.md)         | Analyse complète   | Analyse complète                                              |                                                              |
+| [LOG10](sql-query-log10.md)     | Analyse complète   | Analyse complète                                              |                                                              |
+| [PI](sql-query-pi.md)           | N/A         | N/A                                                    | PI() retourne une valeur constante. Étant donné que le résultat est déterministe, les comparaisons avec PI() peuvent utiliser l’index. |
+| [POWER](sql-query-power.md)     | Analyse complète   | Analyse complète                                              |                                                              |
+| [RADIANS](sql-query-radians.md) | Recherche dans l'index  | Recherche dans l'index                                             |                                                              |
+| [RAND](sql-query-rand.md)       | N/A         | N/A                                                    | Rand() retourne un nombre aléatoire. Étant donné que le résultat n’est pas déterministe, les comparaisons qui impliquent Rand() ne peuvent pas utiliser l’index. |
+| [ROUND](sql-query-round.md)     | Recherche dans l'index  | Recherche dans l'index                                             |                                                              |
+| [SIGN](sql-query-sign.md)       | Recherche dans l'index  | Recherche dans l'index                                             |                                                              |
+| [SIN](sql-query-sin.md)         | Analyse complète   | Analyse complète                                              |                                                              |
+| [SQRT](sql-query-sqrt.md)       | Analyse complète   | Analyse complète                                              |                                                              |
+| [SQUARE](sql-query-square.md)   | Analyse complète   | Analyse complète                                              |                                                              |
+| [TAN](sql-query-tan.md)         | Analyse complète   | Analyse complète                                              |                                                              |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

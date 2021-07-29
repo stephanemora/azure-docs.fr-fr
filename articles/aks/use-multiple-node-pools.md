@@ -4,12 +4,12 @@ description: Découvrez comment créer et gérer plusieurs pools de nœuds pour 
 services: container-service
 ms.topic: article
 ms.date: 02/11/2021
-ms.openlocfilehash: af2766d5692f232970c3c7c735d4c34abebe9c3c
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: ef6b23cf7564cff57f398c76162f9c25efac7075
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070386"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081277"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -611,6 +611,109 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
+## <a name="add-a-fips-enabled-node-pool-preview"></a>Ajouter un pool de nœuds compatible FIPS (préversion)
+
+Le normes FIPS (Federal Information Processing Standard) 140-2 est une norme gouvernementale américaine qui définit les exigences de sécurité minimales pour les modules cryptographiques dans les produits et systèmes de technologies de l’information. AKS vous permet de créer des pools de nœuds basés sur Linux avec la norme FIPS 140-2 activée. Les déploiements s’exécutant sur des pools de nœuds compatibles FIPS peuvent utiliser ces modules cryptographiques pour fournir une sécurité accrue et aider à respecter les contrôles de sécurité dans le cadre de la conformité FedRAMP. Pour plus d’informations sur FIPS 140-2, consultez [Norme FIPS (Federal Information Processing Standard) 140-2][fips].
+
+Les pools de nœuds compatibles FIPS sont actuellement en préversion.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Vous aurez besoin de la version *0.5.11* ou d’une version ultérieure de l’extension Azure CLI *aks-preview*. Installez l’extension d’Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add]. Ou installez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update].
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+Pour utiliser la fonctionnalité, vous devez activer l’indicateur de fonctionnalité `FIPSPreview` sur votre abonnement.
+
+Inscrivez l’indicateur de fonctionnalité `FIPSPreview` à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "FIPSPreview"
+```
+
+Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vérifiez l’état de l’inscription à l’aide de la commande [az feature list][az-feature-list] :
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/FIPSPreview')].{Name:name,State:properties.state}"
+```
+
+Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+Les pools de nœuds compatibles FIPS présentent les limitations suivantes :
+
+* Actuellement, vous ne pouvez avoir que des pools de nœuds basés sur la norme FIPS exécutés sur Ubuntu 18.04.
+* Les pools de nœuds compatibles FIPS requièrent la version 1.19 ou une version ultérieure de Kubernetes.
+* Pour mettre à jour les packages ou modules sous-jacents utilisés pour FIPS, vous devez utiliser la [mise à niveau d’image de nœud][node-image-upgrade].
+
+> [!IMPORTANT]
+> L’image Linux compatible FIPS est une image différente de celle de l’image Linux par défaut utilisée pour les pools de nœuds basés sur Linux. Pour activer FIPS sur un pool de nœuds, vous devez créer un pool de nœuds Linux. Vous ne pouvez pas activer FIPS sur des pools de nœuds existants.
+> 
+> Les images de nœuds compatibles FIPS peuvent avoir des numéros de version différents, comme la version du noyau, des images non compatibles FIPS. En outre, le cycle de mise à jour pour les pools de nœuds et les images de nœuds compatibles FIPS peut différer des pools de nœuds et des images qui ne sont pas compatibles FIPS.
+
+Pour créer un pool de nœuds compatible FIPS, utilisez la commande [az aks nodepool add][az-aks-nodepool-add] avec le paramètre *--enable-fips-image* lors de la création d’un pool de nœuds.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name fipsnp \
+    --enable-fips-image
+```
+
+> [!NOTE]
+> Vous pouvez également utiliser le paramètre *--enable-fips-image* avec la commande [az aks create][az-aks-create] lors de la création d’un cluster pour activer FIPS sur le pool de nœuds par défaut. Lors de l’ajout de pools de nœuds à un cluster créé de cette façon, vous devez toujours utiliser le paramètre *--enable-fips-image* lors de l’ajout de pools de nœuds pour créer un pool de nœuds compatible FIPS.
+
+Pour vérifier que votre pool de nœuds est compatible FIPS, utilisez la commande [az aks show][az-aks-show] pour vérifier la valeur *enableFIPS* dans *agentPoolProfiles*.
+
+```azurecli-interactive
+az aks show --resource-group myResourceGroup --cluster-name myAKSCluster --query="agentPoolProfiles[].{Name:name enableFips:enableFips}" -o table
+```
+
+L’exemple de sortie suivant montre que le pool de nœuds *fipsnp* est compatible FIPS et que *nodepool1* ne l’est pas.
+
+```output
+Name       enableFips
+---------  ------------
+fipsnp     True
+nodepool1  False  
+```
+
+Vous pouvez également vérifier que les déploiements ont accès aux bibliothèques de chiffrement FIPS à l’aide de `kubectl debug` sur un nœud du pool de nœuds compatible FIPS. Utilisez `kubectl get nodes` pour répertorier les nœuds :
+
+```output
+$ kubectl get nodes
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-fipsnp-12345678-vmss000000      Ready    agent   6m4s    v1.19.9
+aks-fipsnp-12345678-vmss000001      Ready    agent   5m21s   v1.19.9
+aks-fipsnp-12345678-vmss000002      Ready    agent   6m8s    v1.19.9
+aks-nodepool1-12345678-vmss000000   Ready    agent   34m     v1.19.9
+```
+
+Dans l’exemple ci-dessus, les nœuds commençant par `aks-fipsnp` font partie du pool de nœuds compatible FIPS. Utilisez `kubectl debug` pour exécuter un déploiement avec une session interactive sur l’un de ces nœuds dans le pool de nœuds compatible FIPS.
+
+```azurecli-interactive
+kubectl debug node/aks-fipsnp-12345678-vmss000000 -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+```
+
+À partir de la session interactive, vous pouvez vérifier que les bibliothèques de chiffrement FIPS sont activées :
+
+```output
+root@aks-fipsnp-12345678-vmss000000:/# cat /proc/sys/crypto/fips_enabled
+1
+```
+
+Les pools de nœuds compatibles FIPS disposent également d’une étiquette *kubernetes.azure.com/fips_enabled=true*, qui peut être utilisée par les déploiements pour cibler ces pools de nœuds.
+
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Gérer les pools de nœuds à l’aide d’un modèle Resource Manager
 
 Lorsque vous utilisez un modèle Azure Resource Manager pour créer et gérer des ressources, vous pouvez généralement mettre à jour les paramètres dans votre modèle et le redéployer pour mettre à jour la ressource. Avec les pools de nœuds dans AKS, le profil de pool de nœuds initial ne peut pas être mis à jour une fois que le cluster AKS a été créé. Ce comportement signifie que vous ne pouvez pas mettre à jour un modèle Resource Manager existant, apporter un changement aux pools de nœuds et redéployer. Au lieu de cela, vous devez créer un modèle Resource Manager distinct qui mette à jour uniquement les pools de nœuds pour un cluster AKS existant.
@@ -631,33 +734,33 @@ Modifiez ces valeurs en fonction des besoins pour mettre à jour, ajouter ou sup
         "clusterName": {
             "type": "string",
             "metadata": {
-                "description": "The name of your existing AKS cluster."
+                "description&quot;: &quot;The name of your existing AKS cluster."
             }
         },
         "location": {
             "type": "string",
             "metadata": {
-                "description": "The location of your existing AKS cluster."
+                "description&quot;: &quot;The location of your existing AKS cluster."
             }
         },
         "agentPoolName": {
             "type": "string",
             "defaultValue": "myagentpool",
             "metadata": {
-                "description": "The name of the agent pool to create or update."
+                "description&quot;: &quot;The name of the agent pool to create or update."
             }
         },
         "vnetSubnetId": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "The Vnet subnet resource ID for your existing AKS cluster."
+                "description&quot;: &quot;The Vnet subnet resource ID for your existing AKS cluster."
             }
         }
     },
     "variables": {
         "apiVersion": {
-            "aks": "2020-01-01"
+            "aks&quot;: &quot;2020-01-01"
         },
         "agentPoolProfiles": {
             "maxPods": 30,
@@ -665,7 +768,7 @@ Modifiez ces valeurs en fonction des besoins pour mettre à jour, ajouter ou sup
             "agentCount": 3,
             "agentVmSize": "Standard_DS2_v2",
             "osType": "Linux",
-            "vnetSubnetId": "[parameters('vnetSubnetId')]"
+            "vnetSubnetId&quot;: &quot;[parameters('vnetSubnetId')]"
         }
     },
     "resources": [
@@ -833,8 +936,12 @@ Utilisez les [groupes de placement de proximité][reduce-latency-ppg] pour rédu
 [az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_upgrade
 [az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_scale
 [az-aks-nodepool-delete]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_delete
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [az-extension-add]: /cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_add
 [az-extension-update]: /cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [az-group-create]: /cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create
 [az-group-delete]: /cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete
 [az-deployment-group-create]: /cli/azure/deployment/group?view=azure-cli-latest&preserve-view=true#az_deployment_group_create
@@ -854,3 +961,5 @@ Utilisez les [groupes de placement de proximité][reduce-latency-ppg] pour rédu
 [reduce-latency-ppg]: reduce-latency-ppg.md
 [public-ip-prefix-benefits]: ../virtual-network/public-ip-address-prefix.md#why-create-a-public-ip-address-prefix
 [az-public-ip-prefix-create]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest&preserve-view=true#az_network_public_ip_prefix_create
+[node-image-upgrade]: node-image-upgrade.md
+[fips]: /azure/compliance/offerings/offering-fips-140-2

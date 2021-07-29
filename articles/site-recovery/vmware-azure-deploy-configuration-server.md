@@ -2,18 +2,18 @@
 title: Déployer le serveur de configuration dans Azure Site Recovery
 description: Cet article explique comment déployer un serveur de configuration pour la récupération d’urgence de VMware avec Azure Site Recovery
 services: site-recovery
-author: Rajeswari-Mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/15/2019
-ms.author: ramamill
-ms.openlocfilehash: a8ceb3df68ebe42f83c70ed62327bf59c0dfc225
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: conceptual
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: 9fd9dd63967dc5fb27b9db6931fdc60d57b405fb
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92359813"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576176"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -185,7 +185,7 @@ Pour résoudre les problèmes de connectivité et de déploiement, consultez cet
     Non. Ne modifiez pas l’adresse IP d’un serveur de configuration. Vérifiez que toutes les adresses IP attribuées au serveur de configuration sont des adresses IP statiques et non des adresses IP DHCP.
 * Puis-je configurer le serveur de configuration sur Azure ?
 
-    Il est conseillé de configurer le serveur de configuration sur l’environnement local moyennant une ligne de vue directe avec v-Center, et de réduire les latences de transfert de données. Vous pouvez procéder à des sauvegardes planifiées du serveur de configuration [à des fins de restauration automatique](vmware-azure-manage-configuration-server.md#failback-requirements).
+    Il est conseillé de configurer le serveur de configuration sur l’environnement local moyennant une ligne de vue directe avec vCenter, et de réduire les latences de transfert de données. Vous pouvez procéder à des sauvegardes planifiées du serveur de configuration [à des fins de restauration automatique](vmware-azure-manage-configuration-server.md#failback-requirements).
 
 * Puis-je modifier le pilote de cache sur un serveur de configuration ou sur un serveur de traitement avec scale-out ?
 

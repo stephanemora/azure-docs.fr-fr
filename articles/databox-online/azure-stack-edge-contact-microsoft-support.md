@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 06/09/2021
 ms.author: alkohli
-ms.openlocfilehash: e109c09a70b96e81daad8929fc82b6059b3619b6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1ad5475078c515d36a57b7608ab9d363c6f678aa
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110060541"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983944"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-and-azure-data-box-gateway"></a>Ouvrir un ticket de support pour Azure Stack Edge et Azure Data Box Gateway
 
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-databox-gateway-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-databox-gateway-sku.md)]
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-fpga-databox-gateway-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-databox-gateway-sku.md)]
 
 Cet article s’applique aux services Azure Stack Edge et Azure Data Box Gateway, qui sont managés par le service Azure Stack Edge/Azure Data Box Gateway. Si vous rencontrez des problèmes avec votre service, vous pouvez créer une demande de service pour obtenir un support technique. Cet article vous guide tout au long des procédures suivantes :
 
@@ -100,5 +100,6 @@ Après avoir créé un ticket de support, vous pouvez gérer son cycle de vie de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [résoudre les problèmes liés au service Azure Stack Edge](azure-stack-edge-troubleshoot.md).
-Découvrez comment [résoudre les problèmes liés au service Data Box Gateway](../databox-gateway/data-box-gateway-troubleshoot.md).
+- [Résoudre les problèmes liés au service Azure Stack Edge FPGA](azure-stack-edge-troubleshoot.md).
+- [Résoudre les problèmes d’appareil pour Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot.md).
+- [Résoudre les problèmes liés à Data Box Gateway](../databox-gateway/data-box-gateway-troubleshoot.md).

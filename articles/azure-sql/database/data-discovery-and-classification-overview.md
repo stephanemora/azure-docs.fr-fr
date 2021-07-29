@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/17/2021
 tags: azure-synapse
-ms.openlocfilehash: f47303a953dbb06b4c9efdfbbae41715cad81d2a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d6b51d32b691919e0f0947d3ddb58d184424b9ad
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101690802"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534407"
 ---
 # <a name="data-discovery--classification"></a>Découverte et classification des données
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -36,7 +36,7 @@ Vos données les plus sensibles peuvent inclure des informations commerciales, f
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>Présentation de Découverte et classification des données
 
-Découverte et classification de données introduit un ensemble de services de base et de nouvelles fonctionnalités dans Azure. Elle forme un nouveau paradigme de protection des informations pour SQL Database, SQL Managed Instance et Azure Synapse destiné à protéger les données, et pas seulement la base de données. Le paradigme comprend les éléments suivants :
+L’outil Découverte et classification des données constitue un nouveau paradigme de protection des informations pour SQL Database, SQL Managed Instance et Azure Synapse destiné à protéger les données, et pas seulement la base de données. Actuellement, il prend en charge les fonctionnalités suivantes :
 
 - **Découverte et recommandations :** Le moteur de classification analyse votre base de données et identifie les colonnes contenant des données potentiellement sensibles. Il vous offre ensuite un moyen simple d’examiner et d’appliquer la classification recommandée via le portail Azure.
 
@@ -60,7 +60,7 @@ La classification comprend deux attributs de métadonnées :
 
 ### <a name="define-and-customize-your-classification-taxonomy"></a>Définir et personnaliser votre taxonomie de classification
 
-La fonctionnalité Découverte et classification des données comprend un ensemble intégré d’étiquettes de sensibilité, ainsi qu’un ensemble intégré de types d’informations et de logiques de découverte. Vous pouvez maintenant personnaliser cette taxonomie, et de définir un jeu et un classement de constructions de classification spécialement pour votre environnement.
+La fonctionnalité Découverte et classification des données comprend un ensemble intégré d’étiquettes de sensibilité, ainsi qu’un ensemble intégré de types d’informations et de logiques de découverte. Vous pouvez personnaliser cette taxonomie, et de définir un jeu et un classement de constructions de classification spécialement pour votre environnement.
 
 Vous définissez et personnalisez votre taxonomie de classification dans un emplacement central pour l’ensemble de votre organisation Azure. Cet emplacement se trouve dans [Azure Security Center](../../security-center/security-center-introduction.md), dans la section relative à votre stratégie de sécurité. Seules les personnes disposant de droits d’administration pour le groupe d’administration racine de l’organisation peuvent effectuer cette tâche.
 

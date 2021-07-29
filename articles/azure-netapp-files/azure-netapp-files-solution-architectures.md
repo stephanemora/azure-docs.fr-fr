@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/03/2021
+ms.date: 05/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 358bddaffc90467d6ff636b0e9c88eeac04a2fed
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: cb53bad331e511ea2daacc2a0fbc9c178a193a2f
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742496"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110655133"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architectures de solution avec Azure NetApp Files
 Cet article fournit des références aux meilleures pratiques pouvant vous aider à comprendre les architectures de solution pour l’utilisation d’Azure NetApp Files.  
@@ -41,6 +41,7 @@ Cette section fournit des références pour les solutions de bases de données e
 
 ### <a name="machine-learning"></a>Machine Learning
 *   [Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
+*   [Formation distribuée dans Azure : détection de voie - conception de solution](https://www.netapp.com/media/32427-tr-4896-design.pdf)
 
 ### <a name="education"></a>Education
 * [Moodle sur stockage NFS Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630)

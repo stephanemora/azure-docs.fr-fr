@@ -7,18 +7,18 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 03/16/2020
-ms.openlocfilehash: a7f12891bf394e54ee46c60598536faed1731202
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c82f68ee35ae95a424c0847be9a9cc770185af43
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600878"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005732"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Configurer un abonnement de la Place de marché Azure pour les versions d'évaluation hébergées
 
-Cet article explique comment configurer un abonnement de la Place de marché Azure et un environnement **Dynamics 365 for Customer Engagement** ou **Dynamics 365 for Operations** environnement pour les versions d'évaluation.
+Cet article explique comment configurer un abonnement de la Place de marché Azure et un environnement **Dynamics 365 for Customer Engagement & Power Apps** ou **Dynamics 365 for Operations** pour les versions d’évaluation.
 
-## <a name="set-up-for-dynamics-365-for-customer-engagement"></a>Configuration de Dynamics 365 for Customer Engagement
+## <a name="set-up-for-dynamics-365-for-customer-engagement--power-apps"></a>Configurer pour Dynamics 365 pour Customer Engagement et Power Apps
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) avec un compte d’administrateur.
 2. Vérifiez que vous êtes dans le client associé à votre instance de version d'évaluation de Dynamics 365 en pointant sur l’icône de votre compte dans le coin supérieur droit. Si vous n’êtes pas dans le locataire approprié, sélectionnez l’icône de compte pour basculer vers le locataire approprié.

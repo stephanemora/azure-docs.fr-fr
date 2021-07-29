@@ -1,6 +1,6 @@
 ---
-title: Comment ajouter un public de préversion pour votre offre SaaS dans la place de marché commerciale Microsoft
-description: Comment ajouter un public de préversion pour votre offre SaaS dans l’Espace partenaires Microsoft.
+title: Ajouter un public de préversion pour une offre SaaS sur la Place de marché Azure
+description: Ajoutez un public de préversion pour une offre SaaS dans la Place de marché Azure.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 041df9b77e85f09d2cf680773edc995c6288acaa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe42b5c7d9953a3e8bc15c4dbd351d3d2beb4d33
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96746418"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614402"
 ---
-# <a name="how-to-add-a-preview-audience-for-your-saas-offer"></a>Comment ajouter un public de préversion pour votre offre SaaS
+# <a name="add-a-preview-audience-for-a-saas-offer"></a>Ajouter un public en préversion pour une offre SaaS
 
 Lorsque vous créez votre offre SaaS dans l’Espace partenaires, vous devez définir un public de préversion qui peut consulter le référencement de l’offre avant sa mise en ligne. Cet article explique comment configurer un public de préversion.
 
@@ -51,4 +51,4 @@ Sous l’onglet **Public de préversion**, vous pouvez définir un public limit�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comment ajouter des détails techniques pour votre offre SaaS](create-new-saas-offer-technical.md)
+- [Ajouter des détails techniques pour une offre SaaS](create-new-saas-offer-technical.md)

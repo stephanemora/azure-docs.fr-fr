@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 05/06/2021
+ms.date: 05/20/2021
 ms.custom: generated
-ms.openlocfilehash: e8683b3348dab0c01ed797525b497ced3c2737bb
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 989724452f57b5b44954f739eae6bff1da61263f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634218"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470127"
 ---
 # <a name="azure-built-in-roles"></a>Rôles intégrés Azure
 
@@ -78,6 +78,11 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | [Contributeur aux données Azure Maps](#azure-maps-data-contributor) | Accorde l’accès en lecture, en écriture et en suppression aux données liées aux cartes depuis un compte Azure Maps. | 8f5e0ce6-4f7b-4dcf-bddf-e6f48634a204 |
 > | [Lecteur de données Azure Maps](#azure-maps-data-reader) | Octroie un accès pour lire les données liées au mappage à partir d’un compte Azure Maps. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Lecteur de données Azure Spring Cloud](#azure-spring-cloud-data-reader) | Autoriser l'accès en lecture aux données Azure Spring Cloud | b5537268-8956-4941-a8f0-646150406f0c |
+> | [Administrateur de compte Media Services](#media-services-account-administrator) | Créer, lire, modifier et supprimer des comptes Media Services ; accès en lecture seule à d’autres ressources de Media Services. | 054126f8-9a2b-4f1c-a9ad-eca461f08466 |
+> | [Administrateur d’événement en direct Media Services](#media-services-live-events-administrator) | Créer, lire et modifier des événements en direct, des ressources, des filtres de ressources et des localisateurs de streaming ; accès en lecture seule à d’autres ressources de Media Services. | 532bc159-b25e-42c0-969e-a1d439f60d77 |
+> | [Opérateur de média Media Services](#media-services-media-operator) | Créer, lire, modifier et supprimer des ressources, des filtres de ressources, des localisateurs de streaming et des tâches ; accès en lecture seule à d’autres ressources de Media Services. | e4395492-1534-4db2-bedf-88c14621589c |
+> | [Administrateur de stratégie Media Services](#media-services-policy-administrator) | Créer, lire, modifier et supprimer des filtres de compte, des stratégies de streaming, des stratégies de clés de contenu et des transformations ; accès en lecture seule à d’autres ressources de Media Services. Impossible de créer des tâches, des ressources ou des ressources de streaming. | c4bba371-dacd-4a26-b320-7250bca963ae |
+> | [Administrateur de points de terminaison de streaming Media Services](#media-services-streaming-endpoints-administrator) | Créer, lire, modifier et supprimer de points de terminaison de streaming ; accès en lecture seule à d’autres ressources de Media Services. | 99dba123-b5fe-44d5-874c-ced7199a5804 |
 > | [Contributeur du service de recherche](#search-service-contributor) | Permet de gérer des services de recherche, mais pas d’y accéder. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Lecteur AccessKey SignalR](#signalr-accesskey-reader) | Lire les clés d’accès du service SignalR | 04165923-9d83-45d5-8227-78b77b0a687e |
 > | [Serveur d’applications SignalR (préversion)](#signalr-app-server-preview) | Permet à votre serveur d’applications d’accéder au service SignalR avec les options d’authentification AAD. | 420fcaa2-552c-430f-98ca-3264be4806c7 |
@@ -90,7 +95,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **Containers** |  |  |
 > | [AcrDelete](#acrdelete) | Supprimer des référentiels, des balises ou des manifestes d’un registre de conteneurs. | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
 > | [AcrImageSigner](#acrimagesigner) | Envoyer (push) des images approuvées vers un registre de conteneurs activé pour l’approbation de contenu ou tirer (pull) des images approuvées d’un tel registre. | 6cef56e8-d556-48e5-a04f-b8e64114680f |
-> | [AcrPull](#acrpull) | Tirer (pull) des artefacts à partir d’un registre de conteneurs.  | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
+> | [AcrPull](#acrpull) | Tirer (pull) des artefacts à partir d’un registre de conteneurs. | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
 > | [AcrPush](#acrpush) | Envoyer (push) des artefacts vers un registre de conteneurs ou tirer (pull) des artefacts d’un tel registre. | 8311e382-0749-4cb8-b61a-304f252e45ec |
 > | [AcrQuarantineReader](#acrquarantinereader) | Tirer (pull) des images en quarantaine à partir d’un registre de conteneurs. | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | [AcrQuarantineWriter](#acrquarantinewriter) | Envoyer (push) des images en quarantaine vers un registre de conteneurs ou extraire des images en quarantaine d’un tel registre. | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
@@ -2783,6 +2788,327 @@ Autoriser l'accès en lecture aux données Azure Spring Cloud [En savoir plus](.
 }
 ```
 
+### <a name="media-services-account-administrator"></a>Administrateur de compte Media Services
+
+Créer, lire, modifier et supprimer des comptes Media Services ; accès en lecture seule à d’autres ressources de Media Services.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Lire les rôles et les affectations de rôles |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | Lire des mesures |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | Lire les définitions des mesures |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Créer et gérer un déploiement |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/*/read |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/listStreamingLocators/action | Lister les localisateurs de streaming pour l’actif multimédia |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingLocators/listPaths/action | Répertorie les chemins d’accès |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/write | Crée ou met à jour un compte Media Services |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/delete | Supprime un compte Media Services |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/privateEndpointConnectionsApproval/action | Approuve les connexions de point de terminaison privé |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/privateEndpointConnections/* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, read, modify and delete Media Services accounts; read-only access to other Media Services resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/054126f8-9a2b-4f1c-a9ad-eca461f08466",
+  "name": "054126f8-9a2b-4f1c-a9ad-eca461f08466",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Media/mediaservices/*/read",
+        "Microsoft.Media/mediaservices/assets/listStreamingLocators/action",
+        "Microsoft.Media/mediaservices/streamingLocators/listPaths/action",
+        "Microsoft.Media/mediaservices/write",
+        "Microsoft.Media/mediaservices/delete",
+        "Microsoft.Media/mediaservices/privateEndpointConnectionsApproval/action",
+        "Microsoft.Media/mediaservices/privateEndpointConnections/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Media Services Account Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="media-services-live-events-administrator"></a>Administrateur d’événement en direct Media Services
+
+Créer, lire et modifier des événements en direct, des ressources, des filtres de ressources et des localisateurs de streaming ; accès en lecture seule à d’autres ressources de Media Services.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Lire les rôles et les affectations de rôles |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | Lire des mesures |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | Lire les définitions des mesures |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Créer et gérer un déploiement |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/*/read |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/assetfilters/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingLocators/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/liveEvents/* |  |
+> | **NotActions** |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/getEncryptionKey/action | Obtient la clé de chiffrement de la ressource |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingLocators/listContentKeys/action | Répertorie les clés de contenu |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, read and modify Live Events, Assets, Asset Filters and Streaming Locators; read-only access to other Media Services resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/532bc159-b25e-42c0-969e-a1d439f60d77",
+  "name": "532bc159-b25e-42c0-969e-a1d439f60d77",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Media/mediaservices/*/read",
+        "Microsoft.Media/mediaservices/assets/*",
+        "Microsoft.Media/mediaservices/assets/assetfilters/*",
+        "Microsoft.Media/mediaservices/streamingLocators/*",
+        "Microsoft.Media/mediaservices/liveEvents/*"
+      ],
+      "notActions": [
+        "Microsoft.Media/mediaservices/assets/getEncryptionKey/action",
+        "Microsoft.Media/mediaservices/streamingLocators/listContentKeys/action"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Media Services Live Events Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="media-services-media-operator"></a>Opérateur de média Media Services
+
+Créer, lire, modifier et supprimer des ressources, des filtres de ressources, des localisateurs de streaming et des tâches ; accès en lecture seule à d’autres ressources de Media Services.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Lire les rôles et les affectations de rôles |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | Lire des mesures |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | Lire les définitions des mesures |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Créer et gérer un déploiement |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/*/read |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/assetfilters/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingLocators/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/transforms/jobs/* |  |
+> | **NotActions** |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/getEncryptionKey/action | Obtient la clé de chiffrement de la ressource |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingLocators/listContentKeys/action | Répertorie les clés de contenu |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, read, modify, and delete of Assets, Asset Filters, Streaming Locators and Jobs; read-only access to other Media Services resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e4395492-1534-4db2-bedf-88c14621589c",
+  "name": "e4395492-1534-4db2-bedf-88c14621589c",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Media/mediaservices/*/read",
+        "Microsoft.Media/mediaservices/assets/*",
+        "Microsoft.Media/mediaservices/assets/assetfilters/*",
+        "Microsoft.Media/mediaservices/streamingLocators/*",
+        "Microsoft.Media/mediaservices/transforms/jobs/*"
+      ],
+      "notActions": [
+        "Microsoft.Media/mediaservices/assets/getEncryptionKey/action",
+        "Microsoft.Media/mediaservices/streamingLocators/listContentKeys/action"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Media Services Media Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="media-services-policy-administrator"></a>Administrateur de stratégie Media Services
+
+Créer, lire, modifier et supprimer des filtres de compte, des stratégies de streaming, des stratégies de clés de contenu et des transformations ; accès en lecture seule à d’autres ressources de Media Services. Impossible de créer des tâches, des ressources ou des ressources de streaming.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Lire les rôles et les affectations de rôles |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | Lire des mesures |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | Lire les définitions des mesures |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Créer et gérer un déploiement |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/*/read |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/listStreamingLocators/action | Lister les localisateurs de streaming pour l’actif multimédia |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingLocators/listPaths/action | Répertorie les chemins d’accès |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/accountFilters/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingPolicies/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/contentKeyPolicies/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/transforms/* |  |
+> | **NotActions** |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/contentKeyPolicies/getPolicyPropertiesWithSecrets/action | Obtient les propriétés de stratégie avec les secrets |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, read, modify, and delete Account Filters, Streaming Policies, Content Key Policies and Transforms; read-only access to other Media Services resources. Cannot create Jobs, Assets or Streaming resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/c4bba371-dacd-4a26-b320-7250bca963ae",
+  "name": "c4bba371-dacd-4a26-b320-7250bca963ae",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Media/mediaservices/*/read",
+        "Microsoft.Media/mediaservices/assets/listStreamingLocators/action",
+        "Microsoft.Media/mediaservices/streamingLocators/listPaths/action",
+        "Microsoft.Media/mediaservices/accountFilters/*",
+        "Microsoft.Media/mediaservices/streamingPolicies/*",
+        "Microsoft.Media/mediaservices/contentKeyPolicies/*",
+        "Microsoft.Media/mediaservices/transforms/*"
+      ],
+      "notActions": [
+        "Microsoft.Media/mediaservices/contentKeyPolicies/getPolicyPropertiesWithSecrets/action"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Media Services Policy Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="media-services-streaming-endpoints-administrator"></a>Administrateur de points de terminaison de streaming Media Services
+
+Créer, lire, modifier et supprimer de points de terminaison de streaming ; accès en lecture seule à d’autres ressources de Media Services.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Lire les rôles et les affectations de rôles |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | Lire des mesures |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | Lire les définitions des mesures |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Créer et gérer un déploiement |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/*/read |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/listStreamingLocators/action | Lister les localisateurs de streaming pour l’actif multimédia |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingLocators/listPaths/action | Répertorie les chemins d’accès |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingEndpoints/* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, read, modify and delete Streaming Endpoints; read-only access to other Media Services resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/99dba123-b5fe-44d5-874c-ced7199a5804",
+  "name": "99dba123-b5fe-44d5-874c-ced7199a5804",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Media/mediaservices/*/read",
+        "Microsoft.Media/mediaservices/assets/listStreamingLocators/action",
+        "Microsoft.Media/mediaservices/streamingLocators/listPaths/action",
+        "Microsoft.Media/mediaservices/streamingEndpoints/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Media Services Streaming Endpoints Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="search-service-contributor"></a>Contributeur du service de recherche
 
 Permet de gérer des services de recherche, mais pas d’y accéder. [En savoir plus](../search/search-security-rbac.md)
@@ -3350,7 +3676,7 @@ Tirer (pull) des artefacts à partir d’un registre de conteneurs. [En savoir p
 
 ### <a name="acrpush"></a>AcrPush
 
-envoi (push) Arc [En savoir plus](../container-registry/container-registry-roles.md)
+Envoyer (push) des artefacts vers un registre de conteneurs ou tirer (pull) des artefacts d’un tel registre. [En savoir plus](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7185,7 +7511,7 @@ Permet de gérer les inscriptions Azure Stack.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.AzureStack](resource-provider-operations.md#microsoftazurestack)/edgeSubscriptions/read | Obtient les propriétés d’un abonnement Azure Stack Edge |
+> | [Microsoft.AzureStack](resource-provider-operations.md#microsoftazurestack)/edgeSubscriptions/read |  |
 > | [Microsoft.AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/products/*/action |  |
 > | [Microsoft.AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/products/read | Obtient les propriétés d’un produit de la place de marché Azure Stack. |
 > | [Microsoft.AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/read | Obtient les propriétés d’une inscription Azure Stack. |
@@ -10286,7 +10612,9 @@ Peut lire, écrire, supprimer et réintégrer des machines connectées à Azure.
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/read | Lit les données des machines Azure Arc |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/write | Écrit toutes les machines Azure Arc |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/delete | Supprime toutes les machines Azure Arc |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/read | Lit toutes les extensions Azure Arc |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/write | Installe ou met à jour toutes les extensions Azure Arc |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/delete | Supprime toutes les extensions Azure Arc |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/privateLinkScopes/* |  |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/*/read |  |
 > | **NotActions** |  |
@@ -10310,7 +10638,9 @@ Peut lire, écrire, supprimer et réintégrer des machines connectées à Azure.
         "Microsoft.HybridCompute/machines/read",
         "Microsoft.HybridCompute/machines/write",
         "Microsoft.HybridCompute/machines/delete",
+        "Microsoft.HybridCompute/machines/extensions/read",
         "Microsoft.HybridCompute/machines/extensions/write",
+        "Microsoft.HybridCompute/machines/extensions/delete",
         "Microsoft.HybridCompute/privateLinkScopes/*",
         "Microsoft.HybridCompute/*/read"
       ],

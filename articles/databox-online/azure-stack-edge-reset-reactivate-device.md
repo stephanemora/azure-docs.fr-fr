@@ -1,6 +1,6 @@
 ---
-title: Réinitialiser et réactiver votre appareil Azure Stack Edge Pro | Microsoft Docs
-description: Cet article décrit comment effacer les données de votre appareil Azure Stack Edge Pro, puis réactiver celui-ci.
+title: Réinitialisation et réactivation d’appareil AZure Stack Edge
+description: Cet article décrit comment effacer les données de votre appareil Azure Stack Edge, puis réactiver celui-ci.
 services: databox
 author: v-dalc
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 8f744e85c97d3c7e79028ae95b4d90626af41787
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 4afe7235cb4122e4c4fe7e26fff4b34504663892
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773086"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460596"
 ---
-# <a name="reset-and-reactivate-your-azure-stack-edge-pro-device"></a>Réinitialiser et réactiver votre appareil Azure Stack Edge Pro
+# <a name="reset-and-reactivate-your-azure-stack-edge-device"></a>Réinitialiser et réactiver votre appareil Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Cet article explique comment réinitialiser, reconfigurer et réactiver un appareil Azure Stack Edge Pro si vous rencontrez des problèmes avec celui-ci ou si vous devez le redémarrer à neuf pour une raison quelconque.
+Cet article explique comment réinitialiser, reconfigurer et réactiver un appareil Azure Stack Edge si vous rencontrez des problèmes avec celui-ci ou si vous devez le redémarrer à neuf pour une raison quelconque.
 
 Une fois que vous avez réinitialisé l’appareil pour supprimer les données, vous devez le réactiver en tant que nouvelle ressource. La réinitialisation d’un appareil a pour effet de supprimer sa configuration. Vous devez donc le reconfigurer via l’interface utilisateur web locale.
 
@@ -65,4 +65,4 @@ Pour réactiver votre appareil existant, procédez comme suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [Se connecter à un appareil Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-connect.md).
+- Découvrez comment [Se connecter à un appareil Azure Stack Edge](azure-stack-edge-gpu-deploy-connect.md).

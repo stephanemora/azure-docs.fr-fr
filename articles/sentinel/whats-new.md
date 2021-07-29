@@ -7,22 +7,23 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 05/05/2021
-ms.openlocfilehash: 2de9be37b8f5398bc6774e9b55ee96483b29b078
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 05/13/2021
+ms.openlocfilehash: 210be7199f5f28773c2dbbf913e4914918e7eeeb
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108759601"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087919"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nouveautés d’Azure Sentinel
 
 Cet article liste les fonctionnalités récentes ajoutées à Azure Sentinel et les nouvelles fonctionnalités des services associés qui offrent une expérience utilisateur améliorée dans Azure Sentinel.
 
-Pour plus d’informations sur les fonctionnalités précédentes fournies, consultez nos [blogs Tech Community](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
+Si vous recherchez des éléments datant de plus de six mois, vous les trouverez dans l’[Archive des nouveautés d’Azure Sentinel](whats-new-archive.md). Pour plus d’informations sur les fonctionnalités précédentes fournies, consultez nos [blogs Tech Community](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
-Les fonctionnalités indiquées sont disponibles en préversion. Les [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluent des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore disponibles dans la version en disponibilité générale.
-
+> [!IMPORTANT]
+> Les fonctionnalités indiquées sont disponibles en préversion. Les [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluent des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore disponibles dans la version en disponibilité générale.
+> 
 
 > [!TIP]
 > Nos équipes de chasse des menaces Microsoft mettent à la disposition de la [communauté Azure Sentinel](https://github.com/Azure/Azure-Sentinel) des requêtes, playbooks, workbooks et notebooks, notamment des [requêtes de chasse](https://github.com/Azure/Azure-Sentinel) spécifiques que vos équipes peuvent adapter et utiliser.
@@ -32,7 +33,92 @@ Les fonctionnalités indiquées sont disponibles en préversion. Les [Conditions
 
 ## <a name="may-2021"></a>Mai 2021
 
+- [Solutions Azure Sentinel (préversion publique)](#azure-sentinel-solutions-public-preview)
+- [Solution Continuous Threat Monitoring pour SAP (préversion publique)](#continuous-threat-monitoring-for-sap-solution-public-preview)
+- [Intégrations Threat Intelligence (préversion publique)](#threat-intelligence-integrations-public-preview)
+- [Fusion sur les alertes planifiées (préversion publique)](#fusion-over-scheduled-alerts-public-preview)
+- [Anomalies SOC-ML (préversion publique)](#soc-ml-anomalies-public-preview)
+- [Page Entité IP (préversion publique)](#ip-entity-page-public-preview)
+- [Personnalisation d’activité (préversion publique)](#activity-customization-public-preview)
+- [Tableau de bord de repérage (préversion publique)](#hunting-dashboard-public-preview)
+- [Équipe d’incident - Collaborer dans Microsoft Teams (préversion publique)](#azure-sentinel-incident-team---collaborate-in-microsoft-teams-public-preview)
 - [Classeur Confiance Zéro (TIC 3.0)](#zero-trust-tic30-workbook)
+
+### <a name="azure-sentinel-solutions-public-preview"></a>Solutions Azure Sentinel (préversion publique)
+
+Azure Sentinel offre désormais des [solutions](sentinel-solutions-catalog.md) à **contenu packagé** qui incluent des combinaisons d’un ou plusieurs connecteurs de données, classeurs, règles d’analyse, playbooks, requêtes de chasse, analyseurs, watchlists et d’autres composants pour Azure Sentinel.
+
+Les solutions améliorent la détectabilité dans les produits, le déploiement en une seule étape et des scénarios de produit de bout en bout. Pour plus d’informations, consultez [Découvrir et déployer des solutions Azure Sentinel](sentinel-solutions-deploy.md).
+
+### <a name="continuous-threat-monitoring-for-sap-solution-public-preview"></a>Solution Continuous Threat Monitoring pour SAP (préversion publique)
+
+Les solutions Azure Sentinel incluent désormais **Continuous Threat Monitoring pour SAP**, ce qui vous permet de superviser les systèmes SAP à la recherche des menaces sophistiquées au sein des couches métier et d’application.
+
+Le connecteur de données SAP diffuse 14 journaux d’application de l’ensemble du paysage du système SAP, et collecte des journaux tant à partir du langage de programmation ABAP (Advanced Business Application Programming) via des appels RFC NetWeaver, qu’à partir des données de stockage de fichiers via l’interface de contrôle OSSAP. Le connecteur de données SAP ajoute à Azure Sentinel la capacité de surveiller l’infrastructure SAP sous-jacente.
+
+Pour ingérer des journaux SAP dans Azure Sentinel, le connecteur de données SAP Sentinel Azure doit être installé sur votre environnement SAP. Une fois le connecteur de données SAP déployé, déployez le contenu riche de sécurité de la solution SAP pour avoir un aperçu de l’environnement SAP de votre organisation et améliorer les fonctionnalités d’opération de sécurité associées.
+
+Pour plus d’informations, consultez [Tutoriel : Déployer la solution Azure Sentinel pour SAP (préversion publique)](sap-deploy-solution.md).
+
+### <a name="threat-intelligence-integrations-public-preview"></a>Intégrations Threat Intelligence (préversion publique)
+
+Azure Sentinel vous offre différentes façons d’utiliser des flux de [renseignement sur les menaces](import-threat-intelligence.md) pour améliorer la capacité des analystes de la sécurité à détecter et hiérarchiser les menaces connues.
+
+Vous pouvez maintenant utiliser l’un des nombreux nouveaux produits de la plateforme décisionnelle intégrée (TIP) disponibles, vous connecter aux serveurs TAXII pour tirer parti de toute source de renseignement sur les menaces compatible avec STIX, et également utiliser les solutions personnalisées qui peuvent communiquer directement avec [l’API Microsoft Graph Security tiIndicators](/graph/api/resources/tiindicator).
+
+Vous pouvez également vous connecter à des sources de renseignement sur les menaces à partir de playbooks, afin d’enrichir les incidents avec des informations IT qui peuvent aider à effectuer des investigations et à exécuter des actions de réponse.
+
+Pour plus d’informations, consultez [Intégration Threat Intelligence dans Azure Sentinel](threat-intelligence-integration.md).
+
+### <a name="fusion-over-scheduled-alerts-public-preview"></a>Fusion sur les alertes planifiées (préversion publique)
+
+Le moteur de corrélation de Machine Learning **Fusion** peut désormais détecter les attaques multiphases à l’aide d’alertes générées par un ensemble de [règles analytiques planifiées](tutorial-detect-threats-custom.md) dans ses corrélations, en plus des alertes importées à partir d’autres sources de données.
+
+Pour plus d’informations, consultez [Détection avancée des attaques multiphases dans Azure Sentinel](fusion.md).
+
+### <a name="soc-ml-anomalies-public-preview"></a>Anomalies SOC-ML (préversion publique)
+
+Les anomalies basées sur le Machine Learning SOC-ML d’Azure Sentinel peuvent identifier un comportement inhabituel susceptible d’échapper à la détection.
+
+SOC-ML utilise des modèles de règle analytique qui peuvent être mis en place et fonctionner immédiatement. Même si les anomalies n’indiquent pas nécessairement un comportement malveillant ou suspect, elles peuvent être utilisées pour améliorer la fidélité des détections, des investigations et de la recherche de menaces.
+
+Pour plus d’informations, consultez [Utiliser des anomalies SOC-ML pour détecter les menaces dans Azure Sentinel](soc-ml-anomalies.md).
+
+### <a name="ip-entity-page-public-preview"></a>Page Entité IP (préversion publique)
+
+Azure Sentinel prend désormais en charge l’entité d’adresse IP, et vous pouvez désormais afficher les informations d’entité IP dans la nouvelle page Entité IP.
+
+À l’instar des pages d’entité utilisateur et hôte, la page IP contient des informations générales sur l’adresse IP, une liste des activités auxquelles l’adresse IP a participé, et bien plus encore, vous offrant une banque d’informations encore plus riche pour améliorer votre investigation des incidents de sécurité.
+
+Pour plus d’informations, consultez [Pages d’entité](identify-threats-with-entity-behavior-analytics.md#entity-pages).
+
+### <a name="activity-customization-public-preview"></a>Personnalisation d’activité (préversion publique)
+
+Concernant les pages d’entité, vous pouvez désormais créer des activités personnalisées pour vos entités, qui seront suivies et affichées sur leurs pages d’entité respectives, en plus des activités prêtes à l’emploi dont vous disposez déjà.
+
+Pour plus d’informations, consultez [Personnaliser les activités sur les chronologies des pages d’entité](customize-entity-activities.md).
+
+### <a name="hunting-dashboard-public-preview"></a>Tableau de bord de repérage (préversion publique)
+
+Le panneau **Hunting** (Repérage) a été actualisé. Le nouveau tableau de bord vous permet d’exécuter toutes vos requêtes, ou un sous-ensemble sélectionné, en un seul clic.
+
+Identifiez où commencer le repérage en examinant le nombre de résultats, les pics ou la modification du nombre de résultats sur une période de 24 heures. Vous pouvez également trier et filtrer par favoris, source de données, tactique et technique MITRE ATT&CK, résultats ou delta de résultat. Affichez les requêtes qui n’ont pas encore les sources de données nécessaires connectées et recevez des recommandations sur la façon d’activer ces requêtes.
+
+Pour plus d’informations, consultez [Repérer les menaces avec Azure Sentinel](hunting.md).
+
+### <a name="azure-sentinel-incident-team---collaborate-in-microsoft-teams-public-preview"></a>Équipe d’incident - Azure Sentinel - Collaborer avec Microsoft Teams (préversion publique)
+
+Azure Sentinel prend désormais en charge une intégration directe avec Microsoft Teams, ce qui vous permet de collaborer en toute transparence au sein de l’organisation et avec des parties prenantes externes.
+
+Directement à partir de l’incident dans Azure Sentinel, créez une nouvelle *équipe d’incident* à utiliser pour la communication et la coordination centralisées.
+
+Les équipes d’incident sont particulièrement utiles lorsqu’elles sont utilisées en tant que pont de conférence dédié pour les incidents à gravité élevée en cours. Les organisations qui utilisent déjà Microsoft Teams pour la communication et la collaboration peuvent utiliser l’intégration Azure Sentinel pour intégrer des données de sécurité directement dans leurs conversations et leurs tâches quotidiennes.
+
+Dans Microsoft Teams, l’onglet **page Incident** de la nouvelle équipe contient toujours les données les plus récentes et à jour d’Azure Sentinel, garantissant ainsi que les données les plus pertinentes sont disponibles pour vos équipes.
+
+[ ![Page Incident dans Microsoft Teams.](media/collaborate-in-microsoft-teams/incident-in-teams.jpg) ](media/collaborate-in-microsoft-teams/incident-in-teams.jpg#lightbox)
+
+Pour plus d’informations, consultez [Collaborer dans Microsoft Teams (préversion publique)](collaborate-in-microsoft-teams.md).
 
 ### <a name="zero-trust-tic30-workbook"></a>Classeur Confiance Zéro (TIC 3.0)
 
@@ -401,42 +487,6 @@ Azure Sentinel utilise l’agent Log Analytics pour envoyer des événements à 
 > 
 
 Pour plus d’informations, consultez la [documentation Log Analytics](../azure-monitor/agents/log-analytics-agent.md) et les [notes de publication sur l’agent Log Analytics](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
-## <a name="november-2020"></a>Novembre 2020
-
-- [Superviser l’intégrité de vos playbooks dans Azure Sentinel](#monitor-your-playbooks-health-in-azure-sentinel)
-- [Connecteur Microsoft 365 Defender (préversion publique)](#microsoft-365-defender-connector-public-preview)
-
-### <a name="monitor-your-playbooks-health-in-azure-sentinel"></a>Superviser l’intégrité de vos playbooks dans Azure Sentinel
-
-Les playbooks Azure Sentinel sont basés sur des workflows intégrés à [Azure Logic Apps](../logic-apps/index.yml), service cloud qui vous permet de planifier, d’automatiser et d’orchestrer des tâches, des processus métier et des workflows. Les playbooks peuvent être appelés automatiquement lors de la création d’un incident ou lors du tri et de l’utilisation d’incidents. 
-
-Pour fournir des insights sur l’intégrité, les performances et l’utilisation de vos playbooks, nous avons ajouté un [workbook](../azure-monitor/visualize/workbooks-overview.md) nommé **Supervision de l’intégrité des playbooks**. 
-
-Utilisez le workbook **Supervision de l’intégrité des playbooks** pour superviser l’intégrité de vos playbooks ou rechercher des anomalies dans le nombre d’exécutions réussies ou ayant échoué. 
-
-Le workbook **Supervision de l’intégrité des playbooks** est maintenant disponible dans la galerie des modèles Azure Sentinel :
-
-:::image type="content" source="media/whats-new/playbook-monitoring-workbook.gif" alt-text="Exemple du workbook Supervision de l’intégrité des playbooks":::
-
-Pour plus d'informations, consultez les pages suivantes :
-
-- [Documentation Logic Apps](../logic-apps/monitor-logic-apps-log-analytics.md#set-up-azure-monitor-logs)
-
-- [Documentation Azure Monitor](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace)
-
-### <a name="microsoft-365-defender-connector-public-preview"></a>Connecteur Microsoft 365 Defender (préversion publique)
- 
-Le connecteur Microsoft 365 Defender pour Azure Sentinel vous permet d’envoyer en streaming des journaux de chasse avancée (un type de données d’événement brutes) de Microsoft 365 Defender vers Azure Sentinel. 
-
-Avec l’intégration de [Microsoft Defender for Endpoint (MDATP)](/windows/security/threat-protection/) dans le cadre de la sécurité [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection), vous pouvez désormais collecter vos événements de chasse avancée Microsoft Defender for Endpoint à l’aide du connecteur Microsoft 365 Defender et les envoyer en streaming directement dans de nouvelles tables dédiées de votre espace de travail Azure Sentinel. 
-
-Les tables Azure Sentinel sont générées sur le même schéma que celui utilisé dans le portail Microsoft 365 Defender et vous fournissent un accès complet à l’ensemble des journaux de chasse avancée. 
-
-Pour plus d’informations, consultez [Connecter des données de Microsoft 365 Defender à Azure Sentinel](connect-microsoft-365-defender.md).
-
-> [!NOTE]
-> Microsoft 365 Defender était anciennement connu sous le nom de Protection Microsoft contre les menaces ou MTP. Microsoft Defender for Endpoint était précédemment appelé Microsoft Defender Advanced Threat Protection, ou MDATP.
-> 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

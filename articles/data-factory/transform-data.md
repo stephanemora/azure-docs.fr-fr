@@ -7,12 +7,12 @@ author: nabhishek
 ms.author: abnarain
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 0a1eb593e9f9f15f88aefb2fe06706153a4b74a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44fc791fd10517ee52fc2e05ea292b889bd95e11
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361398"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110496850"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformer des données dans Azure Data Factory
 
@@ -26,6 +26,7 @@ ms.locfileid: "100361398"
 > * [Azure Machine Learning Studio (classique)](transform-data-using-machine-learning.md) 
 > * [Procédure stockée](transform-data-using-stored-procedure.md)
 > * [Langage U-SQL du service Analytique Data Lake](transform-data-using-data-lake-analytics.md)
+> * [Notebook Synapse](../synapse-analytics/synapse-notebook-activity.md)
 > * [Databricks Notebook](transform-data-databricks-notebook.md)
 > * [Databricks Jar](transform-data-databricks-jar.md)
 > * [Databricks Python](transform-data-databricks-python.md)
@@ -79,6 +80,10 @@ Vous pouvez utiliser l’activité Procédure stockée SQL Server dans un pipel
 
 ### <a name="data-lake-analytics-u-sql-activity"></a>Activité U-SQL Data Lake Analytics
 L’activité U-SQL Data Lake Analytics exécute un script U-SQL sur un cluster Azure Data Lake Analytics. Consultez l’article [Activité U-SQL Data Analytics](transform-data-using-data-lake-analytics.md) pour plus de détails. 
+
+### <a name="synapse-notebook-activity"></a>Activité de notebook Synapse 
+
+L’activité du notebook Azure Synapse dans un pipeline Synapse exécute un notebook Synapse dans votre espace de travail Azure Synapse. Consultez [Transformer des données en exécutant un notebook Synapse](../synapse-analytics/synapse-notebook-activity.md).
 
 ### <a name="databricks-notebook-activity"></a>Activité Databricks Notebook
 

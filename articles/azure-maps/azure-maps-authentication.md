@@ -4,18 +4,18 @@ titleSuffix: Azure Maps
 description: 'Découvrez les deux méthodes d’authentification des requêtes dans Azure Maps : authentification par clé partagée et authentification Azure Active Directory (Azure AD).'
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 05/25/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9c973859c8b7a3d04693946f50377837c3538b85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3f594f910a6645a3a1a0cc8e71afcb65cac8735
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101094101"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616357"
 ---
 # <a name="authentication-with-azure-maps"></a>Authentification avec Azure Maps
 
@@ -30,8 +30,8 @@ Azure Maps prend en charge deux méthodes pour authentifier les requêtes : Aut
 
 Pour plus d’informations sur l’affichage de vos clés dans le portail Azure, consultez [Gérer l’authentification](./how-to-manage-authentication.md#view-authentication-details).
 
-> [!TIP]
-> Pour des raisons de sécurité, il est recommandé de permuter vos clés principale et secondaire. Pour permuter les clés, mettez à jour votre application pour utiliser la clé secondaire, déployez, puis appuyez sur le bouton cycle/actualiser en regard de la clé principale pour générer une nouvelle clé principale. L’ancienne clé principale est désactivée. Pour plus d’informations sur la permutation des clés, consultez [Configurer Azure Key Vault avec la permutation des clés et l’audit](../key-vault/secrets/tutorial-rotation-dual.md)
+> [!NOTE]
+> Les clés primaires et secondaires doivent être traitées comme des données sensibles. La clé partagée est utilisée pour authentifier toutes les API REST Azure Maps.  Les utilisateurs qui utilisent une clé partagée doivent faire abstraction de la clé API, soit via des variables d’environnement, soit un stockage secret sécurisé, où elles peuvent être gérées de manière centralisée.
 
 ## <a name="azure-ad-authentication"></a>Authentification Azure AD
 
@@ -80,9 +80,9 @@ Pour plus d’informations sur l’affichage de votre ID client, consultez [Voir
 
 ## <a name="authorization-with-role-based-access-control"></a>Autorisation avec contrôle d’accès en fonction du rôle
 
-Azure Maps prend en charge l’accès à tous les types de principaux pour le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md), notamment les utilisateurs Azure AD, les groupes, les applications, les ressources Azure et les identités managées Azure. Un jeu d’autorisations, également appelé définition de rôle, est accordé aux types de principaux. Une définition de rôle fournit des autorisations pour les actions de l’API REST. L’application de l’accès à un ou plusieurs comptes Azure Maps est appelée « étendue ». Lors de l’application d’un principal, d’une définition de rôle et d’une étendue, une attribution de rôle est créée. 
+Azure Maps prend en charge l’accès à tous les types de principaux pour le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md), notamment les utilisateurs Azure AD, les groupes, les applications, les ressources Azure et les identités managées Azure. Un jeu d’autorisations, également appelé définition de rôle, est accordé aux types de principaux. Une définition de rôle fournit des autorisations pour les actions de l’API REST. L’application de l’accès à un ou plusieurs comptes Azure Maps est appelée « étendue ». Lors de l’application d’un principal, d’une définition de rôle et d’une étendue, une attribution de rôle est créée.
 
-Les sections ci-après traitent des concepts et des composants de l’intégration d’Azure Maps à Azure RBAC. Dans le cadre du processus de configuration de votre compte Azure Maps, un annuaire Azure AD est associé à l’abonnement Azure dans lequel réside le compte Azure Maps. 
+Les sections ci-après traitent des concepts et des composants de l’intégration d’Azure Maps à Azure RBAC. Dans le cadre du processus de configuration de votre compte Azure Maps, un annuaire Azure AD est associé à l’abonnement Azure, dans lequel réside le compte Azure Maps.
 
 Quand vous configurez Azure RBAC, vous choisissez un principal de sécurité et l’appliquez à une attribution de rôle. Pour découvrir comment ajouter des attributions de rôles dans le portail Azure, consultez [Attribuer des rôles Azure](../role-based-access-control/role-assignments-portal.md).
 

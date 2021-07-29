@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/06/2020
+ms.date: 06/11/2021
 ms.author: victorh
-ms.openlocfilehash: f7196c7715ad5d2c02759040b780b96218e1655e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f28092c050e58c6ef90a3faf07034be21198008a
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94695943"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017196"
 ---
 # <a name="use-fqdn-filtering-in-network-rules"></a>Utiliser le filtrage de nom de domaine complet dans les règles de réseau
 
@@ -32,8 +32,9 @@ Quand une nouvelle résolution DNS prend place, de nouvelles adresses IP sont aj
 - Le filtrage de nom de domaine complet dans les règles d’application pour HTTP/S et MSSQL est basé sur un proxy transparent au niveau de l’application et sur l’en-tête SNI. Par conséquent, il peut discerner deux noms de domaine complets qui sont résolus sur la même adresse IP. Ce n’est pas le cas avec le filtrage de nom de domaine complet dans les règles de réseau. 
 
    Utilisez des règles d’application lorsque cela est possible :
-     - Si le protocole est HTTP/S ou MSSQL, utilisez des règles d’application pour le filtrage de nom de domaine complet.
-   - Pour tous les protocoles autres que HTTP/S ou MSSQL, vous pouvez utiliser des règles d’application ou de réseau pour le filtrage de nom de domaine complet.
+  - Si le protocole est HTTP/S ou MSSQL, utilisez des règles d’application pour le filtrage de nom de domaine complet.
+  - Pour les services tels que AzureBackup, HDInsight, etc., utilisez des règles d’application avec des étiquettes de nom de domaine complet.
+  - Pour tout autre protocole, vous pouvez utiliser des règles réseau pour le filtrage FQDN.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

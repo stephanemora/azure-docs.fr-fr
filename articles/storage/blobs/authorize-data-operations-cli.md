@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 53ad6dd922c1ccebd79aebcd2966b23b38de00e7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d02d18bec76578ec93d238d6dba284a8447428e9
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776894"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901648"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-with-azure-cli"></a>Choisir comment autoriser l’accès à des données blob avec Azure CLI
 
@@ -46,7 +46,7 @@ Pour utiliser le paramètre `--auth-mode`, assurez-vous qu’Azure CLI version 2
 
 Quand vous vous connectez à Azure CLI avec des informations d’identification Azure AD, un jeton d’accès OAuth 2.0 est retourné. Ce jeton est utilisé automatiquement par Azure CLI pour autoriser les opérations de données suivantes sur le Stockage Blob ou File d’attente. Pour les opérations prises en charge, vous n’avez plus besoin de fournir une clé de compte ou le jeton SAP avec la commande.
 
-Vous pouvez attribuer des autorisations sur les données Blob à un principal de sécurité Azure AD via le contrôle d’accès Azure en fonction du rôle (RBAC). Pour plus d’informations sur les rôles Azure dans Stockage Azure, consultez [Gérer les droits d’accès aux données Stockage Azure avec Azure RBAC](../common/storage-auth-aad-rbac-portal.md).
+Vous pouvez attribuer des autorisations sur les données Blob à un principal de sécurité Azure AD via le contrôle d’accès Azure en fonction du rôle (RBAC). Pour plus d’informations sur les rôles Azure dans Azure Storage, consultez [Attribuer un rôle Azure pour l’accès aux données d’objet blob](assign-azure-role-data-access.md).
 
 ### <a name="permissions-for-calling-data-operations"></a>Autorisations pour appeler des opérations de données
 
@@ -58,7 +58,7 @@ Pour plus d’informations sur les autorisations requises pour chaque opération
 
 L’exemple suivant montre comment créer un conteneur à partir d’Azure CLI à l’aide de vos informations d’identification Azure AD. Pour créer le conteneur, vous devez vous connecter à Azure CLI et aurez besoin d’un groupe de ressources et d’un compte de stockage. Pour savoir comment créer ces ressources, voir [Démarrage rapide : Créer, télécharger et lister des objets blob avec Azure CLI](../blobs/storage-quickstart-blobs-cli.md).
 
-1. Avant de créer le conteneur, attribuez-vous le rôle [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles Azure, consultez [Utiliser le Portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../common/storage-auth-aad-rbac-portal.md).
+1. Avant de créer le conteneur, attribuez-vous le rôle [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles Azure, consultez [Attribuer un rôle Azure pour l’accès aux données d’objet blob](assign-azure-role-data-access.md).
 
     > [!IMPORTANT]
     > La propagation des attributions de rôles Azure peut prendre plusieurs minutes.
@@ -114,5 +114,5 @@ Vous pouvez spécifier des paramètres d’autorisation dans des variables d’e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Utiliser Azure CLI pour affecter un rôle Azure gérant l’accès à des données d’objet blob et de file d’attente](../common/storage-auth-aad-rbac-cli.md)
+- [Attribuer un rôle Azure pour l’accès aux données d’objet blob](assign-azure-role-data-access.md)
 - [Autoriser l’accès à des données blob et de files d’attente avec des identités managées pour les ressources Azure](../common/storage-auth-aad-msi.md)

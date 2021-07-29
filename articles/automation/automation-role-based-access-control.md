@@ -4,15 +4,15 @@ description: Cet article décrit comment utiliser le contrôle d’accès en fon
 keywords: rbac automation, contrôle d’accès en fonction du rôle, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 07/21/2020
+ms.date: 05/17/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0727d3342c73d9aa4d15e84aacb82bd8fea01d65
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 943fa65f114e46c80c8c1ef576f784f9117c9f79
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833577"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083797"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gérer la sécurité et les autorisations des rôles
 
@@ -262,14 +262,19 @@ Les sections suivantes décrivent les autorisations minimales nécessaires pour 
 
 La gestion des mises à jour s’étend à plusieurs services pour fournir son service. Le tableau suivant présente les autorisations nécessaires pour gérer les déploiements de gestion des mises à jour :
 
-|**Ressource**  |**Rôle**  |**Portée**  |
+|**Ressource** |**Rôle** |**Portée** |
 |---------|---------|---------|
-|Compte Automation     | Contributeur Log Analytics       | Compte Automation        |
-|Compte Automation    | Contributeur de machine virtuelle        | Groupe de ressources pour le compte        |
-|Espace de travail Log Analytics     | Contributeur Log Analytics| Espace de travail Log Analytics        |
-|Espace de travail Log Analytics |Lecteur Log Analytics| Abonnement|
-|Solution     |Contributeur Log Analytics         | Solution|
-|Machine virtuelle     | Contributeur de machine virtuelle        | Machine virtuelle        |
+|Compte Automation |Contributeur Log Analytics |Compte Automation |
+|Compte Automation |Contributeur de machine virtuelle  |Groupe de ressources pour le compte  |
+|Espace de travail Log Analytics  Contributeur Log Analytics|Espace de travail Log Analytics |
+|Espace de travail Log Analytics |Lecteur Log Analytics|Abonnement|
+|Solution |Contributeur Log Analytics |Solution|
+|Machine virtuelle |Contributeur de machine virtuelle |Machine virtuelle |
+|**Actions sur la machine virtuelle** | | |
+|Afficher l’historique de l’exécution de la planification des mises à jour ([Exécutions machine de la configuration Software Update](/rest/api/automation/softwareupdateconfigurationmachineruns)) |Lecteur |Compte Automation |
+|**Actions sur la machine virtuelle** |**Permission** | |
+|Créer une planification des mises à jour ([Configurations de Software Update](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.Compute/virtualMachines/write |Pour les groupes de ressources et les listes de machines virtuelles statiques |
+|Créer une planification des mises à jour ([Configurations de Software Update](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.OperationalInsights/workspaces/analytics/query/action |Pour l’ID de ressource d’espace de travail lors de l’utilisation d’une liste dynamique non Azure.|
 
 ## <a name="configure-azure-rbac-for-your-automation-account"></a>Configurer Azure RBAC pour votre compte Automation
 

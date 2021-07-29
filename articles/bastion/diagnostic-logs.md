@@ -1,18 +1,18 @@
 ---
 title: Activer et utiliser les journaux de ressources Azure Bastion
-description: Dans cet article, découvrez comment activer et utiliser les journaux de diagnostic Azure Bastion.
+description: Découvrez comment activer et utiliser les journaux de diagnostic Azure Bastion.
 services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 1e76fffd17ee565d4103ca8a7bf1523bbd16209d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58ad863c1133ee7be984fe723b567ce43a8ef6ad
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91445381"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534820"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>Activer et utiliser les journaux de ressources Bastion
 

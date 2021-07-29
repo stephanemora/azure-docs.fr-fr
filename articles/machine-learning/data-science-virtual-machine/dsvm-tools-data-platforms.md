@@ -9,12 +9,12 @@ author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
 ms.date: 04/29/2021
-ms.openlocfilehash: 52a431cae26d1d45534abd55f9de5357b31ecbea
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8e8920d2a2ebbf326c9d5d0aba100ad5352ca6c4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749462"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071197"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plateformes de données prises en charge sur la machine virtuelle DSVM
 
@@ -34,6 +34,10 @@ Les outils de plateforme de données pris en charge sur DSVM sont les suivants.
 
 > [!NOTE]
 > L’édition Développeur de SQL Server peut uniquement être utilisée à des fins de test et de développement. Vous avez besoin d’une licence ou de l’une des machines virtuelles SQL Server pour l’exécuter en production.
+
+> [!NOTE]
+> La prise en charge de Machine Learning Server autonome prendra fin le 1er juillet 2021. Nous allons le supprimer des images DSVM après le 30 juin. Les déploiements existants continueront d’avoir accès au logiciel, mais en raison de la date de fin du support, il n’y aura pas de prise en charge après le 1er juillet 2021.
+
 
 ### <a name="windows"></a>Windows
 
@@ -62,7 +66,7 @@ De plus, l’environnement DSVM est fourni avec des pilotes ODBC et JDBC pour co
 
 ### <a name="ubuntu"></a>Ubuntu
 
-Pour utiliser SQL Server Developer Edition sur une DSVM Ubuntu, vous devez d’abord l’installer. [Démarrage rapide : Installer SQL Server et créer une base de données sur Ubuntu](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu) vous explique comment.
+Pour utiliser SQL Server Developer Edition sur une DSVM Ubuntu, vous devez d’abord l’installer. [Démarrage rapide : Installer SQL Server et créer une base de données sur Ubuntu](/sql/linux/quickstart-install-connect-ubuntu) vous explique comment.
 
 
 

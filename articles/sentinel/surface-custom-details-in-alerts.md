@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 45f0ef5366d97c275c40d4d436020dbaf3501d42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 97cd4d51da70b9b1cca501c7f04a3b0ccfc51305
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102456145"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112059672"
 ---
 # <a name="surface-custom-event-details-in-alerts-in-azure-sentinel"></a>Faire apparaître des détails d'événements personnalisés dans les alertes d'Azure Sentinel 
 
@@ -39,13 +39,13 @@ La procédure détaillée ci-dessous fait partie de l'Assistant Création de rè
 
 1. Dans le menu de navigation d'Azure Sentinel, sélectionnez **Analytique**.
 
-1. Sélectionnez une règle de requête planifiée, puis cliquez sur **Modifier**. Ou créez une règle en cliquant sur **Créer &#10132; Règle de requête planifiée** en haut de l’écran.
+1. Sélectionnez une règle de requête planifiée, puis cliquez sur **Modifier**. Ou créez une règle en cliquant sur **Créer > Règle de requête planifiée** en haut de l’écran.
 
-1. Cliquez sur l'onglet **Définir la logique de la règle**.
+1. Cliquez sur l’onglet **Définir la logique de la règle**.
 
-1. Dans la section **Amélioration de l'alerte**, sélectionnez **Détails personnalisés**.
+1. Dans la section **Enrichissement des alertes (préversion)** , développez **Détails personnalisés**.
 
-    :::image type="content" source="media/surface-custom-details-in-alerts/alert-enhancement.png" alt-text="Rechercher et sélectionner des détails personnalisés":::
+    :::image type="content" source="media/surface-custom-details-in-alerts/alert-enrichment.png" alt-text="Rechercher et sélectionner des détails personnalisés":::
 
 1. Dans la section **Détails personnalisés** désormais développée, ajoutez les paires clé-valeur correspondant aux détails que vous souhaitez faire apparaître :
 
@@ -63,7 +63,7 @@ La procédure détaillée ci-dessous fait partie de l'Assistant Création de rè
 
     > [!NOTE]
     > 
-    >**Limites du service**
+    > **Limites du service**
     > - Vous pouvez définir **jusqu'à 20 détails personnalisés** au sein d'une même règle analytique.
     >
     > - La taille maximale de l'ensemble des détails personnalisés est de **2 Ko**.
@@ -71,4 +71,4 @@ La procédure détaillée ci-dessous fait partie de l'Assistant Création de rè
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à faire apparaître des détails personnalisés dans les alertes à l'aide des règles analytiques d'Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Obtenez une vue d’ensemble complète des [règles analytiques de requête planifiée](tutorial-detect-threats-custom.md).
-- Apprenez-en davantage sur les [entités dans Azure Sentinel](entities-in-azure-sentinel.md).
+- Apprenez-en davantage sur les [entités d'Azure Sentinel](entities-in-azure-sentinel.md).

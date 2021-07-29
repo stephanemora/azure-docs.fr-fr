@@ -3,12 +3,12 @@ title: Résoudre les problèmes de performances de registre
 description: Symptômes, causes et résolution des problèmes courants liés aux performances d’un registre
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 15129ebe1da2e52fac106a34863f609c440549ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8557c8c342919073099a14be91c743b65c4d7fbc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92148403"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069073"
 ---
 # <a name="troubleshoot-registry-performance"></a>Résoudre les problèmes de performances de registre
 
@@ -99,11 +99,11 @@ Liens connexes :
 
 Si vos autorisations d’accès aux ressources du registre le permettent, [vérifiez l’intégrité de l’environnement du registre](container-registry-check-health.md). Si des erreurs sont signalées, consultez les [Informations de référence sur les erreurs](container-registry-health-error-reference.md) pour trouver des solutions potentielles.
 
-Si la [collecte des journaux de ressources](container-registry-diagnostics-audit-logs.md) est activée dans le registre, consultez le journal ContainterRegistryRepositoryEvents. Ce journal stocke des informations sur des opérations telles que des événements d’envoi ou d’extraction. Interrogez le journal sur les [échecs d’opérations au niveau du référentiel](container-registry-diagnostics-audit-logs.md#repository-level-operation-failures). 
+Si la [collecte des journaux de ressources](monitor-service.md) est activée dans le registre, consultez le journal ContainterRegistryRepositoryEvents. Ce journal stocke des informations sur des opérations telles que des événements d’envoi ou d’extraction. Interrogez le journal sur les [échecs d’opérations au niveau du référentiel](monitor-service.md#repository-level-operation-failures). 
 
 Liens connexes :
 
-* [Journaux pour l’évaluation et l’audit de diagnostics](container-registry-diagnostics-audit-logs.md)
+* [Superviser Azure Container Registry](monitor-service.md)
 * [FAQ sur le registre de conteneurs](container-registry-faq.md)
 * [Meilleures pratiques pour Azure Container Registry](container-registry-best-practices.md)
 

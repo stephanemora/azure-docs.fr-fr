@@ -1,18 +1,18 @@
 ---
 title: Utilisation de machines virtuelles et de groupes de sécurité réseau dans Azure Bastion
-description: Vous pouvez utiliser des groupes de sécurité réseau avec Azure Bastion. En savoir plus sur les sous-réseaux requis pour cette configuration.
+description: Découvrez comment utiliser des groupes de sécurité réseau avec Azure Bastion.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: b6a0dee4c3fef1be4f4b9f910b4c6256b4924a2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84f32755a4838fbcb29b3d85d8308b5288d746ea
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101700216"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537902"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Utiliser l’accès au groupe de sécurité réseau et Azure Bastion
 

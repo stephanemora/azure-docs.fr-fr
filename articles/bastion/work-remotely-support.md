@@ -1,18 +1,18 @@
 ---
 title: 'Travail à distance avec Bastion : Azure Bastion'
-description: Cette page décrit comment tirer parti d’Azure Bastion pour travailler à distance dans le contexte de la pandémie de COVID-19.
+description: Découvrez comment utiliser Azure Bastion pour travailler à distance dans le contexte de la pandémie de COVID-19.
 services: bastion
 author: mialdrid
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mialdrid
-ms.openlocfilehash: 515a6f7175aee23c6f720258b7fdaefe76b3b5d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60709bf337c945d1ece7ecc5453350b0e126b046
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92077947"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110540347"
 ---
 # <a name="working-remotely-using-azure-bastion"></a>Travail à distance à l’aide d’Azure Bastion
 

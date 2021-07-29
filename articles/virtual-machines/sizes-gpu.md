@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 09d62ea5f2db77c14e8faff44de7fb3ce759c6fe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5cb1ec88c96a3e73352e71e81ea3489b5f0918de
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709733"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578998"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tailles de machine virtuelle à GPU optimisé
 
@@ -21,7 +21,7 @@ Les tailles de machine virtuelle au GPU optimisé sont des machines virtuelles s
 
 - Les tailles [Série NCv3](ncv3-series.md) et [Série NC T4_v3](nct4-v3-series.md) sont optimisées pour les applications à accélération GPU nécessitant beaucoup de ressources système. En voici quelques exemples : les applications et les simulations CUDA et OpenCL, l’intelligence artificielle et l’apprentissage profond (Deep Learning). La série NC T4 v3 est axée sur les charges de travail d’inférence comprenant le GPU Tesla T4 de NVIDIA et le processeur AMD EPYC2 Rome. Équipée du GPU Tesla V100 de NVIDIA, la série NCv3 est axée sur les charges de travail informatiques et IA à hautes performances.
 
-- La [série NDv2](ndv2-series.md) est axée sur les applications de Deep Learning avec montée en puissance et scale-out. La série NDv2 utilise NVIDIA Volta V100 le processeur Intel Xeon Platinum 8168 (Skylake).
+- La taille de la [série A100 v4](nda100-v4-series.md) est axée sur la formation poussée sur la montée en puissance et la montée en puissance parallèle et sur les applications HPC accélérées. La série A100 v4 utilise 8 processeurs graphiques NVIDIA A100 TensorCore, chacun étant disponible avec une connexion HDR 200 Gigabit Mellanox InfiniBand et 40 Go de mémoire GPU.
 
 - Les tailles des séries [NV](nv-series.md) et [NVv3](nvv3-series.md) sont optimisées et conçues pour la visualisation à distance, la diffusion en continu, les jeux, l’encodage et les scénarios de VDI utilisant des infrastructures comme OpenGL ou DirectX. Ces machines virtuelles reposent sur le GPU Tesla M60 de NVIDIA.
 

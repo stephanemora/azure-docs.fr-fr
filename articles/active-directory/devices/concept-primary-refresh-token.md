@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46cc8ef1158c02190f905cbe8eb1d12ea7be50a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c2a687dc1165b2eca52213811721b35e998a6d9
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644933"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033281"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Qu’est-ce qu’un jeton d’actualisation principal ?
 
@@ -122,7 +122,7 @@ Un PRT peut recevoir une revendication MFA (authentification multifacteur) dans 
 * **Authentification multifacteur pendant la connexion interactive WAM** : Pendant une demande de jeton via WAM, si un utilisateur doit avoir recours à l’authentification multifacteur pour accéder à l’application, le PRT renouvelé pendant cette interaction contient une revendication MFA.
    * Dans ce cas, la revendication MFA n’est pas actualisée en continu. Par conséquent, la durée de validité de l’authentification multifacteur est basée sur la durée de vie définie sur le répertoire.
    * Lorsqu’un PRT et un RT existants sont utilisés pour accéder à une application, le PRT et le RT sont considérés comme la première preuve d’authentification. Un nouveau AT sera requis avec une deuxième preuve et une revendication MFA imprimée. Cela génère également un nouveau PRT et RT.
-* **Authentification multifacteur pendant l’inscription d’un appareil** : Si un administrateur a configuré ses paramètres d’appareil dans Azure AD pour que [soit exigée une authentification multifacteur pour inscrire des appareils](device-management-azure-portal.md#configure-device-settings), l’utilisateur doit utiliser l’authentification multifacteur pour terminer l’inscription. Pendant ce processus, le PRT émis pour l’utilisateur reçoit la revendication MFA lors de l’inscription. Cette fonctionnalité s’applique uniquement à l’utilisateur qui a effectué l’opération de jointure, pas aux autres utilisateurs qui se connectent sur cet appareil.
+* **Authentification multifacteur pendant l’inscription d’un appareil** : Si un administrateur a configuré ses paramètres d’appareil dans Azure AD pour que [soit exigée une authentification multifacteur pour inscrire des appareils](device-management-azure-portal.md#configure-device-settings), l’utilisateur doit utiliser l’authentification multifacteur pour terminer l’inscription. Pendant ce processus, le PRT émis pour l’utilisateur reçoit la revendication MFA lors de l’inscription. Cette fonctionnalité s’applique uniquement au propriétaire enregistré de l’appareil, pas aux autres utilisateurs qui se connectent sur cet appareil.
    * Comme pour la connexion interactive WAM, la revendication MFA n’est pas mise à jour en continu. Par conséquent, la durée de validité de l’authentification multifacteur est basée sur la durée de vie définie sur le répertoire.
 
 Windows 10 gère une liste partitionnée de PRT pour chaque information d’identification. Par conséquent, il existe un PRT pour chacune : Windows Hello Entreprise, mot de passe ou carte à puce. Ce partitionnement garantit que les revendications MFA sont isolées selon les informations d’identification utilisées et qu’elles ne sont pas mélangées pendant les demandes de jeton.

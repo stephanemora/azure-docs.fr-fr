@@ -2,13 +2,13 @@
 title: Comptes de Stockage Azure et Batch
 description: Découvrez plus d’informations sur les comptes Azure Batch et leur utilisation du point de vue du développement.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 83108a265f91c9feef2fab424f1819939c2d58c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/25/2021
+ms.openlocfilehash: 3dd071a55e8605b8b5b1cf72c517c9304878e101
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896746"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452046"
 ---
 # <a name="batch-accounts-and-azure-storage-accounts"></a>Comptes de Stockage Azure et Batch
 
@@ -27,7 +27,7 @@ Vous pouvez créer un compte Batch à l’aide du [Portail Azure](batch-account-
 
 ## <a name="azure-storage-accounts"></a>Comptes de stockage Azure
 
-La plupart des solutions Batch utilisent Stockage Azure pour stocker les fichiers de ressources et les fichiers de sortie. Par exemple, vos tâches Batch (y compris les tâches standard, de démarrage, de préparation des travaux et de validation des travaux) spécifient généralement des fichiers de ressources se trouvant dans un compte de stockage. Les comptes de stockage stockent également les données traitées et toutes les données de sortie générées.
+La plupart des solutions Batch utilisent Stockage Azure pour stocker les [fichiers de ressources](resource-files.md) et les fichiers de sortie. Par exemple, vos tâches Batch (y compris les tâches standard, de démarrage, de préparation des travaux et de validation des travaux) spécifient généralement des fichiers de ressources se trouvant dans un compte de stockage. Les comptes de stockage stockent également les données traitées et toutes les données de sortie générées.
 
 Batch prend en charge les types de comptes Stockage Azure suivants :
 
@@ -38,6 +38,8 @@ Batch prend en charge les types de comptes Stockage Azure suivants :
 Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../storage/common/storage-account-overview.md).
 
 Vous pouvez associer un compte de stockage à votre compte Batch lorsque vous créez le compte Batch. Vous avez également la possibilité de le faire ultérieurement. Prenez en compte vos exigences en termes de coûts et de performances lorsque vous choisissez un compte de stockage. Par exemple, les options de compte de stockage Blob et GPv2 prennent en charge des [limites d’extensibilité et de capacité](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) plus importantes que celles des options GPv1. (Contactez le support technique Azure pour demander une augmentation de la limite de stockage.) Ces options de compte peuvent améliorer les performances des solutions Batch qui possèdent un certain nombre de tâches de lecture ou d’écriture s’exécutant simultanément sur le compte de stockage.
+
+Lorsqu’un compte de stockage est lié à un compte batch, il est considéré comme étant le *compte autostorage*. Un compte autostorage est nécessaire si vous envisagez d’utiliser la fonctionnalité [packages d’application](batch-application-packages.md), car elle est utilisée pour stocker les fichiers .zip du package d’application. Elle peut également être utilisée pour les [fichiers de ressources de tâche](resource-files.md#storage-container-name-autostorage); étant donné que le compte autostorage est déjà lié au compte batch, cela évite de devoir utiliser des URL de signature d’accès partagé (SAS) pour accéder aux fichiers de ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

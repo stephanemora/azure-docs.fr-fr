@@ -2,13 +2,13 @@
 title: Services et catégories pris en charge des journaux de ressources Azure Monitor
 description: Référence d’Azure Monitor Comprendre les services et le schéma d’événement pris en charge pour les journaux de ressource Azure.
 ms.topic: reference
-ms.date: 03/30/2021
-ms.openlocfilehash: b9bac212a8be040349a8d78c64d7beab291e1f9e
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.date: 05/26/2021
+ms.openlocfilehash: b45e478b11290002cb2445b1a57662bacba407dd
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108016016"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534424"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Catégories prises en charge pour les journaux de ressources Azure
 
@@ -76,6 +76,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
+|Audit|Audit|Oui|
 |HttpRequest|Requêtes HTTP|Oui|
 
 
@@ -202,6 +203,13 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |ChatOperational|Journaux de conversation opérationnels|Non|
 |SMSOperational|Journaux SMS opérationnels|Non|
 |Usage|Enregistrements d’utilisation|Non|
+
+
+## <a name="microsoftconnectedvehicleplatformaccounts"></a>Microsoft.ConnectedVehicle/platformAccounts
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|Journaux d’activité|Journaux MCVP|Oui|
 
 
 ## <a name="microsoftcontainerregistryregistries"></a>Microsoft.ContainerRegistry/registries
@@ -451,6 +459,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |EventRoutesOperation|EventRoutesOperation|Non|
 |ModelsOperation|ModelsOperation|Non|
 |QueryOperation|QueryOperation|Non|
+|ResourceProviderOperation|ResourceProviderOperation|Oui|
 
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
@@ -465,6 +474,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |PartitionKeyRUConsumption|PartitionKeyRUConsumption|Non|
 |PartitionKeyStatistics|PartitionKeyStatistics|Non|
 |QueryRuntimeStatistics|QueryRuntimeStatistics|Non|
+|TableApiRequests|TableApiRequests|Oui|
 
 
 ## <a name="microsofteventgriddomains"></a>Microsoft.EventGrid/domains
@@ -616,7 +626,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |KeyDeliveryRequests|Service de remise de clé|Non|
 
 
-## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationgateways
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
@@ -654,6 +664,14 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |---|---|---|
 |FrontdoorAccessLog|Journal des accès Frontdoor|Non|
 |FrontdoorWebApplicationFirewallLog|Journal de pare-feu d’applications web Frontdoor|Non|
+
+
+## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|LoadBalancerAlertEvent|Événements d’alerte d’équilibreur de charge|Non|
+|LoadBalancerProbeHealthStatus|État d’intégrité de la sonde d’équilibreur de charge|Non|
 
 
 ## <a name="microsoftnetworknetworksecuritygroups"></a>Microsoft.Network/networksecuritygroups
@@ -921,6 +939,19 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |BigDataPoolAppsEnded|Applications terminées pour le pool Big Data|Non|
 
 
+## <a name="microsoftsynapseworkspaceskustopools"></a>Microsoft.Synapse/workspaces/kustoPools
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|Commande|Commande|Oui|
+|FailedIngestion|Opérations d’ingestion ayant échoué|Oui|
+|IngestionBatching|Traitement par lot de l’ingestion|Oui|
+|Requête|Requête|Oui|
+|SucceededIngestion|Opérations d’ingestion réussies|Oui|
+|TableDetails|Détails de la table|Oui|
+|TableUsageStatistics|Statistiques d’utilisation de la table|Oui|
+
+
 ## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft.Synapse/workspaces/sqlPools
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
@@ -956,7 +987,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |AppServiceEnvironmentPlatformLogs|Journaux de plateforme de l’environnement App Service|Non|
 
 
-## <a name="microsoftwebsites"></a>microsoft.web/sites
+## <a name="microsoftwebsites"></a>Microsoft.Web/sites
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|

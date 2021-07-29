@@ -3,17 +3,17 @@ title: Sélectionner un type de disque pour les machines virtuelles Azure IaaS -
 description: Découvrez les types de disques Azure disponibles pour les machines virtuelles, notamment les disques Ultra, les disques SSD Premium, les disques SSD Standard et les disques HDD Standard.
 author: roygara
 ms.author: rogarana
-ms.date: 09/30/2020
+ms.date: 05/12/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 1a7e8e71e26af241d16095a5fa1e6a02a7e3d4c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 782d4d18e9b6ffc16c1d95a995cef806adc42904
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96500765"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083419"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quels sont les types de disque disponibles dans Azure ?
 
@@ -29,7 +29,7 @@ Le tableau suivant compare quatre types de disque managé : les disques Ultra, l
 |Scénario   |Charges de travail gourmandes en E/S, telles que le système [SAP HANA](workloads/sap/hana-vm-operations-storage.md), les bases de données de niveau supérieur (par exemple, SQL et Oracle), et autres charges de travail très lourdes en transactions.   |Charges de travail de production et sensibles aux performances   |Serveurs web, applications d’entreprise peu utilisées et Dev/Test   |Sauvegarde, non critique, accès peu fréquent   |
 |Taille maximale du disque   |65 536 gibioctets (Gio)    |32 767 Gio    |32 767 Gio   |32 767 Gio   |
 |Débit max.   |2 000 Mo/s    |900 Mo/s   |750 Mo/s   |500 Mo/s   |
-|Nb max. d’E/S par seconde   |160 000    |20 000   |6 000 / 750   |2 000   |
+|Nb max. d’E/S par seconde   |160 000    |20 000   |6 000 / 750   |2 000   |
 
 ## <a name="ultra-disk"></a>Disque Ultra
 
@@ -42,7 +42,7 @@ Lorsque vous approvisionnez un disque Ultra, vous pouvez configurer de manière 
 Voici certaines fonctionnalités clés des disques Ultra :
 
 - Capacité du disque : La capacité des disques Ultra va de 4 Gio à 64 Tio.
-- IOPS du disque : Les disques Ultra prennent en charge des limites d’IOPS de 300 IOPS/Gio, avec au maximum 160 000 IOPS par disque. Pour atteindre le nombre d’IOPS provisionné, vérifiez que le nombre d’IOPS du disque sélectionné est inférieur à la limite d’IOPS de la machine virtuelle. Le nombre minimal d’IOPS garanti par disque est de 2 IOPS/Gio avec une base de référence globale minimale de 100 IOPS. Par exemple, si vous avez un disque Ultra de 4 Gio, vous avez au minimum 100 IOPS au lieu de huit IOPS.
+- IOPS du disque : Les disques Ultra prennent en charge des limites d’IOPS de 300 IOPS/Gio, avec au maximum 160 000 IOPS par disque. Pour atteindre le nombre d’IOPS provisionné, vérifiez que le nombre d’IOPS du disque sélectionné est inférieur à la limite d’IOPS de la machine virtuelle. Le nombre minimal d’IOPS garanti par disque est de 1 IOPS/Gio avec une base de référence globale minimale de 100 IOPS. Par exemple, si vous avez un disque Ultra de 4 Gio, vous avez au minimum 100 IOPS au lieu de 8 IOPS.
 - Débit du disque : Avec les disques Ultra, la limite de débit d’un seul disque est de 256 Kio/s pour chaque IOPS provisionnée, avec au maximum 2 000 Mbits/s par disque (où 1 Mbits/s = 10^6 octets par seconde). Le débit minimal garanti par disque est de 4 Kio/s pour chaque IOPS provisionnée avec une base de référence globale minimale de 1 Mbits/s.
 - Avec les disques Ultra, vous pouvez changer les attributs de performances des disques (IOPS et débit) au moment de l’exécution, sans avoir à détacher ces derniers de la machine virtuelle. Une fois qu’une opération de redimensionnement de performances de disque est émise sur un disque, elle peut mettre jusqu’à une heure à être appliquée. Le nombre d’opérations de redimensionnement de performances pendant une période de 24 heures est limité à quatre. Une opération de redimensionnement de performances peut échouer si la capacité de la bande passante des performances est insuffisante.
 

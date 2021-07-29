@@ -1,17 +1,17 @@
 ---
-title: 'Résoudre les problèmes : Journaux Apache Hive saturant l’espace disque – Azure HDInsight'
+title: 'Résoudre les problèmes : Journaux Hive saturant l’espace disque Azure HDInsight'
 description: Cet article décrit la procédure de dépannage à suivre lorsque les journaux Apache Hive saturent l’espace disque sur les nœuds principaux dans Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: nisgoel
-ms.author: nisgoel
-ms.date: 10/05/2020
-ms.openlocfilehash: cd7e6a7f13f6cccb5be5d23d69c2a44fc655cf55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: kcheeeung
+ms.author: kecheung
+ms.date: 05/21/2021
+ms.openlocfilehash: f6e2deac6c5f5807618225f4afc208e091e7e004
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98930956"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578686"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Scénario : Journaux Apache Hive saturant l’espace disque sur les nœuds principaux dans Azure HDInsight
 
@@ -19,54 +19,65 @@ Cet article décrit la procédure à suivre pour résoudre les problèmes d’in
 
 ## <a name="issue"></a>Problème
 
-Sur un cluster Apache Hive/LLAP, des journaux indésirables occupent la totalité de l’espace disque sur les nœuds principaux. Cette situation risque de provoquer les problèmes suivants :
+Dans un cluster Apache Hive/LLAP HDI 4.0, des journaux indésirables occupent la totalité de l’espace disque sur les nœuds principaux. Cette situation risque de provoquer les problèmes suivants :
 
 - L’accès SSH échoue car il ne reste pas d’espace sur le nœud principal.
-- Ambari lève *ERREUR HTTP : 503 Service indisponible*.
 - Le redémarrage de HiveServer2 Interactive échoue.
-
-Les journaux `ambari-agent` comportent les entrées suivantes lorsque le problème se produit :
-```
-ambari_agent - Controller.py - [54697] - Controller - ERROR - Error:[Errno 28] No space left on device
-```
-```
-ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckReportFileHandler - ERROR - Can't write host check file at /var/lib/ambari-agent/data/hostcheck.result
-```
 
 ## <a name="cause"></a>Cause
 
-Dans les configurations Hive log4j avancées, la planification par défaut actuelle consiste à supprimer les fichiers de plus de 30 jours (date de dernière modification).
+La suppression automatique du journal Hive n’est pas configurée dans les configurations hive-log4j2 avancées. La limite de taille par défaut de 60 Go prend trop d’espace pour le modèle d’utilisation du client.
 
 ## <a name="resolution"></a>Résolution
 
 1. Accédez au résumé des composants Hive sur le portail Ambari, puis sélectionnez l’onglet **Configurations**.
 
-2. Accédez à la section `Advanced hive-log4j` dans **Paramètres avancés**.
+2. Accédez à la section `Advanced hive-log4j2` dans **Paramètres avancés**.
 
-3. Définissez le paramètre `appender.RFA.strategy.action.condition.age` sur l’âge de votre choix, dans cet exemple 14 jours : `appender.RFA.strategy.action.condition.age = 14D`.
-
-4. Si vous ne voyez aucun paramètre associé, ajoutez les suivants :
+3. Vérifiez que vous disposez de ces paramètres. Si vous ne voyez aucun paramètre associé, ajoutez les suivants :
     ```
     # automatically delete hive log
     appender.RFA.strategy.action.type = Delete
     appender.RFA.strategy.action.basePath = ${sys:hive.log.dir}
-    appender.RFA.strategy.action.condition.type = IfLastModified
-    appender.RFA.strategy.action.condition.age = 30D
-    appender.RFA.strategy.action.PathConditions.type = IfFileName
-    appender.RFA.strategy.action.PathConditions.regex = hive*.*log.*
+    appender.RFA.strategy.action.condition.type = IfFileName
+    appender.RFA.strategy.action.condition.regex = hive*.*log.*
+    appender.RFA.strategy.action.condition.nested_condition.type = IfAny
+    # Deletes logs based on total accumulated size, keeping the most recent
+    appender.RFA.strategy.action.condition.nested_condition.fileSize.type = IfAccumulatedFileSize
+    appender.RFA.strategy.action.condition.nested_condition.fileSize.exceeds = 60GB
+    # Deletes logs IfLastModified date is greater than number of days
+    #appender.RFA.strategy.action.condition.nested_condition.lastMod.type = IfLastModified
+    #appender.RFA.strategy.action.condition.nested_condition.lastMod.age = 30D
     ```
 
-5. Définissez `hive.root.logger` sur `INFO,RFA`, comme dans l’exemple suivant. Le paramètre par défaut est `DEBUG`, ce qui donne des journaux volumineux.
+4. Nous allons passer en revue trois options de base avec la suppression basée sur :
+- **Total Size**
+    - Remplacez `appender.RFA.strategy.action.condition.nested_condition.fileSize.exceeds` par une limite de taille de votre choix.
+
+- **Date**
+    - Vous pouvez également supprimer les marques de commentaire et changer les conditions. Ensuite, passez `appender.RFA.strategy.action.condition.nested_condition.lastMod.age` à l’âge de votre choix.
 
     ```
-    # Define some default values that can be overridden by system properties
-    hive.log.threshold=ALL
-    hive.root.logger=INFO,RFA
-    hive.log.dir=${java.io.tmpdir}/${user.name}
-    hive.log.file=hive.log
+    # Deletes logs based on total accumulated size, keeping the most recent 
+    #appender.RFA.strategy.action.condition.nested_condition.fileSize.type = IfAccumulatedFileSize 
+    #appender.RFA.strategy.action.condition.nested_condition.fileSize.exceeds = 60GB
+    # Deletes logs IfLastModified date is greater than number of days 
+    appender.RFA.strategy.action.condition.nested_condition.lastMod.type = IfLastModified 
+    appender.RFA.strategy.action.condition.nested_condition.lastMod.age = 30D
     ```
 
-6. Enregistrez les configurations et redémarrez les composants nécessaires.
+- **Combinaison de la taille totale et de la date**
+    - Vous pouvez combiner ces deux options en supprimer les marques de commentaire ci-dessous. Le log4j2 se comporte alors comme suit : démarrer la suppression des journaux lorsque l’une ou l’autre condition est remplie.
+    
+    ```
+    # Deletes logs based on total accumulated size, keeping the most recent 
+    appender.RFA.strategy.action.condition.nested_condition.fileSize.type = IfAccumulatedFileSize 
+    appender.RFA.strategy.action.condition.nested_condition.fileSize.exceeds = 60GB
+    # Deletes logs IfLastModified date is greater than number of days 
+    appender.RFA.strategy.action.condition.nested_condition.lastMod.type = IfLastModified 
+    appender.RFA.strategy.action.condition.nested_condition.lastMod.age = 30D
+    ```
+5. Enregistrez les configurations et redémarrez les composants nécessaires.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

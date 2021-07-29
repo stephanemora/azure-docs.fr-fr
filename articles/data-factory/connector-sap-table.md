@@ -6,13 +6,13 @@ ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/12/2021
-ms.openlocfilehash: 5a455def13bbf65d01f2f22972c18d39c2b15f3c
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.date: 05/26/2021
+ms.openlocfilehash: 6ab548c2b12d36e4b1741042a78c68112a93c8f3
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788118"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110580144"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copier des données d’une table SAP à l’aide d’Azure Data Factory
 
@@ -66,7 +66,7 @@ Pour utiliser ce connecteur de table SAP, vous devez effectuer les opérations s
 - L’utilisateur SAP utilisé dans le connecteur de table SAP Data Factory doit disposer des autorisations suivantes :
 
   - Autorisation d'utiliser des destinations RFC (Remote Function Call).
-  - Autorisations relatives à l’activité Exécuter de l’objet d’autorisation S_SDSAUTH. Vous pouvez vous reporter à la note SAP 40089 sur les objets d’autorisation majoritaires. Certains RFC sont requis par le connecteur NCo sous-jacent, par exemple RFC_FUNCTION_SEARCH. 
+  - Autorisations relatives à l’activité Exécuter de l’objet d’autorisation S_SDSAUTH. Vous pouvez vous reporter à la note SAP 460089 sur les objets d'autorisation majoritaires. Certains RFC sont requis par le connecteur NCo sous-jacent, par exemple RFC_FUNCTION_SEARCH. 
 
 ## <a name="get-started"></a>Bien démarrer
 

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 03/17/2021
+ms.date: 06/10/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 32893a29b0fa6a22ca0b9d9a64281f6fb5df1cae
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 668584c7c254c1d1f200050154256621ba220b5a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888617"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111981797"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Sécuriser un espace de travail Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -56,8 +56,8 @@ Azure Private Link vous permet de vous connecter à votre espace de travail à l
 
 Pour plus d’informations sur la configuration d’un espace de travail Private Link, consultez [Comment configurer Private Link](how-to-configure-private-link.md).
 
-> [!Warning]
-> La sécurisation d’un espace de travail avec des points de terminaison privés ne suffit pas à garantir une sécurité de bout en bout. Vous devez suivre les étapes décrites dans le reste de cet article et dans la série d’articles traitant des réseaux virtuels pour sécuriser des composants individuels de votre solution.
+> [!WARNING]
+> La sécurisation d’un espace de travail avec des points de terminaison privés ne suffit pas à garantir une sécurité de bout en bout. Vous devez suivre les étapes décrites dans le reste de cet article et dans la série d’articles traitant des réseaux virtuels pour sécuriser des composants individuels de votre solution. Par exemple, si vous utilisez un point de terminaison privé pour l’espace de travail, mais que votre compte de stockage Azure ne se trouve pas derrière le réseau virtuel, le trafic entre l’espace de travail et le stockage n’utilise pas le réseau virtuel pour la sécurité.
 
 ## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>Sécuriser des comptes de stockage Azure avec des points de terminaison de service
 
@@ -94,6 +94,9 @@ Pour utiliser le compte Stockage Azure de l’espace de travail d’un réseau v
 
    [![Le volet « Pare-feu et réseaux virtuels » du Portail Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
+> [!TIP]
+> Lorsque vous utilisez un point de terminaison de service, vous pouvez également désactiver l’accès public. Pour plus d’informations, consultez [Interdire l’accès en lecture public](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+
 ## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>Sécuriser des comptes de stockage Azure avec des points de terminaison privés
 
 Azure Machine Learning prend en charge les comptes de stockage configurés pour utiliser des points de terminaison de service ou de points de terminaison privés. Si le compte de stockage utilise des points de terminaison privés, vous devez configurer deux points de terminaison privés pour votre compte de stockage par défaut :
@@ -106,6 +109,8 @@ Pour configurer un point de terminaison privé pour un compte de stockage qui n�
 
 Pour plus d’informations, consultez [Utiliser des points de terminaison privés pour le stockage Azure](../storage/common/storage-private-endpoints.md)
 
+> [!TIP]
+> Lorsque vous utilisez un point de terminaison privé, vous pouvez également désactiver l’accès public. Pour plus d’informations, consultez [Interdire l’accès en lecture public](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 ## <a name="secure-datastores-and-datasets"></a>Sécuriser des magasins de données et des jeux de données
 
 Dans cette section, vous allez découvrir comment utiliser un magasin de données et des jeux de données pour l’expérience SDK avec un réseau virtuel. Pour plus d’informations sur l’expérience Studio, consultez [Utiliser Machine Learning Studio dans un réseau virtuel](how-to-enable-studio-virtual-network.md).
@@ -238,6 +243,8 @@ Une fois ces conditions remplies, procédez comme suit pour activer Azure Contai
     
     Pour plus d'informations, consultez les informations de référence disponibles sur la méthode [update()](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-).
 
+> [!TIP]
+> Quand ACR se trouve derrière un réseau virtuel, vous pouvez également [désactiver l’accès public](../container-registry/container-registry-access-selected-networks.md#disable-public-network-access) à celui-ci.
 ## <a name="next-steps"></a>Étapes suivantes
 
 Cet article est le deuxième volet d’une série de cinq articles sur les réseaux virtuels. Consultez les autres articles pour découvrir comment sécuriser un réseau virtuel :

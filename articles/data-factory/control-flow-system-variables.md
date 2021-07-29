@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: 0cb5c9cebc97f7afa0156550f70cd78c07b7b410
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 7e29bd82f9f72651ca0383c680c0b05860fe29b4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906221"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062233"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variables système prises en charge par Azure Data Factory
 
@@ -33,6 +33,9 @@ Ces variables système peuvent être référencées n’importe où dans le code
 | @pipeline().TriggerId|ID du déclencheur qui a appelé le pipeline. |
 | @pipeline().TriggerName|Nom du déclencheur qui a appelé le pipeline. |
 | @pipeline().TriggerTime|Heure de l’exécution du déclencheur qui a appelé le pipeline. Il s’agit de l’heure à laquelle le déclencheur s’est **réellement** déclenché pour appeler l’exécution du pipeline. Elle peut différer légèrement de l’heure planifiée du déclencheur.  |
+| @pipeline().GroupId | ID du groupe auquel appartient l’exécution du pipeline. |
+| @pipeline() __?__ .TriggeredByPipelineName | Nom du pipeline qui déclenche l’exécution du pipeline. Applicable lorsque l’exécution du pipeline est déclenchée par une activité ExecutePipeline. Donne la valeur _Null_ lorsqu’elle est utilisée dans d’autres circonstances. Notez le point d’interrogation après @pipeline() |
+| @pipeline() __?__ .TriggeredByPipelineRunId | ID d’exécution du pipeline qui déclenche l’exécution du pipeline. Applicable lorsque l’exécution du pipeline est déclenchée par une activité ExecutePipeline. Donne la valeur _Null_ lorsqu’elle est utilisée dans d’autres circonstances. Notez le point d’interrogation après @pipeline() |
 
 >[!NOTE]
 >Les variables système de date/heure liées aux déclencheurs (dans la portée du pipeline ou dans celle du déclencheur) retournent des dates UTC au format ISO 8601, par exemple `2017-06-01T22:20:00.4061448Z`.

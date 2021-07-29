@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: cbb84a4934eed4d258cf07772753315785f98019
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32fbdae5719e2f8e379b39076f8557b3db0d61ca
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99218160"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112020022"
 ---
 # <a name="net-c-code-samples-for-azure-cognitive-search"></a>Exemples de code (C#) .NET pour Recherche cognitive Azure
 
@@ -46,8 +46,9 @@ Les exemples de code de l’équipe Recherche cognitive illustrent les fonctionn
 
 | Exemples | Article  |
 |---------|-------------|
-| [démarrage rapide](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | Code source pour [Démarrage rapide : Créer un index de recherche](search-get-started-dotnet.md). Cet article traite du flux de travail de base pour la création, le chargement et l’interrogation d’un index de recherche à l’aide d’exemples de données. |
-| [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | [Guide pratique pour utiliser la bibliothèque de client .NET](search-howto-dotnet-sdk.md). Cet article présente le flux de travail de base, tout en décrivant plus en détail l’utilisation des API.  |
+| [démarrage rapide](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | Code source pour [Démarrage rapide : Créer un index de recherche](search-get-started-dotnet.md). Traite du flux de travail de base pour la création, le chargement et l’interrogation d’un index de recherche à l’aide d’exemples de données. |
+| [search-website](https://github.com/azure-samples/azure-search-dotnet-samples/tree/master/search-website) | Code source pour le [Tutoriel : Ajouter une recherche à des applications web](tutorial-csharp-overview.md). Illustre une application de recherche de bout en bout qui comprend un client enrichi plus des composants permettant d’héberger l’application et de gérer les requêtes de recherche.|
+| [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | [Guide pratique pour utiliser la bibliothèque de client .NET](search-howto-dotnet-sdk.md). Flux de travail de base, tout en décrivant plus en détail l’utilisation des API.  |
 | [DotNetHowToSynonyms](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)  | Code source pour [Exemple : Ajouter des synonymes en C#](search-synonyms-tutorial-sdk.md). Les listes de synonymes sont utilisées pour l’extension des requêtes, fournissant des termes externes à un index, qui peuvent être mis en correspondance. |
 | [DotNetToIndexers](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) | Code source pour [Tutoriel : Indexer des données Azure SQL à l’aide du SDK .NET](search-indexer-tutorial.md). Cet article montre comment configurer un indexeur Azure SQL qui a une planification, des mappages de champs et des paramètres.  |
 | [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)  | [Guide pratique pour configurer des clés gérées par le client pour le chiffrement des données](search-security-manage-encryption-keys.md). |

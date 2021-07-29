@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.collection: linux
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 05/12/2021
 ms.author: cynthn
-ms.openlocfilehash: adf6198cf12011c77fcf3f93d4b595ea433ddefd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb207b5ece190a4398c7b9ef15472db409ac4d71
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580383"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087793"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Ajouter un disque à une machine virtuelle Linux
 
@@ -71,7 +71,7 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0      50G
 ```
 
-`sdc` correspond au disque que nous recherchons, car il fait 50G. Si vous ne savez pas quel disque est basé uniquement sur la taille, vous pouvez accéder à la page des machines virtuelles du portail, sélectionner **Disques** et vérifier le numéro d'unité logique (LUN) du disque sous **Disques de données**. 
+`sdc` correspond au disque que nous recherchons, car il fait 50G. Si vous ajoutez plusieurs disques et ne savez pas quel disque est basé uniquement sur la taille, vous pouvez accéder à la page des machines virtuelles du portail, sélectionner **Disques** et vérifier le numéro d’unité logique (LUN) du disque sous **Disques de données**. Comparez le numéro LUN du portail au dernier nombre de la partie **HTCL** de la sortie, qui correspond au numéro d’unité logique (LUN).
 
 
 ### <a name="format-the-disk"></a>Formater le disque
@@ -151,16 +151,18 @@ Dans cet exemple, nous utilisons l'éditeur nano. Par conséquent, lorsque vous 
 > La console série de machine virtuelle Azure peut servir pour accéder à la console sur votre machine virtuelle si la modification de fstab a entraîné un échec de démarrage. Plus de détails dans la [documentation relative à la console série](/troubleshoot/azure/virtual-machines/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Prise en charge de TRIM/UNMAP pour Linux dans Azure
+
 Certains noyaux Linux prennent en charge les opérations TRIM/UNMAP pour ignorer les blocs inutilisés sur le disque. Cette fonctionnalité est particulièrement utile dans le stockage standard pour informer Azure que des pages supprimées ne sont plus valides et peuvent être ignorées. Elle peut vous permettre d’économiser de l’argent si vous créez des fichiers volumineux, puis que vous les supprimez.
 
 Il existe deux façons d’activer la prise en charge de TRIM sur votre machine virtuelle Linux. Comme d’habitude, consultez votre distribution pour connaître l’approche recommandée :
 
-* Utilisez l’option de montage `discard` dans */etc/fstab*, par exemple :
+- Utilisez l’option de montage `discard` dans */etc/fstab*, par exemple :
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,discard   1   2
     ```
-* Dans certains cas, l’option `discard` peut avoir un impact sur la performance. Vous pouvez également exécuter la commande `fstrim` manuellement à partir de la ligne de commande ou l’ajouter à votre crontab pour l’exécuter régulièrement :
+
+- Dans certains cas, l’option `discard` peut avoir un impact sur la performance. Vous pouvez également exécuter la commande `fstrim` manuellement à partir de la ligne de commande ou l’ajouter à votre crontab pour l’exécuter régulièrement :
 
     **Ubuntu**
 

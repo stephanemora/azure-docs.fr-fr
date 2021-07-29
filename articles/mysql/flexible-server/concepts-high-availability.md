@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 5b5e1491d7f76cd4cff76d0c9a1af4daa49fa483
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: e25412e502f10c80a55aeab215fddfd0cfc3f41b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812999"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471918"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Concepts de haute disponibilité dans le serveur flexible Azure Database pour MySQL (préversion)
 
@@ -59,6 +59,9 @@ Les applications sont connectées au serveur principal à l’aide du nom du ser
 
 ## <a name="failover-process"></a>Processus de basculement 
 Afin de préserver la continuité des activités, vous devez disposer d’un processus de basculement pour les événements planifiés et non planifiés. 
+
+>[!NOTE]
+> Utilisez toujours le nom de domaine complet (FQDN) pour vous connecter à votre serveur principal et évitez d’utiliser l’adresse IP pour vous connecter. En cas de basculement, une fois que le rôle de serveur principal et de secours est basculé, l’enregistrement A DNS peut être modifié, ce qui empêche l’application de se connecter au nouveau serveur principal si l’adresse IP est utilisée dans la chaîne de connexion. 
 
 ### <a name="planned-events"></a>Événements planifiés
 

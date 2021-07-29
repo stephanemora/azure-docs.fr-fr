@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: a008d7b26738b9552a7a43ab026391bd9afe0aa8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6aa21dda1f19335a542edf729135d55a9f3b9176
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96780941"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083473"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -37,7 +37,7 @@ Les sondes d’intégrité prennent en charge plusieurs protocoles. La disponibi
 >Consultez ce document dans son intégralité, y compris [les conseils de conception](#design) importants fournis ci-dessous pour créer un service fiable.
 
 >[!IMPORTANT]
->Les sondes d’intégrité d’un équilibreur de charge proviennent de l’adresse IP 168.63.129.16 et ne doivent pas être bloquées pour pouvoir annoter votre instance.  Consultez [adresse IP source de sonde](#probesource) pour plus d’informations.
+>Les sondes d’intégrité d’un équilibreur de charge proviennent de l’adresse IP 168.63.129.16 et ne doivent pas être bloquées pour pouvoir annoter votre instance.  Consultez [adresse IP source de sonde](#probesource) pour plus d’informations. Pour voir ce trafic de sondes au sein de votre instance back-end, consultez [ce forum aux questions](load-balancer-faqs.md#probes).
 
 >[!IMPORTANT]
 >Quel que soit le seuil du délai d'expiration configuré, les sondes d’intégrité de l’équilibreur de charge HTTP(S) analysent automatiquement une instance si le serveur retourne un code d’état qui n’est pas HTTP 200 OK ou si la connexion est interrompue par une réinitialisation TCP.

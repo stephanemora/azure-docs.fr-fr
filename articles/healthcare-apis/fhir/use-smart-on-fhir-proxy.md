@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: zxue
 ms.date: 04/02/2019
-ms.openlocfilehash: 64b46c5becbf3dcd5870481adf07a30022144c13
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 77f4d9fad9bca4d544277bc719f633779c920606
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112288412"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113769148"
 ---
 # <a name="tutorial-azure-active-directory-smart-on-fhir-proxy"></a>Tutoriel : Proxy SMART on FHIR Azure Active Directory
 
@@ -39,6 +39,23 @@ Une fois ces étapes terminées, vous devez disposer des éléments suivants :
 
 - Un serveur FHIR avec l’audience RGE définie sur `https://MYFHIRAPI.azurehealthcareapis.com`, où `MYFHIRAPI` est le nom de votre instance Azure API pour FHIR.
 - L’inscription d’une application cliente publique. Notez l’ID d’application de cette application cliente.
+
+### <a name="set-admin-consent-for-your-app"></a>Définir le consentement de l’administrateur pour votre application
+
+Pour utiliser SMART on FHIR, vous devez d’abord vous authentifier et autoriser l’application. La première fois que vous utilisez SMART on FHIR, vous devez également bénéficier du consentement administratif pour permettre à l’application d’accéder à vos ressources FHIR.
+
+Si vous ne disposez pas d’un rôle de propriété dans l’application, contactez le propriétaire de l’application et demandez-lui d’accorder le consentement de l’administrateur dans l’application. 
+
+Si vous disposez de privilèges d’administrateur, procédez comme suit pour accorder le consentement de l’administrateur directement. (Vous pouvez également accorder le consentement de l’administrateur ultérieurement quand vous y êtes invité dans l’application.) Vous pouvez effectuer les mêmes étapes pour ajouter d’autres utilisateurs en tant que propriétaires, afin qu’ils puissent afficher et modifier l’inscription de cette application.
+
+Pour vous ajouter vous-même ou un autre utilisateur en tant que propriétaire d’une application :
+
+1. Dans le portail Azure, accédez à Azure Active Directory.
+1. Dans le menu de gauche, sélectionnez **inscription de l’application**.
+1. Recherchez l’inscription de l’application que vous avez créée, puis sélectionnez-la.
+1. Dans le menu de gauche, sous **gérer**, sélectionnez **propriétaires**.
+1. Sélectionnez **Ajouter des propriétaires**, puis ajoutez vous-même ou l’utilisateur pour lequel vous souhaitez obtenir le consentement de l’administrateur.
+1. Sélectionnez **Enregistrer**.
 
 ## <a name="enable-the-smart-on-fhir-proxy"></a>Activer le proxy SMART on FHIR
 

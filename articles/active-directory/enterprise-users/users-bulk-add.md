@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 12/02/2020
+ms.date: 05/19/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c653f3e8583ef3aadff26cb2b7a3266555d313a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba10cad9db1431d9456120be5e7762ebb24953be
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96547812"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536289"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Créer des utilisateurs en bloc dans Azure Active Directory
 
@@ -36,6 +36,8 @@ Téléchargez et renseignez le modèle CSV de chargement en bloc pour vous aider
 
 > [!WARNING]
 > Si vous ajoutez une seule entrée dans le modèle CSV, vous devez conserver la ligne 3 et ajouter votre nouvelle entrée à la ligne 4.
+>
+> Veillez à ajouter l’extension de fichier « .csv » et à supprimer tous les espaces avant userPrincipalName, passwordProfile et accountEnabled.
 
 ### <a name="csv-template-structure"></a>Structure du modèle CSV
 

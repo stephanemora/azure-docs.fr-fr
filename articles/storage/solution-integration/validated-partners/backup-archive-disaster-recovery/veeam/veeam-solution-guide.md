@@ -4,23 +4,23 @@ titleSuffix: Azure Storage
 description: Donne une vue d’ensemble des facteurs à prendre en considération et des étapes à suivre pour utiliser Azure en tant que cible de stockage et emplacement de récupération pour Veeam Backup and Recovery
 author: karauten
 ms.author: karauten
-ms.date: 03/15/2021
+ms.date: 05/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 0b8bc0defd3314fcff691a049323201732644ff3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 334ae28c160a01032d5403e06f40846e8b9d9ed5
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589903"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839182"
 ---
 # <a name="backup-to-azure-with-veeam"></a>Sauvegarde sur Azure avec Veeam
 
 Cet article vous aide à intégrer une infrastructure Veeam avec le service Stockage Blob Azure. Il comprend des conditions préalables, des considérations, une implémentation et des conseils opérationnels. Cet article traite de l’utilisation d’Azure en tant que cible de sauvegarde hors site et site de récupération en cas d’incident empêchant le fonctionnement normal de votre site principal.
 
 > [!NOTE]
-> Veeam offre également une solution avec un objectif de temps de récupération (RTO) inférieur, la réplication Veeam. Celle-ci vous permet de disposer d’une machine virtuelle de secours qui peut vous aider à récupérer plus rapidement en cas d’incident dans un environnement de production Azure. Veeam dispose également d’outils dédiés pour sauvegarder les ressources Azure et Office 365. Ces fonctionnalités ne sont pas abordées dans ce document.
+> Veeam offre également une solution d’objectif de délai de récupération (RTO, Recovery Time objective) inférieure, la sauvegarde Veeam et la réplication avec prise en charge des charges de travail de solution VMware Azure. Celle-ci vous permet de disposer d’une machine virtuelle de secours qui peut vous aider à récupérer plus rapidement en cas d’incident dans un environnement de production Azure. Veeam offre également une restauration directe sur Microsoft Azure et d’autres outils dédiés pour sauvegarder les ressources Azure et Office 365. Ces fonctionnalités ne sont pas abordées dans ce document.
 
 ## <a name="reference-architecture"></a>Architecture de référence
 
@@ -39,7 +39,10 @@ Votre déploiement Veeam existant peut facilement s’intégrer à Azure en ajou
 | Objets blob Azure | v10a | v10a | N/A | 10a<sup>*</sup> |
 | Azure Files | v10a | v10a | N/A | 10a<sup>*</sup> |
 
-<sup>*</sup>La solution Veeam Backup and Replication prend en charge l’API REST uniquement pour Azure Data Box. Par conséquent, Azure Data Box Disk n’est pas pris en charge.
+Veeam offrait une prise en charge des fonctionnalités Azure ci-dessus dans les versions plus anciennes de son produit. Pour une expérience optimale, il est recommander d’utiliser la dernière version du produit.
+
+<sup>*</sup>La solution Veeam Backup and Replication prend en charge l’API REST uniquement pour Azure Data Box. Par conséquent, Azure Data Box Disk n’est pas pris en charge. Pour plus d’informations sur la prise en charge de Data Box, consultez [cette page](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=110).
+
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -114,17 +117,17 @@ Le paiement à l’utilisation peut être déconcertant pour des clients qui dé
 |Facteur de coût  |Coût mensuel  |
 |---------|---------|
 |100 To de données de sauvegarde sur stockage froid     |1 556,48 USD         |
-|2 To de nouvelles données écrites par jour x 30 jours     |72 USD pour les transactions          |
-|Total mensuel estimé     |1 628,48 USD         |
+|2 To de nouvelles données écrites par jour x 30 jours     |42 $ en transactions          |
+|Total mensuel estimé     |1 598,48 USD         |
 |---------|---------|
 |Restauration ponctuelle de 5 To localement via l’Internet public   | 527,26 USD         |
 
 > [!Note]
-> Cette estimation a été effectuée à l’aide de la Calculatrice de prix Azure en fonction du tarif du paiement à l’utilisation dans la région USA Est, et est basée sur la taille de bloc de 256 Ko par défaut de Veeam pour les transferts WAN. Il se peut que cet exemple ne corresponde pas à vos besoins.
+> Cette estimation a été effectuée à l’aide de la Calculatrice de prix Azure en fonction du tarif du paiement à l’utilisation dans la région USA Est, et est basée sur la taille de bloc de 512 Ko par défaut de Veeam pour les transferts WAN. Il se peut que cet exemple ne corresponde pas à vos besoins.
 
 ## <a name="implementation-guidance"></a>Conseils d’implémentation
 
-Cette section constitue un bref guide pour l’ajout du service Stockage Azure à un déploiement local de Veeam. Pour des instructions détaillées et des considérations relatives à la planification, consultez le [Guide de sauvegarde de Veeam Cloud Connect](https://helpcenter.veeam.com/docs/backup/cloud/cloud_backup.html?ver=100).
+Cette section constitue un bref guide pour l’ajout du service Stockage Azure à un déploiement local de Veeam. Pour obtenir des instructions détaillées et des considérations relatives à la planification, nous vous recommandons d’examiner les instructions Veeam suivantes pour le [niveau de capacité](https://helpcenter.veeam.com/docs/backup/vsphere/capacity_tier.html?ver=110).
 
 1. Ouvrez le portail Azure et recherchez **comptes de stockage**. Vous pouvez également cliquer sur l’icône de service par défaut.
 
@@ -136,11 +139,9 @@ Cette section constitue un bref guide pour l’ajout du service Stockage Azure �
 
     ![Montre les paramètres de compte de stockage dans le portail.](../media/account-create-1.png)
 
-3. Conservez les options de mise en réseau par défaut, puis accédez à **Protection des données**. Ici, vous pouvez choisir d’activer la suppression réversible qui vous permet de récupérer un fichier de sauvegarde supprimé par inadvertance au cours de la période de rétention définie, et vous offre une protection contre toute suppression accidentelle ou malveillante.
+3. Conservez pour l’instant les options de réseau et de protection des données par défaut. N’activez **pas** la suppression réversible pour les comptes de stockage qui stockent les niveaux de capacité Veeam.
 
-    ![Montre les paramètres de protection des données dans le portail.](../media/account-create-2.png)
-
-4. Ensuite, nous recommandons les paramètres par défaut de l’écran **Avancé** pour les cas d’usage de la sauvegarde sur Azure.
+ 4. Ensuite, nous recommandons les paramètres par défaut de l’écran **Avancé** pour les cas d’usage de la sauvegarde sur Azure.
 
     ![Montre l’onglet Paramètres avancés dans le portail.](../media/account-create-3.png)
 

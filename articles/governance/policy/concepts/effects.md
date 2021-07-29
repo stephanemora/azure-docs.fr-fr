@@ -3,12 +3,12 @@ title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
 ms.date: 04/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: a1f7d8584aada19e565aa4eff40c44f94b1bbaba
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6025451779ba04b3a20307d35ca8a939c7762d64
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752972"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474367"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -508,7 +508,7 @@ Lorsqu’un alias est spécifié, les vérifications supplémentaires suivantes 
 Si l’une de ces vérifications échoue, l’évaluation de la stratégie revient à la sous-propriété **conflictEffect** spécifiée.
 
 > [!IMPORTANT]
-> Il est recommandée que les définitions de Modify qui incluent des alias utilisent l’_audit_ **Effet de conflit** afin d’éviter les échecs de requêtes à l’aide de versions d’API où la propriété correspondantes n’est pas « modifiable ». Si le même alias se comporte différemment entre les versions d’API, des opérations Modify conditionnelles peuvent être utilisées pour déterminer l’opération Modify utilisée pour chaque version de l’API.
+> Il est recommandé que les définitions de Modify qui incluent des alias utilisent la propriété d'_effet de conflit_ **audit** pour éviter l'échec des requêtes utilisant des versions d'API où la propriété mappée n'est pas « modifiable ». Si le même alias se comporte différemment entre les versions d’API, des opérations Modify conditionnelles peuvent être utilisées pour déterminer l’opération Modify utilisée pour chaque version de l’API.
 
 Lorsqu’une définition de stratégie utilisant l’effet Modify est exécutée dans le cadre d’un cycle d’évaluation, elle n’apporte pas de modifications aux ressources qui existent déjà. Au lieu de cela, elle marque comme non conforme toute ressource qui répond à la condition **if**.
 

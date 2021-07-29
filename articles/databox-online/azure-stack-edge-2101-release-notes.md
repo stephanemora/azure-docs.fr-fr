@@ -1,6 +1,6 @@
 ---
-title: Notes de publication d’Azure Stack Edge Pro avec FPGA 2101 | Microsoft Docs
-description: Décrit les problèmes majeurs existants et les résolutions possibles pour la version 2101 d’Azure Stack Edge Pro.
+title: Notes de publication d’Azure Stack Edge Pro FPGA 2101 | Microsoft Docs
+description: Décrit les problèmes et résolutions critiques d’Azure Stack Edge Pro FPGA 2101.
 services: databox
 author: v-dalc
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 5c95da8d6ee88786ff983b4963c1cb96394886cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c8882706bdbb6719dbc2550df350096a4970fd8
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727547"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461219"
 ---
 # <a name="azure-stack-edge-pro-with-fpga-2101-release-notes"></a>Notes de publication d’Azure Stack Edge Pro avec FPGA 2101
 
-Les notes de publication suivantes identifient les problèmes critiques, résolus ou non, de la version 2101 d’Azure Stack Edge Pro avec un field programmable gate array (FPGA) intégré.
+Les notes de publication suivantes identifient les problèmes critiques, résolus ou non, de la version 2101 d’Azure Stack Edge Pro FGPA avec un field programmable gate array (FPGA) intégré.
 
 Les notes de publication sont constamment mises à jour. Les problèmes critiques nécessitant une solution de contournement sont ajoutés au fur et à mesure de leur découverte. Avant de déployer votre appareil Azure Stack Edge, lisez attentivement les informations contenues dans les notes de publication.  
 

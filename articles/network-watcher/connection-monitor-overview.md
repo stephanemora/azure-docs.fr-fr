@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 24c181c17e49fe5b7c3001c1cb2839bc957ef463
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: fe259c3858e798f9bcb72600b680f12c19055884
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490486"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470344"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Surveillance de la connectivité réseau à l’aide de Moniteur de connexion
 
@@ -97,7 +97,7 @@ Le script configure uniquement le pare-feu Windows en local. Si vous avez un par
 
 Tous les abonnements disposant d'un réseau virtuel sont activés avec Network Watcher. Lorsque vous créez un réseau virtuel sur votre abonnement, Network Watcher est automatiquement activé dans la région et sur l'abonnement correspondant à ce réseau virtuel. Cette activation automatique n'affecte pas vos ressources et n'entraîne pas de frais. Vérifiez que Network Watcher n’est pas explicitement désactivé dans votre abonnement. 
 
-Pour plus d’informations, consultez [Activer Network Watcher](./network-watcher-create.md).
+Assurez-vous que Network Watcher est [disponible pour votre région](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher&regions=all). Pour plus d’informations, consultez [Activer Network Watcher](./network-watcher-create.md).
 
 ## <a name="create-a-connection-monitor"></a>Créer un moniteur de connexion 
 
@@ -281,7 +281,7 @@ Utilisez Log Analytics pour créer des vues personnalisées de vos données de s
 
 #### <a name="metrics-in-azure-monitor"></a>Mesures dans Azure Monitor
 
-Dans les moniteurs de connexion créés avant le lancement de la fonctionnalité Moniteur de connexion, les quatre métriques suivantes sont disponibles : % Probes Failed, AverageRoundtripMs, ChecksFailedPercent (Préversion) et RoundTripTimeMs (Préversion). Dans les moniteurs de connexion créés à partir de la fonctionnalité Moniteur de connexion, les données sont uniquement disponibles pour les métriques portant l’étiquette *(Préversion)* .
+Dans les moniteurs de connexion créés avant le lancement de la fonctionnalité Moniteur de connexion, les quatre métriques suivantes sont disponibles : % Probes Failed, AverageRoundtripMs, ChecksFailedPercent et RoundTripTimeMs. Dans les moniteurs de connexion créés à partir de la fonctionnalité Moniteur de connexion, seules les données des métriques ChecksFailedPercent, RoundTripTimeMs et Test Result sont disponibles.
 
   :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Capture d’écran illustrant les métriques dans Moniteur de connexion" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
@@ -289,11 +289,11 @@ Lorsque vous utilisez des métriques, définissez le type de ressource sur Micro
 
 | Métrique | Nom complet | Unité | Type d’agrégation | Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent (classique) | % de sondes ayant échoué (classique) | Pourcentage | Average | Pourcentage de sondes de surveillance de connectivité ayant échoué | Aucune dimension |
-| AverageRoundtripMs (classique) | Avg. Durée d’aller-retour (ms) (classique) | Millisecondes | Average | Durée moyenne des boucles réseau pour les sondes de surveillance de la connectivité envoyées entre la source et la destination. |             Aucune dimension |
-| ChecksFailedPercent | % de vérifications ayant échoué | Pourcentage | Average | Pourcentage de vérifications ayant échoué pour un test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Région |
-| RoundTripTimeMs | Durée aller-retour (ms) | Millisecondes | Average | Durée des boucles pour les vérifications envoyées entre la source et la destination. Cette valeur ne fait pas l'objet d'une moyenne. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Région |
-| TestResult | Résultat de test | Count | Average | Résultat du test du moniteur de connexion | SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
+| ProbesFailedPercent (classique) | % de sondes ayant échoué (classique) | Pourcentage | Average | Pourcentage de sondes de surveillance de connectivité ayant échoué<br>Cette métrique est uniquement disponible pour le moniteur de connexion classique.  | Aucune dimension |
+| AverageRoundtripMs (classique) | Avg. Durée d’aller-retour (ms) (classique) | Millisecondes | Average | Durée moyenne des boucles réseau pour les sondes de surveillance de la connectivité envoyées entre la source et la destination.<br>Cette métrique est uniquement disponible pour le moniteur de connexion classique. |             Aucune dimension |
+| ChecksFailedPercent | % de vérifications ayant échoué | Pourcentage | Average | Pourcentage de vérifications ayant échoué pour un test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Région <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
+| RoundTripTimeMs | Durée aller-retour (ms) | Millisecondes | Average | Durée des boucles pour les vérifications envoyées entre la source et la destination. Cette valeur ne fait pas l'objet d'une moyenne. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Région <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
+| TestResult | Résultat de test | Count | Average | Résultat du test du moniteur de connexion <br>L'interprétation des valeurs de résultat est la suivante : <br>0 - Indéterminé <br>1 - Réussite <br>2 - Avertissement <br>3 - Échec| SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Alertes basées sur des métriques pour le Moniteur de connexion
 
@@ -304,8 +304,8 @@ Vous pouvez créer des alertes de métriques sur des moniteurs de connexion à l
 1. À partir d’Azure Monitor, pour créer une alerte dans Azure Monitor : 
     1. Choisissez la ressource de moniteur de connexion que vous avez créée dans Moniteur de connexion.
     1. Assurez-vous que **Métrique** apparaît comme type de signal pour le moniteur de connexion.
-    1. Dans **Ajouter une condition**, pour le **Nom du signal**, sélectionnez **ChecksFailedPercent (préversion)** ou **RoundTripTimeMs (préversion)** .
-    1. Pour le **Type de signal**, choisissez **Métriques**. Par exemple, sélectionnez **ChecksFailedPercent (préversion)** .
+    1. Dans **Ajouter une condition**, pour le **Nom du signal**, sélectionnez **ChecksFailedPercent** ou **RoundTripTimeMs**.
+    1. Pour le **Type de signal**, choisissez **Métriques**. Par exemple, sélectionnez **ChecksFailedPercent**.
     1. Toutes les dimensions de la métrique sont répertoriées. Choisissez le nom et la valeur de dimension. Par exemple, sélectionnez **Adresse source**, puis entrez l'adresse IP d'une source dans votre moniteur de connexion.
     1. Dans **Logique d'alerte**, renseignez les informations suivantes :
         * **Type de condition** : **Statique**.
@@ -364,6 +364,21 @@ Pour les réseaux dont les sources sont des machines virtuelles Azure, les probl
 * Le trafic a été interrompu à cause d'itinéraires système ou de règles UDR.
 * Le protocole BGP n'est pas activé sur la connexion à la passerelle.
 * La sonde DIP est en panne sur l'équilibreur de charge.
+
+## <a name="faq"></a>Forum aux questions
+
+### <a name="are-classic-vms-supported"></a>Les machines virtuelles classiques sont-elles prises en charge ?
+Non, le Moniteur de connexion ne prend pas en charge les machines virtuelles classiques. Nous vous recommandons de migrer les ressources IaaS du niveau classique à Azure Resource Manager en tant que ressources classiques [déconseillées](../virtual-machines/classic-vm-deprecation.md). Consultez cet article pour en savoir plus sur la [migration](../virtual-machines/migration-classic-resource-manager-overview.md).
+
+### <a name="my-topology-is-not-decorated-or-my-hops-have-missing-information"></a>Ma topologie n'est pas décorée ou mes tronçons présentent des informations manquantes.
+De non-Azure à Azure, la topologie ne peut être décorée que si la ressource Azure de destination et le moniteur de connexion se trouvent dans la même région. 
+
+### <a name="my-connection-monitor-creation-is-failing-with-error-we-dont-allow-creating-different-endpoints-for-the-same-vm"></a>La création de mon moniteur de connexion échoue avec l'erreur « Nous n'autorisons pas la création de différents points de terminaison pour la même machine virtuelle ».
+La même machine virtuelle Azure ne peut pas être utilisée avec différentes configurations dans le même moniteur de connexion. Par exemple, l'utilisation de la même machine virtuelle avec un filtre et sans filtre dans le même moniteur de connexion n'est pas prise en charge.
+
+### <a name="the-test-failure-reason-is-nothing-to-display"></a>Le motif de l'échec du test est « Rien à afficher ».
+Les problèmes affichés sur le tableau de bord du moniteur de connexion sont détectés lors de la découverte de la topologie ou de l'exploration des tronçons. Il peut arriver que le seuil fixé pour le % de perte ou le RTT soit dépassé, mais qu'aucun problème ne soit détecté au niveau des tronçons.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
     

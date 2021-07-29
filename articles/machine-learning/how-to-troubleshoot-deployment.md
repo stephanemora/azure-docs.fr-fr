@@ -10,12 +10,12 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 4d1bffd39fa474a5c973ca2b6fd45e9f59964e39
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: df2e47b75b4dd01274a2ec2c4f5b5acaac164ca0
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110098287"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536272"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Résolution des problèmes de déploiement de modèle distant 
 
@@ -84,6 +84,28 @@ print(service.get_logs())
 ## <a name="debug-locally"></a>Déboguer en local
 
 Si vous rencontrez des problèmes lors du déploiement d'un modèle sur ACI ou AKS, déployez-le en tant que service web local. L’utilisation d’un service web local facilite la résolution des problèmes. Pour résoudre les problèmes d’un déploiement localement, consultez [cet article](./how-to-troubleshoot-deployment-local.md).
+
+## <a name="azure-machine-learning-inference-http-server"></a>Serveur HTTP d’inférence Azure Machine Learning
+
+Le serveur d’inférence local vous permet de déboguer rapidement votre script d’entrée (`score.py`). Si un bogue affecte le script de scoring sous-jacent, le serveur ne pourra pas initialiser ou traiter le modèle. Au lieu de cela, il lèvera une exception là où les problèmes se sont produits. [Apprenez-en davantage sur le serveur HTTP d’inférence Azure Machine Learning](how-to-inference-server-http.md)
+
+1. Installez le package `azureml-inference-server-http` à partir du flux [pypi](https://pypi.org/) :
+
+    ```bash
+    python -m pip install azureml-inference-server-http
+    ```
+
+2. Démarrez le serveur et définissez `score.py` comme script d’entrée :
+
+    ```bash
+    azmlinfsrv --entry_script score.py
+    ```
+
+3. Envoyez une requête de scoring au serveur à l’aide de `curl` :
+
+    ```bash
+    curl -p 127.0.0.1:5001/score
+    ```
 
 ## <a name="container-cannot-be-scheduled"></a>Impossible de planifier le conteneur
 

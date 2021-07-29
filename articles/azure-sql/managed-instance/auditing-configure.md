@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: ae0d9696d869b2a260de643482a9f86c34bcc824
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be5face0a93dc360493e22fd3d2c6d9743c4f5ff
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575459"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072443"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Bien démarrer avec l’audit Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -144,7 +144,10 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
      1. Cliquez sur **OK** dans la boîte de dialogue **Créer un audit**.
      
-     1. <a id="createspec"></a>Après avoir configuré le conteneur d’objets blob comme cible pour les journaux d’audit, créez et activez une spécification d’audit du serveur ou une spécification d’audit de la base de données comme vous le feriez pour SQL Server :
+        > [!NOTE]
+        > Lorsque vous utilisez l’interface utilisateur SQL Server Management Studio pour créer un audit, les informations d’identification du conteneur avec la clé SAS sont automatiquement créées. 
+     
+     1.  <a id="createspec"></a>Après avoir configuré le conteneur d’objets blob comme cible pour les journaux d’audit, créez et activez une spécification d’audit du serveur ou une spécification d’audit de la base de données comme vous le feriez pour SQL Server :
 
    - [CREATE SERVER AUDIT SPECIFICATION (Transact-SQL)](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [CREATE DATABASE AUDIT SPECIFICATION (Transact-SQL)](/sql/t-sql/statements/create-database-audit-specification-transact-sql)

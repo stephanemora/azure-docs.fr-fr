@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4bf27ffc888e189f15e1c435309cbeddb1c11fec
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 865d82caebe72a0eba916a9d6d5f2e76ecd552ba
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830337"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536462"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Windows
 
@@ -94,7 +94,7 @@ Le runbook utilise les paramètres suivants.
 
 | Paramètre | Statut | Description |
 | ------- | ----- | ----------- |
-| `Location` | Obligatoire | Emplacement de l’espace de travail Log Analytics. |
+| `Location` | Obligatoire | Emplacement du compte Automation dans lequel le script est exécuté. |
 | `ResourceGroupName` | Obligatoire | Groupe de ressources du compte Automation. |
 | `AccountName` | Obligatoire | Nom du compte Automation dans lequel le Runbook Worker hybride sera inscrit. |
 | `CreateLA` | Obligatoire | Si la valeur est True, utilisez la valeur de `WorkspaceName` pour créer un espace de travail Log Analytics. Si la valeur est False, la valeur de `WorkspaceName` doit faire référence à un espace de travail existant. |

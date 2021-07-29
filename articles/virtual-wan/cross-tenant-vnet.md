@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: 82a5e90221a77b891df78984c7fddfd63b6532aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1aae5620f32b5680badc073d74d360b70b68a3b
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585415"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579869"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Connecter des réseaux virtuels inter-locataires à un hub Virtual WAN
 
@@ -54,7 +54,7 @@ Pour que l’abonnement parent doté du hub virtuel puisse accéder aux réseaux
 1. Ajoutez ensuite l’abonnement du locataire distant et l’abonnement du locataire parent à la session active de PowerShell. Exécutez la commande suivante : Si vous êtes connecté à l’abonnement parent, il vous suffit d’exécuter la commande pour le locataire distant.
 
    ```azurepowershell-interactive
-   Add-AzAccount -SubscriptionId "xxxxx-b34a-4df9-9451-4402dcaecc5b"
+   Connect-AzAccount -SubscriptionId "[subscription ID]" -TenantId "[tenant ID]"
    ```
 
 1. Vérifiez que l’attribution de rôle a réussi en vous connectant à Azure PowerShell à l’aide des informations d’identification du parent, et exécutez la commande suivante :
@@ -63,7 +63,7 @@ Pour que l’abonnement parent doté du hub virtuel puisse accéder aux réseaux
    Get-AzSubscription
    ```
 
-1. Si les autorisations ont été correctement diffusées au parent et ajoutées à la session, l’abonnement détenu par le locataire distant apparaît dans la sortie de la commande.
+1. Si les autorisations ont été correctement diffusées au parent et ajoutées à la session, les abonnements détenus par le parent **et** le locataire distant apparaîtront tous les deux dans la sortie de la commande.
 
 ## <a name="connect-vnet-to-hub"></a><a name="connect"></a>Connecter un réseau virtuel à un hub
 

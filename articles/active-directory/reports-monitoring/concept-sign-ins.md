@@ -17,14 +17,14 @@ ms.date: 05/06/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f52e0b82b8a5a06aec322456253eb044141b75
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 85c6d8520938ffc859a7116d1dc9e61cb26534e4
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108794284"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030554"
 ---
-# <a name="sign-ins-logs-in-azure-active-directory"></a>Journaux des connexions dans Azure Active Directory
+# <a name="sign-in-logs-in-azure-active-directory"></a>Journaux des connexions dans Azure Active Directory
 
 En tant qu’administrateur informatique, vous souhaitez savoir comment fonctionne votre environnement informatique. Les informations sur l’intégrité de votre système vous permettent d’évaluer si vous devez répondre aux problèmes potentiels et, le cas échéant, de quelle manière. 
 
@@ -76,7 +76,7 @@ Le rapport relatif à l'activité de connexion est disponible dans [toutes les �
 
 Le portail Azure vous offre plusieurs options pour accéder au journal. Par exemple, dans le menu Azure Active Directory, vous pouvez ouvrir le journal dans la section **Surveillance**.  
 
-![Ouvrir les journaux des connexions](./media/concept-sign-ins/sign-ins-logs-menu.png)
+![Ouvrir les journaux de connexion](./media/concept-sign-ins/sign-ins-logs-menu.png)
 
 En outre, vous pouvez accéder directement aux journaux des connexions à l’aide de ce lien : [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
@@ -214,7 +214,7 @@ Vous pouvez filtrer les données d’un journal pour les limiter à un niveau qu
 
 ## <a name="download-sign-in-activities"></a>Télécharger les activités de connexion
 
-Cliquez sur l’option **Télécharger** pour créer un fichier CSV ou JSON des 250 000 enregistrements les plus récents. Commencez par [télécharger les données de connexions](quickstart-download-sign-in-report.md) si vous souhaitez les utiliser en dehors du portail Azure.  
+Cliquez sur l’option **Télécharger** pour créer un fichier CSV ou JSON des 250 000 enregistrements les plus récents. Commencez par [télécharger les données de connexions](./howto-download-logs.md) si vous souhaitez les utiliser en dehors du portail Azure.  
 
 ![Télécharger](./media/concept-sign-ins/71.png "Téléchargement")
 
@@ -328,7 +328,6 @@ Vous pouvez également accéder par programme aux journaux d’activité de Micr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Codes d’erreur du rapport d’activité de connexion]()
 * [Stratégies de conservation des données Azure AD](reference-reports-data-retention.md)
 * [Latences de rapport Azure AD](reference-reports-latencies.md)
 * [Rapport sur les connexions des applications de Microsoft](/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)

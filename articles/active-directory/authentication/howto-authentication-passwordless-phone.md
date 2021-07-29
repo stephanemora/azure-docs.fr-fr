@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 05/20/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d586294f101c271f139867d0046576dc9a32f076
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: f741cb21f427734c49001b9c672ed3e61c43adbc
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861784"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613228"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Activer la connexion sans mot de passe avec l’application Microsoft Authenticator 
 
@@ -53,7 +53,7 @@ Les fonctionnalités d’inscription pour les méthodes d’authentification san
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Activer les méthodes d’authentification sans mot de passe par téléphone
 
-Azure AD vous permet de choisir les méthodes d’authentification qui peuvent être utilisées pendant le processus de connexion. Les utilisateurs s’inscrivent ensuite pour les méthodes qu’ils souhaitent utiliser.
+Azure AD vous permet de choisir les méthodes d’authentification qui peuvent être utilisées pendant le processus de connexion. Les utilisateurs s’inscrivent ensuite pour les méthodes qu’ils souhaitent utiliser. La stratégie de méthode d’authentification **Microsoft Authenticator** gère la méthode d’authentification multi-facteur traditionnelle, ainsi que la méthode d’authentification par mot de passe. 
 
 Pour activer la méthode d’authentification pour la connexion par téléphone sans mot de passe, effectuez les étapes suivantes :
 
@@ -64,7 +64,7 @@ Pour activer la méthode d’authentification pour la connexion par téléphone 
    1. **Cible** - Tous les utilisateurs ou les utilisateurs sélectionnés
 1. Chaque groupe ou utilisateur ajouté est activé par défaut pour utiliser Microsoft Authenticator dans les modes de notifications sans mot de passe et push (mode « Tout »). Pour modifier cela, pour chaque ligne :
    1. Accédez à **...**  > **Configurer**.
-   1. Pour **Mode d’authentification** : Tout, Sans mot de passe ou Push
+   1. Pour le **Mode d’authentification**, choisissez **Tout** ou **Sans mot de passe**. Le choix d’une notification **Push** empêche l’utilisation des informations d’identification de connexion par téléphone. 
 1. Pour appliquer la nouvelle stratégie, sélectionnez **Enregistrer**.
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator"></a>Inscription des utilisateurs et gestion de Microsoft Authenticator

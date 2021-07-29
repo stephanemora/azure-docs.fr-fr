@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 05/05/2021
 ms.author: allensu
-ms.openlocfilehash: 08064d4d9b08a35fe59673478faa001a13d50d0f
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: f0c8d42538cd437d4817f75552133efca96b8d6e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804481"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451819"
 ---
 # <a name="using-source-network-address-translation-snat-for-outbound-connections"></a>Utilisation de SNAT (Source Network Address Translation) pour les connexions sortantes
 
@@ -46,7 +46,8 @@ Avec les règles de trafic sortant, vous disposez d’un contrôle déclaratif c
 
 Pour plus d’informations sur les règles de trafic sortant, consultez [Règles de trafic sortant](outbound-rules.md).
 
-
+>[!Important]
+> Lorsqu’un pool principal est configuré par adresse IP, il se comporte comme un équilibreur de charge de base avec l’option sortant par défaut activée. Pour une configuration et des applications sécurisées par défaut avec des besoins sortants exigeants, configurez le pool principal par carte réseau.
 
 ## <a name="associating-a-vnet-nat-to-the-subnet"></a>Association d’un réseau virtuel NAT au sous-réseau
 
@@ -60,7 +61,7 @@ Pour plus d’informations sur le service NAT de réseau virtuel Azure, consulte
 
  | Associations | Méthode | Protocoles IP |
  | ---------- | ------ | ------------ |
- | Équilibreur de charge public ou autonome | [SNAT (Source Network Address Translation, traduction d’adresses réseau sources)](#snat) </br> non utilisée. | Protocole TCP (Transmission Control Protocol) </br> Protocole UDP (User Datagram Protocol) </br> Protocole ICMP (Internet Control Message Protocol) </br> Protection ESP (Encapsulating Security Payload) |
+ | Adresse IP publique sur la carte réseau de la machine virtuelle | [SNAT (Source Network Address Translation, traduction d’adresses réseau sources)](#snat) </br> non utilisée. | Protocole TCP (Transmission Control Protocol) </br> Protocole UDP (User Datagram Protocol) </br> Protocole ICMP (Internet Control Message Protocol) </br> Protection ESP (Encapsulating Security Payload) |
 
  Tout le trafic est retourné au client demandeur à partir de l’adresse IP publique de la machine virtuelle (IP au niveau de l’instance).
  

@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 4be063342a6c46d73c86f2d9dff1da5395328389
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b82fb574b134065f3c0f1a7dc5a4742258914ff6
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102583506"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017412"
 ---
 # <a name="custom-query-specification"></a>Spécification de requête personnalisée
 
@@ -60,10 +60,10 @@ Voici quelques exemples de requêtes illustrant comment extraire différents typ
 
 | Requête | Description |
 | ------------ | ------------- |
-| **SELECT** MarketplaceSubscriptionId,CustomerId **FROM** ISVUsage **TIMESPAN LAST_MONTH** | Cette requête permet d’obtenir chaque `MarketplaceSubscriptionId` unique et son `CustomerId` correspondant au cours du mois passé. |
+| **SELECT** MarketplaceSubscriptionId,CustomerId **FROM** ISVUsage **TIMESPAN LAST_MONTH** | Cette requête permet d’obtenir chaque `MarketplaceSubscriptionId` et son `CustomerId` correspondant au cours du mois passé. |
 | **SELECT** MarketplaceSubscriptionId, EstimatedExtendedChargeCC **FROM** ISVUsage **ORDER BY** EstimatedExtendedChargeCC **LIMIT** 10 | Cette requête permet d’obtenir les 10 premiers abonnements dans l’ordre décroissant du nombre de licences vendues dans chaque abonnement. |
-| **SELECT** CustomerId, NormalizedUsage, RawUsage **FROM** ISVUsage **ORDER BY** NormalizedUsage **WHERE** NormalizedUsage > 100000 **ORDER BY** NormalizedUsage **TIMESPAN** LAST_6_MONTHS | Cette requête permet d’obtenir les valeurs NormalizedUsage et RawUsage de tous les clients dont la valeur NormalizedUsage est supérieure à 100 000. |
-| **SELECT** MarketplaceSubscriptionId, MonthStartDate, NormalizedUsage **FROM** ISVUsage **WHERE** CustomerId IN (‘2a31c234-1f4e-4c60-909e-76d234f93161’, ‘80780748-3f9a-11eb-b378-0242ac130002’) | Cette requête permet d’obtenir le `MarketplaceSubscriptionId` et le chiffre d’affaires généré mensuellement à l’aide des deux valeurs `CustomerId` suivantes : `2a31c234-1f4e-4c60-909e-76d234f93161` et `80780748-3f9a-11eb-b378-0242ac130002`. |
+| **SELECT** CustomerId, NormalizedUsage, RawUsage **FROM** ISVUsage **WHERE** NormalizedUsage > 100000 **ORDER BY** NormalizedUsage **TIMESPAN** LAST_6_MONTHS | Cette requête permet d’obtenir les valeurs NormalizedUsage et RawUsage de tous les clients dont la valeur NormalizedUsage est supérieure à 100 000. |
+| **SELECT** MarketplaceSubscriptionId, MonthStartDate, NormalizedUsage **FROM** ISVUsage **WHERE** CustomerId IN (‘2a31c234-1f4e-4c60-909e-76d234f93161’, ‘80780748-3f9a-11eb-b378-0242ac130002’) | Cette requête permet d’obtenir le `MarketplaceSubscriptionId` et l’utilisation normalisée générée mensuellement à l’aide des deux valeurs `CustomerId` suivantes : `2a31c234-1f4e-4c60-909e-76d234f93161` et `80780748-3f9a-11eb-b378-0242ac130002`. |
 |||
 
 ## <a name="query-specification"></a>Spécification de requête
@@ -118,10 +118,17 @@ Chaque partie est décrite ci-dessous.
 
 #### <a name="select"></a>SELECT
 
-Cette partie de la requête spécifie les colonnes qui seront exportées. Les colonnes pouvant être sélectionnées correspondent aux champs répertoriés dans les sections `selectableColumns` et `availableMetrics` d’un jeu de données. Les lignes exportées finales contiennent toujours des valeurs distinctes dans les colonnes sélectionnées. Par exemple, il n’y a pas de lignes en double dans le fichier exporté. Les métriques sont calculées pour chaque combinaison distincte de colonnes sélectionnées.
+Cette partie de la requête spécifie les colonnes qui seront exportées. Les colonnes pouvant être sélectionnées correspondent aux champs répertoriés dans les sections `selectableColumns` et `availableMetrics` d’un jeu de données. Si une colonne de métrique est incluse dans la liste des champs sélectionnés, les métriques sont calculées pour chaque combinaison distincte des colonnes non métriques. 
 
 **Exemple** :
 - **SELECT** `OfferName`, `NormalizedUsage`
+
+#### <a name="distinct"></a>DISTINCT
+
+L’ajout du mot clé DISTINCT après SELECT garantit que les données exportées finales n’ont pas de lignes en double. Le mot clé DISTINCT fonctionne indépendamment du fait qu’une colonne métrique soit sélectionnée ou non.
+
+**Exemple** :
+- **SELECT DISTINCT** `MarketplaceSubscriptionId, OfferType`
 
 #### <a name="from"></a>FROM
 

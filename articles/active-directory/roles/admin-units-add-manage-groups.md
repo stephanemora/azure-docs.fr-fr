@@ -9,29 +9,37 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 03/10/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ad8cce8375ecd670a481541a091e36aacb41240
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: fa9a7b08f792c36ecf0f65e37f2f9e9c551bca8c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505290"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110088135"
 ---
 # <a name="add-and-manage-groups-in-an-administrative-unit-in-azure-active-directory"></a>Ajouter et gérer des groupes dans une unité administrative dans Azure Active Directory
 
 Dans Azure Active Directory (Azure AD), vous pouvez ajouter des groupes à une unité administrative pour obtenir une étendue administrative de contrôle plus précise.
 
-Pour vous préparer à utiliser PowerShell et Microsoft Graph pour la gestion des unités administratives, consultez [Prise en main](admin-units-manage.md#get-started).
+## <a name="prerequisites"></a>Prérequis
+
+- Licence Azure AD Premium P1 ou P2 pour chaque administrateur d'unité administrative
+- Licences Azure AD gratuites pour les membres de l'unité administrative
+- Administrateur de rôle privilégié ou Administrateur général
+- Module AzureAD (avec PowerShell)
+- Consentement administrateur (avec l’Afficheur Graph pour l’API Microsoft Graph)
+
+Pour plus d’informations, consultez [Prérequis pour utiliser PowerShell ou de l’Afficheur Graph](prerequisites.md).
 
 ## <a name="add-groups-to-an-administrative-unit"></a>Ajouter des groupes à une unité administrative
 
 Vous pouvez ajouter des groupes à une unité administrative à l’aide du portail Azure, de PowerShell ou de Microsoft Graph.
 
-### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
+### <a name="azure-portal"></a>Portail Azure
 
 Vous pouvez uniquement affecter des groupes individuels à une unité administrative. Il n’existe aucune option pour assigner des groupes dans une opération en bloc. Dans le portail Azure, vous pouvez affecter un groupe à une unité administrative de deux manières :
 
@@ -60,7 +68,7 @@ Vous pouvez uniquement affecter des groupes individuels à une unité administra
 
   1. Sélectionnez un ou plusieurs groupes à affecter à l’unité administrative, puis sélectionnez le bouton **Sélectionner**.
 
-### <a name="use-powershell"></a>Utiliser PowerShell
+### <a name="powershell"></a>PowerShell
 
 Dans l’exemple suivant, utilisez la cmdlet `Add-AzureADMSAdministrativeUnitMember` pour ajouter le groupe à l’unité administrative. L’ID d’objet de l’unité administrative et l’ID d’objet du groupe à ajouter sont utilisés en tant qu’arguments. Modifiez la section en surbrillance selon les besoins de votre environnement spécifique.
 
@@ -71,7 +79,7 @@ $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
 Add-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id -RefObjectId $GroupObj.ObjectId
 ```
 
-### <a name="use-microsoft-graph"></a>Utiliser Microsoft Graph
+### <a name="microsoft-graph-api"></a>API Microsoft Graph
 
 Exécutez les commandes suivantes :
 
@@ -99,7 +107,7 @@ Exemple
 
 ## <a name="view-a-list-of-groups-in-an-administrative-unit"></a>Afficher une liste de groupes dans une unité administrative
 
-### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
+### <a name="azure-portal"></a>Portail Azure
 
 1. Dans le portail Azure, accédez à **Azure AD**.
 
@@ -109,7 +117,7 @@ Exemple
 
    ![Capture d’écran du volet « Groupes » affichant une liste de groupes dans une unité administrative.](./media/admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
-### <a name="use-powershell"></a>Utiliser PowerShell
+### <a name="powershell"></a>PowerShell
 
 Pour afficher la liste de tous les membres de l’unité administrative, exécutez la commande suivante : 
 
@@ -130,7 +138,7 @@ Get-AzureADGroup -ObjectId $member.ObjectId
 }
 ```
 
-### <a name="use-microsoft-graph"></a>Utiliser Microsoft Graph
+### <a name="microsoft-graph-api"></a>API Microsoft Graph
 
 Exécutez la commande suivante :
 
@@ -148,7 +156,7 @@ Corps
 
 ## <a name="view-a-list-of-administrative-units-for-a-group"></a>Afficher une liste d’unités administratives pour un groupe
 
-### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
+### <a name="azure-portal"></a>Portail Azure
 
 1. Dans le portail Azure, accédez à **Azure AD**.
 
@@ -160,7 +168,7 @@ Corps
 
    ![Capture d’écran du volet « Unités administratives », affichant une liste des unités administratives auxquelles un groupe est affecté.](./media/admin-units-add-manage-groups/list-group-au.png)
 
-### <a name="use-powershell"></a>Utiliser PowerShell
+### <a name="powershell"></a>PowerShell
 
 Exécutez la commande suivante :
 
@@ -168,7 +176,7 @@ Exécutez la commande suivante :
 Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $groupObjId} }
 ```
 
-### <a name="use-microsoft-graph"></a>Utiliser Microsoft Graph
+### <a name="microsoft-graph-api"></a>API Microsoft Graph
 
 Exécutez la commande suivante :
 
@@ -178,7 +186,7 @@ https://graph.microsoft.com/v1.0/groups/{group-id}/memberOf/$/Microsoft.Graph.Ad
 
 ## <a name="remove-a-group-from-an-administrative-unit"></a>Supprimer un groupe d’une unité administrative
 
-### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
+### <a name="azure-portal"></a>Portail Azure
 
 Dans le portail Azure, vous pouvez supprimer un groupe d’une unité administrative de deux manières :
 
@@ -200,7 +208,7 @@ Dans le portail Azure, vous pouvez supprimer un groupe d’une unité administra
 
     ![Capture d’écran du volet « Groupes » affichant une liste de groupes dans une unité administrative.](./media/admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
-### <a name="use-powershell"></a>Utiliser PowerShell
+### <a name="powershell"></a>PowerShell
 
 Exécutez la commande suivante :
 
@@ -208,7 +216,7 @@ Exécutez la commande suivante :
 Remove-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitId -MemberId $memberGroupObjId
 ```
 
-### <a name="use-microsoft-graph"></a>Utiliser Microsoft Graph
+### <a name="microsoft-graph-api"></a>API Microsoft Graph
 
 Exécutez la commande suivante :
 

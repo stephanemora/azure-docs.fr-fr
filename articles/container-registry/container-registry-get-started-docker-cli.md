@@ -2,14 +2,14 @@
 title: Transmission et extraction d’image de conteneur
 description: Transmission et extraction d’images Docker à/de votre registre de conteneurs privé dans Azure à l’aide de l’interface de ligne de commande Docker
 ms.topic: article
-ms.date: 01/23/2019
-ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 48f5f1707881ac8461e12212be631d3b80c16ca7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/12/2021
+ms.custom: seodec18, H1Hack27Feb2017, devx-track-azurepowershell
+ms.openlocfilehash: 0fd44ae001bd7f120b6c903a4109dd0e6268e19e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783824"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062953"
 ---
 # <a name="push-your-first-image-to-your-azure-container-registry-using-the-docker-cli"></a>Transmettre votre première image à votre registre de conteneurs Azure à l’aide de l’interface de ligne de commande Docker
 
@@ -19,17 +19,32 @@ Dans les étapes suivantes, vous allez télécharger une [image Nginx](https://s
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **Azure Container Registry** : créez un Registre de conteneur dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md).
+* **Azure Container Registry** : créez un Registre de conteneur dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md), [Azure CLI](container-registry-get-started-azure-cli.md) ou [Azure PowerShell](container-registry-get-started-powershell.md).
 * **Docker CLI** : Docker doit également être installé en local. Docker fournit des packages qui le configurent facilement sur n’importe quel système [macOS][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
 ## <a name="log-in-to-a-registry"></a>Se connecter à un Registre
 
-Il existe [plusieurs façons de s’authentifier](container-registry-authentication.md) auprès de votre registre de conteneurs privé. La méthode recommandée avec une ligne de commande consiste à utiliser la commande Azure CLI [az acr login](/cli/azure/acr#az_acr_login). Par exemple, pour vous connecter à un registre nommé *myregistry*, connectez-vous à Azure CLI, puis authentifiez-vous auprès de votre registre :
+Il existe [plusieurs façons de s’authentifier](container-registry-authentication.md) auprès de votre registre de conteneurs privé.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+La méthode recommandée avec une ligne de commande consiste à utiliser la commande Azure CLI [az acr login](/cli/azure/acr#az_acr_login). Par exemple, pour vous connecter à un registre nommé *myregistry*, connectez-vous à Azure CLI, puis authentifiez-vous auprès de votre registre :
 
 ```azurecli
 az login
 az acr login --name myregistry
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+La méthode recommandée lors de l’utilisation de PowerShell est la cmdlet Azure PowerShell [Connect-AzContainerRegistry](/powershell/module/az.containerregistry/connect-azcontainerregistry). Par exemple, pour vous connecter à un registre nommé *myregistry*, connectez-vous à Azure, puis authentifiez-vous auprès de votre registre :
+
+```azurepowershell
+Connect-AzAccount
+Connect-AzContainerRegistry -Name myregistry
+```
+
+---
 
 Vous pouvez également vous connecter avec la commande [docker login](https://docs.docker.com/engine/reference/commandline/login/). Par exemple, vous pouvez avoir [affecté un principal du service](container-registry-authentication.md#service-principal) à votre registre dans un scénario d’automatisation. Lorsque vous exécutez la commande suivante, fournissez de manière interactive l'appID (nom d'utilisateur) et le mot de passe du principal du service dès que vous y êtes invité. Pour connaître les meilleures pratiques de gestion des informations d'identification, consultez la référence de la commande [docker login](https://docs.docker.com/engine/reference/commandline/login/) :
 
@@ -114,11 +129,31 @@ Si vous n’avez plus besoin de l’image Nginx, vous pouvez la supprimer locale
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 Pour supprimer des images de votre registre de conteneurs Azure, vous pouvez utiliser la commande Azure CLI [az acr repository delete](/cli/azure/acr/repository#az_acr_repository_delete). Par exemple, la commande suivante supprime le manifeste référencé par l'étiquette `samples/nginx:latest`, toutes les données de couche uniques et toutes les autres étiquettes référençant le manifeste.
 
 ```azurecli
 az acr repository delete --name myregistry --image samples/nginx:latest
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Le module Azure PowerShell [Az.ContainerRegistry](/powershell/module/az.containerregistry) contient plusieurs commandes permettant de supprimer des images de votre instance de conteneur. [Remove-AzContainerRegistryRepository](/powershell/module/az.containerregistry/remove-azcontainerregistryrepository) supprime toutes les images dans un espace de noms spécifique comme `samples:nginx`, tandis que [Remove-AzContainerRegistryManifest](/powershell/module/az.containerregistry/remove-azcontainerregistrymanifest) supprime une balise ou un manifeste spécifique.
+
+Dans l’exemple suivant, vous utilisez la cmdlet `Remove-AzContainerRegistryRepository` pour supprimer toutes les images dans l’espace de noms `samples:nginx`.
+
+```azurepowershell
+Remove-AzContainerRegistryRepository -RegistryName myregistry -Name samples/nginx
+```
+
+Dans l’exemple suivant, vous utilisez la cmdlet `Remove-AzContainerRegistryManifest` pour supprimer le manifeste référencé par l’étiquette `samples/nginx:latest`, toutes les données de couche uniques et toutes les autres étiquettes référençant le manifeste.
+
+```azurepowershell
+Remove-AzContainerRegistryManifest -RegistryName myregistry -RepositoryName samples/nginx -Tag latest
+```
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

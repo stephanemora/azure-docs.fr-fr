@@ -6,12 +6,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 98f53ec1b6506a6d47146377e837576254f445e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3097023c4b9d19379f44529615a10c100e794700
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601064"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838670"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-solution"></a>Connexion d’Azure aux outils ITSM avec la solution de gestion des services informatiques
 
@@ -88,7 +88,7 @@ Les groupes d’actions offrent une méthode modulaire et réutilisable pour dé
 > [!NOTE]
 > Après avoir créé la connexion ITSM, vous devez attendre 30 minutes que le processus de synchronisation se termine.
 
-## <a name="define-a-template"></a>Définir un modèle
+### <a name="define-a-template"></a>Définir un modèle
 
 Certains types d’éléments de travail peuvent utiliser des modèles que vous définissez dans l’outil ITSM. L’utilisation de modèles vous permet de définir des champs qui seront automatiquement renseignés en fonction de valeurs fixes d’un groupe d’actions. Vous pouvez définir le modèle que vous souhaitez utiliser dans le cadre de la définition d’un groupe d’actions. Vous trouverez dans la documentation ServiceNow des informations sur la création de modèles (ici) [https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html ].
 
@@ -114,9 +114,7 @@ Pour créer un groupe d’actions :
 
 7. Sélectionnez un type d’**Élément de travail**.
 
-8. Si vous voulez remplir des champs prêts à l’emploi avec des valeurs fixes, sélectionnez **Utiliser un modèle personnalisé**. Sinon, choisissez un [modèle](#define-a-template) existant dans la liste **Modèles**, puis entrez les valeurs fixes dans les champs du modèle.
-
-9. Dans la dernière section de l’interface de création d’un groupe d’actions ITSM, vous pouvez définir le nombre d’éléments de travail à créer pour chaque alerte.
+8. Dans la dernière section de l’interface de création d’un groupe d’actions ITSM, vous pouvez définir le nombre d’éléments de travail à créer pour chaque alerte.
 
    > [!NOTE]
    > Cette section concerne uniquement les alertes de recherche dans les journaux. Pour tous les autres types d’alerte, vous allez créer un élément de travail par alerte.
@@ -143,6 +141,10 @@ Pour créer un groupe d’actions :
      * Si vous sélectionnez **Créer des éléments de travail individuels pour chaque entrée de journal (Le champ Élément de configuration n’est pas rempli. Peut entraîner un grand nombre d’éléments de travail.)** , un élément de travail est créé pour chaque ligne dans les résultats de recherche de la requête d’alerte de recherche de journal. Dans la charge utile de l’élément de travail, la propriété Description contient la ligne des résultats de la recherche.
       
      * Si vous sélectionnez **Créer des éléments de travail individuels pour chaque élément de configuration**, chaque élément de configuration de chaque alerte crée un élément de travail. Chaque élément de configuration peut avoir plusieurs éléments de travail dans le système ITSM. Cette option est la même que la case à cocher qui apparaît une fois que vous avez sélectionné **Incident** comme type d’élément de travail.
+9. Dans le cadre de la définition de l’action, vous pouvez définir des champs prédéfinis qui contiennent des valeurs constantes dans le cadre de la charge utile. D’après le type d’élément de travail, il existe 3 options qui peuvent être utilisées dans le cadre de la charge utile :
+    * **Aucun** : utilisez une charge utile normale pour ServiceNow sans champs et valeurs prédéfinis supplémentaires.
+    * **Utiliser les champs par défaut** : utilisez un ensemble de champs et de valeurs qui seront envoyés automatiquement dans le cadre de la charge utile à ServiceNow. Ces champs ne sont pas flexibles et les valeurs sont définies dans les listes de ServiceNow.
+    * **Utiliser des modèles enregistrés à partir de ServiceNow** : utilisez un ensemble prédéfini de champs et de valeurs qui a été défini dans le cadre d’une définition de modèle dans ServiceNow. Si vous avez déjà défini le modèle dans ServiceNow, vous pouvez l’utiliser à partir de la liste **Modèle**, sinon vous pouvez le définir dans ServiceNow, pour plus [d’informations](#define-a-template).
 
 10. Sélectionnez **OK**.
 

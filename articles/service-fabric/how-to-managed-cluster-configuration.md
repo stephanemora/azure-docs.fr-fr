@@ -3,12 +3,12 @@ title: Configurer votre cluster managé Service Fabric
 description: Découvrez comment configurer votre cluster managé Service Fabric pour les mises à niveau automatiques du système d’exploitation, les règles de groupe de sécurité réseau et bien plus encore.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 42c8cf75a274ba3b4630caf9ac7e0d194465cfe7
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 5fd2736917517f20d3d093492c6011d6fcf716cf
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109735473"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067435"
 ---
 # <a name="service-fabric-managed-cluster-configuration-options"></a>Options de configuration du cluster Service Fabric géré
 
@@ -21,6 +21,7 @@ En plus de sélectionner la [référence SKU du cluster managé Service Fabric](
 * Activation des [mises à jour automatiques du système d’exploitation](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) pour les nœuds de cluster
 * Activation du [chiffrement du disque de données et du système d’exploitation](how-to-enable-managed-cluster-disk-encryption.md) sur des nœuds de cluster
 * Sélection de la SKU du [type de disque managé](how-to-managed-cluster-managed-disk.md) du cluster
+* Configuration des [options de mise à niveau](how-to-managed-cluster-upgrades.md) du cluster pour les mises à jour du runtime
 
 ## <a name="enable-automatic-os-image-upgrades"></a>Activer les mises à niveau de l’image du système d’exploitation
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 22e5a2f648993cbe24266702ce33f81e35bfaea3
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: d4260b5c981c6b4f199fca88894abafbbb02e4a1
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751362"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110577854"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Créer et utiliser des environnements logiciels dans Azure Machine Learning
 
@@ -406,7 +406,9 @@ service = Model.deploy(
 
 ## <a name="notebooks"></a>Notebooks
 
-Cet [article](./how-to-access-terminal.md#add-new-kernels) fournit des informations sur l’installation d’un environnement Conda en tant que noyau dans un notebook.
+Les exemples de code de cet article sont également inclus dans le [notebook using envronments](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/using-environments/using-environments.ipynb).
+
+ Pour installer un environnement Conda en tant que noyau dans un Notebook, consultez [Ajouter un nouveau noyau Jupyter](./how-to-access-terminal.md#add-new-kernels).
 
 La section [Déployer un modèle à l’aide d’une image de base Docker personnalisée](how-to-deploy-custom-docker-image.md) montre comment déployer un modèle à l’aide d’une image de base Docker personnalisée.
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 04/14/2021
-ms.openlocfilehash: b523b20a3d7f22cfd5e608c6793c55583050028f
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.date: 05/21/2021
+ms.openlocfilehash: f4ef8d7d29b65af4876912e6dbbd3827693737c6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109635280"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110450362"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Utiliser un point de terminaison HTTPS pour gérer les prospects de marketplaces commerciaux
 
@@ -25,23 +25,23 @@ Cet article explique comment créer un flux dans Power Automate pour générer l
 
 ## <a name="create-a-flow-by-using-power-automate"></a>Créer un flux à l’aide de Power Automate
 
-1. Ouvrez la page web [Power Automate](https://flow.microsoft.com/). Sélectionnez **Connexion**. Si vous n’avez pas encore de compte, sélectionnez **S’inscrire gratuitement** pour créer un compte Power Automate gratuit.
+1. Ouvrez la page web [Power Automate](https://flow.microsoft.com/). Sélectionnez **Connexion**. Si vous n’avez pas encore de compte, sélectionnez **S’inscrire gratuitement** pour en créer un.
 
-1. Connectez-vous et sélectionnez **Mes flux** dans le menu.
+1. Connectez-vous, sélectionnez **Mes flux**, puis faites basculer l’environnement de **Microsoft (par défaut)** vers votre environnement Dataverse (CRM).
 
-    ![Connexion à Mes flux](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png" alt-text="Montre comment se connecter à « Mes flux ».":::
 
 1. Sous **+ Nouveau**, sélectionnez **+ Flux de cloud instantané**.
 
-    ![Mes flux + Automatisé – à partir de zéro](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-create-from-blank.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/https-my-flows-create-from-blank.png" alt-text="Montre comment sélectionner Mes flux, puis flux de Cloud instantané.":::
 
 1. Nommez votre flux, puis sous **Choisir comment déclencher ce flux**, sélectionnez **Lors de la réception d’une requête HTTP**.
 
-    ![Bouton Ignorer dans la fenêtre Générer un flux automatisé](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-pick-request-trigger.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/https-my-flows-pick-request-trigger.png" alt-text="Montre comment générer un bouton Ignorer de fenêtre de flux automatisé.":::
 
 1. Cliquez sur l’étape du flux pour la développer.
 
-    ![Développer l’étape du flux](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png" alt-text="Montre comment développer l’étape de flux.":::
 
 1. Utilisez l’une des méthodes suivantes pour configurer le **schéma JSON du corps de la demande** :
 
@@ -137,25 +137,25 @@ Cet article explique comment créer un flux dans Power Automate pour générer l
 ### <a name="connect-to-a-crm-system"></a>Se connecter à un système CRM
 
 1. Sélectionnez **+ Nouvelle étape**.
-1. Choisissez le système CRM de votre choix en le recherchant dans **Rechercher parmi les actions et les connecteurs**. La capture d’écran suivante montre Créer un enregistrement (Common Data Service) à titre d’exemple.
+1. Recherchez et sélectionnez un système CRM dans la zone **Rechercher des connecteurs et des actions** . La capture d’écran suivante montre **Créer un enregistrement (Microsoft Dataverse)** comme exemple.
 
-    ![Créer un enregistrement](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/create-new-record.png" alt-text="Montre comment créer un nouvel enregistrement.":::
 
-1. Sélectionnez l’**onglet Actions** avec l’action pour **créer un nouvel enregistrement**.
+1. Sélectionnez l’**onglet Actions** avec l’action pour **Ajouter une nouvelle ligne**.
 
-    ![Sélectionner « Créer un enregistrement »](./media/commercial-marketplace-lead-management-instructions-https/select-create-new-record.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/select-create-new-record.png" alt-text="Montre comment sélectionner « créer un nouvel enregistrement ».":::
 
-1. Indiquez le **nom de l’organisation** associé au système CRM. Sélectionnez **Prospects** dans la liste déroulante **Nom de l’entité**.
+1. Sélectionnez **prospect** dans la liste déroulante **nom de la table** .
 
-    ![Sélection de prospects](./media/commercial-marketplace-lead-management-instructions-https/select-leads.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/select-leads.png" alt-text="Montre comment sélectionner des prospects.":::
 
 1. Power Automate affiche un formulaire dans lequel fournir des informations sur les prospects. Vous pouvez mapper des éléments de la demande d’entrée en choisissant d’ajouter du contenu dynamique. La capture d’écran suivante présente **OfferTitle** comme exemple.
 
-    ![Ajout de contenu dynamique](./media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png" alt-text="Montre comment ajouter du contenu dynamique.":::
 
 1. Mappez les champs de votre choix, puis sélectionnez **Enregistrer** pour enregistrer votre flux. Une URL HTTP POST est créée et accessible dans la fenêtre **Quand une requête HTTP arrive**. Copiez cette URL en utilisant le contrôle de copie, situé à droite de l’URL HTTP POST. Il est important d’utiliser le contrôle de copie pour ne manquer aucune partie de l’URL complète. Enregistrez cette URL, car vous en aurez besoin lors de la configuration de la gestion des prospects dans le portail de publication.
 
-    ![Quand une requête HTTP est reçue](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png" alt-text="Montre quand une requête HTTP est reçue.":::
 
 ### <a name="set-up-email-notification"></a>Configurer une notification par e-mail
 
@@ -222,7 +222,7 @@ Vous pouvez tester votre configuration à l’aide de [Postman](https://app.getp
 
    ![Vérifier les résultats](./media/commercial-marketplace-lead-management-instructions-https/my-flow-check-results.png)
 
-1. Vous devez avoir également reçu un e-mail. Consultez votre messagerie. 
+1. Vous devez avoir également reçu un e-mail. Consultez votre messagerie.
 
     >[!NOTE] 
     >Si vous ne voyez pas de message de test, vérifiez vos dossiers de courrier indésirable. Dans la capture d’écran ci-dessous, vous remarquerez les étiquettes de champ que vous avez ajoutées lors de la configuration de la notification par e-mail. S’il s’agissait d’un prospect réel généré à partir de votre offre, vous pourriez aussi voir les coordonnées réelles du prospect dans le corps et dans la ligne d’objet.

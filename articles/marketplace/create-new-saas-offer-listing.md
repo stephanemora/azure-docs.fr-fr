@@ -1,6 +1,6 @@
 ---
-title: Comment configurer les détails du référencement de votre offre SaaS dans l’Espace partenaires Microsoft
-description: Découvrez comment configurer les détails du référencement de votre offre SaaS (Software as a Service) dans la place de marché commerciale de Microsoft.
+title: Configurer les détails de la liste des offres SaaS sur la Place de marché Azure
+description: Configurez les détails de la liste des offres SaaS sur la Place de marché Azure.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 3a47ba2025bcaba542d2dbec0c89643e0900f233
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e02fccc2747403076d872fad20db0a4e92d10be4
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96746146"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616685"
 ---
-# <a name="how-to-configure-your-saas-offer-listing-details"></a>Comment configurer les détails du référencement de votre offre SaaS
+# <a name="configure-saas-offer-listing-details"></a>Configurer les détails de la liste des offres SaaS
 
 Les informations que vous fournissez sur la page **Référencement de l’offre** pour votre offre SaaS s’affichent dans les magasins en ligne de la place de marché commerciale de Microsoft. Elles comprennent les descriptions de votre offre, des captures d’écran et vos ressources marketing.
 
@@ -67,7 +67,7 @@ Vous devez ajouter au minimum un et au maximum de trois documents marketing pour
 1. Dans la zone **Nom** qui s’affiche, entrez un nom pour ce document. Les clients verront ce nom sous l’onglet Détails de votre offre.
 1. Répétez ces étapes pour ajouter un document associé supplémentaire.
 
-## <a name="add-your-marketplace-media"></a>Ajouter vos médias pour la place de marché
+## <a name="add-marketplace-media"></a>Ajouter des médias de la Place de marché
 
 ### <a name="add-logos"></a>Ajouter des logos
 
@@ -104,5 +104,5 @@ Avant de passer à l’onglet suivant, sélectionnez **Enregistrer le brouillon*
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous vendez votre offre par le biais de Microsoft, consultez [Comment ajouter un public de préversion pour votre offre SaaS](create-new-saas-offer-preview.md). 
-- Autrement, consultez [Guide pratique pour vende votre offre SaaS](create-new-saas-offer-marketing.md).
+- Si vous vendez votre offre par le biais de Microsoft, consultez [Ajouter un public pour la préversion](create-new-saas-offer-preview.md). 
+- Sinon, accédez à [Vendre une offre SaaS](create-new-saas-offer-marketing.md).

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: cf236396f080af9676f211c42178ddda6a794420
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ef505a5215f4ce7b6e324bd9899f13dafc7a7395
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568339"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110493544"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro avec GPU au moyen de modèles
 
@@ -35,7 +35,7 @@ Voici une synthèse globale du workflow de déploiement à l’aide de modèles�
 
     1. **Prérequis liés à l’appareil**
 
-        1. Connectez-vous à Azure Resource Manager sur l’appareil.
+        1. [Connectez-vous à Azure Resource Manager](azure-stack-edge-gpu-connect-resource-manager.md) sur l’appareil.
         2. Activez le calcul au moyen de l’interface utilisateur locale.
 
     2. **Prérequis pour le client**

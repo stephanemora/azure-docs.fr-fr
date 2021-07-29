@@ -1,27 +1,28 @@
 ---
 title: Scénarios pris en charge pour SAP HANA sur Azure (grandes instances) | Microsoft Docs
-description: Scénarios pris en charge avec les détails de leur architecture pour SAP HANA sur Azure (grandes instances)
+description: Découvrez les scénarios pris en charge pour SAP HANA sur Azure (grandes instances) ainsi que les détails architecturaux correspondants.
 services: virtual-machines-linux
 documentationcenter: ''
 author: Ajayan1008
 manager: juergent
 editor: ''
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/26/2019
+ms.date: 05/18/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e1868514919cdb40a0ac607b446ab944e8c36da
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 7dfe81348b300f6b1b407898684316f668791d32
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738839"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110577975"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scénario pris en charge pour des grandes instances HANA
-Cet article décrit les scénarios pris en charge et les détails de l’architecture des grandes instances HANA (HLI).
+Cet article décrit les scénarios pris en charge pour SAP HANA sur Azure (grandes instances) ainsi que les détails architecturaux correspondants.
 
 >[!NOTE]
 >Si le scénario voulu n’est pas mentionné dans cet article, contactez l’équipe de management des services Microsoft pour évaluer vos besoins.
@@ -30,19 +31,19 @@ Avant de configurer l’unité HLI, validez la conception avec SAP ou avec votre
 ## <a name="terms-and-definitions"></a>Termes et définitions
 Découvrons les termes et définitions utilisés dans cet article :
 
-- **SID** : Identificateur système du système HANA
-- **HLI** : Grandes instances Hana
-- **DR** : Récupération d'urgence
-- **DR normale** : Configuration système utilisant des ressources dédiées à des fins de récupération d’urgence uniquement
-- **DR polyvalente** : Système de site de récupération d’urgence configuré pour utiliser un environnement de non-production avec une instance de production configurée pour un événement de récupération d’urgence 
-- **SID unique** : Système doté d’une instance installée
-- **Multi-SID** : Système doté de plusieurs instances configurées ; également appelé environnement MCOS
-- **HSR** : Réplication du système SAP HANA
+- **SID** : identificateur système du système HANA
+- **HLI** : HANA grandes instances.
+- **DR** : récupération d'urgence.
+- **DR normale** : configuration système utilisant des ressources dédiées à des fins de récupération d'urgence uniquement.
+- **DR polyvalente** : système de site de récupération d'urgence configuré pour utiliser un environnement de non-production avec une instance de production configurée pour un événement de récupération d'urgence 
+- **SID unique** : système sur lequel une seule instance est installée.
+- **Multi-SID** : système sur lequel plusieurs instances sont configurées ; également appelé environnement MCOS.
+- **HSR** : réplication du système SAP HANA.
 
 ## <a name="overview"></a>Vue d’ensemble
 Les grandes instances HANA prennent en charge diverses architectures pour vous aider à répondre aux besoins de votre entreprise. Les sections suivantes couvrent les scénarios architecturaux et les détails de leur configuration. 
 
-La conception de l’architecture dérivée s’appuie exclusivement sur une perspective de l’infrastructure, et vous devez consulter SAP ou vos partenaires d’implémentation pour le déploiement HANA. Si vos scénarios ne sont pas répertoriés dans cet article, contactez l’équipe des comptes Microsoft pour examiner l’architecture et trouver une solution qui vous convienne.
+Les conceptions architecturales dérivées sont purement du point de vue de l'infrastructure. Consultez SAP ou vos partenaires d'implémentation pour le déploiement de HANA. Si vos scénarios ne sont pas répertoriés dans cet article, contactez l'équipe des comptes Microsoft pour examiner l'architecture et trouver une solution qui vous convienne.
 
 > [!NOTE]
 > Ces architectures sont entièrement conformes à la conception Tailored Data Integration (TDI) et sont prises en charge par SAP.
@@ -57,7 +58,7 @@ Cet article détaille les deux composants dans chaque architecture prise en char
 Chaque serveur approvisionné est préconfiguré avec des jeux d’interfaces Ethernet. Les interfaces Ethernet configurées sur chaque unité HLI sont classées en quatre types :
 
 - **R** : Utilisé pour ou par l’accès client.
-- **B** : Utilisé pour la communication nœud à nœud. Cette interface est configurée sur tous les serveurs (quelle que soit la topologie demandée), mais elle est utilisée uniquement pour les scénarios de Scale-out.
+- **B** : Utilisé pour la communication nœud à nœud. Cette interface est configurée sur tous les serveurs, quelle que soit la topologie demandée. Toutefois, elle est uniquement utilisée pour les scénarios de scale-out.
 - **C** : Utilisé pour la connectivité de nœud à stockage.
 - **D** : Utilisé pour la connexion nœud à appareil ISCSI pour l’installation de STONITH. Cette interface est configurée uniquement lorsque une configuration HSR est demandée.  
 
@@ -72,32 +73,32 @@ Chaque serveur approvisionné est préconfiguré avec des jeux d’interfaces Et
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
 
-Vous choisissez l’interface en fonction de la topologie configurée sur l’unité HLI. Par exemple, l’interface « B » est configurée pour la communication nœud à nœud, ce qui est utile lorsque vous avez une topologie Scale-out configurée. Cette interface n’est pas utilisée pour les configurations de montée en puissance sur un nœud unique. Pour obtenir plus d’informations sur l’utilisation de l’interface, étudiez les scénarios dont vous avez besoin (plus loin dans ce document). 
+Vous choisissez l’interface en fonction de la topologie configurée sur l’unité HLI. Par exemple, l’interface « B » est configurée pour la communication nœud à nœud, ce qui est utile lorsque vous avez une topologie Scale-out configurée. Cette interface n'est pas utilisée pour les configurations de scale-up sur un nœud unique. Pour obtenir plus d’informations sur l’utilisation de l’interface, étudiez les scénarios dont vous avez besoin (plus loin dans ce document). 
 
-Le cas échéant, vous pouvez définir vous-même des cartes réseau supplémentaires. Toutefois, les configurations des cartes réseau existantes *ne peuvent pas* être modifiées.
+Le cas échéant, vous pouvez définir vous-même d'autres cartes réseau. Toutefois, les configurations des cartes réseau existantes *ne peuvent pas* être modifiées.
 
 >[!NOTE]
 >Vous pouvez trouver des interfaces supplémentaires qui sont des interfaces ou des liaisons physiques. Vous devez considérer uniquement les interfaces mentionnées précédemment correspondant à votre cas d’usage. Toutes les autres peuvent être ignorées.
 
-Pour les unités avec deux adresses IP attribuées, voici à quoi devrait ressembler la distribution :
+Pour les unités auxquelles deux adresses IP ont été attribuées, distribution doit se présenter comme suit :
 
-- L’adresse IP attribuée à « Ethernet A » doit se trouver dans la plage d’adresses du pool d’adresses IP du serveur que vous avez envoyée à Microsoft. Cette adresse IP doit être conservée dans le répertoire */etc/hosts* du système d’exploitation.
+- L’adresse IP attribuée à « Ethernet A » doit se trouver dans la plage d’adresses du pool d’adresses IP du serveur que vous avez envoyée à Microsoft. Cette adresse IP doit être conservée dans le répertoire */etc/hosts* du système d'exploitation.
 
 - L’adresse IP attribuée à « Ethernet C » doit être utilisée pour la communication à NFS. Cette adresse n’a *pas* besoin d’être conservée dans le répertoire *etc/hosts* pour autoriser un trafic interinstance au sein du locataire.
 
 Une configuration à deux adresses IP ne convient pas aux déploiements Scale-out HANA ni aux réplications de système HANA. Si vous n’avez que deux adresses IP attribuées et que vous souhaitez déployer une telle configuration, contactez SAP HANA sur Azure Service Management. SAP HANA peut vous attribuer une troisième adresse IP dans un troisième VLAN. Pour les unités de grande instance HANA avec trois adresses IP attribuées à trois ports de carte réseau, les règles d’utilisation suivantes s’appliquent :
 
-- L’adresse IP attribuée à « Ethernet A » doit se trouver hors de la plage d’adresses du pool d’adresses IP du serveur que vous avez envoyée à Microsoft. Cette adresse IP ne doit pas être conservée dans le répertoire */etc/hosts* du système d’exploitation.
+- L’adresse IP attribuée à « Ethernet A » doit se trouver hors de la plage d’adresses du pool d’adresses IP du serveur que vous avez envoyée à Microsoft. Cette adresse IP ne doit pas être conservée dans le répertoire *etc/hosts* du système d'exploitation.
 
 - « Ethernet B » doit être conservé exclusivement dans le répertoire *etc/hosts* pour la communication entre les différentes instances. Il s’agit des adresses IP à conserver dans les configurations HANA Scale-out comme adresses IP utilisées par HANA pour la configuration inter-nœuds.
 
-- L’adresse IP attribuée à « Ethernet C » doit être utilisée pour la communication à NFS. Ce type d’adresse ne doit pas être conservé dans le répertoire *etc/hosts*.
+- L’adresse IP attribuée à « Ethernet C » doit être utilisée pour la communication à NFS. Ce type d'adresse ne doit pas être conservé dans le répertoire *etc/hosts*.
 
-- « Ethernet D » doit être utilisé exclusivement pour l’accès aux appareils STONITH pour stimulateurs cardiaques. Cette interface est nécessaire lorsque vous configurez la réplication de système HANA et que vous voulez obtenir le basculement automatique du système d’exploitation à l’aide d’un appareil SBD.
+- « Ethernet D » doit être utilisé exclusivement pour l’accès aux appareils STONITH pour stimulateurs cardiaques. Cette interface est nécessaire lorsque vous configurez une réplication de système HANA et que vous souhaitez parvenir au basculement automatique du système d'exploitation à l'aide d'un appareil SBD.
 
 
 ### <a name="storage"></a>Stockage
-Le stockage est préconfiguré en fonction de la topologie demandée. Les tailles de volume et les points de montage varient en fonction du nombre de serveurs, du nombre de références SKU et de la topologie configurée. Pour plus d’informations, étudiez les scénarios dont vous avez besoin (plus loin dans cet article). Si vous avez besoin de davantage de stockage, vous pouvez l’acheter par incréments de 1 To.
+Le stockage est préconfiguré en fonction de la topologie demandée. Les tailles de volume et les points de montage varient en fonction du nombre de serveurs et de références SKU ainsi que de la topologie configurée. Pour plus d’informations, étudiez les scénarios dont vous avez besoin (plus loin dans cet article). Si vous avez besoin de davantage de stockage, vous pouvez l’acheter par incréments de 1 To.
 
 >[!NOTE]
 >Le point de montage /usr/sap/\<SID> est un lien symbolique vers le point de montage /hana/shared.
@@ -105,7 +106,7 @@ Le stockage est préconfiguré en fonction de la topologie demandée. Les taille
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-Les diagrammes d’architecture des sections suivantes utilisent les notations suivantes :
+Les diagrammes d'architecture des sections suivantes utilisent les notations ci-dessous :
 
 [ ![Tableau des diagrammes d’architecture](media/hana-supported-scenario/Legends.png)](media/hana-supported-scenario/Legends.png#lightbox)
 
@@ -440,7 +441,7 @@ Les points de montage suivants sont préconfigurés :
 
 ## <a name="scale-out-with-standby"></a>Scale-out avec nœud de secours
  
-Cette topologie prend en charge plusieurs nœuds dans une configuration de scale-out. Elle est composée d’un nœud doté du rôle principal, d’un ou de plusieurs nœuds dotés d’un rôle de travail et d’un ou plusieurs nœuds de secours. Toutefois, il ne peut jamais exister qu’un seul nœud principal.
+Cette topologie prend en charge plusieurs nœuds dans une configuration de scale-out. Elle est composée d’un nœud doté du rôle principal, d’un ou de plusieurs nœuds dotés d’un rôle de travail et d’un ou plusieurs nœuds de secours. Toutefois, il ne peut jamais exister qu'un seul nœud principal.
 
 
 ### <a name="architecture-diagram"></a>Diagramme de l'architecture  
@@ -475,7 +476,7 @@ Les points de montage suivants sont préconfigurés :
 
 ## <a name="scale-out-without-standby"></a>Scale-out sans nœud de secours
  
-Cette topologie prend en charge plusieurs nœuds dans une configuration de scale-out. Elle est composée d’un nœud doté du rôle principal et d’un ou de plusieurs nœuds dotés d’un rôle de travail. Toutefois, il ne peut jamais exister qu’un seul nœud principal.
+Cette topologie prend en charge plusieurs nœuds dans une configuration de scale-out. Elle est composée d’un nœud doté du rôle principal et d’un ou de plusieurs nœuds dotés d’un rôle de travail. Toutefois, il ne peut jamais exister qu'un seul nœud principal.
 
 
 ### <a name="architecture-diagram"></a>Diagramme de l'architecture  
@@ -561,7 +562,7 @@ Les points de montage suivants sont préconfigurés :
 
 ## <a name="single-node-with-dr-using-hsr"></a>Nœud unique avec reprise d’activité à l’aide de HSR
  
-Cette topologie prend en charge un seul nœud dans une configuration de montée en charge avec un SID, avec la réplication du système HANA vers le site de récupération d’urgence pour un SID principal. Dans le diagramme, seul un système à SID unique est représenté sur le site principal, mais les systèmes multi-SID (MCOS) sont également pris en charge.
+Cette topologie prend en charge un seul nœud dans une configuration de scale-up avec un seul SID, avec la réplication du système HANA vers le site de récupération d'urgence pour un SID principal. Dans le diagramme, seul un système à SID unique est représenté sur le site principal, mais les systèmes multi-SID (MCOS) sont également pris en charge.
 
 ### <a name="architecture-diagram"></a>Diagramme de l'architecture  
 
@@ -582,7 +583,7 @@ Les interfaces réseau suivantes sont préconfigurées :
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
 
 ### <a name="storage"></a>Stockage
-Les points de montage suivants sont préconfigurés sur les deux unités HLI (principale et de récupération d’urgence) :
+Les points de montage suivants sont préconfigurés sur les deux unités HLI (unité principale et unité de récupération d'urgence) :
 
 | Point de montage | Cas d’utilisation | 
 | --- | --- |
@@ -595,14 +596,14 @@ Les points de montage suivants sont préconfigurés sur les deux unités HLI (pr
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
 - Pour MCOS : La répartition de la taille des volumes est basée sur la taille de la base de données en mémoire. Pour découvrir quelles tailles de base de données en mémoire sont prises en charge dans un environnement multi-SID, consultez la section [Vue d’ensemble et architecture](./hana-overview-architecture.md).
-- Le nœud principal est synchronisé avec le nœud de récupération d’urgence à l’aide de la réplication du système HANA. 
+- Le nœud principal se synchronise avec le nœud de récupération d'urgence à l'aide de la réplication du système HANA. 
 - [Global Reach](../../../expressroute/expressroute-global-reach.md) permet d’associer des circuits ExpressRoute afin de constituer un réseau privé entre vos réseaux régionaux.
 
 
 
 ## <a name="single-node-hsr-to-dr-cost-optimized"></a>HSR à nœud unique vers site de récupération d’urgence (optimisation des coûts) 
  
- Cette topologie prend en charge un seul nœud dans une configuration de montée en charge avec un SID, avec la réplication du système HANA vers le site de récupération d’urgence pour un SID principal. Dans le diagramme, seul un système à SID unique est représenté sur le site principal, mais les systèmes multi-SID (MCOS) sont également pris en charge. Sur le site de récupération d’urgence, une unité HLI est utilisée pour l’instance AQ pendant l’exécution des opérations de production à partir du site principal. Durant le basculement de la récupération d’urgence (ou le test de basculement), l’instance AQ sur le site de récupération d’urgence est arrêté.
+ Cette topologie prend en charge un seul nœud dans une configuration de scale-up avec un seul SID, avec la réplication du système HANA vers le site de récupération d'urgence pour un SID principal. Dans le diagramme, seul un système à SID unique est représenté sur le site principal, mais les systèmes multi-SID (MCOS) sont également pris en charge. Sur le site de récupération d’urgence, une unité HLI est utilisée pour l’instance AQ pendant l’exécution des opérations de production à partir du site principal. Durant le basculement de la récupération d’urgence (ou le test de basculement), l’instance AQ sur le site de récupération d’urgence est arrêté.
 
 ### <a name="architecture-diagram"></a>Diagramme de l'architecture  
 
@@ -647,12 +648,12 @@ Les points de montage suivants sont préconfigurés :
 - Pour MCOS : La répartition de la taille des volumes est basée sur la taille de la base de données en mémoire. Pour découvrir quelles tailles de base de données en mémoire sont prises en charge dans un environnement multi-SID, consultez la section [Vue d’ensemble et architecture](./hana-overview-architecture.md).
 - Sur le site de récupération d’urgence : Les volumes et les points de montage sont configurés, marqués comme « PROD Instance at DR site » (Instance PROD sur le site de récupération d’urgence), en vue de l’installation de l’instance HANA de production sur l’unité HLI de récupération d’urgence. 
 - Sur le site de récupération d’urgence : Les volumes partagés, de données, de journaux et de sauvegardes de fichiers journaux pour l’assurance qualité, marqués comme « QA Instance installation » (Installation de l’instance AQ), sont configurés pour l’installation de l’instance AQ.
-- Le nœud principal se synchronise avec le nœud de récupération d’urgence à l’aide de la réplication du système HANA. 
+- Le nœud principal se synchronise avec le nœud de récupération d'urgence à l'aide de la réplication du système HANA. 
 - [Global Reach](../../../expressroute/expressroute-global-reach.md) permet d’associer des circuits ExpressRoute afin de constituer un réseau privé entre vos réseaux régionaux.
 
 ## <a name="high-availability-and-disaster-recovery-with-hsr"></a>Haute disponibilité et reprise d’activité avec HSR 
  
- Cette topologie prend en charge deux nœuds pour la configuration de la réplication du système HANA pour la haute disponibilité des régions locales. Pour la récupération d’urgence, le troisième nœud de la région de récupération d’urgence se synchronise avec le site principal par le biais de la HSR (mode asynchrone). 
+ Cette topologie prend en charge deux nœuds dans le contexte de la configuration de la réplication du système HANA pour la haute disponibilité des régions locales. Pour la récupération d’urgence, le troisième nœud de la région de récupération d’urgence se synchronise avec le site principal par le biais de la HSR (mode asynchrone). 
 
 ### <a name="architecture-diagram"></a>Diagramme de l'architecture  
 
@@ -692,12 +693,12 @@ Les points de montage suivants sont préconfigurés :
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
 - Sur le site de récupération d’urgence : Les volumes et les points de montage sont configurés, marqués comme « PROD DR Instance » (Instance de récupération d’urgence PROD), en vue de l’installation de l’instance HANA de production sur l’unité HLI de récupération d’urgence. 
-- Le nœud du site principal se synchronise avec le nœud de récupération d’urgence à l’aide de la réplication du système HANA. 
+- Le nœud du site principal se synchronise avec le nœud de récupération d'urgence à l'aide de la réplication du système HANA. 
 - [Global Reach](../../../expressroute/expressroute-global-reach.md) permet d’associer des circuits ExpressRoute afin de constituer un réseau privé entre vos réseaux régionaux.
 
 ## <a name="high-availability-and-disaster-recovery-with-hsr-cost-optimized"></a>Haute disponibilité et reprise d’activité avec HSR (optimisation des coûts)
  
- Cette topologie prend en charge deux nœuds pour la configuration de la réplication du système HANA pour la haute disponibilité des régions locales. Pour la récupération d’urgence, le troisième nœud de la région de récupération d’urgence se synchronise avec le site principal par le biais de la HSR (mode asynchrone), tandis qu’une autre instance (par exemple, AQ) est déjà en cours d’exécution à partir du nœud de récupération d’urgence. 
+ Cette topologie prend en charge deux nœuds dans le contexte de la configuration de la réplication du système HANA pour la haute disponibilité des régions locales. Pour la récupération d’urgence, le troisième nœud de la région de récupération d’urgence se synchronise avec le site principal par le biais de la HSR (mode asynchrone), tandis qu’une autre instance (par exemple, AQ) est déjà en cours d’exécution à partir du nœud de récupération d’urgence. 
 
 ### <a name="architecture-diagram"></a>Diagramme de l'architecture  
 
@@ -741,12 +742,12 @@ Les points de montage suivants sont préconfigurés :
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
 - Sur le site de récupération d’urgence : Les volumes et les points de montage sont configurés, marqués comme « PROD DR Instance » (Instance de récupération d’urgence PROD), en vue de l’installation de l’instance HANA de production sur l’unité HLI de récupération d’urgence. 
 - Sur le site de récupération d’urgence : Les volumes partagés, de données, de journaux et de sauvegardes de fichiers journaux pour l’assurance qualité, marqués comme « QA Instance installation » (Installation de l’instance AQ), sont configurés pour l’installation de l’instance AQ.
-- Le nœud du site principal se synchronise avec le nœud de récupération d’urgence à l’aide de la réplication du système HANA. 
+- Le nœud du site principal se synchronise avec le nœud de récupération d'urgence à l'aide de la réplication du système HANA. 
 - [Global Reach](../../../expressroute/expressroute-global-reach.md) permet d’associer des circuits ExpressRoute afin de constituer un réseau privé entre vos réseaux régionaux.
 
 ## <a name="scale-out-with-dr-using-hsr"></a>Scale-out avec reprise d’activité à l’aide de HSR
  
-Cette topologie prend en charge plusieurs nœuds dans une configuration de scale-out avec reprise d’activité après sinistre. Vous pouvez demander cette topologie avec ou sans nœud de secours. Le nœud du site principal se synchronise avec le nœud du site de récupération d’urgence à l’aide de la réplication du système HANA (mode asynchrone).
+Cette topologie prend en charge plusieurs nœuds dans une configuration de scale-out avec reprise d’activité après sinistre. Vous pouvez demander cette topologie avec ou sans nœud de secours. Le nœud du site principal se synchronise avec le nœud du site de récupération d'urgence à l'aide de la réplication du système HANA (mode asynchrone).
 
 
 ### <a name="architecture-diagram"></a>Diagramme de l'architecture  
@@ -788,10 +789,13 @@ Les points de montage suivants sont préconfigurés :
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
 - Sur le site de récupération d’urgence : Les volumes et les points de montage sont configurés en vue de l’installation de l’instance HANA de production sur l’unité HLI de récupération d’urgence. 
-- Le nœud du site principal se synchronise avec le nœud de récupération d’urgence à l’aide de la réplication du système HANA. 
+- Le nœud du site principal se synchronise avec le nœud de récupération d'urgence à l'aide de la réplication du système HANA. 
 - [Global Reach](../../../expressroute/expressroute-global-reach.md) permet d’associer des circuits ExpressRoute afin de constituer un réseau privé entre vos réseaux régionaux.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Vous en saurez plus sur :
+
 - [Infrastructure et connectivité](./hana-overview-infrastructure-connectivity.md) pour les grandes instances HANA
 - [Haute disponibilité et récupération d’urgence](./hana-overview-high-availability-disaster-recovery.md) pour les grandes instances HANA

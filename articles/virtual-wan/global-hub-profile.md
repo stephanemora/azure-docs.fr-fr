@@ -1,18 +1,18 @@
 ---
-title: Télécharger des profils VPN Azure Virtual WAN mondiaux ou basés sur des hubs | Microsoft Docs
+title: Télécharger des profils VPN Azure Virtual WAN mondiaux ou basés sur des hubs
 description: Découvrez comment Azure Virtual WAN offre deux types de connectivité pour les utilisateurs distants, et comment télécharger un profil.
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.author: alzam
-ms.openlocfilehash: 6d5c4ba0f1f55119d1ec38296e67ae3e90c52650
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/26/2021
+ms.author: cherylmc
+ms.openlocfilehash: 90d734b9e3ce2bd17496790d3cc4bf1961b22fe2
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91313720"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579852"
 ---
 # <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>Télécharger un profil mondial ou basé sur un hub pour les clients VPN utilisateurs
 

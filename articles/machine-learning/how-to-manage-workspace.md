@@ -1,7 +1,7 @@
 ---
-title: Créer des espaces de travail dans le portail
+title: Gérer des espaces de travail dans le portail ou le kit de développement logiciel Python
 titleSuffix: Azure Machine Learning
-description: Découvrez comment créer, afficher et supprimer des espaces de travail Azure Machine Learning à l’aide du portail Azure ou du Kit de développement logiciel (SDK) pour Python.
+description: Découvrez comment gérer des espaces de travail Azure Machine Learning à l’aide du portail Azure ou du Kit de développement logiciel (SDK) pour Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,18 +10,18 @@ author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8583229104d29f48784c7790e505852ac4b08dfd
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: e84f0d45666e158805a9290d2e446672a6867fb2
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376286"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030842"
 ---
-# <a name="create-and-manage-azure-machine-learning-workspaces"></a>Créer et gérer des espaces de travail Azure Machine Learning 
+# <a name="manage-azure-machine-learning-workspaces-in-the-portal-or-with-the-python-sdk"></a>Gérer les espaces de travail Azure Machine Learning dans le portail ou avec le SDK Python
 
-Cet article explique comment créer, afficher et supprimer des [**espaces de travail Azure Machine Learning**](concept-workspace.md) pour le service [Azure Machine Learning](overview-what-is-azure-ml.md) à l’aide du portail Azure ou du [Kit de développement logiciel (SDK) pour Python](/python/api/overview/azure/ml/).
+Cet article explique comment créer, afficher et supprimer des [**espaces de travail Azure Machine Learning**](concept-workspace.md) pour le service [Azure Machine Learning](overview-what-is-azure-ml.md) à l’aide du portail Azure ou du [Kit de développement logiciel (SDK) pour Python](/python/api/overview/azure/ml/)
 
-À mesure que vos besoins évoluent ou que les exigences en matière d’automation augmentent, vous pouvez également créer et supprimer des espaces de travail [à l’aide de l’interface CLI](reference-azure-machine-learning-cli.md) ou [via l’extension VS Code](how-to-setup-vs-code.md).
+À mesure que vos besoins évoluent ou que les exigences en matière d’automation augmentent, vous pouvez également gérer des espaces de travail [à l’aide de l’interface CLI](reference-azure-machine-learning-cli.md) ou [via l’extension VS Code](how-to-setup-vs-code.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

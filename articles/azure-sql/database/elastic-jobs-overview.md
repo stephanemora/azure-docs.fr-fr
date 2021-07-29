@@ -3,20 +3,20 @@ title: Tâches de base de données élastique (préversion)
 description: Configurer des tâches de base de données élastique (préversion) pour exécuter des scripts T-SQL (Transact-SQL) sur une ou plusieurs bases de données d'Azure SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: scale-out
+ms.subservice: elastic-jobs
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: srinia
 ms.author: srinia
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 12/18/2018
-ms.openlocfilehash: f9a026ed47d662b80ef01e505bfbcf8f32d20b04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35e13b483141e841d9cca5a2e5d3aa3c77ee7b4a
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92792172"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017610"
 ---
 # <a name="create-configure-and-manage-elastic-jobs-preview"></a>Créer, configurer et gérer des travaux élastiques (préversion)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ La préversion est actuellement limitée à 100 travaux simultanés.
 
 Pour éviter la surcharge des ressources durant l’exécution de travaux sur des bases de données dans un pool élastique SQL, vous pouvez configurer les travaux de manière à limiter le nombre de bases de données sur lesquelles un travail peut s’exécuter simultanément.
 
-Définissez le nombre de bases de données simultanées sur lesquelles un travail s’exécute en définissant le paramètre `@max_parallelism` de la procédure stockée `sp_add_jobstep`dans T-SQL, ou `Add-AzSqlElasticJobStep -MaxParallelism` dans PowerShell.
+Définissez le nombre de bases de données simultanées sur lesquelles un travail s’exécute en définissant le paramètre `@max_parallelism` de la procédure stockée `sp_add_jobstep`dans T-SQL.
 
 ## <a name="best-practices-for-creating-jobs"></a>Bonnes pratiques relatives à la création de travaux
 

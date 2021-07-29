@@ -1,18 +1,18 @@
 ---
-title: Se connecter à un groupe de machines virtuelles Windows identiques à l’aide d’Azure Bastion | Microsoft Docs
-description: Dans cet article, découvrez comment se connecter à un groupe de machines virtuelles Azure identiques à l’aide d’Azure Bastion.
+title: Se connecter à un groupe de machines virtuelles Windows identiques à l’aide d’Azure Bastion
+description: Découvrez comment se connecter à un groupe de machines virtuelles identiques à l’aide d’Azure Bastion.
 services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: charwen
-ms.openlocfilehash: 001d2ff6789ec4cfcc391171f0859b67ab1ee0a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 361bb52ffd9762a49a549fe3fc5ac5cd652416ca
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92077777"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534152"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Se connecter à un groupe de machines virtuelles identiques à l’aide d’Azure Bastion
 

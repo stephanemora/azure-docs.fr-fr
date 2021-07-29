@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 04/14/2021
-ms.openlocfilehash: 826183e09f2aa7f3f22ace8b5ce3e16767d49863
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 05/20/2021
+ms.openlocfilehash: ef0639637736b0a8b4f41d6fd038de81a8e94a69
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515654"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454957"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Flux de données de mappage dans Azure Data Factory
 
@@ -84,7 +84,19 @@ Pour obtenir la liste des transformations disponibles, consultez la [Vue d’ens
 
 ## <a name="data-flow-data-types"></a>Types de données de flux de données
 
-binaire booléen chaîne complexe court date décimal entier flottant long mappage tableau timestamp
+* tableau
+* binary
+* boolean
+* complex
+* décimal (comprend la précision)
+* Date
+* float
+* entier
+* long
+* carte
+* short
+* string
+* timestamp
 
 ## <a name="data-flow-activity"></a>Activité de flux de données
 

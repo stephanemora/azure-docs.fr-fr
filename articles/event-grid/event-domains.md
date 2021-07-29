@@ -3,12 +3,12 @@ title: Domaines d’événements dans Azure Event Grid
 description: Cet article décrit comment utiliser les domaines d’événements pour gérer le flux d’événements personnalisés vers vos organisations, clients ou applications.
 ms.topic: conceptual
 ms.date: 04/13/2021
-ms.openlocfilehash: 32c06ac55f667ec9807c7952127c2cf0f0384024
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 78a785d3f1ee0431b11e8c14c3e48f4a156b5fd4
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374707"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537782"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Comprendre les domaines d’événements pour gérer les rubriques Event Grid
 
@@ -45,7 +45,7 @@ Pour plus d’informations sur ces rôles, voir [Rôles intégrés pour Event Gr
 S’abonner aux événements d’une rubrique dans un domaine d’événements revient à [créer un abonnement à un événement dans une rubrique personnalisée](./custom-event-quickstart.md) ou à s’abonner à un événement d’un service Azure.
 
 > [!IMPORTANT]
-> La rubrique de domaine est considérée comme une ressource **managée automatiquement** dans Event Grid. Vous pouvez créer un abonnement aux événements au niveau de l’étendue de la rubrique de domaine sans créer la rubrique de domaine. Dans ce cas, Event Grid crée automatiquement la rubrique de domaine en votre nom. Bien entendu, vous pouvez toujours choisir de créer la rubrique de domaine manuellement. Ce comportement vous permet de vous préoccuper d’une ressource en moins lorsque vous travaillez avec un grand nombre de rubriques de domaine. Lorsque le dernier abonnement à une rubrique de domaine est supprimé, la rubrique domaine est également supprimée, peu importe qu’elle ait été créée manuellement ou automatiquement. 
+> La rubrique de domaine est considérée comme une ressource **managée automatiquement** dans Event Grid. Vous pouvez créer un abonnement aux événements au niveau de [l’étendue de domaine](#domain-scope-subscriptions) sans créer la rubrique de domaine. Dans ce cas, Event Grid crée automatiquement la rubrique de domaine en votre nom. Bien entendu, vous pouvez toujours choisir de créer la rubrique de domaine manuellement. Ce comportement vous permet de vous préoccuper d’une ressource en moins lorsque vous travaillez avec un grand nombre de rubriques de domaine. Lorsque le dernier abonnement à une rubrique de domaine est supprimé, la rubrique domaine est également supprimée, peu importe qu’elle ait été créée manuellement ou automatiquement. 
 
 ### <a name="domain-scope-subscriptions"></a>Abonnements à l’étendue de domaine
 

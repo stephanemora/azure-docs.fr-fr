@@ -3,14 +3,14 @@ title: Créer un compte d'identification Azure Automation
 description: Cet article explique comment créer un compte d’identification Azure Automation avec PowerShell ou à partir du portail Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/29/2021
+ms.date: 05/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 368bbfd0bc4dd0a3c8c2792487db52e8585c2ea1
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 7ed16e9bbd1071e4831e814e617d69dc4a638510
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277621"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078253"
 ---
 # <a name="how-to-create-an-azure-automation-run-as-account"></a>Créer un compte d’identification Azure Automation
 
@@ -46,6 +46,13 @@ La liste suivante indique la configuration nécessaire pour créer un compte d�
 * Azure PowerShell 6.2.4 ou version ultérieure. Pour plus d’informations, consultez [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/install-az-ps).
 * Un compte Automation, qui est référencé comme valeur pour les paramètres `AutomationAccountName` et `ApplicationDisplayName`.
 * Les autorisations équivalentes à celles qui sont listées dans [Autorisations nécessaires pour configurer des comptes d’identification](automation-security-overview.md#permissions).
+
+Si vous envisagez d’utiliser un certificat de votre entreprise ou d’une autorité de certification tierce, Automation requiert que le certificat ait la configuration suivante :
+
+   * Spécifiez le fournisseur **Microsoft Enhanced RSA and AES Cryptographic Provider**
+   * Marqué comme exportable
+   * Configuré pour utiliser l’algorithme SHA256
+   * Enregistré au `*.pfx` format ou `*.cer`.
 
 Pour obtenir les valeurs de `AutomationAccountName`, `SubscriptionId` et `ResourceGroupName`, qui sont des paramètres obligatoires pour le script PowerShell, procédez comme suit.
 

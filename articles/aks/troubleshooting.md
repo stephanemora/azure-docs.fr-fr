@@ -4,12 +4,12 @@ description: Découvrir comment résoudre les problèmes courants liés à l’u
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 0892f11a79c62669d77cceb2dbc4f9a9f86c623a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 257f3473da4284080d7977021cb97c6dbce0fbde
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108765932"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535164"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -214,6 +214,10 @@ Si l’état d’approvisionnement de votre cluster reste en *Échec* ou si les 
 ## <a name="my-watch-is-stale-or-azure-ad-pod-identity-nmi-is-returning-status-500"></a>Mon espion est obsolète ou Azure AD Pod Identity NMI retourne l’état 500
 
 Si vous utilisez Pare-feu Azure comme dans cet [exemple](limit-egress-traffic.md#restrict-egress-traffic-using-azure-firewall), vous pouvez rencontrer ce problème, car les connexions TCP de longue durée via le pare-feu utilisant des règles d’application ont actuellement un bogue (à résoudre dans Q1CY21) qui provoque l’arrêt des `keepalives` Go sur le pare-feu. Tant que ce problème n’est pas résolu, vous pouvez l’atténuer en ajoutant une règle de réseau (au lieu de la règle d’application) à l’adresse IP du serveur de l’API AKS.
+
+## <a name="when-resuming-my-cluster-after-a-stop-operation-why-is-my-node-count-not-in-the-autoscaler-min-and-max-range"></a>Lors de la reprise de mon cluster après une opération d'arrêt, pourquoi le nombre de nœuds n'est-il pas dans la plage min/max du programme de mise à l'échelle automatique ?
+
+Si vous utilisez le programme de mise à l'échelle automatique de cluster, lorsque vous redémarrez votre cluster, le nombre de nœuds peut ne pas être compris entre les valeurs min et max que vous avez définies. Il s’agit du comportement attendu. Le cluster démarre avec le nombre de nœuds dont il a besoin pour exécuter ses charges de travail, qui n'est pas affecté par les paramètres de votre programme de mise à l'échelle automatique. Lorsque votre cluster effectue des opérations de mise à l'échelle, les valeurs min et max ont un impact sur le nombre de nœuds et votre cluster finit par atteindre et rester dans la plage souhaitée jusqu'à ce que vous arrêtiez votre cluster.
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Résolution des problèmes de stockage Azure et AKS
 

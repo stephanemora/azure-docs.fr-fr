@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 05/13/2021
 ms.custom: references_regions
-ms.openlocfilehash: b020c74ce7479f9925c1a4e1db06fb4b3b9ef22b
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: e339c9847024aa35665b9a8b4114102c8fde22a1
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108065436"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470285"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Connecteur Azure Purview pour Amazon S3
 
@@ -29,9 +29,8 @@ L’étendue suivante est spécifique pour inscrire et analyser des compartiment
 
 |Étendue  |Description  |
 |---------|---------|
-|**Limites de données**     |    Le service de scanneur Purview prend actuellement en charge l’analyse des compartiments Amazon S3 avec jusqu’à 100 Go de données par locataire.     |
 |**Types de fichier**     | Le service de scanneur Purview prend actuellement en charge les types de fichiers suivants : <br><br>.avro, .csv, .doc, .docm, .docx, .dot, .json, .odp, .ods, .odt, .orc, .parquet, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .psv, .ssv, .tsv, .txt, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .xml        |
-|**Régions**     | Le connecteur Purview pour le service Amazon S3 est actuellement déployé dans les régions AWS suivantes : **USA Est (Ohio)** , **USA Est (Virginie Nord)** , **Europe (Irlande)** , **Europe (Francfort)** et **Asie-Pacifique (Sydney)** . <br><br>Pour plus d’informations, consultez [Régions de stockage et d’analyse](#storage-and-scanning-regions).   |
+|**Régions**     | Le connecteur Purview pour le service Amazon S3 est actuellement déployé dans des régions spécifiques seulement. <br><br>Pour plus d’informations, consultez [Régions de stockage et d’analyse](#storage-and-scanning-regions).   |
 |     |         |
 
 Pour plus d’informations, consultez les limites Purview documentées sur :
@@ -52,24 +51,24 @@ Le tableau suivant mappe les régions où sont stockées vos données à la rég
 | ------------------------------- | ------------------------------------- |
 | USA Est (Ohio)                  | USA Est (Ohio)                        |
 | USA Est (Virginie Nord)           | USA Est (Virginie Nord)                       |
-| USA Ouest (Californie Nord)         | USA Est (Ohio)                        |
-| USA Ouest (Oregon)                | USA Est (Ohio)                        |
+| USA Ouest (Californie Nord)         | USA Est (Ohio) ou USA Ouest (N. Nord)                        |
+| USA Ouest (Oregon)                | USA Est (Ohio) ou USA Ouest (Oregon)                      |
 | Afrique (Le Cap)              | Europe (Francfort)                    |
-| Asie-Pacifique (Hong Kong, R.A.S.)        | Asie-Pacifique (Sydney)                   |
-| Asie-Pacifique (Mumbai)           | Asie-Pacifique (Sydney)                   |
-| Asie-Pacifique (Osaka-local)      | Asie-Pacifique (Sydney)                   |
-| Asie-Pacifique (Séoul)            | Asie-Pacifique (Sydney)                   |
-| Asie-Pacifique (Singapour)        | Asie-Pacifique (Sydney)                   |
+| Asie-Pacifique (Hong Kong, R.A.S.)        | Asie-Pacifique (Sydney) ou Asie-Pacifique (Singapour)                |
+| Asie-Pacifique (Mumbai)           | Asie-Pacifique (Sydney) ou Asie-Pacifique (Singapour)                |
+| Asie-Pacifique (Osaka-local)      | Asie-Pacifique (Sydney) ou Asie-Pacifique (Tokyo)                 |
+| Asie-Pacifique (Séoul)            | Asie-Pacifique (Sydney) ou Asie-Pacifique (Tokyo)                 |
+| Asie-Pacifique (Singapour)        | Asie-Pacifique (Sydney) ou Asie-Pacifique (Singapour)                 |
 | Asie-Pacifique (Sydney)           | Asie-Pacifique (Sydney)                  |
-| Asie-Pacifique (Tokyo)            | Asie-Pacifique (Sydney)                 |
+| Asie-Pacifique (Tokyo)            | Asie-Pacifique (Sydney) ou Asie-Pacifique (Tokyo)                |
 | Canada (Centre)                | USA Est (Ohio)                        |
 | Chine (Beijing)                 | Non pris en charge                    |
 | Chine (Ningxia)                 | Non pris en charge                   |
 | Europe (Francfort)              | Europe (Francfort)                    |
 | Europe (Irlande)                | Europe (Irlande)                   |
-| Europe (Londres)                 | Europe (Irlande)                   |
+| Europe (Londres)                 | Europe (Irlande) ou Europe (Londres)                 |
 | Europe (Milan)                  | Europe (Francfort)                    |
-| Europe (Paris)                  | Europe (Francfort)                    |
+| Europe (Paris)                  | Europe (Francfort) ou Europe (Paris)                   |
 | Europe (Stockholm)              | Europe (Francfort)                    |
 | Moyen-Orient (Bahreïn)           | Europe (Francfort)                    |
 | Amérique du Sud (São Paulo)       | USA Est (Ohio)                        |

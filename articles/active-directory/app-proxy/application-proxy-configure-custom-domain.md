@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 01470dac716ea26b36fb8bb13eac312cc8387ae1
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 51194dbcdfd967a40da96842cf58d373fd28f96f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186528"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468285"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurer des domaines personnalisés dans avec le Proxy d’application Azure AD
 
@@ -55,6 +55,9 @@ Lorsque vous sélectionnez un domaine personnalisé pour une URL externe, une ba
 ## <a name="set-up-and-use-custom-domains"></a>Configurer et utiliser des domaines personnalisés
 
 Pour configurer une application locale afin d’utiliser un domaine personnalisé, vous devez disposer d’un domaine personnalisé Azure Active Directory vérifié, d’un certificat PFX pour le domaine personnalisé et d’une application locale à configurer. 
+
+> [!IMPORTANT]
+> Vous êtes responsable de la gestion des enregistrements DNS qui redirigent vos domaines personnalisés vers le domaine *msappproxy.net*. Si vous choisissez de supprimer votre application ou locataire ultérieurement, veillez à supprimer également les enregistrements DNS associés pour le proxy d’application afin d’éviter toute utilisation incorrecte des enregistrements DNS non résolus. 
 
 ### <a name="create-and-verify-a-custom-domain"></a>Créer et vérifier un domaine personnalisé
 

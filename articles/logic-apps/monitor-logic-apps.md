@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: d6d497d241a91c0125f5ebe1c8437e90679768b8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 39971500d89ba8cbc1bbaf4938884bf2eba20813
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064987"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536619"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Surveiller l’état d’exécution, examiner l’historique du déclencheur et configurer des alertes pour Azure Logic Apps
 
@@ -30,7 +30,7 @@ Chaque fois que le déclencheur est activé pour un élément ou un événement,
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et ouvrez votre application logique dans le concepteur d’applications logiques.
 
-   Pour rechercher votre application logique, dans la zone de recherche Azure principale, entrez `logic apps`, puis sélectionnez **Logic Apps**.
+   Pour rechercher votre application logique, dans la zone de recherche Azure principale, entrez `logic apps`, puis sélectionnez **Applis logiques**.
 
    ![Rechercher et sélectionner le service « Logic Apps »](./media/monitor-logic-apps/find-your-logic-app.png)
 

@@ -1,68 +1,64 @@
 ---
-title: Mettre automatiquement à l’échelle les unités de débit - Azure Event Hubs | Microsoft Docs
-description: Activez la majoration automatique sur un espace de noms pour automatiquement mettre à l’échelle les unités de débit.
+title: Effectuer un scale-up automatique des unités de débit dans Azure Event Hubs
+description: Activez la fonctionnalité Majoration automatique sur un espace de noms pour effectuer un scale-up automatique des unités de débit (niveau standard).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: e4e54282b7f455f661238b0129dd1f8f9c70d9d6
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.date: 05/26/2021
+ms.openlocfilehash: 6f45e5a023110132db9904da7d8b84f4906dd8b7
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738101"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617183"
 ---
-# <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs
-Azure Event Hubs est une plateforme hautement évolutive de diffusion de données en continu. Ainsi, l’utilisation des unités Event Hubs augmente souvent une fois le service démarré. Ces augmentations obligent à rehausser les [unités de débit](event-hubs-scalability.md#throughput-units) prédéterminées pour mettre à l’échelle Event Hubs et gérer des taux de transfert plus conséquents. La fonctionnalité **Majoration automatique** d’Event Hubs augmente automatiquement la taille des instances en augmentant le nombre d’unités de débit pour répondre aux besoins d’utilisation. Cette opération permet d’éviter les situations de limitation, dans lesquelles :
+# <a name="automatically-scale-up-azure-event-hubs-throughput-units-standard-tier"></a>Effectuer un scale-up automatique des unités de débit Azure Event Hubs (niveau standard) 
+Azure Event Hubs est une plateforme hautement évolutive de diffusion de données en continu. Ainsi, l’utilisation des unités Event Hubs augmente souvent une fois le service démarré. Ces augmentations obligent à rehausser les [unités de débit](event-hubs-scalability.md#throughput-units) prédéterminées pour mettre à l'échelle Event Hubs et gérer des taux de transfert plus conséquents. La fonctionnalité **Majoration automatique** d'Event Hubs procède à un scale-up automatique en augmentant le nombre d'unités de débit pour répondre aux besoins d'utilisation. L’augmentation du nombre d’unités de débit vous empêche d’être confronté à des scénarios de limitation, dans lesquels :
 
-* Les taux d’entrée de données sont supérieurs aux unités de débit définies.
+* Les taux d'entrée des données sont supérieurs aux unités de débit définies. 
 * Les taux de demande de sortie de données sont supérieurs aux unités de débit définies.
 
 Le service Event Hubs augmente le débit quand la charge dépasse le seuil minimal, sans qu’aucune demande échoue avec des erreurs ServerBusy.
 
-## <a name="how-auto-inflate-works"></a>Fonctionnement de la majoration automatique
+> [!NOTE]
+> Pour en savoir plus sur le niveau **Premium**, consultez [Niveau Premium d'Event Hubs](event-hubs-premium-overview.md).
 
-Le trafic Event Hubs est contrôlé par les [unités de débit](event-hubs-scalability.md#throughput-units). Une unité de débit autorise 1 Mo/s en entrée et le double en sortie. Les unités Event Hub standard peuvent être configurées avec 1 à 20 unités de débit. La majoration automatique vous permet de démarrer petit avec le nombre d’unités de débit minimal exigé que vous choisissez. Ensuite, la fonctionnalité met automatiquement à l’échelle le nombre d’unités de débit dont vous avez besoin sur la limite maximale, selon l’augmentation de votre trafic. La majoration automatique vous permet de bénéficier des avantages suivants :
+## <a name="how-auto-inflate-works-in-standard-tier"></a>Fonctionnalité Majoration automatique au niveau standard
+Le trafic Event Hubs est contrôlé par les unités de débit (niveau standard). Pour connaître les limites, comme les taux d'entrée et de sortie par unité de débit, consultez [Quotas et limites Event Hubs](event-hubs-quotas.md). La fonctionnalité Majoration automatique vous permet de commencer petit avec le nombre minimum d'unités de débit requises. Ensuite, la fonctionnalité met automatiquement à l'échelle le nombre d'unités de débit requis en le définissant sur la limite maximale, conformément à l'augmentation de votre trafic. La majoration automatique vous permet de bénéficier des avantages suivants :
 
 - Un mécanisme de mise à l’échelle efficace pour démarrer avec la valeur minimale et monter en puissance à mesure de la croissance de votre activité.
 - Mise à l’échelle automatique sur à la limite supérieure spécifiée sans problèmes de limitation.
 - Contrôle amélioré de la mise à l’échelle, car vous contrôlez le moment et la quantité de la mise à l’échelle.
 
-## <a name="enable-auto-inflate-on-a-namespace"></a>Activer la majoration automatique sur un espace de noms
+ ## <a name="enable-auto-inflate-on-a-namespace"></a>Activer la majoration automatique sur un espace de noms
+Vous pouvez activer ou désactiver la fonctionnalité Majoration automatique sur un espace de noms Event Hubs de niveau standard à l'aide du [portail Azure](https://portal.azure.com) ou d'un [modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-inflate).
 
-Vous pouvez activer et désactiver la majoration automatique sur un espace de noms Event Hubs de niveau Standard, en appliquant l’une des méthodes suivantes :
-
-- Le [portail Azure](https://portal.azure.com).
-- [Un modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-inflate).
+Pour un espace de noms Event Hubs Premium, la fonctionnalité est automatiquement activée. Vous ne pouvez pas la désactiver. 
 
 > [!NOTE]
 > Les espaces de noms Event Hubs de niveau De base ne prennent pas en charge la majoration automatique.
 
-### <a name="enable-auto-inflate-through-the-portal"></a>Activer la majoration automatique via le portail
+## <a name="use-azure-portal"></a>Utiliser le portail Azure
+Sur le portail Azure, vous pouvez activer la fonctionnalité pendant ou après la création d'un espace de noms Event Hubs standard. Vous pouvez également définir des unités de débit pour l'espace de noms et spécifier la limite maximale de celles-ci. 
 
+Vous pouvez activer la fonctionnalité Majoration automatique **lors de la création d'un espace de noms Event Hubs** : L'image suivante montre comment activer la fonctionnalité Majoration automatique pour un espace de noms de niveau standard, et comment configurer les unités de débit de départ et le nombre maximal d'unités de débit. 
 
-#### <a name="enable-at-the-time-of-creation"></a>Activer l’option au moment de la création
-Vous pouvez activer la fonctionnalité d’augmentation automatique **lors de la création d’un espace de noms Event Hub** :
+:::image type="content" source="./media/event-hubs-auto-inflate/event-hubs-auto-inflate.png" alt-text="Capture d'écran illustrant l'activation de la fonctionnalité Majoration automatique lors de la création d'un espace de noms Event Hubs de niveau standard":::
 
-![Activer l’augmentation automatique lors de la création d’un Event Hub](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
+Une fois cette option activée, vous pouvez commencer petit avec le nombre minimum d'unités de débit, puis monter en puissance à mesure que vos besoins augmentent. La limite supérieure de la majoration n'affecte pas immédiatement les prix, qui dépendent du nombre d'unités de débit utilisées par heure.
 
-Une fois cette option activée, vous pouvez commencer par utiliser le nombre minimal d’unités de débit, puis monter en puissance à mesure que vos besoins d’utilisation augmentent. La limite supérieure de la majoration n’affecte pas immédiatement les prix, qui dépendent du nombre d’unités de débit utilisées par heure.
+Pour activer la fonctionnalité Majoration automatique et modifier ses paramètres, procédez comme suit :
 
-#### <a name="enable-auto-inflate-for-an-existing-event-hub"></a>Activer l’augmentation automatique pour un Event Hub existant
-Vous pouvez également activer la fonctionnalité d’augmentation automatique et modifier ses paramètres en suivant les instructions ci-après :
-
-1. Dans la page **Espace de noms Event Hubs**, sélectionnez **Désactivé** sous **Augmentation automatique des unités de débit**.
-
-    ![Sélectionner les unités de débit dans la page Espace de noms Event Hubs](./media/event-hubs-auto-inflate/select-throughput-units.png)
+1. Sur la page **Espace de noms Event Hubs**, accédez au menu de gauche et sélectionnez **Mettre à l'échelle** sous **Paramètres**.
 2. Dans la page **Paramètres de mise à l’échelle**, cochez la case **Activer** (si la fonctionnalité de mise à l’échelle automatique n’a pas été activée).
 
-    ![Sélectionner Activer](./media/event-hubs-auto-inflate/scale-settings.png)
+    :::image type="content" source="./media/event-hubs-auto-inflate/scale-settings.png" alt-text="Capture d'écran illustrant l'activation de la fonctionnalité Majoration automatique pour un espace de noms standard existant":::
 3. Entrez le nombre **maximal** d’unités de débit ou utilisez la barre de défilement pour définir une valeur.
 4. (facultatif) Mettez à jour nombre **minimal** d’unités de débit en haut de cette page.
-
 
 > [!NOTE]
 > Quand vous appliquez la configuration avec augmentation automatique afin d’augmenter les unités de débit, le service Event Hubs émet des journaux de diagnostic qui vous indiquent quand et pourquoi le débit a augmenté. Pour activer la journalisation des diagnostics pour un hub d’événements, sélectionnez **Paramètres de diagnostic** dans le menu de gauche de la page Hub d’événements dans le portail Azure. Pour plus d’informations, consultez [Configurer les journaux de diagnostic pour un hub d’événements Azure](event-hubs-diagnostic-logs.md).
 
-### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Activer la majoration automatique à l’aide d’un modèle Azure Resource Manager
+
+## <a name="use-an-azure-resource-manager-template"></a>Utiliser un modèle Azure Resource Manager
 
 Vous pouvez activer la majoration automatique durant le déploiement d’un modèle Azure Resource Manager. Par exemple, définissez la propriété `isAutoInflateEnabled` sur **true** et définissez `maximumThroughputUnits` sur 10. Par exemple :
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: f18d1850cb6ccf28ff70f826e3d4bfe74ae05c40
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 27dd64e510ffe00ce1c3c9f24f60c8c018401ab1
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178726"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471036"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Surveiller Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -54,9 +54,9 @@ Si vous n’êtes pas encore familiarisé avec la supervision des services Azure
 
 Les sections suivantes s’appuient sur cet article en décrivant les données spécifiques collectées à partir d’Azure Cosmos DB et en fournissant des exemples de configuration de collecte de données et d’analyse de ces données avec les outils Azure.
 
-## <a name="azure-monitor-for-azure-cosmos-db"></a>Azure Monitor pour Azure Cosmos DB
+## <a name="cosmos-db-insights"></a>Insights Cosmos DB
 
-Azure Monitor pour Azure Cosmos DB est basé sur la [fonctionnalité de classeurs d’Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) et utilise les mêmes données de supervision collectées pour Azure Cosmos DB que celles décrites dans les sections ci-dessous. Utilisez Azure Monitor pour une vue des performances globales, des défaillances, de la capacité et de l’intégrité opérationnelle de toutes vos ressources Azure Cosmos DB dans une expérience interactive unifiée, et tirez parti des autres fonctionnalités d’Azure Monitor pour l’analyse détaillée et les alertes. Plus d’informations sur l’article [Explorer Azure Monitor pour Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md).
+Les insights Cosmos DB reposent sur la [fonctionnalité de classeurs d'Azure Monitor](../azure-monitor/visualize/workbooks-overview.md). Ils utilisent les données de surveillance collectées pour Azure Cosmos DB et décrites dans les sections ci-dessous. Utilisez Azure Monitor pour une vue des performances globales, des défaillances, de la capacité et de l’intégrité opérationnelle de toutes vos ressources Azure Cosmos DB dans une expérience interactive unifiée, et tirez parti des autres fonctionnalités d’Azure Monitor pour l’analyse détaillée et les alertes. Plus d'informations, consultez l'article [Explorer les insights Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md).
 
 > [!NOTE]
 > Lorsque vous créez des conteneurs, veillez à ne pas créer deux conteneurs dont les noms ne se distinguent que par la casse. En effet, certaines parties de la plateforme Azure ne respectant pas la casse, cela peut entraîner une confusion ou collision de la télémétrie et des actions sur les conteneurs ainsi nommés.

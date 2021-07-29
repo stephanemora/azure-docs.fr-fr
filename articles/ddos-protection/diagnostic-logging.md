@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 7f8e3df927b74cff7e4dc8bf1456600740c07088
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b8ae9365199edfde078cad39783458fc3f86ebd6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567676"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061495"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Afficher et configurer la journalisation des diagnostics DDoS
 
@@ -128,9 +128,7 @@ Le tableau ci-après répertorie les noms de champ et leurs descriptions :
 
 ## <a name="enable-diagnostic-logging-on-all-public-ips"></a>Activer la journalisation des diagnostics sur toutes les adresses IP publiques
 
-Ce [modèle](https://aka.ms/ddosdiaglogs) crée une définition Azure Policy pour activer automatiquement la journalisation des diagnostics sur tous les journaux d’IP publiques dans une étendue définie.
-
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FPolicy%20-%20DDOS%20Enable%20Diagnostic%20Logging%2FAzure%20Policy%2FDDoSLogs.json)
+Cette [stratégie intégrée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F752154a7-1e0f-45c6-a880-ac75a7e4f648) active automatiquement la journalisation des diagnostics sur tous les journaux d’IP publiques dans une étendue définie. Pour connaître la liste complète des stratégies intégrées, consultez [Définitions intégrées Azure Policy pour Azure DDoS Protection Standard](policy-reference.md).
 
 ## <a name="view-log-data-in-workbooks"></a>Afficher les données de journal dans des classeurs
 

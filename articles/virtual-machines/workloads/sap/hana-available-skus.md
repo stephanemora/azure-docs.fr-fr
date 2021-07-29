@@ -1,6 +1,6 @@
 ---
 title: Références SKU pour SAP HANA sur Azure (grandes instances) | Microsoft Docs
-description: Références SKU pour SAP HANA sur Azure (grandes instances).
+description: Découvrez les références SKU disponibles pour SAP HANA sur Azure (grandes instances).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
@@ -8,20 +8,23 @@ manager: juergent
 editor: ''
 keywords: HLI, HANA, SKUs, S896, S224, S448, S672, Optane, SAP
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 4/16/2021
-ms.author: juergent
+ms.date: 5/13/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017, references_regions
-ms.openlocfilehash: 3ecbbe4d477f3e6c3c6606528c51b934b6cf534a
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: b9079b242710bee831ebdc0381118da1d0ad80e5
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718734"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110577631"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>Références SKU disponibles pour les grandes instances HANA
+
+## <a name="baremetal-infrastructure-availability-by-region"></a>Disponibilité du service BareMetal Infrastructure par région
 
 Le service BareMetal Infrastructure (certifié pour les charges de travail SAP HANA) basé sur Rév. 4.2* est disponible dans les régions suivantes :
 - Europe Ouest
@@ -32,19 +35,19 @@ Le service BareMetal Infrastructure (certifié pour les charges de travail SAP H
 - États-Unis - partie centrale méridionale
 - USA Ouest 2 avec prise en charge des Zones
 
-Le service BareMetal Infrastructure (certifié pour les charges de travail SAP HANA) basé sur Rév. 3 a une disponibilité limitée dans les régions suivantes :
+Le service BareMetal Infrastructure (certifié pour les charges de travail SAP HANA) basé sur Rév. 3 présente une disponibilité limitée dans les régions suivantes :
 - USA Ouest
 - USA Est 
 - Australie Est 
 - Sud-Australie Est
 - Japon Est
 
+## <a name="list-of-available-azure-large-instances"></a>Liste des instances Azure de grande taille disponibles
 
-Voici une liste des Grandes instances Azure disponibles.
+La liste suivante répertorie les instances Azure de grande taille disponibles (également appelées instances BareMetal Infrastructure).
 
 > [!IMPORTANT]
 > Soyez attentif à la première colonne qui représente l’état de la certification HANA pour chaque type de grande instance dans la liste. La colonne doit être corrélée avec le [répertoire matériel SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) pour les références SKU Azure qui commencent par la lettre **S**.
-
 
 
 | Certifié SAP HANA | Modèle | Mémoire totale | Mémoire DRAM | Mémoire Optane | Stockage | Disponibilité |
@@ -86,22 +89,23 @@ Voici une liste des Grandes instances Azure disponibles.
 
 - Cœurs d’unité centrale = somme des cœurs d’UC non multithreads dérivée de la somme des processeurs de l’unité de serveur.
 - Threads d’UC = somme des threads de calcul fournis par les cœurs d’UC multithreads dérivée de la somme des processeurs de l’unité de serveur. La plupart des unités sont configurées par défaut pour utiliser la technologie Hyper-Threading.
-- D’après les recommandations du fournisseur, S768xm et S960m ne sont pas configurées en vue d’utiliser la technologie Hyper-Threading pour l’exécution de SAP HANA.
+- D'après les recommandations du fournisseur, S768m, S768xm et S960m ne sont pas configurées en vue d'utiliser la technologie Hyper-Threading pour l'exécution de SAP HANA.
 
 
 > [!IMPORTANT]
-> Les références SKU suivantes, bien que toujours prises en charge, ne peuvent plus être achetées : S72, S72m, S144, S144m, S192 et S192m 
+> Les références SKU suivantes, bien que toujours prises en charge, ne peuvent plus être achetées : S72, S72m, S144, S144m, S192 et S192m.
 
-Les configurations spécifiques choisies dépendent de la charge de travail, des ressources d’UC et de la mémoire souhaitée. La charge de travail OLTP est en mesure d’utiliser des références SKU optimisées pour les charges de travail OLAP. 
+Les configurations spécifiques choisies dépendent de la charge de travail, des ressources d'UC et de la mémoire souhaitée. La charge de travail OLTP est en mesure d’utiliser des références SKU optimisées pour les charges de travail OLAP. 
 
 Deux classes de matériel différentes divisent les références SKU comme suit :
 
 - Les références S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 et S224m, S224oo, S224om, S224ooo, S224oom sont nommées références SKU de « Classe de type I ».
 - Toutes les autres sont nommées références SKU de « Classe de type II ».
-- Si vous êtes intéressé par des références SKU qui ne figurent pas encore dans le répertoire matériel SAP, contactez votre équipe de compte Microsoft pour obtenir plus d’informations. 
+- Si vous êtes intéressé par des références SKU qui ne figurent pas encore dans le répertoire matériel SAP, contactez votre équipe de compte Microsoft pour obtenir plus d'informations. 
 
+## <a name="tenant-considerations"></a>Considérations relatives aux locataires
 
-Un tampon de grande instance HANA complet n’est pas exclusivement alloué à l’utilisation d’un client unique. Cela s’applique également aux racks de ressources de calcul et de stockage connectés par le biais d’une structure réseau déployée dans Azure. L’infrastructure de grande instance HANA, par exemple Azure, déploie plusieurs &quot;abonnés&quot; client isolés les uns des autres selon les trois niveaux suivants :
+Un tampon de grande instance HANA complet n'est pas exclusivement alloué à l'utilisation d'un client unique. Cela s'applique également aux racks de ressources de calcul et de stockage connectés par le biais d'une structure réseau déployée dans Azure. L'infrastructure de grande instance HANA, comme Azure, déploie différents « locataires » clients isolés les uns des autres selon les trois niveaux suivants :
 
 - **Réseau** : isolation par le biais des réseaux virtuels dans le tampon de grande instance HANA.
 - **Stockage** : isolation par le biais de machines virtuelles auxquelles des volumes de stockage sont assignés et qui isolent les volumes de stockage entre les abonnés.
@@ -111,11 +115,16 @@ Les déploiements d’unités de grande instance HANA entre les différents abon
 
 Un abonné déployé dans le tampon de grande instance est assigné à un abonnement Azure dans le cadre de la facturation. En termes de réseau, il est accessible à partir des réseaux virtuels d’autres abonnements Azure dans la même inscription Azure. Si vous effectuez un déploiement avec un autre abonnement Azure dans la même région Azure, vous pouvez également demander à obtenir un locataire de grande instance HANA distinct.
 
-Il existe des différences importantes entre l’exécution de SAP HANA sur la grande instance HANA et l’exécution de SAP HANA sur des machines virtuelles déployées dans Azure :
+## <a name="sap-hana-on-hana-large-instances-vs-on-vms"></a>SAP HANA sur de grandes instances HANA et SAP HANA sur des machines virtuelles
+
+Il existe des différences importantes entre l'exécution de SAP HANA sur de grandes instances HANA et l'exécution de SAP HANA sur des machines virtuelles déployées dans Azure :
 
 - Il n’existe aucune couche Virtualisation pour SAP HANA sur Azure (grandes instances). Vous bénéficiez des performances du matériel nu sous-jacent.
 - Contrairement à Azure, le serveur SAP HANA sur Azure (grandes instances) est dédié à un client spécifique. Il est impossible qu’une unité de serveur ou un hôte fasse l’objet d’un partitionnement matériel ou logiciel. Par conséquent, une unité de grande instance HANA est assignée dans son intégralité à un abonné, et donc à vous en tant que client. Un redémarrage ou un arrêt du serveur n’entraîne pas automatiquement le déploiement du système d’exploitation et de SAP HANA sur un autre serveur. (Pour les références SKU de classe de type I, la seule exception est lorsqu’un serveur rencontre des problèmes et qu’un redéploiement doit être effectué sur un autre serveur.)
 - Contrairement à Azure, où les types de processeurs hôtes sont sélectionnés en fonction du meilleur rapport prix/performances, les types de processeurs choisis pour SAP HANA sur Azure (grandes instances) sont les plus performants de la gamme de processeurs Intel E7v3 et E7v4.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Reportez-vous à [Dimensionnement de HLI](hana-sizing.md).
+En savoir plus sur le dimensionnement des grandes instances HANA.
+
+> [!div class="nextstepaction"]
+> [Dimensionnement HLI](hana-sizing.md)

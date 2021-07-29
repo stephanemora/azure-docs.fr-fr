@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35d2bf33b4a22c14abfb61a87a3697b05188ed31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a62afbcd120a7404b1677a8c8adb62723a119d5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579091"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070261"
 ---
 # <a name="building-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
@@ -55,7 +55,7 @@ Les [utilisateurs et groupes](concept-conditional-access-users-groups.md) affect
 
 ### <a name="cloud-apps-or-actions"></a>Applications ou actions cloud
 
-Les [actions ou applications cloud](concept-conditional-access-cloud-apps.md) peuvent inclure ou exclure des applications cloud ou des actions utilisateur auxquelles s’appliquera la stratégie.
+Les [actions ou applications cloud](concept-conditional-access-cloud-apps.md) peuvent inclure ou exclure des applications cloud, des actions utilisateur ou des contexte d’authentification auxquels s’appliquera la stratégie.
 
 ### <a name="conditions"></a>Conditions
 
@@ -84,6 +84,10 @@ Cette condition d’affectation permet aux stratégies d’accès conditionnel d
 #### <a name="device-state"></a>État de l’appareil
 
 Ce contrôle est utilisé pour exclure des appareils hybrides Azure AD joints ou marqués comme conformes dans Intune. Cette exclusion permet de bloquer les appareils non gérés. 
+
+#### <a name="filters-for-devices-preview"></a>Filtres pour appareils (préversion)
+
+Ce contrôle permet de cibler des appareils spécifiques en fonction de leurs attributs dans une stratégie.
 
 ## <a name="access-controls"></a>Contrôles d’accès
 

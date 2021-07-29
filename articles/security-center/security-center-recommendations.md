@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: da0826a349131d9d5716932abfc603be8103b788
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 3453d1a0d06fd9918f3f1ae49a519d676ab26785
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903539"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468432"
 ---
 # <a name="review-your-security-recommendations"></a>Consulter vos recommandations de sécurité
 
@@ -39,6 +39,7 @@ Azure Security Center analyse l’état de sécurité de vos ressources pour id
     1. Pour les recommandations prises en charge, la barre d’outils supérieure affiche tout ou partie des boutons suivants :
         - **Appliquer** et **Refuser** (voir [Empêcher des configurations incorrectes à l’aide des recommandations Appliquer/Refuser](prevent-misconfigurations.md))
         - **Afficher la définition de stratégie** pour accéder directement à l’entrée d’Azure Policy pour la stratégie sous-jacente
+        - **Ouvrir la requête** : Toutes les recommandations ont la possibilité d’afficher les informations détaillées sur les ressources affectées à l’aide de l’Explorateur Azure Resource Graph
     1. **Indicateur de gravité**
     1. **Intervalle d’actualisation** (le cas échéant)
     1. **Nombre de ressources exemptées** ; si des exemptions existent pour cette recommandation, il indique le nombre de ressources qui ont été exemptées
@@ -51,6 +52,24 @@ Azure Security Center analyse l’état de sécurité de vos ressources pour id
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Ressources non applicables avec leurs raisons.":::
     1. Boutons d’action pour corriger la recommandation ou déclencher une application logique.
+
+
+## <a name="review-recommendation-data-in-azure-resource-graph-explorer-arg"></a>Explorez les données de recommandation dans l’Explorateur Azure Resource Graph (ARG)
+
+La barre d’outils de la page Détails de la recommandation inclut un bouton **Ouvrir une requête** pour explorer les détails dans [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), un service Azure qui permet d’interroger les données relatives à la sécurité de Security Center sur plusieurs abonnements.
+
+ARG est conçu pour fournir une exploration efficace des ressources avec la possibilité d’interroger à l’échelle dans vos environnements Cloud avec des fonctionnalités de filtrage, de regroupement et de tri robustes. Il s’agit d’un moyen rapide et efficace de demander des informations dans les abonnements Azure par programmation ou depuis le Portail Azure.
+
+À l’aide de [Kusto Query Langage (KQL)](/azure/data-explorer/kusto/query/), vous pouvez croiser les données ASC avec d’autres propriétés de ressource.
+
+Par exemple, cette page de détails de recommandation affiche quinze ressources affectées :
+
+:::image type="content" source="./media/security-center-recommendations/open-query.png" alt-text="Le bouton **Ouvrir la requête** sur la page Détails de la recommandation.":::
+
+Lorsque vous ouvrez la requête sous-jacente et que vous l’exécutez, l’Explorateur Azure Resource Graph retourne les quinze mêmes ressources et leur état d’intégrité pour cette recommandation : 
+
+:::image type="content" source="./media/security-center-recommendations/run-query.png" alt-text="L’Explorateur Azure Resource Graph affiche les résultats de la recommandation présentée dans la capture d’écran précédente.":::
+
 
 ## <a name="preview-recommendations"></a>Recommandations sur la préversion
 

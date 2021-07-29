@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
-ms.openlocfilehash: a52d6dca423565e7b5e4b6ac059bcf21b637c87c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: references_region
+ms.openlocfilehash: e7da31ec80153fe2d2bd6923850a4342886fa9be
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586333"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495567"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Règles de collecte de données dans Azure Monitor (version préliminaire)
 Les règles de collecte de données (DCR) définissent les données entrantes dans Azure Monitor et spécifient l’emplacement où ces données doivent être envoyées ou stockées. Cet article fournit une vue d’ensemble des règles de collecte de données, notamment leur contenu et leur structure, et comment vous pouvez les créer et les utiliser.
@@ -50,6 +51,10 @@ Chaque source de données a un type de source de données. Chaque type définit 
 ## <a name="limits"></a>Limites
 Pour connaître les limites qui s’appliquent à chaque règle de collecte des données, consultez [Limites du service Azure Monitor](../service-limits.md#data-collection-rules).
 
+## <a name="data-residency"></a>Résidence des données 
+« Règles de collecte de données » en tant que service est déployé de manière régionale. Une règle est créée et stockée dans la région que vous spécifiez, et est sauvegardée dans la [région jumelée](../../best-practices-availability-paired-regions.md#azure-regional-pairs) au sein de la même zone géographique.  
+
+**Résidence des données sur une région unique** : La fonctionnalité de préversion permettant le stockage de données client dans une seule région n’est actuellement disponible que dans la région Asie Sud-Est (Singapour) de la zone géographique Asie-Pacifique, et la région Brésil Sud (État de Sao Paulo) de la zone géographique Brésil. La résidence sur une région unique est activée par défaut dans ces régions.
 
 ## <a name="create-a-dcr"></a>Créer une DCR
 Vous pouvez actuellement utiliser l’une des méthodes suivantes pour créer une DCR :

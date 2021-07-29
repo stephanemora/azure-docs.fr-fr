@@ -1,6 +1,6 @@
 ---
 title: Résoudre les problèmes liés à Synapse Studio
-description: Résoudre les problèmes liés à Azure Synapse Studio
+description: Résoudre les problèmes liés à Synapse Studio
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.subservice: troubleshooting
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 362b588112c5027b78285a77bbb556f2497b1892
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 16608f77971c3c19836d8f956512f28f945d3667
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143140"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809055"
 ---
-# <a name="azure-synapse-studio-troubleshooting"></a>Résolution des problèmes liés à Azure Synapse Studio
+# <a name="synapse-studio-troubleshooting"></a>Résolution des problèmes liés à Synapse Studio
 
 Ce guide de résolution des problèmes fournit des instructions sur les informations à fournir lors de l’ouverture d’un ticket de support concernant des problèmes de connectivité réseau. Avec les informations appropriées, nous pouvons peut-être résoudre le problème plus rapidement.
 
@@ -43,7 +43,7 @@ Ouvrez le panneau « Informations de diagnostic », puis sélectionnez le bout
 
 ![infos-diagnostic](media/troubleshooting-synapse-studio/diagnostic-info-download.png)
 
-Pour commencer la résolution des problèmes, réessayez l’opération que vous avez effectuée dans Azure Synapse Studio.
+Pour commencer la résolution des problèmes, réessayez l’opération que vous avez effectuée dans Synapse Studio.
 
 - Pour le symptôme 1, sous l’onglet « Script SQL », sélectionnez le bouton « Actualiser » à droite de la liste déroulante « Utiliser une base de données », et vérifiez si vous pouvez voir « pool SQL serverless ».
 - Pour le symptôme 2, essayez de réexécuter la requête pour voir si elle fonctionne correctement.

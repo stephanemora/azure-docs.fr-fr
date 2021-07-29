@@ -10,12 +10,12 @@ ms.date: 05/06/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
-ms.openlocfilehash: 66b5bb47f68f0731b3c7f5cc3192427b87f7c2db
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 45a0fbac0fbe1bd513717ba1ab1d30b3cffbf78e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489673"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110065941"
 ---
 # <a name="actions-and-attributes-for-azure-role-assignment-conditions-in-azure-storage-preview"></a>Actions et attributs pour les conditions d’attribution de rôle Azure dans Stockage Azure (préversion)
 
@@ -89,6 +89,9 @@ Le tableau suivant répertorie les descriptions des attributs pris en charge pou
 
 > [!NOTE]
 > Lorsque vous spécifiez des conditions pour l’attribut `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path`, les valeurs ne doivent pas inclure le nom du conteneur ou commencer par un caractère « / ». Utilisez les caractères de chemin d’accès sans encodage d’URL.
+
+> [!NOTE]
+> Les étiquettes d’index d’objet blob ne sont pas prises en charge pour les comptes de stockage Data Lake Storage Gen2, qui ont un [espace de noms hiérarchique](../blobs/data-lake-storage-namespace.md) (HNS). Vous ne devez pas créer de conditions d’attribution de rôles à l’aide d’étiquettes d’index sur les comptes de stockage pour lesquels HNS est activé.
 
 ## <a name="attributes-available-for-each-action"></a>Attributs disponibles pour chaque action
 

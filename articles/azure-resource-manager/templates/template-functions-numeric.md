@@ -2,13 +2,13 @@
 title: Fonctions de modèle – Numérique
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (ARM) pour travailler avec des nombres.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: f3687581d94f80cc923614a0655da1813bd5c97b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/13/2021
+ms.openlocfilehash: 9f9959c07f936fc800fac836553fb0f37f4f4e83
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359708"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959644"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Fonctions numériques pour les modèles ARM
 
@@ -25,13 +25,13 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des entier
 * [mul](#mul)
 * [sub](#sub)
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## <a name="add"></a>add
 
 `add(operand1, operand2)`
 
-Retourne la somme des deux entiers fournis. La fonction `add` n’est pas prise en charge dans Bicep. Utilisez plutôt l'opérateur `+`.
+Retourne la somme des deux entiers fournis.
+
+La fonction `add` n’est pas prise en charge dans Bicep. Utilisez plutôt l’[opérateur `+`](../bicep/operators-numeric.md#add-).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -47,8 +47,6 @@ Entier qui contient la somme des paramètres.
 ### <a name="example"></a>Exemple
 
 Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json) suivant, vous ajoutez deux paramètres.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -80,17 +78,6 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param first int = 5
-param second int = 3
-
-output addResult int = first + second
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -128,8 +115,6 @@ Pour plus d’informations sur l’utilisation de copy, voir :
 
 L’exemple suivant montre une boucle de copie ainsi que la valeur d’index incluse dans le nom.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -161,13 +146,6 @@ L’exemple suivant montre une boucle de copie ainsi que la valeur d’index inc
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-> [!NOTE]
-> Les boucles et `copyIndex` ne sont pas encore implémentées dans Bicep.  Consultez [Boucles](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
-
----
-
 ### <a name="return-value"></a>Valeur de retour
 
 Entier représentant l’index actuel de l’itération.
@@ -176,7 +154,9 @@ Entier représentant l’index actuel de l’itération.
 
 `div(operand1, operand2)`
 
-Retourne la division entière des deux entiers fournis. La fonction `div` n’est pas prise en charge dans Bicep. Utilisez plutôt l'opérateur `/`.
+Retourne la division entière des deux entiers fournis.
+
+La fonction `div` n’est pas prise en charge dans Bicep. Utilisez plutôt l’[opérateur `/`](../bicep/operators-numeric.md#divide-).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -192,8 +172,6 @@ Entier représentant la division.
 ### <a name="example"></a>Exemple
 
 Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json) suivant, vous divisez un paramètre par un autre paramètre.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -226,17 +204,6 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param first int = 8
-param second int = 3
-
-output addResult int = first / second
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -247,7 +214,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 `float(arg1)`
 
-Convertit la valeur en nombre à virgule flottante. Vous utilisez uniquement cette fonction lors de la transmission de paramètres personnalisés à une application, telle qu’une application logique. La fonction `float` n’est pas prise en charge dans Bicep.  Consultez [Prise en charge des types numériques autres que les entiers 32 bits](https://github.com/Azure/bicep/issues/486).
+Convertit la valeur en nombre à virgule flottante. Vous utilisez uniquement cette fonction lors de la transmission de paramètres personnalisés à une application, telle qu’une application logique.
+
+La fonction `float` n’est pas prise en charge dans Bicep.
 
 ### <a name="parameters"></a>Paramètres
 
@@ -263,8 +232,6 @@ Nombre à virgule flottante.
 
 L’exemple suivant montre comment utiliser float pour passer des paramètres à une application logique :
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "type": "Microsoft.Logic/workflows",
@@ -278,13 +245,6 @@ L’exemple suivant montre comment utiliser float pour passer des paramètres à
         "value": "[float(3)]"
       },
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-> [!NOTE]
-> La fonction `float` n’est pas prise en charge dans Bicep.  Consultez [Prise en charge des types numériques autres que les entiers 32 bits](https://github.com/Azure/bicep/issues/486).
-
----
 
 ## <a name="int"></a>int
 
@@ -306,8 +266,6 @@ Nombre entier de la valeur convertie.
 
 Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json) suivant, vous convertissez la valeur de paramètre fournie par l’utilisateur en un entier.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -328,16 +286,6 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringToConvert string = '4'
-
-output inResult int = int(stringToConvert)
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -365,8 +313,6 @@ Entier représentant la valeur maximale de la collection.
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) suivant montre comment utiliser max avec un tableau et une liste d’entiers :
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -390,23 +336,6 @@ Entier représentant la valeur maximale de la collection.
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  0
-  3
-  2
-  5
-  4
-]
-
-output arrayOutPut int = max(arrayToTest)
-output intOutput int = max(0,3,2,5,4)
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -435,8 +364,6 @@ Entier représentant la valeur minimale de la collection.
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) suivant montre comment utiliser min avec un tableau et une liste d’entiers :
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -461,23 +388,6 @@ Entier représentant la valeur minimale de la collection.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  0
-  3
-  2
-  5
-  4
-]
-
-output arrayOutPut int = min(arrayToTest)
-output intOutput int = min(0,3,2,5,4)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -489,7 +399,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 `mod(operand1, operand2)`
 
-Retourne le reste de la division entière des deux entiers fournis. La fonction `mod` n’est pas prise en charge dans Bicep. Utilisez plutôt l'opérateur `%`.
+Retourne le reste de la division entière des deux entiers fournis.
+
+La fonction `mod` n’est pas prise en charge dans Bicep. Utilisez plutôt l’[opérateur %](../bicep/operators-numeric.md#modulo-).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -505,8 +417,6 @@ Entier représentant le reste.
 ### <a name="example"></a> Exemple
 
 Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json) suivant, le reste de la division d’un paramètre par un autre paramètre est retourné.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -539,17 +449,6 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param first int = 7
-param second int = 3
-
-output modResult int = first % second
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -560,7 +459,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 `mul(operand1, operand2)`
 
-Retourne la multiplication des deux entiers fournis. La fonction `mul` n’est pas prise en charge dans Bicep. Utilisez plutôt l'opérateur `*`.
+Retourne la multiplication des deux entiers fournis.
+
+La fonction `mul` n’est pas prise en charge dans Bicep. Utilisez plutôt l’[opérateur *](../bicep/operators-numeric.md#multiply-).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -576,8 +477,6 @@ Entier représentant la multiplication.
 ### <a name="example"></a>Exemple
 
 Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json) suivant, vous multipliez un paramètre par un autre paramètre.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -610,17 +509,6 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param first int = 5
-param second int = 3
-
-output mulResult int = first * second
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -631,7 +519,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 `sub(operand1, operand2)`
 
-Retourne la soustraction des deux entiers fournis. La fonction `sub` n’est pas prise en charge dans Bicep. Utilisez plutôt l'opérateur `-`.
+Retourne la soustraction des deux entiers fournis.
 
 ### <a name="parameters"></a>Paramètres
 
@@ -647,8 +535,6 @@ Entier représentant la multiplication.
 ### <a name="example"></a>Exemple
 
 Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json) suivant, vous soustrayez un paramètre d’un autre paramètre.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -681,17 +567,6 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param first int = 7
-param second int = 3
-
-output subResult int = first - second
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -700,5 +575,5 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](./syntax.md).
 * Pour itérer un nombre spécifié lors de la création d’un type de ressource, consultez [Itération de ressource dans les modèles ARM](copy-resources.md).

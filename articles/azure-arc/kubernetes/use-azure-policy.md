@@ -8,25 +8,31 @@ author: mlearned
 ms.author: mlearned
 description: Utiliser Azure Policy pour appliquer des configurations de cluster à grande échelle
 keywords: Kubernetes, Arc, Azure, K8s, conteneurs
-ms.openlocfilehash: 05a6665a985ef8b229ee58082dc9b2c10cdcece3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4619c84f88ee87b0b63e8c0cbe36b85a25f2dfb9
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121454"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463057"
 ---
-# <a name="use-azure-policy-to-apply-cluster-configurations-at-scale"></a>Utiliser Azure Policy pour appliquer des configurations de cluster à grande échelle
+# <a name="use-azure-policy-to-apply-gitops-configurations-at-scale"></a>Utiliser Azure Policy pour appliquer des configurations GitOps à grande échelle
 
 Vous pouvez utiliser Azure Policy pour appliquer des configurations (type de ressource `Microsoft.KubernetesConfiguration/sourceControlConfigurations`) à grande échelle sur des clusters Kubernetes avec Azure Arc (`Microsoft.Kubernetes/connectedclusters`).
 
-Pour utiliser Azure Policy, sélectionnez une définition de stratégie existante et créez une attribution de stratégie. Lors de la création de l’attribution de stratégie :
+Pour utiliser Azure Policy, sélectionnez une définition de stratégie GitOps intégrée et créez une attribution de stratégie. Lors de la création de l’attribution de stratégie :
 1. Définissez l’étendue de l’attribution.
-    * L’étendue sera un groupe de ressources ou un abonnement Azure. 
-2. Définissez les paramètres de la configuration à créer. 
+    * L’étendue sera tous les groupes de ressources d’un abonnement ou un groupe d’administration ou des groupes de ressources spécifiques.
+2. Définissez les paramètres de la configuration GitOps à créer. 
 
-Une fois l’affectation créée, le moteur Azure Policy identifie tous les clusters Kubernetes avec Azure Arc situés dans l’étendue et applique la configuration à chaque cluster.
+Une fois l’affectation créée, le moteur Azure Policy identifie tous les clusters Kubernetes avec Azure Arc situés dans l’étendue et applique la configuration GitOps à chaque cluster.
 
-Vous pouvez créer plusieurs configurations, chacune pointant vers un dépôt Git différent, à l’aide de plusieurs affectations de stratégie. Par exemple, un dépôt pour le service informatique central/l’opérateur de cluster, et d’autres dépôts pour les équipes d’application.
+Pour permettre la séparation des préoccupations, vous pouvez créer plusieurs attributions de stratégies, chacune avec une configuration GitOps différente qui pointe vers un autre référentiel git. Par exemple, un référentiel peut être utilisé par les administrateurs de cluster et d’autres dépôts peuvent être utilisés par les équipes d’application.
+
+>[!TIP]
+> Il existe des stratégies intégrées pour ces scénarios :
+> * Référentiel public ou référentiel privé avec les clés SSH créées par Flux : `Configure Kubernetes clusters with specified GitOps configuration using no secrets`
+> * Référentiel privé avec les clés SSH fournies par l’utilisateur : `Configure Kubernetes clusters with specified GitOps configuration using SSH secrets`
+> * Référentiel privé avec les clés HTTPS fournies par l’utilisateur : `Configure Kubernetes clusters with specified GitOps configuration using HTTPS secrets`
 
 ## <a name="prerequisite"></a>Configuration requise
 
@@ -36,7 +42,7 @@ Vérifiez que vous disposez d’autorisations `Microsoft.Authorization/policyAss
 
 1. Dans le portail Azure, accédez à **Stratégie**.
 1. Dans la section **Création** de la barre latérale, sélectionnez **Définitions**.
-1. Dans la catégorie « Kubernetes », choisissez la stratégie intégrée « Déployer GitOps sur le cluster Kubernetes ». 
+1. Dans la catégorie « Kubernetes », choisissez la stratégie intégrée « Configurer des clusters Kubernetes avec la configuration GitOps spécifiée sans secret ». 
 1. Cliquez sur **Attribuer**.
 1. Définissez **Portée** sur le groupe d’administration, l’abonnement ou le groupe de ressources auquel s’appliquera l’attribution de stratégie.
     * Si vous souhaitez exclure des ressources de la portée de la stratégie, définissez **Exclusions**.
@@ -44,6 +50,7 @@ Vérifiez que vous disposez d’autorisations `Microsoft.Authorization/policyAss
 1. Assurez-vous que l’option **Application de la stratégie** est définie sur **Activée**.
 1. Sélectionnez **Suivant**.
 1. Définissez les valeurs de paramètre à utiliser lors de la création du `sourceControlConfiguration`.
+    * Pour plus d’informations sur les paramètres, consultez le [didacticiel sur le déploiement des configurations GitOps](./tutorial-use-gitops-connected-cluster.md).
 1. Sélectionnez **Suivant**.
 1. Activez l’option **Créer une tâche de correction**.
 1. Vérifiez que l’option **Créer une identité managée** est activée et que l’identité aura des autorisations de **Contributeur**. 
@@ -59,11 +66,11 @@ Pour les clusters existants, vous devez exécuter manuellement une tâche de cor
 1. Dans le portail Azure, accédez à l’un de vos clusters Kubernetes avec Azure Arc.
 1. Dans la section **Paramètres** de la barre latérale, sélectionnez **Stratégies**. 
     * Dans la liste des stratégies, vous devriez voir l’attribution de stratégie que vous avez créée ci-dessus, et l’**État de conformité** devrait être *Conforme*.
-1. Dans la section **Paramètres** de la barre latérale, sélectionnez **Configurations**.
+1. Dans la section **Paramètres** de la barre latérale, sélectionnez **GitOps**.
     * Dans la liste des configurations, vous devez voir la configuration créée par l’affectation de stratégie.
 1. Utilisez `kubectl` pour interroger le cluster. 
-    * Vous devez voir l’espace de noms et les artefacts créés par les ressources de configuration.
-    * En moins de 5 minutes (en supposant que le cluster dispose d’une connectivité réseau vers Azure), vous devez voir se créer sur le cluster les objets décrits par les manifestes dans le dépôt Git.
+    * Vous devez voir l’espace de noms et les artefacts créés par la configuration GitOps.
+    * Vous devez voir les objets décrits par les manifestes dans le référentiel Git déployé sur le cluster.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

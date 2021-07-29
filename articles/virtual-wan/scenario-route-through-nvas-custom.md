@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 153e3dd64546dfa713abefcff106652fc061a6a2
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 4eba226fbbe3ef6d9791f2f098a24fdf217debaa
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165818"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110575371"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Scénario : Acheminer le trafic via des appliances virtuelles réseau à l’aide de paramètres personnalisés
 
-Lorsque vous utilisez le routage de hub virtuel Azure Virtual WAN, vous disposez d’un certain nombre d’options. Cet article vous aide quand vous souhaitez acheminer le trafic via une appliance virtuelle réseau (NVA) pour la communication entre les réseaux virtuels et les branches et d’utiliser une NVA distincte pour le trafic Internet. Pour plus d’informations, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
+Lorsque vous utilisez le routage de hub virtuel Azure Virtual WAN, vous disposez de nombreuses options. Cet article vous aide quand vous souhaitez acheminer le trafic via une appliance virtuelle réseau (NVA) pour la communication entre les réseaux virtuels et les branches et d’utiliser une NVA distincte pour le trafic Internet. Pour plus d’informations, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
 
 ## <a name="design"></a>Conception
 

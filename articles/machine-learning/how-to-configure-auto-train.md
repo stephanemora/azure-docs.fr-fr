@@ -1,31 +1,30 @@
 ---
-title: Créer des expériences de machine learning automatisé
+title: Configurer AutoML avec Python
 titleSuffix: Azure Machine Learning
-description: Découvrez comment définir des sources de données, des calculs et des paramètres de configuration pour vos expériences de Machine Learning automatisé.
+description: Découvrez comment configurer l’exécution d’un apprentissage AutoML avec le kit de développement logiciel (SDK) Python Azure Machine Learning à l’aide de l’AutoML Azure Machine Learning.
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 09/29/2020
+ms.date: 06/11/2021
 ms.topic: how-to
-ms.custom: devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: a198e49e540d728a65021cf5b45436fc1654cb25
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack
+ms.openlocfilehash: dff2e9c0c1de1b92f0d00d5dc50aeb7dadca348f
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905213"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030896"
 ---
-# <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
+# <a name="set-up-automl-training-with-python"></a>Configurer l’apprentissage AutoML avec Python
 
+Dans ce guide, découvrez comment configurer l’exécution d’un apprentissage AutoML avec le [kit de développement logiciel (SDK) Python Azure Machine Learning](/python/api/overview/azure/ml/intro) à l’aide de l’AutoML Azure Machine Learning. Le ML automatisé choisit pour vous un algorithme et des hyperparamètres, et génère un modèle prêt pour le déploiement. Vous pouvez utiliser plusieurs options pour configurer ces types d’expériences.
 
-Dans ce guide, découvrez comment définir différents paramètres de configuration de votre expérience d’apprentissage automatique avec le [kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/intro). Le machine learning automatisé choisit pour vous un algorithme et des hyperparamètres, et génère un modèle prêt pour le déploiement. Vous disposez de plusieurs options pour configurer les expériences de machine learning automatisé.
+Pour obtenir un exemple de bout en bout, consultez [Tutoriel : AutoML - Former un modèle de régression](tutorial-auto-train-models.md).
 
-Pour obtenir un exemple de bout en bout d’une expérience Machine Learning automatisé, consultez [Tutoriel : Effectuer l’apprentissage d’un modèle de classification avec le Machine Learning automatisé](tutorial-auto-train-models.md).
-
-Options de configuration disponibles dans le machine learning automatisé :
+Options de configuration disponibles dans le ML automatisé :
 
 * Sélectionnez votre type d’expérience : Classification, régression ou prévision de séries chronologiques
 * Source de données, formats et récupération de données
@@ -35,7 +34,7 @@ Options de configuration disponibles dans le machine learning automatisé :
 * Explorer les métriques du modèle
 * Inscrire et déployer un modèle
 
-Si vous préférez une expérience sans code, vous pouvez également [créer vos expériences de machine learning automatisé dans Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
+Si vous préférez une expérience sans code, vous pouvez également [Configurer un apprentissage AutoML sans code dans Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -112,7 +111,7 @@ Si vous ne spécifiez pas explicitement un paramètre `validation_data` ou `n_cr
 
 ## <a name="compute-to-run-experiment"></a>Capacité de calcul pour exécuter l’expérience
 
-Ensuite, l’endroit où le modèle doit être entraîné est déterminé. Une expérience de machine learning automatisé peut s’exécuter sur les options de calcul suivantes. Découvrez [les avantages et les inconvénients des options de calcul locales et distantes](concept-automated-ml.md#local-remote). 
+Ensuite, l’endroit où le modèle doit être entraîné est déterminé. Une expérience de ML automatisé peut s’exécuter sur les options de calcul suivantes. Découvrez [les avantages et les inconvénients des options de calcul locales et distantes](concept-automated-ml.md#local-remote). 
 
 * Votre machine **locale**, comme un poste de travail local ou un ordinateur portable : en général, quand vous avez un petit jeu de données et que vous êtes toujours dans la phase d’exploration. Consultez [ce notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) pour un exemple de calcul local. 
  
@@ -126,7 +125,7 @@ Ensuite, l’endroit où le modèle doit être entraîné est déterminé. Une e
 
 ## <a name="configure-your-experiment-settings"></a>Configurer les paramètres de votre expérience
 
-Vous disposez de plusieurs options pour configurer votre expérience de machine learning automatisé. Ces paramètres sont définis en instanciant un objet `AutoMLConfig`. Pour obtenir la liste complète des paramètres, reportez-vous à la [Classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
+Vous pouvez utiliser plusieurs options pour configurer des expériences de ML automatisé. Ces paramètres sont définis en instanciant un objet `AutoMLConfig`. Pour obtenir la liste complète des paramètres, reportez-vous à la [Classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
 Voici quelques exemples :
 
@@ -154,7 +153,7 @@ Voici quelques exemples :
    ```
 
 
-1. Les tâches de prévision requièrent une configuration supplémentaire. Pour plus d’informations, consultez l’article [Entraîner automatiquement un modèle de prévision de série chronologique](how-to-auto-train-forecast.md). 
+1. Les tâches de prévision requièrent une configuration supplémentaire. Pour plus d’informations, consultez l’article [Configurer AutoML pour la prévision de séries chronologiques](how-to-auto-train-forecast.md). 
 
     ```python
     time_series_settings = {
@@ -208,7 +207,7 @@ classification ; | régression ; | Prévision de séries chronologiques
 ### <a name="primary-metric"></a>Métrique principale
 Le paramètre `primary metric` détermine la métrique à utiliser pendant l’entraînement du modèle dans un but d’optimisation. Les métriques disponibles que vous pouvez sélectionner sont déterminées par le type de tâche choisi. Le tableau ci-dessous présente les métriques principales valides pour chaque type de tâche.
 
-Le choix d’une métrique principale pour l’optimisation du Machine Learning automatisé dépend de nombreux facteurs. Nous vous recommandons avant tout de choisir une métrique correspondant au mieux à vos besoins métier. Examinez ensuite si la métrique convient pour votre profil de jeu de données (taille des données, plage, distribution de classe, etc.).
+Le choix d’une métrique principale pour l’optimisation du ML automatisé dépend de nombreux facteurs. Nous vous recommandons avant tout de choisir une métrique correspondant au mieux à vos besoins métier. Examinez ensuite si la métrique convient pour votre profil de jeu de données (taille des données, plage, distribution de classe, etc.).
 
 Pour découvrir les définitions spécifiques de ces métriques, consultez [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md).
 
@@ -222,7 +221,7 @@ Pour découvrir les définitions spécifiques de ces métriques, consultez [Comp
 
 ### <a name="primary-metrics-for-classification-scenarios"></a>Principales métriques pour les scénarios de classification 
 
-Il se peut que la publication de métriques seuils telles que `accuracy`, `average_precision_score_weighted`, `norm_macro_recall` et `precision_score_weighted` ne permette pas d’obtenir une bonne optimisation pour des jeux de données de petite taille ou présentant une asymétrie (déséquilibre) de classe conséquente, ou lorsque la valeur de métrique attendue est très proche de 0.0 ou 1.0. Dans ces cas, `AUC_weighted` peut être un meilleur choix pour la métrique principale. Une fois l’opération de Machine Learning automatisé terminée, vous pouvez choisir le modèle gagnant en fonction de la métrique la plus adaptée à vos besoins métier.
+Il se peut que la publication de métriques seuils telles que `accuracy`, `average_precision_score_weighted`, `norm_macro_recall` et `precision_score_weighted` ne permette pas d’obtenir une bonne optimisation pour des jeux de données de petite taille ou présentant une asymétrie (déséquilibre) de classe conséquente, ou lorsque la valeur de métrique attendue est très proche de 0.0 ou 1.0. Dans ces cas, `AUC_weighted` peut être un meilleur choix pour la métrique principale. Une fois l’opération de ML automatisé terminée, vous pouvez choisir le modèle gagnant en fonction de la métrique la plus adaptée à vos besoins métier.
 
 | Métrique | Exemple(s) de cas d’usage |
 | ------ | ------- |
@@ -498,7 +497,7 @@ print_model(model_from_aml)
 
 ## <a name="monitor-automated-machine-learning-runs"></a><a name="monitor"></a> Surveiller les exécutions de Machine Learning automatisé
 
-Pour les exécutions de Machine Learning automatisé, pour accéder aux graphiques d’une exécution précédente, remplacez `<<experiment_name>>` par le nom de l’expérience appropriée :
+Pour les exécutions de ML automatisé, pour accéder aux graphiques d’une exécution précédente, remplacez `<<experiment_name>>` par le nom de l’expérience appropriée :
 
 ```python
 from azureml.widgets import RunDetails
@@ -543,7 +542,7 @@ Pour plus d’informations sur la création d’une configuration de déploiemen
 
 L’interprétabilité de modèles vous permet de comprendre pourquoi vos modèles ont effectué des prédictions, ainsi que les valeurs d’importance des caractéristiques sous-jacentes. Le SDK comprend différents packages pour l’activation des caractéristiques d’interprétabilité de modèles, aussi bien au moment de l’entraînement qu’au moment de l’inférence, pour les modèles locaux et déployés.
 
-Pour obtenir des exemples de code sur la façon d’activer les caractéristiques d’interprétabilité spécifiquement au sein d’expériences de machine learning automatisé, consultez le [guide pratique](how-to-machine-learning-interpretability-automl.md).
+Pour obtenir des exemples de code sur la façon d’activer les caractéristiques d’interprétabilité spécifiquement au sein d’expériences de ML automatisé, consultez le [guide pratique](how-to-machine-learning-interpretability-automl.md).
 
 Pour obtenir des informations générales sur la façon dont les explications de modèle et l’importance des caractéristiques peuvent être activées dans d’autres domaines du SDK en dehors du machine learning automatisé, consultez l’article de présentation du [concept](how-to-machine-learning-interpretability.md) de l’interprétabilité.
 
