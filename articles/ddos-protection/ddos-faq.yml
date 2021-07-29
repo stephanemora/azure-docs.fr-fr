@@ -1,0 +1,87 @@
+### YamlMime:FAQ
+metadata:
+  title: Foire aux questions sur le service Azure DDoS Protection Standard
+  description: Forum aux questions sur Azure DDoS Protection Standard, qui contribue à assurer la défense contre les attaques DDoS.
+  services: virtual-network
+  documentationcenter: na
+  author: aletheatoh
+  ms.service: virtual-network
+  ms.devlang: na
+  ms.topic: article
+  ms.tgt_pltfrm: na
+  ms.workload: infrastructure-services
+  ms.date: 10/28/2020
+  ms.author: yitoh
+  ms.openlocfilehash: 54f412f1ec416ab1ab8c1c13f338565e7b97720d
+  ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 06/30/2021
+  ms.locfileid: "113107184"
+title: Foire aux questions sur le service Azure DDoS Protection Standard
+summary: Cet article répond aux questions courantes sur le service Azure DDoS Protection standard.
+sections:
+- name: Ignoré
+  questions:
+  - question: >
+      Qu’est-ce qu’une attaque par déni de service distribué (Distributed Denial of Service, DDoS) ?
+    answer: >
+      Le déni de service distribué, ou DDoS, est un type d’attaque dans lequel une personne malveillante envoie plus de demandes à une application que l’application ne peut en gérer. Cela aboutit à un épuisement des ressources qui affecte la disponibilité et la capacité de l’application à servir ses clients. Ces dernières années, le secteur a constaté une forte augmentation des attaques, celles-ci gagnant en sophistication et en ampleur. Les attaques DDoS peuvent être ciblées sur n’importe quel point de terminaison qui est publiquement accessible via Internet.
+  - question: >
+      Qu’est-ce que le service Azure DDoS Protection standard ?
+    answer: >
+      Azure DDoS Protection Standard, combiné aux meilleures pratiques de conception d’application, offre des fonctions d’atténuation DDoS améliorée contre les attaques DDoS. Cette solution s’adapte automatiquement pour protéger vos ressources Azure spécifiques dans un réseau virtuel. La protection est simple à activer sur n’importe quel réseau virtuel, nouveau ou existant, et ne nécessite aucun changement au niveau de l’application ou des ressources. Elle offre plusieurs avantages par rapport au service de base, notamment la journalisation, la création d’alertes et la télémétrie. Consultez [Vue d’ensemble d’Azure DDoS Protection Standard](ddos-protection-overview.md) pour plus de détails. 
+  - question: >
+      Fonctionnement des prix appliqués
+    answer: "Les plans de protection DDoS présentent un coût mensuel fixe de 2 944 $ par mois, qui couvre jusqu’à 100 adresses IP publiques. Peuvent s’y ajouter 30 $ par ressource supplémentaire et par mois. \n\nSous un locataire, un même plan de protection DDoS peut être utilisé sur plusieurs abonnements. Il n’est donc pas nécessaire de créer plusieurs plans de protection DDoS.\n\nQuand Application Gateway avec WAF est déployé sur un réseau virtuel DDoS protégé, aucun coût supplémentaire n’est facturé pour WAF : vous payez pour Application Gateway au [tarif non-WAF inférieur](https://azure.microsoft.com/pricing/details/application-gateway/). Cela s’applique à la fois aux références SKU Application Gateway v1 et v2.\n\nPour plus d’informations, consultez [Tarifs d’Azure DDoS Protection Standard](https://azure.microsoft.com/pricing/details/ddos-protection/).\n"
+  - question: >
+      Le service est-il résilient aux zones ?
+    answer: >
+      Oui. Azure DDoS Protection est par défaut résilient aux zones.
+  - question: >
+      Comment configurer le service pour le rendre résilient aux zones ?
+    answer: >
+      Aucune configuration client n’est nécessaire pour activer la résilience des zones. La résilience aux zones des ressources Azure DDoS Protection est disponible par défaut et gérée par le service lui-même.
+  - question: >
+      Qu’en est-il de la protection au niveau de la couche de service (couche 7) ?
+    answer: >
+      Les clients peuvent utiliser le service Azure DDoS Protection conjointement avec un pare-feu d’applications web (WAF) pour la protection tant au niveau de la couche réseau (couches 3 et 4, assurée par Azure DDoS Protection Standard) qu’au niveau de la couche d’application (couche 7, assurée par un WAF). Les offres WAF incluent [la référence SKU du pare-feu d’applications web Azure Application Gateway](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ainsi que des offres tierces de pare-feu d’applications web disponibles sur [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
+  - question: >
+      Les services ne sont-ils pas sûrs dans Azure sans le service ?
+    answer: "Les services qui s’exécutent sur Azure sont protégés intrinsèquement par le service Azure DDoS Protection de base en place pour protéger l’infrastructure d’Azure. Toutefois, la protection qui préserve l’infrastructure a un seuil sensiblement supérieur à celui que la plupart des applications sont capables de gérer, et ne fournit pas de télémétrie ou d’alertes. Ainsi, si un volume de trafic peut être considéré comme inoffensif par la plateforme, il peut s’avérer dévastateur pour l’application qui le reçoit. \n\nGrâce à l’intégration au service Azure DDoS Protection standard, l’application bénéficie d’une surveillance dédiée pour détecter les attaques et les seuils spécifiques des applications. Un service est protégé à l’aide d’un profil réglé sur le volume de trafic attendu, ce qui offre une protection plus rigoureuse contre les attaques DDoS.\n"
+  - question: >
+      Quels sont les types de ressources protégées pris en charge ?
+    answer: >
+      Les adresses IP publiques dans les réseaux virtuels ARM sont actuellement le seul type de ressource protégée. Les services PaaS (mutualisés) ne sont pas pris en charge actuellement. Consultez [Architectures de référence du service Azure DDoS Protection standard](ddos-protection-reference-architectures.md) pour plus de détails.
+  - question: >
+      Les ressources protégées classiques/RDFE sont-elles prises en charge ?
+    answer: >
+      Seules les ressources protégées basées sur ARM sont prises en charge dans la préversion. Les machines virtuelles dans les déploiements classiques/RDFE ne sont pas prises en charge. La prise en charge n’est pas actuellement planifiée pour les ressources classiques/RDFE.Consultez [Architectures de référence du service Azure DDoS Protection standard](ddos-protection-reference-architectures.md) pour plus de détails.
+  - question: >
+      Puis-je protéger mes ressources PaaS à l’aide de Protection DDoS ?
+    answer: >
+      Les IP publiques attachées à des services PaaS mutualisés à adresse IP virtuelle unique ne sont pas prises en charge actuellement. Les exemples de ressources non prises en charge incluent les adresses IP virtuelles de stockage, les adresses IP virtuelles Event Hub et les applications App Service/Cloud Services.Consultez [Architectures de référence du service Azure DDoS Protection standard](ddos-protection-reference-architectures.md) pour plus de détails.
+  - question: >
+      Puis-je protéger mes ressources locales à l’aide de la protection DDoS ?
+    answer: "Les points de terminaison publics de votre service associés à un réseau virtuel dans Azure doivent être activés pour la protection DDoS. Voici quelques exemples de conceptions :\n- Sites Web (IaaS) dans Azure et les bases de données backend dans le centre de données local. \n- Application Gateway dans Azure (protection DDoS activée sur App Gateway/WAF) et sites web dans les centres de données locaux.\n\nConsultez [Architectures de référence du service Azure DDoS Protection standard](ddos-protection-reference-architectures.md) pour plus de détails.\n"
+  - question: >
+      Puis-je inscrire un domaine extérieur à Azure et l’associer à une ressource protégée telle qu’une machine virtuelle ou un ELB ?
+    answer: "Pour les scénarios d’adresse IP publique, le service de protection DDoS prend en charge toutes les applications, quel que soit l’emplacement où le domaine associé est inscrit ou hébergé, à condition que l’adresse IP publique associée soit hébergée sur Azure. \n"
+  - question: >
+      Puis-je configurer manuellement la stratégie DDoS appliquée aux adresses IP publiques/de réseaux virtuels ?
+    answer: >
+      Non, malheureusement, la personnalisation de stratégie n’est pas disponible pour le moment.
+  - question: >
+      Puis-je mettre en liste verte ou rouge des adresses IP spécifiques ?
+    answer: >
+      Non, malheureusement, la configuration manuelle n’est pas disponible pour le moment.
+  - question: >
+      Comment puis-je tester la protection DDoS ?
+    answer: >
+      Consultez [Test à l’aide de simulations](test-through-simulations.md).
+  - question: >
+      Combien de temps faut-il pour charger les métriques sur le portail ?
+    answer: "Les métriques doivent être visibles sur le portail dans un délai de 5 minutes. Si votre ressource subit une attaque, d’autres métriques s’affichent sur le portail dans les 5 à 7 minutes. \n"
+  - question: >
+      Le service stocke-t-il des données client ?
+    answer: Non. La protection DDoS d’Azure ne stocke pas les données client.
