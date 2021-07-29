@@ -1,0 +1,129 @@
+### YamlMime:FAQ
+metadata:
+  title: Questions fréquentes (FAQ) - Azure Synapse Analytics
+  description: FAQ sur Azure Synapse Analytics
+  services: synapse-analytics
+  author: saveenr
+  ms.service: synapse-analytics
+  ms.topic: overview
+  ms.subservice: overview
+  ms.date: 10/25/2020
+  ms.author: saveenr
+  ms.reviewer: jrasnick
+  ms.openlocfilehash: b1fb4a033e0b501c25e2588e2dce6b7c1bce3d26
+  ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 06/22/2021
+  ms.locfileid: "112467727"
+title: Questions fréquentes (FAQ) sur Azure Synapse Analytics
+summary: Ce guide recense les questions les plus fréquemment posées sur Azure Synapse Analytics.
+sections:
+- name: Général
+  questions:
+  - question: >
+      Comment puis-je utiliser des rôles RBAC pour sécuriser mon espace de travail ?
+    answer: >
+      Azure Synapse présente un certain nombre de rôles et d’étendues à affecter, qui simplifieront la sécurisation de votre espace de travail.
+
+
+      Rôles RBAC Synapse :
+
+      * Administrateur Synapse
+
+      * Administrateur Synapse SQL
+
+      * Administrateur Synapse Spark
+
+      * Contributeur Synapse (préversion)
+
+      * Éditeur d’artefact Synapse (préversion)
+
+      * Utilisateur d’artefact Synapse (préversion)
+
+      * Opérateur de capacité de calcul Synapse (préversion)
+
+      * Utilisateur d’informations d’identification Synapse (préversion)
+
+
+      Pour sécuriser votre espace de travail Synapse, attribuez les rôles RBAC à ces étendues RBAC :
+
+      * Workspaces
+
+      * Spark pools
+
+      * Runtimes d’intégration
+
+      * Services liés
+
+      * Informations d'identification
+
+
+      De plus, avec les pools SQL dédiés, vous disposez des mêmes fonctionnalités de sécurité que celles que vous connaissez et aimez.
+  - question: >
+      Comment contrôler les pools SQL dédiés, les pools SQL serverless et les pools Spark serverless ?
+    answer: "Azure Synapse travaille avec l’analyse des coûts et les alertes de coût intégrées qui sont disponibles au niveau de l’abonnement Azure, ce qui constitue une base de départ.\n\n- Pools SQL dédiés : vous bénéficiez d’une visibilité directe sur le coût et la maîtrise du coût, car vous créez et indiquez les tailles des pools SQL dédiés. Vous pouvez mieux contrôler quels utilisateurs peuvent créer ou mettre à l’échelle les pools SQL dédiés avec les rôles RBAC Azure.\n\n- Pools SQL serverless : vous disposez de contrôles de supervision et de gestion des coûts qui vous permettent de limiter les dépenses aux niveaux quotidien, hebdomadaire et mensuel. Pour plus d’informations, consultez [Gestion des coûts du pool SQL serverless](./sql/data-processed.md). \n\n- Pools Spark serverless : vous pouvez limiter les personnes autorisées à créer des pools Spark avec des rôles RBAC Synapse.  \n"
+  - question: >
+      Est-ce que les espaces de travail Synapse vont prendre en charge l’organisation en dossiers des objets et la précision lors de la disponibilité générale ?
+    answer: >
+      Les espaces de travail Synapse prennent en charge les dossiers définis par l’utilisateur.
+  - question: >
+      Puis-je lier plusieurs espaces de travail Power BI à un seul espace de travail Azure Synapse ?
+    answer: "Actuellement, vous ne pouvez lier qu’un seul espace de travail Power BI à un espace de travail Azure synapse. \n"
+  - question: >
+      Est-ce que Synapse Link pour Cosmos DB est en disponibilité générale ?
+    answer: >
+      Synapse Link pour Apache Spark est en disponibilité générale. Synapse Link pour le pool SQL serverless est en préversion publique.
+  - question: "L’espace de travail Azure Synapse prend-il en charge CI/CD ? \n"
+    answer: >
+      Oui ! Tous les artefacts de pipeline, les notebooks, scripts SQL et définitions de travaux Spark résideront dans Git. Toutes les définitions de pool seront stockées dans Git comme modèles Azure Resource Manager (ARM). Les objets de pool SQL dédiés (schémas, tables, vues, etc.) seront gérés avec des projets de base de données, avec prise en charge CI/CD.
+- name: Pipelines
+  questions:
+  - question: "Comment savoir quelles informations d’identification sont utilisées pour exécuter un pipeline ? \n"
+    answer: >
+      Chaque activité d’un pipeline Synapse est exécutée avec des informations d’identification spécifiées à l’intérieur du service lié.
+  - question: >
+      Les instances SSIS IR sont-elles prises en charge dans Synapse Integrate ?
+    answer: "Pas pour l'instant. \n"
+  - question: >
+      Comment migrer des pipelines existants d’Azure Data Factory vers un espace de travail Azure Synapse ?
+    answer: >
+      À ce stade, vous devez recréer manuellement vos pipelines Azure Data Factory, et les artefacts associés, en exportant le fichier JSON depuis le pipeline d’origine et en l’important dans votre espace de travail Synapse.
+- name: Apache Spark
+  questions:
+  - question: >
+      Quelle différence y a-t-il entre Apache Spark pour Synapse et Apache Spark ?
+    answer: "Apache Spark pour Synapse n’est autre qu’Apache Spark doté d’une prise en charge supplémentaire pour les intégrations à d’autres services (AAD, AzureML, etc.), avec des bibliothèques supplémentaires (mssparktuils, Hummingbird) et des configurations de performances prédéfinies.\n\nToute charge de travail en cours d’exécution sur Apache Spark s’exécutera sur Apache Spark pour Azure Synapse sans modification. \n"
+  - question: >
+      Quelles versions de Spark sont disponibles ?
+    answer: >
+      Azure Synapse Apache Spark prend entièrement en charge Spark 2.4. Pour obtenir la liste complète des principaux composants et des versions actuellement prises en charge, consultez [Prise en charge des versions Apache Spark](./spark/apache-spark-version-support.md).
+  - question: >
+      Existe-t-il un équivalent de DButils dans Azure Synapse Spark ?
+    answer: >
+      Oui, Azure Synapse Apache Spark fournit la bibliothèque **mssparkutils**. Pour obtenir une documentation complète de l’utilitaire, consultez [Présentation des utilitaires Microsoft Spark](./spark/microsoft-spark-utilities.md).
+  - question: >
+      Comment définir des paramètres de session dans Apache Spark ?
+    answer: "Pour définir des paramètres de session, utilisez %%configure magic disponible. Un redémarrage de session est nécessaire pour que les paramètres soient pris en compte. \n"
+  - question: >
+      Comment définir des paramètres au niveau du cluster dans un pool Spark serverless ?
+    answer: "Pour définir des paramètres au niveau du cluster, vous pouvez fournir un fichier spark.conf destiné au pool Spark. Ce pool respectera ensuite les paramètres passés dans le fichier de configuration. \n"
+  - question: >
+      Puis-je exécuter un cluster Spark multiutilisateur dans Azure Synapse Analytics ?
+    answer: "Azure Synapse fournit des moteurs spécialement conçus pour des cas d’usage spécifiques. Apache Spark pour Synapse est conçu comme un service de travaux, et non comme un modèle de cluster. Il existe deux scénarios dans lesquels un modèle de cluster multiutilisateur est demandé.\n\n**Scénario 1 : Accès de nombreux utilisateurs à un cluster pour traiter des données à des fins décisionnelles.**\n\nLe moyen le plus simple d’accomplir cette tâche consiste à préparer les données avec Spark, puis à tirer parti des fonctionnalités de service de Synapse SQL, afin qu’elles puissent connecter Power BI à ces jeux de données.\n\n**Scénario 2 : Présence de plusieurs développeurs sur un seul cluster pour faire des économies.**\n \nPour développer ce scénario, vous devez donner à chaque développeur un pool Spark serverless configuré pour utiliser un petit nombre de ressources Spark. Comme les pools Spark serverless ne coûtent rien tant qu’ils ne sont pas utilisés activement, vous réduisez les coûts lorsqu’il y a plusieurs développeurs. Du fait que les pools partagent des métadonnées (tables Spark), ils peuvent facilement travailler ensemble.\n"
+  - question: >
+      Comment inclure, gérer et installer des bibliothèques ?
+    answer: >
+      Vous pouvez installer des packages externes par le biais d’un fichier requirements.txt lors de la création du pool Spark, à partir de l’espace de travail Synapse ou du portail Azure. Consultez [Gérer des bibliothèques pour Apache Spark dans Azure Synapse Analytics](./spark/apache-spark-azure-portal-add-libraries.md).
+- name: Pools SQL dédiés
+  questions:
+  - question: >
+      Quelles sont les différences fonctionnelles entre les pools SQL dédiés et les pools serverless ?
+    answer: >
+      Vous trouverez la liste complète des différences dans [Différences entre les fonctionnalités T-SQL dans Synapse SQL](./sql/overview-features.md).
+  - question: "Azure Synapse étant en disponibilité générale, comment déplacer mes pools SQL dédiés, précédemment autonomes, dans Azure Synapse ? \n"
+    answer: >
+      Il n’y a pas de « déplacement » ni de « migration ». Vous pouvez choisir d’activer les nouvelles fonctionnalités de l’espace de travail sur vos pools existants. Si vous le faites, il n’y aura aucun changement cassant. En revanche, vous aurez la possibilité d’utiliser de nouvelles fonctionnalités, telles que Synapse Studio, Spark et des pools SQL serverless.
+  - question: "Quel est le déploiement par défaut des pools SQL dédiés maintenant? \n"
+    answer: "Par défaut, tous les nouveaux pools SQL dédiés sont déployés dans un espace de travail. Toutefois, si vous avez en besoin, vous pouvez toujours créer un pool SQL dédié (anciennement SQL DW) dans un facteur de forme autonome. \n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n   * [Bien démarrer avec Azure Synapse Analytics](get-started.md)\n   * [Créer un espace de travail](quickstart-create-workspace.md)\n   * [Utiliser un pool SQL serverless](quickstart-sql-on-demand.md)"

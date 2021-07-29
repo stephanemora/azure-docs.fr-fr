@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: reference
 ms.date: 11/19/2020
 ms.author: jlian
-ms.openlocfilehash: 5f0af7d6bf16a05fad1ca9df5db1729abd088010
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4102171a14abc6eeb037f8b7425b7923f7b0651
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96602994"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069829"
 ---
 # <a name="iot-hub-data-plane-mqtt-5-api-reference"></a>Informations de référence sur l’API MQTT 5 du plan de données IoT Hub
 
@@ -268,6 +268,9 @@ Publier le message sur le canal de télémétrie (EventHubs par défaut ou un au
 | user-id | string | non | se traduit en propriété système `user-id` sur le message publié |
 | correlation-id | string | non | se traduit en propriété système `correlation-id` sur le message publié |
 | creation-time | time | Non | se traduit en propriété `iothub-creation-time-utc` sur le message publié |
+
+> [!TIP]
+> Le format de `creation-time` doit être UTC sans informations de fuseau horaire. Par exemple, `2021-04-21T11:30:16Z` est valide, `2021-04-21T11:30:16-07:00` non.
 
 **Charge utile :** n’importe quelle séquence d’octets
 

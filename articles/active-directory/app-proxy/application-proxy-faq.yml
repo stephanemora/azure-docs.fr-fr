@@ -1,0 +1,234 @@
+### YamlMime:FAQ
+metadata:
+  title: Questions fréquentes sur la fonctionnalité Proxy d'application Azure Active Directory
+  description: Découvrez les réponses aux questions fréquentes (FAQ) sur l’utilisation de la fonctionnalité Proxy d’application Azure AD pour publier des applications locales internes destinées à des utilisateurs distants.
+  services: active-directory
+  author: kenwith
+  manager: mtillman
+  ms.service: active-directory
+  ms.subservice: app-proxy
+  ms.workload: identity
+  ms.topic: reference
+  ms.date: 04/27/2021
+  ms.author: kenwith
+  ms.reviewer: japere
+  ms.openlocfilehash: 711a72a689238e22d83109c9ea4f16501ff4c205
+  ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 07/14/2021
+  ms.locfileid: "113727781"
+title: Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory
+summary: Cette page répond aux questions fréquemment posées sur la fonctionnalité Proxy d’application Azure Active Directory (Azure AD).
+sections:
+- name: Ignoré
+  questions:
+  - question: "Puis-je supprimer une application de proxy d’application de la page Inscriptions des applications du portail Azure ? \n"
+    answer: >
+      Non. Vous devez supprimer une application de proxy d’application dans la zone **Applications d’entreprise** du portail Azure. Si vous supprimez l’application de proxy d’application de la zone **Inscriptions des applications** du portail Azure, vous risquez de rencontrer des problèmes.
+  - question: >
+      Quelle est la licence exigée pour utiliser le proxy d’application Azure AD ?
+    answer: >
+      Pour utiliser le proxy d’application Azure AD, vous devez posséder une licence Azure AD Premium P1 ou P2. Pour plus d’informations sur les licences, consultez [Tarifs Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+  - question: >
+      Qu’advient-il de Proxy d’application Azure AD dans mon locataire si ma licence expire ?
+    answer: >
+      Si votre licence expire, Proxy d’application est automatiquement désactivé. Les informations de votre application seront enregistrées pendant un an.
+  - question: >
+      Pourquoi le bouton « Activer le proxy d’application » est-il grisé ?
+    answer: >
+      Vérifiez que vous avez au moins une licence Azure AD Premium P1 ou P2 et qu’un connecteur de proxy d’application Azure AD est installé. Une fois votre premier connecteur correctement installé, le service de proxy d’application Azure AD s’active automatiquement.
+  - question: >
+      Configuration des connecteurs
+    answer: ''
+  - question: >
+      Pourquoi mon connecteur utilise-t-il toujours une version ancienne et n'est-il pas automatiquement mis à niveau vers la dernière version ?
+    answer: "Le service de mise à jour ne fonctionne peut-être pas correctement, ou bien aucune nouvelle mise à jour n'est disponible.\n\nLe service de mise à jour est sain s'il est en cours d'exécution et qu'aucune erreur n'est enregistrée dans le journal des événements (Journaux des applications et des services -> Microsoft -> AadApplicationProxy -> Mise à jour -> Admin). \n\n> [!IMPORTANT]\n> Seules les versions principales sont disponibles pour la mise à niveau automatique. Nous vous recommandons de mettre à jour votre connecteur manuellement uniquement si nécessaire. Par exemple, vous ne pouvez pas attendre une mise en production majeure parce que vous devez résoudre un problème connu ou utiliser une nouvelle fonctionnalité. Pour plus d'informations sur les nouvelles versions, le type de version (téléchargement, mise à niveau automatique), les correctifs de bogues et les nouvelles fonctionnalités, consultez [Proxy d'application Azure AD : historique de publication des versions](./application-proxy-release-version-history.md).\n\nPour procéder à la mise à niveau manuelle d'un connecteur :\n\n- Téléchargez la dernière version du connecteur. (Vous la trouverez sous Proxy d'application sur le portail Azure. Vous trouverez également un lien dans [Proxy d'application Azure AD : historique de publication des versions](./application-proxy-release-version-history.md).\n-   Le programme d'installation redémarre les services Azure AD Application Proxy Connector. Dans certains cas, un redémarrage du serveur peut être nécessaire si le programme d'installation ne peut pas remplacer tous les fichiers. Par conséquent, nous vous recommandons de fermer toutes les applications (par exemple, l'observateur d'événements) avant de lancer la mise à niveau.\n-   Exécutez le programme d’installation. Le processus de mise à niveau est rapide, ne nécessite aucune information d'identification, et le connecteur n'est pas réinscrit.\n"
+  - question: >
+      Les services du connecteur de proxy d’application peuvent-ils s’exécuter dans un contexte utilisateur différent de celui par défaut ?
+    answer: >
+      Non, ce scénario n’est pas pris en charge. Les paramètres par défaut sont :
+
+
+      - Connecteur de proxy d’application Microsoft AAD - WAPCSvc - Network Service
+
+      - Microsoft AAD Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
+  - question: >
+      Un utilisateur invité ayant le rôle Administrateur général ou Administrateur d’application peut-il inscrire le connecteur pour le locataire (invité) ?
+    answer: >
+      Non, ce n’est pas possible actuellement. La tentative d’inscription est toujours effectuée sur le locataire de base de l’utilisateur.
+  - question: >
+      Mon application back-end est hébergée sur plusieurs serveurs web et exige une persistance de session utilisateur (adhérence). Comment puis-je obtenir celle-ci ? 
+    answer: >
+      Pour obtenir des recommandations, consultez [Haute disponibilité et équilibrage de charge de vos applications et connecteurs de proxy d’application](./application-proxy-high-availability-load-balancing.md).
+  - question: >
+      L’arrêt TLS (inspection ou accélération TLS/HTTPS) sur le trafic entre les serveurs du connecteur et Azure est-il pris en charge ?
+    answer: "Le connecteur de proxy d’application effectue une authentification par certificat auprès d’Azure. L’arrêt TLS (inspection ou accélération TLS/HTTPS) interrompt cette méthode d’authentification et n’est pas pris en charge. Le trafic entre le connecteur et Azure doit ignorer tous les appareils qui effectuent un arrêt TLS.  \n"
+  - question: >
+      TLS 1.2 est-il requis pour toutes les connexions ?
+    answer: >
+      Oui. Pour offrir le meilleur chiffrement à nos clients, le service Proxy d’application limite l’accès aux seuls protocoles TLS 1.2. Ces changements ont été progressivement déployés et sont en vigueur depuis le 31 août 2019. Vérifiez que toutes vos combinaisons client-serveur et navigateur-serveur sont mises à jour pour utiliser TLS 1.2 afin de maintenir la connexion au service Proxy d’application. Cela comprend notamment les clients que vos utilisateurs utilisent pour accéder aux applications publiées par le biais du Proxy d’application. Pour accéder à des ressources et des références utiles, consultez [Préparation à l’utilisation de TLS 1.2 dans Office 365](/microsoft-365/compliance/prepare-tls-1.2-in-office-365).
+  - question: >
+      Puis-je placer un appareil proxy de transfert entre le ou les serveurs du connecteur et le serveur d’applications back-end ?
+    answer: >
+      Oui, ce scénario est pris en charge à compter de la version 1.5.1526.0 du connecteur. Consultez [Travailler avec des serveurs proxy locaux existants](./application-proxy-configure-connectors-with-proxy-servers.md).
+  - question: >
+      Dois-je créer un compte dédié pour inscrire le connecteur auprès du proxy d’application Azure AD ?
+    answer: >
+      Vous n’avez aucune raison de le faire. Tout compte d’administrateur général ou d’administrateur d’application peut fonctionner. Les informations d’identification entrées pendant l’installation ne sont pas utilisées après le processus d’inscription. En revanche, un certificat est émis pour le connecteur, puis utilisé à des fins d’authentification par la suite.
+  - question: >
+      Comment puis-je superviser les performances du connecteur de proxy d’application Azure AD ?
+    answer: "Des compteurs Analyseur de performances sont installés de concert avec le connecteur. Pour les voir :  \n\n1. Sélectionnez **Démarrer**, tapez « Perfmon », puis appuyez sur Entrée.\n2. Sélectionnez **Analyseur de performances**, puis cliquez sur l’icône **+** verte.\n3. Ajoutez les compteurs **Connecteur de proxy d’application Microsoft AAD** à superviser.\n"
+  - question: >
+      Le connecteur de proxy d’application Azure AD doit-il se trouver sur le même sous-réseau que la ressource ?
+    answer: >
+      Le connecteur ne doit pas obligatoirement se trouver sur le même sous-réseau. En revanche, il a besoin d’une résolution de noms (DNS, fichier hosts) pour la ressource et de la connectivité réseau appropriée (routage vers la ressource, ports ouverts sur la ressource, etc.). Pour obtenir des recommandations, consultez [Considérations sur la topologie de réseau lors de l’utilisation du proxy d’application Azure Active Directory](application-proxy-network-topology.md).
+  - question: >
+      Sur quelles versions de Windows Server puis-je installer un connecteur ?
+    answer: "Le proxy d’application nécessite Windows Server 2012 R2 ou une version ultérieure. Il existe actuellement une limitation sur HTTP2 pour Windows Server 2019. Pour pouvoir utiliser correctement le connecteur sur Windows Server 2019, vous devez ajouter la clé de Registre suivante et redémarrer le serveur :\n\n```\nHKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\WinHttp\\EnableDefaultHttp2 (DWORD) Value: 0 \n```\n"
+  - question: >
+      Configuration de l’application
+    answer: ''
+  - question: >
+      Je reçois une erreur concernant un certificat non valide ou un mot de passe peut-être incorrect
+    answer: >
+      Une fois le certificat SSL chargé, vous recevez le message « certificat non valide, mot de passe peut-être incorrect » sur le portail.
+
+
+      Voici quelques conseils pour résoudre cette erreur :
+
+      - Vérifiez les problèmes liés au certificat. Installez le certificat sur votre ordinateur local. Si vous ne rencontrez aucun problème, cela signifie que le certificat est correct.
+
+      - Assurez-vous que le mot de passe ne contient pas de caractères spéciaux. Pour le test, le mot de passe ne doit contenir que des caractères 0-9, A-Z et a-z.
+
+      - Si le certificat a été créé avec le fournisseur de stockage de clés pour les Logiciels Microsoft, l’algorithme RSA doit être utilisé.
+  - question: >
+      Quelle est la durée du délai d’expiration back-end par défaut « long » ? Peut-il être prolongé ?
+    answer: >
+      La durée par défaut s’élève à 85 secondes. Le paramètre « long » s’élève à 180 secondes. Il n’est pas possible d’augmenter la limite du délai d’expiration.
+  - question: >
+      Un principal du service peut-il gérer le Proxy d’application à l’aide des API PowerShell ou Microsoft Graph ?
+    answer: >
+      Non, cela n’est pas pris en charge actuellement.
+  - question: >
+      Que se passe-t-il si je supprime CWAP_AuthSecret (la clé secrète client) dans l’inscription de l’application ?
+    answer: "La clé secrète client, également appelée *CWAP_AuthSecret*, est automatiquement ajoutée à l’objet application (inscription d’application) lors de la création de l’application Proxy d’application Azure AD.\n\nLa clé secrète client est valide pendant un an. Une nouvelle clé secrète client d’un an est créée automatiquement avant l’expiration de la clé secrète client valide actuelle. Trois clés secrètes client CWAP_AuthSecret sont conservées à tout moment dans l’objet application. \n\n> [!IMPORTANT]\n> La suppression de CWAP_AuthSecret arrête la pré-authentification de Proxy d’application Azure AD. Ne supprimez pas CWAP_AuthSecret.\n"
+  - question: >
+      Comment puis-je modifier la page d’arrivée chargée par mon application ?
+    answer: >
+      À partir de la page des inscriptions d’applications, vous pouvez remplacer l’URL de la page d’accueil par l’URL externe souhaitée pour la page d’arrivée. La page spécifiée est chargée quand l’application est lancée à partir de Mes applications ou du portail Office 365. Pour connaître les étapes de configuration, consultez [Définir une page d’accueil personnalisée pour les applications publiées à l’aide du proxy d’application Azure AD](application-proxy-configure-custom-home-page.md).
+  - question: >
+      Est-il possible de publier uniquement des applications IIS ? Qu’en est-il des applications web s’exécutant sur des serveurs web non-Windows ? Le connecteur doit-il être installé sur un serveur sur lequel IIS est installé ?
+    answer: >
+      Non, aucune configuration IIS n’est requise pour les applications publiées. Vous pouvez publier des applications web qui s’exécutent sur des serveurs autres que Windows Server. En revanche, vous ne pourrez peut-être pas utiliser la préauthentification avec un serveur autre que Windows Server, selon que le serveur web prend en charge ou non Negotiate (authentification Kerberos). IIS n’est pas exigé sur le serveur sur lequel le connecteur est installé.
+  - question: >
+      Puis-je configurer un Proxy d’application pour ajouter l’en-tête HSTS ?
+    answer: >
+      Un Proxy d’application n’ajoute pas automatiquement l’en-tête HTTP Strict-Transport-Security aux réponses HTTPS, mais il conserve l’en-tête s’il est dans la réponse d’origine envoyée par l’application publiée. La mise au point d’un paramètre pour activer cette fonctionnalité figure dans la feuille de route. Si vous êtes intéressé par une préversion permettant d’ajouter cela aux réponses, contactez aadapfeedback@microsoft.com pour plus d’informations.
+  - question: >
+      Authentification Windows intégrée
+    answer: ''
+  - question: >
+      Quand dois-je utiliser la méthode PrincipalsAllowedToDelegateToAccount lors de la configuration de la délégation contrainte Kerberos (KCD) ?
+    answer: >
+      La méthode PrincipalsAllowedToDelegateToAccount est utilisée lorsque les serveurs du connecteur se trouvent dans un domaine différent de celui du compte de service de l’application web. Elle exige l’utilisation d’une délégation contrainte basée sur les ressources.
+
+      Si les serveurs du connecteur et le compte de service de l’application web se trouvent dans le même domaine, vous pouvez utiliser Utilisateurs et ordinateurs Active Directory pour configurer les paramètres de délégation sur chacun des comptes d’ordinateur du connecteur, ce qui leur permet de déléguer au SPN cible.
+
+
+      Si les serveurs du connecteur et le compte de service de l’application web se trouvent dans des domaines différents, la délégation basée sur les ressources est utilisée. Les autorisations de délégation sont configurées sur le serveur web cible et le compte de service de l’application web. Cette méthode de délégation contrainte est relativement nouvelle. Elle a été introduite dans Windows Server 2012, qui prend en charge la délégation interdomaines en permettant au propriétaire de la ressource (service web) de contrôler la machine et les comptes de service qui peuvent déléguer. Il n’y a pas d’interface utilisateur pour faciliter cette configuration. Vous devez donc utiliser PowerShell.
+
+      Pour plus d’informations, consultez le livre blanc [Understanding Kerberos Constrained Delegation with Application Proxy](https://aka.ms/kcdpaper) (Présentation de la délégation contrainte Kerberos avec le proxy d’application).
+  - question: >
+      L’authentification NTLM fonctionne-t-elle avec le Proxy d’application Azure AD ?
+    answer: >
+      L’authentification NTLM ne peut pas être utilisée en tant que méthode de pré-authentification ou d’authentification unique. L’authentification NTLM ne peut être utilisée que quand elle peut être négociée directement entre le client et l’application web publiée. L’utilisation de l’authentification NTLM entraîne généralement l’affichage d’une invite de connexion dans le navigateur.
+  - question: >
+      Puis-je utiliser l'identité de connexion « Nom d'utilisateur principal local » ou « Nom de compte SAM local » dans un scénario d'authentification unique B2B IWA ?
+    answer: >
+      Non, cela ne fonctionnera pas, car un utilisateur invité d'Azure AD ne possède pas l'attribut requis par l'une des identités de connexion mentionnées ci-dessus.
+
+
+      Dans ce cas, « Nom principal de l'utilisateur » sera utilisé. Pour plus d'informations sur le scénario B2B, consultez [Accorder aux utilisateurs B2B d'Azure AD l'accès à vos applications locales](../external-identities/hybrid-cloud-to-on-premises.md).
+  - question: >
+      Authentification directe
+    answer: ''
+  - question: >
+      Puis-je utiliser des stratégies d’accès conditionnel pour les applications publiées avec authentification directe ?
+    answer: >
+      Les stratégies d’accès conditionnel s’appliquent uniquement aux utilisateurs correctement préauthentifiés dans Azure AD. L’authentification directe ne déclenche pas l’authentification Azure AD, donc les stratégies d’accès conditionnel ne peuvent pas être appliquées. Avec l’authentification directe, des stratégies MFA doivent être implémentées sur le serveur local, si possible, ou en activant la préauthentification auprès du proxy d’application Azure AD.
+  - question: >
+      Puis-je publier une application web en exigeant une authentification par certificat client ?
+    answer: "Non, ce scénario n’est pas pris en charge, car le proxy d’application arrête le trafic TLS.  \n"
+  - question: >
+      Publication de la passerelle des services Bureau à distance
+    answer: ''
+  - question: >
+      Comment puis-je publier la passerelle des services Bureau à distance sur le proxy d’application Azure AD ?
+    answer: >
+      Reportez-vous à [Publier le Bureau à distance avec le proxy d’application Azure AD](./application-proxy-integrate-with-remote-desktop-services.md).
+  - question: >
+      Puis-je utiliser la délégation contrainte Kerberos (authentification unique - Authentification intégrée de Windows) dans le scénario de publication de la passerelle des services Bureau à distance ?
+    answer: "Non, ce scénario n’est pas pris en charge.  \n"
+  - question: >
+      Mes utilisateurs n’utilisent pas Internet Explorer 11 et le scénario de préauthentification ne fonctionne pas pour eux. Est-ce normal ?
+    answer: >
+      Oui, c’est normal. Le scénario de préauthentification exige un contrôle ActiveX, qui n’est pas pris en charge dans les navigateurs tiers.
+  - question: >
+      Le client web Bureau à distance (HTML5) est-il pris en charge ?
+    answer: >
+      Oui, ce scénario est actuellement en préversion publique. Reportez-vous à [Publier le Bureau à distance avec le proxy d’application Azure AD](./application-proxy-integrate-with-remote-desktop-services.md).
+  - question: >
+      Après avoir configuré le scénario de préauthentification, je me suis rendu compte que l’utilisateur doit s’authentifier deux fois : tout d’abord dans le formulaire de connexion Azure AD, puis dans le formulaire de connexion RDWeb. Est-ce normal ? Comment puis-je réduire le nombre de connexions à une seule ?
+    answer: Oui, c’est normal. Si l’ordinateur de l’utilisateur est joint à Azure AD, l’utilisateur se connecte à Azure AD automatiquement. Il doit fournir ses informations d’identification uniquement dans le formulaire de connexion RDWeb.
+  - question: >
+      Publication SharePoint
+    answer: ''
+  - question: >
+      Comment puis-je publier SharePoint sur le proxy d’application Azure AD ?
+    answer: >
+      Reportez-vous à [Activer l’accès distant à SharePoint avec le proxy d’application Azure AD](./application-proxy-integrate-with-sharepoint-server.md).
+  - question: >
+      Puis-je utiliser l’application mobile SharePoint (iOS/Android) pour accéder à un serveur SharePoint publié ?
+    answer: >
+      Pour le moment, l’[application mobile SharePoint](/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) ne prend pas en charge la préauthentification Azure Active Directory.
+  - question: "Publication des services de fédération Active Directory (AD FS) \n"
+    answer: ''
+  - question: >
+      Puis-je utiliser le proxy d’application Azure AD en tant que proxy AD FS (comme le proxy d’application web) ?
+    answer: >
+      Non. Le proxy d’application Azure AD est conçu pour fonctionner avec Azure AD et ne répond pas aux exigences d’un rôle de proxy AD FS.
+  - question: >
+      Puis-je utiliser un proxy d’application Azure AD pour publier n’importe quel point de terminaison AD FS (comme /adfs/portal/updatepassword/) ?
+    answer: "Non, ce n’est pas pris en charge.\n         \n"
+  - question: >
+      WebSocket
+    answer: ''
+  - question: >
+      WebSocket prend-il en charge les applications autres que QlikSense et le client web Bureau à distance (HTML5) ?
+    answer: >
+      Actuellement, la prise en charge du protocole WebSocket est toujours en préversion publique et peut ne pas fonctionner pour d’autres applications. Malgré tout, certains clients ont tant bien que mal réussi à utiliser le protocole WebSocket avec d’autres applications. Si vous testez de tels scénarios, nous serions ravis de connaître vos résultats. Envoyez-nous vos commentaires à l’adresse aadapfeedback@microsoft.com.
+
+
+      Les fonctionnalités (Eventlogs, PowerShell et Services Bureau à distance) de Windows Admin Center (WAC) ne fonctionnent pas actuellement via Proxy d’application Azure AD.
+  - question: >
+      Traduction de liens
+    answer: ''
+  - question: >
+      L’utilisation de la traduction de liens affecte-t-elle les performances ?
+    answer: "Oui. La traduction de liens affecte les performances. Le service de proxy d’application analyse l’application à la recherche de liens codés en dur, puis les remplace par leurs URL externes publiées respectives avant de les présenter à l’utilisateur. \n\nPour optimiser les performances, nous vous recommandons d’utiliser des URL internes et externes identiques en configurant des [domaines personnalisés](./application-proxy-configure-custom-domain.md). Si vous n’avez pas la possibilité d’utiliser des domaines personnalisés, vous pouvez améliorer les performances de la traduction des liens à l’aide de l’extension de connexion sécurisée Mes applications ou du navigateur Microsoft Edge sur mobile. Consultez [Rediriger les liens codés en dur pour les applications publiées avec le proxy d’application Azure AD](./application-proxy-configure-hard-coded-link-translation.md).\n"
+  - question: >
+      Caractères génériques
+    answer: ''
+  - question: >
+      Comment puis-je utiliser des caractères génériques pour publier deux applications portant le même nom de domaine personnalisé, mais avec des protocoles différents, un pour HTTP et un pour HTTPS ?
+    answer: >
+      Ce scénario n’est pas pris en charge directement. Vos possibilités pour ce scénario sont les suivantes :
+
+
+      1. Publiez les URL HTTP et HTTPS en tant qu’applications distinctes avec un caractère générique, mais donnez à chacune un nom de domaine personnalisé différent. Cette configuration fonctionne, car elles ont des URL externes différentes.
+
+
+      2. Publiez l’URL HTTPS par le biais d’une application générique. Publiez les applications HTTP séparément à l’aide de ces cmdlets PowerShell de proxy d’application :
+         - [Gestion des applications de proxy d’application](/powershell/module/azuread/#application_proxy_application_management&preserve-view=true)
+         - [Gestion des connecteurs de proxy d’application](/powershell/module/azuread/#application_proxy_connector_management&preserve-view=true)

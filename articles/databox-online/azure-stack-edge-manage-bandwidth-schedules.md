@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro – Gérer les planifications de bande passante | Microsoft Docs
-description: Explique comment utiliser le portail Azure pour gérer les planifications de bande passante sur votre ressource Azure Stack Edge Pro.
+title: Gestion des planifications de bande passante d’Azure Stack Edge Pro FGPA
+description: Explique comment utiliser le Portail Azure pour gérer les planifications de bande passante sur votre appareil Azure Stack Edge Pro avec FGPA.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: e73a02c93807072e30c8ce2a1a7feb30e9d3c8c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a89b5359b48b1ad7d0e0a3c32f0e637ba5b2264
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91978966"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460803"
 ---
-# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro"></a>Utiliser le portail Azure pour gérer les planifications de bande passante sur votre ressource Azure Stack Edge Pro  
+# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-fpga"></a>Utiliser le Portail Azure pour gérer les planifications de bande passante sur votre appareil Azure Stack Edge Pro avec FGPA  
 
-Cet article explique comment gérer les utilisateurs sur votre ressource Azure Stack Edge Pro. Les planifications de bande passante vous permettent de configurer l’utilisation de la bande passante réseau sur plusieurs planifications selon le moment de la journée. Ces planifications sont applicables aux opérations de chargement et de téléchargement entre votre appareil et le cloud.
+Cet article explique comment gérer les utilisateurs sur votre ressource Azure Stack Edge Pro FGPA. Les planifications de bande passante vous permettent de configurer l’utilisation de la bande passante réseau sur plusieurs planifications selon le moment de la journée. Ces planifications sont applicables aux opérations de chargement et de téléchargement entre votre appareil et le cloud.
 
-Vous pouvez ajouter, modifier ou supprimer des planifications de bande passante pour votre ressource Azure Stack Edge Pro via le portail Azure.
+Vous pouvez ajouter, modifier ou supprimer des planifications de bande passante pour votre ressource Azure Stack Edge Pro FGPA via le Portail Azure.
 
 Dans cet article, vous apprendrez comment :
 
@@ -71,7 +71,7 @@ Pour modifier une planification de bande passante, procédez comme suit.
 
 ## <a name="delete-a-schedule"></a>Supprimer une planification
 
-Effectuez les étapes suivantes pour supprimer une planification de bande passante associée à votre appareil Azure Stack Edge Pro.
+Effectuez les étapes suivantes pour supprimer une planification de bande passante associée à votre appareil Azure Stack Edge Pro FGPA.
 
 1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Bande passante**.  
 

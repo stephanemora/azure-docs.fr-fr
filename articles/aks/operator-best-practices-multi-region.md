@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5bcd30c22132bc53ff28fdefcb73f686e08e34ea
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: eda7816050aedc0ff910d975f920d79771f7d0b4
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105083"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461619"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Bonnes pratiques pour la continuité d’activité et la reprise d’activité dans AKS (Azure Kubernetes Services)
 
@@ -40,7 +40,8 @@ Un cluster AKS est déployé dans une seule région. Pour protéger votre systè
     * AKS s’étend en permanence à de nouvelles régions.
 * [**Régions appairées Azure**](../best-practices-availability-paired-regions.md)
     * Pour votre zone géographique, choisissez deux régions appairées.
-    * Les régions appairées coordonnent les mises à jour de la plateforme et hiérarchisent les efforts de récupération si nécessaire.
+    * Les mises à jour de la plateforme AKS (maintenance planifiée) sont sérialisées avec un délai d’au moins 24 heures entre les régions jumelées. 
+    * Les efforts de récupération pour les régions jumelées sont prioritaires quand cela est nécessaire. 
 * **Disponibilité du service**
     * Décidez si vos régions appairées doivent avoir un niveau de disponibilité chaud/chaud, chaud/tiède ou chaud/froid.
     * Souhaitez-vous utiliser les deux régions en même temps, avec une région *prête* à commencer à traiter le trafic ? Ou,

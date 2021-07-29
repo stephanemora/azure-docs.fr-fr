@@ -1,19 +1,19 @@
 ---
 title: Informations du groupe de ressources Azure Monitor | Microsoft Docs
-description: Comprendre l’intégrité et les performances de vos applications et services distribués au niveau du groupe de ressources avec Azure Monitor
+description: Comprenez l’intégrité et les performances de vos applications et services distribués au niveau du groupe de ressources avec la fonctionnalité d’insights de groupe de ressources d’Azure Monitor.
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: bfe197befc781548dc41ff389f2d9558af7a8aae
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 466d63f8615d8115c7dcbfacdca2d004cf19621e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567400"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073807"
 ---
-# <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Surveiller les groupes de ressources avec Azure Monitor (préversion)
+# <a name="monitor-azure-monitor-resource-group-insights-preview"></a>Surveiller les insights du groupe de ressources Azure Monitor (préversion)
 
 Les applications modernes sont souvent complexes et hautement distribuées, avec de nombreux éléments distincts qui collaborent pour fournir un service. Compte tenu de cette complexité, Azure Monitor fournit des informations de surveillance pour les groupes de ressources. Cela facilite le triage et le diagnostic des problèmes que rencontrent vos ressources individuelles, tout en offrant un contexte en lien avec l’intégrité et les performances du groupe de ressources (et de votre application) dans sa globalité.
 
@@ -108,10 +108,10 @@ Dans ce cas, si vous sélectionnez Modifier, vous verrez que cet ensemble de vis
 
 ### <a name="enabling-access-to-alerts"></a>Activation de l’accès aux alertes
 
-Pour visualiser les alertes dans Azure Monitor pour les groupes de ressources, un utilisateur doté du rôle Propriétaire ou Contributeur pour cet abonnement doit ouvrir Azure Monitor pour les groupes de ressources pour n’importe quel groupe de ressources de l’abonnement. Cette opération autorise toute personne disposant d’un accès en lecture à visualiser les alertes dans Azure Monitor pour les groupes de ressources pour tous les groupes de ressources de l’abonnement. Si vous disposez du rôle Propriétaire ou Contributeur, actualisez cette page au bout de quelques minutes.
+Pour visualiser les alertes pour les insights des groupes de ressources, un utilisateur doté du rôle Propriétaire ou Contributeur pour cet abonnement doit ouvrir les insights des groupes de ressources pour n’importe quel groupe de ressources de l’abonnement. Cette opération autorise toute personne disposant d’un accès en lecture à visualiser les alertes dans les insights des groupes de ressources pour tous les groupes de ressources de l’abonnement. Si vous disposez du rôle Propriétaire ou Contributeur, actualisez cette page au bout de quelques minutes.
 
-Azure Monitor pour les groupes de ressources s’appuie sur le système Azure Monitor Alerts Management pour récupérer l’état des alertes. La solution Alerts Management n’est pas configurée pour chaque groupe de ressources et abonnement par défaut, et ne peut être activée que par une personne disposant du rôle Propriétaire ou Contributeur. Elle est activable de deux manières :
-* ouverture d’Azure Monitor pour les groupes de ressources pour n’importe quel groupe de ressources de l’abonnement ;
+Les insights pour les groupes de ressources s’appuient sur le système Azure Monitor Alerts Management pour récupérer l’état des alertes. La solution Alerts Management n’est pas configurée pour chaque groupe de ressources et abonnement par défaut, et ne peut être activée que par une personne disposant du rôle Propriétaire ou Contributeur. Elle est activable de deux manières :
+* ouverture des insights de groupe de ressources pour n’importe quel groupe de ressources dans l’abonnement.
 * accès à l’abonnement, clic sur **Fournisseurs de ressources**, puis clic sur **Register for Alerts Management** (S’inscrire à Alerts Management).
 
 ## <a name="next-steps"></a>Étapes suivantes

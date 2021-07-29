@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser Azure Policy pour utiliser des stratégies intégrées pour Azure Machine Learning afin de vous assurer que vos espaces de travail sont conformes à vos besoins.
 author: aashishb
 ms.author: aashishb
-ms.date: 05/03/2021
+ms.date: 05/10/2021
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: 688af6bbc4de786c36011312f64fb6d67e34183f
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 02225a3be02612b9baa0a66aff3d3dcd5ef1bb87
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633804"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067471"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>Auditer et gérer Azure Machine Learning à l'aide d'Azure Policy
 
@@ -28,8 +28,14 @@ ms.locfileid: "109633804"
 | **Point de terminaison privé** | Configurez le sous-réseau du réseau virtuel Azure sur lequel le point de terminaison privé doit être créé. |
 | **Zone DNS privée** | Configurez la zone DNS privée à utiliser pour la liaison privée. |
 | **Identité managée affectée par l’utilisateur** | Auditez ou appliquez une valeur indiquant si les espaces de travail utilisent une identité gérée affectée par l’utilisateur. |
+| **Désactiver l’authentification locale** | Auditez ou appliquez si les méthodes d’authentification locales doivent être désactivées pour les ressources de calcul Azure Machine Learning. |
+| **Modifier/désactiver l’authentification locale** | Configurez les ressources de calcul pour désactiver les méthodes d’authentification locales. |
 
 Les stratégies peuvent être définies sur des étendues différentes, par exemple au niveau de l'abonnement ou du groupe de ressources. Pour plus d'informations, consultez la [documentation relative à Azure Policy](../governance/policy/overview.md).
+
+## <a name="conditional-access-policies"></a>Stratégies d'accès conditionnel
+
+Pour contrôler qui peut accéder à votre espace de travail Azure Machine Learning, utilisez l’[accès conditionnel](../active-directory/conditional-access/overview.md) Azure Active Directory.
 
 ## <a name="built-in-policies"></a>Stratégies prédéfinies
 
@@ -79,6 +85,21 @@ Contrôle si un espace de travail est créé à l’aide d’une identité gér�
 Pour configurer cette stratégie, définissez le paramètre d'effet sur __audit__, __deny__ ou __disabled__. Si la valeur est définie sur __audit__, vous pouvez créer un espace de travail sans spécifier d’identité gérée affectée à l'utilisateur. Une identité affectée par le système est utilisée et un événement d’avertissement est créé dans le journal d’activité.
 
 Si la stratégie est définie sur __deny__, vous ne pouvez pas créer un espace de travail, sauf si vous fournissez une identité affectée par l’utilisateur pendant le processus de création. Une erreur survient si vous essayez de créer un espace de travail sans fournir d’identité affectée par l’utilisateur. L’erreur est également consignée dans le journal d’activité. L’identificateur de la stratégie est renvoyé dans le cadre de cette erreur.
+
+## <a name="disable-local-authentication"></a>Désactiver l’authentification locale
+
+Contrôle si un cluster ou une instance de calcul Azure Machine Learning doit désactiver l’authentification locale (SSH).
+
+Pour configurer cette stratégie, définissez le paramètre d'effet sur __audit__, __deny__ ou __disabled__. Si le paramètre est défini sur __audit__, vous pouvez créer un calcul avec SSH activé et un événement d’avertissement est créé dans le journal d’activité.
+
+Si la stratégie est définie sur __deny__, vous ne pouvez pas créer de calcul, sauf si SSH est désactivé. Toute tentative de création d’un calcul avec SSH activé génère une erreur. L’erreur est également consignée dans le journal d’activité. L’identificateur de la stratégie est renvoyé dans le cadre de cette erreur.
+
+
+## <a name="modifydisable-local-authentication"></a>Modifier/désactiver l’authentification locale
+
+Modifie toute demande de création d’instance ou de cluster de calcul Azure Machine Learning pour désactiver l’authentification locale (SSH).
+
+Pour configurer cette stratégie, définissez le paramètre d’effet sur __Modifier__ ou __Désactivé__. Si vous choisissez __Modifier__, l’authentification locale sera automatiquement désactivée pour toute création d’un cluster ou d’une instance de calcul dans l’étendue à laquelle la stratégie s’applique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 4ecbee2260da735cd6ba74d3b9ffb55b4a652e9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7466a2e620a9489fe7b3b69967388d3ad4b7ab85
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93341992"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110065316"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Approvisionner le débit standard (manuel) sur une base de données Azure Cosmos DB - API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,8 +31,10 @@ Si vous utilisez une autre API, consultez les articles [API pour MongoDB](how-to
 1. Ouvrez le volet **Explorateur de données**, puis sélectionnez **Nouvelle base de données**. Fournissez les détails suivants :
 
    * Entrez un ID de base de données.
-   * Sélectionnez l’option **Provisionner le débit de base de données**.
-   * Entrez un débit, par exemple 1 000 RU.
+   * Sélectionnez l’option **Partager le débit entre les conteneurs**.
+   * Sélectionnez le débit **Mise à l’échelle automatique** ou **Manuel**, puis entrez le **Débit de base de données** requis (par exemple, 1 000 RU/s).
+   * Entrez un nom pour votre conteneur sous **ID de conteneur**
+   * Entrez une **clé de partition**
    * Sélectionnez **OK**.
 
     :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="Capture d’écran de la boîte de dialogue Nouvelle base de données":::

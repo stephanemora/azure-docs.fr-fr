@@ -5,14 +5,14 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 05/17/2021
 ms.author: qixwang
-ms.openlocfilehash: 94c22ffd423c32ba5f489298267464ca36abaecd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b25f56b238c7f0c42a1ba589f7da2d68344c915
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101097631"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110464388"
 ---
 # <a name="configure-an-azure-front-door-standardpremium-route"></a>Configurer une route Azure Front Door Standard/Premium
 
@@ -52,7 +52,7 @@ Pour configurer un groupe d’origines, consultez [Configurer une origine Azure 
 
     :::image type="content" source="../media/how-to-configure-route/add-route-page.png" alt-text="Capture d’écran de la page Ajouter une route." lightbox="../media/how-to-configure-route/add-route-page-expanded.png"::: 
 
-    | Paramètre | Valeur |
+    | Paramètre | Description |
     | --- | --- |
     | Nom | Entrez un nom unique pour la nouvelle route. |   
     | Domain| Sélectionnez un ou plusieurs domaines qui ont été validés et qui ne sont pas associés à une autre route. |
@@ -60,7 +60,7 @@ Pour configurer un groupe d’origines, consultez [Configurer une origine Azure 
     | Protocoles acceptés | Spécifiez les protocoles qu’Azure Front Door doit accepter quand le client effectue la requête. |
     | Rediriger | Spécifier si le protocole HTTPS est appliqué à la requête entrante avec une requête HTTP |
     | Groupe d’origines | Sélectionnez le groupe d’origines de destination du transfert quand la requête de retour à l’origine est effectuée. |
-    | Chemin de l’origine | Entrez le chemin vers les ressources que vous souhaitez mettre en cache. Pour permettre la mise en cache de n’importe quelle ressource au niveau du domaine, laissez ce paramètre vide. |
+    | Chemin d’accès d’origine | Ce chemin d'accès est utilisé pour réécrire l'URL qu'Azure Front Door utilisera lors de la construction de la requête transmise à l'origine. Par défaut, ce chemin n'est pas fourni. Par conséquent, Azure Front Door utilisera le chemin URL entrant dans la requête transmise à l'origine. Vous pouvez également spécifier un chemin générique, qui copiera toute partie correspondante du chemin entrant dans le chemin de la requête adressée à l'origine. </br></br>Modèle à suivre : `/foo/*`</br>Chemin de l'origine : `/fwd/`</br></br>Chemin URL entrant : `/foo/a/b/c/`</br>URL d'Azure Front Door vers l'origine : `fwd/a/b/c`. |
     | Protocole de transfert | Sélectionnez le protocole utilisé pour transférer la requête. |
     | Mise en cache | Sélectionnez cette option pour activer la mise en cache du contenu statique avec Azure Front Door. |
     | Règle | Sélectionnez les ensembles de règles qui seront appliqués à cet itinéraire. Pour plus d’informations sur la configuration des règles, consultez [Configurer un ensemble de règles pour Azure Front Door](how-to-configure-rule-set.md) | 

@@ -1,18 +1,18 @@
 ---
 title: Guide pratique pour parcourir le catalogue de données
-description: Cet article explique dans les grandes lignes comment parcourir le catalogue de données Azure Purview en fonction du type de ressource.
-author: chanuengg
-ms.author: csugunan
+description: Cet article explique dans les grandes lignes comment parcourir le catalogue de données Azure Purview en fonction du type de ressource
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/30/2020
-ms.openlocfilehash: dd2fd4fbc9d8aecd9821d668dd02bd4b68659cf6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/21/2021
+ms.openlocfilehash: cf836be45374b881945a80f998d851c95c7a5abd
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97695064"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474180"
 ---
 # <a name="browse-the-azure-purview-data-catalog"></a>Navigation dans le catalogue de données Azure Purview
 
@@ -26,6 +26,9 @@ Il est par exemple facile de trouver un jeu de données nommé *DateDimension* d
 
 Une expérience de navigation native avec l’espace de noms hiérarchique est proposée pour chacune des sources de données correspondantes.
 
+> [!NOTE]
+> Après une analyse réussie, un certain délai peut être nécessaire avant que les nouvelles ressources analysées apparaissent dans l’expérience de navigation. Ce délai peut être de plusieurs heures.
+
 ## <a name="browse-the-data-catalog-by-asset-type"></a>Navigation dans le catalogue de données par type de ressource
 
 1. Pour parcourir les ressources de données, vous pouvez sélectionner **Parcourir par type de ressource** sur la page d’accueil.
@@ -35,6 +38,9 @@ Une expérience de navigation native avec l’espace de noms hiérarchique est p
 1. Sur la page **Parcourir les types de ressources**, les vignettes sont classées en fonction des sources de données. Pour approfondir l’exploration des ressources de chaque source de données, sélectionnez la vignette correspondante.
 
     :::image type="content" source="media/how-to-browse-catalog/browse-asset-types.jpg" alt-text="Page Parcourir les types de ressources" border="true":::
+
+> [!TIP]
+> Certaines vignettes sont des regroupements d’une collection de sources de données. Par exemple, la vignette Azure Storage Account contient tous les comptes Stockage Blob Azure et Azure Data Lake Storage Gen2. La vignette Azure SQL Server affiche les ressources Azure SQL Server qui contiennent Azure SQL Database et les instances de pool SQL dédiées Azure qui sont ingérées dans le catalogue. 
 
 1. Sur la page suivante figurent les ressources de niveau supérieur sous le type de données choisi. Choisissez l’une d’elles pour explorer son contenu.
 

@@ -10,16 +10,16 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: af47182219441a373fd3e05585dbbb9484d06b37
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 38ac40f8d6d56bce4862f2e861a6568b3eefd15a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753024"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087505"
 ---
 # <a name="using-disks-in-azure-resource-manager-templates"></a>Utilisation de disques dans les modèles Azure Resource Manager
 
-Ce document décrit les différences entre les disques managés et les disques non managés lorsque vous utilisez des modèles Azure Resource Manager pour configurer des machines virtuelles. Ces exemples vous permettent de mettre à jour les modèles existants qui utilisent des disques non managés en les remplaçant par des disques managés. Pour référence, nous utilisons le modèle [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) comme guide. Vous pouvez consulter le modèle utilisant des [disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) et une version antérieure utilisant des [disques non managés](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) si vous voulez les comparer directement.
+Ce document décrit les différences entre les disques managés et les disques non managés lorsque vous utilisez des modèles Azure Resource Manager pour configurer des machines virtuelles. Ces exemples vous permettent de mettre à jour les modèles existants qui utilisent des disques non managés en les remplaçant par des disques managés. Pour référence, nous utilisons le modèle [vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows) comme guide. Vous pouvez consulter le modèle utilisant des [disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json) et une version antérieure utilisant des [disques non managés](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) si vous voulez les comparer directement.
 
 ## <a name="unmanaged-disks-template-formatting"></a>Mise en forme de modèle de disques non managés
 
@@ -261,8 +261,8 @@ Pour obtenir des informations complètes sur les spécifications de l’API REST
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour des modèles complets qui utilisent des disques managés, consultez les liens suivants du référentiel de démarrage rapide Azure.
-    * [Machine virtuelle Windows avec disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
-    * [Machine virtuelle Linux avec disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+    * [Machine virtuelle Windows avec disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows)
+    * [Machine virtuelle Linux avec disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-linux)
 * Consultez le document [Vue d’ensemble d’Azure Disques managés](managed-disks-overview.md) pour en savoir plus sur les disques managés.
 * Passez en revue la documentation de référence sur les modèles pour les ressources de machine virtuelle en consultant le document [de référence sur le modèle Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines).
 * Passez en revue la documentation de référence sur les modèles pour les ressources de disque en consultant le document [de référence sur le modèle Microsoft.Compute/disks](/azure/templates/microsoft.compute/disks).

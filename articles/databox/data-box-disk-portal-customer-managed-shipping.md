@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/08/2021
+ms.date: 06/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 6323a077596a7ed13384bfbaace929b270c2d3f5
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 66ff9018371de309b61824895492335e0d3bb763
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754476"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112517651"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Utilisez l’expédition autogérée pour Azure Data Box Disk dans le portail Azure
 
@@ -64,7 +64,7 @@ Quand passez une commande de Data Box Disk, vous pouvez choisir l’option d’e
    - Order name
    - Company name
    - Company legal name (if different) 
-   - Tax ID 
+   - CNPJ (Business Tax ID, format: 00.000.000/0000-00) or CPF (Individual Tax ID, format: 000.000.000-00)
    - Address 
    - Country 
    - Phone number 
@@ -83,11 +83,11 @@ Quand passez une commande de Data Box Disk, vous pouvez choisir l’option d’e
 
    La personne chargée de l’enlèvement de l’appareil doit fournir ce qui suit :
 
-   * Une copie de l’e-mail de confirmation envoyé par Microsoft Operations autorisant la visite du centre de données.
+   * Une copie de la confirmation par e-mail fournie par Microsoft Operations autorisant la visite du centre de données.
 
-   * Le code d’autorisation. Le numéro de référence pour un enlèvement ou un dépôt est unique et est validé au centre de données.
+   * Le code d’autorisation. Le numéro de référence pour un enlèvement ou un dépôt est unique et validé dans le centre de données.
 
-   * Une pièce d’identité avec photo approuvée par le gouvernement. L’identité sera validée au centre de données, et le nom et les coordonnées de la personne chargée de l’enlèvement de l’appareil doivent être fournis au moment de la planification de l’enlèvement.
+   * Une photo d’identité approuvée par le gouvernement. L’identité sera validée au centre de données, et le nom et les coordonnées de la personne chargée de l’enlèvement de l’appareil doivent être fournis lors de la planification de l’enlèvement.
 
    > [!NOTE]
    > Si vous manquez un rendez-vous planifié, vous devrez planifier un nouveau rendez-vous.

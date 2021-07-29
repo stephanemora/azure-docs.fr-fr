@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6c761edec571f404a538025c868750bc5712eced
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 356c4b1049f6c9558954de457c7e79abbd87d7b8
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796129"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475376"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Considérations relatives à la mise en réseau Azure File Sync
 Vous pouvez vous connecter à un partage de fichiers Azure de deux manières :
@@ -23,6 +23,9 @@ Vous pouvez vous connecter à un partage de fichiers Azure de deux manières :
 Cet article se concentre sur la configuration de la mise en réseau lorsque votre cas d’usage nécessite l’utilisation d’Azure File Sync pour mettre en cache des fichiers locaux plutôt que de monter directement le partage de fichiers Azure sur SMB. Pour plus d’informations sur les considérations relatives à la mise en réseau pour un déploiement Azure Files, consultez [Considérations relatives à la mise en réseau Azure Files](../files/storage-files-networking-overview.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
 
 La configuration de la mise en réseau pour Azure File Sync s’étend sur deux objets Azure différents : un service de synchronisation du stockage et un compte de stockage Azure. Un compte de stockage est une construction de gestion qui représente un pool de stockage partagé dans lequel vous pouvez déployer plusieurs partages de fichiers, ainsi que d’autres ressources de stockage, telles que des conteneurs d’objets blob ou des files d’attente. Le service de synchronisation du stockage est une construction de gestion qui représente les serveurs inscrits, qui sont des serveurs de fichiers Windows avec une relation d’approbation établie avec Azure File Sync, ainsi que des groupes de synchronisation, qui définissent la topologie de la relation de synchronisation. 
+
+> [!Important]  
+> Azure File Sync ne prend pas en charge le routage Internet. L'option de routage réseau par défaut, le routage Microsoft, est prise en charge par Azure File Sync.
 
 ## <a name="connecting-windows-file-server-to-azure-with-azure-file-sync"></a>Connexion du serveur de fichiers Windows à Azure avec Azure File Sync 
 Pour configurer et utiliser Azure Files et Azure File Sync avec un serveur de fichiers Windows local, il n’est pas nécessaire de disposer d’une mise en réseau spéciale sur Azure au-delà d’une connexion Internet de base. Pour déployer Azure File Sync, installez l’agent Azure File Sync sur le serveur de fichiers Windows que vous souhaitez synchroniser avec Azure. L’agent Azure File Sync effectue la synchronisation avec un partage de fichiers Azure via deux canaux :

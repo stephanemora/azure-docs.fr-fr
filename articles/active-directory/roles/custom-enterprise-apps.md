@@ -8,21 +8,30 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7c04afe76ced0abf40abf8e30362005fb269172
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: db22b44e032261d138d74e34340dca6fcaf75779
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534717"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092869"
 ---
 # <a name="create-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Créer des rôles personnalisés pour gérer les applications d’entreprise dans Azure Active Directory
 
 Cet article explique comment créer un rôle personnalisé avec des autorisations pour gérer les attributions d’applications d’entreprise pour les utilisateurs et groupes dans Azure Active Directory (Azure AD). Pour connaître les éléments des attributions de rôles et la signification des termes tels que le sous-type, l’autorisation et le jeu de propriétés, consultez [Vue d’ensemble des rôles personnalisés](custom-overview.md).
+
+## <a name="prerequisites"></a>Prérequis
+
+- Licence Azure AD Premium P1 ou P2
+- Administrateur de rôle privilégié ou administrateur général
+- Module AzureADPreview lors de l’utilisation de PowerShell
+- Consentement de l’administrateur lors de l’utilisation de l’Explorateur graphique pour l’API Microsoft Graph
+
+Pour plus d’informations, consultez [Configuration requise pour l’utilisation de PowerShell ou de l’Explorateur graphique](prerequisites.md).
 
 ## <a name="enterprise-app-role-permissions"></a>Autorisations des rôles des applications d’entreprise
 
@@ -38,14 +47,14 @@ L’octroi de l’autorisation de mise à jour s’effectue en deux étapes :
 1. Créer un rôle personnalisé avec l’autorisation `microsoft.directory/servicePrincipals/appRoleAssignedTo/update`
 1. Octroyez aux utilisateurs ou groupes des autorisations pour gérer les attributions d’utilisateurs et de groupes aux applications d’entreprise. Vous pouvez alors définir l’étendue au niveau de l’organisation ou d’une application unique.
 
-## <a name="use-the-azure-ad-admin-center"></a>Utiliser le centre d’administration Azure AD
+## <a name="azure-portal"></a>Portail Azure
 
 ### <a name="create-a-new-custom-role"></a>Créer un rôle personnalisé
 
 >[!NOTE]
 > Les rôles personnalisés sont créés et gérés au niveau de l’organisation, et sont uniquement disponibles à partir de la page Vue d’ensemble de l’organisation.
 
-1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) avec des autorisations Administrateur de rôle privilégié ou Administrateur général dans votre organisation.
+1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com).
 1. Sélectionnez **Azure Active Directory**, **Rôles et administrateurs**, puis **Nouveau rôle personnalisé**.
 
     ![Ajouter un rôle personnalisé à partir de la liste des rôles dans Azure AD](./media/custom-enterprise-apps/new-custom-role.png)
@@ -62,9 +71,9 @@ L’octroi de l’autorisation de mise à jour s’effectue en deux étapes :
 
     ![Vous pouvez maintenant créer le rôle personnalisé.](./media/custom-enterprise-apps/role-custom-create.png)
 
-### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Attribuer le rôle à un utilisateur à l’aide du portail Azure AD
+### <a name="assign-the-role-to-a-user-using-the-azure-portal"></a>Attribuer le rôle à un utilisateur à l’aide du portail Azure
 
-1. Connectez-vous au [centre d'administration Azure AD](https://aad.portal.azure.com) avec les autorisations Administrateur de rôle privilégié.
+1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com).
 1. Sélectionnez **Azure Active Directory**, puis **Rôles et administrateurs**.
 1. Sélectionnez le rôle **Octroyer des autorisations pour gérer les attributions d’utilisateurs et de groupes**.
 
@@ -82,24 +91,9 @@ L’octroi de l’autorisation de mise à jour s’effectue en deux étapes :
 
     ![Vérifier les autorisations des utilisateurs](./media/custom-enterprise-apps/verify-user-permissions.png)
 
-## <a name="use-azure-ad-powershell"></a>Utiliser Azure AD PowerShell
+## <a name="powershell"></a>PowerShell
 
 Pour plus d’informations, consultez [Créer et attribuer un rôle personnalisé](custom-create.md) et [Affecter des rôles personnalisés avec une étendue de ressources à l’aide de PowerShell](custom-assign-powershell.md).
-
-Tout d’abord, installez le module Azure AD PowerShell à partir de la [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Importez ensuite le module de préversion Azure AD PowerShell à l’aide de la commande suivante :
-
-```powershell
-Import-Module -Name AzureADPreview
-```
-
-Pour vérifier que le module est prêt à l’emploi, faites correspondre la version retournée par la commande suivante à celle répertoriée ici :
-
-```powershell
-Get-Module -Name AzureADPreview
-  ModuleType Version      Name                         ExportedCommands
-  ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...}
-```
 
 ### <a name="create-a-custom-role"></a>Créer un rôle personnalisé
 
@@ -138,7 +132,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-## <a name="use-the-microsoft-graph-api"></a>Utiliser l’API Microsoft Graph
+## <a name="microsoft-graph-api"></a>API Microsoft Graph
 
 Créer un rôle personnalisé de l’exemple fourni dans l’API Microsoft Graph Pour plus d’informations, consultez [Créer et attribuer un rôle personnalisé](custom-create.md) et [Attribuer des rôles d’administrateur personnalisés à l’aide de l’API Microsoft Graph](custom-assign-graph.md).
 
@@ -169,7 +163,7 @@ https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitionsIsEnabl
 }
 ```
 
-### <a name="assign-the-custom-role-using-microsoft-graph-api"></a>Assigner le rôle personnalisé à l’aide de l’API Microsoft Graph
+### <a name="assign-the-custom-role-using-the-microsoft-graph-api"></a>Assigner le rôle personnalisé à l’aide de l’API Microsoft Graph
 
 L’attribution de rôle combine un ID de principal de sécurité (qui peut être un utilisateur ou un principal de service), un ID de définition de rôle et une étendue de ressource de Azure AD. Pour plus d’informations sur les éléments d’une attribution de rôle, consultez [Vue d’ensemble des rôles personnalisés](custom-overview.md)
 

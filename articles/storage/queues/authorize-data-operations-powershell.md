@@ -10,18 +10,18 @@ ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 61bcf7abca2860078bd89da070309a0057360f0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 862c576ae86cd7d91a1bd73243caa0a68e3689c1
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100370221"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900536"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données en file d’attente
 
 Stockage Azure fournit des extensions pour PowerShell qui vous permettent de vous connecter et d’exécuter des commandes de script avec des informations d’identification Azure Active Directory (Azure AD). Lorsque vous vous connectez à PowerShell avec les informations d’identification Azure AD, un jeton d’accès OAuth 2.0 est retourné. Ce jeton est utilisé automatiquement par PowerShell pour autoriser les opérations de données suivantes sur le Stockage File d’attente. Pour les opérations prises en charge, vous n’avez plus besoin de fournir une clé de compte ou le jeton SAP avec la commande.
 
-Vous pouvez attribuer des autorisations sur les données de file d’attente à un principal de sécurité Azure AD via le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Pour plus d’informations sur les rôles Azure dans Stockage Azure, consultez [Gérer les droits d’accès aux données Stockage Azure avec Azure RBAC](../common/storage-auth-aad-rbac-portal.md).
+Vous pouvez attribuer des autorisations sur les données de file d’attente à un principal de sécurité Azure AD via le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Pour plus d’informations sur les rôles Azure dans Stockage Azure, consultez [Gérer les droits d’accès aux données Stockage Azure avec Azure RBAC](assign-azure-role-data-access.md).
 
 ## <a name="supported-operations"></a>Opérations prises en charge
 
@@ -71,7 +71,7 @@ L’exemple suivant montre comment créer une file d’attente dans un nouveau c
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Avant de créer la file d’attente, attribuez-vous le rôle [Contributeur aux données en file d’attente du stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles Azure, consultez [Utiliser le Portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../common/storage-auth-aad-rbac-portal.md).
+1. Avant de créer la file d’attente, attribuez-vous le rôle [Contributeur aux données en file d’attente du stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles Azure, consultez [Attribuer un rôle Azure pour l’accès aux données de file d’attente](assign-azure-role-data-access.md).
 
     > [!IMPORTANT]
     > La propagation des attributions de rôles Azure peut prendre plusieurs minutes.
@@ -85,5 +85,5 @@ L’exemple suivant montre comment créer une file d’attente dans un nouveau c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Utiliser PowerShell pour attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../common/storage-auth-aad-rbac-powershell.md)
+- [Attribuer un rôle Azure pour l’accès aux données de file d’attente](assign-azure-role-data-access.md)
 - [Autoriser l’accès à des données blob et de files d’attente avec des identités managées pour les ressources Azure](../common/storage-auth-aad-msi.md)

@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/17/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: a0894047db1ed7687a1a0f5f87fc4020ddf7c694
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c9f1294f1d2f80689cdb417ad16357cc5fbcece
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101678360"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089323"
 ---
 # <a name="create-device-groups-in-device-update-for-iot-hub"></a>Créer des groupes d’appareils dans Device Update pour IoT Hub
 Le service Device Update pour IoT Hub permet de déployer une mise à jour sur un groupe d’appareils IoT.
@@ -21,6 +21,7 @@ Le service Device Update pour IoT Hub permet de déployer une mise à jour sur u
 * [Accès à un hub IoT avec Device Update pour IoT Hub activé](create-device-update-account.md). Il est recommandé d’utiliser un niveau S1 (Standard) ou supérieur pour votre hub IoT. 
 * Un appareil IoT (ou simulateur) provisionné pour Device Update dans IoT Hub.
 * [Au moins une mise à jour a été correctement importée pour l’appareil provisionné.](import-update.md)
+* Installer et démarrer l’agent Device Update sur votre appareil IoT en tant [qu’identité au niveau du module ou de l’appareil](device-update-agent-provisioning.md)
 
 ## <a name="add-a-tag-to-your-devices"></a>Ajouter une étiquette à vos appareils  
 
@@ -44,20 +45,20 @@ Vous pouvez mettre à jour le jumeau d’appareil avec l’étiquette approprié
 
 ### <a name="using-jobs"></a>Utilisation de travaux
 
-Il est possible de planifier un travail sur plusieurs appareils pour ajouter ou mettre à jour une étiquette Device Update. Pour cela, aidez-vous des exemples fournis [ici](../iot-hub/iot-hub-devguide-jobs.md). [Plus d’informations](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md)
+Il est possible de planifier un travail sur plusieurs appareils pour ajouter ou mettre à jour une étiquette Device Update. Pour cela, aidez-vous des exemples fournis [ici](../iot-hub/iot-hub-devguide-jobs.md). Vous pouvez mettre à jour Jumeau d’appareil ou Jumeau de module (si l’agent Device Update est configuré en tant qu’identité de module) à l’aide de Travaux. [En savoir plus](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
 
   > [!NOTE] 
-  > Cette action ne respecte pas votre quota actuel de messages IoT Hub. Il est recommandé de ne pas modifier plus de 50 000 étiquettes de jumeau d’appareil à la fois ; en effet, si vous dépassez votre quota quotidien de messages IoT Hub, vous devrez acheter des unités IoT Hub supplémentaires. Pour plus d’informations, consultez [Quotas et limitation](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling).
+  > Cette action ne respecte pas votre quota actuel de messages IoT Hub. Il est recommandé de ne pas modifier plus de 50 000 étiquettes de jumeau d’appareil ou de module à la fois ; en effet, si vous dépassez votre quota quotidien de messages IoT Hub, vous devrez acheter des unités IoT Hub supplémentaires. Pour plus d’informations, consultez [Quotas et limitation](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling).
 
 ### <a name="direct-twin-updates"></a>Mises à jour directes des jumeaux
 
-Les étiquettes peuvent également être ajoutées ou mises à jour directement dans le jumeau d’appareil.
+Les étiquettes peuvent également être ajoutées ou mises à jour directement dans Jumeau d’appareil ou Jumeau de module.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre hub IoT.
 
-2. Sous « Appareils IoT » ou « IoT Edge » dans le volet de navigation gauche, recherchez votre appareil IoT et accédez au jumeau d’appareil.
+2. Sous « Appareils IoT » ou « IoT Edge » dans le volet de navigation gauche, recherchez votre appareil IoT, accédez à Jumeau d’appareil, ou au module Device Update, puis à Jumeau de module (cette option est disponible si l’agent Device Update est configuré comme une identité de module).
 
-3. Dans le jumeau d’appareil, supprimez toute valeur d’étiquette Device Update existante en lui affectant la valeur null.
+3. Dans Jumeau d’appareil ou Jumeau de module, supprimez toute valeur d’étiquette Device Update existante en lui affectant la valeur null.
 
 4. Ajoutez une nouvelle valeur d’étiquette Device Update comme indiqué ci-dessous. [Exemple de document JSON de jumeau d’appareil avec étiquettes.](../iot-hub/iot-hub-devguide-device-twins.md#device-twins)
 

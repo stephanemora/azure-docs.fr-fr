@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 14da8b6cb695703f1881b6b0b9858772bde386c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 249d2e266c0f72336091133a52426602491b3c68
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95544749"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900734"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Liste de contrôle des performances et de la scalabilité pour le stockage Blob
 
@@ -66,7 +66,7 @@ Pour plus d’informations sur les objectifs de scalabilité concernant le servi
 Si vous atteignez le nombre maximal de comptes de stockage autorisés pour une combinaison abonnement/région particulière, évaluez votre scénario et déterminez si l’une des conditions suivantes s’applique :
 
 - Utilisez-vous des comptes de stockage pour stocker des disques non managés et ajouter ces disques à vos machines virtuelles ? Pour ce scénario, Microsoft recommande d’utiliser des disques managés. Les disques managés sont mis à l’échelle automatiquement et sans qu’il soit nécessaire de créer et de gérer des comptes de stockage individuels. Pour plus d’informations, consultez [Présentation des disques managés Azure](../../virtual-machines/managed-disks-overview.md)
-- Utilisez-vous un compte de stockage par client, dans le but d’isoler les données ? Pour ce scénario, Microsoft recommande d’utiliser un conteneur d’objets blob pour chaque client plutôt qu’un compte de stockage entier. Stockage Azure vous permet désormais d’affecter des rôles Azure conteneur par conteneur. Pour plus d’informations, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../common/storage-auth-aad-rbac-portal.md).
+- Utilisez-vous un compte de stockage par client, dans le but d’isoler les données ? Pour ce scénario, Microsoft recommande d’utiliser un conteneur d’objets blob pour chaque client plutôt qu’un compte de stockage entier. Stockage Azure vous permet désormais d’affecter des rôles Azure conteneur par conteneur. Pour plus d’informations, consultez [Attribuer un rôle Azure pour l’accès aux données d’objet blob](assign-azure-role-data-access.md).
 - Utilisez-vous plusieurs comptes de stockage de partition afin d’augmenter l’entrée, la sortie, les opérations d’E/S par seconde (IOPS) ou la capacité ? Dans ce scénario, Microsoft recommande, si possible, de tirer parti de l’augmentation du nombre maximal de comptes de stockage, afin de réduire le nombre de comptes de stockage nécessaires pour votre charge de travail. Contactez le [support Azure](https://azure.microsoft.com/support/options/) pour demander l’augmentation des limites de votre compte de stockage. Pour plus d’informations, consultez [Annonce de comptes de stockage plus grands et à plus grande échelle](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 ### <a name="capacity-and-transaction-targets"></a>Objectifs de capacité et de transaction

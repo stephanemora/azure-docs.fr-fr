@@ -3,12 +3,12 @@ title: Déploiement Push de fichier Zip pour Azure Functions
 description: Utilisez les fonctionnalités de déploiement de fichier Zip du service de déploiement Kudu pour publier vos Azure Functions.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: fb6867d7719f9650acb00f80ac3a933713ce0e23
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a8a8b6e0ad1cd70ae6fe2f0025afcba6fc9e44a5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777648"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465831"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Déploiement zip pour Azure Functions
 
@@ -36,11 +36,11 @@ Le fichier zip que vous utilisez pour le déploiement Push doit contenir tous le
 
 Une application de fonction inclut tous les fichiers et dossiers dans le répertoire `wwwroot`. Un déploiement de fichier .zip inclut le contenu du répertoire `wwwroot`, mais pas le répertoire proprement dit. Lorsque vous déployez un projet de bibliothèque de classes C#, vous devez inclure les fichiers et les dépendances de bibliothèque compilés dans un sous-dossier `bin` de votre package zip.
 
+Lorsque vous développez sur un ordinateur local, vous pouvez créer manuellement un fichier .zip du dossier de projet d’application de fonction à l’aide de la fonctionnalité de compression .zip intégrée ou d’outils tiers.
+
 ## <a name="download-your-function-app-files"></a>Télécharger vos fichiers d’application de fonction
 
-Quand vous développez sur un ordinateur local, il est facile de créer un fichier .zip du dossier de projet d’application de fonction sur votre ordinateur de développement.
-
-Toutefois, vous aurez peut-être créé vos fonctions à l’aide de l’éditeur dans le portail Azure. Vous pouvez télécharger un projet d’application de fonction existant d’une des manières suivantes :
+Si vous avez créé vos fonctions à l’aide de l’éditeur du Portail Azure, vous pouvez télécharger votre projet d’application de fonction existant en tant que fichier .zip de l’une des façons suivantes :
 
 + **À partir du portail Azure :**
 

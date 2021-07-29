@@ -1,0 +1,77 @@
+### YamlMime:FAQ
+metadata:
+  title: Questions fréquentes (FAQ) sur les réplicas nommés Hyperscale Azure SQL Database
+  description: Réponses aux questions fréquemment posées par les clients sur une base de données dans SQL Database dans les réplicas nommés de niveau de service Hyperscale
+  services: sql-database
+  ms.service: sql-database
+  ms.subservice: 
+  ms.custom: 
+  ms.devlang: 
+  ms.topic: conceptual
+  author: yorek
+  ms.author: damauri
+  ms.reviewer: 
+  ms.date: 06/09/2021
+  ms.openlocfilehash: 53dd0035a9ee973b68b7a1f795e500775e226e3f
+  ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 07/02/2021
+  ms.locfileid: "113233441"
+title: Questions fréquentes (FAQ) sur les réplicas nommés Hyperscale Azure SQL Database
+summary: "[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]\n\nCet article fournit des réponses aux questions fréquemment posées pour les clients envisageant d’utiliser une base de données pour le niveau de service Hyperscale Azure SQL Database, appelée simplement Hyperscale dans le reste de ce FAQ. Cet article décrit les scénarios pris en charge par Hyperscale et les caractéristiques qui sont compatibles avec Hyperscale.\n\n- Ce FAQ est destiné aux personnes qui ont des connaissances générales sur les réplicas nommés de niveau de service Hyperscale et qui cherchent des réponses à leurs questions et préoccupations propres.\n- Pour obtenir des informations complètes sur les réplicas nommés Hyperscale, consultez [Réplicas nommés Hyperscale](service-tier-hyperscale-replicas.md#named-replica-in-preview). \n"
+sections:
+- name: Questions générales
+  questions:
+  - question: >
+      Un réplica nommé peut-il être utilisé en tant que cible de basculement ?
+    answer: >
+      Non, les réplicas nommés ne peuvent pas être utilisés comme cibles de basculement. Utilisez des réplicas à haute disponibilité à cet effet.
+  - question: >
+      Comment distribuer la charge de travail en lecture seule sur mes réplicas nommés ?
+    answer: >
+      Étant donné que chaque réplica nommé peut avoir un objectif de niveau de service différent et donc être utilisé pour différents cas d’utilisation, il n’existe aucun moyen prédéfini de diriger le trafic en lecture seule envoyé au réplica principal vers les réplicas nommés associés. Par exemple, vous pourriez avoir huit réplicas nommés et diriger la charge de travail OLTP uniquement vers les réplicas nommés 1 à 4, tandis que toutes les charges de travail analytiques de Power BI utiliseraient les réplicas nommés 5 et 6, et la charge de travail de science des données les réplicas 7 et 8. Selon l’outil ou le langage de programmation que vous utilisez, les stratégies de distribution de ce type de charge de travail peuvent varier. Voici un exemple de création d’une solution de routage de charges de travail pour permettre le scale-out d’un back-end REST : [Exemple de scale-out OLTP](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout).
+  - question: >
+      Un réplica nommé peut-il être dans une région différente de la région du réplica principal ?
+    answer: >
+      Non, comme les réplicas nommés utilisent les mêmes serveurs de pages du réplica principal, ils doivent être dans la même région.
+  - question: >
+      Un réplica nommé peut-il avoir un impact sur la disponibilité ou les performances du réplica principal ?
+    answer: >
+      Un réplica nommé ne peut pas avoir d’impact sur la disponibilité du réplica principal. Dans des circonstances normales, les réplicas nommés sont peu susceptibles d’avoir un impact sur les performances du réplica principal, mais cela peut se produire si des charges de travail intensives sont en cours d’exécution. Tout comme un réplica à haute disponibilité, un réplica nommé reste synchronisé avec le réplica principal par le biais du service de journal des transactions. Si, pour une raison ou une autre, un réplica nommé ne peut pas consommer le journal des transactions assez rapidement, il commence à demander au réplica principal de ralentir (limiter) sa génération de journaux afin de pouvoir rattraper son retard. Si ce comportement n’a pas d’impact sur la disponibilité du réplica principal, il aura un impact sur ses performances. Pour éviter ce problème, assurez-vous que vos réplicas nommés disposent de suffisamment de ressources libres, principalement processeur, afin qu’ils puissent traiter le journal des transactions sans délai. Par exemple, si la base de données primaire traite de nombreuses modifications de données, il est recommandé d’avoir le réplica nommé avec au moins le même objectif de niveau de service du réplica principal afin d’éviter le goulot d’étranglement du processeur sur les réplicas et de forcer le réplica principal à ralentir.
+  - question: >
+      Qu’advient-il des réplicas nommés si le réplica principal n’est pas disponible, par exemple en raison d’une maintenance planifiée ?
+    answer: >
+      Les réplicas nommés restent quand même disponibles pour l’accès en lecture seule, comme d’habitude.
+  - question: >
+      Comment vérifier si la connexion au réplica de calcul secondaire a bien été établie à l’aide de SQL Server Management Studio (SSMS) ou d’autres outils clients ?
+    answer: >
+      Vous pouvez exécuter la requête T-SQL suivante :
+
+
+      ```sql
+
+      SELECT @@SERVERNAME, DB_NAME(), DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
+
+      ```
+
+
+      Le résultat est `READ_ONLY` si vous êtes connecté à un réplica secondaire en lecture seule, et `READ_WRITE` si vous êtes connecté au réplica principal. Le contexte de base de données doit être défini sur le nom de la base de données Hyperscale, et non sur la base de données `master`.
+  - question: >
+      Est-ce que je peux créer des objets ou des index sur mes réplicas de calcul secondaires ?
+    answer: >
+      Non. Les bases de données Hyperscale ont un stockage partagé, ce qui signifie que tous les réplicas de calcul voient les mêmes tables, les mêmes index et les mêmes vues. Si vous voulez des index supplémentaires optimisés pour les lectures sur les réplicas secondaires, vous devez d’abord les ajouter sur le réplica principal.
+
+
+      Vous pouvez toujours créer et utiliser des tables temporaires pour stocker des données temporaires.
+  - question: >
+      Quel est le décalage entre le réplica de calcul principal et le réplica de calcul secondaire ?
+    answer: >
+      La latence des données entre le moment où une transaction est validée sur le réplica principal et le moment où elle est lisible sur un réplica secondaire dépend de la vitesse de génération de journal actuelle, de la taille de la transaction, de la charge sur le réplica et d’autres facteurs. La latence des données standard pour les petites transactions est de l’ordre de dizaines de millisecondes, mais il n’y a pas de limite supérieure à la latence des données. Les données situées sur un réplica secondaire donné sont toujours cohérentes au niveau transactionnel. Toutefois, à un moment donné, la latence des données peut être différente pour différents réplicas secondaires. Les charges de travail qui doivent lire les données validées immédiatement doivent s’exécuter sur le réplica principal.
+  - question: >
+      Comment améliorer la disponibilité des réplicas nommés ?
+    answer: >
+      Par défaut, les réplicas nommés n’ont pas de réplica à haute disponibilité. Toutefois, étant donné qu’ils se comportent comme une base de données Azure SQL standard (en lecture seule), ils peuvent bénéficier du [contrat SLA supérieur](https://azure.microsoft.com/support/legal/sla/azure-sql-database/) fourni par les réplicas à haute disponibilité. Pour définir le nombre de réplicas HA, vous pouvez utiliser le paramètre `--ha-replicas` avec la commande [AZ CLI](/cli/azure/sql/db/replica?view=azure-cli-latest#az_sql_db_replica_create) ou le paramètre `--HighAvailabilityReplicaCount` avec [PowerShell](/powershell/module/az.sql/set-azsqldatabase) ou via la propriété `highAvailabilityReplicaCount` avec l’[API REST](/rest/api/sql/2021-02-01-preview/databases/create-or-update).
+
+      Le nombre de réplicas à haute disponibilité peut être défini lors de la création d’un réplica nommé et peut être modifié, uniquement via AZ CLI, PowerShell ou l’API REST, à tout moment après la création du réplica nommé. Le prix des réplicas à haute disponibilité pour les réplicas nommés est le même que celui des réplicas à haute disponibilité pour les bases de données standard.
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\nPour plus d’informations sur le niveau de service Hyperscale, consultez [Niveau de service Hyperscale](service-tier-hyperscale.md).\nPour plus d’informations sur les réplicas Hyperscale, consultez [Réplicas Hyperscale](service-tier-hyperscale-replicas.md)."

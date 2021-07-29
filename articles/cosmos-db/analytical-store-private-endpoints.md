@@ -6,17 +6,20 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: anithaa
-ms.openlocfilehash: fd0b3ada5fec283562cee9727e3f805a7d34c532
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 09b4e6ebe14f5650be5bc92302acc51b1c6e99a5
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479047"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985757"
 ---
 # <a name="configure-azure-private-link-for-azure-cosmos-db-analytical-store"></a>Configurer Azure Private Link pour le magasin analytique Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Dans cet article, vous allez apprendre à configurer des points de terminaison privés managés pour le magasin analytique Azure Cosmos DB. Si vous utilisez le magasin transactionnel, consultez l’article [Points de terminaison privés pour le magasin transactionnel](how-to-configure-private-endpoints.md). À l’aide de [points de terminaison privés managés](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md), vous pouvez limiter l’accès réseau de votre magasin analytique Azure Cosmos DB à un réseau virtuel managé associé à votre espace de travail Azure Synapse. Les points de terminaison privés managés établissent une liaison privée avec votre magasin analytique.
+
+> [!NOTE]
+> Si vous utilisez des zones DNS privées pour Cosmos DB et que vous souhaitez créer un point de terminaison privé Synapse géré dans la sous-ressource du magasin analytique, vous devez d’abord créer une zone DNS pour le magasin analytique (`privatelink.analytics.cosmos.azure.com`) lié au réseau virtuel de votre instance Cosmos DB.
 
 ## <a name="enable-a-private-endpoint-for-the-analytical-store"></a>Activer un point de terminaison privé pour le magasin analytique
 

@@ -5,14 +5,14 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 05/18/2021
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 675cd12c905a65cec0dd2fbb4209b5e2cc3a59ac
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 55899fc38652462f0f98b4ad2d916cf10f203458
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065257"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470968"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Créer des conteneurs et des bases de données Azure Cosmos en débit de mise à l’échelle automatique
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -59,7 +59,7 @@ Le point d’entrée pour le débit maximal de mise à l’échelle automatique 
 
 ## <a name="enable-autoscale-on-existing-resources"></a>Activer la mise à l’échelle automatique sur les ressources existantes
 
-Utilisez le [portail Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), le [modèle Azure Resource Manager](how-to-provision-autoscale-throughput.md#azure-resource-manager), [CLI](how-to-provision-autoscale-throughput.md#azure-cli) ou [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) pour activer la mise à l’échelle automatique sur une base de données ou un conteneur existant. Vous pouvez basculer entre la mise à l’échelle automatique et le débit approvisionné standard (manuel) à tout moment. Pour plus d’informations, consultez [cette documentation](autoscale-faq.yml#how-does-the-migration-between-autoscale-and-standard--manual--provisioned-throughput-work-).
+Pour activer la mise à l'échelle automatique sur une base de données ou un conteneur existant, utilisez le [portail Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), l'[interface CLI](how-to-provision-autoscale-throughput.md#azure-cli) ou [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell). Vous pouvez basculer entre la mise à l’échelle automatique et le débit approvisionné standard (manuel) à tout moment. Pour plus d’informations, consultez [cette documentation](autoscale-faq.yml#how-does-the-migration-between-autoscale-and-standard--manual--provisioned-throughput-work-).
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Limites de débit et de stockage pour la mise à l’échelle automatique
 

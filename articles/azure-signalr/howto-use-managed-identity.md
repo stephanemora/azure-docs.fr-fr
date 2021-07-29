@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: dee15977318eda7bcd0b1950286bb33f621221dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f39e209cf2f01abaf836924fc25dc64275f5fcb
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98731582"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089809"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Identités managées pour Azure SignalR Service
 
@@ -84,7 +84,7 @@ Nous fournissons des bibliothèques et des exemples de code qui montrent comment
 
 La définition de la validation de jeton d’accès dans une application de fonction est facile et efficace sans que le code fonctionne.
 
-1. Dans la page **Authentification / Autorisation**, basculez **Authentification App Service** sur **Activée**.
+1. Dans la page **Authentification (classique)** , basculez **Authentification App Service** sur **Activée**.
 
 2. Dans **Mesure à prendre quand une demande n’est pas authentifiée**, sélectionnez **Se connecter avec Azure Active Directory**.
 
@@ -97,6 +97,10 @@ La définition de la validation de jeton d’accès dans une application de fonc
 6. Dans SignalR Service, accédez à **Paramètres en amont**, puis choisissez **Utiliser une identité gérée** et **Sélectionner des applications existantes**. Sélectionnez l’application que vous avez créée.
 
 Après ce paramétrage, l’application de fonction rejette les demandes sans jeton d’accès dans l’en-tête.
+
+> [!Important] 
+> Pour passer l’authentification, *l’URL de l’émetteur* doit correspondre à la revendication *iss* dans le jeton. Actuellement, nous ne prenons en charge que le point de terminaison v1 (voir [v1.0 et v2.0](../active-directory/develop/access-tokens.md#v10-and-v20)), de sorte que *l’URL de l’émetteur* doit ressembler à `https://sts.windows.net/<tenant-id>/`. Vérifiez *l’URL de l’émetteur* configurée dans Azure Function. Pour **Authentification**, accédez à *Fournisseur d’identité* -> *Modifier* -> *URL de l’émetteur* et pour **Authentification (classique)** , accédez à *Azure Active Directory* -> *Avancé* -> *URL de l’émetteur*
+
 
 ## <a name="use-a-managed-identity-for-key-vault-reference"></a>Utiliser une identité managée pour une référence Azure Key Vault
 

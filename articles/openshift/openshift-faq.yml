@@ -1,0 +1,210 @@
+### YamlMime:FAQ
+metadata:
+  title: Forum aux questions pour Azure Red Hat OpenShift
+  description: Trouvez des réponses aux questions fréquentes sur Azure Red Hat OpenShift
+  author: jimzim
+  ms.author: jzim
+  ms.service: azure-redhat-openshift
+  ms.topic: conceptual
+  ms.date: 07/31/2020
+  ms.openlocfilehash: e7f38ea054214d4133f9b63a849b5be070e20dca
+  ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 06/30/2021
+  ms.locfileid: "113094856"
+title: FAQ sur Azure Red Hat OpenShift
+summary: Cet article répond aux questions fréquemment posées (FAQ) sur Microsoft Azure Red Hat OpenShift.
+sections:
+- name: Installation et mise à niveau
+  questions:
+  - question: Quelles sont les régions Azure prises en charge ?
+    answer: >
+      Pour obtenir la liste des régions prises en charge pour Azure Red Hat OpenShift 4.x, consultez [Régions disponibles](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all).
+
+
+      Pour obtenir la liste des régions prises en charge pour Azure Red Hat OpenShift 3.11, consultez [Produits disponibles par région](supported-resources.md#azure-regions).
+  - question: Quelles tailles de machines virtuelles puis-je utiliser ?
+    answer: >
+      Pour obtenir la liste des tailles de machines virtuelles prises en charge pour Azure Red Hat OpenShift 4, consultez [Ressources prises en charge pour Azure Red Hat OpenShift 4](support-policies-v4.md).
+
+
+      Pour obtenir la liste des tailles de machines virtuelles prises en charge pour Azure Red Hat OpenShift 3.11, consultez [Ressources prises en charge pour Azure Red Hat OpenShift 3.11](supported-resources.md).
+  - question: Quel est le nombre maximal de pods que peut contenir un cluster Azure Red Hat OpenShift ?  Quel est le nombre maximal de pods par nœud dans Azure Red Hat OpenShift ?
+    answer: >
+      Le nombre réel de pods pris en charge dépend de la mémoire, de l’UC et des exigences de stockage d’une application.
+
+
+      Azure Red Hat OpenShift 4.x a une limite de 250 pods par nœud et une limite de 100 nœuds de calcul. Cela limite le nombre maximal de pods pris en charge dans un cluster à 250&times;100 = 25 000.
+
+
+      Azure Red Hat OpenShift 3.11 a une limite de 50 pods par nœud et une limite de 20 nœuds de calcul. Cela limite le nombre maximal de pods pris en charge dans un cluster à 50&times;20 = 1 000.
+  - question: Un cluster peut-il disposer de nœuds de calcul dans plusieurs régions Azure ?
+    answer: Non. Tous les nœuds d’un cluster Azure Red Hat OpenShift doivent provenir de la même région Azure.
+  - question: Est-il possible de déployer un cluster sur plusieurs zones de disponibilité ?
+    answer: >
+      Oui. Cela se produit automatiquement si votre cluster est déployé dans une région Azure qui prend en charge les zones de disponibilité. Pour plus d’informations, consultez [Zones de disponibilité](../availability-zones/az-overview.md#availability-zones).
+  - question: Les nœuds de plan de contrôle sont-ils extraits comme ils le sont avec Azure Kubernetes service (AKS) ?
+    answer: Non. Toutes les ressources, y compris les nœuds du cluster principal, s’exécutent dans votre abonnement client. Ces types de ressources sont placés dans un groupe de ressources en lecture seule.
+  - question: Le cluster réside-t-il dans un abonnement client ?
+    answer: L’application managée Azure réside dans un groupe de ressources verrouillé avec l’abonnement client. Les clients peuvent consulter les objets de ce groupe de ressources, mais pas les modifier.
+  - question: Des éléments d’Azure Red Hat OpenShift sont-ils partagés avec d’autres clients ? Ou est-ce que tout est indépendant ?
+    answer: Chaque cluster Azure Red Hat OpenShift est dédié à un client donné et se trouve dans l’abonnement du client.
+  - question: Des nœuds d’infrastructure sont-ils disponibles ?
+    answer: >
+      Sur les clusters Azure Red Hat OpenShift 4.x, les nœuds d’infrastructure ne sont pas disponibles actuellement.
+
+
+      Sur les clusters Azure Red Hat OpenShift 3.11, les nœuds d’infrastructure sont inclus par défaut.
+
+
+      ## <a name="how-do-i-handle-cluster-upgrades"></a>Comment faire gérer les mises à niveau de cluster ?
+
+
+      Pour plus d’informations sur les mises à niveau, la maintenance et les versions prises en charge, consultez le [Guide du cycle de vie du support ](support-lifecycle.md).
+  - question: Comment sont mis à jour le système d’exploitation hôte et le logiciel OpenShift ?
+    answer: Les systèmes d’exploitation hôtes et le logiciel OpenShift sont mis à jour à mesure qu’Azure Red Hat OpenShift consomme des versions mineures et des correctifs de la plateforme de conteneurs OpenShift en amont.
+  - question: Comment se passe le processus de redémarrage du nœud mis à jour ?
+    answer: Les nœuds sont redémarrés dans le cadre d’une mise à niveau.
+- name: Opérations de cluster
+  questions:
+  - question: Puis-je utiliser Prometheus pour surveiller mes applications ?
+    answer: >
+      Prometheus est préinstallé et configuré pour les clusters Azure Red Hat OpenShift 4.x. En savoir plus sur la [surveillance du cluster](https://docs.openshift.com/container-platform/4.6/operators/operator_sdk/osdk-monitoring-prometheus.html).
+
+
+      Pour les clusters Azure Red Hat OpenShift 3.11, vous pouvez déployer Prometheus dans votre espace de noms et surveiller les applications de ce dernier. Pour plus d’informations, consultez [Déployer une instance Prometheus dans un cluster Azure Red Hat OpenShift](howto-deploy-prometheus.md).
+  - question: Puis-je utiliser Prometheus pour surveiller les mesures relatives à la capacité et à l’intégrité du cluster ?
+    answer: >
+      Dans Azure Red Hat OpenShift 4.x : Oui.
+
+
+      Dans Azure Red Hat OpenShift 3.11 : Non.
+  - question: Les journaux des machines virtuelles sous-jacentes peuvent-ils être diffusés en continu vers un système d’analyse des journaux client ?
+    answer: Les journaux des machines virtuelles sous-jacentes sont traités par le service géré et ne sont pas exposés aux clients.
+  - question: Comment un client peut-il accéder aux métriques telles que l’UC ou la mémoire au niveau du nœud, en vue d’effectuer une mise à l’échelle ou un débogage, par exemple ? Je ne peux pas exécuter kubectl top sur un cluster Azure Red Hat OpenShift.
+    answer: >
+      Pour les clusters Azure Red Hat OpenShift 4.x, la console Web OpenShift contient toutes les métriques au niveau du nœud. Pour plus d’informations, consultez la documentation Red Hat sur [l’affichage des informations des clusters](https://docs.openshift.com/container-platform/4.6/web_console/using-dashboard-to-get-cluster-information.html).
+
+
+      Pour les clusters Azure Red Hat OpenShift 3.11, les clients peuvent accéder aux mesures de l’UC/la mémoire au niveau du nœud à l’aide de la commande `oc adm top nodes` ou `kubectl top nodes` avec le rôle de cluster client-administrateur. Les clients peuvent également accéder aux mesures de l’UC/la mémoire de `pods` à l’aide de la commande `oc adm top pods` ou `kubectl top pods`.
+  - question: Lors du scale-up d’un déploiement, comment les domaines d’erreur Azure sont-ils mappés à l’emplacement pod pour éviter que tous les pods d’un service ne soient rendus hors d’usage par une défaillance dans un domaine d’erreur ?
+    answer: >
+      Par défaut, il existe cinq domaines d’erreur lorsque vous utilisez des groupes de machines virtuelles identiques dans Azure. Chaque instance de machine virtuelle d’un groupe identique sera placée dans l’un de ces domaines d’erreur. Cela garantit que les applications déployées sur les nœuds de calcul d’un cluster seront placées dans des domaines d’erreur distincts.
+
+
+      Pour plus d’informations, consultez [Choisir le bon nombre de domaines d’erreur pour un groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains.md).
+  - question: Existe-t-il un moyen de gérer l’emplacement des pods ?
+    answer: >
+      Les clients ont la possibilité d’obtenir des nœuds et d’afficher des étiquettes en tant que client-administrateur. Cela permettra de cibler les machines virtuelles du groupe identique.
+
+
+      Vous devez être prudent avec certaines étiquettes :
+
+
+      - Vous ne devez pas utiliser le nom d’hôte. Le nom d’hôte « tourne » souvent avec les mises à niveau et les mises à jour, et est donc amené à changer.
+
+      - Si le client fait une demande concernant certaines étiquettes ou une stratégie de déploiement, il est possible d’y répondre. Toutefois, cela nécessite des efforts d’ingénierie et n’est pas pris en charge pour le moment.
+
+
+      Pour plus d’informations, consultez [Contrôle de la sélection élective des pods](https://docs.openshift.com/container-platform/4.6/nodes/scheduling/nodes-scheduler-about.html).
+  - question: Le registre d’images est-il disponible en externe afin que je puisse utiliser des outils tels que Jenkins ?
+    answer: >
+      Pour les clusters 4.x, vous devez exposer un registre sécurisé et configurer l’authentification. Pour plus d’informations, consultez la documentation Red Hat suivante :
+
+
+      - [Exposition d’un registre](https://docs.openshift.com/container-platform/4.6/registry/securing-exposing-registry.html)
+
+      - [Accès au registre](https://docs.openshift.com/container-platform/4.6/registry/accessing-the-registry.html)
+
+
+      Pour les clusters 3.11, le registre d’images Docker est disponible. Le registre Docker est disponible à l’adresse `https://docker-registry.apps.<clustername>.<region>.azmosa.io/`. Vous pouvez également utiliser Azure Container Registry.
+- name: Mise en réseau
+  questions:
+  - question: Puis-je déployer un cluster dans un réseau virtuel existant ?
+    answer: >
+      Dans les clusters 4.x, vous pouvez déployer un cluster dans un réseau virtuel existant.
+
+
+      Dans les clusters 3.11, vous ne pouvez pas déployer de cluster dans un réseau virtuel existant. Vous pouvez connecter un cluster Azure Red Hat OpenShift 3.11 à un réseau virtuel existant via le Peering.
+  - question: La mise en réseau sur les espaces de noms est-elle prise en charge ?
+    answer: Le client et les administrateurs de projet individuel peuvent personnaliser la mise en réseau sur les espaces de noms (y compris la refuser) par projet à l’aide d’objets `NetworkPolicy`.
+  - question: J’essaie de regarder dans le réseau virtuel d’un autre abonnement, mais j’obtiens une erreur Échec du CIDR du réseau virtuel.
+    answer: >
+      Dans l’abonnement comportant le réseau virtuel, veillez à inscrire le fournisseur `Microsoft.ContainerService` avec la commande suivante : `az provider register -n Microsoft.ContainerService --wait`.
+  - question: Est-il possible de spécifier des plages d’adresses IP pour un déploiement sur un réseau virtuel privé, en évitant les conflits avec d’autres réseaux virtuels d’entreprise après le Peering ?
+    answer: >
+      Dans les clusters 4.x, vous pouvez spécifier vos propres plages d’adresses IP.
+
+
+      Dans les clusters 3.11, Azure Red Hat OpenShift prend en charge le Peering de réseaux virtuels et permet au client de fournir un réseau virtuel avec lequel effectuer un Peering, ainsi qu’un routage CIDR (Classless InterDomain Routing) de réseau virtuel pour le réseau OpenShift.
+
+
+      Le réseau virtuel créé par Azure Red Hat OpenShift est protégé et sa configuration ne peut pas être modifiée. Le réseau virtuel appairé est contrôlé par le client et se trouve dans son abonnement.
+  - question: Le module Réseau défini par logiciel est-il configurable ?
+    answer: Le réseau défini par logiciel est `openshift-ovs-networkpolicy` et n’est pas configurable.
+  - question: Quel équilibrage de charge Azure est utilisé par Azure Red Hat OpenShift ?  Est-il de niveau Standard ou De base, et peut-il être configuré ?
+    answer: Azure Red Hat OpenShift utilise l’équilibreur de charge Azure Standard, qui n’est pas configurable.
+- name: Autorisations
+  questions:
+  - question: Un administrateur peut-il gérer des quotas et des utilisateurs ?
+    answer: Oui. Un administrateur Azure Red Hat OpenShift peut gérer des utilisateurs et des quotas et dispose en plus d’un accès à tous les projets créés par les utilisateurs.
+  - question: Puis-je limiter un cluster à certains utilisateurs Azure AD seulement ?
+    answer: >
+      Oui. Vous pouvez désigner les utilisateurs Azure AD pouvant se connecter à un cluster en configurant l’application Azure AD. Pour plus d’informations, consultez [Procédure : Limiter votre application à un ensemble d’utilisateurs](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
+  - question: Puis-je empêcher les utilisateurs de créer des projets ?
+    answer: >
+      Oui. Connectez-vous à votre cluster en tant qu’administrateur, puis exécutez la commande suivante :
+
+
+      ```
+
+      oc adm policy \
+          remove-cluster-role-from-group self-provisioner \
+          system:authenticated:oauth
+      ```
+
+
+      Pour plus d’informations, consultez la documentation OpenShift sur la désactivation de l’approvisionnement automatique pour la version de votre cluster :
+
+
+      - [Désactivation du provisionnement automatique dans les clusters 4.6](https://docs.openshift.com/container-platform/4.6/applications/projects/configuring-project-creation.html#disabling-project-self-provisioning_configuring-project-creation)
+
+      - [Désactivation de l’approvisionnement automatique dans les clusters 3.11](https://docs.openshift.com/container-platform/3.11/admin_guide/managing_projects.html#disabling-self-provisioning)
+  - question: Quels droits UNIX (dans IaaS) sont disponibles pour les nœuds principaux/d’infrastructure/d’application ?
+    answer: >
+      Pour les clusters 4.x, l’accès aux nœuds est disponible via le rôle Administrateur de cluster. Pour plus d’informations, consultez [Vue d’ensemble de RBAC Kubernetes](https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html).
+
+
+      Pour les clusters 3.11, l’accès aux nœuds est interdit.
+  - question: De quels droits OCP disposons-nous ? Administrateur de cluster ? Administrateur de projet ?
+    answer: >
+      Pour les clusters 4.x, le rôle Administrateur de cluster est disponible. Pour plus d’informations, consultez [Vue d’ensemble de RBAC Kubernetes](https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html).
+
+
+      Pour plus d’informations sur les clusters 3.11, consultez la [vue d’ensemble de l’administration des clusters](https://docs.openshift.com/aro/admin_guide/index.html).
+  - question: Quels sont les fournisseurs d’identité disponibles ?
+    answer: "Pour les clusters 4.x, vous configurez votre propre fournisseur d’identité. Pour plus d’informations, consultez la documentation Red Hat sur [la configuration des fournisseurs d’identité](https://docs.openshift.com/container-platform/4.6/authentication/identity_providers/configuring-ldap-identity-provider.html).\n\nPour les clusters 3.11, vous pouvez utiliser l’intégration Azure AD. \n"
+- name: Stockage
+  questions:
+  - question: Les données de mon cluster sont-elles chiffrées ?
+    answer: >
+      Par défaut, les données sont chiffrées au repos. La plateforme de stockage Azure Storage chiffre automatiquement vos données avant de les rendre persistantes et les déchiffre avant la récupération. Pour plus d’informations, consultez [Azure Storage Service Encryption pour les données au repos](../storage/common/storage-service-encryption.md).
+  - question: Les données stockées dans etcd sont-elles chiffrées sur Azure Red Hat OpenShift ?
+    answer: >
+      Pour les clusters Azure Red Hat OpenShift 4, les données ne sont pas chiffrées par défaut, mais vous avez la possibilité d’activer le chiffrement. Pour plus d’informations, consultez le guide sur [le chiffrement d’etcd](https://docs.openshift.com/container-platform/4.6/security/encrypting-etcd.html).
+
+
+      Pour les clusters 3.11, les données ne sont pas chiffrées au niveau d’etcd. Il n’est pas possible d’activer le chiffrement dans ce cas. OpenShift prend en charge cette fonctionnalité. Toutefois, des efforts d’ingénierie sont nécessaires pour suivre la feuille de route. Les données sont chiffrées au niveau du disque. Pour plus d’informations, consultez [Encrypting Data at Datastore Layer](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html).
+  - question: Est-il possible de choisir une solution de stockage persistant, comme OCS ?
+    answer: >
+      Pour les clusters 4.x, Azure Data Box Disk (Premium_LRS) est configuré en tant que classe de stockage par défaut. Pour obtenir des fournisseurs de stockage supplémentaires et pour plus d’informations sur la configuration (notamment Azure Files), consultez la documentation Red Hat sur le [stockage persistant](https://docs.openshift.com/container-platform/4.6/storage/understanding-persistent-storage.html).
+
+
+      Pour les clusters 3.11, deux classes de stockage sont fournies par défaut : une pour Azure Data Box Disk (Premium_LRS) et l’autre pour Azure Files.
+
+
+      ## <a name="does-aro-store-any-customer-data-outside-of-the-clusters-region"></a>ARO stocke-t-il des données client en dehors de la région du cluster ?
+
+
+      Non. Toutes les données créées dans un cluster ARO sont conservées dans la région du cluster.

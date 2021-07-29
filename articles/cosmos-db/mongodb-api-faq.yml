@@ -21,7 +21,7 @@ summary: >
 
   L’API Azure Cosmos DB pour MongoDB est une couche de compatibilité avec le protocole de transmission qui permet aux applications de communiquer facilement et en toute transparence avec le moteur de base de données Azure Cosmos natif, au moyen des Kits de développement logiciel (SDK) et des pilotes existants et pris en charge par la communauté pour MongoDB. Les développeurs peuvent désormais utiliser des chaînes d’outils et compétences MongoDB existantes pour créer des applications qui tirent parti d’Azure Cosmos DB. Les développeurs bénéficient des fonctionnalités uniques d’Azure Cosmos DB, entre autres la diffusion mondiale avec réplication des écritures dans plusieurs régions, l’indexation automatique, la maintenance de sauvegarde, les contrats SLA avec garantie financière, etc.
 sections:
-- name: Généralités
+- name: Général
   questions:
   - question: >
       Comment se connecter à une base de données ?

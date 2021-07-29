@@ -1,24 +1,27 @@
 ---
 title: Créer un tableau de bord en temps réel à l’aide d’Azure Cosmos DB, Azure Analysis Services et Power BI
 description: Découvrez comment créer un tableau de bord de météo en temps réel dans Power BI à l’aide d’Azure Cosmos DB et Azure Analysis Services.
-author: SnehaGunda
-ms.author: sngun
+author: Rodrigossz
+ms.author: rosouz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 73251fcbe9f149979d3fd62d14bbca86d77027f2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 07da25320cded38a037e6e557ff55ebfaeb3a2df
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640138"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959167"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Créer un tableau de bord en temps réel à l’aide d’Azure Cosmos DB et Power BI
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Cet article décrit les étapes à suivre pour créer un tableau de bord de météo en temps réel dans Power BI à l’aide d’Azure Cosmos DB et Azure Analysis Services. Le tableau de bord Power BI affiche des graphiques pour présenter des informations sur la température et les précipitations dans une région en temps réel.
+Cet article décrit les étapes à suivre pour créer un tableau de bord de météo en temps réel dans Power BI à l’aide du connecteur OLTP Azure Cosmos DB et Azure Analysis Services. Le tableau de bord Power BI affiche des graphiques pour présenter des informations sur la température et les précipitations dans une région en quasi-temps réel.
+
+Une autre option consiste à créer des rapports en quasi-temps réel à l’aide d’[Azure Synapse Link pour Azure Cosmos DB](synapse-link.md). Avec Azure Synapse Link, vous pouvez connecter Power BI pour analyser vos données Azure Cosmos DB, sans impact sur les performances ou le coût de vos charges de travail transactionnelles, ni aucun pipeline ETL. Vous pouvez utiliser les modes [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) ou [Import](/power-bi/connect-data/service-dataset-modes-understand#import-mode). Pour plus d’informations, cliquez [ici](synapse-link-power-bi.md).
+
 
 ## <a name="reporting-scenarios"></a>Scénarios de génération de rapports
 
@@ -27,14 +30,14 @@ Il existe plusieurs façons de configurer des tableaux de bord de rapport basés
 
 |Scénario |Programme d’installation |
 |---------|---------|
-|1. Génération de rapports ad hoc (sans actualisation)    |  [Connecteur Power BI Azure Cosmos DB avec mode d’importation](powerbi-visualize.md)       |
-|2. Génération de rapports ad hoc avec actualisation périodique   |  [Connecteur Power BI Azure Cosmos DB avec mode d’importation (actualisation périodique planifiée)](powerbi-visualize.md)       |
-|3. Génération de rapports sur des jeux de données volumineux (< 10 Go)     |  Connecteur Power BI Azure Cosmos DB avec actualisation incrémentielle       |
-|4. Génération de rapports en temps réel sur des jeux de données volumineux    |  Connecteur Power BI Azure Analysis Services avec requête directe + Azure Analysis Services (connecteur Azure Cosmos DB)       |
-|5. Génération de rapports sur des données actives avec des agrégats     |  [Connecteur Power BI Spark avec requête directe + Azure Databricks + connecteur Cosmos DB Spark.](https://github.com/Azure/azure-cosmosdb-spark/wiki/Connecting-Cosmos-DB-with-PowerBI-using-spark-and-databricks-premium)       |
-|6. Génération de rapports sur des données actives avec des agrégats sur des jeux de données volumineux   |  Connecteur Power BI Azure Analysis Services avec requête directe + Azure Analysis Services + Azure Databricks + connecteur Cosmos DB Spark       |
+|1. Génération de rapports en temps réel sur des jeux de données volumineux avec des agrégats     | **Option 1 :** [Power BI et Azure Synapse Link avec DirectQuery](./synapse-link-power-bi.md)<br />  **Option 2 :** [Connecteur Power BI et Spark avec DirectQuery + Azure Databricks + le connecteur Spark Azure Cosmos DB.](https://github.com/Azure/azure-cosmosdb-spark/wiki/Connecting-Cosmos-DB-with-PowerBI-using-spark-and-databricks-premium)<br />  **Option 3 :** Connecteur Power BI Azure Analysis Services avec DirectQuery + Azure Analysis Services + Azure Databricks + connecteur Cosmos DB Spark.     |
+|2. Génération de rapports en temps réel sur des jeux de données volumineux (>= 10 Go)    |  **Option 1 :** [Power BI et Azure Synapse Link avec DirectQuery](./synapse-link-power-bi.md)<br />  **Option 2 :** [Connecteur Power BI et Azure Analysis Services avec DirectQuery + Azure Analysis Services](create-real-time-weather-dashboard-powerbi.md)       |
+|3. Génération de rapports ad hoc sur des jeux de données volumineux (< 10 Go)     |  [Connecteur Power BI Azure Cosmos DB avec mode d’importation et actualisation incrémentielle](create-real-time-weather-dashboard-powerbi.md)       |
+|4. Génération de rapports ad hoc avec actualisation périodique   |  [Connecteur Power BI Azure Cosmos DB avec mode d’importation (actualisation périodique planifiée)](powerbi-visualize.md)       |
+|5. Génération de rapports ad hoc (sans actualisation)    |  [Connecteur Power BI Azure Cosmos DB avec mode d’importation](powerbi-visualize.md)       |
 
-Les scénarios 1 et 2 peuvent être facilement configurés à l’aide du connecteur Azure Cosmos DB Power BI. Cet article décrit les configurations pour les scénarios 3 et 4.
+
+Les scénarios 4 et 5 peuvent être facilement configurés [à l’aide du connecteur Azure Cosmos DB Power BI](powerbi-visualize.md). Cet article décrit les configurations pour les scénarios 2 (option 2) et 3.
 
 ### <a name="power-bi-with-incremental-refresh"></a>Power BI avec actualisation incrémentielle
 

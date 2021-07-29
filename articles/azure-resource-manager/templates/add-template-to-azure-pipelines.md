@@ -3,12 +3,12 @@ title: CI/CD avec Azure Pipelines et des modèles
 description: Décrit comment configurer l’intégration continue dans Azure Pipelines à l’aide de modèles Azure Resource Manager. Montre comment utiliser un script PowerShell ou copier des fichiers vers un emplacement intermédiaire et le déployer à partir de là.
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: 4a2f1f15de0abd802f3dce138b2cea33e52e3dfc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8264fd53bde168972cdddd9bdf15fccc8d536651
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561940"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984461"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Intégrer des modèles ARM avec Azure Pipelines
 

@@ -1,7 +1,7 @@
 ---
-title: Demandes et défis liés aux revendications
+title: Contestations liées aux revendications, demandes de revendications, et fonctionnalités clientes
 titleSuffix: Microsoft identity platform
-description: Explication relative aux demandes et défis liés aux revendications sur la plateforme d’identité Microsoft
+description: Explication relative aux contestations et demandes liées aux revendications ainsi qu'aux fonctionnalités clientes sur la plateforme d'identités Microsoft
 services: active-directory
 author: knicholasa
 manager: martinco
@@ -12,30 +12,30 @@ ms.workload: identity
 ms.date: 05/11/2021
 ms.author: nichola
 ms.reviewer: kkrishna, kylemar
-ms.openlocfilehash: bf3b6db0bcb5478412837a2fa43f610dbf8690d6
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: abce87c8d5c5d88c9edd1303f0a585aa773d2ec8
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109795431"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471378"
 ---
-# <a name="claims-challenges-and-claims-requests"></a>Demandes et défis liés aux revendications
+# <a name="claims-challenges-claims-requests-and-client-capabilities"></a>Contestations liées aux revendications, demandes de revendications, et fonctionnalités clientes
 
-Un **défi de revendications** est une réponse envoyée à partir d’une API indiquant qu’un jeton d’accès envoyé par une application cliente ne dispose pas de revendications suffisantes. Cela peut être dû au fait que le jeton ne respecte pas les stratégies d’accès conditionnel définies pour cette API ou que le jeton d’accès a été révoqué.
+Un *défi de revendications* est une réponse envoyée à partir d’une API indiquant qu’un jeton d’accès envoyé par une application cliente ne dispose pas de revendications suffisantes. Cela peut être dû au fait que le jeton ne respecte pas les stratégies d’accès conditionnel définies pour cette API ou que le jeton d’accès a été révoqué.
 
-Une **demande de revendications** est effectuée par l’application cliente pour rediriger l’utilisateur vers le fournisseur d’identité afin de récupérer un nouveau jeton doté des revendications répondant aux exigences supplémentaires non satisfaites.
+Une *demande de revendications* est effectuée par l’application cliente pour rediriger l’utilisateur vers le fournisseur d’identité afin de récupérer un nouveau jeton doté des revendications répondant aux exigences supplémentaires non satisfaites.
 
-Les applications utilisant des fonctionnalités de sécurité améliorées, comme l’[Évaluation continue de l'accès](../conditional-access/concept-continuous-access-evaluation.md) et le [contexte d’authentification de l’accès conditionnel](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/granular-conditional-access-for-sensitive-data-and-actions/ba-p/1751775) doivent être préparées pour gérer les défis liés aux revendications.
+Les applications utilisant des fonctionnalités de sécurité améliorées, comme l'[Évaluation continue de l'accès](../conditional-access/concept-continuous-access-evaluation.md) et le [contexte d'authentification de l'accès conditionnel](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/granular-conditional-access-for-sensitive-data-and-actions/ba-p/1751775) doivent être préparées pour gérer les contestations liées aux revendications.
 
-Votre application recevra uniquement les défis liés aux revendications si elle déclare qu’elle peut les gérer à l’aide des **fonctionnalités du client**.
-
-Pour recevoir des informations indiquant si les applications clientes peuvent gérer les demandes de revendications, un implémenteur d’API doit demander **xms_cc** comme revendication facultative dans son manifeste d’application.
+Votre application ne recevra des contestations liées aux revendications de la part de services populaires tels que [Microsoft Graph](/graph/overview) que si elle déclare ses [fonctionnalités clientes](#client-capabilities) dans ses appels au service.
 
 ## <a name="claims-challenge-header-format"></a>Format d’en-tête de demande de revendications
 
-Le défi de revendications est une directive dans l’en-tête www-authenticate renvoyé par une API lorsqu’un jeton d’accès n’est pas autorisé et qu’un nouveau jeton d’accès est requis. Le défi de revendications comprend plusieurs parties : le code d’état HTTP de la réponse et l’en-tête www-authenticate, qui possède lui-même plusieurs parties et doit contenir une directive de revendications.
+Une contestation liée aux revendications est une directive sous forme d'en-tête `www-authenticate` renvoyée par une API lorsqu'un [jeton d'accès](access-tokens.md) qui lui est présenté n'est pas autorisé, et qu'un nouveau jeton d'accès avec les fonctionnalités appropriées est requis à la place. La contestation liée aux revendications comprend plusieurs parties : le code d'état HTTP de la réponse et l'en-tête `www-authenticate`, qui comporte lui-même plusieurs parties et doit contenir une directive relative aux revendications.
 
-``` https
+Voici un exemple :
+
+```https
 HTTP 401; Unauthorized
 
 www-authenticate =Bearer realm="", authorization_uri="https://login.microsoftonline.com/common/oauth2/authorize", error="insufficient_claims", claims="eyJhY2Nlc3NfdG9rZW4iOnsiYWNycyI6eyJlc3NlbnRpYWwiOnRydWUsInZhbHVlIjoiYzEifX19"
@@ -53,15 +53,15 @@ www-authenticate =Bearer realm="", authorization_uri="https://login.microsoftonl
 | `error` | Obligatoire | Doit correspondre à « insufficient_claims » lorsqu’une demande de revendications doit être générée. | 
 | `claims` | Obligatoire lorsque l’erreur correspond à « insufficient_claims ». | Chaîne entre guillemets contenant une [demande de revendications](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)encodée en base 64. La demande de revendications doit demander des revendications pour « access_token » au niveau supérieur de l’objet JSON. La valeur (revendications demandées) dépend du contexte et sera spécifiée plus loin dans ce document. Pour des raisons de taille, les applications de partie de confiance DOIVENT réduire le JSON avant l’encodage en base 64. Le JSON brut de l’exemple ci-dessus est {"access_token":{"acrs":{"essential":true,"value":"cp1"}}}. |
 
-La réponse 401 peut contenir plusieurs en-têtes www-authenticate. Tous les champs ci-dessus doivent être contenus dans le même en-tête www-authenticate. L’en-tête www-authenticate avec la demande de revendications PEUT contenir d’autres champs. Les champs de l’en-tête ne sont pas ordonnés. Conformément à RFC 7235, chaque nom de paramètre ne doit intervenir qu’une seule fois par demande de schéma d’authentification.
+La réponse **401** peut contenir plusieurs en-têtes `www-authenticate`. Tous les champs du tableau précédent doivent être contenus dans le même en-tête `www-authenticate`. L'en-tête `www-authenticate` qui contient la contestation liée aux revendications *peut* contenir d'autres champs. Les champs de l’en-tête ne sont pas ordonnés. Conformément à RFC 7235, chaque nom de paramètre ne doit intervenir qu’une seule fois par demande de schéma d’authentification.
 
 ## <a name="claims-request"></a>Demande de revendications
 
-Lorsqu’une application reçoit un défi de revendications indiquant que le jeton d’accès précédent n’est plus considéré comme valide, cette application doit effacer le jeton de n’importe quel cache local ou session utilisateur. Elle doit ensuite rediriger l’utilisateur connecté vers Azure AD pour récupérer un nouveau jeton à l’aide du [flux de code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md) avec un paramètre de **revendications** répondant aux exigences supplémentaires non satisfaites.
+Lorsqu'une application reçoit une contestation liée aux revendications, cela indique que le jeton d'accès précédent n'est plus considéré comme valide. Dans ce cas, l'application doit effacer le jeton de tout cache local ou de toute session utilisateur. Elle doit ensuite rediriger l'utilisateur connecté vers Azure Active Directory (Azure AD) pour récupérer un nouveau jeton à l'aide du [flux de code d'autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md) avec un paramètre de *revendications* répondant aux exigences supplémentaires non satisfaites.
 
-Un exemple est fourni ci-dessous .
+Voici un exemple :
 
-``` https
+```https
 GET https://login.microsoftonline.com/14c2f153-90a7-4689-9db7-9543bf084dad/oauth2/v2.0/authorize
 ?client_id=2810aca2-a927-4d26-8bca-5b32c1ef5ea9
 &redirect_uri=https%3A%2F%contoso.com%3A44321%2Fsignin-oidc
@@ -70,7 +70,7 @@ GET https://login.microsoftonline.com/14c2f153-90a7-4689-9db7-9543bf084dad/oauth
 &response_mode=form_post
 &login_hint=kalyan%ccontoso.onmicrosoft.com
 &domain_hint=organizations
-claims=%7B%22access_token%22%3A%7B%22acrs%22%3A%7B%22essential%22%3Atrue%2C%22value%22%3A%22urn%3Amicrosoft%3Areq1%22%7D%7D%7D
+claims=%7B%22access_token%22%3A%7B%22acrs%22%3A%7B%22essential%22%3Atrue%2C%22value%22%3A%22c1%22%7D%7D%7D
 ```
 
 Le défi de revendications doit être transmis dans le cadre de tous les appels au point de terminaison [/authorize](v2-oauth2-auth-code-flow.md#request-an-authorization-code) d’Azure AD jusqu’à ce qu’un jeton soit récupéré avec succès, après quoi il n’est plus nécessaire.
@@ -84,7 +84,9 @@ Une fois ce flux terminé, l’application reçoit un jeton d’accès contenant
 
 ## <a name="client-capabilities"></a>Fonctionnalités du client
 
-Votre application recevra uniquement les défis liés aux revendications si elle déclare qu’elle peut les gérer à l’aide des **fonctionnalités du client**.
+Les fonctionnalités clientes aident un fournisseur de ressources comme une API Web à détecter si l'application cliente appelante comprend la contestation liée aux revendications et peut alors personnaliser sa réponse en conséquence. Cette fonctionnalité peut être utile lorsque tous les clients API ne sont pas en mesure de traiter les contestations liées aux revendications et que certaines versions antérieures attendent encore une réponse différente.
+
+Certaines applications populaires comme [Microsoft Graph](/graph/overview) n'envoient des contestations liées aux revendications que si l’application cliente appelante déclare être en mesure de les traiter à l'aide de *fonctionnalités clientes*.
 
 Pour éviter tout trafic supplémentaire ou impact sur l’expérience utilisateur, Azure AD ne suppose pas que votre application peut gérer les revendications testées, sauf si vous l’indiquez explicitement. Une application ne recevra pas de défis de revendications (et ne sera pas en mesure d’utiliser les fonctionnalités associées telles que les jetons CAE), sauf si elle est prête à les gérer avec la fonctionnalité « cp1 ».
 

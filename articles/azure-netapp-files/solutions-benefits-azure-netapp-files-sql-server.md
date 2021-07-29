@@ -12,22 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2021
+ms.date: 05/19/2021
 ms.author: b-juche
-ms.openlocfilehash: 46fe7570b7b9ea9446918d407dbe87596b8d0496
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cecf3d0da1b987d7c389b8fe9ab8f0600fed5dba
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104863902"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190505"
 ---
 #  <a name="benefits-of-using-azure-netapp-files-for-sql-server-deployment"></a>Avantages de l’utilisation de Azure NetApp Files pour le déploiement de SQL Server
 
-Azure NetApp Files réduit le coût total de possession (TCO) de SQL Server par rapport aux solutions de stockage en mode bloc.  Avec le stockage en mode bloc, les machines virtuelles ont des limites imposées sur les E/S et la bande passante pour les opérations sur disque. Seules les limites de bande passante réseau sont appliquées à Azure NetApp Files.  En d’autres termes, aucune limite d’E/S au niveau de la machine virtuelle n’est appliquée à Azure NetApp Files. Sans ces limites d’E/S, les instances SQL Server s’exécutant sur des machines virtuelles de plus petite taille connectées à Azure NetApp Files peuvent fonctionner aussi bien que les instances SQL Server s’exécutant sur des machines virtuelles d’une taille bien plus grande. Le dimensionnement des instances à la baisse réduit le coût du calcul de 25 % par rapport à l’ancien tarif.  *Vous pouvez réduire les coûts de calcul avec Azure NetApp Files.*  
+Azure NetApp Files réduit le coût total de possession (TCO) de SQL Server par rapport aux solutions de stockage en mode bloc.  Avec le stockage par blocs, les machines virtuelles ont imposé des limites sur les E/S et la bande passante pour les opérations de disque. Seules les limites de bande passante du réseau sont appliquées à Azure NetApp Files, et uniquement à la sortie.  En d’autres termes, aucune limite d’E/S au niveau de la machine virtuelle n’est appliquée à Azure NetApp Files. Sans ces limites d’E/S, les instances SQL Server s’exécutant sur des machines virtuelles de plus petite taille connectées à Azure NetApp Files peuvent fonctionner aussi bien que les instances SQL Server s’exécutant sur des machines virtuelles d’une taille bien plus grande. Le dimensionnement des instances à la baisse réduit le coût du calcul de 25 % par rapport à l’ancien tarif.  *Vous pouvez réduire les coûts de calcul avec Azure NetApp Files.*  
 
 Toutefois, les coûts de calcul sont peu élevés par rapport aux coûts de licence SQL Server.  Les [licences](https://download.microsoft.com/download/B/C/0/BC0B2EA7-D99D-42FB-9439-2C56880CAFF4/SQL_Server_2017_Licensing_Datasheet.pdf) Microsoft SQL Server sont liées au nombre de cœurs physiques. Par conséquent, la réduction de la taille de l’instance introduit une économie encore plus importante pour les licences logicielles. *Vous pouvez réduire les coûts liés aux licences logicielles avec Azure NetApp Files.*
-
-Le coût du stockage lui-même varie en fonction de la taille réelle de la base de données. Quel que soit le stockage sélectionné, la capacité a un coût, qu’il s’agisse d’un disque managé ou d’un partage de fichiers.  À mesure que la taille des bases de données augmente et que le coût du stockage augmente, le stockage contribue à l’augmentation du coût TCO, affectant le coût global.  Par conséquent, l’assertion est ajustée comme suit : *Vous pouvez réduire les coûts de déploiement de SQL Server avec Azure NetApp Files.* 
 
 Cet article affiche les avantages d’une analyse détaillée des coûts/performances liés à l’utilisation de Azure NetApp Files pour le déploiement SQL Server. Non seulement les plus petites instances ont suffisamment d’UC pour permettre l’exécution de tâches de base de données uniquement en mode bloc sur des instances plus grandes, mais *dans de nombreux cas, les plus petites instances sont même encore plus performantes que leurs équivalents de plus grande taille, basés sur disque, grâce à Azure NetApp Files.* 
 
@@ -35,7 +33,7 @@ Cet article affiche les avantages d’une analyse détaillée des coûts/perform
 
 Les deux ensembles de graphiques de cette section illustrent l’exemple de coût total de possession.  Le nombre et le type de disques managés, le niveau de service Azure NetApp Files et la capacité pour chaque scénario ont été sélectionnés pour obtenir le meilleur rapport prix-capacité-performance.  Chaque graphique est constitué de machines groupées (D16 avec Azure NetApp Files, par rapport à D64 avec disque managé par exemple), et les prix sont répartis pour chaque type de machine.  
 
-Le premier ensemble de graphiques montre le coût global de la solution à l’aide d’une taille de base de données de 1 Tio, en comparant l’instance D16s_v3 à l’instance D64, l’instance D8 à l’instance D32 et l’instance D4 à l’instance D16. Les E/S par seconde prévues pour chaque configuration sont indiquées par une ligne verte ou jaune et correspondent à l’axe Y du côté droit.
+Le premier ensemble de graphiques montre le coût global de la solution à l’aide d’une taille de base de données de 1 Tio, en comparant l’instance D16s_v4 à l’instance D64, l’instance D8 à l’instance D32 et l’instance D4 à l’instance D16. Les E/S par seconde prévues pour chaque configuration sont indiquées par une ligne verte ou jaune et correspondent à l’axe Y du côté droit.
 
 [ ![Graphique illustrant le coût global de la solution à l’aide d’une taille de base de données de 1 Tio. ](../media/azure-netapp-files/solution-sql-server-cost-1-tib.png)](../media/azure-netapp-files/solution-sql-server-cost-1-tib.png#lightbox)
 
@@ -46,11 +44,11 @@ Le deuxième ensemble de graphiques montre le coût global avec une base de donn
  
 ## <a name="performance-and-lots-of-it"></a>Nombreuses performances  
 
-Pour fournir une assertion de réduction des coûts significative nécessitant des performances élevées, les plus grandes instances de l’inventaire Azure général prennent en charge 80 000 E/S par seconde de disque par exemple. Un volume Azure NetApp Files unique peut atteindre 80 000 E/S par seconde sur base de données, et des instances telles que D16 ont une consommation identique. L’instance D16, affichant habituellement 25 600 E/S par seconde sur disque a une taille équivalant à 25 % de celle du D64.  L’instance D64s_v3 a une capacité de 80 000 E/S par seconde sur disque et, par conséquent, présente un excellent point de comparaison de niveau supérieur.
+Pour fournir une assertion de réduction des coûts significative nécessitant des performances élevées, les plus grandes instances de l’inventaire Azure général prennent en charge 80 000 E/S par seconde de disque par exemple. Un volume Azure NetApp Files unique peut atteindre 80 000 E/S par seconde sur base de données, et des instances telles que D16 ont une consommation identique. L’instance D16, affichant habituellement 25 600 E/S par seconde sur disque a une taille équivalant à 25 % de celle du D64.  L’instance D64s_v4 a une capacité de 80 000 E/S par seconde sur disque et, par conséquent, présente un excellent point de comparaison de niveau supérieur.
 
-L’instance D16s_v3 peut piloter un volume Azure NetApp Files pouvant atteindre 80 000 E/S par seconde sur base de données. Comme l’a prouvé l’outil de référence SQL Storage Benchmark (SSB), l’instance D16 a atteint une charge de travail 125 % supérieure à celle réalisable sur disque avec l’instance D64.  Pour plus d’informations sur l’outil, consultez la section [outil de test SSB](#ssb-testing-tool).
+L’instance D16s_v4 peut piloter un volume Azure NetApp Files pouvant atteindre 80 000 E/S par seconde sur base de données. Comme l’a prouvé l’outil de référence SQL Storage Benchmark (SSB), l’instance D16 a atteint une charge de travail 125 % supérieure à celle réalisable sur disque avec l’instance D64.  Pour plus d’informations sur l’outil, consultez la section [outil de test SSB](#ssb-testing-tool).
 
-À l’aide d’une taille de jeu de travail de 1 Tio et d’une charge de travail SQL Server répartie à 80 % en lecture et 20 % en mise à jour, les capacités de performances de la plupart des instances de la classe d’instance D ont été mesurées, pas toutes, mais la plupart, car les instances D2 et D64 sont elles-mêmes exclues des tests. La première a été omise, car elle ne prend pas en charge les performances réseau accélérées et la seconde, car il s’agit du point de comparaison. Consultez le graphique suivant pour comprendre les limites des instances D4s_v3, D8s_v3, D16s_v3 et D32s_v3, respectivement.  Les tests de stockage sur disque managé ne sont pas illustrés dans le graphique. Les valeurs de comparaison sont extraites directement à partir de la [table de limites de machines virtuelles Azure](../virtual-machines/dv3-dsv3-series.md) pour le type d’instance de classe D.
+À l’aide d’une taille de jeu de travail de 1 Tio et d’une charge de travail SQL Server répartie à 80 % en lecture et 20 % en mise à jour, les capacités de performances de la plupart des instances de la classe d’instance D ont été mesurées, pas toutes, mais la plupart, car les instances D2 et D64 sont elles-mêmes exclues des tests. La première a été omise, car elle ne prend pas en charge les performances réseau accélérées et la seconde, car il s’agit du point de comparaison. Consultez le graphique suivant pour comprendre les limites des instances D4s_v4, D8s_v4, D16s_v4 et D32s_v4, respectivement.  Les tests de stockage sur disque managé ne sont pas illustrés dans le graphique. Les valeurs de comparaison sont extraites directement à partir de la [table de limites de machines virtuelles Azure](../virtual-machines/dv3-dsv3-series.md) pour le type d’instance de classe D.
 
 Avec Azure NetApp Files, chacune des instances de la classe D peut atteindre ou dépasser les capacités de performances sur disque des instances deux fois plus grandes.  *Vous pouvez réduire considérablement les coûts liés aux licences logicielles avec Azure NetApp Files.*  
 

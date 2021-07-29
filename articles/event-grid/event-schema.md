@@ -1,18 +1,18 @@
 ---
 title: Schéma d’événement Azure Event Grid
-description: Décrit les propriétés et les schémas qui sont présents pour tous les événements. Les événements se composent de cinq propriétés de chaîne et d’un objet de données obligatoires.
+description: Décrit les propriétés et les schémas qui sont présents pour tous les événements. Les événements sont un ensemble de quatre propriétés de chaîne requises.
 ms.topic: reference
 ms.date: 07/07/2020
-ms.openlocfilehash: 5ff7b41a45cf467074e18a50be398b2a3c9866a4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6354401902a841322e58dc7989f10279efee6c2c
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732157"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854915"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schéma d’événement Azure Event Grid
 
-Cet article décrit les propriétés et les schémas qui sont présents dans tous les événements. Les événements se composent de cinq propriétés de chaîne et d’un objet de données obligatoires. Les propriétés sont communes à tous les événements, quel que soit le serveur de publication. L’objet de données a des propriétés spécifiques à chaque serveur de publication. Dans les rubriques du système, ces propriétés sont spécifiques au fournisseur de ressources tel que Stockage Azure ou Azure Event Hubs.
+Cet article décrit les propriétés et les schémas qui sont présents dans tous les événements. Les événements sont un ensemble de quatre propriétés de chaîne requises. Les propriétés sont communes à tous les événements, quel que soit le serveur de publication. L’objet de données a des propriétés spécifiques à chaque serveur de publication. Dans les rubriques du système, ces propriétés sont spécifiques au fournisseur de ressources tel que Stockage Azure ou Azure Event Hubs.
 
 Les sources d’événements envoient des événements à Azure Event Grid dans un tableau qui peut avoir plusieurs objets d’événement. Lorsque les événements sont envoyés vers une rubrique Event Grid, le tableau peut avoir une taille totale de 1 Mo. Chaque événement du tableau est limité à 1 Mo. Si un événement ou si le tableau dépasse la taille maximale autorisée, vous recevez le message suivant : **413 Payload Too Large** (413 : charge utile maximale dépassée). Toutefois, les opérations sont facturées par incréments de 64 Ko. Ainsi, les événements de plus de 64 Ko entraînent des frais d’opération comme s’il s’agissait de plusieurs événements. Par exemple, un événement d’une taille de 130 Ko entraîne des opérations équivalents à 3 événements distincts.
 

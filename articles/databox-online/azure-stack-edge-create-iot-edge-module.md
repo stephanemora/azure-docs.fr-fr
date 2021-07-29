@@ -1,6 +1,6 @@
 ---
-title: Module IoT Edge en C# pour Azure Stack Edge Pro | Microsoft Docs
-description: Découvrez comment développer un module IoT Edge C# pouvant être déployé sur votre appareil Azure Stack Edge Pro.
+title: Module IoT Edge C# de Azure Stack Edge Pro FPGA
+description: Découvrez comment développer un module IoT Edge C# pour votre Azure Stack Edge Pro FGPA.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,36 +9,36 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4519bc187c4ec53294e5eef15c4ad1954b691224
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: cc7b71d644fa26c0262f2304b380827b36b6c193
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107870838"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461324"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Développer un module IoT Edge en C# pour déplacer des fichiers avec Azure Stack Edge Pro
+# <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro-fpga"></a>Développer un module IoT Edge en C# pour déplacer des fichiers avec Azure Stack Edge Pro FGPA
 
-Cet article vous guide tout au long de la création d’un module IoT Edge pour un déploiement avec votre appareil Azure Stack Edge Pro. Azure Stack Edge Pro est une solution de stockage qui vous permet de traiter les données et de les envoyer vers Azure via le réseau.
+Cet article vous guide tout au long de la création d’un module IoT Edge pour un déploiement avec votre appareil Azure Stack Edge Pro FGPA. Azure Stack Edge Pro FGPA est une solution de stockage qui vous permet de traiter les données et de les envoyer vers Azure via le réseau.
 
-Vous pouvez utiliser les modules Azure IoT Edge avec votre appareil Azure Stack Edge Pro pour transformer les données déplacées vers Azure. Le module de cet article implémente une logique conçue pour copier un fichier à partir d’un partage local vers un partage cloud sur votre appareil Azure Stack Edge Pro.
+Vous pouvez utiliser les modules Azure IoT Edge avec votre appareil Azure Stack Edge Pro FGPA pour transformer les données déplacées vers Azure. Le module de cet article implémente une logique conçue pour copier un fichier à partir d’un partage local vers un partage cloud sur votre appareil Azure Stack Edge Pro FGPA.
 
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 >
 > * Créer un registre de conteneurs pour stocker et gérer vos modules (images Docker).
-> * Créer un module IoT Edge à déployer sur votre appareil Azure Stack Edge Pro. 
+> * Créer un module IoT Edge à déployer sur votre appareil Azure Stack Edge Pro FGPA. 
 
 
 ## <a name="about-the-iot-edge-module"></a>À propos du module IoT Edge
 
-Votre appareil Azure Stack Edge Pro peut déployer et exécuter des modules IoT Edge. Les modules Edge sont essentiellement des conteneurs Docker qui effectuent une tâche spécifique, comme la réception d’un message à partir d’un appareil, la transformation d’un message ou l’envoi d’un message à un IoT Hub. À l’aide de cet article, vous allez créer un module qui copie des fichiers à partir d’un partage local vers un partage cloud sur votre appareil Azure Stack Edge Pro.
+Votre appareil Azure Stack Edge Pro FGPA peut déployer et exécuter des modules IoT Edge. Les modules Edge sont essentiellement des conteneurs Docker qui effectuent une tâche spécifique, comme la réception d’un message à partir d’un appareil, la transformation d’un message ou l’envoi d’un message à un IoT Hub. À l’aide de cet article, vous allez créer un module qui copie des fichiers à partir d’un partage local vers un partage cloud sur votre appareil Azure Stack Edge Pro FGPA.
 
-1. Les fichiers sont écrits sur le partage local de votre appareil Azure Stack Edge Pro.
+1. Les fichiers sont écrits sur le partage local de votre appareil Azure Stack Edge Pro FGPA.
 2. Le générateur d’événements de fichier crée un événement de fichier pour chaque fichier écrit sur le partage local. Les événements de fichier sont également générés quand un fichier est modifié. Les événements de fichier sont ensuite envoyés au hub IoT Edge (dans le runtime IoT Edge).
 3. Le module personnalisé IoT Edge traite l’événement de fichier et crée un objet d’événement de fichier qui contient également le chemin d’accès relatif du fichier. Le module génère un chemin d’accès absolu à l’aide du chemin d’accès relatif et copie le fichier à partir du partage local vers le partage cloud. Le module supprime ensuite le fichier du partage local.
 
-![Fonctionnement du module Azure IoT Edge sur Azure Stack Edge Pro](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
+![Fonctionnement du module Azure IoT Edge sur Azure Stack Edge Pro FGPA](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
 
 Une fois que le fichier se trouve dans le partage cloud, ce dernier est automatiquement chargé dans votre compte de stockage Azure.
 
@@ -46,11 +46,11 @@ Une fois que le fichier se trouve dans le partage cloud, ce dernier est automati
 
 Avant de commencer, assurez-vous que vous disposez  des éléments suivants :
 
-- Un appareil Azure Stack Edge Pro en cours d’exécution.
+- Un appareil Azure Stack Edge Pro FGPA en cours d’exécution.
 
     - L’appareil doit également être associé à une ressource IoT Hub.
     - Le rôle de calcul Edge est configuré pour l’appareil.
-    Pour plus d’informations, accédez à la section [Configurer le calcul](azure-stack-edge-deploy-configure-compute.md#configure-compute) de votre appareil Azure Stack Edge Pro.
+    Pour plus d’informations, accédez à la section [Configurer le calcul](azure-stack-edge-deploy-configure-compute.md#configure-compute) de votre appareil Azure Stack Edge Pro FGPA.
 
 - Ressources de développement :
 
@@ -278,4 +278,4 @@ Dans la section précédente, vous avez créé une solution IoT Edge et ajouté 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour déployer et exécuter ce module sur Azure Stack Edge Pro, consultez les étapes décrites dans la section [Ajouter un module](azure-stack-edge-deploy-configure-compute.md#add-a-module).
+Pour déployer et exécuter ce module sur Azure Stack Edge Pro FGPA, consultez les étapes décrites dans la section [Ajouter un module](azure-stack-edge-deploy-configure-compute.md#add-a-module).

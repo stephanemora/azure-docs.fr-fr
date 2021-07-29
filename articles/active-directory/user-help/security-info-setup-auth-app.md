@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 02/13/2019
+ms.date: 06/10/2021
 ms.author: curtand
-ms.openlocfilehash: c947bee0b702797a86d1e038f74c6c10e2b23eb4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4e03fe3ca7a66dc361988151b558fef0c4b4f390
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103197473"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982571"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurer l’application Microsoft Authenticator comme méthode de vérification
 
@@ -129,6 +129,9 @@ Si vous ne souhaitez plus utiliser votre application d’authentification comme 
 ## <a name="change-your-default-security-info-method"></a>Changer de méthode d’informations de sécurité par défaut
 
 Pour utiliser l’application d’authentification comme méthode par défaut lorsque vous vous connectez à votre compte professionnel ou scolaire à l’aide de la vérification en deux étapes, ou pour les demandes de réinitialisation de mot de passe, il vous suffit de définir cette méthode dans la page **Informations de sécurité**.
+
+>[!NOTE]
+>Si votre méthode de connexion par défaut est un message texte ou un appel à votre numéro de téléphone, le code SMS ou l’appel vocal est envoyé automatiquement pendant l’authentification multifacteur. Depuis juin 2021, certaines applications demandent aux utilisateurs de choisir **Texte** ou **Appel** d’abord. Cette option empêche l’envoi d’un trop grand nombre de codes de sécurité pour différentes applications. Si votre méthode de connexion par défaut est l’application Microsoft Authenticator ([que nous recommandons vivement](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)), la notification de l’application est envoyée automatiquement.
 
 ### <a name="to-change-your-default-security-info-method"></a>Pour changer de méthode d’informations de sécurité par défaut
 

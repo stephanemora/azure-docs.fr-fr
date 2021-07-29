@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 05/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 2441832ce13c98410cbd0d087ec4302ff7fa6428
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 0482146a7070083c795a60a4b01fdede7e1b3bf1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205896"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067381"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>À propos des passerelles de réseau virtuel redondantes interzone dans les Zones de disponibilité Azure
 
@@ -39,7 +39,7 @@ Pour le déploiement de passerelles dans une zone spécifique, vous pouvez utili
 
 ## <a name="gateway-skus"></a><a name="gwskus"></a>SKU de passerelle
 
-Les passerelles zonales et redondantes interzone sont disponibles en tant que nouvelles références SKU de passerelle. Nous avons ajouté de nouvelles références SKU de passerelle de réseau virtuel dans les régions Azure AZ. Ces références SKU sont semblables aux références SKU correspondantes qui existent déjà pour les passerelles VPN et ExpressRoute, sauf qu’elles sont spécifiques aux passerelles zonales et redondantes interzone. Vous pouvez identifier ces références SKU par le « AZ » dans leur nom.
+Les passerelles zonales et redondantes interzone sont disponibles en tant que références SKU de passerelle. Nous avons ajouté de nouvelles références SKU de passerelle de réseau virtuel dans les régions Azure AZ. Ces références SKU sont semblables aux références SKU correspondantes qui existent déjà pour les passerelles VPN et ExpressRoute, sauf qu’elles sont spécifiques aux passerelles zonales et redondantes interzone. Vous pouvez identifier ces références SKU par le « AZ » dans leur nom.
 
 Pour plus d’informations sur les références SKU de passerelle, consultez [SKU de passerelle VPN](vpn-gateway-about-vpngateways.md#gwsku) et [SKU de passerelle ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku).
 
@@ -64,17 +64,17 @@ Lorsque vous créez une adresse IP publique à l’aide de la référence SKU d�
 
 ## <a name="faq"></a><a name="faq"></a>Forum Aux Questions
 
-### <a name="what-will-change-when-i-deploy-these-new-skus"></a>Qu’est-ce qui va changer lorsque je déploierai ces nouvelles références SKU ?
+### <a name="what-will-change-when-i-deploy-these-skus"></a>Qu’est-ce qui va changer lorsque je déploierai ces références SKU ?
 
 De votre point de vue, vous pouvez déployer vos passerelles avec la redondance dans une zone. Cela signifie que toutes les instances des passerelles seront déployées sur des zones de disponibilité Azure, et que chaque zone de disponibilité est un autre domaine d’erreur et de mise à jour. Cela rend vos passerelles plus fiables, disponibles et résilientes aux défaillances de zone.
 
 ### <a name="can-i-use-the-azure-portal"></a>Puis-je utiliser le portail Azure ?
 
-Oui, vous pouvez utiliser le Portail Azure pour déployer les nouvelles références SKU. Toutefois, vous ne les verrez que dans les régions Azure disposant de Zones de disponibilité Azure.
+Oui, vous pouvez utiliser le portail Azure pour déployer ces références SKU. Toutefois, vous ne les verrez que dans les régions Azure disposant de Zones de disponibilité Azure.
 
-### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Dans quelles régions puis-je utiliser les nouvelles références SKU ?
+### <a name="what-regions-are-available-for-me-to-use-these-skus"></a>Dans quelles régions puis-je utiliser ces références SKU ?
 
-Les nouvelles références SKU sont disponibles dans les régions Azure qui possèdent les régions Zones de disponibilité Azure – USA Centre, France Centre, Europe Nord, Europe Ouest et USA Ouest 2, USA Est, USA Est 2, Asie Sud-Est, Japon Est, Royaume-Uni Sud. Prochainement, des passerelles redondantes interzone seront disponibles dans d’autres régions Azure publiques.
+Ces références SKU sont disponibles dans les régions Azure disposant de Zones de disponibilité Azure. Pour plus d’informations, consultez [Régions Azure disposant de Zones de disponibilité](../availability-zones/az-region.md#azure-regions-with-availability-zones).
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Puis-je changer/migrer/mettre à niveau mes passerelles de réseau virtuel existantes vers des passerelles zonales ou redondantes interzone ?
 

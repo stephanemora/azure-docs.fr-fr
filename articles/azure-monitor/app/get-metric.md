@@ -4,12 +4,12 @@ description: Découvrez comment utiliser efficacement l’appel GetMetric() afin
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 22baa1ae9554601a72ffdb848b87d99281067967
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 8efea750ea60c8bb699dac4ffc9aba56241726e1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384287"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070081"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Collecte de métriques personnalisées dans .NET et .NET Core
 
@@ -32,7 +32,7 @@ La limitation est particulièrement importante dans le sens où, comme l’écha
 En résumé, l’approche recommandée consiste à utiliser `GetMetric()`, car elle effectue une pré-agrégation, elle accumule les valeurs de tous les appels Track() et envoie un résumé/une agrégation une fois par minute. Cela peut réduire considérablement le coût et les problèmes de performances en envoyant moins de points de données, tout en recueillant néanmoins toutes les informations pertinentes.
 
 > [!NOTE]
-> Seuls les kits SDK .NET et .NET Core ont une méthode GetMetric(). Si vous utilisez Java, vous pouvez utiliser des [métriques Micrometer](./micrometer-java.md) ou `TrackMetric()`. Pour JavaScript et Node.js, vous utiliserez quand même `TrackMetric()`, mais gardez à l’esprit les avertissements décrits dans la section précédente. Pour Python, vous pouvez utiliser [OpenCensus.stats](./opencensus-python.md#metrics) pour envoyer des métriques personnalisées, mais l’implémentation de métriques est différente.
+> Seuls les kits SDK .NET et .NET Core ont une méthode GetMetric(). Si vous utilisez Java, consultez [Envoi de métriques personnalisées à l’aide de Micrometer](./java-in-process-agent.md#send-custom-metrics-using-micrometer). Pour JavaScript et Node.js, vous utiliserez quand même `TrackMetric()`, mais gardez à l’esprit les avertissements décrits dans la section précédente. Pour Python, vous pouvez utiliser [OpenCensus.stats](./opencensus-python.md#metrics) pour envoyer des métriques personnalisées, mais l’implémentation de métriques est différente.
 
 ## <a name="getting-started-with-getmetric"></a>Bien démarrer avec GetMetric
 

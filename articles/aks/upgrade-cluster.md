@@ -4,12 +4,12 @@ description: Découvrez comment mettre à niveau un cluster Azure Kubernetes ser
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: 925edc3d83b9acc0a2c91001ada39921d3653824
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 772cb9d33c9bf9307ca0dc16536933fc9123de4b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737654"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085795"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
@@ -167,6 +167,10 @@ Pour définir le canal de mise à niveau automatique sur un cluster existant, me
 az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
 ```
 
+## <a name="using-cluster-auto-upgrade-with-planned-maintenance"></a>Utilisation de la mise à niveau automatique de cluster avec la maintenance planifiée
+
+Si vous utilisez la maintenance planifiée et la mise à niveau automatique, votre mise à niveau démarre pendant la fenêtre de maintenance spécifiée. Pour plus d’informations sur la maintenance planifiée, consultez [Utiliser la maintenance planifiée pour planifier les fenêtres de maintenance de votre cluster Azure Kubernetes service (AKS) (préversion)][planned-maintenance].
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Cet article vous a montré comment mettre à niveau un cluster AKS existant. Pour en savoir plus sur le déploiement et la gestion des clusters d’AKS, reportez-vous aux didacticiels.
@@ -190,3 +194,4 @@ Cet article vous a montré comment mettre à niveau un cluster AKS existant. Pou
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [upgrade-cluster]:  #upgrade-an-aks-cluster
+[planned-maintenance]: planned-maintenance.md

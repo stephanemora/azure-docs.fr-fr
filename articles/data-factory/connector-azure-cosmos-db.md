@@ -6,13 +6,13 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/17/2021
-ms.openlocfilehash: a7676dfe6feedc5bb34ab6c96b4c3a03e4feb56c
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 05/18/2021
+ms.openlocfilehash: 36fae5b71e9aa5c2c6c252ad1aa306bb64d9aecb
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483116"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480077"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Cosmos DB (API SQL) à l’aide d’Azure Data Factory
 
@@ -39,7 +39,7 @@ Ce connecteur Azure Cosmos DB (API SQL) est pris en charge pour les activités s
 
 Pour l'activité de copie, ce connecteur Azure Cosmos DB (API SQL) prend en charge :
 
-- Copier des données depuis et vers l’[API SQL](../cosmos-db/introduction.md) Azure Cosmos DB.
+- Copier des données depuis et vers [l0'API SQL](../cosmos-db/introduction.md) d’Azure Cosmos DB à l’aide de la clé, du principal du service ou des identités gérées pour les authentifications des ressources Azure.
 - Écrire dans Azure Cosmos DB comme **insert** ou **upsert**.
 - Importer et exporter des documents JSON en l’état, ou copier des données depuis ou vers un jeu de données tabulaire. Les exemples incluent une base de données SQL et un fichier CSV. Pour copier des documents en l'état vers ou depuis des fichiers JSON ou une autre collection Azure Cosmos DB, consultez [Importer et exporter des documents JSON](#import-and-export-json-documents).
 
@@ -56,7 +56,13 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
-Les propriétés prises en charge pour le service lié Azure Cosmos DB (API SQL) sont les suivantes :
+Le connecteur Azure Cosmos DB (API SQL) prend en charge les types d’authentification suivants. Consultez les sections correspondantes pour plus d’informations :
+
+- [Authentification par clé](#key-authentication)
+- [Authentification du principal de service (préversion)](#service-principal-authentication)
+- [Identités managées pour l’authentification des ressources Azure (préversion)](#managed-identity)
+
+### <a name="key-authentication"></a>Authentification par clé
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -99,6 +105,133 @@ Les propriétés prises en charge pour le service lié Azure Cosmos DB (API SQL)
                 }, 
                 "secretName": "<secretName>" 
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="service-principal-authentication-preview"></a><a name="service-principal-authentication"></a> Authentification du principal de service (préversion)
+
+>[!NOTE]
+>Actuellement, l’authentification du principal du service n’est pas prise en charge dans le flux de données.
+
+Pour l’authentification de principal de service, effectuez les étapes suivantes.
+
+1. Inscrivez une entité d’application dans Azure Active Directory (Azure AD) en suivant les instructions de la section [Inscrire votre application à un locataire Azure AD](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Prenez note des valeurs suivantes, qui vous permettent de définir le service lié :
+
+    - ID de l'application
+    - Clé de l'application
+    - ID client
+
+2. Accordez l’autorisation nécessaire au principal de service. Pour obtenir des exemples sur le fonctionnement des autorisations dans Cosmos DB, consultez [Listes de contrôle d’accès sur les fichiers et répertoires](../cosmos-db/how-to-setup-rbac.md). Plus spécifiquement, créez une définition de rôle et attribuez le rôle au principal de service par le biais de l’ID d’objet du principal de service. 
+
+Ces propriétés sont prises en charge pour le service lié :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| type | La propriété type doit être définie sur **CosmosDb**. |Oui |
+| accountEndpoint | Spécifiez l’URL du point de terminaison du compte pour Azure Cosmos DB. | Oui |
+| database | Spécifiez le nom de la base de données. | Oui |
+| servicePrincipalId | Spécifiez l’ID client de l’application. | Oui |
+| servicePrincipalCredentialType | Type d’informations d’identification à utiliser pour l’authentification de principal du service. Les valeurs autorisées sont **ServicePrincipalKey** et **ServicePrincipalCert**. | Oui |
+| servicePrincipalCredential | Informations d’identification du principal du service. <br/> Quand vous utilisez **ServicePrincipalKey** comme type d’informations d’identification, spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). <br/> Quand vous utilisez **ServicePrincipalCert** comme informations d’identification, référencez un certificat dans Azure Key Vault. | Oui |
+| tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-les en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui |
+| azureCloudType | Pour l’authentification du principal du service, spécifiez le type d’environnement cloud Azure auprès duquel votre application Azure Active Directory est inscrite. <br/> Les valeurs autorisées sont **AzurePublic**, **AzureChina**, **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud de la fabrique de données est utilisé. | Non |
+| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d'intégration Azure ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non |
+
+**Exemple : utilisation de l’authentification de la clé du principal de service**
+
+Vous pouvez également stocker la clé du principal du service dans Azure Key Vault.
+
+```json
+{
+    "name": "CosmosDbSQLAPILinkedService",
+    "properties": {
+        "type": "CosmosDb",
+        "typeProperties": {
+            "accountEndpoint": "<account endpoint>",
+            "database": "<database name>",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType": "ServicePrincipalKey",
+            "servicePrincipalCredential": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemple : utilisation de l’authentification par certificat du principal du service**
+```json
+{
+    "name": "CosmosDbSQLAPILinkedService",
+    "properties": {
+        "type": "CosmosDb",
+        "typeProperties": {
+            "accountEndpoint": "<account endpoint>",
+            "database": "<database name>", 
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType": "ServicePrincipalCert",
+            "servicePrincipalCredential": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<AKV reference>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<certificate name in AKV>" 
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="managed-identities-for-azure-resources-authentication-preview"></a><a name="managed-identity"></a> Identités managées pour l’authentification des ressources Azure (préversion)
+
+>[!NOTE]
+>Actuellement, l’authentification d’identité managée n’est pas prise en charge dans le flux de données.
+
+Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique de données. Vous pouvez utiliser directement cette identité managée pour l’authentification Cosmos DB, ce qui revient à utiliser votre propre principal de service. Cela permet à la fabrique désignée d’accéder aux données et de les copier depuis ou vers votre Cosmos DB.
+
+Pour utiliser les identités managées afin d’authentifier les ressources Azure, procédez comme suit.
+
+1. [Récupérez les informations d’identité managée de Data Factory](data-factory-service-identity.md#retrieve-managed-identity) en copiant la valeur de l’**ID d’objet d’identité managée** générée en même temps que votre fabrique.
+
+2. Accordez l’autorisation nécessaire à l’identité managée. Pour obtenir des exemples sur le fonctionnement des autorisations dans Cosmos DB, consultez [Listes de contrôle d’accès sur les fichiers et répertoires](../cosmos-db/how-to-setup-rbac.md). Plus précisément, créez une définition de rôle et attribuez le rôle à l’identité gérée.
+
+Ces propriétés sont prises en charge pour le service lié :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| type | La propriété type doit être définie sur **CosmosDb**. |Oui |
+| accountEndpoint | Spécifiez l’URL du point de terminaison du compte pour Azure Cosmos DB. | Oui |
+| database | Spécifiez le nom de la base de données. | Oui |
+| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d'intégration Azure ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non |
+
+**Exemple :**
+
+```json
+{
+    "name": "CosmosDbSQLAPILinkedService",
+    "properties": {
+        "type": "CosmosDb",
+        "typeProperties": {
+            "accountEndpoint": "<account endpoint>",
+            "database": "<database name>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

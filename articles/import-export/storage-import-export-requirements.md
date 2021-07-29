@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/28/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0997c74b8b99638771152620743f23e0816e178e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e766b2aba1aef47b16b4351c7852bb2f457475fa
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756752"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887597"
 ---
 # <a name="azure-importexport-system-requirements"></a>Configuration système requise du service Azure Import/Export
 
@@ -46,7 +46,7 @@ Le service Azure Import/Export prend en charge les types de comptes de stockage 
 - Comptes de stockage à usage général v1 (déploiements Classic ou Azure Resource Manager)
 
 > [!IMPORTANT]
-> La prise en charge du protocole NFS (Network File System) 3.0 dans le stockage d’objets BLOB Azure n’est pas prise en charge avec Azure Import/Export.
+> La prise en charge du protocole NFS (Network File System) 3.0 dans le Stockage Blob Azure n’est pas prise en charge avec Azure Import/Export.
 
 Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../storage/common/storage-account-overview.md).
 
@@ -60,9 +60,9 @@ Chaque tâche peut servir à transférer des données vers ou à partir d'un seu
 Les types de stockage suivants sont pris en charge avec le service Azure Import/Export.
 
 
-|Travail  |Service de stockage |Prise en charge  |Non pris en charge  |
+|Travail  |Service de stockage |Prise en charge  |Non prise en charge  |
 |---------|---------|---------|---------|
-|Importer     |  Stockage Blob Azure <br><br> Présentation du stockage de fichiers       | Objets blob de blocs et de pages pris en charge <br><br> Fichiers pris en charge          |
+|Importer     |  Stockage Blob Azure <br><br> Stockage Azure Files       | Objets blob de blocs et de pages pris en charge <br><br> Fichiers pris en charge          |
 |Exporter     |   Stockage Blob Azure       | Objets blob de blocs, de pages et d’ajout pris en charge         | Fichiers Azure non pris en charge<br>Exportation à partir du niveau Archive non prise en charge|
 
 

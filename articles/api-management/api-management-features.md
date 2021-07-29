@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: f111729d7d7707ed4f40ce8f89ce76975fb47400
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 53804e99a3bc341669c0d4943464835cc7d1e531
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536450"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463284"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparaison des fonctionnalités des niveaux de la Gestion des API Azure
 
@@ -41,6 +41,7 @@ Chacun des [niveaux tarifaires](https://aka.ms/apimpricing) de la Gestion des AP
 | API de gestion directe                                                                        | Non          | Oui       | Oui   | Oui      | Oui     |
 | Journaux d’activité et métriques Azure Monitor                                                               | Non          | Oui       | Oui   | Oui      | Oui     |
 | Adresse IP statique                                                                                    | Non          | Oui       | Oui   | Oui      | Oui     |
+| [API WebSocket (préversion)](websocket-api.md)                                                                                    | Non          | Oui       | Oui   | Oui      | Oui     |
 
 <sup>1</sup> Permet l’utilisation de Microsoft Azure AD (et Azure AD B2C) en tant que fournisseur d’identité pour la connexion utilisateur sur le portail des développeurs.<br/>
 <sup>2</sup> Y compris les fonctionnalités liées, par exemple, les utilisateurs, les groupes, les problèmes, les modèles d’application et de courrier électronique et les notifications.<br/>

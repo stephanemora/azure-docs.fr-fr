@@ -5,13 +5,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 05/06/2021
-ms.openlocfilehash: 78a40b3a84b0d3df19b1fabc6c3485f12d8c3dbb
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 05/20/2021
+ms.openlocfilehash: 3793fb3495ca9df9ab8ed408090a8f285f6488b0
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481748"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110464644"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Activité de flux de données dans Azure Data Factory
 
@@ -103,6 +103,10 @@ Si vous n’avez pas besoin que chaque exécution du pipeline de vos activités 
 La fonctionnalité de regroupement dans le flux de données vous permet de configurer l’ordre d’exécution de vos récepteurs et de regrouper les récepteurs ensemble sous le même numéro de groupe. Pour faciliter la gestion des groupes, vous pouvez demander à ADF d’exécuter des récepteurs, dans le même groupe, en parallèle. Vous pouvez également faire en sorte que le groupe récepteur continue même après que l’un des récepteurs a rencontré une erreur.
 
 Le comportement par défaut des récepteurs de flux de données consiste à exécuter chaque récepteur de manière séquentielle, en série, et à faire échouer le flux de données quand une erreur est détectée dans le récepteur. En outre, tous les récepteurs sont définis par défaut dans le même groupe, sauf si vous accédez aux propriétés du flux de données et définissez des priorités différentes pour les récepteurs.
+
+### <a name="first-row-only"></a>Première ligne uniquement
+
+Cette option n'est disponible que pour les flux de données dont les récepteurs de cache sont activés pour la « Sortie vers l'activité ». La sortie du flux de données qui est injectée directement dans votre pipeline est limitée à 2 Mo. Le paramètre « Première ligne uniquement » vous permet de limiter la sortie de données du flux de données lorsque vous injectez la sortie de l'activité de flux de données directement dans votre pipeline.
 
 ![Propriétés du récepteur](media/data-flow/sink-properties.png "Définir les priorités des récepteurs")
 

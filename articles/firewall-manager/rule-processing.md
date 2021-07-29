@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 9184bf7baa85420e067edb4c0aafccb7e6711225
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6cda31ad3bd830112d7be2dbf3370e4130473228
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86512178"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474411"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Logique de traitement des règles du service Pare-feu Azure
 
@@ -21,6 +21,15 @@ Le service Pare-feu Azure comporte des règles de traduction d’adresses résea
 ## <a name="network-rules-and-applications-rules"></a>Règles de réseau et règles d’application
 
 Le service applique d’abord les règles de réseau, puis les règles d’application. Ce processus prend fin dès qu’une règle est exécutée. Par conséquent, si une correspondance est trouvée dans les règles de réseau, les règles d’application ne sont pas traitées.  Si aucune règle de réseau ne correspond, et si le protocole du paquet est HTTP/HTTPS, le paquet est évalué par les règles d’application. Si aucune correspondance n’est trouvée, le paquet est évalué par rapport à la collection de règles de l’infrastructure. S’il n’existe toujours pas de correspondance, le paquet est refusé par défaut.
+
+![Logique générale de traitement des règles](media/rule-processing/rule-logic-processing.png)
+
+### <a name="example-of-processing-logic"></a>Exemple de logique de traitement
+Exemple de scénario : trois regroupements de règles existent dans une stratégie Pare-feu Azure.  Chaque regroupement de règles comporte une série de règles d'application et de réseau.
+
+![Ordre d'exécution des règles](media/rule-processing/rule-execution-order.png)
+
+Dans le diagramme illustré, les règles de réseau sont exécutées en premier, suivies des règles d'application, car la logique de traitement des règles du Pare-feu Azure stipule que les règles de réseau ont toujours la priorité sur les règles d'application.
 
 ## <a name="nat-rules"></a>Règles NAT
 

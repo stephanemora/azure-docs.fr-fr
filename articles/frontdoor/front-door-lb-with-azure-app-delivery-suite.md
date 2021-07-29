@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/06/2021
+ms.date: 05/16/2021
 ms.author: duau
-ms.openlocfilehash: 0a7e81c57552fdc24262522343a08fdabba71bfd
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 9910cadfcbb40bbb411c8d07bc73ad2205c085e5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552578"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070513"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Équilibrage de charge avec la suite de livraison d’application Azure
 
@@ -74,7 +74,7 @@ Quand vous devez choisir qui de Traffic Manager ou d’Azure Front Door utiliser
 ## <a name="building-with-azures-application-delivery-suite"></a>Création avec la suite de livraison d’application Azure 
 Nous vous recommandons de faire en sorte que tous les services, sites Web et API soient géographiquement redondants afin qu’ils distribuent le trafic aux utilisateurs à partir de l’emplacement le plus proche dans la mesure du possible.  La combinaison de plusieurs services d’équilibrage de charge vous permet de créer une redondance géographique et zonale pour optimiser la fiabilité et les performances.
 
-Dans le diagramme suivant, nous décrivons un exemple d’architecture qui utilise une combinaison de tous ces services pour créer un service Web global. L’architecte a utilisé Traffic Manager pour acheminer le trafic vers les serveurs backend pour la remise de fichiers et d’objets. Lors de l’utilisation de Front Door, pour acheminer globalement les chemins URL correspondant au modèle/store/* vers le service qu’ils ont migré vers App Service. Enfin, acheminer toutes les autres requêtes vers des passerelles Application Gateway régionales.
+Dans le diagramme suivant, nous décrivons un exemple d’architecture qui utilise une combinaison de tous ces services pour créer un service Web global. L’architecte utilise Traffic Manager afin d’acheminer le trafic vers des backends globaux pour la livraison de fichiers et d’objets, et il a utilisé Front Door pour acheminer globalement les chemins d’URL qui correspondent au modèle /store/* vers le service qu’il a migré vers App Service, et toutes les autres requêtes vers des Application Gateways régionales.
 
 Dans chaque région de service IaaS, le développeur de l’application a décidé que toutes les URL correspondant au modèle /images /* seraient desservies par un pool dédié de machines virtuelles. Ce pool de machines virtuelles est différent du reste de la batterie de serveurs Web.
 

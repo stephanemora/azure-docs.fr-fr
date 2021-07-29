@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 203baa58e286bd605bf28f511a5c12fcf3dc2033
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: d122c9ae2281bde041a15c4f137293f76e0c618c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165062"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475272"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Linux
 
@@ -52,7 +52,7 @@ Voici une liste de scénarios vérifiés par l’outil de résolution des probl�
 6. Les journaux personnalisés de l’agent ne fonctionnent pas
 7. Collecter les journaux de l’agent
 
-Pour plus d’informations, consultez notre [documentation GitHub](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md).
+Pour plus d'informations, consultez notre [documentation GitHub](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md).
 
  > [!NOTE]
  > Si vous rencontrez un problème, exécutez l’outil collecteur de journaux. Le fait d’avoir les journaux dès le départ permettra à notre équipe de support de résoudre plus rapidement votre problème.

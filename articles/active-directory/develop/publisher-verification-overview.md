@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 06/01/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d02b8cae22349412a83b35624479ef19de4697f6
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93308783"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951739"
 ---
 # <a name="publisher-verification"></a>Vérification de l'éditeur
 
@@ -40,7 +40,7 @@ La vérification de l'éditeur offre les avantages suivants :
 - **Adoption plus fluide par les entreprises** : les administrateurs peuvent configurer des [stratégies de consentement des utilisateurs](../manage-apps/configure-user-consent.md), l'état de vérification de l'éditeur étant l'un des principaux critères de ces stratégies.
 
 > [!NOTE]
-> À compter du mois de novembre 2020, les utilisateurs finaux ne seront plus en mesure d’accorder leur consentement à la plupart des applications multilocataires nouvellement inscrites sans éditeurs vérifiés. Cela s’appliquera aux applications inscrites après le 8 novembre 2020, qui utilisent OAuth 2.0 pour demander des autorisations au-delà de la connexion de base et lire le profil utilisateur, et qui demandent le consentement d’utilisateurs situés dans d’autres locataires que celui où l’application est inscrite. Un avertissement s’affichera sur l’écran de consentement pour informer les utilisateurs que ces applications sont risquées et proviennent d’éditeurs non vérifiés.    
+> À compter du mois de novembre 2020, les utilisateurs finaux ne seront plus en mesure d’accorder leur consentement à la plupart des applications multilocataires nouvellement inscrites sans éditeurs vérifiés si l’[évolution du consentement en fonction des risques est activée](../manage-apps/configure-user-consent.md#risk-based-step-up-consent). Cela s’appliquera aux applications inscrites après le 8 novembre 2020, qui utilisent OAuth 2.0 pour demander des autorisations au-delà de la connexion de base et lire le profil utilisateur, et qui demandent le consentement d’utilisateurs situés dans d’autres locataires que celui où l’application est inscrite. Un avertissement s’affichera sur l’écran de consentement pour informer les utilisateurs que ces applications sont risquées et proviennent d’éditeurs non vérifiés.    
 
 ## <a name="requirements"></a>Spécifications
 Il existe quelques conditions préalables à la vérification de l'éditeur, dont certaines sont déjà remplies par de nombreux partenaires Microsoft. Il s'agit de : 

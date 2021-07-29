@@ -2,13 +2,13 @@
 title: Fonctions et déploiement du modèle
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (modèle ARM) pour récupérer des informations de déploiement.
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: a9a073284c62efac4e77f8f9b35e8730c350e5f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/13/2021
+ms.openlocfilehash: a51e11a34e9c5dd51b07bfa1f2d64e1b306f5b31
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101722719"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959687"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Fonctions de déploiement pour les modèles ARM
 
@@ -20,8 +20,6 @@ Resource Manager fournit les fonctions suivantes pour obtenir des valeurs liées
 * [variables](#variables)
 
 Pour obtenir des valeurs de ressources, de groupes de ressources ou d’abonnements, consultez [Fonctions de ressource](template-functions-resource.md).
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## <a name="deployment"></a>deployment
 
@@ -132,9 +130,7 @@ Lorsque vous déployez sur un abonnement Azure, un groupe d’administration ou 
 
 ### <a name="remarks"></a>Notes 
 
-Vous pouvez utiliser deployment() pour établir une liaison à un autre modèle en fonction de l’URI du modèle parent.
-
-# <a name="json"></a>[JSON](#tab/json)
+Vous pouvez utiliser `deployment()` pour établir une liaison à un autre modèle en fonction de l’URI du modèle parent.
 
 ```json
 "variables": {
@@ -142,21 +138,11 @@ Vous pouvez utiliser deployment() pour établir une liaison à un autre modèle 
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-var sharedTemplateUrl = uri(deployment().prperties.templateLink.uri, 'shared-resources.json')
-```
-
----
-
 Si vous redéployez un modèle à partir de l’historique de déploiement dans le portail, le modèle est déployé comme un fichier local. La propriété `templateLink` n’est pas retournée dans la fonction de déploiement. Si votre modèle s’appuie sur `templateLink` pour construire un lien vers un autre modèle, n’utilisez pas le portail pour redéployer. À la place, utilisez les commandes dont vous vous êtes servi pour déployer le modèle à l’origine.
 
 ### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) suivant retourne l’objet de déploiement :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -171,14 +157,6 @@ Si vous redéployez un modèle à partir de l’historique de déploiement dans 
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output deploymentOutput object = deployment()
-```
-
----
 
 L’exemple précédent retourne l’objet suivant :
 
@@ -253,8 +231,6 @@ Cette valeur retourne des propriétés pour l’environnement Azure actuel. L’
 
 L’exemple de modèle suivant retourne l’objet d’environnement.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -268,14 +244,6 @@ L’exemple de modèle suivant retourne l’objet d’environnement.
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output environmentOutput object = environment()
-```
-
----
 
 L’exemple précédent retourne l’objet suivant lorsqu’il est déployé vers Azure international :
 
@@ -319,6 +287,8 @@ L’exemple précédent retourne l’objet suivant lorsqu’il est déployé ve
 
 Retourne une valeur de paramètre. Le nom de paramètre spécifié doit être défini dans la section parameters du modèle.
 
+Dans Bicep, référencez directement les paramètres à l’aide de leurs noms symboliques.
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -332,8 +302,6 @@ La valeur du paramètre spécifié.
 ### <a name="remarks"></a>Notes
 
 En général, vous utilisez les paramètres pour définir les valeurs de la ressource. L’exemple suivant définit le nom du site web sur la valeur du paramètre transmise au cours du déploiement.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "parameters": {
@@ -350,24 +318,9 @@ En général, vous utilisez les paramètres pour définir les valeurs de la ress
 ]
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param siteName string
-
-resource mySite 'Microsoft.Web/Sites@2016-08-01' = {
-  name: siteName
-  ...
-}
-```
-
----
-
 ### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) suivant montre une utilisation simplifiée de la fonction parameters.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -425,31 +378,6 @@ resource mySite 'Microsoft.Web/Sites@2016-08-01' = {
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringParameter string = 'option 1'
-param intParameter int = 1
-param objectParameter object = {
-  'one': 'a'
-  'two': 'b'
-}
-param arrayParameter array = [
-  1
-  2
-  3
-]
-param crossParameter string = stringParameter
-
-output stringOutput string = stringParameter
-output intOutput int = intParameter
-output objectOutput object = objectParameter
-output arrayOutput array = arrayParameter
-output crossOutput string = crossParameter
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -460,13 +388,15 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | option 1 |
 
-Pour plus d’informations sur l’utilisation des paramètres, consultez [Paramètres dans les modèles ARM](template-parameters.md).
+Pour plus d’informations sur l’utilisation des paramètres, consultez [Paramètres dans les modèles ARM](./parameters.md).
 
 ## <a name="variables"></a>variables
 
 `variables(variableName)`
 
 Retourne la valeur de la variable. Le nom de variable spécifié doit être défini dans la section variables du modèle.
+
+Dans Bicep, référencez directement les variables à l’aide de leurs noms symboliques.
 
 ### <a name="parameters"></a>Paramètres
 
@@ -481,8 +411,6 @@ La valeur de la variable spécifiée.
 ### <a name="remarks"></a>Notes
 
 En général, vous utilisez les variables pour simplifier votre modèle en créant des valeurs complexes une seule fois. L’exemple suivant crée un nom unique pour un compte de stockage.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "variables": {
@@ -505,28 +433,9 @@ En général, vous utilisez les variables pour simplifier votre modèle en créa
 
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-var storageName = 'storage${uniqueString(resourceGroup().id)}'
-
-resource myStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: storageName
-  ...
-}
-
-resource myVm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
-  ...
-}
-```
-
----
-
 ### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) suivant retourne différentes valeurs de variables.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -564,30 +473,6 @@ resource myVm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-var var1 = 'myVariable'
-var var2 = [
-  1
-  2
-  3
-  4
-]
-var var3 = var1
-var var4 = {
-  'property1': 'value1'
-  'property2': 'value2'
-}
-
-output exampleOutput1 string = var1
-output exampleOutput2 array = var2
-output exampleOutput3 string = var3
-output exampleOutput4 object = var4
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -597,8 +482,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-Pour plus d’informations sur l’utilisation des variables, consultez [Variables dans un modèle ARM](template-variables.md).
+Pour plus d’informations sur l’utilisation des variables, consultez [Variables dans un modèle ARM](./variables.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](./syntax.md).

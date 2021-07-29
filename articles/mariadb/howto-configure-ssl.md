@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f541e2302bc1f1de132de76e0638f9843d7003f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d790bfd86f1180230aaf57a8052cef0b9c876309
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98662268"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089269"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configuration de la connectivité SSL dans votre application pour se connecter de manière sécurisée à Azure Database for MariaDB
 Azure Database for MariaDB prend en charge la connexion de votre serveur Azure Database for MariaDB aux applications clientes à l’aide de SSL (Secure Sockets Layer). L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application.
@@ -23,13 +23,7 @@ Azure Database for MariaDB prend en charge la connexion de votre serveur Azure D
 Téléchargez le certificat nécessaire pour communiquer via le protocole SSL avec votre serveur Azure Database for MariaDB à partir de [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) et enregistrez le fichier de certificat sur votre disque local (ce tutoriel utilise c:\ssl à titre d’exemple).
 **Pour Microsoft Internet Explorer et Microsoft Edge :** Une fois le téléchargement terminé, renommez le certificat en BaltimoreCyberTrustRoot.crt.pem.
 
->[!NOTE]
-> Sur la base des commentaires des clients, nous avons étendu la dépréciation du certificat racine pour notre autorité de certification racine Baltimore existante jusqu’au 15 février 2021 (15/2/2021).
-
-> [!IMPORTANT] 
-> Le certificat racine SSL est configuré pour expirer à partir du 15 février 2021 (15/2/2021). Mettez à jour votre application pour utiliser le [nouveau certificat](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Pour plus d’informations, consultez [Mises à jour de certificat planifiées](concepts-certificate-rotation.md)
-
-Consultez les liens suivants afin d’obtenir des certificats pour des serveurs de clouds souverains : [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure Chine](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) et [Azure Allemagne](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
+Consultez les liens suivants afin d’obtenir des certificats pour les serveurs de clouds souverains : [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure Chine](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) et [Azure Allemagne](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
 ## <a name="bind-ssl"></a>Créer une liaison SSL
 
@@ -213,7 +207,6 @@ using (var connection = new MySqlConnection(builder.ConnectionString))
 }
 ```
 
-<!-- 
-## Next steps
-Review various application connectivity options following [Connection libraries for Azure Database for MariaDB](concepts-connection-libraries.md)
--->
+
+## <a name="next-steps"></a>Étapes suivantes
+Pour en savoir plus sur l’expiration et la rotation des certificats, consultez [la documentation sur la rotation des certificats](concepts-certificate-rotation.md)

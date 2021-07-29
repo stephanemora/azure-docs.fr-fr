@@ -1,6 +1,6 @@
 ---
-title: Gestion du calcul sur Azure Stack Edge Pro | Microsoft Docs
-description: Décrit comment gérer les paramètres de computing en périphérie (déclencheur, modules, affichage de la configuration du calcul, suppression de configuration) via le portail Azure sur votre ressource Azure Stack Edge Pro.
+title: Gestion du calcul sur Azure Stack Edge Pro FGPA
+description: Décrit comment gérer les paramètres de calcul Edge (déclencheur, modules, affichage de la configuration du calcul, suppression de configuration) via le Portail Azure sur votre appareil Azure Stack Edge Pro avec FGPA.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: alkohli
-ms.openlocfilehash: ebf967fe02ab6424b9952bb0315b70fadb547fe3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80d19909cc4a2fe843adbf19eed0f8316d64f6db
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97967828"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460698"
 ---
-# <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Gérer le calcul sur votre ressource Azure Stack Edge Pro
+# <a name="manage-compute-on-your-azure-stack-edge-pro-fpga"></a>Gérer le calcul sur votre appareil Azure Stack Edge Pro avec FGPA
 
-Cet article explique comment gérer le calcul sur votre appareil Azure Stack Edge Pro. Vous pouvez gérer le calcul via le portail Azure ou l’interface utilisateur web locale. Le portail Azure vous permet de gérer les modules, les déclencheurs, la configuration du calcul et l’interface utilisateur pour la définition des paramètres de calcul.
+Cet article explique comment gérer le calcul sur votre appareil Azure Stack Edge Pro FGPA. Vous pouvez gérer le calcul via le portail Azure ou l’interface utilisateur web locale. Le portail Azure vous permet de gérer les modules, les déclencheurs, la configuration du calcul et l’interface utilisateur pour la définition des paramètres de calcul.
 
 Dans cet article, vous apprendrez comment :
 
@@ -28,7 +28,7 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="manage-triggers"></a>Gérer les déclencheurs
 
-Les événements sont des faits qui se produisent au sein de votre environnement cloud ou sur votre appareil, sur lesquels vous pouvez agir. Par exemple, quand un fichier est créé dans un partage, il s’agit d’un événement. Les déclencheurs activent les événements. Dans Azure Stack Edge Pro, des déclencheurs peuvent répondre à des événements de fichier ou intervenir en vertu d’une planification.
+Les événements sont des faits qui se produisent au sein de votre environnement cloud ou sur votre appareil, sur lesquels vous pouvez agir. Par exemple, quand un fichier est créé dans un partage, il s’agit d’un événement. Les déclencheurs activent les événements. Dans votre ressource Azure Stack Edge Pro FGPA, des déclencheurs peuvent répondre à des événements de fichier ou intervenir en vertu d’une planification.
 
 - **Fichier** : Ces déclencheurs répondent à des événements tels que la création ou la modification d’un fichier.
 - **Scheduled** : Ces déclencheurs résultent d’une planification que vous pouvez définir avec une date de début, une heure de début et un intervalle de répétition.
@@ -54,7 +54,7 @@ Pour créer un déclencher, procédez comme suit sur le portail Azure.
 
     - **Déclencheur planifié** : spécifiez les date et heure de démarrage, ainsi que l’intervalle de répétition en heures, minutes ou secondes. Entrez le nom d’une rubrique. Une rubrique vous donne la possibilité de router le déclencheur vers un module déployé sur l’appareil.
 
-        Voici un exemple de chaîne de routage : `"route3": "FROM /* WHERE topic = 'topicname' INTO BrokeredEndpoint("modules/modulename/inputs/input1")"`.
+        Voici un exemple de chaîne de routage : `"route3&quot;: &quot;FROM /* WHERE topic = 'topicname' INTO BrokeredEndpoint(&quot;modules/modulename/inputs/input1")"`.
 
         ![Ajouter un partage NFS](media/azure-stack-edge-manage-compute/add-scheduled-trigger.png)
 
@@ -82,7 +82,7 @@ La liste des déclencheurs est actualisée afin de refléter la suppression.
 
 ## <a name="manage-compute-configuration"></a>Gérer la configuration du calcul
 
-Utilisez le portail Azure pour afficher la configuration de calcul, supprimer une configuration de calcul existante, ou actualiser la configuration de calcul afin de synchroniser les clés d’accès de l’appareil IoT et de l’appareil IoT Edge pour Azure Stack Edge Pro.
+Utilisez le Portail Azure pour afficher la configuration de calcul, supprimer une configuration de calcul existante ou actualiser la configuration de calcul, afin de synchroniser les clés d’accès de l’appareil IoT et de l’appareil IoT Edge pour votre ressource Azure Stack Edge Pro FGPA.
 
 ### <a name="view-compute-configuration"></a>Afficher une configuration de calcul
 
@@ -111,11 +111,11 @@ Pour supprimer la configuration de computing en périphérie de votre appareil, 
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>Synchroniser les clés d’accès de l’appareil IoT et de l’appareil IoT Edge
 
-Lorsque vous configurez le calcul sur votre ressource Azure Stack Edge Pro, un appareil IoT et un appareil IoT Edge sont créés. Des clés d’accès symétriques sont affectées automatiquement à ces appareils. Conformément aux meilleures pratiques de sécurité, le service IoT Hub veille à une rotation régulière de ces clés.
+Lorsque vous configurez le calcul sur votre ressource Azure Stack Edge Pro FGPA, un appareil IoT et un appareil IoT Edge sont créés. Des clés d’accès symétriques sont affectées automatiquement à ces appareils. Conformément aux meilleures pratiques de sécurité, le service IoT Hub veille à une rotation régulière de ces clés.
 
 Pour définir la rotation de ces clés, vous pouvez accéder au service IoT Hub que vous avez créé, puis sélectionnez l’appareil IoT ou l’appareil IoT Edge. Chaque appareil possède une clé d’accès primaire et une clé d’accès secondaire. Affectez la clé d’accès primaire à la clé d’accès secondaire, puis régénérez la clé d’accès primaire.
 
-Si une rotation des clés de vos appareils IoT et IoT Edge a eu lieu, vous devez actualiser la configuration sur votre ressource Azure Stack Edge Pro pour obtenir les dernières clés d’accès. La synchronisation aide l’appareil à obtenir les dernières clés de vos appareils IoT et IoT Edge. Azure Stack Edge Pro utilise uniquement les clés d’accès primaires.
+Si une rotation des clés de vos appareils IoT et IoT Edge a eu lieu, vous devez actualiser la configuration sur votre ressource Azure Stack Edge Pro FGPA pour obtenir les dernières clés d’accès. La synchronisation aide l’appareil à obtenir les dernières clés de vos appareils IoT et IoT Edge. Azure Stack Edge Pro FGPA utilise uniquement les clés d’accès primaires.
 
 Pour synchroniser les clés d’accès pour votre appareil, procédez comme suit sur le portail Azure.
 

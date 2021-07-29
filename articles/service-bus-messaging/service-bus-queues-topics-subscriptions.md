@@ -3,12 +3,12 @@ title: Messagerie Azure Service Bus - files d’attente, rubriques et abonneme
 description: Cet article fournit une vue d’ensemble des entités de messagerie Azure Service Bus (file d’attente, rubriques et abonnements).
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: ccd91d5091dbbba072cf222e5a73c3db1d48c321
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: c3e50c5f8487a0f6dc26a50ec6bfb10f4136f899
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107209822"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479092"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Files d’attente, rubriques et abonnements Service Bus
 Azure Service Bus prend en charge un ensemble de technologies interlogicielles Cloud orientées messages, notamment une mise en file d'attente des messages fiable et une messagerie de publication/abonnement durable. Ces capacités de messagerie répartie peuvent être considérées comme des fonctionnalités de messagerie découplée prenant en charge la publication-abonnement, le découplage temporel et les scénarios d’équilibrage de charge qui utilisent la charge de travail de messagerie Service Bus. La communication découplée présente de nombreux avantages. Par exemple, les clients et les serveurs peuvent se connecter en fonction des besoins et exécuter leurs opérations de manière asynchrone.
@@ -23,7 +23,7 @@ Un des avantages associés est le **nivellement de charge**, qui permet aux prod
 L’utilisation de files d’attente comme intermédiaire entre les producteurs et les consommateurs de message fournit un couplage souple inhérent entre les composants. Producteurs et consommateurs étant indépendants les uns des autres, il est possible de mettre à niveau un consommateur sans que cela affecte le producteur.
 
 ### <a name="create-queues"></a>Créer des files d’attente
-Vous pouvez créer des files d’attente en utilisant le [portail Azure](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [l’interface CLI](service-bus-quickstart-cli.md) ou les [modèles Resource Manager](service-bus-resource-manager-namespace-queue.md). Ensuite, envoyez et recevez des messages à l’aide de clients écrits en [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), [JavaScript](service-bus-nodejs-how-to-use-queues.md), [PHP](service-bus-php-how-to-use-queues.md) et [Ruby](service-bus-ruby-how-to-use-queues.md). 
+Vous pouvez créer des files d’attente en utilisant le [portail Azure](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [l’interface CLI](service-bus-quickstart-cli.md) ou les [modèles Resource Manager](service-bus-resource-manager-namespace-queue.md). Ensuite, envoyez et recevez des messages à l’aide de clients écrits en [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), [JavaScript](service-bus-nodejs-how-to-use-queues.md), [et PHP](service-bus-php-how-to-use-queues.md). 
 
 ### <a name="receive-modes"></a>Modes de réception
 Service Bus propose deux modes différents de réception des messages.
@@ -46,7 +46,7 @@ Une file d’attente autorise le traitement d’un message par un seul consommat
 La fonctionnalité d’envoi de messages d’une file d’attente mappe directement sur une rubrique, et sa fonctionnalité de réception de messages est mappé sur un abonnement. Cette fonctionnalité implique, entre autres, que les abonnements prennent en charge les modèles décrits plus haut dans cette section concernant les files d’attente : consommateurs simultanés, découplage temporel, nivellement et équilibrage de charge.
 
 ### <a name="create-topics-and-subscriptions"></a>Créer des rubriques et des abonnements
-La création d’une rubrique est similaire à la création d’une file d’attente, comme le montre la section précédente. Vous pouvez créer des rubriques et des abonnements en utilisant le [portail Azure](service-bus-quickstart-topics-subscriptions-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [l’interface CLI](service-bus-tutorial-topics-subscriptions-cli.md) ou les [modèles Resource Manager](service-bus-resource-manager-namespace-topic.md). Ensuite, envoyez des messages à une rubrique et recevez des messages d’abonnements à l’aide de clients écrits en [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md), [Java](service-bus-java-how-to-use-topics-subscriptions.md), [Python](service-bus-python-how-to-use-topics-subscriptions.md), [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md), [PHP](service-bus-php-how-to-use-topics-subscriptions.md) et [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md). 
+La création d’une rubrique est similaire à la création d’une file d’attente, comme le montre la section précédente. Vous pouvez créer des rubriques et des abonnements en utilisant le [portail Azure](service-bus-quickstart-topics-subscriptions-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [l’interface CLI](service-bus-tutorial-topics-subscriptions-cli.md) ou les [modèles Resource Manager](service-bus-resource-manager-namespace-topic.md). Ensuite, envoyez des messages à une rubrique et recevez des messages d’abonnements à l’aide de clients écrits en [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md), [Java](service-bus-java-how-to-use-topics-subscriptions.md), [Python](service-bus-python-how-to-use-topics-subscriptions.md), [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md), et [PHP](service-bus-php-how-to-use-topics-subscriptions.md). 
 
 ### <a name="rules-and-actions"></a>Règles et actions
 Dans de nombreux scénarios, les messages ayant des caractéristiques spécifiques doivent être traités différemment. Pour mettre en place ce traitement, vous pouvez configurer des abonnements de sorte qu’ils recherchent les messages présentant les propriétés souhaitées, puis apporter certaines modifications à ces propriétés. Bien que les abonnements Service Bus voient tous les messages envoyés à la rubrique, vous pouvez uniquement copier un sous-ensemble de ces messages dans la file d’attente d’abonnement virtuelle. On utilise pour cela des filtres d’abonnement. Ces modifications sont appelées **actions de filtrage**. Lorsqu’un abonnement est créé, vous pouvez fournir une expression de filtre qui opère sur les propriétés du message. Les propriétés peuvent être à la fois des propriétés système (par exemple, **Étiquette**) et des propriétés d’application personnalisées (par exemple, **StoreName**). L’expression de filtre SQL est facultative dans ce cas. Sans expression de filtre SQL, toute action de filtre définie sur un abonnement sera effectuée sur tous les messages de cet abonnement.

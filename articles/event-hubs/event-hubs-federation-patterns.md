@@ -3,12 +3,12 @@ title: Modèles de tâches de réplication des événements – Azure Event Hubs
 description: Cet article fournit des instructions détaillées concernant l’implémentation de modèles de tâches de réplication d’événements spécifiques.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 438964c228f060dede93abf582c9504b698db8b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: adaa124470e6b3cc94bab647967f08b63a1c4f49
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934609"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462850"
 ---
 # <a name="event-replication-tasks-patterns"></a>Modèles de tâches de réplication des événements
 
@@ -78,7 +78,7 @@ Dans la zone de votre application, vous allez ensuite créer une entrée CNAME q
 
 | Enregistrement CNAME                | Alias                    |
 | --------------------------- | ------------------------ |
-| `eventhub.test.example.com` | `test1.test.example.com` |
+| `eventhub.test.example.com` | `eh1.test.example.com`   |
 
 À l’aide d’un client DNS qui autorise l’interrogation explicite des enregistrements CNAME et SRV (les clients intégrés de Java et .NET autorisent uniquement la résolution simple des noms en adresses IP), vous pouvez alors résoudre le point de terminaison souhaité. Avec [DnsClient.NET](https://dnsclient.michaco.net/), par exemple, la fonction de recherche est la suivante :
 

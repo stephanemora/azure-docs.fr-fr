@@ -2,15 +2,15 @@
 title: Supprimer des ressources d’image
 description: Explique en détail comment gérer efficacement la taille du registre en supprimant les données d’image conteneur à l’aide de commandes d’interfaces de lignes de commande Azure.
 ms.topic: article
-ms.date: 07/31/2019
-ms.openlocfilehash: af277d0c02960c989b4e9119f2ecbfd8f6d7ce07
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/07/2021
+ms.openlocfilehash: b603645c3b4cef9c4734f1c385bab375a9aec3ff
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783986"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062971"
 ---
-# <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Supprimer des images conteneur dans Azure Container Registry à l’aide de l’interface de ligne de commande Azure
+# <a name="delete-container-images-in-azure-container-registry"></a>Supprimer des images conteneur dans Azure Container Registry
 
 Pour limiter la taille de votre registre de conteneurs Azure, vous devez supprimer régulièrement les données d’image obsolètes. Certaines images conteneur déployées dans l’environnement de production peuvent nécessiter un stockage à long terme, mais d’autres peuvent être supprimées plus rapidement. Par exemple, dans un scénario de génération et de tests automatisés, votre registre peut se remplir rapidement d’images qui peuvent ne jamais être déployées, et peuvent donc être vidées peu après la génération et la réussite des tests.
 
@@ -20,9 +20,10 @@ Il existe plusieurs façons de supprimer les données d’image, et il est impor
 * En supprimant en fonction de [l’étiquette](#delete-by-tag) : de cette façon, vous supprimez une image, son étiquette, tous les calques référencés par l’image et toutes les autres étiquettes associées à l’image.
 * En supprimant en fonction du [code de hachage du manifeste](#delete-by-manifest-digest) : de cette façon, vous supprimez une image, tous les calques référencés par l’image et toutes les autres étiquettes associées à l’image.
 
-Des exemples de scripts sont fournis pour automatiser les opérations de suppression.
-
 Pour une présentation de ces concepts, consultez [À propos des registres, des dépôts et des images](container-registry-concepts.md).
+
+> [!NOTE]
+> Une fois que vous avez supprimé des données d’image, Azure Container Registry arrête la facturation immédiatement pour le stockage associé. Toutefois, le registre récupère l’espace de stockage associé à l’aide d’un processus asynchrone. Il faut un certain temps avant que le registre nettoie les couches et montre l’utilisation mise à jour du stockage.   
 
 ## <a name="delete-repository"></a>Supprimer le référentiel
 
@@ -58,7 +59,7 @@ Are you sure you want to continue? (y/n):
 
 Un [code de hachage de manifeste](container-registry-concepts.md#manifest-digest) peut être associé à une ou plusieurs étiquettes, ou à aucune. Lorsque vous supprimez en fonction du code de hachage, toutes les étiquettes référencées par le manifeste sont supprimées, comme le sont les données des calques propres à l’image. Les données de calques partagées ne sont pas supprimées.
 
-Pour supprimer en fonction du code de hachage, commencez par répertorier les codes de hachage de manifeste du référentiel qui contient les images que vous souhaitez supprimer. Par exemple :
+Pour supprimer en fonction du code de hachage, commencez par répertorier les codes de hachage de manifeste du référentiel qui contient les images que vous souhaitez supprimer. Exemple :
 
 ```azurecli
 az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -107,7 +108,7 @@ L'image `acr-helloworld:v2` est supprimée du registre, comme le sont les donné
 
 Pour limiter la taille d'un référentiel ou d'un registre, vous devrez peut-être périodiquement supprimer les codes de hachage de manifeste antérieurs à une certaine date.
 
-La commande Azure CLI suivante répertorie tous les codes de hachage de manifeste d'un référentiel antérieurs à un timestamp spécifié, par ordre croissant. Remplacez `<acrName>` et `<repositoryName>` par les valeurs adaptées à votre environnement. Le timestamp peut être une expression date-heure complète ou une date, comme dans cet exemple.
+La commande Azure CLI suivante répertorie tous les codes de hachage de manifeste d’un référentiel antérieurs à un timestamp spécifié, par ordre croissant. Remplacez `<acrName>` et `<repositoryName>` par les valeurs adaptées à votre environnement. Le timestamp peut être une expression date-heure complète ou une date, comme dans cet exemple.
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName> \
@@ -201,81 +202,17 @@ Comme mentionné dans la section [Code de hachage de manifeste](container-regist
 
 Comme vous pouvez le voir dans la sortie de la dernière étape de la séquence, il existe maintenant un manifeste orphelin dont la propriété `"tags"` est une liste vide. Ce manifeste se trouve toujours dans le registre, ainsi que toutes les données des calques propres qu’il référence. **Pour supprimer ces images orphelines et leurs données de calque, vous devez supprimer en fonction du code de hachage du manifeste**.
 
-## <a name="delete-all-untagged-images"></a>Supprimer toutes les images sans étiquette
+## <a name="automatically-purge-tags-and-manifests"></a>Vider automatiquement les balises et les manifestes
 
-Vous pouvez répertorier toutes les images sans étiquette de votre référentiel à l’aide de la commande Azure CLI suivante. Remplacez `<acrName>` et `<repositoryName>` par les valeurs adaptées à votre environnement.
+Azure Container Registry fournit les méthodes automatisées suivantes pour supprimer les balises et les manifestes, ainsi que les données de couche uniques qui leur sont associées :
 
-```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?tags[0]==null].digest"
-```
+* Créez une tâche ACR qui exécute la commande de conteneur `acr purge` pour supprimer toutes les balises antérieures à une certaine durée ou correspondant à un filtre de nom spécifié. Éventuellement, configurez `acr purge` pour supprimer les manifestes sans balise. 
 
-L’utilisation de cette commande dans un script vous permet de supprimer toutes les images sans étiquette d’un référentiel.
+  La commande de conteneur `acr purge` est actuellement en préversion. Pour plus d’informations, consultez [Purger automatiquement les images d’un registre de conteneurs Azure](container-registry-auto-purge.md).
 
-> [!WARNING]
-> Utilisez les exemples de scripts suivants avec prudence : la suppression des données d’image est irrécupérable. Si vous disposez de systèmes qui tirent (pull) les images en fonction du code de hachage du manifeste (et non en fonction du nom de l'image), vous ne devez pas exécuter ces scripts. La suppression des images sans étiquette va empêcher ces systèmes de tirer les images à partir du registre. Au lieu de tirer en fonction du manifeste, envisagez d’adopter un schéma d’*étiquetage unique* (il s’agit là d’une [bonne pratique](container-registry-image-tag-version.md)).
+* Vous pouvez éventuellement définir une [stratégie de rétention](container-registry-retention-policy.md) pour chaque registre, afin de gérer les manifestes sans balise. Lorsque vous activez une stratégie de rétention, les fichiers manifestes d’image du registre qui n’ont aucune balise associée, ainsi que les données sous-jacentes, sont automatiquement supprimés après une période définie. 
 
-**Azure CLI dans Bash**
-
-Le script Bash suivant supprime toutes les images sans étiquette d’un référentiel. Ce script nécessite Azure CLI et **xargs**. Par défaut, le script n’effectue aucune suppression. Remplacez la valeur `ENABLE_DELETE` par `true` pour activer la suppression des images.
-
-```bash
-#!/bin/bash
-
-# WARNING! This script deletes data!
-# Run only if you do not have systems
-# that pull images via manifest digest.
-
-# Change to 'true' to enable image delete
-ENABLE_DELETE=false
-
-# Modify for your environment
-REGISTRY=myregistry
-REPOSITORY=myrepository
-
-# Delete all untagged (orphaned) images
-if [ "$ENABLE_DELETE" = true ]
-then
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags[0]==null].digest" -o tsv \
-    | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
-else
-    echo "No data deleted."
-    echo "Set ENABLE_DELETE=true to enable image deletion of these images in $REPOSITORY:"
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY --query "[?tags[0]==null]" -o tsv
-fi
-```
-
-**Azure CLI dans PowerShell**
-
-Le script PowerShell suivant supprime toutes les images sans étiquette d’un référentiel. Il nécessite PowerShell et Azure CLI. Par défaut, le script n’effectue aucune suppression. Remplacez la valeur `$enableDelete` par `$TRUE` pour activer la suppression des images.
-
-```powershell
-# WARNING! This script deletes data!
-# Run only if you do not have systems
-# that pull images via manifest digest.
-
-# Change to '$TRUE' to enable image delete
-$enableDelete = $FALSE
-
-# Modify for your environment
-$registry = "myregistry"
-$repository = "myrepository"
-
-if ($enableDelete) {
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null].digest" -o tsv `
-    | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
-} else {
-    Write-Host "No data deleted."
-    Write-Host "Set `$enableDelete = `$TRUE to enable image deletion."
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null]" -o tsv
-}
-```
-
-
-## <a name="automatically-purge-tags-and-manifests-preview"></a>Vider automatiquement les balises et les manifestes (préversion)
-
-Au lieu de scripts d’interfaces de lignes de commande Azure, exécutez une tâche ACR à la demande ou planifiée pour supprimer toutes les balises qui sont antérieures à une certaine durée ou correspondent à un filtre de nom spécifié. Pour plus d’informations, consultez [Purger automatiquement les images d’un registre de conteneurs Azure](container-registry-auto-purge.md).
-
-Vous pouvez éventuellement définir une [stratégie de rétention](container-registry-retention-policy.md) pour chaque registre, afin de gérer les manifestes sans balise. Lorsque vous activez une stratégie de rétention, les fichiers manifestes d’image du registre qui n’ont aucune balise associée, ainsi que les données sous-jacentes, sont automatiquement supprimés après une période définie.
+  La stratégie de conservation est actuellement une fonctionnalité d’évaluation des registres de conteneurs **Premium**. La stratégie de rétention s’applique uniquement aux manifestes sans balise créés après la prise d’effet de la stratégie. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

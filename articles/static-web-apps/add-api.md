@@ -5,266 +5,342 @@ services: static-web-apps
 author: manekinekko
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 05/14/2021
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 215ff68cd560062d15a90c52847c7f1a0ec6b4a0
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 939c63edba204ff903a8616eef1db5e031397a3f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684628"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110066175"
 ---
-# <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Ajouter une API dans Azure Static Web Apps (en préversion) avec Azure Functions
+# <a name="add-an-api-to-azure-static-web-apps-with-azure-functions"></a>Ajouter une API dans Azure Static Web Apps avec Azure Functions
 
-Vous pouvez ajouter des API serverless à Azure Static Web Apps via l’intégration à Azure Functions. Cet article explique comment ajouter et déployer une API sur un site Azure Static Web Apps.
+Vous pouvez ajouter des API serverless à Azure Static Web Apps qui sont alimentées par Azure Functions. Cet article explique comment ajouter et déployer une API sur un site Azure Static Web Apps.
+
+> [!NOTE]
+> Les fonctions fournies par défaut dans Static Web Apps sont préconfigurées pour fournir des points de terminaison d’API sécurisés et ne prennent en charge que les fonctions déclenchées par HTTP. Pour plus d’informations sur les différences avec les applications Azure Functions autonomes, consultez [Prise en charge d’API avec Azure Functions](apis.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif.
   - Si vous ne possédez pas de compte, vous pouvez [créer un compte gratuit](https://azure.microsoft.com/free).
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Extension Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) pour Visual Studio Code
-- Extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) de Visual Studio Code.
-- [Node.js](https://nodejs.org/download/) pour exécuter l’application API localement
+- [Extension Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) pour Visual Studio Code
+- [Node.js](https://nodejs.org/download/) pour exécuter l’API et l’application front-end
 
-## <a name="create-a-git-repository"></a>Créer un dépôt Git
+## <a name="create-the-static-web-app"></a>Créer l’application web statique
 
-Les étapes suivantes montrent comment créer un référentiel et cloner les fichiers sur votre ordinateur.
+Avant d’ajouter une API, créez et déployez une application front-end sur Azure Static Web Apps. Utilisez une application existante que vous avez déjà déployée ou créez-en une en suivant le guide de démarrage rapide [Créer votre premier site statique avec Azure Static Web Apps](getting-started.md).
 
-1. Vérifiez que vous êtes connecté à GitHub et accédez à [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate) pour créer un dépôt.
-1. Dans la zone _Repository name_ (Nom du référentiel), entrez **my-vanilla-api**.
-1. Cliquez sur **Create repository from template** (Créer un référentiel à partir du modèle).
+Dans Visual Studio Code, ouvrez la racine du référentiel de votre application. La structure de dossiers contient la source de votre application front-end et le flux de travail GitHub Static Web Apps dans le dossier _.github/workflows_.
 
-   :::image type="content" source="media/add-api/create-repository.png" alt-text="Créer un référentiel à partir de vanilla-basic":::
-
-Une fois votre projet créé, copiez l’URL dans votre navigateur pour le nouveau dépôt. Vous utilisez cette URL dans Visual Studio Code pour cloner le dépôt Git.
-
-1. Appuyez sur **F1** pour ouvrir la commande dans la palette de commandes
-1. Collez l’URL dans l’invite _Git: Clone_, puis appuyez sur **Entrée**.
-
-   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Cloner un projet GitHub à l’aide de Visual Studio Code":::
-
-    Suivez les invites pour sélectionner un emplacement de dépôt auquel cloner le projet.
+```Files
+├── .github
+│   └── workflows
+│       └── azure-static-web-apps-<DEFAULT_HOSTNAME>.yml
+│
+└── (folders and files from your static web app)
+```
 
 ## <a name="create-the-api"></a>Création de l’API
 
-Ensuite, vous créez un projet Azure Functions en tant qu’API de l’application. 
+Vous créez un projet Azure Functions pour l’API de votre application web statique. Par défaut, l’extension Visual Studio Code Static Web Apps crée le projet dans un dossier nommé _api_ à la racine de votre référentiel.
 
-1. Dans le projet _my-vanilla-api_, créez un sous-dossier nommé **api**.
-1. Appuyez sur **F1** pour ouvrir la palette de commandes
-1. Entrez **Azure Functions : Create New Project...** (Créer un projet...)
-1. Appuyez sur **Entrée**
-1. Choisissez **Parcourir**
-1. Sélectionner le dossier **api** comme répertoire de votre espace de travail de projet
-1. Choisissez **Select** (Sélectionner)
+1. Appuyez sur <kbd>F1</kbd> pour ouvrir la palette de commandes.
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Capture d’écran montrant le dossier API et le bouton Sélectionner.":::
+1. Sélectionnez **Azure Static Web Apps : créer une fonction HTTP...** . Si vous êtes invité à installer l’extension Azure Functions, installez-la et réexécutez cette commande.
 
-1. Quand vous y êtes invité, indiquez les informations suivantes :
+1. Quand vous y êtes invité, entrez les valeurs suivantes :
 
-    - _Sélectionnez un langage_ : Choisir **JavaScript**
-    - _Sélectionner un modèle pour la première fonction de votre projet_ : Choisir **HTTP trigger** (Déclencheur HTTP)
-    - _Fournir un nom de fonction_ : Entrez **GetMessage**.
-    - _Niveau d’autorisation_ : Choisissez l’option **Anonymous** (Anonyme), qui permet à quiconque d’appeler le point de terminaison de votre fonction.
-        - Pour en savoir plus sur les niveaux d’autorisation, consultez [Clés d’autorisation](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys).
+    | Prompt | Valeur |
+    | --- | --- |
+    | Sélectionner une langue | **JavaScript** |
+    | Fournir un nom de fonction | **message** |
 
-Visual Studio Code génère un projet Azure Functions avec un fonction déclenchée HTTP.
+    Un projet Azure Functions est généré avec une fonction déclenchée par HTTP. Votre application a maintenant une structure de projet similaire à celle de l’exemple suivant.
 
-Votre application a maintenant une structure de projet similaire à celle de l’exemple suivant.
+    ```Files
+    ├── .github
+    │   └── workflows
+    │       └── azure-static-web-apps-<DEFAULT_HOSTNAME>.yml
+    │
+    ├── api
+    │   ├── message
+    │   │   ├── function.json
+    │   │   └── index.js
+    │   ├── host.json
+    │   ├── local.settings.json
+    │   └── package.json
+    │
+    └── (folders and files from your static web app)
+    ```
 
-```files
-├── api
-│   ├── GetMessage
-│   │   ├── function.json
-│   │   ├── index.js
-│   │   └── sample.dat
-│   ├── host.json
-│   ├── local.settings.json
-│   ├── package.json
-│   └── proxies.json
-├── index.html
-├── readme.md
-└── styles.css
-```
-
-Ensuite, vous allez modifier la fonction `GetMessage` pour retourner un message au front-end.
-
-1. Mettez à jour la fonction `GetMessage` sous _api/GetMessage/index.js_ avec le code suivant.
+1. Ensuite, modifiez la fonction `message` pour retourner un message au front-end. Mettez à jour la fonction dans _api/message/index.js_ avec le code suivant.
 
     ```javascript
     module.exports = async function (context, req) {
-      context.res = {
-        body: {
-          text: "Hello from the API"
-        }
-      };
+        context.res.json({
+            text: "Hello from the API"
+        });
     };
     ```
 
-1. Mettez à jour la configuration de `GetMessage` sous `api/GetMessage/function.json` avec les paramètres suivants.
+> [!TIP]
+> Vous pouvez ajouter d’autres fonctions d’API en exécutant à nouveau la commande **Azure Static Web Apps : créer une fonction HTTP...** .
 
-    ```json
-    {
-      "bindings": [
-        {
-          "authLevel": "anonymous",
-          "type": "httpTrigger",
-          "direction": "in",
-          "name": "req",
-          "methods": [
-            "get"
-          ],
-          "route": "message"
-        },
-        {
-          "type": "http",
-          "direction": "out",
-          "name": "res"
-        }
-      ]
+## <a name="update-the-frontend-app-to-call-the-api"></a>Mettre à jour l’application front-end pour appeler l’API
+
+Mettez à jour votre application front-end pour appeler l’API dans `/api/message` et afficher le message de réponse.
+
+Si vous avez utilisé les guides de démarrage rapide pour créer l’application, suivez les instructions ci-dessous pour appliquer les mises à jour.
+
+# <a name="no-framework"></a>[Pas de framework](#tab/vanilla-javascript)
+
+Mettez à jour le contenu du fichier _index.html_ à l’aide du code suivant pour extraire le texte de la fonction API et l’afficher à l’écran.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Vanilla JavaScript App</title>
+</head>
+
+<body>
+    <main>
+    <h1>Vanilla JavaScript App</h1>
+    <p>Loading content from the API: <b id="name">...</b></p>
+    </main>
+
+    <script>
+    (async function() {
+        const { text } = await( await fetch(`/api/message`)).json();
+        document.querySelector('#name').textContent = text;
+    }())
+    </script>
+</body>
+
+</html>
+```
+
+# <a name="angular"></a>[Angular](#tab/angular)
+
+1. Mettez à jour le contenu de _src/app/app.module.ts_ avec le code suivant pour activer `HttpClient` dans votre application.
+
+    ```typescript
+    import { BrowserModule } from "@angular/platform-browser";
+    import { NgModule } from "@angular/core";
+    import { HttpClientModule } from '@angular/common/http';
+    
+    import { AppComponent } from "./app.component";
+    
+    @NgModule({
+      declarations: [AppComponent],
+      imports: [BrowserModule, HttpClientModule],
+      bootstrap: [AppComponent]
+    })
+    export class AppModule {}
+    ```
+
+1. Mettez à jour le contenu de _src/app/app.component.ts_ à l’aide du code suivant pour extraire le texte de la fonction API et l’afficher à l’écran.
+
+    ```typescript
+    import { HttpClient } from '@angular/common/http';
+    import { Component } from '@angular/core';
+    
+    @Component({
+      selector: 'app-root',
+      template: `<div>{{message}}</div>`,
+    })
+    export class AppComponent {
+      message = '';
+    
+      constructor(private http: HttpClient) {
+        this.http.get('/api/message')
+          .subscribe((resp: any) => this.message = resp.text);
+      }
     }
     ```
 
-Avec les paramètres ci-dessus, le point de terminaison de l’API est :
+# <a name="react"></a>[React](#tab/react)
 
-- Déclenché avec une requête HTTP adressée à la fonction
-- Disponible pour toutes les requêtes, quel que soit l’état de l’authentification
-- Exposé via l’itinéraire _/api/message_
+Mettez à jour le contenu de _src/App.js_ à l’aide du code suivant pour extraire le texte de la fonction API et l’afficher à l’écran.
 
-## <a name="run-the-api-locally"></a>Exécuter l’API localement
+```javascript
+import React, { useState, useEffect } from 'react';
 
-Visual Studio Code s’intègre à [Azure Functions Core Tools](../azure-functions/functions-run-local.md) pour vous permettre d’exécuter ce projet sur votre ordinateur de développement local avant toute publication sur Azure.
+function App() {
+  const [data, setData] = useState('');
 
-> [!TIP]
-> Avant de poursuivre, vérifiez que vous avez toutes les ressources listées dans la section [Prérequis](#prerequisites) installées.
+  useEffect(() => {
+    (async function () {
+      const { text } = await( await fetch(`/api/message`)).json();
+      setData(text);
+    })();
+  });
 
-1. Exécutez la fonction en appuyant sur **F5** pour démarrer l’application Functions.
+  return <div>{data}</div>;
+}
 
-1. Si Azure Functions Core Tools n’est pas encore installé, sélectionnez **Installer** à l’invite.
+export default App;
+```
 
-    Core Tools montre la sortie de l’application en cours d’exécution dans le panneau _Terminal_. Dans la sortie, vous pouvez voir le point de terminaison de l’URL de votre fonction déclenchée par HTTP en train de s’exécuter localement.
+# <a name="vue"></a>[Vue](#tab/vue)
 
-    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Capture d’écran montrant l’onglet TERMINAL dans lequel vous pouvez voir l’URL.":::
+Mettez à jour le contenu de _src/App.vue_ à l’aide du code suivant pour extraire le texte de la fonction API et l’afficher à l’écran.
 
-1. Avec Core Tools en cours d’exécution, accédez à l’URL suivante pour vérifier que l’API s’exécute correctement : `http://localhost:7071/api/message`.
+```javascript
+<template>
+  <div>{{ message }}</div>
+</template>
 
-   La réponse figurant dans le navigateur doit ressembler à l’exemple suivant :
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      message: ""
+    };
+  },
+  async mounted() {
+    const { text } = await (await fetch("/api/message")).json();
+    this.message = text;
+  }
+};
+</script>
+```
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Capture d’écran montrant une réponse texte dans un navigateur.":::
+---
 
-1. Pour arrêter la session de débogage, appuyez sur **Maj+F5**.
+## <a name="run-the-frontend-and-api-locally"></a>Exécuter le front-end et l’API localement
 
-### <a name="call-the-api-from-the-application"></a>Appeler l’API à partir de l’application
+Pour exécuter votre application front-end et votre API ensemble localement, Azure Static Web Apps fournit une interface CLI qui émule l’environnement cloud. L’interface CLI utilise Azure Functions Core Tools pour exécuter l’API.
 
-Lors du déploiement sur Azure, les demandes envoyées à l’API sont automatiquement routées vers l’application Functions pour les demandes envoyées à la route `api`. Si vous travaillez en local, vous devez configurer les paramètres de l’application pour qu’ils proxysent les demandes adressées à l’API locale.
+### <a name="install-command-line-tools"></a>Installer des outils en ligne de commande
 
-[!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
+Vérifiez que vous avez installé les outils en ligne de commande nécessaires.
 
-#### <a name="update-html-files-to-access-the-api"></a>Mettre à jour les fichiers HTML pour accéder à l’API
+1. Installez la CLI Azure Static Web Apps.
+    ```bash
+    npm install -g @azure/static-web-apps-cli
+    ```
 
-1. Ensuite, mettez à jour le contenu du fichier _index.html_ à l’aide du code suivant pour extraire le texte de la fonction API et l’afficher à l’écran :
+1. Installez Azure Functions Core Tools V3.
+    ```bash
+    npm install -g azure-functions-core-tools@3
+    ```
 
-   ```html
-   <!DOCTYPE html>
-   <html lang="en">
+### <a name="build-frontend-app"></a>Générer une application front-end
 
-   <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="styles.css">
-     <title>Vanilla JavaScript App</title>
-   </head>
+Si votre application utilise un framework, créez l’application pour générer la sortie avant d’exécuter l’interface CLI Static Web Apps.
 
-   <body>
-     <main>
-       <h1>Vanilla JavaScript App</h1>
-       <p>Loading content from the API: <b id="name">...</b></p>
-     </main>
+# <a name="no-framework"></a>[Pas de framework](#tab/vanilla-javascript)
 
-     <script>
-       (async function() {
-         let { text } = await( await fetch(`/api/message`)).json();
-         document.querySelector('#name').textContent = text;
-       }())
-     </script>
-   </body>
+Il n’est pas nécessaire de générer l’application.
 
-   </html>
-   ```
+# <a name="angular"></a>[Angular](#tab/angular)
 
-1. Appuyez sur **F5** pour démarrer le projet d’API.
+Générez l’application dans le dossier _dist/angular-basic_.
 
-1. Appuyez sur **F1** et choisissez **Live Server : Ouvrir avec Live Server**.
+```bash
+npm run build --prod
+```
 
-    Vous devez maintenant voir le message de l’API dans la page web.
+# <a name="react"></a>[React](#tab/react)
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Capture d’écran montrant le message API dans un navigateur.":::
+Générez l’application dans le dossier _build_.
 
-   > [!NOTE]
-   > Vous pouvez utiliser d’autres serveurs ou proxys HTTP pour servir le fichier `index.html`. L’accès au fichier `index.html` n’est pas possible à l’aide de `file:///`.
+```bash
+npm run build
+```
 
-1. Appuyez sur **Maj+F5** pour arrêter le projet d’API.
+# <a name="vue"></a>[Vue](#tab/vue)
 
-### <a name="commit-and-push-your-changes-to-github"></a>Valider et envoyer vos modifications à GitHub
+Générez l’application dans le dossier _dist_.
 
-À l’aide de Visual Studio Code, validez et envoyez vos modifications dans le référentiel git distant.
+```bash
+npm run build
+```
 
-1. Appuyez sur **F1** pour ouvrir la palette de commandes
-1. Taper **Git: Commit All**
-1. Ajoutez un message de validation et appuyez sur **Entrée**.
-1. Appuyez sur **F1**.
-1. Tapez **Git: push** et appuyez sur **Entrée**.
+---
 
-## <a name="create-a-static-web-app"></a>Créer une application web statique
+### <a name="start-the-cli"></a>Démarrer l’interface de ligne de commande
 
-1. Accéder au [portail Azure](https://portal.azure.com)
-1. Cliquez sur **Create a Resource** (Créer une ressource).
-1. Recherchez **Static Web Apps**.
-1. Cliquez sur **Static Web Apps (préversion)** .
-1. Cliquez sur **Créer**
+Exécutez l’application front-end et l’API ensemble en démarrant l’application avec l’interface CLI Static Web Apps. L’exécution des deux parties de votre application permet à l’interface CLI de servir la sortie de génération de votre front-end à partir d’un dossier, et rend l’API accessible à l’application en cours d’exécution.
 
-Ensuite, ajoutez les paramètres propres à l’application.
+1. À la racine de votre référentiel, démarrez l’interface CLI Static Web Apps à l’aide de la commande `start`. Ajustez les arguments si votre application a une structure de dossiers différente.
 
-1. Sélectionnez votre _abonnement Azure_.
-1. Sélectionner ou créer un _groupe de ressources_
-1. Nommez l’application **my-vanilla-api**.
-1. Sélectionner la _région_ la plus proche de vous
-1. Sélectionner **SKU** _gratuite_
-1. Cliquer sur le bouton **Sign-in with GitHub** (Se connecter à GitHub) et authentifiez-vous auprès de GitHub
-1. Sélectionner votre _Organisation_ préférée
-1. Sélectionner **my-vanilla-api** dans la liste déroulante _Repository_ (Référentiel)
-1. Sélectionnez **principale** dans la liste déroulante _Branche_.
-1. Sélectionner l’infrastructure de votre choix pour la configuration de build dans la liste déroulante _Présélections de build_
+    # <a name="no-framework"></a>[Pas de framework](#tab/vanilla-javascript)
 
- > Ces champs reflètent la structure du projet par défaut du type d'application. Modifiez les valeurs en fonction de votre application.
+    Transmettez le dossier actif (`.`) et le dossier d’API (`api`) à l’interface CLI.
+     
+    ```bash
+    swa start . --api api
+    ```
 
-Ensuite, ajoutez les détails de build suivants.
+    # <a name="angular"></a>[Angular](#tab/angular)
 
-1. Entrez **/** dans _App location_ (Emplacement de l’application).
-1. Entrez **api** dans _App location_.
-1. Désactivez la valeur par défaut de l’_emplacement de l’artefact d’application_ en laissant la zone vide.
-1. Cliquez sur **Vérifier + créer**.
-1. Cliquez sur le bouton **Créer**
+    Transmettez le dossier de sortie de génération (`dist/angular-basic`) et le dossier d’API (`api`) à l’interface CLI.
 
-    Une fois que vous avez cliqué sur le bouton _Créer_, Azure effectue deux opérations. Tout d’abord, les services cloud sous-jacents sont créés pour prendre en charge l’application. Ensuite, un processus en arrière-plan commence à créer et à déployer l’application.
+    ```bash
+    swa start dist/angular-basic --api api
+    ```
 
-1. Cliquez sur le bouton **Accéder à la ressource** pour accéder à la page _Vue d’ensemble_ de l’application web.
+    # <a name="react"></a>[React](#tab/react)
 
-[!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
+    Transmettez le dossier de sortie de génération (`build`) et le dossier d’API (`api`) à l’interface CLI.
 
-## <a name="clean-up-resources"></a>Nettoyer les ressources
+    ```bash
+    swa start build --api api
+    ```
 
-Si vous ne souhaitez pas conserver cette application pour une utilisation ultérieure, vous pouvez utiliser la procédure suivante pour supprimer l’application Azure Static Web App et ses ressources associées.
+    # <a name="vue"></a>[Vue](#tab/vue)
 
-1. Accéder au [portail Azure](https://portal.azure.com)
-1. Dans la barre de recherche supérieure, taper **Groupes de ressources**
-1. Cliquer sur **Groupes de ressources**
-1. Sélectionner **myResourceGroup**
-1. Dans la page _myResourceGroup_, assurez-vous que les ressources répertoriées sont bien celles que vous souhaitez supprimer.
-1. Sélectionnez **Supprimer**.
-1. Taper **myResourceGroup** dans la zone de texte
-1. Sélectionnez **Supprimer**.
+    Transmettez le dossier de sortie de génération (`dist`) et le dossier d’API (`api`) à l’interface CLI.
+
+    ```bash
+    swa start dist --api api
+    ```
+
+    ---
+
+1. Quand les processus de la CLI démarrent, accédez à votre application à l’adresse `http://localhost:4280/`. Notez que la page appelle l’API et affiche sa sortie, `Hello from the API`.
+
+1. Pour arrêter l’interface CLI, tapez <kbd>Ctrl-C</kbd>.
+
+## <a name="add-api-location-to-workflow"></a>Ajouter l’emplacement de l’API au flux de travail
+
+Avant de pouvoir déployer votre application sur Azure, mettez à jour le flux de travail GitHub Actions de votre référentiel avec l’emplacement correct de votre dossier d’API.
+
+1. Ouvrez votre flux de travail à l’adresse _.github/workflows/azure-static-web-apps-\<DEFAULT-HOSTNAME>.yml_.
+
+1. Recherchez la propriété `api_location` et définissez la valeur sur `api`.
+1. Enregistrez le fichier .
+
+## <a name="deploy-changes"></a>Déployer les modifications
+
+Pour publier les modifications apportées à votre application web statique dans Azure, validez et envoyez votre code au référentiel GitHub à distance.
+
+1. Appuyez sur <kbd>F1</kbd> pour ouvrir la palette de commandes.
+
+1. Sélectionnez la commande **Git: Commit All**.
+
+1. Lorsque vous êtes invité à entrer un message de validation, entrez **ajouter l’API** et validez toutes les modifications apportées à votre référentiel git local.
+
+1. Appuyez sur <kbd>F1</kbd> pour ouvrir la palette de commandes.
+
+1. Sélectionnez la commande **Git: push**.
+
+    Vos modifications sont envoyées (push) vers le référentiel à distance dans GitHub, déclenchant le flux de travail GitHub Actions Static Web Apps pour générer et déployer votre application.
+
+1. Ouvrez votre référentiel dans GitHub pour superviser l’état d’exécution de votre flux de travail.
+
+1. Une fois l’exécution du flux de travail terminée, visitez votre application web statique pour examiner vos modifications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

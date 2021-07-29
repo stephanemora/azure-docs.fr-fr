@@ -1,0 +1,85 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQ - Azure Monitor pour SAP Solutions | Microsoft Docs
+  description: Dans cet article, découvrez les réponses aux questions fréquentes sur Azure Monitor pour SAP Solutions.
+  author: rdeltcheva
+  ms.service: baremetal-sap
+  ms.topic: article
+  ms.date: 07/08/2020
+  ms.author: radeltch
+  ms.openlocfilehash: ac0646f0fca867402477acac9bca62753f275fdd
+  ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 07/16/2021
+  ms.locfileid: "114393533"
+title: Questions fréquentes (FAQ) sur Azure Monitor pour SAP Solutions (préversion)
+summary: "## <a name=\"frequently-asked-questions\"></a>Forum aux questions\n\nCet article offre des réponses aux questions fréquentes sur Azure Monitor pour SAP Solutions.  \n"
+sections:
+- name: Ignoré
+  questions:
+  - question: "Dois-je payer pour Azure Monitor pour SAP Solutions ?  \n"
+    answer: "Il n’y a pas de frais de licence pour Azure Monitor pour SAP Solutions. Toutefois, le coût des composants du groupe de ressources managé est à votre charge.  \n"
+  - question: "Dans quelles régions ce service est-il disponible pour la préversion publique ?  \n"
+    answer: >
+      Pour la préversion publique, ce service sera disponible dans les régions USA Est 2, USA Ouest 2, USA Est et Europe Ouest.
+  - question: "Dois-je donner des autorisations pour permettre le déploiement d’un groupe de ressources managé dans mon abonnement ?  \n"
+    answer: >
+      Non, des autorisations explicites ne sont pas requises.
+  - question: "Où se trouve la machine virtuelle du collecteur ?  \n"
+    answer: >
+      Au moment de déployer Azure Monitor pour SAP Solutions, nous vous recommandons de choisir le même réseau virtuel pour votre ressource de supervision que votre serveur SAP HANA. Nous recommandons donc que la machine virtuelle du collecteur se trouve dans le même réseau virtuel que le serveur SAP HANA. Si vous utilisez une base de données non-HANA, la machine virtuelle du collecteur se trouve dans le même réseau virtuel que la base de données non-HANA.
+  - question: "Quelles sont les versions de HANA prises en charge ?  \n"
+    answer: >
+      HANA 1.0 SPS 12 (Rev. 120 ou ultérieure) et HANA 2.0 SPS03 ou ultérieur sont pris en charge.
+  - question: "Quelles sont les configurations de déploiement HANA prises en charge ?  \n"
+    answer: "Les configurations suivantes sont prises en charge :\n   - Mononœud (scale-up) et multinœud (scale-out).  \n   - Un conteneur de bases de données uniques (HANA 1.0 SPS 12) et des conteneurs de bases de données multiples (HANA 1.0 SPS 12 ou HANA 2.0).\n   - Basculement d’hôte automatique (n+1) et HSR.\n"
+  - question: "Quelles versions de SQL Server sont prises en charge ?  \n"
+    answer: "SQL Server 2012 SP4 ou ultérieur.  \n"
+  - question: "Quelles sont les configurations de SQL Server prises en charge ?  \n"
+    answer: "Les configurations suivantes sont prises en charge :\n   - Les instances par défaut ou autonomes nommées dans une machine virtuelle.  \n   - Les instances en cluster ou dans une configuration AlwaysOn lors de l’utilisation du nom virtuel de la ressource de cluster ou du nom d’écouteur AlwaysOn.\n   - Actuellement, aucune métrique propre au cluster ou à la configuration AlwaysOn n’est collectée.    \n   - Actuellement, Azure SQL Database (PaaS) n’est pas pris en charge.    \n"
+  - question: "Que se passe-t-il si je supprime accidentellement le groupe de ressources managé ?  \n"
+    answer: "Le groupe de ressources managé est verrouillé par défaut. Par conséquent, les risques de supprimer accidentellement le groupe de ressources managé sont minuscules. Si vous supprimez le groupe de ressources managé, Azure Monitor pour SAP Solutions cessera de fonctionner. Vous devrez déployer une nouvelle ressource Azure Monitor pour SAP Solutions et recommencer.  \n"
+  - question: "De quels rôles ai-je besoin dans mon abonnement Azure pour déployer des ressources Azure Monitor pour SAP Solutions ?  \n"
+    answer: "Le rôle Contributeur.  \n"
+  - question: "Quel est le contrat SLA sur ce produit ?  \n"
+    answer: >
+      Les préversions sont exclues des contrats de niveau de service. Lisez entièrement le contrat de licence via l’image Azure Monitor pour SAP Solutions de la Place de marché.
+  - question: "Puis-je surveiller l’intégralité de son paysage avec cette solution ?  \n"
+    answer: >
+      En préversion publique, vous pouvez actuellement surveiller :
+
+      - Une base de données HANA
+
+      - L’infrastructure sous-jacente
+
+      - Le cluster haute disponibilité
+
+      - Microsoft SQL Server
+
+      - La disponibilité de SAP NetWeaver
+
+      - Les métriques de disponibilité des instances d’application SAP
+  - question: "Ce service remplace-t-il le gestionnaire de solutions SAP ?  \n"
+    answer: "Non. Les clients peuvent toujours utiliser le gestionnaire de solutions SAP pour l’analyse des processus d’entreprise.  \n"
+  - question: "Quelle est la valeur de ce service par rapport aux solutions traditionnelles comme SAP HANA Cockpit/Studio ?  \n"
+    answer: >
+      Azure Monitor pour SAP Solutions n’est pas spécifique à la base de données HANA. Azure Monitor pour SAP Solutions prend également en charge AnyDB.
+  - question: >
+      Quelles sont les versions de SAP NetWeaver prises en charge ?
+    answer: "SAP NetWeaver 7.0 ou ultérieur.  \n"
+  - question: >
+      Quelles sont les configurations SAP NetWeaver prises en charge ?
+    answer: >
+      Les configurations de serveur d’applications SAP NetWeaver ABAP, Java et double pile sont prises en charge.
+  - question: >
+      Pourquoi est-ce que je dois ôter la protection des méthodes pour la supervision des applications SAP NetWeaver ?
+    answer: >
+      Dans les versions de SAP >= à 7.3, la plupart des méthodes de service web sont protégées par défaut. Pour extraire des métriques de disponibilité et de performances en appelant ces méthodes, vous devez ôter la protection des méthodes suivantes : GetQueueStatistic, ABAPGetWPTable, GetProcessList, EnqGetStatistic et GetSystemInstancelist.
+  - question: >
+      La suppression de la protection des méthodes web SAPCONTROL présente-t-elle un risque ?
+    answer: "En général, vous pouvez ôter la protection des méthodes web SAPCONTROL sans risque de sécurité [en tant que tel](https://launchpad.support.sap.com/#/notes/1439348). Vous pouvez restreindre l’accès aux méthodes web non protégées via les ports serveur 5XX13 / 5XX14 de sapstartsrv. Pour ce faire, ajoutez un filtre dans la liste de contrôle d’accès SAP. La [note OSS](https://service.sap.com/sap/support/notes/1495075) décrit la configuration requise. \n"
+  - question: >
+      Est-ce que je dois redémarrer mes instances SAP après avoir effectué des configurations système pour configurer le fournisseur SAP NetWeaver ?
+    answer: "Oui, une fois que vous avez ôté la protection des méthodes par le biais de modifications de configuration SAP, vous devez redémarrer les systèmes SAP concernés afin de vous assurer que les modifications de configuration sont mises à jour.  \n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\nDécouvrez plus en détail Azure Monitor pour SAP Solutions.\n\n> [!div class=\"nextstepaction\"]\n> [Azure Monitor pour SAP Solutions](azure-monitor-overview.md)"

@@ -1,0 +1,157 @@
+### YamlMime:FAQ
+metadata:
+  title: Foire aux questions sur Sauvegarde des disques Azure
+  description: Réponses aux questions les plus fréquentes concernant Sauvegarde des disques Azure
+  ms.topic: conceptual
+  ms.date: 05/27/2021
+  ms.openlocfilehash: 4c676d412799838193122399f50e984fbad833b2
+  ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 05/28/2021
+  ms.locfileid: "111907308"
+title: Foire aux questions sur Sauvegarde des disques Azure
+summary: >
+  Cet article répond aux questions fréquemment posées sur Sauvegarde des disques Azure. Pour plus d’informations sur la disponibilité des régions, les scénarios pris en charge et les limitations de [Sauvegarde des disques Azure](disk-backup-overview.md), consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
+
+
+  ## <a name="frequently-asked-questions"></a>Forum aux questions
+sections:
+- name: Forum aux questions
+  questions:
+  - question: >
+      Puis-je sauvegarder le disque à l’aide de la solution Sauvegarde des disques Azure si le même disque est sauvegardé à l’aide de la sauvegarde de machine virtuelle Azure ?
+    answer: >
+      Sauvegarde Azure offre une prise en charge côte à côte pour la sauvegarde des disques managés à l’aide des solutions Sauvegarde des disques et [Sauvegarde des machines virtuelles Azure](backup-azure-vms-introduction.md). Cela est utile lorsque vous avez besoin d’une sauvegarde cohérente d’une application une fois par jour et de sauvegardes plus fréquentes du disque du système d’exploitation ou d’un disque de données spécifique qui soient cohérentes en cas d’incident sans influer sur les performances des applications de production.
+  - question: >
+      Comment trouver le groupe de ressources d’instantanés que j’ai utilisé pour configurer la sauvegarde d’un disque ?
+    answer: >
+      Dans l’écran **Instance de sauvegarde**, vous pouvez trouver le champ Groupe de ressources d’instantanés dans la section **Informations de base**. Vous pouvez rechercher et sélectionner votre instance de sauvegarde du disque correspondant dans le centre de sauvegarde ou le coffre de sauvegarde.
+
+
+      ![Champ Groupe de ressources d’instantanés](./media/disk-backup-faq/snapshot-resource-group.png)
+  - question: >
+      Qu’est-ce qu’un groupe de ressources d’instantanés ?
+    answer: >
+      Sauvegarde des disques Azure offre une sauvegarde de niveau opérationnel pour le disque managé. Autrement dit, les instantanés créés pendant les opérations de sauvegarde planifiées et à la demande sont stockées dans un groupe de ressources au sein de votre abonnement. Sauvegarde Azure offre une restauration instantanée, car les instantanés incrémentiels sont stockés dans votre abonnement. Ce groupe de ressources est appelé « groupe de ressources d’instantanés ». Pour plus d’informations, consultez [Configurer la sauvegarde](backup-managed-disks.md#configure-backup).
+  - question: >
+      Pourquoi le groupe de ressources d’instantanés doit-il se trouver dans le même abonnement que celui du disque à sauvegarder ?
+    answer: >
+      Vous ne pouvez pas créer d’instantané incrémentiel pour un disque particulier en dehors de l’abonnement associé à ce disque. Par conséquent, choisissez le groupe de ressources dans le même abonnement que celui du disque à sauvegarder. En savoir plus sur les [instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md#restrictions) pour les disques managés.
+  - question: >
+      Pourquoi dois-je fournir des attributions de rôles pour pouvoir configurer des sauvegardes, effectuer des sauvegardes planifiées et à la demande et effectuer des opérations de restauration ?
+    answer: >
+      Sauvegarde des disques Azure utilise l’approche de moindre privilège pour découvrir, protéger et restaurer les disques managés dans vos abonnements. Pour ce faire, Sauvegarde Azure utilise l’identité managée du [coffre de sauvegarde](backup-vault-overview.md) pour accéder à d’autres ressources Azure. Une identité managée affectée par le système est limitée à une par ressource et est liée au cycle de vie de cette ressource. Pour accorder des autorisations à l’identité managée, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) Azure. L’identité managée est un principal de service d’un type spécial qui ne peut être utilisé qu’avec des ressources Azure. Découvrez-en plus sur les [identités managées](../active-directory/managed-identities-azure-resources/overview.md). Par défaut, le coffre de sauvegarde n’a pas l’autorisation d’accéder au disque à sauvegarder, de créer des instantanés récurrents, de supprimer des instantanés après la période de rétention ni de restaurer un disque à partir d’une sauvegarde. En accordant explicitement des attributions de rôles à l’identité managée du coffre de sauvegarde, vous contrôlez la gestion des autorisations sur les ressources des abonnements.
+  - question: >
+      Pourquoi la stratégie de sauvegarde limite-t-elle la durée de rétention ?
+    answer: >
+      Sauvegarde des disques Azure utilise des instantanés incrémentiels, qui sont limités à 200 instantanés par disque. Pour vous permettre d’effectuer des sauvegardes à la demande en dehors des sauvegardes planifiées, la stratégie de sauvegarde limite le nombre total de sauvegardes à 180. En savoir plus sur les [instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md#restrictions) pour les disques managés.
+  - question: >
+      Comment fonctionne la fréquence de sauvegarde horaire et quotidienne dans la stratégie de sauvegarde ?
+    answer: >
+      Sauvegarde des disques Azure propose plusieurs sauvegardes par jour. Si vous avez besoin de sauvegardes plus fréquentes, choisissez la fréquence de sauvegarde **Toutes les heures**. Les sauvegardes sont planifiées en fonction de l’intervalle **Temps** sélectionné. Par exemple, si vous sélectionnez **Toutes les 4 heures**, les sauvegardes sont effectuées environ toutes les 4 heures, de sorte que les sauvegardes sont réparties de manière égale sur la journée. Si une sauvegarde par jour suffit, choisissez la fréquence de sauvegarde **Tous les jours**. Dans la fréquence de sauvegarde quotidienne, vous pouvez spécifier l’heure de la journée à laquelle vos sauvegardes doivent s’effectuer. Il est important de noter que l’heure de la journée indique l’heure de début de la sauvegarde, et non l’heure de fin de la sauvegarde. Le temps nécessaire pour terminer l’opération de sauvegarde dépend de différents facteurs, notamment l’attrition entre les sauvegardes consécutives. Toutefois, Sauvegarde des disques Azure est une sauvegarde sans agent qui utilise des [instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md) qui n’ont pas d’impact sur les performances des applications de production.
+  - question: >
+      Pourquoi le paramètre de redondance du coffre de sauvegarde ne s’applique-t-il pas aux sauvegardes stockées dans le niveau opérationnel (le groupe de ressources d’instantanés) ?
+    answer: >
+      Sauvegarde Azure utilise des [instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md#restrictions) de disques managés qui stockent uniquement les modifications différentielles apportées aux disques depuis le dernier instantané sur le stockage HDD Standard, quel que soit le type de stockage du disque parent. Pour plus de fiabilité, les instantanés incrémentiels sont stockés par défaut sur un stockage redondant interzone (ZRS) dans les régions qui le prennent en charge. Actuellement, Sauvegarde des disques Azure prend en charge les sauvegardes opérationnelles des disques managés qui ne copient pas les sauvegardes dans le stockage du coffre de sauvegarde. Ainsi, le paramètre de redondance du stockage de sauvegarde du coffre de sauvegarde ne s’applique pas aux points de récupération.
+  - question: >
+      Puis-je utiliser le centre de sauvegarde pour configurer des sauvegardes et gérer des instances de sauvegarde pour les disques Azure ?
+    answer: >
+      Oui, Sauvegarde des disques Azure est intégrée au [centre de sauvegarde](backup-center-overview.md), qui fournit une **expérience de gestion unifiée unique** dans Azure pour permettre aux entreprises de régir, superviser, exploiter et analyser les sauvegardes à grande échelle. Vous pouvez également utiliser le coffre de sauvegarde pour sauvegarder, restaurer et gérer les instances de sauvegarde qui sont protégées dans le coffre.
+  - question: >
+      Pourquoi dois-je créer un coffre de sauvegarde et ne pas utiliser un coffre Recovery Services ?
+    answer: >
+      Un coffre de sauvegarde est une entité de stockage dans Azure qui héberge des données de sauvegarde pour certaines charges de travail plus récentes prises en charge par Sauvegarde Azure. Vous pouvez utiliser des coffres de sauvegarde afin de stocker des données de sauvegarde pour différents services Azure, comme des serveurs Azure Database pour PostgreSQL, des disques Azure et des charges de travail plus récentes qui seront prises en charge par Sauvegarde Azure. Les coffres de sauvegarde facilitent l’organisation de vos données de sauvegarde tout en réduisant le temps nécessaire à leur gestion. Pour en savoir plus, consultez [Coffres de sauvegarde](./backup-vault-overview.md).
+  - question: >
+      Le disque à sauvegarder et le coffre de sauvegarde peuvent-ils se trouver dans des abonnements différents ?
+    answer: >
+      Oui, le disque managé source à sauvegarder et le coffre de sauvegarde peuvent se trouver dans des abonnements différents.
+  - question: >
+      Le disque à sauvegarder et le coffre de sauvegarde peuvent-ils se trouver dans des régions différentes ?
+    answer: >
+      Non. Actuellement, le disque managé source à sauvegarder et le coffre de sauvegarde doivent se trouver dans la même région.
+  - question: >
+      Puis-je restaurer un disque dans un autre abonnement ?
+    answer: >
+      Oui, vous pouvez restaurer le disque sur un abonnement différent de celui du disque managé source à partir duquel la sauvegarde est effectuée.
+  - question: >
+      Puis-je sauvegarder plusieurs disques ensemble ?
+    answer: >
+      Non, les instantanés ponctuels de plusieurs disques rattachés à une machine virtuelle ne sont pas pris en charge. Pour plus d’informations, consultez [Configurer la sauvegarde](backup-managed-disks.md#configure-backup) et, pour en savoir plus sur les limitations, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
+  - question: >
+      Qu’est-ce qu’un groupe de ressources cible ?
+    answer: >
+      Lors d’une opération de restauration, vous pouvez choisir l’abonnement et un groupe de ressources dans lequel vous souhaitez restaurer le disque. Sauvegarde Azure créera de nouveaux disques à partir du point de récupération dans le groupe de ressources sélectionné. C’est ce qu’on appelle un groupe de ressources cible. Notez que l’identité managée du coffre de sauvegarde nécessite l’attribution d’un rôle sur le groupe de ressources cible pour pouvoir effectuer l’opération de restauration. Pour plus d’informations, consultez la [documentation relative à la restauration](restore-managed-disks.md).
+  - question: >
+      Quelles sont les autorisations utilisées par Sauvegarde Azure lors des opérations de sauvegarde et de restauration ?
+    answer: >
+      Voici les actions utilisées dans le rôle **Lecteur de sauvegarde de disque** attribué sur le **disque** à sauvegarder :
+
+
+      « Microsoft.Compute/disks/read »
+
+
+      « Microsoft.Compute/disks/beginGetAccess/action »
+
+
+      « Microsoft.Authorization/*/read »
+
+
+      Voici les actions utilisées dans le rôle **Contributeur d’instantanés de disque** attribué sur le **groupe de ressources d’instantanés** :
+
+
+      « Microsoft.Compute/snapshots/delete »
+
+
+      « Microsoft.Compute/snapshots/write »
+
+
+      « Microsoft.Compute/snapshots/read »
+
+
+      « Microsoft.Storage/storageAccounts/write »
+
+
+      « Microsoft.Storage/storageAccounts/read »
+
+
+      « Microsoft.Storage/storageAccounts/delete »
+
+
+      « Microsoft.Resources/subscriptions/resourceGroups/read »
+
+
+      « Microsoft.Storage/storageAccounts/listkeys/action »
+
+
+      « Microsoft.Compute/snapshots/beginGetAccess/action »
+
+
+      « Microsoft.Compute/snapshots/endGetAccess/action »
+
+
+      « Microsoft.Compute/disks/beginGetAccess/action »
+
+
+      « Microsoft.Authorization/*/read »
+
+
+      Voici les actions utilisées dans le rôle **Opérateur de restauration de disque** attribué sur le **groupe de ressources cible** :
+
+
+      « Microsoft.Compute/disks/write »
+
+
+      « Microsoft.Compute/disks/read »
+
+
+      « Microsoft.Resources/subscriptions/resourceGroups/read »
+
+
+      « Microsoft.Authorization/*/read »
+
+
+      >[!NOTE]
+
+      >Les autorisations relatives à ces rôles peuvent changer à l’avenir, en fonction des fonctionnalités ajoutées par le service Sauvegarde Azure.
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\n- [Matrice de prise en charge de sauvegarde de disques Azure](disk-backup-support-matrix.md)"

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 26e1fe78e54b0de1cf7c7a0ddc54c3d792d1deed
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 6aa233e82ca272b9b5b9e4a9bee4ef2b57f2de77
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071169"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069997"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-sql-api"></a>Créer un conteneur dans l’API SQL Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,12 +34,12 @@ Cet article explique les différentes façons de créer un conteneur dans l’AP
 1. Ouvrez le volet **Explorateur de données**, puis sélectionnez **Nouveau conteneur**. Fournissez ensuite les détails suivants :
 
    * Indiquez si vous créez une base de données ou si vous utilisez une base de données existante.
-   * Entrez un ID de conteneur.
-   * Entrez une clé de partition.
-   * Entrez un débit à provisionner (par exemple, 1 000 unités de requête).
+   * Entrez un **ID de conteneur**.
+   * Entrez une valeur de **clé de partition** (par exemple `/ItemID`).
+   * Sélectionnez le débit **Mise à l’échelle automatique** ou **Manuel**, puis entrez le **Débit de conteneur** requis (par exemple, 1000 RU/s). Entrez un débit que vous voulez provisionner (par exemple, 1 000 unités de requête).
    * Sélectionnez **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Capture d’écran du volet Explorateur de données, avec l’option Nouveau conteneur mise en surbrillance":::
+    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Capture d’écran de Data Explorer, avec l’option Nouvelle collection mise en évidence":::
 
 ## <a name="create-a-container-using-azure-cli"></a><a id="cli-sql"></a>Créer un conteneur à l’aide d’Azure CLI
 

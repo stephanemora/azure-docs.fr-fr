@@ -5,14 +5,14 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 6/09/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 52fa6f05db5452a2e7b8ec4f93d65525873c8c7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 383f9653de208bd00710f7a85788b60193986442
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98020568"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967543"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Développer des fonctions .NET Standard définies par l’utilisateur pour des travaux Azure Stream Analytics (préversion)
 
@@ -26,7 +26,7 @@ La fonction .NET définie par l’utilisateur pour les travaux cloud est disponi
 * USA Est 2
 * Europe Ouest
 
-Si vous êtes intéressé par l’utilisation de cette fonctionnalité dans une autre région, vous pouvez [demander l’accès](https://aka.ms/ccodereqregion).
+Si vous êtes intéressé par l’utilisation de cette fonctionnalité dans une autre région, vous pouvez [demander l’accès](https://aka.ms/ccodereqregion).  Toutefois, il n’existe pas de telle restriction de région lors de l’utilisation de [clusters Stream Analytics](./cluster-overview.md).
 
 ## <a name="package-path"></a>Chemin du package
 
@@ -266,6 +266,8 @@ La préversion des fonctions définies par l’utilisateur a les limitations sui
 * Les fonctions définies par l’utilisateur .NET Standard peuvent uniquement être créées dans Visual Studio Code ou Visual Studio et publiées sur Azure. Les versions en lecture seule des fonctions définies par l’utilisateur .NET Standard peuvent être consultées sous **Fonctions** dans le portail Azure. La création de fonctions .NET Standard n’est pas prise en charge dans le portail Azure.
 
 * L’éditeur de requêtes du portail Azure affiche une erreur quand vous utilisez des fonctions définies par l’utilisateur .NET Standard dans le portail. 
+
+* Appel de points de terminaison REST externes, par exemple la recherche inversée d’une adresse IP ou l’extraction de données de référence à partir d’une source externe
 
 * Comme le code personnalisé partage le contexte du moteur Azure Stream Analytics, il ne peut pas référencer un élément qui a un espace de noms/nom_dll en conflit avec le code Azure Stream Analytics. Par exemple, vous ne pouvez pas référencer *Newtonsoft Json*.
 

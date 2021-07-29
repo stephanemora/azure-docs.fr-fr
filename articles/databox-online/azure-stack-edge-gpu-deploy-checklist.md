@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/24/2021
+ms.date: 06/07/2021
 ms.author: alkohli
-ms.openlocfilehash: 13de2b024bf4541c6234dd6bfba601597de59434
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9bb7f552fccf4b6f58def2046b80473a57e6116f
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101716225"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756380"
 ---
 # <a name="deployment-checklist-for-your-azure-stack-edge-pro-gpu-device"></a>Liste de contrôle du déploiement d’un processeur GPU Azure Stack Edge Pro  
 
@@ -27,7 +27,7 @@ Suivez la liste de contrôle ci-dessous pour vérifier que vous disposez de ces 
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | Gestion des appareils               | <li>Abonnement Azure</li><li>Fournisseurs de ressources inscrits</li><li>Compte de Stockage Azure</li>|<li>Activé pour Azure Stack Edge Pro/Data Box Gateway, accès Propriétaire ou Contributeur.</li><li>Sur le portail Azure, accédez à **Accueil > Abonnements > Votre abonnement > Fournisseurs de ressources**. Recherchez `Microsoft.DataBoxEdge` et inscrivez-vous. Répétez cette opération pour `Microsoft.Devices` si vous déployez des charges de travail IoT.</li><li>Informations d’identification d’accès requises</li> |
 | Installation des périphériques               | Câbles d’alimentation dans le package. <br>Pour les États-Unis, un câble SVE 18/3 homologué 125 V et 15 A avec un connecteur NEMA 5-15P vers C13 (entrée vers sortie) est livré. | Pour plus d’informations, consultez la liste des [Cordons d’alimentation pris en charge selon les pays](azure-stack-edge-technical-specifications-power-cords-regional.md).  |
-|                                   | <li>Au moins un câble réseau 1-GbE RJ-45 pour le port 1  </li><li> Au moins un câble cuivre 25-GbE SFP+ pour le port 3, 4, 5 ou 6</li>| Il revient au client de se procurer ces câbles.<br>Pour obtenir la liste complète des câbles réseau, des commutateurs et des transmetteurs pris en charge pour les cartes réseau de l’appareil, consultez [Matrice d’interopérabilité de la série Cavium FastlinQ 41000](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) et [Produits compatibles avec la carte réseau Mellanox double port 25G ConnectX-4 canaux](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).| 
+|                                   | <li>Au moins un câble réseau 1-GbE RJ-45 pour le port 1  </li><li> Au moins un câble cuivre 25/10-GbE SFP+ pour le port 3, 4, 5 ou 6</li>| Il revient au client de se procurer ces câbles.<br>Pour obtenir la liste complète des câbles réseau, commutateurs et transmetteurs pris en charge pour les cartes réseau d’appareil à partir de Cavium, consultez le document [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/)<br>Pour obtenir la liste complète des câbles et des modules pris en charge pour 25 GbE et 10 GbE à partir de Mellanox, consultez [Mellanox Dual Port 25G ConnectX- produits compatibles avec les cartes réseau 4 canaux](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).| 
 | Première connexion de l’appareil      | <li>Ordinateur portable dont les paramètres IPv4 peuvent être modifiés. Cet ordinateur portable se connecte au Port 1 via un commutateur ou un adaptateur USB vers Ethernet.  </li><!--<li> A minimum of 1 GbE switch must be used for the device once the initial setup is complete. The local web UI will not be accessible if the connected switch is not at least 1 Gbe.</li>-->|   |
 | Connexion de l’appareil                       | Mot de passe de l’administrateur de l’appareil, compris entre 8 et 16 caractères, dont trois des types de caractère suivants : majuscules, minuscules, chiffres et caractères spéciaux.                                            | Le mot de passe par défaut, *Password1*, expire à la première connexion.                                                     |
 | Paramètres réseau                  | L’appareil est fourni avec des ports réseau 2 × 1 GbE, 4 × 25 GbE. <li>Le port 1 n’est utilisé que pour configurer les paramètres de gestion. Il est possible de connecter et de configurer un ou plusieurs ports de données. </li><li> Il faut qu’au moins une interface réseau de données entre le port 2 et le port 6 soit connectée à Internet (avec connectivité à Azure).</li><li> Prise en charge du protocole DHCP et de la configuration IPv4 statique. | L’adresse IP, le serveur DNS et la passerelle par défaut sont nécessaires pour la configuration IPv4 statique.   |

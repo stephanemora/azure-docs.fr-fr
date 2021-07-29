@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 68c211608cfceedaa9d13a595be6d1e5de17f1d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/21/2021
+ms.openlocfilehash: aca49982cf6e25e95002c1fab40b46ef05c842e2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94845002"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454940"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Utilisation de modèles de colonne dans les flux de données de mappage
 
@@ -33,7 +33,6 @@ Pour ajouter un modèle de colonne dans une transformation de colonne, agrégati
 
 Utilisez le [Générateur d’expressions](concepts-data-flow-expression-builder.md) pour entrer la condition de correspondance. Créez une expression booléenne correspondant aux colonnes basée sur les valeurs `name`, `type`, `stream`, `origin` et `position` de la colonne. Le modèle affecte toute colonne, dérivée ou définie, où la condition retourne la valeur true.
 
-Les deux zones d’expression sous la condition de correspondance indiquent les nouveaux noms et les valeurs des colonnes affectées. Utilisez `$$` pour référencer la valeur existante du champ correspondant. La zone d’expression de gauche définit le nom, et la zone d’expression de droite précise la valeur.
 
 ![Capture d’écran montrant l’onglet Paramètres de la colonne dérivée.](media/data-flow/edit-column-pattern.png "Modèles de colonne")
 
@@ -85,7 +84,7 @@ L’exemple ci-dessus correspond à toutes les sous-colonnes de la colonne compl
 
 * `$$` correspond au nom ou à la valeur de chaque correspondance au moment de l'exécution Considérez `$$` comme l'équivalent de `this`.
 * `name` représente le nom de chaque colonne entrante
-* `type` représente le type de données de chaque colonne entrante
+* `type` représente le type de données de chaque colonne entrante. Vous trouverez la liste des types de données dans le système de type de transmission de données [ici.](concepts-data-flow-overview.md#data-flow-data-types)
 * `stream` représente le nom associé à chaque flux ou transformation dans votre flux
 * `position` est la position ordinale des colonnes dans votre flux de données
 * `origin` est la transformation dans laquelle une colonne a trouvé son origine ou a été mise à jour pour la dernière fois

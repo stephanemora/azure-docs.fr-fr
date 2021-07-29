@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/12/2020
 ms.topic: how-to
-ms.openlocfilehash: df82f51377ac1a585dbfab989ca5386d33d90297
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: d164eb0250c98573e781b87be339748900c4920b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988961"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452063"
 ---
 # <a name="using-azure-batch-rendering"></a>Utilisation d’Azure Batch Rendering
 
@@ -35,10 +35,6 @@ Pour les utilisateurs finaux qui ne sont ni des développeurs ni des experts Azu
 
 ## <a name="using-batch-explorer"></a>Utilisation de Batch Explorer
 
-Pour accéder à un tutoriel pas à pas couvrant le rendu à l’aide de Batch Explorer, consultez le [tutoriel Blender](./tutorial-rendering-batchexplorer-blender.md).
-
-### <a name="download-and-install"></a>Télécharger et installer
-
 Les [téléchargements de Batch Explorer sont disponibles](https://azure.github.io/BatchExplorer/) pour Windows, OSX et Linux.
 
 ### <a name="using-templates-to-create-pools-and-run-jobs"></a>Utilisation de modèles pour créer des pools et exécuter des travaux
@@ -57,7 +53,5 @@ La section « Données » dans Batch Explorer permet de copier des fichiers en
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir des exemples de rendu Batch, suivez les deux tutoriels suivants :
-
-* [Rendu à l’aide d’Azure CLI](./tutorial-rendering-cli.md)
-* [Rendu à l’aide de Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)
+* En savoir plus sur [l’utilisation des applications de rendu avec batch](batch-rendering-applications.md).
+* En savoir plus sur [les options de stockage et de déplacement des données pour le rendu de ressource et les fichiers de sortie](batch-rendering-storage-data-movement.md).
