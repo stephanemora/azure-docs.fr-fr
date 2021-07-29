@@ -1,19 +1,19 @@
 ---
-title: Préparation d’une image d’attachement d’application MSIX pour Windows Virtual Desktop – Azure
-description: Comment créer une image d’attachement d’application MSIX pour un pool d’hôtes Windows Virtual Desktop.
+title: Préparation d’une image d’attachement d’application MSIX pour Azure Virtual Desktop – Azure
+description: Comment créer une image d’attachement d’application MSIX pour un pool d’hôtes Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 443f117907381862639564dfbf9752562f4a3564
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: f80d123a96a24ef9e9402cc2b142e94448468ea1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363663"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745634"
 ---
-# <a name="prepare-an-msix-image-for-windows-virtual-desktop"></a>Préparer une image MSIX pour Windows Virtual Desktop
+# <a name="prepare-an-msix-image-for-azure-virtual-desktop"></a>Préparer une image MSIX pour Azure Virtual Desktop
 
 Attachement d’application MSIX est une solution d’application en couches qui vous permet d’attacher dynamiquement des applications d’un package MSIX à une session utilisateur. Le système de package MSIX sépare les applications du système d’exploitation, ce qui facilite la création d’images pour les machines virtuelles. Les packages MSIX vous permettent également de mieux contrôler les applications auxquelles vos utilisateurs peuvent accéder sur leurs machines virtuelles. Vous pouvez même séparer les applications de l’image principale et les donner aux utilisateurs ultérieurement.
 
@@ -99,9 +99,9 @@ Une fois que vous avez créé le package MSIX, vous devez charger le fichier VHD
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Posez vos questions concernant cette fonctionnalité à la [communauté technique de Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Posez vos questions concernant cette fonctionnalité à la [communauté technique d’Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-Vous pouvez également laisser vos commentaires sur Windows Virtual Desktop sur le [Hub de commentaires Windows Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+Vous pouvez également formuler vos commentaires concernant Azure Virtual Desktop sur le [Hub de commentaires Azure Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
 Voici d’autres articles qui peuvent vous être utiles :
 

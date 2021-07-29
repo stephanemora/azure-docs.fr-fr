@@ -1,47 +1,47 @@
 ---
-title: Configurer le GPU pour Windows Virtual Desktop - Azure
-description: Découvrez comment activer le rendu et le codage avec accélération GPU dans Windows Virtual Desktop.
+title: Configurer le GPU pour Azure Virtual Desktop - Azure
+description: Découvrez comment activer le rendu et le codage avec accélération GPU dans Azure Virtual Desktop.
 author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: f95b9c1615cc58d9cc0589bad98c7315e571686e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e55564ab1534b145958e128f58d50911ae9c51fa
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709461"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746282"
 ---
-# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurer l’accélération GPU pour Windows Virtual Desktop
+# <a name="configure-graphics-processing-unit-gpu-acceleration-for-azure-virtual-desktop"></a>Configurer l’accélération GPU pour Azure Virtual Desktop
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
 
-Windows Virtual Desktop prend en charge le rendu et le codage avec accélération GPU pour des performances d’applications et une extensibilité améliorées. L’accélération GPU est particulièrement importante pour les applications graphiques.
+Azure Virtual Desktop prend en charge le rendu et le codage avec accélération GPU pour des performances d’applications et une extensibilité améliorées. L’accélération GPU est particulièrement importante pour les applications graphiques.
 
-Suivez les instructions de cet article pour créer une machine virtuelle Azure optimisée pour le GPU, ajoutez-la à votre pool d’hôtes et configurez-la pour utiliser l’accélération GPU à des fins de codage et de rendu. Cet article suppose que vous avez déjà un locataire Windows Virtual Desktop configuré.
+Suivez les instructions de cet article pour créer une machine virtuelle Azure optimisée pour le GPU, ajoutez-la à votre pool d’hôtes et configurez-la pour utiliser l’accélération GPU à des fins de codage et de rendu. Cet article suppose que vous avez déjà un locataire Azure Virtual Desktop configuré.
 
 ## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>Sélectionner une taille de machine virtuelle Azure optimisée pour le GPU appropriée
 
 Sélectionnez l’une des tailles de machine virtuelle Azure de la [série NV](../virtual-machines/nv-series.md), [NVv3](../virtual-machines/nvv3-series.md) ou [NVv4](../virtual-machines/nvv4-series.md). Ces tailles sont adaptées à la virtualisation des applications et des appareils de bureau et permettent à la plupart des applications et à l’interface utilisateur Windows d’être accélérées par GPU. Le bon choix pour votre pool d’hôtes dépend de plusieurs facteurs, notamment vos charges de travail d’applications spécifiques, la qualité souhaitée de l’expérience utilisateur et le coût. En général, les GPU plus grands et plus efficaces offrent une meilleure expérience utilisateur à une densité d’utilisateurs donnée, tandis que les tailles de GPU plus petites et fractionnaires permettent un contrôle plus précis de la qualité et du coût.
 
 >[!NOTE]
->Les machines virtuelles de la série NC, NCv2, NCv3, ND et NDv2 d’Azure ne conviennent généralement pas aux hôtes de session Windows Virtual Desktop. Ces machines virtuelles sont adaptées à des outils de calcul ou de Machine Learning hautes performances spécialisés, comme ceux créés avec NVIDIA CUDA. Elles ne prennent pas en charge l’accélération par GPU pour la plupart des applications ni pour l’interface utilisateur Windows.
+>Les machines virtuelles de la série NC, NCv2, NCv3, ND et NDv2 d’Azure ne conviennent généralement pas aux hôtes de session Azure Virtual Desktop. Ces machines virtuelles sont adaptées à des outils de calcul ou de Machine Learning hautes performances spécialisés, comme ceux créés avec NVIDIA CUDA. Elles ne prennent pas en charge l’accélération par GPU pour la plupart des applications ni pour l’interface utilisateur Windows.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Créer un pool d’hôtes, provisionner votre machine virtuelle et configurer un groupe d’applications
 
 Créez un nouveau pool d’hôtes à l’aide d’une machine virtuelle de la taille sélectionnée. Pour obtenir des instructions, consultez [Tutoriel : Créer un pool d’hôtes avec le portail Azure](./create-host-pools-azure-marketplace.md).
 
-Windows Virtual Desktop prend en charge le rendu et le codage avec accélération GPU dans les systèmes d’opération suivants :
+Azure Virtual Desktop prend en charge le rendu et le codage avec accélération GPU dans les systèmes d’opération suivants :
 
 * Windows 10 version 1511 ou ultérieure
 * Windows Server 2016 ou version ultérieure
 
-Vous devez également configurer un groupe d’applications ou utilisez le groupe d’applications bureau par défaut (nommé « Groupe d’applications bureau ») qui est créé automatiquement lorsque vous créez un nouveau pool d’hôtes. Pour obtenir des instructions, consultez [Tutoriel : Gérer des groupes d’applications pour Windows Virtual Desktop](./manage-app-groups.md).
+Vous devez également configurer un groupe d’applications ou utilisez le groupe d’applications bureau par défaut (nommé « Groupe d’applications bureau ») qui est créé automatiquement lorsque vous créez un nouveau pool d’hôtes. Pour obtenir des instructions, consultez [Tutoriel : Gérer des groupes d’applications pour Azure Virtual Desktop](./manage-app-groups.md).
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Installer des pilotes graphiques pris en charge dans votre machine virtuelle
 
-Pour tirer parti des fonctionnalités GPU des machines virtuelles Azure de série N dans Windows Virtual Desktop, vous devez installer des pilotes graphiques appropriés. Suivez les instructions de la rubrique [Systèmes d’exploitation et pilotes pris en charge](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) pour installer les pilotes. Seuls les pilotes distribués par Azure sont pris en charge.
+Pour tirer parti des fonctionnalités GPU des machines virtuelles Azure de série N dans Azure Virtual Desktop, vous devez installer des pilotes graphiques appropriés. Suivez les instructions de la rubrique [Systèmes d’exploitation et pilotes pris en charge](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) pour installer les pilotes. Seuls les pilotes distribués par Azure sont pris en charge.
 
 * Pour les machines virtuelles Azure de série NV ou NVv3, seuls les pilotes NVIDIA GRID, et non les pilotes NVIDIA CUDA, prennent en charge l’accélération par GPU pour la plupart des applications et pour l’interface utilisateur Windows. Si vous choisissez d’installer les pilotes manuellement, veillez à installer les pilotes GRID. Si vous choisissez d’installer les pilotes à l’aide de l’extension de machine virtuelle Azure, les pilotes GRID sont automatiquement installés pour ces tailles de machine virtuelle.
 * Pour les machines virtuelles Azure de série NVv4, installez les pilotes AMD fournis par Azure. Vous pouvez les installer automatiquement à l’aide de l’extension de machine virtuelle Azure, ou vous pouvez les installer manuellement.
@@ -100,7 +100,7 @@ Pour vérifier que les applications utilisent le GPU pour le rendu, essayez l’
 
 Pour vérifier que le Bureau à distance utilise le codage avec accélération GPU :
 
-1. Connectez-vous au bureau de la machine virtuelle à l’aide du client Windows Virtual Desktop.
+1. Connectez-vous au bureau de la machine virtuelle à l’aide du client Azure Virtual Desktop.
 2. Lancer l’Observateur d’événements et accédez au nœud suivant : **Journaux des applications et services** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Opérationnel**
 3. Pour déterminer si de codage avec accélération GPU est utilisé, recherchez l’ID d’événement 170. Si vous voyez « Encodeur matériel AVC activé : 1 » alors le codage GPU est utilisé.
 
@@ -108,7 +108,7 @@ Pour vérifier que le Bureau à distance utilise le codage avec accélération G
 
 Pour vérifier que le Bureau à distance utilise le codage en plein écran :
 
-1. Connectez-vous au bureau de la machine virtuelle à l’aide du client Windows Virtual Desktop.
+1. Connectez-vous au bureau de la machine virtuelle à l’aide du client Azure Virtual Desktop.
 2. Lancer l’Observateur d’événements et accédez au nœud suivant : **Journaux des applications et services** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Opérationnel**
 3. Pour déterminer si de codage en plein écran est utilisé, recherchez l’ID d’événement 162. Si vous voyez « AVC disponible : 1 Profil initial : 2048 » alors AVC 444 est utilisé.
 

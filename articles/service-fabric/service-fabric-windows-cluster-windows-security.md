@@ -3,12 +3,12 @@ title: Sécuriser un cluster exécuté sur Windows avec la sécurité Windows
 description: Apprenez à configurer la sécurité de nœud à nœud et de client à nœud sur un cluster autonome exécuté sous Windows avec la sécurité Windows.
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.openlocfilehash: a34c7084a9faaf0d676d4f6c68da53b2bc84f01b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9b0de9799e09b0f5812c85380191bb24b0a12c7a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103574609"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110781664"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Sécuriser un cluster autonome sous Windows avec la sécurité Windows
 Pour empêcher tout accès non autorisé à un cluster Service Fabric, vous devez sécuriser le cluster. La sécurité est particulièrement importante lorsque le cluster exécute des charges de travail de production. Cet article explique comment configurer la sécurité de nœud à nœud et de client à nœud avec la sécurité Windows dans le fichier *ClusterConfig.JSON*.  Le processus correspond à l’étape de configuration de la sécurité sur la page [Créer un cluster autonome s’exécutant sous Windows](service-fabric-cluster-creation-for-windows-server.md). Pour plus d’informations sur la manière dont Service Fabric utilise la sécurité Windows, référez-vous à [Scénarios de sécurité du cluster](service-fabric-cluster-security.md).
@@ -43,14 +43,11 @@ gMSA est le modèle de sécurité préféré. L’exemple de fichier de configur
 | ClusterCredentialType |Choisissez la valeur *Windows* afin d’activer la sécurité Windows pour la communication entre nœuds.  | 
 | ServerCredentialType |Choisissez la valeur *Windows* afin d’activer la sécurité Windows pour la communication entre client et nœud. |
 | WindowsIdentities |Contient les identités client et cluster. |
-| ClustergMSAIdentity |Configure la sécurité nœud à nœud. Un compte de service administré de groupe (gMSA, group Managed Service Account). |
+| ClustergMSAIdentity |Configure la sécurité nœud à nœud. Un compte de service administré de groupe (gMSA, group Managed Service Account). Doit être au format « mysfgmsa@mydomain ». |
 | ClusterSPN |SPN inscrit pour le compte GMSA|
 | ClientIdentities |Configure la sécurité client à nœud. Tableau des comptes d’utilisateur du client. |
 | Identité |Ajoutez l’utilisateur du domaine, domain\username, pour l’identité du client. |
 | IsAdmin |Définissez sur true pour indiquer que l’utilisateur de domaine dispose d’un accès administrateur au client, ou sur false pour un accès utilisateur. |
-
-> [!NOTE]
-> La valeur de ClustergMSAIdentity doit être au format « mysfgmsa@mydomain ».
 
 La [sécurité de nœud à nœud](service-fabric-cluster-security.md#node-to-node-security) se configure en définissant **ClustergMSAIdentity** lorsque Service Fabric doit s’exécuter sous le compte gMSA. Pour créer des relations d’approbation entre les nœuds, ceux-ci doivent se connaître mutuellement. Pour ce faire, deux méthodes sont possibles : indiquez le compte de service géré de groupe qui inclut tous les nœuds du cluster, ou spécifiez le groupe de machines de domaine qui inclut tous les nœuds du cluster. Nous vous recommandons d’utiliser l’approche avec le [compte de service géré de groupe (gMSA)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) , en particulier pour les clusters de grande taille (plus de 10 nœuds) ou pour les clusters dont la taille est susceptible d’augmenter ou de diminuer.  
 Cette méthode ne nécessite pas la création d’un groupe de domaine pour lequel les administrateurs de cluster disposent des droits d’accès leur permettant d’ajouter et de supprimer des membres. Ces comptes sont également utiles pour la gestion des mots de passe automatique. Pour en savoir plus, consultez [Prise en main des comptes de service gérés de groupe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)).  

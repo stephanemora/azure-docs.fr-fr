@@ -2,13 +2,13 @@
 title: Résoudre les problèmes liés à Event Grid
 description: Cet article propose différentes solutions pour résoudre les problèmes liés à Azure Event Grid.
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: d30b8464de90474ad74853cc423de700b41226a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/10/2021
+ms.openlocfilehash: 5dd6450e1f849dca084bbe0e52a0bcab8f7a29ca
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104720557"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982301"
 ---
 # <a name="troubleshoot-azure-event-grid-issues"></a>Résoudre les problèmes liés à Azure Event Grid
 Cet article fournit des informations qui vous aideront à résoudre les problèmes liés à Azure Event Grid. 
@@ -31,8 +31,13 @@ Il existe plusieurs raisons pour lesquelles des applications clientes peuvent ne
 ## <a name="error-codes"></a>Codes d’erreur
 Si vous recevez des messages d'erreur avec des codes d'erreur tels que 400, 409 et 403, consultez [Résoudre les erreurs liées à Event Grid](troubleshoot-errors.md). 
 
-## <a name="distributed-tracing-net"></a>Suivi distribué (.NET)
+## <a name="distributed-tracing"></a>Traçage distribué 
+
+### <a name="net"></a>.NET
 La bibliothèque Event Grid .NET prend en charge la distribution du suivi. Pour se conformer aux [directives de la spécification CloudEvents](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) sur la distribution du suivi, la bibliothèque définit les attributs `traceparent` et `tracestate` sur les attributs [ExtensionAttributes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization#L126) d'un `CloudEvent` lorsque le suivi distribué est activé. Pour en savoir plus sur l'activation du suivi distribué dans votre application, consultez la [documentation consacrée au suivi distribué](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing) du kit de développement logiciel (SDK) Azure.
+
+### <a name="java"></a>Java
+La bibliothèque Event Grid de Java prend en charge la distribution sans configuration supplémentaire. Pour se conformer aux [directives](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) de la spécification cloudEvents sur la distribution du suivi, la bibliothèque définit les attributs `traceparent` et `tracestate` sur `extensionAttributes` d’un `CloudEvent` lorsque le suivi distribué est activé. Pour en savoir plus sur l’activation du suivi distribué dans votre application, consultez la [documentation consacrée au suivi distribué](/azure/developer/java/sdk/tracing) Java du kit de développement logiciel (SDK) Azure.
 
 ### <a name="sample"></a>Exemple
 Consultez l'[exemple de compteur de lignes](/samples/azure/azure-sdk-for-net/line-counter/). Cet exemple d'application illustre l'utilisation des clients Stockage, Event Hubs et Event Grid, ainsi que l'intégration d'ASP.NET Core, le suivi distribué et les services hébergés. Cette application permet aux utilisateurs de charger un fichier dans un blob, ce qui déclenche un événement Event Hubs contenant le nom du fichier. Le processeur Event Hubs reçoit l'événement, puis l'application télécharge le blob et compte le nombre de lignes du fichier. L'application affiche un lien vers une page contenant le nombre de lignes. Lorsque l'utilisateur clique sur le lien, un CloudEvent contenant le nom du fichier est publié à l'aide d'Event Grid.

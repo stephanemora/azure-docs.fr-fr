@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 03/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b877ecbdca06ff73d152e1b491e993798a99f98a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c47fb2cdd16a0342163492309da999364eb37b8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103233512"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756848"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Création d’un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide de PowerShell
 
@@ -24,7 +24,7 @@ Cet article suppose une compréhension élémentaire des concepts liés à Kuber
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-Si vous choisissez d’utiliser PowerShell localement, cet article vous demande d’installer le module Az PowerShell et de vous connecter à votre compte Azure avec l’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount). Pour en savoir plus sur l’installation du module Az PowerShell, consultez [Installer Azure PowerShell][install-azure-powershell]. Vous devez également installer le module PowerShell Az.Aks : 
+Si vous choisissez d’utiliser PowerShell localement, cet article vous demande d’installer le module Az PowerShell et de vous connecter à votre compte Azure avec l’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount). Pour en savoir plus sur l’installation du module Az PowerShell, consultez [Installer Azure PowerShell][install-azure-powershell]. Vous devez également installer le module PowerShell Az.Aks :
 
 ```azurepowershell-interactive
 Install-Module Az.Aks
@@ -77,7 +77,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 Utilisez l’utilitaire de ligne de commande `ssh-keygen` pour générer une paire de clés SSH. Pour plus d’informations, consultez [Étapes rapides : Création et utilisation d’une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-Pour pouvoir exécuter un cluster AKS qui prend en charge des pools de nœuds pour les conteneurs Windows Server, votre cluster doit appliquer une stratégie de réseau qui utilise un plug-in réseau [Azure CNI][azure-cni-about] (avancé). Pour plus d’informations sur la planification des plages de sous-réseau nécessaires et les considérations réseau, consultez [Configurer le réseau Azure CNI][use-advanced-networking]. Utilisez la commande [New-AzAks][new-azaks] ci-dessous pour créer un cluster AKS nommé **myAKSCluster**. L’exemple suivant crée les ressources réseau nécessaires si elles n’existent pas.
+Pour pouvoir exécuter un cluster AKS qui prend en charge des pools de nœuds pour les conteneurs Windows Server, votre cluster doit appliquer une stratégie de réseau qui utilise un plug-in réseau [Azure CNI][azure-cni-about] (avancé). Pour plus d’informations sur la planification des plages de sous-réseau nécessaires et les considérations réseau, consultez [Configurer le réseau Azure CNI][use-advanced-networking]. Utilisez la commande [New-AzAksCluster][new-azakscluster] ci-dessous pour créer un cluster AKS nommé **myAKSCluster**. L’exemple suivant crée les ressources réseau nécessaires si elles n’existent pas.
 
 > [!NOTE]
 > Pour garantir un fonctionnement fiable de votre cluster, vous devez exécuter au moins 2 (deux) nœuds dans le pool de nœuds par défaut.
@@ -101,7 +101,7 @@ Par défaut, un cluster AKS est créé avec un pool de nœuds qui peut exécuter
 New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin
 ```
 
-La commande ci-dessus crée un pool de nœuds nommé **npwin** et l’ajoute à **myAKSCluster**. Lorsque vous créez un pool de nœuds pour exécuter des conteneurs Windows Server, la valeur par défaut de **VmSize** est **Standard_D2s_v3**. Si vous choisissez de définir le paramètre **VmSize**, consultez la liste des [tailles de machines virtuelles restreintes][restricted-vm-sizes]. La taille minimale recommandée est **Standard_D2s_v3**. La commande précédente utilise également le sous-réseau par défaut dans le réseau virtuel par défaut créé lors de l’exécution de `New-AzAks`.
+La commande ci-dessus crée un pool de nœuds nommé **npwin** et l’ajoute à **myAKSCluster**. Lorsque vous créez un pool de nœuds pour exécuter des conteneurs Windows Server, la valeur par défaut de **VmSize** est **Standard_D2s_v3**. Si vous choisissez de définir le paramètre **VmSize**, consultez la liste des [tailles de machines virtuelles restreintes][restricted-vm-sizes]. La taille minimale recommandée est **Standard_D2s_v3**. La commande précédente utilise également le sous-réseau par défaut dans le réseau virtuel par défaut créé lors de l’exécution de `New-AzAksCluster`.
 
 ## <a name="connect-to-the-cluster"></a>Se connecter au cluster
 
@@ -262,7 +262,7 @@ Pour en savoir plus sur AKS et parcourir le code complet de l’exemple de dépl
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
 [azure-cni-about]: concepts-network.md#azure-cni-advanced-networking
 [use-advanced-networking]: configure-azure-cni.md
-[new-azaks]: /powershell/module/az.aks/new-azaks
+[new-azakscluster]: /powershell/module/az.aks/new-azakscluster
 [restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests

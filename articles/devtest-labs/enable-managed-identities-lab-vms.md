@@ -3,12 +3,12 @@ title: Activer les identités managées sur des machines virtuelles Lab dans Azu
 description: Cet article montre comment un propriétaire de labo peut activer les identités managées affectées par l’utilisateur sur des machines virtuelles Lab.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b4bf2900acebaeecd5cbc4cb65635aee6de87dda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d2c7b944d37160df241e6ca4407c730593f1b62
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88717628"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854033"
 ---
 # <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Activer les identités managées affectées par l’utilisateur sur des machines virtuelles Lab dans Azure DevTest Labs
 En tant que propriétaire de labo, vous pouvez activer les identités managées affectées par l’utilisateur sur vos machines virtuelles Lab dans Azure DevTest Labs.
@@ -40,23 +40,22 @@ Pour ajouter une identité managée affectée par l’utilisateur pour des machi
 
 1.  Après avoir créé une identité, notez son ID de ressource. Il doit ressembler à l’exemple suivant : 
 
-    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-2. Exécutez une méthode HTTPS PUT pour ajouter une nouvelle ressource **ServiceRunner** au labo comme dans l’exemple suivant. 
+    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}`.
+    
+2. Exécutez une méthode HTTPs sur la ressource lab pour ajouter une ou plusieurs identités affectées par l’utilisateur au champ **managementIdentities** .
 
-    La ressource d’exécuteur de service est une ressource proxy permettant de gérer et de contrôler les identités managées dans DevTest Labs. Le nom de l’exécuteur de service peut être n’importe quel nom valide, mais nous vous recommandons d’utiliser celui de la ressource d’identité managée.
 
     ```json
     {
-        "identity": {
-            "type": "userAssigned",
-            "userAssignedIdentities": { 
-                "[userAssignedIdentityResourceId]": {}
-            }
-            },
         "location": "southeastasia",
         "properties": {
-            "identityUsageType": "VirtualMachine"
-        }
+        ...
+            "managementIdentities": {
+               "/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}": {}
+        },
+        ...
+        },
+    ...
     }
     ```
 

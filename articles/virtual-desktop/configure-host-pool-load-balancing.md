@@ -1,28 +1,29 @@
 ---
-title: Configurer l’équilibrage de charge de Windows Virtual Desktop – Azure
-description: Comment configurer la méthode d’équilibrage de charge pour un environnement Windows Virtual Desktop ?
+title: Configurer l’équilibrage de charge d’Azure Virtual Desktop – Azure
+description: Comment configurer la méthode d’équilibrage de charge pour un environnement Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 0e742a046d43fef6e8263f73fc2ca8460848ad40
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: a39aad7889ee395c723d76a74cfb006b6d09caa3
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448115"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751052"
 ---
-# <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop
+# <a name="configure-the-azure-virtual-desktop-load-balancing-method"></a>Configurer la méthode d’équilibrage de charge d’Azure Virtual Desktop
 
-La configuration de la méthode d’équilibrage de charge pour un pool d’hôtes vous permet d’ajuster l’environnement Windows Virtual Desktop afin de mieux répondre à vos besoins.
+La configuration de la méthode d’équilibrage de charge pour un pool d’hôtes vous permet d’ajuster l’environnement Azure Virtual Desktop afin de mieux répondre à vos besoins.
 
 >[!NOTE]
 > Cela ne s’applique pas à un pool d'hôtes de bureau persistant, car les utilisateurs disposent toujours d'un mappage 1:1 vers un hôte de session au sein du pool d’hôtes.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cet article suppose que vous avez suivi les instructions de l’article [Configurer le module PowerShell pour Windows Virtual Desktop](powershell-module.md) afin de télécharger et installer le module PowerShell et vous connecter à votre compte Azure.
+Cet article suppose que vous avez suivi les instructions de l’article [Configurer le module PowerShell pour Azure Virtual Desktop](powershell-module.md) afin de télécharger et installer le module PowerShell et vous connecter à votre compte Azure.
 
 ## <a name="configure-breadth-first-load-balancing"></a>Configurer l’équilibrage de charge de largeur
 
@@ -82,8 +83,8 @@ Vous pouvez également configurer l’équilibrage de charge avec le portail Azu
 Pour configurer l’équilibrage de charge :
 
 1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
-2. Recherchez et sélectionnez **Windows Virtual Desktop** sous Services.
-3. Dans la page Windows Virtual Desktop, sélectionnez **Pools d’hôtes**.
+2. Recherchez et sélectionnez **Azure Virtual Desktop** sous Services.
+3. Sur la page Azure Virtual Desktop, sélectionnez **Pools d’hôtes**.
 4. Sélectionnez le nom du pool d’hôtes que vous souhaitez modifier.
 5. Sélectionner **Propriétés**.
 6. Entrez la **Limite de session maximale** dans le champ et sélectionnez l’**algorithme d’équilibrage de charge** de votre choix pour ce pool d’hôtes dans le menu déroulant.

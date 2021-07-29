@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/09/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 59e2fc1f528040515398e51d359840f6ef1bbefc
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 33e73a70db1a0fd16fae98ee5bc4bbdaa3759fe8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107255798"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756056"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Créer un conteneur de profil avec Azure Files et Azure AD DS
 
@@ -113,7 +113,7 @@ Pour obtenir la clé d’accès du compte de stockage :
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile
      ```
 
-8. Exécutez les commandes suivantes pour permettre à vos utilisateurs Windows Virtual Desktop de créer leur propre conteneur de profils tout en bloquant l’accès aux conteneurs de profils par d’autres utilisateurs.
+8. Exécutez les commandes suivantes pour permettre à vos utilisateurs Azure Virtual Desktop de créer leur propre conteneur de profils tout en bloquant l’accès aux conteneurs de profils par d’autres utilisateurs.
 
      ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
@@ -175,7 +175,7 @@ Pour configurer un conteneur de profil FSLogix :
 
 Pour attribuer des utilisateurs :
 
-1. Exécutez Windows PowerShell en tant qu’administrateur, puis exécutez l’applet de commande suivante pour vous connecter à Windows Virtual Desktop avec PowerShell :
+1. Exécutez Windows PowerShell en tant qu’administrateur, puis exécutez l’applet de commande suivante pour vous connecter à Azure Virtual Desktop avec PowerShell :
 
    ```powershell
    Import-Module Microsoft.RdInfra.RdPowershell
@@ -188,7 +188,7 @@ Pour attribuer des utilisateurs :
    Add-RdsAccount -DeploymentUrl $brokerurl
    ```
 
-   Quand vous êtes invité à entrer des informations d’identification, indiquez l’utilisateur auquel a été accordé le rôle TenantCreator, Propriétaire RDS ou Contributeur RDS sur le locataire Windows Virtual Desktop.
+   Quand vous êtes invité à entrer des informations d’identification, indiquez l’utilisateur auquel a été accordé le rôle TenantCreator, Propriétaire RDS ou Contributeur RDS sur le locataire Azure Virtual Desktop.
 
 2. Exécutez les applets de commande suivantes pour attribuer l’utilisateur au groupe Bureau à distance :
 
@@ -226,7 +226,7 @@ Maintenant, il ne vous reste plus qu’à vérifier que le profil que vous avez 
 
 Pour vérifier votre profil :
 
-1. Ouvrez un navigateur et accédez au [client web Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/arm/webclient).
+1. Ouvrez un navigateur et accédez au [client web Azure Virtual Desktop](https://rdweb.wvd.microsoft.com/arm/webclient).
 
 2. Connectez-vous avec le compte d’utilisateur attribué au groupe Bureau à distance.
 

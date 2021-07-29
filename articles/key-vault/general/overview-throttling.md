@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7a215b53f673a7414f1b3662f519de5c26faaa9d
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: f9e3f2095e6fd7a744769c11209ed115767c3aed
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749530"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113492592"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Aide sur la limitation de requêtes Azure Key Vault
 
@@ -36,21 +36,7 @@ Key Vault a initialement été créé avec les limites décrites dans [Limites d
 1. Si vous utilisez Key Vault pour stocker les informations d’identification d’un service, assurez-vous que ce service prend en charge Azure AD Authentication pour s’authentifier directement. Cela réduit la charge sur Key Vault, améliore la fiabilité et simplifie votre code puisque Key Vault peut maintenant utiliser le jeton Azure AD.  De nombreux services ont été mis à jour pour utiliser l’authentification Azure AD.  Consultez la liste actualisée des [services qui prennent en charge les identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources).
 1. Essayez d’échelonner votre charge/déploiement sur une période plus longue pour rester sous les limites RPS actuelles.
 1. Si votre application comprend plusieurs nœuds devant lire le ou les mêmes secrets, utilisez un modèle de distribution ramifiée, où une seule entité récupère un secret de Key Vault et le distribue ensuite vers tous les nœuds.   Mettez en cache les secrets récupérés uniquement en mémoire.
-Si les conseils ou bonnes pratiques ci-dessus ne vous permettent pas de résoudre votre problème, renseignez ce tableau, puis contactez-nous pour déterminer si une capacité supplémentaire peut être ajoutée (l’exemple ci-dessous est donné à titre indicatif uniquement).
 
-| Nom du coffre | Région du coffre | Type d’objet (secret, clé ou certificat) | Opération(s)* | Type de clé | Courbe ou longueur de clé | Clé HSM ?| État stable de RPS requis | Pic de RPS requis |
-|--|--|--|--|--|--|--|--|--|
-| https://mykeyvault.vault.azure.net/ | | Clé | Sign (Signer) | EC | P-256 | Non | 200 | 1 000 |
-
-\* Pour obtenir une liste complète des valeurs possibles, consultez [Opérations Azure Key Vault](/rest/api/keyvault/key-operations).
-
-Si une capacité supplémentaire est approuvée, notez les conséquences suivantes d’une augmentation de la capacité :
-1. Modifications du modèle de cohérence des données. Une fois qu’un coffre est autorisé avec une capacité de débit supplémentaire, la cohérence des données du service Key Vault garantit l’application des modifications (ce qui est nécessaire pour traiter un volume RPS plus élevé qui ne peut pas l’être par le service Stockage Azure sous-jacent).  En résumé :
-  1. **Sans autorisation** : le service Key Vault reflètera les résultats d’une opération d’écriture (par exemple, SecretSet, CreateKey) immédiatement dans les appels suivants (par exemple, SecretGet, KeySign).
-  1. **Avec autorisation** : le service Key Vault reflètera les résultats d’une opération d’écriture (par exemple, SecretSet, CreateKey) dans un délai de 60 secondes dans les appels suivants (par exemple, SecretGet, KeySign).
-1. Le code client doit respecter la stratégie de backoff entre les nouvelles tentatives (code de réponse 429). Le code client qui appelle le service Key Vault ne doit pas réessayer les requêtes de Key Vault immédiatement après avoir reçu un code de réponse 429.  La présente aide sur la limitation de requêtes Azure Key Vault vous conseille d’appliquer un backoff exponentiel pour les codes de réponse HTTP 429 reçus.
-
-Si vous avez un scénario valide justifiant une limitation supérieure, contactez-nous.
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Guide pratique pour limiter une application en réponse à des limites de service
 

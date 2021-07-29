@@ -1,21 +1,21 @@
 ---
 title: Configurer des redirections d’appareil - Azure
-description: Comment configurer des redirections d’appareil pour Windows Virtual Desktop.
+description: Comment configurer des redirections d’appareil pour Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f603a4b44b555382e4178d90522ae41fa2388663
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 570983229c16fa9c01d14bd7575d0720a7197191
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107947714"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756542"
 ---
 # <a name="configure-device-redirections"></a>Configurer des redirections d’appareil
 
-La configuration des redirections d’appareils pour votre environnement Windows Virtual Desktop vous permet d’utiliser des imprimantes, des périphériques USB, des microphones et d’autres périphériques dans la session à distance. Certaines redirections d’appareil requièrent des modifications des propriétés du protocole RDP (Remote Desktop Protocol) et des paramètres de stratégie de groupe.
+La configuration des redirections d’appareils pour votre environnement Azure Virtual Desktop vous permet d’utiliser des imprimantes, des périphériques USB, des microphones et d’autres périphériques dans la session à distance. Certaines redirections d’appareil requièrent des modifications des propriétés du protocole RDP (Remote Desktop Protocol) et des paramètres de stratégie de groupe.
 
 ## <a name="supported-device-redirections"></a>Redirections d’appareil prises en charge
 
