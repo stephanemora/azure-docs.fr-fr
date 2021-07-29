@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 786d877328b1ab3d0f03a75604b7345dba14aa9d
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: deb9e103e44da97b9352f4f349505b3cb90df214
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713405"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111853511"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Activer la récupération d’urgence des machines virtuelles Azure entre les zones de disponibilité
 
@@ -20,7 +20,7 @@ Cet article explique comment répliquer, basculer et restaurer automatiquement d
 
 >[!NOTE]
 >
->- La prise en charge de la récupération d’urgence de zone à zone est actuellement limitée aux régions suivantes : Asie Sud-Est, Japon Est, Australie Est, Inde Ouest JIO, Royaume-Uni Sud, Europe Ouest, Europe Nord, USA Centre, USA Est, USA Est 2 et USA Ouest 2.  
+>- La prise en charge de la récupération d’urgence de zone à zone est actuellement limitée aux régions suivantes : Asie Sud-Est, Japon Est, Australie Est, Inde Ouest JIO, Royaume-Uni Sud, Europe Ouest, Europe Nord, France Centre, USA Centre, USA Est, USA Est 2 et USA Ouest 2.  
 >- Site Recovery ne déplace pas et ne stocke pas les données client hors de la région dans laquelle il est déployé lorsque le client utilise la récupération d’urgence de zone à zone. S’ils le souhaitent, les clients peuvent sélectionner un coffre Recovery Services dans une autre région. Le coffre Recovery Services contient des métadonnées, mais pas de données client réelles.
 
 Le service Site Recovery contribue à votre stratégie de continuité d’activité et reprise d’activité en veillant à ce que vos applications métier restent opérationnelles lors d’interruptions planifiées ou non. Il s’agit de l’option de récupération d’urgence recommandée pour maintenir vos applications opérationnelles en cas de pannes régionales.

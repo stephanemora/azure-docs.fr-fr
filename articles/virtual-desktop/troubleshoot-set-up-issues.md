@@ -1,29 +1,29 @@
 ---
-title: Création d’un pool d’hôtes pour un environnement Windows Virtual Desktop – Azure
-description: Découvrez comment détecter et résoudre les problèmes de locataire et de pool d’hôtes lors de la configuration d’un environnement Windows Virtual Desktop.
+title: Création d’un pool d’hôtes pour un environnement Azure Virtual Desktop – Azure
+description: Découvrez comment détecter et résoudre les problèmes de locataire et de pool d’hôtes lors de la configuration d’un environnement Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.custom: references_regions
 ms.date: 02/17/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 4d515e75aba9b3912507da07267c3dcb31f1ee34
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: a18d78fdc6714894a9ce038f1e67e72e0acc0b87
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445497"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744536"
 ---
 # <a name="host-pool-creation"></a>Création d’un pool d’hôtes
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
 
-Cet article décrit les problèmes pouvant survenir lors de la configuration initiale du locataire Windows Virtual Desktop et de l’infrastructure associée du pool d’hôtes de la session.
+Cet article décrit les problèmes pouvant survenir lors de la configuration initiale du locataire Azure Virtual Desktop et de l’infrastructure associée du pool d’hôtes de la session.
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 
-Rendez-vous sur le site [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) pour discuter du service Windows Virtual Desktop avec l’équipe de produit et les membres actifs de la communauté.
+Rendez-vous sur le site [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) pour discuter du service Azure Virtual Desktop avec l’équipe de produit et les membres actifs de la communauté.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Acquisition de l’image Windows 10 Entreprise multisession
 
@@ -56,7 +56,7 @@ Si votre opération dépasse la limite de quota, vous pouvez effectuer une des a
 
 ### <a name="i-only-see-us-when-setting-the-location-for-my-service-objects"></a>Je ne vois que US lorsque je définis l’emplacement de mes objets de service
 
-**Cause** : Actuellement Azure ne prend pas en charge cette région pour le service Windows Virtual Desktop. Pour en savoir plus sur les zones géographiques que nous prenons en charge, consultez [Emplacements des données](data-locations.md). Si Windows Virtual Desktop prend en charge l’emplacement, mais qu’il n’apparaît toujours pas lorsque vous essayez de sélectionner un emplacement, cela signifie que votre fournisseur de ressources n’a pas encore été mis à jour.
+**Cause** : actuellement Azure ne prend pas en charge cette région pour le service Azure Virtual Desktop. Pour en savoir plus sur les zones géographiques que nous prenons en charge, consultez [Emplacements des données](data-locations.md). Si Azure Virtual Desktop prend en charge l’emplacement, mais qu’il n’apparaît toujours pas lorsque vous essayez de sélectionner un emplacement, cela signifie que votre fournisseur de ressources n’a pas encore été mis à jour.
 
 **Correctif** : Pour obtenir la liste des régions la plus récente, réinscrivez le fournisseur de ressources :
 
@@ -122,11 +122,11 @@ Pour corriger cela, effectuez les actions suivantes :
 > [!div class="mx-imgBorder"]
 > ![Capture d’écran du message d’échec du déploiement indiquant l’échec du provisionnement du terminal](media/failure-vmextensionprovisioning.png)
 
-**Cause 1 :** Erreur temporaire au niveau de l’environnement Windows Virtual Desktop.
+**Cause 1 :** erreur temporaire au niveau de l’environnement Azure Virtual Desktop.
 
 **Cause 2 :** Erreur temporaire au niveau de la connexion.
 
-**Correctif :** Vérifiez que l’environnement Windows Virtual Desktop est sain en vous connectant à l’aide de PowerShell. Terminez l’inscription de la machine virtuelle manuellement à l’aide de l’article [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md).
+**Correctif :** vérifiez que l’environnement Azure Virtual Desktop est sain en vous connectant à l’aide de PowerShell. Terminez l’inscription de la machine virtuelle manuellement à l’aide de l’article [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md).
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erreur : Le nom d’utilisateur spécifié pour l’administrateur n’est pas autorisé
 
@@ -280,13 +280,13 @@ the VM.\\\"
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour découvrir une vue d’ensemble de la résolution des problèmes Windows Virtual Desktop et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview.md).
-- Pour résoudre les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
-- Pour résoudre les problèmes relatifs à l’agent Windows Virtual Desktop ou à la connectivité des sessions, consultez [Résoudre les problèmes courants liés à l’agent Windows Virtual Desktop](troubleshoot-agent.md).
-- Pour résoudre les problèmes de connexion au client Windows Virtual Desktop, consultez [Connexions au service Windows Virtual Desktop](troubleshoot-service-connection.md).
+- Pour découvrir une vue d’ensemble de la résolution des problèmes Azure Virtual Desktop et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview.md).
+- Pour résoudre les problèmes de configuration d’une machine virtuelle dans Azure Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
+- Pour résoudre les problèmes relatifs à l’agent Azure Virtual Desktop ou à la connectivité des sessions, consultez [Résoudre les problèmes courants liés à l’agent Azure Virtual Desktop](troubleshoot-agent.md).
+- Pour résoudre les problèmes de connexion au client Azure Virtual Desktop, consultez [Connexions au service Azure Virtual Desktop](troubleshoot-service-connection.md).
 - Pour résoudre les problèmes liés aux clients Bureau à distance, consultez [Résoudre des problèmes du client Bureau à distance](troubleshoot-client.md).
-- Pour résoudre les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](environment-setup.md).
+- Pour résoudre les problèmes d’utilisation de PowerShell avec Azure Virtual Desktop, consultez [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
+- Pour plus d’informations sur le service, consultez [Environnement Azure Virtual Desktop](environment-setup.md).
 - Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 - Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../azure-resource-manager/templates/deployment-history.md).

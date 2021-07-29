@@ -9,12 +9,12 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 295579d17f3b24adcf43f6907cc4b1aca01dcae2
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 15386baa369b18678ef84ebed8144d358fa8177f
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565914"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839362"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Déployer une machine virtuelle avec le lancement fiable activé (préversion)
 
@@ -22,7 +22,7 @@ Le [lancement fiable](trusted-launch.md) est un moyen d’améliorer la sécurit
 
 > [!IMPORTANT]
 > Le lancement fiable est actuellement disponible en préversion publique.
-> 
+>
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 >
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -32,9 +32,9 @@ Le [lancement fiable](trusted-launch.md) est un moyen d’améliorer la sécurit
 Créez une machine virtuelle avec le lancement fiable activé.
 
 1. Connectez-vous au [portail Azure](https://aka.ms/TL_preview).
-   > [!NOTE] 
+   > [!NOTE]
    > Le lien du portail est propre la préversion de lancement fiable.
-   >  
+   >
 2. Recherchez **Machines virtuelles**.
 3. Sous **Services**, sélectionnez **Machines virtuelles**.
 4. Dans la page **Machines virtuelles**, sélectionnez **Ajouter**, puis **Machine virtuelle**.
@@ -48,7 +48,7 @@ Créez une machine virtuelle avec le lancement fiable activé.
     :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Capture d’écran montrant le message qui confirme qu’il s’agit d’une image de génération 2 (Gen2) qui prend en charge le lancement fiable.":::
 
 13. Sélectionnez une taille de machine virtuelle qui prend en charge le lancement fiable. Consultez la liste des [tailles prises en charge](trusted-launch.md#public-preview-limitations).
-14. Renseignez les informations du **Compte d’administrateur**, puis les **Règles de port entrant**. 
+14. Renseignez les informations du **Compte d’administrateur**, puis les **Règles de port entrant**.
 1. Basculez vers l’onglet **Avancé** en le sélectionnant en haut de la page.
 1. Descendez jusqu’à la section **Génération de machine virtuelle**. Assurez-vous que **Génération 2** est sélectionné.
 1. Toujours sous l’onglet **Avancé**, faites défiler jusqu’à **Lancement fiable**, puis cochez la case **Lancement fiable**. Deux options supplémentaires s’affichent : Amorçage sécurisé et vTPM. Sélectionnez les options appropriées pour votre déploiement.
@@ -61,23 +61,21 @@ Créez une machine virtuelle avec le lancement fiable activé.
     :::image type="content" source="media/trusted-launch/validation.png" alt-text="Capture d’écran montrant la page de validation, indiquant que les options de lancement fiable sont incluses.":::
 
 
-Quelques minutes sont nécessaires pour le déploiement de votre machine virtuelle. 
+Quelques minutes sont nécessaires pour le déploiement de votre machine virtuelle.
 
 ## <a name="deploy-using-a-template"></a>Déployer à l’aide d’un modèle
 
 Vous pouvez déployer des machines virtuelles de lancement fiable à l’aide d’un modèle de démarrage rapide :
 
-**Linux** :    
-[![Déployer sur Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
+**Linux** : [![Déployer sur Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2FcreateUiDefinition.json)
 
-**Windows** :    
-[![Déployer sur Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
+**Windows** : [![Déployer sur Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
 ## <a name="view-and-update"></a>Afficher et mettre à jour
 
 Vous pouvez afficher la configuration de lancement fiable pour une machine virtuelle existante en visitant la page **Vue d’ensemble** de la machine virtuelle dans le portail.
 
-Pour modifier la configuration de lancement fiable, dans le menu de gauche, sélectionnez **Configuration** dans la section **Paramètres**. Vous pouvez activer ou désactiver l’amorçage sécurisé et vTPM dans la section **Lancement fiable**. Lorsque vous avez terminé, sélectionnez **Enregistrer** en haut de la page. 
+Pour modifier la configuration de lancement fiable, dans le menu de gauche, sélectionnez **Configuration** dans la section **Paramètres**. Vous pouvez activer ou désactiver l’amorçage sécurisé et vTPM dans la section **Lancement fiable**. Lorsque vous avez terminé, sélectionnez **Enregistrer** en haut de la page.
 
 :::image type="content" source="media/trusted-launch/configuration.png" alt-text="Capture d’écran montrant comment modifier la configuration de lancement fiable.":::
 
@@ -87,24 +85,24 @@ Si la machine virtuelle est en cours d’exécution, vous recevrez un message in
 ## <a name="verify-secure-boot-and-vtpm"></a>Vérifier l’amorçage sécurisé et vTPM
 
 Vous pouvez vérifier que l’amorçage sécurisé et vTPM sont activés sur la machine virtuelle.
-    
+
 ### <a name="linux-validate-if-secure-boot-is-running"></a>Linux : vérifier que l’amorçage sécurisé est en cours d’exécution
 
-Connectez-vous avec SSH à la machine virtuelle et exécutez la commande suivante : 
+Connectez-vous avec SSH à la machine virtuelle et exécutez la commande suivante :
 
 ```bash
 mokutil --sb-state
 ```
 
 Si l’amorçage sécurisé est activé, la commande retourne :
- 
+
 ```bash
-SecureBoot enabled 
+SecureBoot enabled
 ```
 
 ### <a name="linux-validate-if-vtpm-is-enabled"></a>Linux : vérifier que vTPM est activé
 
-Connectez-vous avec SSH à votre machine virtuelle. Vérifiez si l’appareil tpm0 est présent : 
+Connectez-vous avec SSH à votre machine virtuelle. Vérifiez si l’appareil tpm0 est présent :
 
 ```bash
 ls /dev/tpm0
@@ -130,7 +128,7 @@ Dans le volet de droite, vérifiez que l’état de l’amorçage sécurisé est
 
 ## <a name="enable-the-azure-security-center-experience"></a>Activer l’expérience Azure Security Center
 
-Pour permettre à Azure Security Center d’afficher des informations sur vos machines virtuelles de lancement fiable, vous devez activer plusieurs stratégies. Le moyen le plus simple d’activer des stratégies consiste à déployer ce [modèle Resource Manager](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) dans votre abonnement. 
+Pour permettre à Azure Security Center d’afficher des informations sur vos machines virtuelles de lancement fiable, vous devez activer plusieurs stratégies. Le moyen le plus simple d’activer des stratégies consiste à déployer ce [modèle Resource Manager](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) dans votre abonnement.
 
 Sélectionnez le bouton ci-dessous pour déployer les stratégies dans votre abonnement :
 
@@ -139,7 +137,7 @@ Sélectionnez le bouton ci-dessous pour déployer les stratégies dans votre abo
 Le modèle ne doit être déployé qu’une seule fois par abonnement. Il installe automatiquement les extensions `GuestAttestation` et `AzureSecurity` sur toutes les machines virtuelles prises en charge. Si vous recevez des erreurs, essayez de redéployer le modèle.
 
 Pour obtenir des recommandations sur vTPM et l’amorçage sécurisé pour les machines virtuelles de lancement fiable, consultez [Ajouter une initiative personnalisée à votre abonnement](../security-center/custom-security-policies.md#to-add-a-custom-initiative-to-your-subscription).
- 
+
 ## <a name="sign-things-for-secure-boot-on-linux"></a>Signer des éléments pour l’amorçage sécurisé sur Linux
 
 Dans certains cas, vous devrez peut-être signer des éléments pour l’amorçage sécurisé UEFI.  Par exemple, vous devrez peut-être suivre [la procédure de signature d’éléments pour l’amorçage sécurisé](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) pour Ubuntu. Dans ce cas, vous devez entrer les clés d’inscription de l’utilitaire MOK pour votre machine virtuelle. Pour ce faire, vous devez utiliser la console série Azure pour accéder à l’utilitaire MOK.
@@ -152,7 +150,7 @@ Dans certains cas, vous devrez peut-être signer des éléments pour l’amorça
 1. Une fois que vous êtes connecté, utilisez `mokutil` pour importer le fichier `.der` de clé publique.
 
     ```bash
-    sudo mokutil –import <path to public key.der> 
+    sudo mokutil –import <path to public key.der>
     ```
 1. Redémarrez la machine à partir de la console série Azure en tapant `sudo reboot`. Un compte à rebours de 10 secondes démarre.
 1. Appuyez sur la touche vers le haut ou le bas pour interrompre le compte à rebours et attendre en mode console UEFI. Si le minuteur n’est pas interrompu, le processus d’amorçage continue et toutes les modifications MOK sont perdues.
