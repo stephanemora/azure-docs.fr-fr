@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 05/11/2021
 ms.author: ranku
-ms.openlocfilehash: 123916aebd743e0a5d0f40415f3d5eea956c2c3a
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 7d972139888d45e7e0967f076fd5ed5d8a86e513
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114605941"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667096"
 ---
 # <a name="how-to-convert-data-to-fhir-preview"></a>Comment convertir des données en FHIR (préversion)
 
@@ -24,7 +24,7 @@ Le point de terminaison personnalisé de données $convert dans le service FHIR 
 
 ## <a name="use-the-convert-data-endpoint"></a>Utiliser le point de terminaison $convert-data
 
-L' `$convert-data` opération est intégrée au service FHIR pour s’exécuter dans le cadre du service. Vous devez activer `$convert-data` lors du déploiement de FHIR Server, en affectant la valeur `FhirServer__Operations__ConvertData__Enabled` « true » au paramètre du serveur FHIR. Vous devez également vous assurer que vous avez activé l’identité managée, comme décrit plus loin dans cet article. Ensuite, vous pouvez effectuer des appels d’API au serveur pour convertir vos données en FHIR :
+L' `$convert-data` opération est intégrée au service FHIR pour s’exécuter dans le cadre du service. Vous pouvez effectuer des appels d’API au serveur pour convertir vos données en FHIR :
 
 `https://<<FHIR service base URL>>/$convert-data`
 

@@ -3,26 +3,23 @@ title: Conditions du package de dessin dans Microsoft Azure Maps Creator (préve
 description: Découvrez les exigences du package de dessin pour convertir les fichiers de conception de votre bâtiment en données cartographiques.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 1/08/2021
+ms.date: 4/16/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 2a37e716b7804b11ab396909f746af84294bb4e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a663042cbd8d48d5495d24e5e23db0433f15d55f
+ms.sourcegitcommit: 5c136a01bddfccb2cc9f7e7e7741e2cf2651ddbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98895269"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111352764"
 ---
 # <a name="drawing-package-requirements"></a>Exigences du package de dessin
 
+Vous pouvez convertir les packages de dessin chargés en données cartographiques à l’aide du [service de conversion d’Azure Maps](/rest/api/maps/v2/conversion). Cet article décrit les exigences du package de dessin pour l’API de conversion. Pour voir un exemple de package, vous pouvez télécharger l’exemple [Package de dessin](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
-> [!IMPORTANT]
-> Les services Azure Maps Creator sont disponibles en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Vous pouvez convertir les packages de dessin chargés en données cartographiques à l’aide du [service de conversion d’Azure Maps](/rest/api/maps/conversion). Cet article décrit les exigences du package de dessin pour l’API de conversion. Pour voir un exemple de package, vous pouvez télécharger l’exemple [Package de dessin](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+Pour obtenir un guide sur la préparation de votre package de dessin, consultez le [Guide du package de dessin de conversion](drawing-package-guide.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,7 +27,7 @@ Le package Dessin comprend des dessins enregistrés au format DWG. Il s’agit d
 
 Vous pouvez choisir n’importe quel logiciel de CAO pour produire les dessins du package de dessin.  
 
-Le [service de conversion d’Azure Maps](/rest/api/maps/conversion) convertit le package de dessin en données cartographiques. Le service de conversion fonctionne avec le format de fichier DWG AutoCAD. `AC1032` correspond à la version de format interne des fichiers DWG, et il apparaît judicieux de sélectionner `AC1032` pour la version de format des fichiers DWG internes.  
+Le [service de conversion d’Azure Maps](/rest/api/maps/v2/conversion) convertit le package de dessin en données cartographiques. Le service de conversion fonctionne avec le format de fichier DWG AutoCAD. `AC1032` correspond à la version de format interne des fichiers DWG, et il apparaît judicieux de sélectionner `AC1032` pour la version de format des fichiers DWG internes.  
 
 ## <a name="glossary-of-terms"></a>Glossaire des termes
 
@@ -62,7 +59,7 @@ Un fichier DWG unique est requis pour chaque niveau du bâtiment. Les données d
 * Ne doit pas contenir de caractéristiques de plusieurs bâtiments.
 * Doit faire référence au même système de mesure et à la même unité de mesure que les autres fichiers DWG dans le package de dessin.
 
-Le [service de conversion d’Azure Maps](/rest/api/maps/conversion) peut extraire d’un fichier DWG les classes de caractéristiques suivantes :
+Le [service de conversion d’Azure Maps](/rest/api/maps/v2/conversion) peut extraire d’un fichier DWG les classes de caractéristiques suivantes :
 
 * Niveaux
 * Unités
@@ -79,11 +76,11 @@ Les calques DWG doivent également respecter les critères suivants :
 
 * Les origines des dessins de tous les fichiers DWG doivent s’aligner sur les mêmes latitude et longitude.
 * Chaque niveau doit être dans la même orientation que les autres niveaux.
-* Les polygones avec auto-intersection sont automatiquement réparés, et le [service de conversion d’Azure Maps](/rest/api/maps/conversion) génère un avertissement. Il est recommandé d’inspecter manuellement les résultats réparés, car ils peuvent ne pas correspondre aux résultats attendus.
+* Les polygones avec auto-intersection sont automatiquement réparés, et le [service de conversion d’Azure Maps](/rest/api/maps/v2/conversion) génère un avertissement. Il est recommandé d’inspecter manuellement les résultats réparés, car ils peuvent ne pas correspondre aux résultats attendus.
 
 Toutes les entités de calque doivent être de l’un des types suivants : Ligne, Polyligne, Polygone, Arc circulaire, Cercle, Ellipse (fermée) ou Texte (ligne unique). Tous les autres types d’entités sont ignorés.
 
-Le tableau ci-dessous présente les types d’entités pris en charge et les caractéristiques cartographiques converties pour chaque couche. Si un calque contient des types d’entités non pris en charge, le [service de conversion d’Azure Maps](/rest/api/maps/conversion) ignore ces entités.  
+Le tableau ci-dessous présente les types d’entités pris en charge et les caractéristiques cartographiques converties pour chaque couche. Si un calque contient des types d’entités non pris en charge, le [service de conversion d’Azure Maps](/rest/api/maps/v2/conversion) ignore ces entités.  
 
 | Couche | Types d’entités | Caractéristiques converties |
 | :----- | :-------------------| :-------
@@ -178,11 +175,11 @@ Vous pouvez consulter un exemple de calque ZoneLabel dans l’[exemple de packag
 
 ## <a name="manifest-file-requirements"></a>Exigences du fichier manifeste
 
-Le dossier zip doit contenir un fichier manifeste au niveau racine du répertoire, et le fichier doit être nommé **manifest.json**. Il décrit les fichiers DWG pour permettre au [service de conversion d’Azure Maps](/rest/api/maps/conversion) d’analyser leur contenu. Seuls les fichiers identifiés par le manifeste sont ingérés. Les fichiers qui se trouvent dans le dossier zip mais qui ne sont pas correctement répertoriés dans le manifeste sont ignorés.
+Le dossier zip doit contenir un fichier manifeste au niveau racine du répertoire, et le fichier doit être nommé **manifest.json**. Il décrit les fichiers DWG pour permettre au [service de conversion d’Azure Maps](/rest/api/maps/v2/conversion) d’analyser leur contenu. Seuls les fichiers identifiés par le manifeste sont ingérés. Les fichiers qui se trouvent dans le dossier zip mais qui ne sont pas correctement répertoriés dans le manifeste sont ignorés.
 
 Les chemins d’accès aux fichiers, dans l’objet `buildingLevels` du fichier manifeste doivent être relatifs à la racine du dossier zip. Le nom du fichier DWG doit correspondre exactement au nom du niveau du bâtiment. Par exemple, un fichier DWG pour le niveau « sous-sol » est nommé « sous-sol.dwg ». Un fichier DWG pour le niveau 2 est nommé « niveau_2.dwg ». Si votre nom de niveau comporte une espace, remplacez-la par un trait de soulignement.
 
-Bien que des exigences s’appliquent à l’utilisation des objets de manifeste, tous les objets ne sont pas obligatoires. Le tableau suivant répertorie les objets obligatoires et facultatifs pour la version 1.1 du [service de conversion d’Azure Maps](/rest/api/maps/conversion).
+Bien que des exigences s’appliquent à l’utilisation des objets de manifeste, tous les objets ne sont pas obligatoires. Le tableau suivant répertorie les objets obligatoires et facultatifs pour la version 1.1 du [service de conversion d’Azure Maps](/rest/api/maps/v2/conversion).
 
 | Object | Obligatoire | Description |
 | :----- | :------- | :------- |
@@ -414,13 +411,16 @@ Voici le fichier manifeste pour l’exemple de package de dessin. Pour télécha
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lorsque votre package de dessin répond aux exigences, vous pouvez utiliser le [service de conversion d’Azure Maps](/rest/api/maps/conversion) pour convertir le package en un jeu de données cartographiques. Ensuite, vous pouvez utiliser le jeu de données pour générer une carte d’intérieur à l’aide du module de cartes d’intérieur.
+Lorsque votre package de dessin répond aux exigences, vous pouvez utiliser le [service de conversion d’Azure Maps](/rest/api/maps/v2/conversion) pour convertir le package en un jeu de données cartographiques. Ensuite, vous pouvez utiliser le jeu de données pour générer une carte d’intérieur à l’aide du module de cartes d’intérieur.
 
 > [!div class="nextstepaction"]
->[Creator (préversion) pour cartes d’intérieur](creator-indoor-maps.md)
+> [Guide sur les packages de dessins](drawing-package-guide.md)
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Création d’une carte d’intérieur Creator (préversion)](tutorial-creator-indoor-maps.md)
+>[Créateur pour cartes d’intérieur](creator-indoor-maps.md)
+
+> [!div class="nextstepaction"]
+> [Tutoriel : Création d’une carte d’intérieur du Créateur](tutorial-creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Application de style dynamique de cartes d’intérieur](indoor-map-dynamic-styling.md)

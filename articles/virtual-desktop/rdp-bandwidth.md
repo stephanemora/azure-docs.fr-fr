@@ -1,23 +1,23 @@
 ---
-title: Exigences en bande passante de RDP (Remote Desktop Protocol) pour Windows Virtual Desktop - Azure
+title: Exigences en bande passante de RDP (Remote Desktop Protocol) pour Azure Virtual Desktop - Azure
 titleSuffix: Azure
-description: Comprendre les exigences en bande passante de RDP pour Windows Virtual Desktop.
+description: Comprendre les exigences en bande passante de RDP pour Azure Virtual Desktop.
 author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 6fe12c985f5d9a519380d1d9b5a7d6c2820630c6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1b43a76e417505d4894396503ca93fc87f508d4c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932333"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753158"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>Exigences en bande passante de RDP (Remote Desktop Protocol)
 
 RDP (Remote Desktop Protocol) est une technologie sophistiquée qui utilise diverses techniques pour perfectionner la remise des graphiques à distance du serveur sur l’appareil client. En fonction du cas d’utilisation, de la disponibilité des ressources de calcul et de la bande passante réseau, RDP ajuste dynamiquement divers paramètres pour offrir la meilleure expérience utilisateur.
 
-Le protocole RDP (Remote Desktop Protocol) multiplexe plusieurs canaux virtuels dynamiques (DVC) en un seul canal de données envoyé sur différents transports réseau. Il existe des DVC distincts pour les graphiques à distance, l’entrée, la redirection des appareils, l’impression, etc. Les partenaires Windows Virtual Desktop peuvent également utiliser leurs extensions qui utilisent des interfaces DVC.
+Le protocole RDP (Remote Desktop Protocol) multiplexe plusieurs canaux virtuels dynamiques (DVC) en un seul canal de données envoyé sur différents transports réseau. Il existe des DVC distincts pour les graphiques à distance, l’entrée, la redirection des appareils, l’impression, etc. Les partenaires Azure Virtual Desktop peuvent également utiliser leurs extensions qui utilisent des interfaces DVC.
 
 La quantité de données envoyées via le protocole RDP dépend de l’activité de l’utilisateur. Par exemple, un utilisateur peut travailler sur du contenu textuel de base pendant la majeure partie de la session et consommer une bande passante minimale, mais générer ensuite l’impression d’un document de 200 pages sur l’imprimante locale. Ce travail d’impression utilise une quantité importante de bande passante réseau.
 
@@ -147,6 +147,6 @@ New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur les besoins en bande passante pour Windows Virtual Desktop, consultez [Comprendre les exigences en bande passante de RDP (Remote Desktop Protocol) pour Windows Virtual Desktop](rdp-bandwidth.md).
-* Pour en savoir plus sur la connectivité réseau de Windows Virtual Desktop, consultez [Comprendre la connectivité réseau de Windows Virtual Desktop](network-connectivity.md).
-* Pour vous familiariser avec QoS (Qualité de service) pour Windows Virtual Desktop, consultez [Implémenter QoS (Qualité de service) pour Windows Virtual Desktop](rdp-quality-of-service-qos.md).
+* Pour en savoir plus sur les besoins en bande passante pour Azure Virtual Desktop, consultez [Comprendre les exigences en bande passante de RDP (Remote Desktop Protocol) pour Azure Virtual Desktop](rdp-bandwidth.md).
+* Pour en savoir plus sur la connectivité réseau d’Azure Virtual Desktop, consultez [Comprendre la connectivité réseau d’Azure Virtual Desktop](network-connectivity.md).
+* Pour vous familiariser avec QoS (Qualité de service) pour Azure Virtual Desktop, consultez [Implémenter QoS (Qualité de service) pour Azure Virtual Desktop](rdp-quality-of-service-qos.md).

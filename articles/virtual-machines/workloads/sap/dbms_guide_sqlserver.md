@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/08/2021
+ms.date: 06/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b05d6c5cc520dd83318203b0bf6d0d7c0ab18382
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 92f92580fdfab00e6629ac53774f57abe59828f1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127200"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755300"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles SQL Server Azure pour SAP NetWeaver
 
@@ -475,7 +475,7 @@ Avec Windows Server 2016, Microsoft a introduit les [espaces de stockage direct]
 ### <a name="sql-server-log-shipping"></a>Copie des journaux de transaction SQL Server
 L’une des méthodes permettant d’assurer la haute disponibilité est la copie des journaux de transaction SQL Server. Si les machines virtuelles participant à la configuration HA possèdent des résolution de noms qui fonctionnent, il n’y a aucun problème. La configuration dans Azure ne diffère pas de celle effectuée localement pour la configuration et les principes de la copie des journaux de transaction. consultez l’article [À propos de la copie des journaux de transaction (SQL Server)](/sql/database-engine/log-shipping/about-log-shipping-sql-server).
 
-La fonctionnalité de copie des journaux de transaction de SQL Server a été rarement utilisée dans Azure pour atteindre la haute disponibilité dans une région Azure. Toutefois, dans les scénarios suivants, les clients SAP utilisaient la copie des journaux de transaction avec succès conjointement avec Azure :
+La fonctionnalité de copie des journaux de transaction de SQL Server a été rarement utilisée dans Azure pour atteindre la haute disponibilité dans une région Azure. Toutefois, dans les scénarios suivants, les clients SAP utilisaient la copie des journaux de transaction avec succès avec Azure :
 
 - Scénarios de récupération d’urgence d’une région Azure dans une autre région Azure.
 - Configuration de la reprise d’activité après sinistre à partir d’un environnement local dans une région Azure.
@@ -513,12 +513,17 @@ Documentation détaillée sur le déploiement de la solution Always On avec SQL 
 >[!NOTE]
 > Si vous configurez l’équilibreur de charge Azure pour l’adresse IP virtuelle de l’écouteur de groupe de disponibilité, assurez-vous que l’élément DirectServerReturn est configuré. La configuration de cette option permet de réduire la latence d’opération complète du réseau entre la couche d’application SAP et la couche SGBD. 
 
+>[!NOTE]
+>Pour en savoir plus la [Présentation des groupes de disponibilité SQL Server Always On sur des machines virtuelles Azure](../../../azure-sql/virtual-machines/windows/availability-group-overview.md), vous allez découvrir l’[écouteur DNN (Direct Network Name)](../../../azure-sql/virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md) de SQL Server. Cette nouvelle fonctionnalité a été introduite avec SQL Server 2019 CU8. Cette nouvelle fonctionnalité permet d’utiliser un équilibreur de charge Azure qui gère l’adresse IP virtuelle de l’écouteur de groupe de disponibilité obsolète.
+
+
 SQL Server Always On est la fonctionnalité de récupération d’urgence et haute disponibilité la plus couramment utilisée dans Azure pour les déploiements de charge de travail SAP. La plupart des clients utilisent Always On pour la haute disponibilité au sein d’une seule région Azure. Si le déploiement est limité à deux nœuds uniquement, vous avez deux possibilités pour la connectivité :
 
-- Utilisation de l’écouteur de groupe de disponibilité. Avec l’écouteur de groupe de disponibilité, vous devez déployer un équilibreur de charge Azure. Il s’agit de la méthode de déploiement par défaut. Les applications SAP sont configurées pour se connecter dans l’écouteur de groupe de disponibilité et non dans un seul nœud.
-- Utilisation des paramètres de connectivité de la mise en miroir de bases de données SQL Server. Dans ce cas, vous devez configurer la connectivité des applications SAP d’une manière où les deux noms de nœud sont désignés. Les détails précis de cette configuration côté SAP sont documentés dans la note SAP [n°965908](https://launchpad.support.sap.com/#/notes/965908). Si vous utilisez cette option, vous n’avez pas besoin de configurer un écouteur de groupe de disponibilité ni d’équilibreur de charge Azure pour la haute disponibilité de SQL Server. En conséquence, le temps de réponse du réseau entre la couche d’application SAP et la couche SGBD est inférieur, car le trafic entrant dans l’instance SQL Server n’est pas acheminé via l’équilibreur de charge Azure. Cependant, souvenez-vous que cette option fonctionne uniquement si vous limitez votre groupe de disponibilité pour couvrir deux instances. 
+- Utilisation de l’écouteur de groupe de disponibilité. Avec l’écouteur de groupe de disponibilité, vous devez déployer un équilibreur de charge Azure. 
+- À l’aide de SQL Server 2019 CU8 ou des versions plus récentes où vous pouvez utiliser l’[écouteur DNN (Direct Network Name)](../../../azure-sql/virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md) à la place. Cela élimine la nécessité d’utiliser un équilibreur de charge Azure.
+- Utilisation des paramètres de connectivité de la mise en miroir de bases de données SQL Server. Dans ce cas, vous devez configurer la connectivité des applications SAP d’une manière où les deux noms de nœud sont désignés. Les détails précis de cette configuration côté SAP sont documentés dans la note SAP [n°965908](https://launchpad.support.sap.com/#/notes/965908). Si vous utilisez cette option, vous n’avez pas besoin de configurer un écouteur de groupe de disponibilité ni d’équilibreur de charge Azure pour la haute disponibilité de SQL Server. Cependant, souvenez-vous que cette option fonctionne uniquement si vous limitez votre groupe de disponibilité pour couvrir deux instances. 
 
-Certains clients tirent parti de la fonctionnalité SQL Server Always On pour la fonctionnalité de récupération d’urgence entre les régions Azure. Plusieurs clients utilisent également la possibilité d’effectuer des sauvegardes à partir d’un réplica secondaire. 
+Certains clients utilisent la fonctionnalité SQL Server Always On pour la fonctionnalité de récupération d’urgence entre les régions Azure. Plusieurs clients utilisent également la possibilité d’effectuer des sauvegardes à partir d’un réplica secondaire. 
 
 ## <a name="sql-server-transparent-data-encryption"></a>SQL Server Transparent Data Encryption
 De nombreux clients utilisent [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) sur SQL Server quand ils déploient leurs bases de données SQL Server SAP dans Azure. La fonctionnalité SQL Server TDE est entièrement prise en charge par SAP (voir la note SAP [n°1380493](https://launchpad.support.sap.com/#/notes/1380493)). 
@@ -535,7 +540,7 @@ Dans les cas où vous déplacez des bases de données SQL Server SAP d’un envi
 Lors de l’application du chiffrement TDE avec pas ou peu de charge de travail SAP uniquement, vous devez procéder à des tests dans votre configuration spécifique pour déterminer s’il est plus approprié d’appliquer le chiffrement TDE à votre base de données SAP en local ou de le faire dans Azure. Dans Azure, vous avez certainement plus de flexibilité en termes d’infrastructure de surapprovisionnement et réduisez l’infrastructure après l’application du chiffrement TDE.
 
 ### <a name="using-azure-key-vault"></a>Utilisation d’Azure Key Vault
-Azure propose le service [Key Vault](https://azure.microsoft.com/services/key-vault/) pour stocker les clés de chiffrement. Parallèlement, SQL Server propose un connecteur pour tirer parti d’Azure Key Vault comme magasin pour les certificats TDE.
+Azure propose le service [Key Vault](https://azure.microsoft.com/services/key-vault/) pour stocker les clés de chiffrement. Parallèlement, SQL Server propose un connecteur pour utiliser Azure Key Vault comme magasin pour les certificats TDE.
 
 Vous trouverez plus d’informations sur l’utilisation d’Azure Key Vault pour SQL Server TDE dans les articles suivants :
 

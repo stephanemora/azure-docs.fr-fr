@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: 1b66397fcc6ed32c7630aea1287c8f6865ebcbc5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3034f117f8efa383a9f7a5e768e8d5627ea32099
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749750"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110668402"
 ---
 # <a name="glossary-of-iot-terms"></a>Glossaire IoT
 
@@ -85,6 +85,10 @@ Type de [point de terminaison](#endpoint) intégré dans IOT Hub. Chaque hub IoT
 ### <a name="cloud-gateway"></a>Passerelle cloud
 
 Une passerelle cloud assure la connectivité d’appareils qui ne peuvent pas se connecter directement à [IoT Hub](#iot-hub). Une passerelle cloud est hébergée dans le cloud, contrairement à une [passerelle de champ](#field-gateway) qui s’exécute localement sur vos appareils. Un cas d’utilisation classique d’une passerelle cloud est l’implémentation d’une traduction de protocole pour vos appareils.
+
+### <a name="cloud-property"></a>Propriété cloud
+
+Dans Iot Central, les propriétés Cloud font partie du [modèle d’appareil](#device-model), mais pas du [modèle de l’appareil](#device-model). Les propriétés Cloud permettent au développeur de solutions de spécifier les métadonnées d’appareil à stocker dans l’application IoT Central. Les propriétés Cloud n’affectent pas le code écrit par un développeur d’appareils pour implémenter le modèle d’appareil.
 
 ### <a name="cloud-to-device"></a>Cloud-à-appareil
 
@@ -195,6 +199,10 @@ Le service IoT Hub Device Provisioning (DPS) est un service d’assistance pour 
 ### <a name="device-rest-api"></a>API REST d’appareil
 
 Vous pouvez utiliser [l’API REST d’appareil](/rest/api/iothub/device) d’un appareil pour envoyer des messages appareil-à-cloud à un hub IoT et recevoir des messages [cloud-à-appareil](#cloud-to-device) d’un hub IoT. En règle générale, vous devez utiliser l’un des kits [device SDK](#azure-iot-device-sdks) comme indiqué dans les didacticiels sur IoT Hub.
+
+### <a name="device-template"></a>Modèle d’appareil
+
+Dans IoT Central, un [modèle d’appareil](../iot-central/core/concepts-device-templates.md) est un blueprint qui définit les caractéristiques et comportements d’un type d’appareil se connectant à votre application. Par exemple, le modèle d’appareil définit la télémétrie qu’un appareil envoie afin qu’IoT Central puisse créer des visualisations qui utilisent les unités et types de données appropriés. Un [modèle de l’appareil](#device-model) fait partie du modèle d’appareil.
 
 ### <a name="device-twin"></a>Jumeau d’appareil
 
@@ -368,7 +376,9 @@ Les accélérateurs de solution Azure IoT regroupent plusieurs services Azure da
 
 ### <a name="job"></a>Travail
 
-Votre serveur principal de solution peut utiliser des [travaux](../iot-hub/iot-hub-devguide-jobs.md) pour planifier et suivre des activités sur un ensemble d’appareils inscrits auprès de votre IoT Hub. Ces activités comprennent la mise à jour des [propriétés souhaitées](#desired-properties) de l’appareil, la mise à jour des [balises](#tags) de jumeau d’appareil et l’appel de [méthodes directes](#direct-method). [IoT Hub](#iot-hub) utilise également des travaux pour [importer dans et exporter](../iot-hub/iot-hub-devguide-identity-registry.md#import-and-export-device-identities) depuis le [registre des identités](#identity-registry).
+Dans [IOT Hub](#iot-hub), les [tâches](../iot-hub/iot-hub-devguide-jobs.md) vous permettent de planifier et de suivre les activités sur un ensemble d’appareils inscrits auprès de votre IOT Hub. Ces activités comprennent la mise à jour des [propriétés souhaitées](#desired-properties) de l’appareil, la mise à jour des [balises](#tags) de jumeau d’appareil et l’appel de [méthodes directes](#direct-method). IoT Hub utilise également des travaux pour [importer dans et exporter](../iot-hub/iot-hub-devguide-identity-registry.md#import-and-export-device-identities) à partir du [registre des identités](#identity-registry).
+
+Dans IoT Central, les [tâches](../iot-central/core/howto-run-a-job.md) vous permettent de gérer vos appareils connectés en bloc en définissant les propriétés et en appelant les commandes. Les tâches de IoT Central vous permettent également de mettre à jour les [Propriétés de Cloud](#cloud-property) en bloc.
 
 ## <a name="l"></a>L
 

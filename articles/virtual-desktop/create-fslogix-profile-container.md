@@ -1,29 +1,29 @@
 ---
-title: Conteneurs de profil FSLogix NetApp dans Windows Virtual Desktop - Azure
-description: Créer un conteneur de profils FSLogix à l'aide d'Azure NetApp Files dans Windows Virtual Desktop
+title: Conteneurs de profil FSLogix NetApp dans Azure Virtual Desktop - Azure
+description: Créer un conteneur de profils FSLogix à l'aide d'Azure NetApp Files dans Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 180d49f52eeb4f9e25a682fbf8f52a0bc307c7ed
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: ed2267ebb4467331a4859f2b3f6507edd39dc03b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447962"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750332"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Créer un conteneur de profil avec Azure NetApp Files et Azure AD DS
 
-Nous vous recommandons d’utiliser des conteneurs de profils FSLogix en tant que solution de profil utilisateur pour le [service Windows Virtual Desktop](overview.md). Les conteneurs de profils FSLogix stockent un profil utilisateur complet dans un même conteneur et sont conçus pour l'itinérance des profils dans les environnements informatiques distants non persistants comme Windows Virtual Desktop. Lorsque vous vous connectez, le conteneur se connecte de manière dynamique à l'environnement informatique à l'aide d'un disque dur virtuel (VHD) et d'un disque dur virtuel Hyper-V (VHDX) pris en charge localement. Grâce à ces technologies avancées de pilote de filtre, le profil utilisateur est immédiatement disponible et apparaît dans le système exactement comme un profil utilisateur local. Pour en savoir plus sur les conteneurs de profils FSLogix, consultez [Conteneurs de profils FSLogix et fichiers Azure](fslogix-containers-azure-files.md).
+Nous vous recommandons d’utiliser des conteneurs de profils FSLogix en tant que solution de profil utilisateur pour le [service Azure Virtual Desktop](overview.md). Les conteneurs de profils FSLogix stockent un profil utilisateur complet dans un même conteneur et sont conçus pour l'itinérance des profils dans les environnements informatiques distants non persistants comme Azure Virtual Desktop. Lorsque vous vous connectez, le conteneur se connecte de manière dynamique à l'environnement informatique à l'aide d'un disque dur virtuel (VHD) et d'un disque dur virtuel Hyper-V (VHDX) pris en charge localement. Grâce à ces technologies avancées de pilote de filtre, le profil utilisateur est immédiatement disponible et apparaît dans le système exactement comme un profil utilisateur local. Pour en savoir plus sur les conteneurs de profils FSLogix, consultez [Conteneurs de profils FSLogix et fichiers Azure](fslogix-containers-azure-files.md).
 
-Vous pouvez créer des conteneurs de profils FSLogix à l'aide d'[Azure NetApp Files](https://azure.microsoft.com/services/netapp/), un service de plateforme natif d'Azure facile à utiliser qui aide les clients à approvisionner rapidement et en toute fiabilité des volumes SMB de classe entreprise pour leurs environnements Windows Virtual Desktop. Pour en savoir plus sur Azure NetApp Files, consultez [Présentation d'Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md).
+Vous pouvez créer des conteneurs de profils FSLogix à l'aide d'[Azure NetApp Files](https://azure.microsoft.com/services/netapp/), un service de plateforme natif d'Azure facile à utiliser qui aide les clients à approvisionner rapidement et en toute fiabilité des volumes SMB de classe entreprise pour leurs environnements Azure Virtual Desktop. Pour en savoir plus sur Azure NetApp Files, consultez [Présentation d'Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md).
 
-Ce guide vous apprendra à configurer un compte Azure NetApp Files et à créer des conteneurs de profils FSLogix dans Windows Virtual Desktop.
+Ce guide vous apprendra à configurer un compte Azure NetApp Files et à créer des conteneurs de profils FSLogix dans Azure Virtual Desktop.
 
-Cet article part du principe que vous avez déjà configuré et regroupé des [pools d'hôtes](create-host-pools-azure-marketplace.md) au sein d'un ou plusieurs locataires de votre environnement Windows Virtual Desktop. Pour en savoir plus sur la configuration de locataires, consultez la section [Créer un locataire dans Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) ainsi que le [billet de blog de notre communauté technique](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
+Cet article part du principe que vous avez déjà configuré et regroupé des [pools d'hôtes](create-host-pools-azure-marketplace.md) au sein d'un ou plusieurs locataires de votre environnement Azure Virtual Desktop. Pour en savoir plus sur la configuration de locataires, consultez la section [Créer un locataire dans Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) ainsi que le [billet de blog de notre communauté technique](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
 
-Les instructions fournies dans ce guide sont spécifiquement destinées aux utilisateurs de Windows Virtual Desktop. Si vous recherchez des conseils plus généraux sur la configuration d'Azure NetApp Files et sur la création de conteneurs de profils FSLogix en dehors de Windows Virtual Desktop, consultez la section [Configurer Azure NetApp Files et créer un volume NFS - Démarrage rapide](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
+Les instructions fournies dans ce guide sont spécifiquement destinées aux utilisateurs de Azure Virtual Desktop. Si vous recherchez des conseils plus généraux sur la configuration d'Azure NetApp Files et sur la création de conteneurs de profils FSLogix en dehors de Azure Virtual Desktop, consultez la section [Configurer Azure NetApp Files et créer un volume NFS - Démarrage rapide](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
 
 >[!NOTE]
 >Cet article ne couvre pas les meilleures pratiques relatives à la sécurisation de l'accès au partage Azure NetApp Files.
@@ -35,8 +35,8 @@ Les instructions fournies dans ce guide sont spécifiquement destinées aux util
 
 Avant de pouvoir créer un conteneur de profils FSLogix pour un pool d'hôtes, vous devez :
 
-- Installer et configurer Windows Virtual Desktop
-- Approvisionner un pool d'hôtes Windows Virtual Desktop
+- Installer et configurer Azure Virtual Desktop
+- Approvisionner un pool d'hôtes Azure Virtual Desktop
 - [Activer votre abonnement Azure NetApp Files](../azure-netapp-files/azure-netapp-files-register.md)
 
 ## <a name="set-up-your-azure-netapp-files-account"></a>Configurer votre compte Azure NetApp Files
@@ -49,7 +49,7 @@ Pour commencer, vous devez configurer un compte Azure NetApp Files.
 
 3. Une fois Azure Cloud Shell ouvert, sélectionnez **PowerShell**.
 
-4. Si vous utilisez Azure Cloud Shell pour la première fois, créez un compte de stockage avec l'abonnement associé à Azure NetApp Files et Windows Virtual Desktop.
+4. Si vous utilisez Azure Cloud Shell pour la première fois, créez un compte de stockage avec l'abonnement associé à Azure NetApp Files et Azure Virtual Desktop.
 
    > [!div class="mx-imgBorder"]
    > ![Fenêtre du compte de stockage avec bouton Créer un stockage encadré en rouge en bas de la fenêtre.](media/create-storage-button.png)
@@ -187,7 +187,7 @@ Cette section est basée sur [Créer un conteneur de profils pour un pool d'hôt
 
 ## <a name="assign-users-to-session-host"></a>Attribuer des utilisateurs à l'hôte de la session
 
-1. Ouvrez **PowerShell ISE** en tant qu'administrateur et connectez-vous à Windows Virtual Desktop.
+1. Ouvrez **PowerShell ISE** en tant qu'administrateur et connectez-vous à Azure Virtual Desktop.
 
 2. Exécutez les applets de commande suivantes :
 
@@ -198,7 +198,7 @@ Cette section est basée sur [Créer un conteneur de profils pour un pool d'hôt
    Add-RdsAccount -DeploymentUrl $brokerurl
    ```
 
-3. Lorsque vous êtes invité à entrer des informations d'identification, saisissez les informations d'identification de l'utilisateur doté du rôle Créateur de locataire ou Propriétaire RDS/Contributeur RDS sur le locataire Windows Virtual Desktop.
+3. Lorsque vous êtes invité à entrer des informations d'identification, saisissez les informations d'identification de l'utilisateur doté du rôle Créateur de locataire ou Propriétaire RDS/Contributeur RDS sur le locataire Azure Virtual Desktop.
 
 4. Exécutez les cmdlets suivantes pour attribuer un utilisateur à un groupe Bureau à distance :
 

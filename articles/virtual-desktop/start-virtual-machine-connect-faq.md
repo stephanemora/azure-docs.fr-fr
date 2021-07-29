@@ -1,17 +1,17 @@
 ---
-title: FAQ sur la fonctionnalité de démarrage de machine virtuelle lors de la connexion de Windows Virtual Desktop – Azure
+title: FAQ sur la fonctionnalité de démarrage de machine virtuelle lors de la connexion de Azure Virtual Desktop – Azure
 description: Forum aux questions (FAQ) et meilleures pratiques pour l’utilisation de la fonctionnalité de démarrage de machine virtuelle lors de la connexion.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 0a35d0541358af2f5fac5e4c7486a1be93797922
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: c973b3a78e90786fa46db858de00ecf63bace5fd
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445582"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755768"
 ---
 # <a name="start-vm-on-connect-faq-preview"></a>FAQ sur le démarrage de machine virtuelle lors de la connexion (préversion)
 
@@ -19,7 +19,7 @@ ms.locfileid: "106445582"
 > La fonctionnalité de démarrage de machine virtuelle lors de la connexion est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Cet article contient les questions fréquemment posées sur la fonctionnalité de démarrage de machine virtuelle lors de la connexion (préversion) pour des pools hôtes Windows Virtual Desktop.
+Cet article contient les questions fréquemment posées sur la fonctionnalité de démarrage de machine virtuelle lors de la connexion (préversion) pour des pools hôtes Azure Virtual Desktop.
 
 ## <a name="are-vms-automatically-deallocated-when-a-user-stops-using-them"></a>Les machines virtuelles sont-elles automatiquement libérées quand un utilisateur cesse de les utiliser ?
 
@@ -48,4 +48,4 @@ Oui. Les utilisateurs peuvent arrêter la machine virtuelle via le menu Démarre
 
 Pour découvrir comment configurer le démarrage de machine virtuelle lors de la connexion, consultez [Démarrer une machine virtuelle lors de la connexion (préversion)](start-virtual-machine-connect.md).
 
-Si vous avez des questions plus générales sur Windows Virtual Desktop, consultez notre [FAQ](faq.md) général.
+Si vous avez des questions plus générales sur Azure Virtual Desktop, consultez notre [FAQ](faq.md) général.

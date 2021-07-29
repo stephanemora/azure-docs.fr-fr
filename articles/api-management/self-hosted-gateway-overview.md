@@ -1,21 +1,19 @@
 ---
-title: Vue d’ensemble de la passerelle auto-hébergée | Microsoft Docs
+title: Vue d’ensemble de la passerelle auto-hébergée | Gestion des API Azure
 description: Découvrez comment la fonctionnalité de passerelle auto-hébergée Gestion des API Azure aide les organisations à gérer les API dans des environnements hybrides et multiclouds.
 services: api-management
 documentationcenter: ''
 author: vlvinogr
-manager: gwallace
-editor: ''
 ms.service: api-management
 ms.topic: article
 ms.date: 05/25/2021
 ms.author: apimpm
-ms.openlocfilehash: 946a2707e68e2f3ce6f78df997d102eeb0c7c450
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 2c8688660540f965f25038298c996511901405cb
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376967"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111810124"
 ---
 # <a name="self-hosted-gateway-overview"></a>Vue d’ensemble de la passerelle auto-hébergée
 
@@ -49,7 +47,7 @@ Les fonctionnalités suivantes, présentes dans les passerelles gérées, **ne s
 
 - Journaux d’activité Azure Monitor
 - Gestion du chiffrement et de la version TLS en amont (côté principal)
-- Validation des certificats serveur et client à l’aide de [certificats racine de l’autorité de certification](api-management-howto-ca-certificates.md) chargés vers le service Gestion des API. Pour plus d’informations, consultez [Validation de certificat dans une passerelle auto-hébergée](api-management-howto-mutual-certificates-for-clients.md#certificate-validation-in-self-hosted-gateway).
+- Validation des certificats serveur et client à l’aide de [certificats racine de l’autorité de certification](api-management-howto-ca-certificates.md) chargés vers le service Gestion des API. Vous pouvez configurer des [autorités de certification personnalisées](api-management-howto-ca-certificates.md#create-custom-ca-for-self-hosted-gateway) pour vos passerelles auto-hébergées et vos stratégies de [validation de certificat client](api-management-access-restriction-policies.md#validate-client-certificate) pour les appliquer.
 - Intégration à [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
 - Reprise de session TLS
 - Renégociation du certificat client. Cela signifie que, pour que l’[authentification par certificat client](api-management-howto-mutual-certificates-for-clients.md) fonctionne, les utilisateurs d’API doivent présenter leurs certificats dans le cadre de la négociation TLS initiale. Pour vous en assurer, activez le paramètre de négociation du certificat client lors de la configuration d’un nom d’hôte personnalisé pour une passerelle auto-hébergée

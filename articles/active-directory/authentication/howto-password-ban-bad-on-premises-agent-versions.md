@@ -11,18 +11,24 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32ad7199360ca0acc8674f7a4e34bd206f8b335f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0698d07268c416b0a10055ec5480971fc10c142c
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648762"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854375"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Historique des versions de l’agent de protection par mot de passe Azure AD
 
+## <a name="121760"></a>1.2.176.0
+
+Date de publication : 4 juin 2021
+
+* Correctifs mineurs aux problèmes qui ont empêché le proxy et les agents DC de s’exécuter correctement dans certains environnements.
+
 ## <a name="121720"></a>1.2.172.0
 
-Date de mise en production : 22 février 2021
+Date de publication : 22 février 2021
 
 Près de deux ans se sont écoulés depuis la mise en production des versions en disponibilité générale des agents locaux de protection par mot de passe Azure AD. Une nouvelle mise à jour est désormais disponible. Consultez les descriptions des modifications ci-dessous. Merci à tous ceux qui nous ont fait part de leurs commentaires sur le produit. 
 
@@ -41,7 +47,7 @@ Il est possible d’exécuter des versions plus anciennes et plus récentes des 
 
 ## <a name="121250"></a>1.2.125.0
 
-Date de mise en production : 22 mars 2019
+Date de sortie : 2 mars 2019
 
 * Correction de fautes de frappe mineures dans les messages du journal des événements
 * Mise à jour du CLUF vers la version finale mise à la disposition générale
@@ -51,7 +57,7 @@ Date de mise en production : 22 mars 2019
 
 ## <a name="121160"></a>1.2.116.0
 
-Date de publication : 13/03/2019
+Date de sortie : 3 mars 2019
 
 * Les cmdlets Get-AzureADPasswordProtectionProxy et Get-AzureADPasswordProtectionDCAgent indiquent désormais la version du logiciel et le locataire Azure actuel avec les limitations suivantes :
   * La version du logiciel et les données du locataire Azure sont uniquement disponibles pour les proxies et les agents DC exécutant la version 1.2.116.0 ou ultérieure.
@@ -69,7 +75,7 @@ Date de publication : 13/03/2019
 
 ## <a name="12650"></a>1.2.65.0
 
-Date de mise en production : 1er février 2019
+Date de publication : 1er février 2019
 
 Modifications :
 
@@ -107,7 +113,7 @@ Modifications :
 
 ## <a name="12250"></a>1.2.25.0
 
-Date de mise en production : 1er novembre 2018
+Date de publication : 1er novembre 2018
 
 Correctifs :
 
@@ -125,7 +131,7 @@ Modifications :
 
 ## <a name="12100"></a>1.2.10.0
 
-Date de mise en production : 17 août 2018
+Date de publication : 17 août 2018
 
 Correctifs :
 
@@ -149,7 +155,7 @@ Correctifs :
 
 ## <a name="11103"></a>1.1.10.3
 
-Date de mise en production : 15 juin 2018
+Date de publication : 15 juin 2018
 
 Préversion publique initiale
 

@@ -1,23 +1,23 @@
 ---
-title: Déployer un outil de gestion pour Windows Virtual Desktop (classique) en utilisant le principal de service - Azure
-description: Guide pratique pour l’outil de gestion pour Windows Virtual Desktop (classique) avec PowerShell.
+title: Déployer un outil de gestion pour Azure Virtual Desktop (classique) en utilisant le principal de service - Azure
+description: Guide pratique pour l’outil de gestion pour Azure Virtual Desktop (classique) avec PowerShell.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 60eec4580e222123795db9554f56e74cb01c5257
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: fbd12216cbc81df7f4f9e187c8150f69744eb139
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444443"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744518"
 ---
-# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Déployer un outil de gestion de Windows Virtual Desktop (classique) avec PowerShell
+# <a name="deploy-a-azure-virtual-desktop-classic-management-tool-with-powershell"></a>Déployer un outil de gestion de Azure Virtual Desktop (classique) avec PowerShell
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager.
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager.
 
 Cet article vous indique comment déployer l’outil de gestion avec PowerShell.
 
@@ -41,7 +41,7 @@ Avant de déployer l’outil de gestion, vous avez besoin d’un utilisateur Azu
 - Il doit avoir l’autorisation de créer des ressources dans votre abonnement Azure.
 - Il doit avoir l’autorisation de créer une application Azure AD. Suivez ces étapes pour vérifier si votre utilisateur dispose des autorisations nécessaires en suivant les instructions fournies dans [Autorisations nécessaires](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
-Une fois que vous avez déployé et configuré l’outil de gestion, nous vous recommandons de demander à un utilisateur de lancer l’interface utilisateur de gestion pour vérifier que tout fonctionne correctement. L’utilisateur qui lance l’interface utilisateur de gestion doit avoir une attribution de rôle qui lui permet de voir ou de modifier le locataire Windows Virtual Desktop.
+Une fois que vous avez déployé et configuré l’outil de gestion, nous vous recommandons de demander à un utilisateur de lancer l’interface utilisateur de gestion pour vérifier que tout fonctionne correctement. L’utilisateur qui lance l’interface utilisateur de gestion doit avoir une attribution de rôle qui lui permet de voir ou de modifier le locataire Azure Virtual Desktop.
 
 ## <a name="set-up-powershell"></a>Configurer PowerShell
 
@@ -156,7 +156,7 @@ Vous pouvez maintenant commencer à utiliser l’outil de gestion.
 Maintenant que vous avez configuré l’outil de gestion, vous pouvez le lancer à tout moment, où que vous soyez. Voici comment lancer l’outil :
 
 1. Ouvrez l’URL de l’application web dans un navigateur web. Si vous ne vous souvenez pas de l’URL, vous pouvez vous connecter à Azure, rechercher le service d’application que vous avez déployé pour l’outil de gestion, puis sélectionner l’URL.
-2. Connectez-vous avec vos informations d’identification Windows Virtual Desktop.
+2. Connectez-vous avec vos informations d’identification Azure Virtual Desktop.
 
    > [!NOTE]
    > Si vous n’avez pas accordé le consentement de l’administrateur lors de la configuration de l’outil de gestion, chaque utilisateur qui se connecte doit fournir son propre consentement d’utilisateur pour pouvoir utiliser l’outil.
@@ -169,7 +169,7 @@ Maintenant que vous avez configuré l’outil de gestion, vous pouvez le lancer 
 
 ## <a name="report-issues"></a>Signaler des problèmes
 
-Si vous rencontrez des problèmes avec l’outil de gestion ou d’autres outils Windows Virtual Desktop, suivez les instructions de [Modèles Azure Resource Manager pour les services Bureau à distance](https://github.com/Azure/RDS-Templates/blob/master/README.md) pour les signaler sur GitHub.
+Si vous rencontrez des problèmes avec l’outil de gestion ou d’autres outils Azure Virtual Desktop, suivez les instructions de [Modèles Azure Resource Manager pour les services Bureau à distance](https://github.com/Azure/RDS-Templates/blob/master/README.md) pour les signaler sur GitHub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
