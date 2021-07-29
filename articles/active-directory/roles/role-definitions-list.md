@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d37b2988d32c854e4184adee998341ebadcee053
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 00fc768357d80fa22305b3b85e084dc636bd5a7c
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467760"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796407"
 ---
 # <a name="list-azure-ad-role-definitions"></a>Répertorier les définitions de rôles Azure AD
 
@@ -32,7 +32,7 @@ Cet article explique comment répertorier les rôles intégrés et personnalisé
 
 1. Sélectionnez **Rôles et administrateurs** pour voir la liste de tous les rôles disponibles.
 
-    ![liste des rôles dans le portail Azure AD](./media/role-definitions-list/view-roles-in-azure-active-directory.png)
+    ![liste des rôles sur le portail Azure](./media/role-definitions-list/view-roles-in-azure-active-directory.png)
 
 1. Sur la droite, cliquez sur le bouton de sélection, puis sur **Description** pour afficher la liste complète des autorisations pour un rôle.
 
@@ -43,5 +43,5 @@ Cet article explique comment répertorier les rôles intégrés et personnalisé
 ## <a name="next-steps"></a>Étapes suivantes
 
 * N’hésitez pas à nous donner votre avis sur le [forum des rôles d’administrateur Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Pour plus d’informations sur les rôles et l’attribution de rôle d’administrateur, consultez [Attribuer des rôles d’administrateur](permissions-reference.md).
+* Pour plus d'informations sur les autorisations associées aux rôles, consultez [Rôles intégrés Azure AD](permissions-reference.md).
 * Pour les autorisations d’utilisateur par défaut, consultez une [comparaison des autorisations par défaut d’un utilisateur invité et d’un membre](../fundamentals/users-default-permissions.md).

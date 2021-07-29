@@ -1,21 +1,21 @@
 ---
-title: Procédure pas à pas Azure Advisor Windows Virtual Desktop – Azure
-description: Résolution des recommandations Azure Advisor pour Windows Virtual Desktop.
+title: Procédure pas à pas Azure Advisor Azure Virtual Desktop – Azure
+description: Résolution des recommandations Azure Advisor pour Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 666f882dec6c00b9fe5421485afded1fbd57d961
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: b8bc514f495a46e76ad882720c918824aab0aaac
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448302"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745478"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Résolution des recommandations Azure Advisor
 
-Cet article explique comment vous pouvez résoudre les recommandations qui s’affichent dans Azure Advisor pour Windows Virtual Desktop.
+Cet article explique comment vous pouvez résoudre les recommandations qui s’affichent dans Azure Advisor pour Azure Virtual Desktop.
 
 ## <a name="no-validation-environment-enabled"></a>« Aucun environnement de validation activé »
 
@@ -24,7 +24,7 @@ Cet article explique comment vous pouvez résoudre les recommandations qui s’a
 
 Cette recommandation s’affiche sous Excellence opérationnelle. La recommandation doit également vous présenter un message d’avertissement de ce type :
 
-« Aucun environnement de validation n’est activé dans cet abonnement. Lors de la création de vos pools d’hôtes, vous avez sélectionné **Non** pour "Environnement de validation" sous l’onglet Propriétés. Pour garantir la continuité des activités via les déploiements du service Windows Virtual Desktop, assurez-vous d’avoir au moins un pool d’hôtes avec un environnement de validation dans lequel vous pouvez tester les problèmes potentiels. »
+« Aucun environnement de validation n’est activé dans cet abonnement. Lorsque vous avez créé vos pools hôtes, vous avez sélectionné **non** pour « Environnement de validation » sous l’onglet Propriétés. Pour garantir la continuité des activités par le biais de déploiements de services d’Azure Virtual Desktop, vérifiez que vous disposez d’au moins un pool hôte avec un environnement de validation dans lequel vous pouvez tester les problèmes potentiels.
 
 Vous pouvez faire disparaître ce message d’avertissement en activant un environnement de validation dans l’un de vos pools hôtes.
 
@@ -75,4 +75,4 @@ Pour résoudre cette recommandation, veillez à débloquer toutes les URL figura
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous recherchez des guides plus détaillés sur la façon de résoudre des problèmes courants, consultez [Vue d’ensemble de la résolution des problèmes, commentaires et support pour Windows Virtual Desktop](troubleshoot-set-up-overview.md).
+Si vous recherchez des guides plus détaillés sur la façon de résoudre des problèmes courants, consultez [Vue d’ensemble de la résolution des problèmes, commentaires et support pour Azure Virtual Desktop](troubleshoot-set-up-overview.md).

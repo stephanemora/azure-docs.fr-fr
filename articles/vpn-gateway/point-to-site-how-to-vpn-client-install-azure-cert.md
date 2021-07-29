@@ -6,22 +6,26 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 06/03/2021
 ms.author: cherylmc
-ms.openlocfilehash: faa2d1924b0953bbf8da660ac7702c959fe7b272
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: d4ab1009b38d250a39455a9e8a470cd7f1156793
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292231"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111527102"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>Installer des certificats client pour des connexions d’authentification par certificat P2S
 
-Tous les clients qui se connectent à un réseau virtuel à l’aide d’une connexion point à site avec authentification par certificat Azure nécessitent un certificat client. Cet article vous aide à installer un certificat client utilisé pour l’authentification à la connexion à réseau virtuel via une connexion P2S.
+Quand une passerelle VPN P2S est configurée pour exiger l’authentification par certificat, un certificat client doit être installé localement sur chaque client. Vous pouvez générer un certificat client à partir d’un certificat racine généré à l’aide d’une solution d’autorité de certification d’entreprise, ou à partir d’un certificat racine auto-signé. 
 
-## <a name="acquire-a-client-certificate"></a><a name="generate"></a>Acquérir un certificat client
+Lorsque vous générez un certificat client, le certificat est généralement installé automatiquement sur l’ordinateur client à partir duquel il a été généré. Si vous souhaitez vous connecter à votre réseau virtuel à partir d’un autre ordinateur client, vous devez installer un certificat client sur l’ordinateur à partir duquel vous vous connectez. Cela s’ajoute à la configuration du client VPN sur cet ordinateur.
 
-Quel que soit le système d’exploitation client à partir duquel vous souhaitez vous connecter, vous devez toujours avoir un certificat client. Vous pouvez générer un certificat client à partir d’un certificat racine généré à l’aide d’une solution d’autorité de certification d’entreprise, ou à partir d’un certificat racine auto-signé. Pour connaître les étapes de génération d’un certificat client, voir les instructions [PowerShell](vpn-gateway-certificates-point-to-site.md), [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) ou [Linux](vpn-gateway-certificates-point-to-site-linux.md). 
+Vous pouvez utiliser plusieurs méthodes pour générer et exporter des certificats auto-signés. Pour plus d’informations, consultez les articles suivants :
+
+* [PowerShell](vpn-gateway-certificates-point-to-site.md)
+* [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
+* [Linux](vpn-gateway-certificates-point-to-site-linux.md) 
 
 ## <a name="windows"></a><a name="installwin"></a>Windows
 

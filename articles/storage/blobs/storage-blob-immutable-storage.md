@@ -5,20 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 05/17/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: d1d77e508e627520878dcc27b5a643473d11dd1d
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 1495fa3751a77d5dfd26192ded4f35403ed932ef
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800718"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098305"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Stocker des données blob critiques pour l’entreprise avec un stockage immuable
 
-Le stockage immuable pour le Stockage Blob Azure permet aux utilisateurs de stocker des objets de données critiques pour l’entreprise dans un état WORM (disque optique non réinscriptible). Cet état les rend non effaçables et immuables pour une durée spécifiée par l’utilisateur. Au cours de cette période de conservation, il est possible de créer et de lire des blobs, mais pas de les modifier ou de les supprimer. Le stockage immuable est disponible pour les comptes v1 universel, v2 universel, BlobStorage et BlockBlobStorage dans toutes les régions Azure.
+Le stockage immuable pour le Stockage Blob Azure permet aux utilisateurs de stocker des objets de données critiques pour l’entreprise dans un état WORM (disque optique non réinscriptible). Cet état les rend non effaçables et immuables pour une durée spécifiée par l’utilisateur. Au cours de cette période de conservation, il est possible de créer et de lire des blobs, mais pas de les modifier ou de les supprimer. Le stockage immuable est disponible pour les comptes à usage général v1, à usage général v2, les objets blob de blocs Premium et les comptes d’objets blob hérités dans toutes les régions Azure.
 
 Pour plus d’informations sur la définition et la suppression de conservations légales ou sur la création d’une stratégie de rétention basée sur la durée à l’aide du Portail Azure, de PowerShell ou d’Azure CLI, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage blob](storage-blob-immutability-policies-manage.md).
 
@@ -140,7 +140,7 @@ Si le stockage immuable peut être utilisé avec tout type d’objet blob, puisq
 
 **Dois-je créer un compte de stockage pour utiliser cette fonctionnalité ?**
 
-Non. Vous pouvez utiliser le stockage immuable avec des comptes v1 universel, v2 universel, BlobStorage ou BlockBlobStorage existants ou nouvellement créés. Les comptes de stockage v1 universel sont pris en charge, mais nous vous recommandons de les mettre à niveau vers la version v2 universel de façon à bénéficier de fonctionnalités supplémentaires. Pour plus d’informations sur la mise à niveau d’un compte de stockage v1 universel, consultez [Mettre à niveau un compte de stockage](../common/storage-account-upgrade.md).
+Non, vous pouvez utiliser le stockage immuable avec les comptes d’objets blob existants, à usage général v1, à usage général v2, Premium, et hérités. Les comptes de stockage v1 universel sont pris en charge, mais nous vous recommandons de les mettre à niveau vers la version v2 universel de façon à bénéficier de fonctionnalités supplémentaires. Pour plus d’informations sur la mise à niveau d’un compte de stockage v1 universel, consultez [Mettre à niveau un compte de stockage](../common/storage-account-upgrade.md).
 
 **Puis-je appliquer à la fois une conservation légale et une stratégie de rétention à durée définie ?**
 

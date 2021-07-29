@@ -8,14 +8,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
-ms.reviewer: mathoma
+ms.reviewer: chadam
 ms.date: 03/19/2021
-ms.openlocfilehash: 77aec881cdf934888356dd276cad7d0698d56ad1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 4c6e1f052dd23621e269b59fb573216f68e49cfb
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136226"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784382"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-virtual-machines"></a>Guide de migration : SQL Server vers SQL Server sur les machines virtuelles Azure
 
@@ -119,7 +119,7 @@ Pour effectuer une migration standard à l’aide de la fonctionnalité de sauve
 1. Suspendez ou arrêtez toutes les applications qui utilisent des bases de données qui doivent migrer.
 1. Vérifiez que les bases de données utilisateur sont inactives à l’aide du [mode utilisateur unique](/sql/relational-databases/databases/set-a-database-to-single-user-mode).
 1. Effectuez une sauvegarde complète de la base de données vers un emplacement sur site.
-1. Copiez vos fichiers de sauvegarde locaux sur votre machine virtuelle avec le Bureau à distance, [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) ou [l’utilitaire en ligne de commande AZCopy](../../../storage/common/storage-use-azcopy-v10.md). (Espace recommandé pour les sauvegardes : supérieur à 2 To).
+1. Copiez vos fichiers de sauvegarde locaux sur votre machine virtuelle avec le Bureau à distance, [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) ou [l’utilitaire en ligne de commande AzCopy](../../../storage/common/storage-use-azcopy-v10.md). (Espace recommandé pour les sauvegardes : supérieur à 2 To).
 1. Restaurez les sauvegardes complètes de base de données vers SQL Server sur les machines virtuelles Azure.
 
 ### <a name="log-shipping-minimize-downtime"></a>Copie des journaux de transaction (minimiser le temps d’arrêt)
@@ -129,7 +129,7 @@ Pour effectuer une migration avec un temps d’arrêt minimal à l’aide de la 
 1. Configurez la connectivité à SQL Server sur les machines virtuelles Azure en fonction de vos exigences. Pour plus d’informations, consultez [Se connecter à une machine virtuelle SQL Server sur Azure (Resource Manager)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Vérifiez que les bases de données utilisateur locales à migrer sont en mode de récupération complète ou en mode de récupération utilisant les journaux de transaction.
 1. Effectuez une sauvegarde complète de base de données vers un emplacement local, puis modifiez tous les travaux existants de sauvegarde complète de base de données afin d’utiliser le mot clé [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) pour conserver la séquence de journaux de transaction consécutifs.
-1. Copiez vos fichiers de sauvegarde locaux sur votre machine virtuelle avec le Bureau à distance, [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) ou [l’utilitaire en ligne de commande AZCopy](../../../storage/common/storage-use-azcopy-v10.md). (Espace recommandé pour les sauvegardes : supérieur à 1 To).
+1. Copiez vos fichiers de sauvegarde locaux sur votre machine virtuelle avec le Bureau à distance, [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) ou [l’utilitaire en ligne de commande AzCopy](../../../storage/common/storage-use-azcopy-v10.md). (Espace recommandé pour les sauvegardes : supérieur à 1 To).
 1. Restaurez les sauvegardes complètes de base de données vers SQL Server sur les machines virtuelles Azure.
 1. Configurez la [copie des journaux de transaction](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) entre la base de données locale et l’instance SQL Server sur les machines virtuelles Azure. Veillez à ne pas réinitialiser les bases de données, car cette tâche a déjà été effectuée au cours des étapes précédentes.
 1. Effectuez le basculement vers le serveur cible.

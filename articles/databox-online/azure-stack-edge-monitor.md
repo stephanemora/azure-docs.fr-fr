@@ -1,6 +1,6 @@
 ---
-title: Surveiller votre appareil Azure Stack Edge Pro | Microsoft Docs
-description: Décrit comment utiliser le portail Azure et l’interface utilisateur web locale pour surveiller votre appareil Azure Stack Edge Pro.
+title: Superviser votre appareil Azure Stack Edge | Microsoft Docs
+description: Décrit comment utiliser le portail Azure et l’interface utilisateur web locale pour superviser votre appareil Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: alkohli
-ms.openlocfilehash: aae64cad3603725a4062d5afb42df974bbf8ac40
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 13a11bb23479653ccc88b6e1a2312ff8e6f33609
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438782"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099655"
 ---
-# <a name="monitor-your-azure-stack-edge-pro"></a>Surveiller votre appareil Azure Stack Edge Pro
+# <a name="monitor-your-azure-stack-edge"></a>Superviser votre appareil Azure Stack Edge 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-mini-r-and-fpga-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
 
-Cet article explique comment surveiller votre appareil Azure Stack Edge Pro. Pour ce faire, vous pouvez utiliser le portail Azure ou l’interface utilisateur web locale. Utilisez le portail Azure pour voir les événements de l’appareil, configurer et gérer les alertes et voir les métriques. Utilisez l’interface utilisateur web locale sur votre appareil physique pour voir l’état des différents composants matériels de l’appareil.
+Cet article explique comment superviser votre appareil Azure Stack Edge. Pour ce faire, vous pouvez utiliser le portail Azure ou l’interface utilisateur web locale. Utilisez le portail Azure pour voir les événements de l’appareil, configurer et gérer les alertes et voir les métriques. Utilisez l’interface utilisateur web locale sur votre appareil physique pour voir l’état des différents composants matériels de l’appareil.
 
 Dans cet article, vous apprendrez comment :
 

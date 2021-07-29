@@ -1,25 +1,26 @@
 ---
 title: Appliquer la licence Windows pour machines virtuelles hôtes de session – Azure
-description: Décrit comment appliquer la licence Windows pour des machines virtuelles Windows Virtual Desktop.
+description: Décrit comment appliquer la licence Windows pour des machines virtuelles Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: fa3c9f82e99536b07a27656e0143d6b2fcc89a44
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: eaf8bd06493fb105207024b3b78c584ad58d4149
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833865"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745400"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Appliquer la licence Windows pour machines virtuelles hôtes de session
 
-Les clients disposant d’une licence appropriée pour exécuter des charges de travail Windows Virtual Desktop sont éligibles pour appliquer une licence Windows à leurs machines virtuelles hôtes de session et les exécuter sans avoir à payer d’autre licence. Pour plus d’informations, voir [Tarification de Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+Les clients disposant d’une licence appropriée pour exécuter des charges de travail Azure Virtual Desktop sont éligibles pour appliquer une licence Windows à leurs machines virtuelles hôtes de session et les exécuter sans avoir à payer d’autre licence. Pour plus d’informations, voir [Tarification de Azure Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
-## <a name="ways-to-use-your-windows-virtual-desktop-license"></a>Méthodes d’utilisation de votre licence Windows Virtual Desktop
-La gestion des licences Windows Virtual Desktop vous permet d’appliquer une licence à toute machine virtuelle Windows ou Windows Server inscrite en tant qu’hôte de session dans un pool d’hôtes, et recevant des connexions utilisateur. Cette licence ne s’applique pas aux machines virtuelles qui s’exécutent en tant que serveurs de partage de fichiers, contrôleurs de domaine, etc.
+## <a name="ways-to-use-your-azure-virtual-desktop-license"></a>Méthodes d’utilisation de votre licence Azure Virtual Desktop
+La gestion des licences Azure Virtual Desktop vous permet d’appliquer une licence à toute machine virtuelle Windows ou Windows Server inscrite en tant qu’hôte de session dans un pool d’hôtes, et recevant des connexions utilisateur. Cette licence ne s’applique pas aux machines virtuelles qui s’exécutent en tant que serveurs de partage de fichiers, contrôleurs de domaine, etc.
 
-Il existe plusieurs façons d’utiliser la licence Windows Virtual Desktop :
+Il existe plusieurs façons d’utiliser la licence Azure Virtual Desktop :
 - Vous pouvez créer un pool d’hôtes et ses machines virtuelles hôtes de session à l’aide de l’[offre de la Place de marché Azure](./create-host-pools-azure-marketplace.md). La licence est automatiquement appliquée aux machines virtuelles créées de cette manière.
 - Vous pouvez créer un pool d’hôtes et ses machines virtuelles hôtes de session à l’aide du [Modèle Azure Resource Manager sur GitHub](./virtual-desktop-fall-2019/create-host-pools-arm-template.md). La licence est automatiquement appliquée aux machines virtuelles créées de cette manière.
 - Vous pouvez appliquer une licence à une machine virtuelle hôte de session existante. Pour ce faire, suivez d’abord les instructions fournies dans [Créer un pool d’hôtes avec PowerShell](./create-host-pools-powershell.md) afin de créer un pool d’hôtes et les machines virtuelles associées, puis revenez à cet article pour découvrir comment appliquer la licence.
@@ -64,4 +65,4 @@ $vms | Where-Object {$_.LicenseType -like "Windows_Client"} | Select-Object Reso
 
 ## <a name="requirements-for-deploying-windows-server-remote-desktop-services"></a>Configuration requise pour le déploiement des services Bureau à distance de Windows Server
 
-Si vous déployez Windows Server 2019, 2016 ou 2012 R2 en tant qu’hôtes de bureau Windows Virtual Desktop dans votre déploiement, un serveur de licences des services Bureau à distance doit être accessible à partir de ces machines virtuelles. Le serveur de licences de services Bureau à distance peut être présent localement ou dans Azure. Pour plus d’informations, consultez [Activer le serveur de licences des services Bureau à distance](/windows-server/remote/remote-desktop-services/rds-activate-license-server).
+Si vous déployez Windows Server 2019, 2016 ou 2012 R2 en tant qu’hôtes de bureau Azure Virtual Desktop dans votre déploiement, un serveur de licences des services Bureau à distance doit être accessible à partir de ces machines virtuelles. Le serveur de licences de services Bureau à distance peut être présent localement ou dans Azure. Pour plus d’informations, consultez [Activer le serveur de licences des services Bureau à distance](/windows-server/remote/remote-desktop-services/rds-activate-license-server).

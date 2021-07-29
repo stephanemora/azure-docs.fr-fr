@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/04/2021
+ms.date: 06/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9c9d5ae5fec9b9258527606d352cef83d5b5a41c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 295dfa5a02ce3f46049805339a4f7918ce20361e
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742820"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565191"
 ---
 # <a name="developer-notes-for-azure-active-directory-b2c"></a>Notes à destination des développeurs pour Azure Active Directory B2C
 
@@ -37,8 +37,9 @@ Les [flux d’utilisateurs et stratégies personnalisées](user-flow-overview.md
 | [Inscription et connexion](add-sign-up-and-sign-in-policy.md) avec un nom d’utilisateur et un mot de passe.| GA | GA | |
 | [Flux de modification du profil](add-profile-editing-policy.md) | GA | GA | |
 | [Réinitialisation de mots de passe en libre service](add-password-reset-policy.md). | GA| GA| |
-| [Forcer la réinitialisation du mot de passe](force-password-reset.md) | PRÉVERSION | N/D | |
+| [Forcer la réinitialisation du mot de passe](force-password-reset.md) | GA | N/D | |
 | [Inscription et connexion par téléphone](phone-authentication-user-flows.md) | GA | GA | |
+| [Accès conditionnel et protection des identités](conditional-access-user-flow.md) | GA | GA | Non disponible pour les applications SAML |
 
 ## <a name="oauth-20-application-authorization-flows"></a>Flux d’autorisation d’application OAuth 2.0
 
@@ -83,6 +84,7 @@ Le tableau suivant récapitule les flux d’authentification d’application Sec
 | [Vérification d’e-mail personnalisée](custom-email-mailjet.md) | N/D | GA| |
 | [Personnaliser l’interface utilisateur avec des modèles intégrés](customize-ui.md) | GA| GA| |
 | [Personnaliser l’interface utilisateur avec des modèles personnalisés](customize-ui-with-html.md) | GA| GA| À l’aide de modèles HTML. |
+| [Version de mise en page](page-layout.md) | GA | GA | |
 | [JavaScript](javascript-and-page-layout.md) | GA | GA | |
 | [Expérience de connexion incorporée](embedded-login.md) | N/D |  PRÉVERSION| À l’aide de l’élément de cadre en ligne `<iframe>`. |
 | [Complexité du mot de passe](password-complexity.md) | GA | GA | |

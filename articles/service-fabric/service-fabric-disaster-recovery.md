@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 8d99b4d1fbf227d850de387b7ca24dcd3fd40646
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f10ce3203eb63f7622f41e6838289129026ca73
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791153"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110698287"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Récupération d’urgence dans Azure Service Fabric
 Pour fournir une haute disponibilité, il est essentiel que les services puissent survivre à tous les types d’échecs. Ceci est particulièrement important pour les échecs inattendus et incontrôlables. 
@@ -186,14 +186,15 @@ Dans de rares cas, un centre de données physique peut devenir temporairement in
 
 Pour les clusters exécutés dans Azure, vous pouvez afficher les mises à jour concernant les pannes sur la [page d’état Azure][azure-status-dashboard]. En cas de destruction partielle ou intégrale d’un centre de données physique (ce qui est très peu probable), les clusters Service Fabric qui y sont hébergés et les services qu’ils contiennent peuvent être perdus. Cette perte comprend les états non sauvegardés en dehors du centre de données ou de la région.
 
-Deux stratégies permettent de surmonter la défaillance permanente ou prolongée d’un centre de données ou d’une région : 
+Différentes stratégies permettent de surmonter la défaillance permanente ou prolongée d'un centre de données ou d'une région : 
 
 - Exécuter des clusters Service Fabric distincts dans plusieurs régions de ce type et utiliser un mécanisme de basculement et de restauration automatiques entre ces environnements. Ce type de modèle multicluster actif/actif ou actif/passif nécessite du code de gestion et d’opération supplémentaire. Ce modèle nécessite également la coordination des sauvegardes des services d’un centre de données ou d’une région afin qu’ils soient disponibles dans d’autres centres de données ou régions quand l’un d’eux échoue. 
-- Exécuter un cluster Service Fabric qui s’étend sur plusieurs centres de données ou régions. Pour cette stratégie, la configuration minimale prise en charge est de trois régions ou centres de données. Il est recommandé d’utiliser cinq régions ou centres de données. 
+- Exécuter un cluster Service Fabric qui s'étend sur plusieurs centres de données. Pour cette stratégie, la configuration minimale prise en charge est de trois centres de données. Pour plus d'informations, consultez [Déployer un cluster Service Fabric sur différentes zones de disponibilité](service-fabric-cross-availability-zones.md).
   
-  Ce modèle nécessite une topologie de cluster plus complexe. Toutefois, l’avantage est que la défaillance d’un centre de données ou d’une région passe de l’état d’incident à celui de défaillance normale. Ces défaillances peuvent être gérées par les mécanismes qui fonctionnent pour les clusters d’une même région. Les domaines d’erreur, les domaines de mise à niveau et les règles de sélection élective de Service Fabric garantissent que les charges de travail sont distribuées de manière à survivre aux défaillances normales. 
+  Ce modèle requiert une configuration supplémentaire. Toutefois, l'avantage est que la défaillance d'un centre de données passe de l'état d'incident à celui de défaillance normale. Ces défaillances peuvent être gérées par les mécanismes qui fonctionnent pour les clusters d’une même région. Les domaines d’erreur, les domaines de mise à niveau et les règles de sélection élective de Service Fabric garantissent que les charges de travail sont distribuées de manière à survivre aux défaillances normales.
   
   Pour plus d’informations sur les stratégies qui peuvent aider à utiliser les services dans ce type de cluster, consultez [Stratégies de sélection élective pour les services Service Fabric](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md).
+- Exécutez un seul cluster Service Fabric qui s'étend sur plusieurs régions en utilisant le modèle autonome. Le nombre recommandé est de trois régions. Pour plus d'informations sur la configuration d'un cluster Service Fabric autonome, consultez [Créer un cluster autonome](service-fabric-cluster-creation-for-windows-server.md).
 
 ### <a name="random-failures-that-lead-to-cluster-failures"></a>Défaillances aléatoires qui entraînent des défaillances de cluster
 Service Fabric utilise le concept de *nœuds initiaux*. Il s’agit de nœuds qui permettent de maintenir la disponibilité du cluster sous-jacent. 

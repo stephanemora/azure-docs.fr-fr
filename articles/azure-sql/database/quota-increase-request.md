@@ -3,18 +3,18 @@ title: Demander une augmentation de quota
 description: Cette page explique comment créer une demande de support pour augmenter les quotas Azure SQL Database et Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: deployment-configuration
 ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 06/04/2020
-ms.openlocfilehash: 27719663acfbdbcd7293defc4b746153359adb61
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5530becdcbe150ddc7ab2608bdf964ac269ed99
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251848"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409016"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Demander des augmentations de quota pour Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,7 +54,7 @@ Suivez les étapes ci-après pour créer une demande de support à partir du por
 
    ![Lien Entrer les détails](./media/quota-increase-request/provide-details-link.png)
 
-Quand vous cliquez sur **Entrer les détails**, la fenêtre **Détails du quota** s’affiche. Elle vous permet d’ajouter des informations. Les sections suivantes décrivent les différentes options disponibles pour les types de quota **SQL Database** et **SQL Database Managed Instance**.
+Quand vous cliquez sur **Entrer les détails**, la fenêtre **Détails du quota** s’affiche. Elle vous permet d’ajouter des informations. Les sections suivantes décrivent les différentes options disponibles pour les types de quota **SQL Database** et **SQL Managed Instance**.
 
 ## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a> Types de quota SQL Database
 
@@ -110,7 +110,7 @@ Si votre abonnement a besoin d’un accès dans une région particulière, séle
 
 ### <a name="request-enabling-specific-hardware-in-a-region"></a>Demander l’activation d’un matériel spécifique dans une région
 
-Si la [génération de matériel](service-tiers-vcore.md#hardware-generations) que vous souhaitez utiliser n’est pas disponible dans votre région (voir [Disponibilité matérielle](service-tiers-vcore.md#hardware-availability)), vous pouvez en faire la demande en suivant les étapes suivantes.
+Si la génération de matériel que vous souhaitez utiliser n’est pas disponible dans votre région, vous pouvez en faire la demande en suivant les étapes suivantes. Pour plus d’informations sur les générations de matériel et la disponibilité régionale, consultez [générations de matériel pour SQL Database](./service-tiers-sql-database-vcore.md#hardware-generations) ou [générations de matériel pour SQL Managed instance](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations).
 
 1. Sélectionnez le type de quota **Autre demande de quota**.
 

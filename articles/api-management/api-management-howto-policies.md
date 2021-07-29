@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 37ac6369790ed526fd923819558863ae84432aed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c87e436fe7fada8b1e16c18a5fad36c4ef3c872a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358114"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110096397"
 ---
 # <a name="policies-in-azure-api-management"></a>Stratégies dans Gestion des API Azure
 
@@ -76,7 +76,7 @@ Consultez [Exemples de stratégie](./policy-reference.md) pour obtenir plus d’
 
 ### <a name="apply-policies-specified-at-different-scopes"></a>Appliquer des stratégies spécifiées à différentes portées
 
-Si vous avez une stratégie configurée au niveau global et une stratégie configurée pour une API, dès que cette API est utilisée, les deux stratégies sont appliquées. Le service Gestion des API permet de trier de façon déterminée les instructions de stratégie combinées via l'élément de base. 
+Si vous avez une stratégie configurée au niveau global et une stratégie configurée pour une API, dès que cette API est utilisée, les deux stratégies sont appliquées. Le service Gestion des API permet de trier de façon déterminée les instructions de stratégie combinées via l’élément `base`. 
 
 ```xml
 <policies>

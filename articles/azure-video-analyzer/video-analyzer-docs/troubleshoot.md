@@ -3,12 +3,12 @@ title: Résoudre les problèmes liés à Azure Video Analyzer - Azure
 description: Cet article explique comment résoudre les problèmes liés à Azure Video Analyzer.
 ms.topic: how-to
 ms.date: 05/04/2021
-ms.openlocfilehash: f43d959d1f289b76d4a0b8071aba49c01abe3481
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cd54386702c24065cccad4f7ede43c313a44886c
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386232"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613661"
 ---
 # <a name="troubleshoot-azure-video-analyzer"></a>Résoudre les problèmes liés à Azure Video Analyzer
 
@@ -26,6 +26,10 @@ Dans le cadre de votre déploiement de Video Analyzer, vous allez configurer des
 1. [Affichez les messages acheminés via le hub IoT Edge](../../iot-edge/troubleshoot.md#view-the-messages-going-through-the-iot-edge-hub).
 1. [Redémarrez les conteneurs](../../iot-edge/troubleshoot.md#restart-containers).
 1. [Vérifiez vos règles de configuration de pare-feu et de port](../../iot-edge/troubleshoot.md#check-your-firewall-and-port-configuration-rules).
+
+### <a name="issues-when-using-arm-template"></a>Problèmes liés à l'utilisation de modèles ARM
+
+Si vous rencontrez des problèmes lors de l’utilisation du modèle ARM (le bouton Déployer sur Azure), suivez les étapes de ce guide de [démarrage rapide](get-started-detect-motion-emit-events-portal.md) pour déployer manuellement les ressources nécessaires. 
 
 ### <a name="pre-deployment-issues"></a>Problèmes liés au prédéploiement
 

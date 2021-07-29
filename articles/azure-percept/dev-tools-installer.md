@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f81f7922431f85cfc2a98261a128ba66d23a984f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 49d5a6ed7b23169e655a02cdbb14df52a6e82231
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608593"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099782"
 ---
 # <a name="dev-tools-pack-installer-overview"></a>Vue d’ensemble du Dev Tools Pack Installer
 
@@ -22,29 +22,29 @@ Le Dev Tools Pack Installer est une solution tout-en-un qui installe et configur
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Python 3.6 ou version ultérieure](https://www.python.org/)
-* [Docker 19.03](https://www.docker.com/)
-* [PIP3](https://pip.pypa.io/en/stable/user_guide/)
-* [TensorFlow 1.13](https://www.tensorflow.org/)
-* [Azure Machine Learning SDK 1.1](/python/api/overview/azure/ml/)
+* [Docker 20.10](https://www.docker.com/)
+* [PIP3 21.1](https://pip.pypa.io/en/stable/user_guide/)
+* [TensorFlow 2.0](https://www.tensorflow.org/)
+* [Azure Machine Learning SDK 1.2](/python/api/overview/azure/ml/)
 
 ## <a name="optional-tools"></a>Outils facultatifs
 
-* [Nvidia DeepStream SDK 5](https://developer.nvidia.com/deepstream-sdk) (Toolkit de développement de solutions pour accélérateurs Nvidia)
-* [Intel OpenVino Toolkit 2020.2](https://docs.openvinotoolkit.org/) (Toolkit de développement de solutions pour accélérateurs Intel)
-* [Lobe.ai](https://lobe.ai/)  
-* [Streamlit](https://www.streamlit.io/)
+* [NVIDIA DeepStream SDK 5](https://developer.nvidia.com/deepstream-sdk) (Toolkit de développement de solutions pour accélérateurs NVIDIA)
+* [Intel OpenVINO Toolkit 2021.3](https://docs.openvinotoolkit.org/) (Toolkit de développement de solutions pour accélérateurs Intel)
+* [Lobe.ai 0.9](https://lobe.ai/)  
+* [Streamlit 0.8](https://www.streamlit.io/)
 * [Pytorch 1.4.0 (Windows) ou 1.2.0 (Linux)](https://pytorch.org/)
-* [Miniconda3](https://docs.conda.io/en/latest/miniconda.html)
-* [Chainer 5.2](https://chainer.org/)
-* [Caffe](https://caffe.berkeleyvision.org/)
-* [CUDA Toolkit 10.0.130](https://developer.nvidia.com/cuda-toolkit)
+* [Miniconda 4.5](https://docs.conda.io/en/latest/miniconda.html)
+* [Chainer 7.7](https://chainer.org/)
+* [Caffe 1.0](https://caffe.berkeleyvision.org/)
+* [CUDA Toolkit 11.2](https://developer.nvidia.com/cuda-toolkit)
 * [Microsoft Cognitive Toolkit 2.5.1](https://www.microsoft.com/research/product/cognitive-toolkit/?lang=fr_ca)
 
 ## <a name="known-issues"></a>Problèmes connus
 
-- L’installation facultative de Caffe peut échouer si Docker ne s’exécute pas correctement. Si vous souhaitez installer Caffe, vérifiez que Docker est installé et en cours d’exécution avant de tenter l’installation de Caffe par le biais du Dev Tools Pack Installer.
+- Les installations Caffe, NVIDIA DeepStream SDK et Intel OpenVINO Toolkit facultatives peuvent échouer si la Docker ne fonctionne pas correctement. Pour installer ces outils facultatifs, assurez-vous que Docker est installé et en cours d’exécution avant d’effectuer les installations via le Dev Tools Pack Installer.
 
-- L’installation de CUDA facultative échoue sur les systèmes incompatibles. Avant de tenter d’installer le [CUDA Toolkit 10.0.130](https://developer.nvidia.com/cuda-toolkit) par le biais du Dev Tools Pack Installer, vérifiez la compatibilité de votre système.
+- Le Toolkit CUDA facultatif installé sur Mac a la version 10.0.130. CUDA Toolkit 11 ne prend plus en charge le développement ou l’exécution d’applications sur macOSity.
 
 ## <a name="docker-minimum-requirements"></a>Configuration minimale requise pour Docker
 

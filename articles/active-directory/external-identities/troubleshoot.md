@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 04/12/2021
+ms.date: 05/27/2021
 tags: active-directory
 ms.author: mimart
 author: msmimart
@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc9424af07125977bc74a62a6bca97b8c10b8da3
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: c971c93d873bb8326b986cfd771ef96b615f2131
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317394"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110612763"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Résolution des problèmes d’Azure Active Directory B2B Collaboration
 
@@ -27,7 +27,7 @@ Voici des solutions pour les problèmes courants liés à Azure Active Directory
 
    > [!IMPORTANT]
    > - **À partir du second semestre 2021**, Google [déprécie la prise en charge de la connexion aux vues web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vous utilisez la fédération Google pour les invitations B2B ou [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), ou bien si vous utilisez l’inscription en libre-service avec Gmail, les utilisateurs de Google Gmail ne pourront pas se connecter si vos applications effectuent l’authentification des utilisateurs via une vue web incorporée. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
-   > - **À compter d’octobre 2021**, Microsoft ne prendra plus en charge l’acceptation d’invitations en créant des locataires et des comptes Azure AD non gérés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md). Nous serions heureux de recevoir vos commentaires sur cette fonctionnalité de préversion publique, et sommes ravis de vous proposer encore plus de moyens de collaborer.
+   > - **À compter d’octobre 2021**, Microsoft ne prendra plus en charge l’acceptation d’invitations en créant des locataires et des comptes Azure AD non gérés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l'[authentification au moyen d'un code secret à usage unique envoyé par e-mail](one-time-passcode.md), qui est maintenant en disponibilité générale.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>J’ai ajouté un utilisateur externe, mais je ne le vois pas dans mon carnet d’adresses global ou dans le sélecteur de personnes
 
@@ -39,6 +39,9 @@ La fonctionnalité de recherche d’utilisateurs invités existants dans le sél
 
 Vous pouvez activer cette fonctionnalité à l’aide du paramètre ShowPeoplePickerSuggestionsForGuestUsers au niveau du client et de la collection du site. Vous pouvez définir cette fonctionnalité à l’aide des applets de commande Set-SPOTenant et Set-SPOSite qui permettent aux membres de rechercher tous les utilisateurs invités existants dans le répertoire. Les modifications apportées à la portée du client n’affectent pas les sites SPO déjà configurés.
 
+## <a name="my-guest-invite-settings-and-domain-restrictions-arent-being-respected-by-sharepoint-onlineonedrive"></a>Mon invité, les paramètres d’invitation et les restrictions de domaine ne sont pas respectés par SharePoint Online/OneDrive
+
+Par défaut, SharePoint Online et OneDrive disposent de leur propre ensemble d’options utilisateur externes et n’utilisent pas les paramètres d’Azure AD.  Vous devez activer [l'intégration de SharePoint et de OneDrive avec Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration-preview) pour vous assurer que les options sont cohérentes entre ces applications.
 ## <a name="invitations-have-been-disabled-for-directory"></a>Des invitations ont été désactivées pour le répertoire
 
 Si un message vous indique que vous n’êtes pas autorisé à inviter des utilisateurs, vérifiez que votre compte d’utilisateur est autorisé à inviter des utilisateurs externes sous Azure Active Directory > Paramètres utilisateur > Utilisateurs externes > Gérer les paramètres de collaboration externes :
@@ -62,6 +65,14 @@ Si vous invitez des utilisateurs dont l’organisation utilise un Azure Active D
 Si vous utilisez l’authentification par fédération et si l’utilisateur n’existe pas déjà dans Azure Active Directory, l’utilisateur ne peut pas être invité.
 
 Pour résoudre ce problème, administrateur de l’utilisateur externe doit synchroniser le compte d’utilisateur sur Azure Active Directory.
+
+## <a name="i-cant-invite-an-email-address-because-of-a-conflict-in-proxyaddresses"></a>Je ne peux pas inviter une adresse e-mail en raison d’un conflit dans proxyAddresses
+
+Cela se produit lorsqu’un autre objet du répertoire a la même adresse e-mail invitée que l’un de ses proxyAddresses. Pour résoudre ce problème, supprimez l’e-mail de l’objet [utilisateur](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true) et supprimez également l’objet [contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) associé avant d’essayer d’inviter à nouveau cet e-mail.
+
+## <a name="the-guest-user-object-doesnt-have-a-proxyaddress"></a>L’objet utilisateur invité n’a pas de proxyAddress
+
+Lors de l’invitation d’un utilisateur invité externe, cela peut parfois entrer en conflit avec un [objet contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) existant. Lorsque cela se produit, l’utilisateur invité est créé sans proxyAddress. Cela signifie que l’utilisateur ne pourra pas échanger ce compte à l’aide d’un [échange juste-à-temps](redemption-experience.md#redemption-through-a-direct-link) ou [d’une authentification par code secret à usage unique](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users).
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Comment synchroniser « \# », qui n’est normalement pas un caractère valide, avec Azure AD ?
 

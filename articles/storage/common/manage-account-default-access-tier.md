@@ -1,19 +1,20 @@
 ---
 title: Gestion du niveau d’accès par défaut d’un compte de stockage Azure
 description: Découvrez comment changer le niveau d’accès par défaut d’un compte de stockage GPv2 ou de Stockage Blob.
-author: twooley
-ms.author: twooley
+author: tamram
+ms.author: tamram
 ms.date: 01/11/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: klaasl
-ms.openlocfilehash: 026ab6be1fd4ef79f818f796c4725f6613a9bc6d
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ee009c47188e104cfe1d5430be6e68a1c80132cb
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277383"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110666738"
 ---
 # <a name="manage-the-default-access-tier-of-an-azure-storage-account"></a>Gestion du niveau d’accès par défaut d’un compte de stockage Azure
 
@@ -56,6 +57,19 @@ $accountName = ""
 
 #Change the storage account tier to hot
 Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier Hot
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+
+Le script Azure CLI suivant permet de changer le niveau du compte. La variable `$rgName` doit être initialisée avec le nom de votre groupe de ressources. La variable `$accountName` doit être initialisée avec le nom de votre compte de stockage.
+
+```azurecli
+#Initialize the following with your resource group and storage account names
+$rgName = ""
+$accountName = ""
+
+#Change the storage account tier to hot
+az storage account update --resource-group $rgName --name $accountName --access-tier Hot
 ```
 
 ---

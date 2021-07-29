@@ -8,12 +8,12 @@ ms.subservice: proximity-placement-groups
 ms.topic: conceptual
 ms.date: 3/07/2021
 ms.reviewer: zivr
-ms.openlocfilehash: 1a65a1e4ecd989f3a7c4968c424472c3c6dfe472
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 15da7300018d563ed9919c145ca3e7f08a07f619
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559072"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190639"
 ---
 # <a name="proximity-placement-groups"></a>Groupes de placements de proximité
 
@@ -23,24 +23,22 @@ Pour que les machines virtuelles soient aussi proches que possible, avec la late
 
 Le groupe de placements de proximité est un regroupement logique utilisé pour s’assurer que les ressources de calcul Azure se trouvent proches les unes des autres. Les groupes de placements de proximité sont utiles pour les charges de travail où une latence faible est requise.
 
-
 - Latence faible entre les machines virtuelles autonomes.
 - La latence faible entre les machines virtuelles dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques. 
 - Latence faible entre des machines virtuelles autonomes, des machines virtuelles dans plusieurs groupes à haute disponibilité ou plusieurs groupes identiques. Vous pouvez disposer de plusieurs ressources de calcul dans un seul groupe de placements pour créer une application multicouche. 
 - Latence faible entre plusieurs couches d’application à l’aide de différents types de matériels. Par exemple, l’exécution du serveur principal à l’aide de la série M dans un groupe à haute disponibilité et du serveur frontal sur une instance de la série D dans un groupe identique, dans un seul groupe de placements de proximité.
 
-
 ![Graphique des groupes de placement de proximité](./media/virtual-machines-common-ppg/ppg.png)
 
 ## <a name="using-proximity-placement-groups"></a>Utilisation des groupes de placements de proximité 
 
-Un groupe de placement de proximité est un nouveau type de ressource dans Azure. Vous devez en créer un avant de l’utiliser avec d’autres ressources. Une fois créé, il peut être utilisé avec des machines virtuelles, des groupes à haute disponibilité ou des groupes de machines virtuelles identiques. Vous spécifiez un groupe de placement de proximité lors de la création de ressources de calcul fournissant l’ID de groupe de placement de proximité. 
+Un groupe de placement de proximité est une ressource dans Azure. Vous devez en créer un avant de l’utiliser avec d’autres ressources. Une fois créé, il peut être utilisé avec des machines virtuelles, des groupes à haute disponibilité ou des groupes de machines virtuelles identiques. Vous spécifiez un groupe de placement de proximité lors de la création de ressources de calcul fournissant l’ID de groupe de placement de proximité. 
 
 Vous pouvez également déplacer une ressource existante dans un groupe de placement de proximité. Lors du déplacement d’une ressource vers un groupe de placement de proximité, vous devez commencer par arrêter (libérer) la ressource, car elle pourrait être redéployée dans un autre centre de données de la région afin de satisfaire à la contrainte de colocalisation. 
 
 Dans le cas des groupes à haute disponibilité et de groupes de machines virtuelles identiques, vous devez définir le groupe de placement de proximité au niveau de la ressource plutôt que sur les machines virtuelles individuelles. 
 
-Un groupe de placement de proximité constitue une contrainte de colocalisation plutôt qu’un mécanisme d’épinglage. Il est épinglé à un centre de données spécifique avec le déploiement de la première ressource à l’utiliser. Une fois que toutes les ressources utilisant le groupe de placement de proximité ont été arrêtées (désallouées) ou supprimées, elles ne sont plus épinglées. Par conséquent, lors de l’utilisation d’un groupe de placement de proximité avec plusieurs séries de machines virtuelles, il est important de spécifier tous les types requis au préalable dans un modèle quand c’est possible, ou de suivre une séquence de déploiement qui améliore vos chances de réussir le déploiement. Si votre déploiement échoue, redémarrez-le déploiement avec la taille de machine virtuelle qui a échoué en tant que première taille à déployer.
+Un groupe de placement de proximité est une contrainte de colocalisation plutôt qu’un mécanisme d’épinglage. Il est épinglé à un centre de données spécifique avec le déploiement de la première ressource à l’utiliser. Une fois que toutes les ressources utilisant le groupe de placement de proximité ont été arrêtées (désallouées) ou supprimées, elles ne sont plus épinglées. Par conséquent, lors de l’utilisation d’un groupe de placement de proximité avec plusieurs séries de machines virtuelles, il est important de spécifier tous les types requis au préalable dans un modèle quand c’est possible, ou de suivre une séquence de déploiement qui améliore vos chances de réussir le déploiement. Si votre déploiement échoue, redémarrez-le déploiement avec la taille de machine virtuelle qui a échoué en tant que première taille à déployer.
 
 ## <a name="what-to-expect-when-using-proximity-placement-groups"></a>Ce qui se passe quand vous utilisez des groupes de placement de proximité 
 Les groupes de placement de proximité offrent une colocalisation dans le même centre de données. Toutefois, du fait que les groupes de placement de proximité constituent une contrainte de déploiement supplémentaire, des échecs d’allocation peuvent se produire. Dans certains cas d’utilisation, des échecs d’allocation se produisent lors de l’utilisation de groupes de placement de proximité :
@@ -57,12 +55,11 @@ Les événements de maintenance planifiée, tels que la désaffectation de maté
 
 Vous pouvez procéder comme suit pour vérifier l’état d’alignement de vos groupes de placement de proximité.
 
-
 - L’état de colocation du groupe de placement de proximité peut être affiché à l’aide du portail, de l’interface CLI et de PowerShell.
 
-    -   Dans PowerShell, l’état de colocalisation peut être obtenu avec la cmdlet Get-AzProximityPlacementGroup en ajoutant le paramètre facultatif « -ColocationStatus ».
+    -   Lorsque vous utilisez PowerShell, l’état de colocation peut être obtenu à l’aide de l’applet de commande Get-AzProximityPlacementGroup en incluant le paramètre facultatif « -ColocationStatus ».
 
-    -   Sur l’interface CLI, l’état de colocalisation peut être obtenu avec `az ppg show` en ajoutant le paramètre facultatif « --include-colocation-status ».
+    -   Lorsque vous utilisez l’interface CLI, l’état de colocation peut être obtenu à l’aide de `az ppg show` en incluant le paramètre facultatif « --include-colocation-status ».
 
 - Pour chaque groupe de placement de proximité, une propriété **état de colocation** fournit le résumé de l’état d’alignement actuel des ressources groupées. 
 
@@ -75,7 +72,6 @@ Vous pouvez procéder comme suit pour vérifier l’état d’alignement de vos 
 - Pour les groupes à haute disponibilité, vous pouvez voir des informations sur l’alignement des machines virtuelles individuelles sur la page Vue d’ensemble du groupe à haute disponibilité.
 
 - Pour les groupes identiques, vous pouvez consulter les informations relatives à l’alignement des instances individuelles dans l’onglet **Instances** de la page **Vue d’ensemble** du groupe identique. 
-
 
 ### <a name="re-align-resources"></a>Réaligner les ressources 
 
@@ -92,10 +88,7 @@ En cas d’échec d’affectation en raison de contraintes de déploiement, il s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Déployez une machine virtuelle dans un groupe de placement de proximité avec [Azure CLI](./linux/proximity-placement-groups.md) ou [PowerShell](./windows/proximity-placement-groups.md).
-
-Découvrez comment [tester le temps de réponse du réseau](../virtual-network/virtual-network-test-latency.md).
-
-Découvrez comment [optimiser le débit du réseau](../virtual-network/virtual-network-optimize-network-bandwidth.md).  
-
-Découvrez comment [utiliser des groupes de placement de proximité avec des applications SAP](./workloads/sap/sap-proximity-placement-scenarios.md).
+- Déployez une machine virtuelle dans un groupe de placement de proximité avec [Azure CLI](./linux/proximity-placement-groups.md) ou [PowerShell](./windows/proximity-placement-groups.md).
+- Découvrez comment [tester le temps de réponse du réseau](../virtual-network/virtual-network-test-latency.md).
+- Découvrez comment [optimiser le débit du réseau](../virtual-network/virtual-network-optimize-network-bandwidth.md).
+- Découvrez comment [utiliser des groupes de placement de proximité avec des applications SAP](./workloads/sap/sap-proximity-placement-scenarios.md).

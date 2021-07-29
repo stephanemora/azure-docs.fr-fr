@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5755e14e53d359fd8b322939bf1325d21536d593
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b962282ee4e488d026b6475c63fc32e6a77cee74
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89020182"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591527"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemple : créer une qualification personnalisée à l’aide de l’API Recherche d’entités Bing
 
@@ -24,7 +24,7 @@ Dans cet exemple, découvrez comment créer une compétence personnalisée d’A
 
 + Si vous ne connaissez pas l’interface d’entrée/sortie qu’une compétence personnalisée doit implémenter, lisez l’article sur l’[interface de compétence personnalisée](cognitive-search-custom-skill-interface.md).
 
-+ [!INCLUDE [cognitive-services-bing-entity-search-signup-requirements](../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
++ Créez une [ressource Recherche Bing v7](https://ms.portal.azure.com/#create/Microsoft.BingSearch) via le portail Azure. Un niveau gratuit est disponible et suffisant pour cet exemple.
 
 + Installez [Visual Studio 2019](https://www.visualstudio.com/vs/) ou une version ultérieure, incluant la charge de travail de développement Azure.
 
@@ -36,15 +36,13 @@ Bien que cet exemple utilise une Fonction Azure pour héberger une API web, elle
 
 1. Dans Visual Studio, sélectionnez **Nouveau** > **Projet** dans le menu Fichier.
 
-1. Dans la boîte de dialogue Nouveau projet, sélectionnez **Installé**, développez **Visual C#** > **Cloud**, sélectionnez **Azure Functions**, tapez un Nom pour votre projet, puis cliquez sur **OK**. Le nom d’application de la fonction doit être valide en tant qu’espace de noms C#, afin de ne pas utiliser des traits d’union, des traits de soulignement ou d’autres caractères non alphanumériques.
-
-1. Sélectionnez **Azure Functions v2 (.NET Core)**. Vous pouvez également utiliser la version 1, mais le code écrit ci-dessous est basé sur le modèle v2.
+1. Dans la boîte de dialogue Nouveau projet, sélectionnez **Azure Functions** comme modèle, puis sélectionnez **Suivant**. Entrez un nom pour votre projet, puis sélectionnez **Créer**. Le nom d’application de la fonction doit être valide en tant qu’espace de noms C#, afin de ne pas utiliser des traits d’union, des traits de soulignement ou d’autres caractères non alphanumériques.
 
 1. Sélectionnez le type **Déclencheur HTTP**
 
 1. Pour Compte de stockage, vous pouvez sélectionner **Aucun**, car vous n’aurez besoin d’aucun stockage pour cette fonction.
 
-1. Sélectionnez **OK** pour créer le projet de fonction et la fonction HTTP déclenchée.
+1. Sélectionnez **Créer** pour créer le projet de fonction et la fonction déclenchée par HTTP.
 
 ### <a name="modify-the-code-to-call-the-bing-entity-search-service"></a>Modifier le code pour appeler le service Recherche d’entités Bing
 
@@ -76,7 +74,7 @@ namespace SampleSkills
     {
         #region Credentials
         // IMPORTANT: Make sure to enter your credential and to verify the API endpoint matches yours.
-        static readonly string bingApiEndpoint = "https://api.cognitive.microsoft.com/bing/v7.0/entities/";
+        static readonly string bingApiEndpoint = "https://api.bing.microsoft.com/v7.0/entities";
         static readonly string key = "<enter your api key here>";  
         #endregion
 
@@ -447,11 +445,11 @@ Cet exemple devrait produire le même résultat que celui que vous avez obtenu p
 }
 ```
 
-Ici, nous comptons sur le fait que la [compétence de reconnaissance d’entité](cognitive-search-skill-entity-recognition.md) intégrée soit présente dans l’ensemble de qualifications et ait enrichi le document avec la liste d’organisations. Pour référence, voici une configuration de qualification d’extraction d’entité qui suffirait pour générer les données dont nous avons besoin :
+Ici, nous comptons sur le fait que la [compétence de reconnaissance d’entité](cognitive-search-skill-entity-recognition-v3.md) intégrée soit présente dans l’ensemble de qualifications et ait enrichi le document avec la liste d’organisations. Pour référence, voici une configuration de qualification d’extraction d’entité qui suffirait pour générer les données dont nous avons besoin :
 
 ```json
 {
-    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
     "name": "#1",
     "description": "Organization name extraction",
     "context": "/document/merged_content",

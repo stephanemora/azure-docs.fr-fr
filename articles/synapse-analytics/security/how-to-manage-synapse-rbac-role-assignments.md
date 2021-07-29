@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: bed0c00b8cb5718456302dff06e98ff2f7f2b4e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01f923828f0b83280d033b9bc6e5c7b6bbebae35
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100102187"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784072"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Gestion des attributions de rôles RBAC Synapse dans Synapse Studio
 
@@ -23,7 +23,7 @@ Cet article explique comment ajouter et supprimer des attributions de rôles RBA
 
 >[!Note]
 >- Pour gérer les attributions de rôles RBAC Synapse, vous devez avoir le rôle d’administrateur Synapse sur l’espace de travail ou dans une étendue de niveau inférieur qui inclut les objets que vous souhaitez gérer. Si vous êtes un administrateur Synapse sur l’espace de travail, vous pouvez accorder l’accès à tous les objets de l’espace de travail. 
->- Les **utilisateurs invités** d’un autre locataire Active Directory ne peuvent pas voir ni gérer les attributions de rôles, même s’ils ont le rôle d’administrateur Synapse.
+>- **Les utilisateurs invités** d’un autre locataire Active Directory peuvent aussi voir ou gérer les attributions de rôles, après avoir été assigné au rôle d’Administrateur Synapse.
 >- Pour vous aider à récupérer l’accès à un espace de travail dans le cas où aucun administrateur Synapse n’est attribué ou mis à votre disposition, les utilisateurs disposant des autorisations nécessaires pour gérer les attributions de rôle **Azure RBAC** sur l’espace de travail peuvent également gérer les attributions de rôle **RBAC Synapse**, en autorisant l’ajout de l’administrateur Synapse ou d’autres attributions de rôles Synapse.
 >- L’accès aux pools SQL est géré à l’aide d’autorisations SQL.  À l’exception des rôles Administrateur Synapse et Administrateur Synapse SQL, les rôles RBAC Synapse n’accordent pas l’accès aux pools SQL.
 

@@ -10,12 +10,13 @@ ms.topic: reference
 ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eaf58b964517162ee7f7eb925e1e64830eedc087
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: b2c-support
+ms.openlocfilehash: ccf8c5fceea71c3781ae420c1c36c629ebb97a7b
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85202549"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783816"
 ---
 # <a name="date-claims-transformations"></a>Transformations de revendications Date
 
@@ -31,7 +32,7 @@ Vérifie qu’une revendication de date et d’heure (type de données string) e
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | leftOperand | string | Type de la première revendication, qui doit être postérieure à la deuxième revendication. |
 | InputClaim | rightOperand | string | Type de la deuxième revendication, qui doit être antérieure à la première revendication. |
-| InputParameter | AssertIfEqualTo | boolean | Spécifie si cette assertion doit passer si l’opérande gauche est égal à l’opérande droit. |
+| InputParameter | AssertIfEqualTo | boolean | Spécifie si cette assertion doit renvoyer une erreur si l’opérande gauche est égal à l’opérande droit. Une erreur est levée si l’opérande gauche est égal à l’opérande droit et que la valeur est définie sur `true` . Valeurs possibles : `true` (par défaut) ou `false`. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Spécifie si cette assertion doit passer si l’opérande droit est manquante. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Spécifie le nombre de millisecondes autorisées entre les deux dates pour considérer les heures comme égales (par exemple, pour tenir compte du décalage d’horloge). |
 
@@ -39,7 +40,7 @@ La transformation de revendication **AssertDateTimeIsGreaterThan** est toujours 
 
 ![Exécution de AssertStringClaimsAreEqual](./media/date-transformations/assert-execution.png)
 
-L’exemple suivant compare la revendication `currentDateTime` à la revendication `approvedDateTime`. Une erreur est générée si `currentDateTime` est postérieur à `approvedDateTime`. La transformation traite les valeurs comme étant égales si elles ont une différence de 5 minutes (30 000 millisecondes).
+L’exemple suivant compare la revendication `currentDateTime` à la revendication `approvedDateTime`. Une erreur est générée si `currentDateTime` est postérieur à `approvedDateTime`. La transformation traite les valeurs comme étant égales si elles ont une différence de 5 minutes (30 000 millisecondes). Elle ne génère pas d’erreur si les valeurs sont égales, car `AssertIfEqualTo` a la valeur `false`.
 
 ```xml
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -54,6 +55,10 @@ L’exemple suivant compare la revendication `currentDateTime` à la revendicati
   </InputParameters>
 </ClaimsTransformation>
 ```
+
+> [!NOTE]
+> Dans l’exemple ci-dessus, si vous supprimez le paramètre d’entrée `AssertIfEqualTo` et que `currentDateTime` est égal à `approvedDateTime`, une erreur est levée. La valeur par défaut de `AssertIfEqualTo` est `true`.
+>
 
 Le profil technique de validation `login-NonInteractive` appelle la transformation de revendication `AssertApprovedDateTimeLaterThanCurrentDateTime`.
 ```xml

@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
-ms.openlocfilehash: 637f09c5ee52928631b965dfa6caea9368b44991
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 908d9492a6eb699c999fe93b92697dc511dca082
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99550757"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110189290"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -33,7 +33,10 @@ La liste complète des fonctionnalités Application Insights disponibles pour vo
 
 ## <a name="application-insights-integration"></a>Intégration d’Application Insights
 
-En général, vous créez une instance d’Application Insights lorsque vous créez votre application de fonction. Dans ce cas, la clé d’instrumentation requise pour l’intégration est déjà définie en tant que paramètre d’application nommé *APPINSIGHTS_INSTRUMENTATIONKEY*. Si, pour une raison quelconque, votre application de fonction n’a pas de clé d’instrumentation définie, vous devez [activer l’intégration d’Application Insights](configure-monitoring.md#enable-application-insights-integration).  
+En général, vous créez une instance d’Application Insights lorsque vous créez votre application de fonction. Dans ce cas, la clé d’instrumentation requise pour l’intégration est déjà définie en tant que paramètre d’application nommé `APPINSIGHTS_INSTRUMENTATIONKEY`. Si, pour une raison quelconque, votre application de fonction n’a pas de clé d’instrumentation définie, vous devez [activer l’intégration d’Application Insights](configure-monitoring.md#enable-application-insights-integration).  
+
+> [!IMPORTANT]
+> Les clouds souverains, comme Azure Government, requièrent l’utilisation de la chaîne de connexion Application Insights (`APPLICATIONINSIGHTS_CONNECTION_STRING`) au lieu de la clé d’instrumentation. Pour en savoir plus, consultez la [référence APPLICATIONINSIGHTS_CONNECTION_STRING](functions-app-settings.md#applicationinsights_connection_string).
 
 ## <a name="collecting-telemetry-data"></a>Collecte des données de télémétrie
 

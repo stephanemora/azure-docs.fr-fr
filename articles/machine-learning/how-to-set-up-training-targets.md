@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: e044920953d0b635e7fe92f07b2cd69c0d8f5ee7
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 1b4394c7338aabb63654a1462a97518aaff9ada3
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888581"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408512"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurer et soumettre des exécutions d’entraînement
 
@@ -177,6 +177,9 @@ Consultez ces notebooks pour obtenir des exemples de configuration d’exécutio
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
+
+* **AttributeError : l’objet « RoundTripLoader »n’a pas d’attribut « comment_handling »**  : cette erreur provient de la nouvelle version (v 0.17.5) de `ruamel-yaml`, une dépendance `azureml-core` qui introduit un changement cassant à `azureml-core` . Pour corriger cette erreur, désinstallez `ruamel-yaml` en exécutant `pip uninstall ruamel-yaml` et en installant une version différente de `ruamel-yaml` ; les versions prises en charge vont de la v0.15.35 à la v0.17.4 (comprises). Pour ce faire, exécutez `pip install "ruamel-yaml>=0.15.35,<0.17.5"`.
+
 
 * **L’exécution échoue avec `jwt.exceptions.DecodeError`**  : Message d’erreur exact : `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()`. 
     

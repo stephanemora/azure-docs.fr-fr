@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: c55e60627cd2c06c592af0475e84817d284eb6b5
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: f42cb2f3f00c75dea262b7151bef5efad4e9aa92
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634200"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569589"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuité d’activité et HADR pour SQL Server sur Machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -118,52 +118,10 @@ Les Zones de disponibilité sont des emplacements physiques uniques au sein d’
 
 Pour une configuration à haute disponibilité, placez les machines virtuelles SQL Server correspondantes réparties sur les zones de disponibilité dans la région. Des frais supplémentaires sont facturés pour les transferts réseau-à-réseau entre les zones de disponibilité. Pour plus d’informations, consultez [Zones de disponibilité](../../../availability-zones/az-overview.md). 
 
-
-### <a name="failover-cluster-behavior-in-azure-networking"></a>Comportement d’un cluster de basculement sur le réseau Azure
-Le service DHCP non compatible RFC dans Azure peut provoquer l’échec de la création de certaines configurations de cluster de basculement. Cet échec se produit car une adresse IP dupliquée est affectée au nom réseau du cluster, par exemple la même adresse IP que l’un des nœuds du cluster. Cela constitue un problème quand vous utilisez des groupes de disponibilité, qui dépendent de la fonctionnalité Cluster de basculement Windows.
-
-Examinez le scénario où un cluster à deux nœuds est créé et mis en ligne :
-
-1. Le cluster est en ligne, puis NODE1 demande une adresse IP assignée dynamiquement pour le nom du réseau de clusters.
-2. Le service DHCP ne fournit aucune adresse IP autre que celle de NODE1, car il reconnaît que la demande provient de NODE1.
-3. Windows détecte qu’une adresse en double est affectée à NODE1 et au nom réseau de cluster de basculement, et le groupe de cluster par défaut n’est pas mis en ligne.
-4. Le groupe dr cluster par défaut est déplacé vers NODE2. NODE2 traite l’adresse IP de NODE1 comme adresse IP du cluster et met le groupe de cluster par défaut en ligne.
-5. Quand NODE2 tente d’établir la connexion avec NODE1, les paquets dirigés vers NODE1 ne quittent jamais NODE2, car il résout l’adresse IP de NODE1 en lui-même. NODE2 ne peut pas établir la connexion avec NODE1, puis perd le quorum et arrête le cluster.
-6. NODE1 peut envoyer des paquets à NODE2, mais NODE2 ne peut pas répondre. NODE1 perd le quorum et arrête le cluster.
-
-Vous pouvez éviter ce scénario en affectant une adresse IP statique inutilisée au nom réseau du cluster afin de mettre le nom réseau de cluster en ligne. Par exemple, vous pouvez utiliser une adresse IP Link Local comme 169.254.1.1. Pour simplifier ce processus, consultez la section [Configuration d’un cluster de basculement Windows dans Azure pour les groupes de disponibilité](https://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
-
-Pour plus d’informations, consultez la section [Configurer des groupes de disponibilité dans Azure (GUI)](./availability-group-quickstart-template-configure.md).
-
-### <a name="support-for-availability-group-listeners"></a>Prise en charge des écouteurs de groupe de disponibilité
-Les écouteurs de groupe de disponibilité sont pris en charge sur les machines virtuelles Azure exécutant Windows Server 2012 et versions ultérieures. Cette prise en charge est rendue possible par l’utilisation de points de terminaison à charge équilibrée activés sur les machines virtuelles Azure qui sont des nœuds de groupe de disponibilité. Vous devez suivre des étapes de configuration spéciales de façon à ce que les écouteurs fonctionnent avec les applications clientes exécutées dans Azure et avec celles qui s’exécutent localement.
-
-Il existe deux options principales de configuration de votre écouteur : externe (public) ou interne. L’écouteur externe (public) utilise un équilibrage de charge accessible sur Internet et est associé à une adresse IP virtuelle publique accessible via Internet. Un écouteur interne utilise un équilibrage de charge interne et prend uniquement en charge les clients qui se trouvent sur le même réseau virtuel. Quel que soit le type d’équilibrage de charge, vous devez activer le retour direct du serveur. 
-
-Si le groupe de disponibilité s’étend sur plusieurs sous-réseaux Azure (comme un déploiement qui traverse des régions Azure), la chaîne de connexion du client doit inclure `MultisubnetFailover=True`. Ainsi des tentatives de connexion parallèle aux réplicas sont générées dans les différents sous-réseaux. Pour obtenir des instructions sur la configuration d’un écouteur, consultez [Configurer un écouteur ILB pour des groupes de disponibilité dans Azure](availability-group-listener-powershell-configure.md).
-
-
-Vous pouvez encore vous connecter à chaque réplica de disponibilité séparément en vous connectant directement à l’instance de service. En outre, puisque les groupes de disponibilité sont à compatibilité descendante avec les clients de mise en miroir de bases de données, vous pouvez vous connecter aux réplicas de disponibilité comme les serveurs partenaires de mise en miroir de bases de données tant que les réplicas sont configurés de façon similaire à la mise en miroir de bases de données :
-
-* Il y a un réplica principal et un réplica secondaire.
-* Le réplica secondaire est configuré comme non lisible (option **Secondaire accessible en lecture** définie sur **Non**).
-
-Voici un exemple de chaîne de connexion cliente, qui correspond à cette configuration apparentée à une mise en miroir de bases de données, à l’aide d’ADO.NET ou de SQL Server Native Client :
-
-```console
-Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=AvailabilityDatabase;
-```
-
-Pour plus d’informations sur la connectivité client, consultez :
-
-* [Utilisation de mots clés de chaîne de connexion avec SQL Server Native Client](/sql/relational-databases/native-client/applications/using-connection-string-keywords-with-sql-server-native-client)
-* [Connecter des clients à une session de mise en miroir de bases de données (SQL Server)](/sql/database-engine/database-mirroring/connect-clients-to-a-database-mirroring-session-sql-server)
-* [Connexion à l’écouteur du groupe de disponibilité dans un environnement hybride](/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
-* [Écouteurs de groupe de disponibilité, connectivité client et basculement d’application (SQL Server)](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
-* [Utilisation de chaînes de connexion de mise en miroir de bases de données avec des groupes de disponibilité](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
-
 ### <a name="network-latency-in-hybrid-it"></a>Latence du réseau dans un environnement hybride
 Déployez votre solution HADR en partant du principe qu’il peut y avoir des périodes de latence réseau élevée entre votre réseau local et Azure. Quand vous déployez des réplicas sur Azure, utilisez la validation asynchrone au lieu de la validation synchrone comme mode de synchronisation. Quand vous déployez des serveurs de mise en miroir de bases de données localement et dans Azure, utilisez le mode haute performance plutôt que le mode haute sécurité.
+
+Consultez les [bonnes pratiques de configuration HADR](hadr-cluster-best-practices.md) pour les paramètres de cluster et HADR qui peuvent aider à prendre en charge l’environnement Cloud. 
 
 ### <a name="geo-replication-support"></a>Prise en charge de la géo-réplication
 La géo-réplication dans les disques Azure ne prend pas en charge le fichier de données et le fichier journal de la même base de données à stocker sur des disques distincts. GRS réplique les modifications sur chaque disque indépendamment et de manière asynchrone. Ce mécanisme garantit l’ordre d’écriture dans un seul disque sur la copie géo-répliquée, mais pas entre les copies géo-répliquées de plusieurs disques. Si vous configurez une base de données pour stocker le fichier de données et le fichier journal sur des disques distincts, les disques récupérés après un sinistre peuvent contenir une copie plus à jour du fichier de données que le fichier journal, ce qui interrompt le journal WAL (write-ahead log) dans SQL Server et les propriétés ACID (atomicité, cohérence, isolation et durabilité) des transactions. 

@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 06/04/2021
 ms.author: alzam
-ms.openlocfilehash: 4f406e0f0afd75cfc21b2fe71c41a1ec2c86dd51
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: c9b6671a2baa807d8def27a78d7776eb6fec2c1a
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228853"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559427"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Passer au protocole OpenVPN ou à IKEv2 à partir de SSTP
 
@@ -23,11 +23,11 @@ Une connexion par passerelle VPN point à site (P2S) vous permet de créer une c
 
 La connexion VPN point à site peut utiliser un des protocoles suivants :
 
-* **Protocole &reg;OpenVPN**, un protocole VPN basé sur SSL/TLS. Une solution VPN SSL peut pénétrer des pare-feu puisque la plupart des pare-feu ouvrent le port de sortie TCP 443 utilisé par le protocole SSL. Vous pouvez utiliser OpenVPN pour vous connecter à partir d’appareils Android, iOS (versions 11.0 et versions ultérieures), Windows, Linux et Mac (OSX 10.13 et versions ultérieures).
+* **Protocole &reg;OpenVPN**, un protocole VPN basé sur SSL/TLS. Une solution VPN SSL peut pénétrer des pare-feu puisque la plupart des pare-feu ouvrent le port de sortie TCP 443 utilisé par le protocole SSL. Vous pouvez utiliser OpenVPN pour vous connecter à partir d’appareils Android, iOS (11.0 et versions ultérieures), Windows, Linux et Mac (macOS 10.13 et versions ultérieures).
 
 * Le **Protocole SSTP (Secure Socket Tunneling Protocol)** est un protocole propriétaire VPN basé sur le protocole SSL. Une solution VPN SSL peut pénétrer des pare-feu puisque la plupart des pare-feu ouvrent le port de sortie TCP 443 utilisé par le protocole SSL. SSTP est pris en charge sur les appareils Windows uniquement. Azure prend en charge toutes les versions de Windows disposant de SSTP (Windows 7 et versions ultérieures). **SSTP prend en charge jusqu’à 128 connexions simultanées seulement, quelle que soit la référence SKU de la passerelle**.
 
-* Un VPN IKEv2 est une solution VPN IPsec basée sur des normes. Un VPN IKEv2 peut être utilisé pour se connecter à partir d’appareils Mac (OSX 10.11 et versions ultérieures).
+* Un VPN IKEv2 est une solution VPN IPsec basée sur des normes. Un VPN IKEv2 peut être utilisé pour se connecter à partir d’appareils Mac (macOS 10.11 et versions ultérieures).
 
 
 >[!NOTE]

@@ -4,16 +4,17 @@ description: Mettez à l’échelle votre cluster Service Fabric verticalement e
 ms.date: 12/11/2020
 ms.author: pepogors
 ms.topic: how-to
-ms.openlocfilehash: 325ece761481077171a670c52e9d98071237601a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ad6b105d18f431c53c9fc46a463271e0481b4f0b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251173"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110688582"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Monter en puissance un type de nœud principal de cluster Service Fabric
 
-Cet article explique comment effectuer un scale-up sur un type de nœud principal de cluster Service Fabric en avec un temps d’arrêt minimal. La stratégie générale de mise à niveau d’un type de nœud de cluster Service Fabric est la suivante :
+Cet article explique comment effectuer un scale-up sur un type de nœud principal de cluster Service Fabric en avec un temps d’arrêt minimal. Les mises à niveau sur place des références SKU ne sont pas prises en charge sur les nœuds de cluster Service Fabric, car ces opérations peuvent entraîner une perte de données et de disponibilité. La méthode la plus sûre, la plus fiable et la plus recommandée pour la mise à l'échelle d'un type de nœud Service Fabric est la suivante :
 
 1. Ajoutez un nouveau type de nœud à votre cluster Service Fabric, qui s’appuie sur la référence SKU et la configuration de votre groupe de machines virtuelles identiques mis à niveau (ou modifié). Cette étape implique également la configuration d’un nouvel équilibreur de charge, d’un sous-réseau et d’une IP publique pour le groupe identique.
 

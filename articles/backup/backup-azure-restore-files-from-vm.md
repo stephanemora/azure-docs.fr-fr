@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment récupérer des fichiers et de
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: c2af279ec7e846316a94e58977e7079305ab9b03
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 76d81aa92643002bc5cd2b8859941af8e7440c87
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579375"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421865"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -143,9 +143,14 @@ Si vous exécutez le script sur un ordinateur disposant d’un accès restreint,
 
 > [!NOTE]
 >
-> Le fichier de script que vous avez téléchargé à l’étape 1 [ci-dessus](#step-1-generate-and-download-script-to-browse-and-recover-files) aura l’élément **geo-name** dans le nom du fichier. Utilisez cet élément **geo-name** pour compléter l’URL. Le nom du script téléchargé commence par : \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
-> Ainsi, par exemple, si le nom de fichier du script est *ContosoVM_wcus_12345678*, l’élément **geo-name** est *wcus* et l’URL devient :<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
+> Si la machine virtuelle sauvegardée est Windows, le nom de zone géographique est mentionné dans le mot de passe généré.<br><br>
+> Par exemple, si le mot de passe généré est *ContosoVM_wcus_GUID*, alors le nom de zone géographique est wcus et l’URL serait : <https://pod01-rec2.wcus.backup.windowsazure.com><br><br>
 >
+>
+> Si la machine virtuelle sauvegardée est Linux, le fichier de script que vous avez téléchargé à l’étape 1 [ci-dessus](#step-1-generate-and-download-script-to-browse-and-recover-files) aura l’élément **geo-name** dans le nom du fichier. Utilisez cet élément **geo-name** pour compléter l’URL. Le nom du script téléchargé commence par : \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
+> Ainsi, par exemple, si le nom de fichier du script est *ContosoVM_wcus_12345678*, l’élément **geo-name** est *wcus* et l’URL devient : <https://pod01-rec2.wcus.backup.windowsazure.com><br><br>
+>
+
 
 Pour Linux, le script requiert les composants « open-iscsi » et « lshw » pour vous connecter au point de récupération. Si les composants n’existent pas sur l’ordinateur depuis lequel le script est exécuté, le script demande l’autorisation d’installer les composants. Autorisez l’installation des composants nécessaires.
 

@@ -11,16 +11,16 @@ author: knicholasa
 manager: martinco
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f90edd5729ff5229be09bc3798082c33bdeead2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2595acf25b63f89f6e0e29e996548b58767e9fde
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102632099"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786150"
 ---
 # <a name="browser-support-of-fido2-passwordless-authentication"></a>Prise en charge par navigateur de l’authentification FIDO2 sans mot de passe
 
-Azure Active Directory permet d’utiliser des [clés de sécurité FIDO2](./concept-authentication-passwordless.md#fido2-security-keys) en tant qu’appareil sans mot de passe. La disponibilité de l’authentification FIDO2 pour les comptes Microsoft a été [annoncée en 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910). Comme indiqué dans l’annonce, certaines fonctionnalités et extensions facultatives de la spécification FIDO2 CTAP doivent être implémentées pour prendre en charge l’authentification sécurisée avec des comptes Microsoft et Azure Active Directory. Le diagramme suivant montre les navigateurs et les combinaisons de systèmes d’exploitation qui prennent en charge l’authentification sans mot de passe à l’aide des clés d’authentification FIDO2 avec Azure Active Directory.
+Azure Active Directory permet d’utiliser des [clés de sécurité FIDO2](./concept-authentication-passwordless.md#fido2-security-keys) en tant qu’appareil sans mot de passe. La disponibilité de l’authentification FIDO2 pour les comptes Microsoft a été [annoncée en 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910)et est devenue [disponible publiquement](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/passwordless-authentication-is-now-generally-available/ba-p/1994700) en mars 2021. Le diagramme suivant montre les navigateurs et les combinaisons de systèmes d’exploitation qui prennent en charge l’authentification sans mot de passe à l’aide des clés d’authentification FIDO2 avec Azure Active Directory.
 
 ## <a name="supported-browsers"></a>Navigateurs pris en charge
 
@@ -59,7 +59,7 @@ Voici la configuration minimale requise pour la version du navigateur.
 <sup>1</sup>Toutes les versions du nouveau Microsoft Edge basé sur Chromium prennent en charge Fido2. La prise en charge sur Microsoft Edge hérité a été ajoutée à la version 1903.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Activer la connexion par clé de sécurité sans mot de passe (préversion)](./howto-authentication-passwordless-security-key.md)
+[Activer la connexion par clé de sécurité sans mot de passe](./howto-authentication-passwordless-security-key.md)
 
 <!--Image references-->
 [y]: ./media/fido2-compatibility/yes.png

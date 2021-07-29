@@ -3,15 +3,15 @@ title: Paramétrer les services liés dans Azure Data Factory
 description: Découvrez comment paramétrer des services liés dans Azure Data Factory et transmettre des valeurs dynamiques au moment de l’exécution.
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 06/01/2021
 author: chez-charlie
 ms.author: chez
-ms.openlocfilehash: 48e8c9ff5111b6b67e835676e3bc56e4536248a0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 277f3d9e9d82edf9e93d41808a351528a94f85d7
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110091465"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793692"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Paramétrer les services liés dans Azure Data Factory
 
@@ -33,8 +33,9 @@ Pour voir une présentation de sept minutes et la démonstration de cette foncti
 
 ## <a name="supported-linked-service-types"></a>Types de services liés pris en charge
 
-Vous pouvez paramétrer n’importe quel type de service lié.
-Lors de la création d'un service lié sur l'interface utilisateur, Data Factory fournit une expérience de paramétrage intégrée pour les types de services liés suivants. Dans le panneau de création/modification de service lié, vous pouvez trouver des options pour les nouveaux paramètres et ajouter du contenu dynamique.
+Tous les types de service liés sont pris en charge pour le paramétrage.
+
+**Pris en charge nativement par l’IU ADF :** Lors de la création d'un service lié sur l'interface utilisateur, Data Factory fournit une expérience de paramétrage intégrée pour les types de services liés suivants. Dans le panneau de création/modification de service lié, vous pouvez trouver des options pour les nouveaux paramètres et ajouter du contenu dynamique. Consultez [Expérience IU Data Factory](#data-factory-ui).
 
 - Amazon Redshift
 - Amazon S3
@@ -56,7 +57,7 @@ Lors de la création d'un service lié sur l'interface utilisateur, Data Factory
 - Oracle Cloud Storage
 - SQL Server
 
-Pour les autres types de services liés qui ne figurent pas dans la liste ci-dessus, le paramétrage peut être effectué en modifiant le JSON sur l'interface utilisateur :
+**Création avancée :** Pour les autres types de services liés qui ne figurent pas dans la liste ci-dessus, le paramétrage peut être effectué en modifiant le JSON sur l'interface utilisateur :
 
 - Dans le panneau de création/modification du service lié -> développez « Avancé » en bas -> activez la case à cocher « Spécifier un contenu dynamique au format JSON » -> spécifiez la charge utile du JSON du service lié. 
 - Ou bien, après avoir créé un service lié sans paramétrage, dans [Hub de gestion](author-visually.md#management-hub) -> Services liés-> recherchez le service lié spécifique -> cliquez sur « Code » (bouton « {} ») pour modifier le JSON. 

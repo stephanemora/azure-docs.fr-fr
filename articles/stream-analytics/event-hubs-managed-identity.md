@@ -5,13 +5,13 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 01/04/2021
-ms.openlocfilehash: 4dc718f21f2ef3beabc31821bd60b571ac07be05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/07/2021
+ms.openlocfilehash: c0f81c5abdffe307550d2b0b3e1f86f67f867f5a
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98018749"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591293"
 ---
 # <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job-preview"></a>Accès à Event Hubs à partir d’un travail Azure Stream Analytics à l’aide des identités managées (préversion)
 
@@ -63,6 +63,9 @@ Pour que le travail Stream Analytics puisse accéder à votre hub d’événemen
 1. Sélectionnez **Enregistrer** et attendez environ une minute, le temps que les modifications se propagent.
 
 Vous pouvez également accorder ce rôle au niveau de l’espace de noms du hub d’événements, qui propagera naturellement les autorisations à tous les hubs d’événements créés dessous. Autrement dit, tous les hubs d’événements qui se trouvent sous un espace de noms peuvent être utilisés comme ressources d’authentification d’identité managée dans un travail Stream Analytics.
+
+> [!NOTE]
+> En raison de la latence de la réplication globale ou de la mise en cache, il peut y avoir un délai lors de la révocation ou de l’octroi des autorisations. Les changements devraient prendre effet en 8 minutes.
 
 ## <a name="create-anevent-hub-input-or-output"></a>Création d’une entrée ou d’une sortie Event Hubs  
 

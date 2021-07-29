@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: d4310c724707548cd55df5591504736d8f3c3857
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 48aa91d4ba68b1a69e46019ced7c5bbb69d9029f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460049"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786788"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Vue d’ensemble de la sécurité dans Recherche cognitive Azure
 
@@ -146,15 +146,7 @@ Les clés gérées par le client nécessitent un service facturable supplémenta
 
 ### <a name="double-encryption"></a>Double chiffrement
 
-Dans Recherche cognitive Azure, le double chiffrement est une extension de CMK. Il s’agit d’un chiffrement en deux temps (une fois par CMK, et une nouvelle fois par des clés gérées par le service) et de portée globale, incluant un stockage à long terme sur un disque de données et un stockage à court terme sur des disques temporaires. La différence entre CMK avant et après le 1er août 2020, et ce qui fait de CMK une fonctionnalité de double chiffrement dans Recherche cognitive Azure, est le chiffrement supplémentaire de données au repos sur les disques temporaires.
-
-Le double chiffrement est actuellement disponible sur les nouveaux services créés dans ces régions après le 1er août :
-
-+ USA Ouest 2
-+ USA Est
-+ États-Unis - partie centrale méridionale
-+ Gouvernement américain - Virginie
-+ Gouvernement des États-Unis – Arizona
+Dans Recherche cognitive Azure, le double chiffrement est une extension de CMK. Il s’agit d’un chiffrement en deux temps (une fois par CMK, et une nouvelle fois par des clés gérées par le service) et de portée globale, incluant un stockage à long terme sur un disque de données et un stockage à court terme sur des disques temporaires. Le double chiffrement est implémenté dans les services créés après des dates spécifiques. Pour plus d’informations, consultez [Double chiffrement](search-security-manage-encryption-keys.md#double-encryption).
 
 ## <a name="security-management"></a>Gestion de la sécurité
 

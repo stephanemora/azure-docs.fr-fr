@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 61f0f2a71240c0ade13f7cd20b6c411f3df7f278
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 7d1c31c9f8507154056e6e6de0073eeb9ae636b7
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279151"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111422009"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Utiliser les identités managées avec Azure Machine Learning (préversion)
 
@@ -260,7 +260,7 @@ Vous pouvez également utiliser un [modèle ARM](https://github.com/Azure/azure
 > [!IMPORTANT]
 > Si vous apportez vos propres ressources associées au lieu de les créer avec Azure Machine Learning Service, vous devez accorder les rôles d’identité managée à ces ressources. Utilisez le [modèle ARM d’attribution de rôle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) pour effectuer les attributions.
 
-Pour un espace de travail disposant de (clés gérées par le client pour le chiffrement)[https://docs.microsoft.com/azure/machine-learning/concept-data-encryption ], vous pouvez passer une identité managée affectée par l’utilisateur pour vous authentifier auprès de Key Vault à partir du stockage. Utilisez l’argument __user-assigned-identity-for-cmk-encryption__ (CLI) ou l’argument __user_assigned_identity_for_cmk_encryption__ (SDK) pour passer l’identité managée. Cette identité managée peut être identique ou différente de celle de l’utilisateur principal de l’espace de travail.
+Pour un espace de travail disposant de [clés gérées par le client pour le chiffrement](concept-data-encryption.md), vous pouvez passer une identité managée affectée par l’utilisateur pour vous authentifier auprès de Key Vault à partir du stockage. Utilisez l’argument __user-assigned-identity-for-cmk-encryption__ (CLI) ou l’argument __user_assigned_identity_for_cmk_encryption__ (SDK) pour passer l’identité managée. Cette identité managée peut être identique ou différente de celle de l’utilisateur principal de l’espace de travail.
 
 Si vous disposez déjà d’un espace de travail, vous pouvez convertir l’identité managée affectée par le système en identité managée affectée par l’utilisateur à l’aide de la commande CLI ```az ml workspace update```, ou de la méthode ```Workspace.update``` du SDK Python.
 

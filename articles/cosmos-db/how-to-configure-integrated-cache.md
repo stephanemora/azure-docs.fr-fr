@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: tisande
-ms.openlocfilehash: f857d9945cc52aa192838d58066a7fcc005a622d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: ddfdd4897a0cd194465828bba4bea0c002a4e434
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385493"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110797667"
 ---
 # <a name="how-to-configure-the-azure-cosmos-db-integrated-cache-preview"></a>Comment configurer le cache intégré Azure Cosmos DB (préversion)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -65,6 +65,27 @@ Vous devez ajuster la cohérence des demandes en optant pour une cohérence éve
 
 > [!NOTE]
 > Si vous utilisez le Kit de développement logiciel (SDK) Python, vous **devez** définir explicitement le niveau de cohérence pour chaque demande. Le paramètre par défaut au niveau du compte ne s’applique pas automatiquement.
+
+## <a name="adjust-maxintegratedcachestaleness"></a>Ajuster MaxIntegratedCacheStaleness
+
+Configurez `MaxIntegratedCacheStaleness`, qui correspond à la durée maximale pendant laquelle vous souhaitez tolérer les données mises en cache obsolètes. Nous vous recommandons de définir la valeur `MaxIntegratedCacheStaleness` la plus élevée possible, car cela augmente la probabilité que les lectures et les requêtes de point répétées puissent être des correspondances de cache. Si vous affectez à `MaxIntegratedCacheStaleness` la valeur 0, votre requête de lecture n’utilisera **jamais** le cache intégré, quel que soit le niveau de cohérence. En l’absence de configuration, la valeur par défaut de `MaxIntegratedCacheStaleness` est 5 minutes.
+
+**.NET**
+
+```csharp
+FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefinition("SELECT * FROM c"), requestOptions: new QueryRequestOptions
+        {
+            ConsistencyLevel = ConsistencyLevel.Eventual,
+            DedicatedGatewayRequestOptions = new DedicatedGatewayRequestOptions 
+            { 
+                MaxIntegratedCacheStaleness = TimeSpan.FromMinutes(30) 
+            }
+        }
+);
+```
+
+> [!NOTE]
+> Actuellement, vous pouvez uniquement ajuster MaxIntegratedCacheStaleness à l’aide de la dernière préversion du kit de développement logiciel .NET et de Java.
 
 ## <a name="verify-cache-hits"></a>Vérifier les correspondances dans le cache
 

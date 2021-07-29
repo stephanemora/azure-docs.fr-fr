@@ -3,12 +3,12 @@ title: La gestion des ressources pour les conteneurs et les services
 description: Azure Service Fabric vous permet de spécifier des limites et des requêtes de ressources pour les services en cours d’exécution en tant que processus ou conteneurs.
 ms.topic: conceptual
 ms.date: 8/9/2017
-ms.openlocfilehash: d760766870c8c2be0a2d2384f6d012b75bc92fbd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2265640346525c6521d7f421c2e589979cceb4ca
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735656"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783404"
 ---
 # <a name="resource-governance"></a>Gouvernance des ressources
 
@@ -264,14 +264,18 @@ Remarques supplémentaires :
 
 ## <a name="other-resources-for-containers"></a>Autres ressources pour les conteneurs
 
-En plus du processeur et de la mémoire, il est possible de spécifier d’autres limites de ressources pour les conteneurs. Ces limites sont spécifiées au niveau du package de code et s’appliquent au démarrage du conteneur. Contrairement au processeur et à la mémoire, Cluster Resource Manager ne perçoit pas ces ressources et n’assure aucune tâche de vérification de ressources ou d’équilibrage de charge sur celles-ci.
+En plus du processeur et de la mémoire, il est possible de spécifier d’autres [limites de ressources pour les conteneurs](service-fabric-service-model-schema-complex-types.md#resourcegovernancepolicytype-complextype). Ces limites sont spécifiées au niveau du package de code et s’appliquent au démarrage du conteneur. Contrairement au processeur et à la mémoire, Cluster Resource Manager ne perçoit pas ces ressources et n’assure aucune tâche de vérification de ressources ou d’équilibrage de charge sur celles-ci.
 
-* *MemorySwapInMB* : quantité de mémoire d’échange qu’un conteneur peut utiliser.
-* *MemoryReservationInMB* : Limite non stricte de la gouvernance de mémoire qui s’applique uniquement quand une contention de mémoire est détectée sur le nœud.
-* *CpuPercent* : pourcentage de la capacité du processeur que le conteneur peut utiliser. Si des demandes ou limites de processeur sont spécifiées pour le package de services, ce paramètre est en réalité ignoré.
-* *MaximumIOps* : nombre maximal d’E/S par seconde qu’un conteneur peut utiliser (en lecture et écriture).
-* *MaximumIOBytesps* : nombre maximal d’E/S (octets par seconde) qu’un conteneur peut utiliser (en lecture et écriture).
-* *BlockIOWeight* : poids des E/S de bloc par rapport aux autres conteneurs.
+* *MemorySwapInMB* : quantité totale de mémoire d’échange qui peut être utilisée, en Mo. Cette valeur doit être un entier positif.
+* *MemoryReservationInMB* : limite non stricte (en Mo) de la gouvernance de mémoire qui s’applique uniquement quand une contention de mémoire est détectée sur le nœud. Cette valeur doit être un entier positif.
+* *CpuPercent* : Pourcentage utilisable d’UC disponible (Windows uniquement). Cette valeur doit être un entier positif. Ne peut pas être utilisé avec CpuShares, CpuCores ou CpuCoresLimit.
+* *CpuShares* : poids de l’UC relative. Cette valeur doit être un entier positif. Ne peut pas être utilisé avec CpuPercent, CpuCores ou CpuCoresLimit.
+* *MaximumIOps* : Taux d’E/S maximum (en lecture et écriture) utilisable, en termes d’IOps. Cette valeur doit être un entier positif.
+* *MaximumIOBandwidth* : Nombre maximal d’E/S (octets par seconde) utilisable (en lecture et écriture). Cette valeur doit être un entier positif.
+* *BlockIOWeight* : Poids des E/S de bloc par rapport aux autres packages de code. Doit être un entier positif compris entre 10 et 1000.
+* *DiskQuotaInMB* : quota de disque pour les conteneurs. Cette valeur doit être un entier positif.
+* *KernelMemoryInMB* : limites de la mémoire du noyau en octets.  Cette valeur doit être un entier positif.  Notez que cela est propre à Linux et Docker sur Windows provoque une erreur si ce paramètre est défini.
+* *ShmSizeInMB* : taille de */dev/SHM* en octets. Si omis, le système utilise 64 Mo.  Cette valeur doit être un entier positif. Notez que cela est propre à Linux. Toutefois, Docker ignorera (au lieu de ne pas provoquer d’erreur) si ce paramètre est défini.
 
 Ces ressources peuvent être combinées avec le processeur et la mémoire. Voici un exemple illustration la définition de ressources supplémentaires pour des conteneurs :
 

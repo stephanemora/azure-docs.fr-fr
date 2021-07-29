@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: b5f4218cfcd5f9ccfbe43efac46e2f70fdc30905
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 43a71f6260f688a1e9cc5e39e0c61f81d2265eb3
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99574955"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559614"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Inscrire et analyser un serveur SQL local
 
@@ -109,7 +109,35 @@ Si vous souhaitez créer une connexion et un utilisateur pour pouvoir analyser v
 
 5. Fournissez un nom convivial et un point de terminaison de serveur, puis sélectionnez **Terminer** pour inscrire la source de données. Si, par exemple, votre nom de domaine complet SQL Server est **foobar.database.windows.net**, entrez *foobar* en tant que point de terminaison de serveur.
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## <a name="creating-and-running-a-scan"></a>Création et exécution d’une analyse
+
+Pour créer une analyse et l’exécuter, procédez comme suit :
+
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+
+1. Sélectionnez la source de serveur SQL que vous avez inscrite.
+
+1. Sélectionnez **Nouvelle analyse**.
+
+1. Sélectionnez les informations d’identification pour vous connecter à votre source de données.
+
+   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-set-up-scan.png" alt-text="Configurer l’analyse":::
+
+1. Vous pouvez étendre votre analyse à des tables spécifiques en choisissant les éléments appropriés dans la liste.
+
+   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-scope-your-scan.png" alt-text="Définir la portée de votre analyse":::
+
+1. Sélectionnez ensuite un ensemble de règles pour l’analyse. Vous pouvez choisir entre l’ensemble système par défaut, les ensembles de règles personnalisés existants ou créer un ensemble de règles inline.
+
+   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-scan-rule-set.png" alt-text="Ensemble de règles d’analyse":::
+
+1. Choisissez votre déclencheur d’analyse. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
+
+   :::image type="content" source="media/register-scan-on-premises-sql-server/trigger-scan.png" alt-text="trigger":::
+
+1. Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

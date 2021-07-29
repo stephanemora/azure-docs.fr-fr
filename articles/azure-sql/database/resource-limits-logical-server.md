@@ -3,20 +3,20 @@ title: Limites de ressources pour les serveurs logiques dans Azure
 description: Cet article fournit une vue d’ensemble des limites de ressources pour le serveur logique dans Azure utilisé par Azure SQL Database et Azure Synapse Analytics. Il fournit également des informations concernant ce qui se passe lorsque ces limites de ressources sont atteintes ou dépassées.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: service-overview
 ms.custom: ''
 ms.devlang: ''
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer: sashan,moslake,josack
-ms.date: 03/25/2021
-ms.openlocfilehash: 08b2d3ec205e22c85188a718a12b13aff04f311e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
+ms.date: 04/16/2021
+ms.openlocfilehash: fa5e8bc8ec3e0ebbc93d682d8ff9988f110ffe69
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108771700"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708362"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limites de ressources pour les serveurs Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -49,7 +49,7 @@ Cet article fournit une vue d’ensemble des limites de ressources pour le [serv
 
 ### <a name="storage-size"></a>Taille de stockage
 
-Pour connaître les limites de taille de stockage de chaque niveau tarifaire dans le cas de ressources de bases de données uniques, consultez [Limites de ressources par DTU](resource-limits-dtu-single-databases.md) ou [Limites de ressources par vCore](resource-limits-vcore-single-databases.md).
+Pour connaître les limites de taille de stockage de chaque niveau tarifaire (également appelé objectif de service) dans le cas de ressources de bases de données uniques, consultez [Limites de ressources par DTU](resource-limits-dtu-single-databases.md) ou [Limites de ressources par vCore](resource-limits-vcore-single-databases.md).
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>Que se passe-t-il lorsque les limites de ressources d’une base de données sont atteintes ?
 
@@ -63,14 +63,17 @@ En cas d’utilisation élevée des calculs, voici certaines des options d’att
 
 ### <a name="storage"></a>Stockage
 
-Lorsque l’espace de base de données utilisé atteint la limite de taille maximale, les insertions et mises à jour de base de données qui augmentent la taille des données échouent et les clients reçoivent un [message d’erreur](troubleshoot-common-errors-issues.md). Les instructions SELECT et DELETE continuent de fonctionner correctement.
+Lorsque l'espace de base de données utilisé atteint la limite en termes de taille maximale des données, les insertions et mises à jour de base de données qui augmentent la taille des données échouent et les clients reçoivent un [message d'erreur](troubleshoot-common-errors-issues.md). Les instructions SELECT et DELETE ne sont pas affectées.
+
+Aux niveaux de service Premium et Critique pour l'entreprise, les clients reçoivent également un message d'erreur si la consommation de stockage combinée des données, du journal des transactions et de tempdb dépasse la taille maximale prévue pour le stockage local. Pour plus d'informations, consultez [Gouvernance de l'espace de stockage](#storage-space-governance).
 
 En cas d’utilisation élevée de l’espace, voici certaines des options d’atténuation à votre disposition :
 
-- Augmenter la taille maximale de la base de données ou du pool élastique, ou ajouter plus de stockage. Consultez [Mise à l’échelle des ressources d’une base de données unique](single-database-scale.md) et [Mise à l'échelle des ressources d’un pool élastique](elastic-pool-scale.md).
+- Augmentez la taille maximale des données de la base de données ou du pool élastique, ou effectuez un scale-up vers un objectif de service offrant une limite plus élevée en termes de taille maximale des données. Consultez [Mise à l’échelle des ressources d’une base de données unique](single-database-scale.md) et [Mise à l'échelle des ressources d’un pool élastique](elastic-pool-scale.md).
 - Si la base de données est dans un pool élastique, vous pouvez également déplacer la base de données en dehors du pool afin que son espace de stockage ne soit pas partagé avec d’autres bases de données.
-- Réduire une base de données afin de récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
+- Réduire une base de données afin de récupérer l’espace inutilisé. Dans les pools élastiques, la réduction d'une base de données offre plus de stockage aux autres bases de données du pool. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
 - Vérifiez si l'utilisation intensive de l'espace est due à un pic de la taille du magasin PVS (Persistent Version Store). Le magasin PVS fait partie de chaque base de données et est utilisé pour implémenter la [récupération de base de données accélérée](../accelerated-database-recovery.md). Pour déterminer la taille actuelle du magasin PVS, consultez [Résolution des problèmes de PVS](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). Une grande taille de PVS est souvent due à une transaction qui reste ouverte pendant une longue période (plusieurs heures), ce qui empêche le nettoyage des anciennes versions dans le magasin PVS.
+- Pour les bases de données volumineuses des niveaux de service Premium et Critique pour l'entreprise, vous pouvez recevoir une erreur de type Espace insuffisant, même si l'espace utilisé dans la base de données est inférieur à la limite définie en termes de taille maximale. Cela peut se produire si tempdb ou le journal des transactions consomme une grande quantité de stockage proche de la limite de stockage local. [Basculez](high-availability-sla.md#testing-application-fault-resiliency) la base de données ou le pool élastique pour réinitialiser tempdb sur sa taille inférieure initiale, ou [réduisez](file-space-manage.md#shrinking-transaction-log-file) le journal des transactions pour abaisser la consommation du stockage local.
 
 ### <a name="sessions-and-workers-requests"></a>Sessions et workers (requêtes)
 
@@ -132,7 +135,7 @@ La gouvernance des ressources Azure SQL Database est hiérarchique par nature. D
 
 La gouvernance des E/S de données est un processus d’Azure SQL Database utilisé pour limiter les E/S physiques en lecture et en écriture sur les fichiers de données d’une base de données. Les limites IOPS sont définies pour chaque niveau de service afin de réduire l’effet de « voisinage bruyant », d’assurer une allocation des ressources équitable dans le service multilocataire et de rester dans les limites des capacités du matériel et du stockage sous-jacents.
 
-Pour les bases de données uniques, les limites des groupes de charge de travail sont appliquées à toutes les E/S de stockage par rapport à la base de données, tandis que les limites des listes de ressources partagées s’appliquent à toutes les E/S de stockage pour toutes les bases de données dans le même pool de ressources, notamment la base de données `tempdb`. Pour les pools élastiques, les limites des groupes de charge de travail s’appliquent à chaque base de données dans le pool, tandis que la limite des listes de ressources partagées s’applique à l’ensemble du pool élastique, y compris la base de données `tempdb`, qui est partagée entre toutes les bases de données du pool. En général, les limites des listes de ressources partagées peuvent ne pas être réalisables par la charge de travail sur une base de données (unique ou en pool), car les limites des groupes de charge de travail sont inférieures à celles des listes de ressources partagées et restreignent l’IOPS ou le débit plus tôt. Toutefois, les limites du pool peuvent être atteintes par la charge de travail combinée sur plusieurs bases de données pour le même pool.
+Pour les bases de données uniques, les limites des groupes de charge de travail s'appliquent à toutes les E/S de stockage de la base de données, tandis que les limites des listes de ressources partagées s'appliquent à toutes les E/S de stockage de toutes les bases de données du même pool SQL dédié, notamment à la base de données tempdb. Pour les pools élastiques, les limites des groupes de charge de travail s'appliquent à chacune des bases de données du pool, tandis que la limite des listes de ressources partagées s'applique à l'ensemble du pool élastique, y compris à la base de données tempdb, qui est partagée entre toutes les bases de données du pool. En général, les limites des listes de ressources partagées peuvent ne pas être réalisables par la charge de travail sur une base de données (unique ou en pool), car les limites des groupes de charge de travail sont inférieures à celles des listes de ressources partagées et restreignent l’IOPS ou le débit plus tôt. Toutefois, les limites du pool peuvent être atteintes par la charge de travail combinée sur plusieurs bases de données pour le même pool.
 
 Par exemple, si une requête génère 1000 IOPS sans gouvernance des ressources d’E/S, mais que la limite IOPS maximale du groupe de charge de travail est définie sur 900 IOPS, la requête ne peut pas générer plus de 900 IOPS. Toutefois, si la limite IOPS maximale de la liste de ressources partagées est définie sur 1 500 IOPS et que le nombre total d’E/S de tous les groupes de charge de travail associés à la liste de ressources partagées dépasse 1 500 IOPS, les E/S de la même requête peuvent être réduites sous la limite du groupe de travail de 900 IOPS.
 
@@ -177,11 +180,40 @@ Lorsque vous rencontrez une limite de taux de journalisation qui entrave l’év
 
 ### <a name="storage-space-governance"></a>Gouvernance de l’espace de stockage
 
-Dans les niveaux de service Premium et Critique pour l’entreprise, les fichiers de données et les fichiers journaux de transactions sont stockés sur le volume SSD local de l’ordinateur hébergeant la base de données ou le pool élastique. Cela permet d’obtenir un IOPS et un débit élevés, ainsi qu’une faible latence d’E/S. La taille de ce volume local dépend des capacités matérielles et est limitée. Sur un ordinateur donné, l’espace de volume local est consommé par les bases de données client, notamment `tempdb`, le système d’exploitation, le logiciel de gestion, les données de surveillance, les journaux, etc. Au fur et à mesure que les bases de données sont créées ou supprimées et que leur utilisation de l’espace augmente ou diminue, la consommation d’espace local sur un ordinateur fluctue dans le temps. 
+Aux niveaux de service Premium et Critique pour l'entreprise, les données client, notamment les *fichiers de données*, les *fichiers journaux de transactions* et les *fichiers tempdb*, sont stockées sur le stockage SSD local de l'ordinateur qui héberge la base de données ou le pool élastique. Le stockage SSD local offre des IOPS et un débit élevés, ainsi qu'une faible latence des entrées/sorties. Outre les données clients, le stockage local est utilisé pour le système d'exploitation, le logiciel de gestion, les données de surveillance et les journaux, ainsi que d'autres fichiers nécessaires au fonctionnement du système.
 
-Si le système détecte que l’espace libre disponible sur un ordinateur est faible et qu’une base de données ou un pool élastique risque de manquer d’espace, il déplace la base de données ou le pool élastique vers un autre ordinateur ayant suffisamment d’espace libre, ce qui permet une croissance jusqu’aux limites de taille maximales de l’objectif de service configuré. Ce déplacement s’effectue en ligne, de la même manière qu’une opération de mise à l’échelle d’une base de données, et a un [impact similaire](single-database-scale.md#impact), notamment un bref basculement (quelques secondes) à la fin de l’opération. Ce basculement met fin aux connexions ouvertes et restaure les transactions, ce qui peut avoir un impact sur les applications qui utilisent la base de données à ce moment-là.
+La taille du stockage local est limitée et dépend des capacités matérielles, qui déterminent la **valeur maximale de stockage local**, ou le stockage local réservé aux données client. Cette limite est définie pour optimiser le stockage des données client, tout en garantissant un fonctionnement sûr et fiable du système. Pour connaître la valeur **maximale de stockage local** de chaque objectif de service, consultez la documentation consacrée aux limites de ressources des [bases de données uniques](resource-limits-vcore-single-databases.md) et des [pools élastiques](resource-limits-vcore-elastic-pools.md).
 
-Étant donné que les données sont copiées physiquement sur un autre ordinateur, le déplacement de bases de données plus volumineuses peut nécessiter beaucoup de temps. Pendant ce temps, si la consommation d’espace local par une base de données utilisateur ou un pool élastique volumineux, ou par la base de données `tempdb`, augmente très rapidement, le risque de manquer d’espace augmente. Le système lance le déplacement de la base de données de façon équilibrée afin d’éviter les erreurs dues au manque d’espace et les basculements inutiles.
+Vous pouvez également accéder à cette valeur, ainsi qu'à la quantité de stockage local actuellement utilisée par une base de données ou un pool élastique, en utilisant la requête suivante :
+
+```tsql
+SELECT server_name, database_name, slo_name, user_data_directory_space_quota_mb, user_data_directory_space_usage_mb
+FROM sys.dm_user_db_resource_governance
+WHERE database_id = DB_ID();
+```
+
+|Colonne|Description|
+| :----- | :----- |
+|`server_name`|Nom du serveur logique|
+|`database_name`|Nom de la base de données|
+|`slo_name`|Nom de l'objectif de service, génération matérielle comprise|
+|`user_data_directory_space_quota_mb`|**Valeur maximale de stockage local**, en Mo|
+|`user_data_directory_space_usage_mb`|Consommation actuelle de stockage local par les fichiers de données, les fichiers journaux de transactions et les fichiers tempdb, en Mo. Mise à jour toutes les cinq minutes.|
+|||
+
+Cette requête doit être exécutée dans la base de données utilisateur, et non dans la base de données MASTER. Pour les pools élastiques, la requête peut être exécutée dans n'importe quelle base de données du pool. Les valeurs signalées s'appliquent à l'ensemble du pool.
+
+> [!IMPORTANT]
+> Aux niveaux de service Premium et Critique pour l'entreprise, si la charge de travail tente d'augmenter la consommation de stockage local combinée des fichiers de données, des fichiers journaux de transactions et des fichiers tempdb au-delà de la limite **maximale de stockage local**, une erreur de type Espace insuffisant se produit.
+
+Au fur et à mesure que les bases de données sont créées, supprimées et que leur taille augmente ou diminue, la consommation du stockage local d'un ordinateur fluctue. Si le système détecte que le stockage local disponible sur un ordinateur est faible et qu'une base de données ou un pool élastique risque de manquer d'espace, il déplace la base de données ou le pool élastique vers un autre ordinateur disposant de suffisamment de stockage local.
+
+Ce déplacement s’effectue en ligne, de la même manière qu’une opération de mise à l’échelle d’une base de données, et a un [impact similaire](single-database-scale.md#impact), notamment un bref basculement (quelques secondes) à la fin de l’opération. Ce basculement met fin aux connexions ouvertes et restaure les transactions, ce qui peut avoir un impact sur les applications qui utilisent la base de données à ce moment-là.
+
+Comme toutes les données sont copiées sur un volume de stockage local situé sur un autre ordinateur, le déplacement de bases de données volumineuses peut prendre beaucoup de temps. Pendant ce temps, si la consommation d'espace local par la base de données ou le pool élastique, ou par la base de données tempdb, augmente rapidement, le risque de manquer d'espace augmente. Le système lance le déplacement de la base de données de façon équilibrée afin de réduire les risques d'erreurs dues au manque d'espace tout en évitant les basculements inutiles.
+
+> [!NOTE]
+> Les déplacements de base de données dus à un stockage local insuffisant ne se produisent qu'aux niveaux de service Premium ou Critique pour l'entreprise. Ils ne se produisent pas aux niveaux de service Hyperscale, Usage général, Standard et De base, car ces niveaux ne permettent pas de stocker les fichiers de données localement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,12 +4,12 @@ description: Les types de nœuds, la durabilité, la fiabilité et d’autres é
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 9268dfef15d8302eb31cc1b649c7fd713aab6721
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0b04bc99abc2f9864ed22078f809702390d9f547
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732582"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695452"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 
@@ -53,9 +53,9 @@ Le nombre de types de nœuds initiaux dépend de l’objectif de votre cluster e
 
 * ***Votre cluster sera-t-il déployé sur plusieurs Zones de disponibilité ?***
 
-    Service Fabric prend en charge les clusters qui s’étendent sur des [Zones de disponibilité](../availability-zones/az-overview.md) en déployant des types de nœuds qui sont épinglés à des zones spécifiques pour assurer une haute disponibilité de vos applications. Les Zones de disponibilité nécessitent une planification supplémentaire du type de nœud et des exigences minimales. Pour plus d’informations, consultez [Topologie recommandée de type de nœud principal de clusters Azure Service Fabric s’étendant sur des zones de disponibilité](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
+    Service Fabric prend en charge les clusters qui s’étendent sur des [Zones de disponibilité](../availability-zones/az-overview.md) en déployant des types de nœuds qui sont épinglés à des zones spécifiques pour assurer une haute disponibilité de vos applications. Les Zones de disponibilité nécessitent une planification supplémentaire du type de nœud et des exigences minimales. Pour plus d’informations, consultez [Topologie recommandée pour étendre un type de nœud principal sur des zones de disponibilité](service-fabric-cross-availability-zones.md#recommended-topology-for-spanning-a-primary-node-type-across-availability-zones).
 
-Lorsque vous déterminez le nombre et les propriétés des types de nœuds pour la création initiale de votre cluster, gardez à l'esprit que vous pouvez toujours ajouter, modifier ou supprimer des types de nœuds (non principaux) une fois que votre cluster est déployé. [Les types de nœuds principaux peuvent également être modifiés](service-fabric-scale-up-primary-node-type.md) dans les clusters en cours d’exécution (bien que de telles opérations exigent beaucoup de planification et de prudence dans les environnements de production).
+Lorsque vous déterminez le nombre et les propriétés des types de nœuds pour la création initiale de votre cluster, gardez à l'esprit que vous pouvez toujours ajouter, modifier ou supprimer des types de nœuds (non principaux) une fois que votre cluster est déployé. Les [types de nœuds principaux peuvent également être mis](service-fabric-scale-up-primary-node-type.md) à l’échelle dans les clusters en cours d’exécution. Toutefois, pour ce faire, vous devez créer un nouveau type de nœud, déplacer la charge de travail sur, puis supprimer le type de nœud principal d’origine.
 
 Une autre considération pour les propriétés de votre type de nœud est le niveau de durabilité, qui détermine les privilèges que les VM d'un type de nœud ont au sein de l'infrastructure Azure. Utilisez la taille des VM que vous choisissez pour votre cluster et le nombre d'instances que vous attribuez aux différents types de nœuds pour vous aider à déterminer le niveau de durabilité approprié pour chacun de vos types de nœuds, comme décrit ci-après.
 

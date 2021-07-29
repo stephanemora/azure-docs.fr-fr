@@ -5,12 +5,12 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 83633b6f107aee995c19e1cda94f4f93a96e84e2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 587dddfde930bb64aa21f2e24c26d815e60ab9b0
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110076777"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110791687"
 ---
 # <a name="troubleshoot-common-issues-with-startstop-vms-preview"></a>Résoudre les problèmes courants de démarrage/d’arrêt des machines virtuelles (préversion)
 
@@ -32,7 +32,7 @@ Selon ce que vous avez activé dans Logic Apps pour prendre en charge le scénar
 
 Vous pouvez consulter les détails des opérations effectuées sur les machines virtuelles. Ces opérations sont écrites dans la table **requestsstoretable** au sein du compte Stockage Azure utilisé pour la fonctionnalité de démarrage/d’arrêt des machines virtuelles v2 (préversion). Effectuez les étapes suivantes pour voir ces enregistrements.
 
-1. Accédez au compte de stockage dans le portail Azure. Au sein du compte, dans le volet gauche, sélectionnez **Explorateur Stockage (préversion).
+1. Accédez au compte de stockage dans le Portail Azure. Au sein du compte, dans le volet gauche, sélectionnez **Explorateur Stockage (préversion)** .
 1. Sélectionnez **TABLES**, puis **requeststoretable**.
 1. Chaque enregistrement de la table représente l’action de démarrage/d’arrêt effectuée sur une machine virtuelle Azure en fonction de l’étendue cible définie dans le scénario d’application logique. Vous pouvez filtrer les résultats en fonction de l’une des propriétés d’enregistrement (par exemple TIMESTAMP, ACTION ou TARGETTOPLEVELRESOURCENAME).
 

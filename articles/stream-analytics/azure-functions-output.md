@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: e5ea7a1abbbd6ab4be32955179227fbd539cf641
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/28/2021
+ms.openlocfilehash: ccedab6284fd5dac5a3d9f8d221a22803a3571f8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019616"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110666668"
 ---
 # <a name="azure-functions-output-from-azure-stream-analytics"></a>Sortie Azure Functions d’Azure Stream Analytics
 
@@ -45,6 +45,11 @@ La clé de partition est basée sur la clause PARTITION BY dans la requête. Le 
 ## <a name="output-batch-size"></a>Taille de lot de sortie
 
 Taille de lot par défaut : 262 144 Ko (256 Ko). Nombre d’événements par défaut par lot : 100. La taille de lot, configurable, peut être augmentée ou diminuée dans les options de sortie de Stream Analytics.
+
+## <a name="limitation"></a>Limitation
+
+Azure Functions doit terminer sa requête en moins de 100 secondes, car le délai d’expiration du client HTTP expire après 100 secondes. S’il faut plus de 100 secondes pour qu’Azure Functions traite un lot de données, il existe un délai d’attente qui déclenche une nouvelle tentative. Cette nouvelle tentative peut entraîner des doublons de données, car Azure Functions traitera à nouveau les données et générera potentiellement la même sortie, car elle a peut-être été générée partiellement dans la requête précédente
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

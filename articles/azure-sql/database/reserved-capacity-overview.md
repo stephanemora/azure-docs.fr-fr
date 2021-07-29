@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Découvrez comment acheter une capacité de réserve Azure SQL Database et SQL Managed Instance pour réduire vos coûts de calcul.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: sstein
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 10/13/2020
-ms.openlocfilehash: cacd43502a01352c24f8fcfd85b12aac781dccbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e4f1ba5d15921f30319b001474351d637a0e338
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98602516"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413750"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Réduire les coûts des ressources grâce à une capacité de réserve – Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -88,6 +88,9 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
 ## <a name="next-steps"></a>Étapes suivantes
 
 La remise de réservation vCore est appliquée automatiquement au nombre de bases de données ou d’instances managées qui correspondent à l’étendue et aux attributs de la réservation de capacité. Vous pouvez mettre à jour l’étendue de la réservation de capacité par le biais du [portail Azure](https://portal.azure.com), de PowerShell, d’Azure CLI ou de l’API.
+
+- Pour plus d’informations sur les niveaux de service Azure SQL Database pour le modèle vCore, consultez [Vue d’ensemble du modèle vCore - Azure SQL Database](service-tiers-sql-database-vcore.md).
+- Pour plus d’informations sur les niveaux de service Azure SQL Managed Instance pour le modèle vCore, consultez [Vue d’ensemble du modèle vCore - Azure SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md).
 
 Pour savoir comment gérer la réservation de capacité, consultez [Gérer la capacité de réserve](../../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 

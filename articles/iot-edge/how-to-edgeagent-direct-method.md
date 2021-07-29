@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 52cd7817594c5c2a1d4e3a4ca9c56891df594cd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc580bd1e7b33507f25fdb0ebec3ba38904db8bb
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201105"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541861"
 ---
 # <a name="communicate-with-edgeagent-using-built-in-direct-methods"></a>Communiquer avec edgeAgent à l’aide de méthodes directes intégrées
 
@@ -44,7 +44,10 @@ Dans le portail Azure, appelez la méthode avec le nom de la méthode `ping` et 
 
 La méthode **RestartModule** permet la gestion à distance des modules qui s’exécutent sur un appareil IoT Edge. Si un module signale un état d’échec ou un autre comportement anormal, vous pouvez déclencher l’agent IoT Edge pour le redémarrer. Une commande de redémarrage réussie renvoie une charge utile vide et **"status": 200**.
 
-La méthode RestartModule est disponible dans IoT Edge version 1.0.9 et versions ultérieures. 
+La méthode RestartModule est disponible dans IoT Edge version 1.0.9 et versions ultérieures.
+
+>[!TIP]
+>La page de résolution des problèmes d’IoT Edge dans le portail Azure fournit une expérience simplifiée pour le redémarrage des modules. Pour plus d’informations, consultez [Surveiller et résoudre les problèmes des appareils IoT Edge à partir du portail Azure](troubleshoot-in-portal.md).
 
 Vous pouvez utiliser la méthode directe RestartModule sur n’importe quel module s’exécutant sur un appareil IoT Edge, y compris le module edgeAgent lui-même. Toutefois, si vous utilisez cette méthode directe pour arrêter edgeAgent, vous ne recevrez pas de résultat de réussite, car la connexion est interrompue lors du redémarrage du module.
 

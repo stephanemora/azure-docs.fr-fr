@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bf5c4c39ea8f5705cc9788fdcf2cddd01dcb4087
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d7d637a98a0f250936fa8c9024ae1302d3aaa536
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034705"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572368"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>Configurer un écouteur DNN pour un groupe de disponibilité
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,6 +51,7 @@ Avant d’effectuer les étapes décrites dans cet article, vous devez déjà di
 - Avoir configuré votre [groupe de disponibilité Always On](availability-group-overview.md). 
 - Avoir installé la version la plus récente de [PowerShell](/powershell/azure/install-az-ps). 
 - Avoir identifié le seul port à utiliser pour l’écouteur DNN. Le port utilisé pour un écouteur DNN doit être unique parmi tous les réplicas du groupe de disponibilité ou de l’instance de cluster de basculement.  Aucune autre connexion ne peut partager le même port.
+- Le client qui se connecte à l’écouteur DNN doit prendre en charge le paramètre `MultiSubnetFailover=True` dans la chaîne de connexion. 
 
 
 
@@ -182,4 +183,12 @@ Les écouteurs DNN sont conçus pour écouter toutes les adresses IP, mais sur 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les fonctionnalités de SQL Server HADR dans Azure, consultez [Groupes de disponibilité](availability-group-overview.md) et [Instance de cluster de basculement](failover-cluster-instance-overview.md). Vous pouvez également apprendre les [meilleures pratiques](hadr-cluster-best-practices.md) en matière de configuration de votre environnement pour la haute disponibilité et la reprise d’activité. 
+Une fois le groupe de disponibilité déployé, envisagez d’optimiser les [paramètres HADR pour SQL Server sur les machines virtuelles Azure](hadr-cluster-best-practices.md). 
+
+
+Pour en savoir plus, consultez :
+
+- [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Groupes de disponibilité Always On avec SQL Server sur les machines virtuelles Azure](availability-group-overview.md)
+- [Vue d’ensemble des groupes de disponibilité Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+

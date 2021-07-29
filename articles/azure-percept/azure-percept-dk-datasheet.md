@@ -6,12 +6,12 @@ ms.author: mimcco
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: a8e06e99730388a25f4d00b016f90cd74c336fbe
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 47a9c707dbe0bb4276512cdd364ef679c7c6aa3c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742442"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097189"
 ---
 # <a name="azure-percept-dk-datasheet"></a>Fiche technique du DK Azure Percept
 
@@ -36,5 +36,5 @@ ms.locfileid: "108742442"
 |Température de fonctionnement           |0 à 35 degrés C     |
 |Température hors fonctionnement       |-40 à 85 degrés C     |
 |Humidité relative               |10 à 95 %    |
-|Certification                   |FCC <br> IC <br> RoHS <br> REACH <br> UL   |
+|Certification                   |CE <br> ACMA <br> FCC <br> IC <br> NCC <br> VCCI + MIC <br> NRTL <br> CB   |
 |Alimentation                    |19 V CC à 3,42 A (65 W) |

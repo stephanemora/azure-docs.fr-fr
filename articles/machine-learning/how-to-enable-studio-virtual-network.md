@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: 13becdf8c49d9affe8c2946d6147707fbe954437
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: bf4a019c9f40475750fd508a56f7f8903e0a2876
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889319"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538862"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Utiliser le studio Azure Machine Learning dans un réseau virtuel Azure
 
@@ -68,6 +68,13 @@ Studio prend en charge la lecture de données à partir des types de magasins de
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
+### <a name="firewall-settings"></a>Paramètres du pare-feu
+
+Certains services de stockage, comme le compte de stockage Azure, ont des paramètres de pare-feu qui s’appliquent au point de terminaison public de cette instance de service spécifique. Généralement, ce paramètre vous permet d’autoriser ou d’interdire l’accès à partir d’adresses IP spécifiques à partir de l’Internet public. __Cela n’est pas pris en charge__ lors de l’utilisation d’Azure Machine Learning studio. C’est pris en charge lors de l’utilisation du kit de développement logiciel Azure Machine Learning ou de l’interface de ligne de commande.
+
+> [!TIP]
+> Azure Machine Learning studio est pris en charge lors de l’utilisation du service de Pare-feu Azure. Pour plus d’informations, consultez [Utiliser votre espace de travail derrière un pare-feu](how-to-access-azureml-behind-firewall.md).
+
 ### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Configurer des magasins de données pour utiliser l’identité managée de l’espace de travail
 
 Après avoir ajouté un compte de stockage Azure à votre réseau virtuel avec un [point de terminaison de service](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) ou un [point de terminaison privé](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), vous devez configurer votre magasin de données afin qu’il utilise l’authentification via une [identité managée](../active-directory/managed-identities-azure-resources/overview.md). Ainsi, le studio peut accéder aux données de votre compte de stockage.
@@ -84,7 +91,7 @@ Azure Machine Learning utilise des [magasins de données](concept-data.md#datast
 
     ![Capture d’écran montrant comment activer l’identité managée de l’espace de travail](./media/how-to-enable-studio-virtual-network/enable-managed-identity.png)
 
-Ces étapes ajoutent l’identité managée de l’espace de travail en tant que __Lecteur__ au service de stockage à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC). L’accès __Lecteur__ permet à l’espace de travail de récupérer les paramètres du pare-feu et de s’assurer que les données ne quittent pas le réseau virtuel. La prise en compte des modifications peut prendre jusqu’à 10 minutes.
+Ces étapes ajoutent l’identité managée de l’espace de travail en tant que __Lecteur__ au service de stockage à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC). L’accès __lecteur__ permet à l’espace de travail d’afficher la ressource, mais pas d’apporter des modifications.
 
 ### <a name="enable-managed-identity-authentication-for-default-storage-accounts"></a>Activer l’authentification via une identité managée pour les comptes de stockage par défaut
 

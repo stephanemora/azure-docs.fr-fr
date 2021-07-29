@@ -2,24 +2,21 @@
 title: Vider les étiquettes et les manifestes
 description: Utilisez une commande de vidage pour supprimer plusieurs balises et manifestes d’un registre de conteneurs Azure en fonction d’un filtre d’âge et d’étiquette, et planifiez éventuellement des opérations de vidage.
 ms.topic: article
-ms.date: 02/19/2021
-ms.openlocfilehash: 562d1940459cb1594b7cd9aca2af280b05a4e419
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/07/2021
+ms.openlocfilehash: bb1a8a2a9af0e7ab96b5ae12bd10500e700dfa39
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784188"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089071"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Purger automatiquement les images d’un registre de conteneurs Azure
 
 Lorsque vous utilisez un registre de conteneurs Azure dans le cadre d’un workflow de développement, le registre peut rapidement se remplir d’images ou d’autres artefacts qui ne sont pas nécessaires après une brève période. Vous souhaiterez peut-être supprimer toutes les étiquettes antérieures à une certaine durée ou correspondant à un filtre de nom spécifié. Pour supprimer rapidement plusieurs artefacts, cet article présente la commande `acr purge` que vous pouvez exécuter en tant que tâche ACR à la demande ou [planifiée](container-registry-tasks-scheduled.md). 
 
-La commande `acr purge` est actuellement distribuée dans une image de conteneur public (`mcr.microsoft.com/acr/acr-cli:0.4`), générée à partir du code source dans le référentiel [acr-cli](https://github.com/Azure/acr-cli) dans GitHub.
+La commande `acr purge` est actuellement distribuée dans une image de conteneur public (`mcr.microsoft.com/acr/acr-cli:0.4`), générée à partir du code source dans le référentiel [acr-cli](https://github.com/Azure/acr-cli) dans GitHub. `acr purge` est actuellement en préversion.
 
 Pour utiliser les exemples de tâche ACR de cet article, vous pouvez utiliser Azure Cloud Shell ou une installation locale d’Azure CLI. Si vous souhaitez l’utiliser en local, la version 2.0.76 ou une version ultérieure est requise. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install]. 
-
-> [!IMPORTANT]
-> Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
 
 > [!WARNING]
 > Utilisez la commande `acr purge` avec précaution : les données d'image supprimées ne sont PAS RÉCUPÉRABLES. Si vous disposez de systèmes qui tirent (pull) les images en fonction du code de hachage du manifeste (et non en fonction du nom de l'image), vous ne devez pas purger les images sans étiquette. La suppression des images sans étiquette va empêcher ces systèmes de tirer les images à partir du registre. Au lieu de tirer en fonction du manifeste, envisagez d’adopter un schéma d’*étiquetage unique* (il s’agit là d’une [bonne pratique](container-registry-image-tag-version.md)).

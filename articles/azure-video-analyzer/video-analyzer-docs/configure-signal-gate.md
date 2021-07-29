@@ -3,16 +3,19 @@ title: Configuration d’une porte de signal pour l’enregistrement vidéo bas�
 description: Cet article fournit des conseils d’aide sur la configuration d’une porte de signal dans un pipeline.
 ms.topic: how-to
 ms.date: 4/12/2021
-ms.openlocfilehash: e7871f017d416e164a6160336646d8285c3792a7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: e03524e7e12a0081172918159e9f2d2ed2e4a7d6
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385951"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413426"
 ---
 # <a name="configuring-a-signal-gate-for-event-based-video-recording"></a>Configuration d’une porte de signal pour l’enregistrement vidéo basé sur les événements
 
 Dans un pipeline, un [nœud processeur de porte de signal](pipeline.md#signal-gate-processor) vous permet de transférer un média d’un nœud à un autre quand la porte est déclenchée par un événement. Une fois déclenchée, la porte s’ouvre, laissant le média circuler pendant une durée spécifiée. En l’absence d’événements pour déclencher la porte, celle-ci se ferme et le média cesse de circuler. Vous pouvez utiliser le processeur de porte de signal pour l’enregistrement vidéo basé sur les événements.
+
+> [!NOTE]
+> Un nœud de processeur de porte de signal doit être immédiatement suivi d’un récepteur vidéo ou d’un récepteur de fichiers.
 
 Cet article explique comment configurer un processeur de porte de signal.
 
@@ -71,8 +74,8 @@ Des ID de corrélation sont définis pour chaque événement. Ces ID sont défin
 
 * **activationEvaluationWindow** : de 0 à 10 secondes.
 * **activationSignalOffset** : de -1 minute à 1 minute.
-* **minimumActivationTime** : de 1 seconde à 1 heure.
-* **maximumActivationTime** : de 1 seconde à 1 heure.
+* **minimumActivationTime** : 10 secondes à 1 heure
+* **maximumActivationTime** : 10 secondes à 1 heure
 
 Dans le cas d’usage, vous devez définir les paramètres comme suit :
 

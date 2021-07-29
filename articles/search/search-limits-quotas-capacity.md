@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 994ed74750d159dfdb83259e9fe921f870ec2241
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21c5fd8832805c5e733f19d5fbf71a4e5512478e
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99509365"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540518"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de service de la Recherche cognitive Azure
 
@@ -127,7 +127,7 @@ Le nombre maximal de cartes de synonymes varie en fonction du niveau. Chaque rè
 
 ## <a name="data-limits-ai-enrichment"></a>Limites de données (enrichissement de l’IA)
 
-Un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) faisant appel à une ressource Analyse de texte pour la [reconnaissance d’entités](cognitive-search-skill-entity-recognition.md), l’[extraction de phrases clés](cognitive-search-skill-keyphrases.md), l’[analyse des sentiments](cognitive-search-skill-sentiment.md), la [détection de la langue](cognitive-search-skill-language-detection.md) et la [détection d’informations personnelles](cognitive-search-skill-pii-detection.md) est soumis à des limites de données. La taille maximale d’un enregistrement doit être de 50 000 caractères telle que mesurée par [`String.Length`](/dotnet/api/system.string.length). Si vous avez besoin de découper vos données avant de les envoyer à l’Analyseur des sentiments, utilisez la [compétence Fractionnement du texte](cognitive-search-skill-textsplit.md).
+Un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) faisant appel à une ressource Analyse de texte pour la [reconnaissance d’entités](cognitive-search-skill-entity-recognition-v3.md), la [liaison d'entités](cognitive-search-skill-entity-linking-v3.md), [l’extraction de phrases clés](cognitive-search-skill-keyphrases.md), [l’analyse des sentiments](cognitive-search-skill-sentiment-v3.md), [la détection de la langue](cognitive-search-skill-language-detection.md) et la [détection d’informations personnelles](cognitive-search-skill-pii-detection.md) est soumis à des limites de données. La taille maximale d’un enregistrement doit être de 50 000 caractères telle que mesurée par [`String.Length`](/dotnet/api/system.string.length). Si vous avez besoin de découper vos données avant de les envoyer à l’Analyseur des sentiments, utilisez la [compétence Fractionnement du texte](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limites de la limitation
 

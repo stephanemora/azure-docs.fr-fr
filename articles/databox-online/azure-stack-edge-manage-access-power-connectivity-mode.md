@@ -1,6 +1,6 @@
 ---
-title: Accès, puissance et mode de connectivité des appareils Azure Stack Edge Pro | Microsoft Docs
-description: Explique comment gérer l’accès, la puissance et le mode de connectivité de l’appareil Azure Stack Edge Pro qui permet de transférer des données sur Azure
+title: Accès, puissance et mode de connectivité des appareils Azure Stack Edge Pro FPGA
+description: Explique comment gérer l'accès, la puissance et le mode de connectivité de l'appareil Azure Stack Edge Pro FPGA qui permet de transférer des données sur Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,17 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 240d3872536e6974d7f65eed22dace6816844e9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a07bf9490332ee829182900b2626dfdf99f00dda
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200203"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110703829"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Gérer l’accès, la puissance et le mode de connectivité d’Azure Stack Edge Pro
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-fpga"></a>Gérer l'accès, la puissance et le mode de connectivité de votre appareil Azure Stack Edge Pro FPGA
 
-Cet article explique comment gérer l’accès, la puissance et le mode de connectivité d’Azure Stack Edge Pro. Ces opérations sont effectuées sur l’interface utilisateur web locale ou le Portail Azure.
+Cet article vous explique comment gérer l'accès, la puissance et le mode de connectivité de votre appareil Azure Stack Edge Pro FPGA. Ces opérations sont effectuées sur l’interface utilisateur web locale ou le Portail Azure.
 
 Dans cet article, vous apprendrez comment :
 
@@ -29,7 +30,7 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="manage-device-access"></a>Gérer l’accès aux appareils
 
-L’accès à votre appareil Azure Stack Edge Pro est contrôlé par l’utilisation d’un mot de passe d’appareil. Vous pouvez changer ce mot de passe à l’aide de l’interface utilisateur web locale. Vous pouvez également le réinitialiser sur le portail Azure.
+L'accès à votre appareil Azure Stack Edge Pro FPGA est contrôlé par l'utilisation d'un mot de passe d'appareil. Vous pouvez changer ce mot de passe à l’aide de l’interface utilisateur web locale. Vous pouvez également le réinitialiser sur le portail Azure.
 
 ### <a name="change-device-password"></a>Modifier le mot de passe d’un appareil
 
@@ -61,12 +62,12 @@ Pour créer votre ressource Azure Stack Edge/Data Box Gateway, IoT Hub et Stocka
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Gérer les autorisations pour l’API Microsoft Graph
 
-Quand vous générez la clé d’activation pour l’appareil Azure Stack Edge Pro ou que vous effectuez des opérations qui nécessitent des informations d’identification, vous devez disposer d’autorisations sur l’API Graph d’Azure Active Directory. Les opérations nécessitant des informations d’identification peuvent être les suivantes :
+Lorsque vous générez la clé d'activation de l'appareil Azure Stack Edge Pro FPGA ou que vous effectuez des opérations qui nécessitent des informations d'identification, vous devez disposer d'autorisations sur l'API Graph d'Azure Active Directory. Les opérations nécessitant des informations d’identification peuvent être les suivantes :
 
 -  Création d’un partage avec un compte de stockage associé.
 -  Création d’un utilisateur qui peut accéder aux partages se trouvant sur l’appareil.
 
-Vous devez avoir un accès `User` sur le locataire Active Directory car vous devez être en mesure de `Read all directory objects`. Vous ne pouvez pas être un utilisateur Invité car ce type d’utilisateur ne dispose pas d’autorisations pour `Read all directory objects`. Si vous êtes un invité, les opérations telles que la génération d’une clé d’activation, la création d’un partage sur votre appareil Azure Stack Edge Pro, la création d’un utilisateur, la configuration d’un rôle de calcul Edge et la réinitialisation du mot de passe de l’appareil sont toutes vouées à l’échec.
+Vous devez avoir un accès `User` sur le locataire Active Directory car vous devez être en mesure de `Read all directory objects`. Vous ne pouvez pas être un utilisateur Invité car ce type d’utilisateur ne dispose pas d’autorisations pour `Read all directory objects`. Si vous êtes un invité, les opérations telles que la génération d'une clé d'activation, la création d'un partage sur votre appareil Azure Stack Edge Pro FPGA, la création d'un utilisateur, la configuration d'un rôle de calcul Edge et la réinitialisation du mot de passe de l'appareil se solderont toutes par un échec.
 
 Pour plus d’informations sur la façon de fournir aux utilisateurs un accès à l’API Microsoft Graph, consultez [Informations de référence sur les autorisations Microsoft Graph](/graph/permissions-reference).
 
@@ -89,7 +90,7 @@ Pour obtenir une liste des fournisseurs de ressources inscrits dans l’abonneme
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Pour un appareil Azure Stack Edge Pro, `Microsoft.DataBoxEdge` doit être inscrit. Pour inscrire `Microsoft.DataBoxEdge`, l’administrateur de l’abonnement doit exécuter la commande suivante :
+Pour un appareil Azure Stack Edge Pro FPGA, `Microsoft.DataBoxEdge` doit être inscrit. Pour inscrire `Microsoft.DataBoxEdge`, l’administrateur de l’abonnement doit exécuter la commande suivante :
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

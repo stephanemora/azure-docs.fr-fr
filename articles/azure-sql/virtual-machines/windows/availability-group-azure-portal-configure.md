@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 5dd610d473073e5976b0e7197a1c4e4e68c0f551
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: seo-lt-2019, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: ece52b707418ba9a0c92bffc39f5a8b17b720336
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769828"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572490"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Utiliser le portail Azure pour configurer un groupe de disponibilité (en préversion) pour SQL Server sur une machine virtuelle Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -176,6 +176,12 @@ Pour ajouter d’autres machines virtuelles SQL Server au cluster, procédez com
 
 Vous pouvez vérifier l’état de votre déploiement dans le **journal d’activité**, lequel est accessible à partir de l’icône en forme de cloche dans la barre de navigation supérieure. 
 
+## <a name="configure-quorum"></a>Configurer un quorum
+
+Bien que le témoin de disque soit l’option de quorum la plus résiliente, il nécessite un disque partagé Azure qui impose certaines limitations au groupe de disponibilité. Par conséquent, le témoin cloud est la solution de quorum recommandée pour les clusters qui hébergent des groupes de disponibilité pour SQL Server sur des machines virtuelles Azure. 
+
+Si vous avez un nombre pair de votes dans le cluster, configurez la [Solution de quorum](hadr-cluster-quorum-configure-how-to.md) qui correspond le mieux aux besoins de votre entreprise. Pour plus d’informations, consultez [Quorum avec les machines virtuelles SQL Server](hadr-windows-server-failover-cluster-overview.md#quorum). 
+
 
 ## <a name="modify-availability-group"></a>Modifier le groupe de disponibilité 
 
@@ -272,17 +278,11 @@ Cela indique que le fournisseur de ressources n’a pas pu accéder au service S
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+Une fois le groupe de disponibilité déployé, envisagez d’optimiser les [paramètres HADR pour SQL Server sur les machines virtuelles Azure](hadr-cluster-best-practices.md). 
 
-Pour plus d’informations sur les groupes de disponibilité, consultez :
 
-- [Vue d’ensemble des groupes de disponibilité](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
-* [Administration d’un groupe de disponibilité](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
-* [Supervision de groupes de disponibilité &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server)
-* [Instructions Transact-SQL de groupe de disponibilité ](/sql/database-engine/availability-groups/windows/transact-sql-statements-for-always-on-availability-groups)   
-* [Commandes PowerShell des groupes de disponibilité](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)  
+Pour en savoir plus, consultez :
 
-Pour plus d’informations sur les machines virtuelles SQL Server, consultez : 
-
-* [Vue d’ensemble des machines virtuelles SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Notes de publication pour les machines virtuelles SQL Server](../../database/doc-changes-updates-release-notes.md)
-* [Questions fréquentes (FAQ) sur les machines virtuelles SQL Server](frequently-asked-questions-faq.md)
+- [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Groupes de disponibilité Always On avec SQL Server sur les machines virtuelles Azure](availability-group-overview.md)
+- [Vue d’ensemble des groupes de disponibilité Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)

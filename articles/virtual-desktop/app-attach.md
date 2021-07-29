@@ -1,17 +1,17 @@
 ---
-title: Configurer des scripts PowerShell pour l’attachement d’application MSIX Windows Virtual Desktop - Azure
-description: Comment créer des scripts PowerShell pour l’attachement d’application MSIX Windows Virtual Desktop.
+title: Configurer des scripts PowerShell pour l’attachement d’application MSIX Azure Virtual Desktop - Azure
+description: Comment créer des scripts PowerShell pour l’attachement d’application MSIX Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 43a8cb00804927784982999db13ee193c34f55ca
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 1ff5ea8c4bb0af326b37d0e4ff2185be22393f16
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835377"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745436"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach"></a>Créer des scripts PowerShell pour l’attachement d’application MSIX
 
@@ -135,7 +135,7 @@ Avant de mettre à jour les scripts PowerShell, vérifiez que vous disposez du G
     $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where { $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult] AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
     $asTaskAsyncOperation = $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult], [Windows.Management.Deployment.DeploymentProgress])
     $packageManager = [Windows.Management.Deployment.PackageManager]::new()
-    $path = $msixJunction + $parentFolder + $packageName # needed if we do the pbisigned.vhd
+    $path = $msixJunction + $parentFolder + $packageName 
     $path = ([System.Uri]$path).AbsoluteUri
     $asyncOperation = $packageManager.StagePackageAsync($path, $null, "StageInPlace")
     $task = $asTaskAsyncOperation.Invoke($null, @($asyncOperation))
@@ -261,6 +261,6 @@ catch [Exception]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cette fonctionnalité n’est pas prise en charge actuellement, mais vous pouvez poser des questions à la communauté sur la [TechCommunity Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Cette fonctionnalité n’est pas prise en charge actuellement, mais vous pouvez poser des questions à la communauté sur la [TechCommunity Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-Vous pouvez également laisser vos commentaires sur Windows Virtual Desktop sur le [Hub de commentaires Windows Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+Vous pouvez également formuler vos commentaires concernant Azure Virtual Desktop sur le [Hub de commentaires Azure Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).

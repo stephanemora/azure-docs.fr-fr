@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 64b84c248a943c8558bf1e5fea646a36046c7f1b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ef51fc0c67c938a2d0933b6032072acc24e42dd3
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740408"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110494626"
 ---
 # <a name="structured-application-log-for-azure-spring-cloud"></a>Journal des applications structuré pour Azure Spring Cloud
 
@@ -20,7 +20,10 @@ Cet article explique comment générer et collecter des données de journal stru
 
 ## <a name="log-schema-requirements"></a>Configuration requise pour le schéma des journaux
 
-Afin d’améliorer l’expérience d’interrogation des journaux, un journal d’application doit être au format JSON et conforme à un schéma. Azure Spring Cloud utilise ce schéma pour analyser votre application et transmettre le résultat à Log Analytics. 
+Afin d’améliorer l’expérience d’interrogation des journaux, un journal d’application doit être au format JSON et conforme à un schéma. Azure Spring Cloud utilise ce schéma pour analyser votre application et transmettre le résultat à Log Analytics.
+
+> [!NOTE]
+> L’activation du format de journal JSON complique la lecture de la sortie de diffusion de journaux à partir de la console. Pour recevoir une sortie lisible par l’utilisateur, ajoutez `--format-json`l'argument à la commande CLI `az spring-cloud app logs`. Consultez [Formater les journaux structurés JSON](./how-to-log-streaming.md#format-json-structured-logs).
 
 **Configuration requise pour le schéma JSON :**
 

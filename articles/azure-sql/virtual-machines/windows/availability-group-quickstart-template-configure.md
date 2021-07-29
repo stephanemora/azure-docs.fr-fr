@@ -14,13 +14,13 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: seo-lt-2019
-ms.openlocfilehash: deaa7834d4aa69ccf161b58f566dbc82ea71ad78
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.openlocfilehash: ab57e66ff37fb31a91a1949896a4e7736669d6c6
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755723"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078920"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Utiliser des modèles de démarrage rapide Azure afin de configurer un groupe de disponibilité pour SQL Server sur une machine virtuelle Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -88,7 +88,11 @@ L’ajout de machines virtuelles SQL Server au groupe de ressources *SqlVirtualM
 >[!NOTE]
 > Les informations d’identification fournies durant le déploiement du modèle sont stockées uniquement pour la durée du déploiement. À l’issue du déploiement, ces mots de passe sont supprimés. Vous serez invité à les fournir à nouveau si vous ajoutez d’autres machines virtuelles SQL Server au cluster. 
 
+## <a name="configure-quorum"></a>Configurer un quorum
 
+Bien que le témoin de disque soit l’option de quorum la plus résiliente, il nécessite un disque partagé Azure qui impose certaines limitations au groupe de disponibilité. Par conséquent, le témoin cloud est la solution de quorum recommandée pour les clusters qui hébergent des groupes de disponibilité pour SQL Server sur des machines virtuelles Azure. 
+
+Si vous avez un nombre pair de votes dans le cluster, configurez la [Solution de quorum](hadr-cluster-quorum-configure-how-to.md) qui correspond le mieux aux besoins de votre entreprise. Pour plus d’informations, consultez [Quorum avec les machines virtuelles SQL Server](hadr-windows-server-failover-cluster-overview.md#quorum). 
 
 ## <a name="validate-cluster"></a>Valider le cluster 
 
@@ -223,10 +227,10 @@ Après avoir apporté ces modifications, essayez encore une fois de déployer le
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez les articles suivants : 
+Pour en savoir plus, consultez :
 
 * [Vue d’ensemble des machines virtuelles SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Questions fréquentes (FAQ) sur les machines virtuelles SQL Server](frequently-asked-questions-faq.md)
+* [Questions fréquentes (FAQ) sur les machines virtuelles SQL Server](frequently-asked-questions-faq.yml)
 * [Guide des tarifs pour les machines virtuelles SQL Server](pricing-guidance.md)
 * [Notes de publication pour les machines virtuelles SQL Server](../../database/doc-changes-updates-release-notes.md)
 * [Changement de modèles de licence pour une machine virtuelle SQL Server](licensing-model-azure-hybrid-benefit-ahb-change.md)

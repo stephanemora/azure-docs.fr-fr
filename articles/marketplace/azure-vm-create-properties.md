@@ -1,18 +1,18 @@
 ---
 title: Configurer les propriétés d’une offre de machine virtuelle sur Place de marché Azure
-description: Découvrez comment configurer les propriétés d’une offre de machine virtuelle sur Place de marché Azure.
+description: Configurer les propriétés d’une offre de machine virtuelle sur la Place de marché Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 5942368ba1709127b815a35676b716955c1bee8f
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: f59bd0798347e39c696a8a774f2e9a85dfae6dfa
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107819085"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111525351"
 ---
 # <a name="configure-virtual-machine-offer-properties"></a>Configurer les propriétés de l’offre de machine virtuelle
 

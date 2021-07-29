@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 06/04/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e29aab4db0e568d06ab3d5f0f898b2fec9fee181
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 834aa7643583683f7ee64abdbd1e18e0b76c6ada
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732791"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538820"
 ---
 # <a name="login-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory
 
@@ -32,7 +32,6 @@ L’utilisation de l’authentification basée sur Azure AD pour se connecter a
 - Utilisez les stratégies de déploiement et d’audit Azure pour exiger une connexion Azure AD pour les machines virtuelles Windows et pour signaler l’utilisation d’un compte local non approuvé sur les machines virtuelles.
 - La connexion aux machines virtuelles Windows avec Azure Active Directory fonctionne également pour les clients qui utilisent des services de fédération.
 - Automatisez et mettez à l’échelle la connexion avec Azure AD grâce à l’inscription automatique des machines virtuelles Windows Azure qui font partie de vos déploiements VDI auprès de la gestion des périphériques mobiles à l’aide d’Intune. L’inscription automatique auprès de la gestion des périphériques mobiles requiert une licence Azure AD P1. Les machines virtuelles Windows Server 2019 ne prennent pas en charge l’inscription auprès de la gestion des périphériques mobiles.
-
 
 > [!NOTE]
 > Une fois cette fonctionnalité activée, vos machines virtuelles Windows dans Azure sont jointes à Azure AD. Vous ne pouvez pas les joindre à un autre domaine, par exemple sur AD ou Azure AD DS en local. Si vous devez le faire, vous devez déconnecter la machine virtuelle de votre locataire Azure AD en désinstallant l’extension.
@@ -55,8 +54,6 @@ Cette fonctionnalité est désormais disponible dans les clouds Azure suivants 
 - Azure Government
 - Azure Chine
 
-
-
 ### <a name="network-requirements"></a>Configuration requise pour le réseau
 
 Pour activer l’authentification Azure AD pour vos machines virtuelles Windows dans Azure, vous devez vous assurer que la configuration de votre réseau de machines virtuelles autorise un accès sortant aux points de terminaison suivants sur le port TCP 443 :
@@ -67,20 +64,17 @@ Pour Azure Global
 - `https://login.microsoftonline.com` : Pour les flux d’authentification.
 - `https://pas.windows.net` : Pour les flux Azure RBAC.
 
-
 Pour Azure Government
 - `https://enterpriseregistration.microsoftonline.us` : Pour l’inscription d’appareils.
 - `http://169.254.169.254` : Azure Instance Metadata Service.
 - `https://login.microsoftonline.us` : Pour les flux d’authentification.
 - `https://pasff.usgovcloudapi.net` : Pour les flux Azure RBAC.
 
-
 Pour Azure Chine
 - `https://enterpriseregistration.partner.microsoftonline.cn` : Pour l’inscription d’appareils.
 - `http://169.254.169.254` : Point de terminaison Azure Instance Metadata Service.
 - `https://login.chinacloudapi.cn` : Pour les flux d’authentification.
 - `https://pas.chinacloudapi.cn` : Pour les flux Azure RBAC.
-
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Activation de la connexion Azure AD dans pour les machines virtuelles Windows dans Azure
 
@@ -258,7 +252,7 @@ L’extension AADLoginForWindows doit être installée correctement pour que la 
 
    > [!NOTE]
    > Si l’extension redémarre après l’échec initial, le journal contenant l’erreur de déploiement est enregistré sous `CommandExecution_YYYYMMDDHHMMSSSSS.log`. "
-1. Ouvrez une invite de commandes PowerShell sur la machine virtuelle et vérifiez que ces requêtes par rapport au point de terminaison Instance Metadata Service (IMDS) en cours d’exécution sur l’hôte Azure sont renvoyées :
+1. Ouvrez une fenêtre PowerShell sur la machine virtuelle et vérifiez que ces requêtes par rapport au point de terminaison Instance Metadata Service (IMDS) en cours d’exécution sur l’hôte Azure sont renvoyées :
 
    | Commande à exécuter | Sortie attendue |
    | --- | --- |
@@ -269,7 +263,7 @@ L’extension AADLoginForWindows doit être installée correctement pour que la 
    > [!NOTE]
    > Le jeton d’accès peut être décodé à l’aide d’un outil tel que [calebb.net](http://calebb.net/). Vérifiez que l’`appid` dans le jeton d’accès correspond à l’identité managée attribuée à la machine virtuelle.
 
-1. Vérifiez que les points de terminaison requis sont accessibles à partir de la machine virtuelle à l’aide de la ligne de commande :
+1. Vérifiez que les points de terminaison requis sont accessibles à partir de la machine virtuelle à l’aide de PowerShell :
    
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
@@ -294,7 +288,7 @@ Ce code de sortie se traduit par `DSREG_E_MSI_TENANTID_UNAVAILABLE`, car l’ext
 
 1. Vérifiez que la machine virtuelle Azure peut récupérer le TenantID à partir d’Instance Metadata Service.
 
-   - Connectez-vous via RDP à la machine virtuelle en tant qu’administrateur local et vérifiez que le point de terminaison retourne un ID de locataire valide en exécutant cette commande à partir d’une ligne de commande élevée sur la machine virtuelle :
+   - Connectez-vous via RDP à la machine virtuelle en tant qu’administrateur local et vérifiez que le point de terminaison retourne un ID de locataire valide en exécutant cette commande à partir d’une fenêtre PowerShell élevée sur la machine virtuelle :
       
       - `curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
 
@@ -304,7 +298,7 @@ Ce code de sortie se traduit par `DSREG_E_MSI_TENANTID_UNAVAILABLE`, car l’ext
 
 Ce code de sortie se traduit par `DSREG_AUTOJOIN_DISC_FAILED`, car l’extension n’est pas en mesure d’atteindre le point de terminaison `https://enterpriseregistration.windows.net`.
 
-1. Vérifiez que les points de terminaison requis sont accessibles à partir de la machine virtuelle à l’aide de la ligne de commande :
+1. Vérifiez que les points de terminaison requis sont accessibles à partir de la machine virtuelle à l’aide de PowerShell :
 
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`

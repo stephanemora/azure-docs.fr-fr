@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 04/30/2021
 ms.author: Zhchia
-ms.openlocfilehash: 7b4dd01b74f81318338196a40949d339f13d16da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9608a3a9e086cc6c03dc80f0666becbcbc06290
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97673297"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110688390"
 ---
 # <a name="tutorial-configure-adobe-identity-management-for-automatic-user-provisioning"></a>Tutoriel : Configurer Adobe Identity Management pour l’approvisionnement automatique d’utilisateurs
 
@@ -42,6 +42,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md).
 * Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général). 
 * Un répertoire fédéré dans la [console d’administration Adobe](https://adminconsole.adobe.com/) avec des domaines vérifiés.
+* Passez en revue la [documentation Adobe](https://helpx.adobe.com/enterprise/admin-guide.html/enterprise/using/add-azure-sync.ug.html) relative à l'approvisionnement des utilisateurs 
 
 > [!NOTE]
 > Si votre organisation utilise l’outil de synchronisation utilisateur ou une intégration UMAPI, vous devez d’abord suspendre l’intégration. Ensuite, ajoutez l’approvisionnement automatique d’Azure AD pour automatiser la gestion des utilisateurs à partir du portail Azure. Une fois l’approvisionnement automatique d’Azure AD configuré et en cours d’exécution, vous pouvez supprimer complètement l’outil de synchronisation utilisateur ou l’intégration UMAPI.

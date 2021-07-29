@@ -1,33 +1,34 @@
 ---
-title: Copier des données depuis et vers SQL Server
-description: Découvrez comment déplacer des données vers et depuis une base de données SQL Server qui est locale ou dans une machine virtuelle Azure à l’aide d’Azure Data Factory.
+title: Copier et transformer des données vers et depuis SQL Server
+description: Apprenez à copier et transformer des données vers et depuis une base de données SQL Server locale ou située dans une machine virtuelle Azure à l'aide d'Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/17/2021
-ms.openlocfilehash: c6996a5e3f20a3c71fc5a49f9650955ce9c41683
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 05/26/2021
+ms.openlocfilehash: 084af91fe294ab52591bc5ef9bf22ffe941637ea
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486788"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110781800"
 ---
-# <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copier des données vers et depuis SQL Server à l’aide d’Azure Data Factory
+# <a name="copy-and-transform-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copier et transformer des données vers et depuis SQL Server à l'aide d'Azure Data Factory
 
 > [!div class="op_single_selector" title1="Sélectionnez la version Azure Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-sqlserver-connector.md)
 > * [Version actuelle](connector-sql-server.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données vers et depuis une base de données SQL Server. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md) qui offre une présentation générale de l’activité de copie.
+Cet article explique comment utiliser l'activité de copie Azure Data Factory pour copier des données vers et depuis une base de données SQL Server, et utiliser Data Flow pour transformer les données dans la base de données SQL Server.  Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Ce connecteur SQL Server est pris en charge pour les activités suivantes :
 
 - [Activité Copy](copy-activity-overview.md) avec [prise en charge de la matrice source/du récepteur](copy-activity-overview.md)
+- [Mappage de flux de données](concepts-data-flow-overview.md)
 - [Activité de recherche](control-flow-lookup-activity.md)
 - [Activité GetMetadata](control-flow-get-metadata-activity.md)
 
@@ -552,6 +553,66 @@ L’exemple suivant montre comment utiliser une procédure stockée pour effectu
         }
     }
     ```
+
+## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
+
+Lors de la transformation de données dans le flux de données de mappage, vous pouvez lire et écrire dans les tables de la base de données SQL Server. Pour plus d’informations, consultez la [transformation de la source](data-flow-source.md) et la [transformation du récepteur](data-flow-sink.md) dans le flux de données de mappage.
+
+> [!NOTE]
+> Pour accéder à une instance SQL Server locale, vous devez utiliser le [réseau virtuel managé](managed-virtual-network-private-endpoint.md) d'Azure Data Factory via un point de terminaison privé. Pour connaître les étapes détaillées, reportez-vous à ce [tutoriel](tutorial-managed-virtual-network-on-premise-sql-server.md).
+
+### <a name="source-transformation"></a>Transformation de la source
+
+Le tableau ci-dessous répertorie les propriétés prises en charge par la source SQL Server. Vous pouvez modifier ces propriétés sous l’onglet **Options de la source**.
+
+| Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Table de charge de travail | Si vous sélectionnez Table comme entrée, le flux de données extrait toutes les données de la table spécifiée dans le jeu de données. | Non | - |- |
+| Requête | Si vous sélectionnez Requête comme entrée, spécifiez une requête SQL pour extraire des données de la source, qui remplace toute table que vous spécifiez dans le jeu de données. L’utilisation de requêtes est un excellent moyen de réduire le nombre de lignes pour les tests ou les recherches.<br><br>La clause **Order By** n’est pas prise en charge, mais vous pouvez définir une instruction SELECT FROM complète. Vous pouvez également utiliser des fonctions de table définies par l’utilisateur. **select * from udfGetData()** est une fonction UDF dans SQL qui retourne une table que vous pouvez utiliser dans le flux de données.<br>Exemple de requête : `Select * from MyTable where customerId > 1000 and customerId < 2000`.| Non | String | query |
+| Taille du lot | Spécifiez la taille de lot que doivent avoir les lectures créées à partir d’un large volume de données. | Non | Integer | batchSize |
+| Niveau d’isolation | Choisissez l’un des niveaux d’isolation suivants :<br>– Lecture validée.<br>– Lecture non validée (par défaut).<br>– Lecture renouvelable.<br>– Sérialisable.<br>– Aucun (ignorer le niveau d’isolation). | Non | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE</small> |isolationLevel |
+
+#### <a name="sql-server-source-script-example"></a>Exemple de script source SQL Server
+
+Lorsque vous utilisez le type de source SQL Server, le script de flux de données associé est le suivant :
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    isolationLevel: 'READ_UNCOMMITTED',
+    query: 'select * from MYTABLE',
+    format: 'query') ~> SQLSource
+```
+
+### <a name="sink-transformation"></a>Transformation du récepteur
+
+Le tableau ci-dessous répertorie les propriétés prises en charge par le récepteur SQL Server. Vous pouvez modifier ces propriétés sous l’onglet **Options du récepteur**.
+
+| Name | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Mettre à jour la méthode | Spécifiez les opérations autorisées sur la destination de votre base de données. Par défaut, seules les insertions sont autorisées.<br>Pour mettre à jour, effectuer un upsert ou supprimer des lignes, une [transformation de modification de ligne](data-flow-alter-row.md) est requise afin de baliser les lignes relatives à ces actions. | Oui | `true` ou `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
+| Colonnes clés | Pour les mises à jour, les opérations upsert et les suppressions, une ou plusieurs colonnes clés doivent être définies afin de déterminer la ligne à modifier.<br>Le nom de colonne que vous choisissez comme clé sera utilisé dans le cadre des opérations suivantes de mise à jour, d’upsert et de suppression. Vous devez donc choisir une colonne qui existe dans le mappage du récepteur. | Non | Array | clés |
+| Ignorer l’écriture des colonnes clés | Si vous ne souhaitez pas écrire la valeur dans la colonne clé, sélectionnez « Ignorer l’écriture des colonnes clés ». | Non | `true` ou `false` | skipKeyWrites |
+| Action table |Détermine si toutes les lignes de la table de destination doivent être recréées ou supprimées avant l’écriture.<br>- **Aucun** : Aucune action ne sera effectuée sur la table.<br>- **Recréer** : La table sera supprimée et recréée. Obligatoire en cas de création dynamique d’une nouvelle table.<br>- **Tronquer** : Toutes les lignes de la table cible seront supprimées. | Non | `true` ou `false` | recreate<br/>truncate |
+| Taille du lot | Spécifiez le nombre de lignes écrites dans chaque lot. Les plus grandes tailles de lot améliorent la compression et l’optimisation de la mémoire, mais risquent de lever des exceptions de type mémoire insuffisante lors de la mise en cache des données. | Non | Integer | batchSize |
+| Pré et post-scripts SQL | Spécifiez des scripts SQL multilignes qui s’exécutent avant (prétraitement) et après (post-traitement) l’écriture de données dans votre base de données de réception. | Non | String | preSQLs<br>postSQLs |
+
+#### <a name="sql-server-sink-script-example"></a>Exemples de script de récepteur SQL Server
+
+Lorsque vous utilisez le type de récepteur SQL Server, le script de flux de données associé est le suivant :
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:false,
+    insertable:true,
+    updateable:true,
+    upsertable:true,
+    keys:['keyColumn'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SQLSink
+```
 
 ## <a name="data-type-mapping-for-sql-server"></a>Mappage de type de données pour SQL Server
 

@@ -1,35 +1,36 @@
 ---
-title: Type d’affectation de bureau personnel Windows Virtual Desktop – Azure
-description: Guide pratique pour configurer l’attribution directe ou automatique pour un pool hôte de bureau personnel Windows Virtual Desktop.
+title: Type d’affectation de bureau personnel Azure Virtual Desktop – Azure
+description: Guide pratique pour configurer l’attribution directe ou automatique pour un pool hôte de bureau personnel Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 11fbbe4d816c9f50afc879d74991976a467a9013
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 39e4b23b4f007c790dcfe495661628a53a9293d8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448132"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111743888"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurer le type d’affectation d’un pool hôte de bureau personnel
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
 
-Vous pouvez configurer le type d’affectation de votre pool hôte de bureau personnel pour adapter votre environnement Windows Virtual Desktop à vos besoins. Cette rubrique explique comment configurer l’affectation automatique ou directe pour les utilisateurs.
+Vous pouvez configurer le type d’affectation de votre pool hôte de bureau personnel pour adapter votre environnement Azure Virtual Desktop à vos besoins. Cette rubrique explique comment configurer l’affectation automatique ou directe pour les utilisateurs.
 
 >[!NOTE]
 > Les instructions données dans cet article s’appliquent uniquement aux pools hôtes de bureau personnel, et non aux pools hôtes mis en pool, car les utilisateurs de ces derniers ne sont pas affectés à des hôtes de session spécifiques.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cet article suppose que vous avez déjà téléchargé et installé le module PowerShell pour Windows Virtual Desktop. Si ce n’est pas le cas, suivez les instructions de l’article [Configurer le module PowerShell](powershell-module.md).
+Cet article suppose que vous avez déjà téléchargé et installé le module PowerShell pour Azure Virtual Desktop. Si ce n’est pas le cas, suivez les instructions de l’article [Configurer le module PowerShell](powershell-module.md).
 
 ## <a name="configure-automatic-assignment"></a>Configurer l’affectation automatique
 
-L’affectation automatique est le type d’affectation par défaut des nouveaux pools hôtes de bureau personnel créés dans l’environnement Windows Virtual Desktop. Elle ne nécessite pas d’hôte de session spécifique.
+L’affectation automatique est le type d’affectation par défaut des nouveaux pools hôtes de bureau personnel créés dans l’environnement Azure Virtual Desktop. Elle ne nécessite pas d’hôte de session spécifique.
 
 Pour affecter automatiquement des utilisateurs, affectez-les d’abord au pool hôte de bureau personnel pour qu’ils puissent voir le bureau dans leur flux. Quand un utilisateur affecté lance le bureau dans son flux, il demande un hôte de session disponible s’il n’est pas encore connecté au pool hôte, ce qui termine le processus d’affectation.
 
@@ -70,9 +71,9 @@ Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -Re
 Pour affecter directement un utilisateur à un hôte de session dans le portail Azure :
 
 1. Connectez-vous au portail Azure sur <https://portal.azure.com>.
-2. Entrez **Windows Virtual Desktop** dans la barre de recherche.
-3. Sous **Services**, sélectionnez **Windows Virtual Desktop**.
-4. Dans la page Windows Virtual Desktop, accédez au menu sur le côté gauche de la fenêtre, puis sélectionnez **Pools d’hôtes**.
+2. Entrez **Azure Virtual Desktop** dans la barre de recherche.
+3. Sous **Services**, sélectionnez **Azure Virtual Desktop**.
+4. Dans la page Azure Virtual Desktop, accédez au menu sur le côté gauche de la fenêtre, puis sélectionnez **Pools d’hôtes**.
 5. Sélectionnez le nom du pool d’hôtes que vous souhaitez mettre à jour.
 6. Ensuite, accédez au menu sur le côté gauche de la fenêtre et sélectionnez **Groupes d’applications**.
 7. Sélectionnez le nom du groupe d’applications de bureau que vous souhaitez modifier, puis sélectionnez **Affectations** dans le menu situé à gauche de la fenêtre.
@@ -84,7 +85,7 @@ Pour affecter directement un utilisateur à un hôte de session dans le portail 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez configuré le type d’affectation de bureau personnel, connectez-vous à un client Windows Virtual Desktop pour le tester dans le cadre d’une session utilisateur. Les deux guides pratiques suivants indiquent comment se connecter à une session à l’aide du client choisi :
+Maintenant que vous avez configuré le type d’affectation de bureau personnel, connectez-vous à un client Azure Virtual Desktop pour le tester dans le cadre d’une session utilisateur. Ces deux procédures suivantes vous indiquent comment vous connecter à une session à l’aide du client de votre choix :
 
 - [Se connecter avec le client Windows Desktop](connect-windows-7-10.md)
 - [Se connecter avec le client web](connect-web.md)

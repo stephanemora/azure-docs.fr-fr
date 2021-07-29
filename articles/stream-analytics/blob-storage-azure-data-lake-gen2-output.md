@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 3ce22837da2ca30249b399a297b6188d950b1ea4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/30/2021
+ms.openlocfilehash: 348cd594ae515503c870c1b96eb64aa7117ea26b
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98935141"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786751"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Sortie de stockage d’objets blob et Azure Data Lake Gen2 à partir d’Azure Stream Analytics
 
@@ -58,7 +58,12 @@ Pour une clé de partition, utilisez les jetons {date} et {time} de vos champs d
 
 ## <a name="output-batch-size"></a>Taille de lot de sortie
 
-Pour obtenir la taille maximale du message, consultez [Limites de stockage Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). La taille maximale des blocs d’objets blob est de 4 Mo et le nombre maximal des blobs d’objets blob est de 50 000. |
+Pour obtenir la taille maximale du message, consultez [Limites de stockage Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). La taille maximale des blocs d’objets blob est de 4 Mo et le nombre maximal des blobs d’objets blob est de 50 000.
+
+## <a name="limitations"></a>Limites
+
+* Si « / » est utilisé dans le modèle de chemin d’accès (par exemple /folder2/folder3), les dossiers vides sont créés et ne sont pas visibles dans l’Explorateur Stockage
+* Stream Analytics ajoute au même fichier dans les cas où un nouveau fichier blob n’est pas nécessaire. Notez que cela peut entraîner la génération de déclencheurs supplémentaires si des services Azure comme Event Grid sont configurés pour être déclenchés sur la mise à jour des fichiers blob
 
 ## <a name="next-steps"></a>Étapes suivantes
 

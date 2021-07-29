@@ -3,14 +3,14 @@ title: Activer le chiffrement basé sur l’hôte sur Azure Kubernetes Service (
 description: Découvrez comment configurer un chiffrement basé sur l’hôte dans un cluster Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/03/2021
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 3d5009c164ab09d3977bb15d85b166a31c1f1a0b
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.date: 04/26/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 41f0a9beda1c72b778d4f238cc5aa629e10b6d7e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754314"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094273"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks"></a>Chiffrement basé sur l’hôte sur Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,9 @@ Cette fonctionnalité ne peut être définie qu’au moment de la création du c
 
 ### <a name="prerequisites"></a>Prérequis
 
-- Azure CLI version 2.23.0 ou ultérieure
+
+- Vérifiez que l’extension CLI version 2.23 ou ultérieure est installée.
+
 
 ### <a name="limitations"></a>Limites
 

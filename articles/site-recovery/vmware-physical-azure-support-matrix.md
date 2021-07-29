@@ -3,12 +3,12 @@ title: Prendre en charge la matrice de récupération d’urgence VMware/physiqu
 description: Résume la prise en charge de la récupération d’urgence des machines virtuelles et des serveurs physiques VMware sur Azure en utilisant Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 374a605e9d1009c9cabeb142bfa818d6f7d98f96
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 30c214e4268f12bad59755ffe92e22686e16e115
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166502"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784795"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -93,7 +93,7 @@ Linux : CentOS | 5.2 à 5.11</b><br/> 6.1 à 6.10</b><br/> </br> 7.0, 7.1, 
 Ubuntu | Serveur LTS Ubuntu 14.04* [(voir les versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/>Serveur LTS Ubuntu 16.04* [(voir les versions du noyau prises en charge)](#ubuntu-kernel-versions) </br> Serveur LTS Ubuntu 18.04* [(voir les versions du noyau prises en charge)](#ubuntu-kernel-versions) </br> Serveur LTS Ubuntu 20.04* [(voir les versions du noyau prises en charge)](#ubuntu-kernel-versions) </br> (*prend en charge toutes les versions 14.04.* x *, 16.04.* x *, 18.04.* x *et 20.04.* x*)
 Debian | Debian 7/Debian 8 (avec prise en charge de toutes les versions 7. *x* et 8. *x*) ; Debian 9 (prend en charge les versions 9.1 à 9.13. Debian 9.0 n’est pas pris en charge.), Debian 10 [(Examiner les versions du noyau prises en charge)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(voir les versions du noyau prises en charge)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(voir les versions du noyau prises en charge)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [Veillez à télécharger la dernière version du programme d’installation de l’agent de mobilité sur le serveur de configuration](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server). </br> SUSE Linux Enterprise Server 11 SP4 </br> **Remarque** : La mise à niveau de machines répliquées de SUSE Linux Enterprise Server 11 SP3 vers SP4 n’est pas prise en charge. Pour effectuer la mise à niveau, désactivez la réplication, puis réactiver-la après la mise à niveau. <br/>|
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.3](https://support.microsoft.com/help/4597409/)  <br/> Exécutant le noyau compatible Red Hat ou le noyau Unbreakable Enterprise Kernel Release 3, 4 et 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>L’exécution sur tous les noyaux UEK et le noyau RedHat <= 3.10.0-1062.* est prise en charge dans la version [9.35](https://support.microsoft.com/help/4573888/). La prise en charge des autres noyaux RedHat est disponible dans la version [9.36](https://support.microsoft.com/help/4578241/)
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  <br/> Exécutant le noyau compatible Red Hat ou le noyau Unbreakable Enterprise Kernel Release 3, 4 et 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>L’exécution sur tous les noyaux UEK et le noyau RedHat <= 3.10.0-1062.* est prise en charge dans la version [9.35](https://support.microsoft.com/help/4573888/). La prise en charge des autres noyaux RedHat est disponible dans la version [9.36](https://support.microsoft.com/help/4578241/)
 
 > [!Note]
 >- Pour chacune des versions de Windows, Azure Site Recovery prend uniquement en charge les builds du [canal de maintenance à long terme (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc).  Les versions du [Canal semi-annuel](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) ne sont actuellement pas prises en charge.
@@ -234,6 +234,7 @@ Volumes virtuels hôtes (VVols) | Oui pour VMware<br/><br/> N/A pour les serveur
 VMDK invité/serveur | Oui
 Disque de cluster partagé invité/serveur | Non
 Disque chiffré invité/serveur | Non
+Chiffrement FIPS | Non
 NFS invité/serveur | Non
 iSCSI invité/serveur | Pour la migration : Oui<br/>Pour la récupération d’urgence : Non. iSCSI est automatiquement restauré en tant que disque attaché à la machine virtuelle
 SMB 3.0 invité/serveur | Non

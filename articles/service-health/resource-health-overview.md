@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Azure Resource Health
 description: Découvrez comment Azure Resource Health vous aide à diagnostiquer et à obtenir un support pour les problèmes de service qui affectent vos ressources Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 25425eadfaf54ba56cde3b377a44cd85c2b68959
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 903a86d216e118f783411b38ef7ad75ad004df7f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90967881"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786253"
 ---
 # <a name="resource-health-overview"></a>Vue d’ensemble de Resource Health
  
@@ -52,7 +52,7 @@ Les événements hors plateforme sont déclenchés par des actions effectuées p
 
 ### <a name="unknown"></a>Unknown
 
-*Inconnu* signifie que Resource Health n’a reçu aucune information sur cette ressource depuis plus de 10 minutes. Même si cet état n’est pas une indication définitive de l’état de la ressource, il s’agit d’un point de données important dans la résolution des problèmes.
+*Inconnu* signifie que Resource Health n’a reçu aucune information sur cette ressource depuis plus de 10 minutes. Cela se produit généralement lorsque les machines virtuelles ont été désallouées. Même si cet état n’est pas une indication définitive de l’état de la ressource, il peut s’agir d’un point de données important dans la résolution des problèmes.
 
 Si la ressource fonctionne comme prévu, son état est devient *Disponible* après quelques minutes.
 
@@ -68,17 +68,15 @@ Les diverses ressources ont leurs propres critères pour établir un rapport sp�
 
 ![État « Détérioré » pour une machine virtuelle](./media/resource-health-overview/degraded.png)
 
-## <a name="reporting-an-incorrect-status"></a>Signalement d’un état incorrect
-
-Si vous pensez que l’état d’intégrité actuel est incorrect, vous pouvez nous le faire savoir en sélectionnant **Signaler un état d’intégrité incorrect**. En cas de problème avec Azure, nous vous invitons à contacter le support à partir de Resource Health.
-
-![Formulaire pour envoyer des informations sur un état incorrect](./media/resource-health-overview/incorrect-status.png)
-
 ## <a name="history-information"></a>Informations d’historique
 
 Vous pouvez consulter jusqu’à 30 jours d’historique dans la section **Historique de l’intégrité** de Resource Health.
 
 ![Liste des événements Resource Health sur les deux dernières semaines](./media/resource-health-overview/history-blade.png)
+
+## <a name="root-cause-information"></a>Informations sur la cause racine
+
+Si Azure dispose d’informations supplémentaires sur la cause racine d’une indisponibilité lancée par la plateforme, ces informations peuvent être publiées dans Resource Health jusqu’à 72 heures après l’indisponibilité initiale. Ces informations sont disponibles uniquement pour l’usinage virtuel à l’heure actuelle. 
 
 ## <a name="get-started"></a>Bien démarrer
 

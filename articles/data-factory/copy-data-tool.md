@@ -4,14 +4,14 @@ description: Fournit des informations sur l’outil Copier des données dans l�
 author: dearandyxu
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 06/01/2021
 ms.author: yexu
-ms.openlocfilehash: 18d61c7f51547a524e64fc44c98e70e0f5bc2752
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68bfa62817d971ce8c8127f44f43576431a499fc
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100372992"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111371873"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Outil Copier des données dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -54,7 +54,7 @@ Vous pouvez afficher un aperçu d’une partie des données à partir du magasin
 
 ![Paramètres du fichier](./media/copy-data-tool/file-format-settings.png)
 
-Après la détection :
+Après la détection, sélectionnez **Aperçu des données**:
 
 ![Paramètres du fichier détecté et aperçu](./media/copy-data-tool/after-detection.png)
 
@@ -88,7 +88,7 @@ Supposons que vos dossiers d’entrée présentent le format suivant :
 
 Cliquez sur le bouton **Parcourir** à côté de **Fichier ou dossier**, accédez à l’un de ces dossiers (par exemple, 2016->03->01->02), puis cliquez sur **Choisir**. Vous devez voir 2016/03/01/02 dans la zone de texte. 
 
-Puis remplacez **2016** par **{year}** , **03** par **{month}** , **01** par **{day}** et **02** par **{hour}** , puis appuyez sur la touche de **tabulation**. Vous devez maintenant voir des listes déroulantes pour sélectionner le format de ces quatre variables :
+Puis remplacez **2016** par **{year}** , **03** par **{month}** , **01** par **{day}** et **02** par **{hour}** , puis appuyez sur la touche de **tabulation**. Lorsque vous sélectionnez **charge incrémentielle : noms de fichiers/dossiers partitionnés** dans la section **Comportement de chargement de fichier** et sélectionnez **Panification** ou **Fenêtre bascule** sur page **Propriétés** , vous devez voir les listes déroulantes pour sélectionner le format de ces quatre variables :
 
 ![Filtrer un fichier ou un dossier](./media/copy-data-tool/filter-file-or-folder.png)
 

@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.custom: references_regions
-ms.openlocfilehash: 7980ea5811fe77bc80d97e31e3b852766debd31a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: ffff2c1831aab09a1c622ced98cfe180fe0ec5d7
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796124"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110679198"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 
@@ -270,6 +270,9 @@ En fonction de la stratégie de votre organisation ou d'exigences réglementaire
 - Utiliser les fonctionnalités Azure Files et Azure Networking telles que les points de terminaison de service et les points de terminaison privés
 - Configurer Azure File Sync de manière à prendre en charge votre proxy dans votre environnement
 - Limiter l'activité du réseau à partir d'Azure File Sync
+
+> [!Important]  
+> Azure File Sync ne prend pas en charge le routage Internet. L'option de routage réseau par défaut, le routage Microsoft, est prise en charge par Azure File Sync.
 
 Pour en savoir plus sur Azure File Sync et la mise en réseau, consultez [Considérations relatives à la mise en réseau Azure File Sync](file-sync-networking-overview.md).
 

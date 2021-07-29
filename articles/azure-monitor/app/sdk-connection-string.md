@@ -7,12 +7,12 @@ ms.author: tilee
 ms.date: 01/17/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: df87b060423aeff9fa5f83f21634395fe30e0bbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af29de06c4b0f82d6c951d54935a93e77e723177
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102486282"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191349"
 ---
 # <a name="connection-strings"></a>Chaînes de connexion
 
@@ -25,6 +25,8 @@ Les paires clé-valeur permettent aux utilisateurs de définir facilement une co
 > [!IMPORTANT]
 > Nous déconseillons de définir à la fois une chaîne de connexion et une clé d’instrumentation. Au cas où un utilisateur définirait les deux, la valeur définie en dernier prévaut. 
 
+> [!TIP]
+> Nous vous recommandons d’utiliser des chaînes de connexion sur des clés d’instrumentation.
 
 ## <a name="scenario-overview"></a>Présentation du scénario 
 
@@ -83,7 +85,7 @@ Voici la liste des suffixes valides.
 - applicationinsights.us
 
 
-Voir aussi : https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
+Voir également : [Régions nécessitant une modification des points de terminaison](./custom-endpoints.md#regions-that-require-endpoint-modification)
 
 
 ##### <a name="valid-prefixes"></a>Préfixes valides
@@ -295,7 +297,7 @@ Prise en main pendant le développement avec :
 
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Java](./java-get-started.md)
+* [Java](./java-in-process-agent.md)
 * [Node.JS](./nodejs.md)
 * [Python](./opencensus-python.md)
 

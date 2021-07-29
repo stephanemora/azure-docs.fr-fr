@@ -1,19 +1,19 @@
 ---
 title: Installer un Pare-feu Azure dans un hub de réseau étendu virtuel
 titleSuffix: Azure Virtual WAN
-description: Procédure de configuration du Pare-feu Azure dans un hub de réseau étendu virtuel
+description: Apprenez à configurer le Pare-feu Azure dans un hub Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 05/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: 577340e485550e84941a33d82b58aa6ff1c933d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90d1233a1374d4ad65410c818ab6e42b36a4e6f9
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90983675"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579647"
 ---
 # <a name="configure-azure-firewall-in-a-virtual-wan-hub"></a>Configurer un Pare-feu Azure dans un hub de réseau étendu virtuel
 
@@ -32,43 +32,41 @@ Pour créer un nouveau réseau étendu virtuel et un nouveau hub, suivez les ét
 
 La page **Vue d’ensemble** de votre réseau étendu virtuel affiche une liste des hubs virtuels et de hubs sécurisés. L’illustration suivante montre un réseau étendu virtuel sans hub sécurisé.
 
-[ ![Capture d'écran de la page de présentation d'un réseau étendu virtuel, avec une liste de hubs virtuels.](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
+:::image type="content" source="./media/howto-firewall/overview.png" alt-text="Capture d'écran de la page de présentation d'un réseau étendu virtuel, avec une liste de hubs virtuels." lightbox="./media/howto-firewall/overview.png":::
 
 ## <a name="convert-to-secured-hub"></a>Convertir en hub sécurisé
 
 1. Sur la page **Vue d’ensemble** de votre réseau étendu virtuel, sélectionnez le hub que vous souhaitez convertir en hub sécurisé. Sur la page du hub virtuel, vous voyez deux options pour déployer le Pare-feu Azure dans ce hub. Sélectionnez l’une ou l’autre de ces options.
 
-   [ ![Capture d'écran de la page de présentation de votre réseau étendu virtuel, sur laquelle vous pouvez sélectionner Convertir en hub sécurisé ou Pare-feu Azure.](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
+   :::image type="content" source="./media/howto-firewall/security.png" alt-text="Capture d'écran de la page de présentation de votre réseau étendu virtuel, sur laquelle vous pouvez sélectionner Convertir en hub sécurisé ou Pare-feu Azure." lightbox="./media/howto-firewall/security.png":::
 
 1. Après avoir sélectionné l’une des options, vous voyez la page **Convertir en hub sécurisé**. Sélectionnez un hub à convertir, puis sélectionnez **suivant : Pare-feu Azure** en bas de la page.
 
-   [ ![sélectionner un hub](./media/howto-firewall/select-hub.png)](./media/howto-firewall/select-hub.png#lightbox)
+   :::image type="content" source="./media/howto-firewall/select-hub.png" alt-text="Capture d'écran de la page Convertir en hub sécurisé lorsqu'un hub est sélectionné." lightbox="./media/howto-firewall/select-hub.png":::
 1. Une fois le flux de travail terminé, sélectionnez **Confirmer**.
 
-   [ ![Capture d'écran du volet Convertir en hub sécurisé, dans lequel Confirmer est sélectionné.](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
-
+   :::image type="content" source="./media/howto-firewall/confirm.png" alt-text="Capture d'écran du volet Convertir en hub sécurisé, dans lequel Confirmer est sélectionné." lightbox="./media/howto-firewall/confirm.png":::
 1. Une fois le hub converti en hub sécurisé, vous pouvez l’afficher sur la page **Vue d’ensemble** du réseau étendu virtuel.
 
-   [ ![afficher le hub sécurisé](./media/howto-firewall/secured-hub.png)](./media/howto-firewall/secured-hub.png#lightbox)
+   :::image type="content" source="./media/howto-firewall/secured-hub.png" alt-text="Capture d'écran de l'affichage d'un hub sécurisé." lightbox="./media/howto-firewall/secured-hub.png":::
 
 ## <a name="view-hub-resources"></a>Afficher les ressources d’un hub
 
 Dans la page **Vue d’ensemble** du réseau étendu virtuel, sélectionnez le hub sécurisé. Dans la page du hub, vous pouvez afficher toutes les ressources du hub virtuel, dont le Pare-feu Azure.
 
-[ ![afficher les ressources du hub](./media/howto-firewall/view-resources.png)](./media/howto-firewall/view-resources.png#lightbox)
-
 Pour afficher les paramètres du Pare-feu Azure à partir du hub sécurisé, sous **Sécurité**, sélectionnez **Paramètres du hub virtuel sécurisé**.
-[ ![afficher les paramètres du hub](./media/howto-firewall/hub-settings.png)](./media/howto-firewall/hub-settings.png#lightbox)
+
+:::image type="content" source="./media/howto-firewall/hub-settings.png" alt-text="Capture d'écran de Paramètres du hub virtuel sécurisé." lightbox="./media/howto-firewall/hub-settings.png":::
 
 ## <a name="configure-additional-settings"></a>Configurer des paramètres supplémentaires
 
 Pour configurer des paramètres de Pare-feu Azure supplémentaires pour le hub virtuel, sélectionnez le lien vers **Azure Firewall Manager**. Pour plus d’informations sur les stratégies de pare-feu, consultez [Azure Firewall Manager](../firewall-manager/secure-cloud-network.md#create-a-firewall-policy-and-secure-your-hub).
 
-[ ![paramètres supplémentaires](./media/howto-firewall/additional-settings.png)](./media/howto-firewall/additional-settings.png#lightbox)
+:::image type="content" source="./media/howto-firewall/additional-settings.png" alt-text="Capture d'écran de la page de présentation sur laquelle est sélectionnée l'option de gestion des paramètres d'itinéraire du fournisseur de sécurité pour ce hub virtuel sécurisé dans Azure Firewall Manager." lightbox="./media/howto-firewall/additional-settings.png":::
 
 Pour revenir à la page **Vue d’ensemble** du hub, vous pouvez revenir en arrière en cliquant sur le chemin d’accès, comme indiqué par la flèche dans l’illustration suivante.
 
-[ ![revenir à la vue d’ensemble](./media/howto-firewall/arrow.png)](./media/howto-firewall/arrow.png#lightbox)
+:::image type="content" source="./media/howto-firewall/arrow.png" alt-text="Capture d'écran montrant comment revenir à la page de présentation." lightbox="./media/howto-firewall/arrow.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,19 +3,19 @@ title: Détecter un problème d’erreurs de sauvegarde avec les machines virtue
 description: Dans cet article, découvrez comment résoudre les erreurs rencontrées lors de la sauvegarde et de la restauration de machines virtuelles Azure.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 08/30/2019
-ms.openlocfilehash: 83e6af5737d332bdafbae793286d5ebc0bc09bb8
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 06/02/2021
+ms.openlocfilehash: b604b98410d61d61bdb8a24e81872cb2c1caf1b4
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164882"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410299"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation de Sauvegarde Azure à l’aide des informations ci-dessous :
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Sauvegarde
 
 Cette section traite de l’échec d’opération de sauvegarde d’une machine virtuelle Azure.
 
@@ -33,6 +33,8 @@ Cette section traite de l’échec d’opération de sauvegarde d’une machine 
   * Si la sauvegarde Azure fonctionne, le problème est probablement lié à une autre solution de sauvegarde.
   * Voici un exemple d’erreur 517 de l’observateur d’événements dans laquelle Sauvegarde Azure fonctionnait correctement, mais la « sauvegarde de Windows Server » a échoué : ![Échec de la Sauvegarde Windows Server](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * En cas d’échec de la Sauvegarde Azure, recherchez le code d’erreur correspondant dans la section Erreurs de sauvegarde de machine virtuelle courantes dans cet article.
+  * Si vous voyez l’option Sauvegarde Azure grisée sur une machine virtuelle Azure, survolez le menu désactivé avec la souris pour trouver la raison. Les raisons peuvent être « non disponible avec EphemeralDisk » ou « non disponible avec Ultra Disk ».
+   ![Raisons de l’activation de l’option de sauvegarde Azure](media/backup-azure-vms-troubleshoot/azure-backup-disable-reasons.png)
 
 ## <a name="common-issues"></a>Problèmes courants
 

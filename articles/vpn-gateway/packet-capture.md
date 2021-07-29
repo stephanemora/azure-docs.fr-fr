@@ -8,12 +8,13 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alzam
-ms.openlocfilehash: 5f423b2a4a1edcfdb71fd387cae0ec8c63113627
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c7a781a497ce6b3e4511eff3ba5818bab1a1a2b8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229177"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681622"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Configurer la capture de paquets pour les passerelles VPN
 
@@ -329,6 +330,12 @@ Vous pouvez configurer la capture de paquets dans le portail Azure.
 
 Les exemples ci-dessous montrent des commandes PowerShell qui démarrent et arrêtent les captures de paquets. Pour plus d’informations sur les options de paramètre, consultez [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
+>
+### <a name="prerequisite"></a>Prérequis
+
+* Les données de capture de paquets devront être connectées à un compte de stockage associé à votre abonnement. Consultez [Créer un compte de stockage](../storage/common/storage-account-create.md).
+* Pour arrêter la capture de paquets, vous devez générer le paramètre `SASUrl` de votre compte de stockage. Consultez [Créer une SAS de délégation d'utilisateur](../storage/blobs/storage-blob-user-delegation-sas-create-powershell.md).
+
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Démarrer la capture de paquets pour une passerelle VPN
 
 ```azurepowershell-interactive
@@ -343,6 +350,8 @@ Vous pouvez utiliser le paramètre facultatif `-FilterData` pour appliquer un fi
 Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName" -SasUrl "YourSASURL"
 ```
 
+Pour plus d'informations sur les options relatives aux paramètres, consultez [Stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
+
 ### <a name="start-packet-capture-for-a-vpn-gateway-connection"></a>Démarrer la capture de paquets pour une connexion de passerelle VPN
 
 ```azurepowershell-interactive
@@ -356,6 +365,8 @@ Vous pouvez utiliser le paramètre facultatif `-FilterData` pour appliquer un fi
 ```azurepowershell-interactive
 Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName" -SasUrl "YourSASURL"
 ```
+
+Pour plus d'informations sur les options relatives aux paramètres, consultez [Stop-AzVirtualNetworkGatewayConnectionPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewayconnectionpacketcapture).
 
 ## <a name="key-considerations"></a>Considérations relatives aux clés
 

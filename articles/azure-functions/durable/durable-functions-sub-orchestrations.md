@@ -4,23 +4,23 @@ description: Guide pratique pour appeler des orchestrations à partir d’orches
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5625bc2ddfa4b6f527ca16f19f33d257a1834d4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b68f1235c07c5f3548dba1dbd6e46db91804fecc
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85340811"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110189427"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Orchestrations secondaires dans Fonctions durables (Azure Functions)
 
 En plus d’appeler des fonctions d’activité, les fonctions d’orchestrateur peuvent appeler d’autres fonctions d’orchestrateur. Il est par exemple possible de créer une grande orchestration à partir d’une bibliothèque de petites fonctions d’orchestrateur. Ou vous pouvez exécuter en parallèle plusieurs instances d’une fonction d’orchestrateur.
 
-Une fonction d’orchestrateur peut en appeler une autre avec les méthodes `CallSubOrchestratorAsync` ou `CallSubOrchestratorWithRetryAsync` en .NET, ou les méthodes `callSubOrchestrator` ou `callSubOrchestratorWithRetry` en JavaScript. L’article [Gestion des erreurs et compensation](durable-functions-error-handling.md#automatic-retry-on-failure) fournit des informations supplémentaires sur la nouvelle tentative automatique.
+Une fonction d’orchestrateur peut en appeler une autre avec les méthodes `CallSubOrchestratorAsync` ou `CallSubOrchestratorWithRetryAsync` en.NET, ou les méthodes `callSubOrchestrator` ou `callSubOrchestratorWithRetry` en JavaScript, et les méthodes `call_sub_orchestrator` ou `call_sub_orchestrator_with_retry` en Python. L’article [Gestion des erreurs et compensation](durable-functions-error-handling.md#automatic-retry-on-failure) fournit des informations supplémentaires sur la nouvelle tentative automatique.
 
 Les fonctions d’orchestrateur secondaires se comportent comme des fonctions d’activité du point de vue de l’appelant. Elles peuvent retourner une valeur, lever une exception et être attendues par la fonction d’orchestrateur parente. 
 
 > [!NOTE]
-> Les sous-orchestrations sont actuellement prises en charge dans .NET et JavaScript.
+> Les sous-orchestrations sont actuellement prises en charge dans .NET, JavaScript et Python.
 
 ## <a name="example"></a>Exemple
 
@@ -68,9 +68,30 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    device_id = context.get_input()
+
+    # Step 1: Create an installation package in blob storage and return a SAS URL.
+    sas_url = yield context.call_activity"CreateInstallationPackage", device_id)
+
+    # Step 2: Notify the device that the installation package is ready.
+    yield context.call_activity("SendPackageUrlToDevice", { "id": device_id, "url": sas_url })
+
+    # Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+    yield context.call_activity("DownloadCompletedAck")
+
+    # Step 4: ...
+```
+
 ---
 
-Cette fonction d’orchestrateur peut être utilisée en l’état pour la configuration unique d’un appareil, ou elle peut faire partie d’une orchestration plus importante. Dans ce cas, la fonction d’orchestrateur parente peut planifier des instances de `DeviceProvisioningOrchestration` à l’aide de l’API `CallSubOrchestratorAsync` (.NET) or `callSubOrchestrator` (JavaScript).
+Cette fonction d’orchestrateur peut être utilisée en l’état pour la configuration unique d’un appareil, ou elle peut faire partie d’une orchestration plus importante. Dans ce cas, la fonction d’orchestrateur parente peut planifier des instances de `DeviceProvisioningOrchestration` à l’aide de l’API `CallSubOrchestratorAsync` (.NET), `callSubOrchestrator` (JavaScript) ou `call_sub_orchestrator` (Python).
 
 Voici un exemple montrant comment exécuter en parallèle plusieurs fonctions d’orchestrateur.
 
@@ -124,6 +145,30 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+
+    device_IDs = yield context.call_activity("GetNewDeviceIds")
+
+    # Run multiple device provisioning flows in parallel
+    provisioning_tasks = []
+    id_ = 0
+    for device_id in device_IDs:
+        child_id = context.instance_id + ":" + id_
+        provision_task = context.call_sub_orchestrator("DeviceProvisioningOrchestration", device_id, child_id)
+        provisioning_tasks.append(provision_task)
+        id_ += 1
+
+    yield context.task_all(provisioning_tasks)
+
+    # ...
+```
 ---
 
 > [!NOTE]

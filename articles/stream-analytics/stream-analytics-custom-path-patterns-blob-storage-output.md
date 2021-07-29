@@ -5,14 +5,14 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 05/30/2021
 ms.custom: seodec18
-ms.openlocfilehash: cb9d8edd24dcc8809f2b207a4db80653b0e140e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91ba1280262a7d13afa71d5dc0e2b7eb0e545ecc
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98014034"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787711"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partitionnement personnalisé de sortie BLOB dans Azure Stream Analytics
 
@@ -62,13 +62,15 @@ Notez que chaque enregistrement dans l’objet blob comporte une colonne **clien
    * cluster1/{date}/{aFieldInMyData}  
    * cluster1/{time}/{aFieldInMyData}  
    * cluster1/{aFieldInMyData}  
-   * cluster1/{date}/{time}/{aFieldInMyData} 
+   * cluster1/{date}/{time}/{aFieldInMyData}
+
+2. Si les clients souhaitent utiliser plusieurs champs d’entrée, ils peuvent créer une clé composite dans la requête pour une partition de chemin personnalisée dans la sortie d’objet blob à l’aide de **CONCAT**. Par exemple : **select concat (col1, col2) as compositeColumn into blobOutput from input**. Ils peuvent ensuite spécifier **compositeColumn** comme chemin d’accès personnalisé dans le stockage d’objets blob.
    
-2. Les clés de partition ignorant la casse, les clés « John » et « john » sont équivalentes. En outre, des expressions ne peuvent pas être utilisées comme clés de partition. Par exemple, **{columnA + columnB}** ne fonctionne pas.  
+3. Les clés de partition ignorant la casse, les clés « John » et « john » sont équivalentes. En outre, des expressions ne peuvent pas être utilisées comme clés de partition. Par exemple, **{columnA + columnB}** ne fonctionne pas.  
 
-3. Quand un flux d’entrée se compose d’enregistrements avec une cardinalité de clé de partition inférieure à 8 000, les enregistrements sont ajoutés à des objets blob existants et ne créent de nouveaux objets blob que lorsque cela est nécessaire. Si la cardinalité est supérieure à 8 000, il n’est nullement garanti qu’une écriture sera effectuée dans des objets blob existants, et que de nouveaux objets blob ne seront pas créés pour un nombre arbitraire d’enregistrements avec la même clé de partition.
+4. Quand un flux d’entrée se compose d’enregistrements avec une cardinalité de clé de partition inférieure à 8 000, les enregistrements sont ajoutés à des objets blob existants et ne créent de nouveaux objets blob que lorsque cela est nécessaire. Si la cardinalité est supérieure à 8 000, il n’est nullement garanti qu’une écriture sera effectuée dans des objets blob existants, et que de nouveaux objets blob ne seront pas créés pour un nombre arbitraire d’enregistrements avec la même clé de partition.
 
-4. Si la sortie d’objet blob est [configurée comme non modifiable](../storage/blobs/storage-blob-immutable-storage.md), Stream Analytics crée un objet blob chaque fois que des données sont envoyées.
+5. Si la sortie d’objet blob est [configurée comme non modifiable](../storage/blobs/storage-blob-immutable-storage.md), Stream Analytics crée un objet blob chaque fois que des données sont envoyées.
 
 ## <a name="custom-datetime-path-patterns"></a>Modèles de chemin DateTime personnalisés
 

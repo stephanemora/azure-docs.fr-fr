@@ -3,20 +3,20 @@ title: Présentation de SQL Data Sync pour Azure
 description: Cette vue d’ensemble présente SQL Data Sync pour Azure, qui vous permet de synchroniser des données entre plusieurs bases de données cloud et locales.
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: sql-data-sync
 ms.custom: data sync, sqldbrb=1, fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: MaraSteiu
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 08/20/2019
-ms.openlocfilehash: 7746e05583057b3ed313a55699cae711c560f061
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: c3a2be7a00c6718dd33b573faec4a619cbf5a1bb
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803941"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112074842"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Présentation de SQL Data Sync pour Azure
 
@@ -153,6 +153,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 - Le déplacement de serveurs entre différents abonnements n’est pas pris en charge. 
 - Si deux clés primaires ne sont pas différentes dans le cas (par exemple, Foo et foo), la synchronisation des données ne prend pas en charge ce scénario.
 - La troncation des tables n’est pas une opération prise en charge par la synchronisation des données (les modifications ne sont pas suivies).
+- Les bases de données hyperscale ne sont pas prises en charge. 
 
 #### <a name="unsupported-data-types"></a>Types de données non pris en charge
 

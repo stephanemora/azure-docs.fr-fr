@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 04/14/2020
-ms.openlocfilehash: 02e64c6c6e5ab2ef77f02959ada6f95d1042b76d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/14/2021
+ms.openlocfilehash: 0173d6e897c122d53d8f64c1d0110ab7ddfa68ed
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94488755"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075913"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Support pour la place de marché commerciale Microsoft
 
@@ -26,7 +26,8 @@ Ouvrez un ticket auprès du [support des éditeurs de la Place de marché Micros
 
 | Canal de support | Description | Disponibilité |  
 |:--- |:--- |:--- |  
-| Pour obtenir une assistance, consultez la page Créer un incident auprès du [support de la Place de marché](https://aka.ms/marketplacepublishersupport)</li> </ul> | Support de l’Espace partenaires. | Le support est fourni 24h/24 et 5j/7. |  
+| Pour obtenir une assistance, consultez la page Créer un incident auprès du [support de la Place de marché](https://aka.ms/marketplacepublishersupport)</li> </ul> | Support de l’Espace partenaires. | Le support est fourni 24h/24 et 5j/7. |
+|
 
 ## <a name="technical"></a>Techniques  
 
@@ -39,12 +40,12 @@ Ouvrez un ticket auprès du [support des éditeurs de la Place de marché Micros
 
 | Canal de support | Description | Disponibilité |  
 |:--- |:--- |:--- |
-| E-mail : [gtm@microsoft.com](mailto:gtm@microsoft.com) | Support pour les avantages de commercialisation et toutes les questions relatives au programme. | Heures de bureau dans le fuseau horaire Pacifique. |  
-| E-mail : [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Réponses aux questions concernant l’utilisation de la marque et des logos Azure. |  |  
+| E-mail : [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Réponses aux questions concernant l’utilisation de la marque et des logos Azure. |  |
+|
+
+Pour toute question sur les récompenses de la Place de marché, contactez le [Support de l’espace partenaires](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez la [page du guide de l’éditeur relatif à la place de marché commerciale](index.yml).
-* Apprenez-en davantage sur le [Support technique pour le programme Place de marché commerciale dans l’Espace partenaires](support.md).
-
----
+- Consultez la page du [guide de l’éditeur relatif à la Place de marché commerciale](index.yml)
+- Apprenez-en davantage sur le [Support technique pour le programme Place de marché commerciale dans l’Espace partenaires](support.md)

@@ -1,18 +1,18 @@
 ---
 title: Créer des plans pour une offre de machine virtuelle sur la Place de marché Azure
-description: Découvrez comment créer des plans pour une offre de machine virtuelle sur la Place de marché Azure.
+description: Créer des plans pour une offre de machine virtuelle sur la Place de marché Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 05/06/2021
-ms.openlocfilehash: 27f7aa419a2dd57bf205e945221c8224c6247f11
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 05/20/2021
+ms.openlocfilehash: f0e05f06258cc30253fefdc7113fce045009f500
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062660"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111527619"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>Créer des plans pour une offre de machine virtuelle
 
@@ -210,11 +210,14 @@ Spécifiez une version de disque et l’URI de signature d’accès partagé (SA
 Ces deux champs obligatoires sont affichés dans l’image précédente ci-dessus :
 
 - **Version du disque** : version de l’image que vous fournissez.
-- **Lien du disque dur virtuel du système d’exploitation** : emplacement dans votre compte de stockage Azure pour le disque dur virtuel du système d’exploitation. Pour obtenir l’URI SAS, consultez [Obtenir l’URI de la signature d’accès partagé pour vos images de machine virtuelle](azure-vm-get-sas-uri.md).
+- **Lien du disque dur virtuel du système d’exploitation** : image stockée dans Azure Shared Image Gallery. Découvrez comment capturer votre image dans [Shared Image Gallery](azure-vm-create-using-approved-base.md#capture-image).
 
 Les disques de données [sélectionnez **Ajouter un disque de données (16 maximum)** ] sont également des URI de signature d’accès partagé VHD qui sont stockés dans leurs comptes de stockage Azure. Ajoutez une seule image par envoi dans un plan.
 
 Quel que soit le système d’exploitation que vous utilisez, ajoutez uniquement le nombre minimal de disques de données dont la solution a besoin. Pendant le déploiement, les clients ne peuvent pas supprimer les disques qui font partie d’une image, mais ils peuvent toujours ajouter des disques pendant ou après le déploiement.
+
+> [!NOTE]
+> Si vous fournissez vos images à l’aide d’une signature d’accès partagé et que vous avez des disques de données, vous devez également les fournir en tant qu’URI SAS. Si vous utilisez une image partagée, elles sont capturées dans le cadre de votre image dans Shared Image Gallery. Une fois que votre offre est publiée sur la Place de marché Azure, vous pouvez la supprimer de votre stockage Azure ou de Shared Image Gallery.
 
 Sélectionnez **Enregistrer le brouillon**, puis sélectionnez **← Vue d’ensemble du plan** en haut à gauche pour voir le plan que vous venez de créer.
 

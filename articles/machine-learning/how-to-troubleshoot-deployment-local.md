@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 69ac47296cb4624de6cdf05ddb3e72973751f631
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8b2acc37efb497748abe5f63bd58e96b16171b21
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519620"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110538393"
 ---
 # <a name="troubleshooting-with-a-local-model-deployment"></a>Dépannage avec un déploiement de modèle local
 
@@ -33,6 +33,31 @@ Essayez un déploiement de modèle local comme première étape de dépannage d�
    * [Extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
    * Installation de Docker opérationnelle sur votre système local. 
    * Pour vérifier votre installation de Docker, utilisez la commande `docker run hello-world` à partir d’un terminal ou d’une invite de commandes. Pour obtenir des informations sur l’installation de Docker ou sur la résolution des erreurs Docker, consultez la [documentation Docker](https://docs.docker.com/).
+* Option C : Activer le débogage local avec le serveur HTTP d’inférence Azure Machine Learning.
+    * Le serveur HTTP d’inférence Azure Machine Learning [(préversion)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) est un package Python qui vous permet de valider facilement votre script d’entrée (`score.py`) dans un environnement de développement local. En cas de problème avec le script de scoring, le serveur retourne une erreur. Il retourne également l’emplacement où l’erreur s’est produite.
+    * Le serveur peut également être utilisé lors de la création de portes de validation dans un pipeline d’intégration et de déploiement continus. Par exemple, démarrez le serveur avec le script candidat et exécutez la suite de tests sur le point de terminaison local.
+
+## <a name="azure-machine-learning-inference-http-server"></a>Serveur HTTP d’inférence Azure Machine Learning
+
+Le serveur d’inférence local vous permet de déboguer rapidement votre script d’entrée (`score.py`). Si un bogue affecte le script de scoring sous-jacent, le serveur ne pourra pas initialiser ou traiter le modèle. Au lieu de cela, il lèvera une exception là où les problèmes se sont produits. [Apprenez-en davantage sur le serveur HTTP d’inférence Azure Machine Learning](how-to-inference-server-http.md)
+
+1. Installez le package `azureml-inference-server-http` à partir du flux [pypi](https://pypi.org/) :
+
+    ```bash
+    python -m pip install azureml-inference-server-http
+    ```
+
+2. Démarrez le serveur et définissez `score.py` comme script d’entrée :
+
+    ```bash
+    azmlinfsrv --entry_script score.py
+    ```
+
+3. Envoyez une requête de scoring au serveur à l’aide de `curl` :
+
+    ```bash
+    curl -p 127.0.0.1:5001/score
+    ```
 
 ## <a name="debug-locally"></a>Déboguer en local
 
@@ -128,6 +153,7 @@ Vous pouvez résoudre l’erreur en augmentant la valeur de `memory_gb` dans `de
 Pour en savoir plus sur le déploiement :
 
 * [Comment résoudre les problèmes liés aux déploiements distants](how-to-troubleshoot-deployment.md)
+* [Serveur HTTP d’inférence Azure Machine Learning](how-to-inference-server-http.md)
 * [Où et comment effectuer un déploiement](how-to-deploy-and-where.md)
 * [Tutoriel : Effectuer l'apprentissage de modèles et les déployer](tutorial-train-models-with-aml.md)
 * [Comment exécuter et déboguer des expériences localement](./how-to-debug-visual-studio-code.md)

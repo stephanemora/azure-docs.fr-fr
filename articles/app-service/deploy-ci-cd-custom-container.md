@@ -9,12 +9,12 @@ ms.date: 03/12/2021
 ms.author: msangapu
 ms.custom: seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 6519f3fe7335ed41f4d5ef67771aaa738a33e4a8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 26515528a809b36be8d13d19f7baf99b5b2f897f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782600"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783300"
 ---
 # <a name="continuous-deployment-with-custom-containers-in-azure-app-service"></a>Déploiement continu avec des conteneurs personnalisés dans Azure App Service
 
@@ -67,7 +67,11 @@ Suivez les étapes suivantes en sélectionnant l’onglet correspondant à votre
 La liste déroulante **Registre** affiche les registres dans le même abonnement que votre application. **Sélectionnez** le registre souhaité.
 
 > [!NOTE]
-> Pour effectuer un déploiement à partir d’un registre dans un autre abonnement, **sélectionnez** plutôt **Registre privé** dans **Source du Registre**.
+>  - Si vous souhaitez utiliser des identités gérées pour verrouiller l’accès à ACR, suivez ce guide :
+>    - [Comment utiliser des identités gérées affectées par le système avec App Service et Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md)
+>    - [Comment utiliser des identités gérées affectées par l’utilisateur avec App Service et Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_user-assigned_managed_identities.md)
+>  - Pour effectuer un déploiement à partir d’un registre dans un autre abonnement, **sélectionnez** plutôt **Registre privé** dans **Source du Registre**.
+>   
 
 ::: zone pivot="container-windows"
 **Sélectionnez** l’**image** et l’**étiquette** à déployer. Si vous le souhaitez, **tapez** la commande de démarrge dans le **Fichier de démarrage**. 

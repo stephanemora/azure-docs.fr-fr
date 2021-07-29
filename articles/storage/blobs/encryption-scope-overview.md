@@ -4,17 +4,17 @@ description: Les étendues de chiffrement permettent de gérer le chiffrement au
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 05/10/2021
+ms.date: 06/01/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a583af2811facf1cf8037fa0dd3fb9982fba60c4
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: d089ef587e209810fe0400871aba9a55cb9c0ed3
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685672"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372654"
 ---
 # <a name="encryption-scopes-for-blob-storage"></a>Étendues de chiffrement pour le stockage d'objets blob
 
@@ -36,13 +36,15 @@ Lorsque vous définissez une étendue de chiffrement, vous pouvez spécifier si 
 
 Si vous définissez une étendue de chiffrement avec une clé gérée par le client, vous pouvez choisir de mettre à jour la version de la clé automatiquement ou manuellement. Si vous optez pour la mise à jour automatique de la version de la clé, le service Stockage Azure recherche quotidiennement dans le coffre de clés ou dans le HSM managé la présence d'une nouvelle version de la clé gérée par le client et procède automatiquement à la mise jour. Pour plus d'informations sur la mise à jour d'une clé gérée par le client, consultez [Mettre à jour la version de la clé](../common/customer-managed-keys-overview.md#update-the-key-version).
 
+Azure Policy fournit une stratégie intégrée pour exiger que les étendues de chiffrement utilisent des clés gérées par le client. Pour plus d’informations, consultez la section **Stockage** dans [Définitions de stratégies intégrées Azure Policy](../../governance/policy/samples/built-in-policies.md#storage).
+
 Un compte de stockage peut comporter jusqu'à 10 000 étendues de chiffrement protégées par des clés gérées par le client dont la version est automatiquement mise à jour. Si votre compte de stockage comporte déjà 10 000 étendues de chiffrement protégées par des clés gérées par le client qui sont mises à jour automatiquement, la version des clés doit être mise à jour manuellement pour toutes les étendues de chiffrement supplémentaires protégées par des clés gérées par le client.  
 
 ### <a name="infrastructure-encryption"></a>Chiffrement d’infrastructure
 
 Le chiffrement de l’infrastructure dans le stockage Azure permet un chiffrement double des données. Avec le chiffrement d’infrastructure, les données sont chiffrées deux fois &mdash; une fois au niveau du service et une fois au niveau de l’infrastructure &mdash; avec deux algorithmes de chiffrement et deux clés différents.
 
-Le chiffrement d’infrastructure est pris en charge pour une étendue de chiffrement, ainsi qu’au niveau du compte de stockage. Si le chiffrement d’infrastructure est activé pour un compte, toute étendue de chiffrement créée sur ce compte utilise automatiquement le chiffrement d’infrastructure. Si le chiffrement d’infrastructure n’est pas activé au niveau du compte, vous avez la possibilité de l’activer pour une étendue de chiffrement au moment où vous créez l’étendue. Le paramètre de chiffrement d’infrastructure d’une étendue de chiffrement ne peut pas être modifié après la création de l’étendue.
+Le chiffrement d’infrastructure est pris en charge pour une étendue de chiffrement, ainsi qu’au niveau du compte de stockage. Si le chiffrement d’infrastructure est activé pour un compte, toute étendue de chiffrement créée sur ce compte utilise automatiquement le chiffrement d’infrastructure. Si le chiffrement d’infrastructure n’est pas activé au niveau du compte, vous avez la possibilité de l’activer pour une étendue de chiffrement au moment de la création de l’étendue. Le paramètre de chiffrement d’infrastructure d’une étendue de chiffrement ne peut pas être modifié après la création de l’étendue.
 
 Pour plus d’informations sur le chiffrement d’infrastructure, consultez [Activer le chiffrement d’infrastructure pour le chiffrement double des données](../common/infrastructure-encryption-enable.md).
 
@@ -79,6 +81,8 @@ Gardez à l’esprit que les clés gérées par le client sont protégées par l
 
 > [!IMPORTANT]
 > Il n’est pas possible de supprimer une étendue de chiffrement.
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2d89759438cb625a0e220af10ab6b287096f6390
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a31d32a4888e50cdfccf1bf609418fb31ef69e3
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359878"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569585"
 ---
 # <a name="configure-load-balancer-for-ag-vnn-listener"></a>Configurer l’équilibreur de charge pour l’écouteur VNN AG
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,9 +37,9 @@ Pour une autre option de connectivité pour les clients qui se trouvent sur Micr
 
 Avant d’effectuer les étapes décrites dans cet article, vous devez déjà disposer des éléments suivants :
 
-- Avoir décidé qu’Azure Load Balancer est [l’option de connectivité appropriée pour votre solution HADR](hadr-cluster-best-practices.md#connectivity).
+- Avoir décidé qu’Azure Load Balancer est [l’option de connectivité appropriée pour votre groupe de disponibilité](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn).
 - Configurez [votre écouteur de groupe de disponibilité](availability-group-overview.md).
-- Avoir installé la version la plus récente de [PowerShell](/powershell/azure/install-az-ps). 
+- Avoir installé la version la plus récente de [PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows). 
 
 
 ## <a name="create-load-balancer"></a>Créer un équilibreur de charge
@@ -125,7 +125,7 @@ Pour définir le paramètre de port de sonde de cluster, mettez à jour les vari
 
 ```powershell
 $ClusterNetworkName = "<Cluster Network Name>"
-$IPResourceName = "<SQL Server FCI / AG Listener IP Address Resource Name>" 
+$IPResourceName = "<Availability group Listener IP Address Resource Name>" 
 $ILBIP = "<n.n.n.n>" 
 [int]$ProbePort = <nnnnn>
 
@@ -152,12 +152,28 @@ Après avoir défini la sonde du cluster, vous pouvez voir tous les paramètres 
 Get-ClusterResource $IPResourceName | Get-ClusterParameter
 ```
 
+## <a name="modify-connection-string"></a>Modifier la chaîne de connexion 
+
+Pour les clients qui le prennent en charge, ajoutez `MultiSubnetFailover=True` à la chaîne de connexion. Alors que l’option de connexion MultiSubnetFailover n’est pas obligatoire, elle offre l’avantage d’un basculement de sous-réseau plus rapide. Cela est dû au fait que le pilote client essaie d'ouvrir un socket TCP pour chaque adresse IP en parallèle. Le pilote client attend une réponse correcte de la première adresse IP et, ceci fait, l'utilise pour la connexion.
+
+Si votre client ne prend pas en charge le paramètre MultiSubnetFailover, vous pouvez modifier les paramètres RegisterAllProvidersIP et HostRecordTTL pour éviter les retards de la connectivité après le basculement. 
+
+Utilisez PowerShell pour modifier les paramètres RegisterAllProvidersIp et HostRecordTTL : 
+
+```powershell
+Get-ClusterResource yourListenerName | Set-ClusterParameter RegisterAllProvidersIP 0  
+Get-ClusterResource yourListenerName|Set-ClusterParameter HostRecordTTL 300 
+```
+
+Pour plus d’informations, consultez la documentation relative au [délai de connexion de l’écouteur](/troubleshoot/sql/availability-groups/listener-connection-times-out) SQL Server. 
+
+> [!TIP]
+> - Définissez le paramètre MultiSubnetFailover = true dans la chaîne de connexion même pour les solutions HADR qui couvrent un seul sous-réseau afin de prendre en charge la répartition future des sous-réseaux sans avoir à mettre à jour les chaînes de connexion.  
+> - Par défaut, le service DNS en cluster du cache des clients enregistre pendant 20 minutes. En réduisant HostRecordTTL, vous réduisez la durée de vie (TTL) de l’enregistrement mis en cache, les clients hérités peuvent se reconnecter plus rapidement. Ainsi, la réduction du paramètre HostRecordTTL peut également entraîner une augmentation du trafic vers les serveurs DNS.
 
 ## <a name="test-failover"></a>Test de basculement
 
-
 Testez le basculement de la ressource en cluster pour valider les fonctionnalités du cluster. 
-
 
 Procédez comme suit :
 
@@ -178,7 +194,14 @@ Pour tester la connectivité, connectez-vous à une autre machine virtuelle sur 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les fonctionnalités de SQL Server HADR dans Azure, consultez [Groupes de disponibilité](availability-group-overview.md) et [Instance de cluster de basculement](failover-cluster-instance-overview.md). Vous pouvez également apprendre les [meilleures pratiques](hadr-cluster-best-practices.md) en matière de configuration de votre environnement pour la haute disponibilité et la reprise d’activité. 
+Une fois le VNN créé, envisagez d’optimiser les [paramètres de cluster pour les machines virtuelles SQL Server](hadr-cluster-best-practices.md). 
+
+Pour en savoir plus, consultez :
+
+- [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Groupes de disponibilité Always On avec SQL Server sur les machines virtuelles Azure](availability-group-overview.md)
+- [Vue d’ensemble des groupes de disponibilité Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Paramètres HADR pour SQL Server sur les machines virtuelles Azure](hadr-cluster-best-practices.md)
 
 
 

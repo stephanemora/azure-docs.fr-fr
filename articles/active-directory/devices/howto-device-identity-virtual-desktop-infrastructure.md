@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c1d78094effe6919587f24c2262612e4fab347d
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: a122c5dc10600b612c20d3a742f3500944562357
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575375"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407990"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identité d’appareil et virtualisation de bureau
 
@@ -35,10 +35,10 @@ Les versions persistantes utilisent une image de bureau unique pour chaque utili
 
 Les versions non persistantes utilisent une collection de bureaux auxquels les utilisateurs peuvent accéder en fonction des besoins. L’état d’origine de ces postes de travail non persistants est rétabli : dans le cas de Windows actuel<sup>1</sup>, cela se produit lorsqu’une machine virtuelle subit un processus d’arrêt/de redémarrage/de réinitialisation du système d’exploitation et, dans le cas de Windows de bas niveau<sup>2</sup>, cela se produit lorsqu’un utilisateur se déconnecte.
 
-On constate une augmentation des déploiements VDI non persistants, le travail à distance continuant d’être la nouvelle norme. À mesure que les clients déploient une VDI non persistante, il est important de s’assurer que vous gérez les évolutions des appareils qui peuvent être causées par une inscription fréquente des appareils sans avoir de stratégie appropriée pour la gestion du cycle de vie des appareils.
+On constate une augmentation des déploiements VDI non persistants, le travail à distance continuant d’être la nouvelle norme. À mesure que les clients déploient une VDI non persistante, il est important de s’assurer que vous gérez les appareils obsolètes créés par une inscription fréquente des appareils sans avoir de stratégie appropriée pour la gestion du cycle de vie des appareils.
 
 > [!IMPORTANT]
-> Si vous ne parvenez pas à gérer l’évolution des appareils, vous risquez d’augmenter la pression sur la consommation de votre quota de locataires et d’être confronté à un risque potentiel d’interruption de service si le quota de locataires est insuffisant. Vous devez suivre les instructions indiquées ci-dessous lors du déploiement d’environnements VDI non persistants afin d’éviter cette situation.
+> Si vous ne parvenez pas à gérer les appareils obsolètes, vous risquez d’augmenter la pression sur la consommation de votre quota de locataires et d’être confronté à un risque potentiel d’interruption de service si le quota de locataires est insuffisant. Vous devez suivre les instructions indiquées ci-dessous lors du déploiement d’environnements VDI non persistants afin d’éviter cette situation.
 
 Cet article présente les conseils de Microsoft aux administrateurs, en matière de prise en charge de l’identité d’appareil et de la solution VDI. Pour plus d’informations sur l’identité d’appareil, consultez l’article [Présentation de l’identité d’appareil](overview.md).
 

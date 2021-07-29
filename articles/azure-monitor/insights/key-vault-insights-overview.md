@@ -1,30 +1,30 @@
 ---
-title: Surveiller Key Vault avec Azure Monitor pour Key Vault | Microsoft Docs
-description: Cet article décrit la solution Azure Monitor pour coffres de clés.
+title: Superviser Key Vault avec Key Vault Insights | Microsoft Docs
+description: Cet article décrit Key Vault Insights.
 services: azure-monitor
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: 91aed191e3bb165d6690759426a596df39f8c10f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 953d6300b8ac19ddfcfe3b37a1cfde50480e19a4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582293"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095119"
 ---
-# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Analyse de votre service de coffre de clés avec Azure Monitor pour Key Vault
-Azure Monitor pour Key Vault offre une analyse complète de vos coffres de clés en fournissant une vue unifiée des requêtes, des performances, des échecs et de la latence de Key Vault.
-Cet article vous aidera à comprendre comment intégrer et personnaliser l’expérience d’Azure Monitor pour Key Vault.
+# <a name="monitoring-your-key-vault-service-with-key-vault-insights"></a>Superviser votre service de coffre de clés avec Key Vault Insights
+Key Vault Insights permet une supervision complète de vos coffres de clés en fournissant une vue unifiée des informations relatives aux requêtes, au niveau de performance, aux échecs et à la latence de Key Vault.
+Cet article vous aidera à comprendre comment intégrer et personnaliser l’expérience Key Vault Insights.
 
-## <a name="introduction-to-azure-monitor-for-key-vault"></a>Présentation d’Azure Monitor pour Key Vault
+## <a name="introduction-to-key-vault-insights"></a>Introduction à Key Vault Insights
 
 Avant de vous lancer dans cette expérience, vous devez comprendre comment cette fonctionnalité présente et affiche les informations.
 -    **Perspective à grande échelle** présentant un instantané des performances en fonction des demandes, de la décomposition des échecs et d’une vue d’ensemble des opérations et de la latence.
 -   **Analyse approfondie** d’un coffre de clés particulier pour effectuer une analyse détaillée.
 -    **Personnalisable** en vous permettant de modifier les métriques que vous souhaitez voir, modifier ou définir des seuils qui s’alignent sur vos limites et enregistrer votre propre classeur. Les graphiques du classeur peuvent être épinglés aux tableaux de bord Azure.
 
-Azure Monitor pour Key Vault combine les journaux d’activité et les métriques pour fournir une solution de supervision globale. Tous les utilisateurs peuvent accéder aux données de surveillance basées sur les métriques. Toutefois, l’inclusion de visualisations basées sur les journaux peut obliger les utilisateurs à [activer la journalisation de leur coffre de clés Azure](../../key-vault/general/logging.md).
+Key Vault Insights combine les journaux et les métriques pour fournir une solution de supervision globale. Tous les utilisateurs peuvent accéder aux données de surveillance basées sur les métriques. Toutefois, l’inclusion de visualisations basées sur les journaux peut obliger les utilisateurs à [activer la journalisation de leur coffre de clés Azure](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Voir à partir d’Azure Monitor
 
@@ -64,7 +64,7 @@ Pour mieux comprendre ce que chaque code d’état représente, nous vous recomm
 
 ## <a name="view-from-a-key-vault-resource"></a>Vue à partir d’une ressource Key Vault
 
-Pour accéder à Azure Monitor pour Key Vault directement à partir d’un coffre de clés :
+Pour accéder à Key Vault Insights directement à partir d’un coffre de clés :
 
 1. Dans le portail Azure, sélectionnez Coffres de clés.
 
@@ -105,7 +105,7 @@ Les classeurs Vue d’ensemble et Échecs des coffres de clés et des abonnement
 
 ![Capture d’écran de l’icône de punaise sélectionnée](./media/key-vaults-insights-overview/pin.png)
 
-## <a name="customize-azure-monitor-for-key-vault"></a>Personnaliser Azure Monitor pour Key Vault (préversion)
+## <a name="customize-key-vault-insights"></a>Personnaliser Key Vault Insights
 
 Cette section présente les scénarios courants de modification du classeur pour le personnaliser en fonction de vos besoins d’analyse de données :
 *  Régler l’étendue du classeur pour qu’il sélectionne toujours un abonnement ou des coffres de clés particuliers
@@ -135,11 +135,11 @@ Vous pouvez configurer les classeurs Vue d’ensemble et Échecs des coffres de 
 
 Pour obtenir des conseils généraux sur la résolution des problèmes, reportez-vous à [l’article de résolution des problèmes](troubleshoot-workbooks.md) pour les insights basés sur les workbooks.
 
-Cette section est destinée à vous aider à diagnostiquer et résoudre certains des problèmes communs que vous êtes susceptible de rencontrer lors de l’utilisation d’Azure Monitor pour Key Vault. La liste ci-dessous permet d’identifier les informations pertinentes pour un problème spécifique.
+Cette section vise à vous aider à diagnostiquer et à résoudre quelques-uns des problèmes courants que vous risquez de rencontrer avec Key Vault Insights. La liste ci-dessous permet d’identifier les informations pertinentes pour un problème spécifique.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Résolution des problèmes de performances ou des échecs
 
-Pour résoudre les problèmes liés aux coffres de clés que vous identifiez auprès d’Azure Monitor pour Key Vault (préversion), consultez la [documentation d’Azure Key Vault](../../key-vault/index.yml).
+Pour résoudre les problèmes liés aux coffres de clés que vous identifiez auprès de Key Vault Insights, consultez la [documentation d’Azure Key Vault](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>Pourquoi je ne vois pas plus de 200 coffres de clés ?
 

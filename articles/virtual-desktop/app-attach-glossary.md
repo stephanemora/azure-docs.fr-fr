@@ -1,5 +1,5 @@
 ---
-title: Glossaire d’attachement d’application MSIX Windows Virtual Desktop – Azure
+title: Glossaire d’attachement d’application MSIX Azure Virtual Desktop – Azure
 description: Un glossaire des termes et concepts de l’attachement d’application MSIX.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: cd038a0632823e4833e75596378f9b25c386d9d0
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 66f3cc71c27ff80991f3cded1957f90e622f447f
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330527"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745670"
 ---
 # <a name="msix-app-attach-glossary"></a>Glossaire Attachement d’application MSIX
 
@@ -65,15 +65,15 @@ Pour étendre un package MSIX :
 
 Le chargement d’un package MSIX implique le chargement du fichier VHD(x) ou [CIM](#cim) qui contient un package MSIX étendu sur le partage MSIX.
 
-Dans Windows Virtual Desktop, les chargements se produisent une fois par partage MSIX. Une fois que vous avez chargé un package, tous les pools d’hôtes dans le même abonnement peuvent y faire référence.
+Dans Azure Virtual Desktop, les chargements se produisent une fois par partage MSIX. Une fois que vous avez chargé un package, tous les pools d’hôtes dans le même abonnement peuvent y faire référence.
 
 ## <a name="add-an-msix-package"></a>Ajouter un package MSIX
 
-Dans Windows Virtual Desktop, l’ajout d’un package MSIX le lie à un pool d’hôtes.
+Dans Azure Virtual Desktop, l’ajout d’un package MSIX le lie à un pool d’hôtes.
 
 ## <a name="publish-an-msix-package"></a>Publier un package MSIX 
 
-Dans Windows Virtual Desktop, un package MSIX publié doit être attribué à un utilisateur ou groupe d’utilisateurs Active Directory Domain Services (AD DS) ou Azure Active Directory (Azure AD).
+Dans Azure Virtual Desktop, un package MSIX publié doit être attribué à un utilisateur ou groupe d’utilisateurs Active Directory Domain Services (AD DS) ou Azure Active Directory (Azure AD).
 
 ## <a name="staging"></a>Staging
 
@@ -90,11 +90,11 @@ Il existe deux types d’inscription : normale et différée.
 
 ### <a name="regular-registration"></a>Inscription normale
 
-Dans l’inscription normale, chaque application attribuée à un utilisateur est entièrement inscrite. L’inscription se produit au moment où l’utilisateur se connecte à la session, ce qui peut avoir un impact sur le temps nécessaire pour commencer à utiliser Windows Virtual Desktop.
+Dans l’inscription normale, chaque application attribuée à un utilisateur est entièrement inscrite. L’inscription se produit au moment où l’utilisateur se connecte à la session, ce qui peut avoir un impact sur le temps nécessaire pour commencer à utiliser Azure Virtual Desktop.
 
 ### <a name="delayed-registration"></a>Inscription différée
 
-Dans une inscription différée, chaque application attribuée à l’utilisateur n’est inscrite que partiellement. Inscription partielle signifie que la vignette du menu Démarrer et les associations de fichiers de double-clic sont inscrites. L’inscription se produit lorsque l’utilisateur se connecte à sa session, de sorte qu’elle a un impact minimal sur le temps nécessaire pour commencer à utiliser Windows Virtual Desktop. L’inscription se termine uniquement lorsque l’utilisateur exécute l’application dans le package MSIX.
+Dans une inscription différée, chaque application attribuée à l’utilisateur n’est inscrite que partiellement. Inscription partielle signifie que la vignette du menu Démarrer et les associations de fichiers de double-clic sont inscrites. L’inscription se produit lorsque l’utilisateur se connecte à sa session, de sorte qu’elle a un impact minimal sur le temps nécessaire pour commencer à utiliser Azure Virtual Desktop. L’inscription se termine uniquement lorsque l’utilisateur exécute l’application dans le package MSIX.
 
 L’inscription différée est actuellement la configuration par défaut pour l’attachement d’application MSIX.
 

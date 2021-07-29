@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 9337d1c2767923e6dc7c6b267e0c180b460a116e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.openlocfilehash: 3c58814943d844ec1e644412eef926745e2df620
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359419"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572397"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurer un ou plusieurs écouteurs de groupe de disponibilité AlwaysOn - Resource Manager
 
@@ -239,10 +239,6 @@ Notez les instructions suivantes concernant l’écouteur de groupe de disponibi
 
 * Créez un point de terminaison de service lorsque vous utilisez un équilibreur de charge standard avec Stockage Azure pour le témoin cloud. Pour plus d'informations, consultez [Accorder l'accès à partir d'un réseau virtuel](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
-## <a name="for-more-information"></a>Informations supplémentaires
-
-Pour plus d’informations, consultez [Configure Always On availability group in Azure VM manually (Configuration manuelle d’un groupe de disponibilité Always On dans une machine virtuelle Azure)](availability-group-manually-configure-tutorial.md).
-
 ## <a name="powershell-cmdlets"></a>Applets de commande PowerShell
 
 Utilisez les applets de commande PowerShell suivantes pour créer un équilibreur de charge interne pour les machines virtuelles Azure.
@@ -253,3 +249,13 @@ Utilisez les applets de commande PowerShell suivantes pour créer un équilibreu
 * [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerBackendAddressPoolConfig) permet de créer une configuration de pool d'adresses principales pour un équilibreur de charge. 
 * [New-AzLoadBalancerProbeConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerProbeConfig) permet de créer une configuration de probe pour un équilibreur de charge.
 * [Remove-AzLoadBalancer](/powershell/module/Azurerm.Network/Remove-AzureRmLoadBalancer) permet de supprimer un équilibreur de charge dans un groupe de ressources Azure.
+
+## <a name="next-steps"></a>Étapes suivantes 
+
+
+Pour en savoir plus, consultez :
+
+- [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Groupes de disponibilité Always On avec SQL Server sur les machines virtuelles Azure](availability-group-overview.md)
+- [Vue d’ensemble des groupes de disponibilité Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Paramètres HADR pour SQL Server sur les machines virtuelles Azure](hadr-cluster-best-practices.md)

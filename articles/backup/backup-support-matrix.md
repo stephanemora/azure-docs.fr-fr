@@ -2,14 +2,14 @@
 title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 06/11/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5c74a34efe8075ab7a34fab4570d9513900b3f81
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 2b5700498bd09e24adeb6d1a386e8bb8da6b92c7
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517417"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006722"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -151,8 +151,8 @@ Une fonctionnalité de restauration inter-régions a été ajoutée au service S
 
 | Type de gestion des sauvegardes | Prise en charge                                                    | Régions prises en charge |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Prise en charge pour les machines virtuelles Azure (y compris chiffrées) dotées à la fois de disques managés et non managés. Non pris en charge pour les machines virtuelles classiques. | Disponible dans toutes les régions publiques Azure et dans les régions souveraines, à l’exception des régions France Centre, Australie Centre, Afrique du Sud Nord, Émirats arabes unis Nord, Suisse Nord, Allemagne Centre-Ouest, Norvège Est, US Gov Iowa et US Gov Virginie. <br>Pour plus d’informations sur l’utilisation dans ces régions, contactez [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
-| SQL /SAP HANA | En préversion                                                      | Disponible dans toutes les régions publiques Azure et dans les régions souveraines, à l’exception des régions France Centre, Australie Centre, Afrique du Sud Nord, Émirats arabes unis Nord, Suisse Nord, Allemagne Centre-Ouest, Norvège Est, US Gov Iowa et US Gov Virginie. <br>Pour plus d’informations sur l’utilisation dans ces régions, contactez [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| Azure VM               | Prise en charge pour les machines virtuelles Azure (y compris chiffrées) dotées à la fois de disques managés et non managés. Non pris en charge pour les machines virtuelles classiques. | Disponible dans toutes les régions publiques et régions souveraines Azure, à l’exception de US Gov Iowa et US Gov Virginie. |
+| SQL /SAP HANA | Disponible      | Disponible dans toutes les régions publiques et régions souveraines Azure, à l’exception de France Centre, US Gov Iowa et US Gov Virginie. |
 | Agent MARS/En local  | Non                                                           | N/A               |
 | AFS (partages de fichiers Azure)                 | Non                                                           | N/A               |
 

@@ -8,19 +8,19 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2021
-ms.openlocfilehash: 16808be9b4a0c3a03a2a56a5255809b585aa404f
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: db614d99a3c25e6f782c0be6bea95ec82124b8e5
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715791"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554837"
 ---
 # <a name="indexer-access-to-azure-storage-using-the-trusted-service-exception-azure-cognitive-search"></a>Accès d’indexeur au service Stockage Azure à l’aide de l’exception de service approuvé (Recherche cognitive Azure)
 
 Les indexeurs d’un service Recherche cognitive Azure qui accèdent aux données dans des comptes Stockage Azure peuvent utiliser la capacité d’[exception de service approuvé](../storage/common/storage-network-security.md#exceptions) pour accéder aux données de manière sécurisée. Ce mécanisme offre aux clients dans l’impossibilité d’accorder un [accès aux indexeurs en utilisant des règles de pare-feu IP](search-indexer-howto-access-ip-restricted.md) une alternative simple, sécurisée et gratuite pour accéder aux données de comptes de stockage.
 
 > [!NOTE]
-> La prise en charge de l’accès aux données dans les comptes de stockage par le biais d’une exception de service approuvé est limitée aux solutions Stockage Blob Azure et Azure Data Lake Storage Gen2. Le stockage de tables Azure n’est pas pris en charge.
+> La prise en charge de l’accès aux données dans les comptes de stockage par le biais d’une exception de service approuvé est limitée aux solutions Stockage Blob Azure et Azure Data Lake Storage Gen2. Le Stockage Table Azure n’est pas pris en charge.
 
 ## <a name="step-1-configure-a-connection-using-a-managed-identity"></a>Étape 1 : Configurer une connexion à l’aide d’une identité managée
 

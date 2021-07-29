@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 02/01/2021
+ms.date: 05/28/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a54ed9dc6557d9b613485bf28e74af0c59fc9e5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 623799b894846034dcf3f58a4bd6e53c56d526df
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99225206"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690488"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modèle de facturation pour Azure Active Directory B2C
 
@@ -27,22 +27,23 @@ La tarification Azure Active Directory B2C (Azure AD B2C) est basée sur les ut
 
 ## <a name="what-do-i-need-to-do"></a>Que dois-je faire ?
 
-Pour tirer parti de la facturation MAU, votre locataire Azure AD B2C doit être lié à un abonnement Azure. Vous devrez peut-être également faire basculer votre locataire Azure AD B2C vers un autre niveau tarifaire si vous souhaitez utiliser des fonctionnalités Azure AD B2C Premium P2, telles que l’accès conditionnel basé sur les risques.
+Pour tirer parti de la facturation MAU, votre locataire Azure AD B2C doit être lié à un abonnement Azure. Vous devrez peut-être également faire basculer votre locataire Azure AD B2C vers un autre niveau tarifaire si vous souhaitez utiliser des fonctionnalités Azure AD B2C Premium P2, telles que des stratégies d'accès conditionnel basé sur les risques.
 
 |Si votre locataire est :  |Vous devez :  |
 |---------|---------|
 | Un locataire Azure AD B2C déjà facturé par utilisateur actif mensuel     | Ne rien faire. Lorsque les utilisateurs s’authentifient auprès de votre locataire Azure AD B2C, vous êtes automatiquement facturé à l’aide du modèle de facturation MAU.        |
 | Un locataire Azure AD B2C encore non lié à un abonnement     |  [Lier votre locataire Azure AD B2C à un abonnement](#link-an-azure-ad-b2c-tenant-to-a-subscription) pour activer la facturation MAU.     |
 | Un locataire Azure AD B2C qui a été lié à un abonnement avant le 1er novembre 2019    | [Basculer vers la facturation MAU (recommandé)](#switch-to-mau-billing-pre-november-2019-azure-ad-b2c-tenants) ou rester sur le modèle de facturation par authentification.     |
-| Un locataire Azure AD B2C et vous souhaitez utiliser des fonctionnalités Premium (comme l’accès conditionnel basé sur les risques)    | [Passer à un niveau tarifaire Azure AD](#change-your-azure-ad-pricing-tier) qui prend en charge les fonctionnalités que vous souhaitez utiliser.        |
+| Un locataire Azure AD B2C et vous souhaitez utiliser des fonctionnalités Premium (comme des stratégies d'accès conditionnel basé sur les risques)    | [Passer à un niveau tarifaire Azure AD](#change-your-azure-ad-pricing-tier) qui prend en charge les fonctionnalités que vous souhaitez utiliser.        |
 |  |  |
 
 ## <a name="about-the-monthly-active-users-mau-billing-model"></a>À propos du modèle de facturation par utilisateurs actifs mensuels (MAU)
 
 La facturation MAU est entrée en vigueur pour les locataires Azure AD B2C le **1er novembre 2019**. Tout locataire Azure AD B2C que vous avez créé et lié à un abonnement à compter de cette date a été facturé par MAU. Si vous avez un locataire Azure AD B2C qui n’a pas été lié à un abonnement, liez-le maintenant. Si vous avez un locataire Azure AD B2C existant qui a été lié à un abonnement avant le 1er novembre 2019, nous vous recommandons d’effectuer une mise à niveau vers le modèle de facturation par utilisateurs actifs mensuels (MAU), ou vous pouvez conserver le modèle de facturation par authentification.
   
-Votre locataire Azure AD B2C doit également être lié au niveau tarifaire Azure approprié en fonction des fonctionnalités que vous souhaitez utiliser. Les fonctionnalités Premium exigent une [tarification Premium P1 ou P2](https://azure.microsoft.com/pricing/details/active-directory-b2c/) d’Azure AD B2C. Vous devrez peut-être mettre à niveau votre niveau tarifaire pour utiliser de nouvelles fonctionnalités. Par exemple, l’accès conditionnel : vous devrez sélectionner le niveau tarifaire Premium P2 d’Azure AD B2C pour votre locataire.
-
+Votre locataire Azure AD B2C doit également être lié au niveau tarifaire Azure approprié en fonction des fonctionnalités que vous souhaitez utiliser. Les fonctionnalités Premium exigent une [tarification Premium P1 ou P2](https://azure.microsoft.com/pricing/details/active-directory-b2c/) d’Azure AD B2C. Vous devrez peut-être mettre à niveau votre niveau tarifaire pour utiliser de nouvelles fonctionnalités. Par exemple, des stratégies d'accès conditionnel basé sur les risques : vous devrez sélectionner le niveau tarifaire Premium P2 d'Azure AD B2C pour votre locataire.
+> [!NOTE]
+>  Vos 50 000 premiers utilisateurs actifs mensuels sont gratuits pour les fonctionnalités Premium P1 et Premium P2. Pour déterminer le nombre total d'utilisateurs actifs mensuels, nous combinons les utilisateurs actifs mensuels de tous vos locataires (Azure AD et Azure AD B2C) qui sont associés au même abonnement.
 ## <a name="link-an-azure-ad-b2c-tenant-to-a-subscription"></a>Lier un locataire Azure AD B2C à un abonnement
 
 Les frais d’utilisation pour Azure Active Directory B2C (Azure AD B2C) sont facturés à un abonnement Azure. Vous devez lier explicitement un locataire Azure AD B2C à un abonnement Azure en créant une *ressource* Azure AD B2C au sein de l’abonnement Azure cible. Plusieurs ressources Azure AD B2C peuvent être créées dans un seul abonnement Azure, ainsi que d’autres ressources Azure, comme des machines virtuelles, des comptes de stockage et des applications logiques. Vous pouvez voir toutes les ressources au sein de l’abonnement en accédant au locataire Azure Active Directory (Azure AD) auquel l’abonnement est associé.
@@ -74,7 +75,7 @@ Une fois ces étapes effectuées pour un locataire Azure AD B2C, votre abonneme
 
 ## <a name="change-your-azure-ad-pricing-tier"></a>Changer votre niveau tarifaire Azure AD
 
-Un locataire doit être lié au niveau tarifaire Azure approprié en fonction des fonctionnalités que vous souhaitez utiliser avec votre locataire Azure AD B2C. Les fonctionnalités Premium requièrent Azure AD B2C Premium P1 ou P2, comme cela est décrit dans la [tarification Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/). Dans certains cas, vous devrez mettre à niveau votre niveau tarifaire pour utiliser de nouvelles fonctionnalités. Par exemple, si vous souhaitez utiliser la protection d’identité, l’accès conditionnel basé sur les risques et toutes les futures fonctionnalités Premium P2 avec Azure AD B2C, vous devez sélectionner le niveau tarifaire Azure AD B2C Premium P2 pour votre locataire.
+Un locataire doit être lié au niveau tarifaire Azure approprié en fonction des fonctionnalités que vous souhaitez utiliser avec votre locataire Azure AD B2C. Les fonctionnalités Premium requièrent Azure AD B2C Premium P1 ou P2, comme cela est décrit dans la [tarification Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/). Dans certains cas, vous devrez mettre à niveau votre niveau tarifaire pour utiliser de nouvelles fonctionnalités. Par exemple, si vous souhaitez utiliser la protection d'identité, des stratégies d'accès conditionnel basé sur les risques et toutes les futures fonctionnalités Premium P2 avec Azure AD B2C, vous devez sélectionner le niveau tarifaire Azure AD B2C Premium P2 pour votre locataire.
 
 Pour changer votre niveau tarifaire, effectuez la procédure suivante.
 

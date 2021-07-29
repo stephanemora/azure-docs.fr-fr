@@ -3,19 +3,19 @@ title: Résolution des problèmes de connexion courants à Azure SQL Database
 description: Fournit la procédure pour détecter des problèmes de connexion Azure SQL Database et résoudre d’autres problèmes Azure SQL Database ou Azure SQL Managed Instance spécifiques
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: development
+ms.subservice: connect
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: ec61f2c67576d6e144d8d4bb7e8ecaaa157db0a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5953099567edc3ef0f09ae07fd2708b1ce748dd9
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98233370"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413606"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Résolution des problèmes de connectivité et autres erreurs avec Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -248,13 +248,13 @@ La procédure suivante peut vous aider à contourner le problème ou vous fourni
 
 Si cette erreur survient à plusieurs reprises, vous pouvez essayer de la résoudre en procédant ainsi :
 
-1. Consultez la vue sys.dm_exec_requests pour voir toutes les sessions ouvertes qui ont une valeur élevée pour la colonne total_elapsed_time. Cette vérification s’effectue en exécutant le script SQL suivant :
+1. Vérifiez l’affichage `sys.dm_exec_requests` pour voir toute session ouverte avec une valeur élevée pour la colonne `total_elapsed_time`. Cette vérification s’effectue en exécutant le script SQL suivant :
 
    ```sql
    SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. Déterminez la **mémoire tampon d’entrée** pour le bloqueur d’en-tête à l’aide de la fonction de gestion dynamique [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) et de la valeur session_id de la requête incriminée, par exemple :
+2. Déterminez la mémoire tampon d’entrée pour le bloqueur d’en-tête à l’aide de la fonction de gestion dynamique [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) et de la valeur session_id de la requête incriminée `session_id`, par exemple :
 
    ```sql 
    SELECT * FROM sys.dm_exec_input_buffer (100,0);
@@ -262,7 +262,7 @@ Si cette erreur survient à plusieurs reprises, vous pouvez essayer de la résou
 
 3. Ajustez la requête.
 
-    > [!Note]
+    > [!NOTE]
     > Pour plus d’informations sur la résolution des problèmes de blocage dans Azure SQL Database, consultez [Comprendre et résoudre les problèmes de blocage d’Azure SQL Database](understand-resolve-blocking.md).
 
 Vous pouvez également traiter vos requêtes par lot. Pour plus d’informations sur le traitement par lot, consultez [Comment utiliser le traitement par lot pour améliorer les performances des applications de base de données SQL](../performance-improve-use-batching.md).
@@ -289,6 +289,10 @@ Essayez de réduire le nombre de lignes qui sont sollicitées immédiatement en 
 
   > [!NOTE]
   > Pour la reconstruction d’index, la taille moyenne du champ mis à jour doit être remplacée par la taille moyenne de l’index.
+
+  > [!NOTE]
+  > Pour obtenir des informations sur la résolution des problèmes d’un journal des transactions complet dans Azure SQL Database et Azure SQL Managed Instance, consultez [Résolution des erreurs du journal des transactions dans Azure SQL Database et Azure SQL Managed Instance](troubleshoot-transaction-log-errors-issues.md).
+
 
 ### <a name="error-40553-the-session-has-been-terminated-because-of-excessive-memory-usage"></a>Erreur 40553 : La session a été arrêtée en raison d’une utilisation excessive de la mémoire
 
@@ -396,3 +400,8 @@ Pour plus d’informations sur la façon d’activer la journalisation, consulte
 
 - [Architecture de connectivité Azure SQL Database](./connectivity-architecture.md)
 - [Contrôles d’accès réseau Azure SQL Database et Azure Synapse Analytics](./network-access-controls-overview.md)
+
+## <a name="see-also"></a>Voir aussi
+
+- [Résolution des erreurs du journal des transactions avec Azure SQL Database et Azure SQL Managed Instance](troubleshoot-transaction-log-errors-issues.md)
+- [Résoudre les erreurs de connexion temporaires dans SQL Database et SQL Managed Instance](troubleshoot-common-connectivity-issues.md)

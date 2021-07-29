@@ -2,7 +2,7 @@
 titre : Chiffrer la vidéo avec AES-128 : Description d’Azure Media Services : Découvrez comment chiffrer des vidéos avec le chiffrement AES 128 bits et comment utiliser le service de distribution de clés dans Azure Media Services.
 services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
 
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 03/17/2021 ms.author: inhenkel
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 25/05/2021 ms.author: inhenkel
 
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Tutoriel : Chiffrer la vidéo avec AES-128 et utiliser le service de distribution de clés
@@ -21,7 +21,7 @@ La sortie de l’exemple de cet article inclut une URL menant au lecteur multim�
 Ce didacticiel vous explique les procédures suivantes :
 
 > [!div class="checklist"]
-> * Téléchargez l'exemple [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) décrit dans l’article.
+> * Téléchargez l'exemple [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithAES) décrit dans l’article.
 > * Commencez à utiliser les API Media Services avec le SDK .NET.
 > * Créez une ressource de sortie.
 > * Créer un encodage de transformation.
@@ -54,16 +54,24 @@ Clonez un dépôt GitHub qui contient l’exemple .NET complet abordé dans cet 
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
-L’exemple de chiffrement avec AES-128 se trouve dans le dossier [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES).
+L’exemple de chiffrement avec AES-128 se trouve dans le dossier [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithAES).
 
 > [!NOTE]
 > L’exemple crée des ressources uniques chaque fois que vous exécutez l’application. En règle générale, vous réutilisez les ressources existantes telles que les transformations et les stratégies (si une ressource existante a des configurations requises).
 
-## <a name="start-using-media-services-apis-with-net-sdk"></a>Commencer à utiliser les API Media Services avec le Kit de développement logiciel (SDK) .NET
+### <a name="start-using-media-services-apis-with-the-net-sdk"></a>Commencer à utiliser les API Media Services avec le SDK .NET
 
-Pour commencer à utiliser les API Media Services avec .NET, créez un objet **AzureMediaServicesClient**. Pour créer l’objet, vous devez fournir les informations d’identification nécessaires pour que le client puisse se connecter à Azure à l’aide d’Azure AD. Dans le code que vous avez cloné au début de l’article, la fonction **GetCredentialsAsync** crée l’objet ServiceClientCredentials basé sur les informations d’identification fournies dans le fichier de configuration local.
+Pour commencer à utiliser les API Media Services avec .NET, vous devez créer un objet `AzureMediaServicesClient`. Pour créer l’objet, vous devez fournir des informations d’identification pour que le client puisse se connecter à Azure avec Azure Active Directory. Une autre option consiste à utiliser l’authentification interactive, qui est implémentée dans `GetCredentialsInteractiveAuthAsync`.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateMediaServicesClient)]
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#CreateMediaServicesClientAsync)]
+
+Dans le code que vous avez cloné au début de l’article, la fonction `GetCredentialsAsync`crée l’objet `ServiceClientCredentials` en fonction des informations d’identification fournies dans le fichier de configuration local (*appsettings.json*) ou par le biais du fichier de variables d’environnement *.env* à la racine du dépôt.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsAsync)]
+
+Dans le cas de l’authentification interactive, la fonction `GetCredentialsInteractiveAuthAsync` crée l’objet `ServiceClientCredentials` en fonction d’une authentification interactive et des paramètres de connexion fournis dans le fichier config local (*appsettings.json*) ou via le fichier de variables d’environnement *.env* situé à la racine du dépôt. Dans ce cas, AADCLIENTID et AADSECRET ne sont pas nécessaires dans le fichier config ou le fichier de variables d’environnement.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsInteractiveAuthAsync)]
 
 ## <a name="create-an-output-asset"></a>Créer une ressource de sortie  
 

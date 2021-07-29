@@ -7,14 +7,14 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/02/2020
-ms.custom: references_regions
-ms.openlocfilehash: 9679157e7871b043711fff688a8cbb69cf9bb4d8
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 05/28/2021
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 3e45a2ff5db3a3ebbc0f9e2c5d9c66af43915463
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813611"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786836"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurer des clés gérées par le client pour le chiffrement des données dans le service Recherche cognitive Azure
 
@@ -31,15 +31,18 @@ Toutes les clés ne doivent pas nécessairement se trouver dans le même coffre 
 
 ## <a name="double-encryption"></a>Double chiffrement
 
-Pour les services créés après le 1er août 2020 et dans certaines régions, l’étendue du chiffrement à l’aide de clés gérées par le client inclut des disques temporaires, ce qui permet un [double chiffrement complet](search-security-overview.md#double-encryption) actuellement disponible dans les régions suivantes : 
+Le double chiffrement est une extension des clés gérées par le client (CMK). Il s’agit d’un chiffrement en deux temps (une fois par CMK, et une nouvelle fois par des clés gérées par le service) et de portée globale, incluant un stockage à long terme sur un disque de données et un stockage à court terme sur des disques temporaires. Aucune configuration n’est requise. Lorsque vous appliquez des CMK à des objets, le chiffrement double est appelé automatiquement.
 
-+ USA Ouest 2
-+ USA Est
-+ États-Unis - partie centrale méridionale
-+ Gouvernement américain - Virginie
-+ Gouvernement des États-Unis – Arizona
+Bien que le chiffrement double soit disponible dans toutes les régions, la prise en charge a été déployée en deux phases. Le premier déploiement était en août 2020 et incluait les cinq régions répertoriées ci-dessous. Le deuxième déploiement en mai 2021 un double chiffrement étendu à toutes les régions restantes. Si vous utilisez CMK sur un service plus ancien et souhaitez un double chiffrement, vous devrez créer un nouveau service de recherche dans la région de votre choix.
 
-Si vous utilisez une autre région ou un service créé avant le 1er août, votre chiffrement à l’aide de clés gérées par le client est limité uniquement au disque de données, à l’exclusion des disques temporaires que le service utilise.
+| Région | Date de création de service |
+|--------|-----------------------|
+| USA Ouest 2 | Après le 1er août 2020 |
+| USA Est | Après le 1er août 2020 |
+| États-Unis - partie centrale méridionale  | Après le 1er août 2020 |
+| Gouvernement américain - Virginie  | Après le 1er août 2020 |
+| Gouvernement des États-Unis – Arizona  | Après le 1er août 2020 |
+| [Toutes les autres régions prises en charge](https://azure.microsoft.com/global-infrastructure/services/?products=search#select-product) | Après le 13 mai 2021 |
 
 ## <a name="prerequisites"></a>Prérequis
 

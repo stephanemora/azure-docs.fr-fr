@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.custom: references_regions
-ms.openlocfilehash: 22d7c1bbe03d8b3c0e3b6026c9bac039f0651548
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7170b22a0e85a0c23e49582f9cfed45128a91dd8
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037249"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559193"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enrichissement de l’IA dans Recherche cognitive Azure
 
@@ -24,7 +24,7 @@ L’extraction et l’enrichissement sont implémentés à l’aide de *compéte
 
 Les compétences intégrées se répartissent en fonction des catégories suivantes : 
 
-+ Les compétences de **traitement en langage naturel** incluent la [reconnaissance d’entité](cognitive-search-skill-entity-recognition.md), la [détection de la langue](cognitive-search-skill-language-detection.md), l’[extraction de phrases clés](cognitive-search-skill-keyphrases.md), la manipulation de texte, la [détection de sentiments](cognitive-search-skill-sentiment.md) et la [détection d’informations d’identification personnelle](cognitive-search-skill-pii-detection.md). Grâce à ces compétences, un texte non structuré est mappé sous la forme de champs pouvant être interrogés et filtrés dans un index.
++ Les compétences de **traitement en langage naturel** incluent la [reconnaissance d’entité](cognitive-search-skill-entity-recognition-v3.md), la [détection de la langue](cognitive-search-skill-language-detection.md), l’[extraction de phrases clés](cognitive-search-skill-keyphrases.md), la manipulation de texte, la [détection de sentiments](cognitive-search-skill-sentiment-v3.md) et la [détection d’informations d’identification personnelle](cognitive-search-skill-pii-detection.md). Grâce à ces compétences, un texte non structuré est mappé sous la forme de champs pouvant être interrogés et filtrés dans un index.
 
 + Les compétences de **traitement d’image** incluent la [reconnaissance optique de caractères (OCR)](cognitive-search-skill-ocr.md) et l’identification des [caractéristiques visuelles](cognitive-search-skill-image-analysis.md), comme la détection des visages, l’interprétation des images, la reconnaissance des images (monuments et personnes célèbres) ou des attributs tels que l’orientation des images. Ces compétences créent des représentations textuelles du contenu des images, ce qui rend les recherches possibles grâce aux capacités d’interrogation de Recherche cognitive Azure.
 
@@ -81,7 +81,7 @@ Au début du pipeline, vous avez du texte non structuré ou du contenu non textu
 
 ![Phase de craquage de document](./media/cognitive-search-intro/document-cracking-phase-blowup.png "craquage de document")
 
- Les sources prises en charge comprennent le stockage Blob Azure, le stockage Table Azure, Azure SQL Database et Azure Cosmos DB. Le contenu textuel peut être extrait des types de fichier suivants : PDF, Word, PowerPoint et CSV. Pour obtenir la liste complète, consultez [Formats de document pris en charge](search-howto-indexing-azure-blob-storage.md#SupportedFormats). Étant donné que l’indexation prend un certain temps, commencez par un petit ensemble de données représentatif, puis augmentez sa taille de façon incrémentielle à mesure que votre solution grandit.
+ Les sources prises en charge comprennent le Stockage Blob Azure, le Stockage Table Azure, Azure SQL Database et Azure Cosmos DB. Le contenu textuel peut être extrait des types de fichier suivants : PDF, Word, PowerPoint et CSV. Pour obtenir la liste complète, consultez [Formats de document pris en charge](search-howto-indexing-azure-blob-storage.md#SupportedFormats). Étant donné que l’indexation prend un certain temps, commencez par un petit ensemble de données représentatif, puis augmentez sa taille de façon incrémentielle à mesure que votre solution grandit.
 
 ### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Étape 2 : Phase d’enrichissement et compétences cognitives
 

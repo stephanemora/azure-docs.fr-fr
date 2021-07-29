@@ -3,18 +3,23 @@ title: Options d’authentification du Registre
 description: Options d’authentification pour un registre de conteneurs Azure privé, y compris la connexion auprès d’une identité Azure Active Directory, au moyen de principaux de service et à l’aide d’informations d’identification d’administrateur facultatives.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: 097a322260e4c4f55d4e0d7e3e107abdd15a3b8a
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 542d8ec2516c0eb202ebeeb194977011c234b1dc
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831633"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540380"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Authentification avec un registre de conteneurs Azure
 
 Plusieurs méthodes permettent de s’authentifier avec un registre de conteneurs Azure, chacune d’elles étant applicable à un ou plusieurs scénarios d’usage du registre.
 
-Les méthodes recommandées incluent l’authentification à un registre par le biais d’une [connexion individuelle](#individual-login-with-azure-ad), sinon vos applications et orchestrateurs de conteneurs peuvent procéder à une authentification sans assistance, ou « headless » (administrée à distance), à l’aide d’un [principal de service](#service-principal) Azure Active Directory (Azure AD).
+Les méthodes recommandées sont les suivantes :
+
+* S’authentifier directement auprès d’un registre via une [connexion individuelle](#individual-login-with-azure-ad)
+* Les orchestrateurs de conteneurs et d’applications peuvent effectuer une authentification sans assistance, ou « headless », à l’aide d’un [principal de service](#service-principal) Azure Active Directory (Azure AD)
+
+Si vous utilisez un registre de conteneurs avec Azure Kubernetes Service (AKS) ou un autre cluster Kubernetes, consultez [Scénarios pour vous authentifier auprès de Azure Container Registry à partir de Kubernetes](authenticate-kubernetes-options.md).
 
 ## <a name="authentication-options"></a>Options d’authentification
 
@@ -24,10 +29,11 @@ Le tableau suivant liste les méthodes d’authentification disponibles et les s
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
 | [Identité AD individuelle](#individual-login-with-azure-ad)                | `az acr login` dans Azure CLI                             | Push/pull interactif par des développeurs ou des testeurs                                    | Oui                              | Le jeton AD doit être renouvelé toutes les 3 heures     |
 | [Principal de service AD](#service-principal)                  | `docker login`<br/><br/>`az acr login` dans Azure CLI<br/><br/> Paramètres de connexion au registre dans les API ou les outils<br/><br/> [Secret d’extraction Kubernetes](container-registry-auth-kubernetes.md)                                           | Push sans assistance à partir d’un pipeline CI/CD<br/><br/> Pull sans assistance vers Azure ou des services externes  | Oui                              | Le mot de passe SP par défaut est valable 1 an       |                                                           
-| [Intégrer à AKS](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Attacher le registre quand un cluster AKS est créé ou mis à jour  | Pull sans assistance vers un cluster AKS                                                  | Non, accès pull uniquement             | Disponible uniquement avec le cluster AKS            |
 | [Identité managée pour les ressources Azure](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` dans Azure CLI                                       | Push sans assistance à partir d’un pipeline CI/CD Azure<br/><br/> Pull sans assistance vers les services Azure<br/><br/>   | Oui                              | À utiliser uniquement à partir de certains services Azure [prenant en charge les identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
+| [Identité gérée du cluster AKS](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Attacher le registre quand un cluster AKS est créé ou mis à jour  | Extraction sans assistance du cluster AKS dans le même abonnement ou dans un autre abonnement                                                 | Non, accès pull uniquement             | Disponible uniquement avec le cluster AKS            |
+| [Principal du service de cluster AKS](authenticate-aks-cross-tenant.md)                    | Activer quand un cluster AKS est créé ou mis à jour  | Extraction sans assistance du cluster AKS à partir du registre d’un autre locataire Active Directory                                                  | Non, accès pull uniquement             | Disponible uniquement avec le cluster AKS            |
 | [Utilisateur administrateur](#admin-account)                            | `docker login`                                          | Push/pull interactif par un développeur ou un testeur individuel<br/><br/>Déploiement du portail de l’image à partir du registre vers Azure App Service ou Azure Container Instances                      | Non, toujours un accès pull et push  | Compte unique par registre, non recommandé pour plusieurs utilisateurs         |
-| [Jeton d’accès délimité au dépôt](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login` dans Azure CLI   | Push/pull interactif dans le dépôt par un développeur ou un testeur individuel<br/><br/> Push/pull sans assistance vers le dépôt par un système individuel ou un périphérique externe                  | Oui                              | Pas actuellement intégré à l’identité AD  |
+| [Jeton d’accès délimité au dépôt](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login` dans Azure CLI<br/><br/> [Secret d’extraction Kubernetes](container-registry-auth-kubernetes.md)    | Push/pull interactif dans le dépôt par un développeur ou un testeur individuel<br/><br/> Extraction sans assistance vers le dépôt par un système individuel ou un périphérique externe                  | Oui                              | Pas actuellement intégré à l’identité AD  |
 
 ## <a name="individual-login-with-azure-ad"></a>Connexion individuelle avec Azure AD
 
@@ -49,7 +55,7 @@ L’utilisation de `az acr login` avec des identités Azure fournit un [contrôl
 
 ### <a name="az-acr-login-with---expose-token"></a>az acr login with --expose-token
 
-Dans certains cas, vous devrez peut-être vous authentifier avec `az acr login` lorsque le démon Docker n’est pas en cours d’exécution dans votre environnement. Par exemple, vous devrez peut-être exécuter `az acr login` dans un script dans Azure Cloud Shell, qui fournit l’interface de commande Docker, mais n’exécute pas le démon Docker.
+Dans certains cas, vous devrez vous authentifier avec `az acr login` lorsque le démon Docker n’est pas en cours d’exécution dans votre environnement. Par exemple, vous devrez peut-être exécuter `az acr login` dans un script dans Azure Cloud Shell, qui fournit l’interface de commande Docker, mais n’exécute pas le démon Docker.
 
 Pour ce scénario, exécutez d’abord `az acr login` avec le paramètre `--expose-token`. Cette option expose un jeton d’accès au lieu de se connecter par le biais de l’interface de commande Docker.
 

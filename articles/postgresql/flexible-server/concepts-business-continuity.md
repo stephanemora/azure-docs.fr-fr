@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 341d3c6f0a2d84c2b7b725959db9f7e5dd80d3ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbc47fa19cccb8d5ce6af38fdff3f0e772f5039f
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92542962"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537699"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---flexible-server"></a>Vue d’ensemble de la continuité d’activité dans Azure Database pour PostgreSQL – Serveur flexible
 
@@ -35,7 +35,7 @@ Le tableau ci-dessous illustre les fonctionnalités qu’offre un serveur flexib
 | **Fonctionnalité** | **Description** | **Considérations** |
 | ---------- | ----------- | ------------ |
 | **Sauvegardes automatiques** | Un serveur flexible effectue automatiquement des sauvegardes quotidiennes de vos fichiers de base de données et sauvegarde en permanence les journaux des transactions. Les sauvegardes peuvent être conservées de 7 à 35 jours. Vous pouvez restaurer votre serveur de base de données à n’importe quel point dans le temps au cours de la période de rétention de votre sauvegarde. Le RTO dépend de la taille des données à restaurer et la durée d’exécution de la récupération du journal. Il peut aller de quelques minutes à 12 heures. Pour plus d’informations, consultez [Concepts – Sauvegarde et restauration](./concepts-backup-restore.md). |Les données de sauvegarde restent dans la région. |
-| **Haute disponibilité redondante interzone** | Un serveur flexible peut être déployé avec une configuration de haute disponibilité redondante interzone, où les serveurs primaire et de secours sont déployés dans deux zones de disponibilité différentes au sein d’une même région. Cette configuration de haute disponibilité protège vos bases de données contre les défaillances au niveau de la zone, et permet de réduire les temps d’arrêt d’applications pendant les temps d’arrêt planifiés et non planifiés. Les données du serveur primaire sont répliquées vers le serveur réplica de secours en mode synchrone. En cas d’interruption du serveur primaire, le serveur est automatiquement basculé vers le réplica de secours. Dans la plupart des cas, le RTO devrait être compris entre 60 et 120 secondes. Le RPO est supposé être égal à zéro (aucune perte de données). Pour plus d’informations, consultez [Concepts – Haute disponibilité](./concepts-high-availability.md). | Pris en charge dans les niveaux de calcul à usage général et à mémoire optimisée. Disponible uniquement dans les régions où plusieurs zones sont disponibles. |
+| **Haute disponibilité redondante interzone** | Un serveur flexible peut être déployé avec une configuration de haute disponibilité redondante interzone, où les serveurs primaire et de secours sont déployés dans deux zones de disponibilité différentes au sein d’une même région. Cette configuration de haute disponibilité protège vos bases de données contre les défaillances au niveau de la zone, et permet de réduire les temps d’arrêt d’applications pendant les temps d’arrêt planifiés et non planifiés. Les données du serveur primaire sont répliquées vers le serveur réplica de secours en mode synchrone. En cas d’interruption du serveur primaire, le serveur est automatiquement basculé vers le réplica de secours. Dans la plupart des cas, le RPO devrait être de moins de 120 secondes. Le RPO est supposé être égal à zéro (aucune perte de données). Pour plus d’informations, consultez [Concepts – Haute disponibilité](./concepts-high-availability.md). | Pris en charge dans les niveaux de calcul à usage général et à mémoire optimisée. Disponible uniquement dans les régions où plusieurs zones sont disponibles. |
 | **Disques managés Premium** | Les fichiers de base de données sont stockés dans un stockage managé Premium durable et fiable. Cela assure une redondance des données avec trois copies du réplica stockées dans une zone de disponibilité avec des fonctionnalités de récupération de données automatiques. Pour plus d’informations, consultez la [Documentation sur la fonctionnalité Disques managés](../../virtual-machines/managed-disks-overview.md). | Données stockées dans une zone de disponibilité. |
 | **Sauvegarde redondante interzone** | Les sauvegardes d’un serveur flexible sont stockées automatiquement et en toute sécurité dans un stockage redondant interzone au sein d’une région. Au cours d’une défaillance au niveau de la zone où votre serveur est approvisionné, si votre serveur n’est pas configuré avec une redondance interzone, vous pouvez toujours restaurer votre base de données à l’aide du dernier point de restauration dans une autre zone. Pour plus d’informations, consultez [Concepts – Sauvegarde et restauration](./concepts-backup-restore.md).| Applicable uniquement dans les régions où plusieurs zones sont disponibles.|
 

@@ -6,18 +6,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 05/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: f2f20580bc8396f6d7336d50bbe7fb55c94725de
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 34ea18e67752ed28986a08c4132ca10fbedce3c6
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109712889"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652474"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Créer un locataire Azure Active Directory pour les connexions de protocole OpenVPN P2S
 
-Lorsque vous vous connectez à votre réseau virtuel à l’aide d’une connexion point à site, vous avez le choix du protocole à utiliser. Le protocole que vous utilisez détermine les options d’authentification qui vous sont proposées. Si vous souhaitez utiliser l’authentification Azure Active Directory, vous pouvez le faire lorsque vous utilisez le protocole OpenVPN. Cet article vous aide à configurer un locataire Azure AD. Pour plus d’informations sur les protocoles et l’authentification point à site, consultez [À propos du VPN point à site](point-to-site-about.md).
+Lorsque vous vous connectez à votre réseau virtuel à l’aide d’une connexion point à site, vous avez le choix du protocole à utiliser. Le protocole que vous utilisez détermine les options d’authentification qui sont à votre disposition. Si vous souhaitez utiliser l’authentification Azure Active Directory, vous pouvez le faire lorsque vous utilisez le protocole OpenVPN. Cet article vous aide à configurer un locataire Azure AD. Pour plus d’informations sur les protocoles et l’authentification point à site, consultez [À propos du VPN point à site](point-to-site-about.md).
 
 [!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
@@ -28,11 +28,11 @@ Vérifiez que vous disposez d'un locataire Azure AD. Si vous n'avez pas de locat
 * Nom de l'organisation
 * Nom de domaine initial
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/newtenant.png" alt-text="Nouveau locataire Azure AD" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/newtenant.png" alt-text="Capture d’écran de la page de création d’un répertoire." border="false":::
 
 ## <a name="2-create-azure-ad-tenant-users"></a><a name="users"></a>2. Créer des utilisateurs de locataire Azure AD
 
-Votre client Azure AD doit disposer des comptes suivants : un compte d'administrateur général et un compte d'utilisateur principal. Le compte d'utilisateur principal est utilisé comme compte d'intégration principal (compte de service). Lorsque vous créez un compte d'utilisateur de locataire Azure AD, vous définissez le rôle d'annuaire en fonction du type d'utilisateur que vous souhaitez créer.
+Votre client Azure AD doit disposer des comptes suivants : un compte d'administrateur général et un compte d'utilisateur principal. Le compte d'utilisateur est utilisé comme compte d'intégration (compte de service). Lorsque vous créez un compte d'utilisateur de locataire Azure AD, vous définissez le rôle d'annuaire en fonction du type d'utilisateur que vous souhaitez créer.
 
 Suivez les étapes décrites dans [Ajouter ou supprimer des utilisateurs - Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md) afin de créer au moins deux utilisateurs pour votre locataire Azure AD. Veillez à modifier le **rôle d'annuaire** pour créer les types de compte :
 
@@ -43,7 +43,7 @@ Suivez les étapes décrites dans [Ajouter ou supprimer des utilisateurs - Azure
 
 1. Recherchez l'ID du répertoire que vous souhaitez utiliser pour l'authentification. Celui-ci est répertorié dans la section Propriétés de la page Active Directory.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/directory-id.png" alt-text="Capture d'écran des Propriétés du répertoire" lightbox="./media/openvpn-create-azure-ad-tenant/directory-id.png":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/directory-id.png" alt-text="Capture d'écran des Propriétés du répertoire." lightbox="./media/openvpn-create-azure-ad-tenant/directory-id.png":::
 
 1. Copiez l'ID du répertoire.
 
@@ -81,7 +81,7 @@ Suivez les étapes décrites dans [Ajouter ou supprimer des utilisateurs - Azure
 
 1. Si vous y êtes invité, sélectionnez le compte d'**Administrateur général**.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="Choisir un compte" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="Capture présentant la page Sélection du compte." border="false":::
 1. Lorsque vous y êtes invité, sélectionnez **Accepter**.
 
    :::image type="content" source="./media/openvpn-create-azure-ad-tenant/accept.jpg" alt-text="Capture d’écran montrant le message Autorisations demandées - Accepter pour votre organisation avec les détails et l’option d’acceptation." border="false":::
@@ -108,7 +108,7 @@ Suivez les étapes décrites dans [Ajouter ou supprimer des utilisateurs - Azure
    * **Émetteur** : URL de Secure Token Service (Service d'émission de jeton de sécurité - STS) ```https://sts.windows.net/{AzureAD TenantID}/```
 
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="VPN SAzure" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="Capture d’écran montrant les paramètres du type de Tunnel, du type Authentification et des paramètres de Azure Active Directory." border="false":::
 
    > [!NOTE]
    > Veillez à inclure une barre oblique finale à la fin de la valeur `AadIssuerUri`. À défaut, la connexion peut échouer.

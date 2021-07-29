@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 05/07/2021
-ms.openlocfilehash: 827e860c0b25945339a9e1640b94863697e04f88
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 73cce13f296d65167ab2c45f677849b7f05f8b3a
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377138"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410114"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportation des données de l’espace de travail Log Analytics dans Azure Monitor (préversion)
 L’exportation des données de l’espace de travail Log Analytics dans Azure Monitor vous permet d’exporter en continu des données de tables sélectionnées dans votre espace de travail Log Analytics vers un compte de stockage Azure ou Azure Event Hubs à mesure qu’elles sont collectées. Cet article fournit des informations détaillées sur cette fonctionnalité et les étapes à suivre pour configurer l’exportation de données dans vos espaces de travail.
@@ -545,9 +545,10 @@ Si la règle d’exportation de données inclut une table qui n’existe pas, el
 ## <a name="supported-tables"></a>Tables prises en charge
 Les tables prises en charge sont actuellement limitées à celles spécifiées ci-dessous. Toutes les données de la table sont exportées, sauf si des restrictions sont spécifiées. Cette liste sera mise à jour à mesure que des tables supplémentaires sont ajoutées.
 
-
 | Table de charge de travail | Limites |
 |:---|:---|
+| AACAudit |  |
+| AACHttpRequest |  |
 | AADDomainServicesAccountLogon |  |
 | AADDomainServicesAccountManagement |  |
 | AADDomainServicesDirectoryServiceAccess |  |
@@ -560,11 +561,15 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | AADServicePrincipalSignInLogs |  |
 | ABSBotRequests |  |
 | ACSBillingUsage |  |
+| ACSChatIncomingOperations |  |
 | ACSSMSIncomingOperations |  |
 | ADAssessmentRecommendation |  |
 | ADFActivityRun |  |
 | ADFPipelineRun |  |
+| ADFSSignInLogs |  |
 | ADFTriggerRun |  |
+| ADPAudit |  |
+| ADPRequests |  |
 | ADReplicationResult |  |
 | ADSecurityAssessmentRecommendation |  |
 | ADTDigitalTwinsOperation |  |
@@ -576,7 +581,6 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | AegDeliveryFailureLogs |  |
 | AegPublishFailureLogs |  |
 | Alerte |  |
-| AmlOnlineEndpointConsoleLog |  |
 | ApiManagementGatewayLogs |  |
 | AppCenterError |  |
 | AppPlatformSystemLogs |  |
@@ -595,12 +599,19 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | BehaviorAnalytics |  |
 | BlockchainApplicationLog |  |
 | BlockchainProxyLog |  |
+| CDBControlPlaneRequests |  |
+| CDBDataPlaneRequests |  |
+| CDBMongoRequests |  |
+| CDBPartitionKeyRUConsumption |  |
+| CDBPartitionKeyStatistics |  |
+| CDBQueryRuntimeStatistics |  |
 | CommonSecurityLog |  |
 | ComputerGroup |  |
 | ConfigurationData | Prise en charge partielle : Certaines des données sont ingérées par le biais de services internes qui ne sont pas pris en charge pour l’exportation. Cette partie est manquante dans l’exportation actuellement. |
 | ContainerImageInventory |  |
 | ContainerInventory |  |
 | ContainerLog |  |
+| ContainerLogV2 |  |
 | ContainerNodeInventory |  |
 | ContainerServiceLog |  |
 | CoreAzureBackup |  |
@@ -614,13 +625,41 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | DatabricksSQLPermissions |  |
 | DatabricksSSH |  |
 | DatabricksWorkspace |  |
+| DeviceFileEvents |  |
+| DeviceNetworkInfo |  |
+| DeviceNetworkInfo |  |
+| DeviceProcessEvents |  |
+| DeviceRegistryEvents |  |
 | DnsEvents |  |
 | DnsInventory |  |
+| DummyHydrationFact |  |
 | Dynamics365Activity |  |
+| EmailAttachmentInfo |  |
+| EmailEvents |  |
+| EmailUrlInfo |  |
 | Événement | Prise en charge partielle : les données provenant de l'agent Log Analytics (MMA) ou de l'agent Azure Monitor (AMA) sont entièrement prises en charge lors de l'exportation. Les données arrivant via l'agent Diagnostics Extension sont collectées par le biais du stockage alors que ce chemin n'est pas pris en charge lors de l'exportation. |
 | ExchangeAssessmentRecommendation |  |
 | FailedIngestion |  |
 | FunctionAppLogs |  |
+| HDInsightAmbariClusterAlerts |  |
+| HDInsightAmbariSystemMetrics |  |
+| HDInsightHadoopAndYarnLogs |  |
+| HDInsightHadoopAndYarnMetrics |  |
+| HDInsightHiveAndLLAPLogs |  |
+| HDInsightHiveAndLLAPMetrics |  |
+| HDInsightHiveTezAppStats |  |
+| HDInsightOozieLogs |  |
+| HDInsightSecurityLogs |  |
+| HDInsightSparkApplicationEvents |  |
+| HDInsightSparkBlockManagerEvents |  |
+| HDInsightSparkEnvironmentEvents |  |
+| HDInsightSparkExecutorEvents |  |
+| HDInsightSparkJobEvents |  |
+| HDInsightSparkLogs |  |
+| HDInsightSparkSQLExecutionEvents |  |
+| HDInsightSparkStageEvents |  |
+| HDInsightSparkStageTaskAccumulables |  |
+| HDInsightSparkTaskEvents |  |
 | Heartbeat |  |
 | HuntingBookmark |  |
 | InsightsMetrics | Prise en charge partielle : Certaines des données sont ingérées par le biais de services internes qui ne sont pas pris en charge pour l’exportation. Cette partie est manquante dans l’exportation actuellement. |
@@ -638,26 +677,28 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | MicrosoftAzureBastionAuditLogs |  |
 | MicrosoftDataShareReceivedSnapshotLog |  |
 | MicrosoftDataShareSentSnapshotLog |  |
+| MicrosoftDataShareShareLog |  |
 | MicrosoftHealthcareApisAuditLogs |  |
 | NWConnectionMonitorPathResult |  |
 | NWConnectionMonitorTestResult |  |
 | OfficeActivity | Prise en charge partielle : Certaines des données sont ingérées via des webhooks d’O365 vers LA. Cette partie est manquante dans l’exportation actuellement. |
 | Opération | Prise en charge partielle : Certaines des données sont ingérées par le biais de services internes qui ne sont pas pris en charge pour l’exportation. Cette partie est manquante dans l’exportation actuellement. |
-| Perf | Prise en charge partielle : seules les données de performances Windows sont actuellement prises en charge. Les données de performances Linux sont actuellement manquantes dans l’exportation. |
-| PowerBIDatasetsTenant |  |
+| Perf | Prise en charge partielle : Seules les données de performances Windows sont actuellement prises en charge. Les données de performances Linux sont actuellement manquantes dans l’exportation. |
 | PowerBIDatasetsWorkspace |  |
-| PowerBIDatasetsWorkspacePreview |  |
+| PurviewScanStatusLogs |  |
 | SCCMAssessmentRecommendation |  |
 | SCOMAssessmentRecommendation |  |
 | SecurityAlert |  |
 | SecurityBaseline |  |
 | SecurityBaselineSummary |  |
+| SecurityCef |  |
 | SecurityDetection |  |
 | SecurityEvent | Prise en charge partielle : les données provenant de l'agent Log Analytics (MMA) ou de l'agent Azure Monitor (AMA) sont entièrement prises en charge lors de l'exportation. Les données arrivant via l'agent Diagnostics Extension sont collectées par le biais du stockage alors que ce chemin n'est pas pris en charge lors de l'exportation. |
 | SecurityIncident |  |
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
 | SecurityRecommendation |  |
+| SentinelHealth |  |
 | SfBAssessmentRecommendation |  |
 | SfBOnlineAssessmentRecommendation |  |
 | SharePointOnlineAssessmentRecommendation |  |
@@ -684,16 +725,19 @@ Les tables prises en charge sont actuellement limitées à celles spécifiées c
 | UpdateRunProgress |  |
 | UpdateSummary |  |
 | Utilisation |  |
+| UserAccessAnalytics |  |
+| UserPeerAnalytics |  |
 | Liste de surveillance |  |
 | WindowsEvent |  |
 | WindowsFirewall |  |
 | WireData | Prise en charge partielle : Certaines des données sont ingérées par le biais de services internes qui ne sont pas pris en charge pour l’exportation. Cette partie est manquante dans l’exportation actuellement. |
+| WorkloadDiagnosticLogs |  |
+| WVDAgentHealthStatus |  |
 | WVDCheckpoints |  |
 | WVDConnections |  |
 | WVDErrors |  |
 | WVDFeeds |  |
 | WVDManagement |  |
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

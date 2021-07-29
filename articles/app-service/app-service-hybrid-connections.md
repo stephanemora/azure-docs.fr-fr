@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/05/2021
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: b8425ef0e8d2bdf5caf64bfb2e0c977c63b5a6e1
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: c8b0377207dc811358db14285a7e287cd7c72525
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109628418"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412598"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connexions hybrides d’Azure App Service
 
@@ -205,6 +205,8 @@ L’état « Connecté » signifie qu’au moins un HCM est configuré avec ce
 
 * Votre hôte dispose-t-il d’un accès sortant à Azure sur le port 443 ? Vous pouvez tester à partir de votre hôte HCM à l’aide de la commande PowerShell *Test-NetConnection Destination -P Port* 
 * Votre HCM est-il susceptible d’être en mauvais état ? Essayez de redémarrer le service local « Azure Hybrid Connection Manager Service ».
+
+* Des logiciels en conflit sont-ils installés ? Hybrid Connection Manager ne peut pas coexister avec BizTalk Hybrid Connection Manager ou Service Bus pour Windows Server. Par conséquent, lors de l’installation de HCM, toutes les versions de ces packages doivent d’abord être supprimées.
 
 Si l’état indique **Connecté** mais que votre application ne peut pas atteindre votre point de terminaison, procédez comme suit :
 

@@ -5,18 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 05/26/2021
 ms.author: victorh
-ms.openlocfilehash: 4692b21333999dfc6fcc8edcbba8af800989ee1d
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e4543af78b173632e3374567e9a199f182679e8f
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325514"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110701718"
 ---
 # <a name="azure-firewall-dns-settings"></a>Paramètres DNS du Pare-feu Azure
 
-Vous pouvez configurer un serveur DNS personnalisé et activer le proxy DNS pour le pare-feu Azure. Configurez ces paramètres lorsque vous déployez le pare-feu ou configurez-les plus tard à partir de la page **Paramètres DNS**.
+Vous pouvez configurer un serveur DNS personnalisé et activer le proxy DNS pour le pare-feu Azure. Configurez ces paramètres lorsque vous déployez le pare-feu ou configurez-les plus tard à partir de la page **Paramètres DNS**. Par défaut, le pare-feu Azure utilise Azure DNS et le Proxy DNS est désactivé.
 
 ## <a name="dns-servers"></a>Serveurs DNS
 
@@ -29,7 +30,7 @@ Un serveur DNS gère et résout les noms de domaine en adresses IP. Par défaut,
 
 1. Sous **Paramètres** du pare-feu Azure, sélectionnez **Paramètres DNS**.
 2. Sous **Serveurs DNS**, vous pouvez saisir ou ajouter des serveurs DNS existants qui ont été précédemment spécifiés dans votre réseau virtuel.
-3. Sélectionnez **Enregistrer**.
+3. Sélectionnez **Appliquer**.
 
 Le pare-feu dirige désormais le trafic DNS vers les serveurs DNS spécifiés pour la résolution de noms.
 
@@ -63,7 +64,9 @@ $azFw | Set-AzFirewall
 
 ## <a name="dns-proxy"></a>Proxy DNS
 
-Vous pouvez configurer le Pare-feu Azure pour qu’il agisse comme proxy DNS. Un proxy DNS est un intermédiaire pour les requêtes DNS entre des machines virtuelles clientes et un serveur DNS. Si vous souhaitez activer le filtrage des nom de domaine complets (FQDN) dans les règles de réseau, activez le proxy DNS et mettez à jour la configuration de la machine virtuelle pour utiliser le pare-feu comme proxy DNS.
+Vous pouvez configurer le Pare-feu Azure pour qu’il agisse comme proxy DNS. Un proxy DNS est un intermédiaire pour les requêtes DNS entre des machines virtuelles clientes et un serveur DNS.
+
+Si vous souhaitez activer le filtrage des nom de domaine complets (FQDN) dans les règles de réseau, activez le proxy DNS et mettez à jour la configuration de la machine virtuelle pour utiliser le pare-feu comme proxy DNS.
 
 :::image type="content" source="media/dns-settings/dns-proxy-2.png" alt-text="Configuration du proxy DNS à l’aide d’un serveur DNS personnalisé.":::
 
@@ -76,7 +79,13 @@ Lorsque Pare-feu Azure est un proxy DNS, deux types de fonctions de mise en cach
 
 - **Cache négatif** : la résolution DNS ne produit aucune réponse ni aucune résolution. Le pare-feu met en cache ces informations pendant une heure.
 
-Le proxy DNS stocke toutes les adresses IP résolues à partir de noms de domaine complets dans des règles de réseau. Nous vous recommandons d’utiliser des noms de domaine complets qui se résolvent en une seule adresse IP.  
+Le proxy DNS stocke toutes les adresses IP résolues à partir de noms de domaine complets dans des règles de réseau. Nous vous recommandons d’utiliser des noms de domaine complets qui se résolvent en une seule adresse IP.
+
+### <a name="policy-inheritance"></a>Héritage de stratégie
+
+ Les paramètres DNS de stratégie appliqués à un pare-feu autonome remplacent les paramètres DNS du pare-feu autonome. Une stratégie enfant hérite de tous les paramètres DNS de la stratégie parente, mais elle peut remplacer la stratégie parente.
+
+Par exemple, pour utiliser des noms de domaine complets dans la règle réseau, le proxy DNS doit être activé. Toutefois, si une stratégie parente n’a **pas** de proxy DNS activé, la stratégie enfant ne prend pas en charge les noms de domaine complets dans les règles de réseau, sauf si vous remplacez localement ce paramètre.
 
 ### <a name="dns-proxy-configuration"></a>Configuration du proxy DNS
 
@@ -163,4 +172,5 @@ $azFw | Set-AzFirewall
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Filtrage de nom de domaine complet dans les règles de réseau](fqdn-filtering-network-rules.md)
+- [Détails du proxy DNS du Pare-feu Azure](dns-details.md)
+- [Filtrage de nom de domaine complet dans les règles de réseau](fqdn-filtering-network-rules.md)

@@ -3,16 +3,18 @@ title: Synchroniser le paramétrage des serveurs DNS du réseau virtuel sur le c
 description: Découvrez comment synchroniser le paramétrage des serveurs DNS du réseau virtuel sur le cluster virtuel SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
+ms.subservice: deployment-configuration
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.topic: how-to
 ms.date: 01/17/2021
-ms.openlocfilehash: b95afe513dba2f1da9556b27ec17bcccc9fe88e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 276b4033dc2a5c157245448453b72a8074b79702
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102173549"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110707148"
 ---
 # <a name="synchronize-virtual-network-dns-servers-setting-on-sql-managed-instance-virtual-cluster"></a>Synchroniser le paramétrage des serveurs DNS du réseau virtuel sur le cluster virtuel SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,8 +36,7 @@ Si cette modification est implémentée après la création du [cluster virtuel]
 
 L’utilisateur qui synchronise la configuration des serveurs DNS doit avoir l’un des rôles Azure suivants :
 
-- Rôle Propriétaire de l’abonnement ; ou
-- Rôle Contributeur Managed Instance ; ou
+- Rôle de contributeur au niveau de l'abonnement, ou
 - Rôle personnalisé avec l’autorisation suivante :
   - `Microsoft.Sql/virtualClusters/updateManagedInstanceDnsServers/action`
 
