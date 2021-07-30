@@ -8,6 +8,7 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
+ms.subservice: performance
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -15,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: 9a9cfc444c101b603b5287fa862c36d5befef91a
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: d3a4a8bb54c5bafa9eb50ed4441cd6eebe2acc6c
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110189653"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079910"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>Stockage : Meilleures pratiques sur les performances de SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +30,7 @@ Cet article fournit les meilleures pratiques et les recommandations relatives au
 
 Il existe généralement un compromis entre l’optimisation des coûts et l’optimisation des performances. Cette série de bonnes pratiques sur les performances vise à obtenir les *meilleures* performances possibles pour SQL Server sur les machines virtuelles Azure. Si votre charge de travail est moindre, vous n’aurez peut-être pas besoin de toutes les optimisations recommandées. Tenez compte de vos besoins de performances, des coûts et des modèles de charges de travail lors de l’évaluation de ces recommandations.
 
-Pour plus d’informations, consultez les autres articles de cette série : [Liste de contrôle des performances](performance-guidelines-best-practices-checklist.md), [Taille de la machine virtuelle](performance-guidelines-best-practices-vm-size.md) et [Collecter une ligne de base](performance-guidelines-best-practices-collect-baseline.md). 
+Pour plus d’informations, consultez les autres articles de cette série : [Liste de contrôle](performance-guidelines-best-practices-checklist.md), [Taille de machine virtuelle](performance-guidelines-best-practices-vm-size.md), [Sécurité](security-considerations-best-practices.md), [Configuration HADR](hadr-cluster-best-practices.md) et [Collecter une ligne de base](performance-guidelines-best-practices-collect-baseline.md). 
 
 ## <a name="checklist"></a>Check-list
 
@@ -277,10 +278,12 @@ Il existe des métriques Azure Monitor spécifiques qui sont très utiles pour l
 Pour en savoir plus sur les meilleures pratiques en matière de performances, consultez les autres articles de cette série :
 - [Liste de vérification rapide](performance-guidelines-best-practices-checklist.md)
 - [Taille de la machine virtuelle](performance-guidelines-best-practices-vm-size.md)
+- [Sécurité](security-considerations-best-practices.md)
+- [Paramètres HADR](hadr-cluster-best-practices.md)
 - [Collecter une ligne de base](performance-guidelines-best-practices-collect-baseline.md)
 
 Pour connaître les meilleures pratiques en matière de sécurité, consultez [Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure](security-considerations-best-practices.md).
 
 Le détail des tests de performances de SQL Server sur les machines virtuelles Azure avec les benchmarks TPC-E et TPC_C est consultable sur le billet de blog relatif à l’[optimisation des performances OLTP](https://techcommunity.microsoft.com/t5/sql-server/optimize-oltp-performance-with-sql-server-on-azure-vm/ba-p/916794).
 
-Consultez d’autres articles relatifs aux machines virtuelles avec SQL Server à la page [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](sql-server-on-azure-vm-iaas-what-is-overview.md). Si vous avez des questions sur les machines virtuelles SQL Server, consultez le [Forum aux Questions](frequently-asked-questions-faq.md).
+Consultez d’autres articles relatifs aux machines virtuelles avec SQL Server à la page [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](sql-server-on-azure-vm-iaas-what-is-overview.md). Si vous avez des questions sur les machines virtuelles SQL Server, consultez le [Forum aux Questions](frequently-asked-questions-faq.yml).

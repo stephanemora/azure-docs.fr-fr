@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2c8147399f37f5f9fe2b3c01bc2c273ffc59be31
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: cfbb8badd4a0d9a8b9776d810d33f77a051b3a39
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469604"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238959"
 ---
 # <a name="introduction-to-azure-defender"></a>Présentation d’Azure Defender
 
@@ -24,7 +24,7 @@ Les fonctionnalités d’Azure Security Center couvrent les deux piliers de la s
 
 Le tableau de bord Azure Defender de Security Center offre une visibilité et un contrôle des fonctionnalités CWP pour votre environnement :
 
-:::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="Exemple de tableau de bord Azure Defender" lightbox="./media/azure-defender/sample-defender-dashboard.png":::
+:::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="Exemple de tableau de bord Azure Defender." lightbox="./media/azure-defender/sample-defender-dashboard.png":::
 
 ## <a name="what-resource-types-can-azure-defender-secure"></a>Quels sont les types de ressources qu’Azure Defender peut sécuriser ?
 

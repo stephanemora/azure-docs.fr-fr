@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 06/4/2021
 ms.author: damaerte
-ms.openlocfilehash: f824bddf833a1e2c01a3b779abc2c5252d8e0547
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 250e4bc171950bb643a75bdc9d80bdb2941cb97a
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89468655"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539301"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Vue d’ensemble d’Azure Cloud Shell
 
@@ -112,6 +112,10 @@ Apprenez à monter un [compte de stockage nouveau ou existant](persisting-shell-
 * Les autorisations sont définies en tant qu’utilisateur Linux standard dans Bash
 
 En savoir plus sur les fonctionnalités de [Bash dans Cloud Shell](features.md) et [PowerShell dans Cloud Shell](./features.md).
+
+## <a name="complaince"></a>Conformité
+### <a name="encryption-at-rest"></a>Chiffrement au repos
+Toutes les infrastructures Cloud Shell sont équipées du double chiffrement au repos par défaut. Aucune action des utilisateurs n’est requise.
 
 ## <a name="pricing"></a>Tarifs
 

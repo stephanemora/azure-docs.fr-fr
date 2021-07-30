@@ -2,13 +2,13 @@
 title: Nouveautés de l’agent des serveurs activés par Azure Arc
 description: Cet article contient les notes de publication de l’agent des serveurs activés par Azure Arc. Pour la plupart des problèmes résumés, des liens mènent à des informations supplémentaires.
 ms.topic: conceptual
-ms.date: 04/27/2021
-ms.openlocfilehash: c223b5dd75ac82706a2b35268813391899170f73
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.date: 05/24/2021
+ms.openlocfilehash: 35822fb47add5c355ad9461b09e8e910f0a5a1fd
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071538"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480371"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Nouveautés de l’agent des serveurs activés par Azure Arc
 
@@ -17,6 +17,19 @@ L’agent Connected Machine des serveurs activés par Azure Arc reçoit des amé
 - Versions les plus récentes
 - Problèmes connus
 - Résolution des bogues
+
+## <a name="may-2021"></a>Mai 2021
+
+Version 1.6
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+
+- Ajout de la prise en charge de SUSE Enterprise Linux 12
+- Mise à jour de l’agent de configuration invité vers la version 1.26.12.0 pour inclure les éléments suivants :
+
+   - Les stratégies sont exécutées dans un processus distinct.
+   - Ajout de la prise en charge de signature V2 pour la validation de l’extension.
+   - Mise à jour mineure de la journalisation des données.
 
 ## <a name="april-2021"></a>Avril 2021
 
@@ -49,7 +62,7 @@ Version : 1.3
 
 ### <a name="new-feature"></a>Nouvelle fonctionnalité
 
-Ajout de la prise en charge de Windows Server 2008 R2.
+Ajout de la prise en charge de Windows Server 2008 R2 SP1.
 
 ### <a name="fixed"></a>Fixe
 

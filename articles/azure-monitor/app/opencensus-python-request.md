@@ -6,12 +6,12 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 3b029a9cb14a81c80072847dc17d6b71f480743f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 093a31991300867e2598cabacbef7f56dfe890e9
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585671"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472714"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Suivre les requêtes entrantes avec OpenCensus Python
 
@@ -87,7 +87,10 @@ Commencez par instrumenter votre application Python avec le dernier [kit SDK Ope
         }
     }
     ```
-
+    
+    > [!NOTE]
+    > Pour exécuter le flacon sous uWSGI dans un environnement Docker, vous devez d’abord ajouter `lazy-apps = true` au fichier de configuration uWSGI (uwsgi.ini). Pour plus d'informations, consultez la [description du problème](https://github.com/census-instrumentation/opencensus-python/issues/660). 
+    
 ## <a name="tracking-pyramid-applications"></a>Suivi des applications Pyramid
 
 1. Téléchargez et installez `opencensus-ext-django` à partir de [PyPI](https://pypi.org/project/opencensus-ext-pyramid/) et instrumentez votre application grâce à l’interpolation `pyramid`. Les requêtes entrantes envoyées à votre application `pyramid` feront l’objet d’un suivi.

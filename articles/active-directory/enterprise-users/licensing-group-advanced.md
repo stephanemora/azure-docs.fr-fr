@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/05/2021
+ms.date: 05/28/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d55412ebc8d5b0d8d52b9f010937200838166f98
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: ffe851cc39ab8856133a5ac24508bc9b6df53a8f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108794193"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110782328"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
 
@@ -76,23 +76,21 @@ Un utilisateur peut être membre de plusieurs groupes avec des licences. Voici q
 
 ## <a name="direct-licenses-coexist-with-group-licenses"></a>Coexistence de licences directes avec des licences de groupe
 
-Quand un utilisateur hérite d’une licence d’un groupe, vous ne pouvez pas supprimer ou modifier directement cette attribution de licence dans les propriétés de l’utilisateur. Les modifications doivent être effectuées dans le groupe et propagées à tous les utilisateurs.
+Quand un utilisateur hérite d’une licence d’un groupe, vous ne pouvez pas supprimer ou modifier directement cette attribution de licence dans les propriétés de l’utilisateur. Vous pouvez modifier l’attribution de licence uniquement dans le groupe et les modifications sont ensuite propagées à tous les utilisateurs. Toutefois, il est possible d’attribuer la même licence de produit à l’utilisateur directement et par le biais de l’attribution de licence de groupe. De cette façon, vous pouvez activer des services supplémentaires à partir du produit pour un utilisateur individuel, sans affecter les autres utilisateurs.
 
-Il est toutefois possible d’affecter la même licence de produit directement à l’utilisateur en plus de la licence héritée. Vous pouvez activer des services supplémentaires à partir du produit pour un utilisateur individuel, sans affecter les autres utilisateurs.
-
-Des licences attribuées directement peuvent être supprimées sans que cela affecte les licences héritées. Prenons l’utilisateur qui hérite d’une licence Office 365 Entreprise E3 d’un groupe.
+Des licences attribuées directement peuvent être supprimées sans que cela affecte les licences héritées d’un utilisateur. Prenons l’utilisateur qui hérite d’une licence Office 365 Entreprise E3 d’un groupe.
 
 Initialement, l’utilisateur hérite uniquement de la licence du groupe *E3 - Services de base*, qui active quatre plans de service.
 
-1. Sélectionnez **Affecter** pour affecter directement une licence E3 à l’utilisateur. Dans ce cas, vous désactivez tous les plans de service, à l’exception de Yammer Enterprise.
+1. Sélectionnez **Affecter** pour affecter directement une licence E3 à l’utilisateur. Par exemple, si vous souhaitez désactiver tous les plans de service à l’exception de Yammer Enterprise.
 
-    Par conséquent, l’utilisateur n’utilise toujours qu’une seule licence du produit E3. L’affectation directe active le service Yammer Enterprise pour cet utilisateur uniquement. Vous pouvez voir les services activés par l’appartenance au groupe et ceux qui le sont par l’affectation directe.
+   Par conséquent, l’utilisateur n’utilise toujours qu’une seule licence du produit E3. L’affectation directe active le service Yammer Enterprise pour cet utilisateur uniquement. Vous pouvez voir les services activés par l’appartenance au groupe et ceux qui le sont par l’affectation directe.
 
 1. Lorsque vous utilisez une affectation directe, les opérations suivantes sont autorisées :
 
-   - Yammer Enterprise peut être désactivé sur la ressource utilisateur directement. Notez que le bouton bascule **Activé/Désactivé** dans l’illustration est activé pour ce service, contrairement aux autres services. Étant donné que le service est activé directement sur l’utilisateur, il est possible de le modifier.
+   - Yammer Enterprise peut être désactivé pour un utilisateur individuel. Étant donné que le service est attribué directement à l’utilisateur, il peut être modifié.
    - Des services supplémentaires peuvent également être activés dans le cadre de la licence affectée directement.
-   - Le bouton **Supprimer** peut être utilisé pour supprimer la licence directe de l’utilisateur. Vous pouvez constater que l’utilisateur ne dispose à présent que de la licence de groupe héritée et que seuls les services d’origine restent activés :
+   - Le bouton **Supprimer** peut être utilisé pour supprimer la licence directe de l’utilisateur. Vous pouvez constater que l’utilisateur dispose ensuite de la licence de groupe héritée et que seuls les services d’origine restent activés.
 
 ## <a name="managing-new-services-added-to-products"></a>Gestion des nouveaux services ajoutés aux produits
 

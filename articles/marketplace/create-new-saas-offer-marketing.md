@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour vendre votre offre SaaS sur Espace partenaires Microsoft
-description: Apprenez-en davantage sur la co-vente avec Microsoft et la revente via des options du Programme des fournisseurs de solutions cloud (CSP) pour votre offre SaaS (Software as a Service) sur la place de marché commerciale de Microsoft.
+title: Vendre une offre SaaS dans la Place de marché Azure
+description: Apprenez-en davantage sur la co-vente avec Microsoft et la revente via des options du Programme des fournisseurs de solutions cloud (CSP) pour votre offre SaaS (Software as a Service) sur la place de marché Azure.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: fa207ca38c46f09e3660ea03e70d20e45c620845
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 632c2aaed5b9c0ffbfb6c47c4194276fd6a1869c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127440"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110703448"
 ---
-# <a name="how-to-sell-your-saas-offer"></a>Guide pratique pour vendre votre offre SaaS
+# <a name="sell-a-saas-offer-through-microsoft"></a>Vendre une offre SaaS par le biais de Microsoft
 
 Cet article décrit les options supplémentaires à votre disposition si vous vendez votre offre SaaS par le biais de Microsoft. Vous pouvez co-vendre votre offre avec Microsoft, la revendre par le biais du [Programme des fournisseurs de solutions cloud (CSP)](cloud-solution-providers.md), ou les deux.
 
@@ -32,4 +32,4 @@ Si vous choisissez de rendre votre offre disponible dans le Programme des fourni
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Tester et publier une offre SaaS](test-publish-saas-offer.md)
-- [Activer les Récompenses de la place de marché](partner-center-portal/marketplace-rewards.md)
+- [Activer les Récompenses de la place de marché](marketplace-rewards.md)

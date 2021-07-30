@@ -10,5 +10,5 @@
   href: ./kubernetes/overview.md
 - name: Services de données avec Arc (préversion) >
   href: ./data/overview.md
-- name: SQL Server avec Arc (préversion) >
+- name: SQL Server sur des serveurs avec Azure Arc (préversion) >
   href: 'https://docs.microsoft.com/sql/sql-server/azure-arc/overview'

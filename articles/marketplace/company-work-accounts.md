@@ -1,18 +1,18 @@
 ---
 title: Comptes professionnels d’entreprise et Espace partenaires
-description: Comment vérifier si votre entreprise possède un compte professionnel configuré avec Microsoft, créer un nouveau compte professionnel ou configurer plusieurs comptes professionnels à utiliser avec l’Espace partenaires.
+description: Comment vérifier si votre entreprise possède un compte professionnel configuré avec Microsoft, créer un nouveau compte professionnel ou configurer plusieurs comptes professionnels à utiliser avec l’Espace partenaires (Place de marché Azure).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 05/30/2019
-ms.openlocfilehash: c4433572f503ca086b88e6e42600fff623f34a11
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 06/08/2021
+ms.openlocfilehash: d40bce42d687f546b5944a845ce8f7963e1c1258
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133202"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111981982"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Comptes professionnels d’entreprise et Espace partenaires
 
@@ -23,6 +23,7 @@ L’Espace partenaires utilise des comptes professionnels d’entreprise, égale
 Si votre entreprise s’est abonnée à un service cloud Microsoft comme Azure, Microsoft Intune ou Microsoft 365, vous disposez déjà d’un domaine de compte de messagerie (également appelé locataire Azure Active Directory) qui peut être utilisé avec l’Espace partenaires.
 
 Pour vérifier, procédez comme suit :
+
 1. Connectez-vous au portail d’administration Azure sur https://portal.azure.com.
 2. Sélectionnez **Azure Active Directory** dans le menu de navigation de gauche, puis sélectionnez **Noms de domaine personnalisés**.
 3. Si vous avez déjà un compte professionnel, votre nom de domaine s’affichera.
@@ -38,11 +39,11 @@ Avant de décider d’utiliser un compte professionnel existant, déterminez com
 Pour créer un nouveau compte professionnel pour votre entreprise, suivez les étapes ci-dessous. Vous devrez peut-être demander de l’aide à quelqu’un disposant d’autorisations d’administration sur le compte Microsoft Azure de votre entreprise.
 
 1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com).
-2. Dans la barre de navigation de gauche, sélectionnez **Azure Active Directory** -> **Utilisateurs**.
-3. Sélectionnez **Nouvel utilisateur** et créez un nouveau compte professionnel Azure en entrant une nom et adresse e-mail. Vérifiez que le **Rôle d’annuaire** est défini sur **Utilisateur** et activez la case à cocher **Afficher le mot de passe** en bas pour afficher et prendre note du mot de passe généré automatiquement.
-4. Sélectionnez **Créer** pour enregistrer le nouvel utilisateur.
+2. Dans la barre de navigation de gauche, sélectionnez **Azure Active Directory** > **Utilisateurs**.
+3. Sélectionnez **Nouvel utilisateur** et créez un nouveau compte professionnel Azure en entrant un nom et une adresse e-mail professionnelle. Vérifiez que le **Rôle d’annuaire** est défini conformément aux exigences pour l’utilisateur et activez la case à cocher **Afficher le mot de passe** en bas pour afficher et prendre note du mot de passe généré automatiquement.
+4. Renseignez les autres champs requis et sélectionnez **Créer** pour enregistrer le nouvel utilisateur. 
 
-L’adresse e-mail du compte d’utilisateur doit être un nom de domaine vérifié dans votre répertoire. Vous pouvez répertorier tous les domaines vérifiés dans votre répertoire en sélectionnant **Azure Active Directory** -> **Noms de domaine personnalisés** dans le menu de navigation de gauche.
+L’adresse e-mail du compte d’utilisateur doit être un nom de domaine vérifié dans votre répertoire. Vous pouvez répertorier tous les domaines vérifiés dans votre répertoire en sélectionnant **Azure Active Directory** > **Noms de domaine personnalisés** dans le menu de navigation de gauche.
 
 Pour en savoir plus sur l’ajout de domaines personnalisés dans Azure Active Directory, consultez [Ajouter ou associer un domaine dans Azure AD](../active-directory/fundamentals/add-custom-domain.md).
 
@@ -50,7 +51,7 @@ Pour en savoir plus sur l’ajout de domaines personnalisés dans Azure Active D
 
 Si vous ne parvenez pas à vous connecter à votre compte professionnel (également appelé locataire Azure AD), identifiez sur le diagramme ci-dessous le scénario qui correspond le mieux à votre situation et suivez les étapes recommandées.
 
-![Diagramme pour la résolution des problèmes de connexion à un compte professionnel](./media/manage-accounts/onboarding-aad-flow.png)
+[![Diagramme pour la résolution des problèmes de connexion à un compte professionnel](media/manage-accounts/onboarding-aad-flow.png)](media/manage-accounts/onboarding-aad-flow.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

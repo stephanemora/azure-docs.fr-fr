@@ -1,18 +1,18 @@
 ---
 title: 'Voir les routes effectives d’un hub virtuel : Azure Virtual WAN | Microsoft Docs'
-description: Comment afficher les itinéraires effectifs d’un hub virtuel dans Azure Virtual WAN
+description: Apprenez à afficher les itinéraires effectifs d'un hub virtuel dans Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 05/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: ad487aa7492abcf02988c78ccfa2ba7cd4798249
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 955bf9fb9881fcf5fb37b75352c25d2d639bfb3c
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90983644"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579835"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Afficher les routes effectives d’un hub virtuel
 
@@ -51,7 +51,7 @@ Utilisez la barre de défilement au bas de la table pour voir le « Chemin AS 
 
 * Lorsque vous consultez les itinéraires effectifs sur la carte réseau d'une machine virtuelle, si le tronçon suivant correspond à « Virtual Network Gateway », cela implique le routeur du hub virtuel si la machine virtuelle se trouve dans un réseau en étoile connecté à un hub Virtual WAN.
 
-* Le champ Afficher les itinéraires effectifs pour une table de routage de hub virtuel est renseigné uniquement si le hub virtuel est connecté à au moins un type de connexion (VPN/ER/VNET).
+* Le champ **Afficher les itinéraires effectifs** d'une table de routage de hub virtuel n'est renseigné que si le hub virtuel est connecté à au moins un type de connexion (VPN/ER/VNET).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

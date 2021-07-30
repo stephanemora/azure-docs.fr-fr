@@ -3,12 +3,12 @@ title: Sécuriser un cluster Azure Service Fabric
 description: Découvrez des scénarios de sécurité relatifs aux clusters Azure Service Fabric, ainsi que les différentes technologies que vous pouvez utiliser pour les implémenter.
 ms.topic: conceptual
 ms.date: 08/14/2018
-ms.openlocfilehash: 6f7bb785184938fe5c1e20e3c915b0112c7723ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: feeb6bf0844dc9f0d835d934b148484010979441
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96573066"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112034046"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scénarios de sécurité d’un cluster Service Fabric
 
@@ -30,9 +30,9 @@ Les clusters exécutés dans Azure et les clusters autonomes exécutés sur Wind
 
 ### <a name="node-to-node-certificate-security"></a>Sécurité de certificat de nœud à nœud
 
-Service Fabric utilise des certificats de serveur X.509 que vous spécifiez dans le cadre de la configuration du type de nœud, lorsque vous créez un cluster. La fin de cet article propose un rapide aperçu de ce que sont ces certificats et de la façon dont vous pouvez les acquérir ou les créer.
+Service Fabric utilise des certificats de serveur X.509 que vous spécifiez dans le cadre de la configuration du type de nœud, lorsque vous créez un cluster. Pour configurer la sécurité par certificat, vous pouvez utiliser un modèle Azure Resource Manager dans le portail Azure, ou un modèle JSON autonome. La fin de cet article propose un rapide aperçu de ce que sont ces certificats et de la façon dont vous pouvez les acquérir ou les créer.
 
-Pour configurer la sécurité par certificat lors de la création du cluster, vous pouvez utiliser un modèle Azure Resource Manager dans le portail Azure, ou un modèle JSON autonome. Le comportement par défaut du SDK Service Fabric est de déployer et d’installer le certificat dont la date d’expiration est la plus lointaine ; le comportement classique permettait de définir des certificats principaux et secondaires pour autoriser les déploiements manuels, mais cette approche n’est pas recommandée avec cette nouvelle fonctionnalité. Les certificats principaux qui seront utilisés présentant la date d’expiration la plus lointaine doivent être différents de ceux du client d’administration et du client en lecture seule que vous spécifiez pour la [sécurité client à nœud](#client-to-node-security).
+Le comportement par défaut du SDK Service Fabric est de déployer et d’installer le certificat avec la date d’expiration la plus éloignée. Ce certificat principal que vous spécifiez doit être différent de celui du client d’administration et du client en lecture seule que vous spécifiez pour la [sécurité client à nœud](#client-to-node-security). Le comportement classique du SDK a permis de définir des certificats primaires et secondaires pour permettre des renouvellements initiés manuellement. Il n’est pas recommandé de l’utiliser sur la nouvelle fonctionnalité. 
 
 Pour plus d’informations sur la configuration de la sécurité par certificat dans un cluster Azure, consultez [Configurer un cluster à l’aide d’un modèle Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
@@ -67,11 +67,9 @@ Pour plus d’informations sur la configuration de la sécurité par certificat 
 
 ### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Sécurité Azure Active Directory de client à nœud sur Azure
 
-Azure AD permet aux organisation (appelées locataires) de gérer l’accès utilisateur aux applications. Ces dernières se composent d’applications avec une interface utilisateur de connexion web et d’applications avec une expérience client natif. Si vous n’avez pas encore créé de locataire, commencez par lire la section [Obtention d’un locataire Azure Active Directory][active-directory-howto-tenant].
+Azure Active Directory (Azure AD) permet aux organisation (appelées locataires) de gérer l’accès utilisateur aux applications. Ces dernières se composent d’applications avec une interface utilisateur de connexion web et d’applications avec une expérience client natif. Si vous n’avez pas encore créé de locataire, commencez par lire la section [Obtention d’un locataire Azure Active Directory][active-directory-howto-tenant].
 
-Un cluster Service Fabric offre plusieurs points d’entrée pour ses fonctionnalités de gestion, notamment les outils web [Service Fabric Explorer][service-fabric-visualizing-your-cluster]et [Visual Studio][service-fabric-manage-application-in-visual-studio]. Par conséquent, vous allez créer deux applications Azure AD pour contrôler l’accès au cluster : une application web et une application native.
-
-Pour les clusters exécutés dans Azure, vous pouvez également sécuriser l’accès aux points de terminaison de gestion à l’aide d’Azure Active Directory (Azure AD). Pour apprendre à créer les artefacts Azure AD requis et à les renseigner lors de la création du cluster, consultez la section [Configurer Azure AD pour authentifier les clients](service-fabric-cluster-creation-setup-aad.md).
+Pour les clusters exécutés sur Azure, vous pouvez également utiliser Azure AD pour sécuriser l’accès aux points de terminaison de gestion. Un cluster Service Fabric offre plusieurs points d’entrée pour ses fonctionnalités de gestion, notamment les outils web [Service Fabric Explorer][service-fabric-visualizing-your-cluster]et [Visual Studio][service-fabric-manage-application-in-visual-studio]. Par conséquent, pour contrôler l’accès au cluster, vous allez créer deux applications Azure AD : une application web et une application native. Pour apprendre à créer les artefacts Azure AD requis et à les renseigner lors de la création du cluster, consultez la section [Configurer Azure AD pour authentifier les clients](service-fabric-cluster-creation-setup-aad.md).
 
 ## <a name="security-recommendations"></a>Recommandations de sécurité
 

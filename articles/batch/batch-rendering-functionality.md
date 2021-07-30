@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 3dcb66c0659c8d76ab53c7537f1b9a4343bd17a1
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: c39417697dd88d3faa64ce47493ab5e7c08faa0d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987467"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481344"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Fonctionnalités de rendu Azure Batch
 
@@ -37,7 +37,7 @@ Pour spécifier une image de machine virtuelle de rendu issue de la Place de mar
 
 Il existe une image Windows et une image CentOS.  Dans la [Place de marché Azure](https://azuremarketplace.microsoft.com), vous pouvez rechercher les images de machine virtuelle à l’aide de la requête « batch rendering ».
 
-Pour un exemple de configuration de pool, consultez le [tutoriel sur le rendu Azure CLI](./tutorial-rendering-cli.md).  Le portail Azure et Batch Explorer fournissent des outils GUI permettant de sélectionner une image de machine virtuelle de rendu lorsque vous créez un pool.  Si vous utilisez une API Batch, spécifiez les valeurs de propriété suivantes pour [ImageReference](/rest/api/batchservice/pool/add#imagereference) quand vous créez un pool :
+Le portail Azure et Batch Explorer fournissent des outils GUI permettant de sélectionner une image de machine virtuelle de rendu lorsque vous créez un pool.  Si vous utilisez une API Batch, spécifiez les valeurs de propriété suivantes pour [ImageReference](/rest/api/batchservice/pool/add#imagereference) quand vous créez un pool :
 
 | Serveur de publication | Offre | Sku | Version |
 |---------|---------|---------|--------|
@@ -98,7 +98,5 @@ Lorsque des images de machine virtuelle issues de la Place de marché Azure sont
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir des exemples de rendu Batch, suivez les deux tutoriels suivants :
-
-* [Rendu à l’aide d’Azure CLI](./tutorial-rendering-cli.md)
-* [Rendu à l’aide de Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)
+* En savoir plus sur [l'utilisation des applications de rendu avec Batch](batch-rendering-applications.md)
+* En savoir plus sur [les options de stockage et de déplacement des données pour les fichiers d'éléments multimédias et de sortie destinés au rendu](batch-rendering-storage-data-movement.md)

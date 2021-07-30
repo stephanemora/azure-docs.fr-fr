@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 05/19/2021
 ms.author: phjensen
-ms.openlocfilehash: 16e758ac520c8584a11c88c0823fac7cfec43c0b
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 0eae929d60ce852e7a98f12430de796aa664d86f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226297"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481447"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool"></a>Installer l’outil Azure Application Consistent Snapshot Tool
 
@@ -42,6 +42,12 @@ Suivez les instructions pour configurer et exécuter les instantanés et les com
 1. **HANA est installé** : consultez les instructions d’installation de HANA dans [Installation de SAP NetWeaver sur une base de données HANA](/archive/blogs/saponsqlserver/sap-netweaver-installation-on-hana-database).
 1. **[Activer la communication avec le stockage](#enable-communication-with-storage)** (pour plus d’informations, voir la section dédiée) : Le client doit configurer SSH avec une paire de clés privée/publique et fournir la clé publique pour chaque nœud sur lequel les outils d’instantané doivent être exécutés sur Microsoft Operations pour une configuration sur le serveur principal de stockage.
    1. **Pour Azure NetApp Files (pour plus d’informations, voir la section dédiée)**  : le client doit générer le fichier d’authentification du principal du service.
+      
+      > [!IMPORTANT]
+      > Lors de la validation de la communication avec Azure NetApp Files, la communication peut échouer ou expirer. Vérifiez que des règles de pare-feu ne bloquent pas le trafic sortant du système exécutant AzAcSnap vers les adresses et ports TCP/IP suivants :
+      > - (https://)management.azure.com:443
+      > - (https://)login.microsoftonline.com:443
+      
    1. **Pour les grandes instances Azure (pour plus d’informations, voir la section dédiée)**  : le client doit configurer SSH avec une paire de clés privée/publique et fournir la clé publique pour chaque nœud sur lequel les outils d’instantané doivent être exécutés sur Microsoft Operations pour une configuration sur le serveur principal de stockage.
 
       Effectuez un test à l’aide de SSH pour vous connecter à l’un des nœuds (par exemple, `ssh -l <Storage UserName> <Storage IP Address>`).

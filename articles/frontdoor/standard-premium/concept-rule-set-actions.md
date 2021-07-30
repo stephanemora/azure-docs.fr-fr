@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: yuajia
-ms.openlocfilehash: e4698a1c1576d15042dd050e0123b83dba39a3e3
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 98f09b35bb51f4f93c7bf326683a333e79845de2
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064749"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810752"
 ---
 # <a name="azure-front-door-standardpremium-preview-rule-set-actions"></a>Actions d’ensemble de règles Azure Front Door Standard/Premium (préversion)
 
@@ -326,6 +326,54 @@ Dans cet exemple, nous réécrivons toutes les demandes dans le chemin d’accè
     destination: '/redirection'
     preserveUnmatchedPath: false
     '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRewriteActionParameters'
+  }
+}
+```
+
+---
+
+## <a name="origin-group-override"></a><a name="OriginGroupOverride"></a> Remplacement du groupe d’origines
+
+Utilisez l’action **Remplacement du groupe d’origines** pour modifier le groupe d’origines vers lequel la demande doit être acheminée.
+
+### <a name="properties"></a>Propriétés
+
+| Propriété | Valeurs prises en charge |
+|----------|------------------|
+| Groupe d’origines | Groupe d’origines vers lequel la demande doit être acheminée. Cela remplace la configuration spécifiée dans l’itinéraire du point de terminaison Front Door. |
+
+### <a name="example"></a>Exemple
+
+Dans cet exemple, nous acheminons toutes les demandes mises en correspondance vers un groupe d’origines nommé `SecondOriginGroup`, quelle que soit la configuration de l’itinéraire du point de terminaison Front Door.
+
+# <a name="portal"></a>[Portail](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-actions/origin-group-override.png" alt-text="Capture d’écran du portail illustrant l’action de remplacement du groupe d’origines.":::
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+{
+  "name": "OriginGroupOverride",
+  "parameters": {
+    "originGroup": {
+      "id": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup"
+    },
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleOriginGroupOverrideActionParameters"
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'OriginGroupOverride'
+  parameters: {
+    originGroup: {
+      id: '/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup'
+    }
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleOriginGroupOverrideActionParameters'
   }
 }
 ```

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 05/04/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a09c4513206bea3462577ecba49b5d77b655b0e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99d8fbf65cdfd4a56f4e7bec197131a1274b0beb
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91628262"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110612798"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Accès conditionnel : Accès conditionnel basé sur les risques de connexion
 
@@ -24,7 +24,7 @@ La plupart des utilisateurs ont un comportement normal qui peut être suivi. Lor
 
 Un risque de connexion reflète la probabilité qu’une requête d’authentification donnée soit rejetée par le propriétaire de l'identité. Les organisations disposant de licences Azure AD Premium P2 peuvent créer des stratégies d’accès conditionnel incorporant les [détections de risques de connexion d’Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md#sign-in-risk).
 
-Il y a deux emplacements où cette stratégie peut être affectée. Les organisations doivent choisir l’une des options suivantes pour activer une stratégie d’accès conditionnel basé sur les risques de connexion qui nécessite un changement de mot de passe sécurisé.
+Il existe deux emplacements où cette stratégie peut être configurée, l’Accès conditionnel et la Protection de l’identité. La configuration à l’aide d’une stratégie d’accès conditionnel est la méthode privilégiée qui fournit davantage de contexte, notamment des données de diagnostic améliorées, l’intégration du mode de création de rapports uniquement, la prise en charge API Graph et la possibilité d’utiliser d’autres attributs d’accès conditionnel dans la stratégie.
 
 ## <a name="enable-with-conditional-access-policy"></a>Activer avec la stratégie d’accès conditionnel
 

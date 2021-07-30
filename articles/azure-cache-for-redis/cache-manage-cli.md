@@ -7,26 +7,28 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7643f882d5ac330046c169e0a3f2fa4920331d4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f1be7c257cfd99849fdec21d2731a0a6a1c2b85
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92537692"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110653576"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Création et gestion du Cache Azure pour Redis à l’aide de l’interface de ligne de commande classique Azure
+
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
 > * [Azure Classic CLI](cache-manage-cli.md)
 >
 
-L'interface de ligne de commande classique Azure est un excellent moyen de gérer votre infrastructure Azure à partir de n'importe quelle plateforme. Cet article montre comment créer et gérer vos instances de Cache Azure pour Redis à l’aide de l’interface de ligne de commande classique Azure.
+L'interface de ligne de commande classique Azure est un excellent moyen de gérer votre infrastructure Azure à partir de n'importe quelle plateforme. Cet article montre comment créer et gérer vos instances de votre Azure Cache pour Redis à l’aide de l’interface de ligne de commande classique Azure.
 
 [!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 > [!NOTE]
 > Pour obtenir les exemples de scripts d’interface de ligne de commande Azure les plus récents, consultez [Exemples de Cache Azure pour Redis d’interface de ligne de commande Azure](cli-samples.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour créer et gérer des instances de Cache Azure pour Redis à l’aide de l’interface de ligne de commande classique Azure, vous devez procéder comme suit.
 
 * Vous devez disposer d’un compte Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
@@ -35,6 +37,7 @@ Pour créer et gérer des instances de Cache Azure pour Redis à l’aide de l�
 * Avant d'exécuter les commandes suivantes, faites basculer l'interface de ligne de commande classique en mode Gestionnaire des ressources en exécutant la commande `azure config mode arm`. Pour plus d’informations, consultez [Utiliser l’interface de ligne de commande classique Azure pour gérer les ressources et les groupes de ressources Azure](../azure-resource-manager/management/manage-resources-cli.md).
 
 ## <a name="azure-cache-for-redis-properties"></a>Propriétés du cache Azure pour Redis
+
 Les propriétés suivantes sont utilisées lors de la création et de la mise à jour des instances de Cache Azure pour Redis.
 
 | Propriété | Commutateur | Description |
@@ -48,14 +51,15 @@ Les propriétés suivantes sont utilisées lors de la création et de la mise à
 | Configuration de Redis |-c, --redis-configuration |Configuration de Redis. Entrez ici une chaîne au format JSON des clés et des valeurs de configuration. Format :"{"":"","":""}" |
 | Configuration de Redis |-f, --redis-configuration-file |Configuration de Redis. Entrez ici le chemin d’un fichier contenant les clés et les valeurs de configuration. Format pour l’entrée du fichier : {"":"","":""} |
 | Nombre de partitions |-r, --shard-count |Nombre de partitions à créer sur un cache de cluster Premium avec clustering. |
-| Réseau virtuel |-v, --virtual-network |Quand vous hébergez votre cache dans un réseau virtuel, spécifie l’ID de la ressource ARM exacte du réseau virtuel où déployer le Cache Azure pour Redis. Exemple de format : /subscriptions/{ID_abonnement}/resourceGroups/{nom_groupe_ressources}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Réseau virtuel |-v, --virtual-network |Quand vous hébergez votre cache dans un réseau virtuel, spécifie l’ID de la ressource Resource Manager exacte du réseau virtuel où déployer le Cache Azure pour Redis. Exemple de format : /subscriptions/{ID_abonnement}/resourceGroups/{nom_groupe_ressources}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | key type |-t, --key-type |Type de clé à renouveler. Valeurs valides : [Primary, Secondary] |
 | StaticIP |-p, --static-ip \<static-ip\> |Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie une adresse IP unique dans le sous-réseau pour le cache. Si elle est omise, une adresse IP est choisie pour vous dans le sous-réseau. |
 | Subnet |t, --subnet \<subnet\> |Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie le nom du sous-réseau dans lequel déployer le cache. |
-| VirtualNetwork |-v, --virtual-network \<virtual-network\> |Quand vous hébergez votre cache dans un réseau virtuel, spécifie l’ID de la ressource ARM exacte du réseau virtuel où déployer le Cache Azure pour Redis. Exemple de format : /subscriptions/{ID_abonnement}/resourceGroups/{nom_groupe_ressources}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| VirtualNetwork |-v, --virtual-network \<virtual-network\> |Quand vous hébergez votre cache dans un réseau virtuel, spécifie l’ID de la ressource Resource Manager exacte du réseau virtuel où déployer le Cache Azure pour Redis. Exemple de format : /subscriptions/{ID_abonnement}/resourceGroups/{nom_groupe_ressources}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Abonnement |-s, --subscription |Identificateur de l’abonnement. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>Voir toutes les commandes de Cache Azure pour Redis
+
 Pour afficher toutes les commandes de Cache Azure pour Redis et leurs paramètres, utilisez la commande `azure rediscache -h`.
 
 ```azurecli
@@ -90,6 +94,7 @@ help:    Current Mode: arm (Azure Resource Management)
 ```
 
 ## <a name="create-an-azure-cache-for-redis"></a>Créer un Cache Azure pour Redis
+
 Pour créer un Cache Azure pour Redis, utilisez la commande suivante :
 
 ```azurecli
@@ -127,6 +132,7 @@ help:    Current Mode: arm (Azure Resource Management)
 ```
 
 ## <a name="delete-an-existing-azure-cache-for-redis"></a>Supprimer un Cache Azure pour Redis existant
+
 Pour supprimer un Cache Azure pour Redis, utilisez la commande suivante :
 
 ```azurecli
@@ -154,6 +160,7 @@ help:    Current Mode: arm (Azure Resource Management)
 ```
 
 ## <a name="list-all-azure-cache-for-redis-within-your-subscription-or-resource-group"></a>Répertorier tous les caches Azure pour Redis dans votre abonnement ou groupe de ressources
+
 Pour répertorier tous les caches Azure pour Redis dans votre abonnement ou groupe de ressources, utilisez la commande suivante :
 
 ```azurecli
@@ -180,6 +187,7 @@ help:    Current Mode: arm (Azure Resource Management)
 ```
 
 ## <a name="show-properties-of-an-existing-azure-cache-for-redis"></a>Afficher les propriétés d’un Cache Azure pour Redis existant
+
 Pour afficher les propriétés d’un Cache Azure pour Redis existant, utilisez la commande suivante :
 
 ```azurecli
@@ -209,6 +217,7 @@ help:    Current Mode: arm (Azure Resource Management)
 <a name="scale"></a>
 
 ## <a name="change-settings-of-an-existing-azure-cache-for-redis"></a>Modifier les paramètres d’un Cache Azure pour Redis existant
+
 Pour modifier les propriétés d’un Cache Azure pour Redis existant, utilisez la commande suivante :
 
 ```azurecli
@@ -238,6 +247,7 @@ help:    Current Mode: arm (Azure Resource Management)
 ```
 
 ## <a name="renew-the-authentication-key-for-an-existing-azure-cache-for-redis"></a>Renouveler la clé d’authentification pour un Cache Azure pour Redis existant
+
 Pour renouveler la clé d’authentification pour un Cache Azure pour Redis, utilisez la commande suivante :
 
 ```azurecli
@@ -268,6 +278,7 @@ help:    Current Mode: arm (Azure Resource Management)
 ```
 
 ## <a name="list-primary-and-secondary-keys-of-an-existing-azure-cache-for-redis"></a>Répertorier les clés primaire et secondaire d’un Cache Azure pour Redis
+
 Pour répertorier les clés primaire et secondaire d’un Cache Azure pour Redis, utilisez la commande suivante :
 
 ```azurecli

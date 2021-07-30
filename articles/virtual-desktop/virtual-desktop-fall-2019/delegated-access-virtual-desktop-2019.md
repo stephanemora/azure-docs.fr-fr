@@ -1,26 +1,26 @@
 ---
-title: Accès délégué dans Windows Virtual Desktop (classique) – Azure
-description: Découvrez comment déléguer des capacités d’administration lors d’un déploiement de Windows Virtual Desktop (classique), avec exemples.
+title: Accès délégué dans Azure Virtual Desktop (classique) – Azure
+description: Découvrez comment déléguer des capacités d’administration lors d’un déploiement d’Azure Virtual Desktop (classique), avec exemples.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d683548c32baa37f9657541d90d7a58561a1d723
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 9db8ad454ad38f24f32e05bf2f72d67ef7db1971
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445021"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752042"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-classic"></a>Accès délégué dans Windows Virtual Desktop (classique)
+# <a name="delegated-access-in-azure-virtual-desktop-classic"></a>Accès délégué dans Azure Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../delegated-access-virtual-desktop.md).
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer des objets Azure Virtual Desktop pour Azure Resource Manager, consultez [cet article](../delegated-access-virtual-desktop.md).
 
-Windows Virtual Desktop dispose d’un modèle d’accès délégué qui vous permet de définir les droits d’accès d’un utilisateur particulier en lui attribuant un rôle. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue. Le modèle d’accès délégué de Windows Virtual Desktop est basé sur le modèle RBAC d’Azure. Pour en savoir plus sur les attributions de rôle spécifique et leurs composants, consultez [la vue d’ensemble du contrôle d'accès en fonction du rôle Azure](../../role-based-access-control/built-in-roles.md).
+Azure Virtual Desktop dispose d’un modèle d’accès délégué qui vous permet de définir les droits d’accès d’un utilisateur particulier en lui attribuant un rôle. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue. Le modèle d’accès délégué d’Azure Virtual Desktop est basé sur le modèle RBAC d’Azure. Pour en savoir plus sur les attributions de rôle spécifique et leurs composants, consultez [la vue d’ensemble du contrôle d'accès en fonction du rôle Azure](../../role-based-access-control/built-in-roles.md).
 
-L’accès délégué de Windows Virtual Desktop prend en charge les valeurs suivantes pour chaque élément de l’attribution de rôle :
+L’accès délégué d’Azure Virtual Desktop prend en charge les valeurs suivantes pour chaque élément de l’attribution de rôle :
 
 * Principal de sécurité
     * Utilisateurs
@@ -35,7 +35,7 @@ L’accès délégué de Windows Virtual Desktop prend en charge les valeurs sui
 
 ## <a name="built-in-roles"></a>Rôles intégrés
 
-L’accès délégué dans Windows Virtual Desktop a plusieurs définitions de rôles intégrés que vous pouvez affecter aux utilisateurs et principaux de service.
+L’accès délégué dans Azure Virtual Desktop a plusieurs définitions de rôles intégrés que vous pouvez affecter aux utilisateurs et principaux de service.
 
 * Un propriétaire RDS peut tout gérer, y compris l’accès aux ressources.
 * Un contributeur RDS (Services Bureau à distance) peut tout gérer, mais il n’a pas accès aux ressources.
@@ -68,4 +68,4 @@ Vous pouvez modifier les trois cmdlets de base avec les paramètres suivants :
 
 Pour obtenir une liste plus complète des cmdlets PowerShell que chaque rôle peut utiliser, consultez les [Informations de référence PowerShell](/powershell/windows-virtual-desktop/overview).
 
-Pour obtenir des instructions et savoir comment configurer un environnement Bureau virtuel Windows, consultez [Environnement dans Windows Virtual Desktop](environment-setup-2019.md).
+Pour obtenir des instructions et savoir comment configurer un environnement Bureau virtuel Windows, consultez [Environnement dans Azure Virtual Desktop](environment-setup-2019.md).

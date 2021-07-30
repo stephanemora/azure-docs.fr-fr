@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: e0bbc9fc1e6259b70e1f1d46b545300a568601d2
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: ca4210465039044587e61d5df92db1385f1be052
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109796"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469832"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Fonctionnalités d’évaluation dans Recherche cognitive Azure
 
@@ -23,6 +23,8 @@ Les fonctionnalités d’évaluation qui passent en disponibilité générale so
 
 |Fonctionnalité&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Disponibilité  |
 |---------|------------------|-------------|---------------|
+|  [**Connecteurs Power Query**](search-how-to-index-power-query-data-sources.md) | Source de données d’indexeur | Les indexeurs peuvent désormais indexer à partir d’autres plateformes cloud. Si vous utilisez un indexeur pour analyser des sources de données externes pour indexation, vous pouvez désormais utiliser des connecteurs Power Query pour vous connecter à Amazon Redshift, Elasticsearch, PostgreSQL, Salesforce Objects, Salesforce Reports, Smartsheet et Snowflake. | L’[inscription](https://aka.ms/azure-cognitive-search/indexer-preview) est nécessaire pour que la prise en charge puisse être activée pour votre abonnement sur le back-end. Accédez à cette source de données à l’aide de [Créer une source de données (REST)](/rest/api/searchservice/create-data-source) avec api-version=2020-06-30-Preview ou le Portail Azure.|
+|  [**Source de données d’indexeur MySQL**](search-howto-index-mysql.md) | Source de données d’indexeur | Indexez le contenu et les métadonnées des sources de données Azure MySQL.| L’[inscription](https://aka.ms/azure-cognitive-search/indexer-preview) est nécessaire pour que la prise en charge puisse être activée pour votre abonnement sur le back-end. Accédez à cette source de données à l’aide de [Créer une source de données (REST)](/rest/api/searchservice/create-data-source) avec api-version=2020-06-30-Preview, [.NET SDK 11.2.1](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql), et du Portail Azure. |
 | [**Recherche sémantique**](semantic-search-overview.md) | Pertinence (scoring) | Classement sémantique des résultats, des légendes et des réponses. | [Rechercher l’API REST 2020-06-30-Preview](/rest/api/searchservice/preview-api/search-documents) et Explorateur de recherche (portail). |
 | [**Vérificateur d’orthographe**](cognitive-search-aml-skill.md) | Requête | Correction orthographique facultative des entrées de terme de requête pour les requêtes simples, complètes et sémantiques. | [API REST Recherche 2020-06-30-Preview](/rest/api/searchservice/preview-api/search-documents) |
 | [**Indexeur SharePoint Online**](search-howto-index-sharepoint-online.md) | Source de données d’indexeur | Nouvelle source de données pour l’indexation de contenu SharePoint basée sur un indexeur. | [API REST Recherche 2020-06-30-Preview](/rest/api/searchservice/preview-api/create-indexer) |
@@ -33,7 +35,6 @@ Les fonctionnalités d’évaluation qui passent en disponibilité générale so
 | [**Compétence de détection d’informations d’identification personnelle**](cognitive-search-skill-pii-detection.md) | Enrichissement par IA (ensemble de compétences) | Compétence cognitive utilisée lors de l’indexation, qui extrait les informations personnelles d’un texte d’entrée et vous donne la possibilité de les y masquer de différentes façons. | Référencez cette qualification en préversion à l’aide de l’éditeur d’ensemble de compétences dans le portail ou [créez un ensemble de compétences (REST)](/rest/api/searchservice/create-skillset) avec api-version=2020-06-30-Preview or api-version=2019-05-06-Preview. |
 | [**Enrichissement incrémentiel**](cognitive-search-incremental-indexing-conceptual.md) | Configuration de l’indexeur| Ajoute la mise en cache à un pipeline d'enrichissement, ce qui vous permet de réutiliser la sortie existante si une modification ciblée, telle que la mise à jour d'un ensemble de compétences ou d'un autre objet, ne change pas le contenu. La mise en cache s’applique uniquement aux documents enrichis générés par un ensemble de compétences.| Ajoutez ce paramètre de configuration à l’aide de [Créer un indexeur (REST)](/rest/api/searchservice/create-indexer) avec api-version=2020-06-30-Preview ou api-version=2019-05-06-Preview. |
 | [**Indexeur Cosmos DB : API MongoDB, API Gremlin, API Cassandra**](search-howto-index-cosmosdb.md) | Source de données d’indexeur | Pour Cosmos DB, l’API SQL est en disponibilité générale, mais les API MongoDB, Gremlin et Cassandra sont en préversion. | Pour Gremlin et Cassandra uniquement, [inscrivez-vous au préalable](https://aka.ms/azure-cognitive-search/indexer-preview) afin que la prise en charge puisse être activée pour votre abonnement sur le back-end. Les sources de données MongoDB peuvent être configurées dans le portail. Autrement, la configuration de la source de données pour les trois API est prise en charge à l’aide de [Créer une source de données (REST)](/rest/api/searchservice/create-data-source) avec api-version=2020-06-30-Preview ou api-version=2019-05-06-Preview. |
-|  [**Indexeur Azure Data Lake Storage Gen2**](search-howto-index-azure-data-lake-storage.md) | Source de données d’indexeur | Indexe le contenu et les métadonnées de Data Lake Storage Gen2.| L’[inscription](https://aka.ms/azure-cognitive-search/indexer-preview) est nécessaire pour que la prise en charge puisse être activée pour votre abonnement sur le back-end. Accédez à cette source de données à l’aide de [Créer une source de données (REST)](/rest/api/searchservice/create-data-source) avec api-version=2020-06-30-Preview ou api-version=2019-05-06-Preview. |
 | [**moreLikeThis**](search-more-like-this.md) | Requête | Recherche les documents correspondant à un document spécifique. Cette fonctionnalité existait dans les préversions antérieures. | Ajoutez ce paramètre de requête dans les appels à [Recherche dans des documents (REST)](/rest/api/searchservice/search-documents) avec api-version=2020-06-30-Preview, 2019-05-06-Preview, 2016-09-01-Preview ou 2017-11-11-Preview. |
 
 ## <a name="how-to-call-a-preview-rest-api"></a>Comment appeler une API REST en préversion
