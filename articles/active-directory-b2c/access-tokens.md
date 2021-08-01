@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 05/26/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a633a7656a287c0b8df050b6d14afb73c27a7460
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: df14f8fef3c5f71d5d80756eb629fc3ce5f16a74
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382134"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534562"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Demander un jeton d’accès dans Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Un *jeton d’accès* contient des revendications que vous pouvez utiliser dans 
 Cet article présente comment demander un jeton d’accès pour une application web et une API web. Pour plus d’informations sur les jetons dans Azure AD B2C, consultez [Vue d’ensemble des jetons dans Azure Active Directory B2C](tokens-overview.md).
 
 > [!NOTE]
-> **Les chaînes d’API web (pour le compte de) ne sont pas prises en charge par Azure AD B2C.** De nombreuses architectures incluent une API web qui doit appeler une autre API web en aval, toutes deux sécurisées par Azure AD B2C. Il s’agit d’un scénario courant pour les clients qui ont un back end d’API web, qui appelle à son tour un autre service. Ce scénario d’API web chaînée peut être pris en charge à l’aide de l’octroi des informations d’identification du porteur OAuth 2.0 JWT, également appelé flux On-Behalf-Of. Toutefois, le flux On-Behalf-Of n’est pas implémenté dans Azure AD B2C pour l’instant.
+> **Les chaînes d’API web (pour le compte de) ne sont pas prises en charge par Azure AD B2C.** De nombreuses architectures incluent une API web qui doit appeler une autre API web en aval, toutes deux sécurisées par Azure AD B2C. Il s’agit d’un scénario courant pour les clients qui ont un back end d’API web, qui appelle à son tour un autre service. Ce scénario d’API web chaînée peut être pris en charge à l’aide de l’octroi des informations d’identification du porteur OAuth 2.0 JWT, également appelé flux On-Behalf-Of. Toutefois, le flux On-Behalf-Of n’est pas implémenté dans Azure AD B2C pour l’instant. On-Behalf-Of fonctionne pour les applications inscrites dans Azure AD, mais pas pour les applications inscrites dans Azure AD B2C, quel que soit le locataire (Azure AD ou Azure AD B2C) qui émet les jetons.
 
 ## <a name="prerequisites"></a>Prérequis
 

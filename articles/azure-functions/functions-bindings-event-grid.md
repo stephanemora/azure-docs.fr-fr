@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bbe52f6902d1c0803727fe325b51a238e46c0ff1
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: f346995e47c0156f546722031ebaa8734239549c
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228547"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536705"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Liaisons Azure Event Grid pour Azure Functions
 
@@ -50,7 +50,7 @@ Pour utiliser le déclencheur et les liaisons, vous devez référencer le packag
 
 #### <a name="event-grid-extension-3x-and-higher"></a>Extension Event Grid 3.x et versions ultérieures
 
-Une nouvelle version de l’extension des liaisons Event Grid est disponible sous la forme d’un [package NuGet en préversion](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/3.0.0-beta.1). Pour les applications .NET, elle change les types avec lesquels il est possible d’établir une liaison, en remplaçant les types `Microsoft.Azure.EventGrid.Models` par les types [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid), plus récents.
+Une nouvelle version de l’extension des liaisons Event Grid est disponible sous la forme d’un [package NuGet en préversion](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/3.0.0-beta.2). Pour les applications .NET, elle change les types avec lesquels il est possible d’établir une liaison, en remplaçant les types `Microsoft.Azure.EventGrid.Models` par les types [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid), plus récents. Les [événements Cloud](/dotnet/api/azure.messaging.cloudevent) sont également pris en charge dans la nouvelle extension de Event Grid.
 
 > [!NOTE]
 > Le package en préversion n’étant pas inclus dans un bundle d’extensions, il doit être installé manuellement. Pour les applications .NET, ajoutez une référence au package. Pour tous les autres types d’applications, consultez [Mettre à jour vos extensions].

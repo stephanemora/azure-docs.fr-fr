@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: reference
 ms.date: 09/28/2020
 ms.author: yegu
-ms.openlocfilehash: b30e83b89b25e6400b8c7e0419406631fa1edcd0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21ee51ac53147482210aa0bda410e11d12e5f479
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91491670"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413786"
 ---
 # <a name="whats-new-in-azure-cache-for-redis"></a>Nouveautés d’Azure Cache pour Redis
 
@@ -37,7 +37,9 @@ Le tableau suivant fournit des informations sur les certificats en cours de dép
 
 ### <a name="what-actions-should-i-take"></a>Que dois-je faire ?
 
-Si votre application utilise le magasin de certificats du système d’exploitation ou épingle la racine Baltimore parmi d’autres, aucune action n’est nécessaire. En revanche, si votre application épingle un certificat TLS intermédiaire ou feuille, nous vous recommandons d’épingler les racines suivantes :
+Si votre application utilise le magasin de certificats du système d’exploitation ou épingle la racine Baltimore parmi d’autres, aucune action n’est nécessaire. 
+
+Si votre application épingle un certificat TLS intermédiaire ou feuille, nous vous recommandons d’épingler les racines suivantes :
 
 | Certificat | Empreinte numérique |
 | ----- | ----- |

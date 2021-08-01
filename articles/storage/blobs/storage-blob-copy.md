@@ -2,19 +2,19 @@
 title: Copier un objet blob avec les API Stockage Azure
 description: Découvrez comment copier un objet blob à l’aide des bibliothèques clientes Stockage Azure.
 services: storage
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 01/08/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: bfd471a880e167bb2cc92bc87925b4aac91f66af
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 64bffb127c7d3fbcf56619ea17b23fc0a58d6a37
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278471"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652875"
 ---
 # <a name="copy-a-blob-with-azure-storage-client-libraries"></a>Copier un objet blob avec des bibliothèques clientes Stockage Azure
 
@@ -42,7 +42,7 @@ Une opération de copie peut prendre l’une des formes suivantes :
 
 ## <a name="copy-a-blob"></a>Copier un objet blob
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Pour copier un objet blob, appelez l’une des méthodes suivantes :
 
@@ -55,7 +55,7 @@ L’exemple de code suivant obtient un client [BlobClient](/dotnet/api/azure.sto
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CopyBlob.cs" id="Snippet_CopyBlob":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 Pour copier un objet blob, appelez l’une des méthodes suivantes :
 
@@ -123,7 +123,7 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 }
 ```
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK Python v12](#tab/python)
 
 Pour copier un objet blob, appelez la méthode [start_copy_from_url](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#start-copy-from-url-source-url--metadata-none--incremental-copy-false----kwargs-). La méthode `start_copy_from_url` retourne un dictionnaire contenant des informations sur l’opération de copie.
 
@@ -137,7 +137,7 @@ L’exemple de code suivant obtient un client [BlobClient](/azure/developer/pyth
 
 L'abandon d'une opération de copie résulte en un objet blob de destination de longueur nulle. Toutefois, les métadonnées pour l'objet blob de destination auront les nouvelles valeurs copiées de l'objet blob source ou définies explicitement pendant l'opération de copie. Pour conserver les métadonnées d’origine antérieures à la copie, créez un instantané de l’objet blob de destination avant d’appeler une des méthodes de copie.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Vérifiez la propriété [BlobProperties.CopyStatus](/dotnet/api/azure.storage.blobs.models.blobproperties.copystatus) dans l’objet blob de destination pour obtenir l’état de l’opération de copie. L’objet blob final est validé à la fin de la copie.
 
@@ -147,7 +147,7 @@ Les méthodes [AbortCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blo
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CopyBlob.cs" id="Snippet_StopBlobCopy":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 Vérifiez la propriété [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status) dans l’objet blob de destination pour obtenir l’état de l’opération de copie. L’objet blob final est validé à la fin de la copie.
 
@@ -167,7 +167,7 @@ if (destBlob.CopyState.Status == CopyStatus.Pending)
 }
 ```
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK Python v12](#tab/python)
 
 Vérifiez l’entrée « status » dans le dictionnaire [CopyProperties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) retourné par la méthode [get_blob_properties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#get-blob-properties---kwargs-) pour connaître l’état de l’opération de copie. L’objet blob final est validé à la fin de la copie.
 

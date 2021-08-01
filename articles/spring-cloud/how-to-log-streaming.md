@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: df58be32123f662ae2a2782d6ebb7f19bd5c339c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b87f3221e62db6999dd67f475055f699a74c4c2a
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134930"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495157"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Envoyer en streaming les journaux d’application Azure Spring Cloud en temps réel
 
@@ -79,7 +79,7 @@ az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-p
 Vous pouvez également obtenir des informations sur les instances d’application à partir du portail Azure.  Après avoir sélectionné **Applications** dans le volet de navigation gauche de votre service Azure Spring Cloud, sélectionnez **instances de l’application**.
 
 ### <a name="continuously-stream-new-logs"></a>Diffuser en continu de nouveaux journaux
-Par défaut, `az spring-cloud ap log tail` imprime uniquement les journaux existants diffusés en continu à la console d’application, puis se ferme. Si vous souhaitez diffuser de nouveaux journaux, ajoutez la lettre  f (--Follow) :  
+Par défaut, `az spring-cloud app logs` imprime uniquement les journaux existants diffusés en continu à la console d’application, puis se ferme. Si vous souhaitez diffuser de nouveaux journaux, ajoutez la lettre  f (--Follow) :  
 
 ```azurecli
 az spring-cloud app logs -n auth-service -f
@@ -88,6 +88,39 @@ Pour vérifier toutes les options de journalisation prises en charge :
 ```azurecli
 az spring-cloud app logs -h 
 ```
+
+### <a name="format-json-structured-logs"></a>Formater les journaux structurés JSON
+
+> [!NOTE]
+> Requiert l’extension spring-cloud version 2.4.0 ou ultérieure.
+
+Lorsque le [Journal des applications structurées](./structured-app-log.md) est activé pour l’application, les journaux sont imprimés au format JSON. Cela complique la lecture. L’argument `--format-json` peut être utilisé pour mettre en forme les journaux JSON dans un format lisible par l’utilisateur.
+
+```shell
+# Raw JSON log
+$ az spring-cloud app logs -n auth-service
+{"timestamp":"2021-05-26T03:35:27.533Z","logger":"com.netflix.discovery.DiscoveryClient","level":"INFO","thread":"main","mdc":{},"message":"Disable delta property : false"}
+{"timestamp":"2021-05-26T03:35:27.533Z","logger":"com.netflix.discovery.DiscoveryClient","level":"INFO","thread":"main","mdc":{},"message":"Single vip registry refresh property : null"}
+
+# Formatted JSON log
+$ az spring-cloud app logs -n auth-service --format-json
+2021-05-26T03:35:27.533Z  INFO [           main] com.netflix.discovery.DiscoveryClient   : Disable delta property : false
+2021-05-26T03:35:27.533Z  INFO [           main] com.netflix.discovery.DiscoveryClient   : Single vip registry refresh property : null
+```
+
+L’argument `--format-json` prend également un format personnalisé facultatif, à l’aide de l’argument de mot clé [format string syntax](https://docs.python.org/3/library/string.html#format-string-syntax).
+
+```shell
+# Custom format
+$ az spring-cloud app logs -n auth-service --format-json="{message}{n}"
+Disable delta property : false
+Single vip registry refresh property : null
+```
+
+> Le format par défaut utilisé est
+> ```
+> {timestamp} {level:>5} [{thread:>15.15}] {logger{39}:<40.40}: {message}{n}{stackTrace}
+> ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Démarrage rapide : Supervision des applications Azure Spring Cloud avec les journaux, les métriques et le suivi](./quickstart-logs-metrics-tracing.md)

@@ -2,19 +2,19 @@
 title: Scalabilité - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit des informations sur la mise à l'échelle d'Azure Event Hubs à l'aide de partitions et d'unités de débit.
 ms.topic: article
-ms.date: 03/16/2021
-ms.openlocfilehash: acfc300ff7e6bd77c570c68bda50a731df10409c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 05/26/2021
+ms.openlocfilehash: ef894e0f14c140691b43da121a1983017ab03150
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367083"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616459"
 ---
 # <a name="scaling-with-event-hubs"></a>Mise à l’échelle avec Event Hubs
 
 Deux facteurs influencent la mise à l’échelle avec Event Hubs.
-*   Unités de débit
-*   Partitions
+* Unités de débit (niveau standard) ou unités de traitement (niveau premium) 
+* Partitions
 
 ## <a name="throughput-units"></a>Unités de débit
 
@@ -42,7 +42,10 @@ Pour plus d’informations sur la fonctionnalité d’augmentation automatique, 
 
 La quantité de données qu’il est possible d’ingérer et de diffuser avec une unité de traitement dépend de nombreux facteurs, parmi lesquels vos producteurs, les consommateurs, la vitesse d’ingestion et de transformation, etc. Une unité de traitement peut approximativement offrir une capacité de base d’une entrée d’environ 5-10 Mo/s et une sortie de 10-20 Mo/s, étant donné que nous disposons de partitions suffisantes pour que le stockage ne soit pas un facteur de limitation.  
 
+Pour en savoir plus sur la configuration des unités de traitement pour un espace de noms de niveau premium, consultez [Configurer des unités de traitement](configure-processing-units-premium-namespace.md).
 
+> [!NOTE]
+> Pour en savoir plus sur les quotas et les limites, consultez [Azure Event Hubs - quotas et limites](event-hubs-quotas.md).
 
 ## <a name="partitions"></a>Partitions
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
@@ -53,5 +56,5 @@ La quantité de données qu’il est possible d’ingérer et de diffuser avec u
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-- [Mettre à l’échelle automatiquement les unités de débit](event-hubs-auto-inflate.md)
-- [Présentation du service Event Hubs](./event-hubs-about.md)
+- [Mettre automatiquement à l’échelle les unités de débit pour un espace de noms de niveau standard](event-hubs-auto-inflate.md)
+- [Configurer des unités de traitement pour un espace de noms premium](configure-processing-units-premium-namespace.md)

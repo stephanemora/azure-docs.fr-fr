@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d2a4e58201557d64602cc0740b83373ce53c8f69
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 7c3197a8eb9f6734cdd04d609ea0f59465ffa86d
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070674"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535508"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Connexion sur page unique en utilisant un flux implicite OAuth 2.0 dans Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ De nombreuses applications modernes disposent d’un front-end d’application m
 
 La méthode recommandée pour la prise en charge d’applications monopages est [le Flux de code d’autorisation OAuth 2.0 (avec PKCE)](./authorization-code-flow.md).
 
-Certaines infrastructures, telles que [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), ne prennent en charge que le flux d’octroi implicite. Dans ces cas, Azure Active Directory B2C (Azure AD B2C) prend en charge le flux d’octroi implicite de l’autorisation OAuth 2.0. Ce flux est décrit dans la [section 4.2 de la spécification OAuth 2.0](https://tools.ietf.org/html/rfc6749). Dans un flux implicite, l’application reçoit des jetons directement du point de terminaison d’autorisation Azure AD, sans aucun échange de serveur à serveur. L’intégralité de la logique d’authentification et de la gestion des sessions est effectuée sur le client JavaScript, à l’aide d’une redirection de page ou d’une fenêtre contextuelle.
+Certaines infrastructures, telles que [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), ne prennent en charge que le flux d’octroi implicite. Dans ces cas, Azure Active Directory B2C (Azure AD B2C) prend en charge le flux d’octroi implicite de l’autorisation OAuth 2.0. Le flux est décrit dans la [section 4.2 de la spécification OAuth 2.0](https://tools.ietf.org/html/rfc6749). Dans un flux implicite, l’application reçoit des jetons directement du point de terminaison d’autorisation Azure AD, sans aucun échange de serveur à serveur. L’intégralité de la logique d’authentification et de la gestion des sessions est effectuée sur le client JavaScript, à l’aide d’une redirection de page ou d’une fenêtre contextuelle.
 
 Azure AD B2C étend le flux implicite OAuth 2.0 standard au-delà de la simple authentification et de la simple autorisation. Azure AD B2C introduit le [paramètre de stratégie](user-flow-overview.md). Avec le paramètre de stratégie, vous pouvez utiliser OAuth 2.0 pour ajouter des stratégies à votre application, telles que des flux d’utilisateur d’inscription, de connexion et de gestion des profils. Dans les exemples de requêtes HTTP de cet article, nous utilisons **{tenant}.onmicrosoft.com** comme exemple. Remplacez `{tenant}` par le nom de votre locataire si vous en avez un et que vous avez également créé un flux utilisateur.
 

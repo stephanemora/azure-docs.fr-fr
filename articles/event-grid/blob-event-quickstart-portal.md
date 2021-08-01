@@ -1,51 +1,54 @@
 ---
-title: 'Démarrage rapide : Envoyer des événements de Stockage Blob à un point de terminaison web – Portail'
+title: Utiliser Azure Event Grid pour envoyer des événements de stockage d’objets blob au point de terminaison web - portail
 description: 'Démarrage rapide : Utilisez Azure Event Grid et le portail Azure pour créer un compte de stockage d’objets blob, et abonnez-vous à ses événements. Envoyez les événements à un webhook.'
-ms.date: 07/07/2020
+ms.date: 07/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 46cd88558334239a1a9971c63b8b2608def3c4d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f4f552f4f6a796bef0fcfb011c34317500500f2
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96005688"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113219089"
 ---
-# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Démarrage rapide : Acheminer des événements de stockage Blob vers un point de terminaison web avec le portail Azure
+# <a name="use-azure-event-grid-to-route-blob-storage-events-to-web-endpoint-azure-portal"></a>Utiliser Azure Event Grid pour acheminer des événements de stockage d’objet blob vers le point de terminaison web (portail Azure)
+Event Grid est un service entièrement géré qui vous permet de facilement gérer des événements dans de nombreux services et applications Azure. Il simplifie la création d’applications pilotées par les événements et serverless. Pour une présentation du service, consultez [Vue d’ensemble d’Event Grid](overview.md).
 
-Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez le portail Azure pour créer un compte de stockage d’objets blob, vous abonner aux événements de ce stockage d’objets blob et déclencher un événement pour afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
+Dans cet article, vous utilisez le portail Azure pour effectuer les tâches suivantes :
+
+1. Créer un compte de stockage d’objets blob.
+1. S’abonner aux événements pour ce stockage d’objets blob.
+1. Déclencher un événement en chargeant un fichier vers le stockage d’objets blob.
+1. Afficher le résultat dans une application web de gestionnaire. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. En termes simples, vous envoyez des événements à une application web qui collecte et affiche les messages.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 Une fois que vous avez fini, vous voyez que les données d’événement ont été envoyées à l’application web.
 
-![Afficher les résultats](./media/blob-event-quickstart-portal/view-results.png)
+![Afficher les résultats.](./media/blob-event-quickstart-portal/view-results.png)
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-
 1. Pour créer un stockage d’objets blob, sélectionnez **Créer une ressource**. 
+1. Dans **Rechercher**, entrez **Compte de stockage**, puis sélectionnez **Compte de stockage** dans la liste des résultats. 
 
-1. Sélectionnez **Stockage** pour filtrer les options disponibles, puis **Compte de stockage - blob, fichier, table, file d’attente**.
-
-   ![Sélectionner Stockage](./media/blob-event-quickstart-portal/create-storage.png)
-
-   Pour s’abonner à des événements, créez un compte de stockage v2 à usage général ou un compte de stockage d’objets blob.
-   
+    :::image type="content" source="./media/blob-event-quickstart-portal/search-storage-account.png" alt-text="Capture d’écran montrant la recherche d’un compte de stockage sur la page Créer une ressource.":::
+1. Dans la page **Compte de stockage**, sélectionnez **Créer** pour commencer à créer le compte de stockage. Pour s’abonner à des événements, créez un compte de stockage v2 à usage général ou un compte de stockage d’objets blob.   
 1. Dans la page **Créer un compte de stockage**, procédez comme suit :
     1. Sélectionnez votre abonnement Azure. 
     2. Dans le champ **Groupe de ressources**, créez un groupe de ressources Azure ou sélectionnez un groupe existant. 
     3. Entrez le nom de votre compte de stockage. 
-    4. Sélectionnez **Revoir + créer**. 
+    1. Sélectionnez la **Région** dans laquelle vous souhaitez créer le compte de stockage. 
+    1. Pour **Redondance**, sélectionnez **Stockage localement redondant (LRS)** dans la liste déroulante. 
+    1. Sélectionnez **Revoir + créer**. 
 
-       ![Étapes de démarrage](./media/blob-event-quickstart-portal/provide-blob-values.png)    
+        :::image type="content" source="./media/blob-event-quickstart-portal/create-storage-account-page.png" alt-text="Capture d’écran montrant la page Créer un compte de stockage.":::
     5. Dans la page **Vérifier + créer**, passez en revue les paramètres, puis sélectionnez **Créer**. 
 
         >[!NOTE]
         > Seuls les comptes de stockage de type **StorageV2 (v2 universel)** et **BlobStorage** prennent en charge l’intégration d’événements. Le type **Stockage (v1 universel)** ne prend *pas* en charge l’intégration à Event Grid.
 
 ## <a name="create-a-message-endpoint"></a>Créer un point de terminaison de message
-
 Avant de nous abonner aux événements du stockage d’objets blob, nous allons créer le point de terminaison pour le message de l’événement. En règle générale, le point de terminaison entreprend des actions en fonction des données d’événement. Pour simplifier ce guide de démarrage rapide, déployez une [application web prédéfinie](https://github.com/Azure-Samples/azure-event-grid-viewer) qui affiche les messages d’événement. La solution déployée comprend un plan App Service, une offre App Service Web Apps et du code source en provenance de GitHub.
 
 1. Sélectionnez **Déployer sur Azure** pour déployer la solution sur votre abonnement. 
@@ -55,23 +58,23 @@ Avant de nous abonner aux événements du stockage d’objets blob, nous allons 
     1. Pour **Groupe de ressources**, sélectionnez le groupe de ressources que vous avez créé lors de la création du compte de stockage. Il sera plus facile pour vous de nettoyer une fois que vous aurez terminé le tutoriel en supprimant le groupe de ressources.  
     2. Pour **Nom du site**, entrez un nom pour l’application web.
     3. Pour **Nom du plan d’hébergement**, entrez un nom pour le plan App Service à utiliser pour l’hébergement de l’application web.
-    4. Cochez la case **J’accepte les termes et conditions mentionnés ci-dessus**. 
-    5. Sélectionnez **Achat**. 
+    5. Sélectionnez **Revoir + créer**. 
 
-       ![Paramètres de déploiement](./media/blob-event-quickstart-portal/template-deploy-parameters.png)
+        :::image type="content" source="./media/blob-event-quickstart-portal/template-deploy-parameters.png" alt-text="Capture d’écran montrant la page Déploiement personnalisé.":::
+1. Dans la page **Vérifier + créer**, sélectionnez **Créer**. 
 1. Le déploiement peut prendre quelques minutes. Sélectionnez Alertes (icône représentant une cloche) dans le portail, puis **Accéder au groupe de ressources**. 
 
-    ![Alerte - Accéder au groupe de ressources](./media/blob-event-quickstart-portal/navigate-resource-group.png)
+    ![Alerte - Accédez au groupe de ressources.](./media/blob-event-quickstart-portal/navigate-resource-group.png)
 4. Dans la page **Groupe de ressources**, dans la liste des ressources, sélectionnez l’application web que vous avez créée. Vous pouvez également voir le plan App Service et le compte de stockage dans cette liste. 
 
-    ![Sélectionner un site web](./media/blob-event-quickstart-portal/resource-group-resources.png)
+    ![Sélectionnez un site web.](./media/blob-event-quickstart-portal/resource-group-resources.png)
 5. Dans la page **App Service** de votre application web, sélectionnez l’URL pour accéder au site web. L’URL doit être au format suivant : `https://<your-site-name>.azurewebsites.net`.
     
-    ![Accéder au site web](./media/blob-event-quickstart-portal/web-site.png)
+    ![Accédez au site web.](./media/blob-event-quickstart-portal/web-site.png)
 
 6. Confirmez que vous voyez le site, mais qu’aucun événement n’a encore été posté sur celui-ci.
 
-   ![Afficher le nouveau site](./media/blob-event-quickstart-portal/view-site.png)
+   ![Affichez le nouveau site.](./media/blob-event-quickstart-portal/view-site.png)
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -83,25 +86,25 @@ Vous vous abonnez à une rubrique pour communiquer à Event Grid les événement
 2. Dans la page **Compte de stockage**, sélectionnez **Événements** dans le menu de gauche. 
 1. Sélectionnez **Autres options**, puis **Webhook**. Vous envoyez des événements à votre application de visionneuse, avec un webhook comme point de terminaison. 
 
-   ![Sélectionner Webhook](./media/blob-event-quickstart-portal/select-web-hook.png)
+   ![Sélectionnez un webhook.](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. Dans la page **Créer un abonnement aux événements**, effectuez les étapes suivantes : 
     1. Entrez un **nom** pour l’abonnement aux événements.
     2. Entrez un **nom** pour la **rubrique système**. Pour en savoir plus sur les rubriques système, consultez [Vue d’ensemble des rubriques système](system-topics.md).
 
-       ![Entrez des noms pour l’abonnement aux événements et la rubrique système](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
+       ![Entrez des noms pour l’abonnement aux événements et la rubrique système.](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
     2. Sélectionnez **Webhook** pour **Type de point de terminaison**. 
 
-       ![Sélectionner le type de point de terminaison webhook](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)
+       ![Sélectionnez le type de point de terminaison webhook.](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)
 4. Pour **Point de terminaison**, cliquez sur **Sélectionner un point de terminaison**, entrez l’URL de votre application web et ajoutez `api/updates` à l’URL de la page d’accueil (par exemple, `https://spegridsite.azurewebsites.net/api/updates`), puis sélectionnez **Confirmer la sélection**.
 
-   ![Confirmer la sélection du point de terminaison](./media/blob-event-quickstart-portal/confirm-endpoint-selection.png)
+   ![Confirmez la sélection du point de terminaison.](./media/blob-event-quickstart-portal/confirm-endpoint-selection.png)
 5. À présent, dans la page **Créer un abonnement aux événements**, sélectionnez **Créer** pour créer l’abonnement aux événements. 
 
-   ![Sélectionner des journaux d’activité](./media/blob-event-quickstart-portal/create-subscription.png)
+   ![Sélectionnez les journaux d’activité.](./media/blob-event-quickstart-portal/create-subscription.png)
 
 1. Affichez à nouveau votre application web, et notez qu’un événement de validation d’abonnement lui a été envoyé. Sélectionnez l’icône en forme d’œil pour développer les données d’événements. Event Grid envoie l’événement de validation pour que le point de terminaison puisse vérifier qu’il souhaite recevoir des données d’événement. L’application web inclut du code pour valider l’abonnement.
 
-   ![Afficher l’événement d’abonnement](./media/blob-event-quickstart-portal/view-subscription-event.png)
+   ![Affichez l’événement d’abonnement.](./media/blob-event-quickstart-portal/view-subscription-event.png)
 
 Nous allons maintenant déclencher un événement pour voir comment Event Grid distribue le message à votre point de terminaison.
 
@@ -109,27 +112,20 @@ Nous allons maintenant déclencher un événement pour voir comment Event Grid d
 
 Pour déclencher un événement pour le stockage d’objets blob, chargez un fichier. Celui-ci n’a pas besoin d’un contenu spécifique. L’article part du principe que vous disposez d’un fichier nommé testfile.txt, mais vous pouvez utiliser n’importe quel fichier.
 
-1. Dans le portail Azure, accédez à votre compte de stockage d’objets blob, puis sélectionnez **Conteneurs** dans la page **Vue d’ensemble**.
-
-   ![Sélectionner Objets Blob](./media/blob-event-quickstart-portal/select-blobs.png)
-
+1. Dans le portail Azure, accédez à votre compte de stockage d’objets blob, puis sélectionnez **Conteneurs** dans le menu de gauche.
 1. Sélectionnez **+ Conteneur**. Donnez un nom à votre conteneur et utilisez n’importe quel niveau d’accès, puis sélectionnez **Créer**. 
 
-   ![Ajouter un conteneur](./media/blob-event-quickstart-portal/add-container.png)
-
+   ![Ajoutez un conteneur.](./media/blob-event-quickstart-portal/add-container.png)
 1. Sélectionnez votre nouveau conteneur.
 
-   ![Sélectionner un conteneur](./media/blob-event-quickstart-portal/select-container.png)
-
+   ![Sélectionnez le conteneur.](./media/blob-event-quickstart-portal/select-container.png)
 1. Pour charger un fichier, sélectionnez **Charger**. Dans la page **Charger l’objet blob**, recherchez et sélectionnez un fichier à charger à des fins de test, puis sélectionnez **Charger** dans cette page. 
 
-   ![Sélectionner Télécharger](./media/blob-event-quickstart-portal/upload-file.png)
-
+   ![Sélectionnez Télécharger.](./media/blob-event-quickstart-portal/upload-file.png)
 1. Accédez à votre fichier de test et chargez-le.
-
 1. Vous avez déclenché l’événement, et Event Grid a envoyé le message au point de terminaison configuré lors de l’abonnement. Le message au format JSON contient un tableau répertoriant un ou plusieurs événements. Dans l’exemple suivant, le message JSON contient un tableau avec un événement. Quand vous examinez votre application web, vous remarquerez qu’un événement **créé par un objet blob** a été reçu. 
 
-   ![Événement créé par un objet blob](./media/blob-event-quickstart-portal/blob-created-event.png)
+   ![Événement créé par un objet blob.](./media/blob-event-quickstart-portal/blob-created-event.png)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

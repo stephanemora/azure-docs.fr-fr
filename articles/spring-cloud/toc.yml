@@ -25,10 +25,15 @@
           href: quickstart-logs-metrics-tracing.md
         - name: Intégrer avec Azure Database pour MySQL
           href: quickstart-integrate-azure-database-mysql.md
-        - name: Approvisionnement
-          items:
-            - name: Provisionner avec un modèle ARM
-              href: quickstart-deploy-infrastructure-vnet.md
+    - name: Approvisionnement
+      expanded: true
+      items:
+        - name: Provisionner avec un modèle ARM
+          href: quickstart-deploy-infrastructure-vnet.md
+        - name: Provisionner avec Azure CLI
+          href: quickstart-deploy-infrastructure-vnet-azure-cli.md
+        - name: Provisionner avec Terraform
+          href: quickstart-deploy-infrastructure-vnet-terraform.md
 - name: Tutoriels
   items:
     - name: Alertes et groupes d’actions
@@ -149,16 +154,6 @@
           href: how-to-enable-end-to-end-tls.md
         - name: Accéder à Config Server et Service Registry
           href: how-to-access-data-plane-azure-ad-rbac.md
-    - name: Integrate
-      items:
-        - name: Lier une application à Azure CosmosDB
-          href: how-to-bind-cosmos.md
-        - name: Lier une application à Azure Cache pour Redis
-          href: how-to-bind-redis.md
-        - name: Lier une application à Azure MySQL
-          href: how-to-bind-mysql.md
-        - name: Intégration avec les solutions d’équilibrage de charge Azure
-          href: how-to-integrate-azure-load-balancers.md
     - name: Automatisation
       items:
         - name: CI/CD avec Azure DevOps

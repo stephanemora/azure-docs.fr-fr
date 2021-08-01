@@ -1,0 +1,47 @@
+### YamlMime:FAQ
+metadata:
+  title: Centre de sauvegarde - FAQ
+  description: Cet article répond aux questions fréquentes à propos du Centre de sauvegarde.
+  ms.date: 01/12/2021
+  ms.topic: conceptual
+  ms.openlocfilehash: 34665180ab089151e3ab6cc0b818fac645b9842b
+  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 04/15/2021
+  ms.locfileid: "111907027"
+title: Centre de sauvegarde - Forum aux questions
+summary: Cet article répond aux questions fréquentes à propos du Centre de sauvegarde.
+sections:
+- name: Gestion
+  questions:
+  - question: Le Centre de sauvegarde peut-il être utilisé sur plusieurs locataires ?
+    answer: >
+      Oui, si vous utilisez [Azure Lighthouse](../lighthouse/overview.md) et que vous disposez d’un accès délégué à des abonnements sur différents locataires, vous pouvez utiliser le Centre de sauvegarde comme un volet unique pour gérer les sauvegardes entre les locataires.
+  - question: Le Centre de sauvegarde peut-il être utilisé pour gérer des coffres Recovery Services et des coffres de sauvegarde ?
+    answer: >
+      Oui, le Centre de sauvegarde peut gérer les [coffres Recovery Services](./backup-azure-recovery-services-vault-overview.md) et les [coffres de sauvegarde](backup-vault-overview.md).
+  - question: Existe-t-il un délai avant que les données apparaissent dans le Centre de sauvegarde ?
+    answer: >
+      Le Centre de sauvegarde est destiné à fournir des informations en temps réel. Il peut y avoir quelques secondes de décalage entre le moment où une entité s’affiche dans un écran de coffre individuel et le moment où la même entité s’affiche dans le Centre de sauvegarde.
+- name: Configuration
+  questions:
+  - question: Dois-je configurer quoi que ce soit pour afficher des données dans le Centre de sauvegarde ?
+    answer: >
+      Non. Le Centre de sauvegarde est prêt à l’emploi. Toutefois, pour afficher les [rapports de sauvegarde](./configure-reports.md) dans le Centre de sauvegarde, vous devez configurer la création de rapports pour vos coffres.
+  - question: Ai-je besoin d’autorisations spéciales pour utiliser le Centre de sauvegarde ?
+    answer: >
+      Le Centre de sauvegarde en tant que tel n’a pas besoin de nouvelles autorisations. Tant que vous disposez du niveau d’accès RBAC Azure approprié pour les ressources que vous gérez, vous pouvez utiliser le centre de sauvegarde pour ces ressources. Par exemple, pour afficher des informations sur vos sauvegardes, vous avez besoin de l’accès **Lecteur** à vos coffres. Pour configurer la sauvegarde et effectuer d’autres actions liées à la sauvegarde, vous devez avoir le rôle **Collaborateur de sauvegarde** ou **Opérateur de sauvegarde**. En savoir plus sur les rôles [Azure pour la sauvegarde Azure](./backup-rbac-rs-vault.md). Notez que si vous utilisez des rapports de sauvegarde dans le Centre de sauvegarde, vous devez disposer d’un accès en lecture aux espaces de travail Log Analytics auxquels vos coffres envoient des données.
+- name: Tarifs
+  questions:
+  - question: Dois-je payer un supplément pour utiliser le Centre de sauvegarde ?
+    answer: "Actuellement, il n’y a aucun coût supplémentaire (en dehors de vos coûts de sauvegarde) pour utiliser le Centre de sauvegarde. Toutefois, si vous utilisez des [rapports de sauvegarde](./configure-reports.md) dans le Centre de sauvegarde, il y a un [coût impliqué](https://azure.microsoft.com/pricing/details/monitor/) dans l’utilisation des journaux Azure Monitor pour les rapports de sauvegarde.   \n"
+additionalContent: >
+  ## <a name="next-steps"></a>Étapes suivantes
+
+  Lire les autres forums aux questions :
+
+
+  - [Questions courantes sur les coffres Recovery Services](./backup-azure-backup-faq.yml)
+
+  - [Questions courantes sur la sauvegarde des machines virtuelles Azure](./backup-azure-vm-backup-faq.yml)

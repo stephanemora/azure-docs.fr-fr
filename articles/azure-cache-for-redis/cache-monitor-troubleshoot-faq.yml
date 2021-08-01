@@ -1,0 +1,59 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQ sur l’analyse et la résolution des problèmes pour Azure Cache pour Redis
+  description: Découvrez les réponses aux questions fréquentes qui vous aideront à analyser et à résoudre les problèmes d’Azure Cache pour Redis
+  author: yegu-ms
+  ms.author: yegu
+  ms.service: cache
+  ms.topic: conceptual
+  ms.date: 08/06/2020
+  ms.openlocfilehash: d762625dc83a4ca77089c5929859f61e1f89c31a
+  ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 07/01/2021
+  ms.locfileid: "113137362"
+title: FAQ sur l’analyse et la résolution des problèmes pour Azure Cache pour Redis
+summary: Cet article fournit des réponses aux questions fréquentes sur l’analyse et la résolution des problèmes pour Azure Cache pour Redis.
+sections:
+- name: Ignoré
+  questions:
+  - question: >
+      Comment surveiller l’intégrité et les performances de mon cache ?
+    answer: >
+      Les instances du Cache Microsoft Azure pour Redis peuvent être surveillées dans le [portail Azure](https://portal.azure.com). Vous pouvez afficher les mesures, épingler des graphiques de mesure au Tableau d’accueil, personnaliser la plage de date et d’heure des graphiques de surveillance, ajouter et supprimer des mesures dans les graphiques et définir des alertes lorsque certaines conditions sont remplies. Pour plus d’informations, voir [Surveillance du Cache Azure pour Redis](cache-how-to-monitor.md).
+
+
+      Le **menu Ressource** du Cache Azure pour Redis contient également plusieurs outils permettant de surveiller et dépanner vos caches.
+
+
+      * **Diagnostiquer et résoudre les problèmes** fournit des informations sur les problèmes courants et les stratégies de résolutions associées.
+
+      * **Resource Health** surveille vos ressources et vous indique si elles s’exécutent comme prévu. Pour plus d’informations sur le service Azure Resource Health, consultez [Vue d’ensemble d’Azure Resource Health](../service-health/resource-health-overview.md).
+
+      * **Nouvelle demande de support** fournit des options pour ouvrir une demande de support pour votre cache.
+
+
+      Ces outils vous permettent de surveiller la santé de vos instances Azure Cache pour Redis. Les outils vous aident également à gérer vos applications de mise en cache. Pour plus d’informations, consultez la section « Paramètres de support et dépannage » de l’article [Configuration de Cache Azure pour Redis](cache-configure.md).
+  - question: >
+      Pourquoi est-ce que je reçois des erreurs d’expiration du délai ?
+    answer: >
+      L’expiration du délai se produit dans le client que vous utilisez pour communiquer avec Redis. Lorsqu’une commande est envoyée au serveur Redis, la commande est mise en file d’attente. Le serveur Redis finit par récupérer la commande et l’exécute. Toutefois, le client peut expirer au cours de ce processus. Si c’est le cas, une exception est levée côté appelant. Pour plus d’informations sur la résolution des problèmes de délai d’attente, consultez [Résolution des problèmes côté client](cache-troubleshoot-client.md) et [Exceptions au délai d’expiration de StackExchange.Redis](cache-troubleshoot-timeouts.md#stackexchangeredis-timeout-exceptions).
+  - question: >
+      Pourquoi mon client a-t-il été déconnecté du cache ?
+    answer: >
+      Voici quelques raisons pour lesquelles la déconnexion du cache peut se produire :
+
+
+      * Causes côté client
+        * L’application cliente a été redéployée.
+        * L’application cliente a effectué une opération de mise à l’échelle.
+          * Cloud Services ou Web Apps peuvent entraîner une déconnexion du cache pendant la mise à l’échelle automatique.
+        * La couche réseau côté client a été modifiée.
+        * Des erreurs temporaires se sont produites dans le client ou dans les nœuds du réseau entre le client et le serveur.
+        * Les limites de seuil de bande passante ont été atteintes.
+        * Les opérations côté processeur ont pris trop de temps.
+      * Causes côté serveur
+        * Dans l’offre de cache Standard, le service Cache Azure pour Redis a lancé un basculement du nœud principal vers le nœud de réplica.
+        * Azure a appliqué des correctifs à l’instance sur laquelle le cache a été déployé au cours d’une mise à jour du serveur Redis ou d’une maintenance de machine virtuelle générale.
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n   Pour plus d’informations sur la supervision et le dépannage de vos instances du Cache Azure pour Redis, consultez [Surveillance du Cache Azure pour Redis](cache-how-to-monitor.md) et les différents guides de dépannage.\n        \n   En savoir plus sur d’autres [FAQ sur Azure Cache pour Redis](cache-faq.yml)."

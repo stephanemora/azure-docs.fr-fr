@@ -3,12 +3,12 @@ title: Restaurer des fichiers sur Windows Server avec l’agent MARS
 description: Dans cet article, découvrez comment restaurer des données stockées dans Azure sur un serveur Windows ou un ordinateur Windows avec l’agent Microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 7ca0787ec38e1bc22b62e756c7ee56c5c9e93493
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: fd17d4f2199440c72e5b0ceb4ec7fda7ab40d837
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517332"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555107"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurer des fichiers sur Windows Server avec l’agent MARS
 
@@ -75,7 +75,7 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez le restaur
     ![Capture d'écran de la page Récupérer des fichiers de l'Assistant Récupérer des données (restaurer sur la même machine) - Confirmer le démontage du volume de récupération](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Si vous ne sélectionnez pas **Démonter**, le volume de récupération reste monté pendant 6 heures à compter du montage. Toutefois, la durée du montage est prolongée de 24 heures maximum lorsqu'une copie de fichiers est en cours. Aucune opération de sauvegarde ne s’exécute tant que le volume est monté. Toute opération de sauvegarde planifiée pour s’exécuter au moment où le volume de récupération est monté s’exécutera une fois qu’il sera démonté.
+    > Si vous ne sélectionnez pas **Démonter**, le volume de récupération reste monté pendant 6 heures à compter du montage. Toutefois, la durée du montage est étendue jusqu’à un maximum de 7 jours en cas de copie de fichier en cours. Aucune opération de sauvegarde ne s’exécute tant que le volume est monté. Toute opération de sauvegarde planifiée pour s’exécuter au moment où le volume de récupération est monté s’exécutera une fois qu’il sera démonté.
     >
 
 ## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>Utiliser la restauration instantanée pour restaurer des données sur un autre ordinateur

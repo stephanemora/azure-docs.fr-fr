@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 04/01/2021
+ms.date: 06/04/2021
 ms.topic: how-to
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: d0b62baf596250e75d9aa6c4a6210790a7211ce7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: contperf-fy21q3, devx-track-azurepowershell
+ms.openlocfilehash: 616354174f5eb4bdae8e4b76379106e309c0dd14
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764826"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969097"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Utilisation de votre espace de travail avec un serveur DNS personnalisé
 
@@ -35,7 +35,7 @@ Lorsque vous utilisez un espace de travail Azure Machine Learning avec un point
 
 - Connaissances sur la [configuration de la zone DNS d’un point de terminaison privé Azure](../private-link/private-endpoint-dns.md)
 
-- Connaissance du [DNS privé Azure](/azure/dns/private-dns-privatednszone)
+- Connaissance du [DNS privé Azure](../dns/private-dns-privatednszone.md)
 
 - Éventuellement, [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -165,7 +165,10 @@ $workspaceDns.CustomDnsConfigs | format-table
 1. Sélectionnez le lien dans la colonne __Point de terminaison privé__ qui s’affiche.
 1. La liste des noms de domaine complets (FQDN) et les adresses IP du point de terminaison privé de l’espace de travail se trouvent au bas de la page.
 
-:::image type="content" source="./media/how-to-custom-dns/private-endpoint-custom-dns.png" alt-text="Liste des noms de domaine complets dans le portail":::
+    :::image type="content" source="./media/how-to-custom-dns/private-endpoint-custom-dns.png" alt-text="Liste des noms de domaine complets dans le portail":::
+
+    > [!TIP]
+    > Si les paramètres DNS n’apparaissent pas en bas de la page, utilisez le lien __Configuration DNS__ sur le côté gauche de la page pour afficher les noms de domaine complets (FQDN).
 
 ---
 

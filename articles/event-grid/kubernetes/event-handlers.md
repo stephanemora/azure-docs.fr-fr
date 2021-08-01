@@ -6,12 +6,12 @@ ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 740930a342706eeaf3adc3b0e8ad1e01e4c70932
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 838084204ed2c1979f618bb2bfe644d1f88cd51e
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385511"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536496"
 ---
 # <a name="event-handlers-destinations-in-event-grid-on-kubernetes"></a>Destinations des gestionnaires d’événements dans Event Grid sur Kubernetes
 Un gestionnaire d’événements est un système qui expose un point de terminaison et qui est la destination d’événements envoyés par Event Grid. Un gestionnaire d’événements qui reçoit un événement agit sur celui-ci et utilise la charge utile de l’événement pour exécuter une logique, ce qui peut entraîner l’occurrence de nouveaux événements.
@@ -79,18 +79,18 @@ Pour publier sur un point de terminaison WebHook, définissez `endpointType` sur
 
 Pour publier sur un point de terminaison cloud Azure Event Grid, définissez `endpointType` sur `WebHook` et indiquez :
 
-* **endpointUrl** : URL de rubrique Azure Event Grid dans le cloud
+* **endpointUrl** : URL de rubrique de la grille d’événements Azure dans le Cloud avec le paramètre de version de l’API défini sur **2018-01-01** et `aeg-sas-key` défini sur la clé SAS encodée en URL. 
 
    ```json
-        {
-          "properties": {
+    {
+        "properties": {
             "destination": {
-              "endpointType": "WebHook",
-              "properties": {
-                 "endpointUrl": "<your-event-grid-cloud-topic-endpoint-url>?api-version=2018-01-01",
-              }
+                "endpointType": "WebHook",
+                "properties": {
+                    "endpointUrl": "<your-event-grid-cloud-topic-endpoint-url>?api-version=2018-01-01&aeg-sas-key=urlencoded(sas-key-value)"
+                }
             }
-          }
+        }
     }
    ```
 

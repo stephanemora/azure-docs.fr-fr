@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: e4f31c560fe3dd91689b361ed520e466fd52da1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a16e571478428ef1eb068236369b6e9af9f19e1
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85360008"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111853691"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Changer le mot de passe du compte de connecteur Azure AD
 Le compte de connecteur Azure AD est censé être proposé en libre-service. Si vous devez réinitialiser les informations d’identification, cette rubrique vous concerne. Par exemple, un administrateur général peut avoir réinitialisé par erreur le mot de passe du compte à l’aide de PowerShell.
@@ -30,12 +30,13 @@ Le compte de connecteur Azure AD est censé être proposé en libre-service. Si 
 ## <a name="reset-the-credentials"></a>Réinitialisation des informations d'identification
 Si le compte de connecteur Azure AD ne peut pas contacter Azure AD en raison de problèmes d’authentification, le mot de passe peut être réinitialisé.
 
-1. Connectez-vous au serveur de synchronisation Azure AD Connect et démarrez PowerShell.
-2. Exécutez `Add-ADSyncAADServiceAccount`.
-   ![PowerShell cmdlet addadsyncaadserviceaccount](./media/how-to-connect-azureadaccount/addadsyncaadserviceaccount.png)
-3. Fournissez les informations d’identification de l’administrateur général Azure AD.
+1. Connectez-vous au serveur de synchronisation Azure AD Connect et ouvrez PowerShell.
+2. Pour fournir les informations d’identification d’administrateur général Azure AD, exécutez `$credential = Get-Credential`.
+3. Exécutez le cmdlet `Add-ADSyncAADServiceAccount -AADCredential $credential`.
 
-Cette applet de commande réinitialise le mot de passe du compte de service et l’actualise dans Azure AD et dans le moteur de synchronisation.
+   Si le cmdlet est réussi, l’invite de commande PowerShell s’affiche. 
+   
+Ce cmdlet réinitialise le mot de passe du compte de service et l’actualise dans Azure AD et le moteur de synchronisation.
 
 ## <a name="known-issues-these-steps-can-solve"></a>Problèmes connus pouvant être résolus par les procédures indiquées ci-après
 Cette section est une liste d’erreurs signalées par les clients qui ont été résolues par une réinitialisation des informations d’identification sur le compte de connecteur Azure AD.

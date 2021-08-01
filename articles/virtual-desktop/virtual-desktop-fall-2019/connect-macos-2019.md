@@ -1,26 +1,26 @@
 ---
-title: Se connecter à Windows Virtual Desktop (classique) à partir de macOS - Azure
-description: Explique comment se connecter à Windows Virtual Desktop (classique) à l’aide du client macOS.
+title: Se connecter à Azure Virtual Desktop (classique) à partir de macOS – Azure
+description: Explique comment se connecter à Azure Virtual Desktop (classique) à l’aide du client macOS.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 4014de262490259ed2e61eb17c80b40679e62773
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 3a372e09c575f1805050af6ea427f7650c614aff
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445208"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749972"
 ---
-# <a name="connect-to-windows-virtual-desktop-classic-with-the-macos-client"></a>Se connecter à Windows Virtual Desktop (classique) avec le client macOS
+# <a name="connect-to-azure-virtual-desktop-classic-with-the-macos-client"></a>Se connecter à Azure Virtual Desktop (classique) avec le client macOS
 
 > S’applique à : macOS 10.12 ou version ultérieure
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../connect-macos.md).
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer des objets Azure Virtual Desktop pour Azure Resource Manager, consultez [cet article](../connect-macos.md).
 
-Vous pouvez accéder aux ressources Windows Virtual Desktop à partir de vos appareils macOS avec notre client téléchargeable. Ce guide vous explique comment configurer le client.
+Vous pouvez accéder aux ressources Azure Virtual Desktop à partir de vos appareils macOS avec notre client téléchargeable. Ce guide vous explique comment configurer le client.
 
 ## <a name="install-the-client"></a>Installation du client
 

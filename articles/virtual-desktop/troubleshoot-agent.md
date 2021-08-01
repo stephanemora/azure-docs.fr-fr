@@ -1,21 +1,21 @@
 ---
-title: Résoudre des problèmes liés à l’Agent Windows Virtual Desktop – Azure
+title: Résoudre des problèmes liés à l’Agent Azure Virtual Desktop – Azure
 description: Comment résoudre des problèmes courants liés à l’agent et à la connectivité.
 author: Sefriend
 ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 67bc4218e28e561b618ab092f0b73207438bd2aa
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 1ca3d938851b1aa54e13a29638fa3e4c1f8569d1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633336"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751412"
 ---
-# <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Résoudre des problèmes courants liés à l’Agent Windows Virtual Desktop
+# <a name="troubleshoot-common-azure-virtual-desktop-agent-issues"></a>Résoudre des problèmes courants liés à l’Agent Azure Virtual Desktop
 
-L’Agent Windows Virtual Desktop peut occasionner des problèmes de connexion en raison de plusieurs facteurs :
+L’Agent Azure Virtual Desktop peut occasionner des problèmes de connexion en raison de plusieurs facteurs :
    - erreur sur le répartiteur conduisant l’agent à arrêter le service ;
    - problèmes liés aux mises à jour ;
    - problèmes liés à l’installation de l’agent qui interrompt la connexion à l’hôte de la session.
@@ -23,7 +23,7 @@ L’Agent Windows Virtual Desktop peut occasionner des problèmes de connexion e
 Cet article vous guide dans les solutions de ces scénarios courants et explique comment résoudre les problèmes de connexion.
 
 >[!NOTE]
->Pour résoudre les problèmes liés à la connectivité de session et à l’agent Windows Virtual Desktop, nous vous recommandons de consulter les journaux des événements dans **Observateur d’événements** > **Journaux Windows** > **Application**. Recherchez les événements qui ont l’une des sources suivantes pour identifier votre problème :
+>Pour résoudre les problèmes liés à la connectivité de session et à l’agent Azure Virtual Desktop, nous vous recommandons de consulter les journaux des événements dans **Observateur d’événements** > **Journaux Windows** > **Application**. Recherchez les événements qui ont l’une des sources suivantes pour identifier votre problème :
 >
 >- Agent WVD
 >- Programme de mise à jour de l’agent WVD
@@ -106,19 +106,19 @@ Pour résoudre ce problème, vérifiez que vous pouvez atteindre BrokerURI et Br
    > ![Capture d’écran de l’échec d’accès à l’URI global du répartiteur chargé](media/unsuccessful-broker-global.png)
 
 8. Si le réseau bloque ces URL, vous devez débloquer les URL requises. Pour plus d’informations, consultez [Liste des URL requises](safe-url-list.md).
-9. Si cela ne résout pas votre problème, assurez-vous que vous n’avez pas de stratégie de groupe avec des chiffrements qui bloquent la connexion de l’agent au répartiteur. Windows Virtual Desktop utilise les mêmes chiffrements TLS 1.2 qu’[Azure Front Door](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-). Pour plus d’informations, consultez [Sécurité de la connexion](network-connectivity.md#connection-security).
+9. Si cela ne résout pas votre problème, assurez-vous que vous n’avez pas de stratégie de groupe avec des chiffrements qui bloquent la connexion de l’agent au répartiteur. Azure Virtual Desktop utilise les mêmes chiffrements TLS 1.2 qu’[Azure Front Door](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-). Pour plus d’informations, consultez [Sécurité de la connexion](network-connectivity.md#connection-security).
 
 ## <a name="error-3703"></a>Erreur : 3703
 
-Accédez à **Observateur d’événements** > **Journaux Windows** > **Application**. Si vous voyez un événement dont l’ID est 3703 et dont la description contient la chaîne « RD Gateway Url: is not accessible », cela signifie que l’agent ne peut pas atteindre les URL de passerelle. Pour vous connecter correctement à votre hôte de session et autoriser le trafic réseau vers ces points de terminaison à ignorer les restrictions, vous devez débloquer les URL de la [Liste des URL requises](safe-url-list.md). Assurez-vous également que vos paramètres de pare-feu ou de proxy ne bloquent pas ces URL. Le déblocage de ces URL est nécessaire pour utiliser Windows Virtual Desktop.
+Accédez à **Observateur d’événements** > **Journaux Windows** > **Application**. Si vous voyez un événement dont l’ID est 3703 et dont la description contient la chaîne « RD Gateway Url: is not accessible », cela signifie que l’agent ne peut pas atteindre les URL de passerelle. Pour vous connecter correctement à votre hôte de session et autoriser le trafic réseau vers ces points de terminaison à ignorer les restrictions, vous devez débloquer les URL de la [Liste des URL requises](safe-url-list.md). Assurez-vous également que vos paramètres de pare-feu ou de proxy ne bloquent pas ces URL. Le déblocage de ces URL est nécessaire pour utiliser Azure Virtual Desktop.
 
 Pour résoudre ce problème, vérifiez que vos paramètres de pare-feu et/ou de DNS ne bloquent pas ces URL :
-1. [Utilisez le Pare-feu Azure pour protéger les déploiements de Windows Virtual Desktop.](../firewall/protect-windows-virtual-desktop.md)
+1. [Utiliser le Pare-feu Azure pour protéger les déploiements de Azure Virtual Desktop.](../firewall/protect-windows-virtual-desktop.md).
 2. Configurez vos [Paramètres DNS de Pare-feu Azure](../firewall/dns-settings.md)
 
 ## <a name="error-3019"></a>Erreur: 3019
 
-Accédez à **Observateur d’événements** > **Journaux Windows** > **Application**. Si vous voyez un événement dont l’ID est 3019, cela signifie que l’agent ne peut pas atteindre les URL de transport de WebSocket. Pour vous connecter correctement à votre hôte de session et autoriser le trafic réseau à ignorer les restrictions, vous devez débloquer les URL répertoriées dans la [Liste des URL requises](safe-url-list.md). Collaborez avec l’équipe de mise en réseau Azure pour vous assurer que vos paramètres de pare-feu, de proxy et DNS ne bloquent pas ces URL. Vous pouvez également consulter les journaux de suivi du réseau pour identifier l’emplacement où le service Windows Virtual Desktop est bloqué. Si vous ouvrez une demande de support pour ce problème particulier, veillez à joindre vos journaux de suivi réseau.
+Accédez à **Observateur d’événements** > **Journaux Windows** > **Application**. Si vous voyez un événement dont l’ID est 3019, cela signifie que l’agent ne peut pas atteindre les URL de transport de WebSocket. Pour vous connecter correctement à votre hôte de session et autoriser le trafic réseau à ignorer les restrictions, vous devez débloquer les URL répertoriées dans la [Liste des URL requises](safe-url-list.md). Collaborez avec l’équipe de mise en réseau Azure pour vous assurer que vos paramètres de pare-feu, de proxy et DNS ne bloquent pas ces URL. Vous pouvez également consulter les journaux de suivi du réseau pour identifier l’emplacement où le service Azure Virtual Desktop est bloqué. Si vous ouvrez une demande de support pour ce problème particulier, veillez à joindre vos journaux de suivi réseau.
 
 ## <a name="error-installationhealthcheckfailedexception"></a>Erreur : InstallationHealthCheckFailedException
 
@@ -189,7 +189,7 @@ Pour désactiver une stratégie :
 
 ## <a name="error-stack-listener-isnt-working-on-windows-10-2004-vm"></a>Erreur : L’écouteur de pile ne fonctionne pas sur une machine virtuelle Windows 10 2004
 
-Exécutez **qwinsta** à l’invite de commandes et notez le numéro de version qui s’affiche en regard de **rdp-sxs**. Si vous ne voyez pas **Listen** (Écouter ) affiché en regard des composants **rdp-tcp** et **rdp-sxs**, ou si ceux-ci ne s’affichent pas du tout après l’exécution de la commande **qwinsta**, cela signifie qu’il y a un problème de pile. Les mises à jour de pile sont installées en même temps que les mises à jour d’agent et, lorsque cette installation tourne mal, l’écouteur de Windows Virtual Desktop ne fonctionne pas.
+Exécutez **qwinsta** à l’invite de commandes et notez le numéro de version qui s’affiche en regard de **rdp-sxs**. Si vous ne voyez pas **Listen** (Écouter ) affiché en regard des composants **rdp-tcp** et **rdp-sxs**, ou si ceux-ci ne s’affichent pas du tout après l’exécution de la commande **qwinsta**, cela signifie qu’il y a un problème de pile. Les mises à jour de pile sont installées en même temps que les mises à jour d’agent et, lorsque cette installation tourne mal, l’écouteur de Azure Virtual Desktop ne fonctionne pas.
 
 Pour résoudre ce problème :
 1. Ouvrez l’Éditeur du Registre.
@@ -224,7 +224,7 @@ Pour résoudre ce problème, libérez de l’espace sur votre disque en procéda
 
 ## <a name="error-agent-fails-to-update-with-missingmethodexception"></a>Erreur : échec de la mise à jour de l’agent avec MissingMethodException
 
-Accédez à **Observateur d’événements** > **Journaux Windows** > **Application**. Si vous voyez un événement dont l’ID est 3389 et dont la description contient la chaîne « MissingMethodException: Method not found », cela signifie que l’agent Windows Virtual Desktop n’a pas été mis à jour correctement et qu’il est revenu à une version antérieure. Cela peut être dû au fait que le numéro de version de .NET Framework actuellement installé sur vos machines virtuelles est inférieur à 4.7.2. Pour résoudre ce problème, vous devez mettre à niveau .NET vers la version 4.7.2 ou ultérieure en suivant les instructions d’installation de la [documentation .NET Framework](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
+Accédez à **Observateur d’événements** > **Journaux Windows** > **Application**. Si vous voyez un événement dont l’ID est 3389 et dont la description contient la chaîne « MissingMethodException: Method not found », cela signifie que l’agent Azure Virtual Desktop n’a pas été mis à jour correctement et qu’il est revenu à une version antérieure. Cela peut être dû au fait que le numéro de version de .NET Framework actuellement installé sur vos machines virtuelles est inférieur à 4.7.2. Pour résoudre ce problème, vous devez mettre à niveau .NET vers la version 4.7.2 ou ultérieure en suivant les instructions d’installation de la [documentation .NET Framework](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 
 
 ## <a name="error-vms-are-stuck-in-unavailable-or-upgrading-state"></a>Erreur : Les machines virtuelles sont bloquées dans l’état Indisponible ou Mise à niveau
@@ -287,7 +287,7 @@ Pour résoudre ce problème :
 
 ## <a name="your-issue-isnt-listed-here-or-wasnt-resolved"></a>Votre problème n’est pas répertorié ici ou n’a pas été résolu
 
-Si vous ne trouvez pas votre problème dans cet article ou si les instructions ne vous ont pas été utiles, nous vous recommandons de désinstaller, réinstaller et réinscrire l’agent Windows Virtual Desktop. Les instructions de cette section montrent comment réinscrire votre machine virtuelle auprès du service Windows Virtual Desktop en désinstallant tout agent, chargeur de démarrage et composant de pile, en supprimant l’hôte de la session du pool d’hôtes, en générant une nouvelle clé d’inscription pour la machine virtuelle, et en réinstallant l’agent et le chargeur de démarrage. Si un ou plusieurs des scénarios suivants s’appliquent à vous, suivez ces instructions :
+Si vous ne trouvez pas votre problème dans cet article ou si les instructions ne vous ont pas été utiles, nous vous recommandons de désinstaller, réinstaller et réinscrire l’agent Azure Virtual Desktop. Les instructions de cette section montrent comment réinscrire votre machine virtuelle auprès du service Azure Virtual Desktop en désinstallant tout agent, chargeur de démarrage et composant de pile, en supprimant l’hôte de la session du pool d’hôtes, en générant une nouvelle clé d’inscription pour la machine virtuelle, et en réinstallant l’agent et le chargeur de démarrage. Si un ou plusieurs des scénarios suivants s’appliquent à vous, suivez ces instructions :
 - Votre machine virtuelle est bloquée dans l’état **Mise à niveau** ou **Indisponible**.
 - Votre écouteur de pile ne fonctionne pas et vous opérez sur Windows 10 1809, 1903 ou 1909.
 - Vous recevez une erreur **EXPIRED_REGISTRATION_TOKEN**.
@@ -345,7 +345,7 @@ Vous devez générer une nouvelle clé d’inscription à utiliser pour réinscr
 ### <a name="step-4-reinstall-the-agent-and-boot-loader"></a>Étape 4 : Réinstaller l’agent et le chargeur de démarrage
 
 La réinstallation de la version la plus récente de l’agent et du chargeur de démarrage a également pour effet d’installer automatiquement la pile côte à côte et l’agent de surveillance Geneva. Pour réinstaller l’agent et le chargeur de démarrage :
-1. Connectez-vous à votre machine virtuelle en tant qu’administrateur et utilisez la version correcte du programme d’installation de l’agent pour votre déploiement en fonction de la version de Windows exécutée par votre machine virtuelle. Si vous avez une machine virtuelle Windows 10, suivez les instructions fournies dans [Inscrire des machines virtuelles](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) pour télécharger **l’Agent Windows Virtual Desktop** et le **Chargeur de démarrage de l’agent Windows Virtual Desktop**. Si vous avez une machine virtuelle Windows 7, suivez les étapes 13 à 14 dans [Inscrire des machines virtuelles](deploy-windows-7-virtual-machine.md#configure-a-windows-7-virtual-machine) pour télécharger **l’Agent Windows Virtual Desktop** et **l’Agent Manager Windows Virtual Desktop**.
+1. Connectez-vous à votre machine virtuelle en tant qu’administrateur et utilisez la version correcte du programme d’installation de l’agent pour votre déploiement en fonction de la version de Windows exécutée par votre machine virtuelle. Si vous avez une machine virtuelle Windows 10, suivez les instructions fournies dans [Inscrire des machines virtuelles](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) pour télécharger **l’Agent Azure Virtual Desktop** et le **Chargeur de démarrage de l’agent Azure Virtual Desktop**. Si vous avez une machine virtuelle Windows 7, suivez les étapes 13 à 14 dans [Inscrire des machines virtuelles](deploy-windows-7-virtual-machine.md#configure-a-windows-7-virtual-machine) pour télécharger **l’Agent Azure Virtual Desktop** et **l’Agent Manager Azure Virtual Desktop**.
 
    > [!div class="mx-imgBorder"]
    > ![Capture d’écran de la page de téléchargement de l’agent et du chargeur de démarrage](media/download-agent.png)
@@ -371,15 +371,15 @@ La réinstallation de la version la plus récente de l’agent et du chargeur de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si le problème persiste, créez un cas de support en incluant des informations détaillées sur le problème rencontré et les actions que vous avez tentées pour le résoudre. La liste suivante comprend d’autres ressources que vous pouvez utiliser pour résoudre des problèmes liés à votre déploiement de Windows Virtual Desktop.
+Si le problème persiste, créez un cas de support en incluant des informations détaillées sur le problème rencontré et les actions que vous avez tentées pour le résoudre. La liste suivante comprend d’autres ressources que vous pouvez utiliser pour résoudre des problèmes liés à votre déploiement de Azure Virtual Desktop.
 
-- Pour découvrir une vue d’ensemble de la résolution des problèmes Windows Virtual Desktop et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview.md).
-- Pour résoudre les problèmes de création d’un pool d’hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un environnement et d’un pool d’hôtes](troubleshoot-set-up-issues.md).
-- Pour résoudre les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
-- Pour résoudre les problèmes de connexion au client Windows Virtual Desktop, consultez [Connexions au service Windows Virtual Desktop](troubleshoot-service-connection.md).
+- Pour découvrir une vue d’ensemble de la résolution des problèmes Azure Virtual Desktop et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview.md).
+- Pour résoudre les problèmes de création d’un pool d’hôtes dans un environnement Azure Virtual Desktop, consultez [Création d’un environnement et d’un pool d’hôtes](troubleshoot-set-up-issues.md).
+- Pour résoudre les problèmes de configuration d’une machine virtuelle dans Azure Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
+- Pour résoudre les problèmes de connexion au client Azure Virtual Desktop, consultez [Connexions au service Azure Virtual Desktop](troubleshoot-service-connection.md).
 - Pour résoudre des problèmes liés aux clients Bureau à distance, consultez [Résoudre des problèmes du client Bureau à distance](troubleshoot-client.md).
-- Pour résoudre les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](environment-setup.md).
+- Pour résoudre les problèmes d’utilisation de PowerShell avec Azure Virtual Desktop, consultez [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
+- Pour plus d’informations sur le service, consultez [Environnement Azure Virtual Desktop](environment-setup.md).
 - Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 - Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../azure-resource-manager/templates/deployment-history.md).

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 04/13/2021
+ms.date: 05/27/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87516ddcce32ab205b13139c057a2ab999146b74
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 3d13b1f515d5585c6378e48eb64feed59615cdef
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376356"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616912"
 ---
 # <a name="what-is-risk"></a>Quel est le risque ?
 
@@ -66,6 +66,7 @@ Ces risques peuvent être calculés en temps réel ou hors connexion à l’aide
 | Nouveau pays | Hors connexion | Cette détection est découverte par [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). Cette détection prend en compte les emplacements d’activité précédents pour déterminer les emplacements nouveaux et peu fréquents. Le moteur de détection d’anomalies stocke des informations sur les emplacements précédents utilisés par les utilisateurs de l’organisation. |
 | Activité depuis une adresse IP anonyme | Hors connexion | Cette détection est découverte par [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). Cette détection identifie que les utilisateurs étaient actifs depuis une adresse IP qui a été identifiée comme une adresse IP de proxy anonyme. |
 | Transfert de boîte de réception suspect | Hors connexion | Cette détection est découverte par [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). Cette détection recherche les règles de transfert des e-mails suspects, par exemple, si un utilisateur a créé une règle de boîte de réception assurant le transfert d’une copie de tous les e-mails à une adresse externe. |
+| Azure AD Threat Intelligence | Hors connexion | Ce type de détection d'événement à risque indique une activité de connexion inhabituelle pour l'utilisateur donné ou qui est cohérente avec des modèles d'attaque connus selon les sources internes et externes de Microsoft Threat Intelligence. |
 
 ### <a name="other-risk-detections"></a>Autres détections de risques
 
@@ -109,6 +110,10 @@ Si vous n’avez pas vu d’événements à risque concernant les informations d
 #### <a name="how-often-does-microsoft-process-new-credentials"></a>À quelle fréquence Microsoft traite-t-il les nouvelles informations d’identification ?
 
 Les informations d’identification sont traitées immédiatement après avoir été détectées, normalement en plusieurs lots par jour.
+
+### <a name="locations"></a>Emplacements
+
+L'emplacement dans les détections de risques est déterminé par la recherche d'adresse IP.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
