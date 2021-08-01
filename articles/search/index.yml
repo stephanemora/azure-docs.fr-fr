@@ -11,12 +11,12 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 03/02/2021
-  ms.openlocfilehash: 86122297340197ede15e99b8ac3f4ff2f61713b1
-  ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+  ms.openlocfilehash: 2cdb36e2cc141c440ab933ea77e4ef2e480a691e
+  ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/07/2021
-  ms.locfileid: "111555863"
+  ms.lasthandoff: 06/23/2021
+  ms.locfileid: "112518767"
 landingContent:
 - title: À propos de la recherche cognitive
   linkLists:
@@ -36,8 +36,16 @@ landingContent:
     links:
     - text: Utiliser l’IA dans les solutions de recherche
       url: https://youtu.be/M4Rf1s0WcWQ?t=19
-- title: Indexer des données Azure
+- title: Indexer des données
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Galerie de sources de données
+      url: search-data-sources-gallery.md
+    - text: Création d’index
+      url: search-what-is-an-index.md
+    - text: Importation de données
+      url: search-what-is-data-import.md
   - linkListType: how-to-guide
     links:
     - text: Indexer à partir du Stockage Blob Azure
@@ -46,11 +54,7 @@ landingContent:
       url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
     - text: Indexer à partir de Cosmos DB
       url: search-howto-index-cosmosdb.md
-  - linkListType: tutorial
-    links:
-    - text: Indexer les données blob semi-structurées
-      url: search-semi-structured-data.md
-- title: Guides de démarrage rapide de 10 minutes
+- title: Bien démarrer
   linkLists:
   - linkListType: quickstart
     links:
@@ -62,6 +66,28 @@ landingContent:
       url: search-create-app-portal.md
     - text: Extraire du texte à partir d’images et de fichiers d’application
       url: cognitive-search-quickstart-blob.md
+- title: Développement d’applications
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Ajouter une recherche à des applications web
+      url: tutorial-csharp-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Développer dans .NET
+      url: search-howto-dotnet-sdk.md
+    - text: Appeler des API REST dans VS Code
+      url: search-get-started-vs-code.md
+    - text: Appeler des API REST dans Postman
+      url: search-get-started-rest.md
+  - linkListType: reference
+    links:
+    - text: Kit SDK Azure pour .NET
+      url: /dotnet/api/overview/azure/search.documents-readme
+    - text: Kit SDK Azure pour Python
+      url: /python/api/overview/azure/search-documents-readme
+    - text: Référence sur les API REST
+      url: /rest/api/searchservice/index
 - title: Enrichir avec l’intelligence artificielle
   linkLists:
   - linkListType: concept
@@ -84,22 +110,6 @@ landingContent:
     links:
     - text: Compétences prédéfinies
       url: cognitive-search-predefined-skills.md
-- title: Indexer des données
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Définir un index
-      url: search-what-is-an-index.md
-    - text: Importer des données
-      url: search-what-is-data-import.md
-    - text: Indexer à l’aide de connecteurs Power Query
-      url: search-how-to-index-power-query-data-sources.md
-  - linkListType: reference
-    links:
-    - text: Créer un index (REST)
-      url: /rest/api/searchservice/create-index
-    - text: Créer un indexeur (REST)
-      url: /rest/api/searchservice/create-indexer
 - title: Interroger des données
   linkLists:
   - linkListType: concept
@@ -127,7 +137,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: Questions fréquentes (FAQ)
-      url: search-faq-frequently-asked-questions.md
+      url: search-faq-frequently-asked-questions.yml
     - text: Poser des questions sur Stack Overflow
       url: https://stackoverflow.com/questions/tagged/azure-search
     - text: Demander une fonctionnalité
