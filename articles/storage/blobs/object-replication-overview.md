@@ -10,12 +10,12 @@ ms.date: 05/11/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 503c146584ddf05f12ada3dfc103c86b28bd797a
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 39b1ebb4ca0a7daf5654c306382effa44d90c798
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790826"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109845759"
 ---
 # <a name="object-replication-for-block-blobs"></a>Réplication d'objets blob de blocs
 
@@ -80,13 +80,13 @@ Une fois que vous avez configuré la réplication d’objets, Stockage Azure vé
 
 Lorsque vous configurez la réplication d’objets, une stratégie de réplication est créée à la fois sur le compte source et le compte de destination par le biais du fournisseur de ressources de Stockage Azure. La stratégie de réplication est identifiée par un ID de stratégie. La stratégie sur les comptes source et de destination doit avoir le même ID de stratégie pour que la réplication ait lieu.
 
-Un compte source peut être répliqué sur deux comptes de destination maximum, avec une stratégie pour chaque compte de destination. De même, un compte de destination ne peut pas avoir plus de deux comptes sources. Chaque stratégie de réplication peut avoir jusqu’à 10 règles de réplication, ce qui signifie qu’un maximum de 10 conteneurs sources et 10 conteneurs de destination peuvent participer à chaque stratégie de réplication.
+Un compte source peut être répliqué sur deux comptes de destination maximum, avec une stratégie pour chaque compte de destination. De même, un compte peut faire office de compte de destination pour au moins deux stratégies de réplication.
 
 Les comptes source et de destination peuvent se trouver dans la même région ou dans des régions différentes. Ils peuvent également être associés à des abonnements et à des locataires Azure Active Directory (Azure AD) différents. Une seule stratégie de réplication peut être créée pour chaque paire compte source/compte de destination.
 
 ### <a name="replication-rules"></a>Règles de réplication
 
-Les règles de réplication spécifient comment Stockage Azure va répliquer les objets blob d’un conteneur source vers un conteneur de destination. Vous pouvez spécifier jusqu’à 10 règles de réplication pour chaque stratégie de réplication. Chaque règle de réplication définit un seul conteneur source et de destination, et chaque conteneur ne peut être utilisé que dans une seule règle.
+Les règles de réplication spécifient comment Stockage Azure va répliquer les objets blob d’un conteneur source vers un conteneur de destination. Vous pouvez spécifier jusqu’à 10 règles de réplication pour chaque stratégie de réplication. Chaque règle de réplication définit un seul conteneur source et de destination, et chaque conteneur source et de destination ne peut être utilisé que dans une seule règle, ce qui signifie qu’un maximum de 10 conteneurs source et 10 conteneurs de destination peuvent être inclus dans une même stratégie de réplication.
 
 Quand vous créez une règle de réplication, par défaut, seuls les nouveaux objets blob de blocs ajoutés par la suite au conteneur source sont copiés. Vous pouvez spécifier que les objets blob de blocs, qu'ils soient nouveaux et existants, soient copiés, ou bien vous pouvez définir une étendue de copie personnalisée qui copie les objets blob de blocs créés à partir d'un moment donné.
 

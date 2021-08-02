@@ -3,12 +3,12 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise le client Guest Configuration pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6ca5990306dd77e59298c7df6a64f463b36be93b
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 80de6651d59b26b596633b8ba775c774dcfea62e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804103"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970343"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -62,17 +62,18 @@ Lorsqu'un [déclencheur d’évaluation](../how-to/get-compliance-data.md#evalua
 
 ## <a name="supported-client-types"></a>Types de clients pris en charge
 
-Les définitions de stratégie Guest Configuration sont incluses dans les nouvelles versions. Les versions antérieures des systèmes d’exploitation disponibles dans Place de marché Azure sont exclues si le client Guest Configuration n’est pas compatible. Le tableau suivant affiche une liste des systèmes d’exploitation pris en charge sur des images Azure :
+Les définitions de stratégie Guest Configuration sont incluses dans les nouvelles versions. Les versions antérieures des systèmes d’exploitation disponibles dans Place de marché Azure sont exclues si le client Guest Configuration n’est pas compatible. Le tableau suivant affiche une liste des systèmes d’exploitation pris en charge sur des images Azure.
+« .x » est utilisé pour représenter les nouvelles versions mineures des distributions Linux.
 
 |Serveur de publication|Nom|Versions|
 |-|-|-|
-|Canonical|Serveur Ubuntu|14.04 - 20.04|
-|Credativ|Debian|8 - 10|
+|Canonical|Serveur Ubuntu|14.04 - 20.x|
+|Credativ|Debian|8 - 10.x|
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Client Windows|Windows 10|
-|OpenLogic|CentOS|7.3 -8|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 8|
-|SUSE|SLES|12 SP3-SP5, 15|
+|OpenLogic|CentOS|7.3 - 8.x|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 8.x|
+|SUSE|SLES|12 SP3-SP5, 15.x|
 
 Les images de machine virtuelle personnalisées sont prises en charge par les définitions de stratégie Guest Configuration, dans la mesure où il s’agit d’un des systèmes d’exploitation répertoriés dans le tableau ci-dessus.
 
@@ -84,7 +85,7 @@ Les machines Azure Arc se connectent à l’aide de l’infrastructure réseau l
 
 ### <a name="communicate-over-virtual-networks-in-azure"></a>Communiquer via des réseaux virtuels dans Azure
 
-Pour communiquer avec le fournisseur de ressources de configuration d’invité dans Azure, les machines nécessitent un accès sortant vers des centres de données Azure sur le port **443**. Si un réseau dans Azure n’autorise pas le trafic sortant, configurez des exceptions à l’aide de règles du [Groupe de sécurité réseau](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). L’[étiquette de service](../../../virtual-network/service-tags-overview.md) « GuestAndHybridManagement » peut être utilisée pour référencer le service Guest Configuration plutôt que de gérer manuellement la [liste des plages d’adresses IP](https://www.microsoft.com/en-us/download/details.aspx?id=56519) pour les centres de données Azure.
+Pour communiquer avec le fournisseur de ressources de configuration d’invité dans Azure, les machines nécessitent un accès sortant vers des centres de données Azure sur le port **443**. Si un réseau dans Azure n’autorise pas le trafic sortant, configurez des exceptions à l’aide de règles du [Groupe de sécurité réseau](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). L’[étiquette de service](../../../virtual-network/service-tags-overview.md) « AzureArcInfrastructure » peut être utilisée pour référencer le service Guest Configuration plutôt que de gérer manuellement la [liste des plages d’adresses IP](https://www.microsoft.com/en-us/download/details.aspx?id=56519) pour les centres de données Azure.
 
 ### <a name="communicate-over-private-link-in-azure"></a>Communiquer via une liaison privée dans Azure
 
@@ -161,7 +162,7 @@ Les définitions de stratégie Audit disponibles pour Guest Configuration inclue
 
 ## <a name="availability"></a>Disponibilité
 
-Les clients qui conçoivent une solution hautement disponible doivent tenir compte des exigences de planification de la redondance pour les [machines virtuelles](../../../virtual-machines/availability.md), car les attributions d’invités sont des extensions des ressources de machine dans Azure. Si une région physique devient indisponible dans Azure, il n’est pas possible d’afficher les rapports d’historique d’une attribution d’invité tant que la région n’est pas restaurée.
+Les clients qui conçoivent une solution hautement disponible doivent tenir compte des exigences de planification de la redondance pour les [machines virtuelles](../../../virtual-machines/availability.md), car les attributions d’invités sont des extensions des ressources de machine dans Azure. Lorsque les ressources d’attributions d’invités sont approvisionnées dans une région Azure [jumelée](../../../best-practices-availability-paired-regions.md), tant qu’au moins une région jumelée est disponible, les rapports d’attributions d’invités sont disponibles. Si la région Azure n’est pas jumelée et devient indisponible, il n’est pas possible d’accéder aux rapports d’une attribution d’invité tant que la région n’est pas restaurée.
 
 Lorsque vous envisagez une architecture pour les applications hautement disponibles, en particulier lorsque les machines virtuelles sont approvisionnées dans des [groupes à haute disponibilité](../../../virtual-machines/availability.md#availability-sets) derrière une solution d’équilibrage de charge pour fournir une haute disponibilité, il est recommandé d’affecter les mêmes définitions de stratégie avec les mêmes paramètres à toutes les machines de la solution. Si possible, une attribution de stratégie unique couvrant toutes les machines offrirait la surcharge administrative la moins importante.
 

@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0490334c759da6ef7ba7ff2535f5f561cdb7a9bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b23b4a60795dc01667df3c6a9efa8e9cde4aeda9
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92369809"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409898"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>À quoi correspondent les licences basées sur les groupes dans Azure Active Directory ?
 
@@ -30,7 +30,7 @@ Jusqu’à présent, les licences ne pouvaient être affectées qu’au niveau d
 Pour relever ces défis, Azure AD inclut maintenant une gestion des licences par groupe. Vous pouvez affecter une ou plusieurs licences de produits à un groupe. Azure AD permet de garantir que les licences sont affectées à tous les membres du groupe. Tous les nouveaux membres qui rejoignent le groupe se voient affecter les licences appropriées. Lorsqu’ils quittent le groupe, ces licences sont supprimées. Ceci élimine toute nécessité d’automatiser la gestion des licences avec PowerShell pour refléter les évolutions de la structure de l’organisation et des services utilisateur par utilisateur.
 
 ## <a name="licensing-requirements"></a>Exigences en termes de licence
-Vous devez disposer d’une des licences suivantes pour utiliser les licences basées sur le groupe :
+Vous devez disposer de l’une des licences suivantes **pour chaque utilisateur bénéficiant de la** gestion des licences basée sur les groupes :
 
 - Abonnement d’essai ou payant pour Azure AD Premium P1 et versions ultérieures
 

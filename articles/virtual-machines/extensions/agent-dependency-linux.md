@@ -7,13 +7,13 @@ ms.subservice: extensions
 author: mgoedtel
 ms.author: magoedte
 ms.collection: linux
-ms.date: 03/29/2019
-ms.openlocfilehash: d28f0a34f47942bba8776a0acd0bfe3aaf25df12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/01/2021
+ms.openlocfilehash: 97f557ec45530de3f42dd61ee1cded57fd7c33a0
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566297"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793743"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Azure Monitor Dependency pour Linux
 
@@ -134,6 +134,29 @@ az vm extension set \
     --publisher Microsoft.Azure.Monitoring.DependencyAgent \
     --version 9.5 
 ```
+
+## <a name="automatic-upgrade-preview"></a>Mise à niveau automatique (préversion)
+Une nouvelle fonctionnalité de mise à niveau automatique des versions mineures de l’extension Dependency est désormais disponible en préversion publique. Vous devez effectuer les modifications de configuration suivantes pour activer cette fonctionnalité.
+
+-   Utilisez l’une des méthodes indiquées dans [Activation de l’accès en préversion](../automatic-extension-upgrade.md#enabling-preview-access) pour activer la fonctionnalité pour votre abonnement.
+- Ajoutez l’attribut `enableAutomaticUpgrade` au modèle.
+
+Le schéma de contrôle de version de l’extension Dependency Agent respecte le format suivant :
+
+```
+<MM.mm.bb.rr> where M = Major version number, m = minor version number, b = bug number, r = revision number.
+```
+
+Les attributs `enableAutomaticUpgrade` et `autoUpgradeMinorVersion` fonctionnent ensemble pour déterminer comment les mises à niveau seront gérées pour les machines virtuelles de l’abonnement.
+
+| enableAutomaticUpgrade | autoUpgradeMinorVersion | Résultat |
+|:---|:---|:---|
+| true | false | Mettez à niveau l’agent Dependency si une version plus récente de bb.rr existe. Par exemple, si vous exécutez 9.6.0.1355 et que la version la plus récente est 9.6.2.1366, vos machines virtuelles dans les abonnements activés seront mises à niveau vers 9.6.2.1366. |
+| true | true |  Cela mettra à niveau l’agent Dependency si une version plus récente de mm.bb.rr ou bb.rr existe. Par exemple, si vous exécutez 9.6.0.1355 et que la version la plus récente est 9.7.1.1416, vos machines virtuelles dans les abonnements activés seront mises à niveau vers 9.7.1.1416. De même, si vous exécutez 9.6.0.1355 et que la version la plus récente est 9.6.2.1366, vos machines virtuelles dans les abonnements activés seront mises à niveau vers 9.6.2.1366. |
+| false | True ou False | La mise à niveau automatique est désactivée.
+
+> [!IMPORTANT]
+> Si vous ajoutez `enableAutomaticUpgrade` à votre modèle, assurez-vous d’utiliser au moins l’API version 2019-12-01.
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 

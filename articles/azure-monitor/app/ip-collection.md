@@ -4,12 +4,12 @@ description: Compréhension de la gestion des adresses IP et de la géolocalisat
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js, devx-track-azurepowershell
-ms.openlocfilehash: d5bacde864d42dfefab9c4b0d5dc90072081a25f
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 8115ea2334d0ea90ef0e31bb857f3e76154912ce
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321354"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082537"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Gestion de la géolocalisation et des adresses IP
 
@@ -58,7 +58,7 @@ Pour activer la collecte et le stockage d’adresses IP, la propriété `Disabl
 }
 ```
 
-### <a name="portal"></a>Portail 
+### <a name="portal"></a>Portail
 
 Si vous devez uniquement modifier le comportement d’une seule ressource Application Insights, utilisez le portail Azure. 
 
@@ -79,15 +79,14 @@ Si vous devez uniquement modifier le comportement d’une seule ressource Applic
     > [!WARNING]
     > Si vous voyez une erreur indiquant : **_Le groupe de ressources se trouve dans un emplacement qui n’est pas pris en charge par une ou plusieurs ressources dans le modèle. Choisissez un autre groupe de ressources._** Sélectionnez temporairement un autre groupe de ressources dans la liste déroulante, puis sélectionnez à nouveau votre groupe de ressources d’origine pour résoudre l’erreur.
 
-5. Sélectionnez **J’accepte** > **Achat**. 
+5. Sélectionnez **Vérifier + créer** > **Créer**.
 
-    ![Case à cocher avec les mots « J’accepte les termes et conditions mentionnés ci-dessus », encadrés en rouge au-dessus d’un bouton avec le mot « Acheter » encadré en rouge.](media/ip-collection/purchase.png)
-
-    Dans ce cas, rien de nouveau n’est réellement acheté. Nous mettons uniquement à jour la configuration de la ressource Application Insights existante.
+    > [!NOTE]
+    > Si vous voyez le message « Votre déploiement a échoué », consultez les détails de votre déploiement de type « microsoft.insights/components » et vérifiez l’état. Si ce déploiement a réussi, les modifications apportées à DisableIpMasking ont été déployées.
 
 6. Une fois le déploiement terminé, les nouvelles données de télémétrie sont enregistrées.
 
-    Si vous sélectionnez et modifiez à nouveau le modèle, vous verrez uniquement le modèle par défaut sans la propriété nouvellement ajoutée. Si vous ne voyez pas les données d’adresse IP et que vous souhaitez confirmer que `"DisableIpMasking": true` est défini, exécutez la commande PowerShell suivante : 
+    Si vous sélectionnez et modifiez à nouveau le modèle, vous verrez uniquement le modèle par défaut sans la propriété nouvellement ajoutée. Si vous ne voyez pas les données d’adresse IP et que vous souhaitez confirmer que `"DisableIpMasking": true` est défini, exécutez la commande PowerShell suivante :
     
     ```powershell
     # Replace `Fabrikam-dev` with the appropriate resource and resource group name.

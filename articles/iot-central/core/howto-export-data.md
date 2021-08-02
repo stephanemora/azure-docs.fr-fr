@@ -4,16 +4,16 @@ description: Comment utiliser la nouvelle exportation de données pour exporter 
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 05/03/2021
+ms.date: 06/04/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: e8df0d2adebd4815a2079699bdebec5eb41b183f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 914fd683c45415db4af1f932404bc2cc2cf35716
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760694"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111814546"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exporter des données IoT vers des destinations cloud à l'aide des fonctionnalités d'exportation de données
 
@@ -93,9 +93,9 @@ En l’absence de compte de stockage Azure vers lequel exporter, suivez ces éta
 
     |Niveau de performances|Type de compte|
     |-|-|
-    |standard|Usage général v2|
-    |standard|Usage général v1|
-    |standard|Stockage d'objets blob|
+    |Standard|Usage général v2|
+    |Standard|Usage général v1|
+    |Standard|Stockage d'objets blob|
     |Premium|Stockage d’objets blob de blocs|
 
 1. Pour créer un conteneur sur votre compte de stockage, accédez à celui-ci. Sous **Service blob**, sélectionnez **Parcourir les objets blob**. Sélectionnez **+ Conteneur**, en haut, pour créer un conteneur.
@@ -138,15 +138,17 @@ Maintenant que vous disposez d'une destination vers laquelle exporter vos donné
     
     | Type de données | Filtres disponibles| 
     |--------------|------------------|
-    |Télémétrie|<ul><li>Filtrer par nom d’appareil, ID d’appareil et modèle d’appareil</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement la télémétrie correspondant aux conditions de filtre</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement la télémétrie des appareils dont les propriétés correspondent aux conditions de filtre</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement la télémétrie contenant des *propriétés de message* correspondant à la condition de filtre. Les *propriétés de message* (également appelées *propriétés d’application*) sont envoyées dans un ensemble de paires clé-valeur sur chaque message de télémétrie éventuellement envoyé par des appareils qui utilisent les kits de développement logiciel (SDK) d’appareil. Pour créer un filtre de propriété de message, entrez la clé de la propriété de message que vous recherchez, et spécifiez une condition. Seuls les messages de télémétrie dont les propriétés correspondent à la condition de filtre spécifiée sont exportés. [En savoir plus sur les propriétés d’application dans des documents IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md) </li></ul>|
-    |Modifications de la propriété|<ul><li>Filtrer par nom d’appareil, ID d’appareil et modèle d’appareil</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement les changements de propriété correspondant aux conditions de filtre</li></ul>|
-    |Connectivité des appareils|<ul><li>Filtrer par nom d’appareil, ID d’appareil et modèle d’appareil</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement les changements des appareils dont les propriétés correspondent aux conditions de filtre</li></ul>|
-    |Cycle de vie de l’appareil|<ul><li>Filtrer par nom d’appareil, ID d’appareil et modèle d’appareil</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement les changements des appareils dont les propriétés correspondent aux conditions de filtre</li></ul>|
+    |Télémétrie|<ul><li>Filtrer par nom d’appareil, identité d'appareil et modèle d’appareil et indiquez si l’appareil est simulé</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement la télémétrie correspondant aux conditions de filtre</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement la télémétrie des appareils dont les propriétés correspondent aux conditions de filtre</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement la télémétrie contenant des *propriétés de message* correspondant à la condition de filtre. Les *propriétés de message* (également appelées *propriétés d’application*) sont envoyées dans un ensemble de paires clé-valeur sur chaque message de télémétrie éventuellement envoyé par des appareils qui utilisent les kits de développement logiciel (SDK) d’appareil. Pour créer un filtre de propriété de message, entrez la clé de la propriété de message que vous recherchez, et spécifiez une condition. Seuls les messages de télémétrie dont les propriétés correspondent à la condition de filtre spécifiée sont exportés. [En savoir plus sur les propriétés d’application dans des documents IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md) </li></ul>|
+    |Modifications de la propriété|<ul><li>Filtrer par nom d’appareil, identité d'appareil et modèle d’appareil et indiquez si l’appareil est simulé</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement les changements de propriété correspondant aux conditions de filtre</li></ul>|
+    |Connectivité des appareils|<ul><li>Filtrer par nom d’appareil, identité d'appareil et modèle d’appareil et indiquez si l’appareil est simulé</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement les changements des appareils dont les propriétés correspondent aux conditions de filtre</li></ul>|
+    |Cycle de vie de l’appareil|<ul><li>Filtrer par nom d’appareil, identité d’appareil, modèle d’appareil et indiquez si l’appareil est approvisionné, activé ou simulé</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement les changements des appareils dont les propriétés correspondent aux conditions de filtre</li></ul>|
     |Cycle de vie de modèle d’appareil|<ul><li>Filtrer par modèle d’appareil</li></ul>|
     
-1. Si vous le souhaitez, vous pouvez également enrichir les messages exportés avec des métadonnées supplémentaires dans les paires clé-valeur. Les enrichissements suivants sont disponibles pour les types d’exportations de données de télémétrie et de changement de propriétés : <a name="DataExportEnrichmnents"></a>
+1. Si vous le souhaitez, vous pouvez également enrichir les messages exportés avec des métadonnées supplémentaires dans les paires clé-valeur. Les enrichissements suivants sont disponibles pour les types d’exportation de données de télémétrie, de modification des propriétés, de connectivité des appareils et de cycle de vie des appareils : <a name="DataExportEnrichmnents"></a>
     - **Chaîne personnalisée** : Ajoute une chaîne statique personnalisée à chaque message. Entrez n’importe quelle clé, puis entrez une valeur de chaîne.
-    - **Property** : Ajoute la valeur actuelle de la propriété rapportée d’appareil ou de la propriété de cloud à chaque message. Entrez une clé, puis choisissez une propriété d’appareil ou de cloud. Si le message exporté provient d'un appareil qui ne dispose pas de la propriété spécifiée, l'enrichissement ne s'applique pas à ce message.
+    - **Propriété**, qui ajoute à chaque message ce qui suit :
+       - Métadonnées d’appareil, telles que le nom d’appareil, le nom du modèle d’appareil, s’il est activé, approvisionné activé et simulé
+       - Valeur actuelle de la propriété rapportée d’appareil ou de la propriété de cloud à chaque message. Si le message exporté provient d'un appareil qui ne dispose pas de la propriété spécifiée, l'enrichissement ne s'applique pas à ce message.
 
 1. Ajoutez une nouvelle destination ou ajoutez une destination que vous avez déjà créée. Sélectionnez le lien **Créer** et ajoutez les informations suivantes :
 
@@ -206,6 +208,8 @@ Chaque message exporté contient un formulaire normalisé du message complet que
 - `templateId`: ID du modèle d'appareil associé à l'appareil.
 - `enqueuedTime` : Heure à laquelle IoT Central a reçu ce message.
 - `enrichments`: enrichissements configurés lors de l'exportation.
+- `module` : module IoT Edge qui a envoyé ce message. Ce champ apparaît uniquement si le message provient d’un module IoT Edge.
+- `component` : composant qui a envoyé ce message. Ce champ apparaît uniquement si les fonctionnalités envoyées dans le message ont été modélisées en tant que [composant dans le modèle d’appareil](howto-set-up-template.md#create-a-component).
 - `messageProperties`: propriétés supplémentaires envoyées par l'appareil avec le message. Ces propriétés sont parfois appelées *propriétés d'application*. [Pour en savoir plus, consultez la documentation d'IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 Pour Event Hubs et Service Bus, IoT Central exporte rapidement un nouveau message après l’avoir reçu d’un appareil. Dans les propriétés utilisateur (également appelées propriétés d'application) de chaque message, les propriétés `iotcentral-device-id`, `iotcentral-application-id` et `iotcentral-message-source` sont automatiquement incluses.
@@ -237,6 +241,8 @@ L’exemple suivant montre un message de télémétrie exporté :
     "enrichments": {
       "userSpecifiedKey": "sampleValue"
     },
+    "module": "VitalsModule",
+    "component": "DeviceComponent",
     "messageProperties": {
       "messageProp": "value"
     }
@@ -249,6 +255,9 @@ Les messages de télémétrie ont des propriétés pour les métadonnées en plu
 Vous pouvez ajouter des propriétés aux messages de télémétrie si vous devez ajouter des métadonnées personnalisées à ces derniers. Par exemple, vous devez ajouter un horodatage quand l’appareil crée le message.
 
 L’extrait de code suivant montre comment ajouter la propriété `iothub-creation-time-utc` au message quand vous le créez sur l’appareil :
+
+> [!IMPORTANT]
+> Le format de cet horodatage doit être UTC sans informations de fuseau horaire. Par exemple, `2021-04-21T11:30:16Z` est valide, `2021-04-21T11:30:16-07:00` non.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -372,7 +381,9 @@ L’exemple suivant présente un message de modification des propriétés export
     }],
     "enrichments": {
         "userSpecifiedKey" : "sampleValue"
-    }
+    },
+    "module": "VitalsModule",
+    "component": "DeviceComponent"
 }
 ```
 ## <a name="device-connectivity-changes-format"></a>Format des modifications de la connectivité des appareils

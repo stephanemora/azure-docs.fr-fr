@@ -5,17 +5,17 @@ description: Vous pouvez utiliser votre propre clé de chiffrement pour protége
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/30/2021
+ms.date: 06/01/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 07f8faf503bdea6be8263afa6240594956b61391
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: cd2a265c5d4c339fa6e50338949cbf643314a3ee
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059443"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111371319"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Clés gérées par le client pour le chiffrement du service Stockage Azure
 
@@ -45,8 +45,18 @@ La liste suivante décrit les étapes numérotées dans le diagramme :
 1. Un administrateur Azure Key Vault accorde des autorisations d’accès à des clés de chiffrement à l’identité managée associée au compte de stockage.
 2. Un administrateur Stockage Azure configure le chiffrement avec une clé managée par le client pour le compte de stockage.
 3. Stockage Azure utilise l’identité managée associée au compte de stockage pour authentifier l’accès à Azure Key Vault par le biais d’Azure Active Directory.
-4. Stockage Azure encapsule la clé de chiffrement du compte avec la clé du client dans Azure Key Vault.
+4. Stockage Azure encapsule la clé de chiffrement du compte avec la clé gérée par le client dans Azure Key Vault.
 5. Pour les opérations de lecture/écriture, Stockage Azure envoie des requêtes à Azure Key Vault pour désencapsuler la clé de chiffrement du compte afin d’effectuer des opérations de chiffrement et de déchiffrement.
+
+L’identité managée associée au compte de stockage doit disposer de ces autorisations au minimum pour pouvoir accéder à une clé gérée par le client dans Azure Key Vault :
+
+- *wrapKey*
+- *unwrapKey*
+- *get*  
+
+Pour plus d’informations sur les autorisations de clé, consultez [Types de clés, algorithmes et opérations](../../key-vault/keys/about-keys-details.md#key-access-control).
+
+Azure Policy fournit une stratégie intégrée pour exiger que les comptes de stockage utilisent des clés gérées par le client pour Stockage Blob et les charges de travail de Azure Files. Pour plus d’informations, consultez la section **Stockage** dans [Définitions de stratégies intégrées Azure Policy](../../governance/policy/samples/built-in-policies.md#storage).
 
 ## <a name="customer-managed-keys-for-queues-and-tables"></a>Clés gérées par le client pour les files d’attente et les tables
 

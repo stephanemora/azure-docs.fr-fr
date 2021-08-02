@@ -6,14 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/01/2021
+ms.date: 06/08/2021
 ms.author: alkohli
-ms.openlocfilehash: e244c93fbe809c52eff1c42c284ce2e8389bbcc4
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a7400ad48382c88fb1025c03c576daef32543bf6
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553581"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983885"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Se connecter à Azure Resource Manager sur votre appareil Azure Stack Edge Pro
 
@@ -373,7 +374,7 @@ Définissez l’environnement Azure Resource Manager et vérifiez que la communi
             PS C:\Users\Administrator>
             ```
 
-
+Si vous rencontrez des problèmes avec vos connexions Azure Resource Manager, consultez [Résolution des problèmes d’Azure Resource Manager](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md) pour obtenir de l’aide. 
 
 > [!IMPORTANT]
 > La connexion à Azure Resource Manager expire toutes les 1,5 heure ou si votre appareil Azure Stack Edge Pro redémarre. Dans ce cas, toute cmdlet que vous exécutez retourne un message d’erreur indiquant que vous n’êtes plus connecté à Azure. Vous devez vous reconnecter.
@@ -460,4 +461,5 @@ Vous avez maintenant basculé vers l’environnement voulu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
+- [Résolution des problèmes d’Azure Resource Manager](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md).
+- [Déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).

@@ -2,13 +2,13 @@
 title: Déplacer un espace de noms Azure Event Hubs vers une autre région | Microsoft Docs
 description: Cet article explique comment déplacer un espace de noms Azure Event Hubs de la région actuelle vers une autre région.
 ms.topic: how-to
-ms.date: 09/01/2020
-ms.openlocfilehash: b177c3916919e3d97325f9d8c6b6027c00cb476f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/08/2021
+ms.openlocfilehash: 9e10cd220a18849336fdc520b269c8af2cb257bd
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96019920"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111811598"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Déplacer un espace de noms Azure Event Hubs vers une autre région
 Cet article vous explique comment exporter un modèle Azure Resource Manager pour un espace de noms Event Hubs existant, puis comment utiliser ce modèle pour créer un espace de noms avec les mêmes paramètres de configuration dans une autre région. Toutefois, ce processus ne déplace pas les événements qui n’ont pas encore été traités. Vous devez traiter les événements à partir de l’espace de noms d’origine avant de le supprimer.
@@ -26,7 +26,7 @@ Pour commencer, exportez un modèle Resource Manager. Ce modèle contient des pa
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Choisissez **Toutes les ressources**, puis sélectionnez votre espace de noms Event Hubs.
-3. Sélectionnez **Paramètres** > **Exporter le modèle**.
+3. Dans la page **Espace de noms Event Hubs**, sélectionnez **Exporter un modèle** sous **Automation** dans le menu de gauche. 
 4. Choisissez **Télécharger** dans le panneau **Exporter le modèle**.
 
     ![Télécharger un modèle Resource Manager](./media/move-across-regions/download-template.png)

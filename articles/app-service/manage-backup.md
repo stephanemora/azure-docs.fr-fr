@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 055e212e0f8fcd53f74c7e1b99dd0a217412c21f
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 7aca099b4396237a80255a24149d9977c96b87cd
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166754"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110794100"
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
 
@@ -50,6 +50,8 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
 * La sauvegarde d’Azure Database pour PostgreSQL avec TLS activé n’est pas prise en charge. Si une sauvegarde est configurée, vous rencontrerez des échecs de sauvegarde.
 * Les bases de données MySQL in-app sont automatiquement sauvegardées sans aucune configuration. Si vous définissez manuellement des paramètres des bases de données MySQL in-app, par exemple l’ajout de chaînes de connexion, il est possible que les sauvegardes ne fonctionnent pas correctement.
 * L’utilisation d’un compte de stockage avec pare-feu comme destination de vos sauvegardes n’est pas prise en charge. Si une sauvegarde est configurée, vous rencontrerez des échecs de sauvegarde.
+* Actuellement, vous ne pouvez pas utiliser la fonctionnalité de sauvegarde et de restauration avec la fonctionnalité d’intégration au réseau virtuel Azure App Service. 
+* Actuellement, vous ne pouvez pas utiliser la fonctionnalité de sauvegarde et de restauration avec les comptes de stockage Azure configurés pour utiliser un point de terminaison privé.
 
 <a name="manualbackup"></a>
 

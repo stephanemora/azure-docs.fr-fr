@@ -2,13 +2,14 @@
 title: Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 description: Découvrez comment Sauvegarde Azure vous permet de chiffrer vos données de sauvegarde à l’aide de clés gérées par le client (CMK).
 ms.topic: conceptual
-ms.date: 04/19/2021
-ms.openlocfilehash: bd51be06e707674f3e35b3478d7f99d096be912a
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.date: 05/12/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 48268af7ec4874d0e5c9ad3bb79a95307aba15b7
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718770"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110672164"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 
@@ -153,6 +154,9 @@ Vous devez maintenant autoriser le coffre Recovery Services à accéder au coffr
 1. Après quoi, sélectionnez **Ajouter** pour ajouter la nouvelle stratégie d’accès.
 
 1. Sélectionnez **Enregistrer** pour enregistrer les modifications apportées à la stratégie d’accès du coffre de clés Azure.
+
+>[!NOTE] 
+>Vous pouvez également affecter un rôle RBAC au coffre Recovery Services qui contient les autorisations mentionnées ci-dessus, telles que le rôle _[Agent de chiffrement Key Vault](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations)_ .<br><br>Ces rôles peuvent contenir des autorisations supplémentaires autres que celles décrites ci-dessus.
 
 ## <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Activer la suppression réversible et la protection contre le vidage sur le coffre de clés Azure
 

@@ -9,12 +9,13 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1a1cd8c051f9e04c09ef2986805873d8e7fea54e
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7e1e4dd244045e86a0fb9e6d65f81a4149cf6659
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817627"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413300"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Déplacement d’un coffre Azure Key Vault vers un nouvel abonnement
 
@@ -28,6 +29,10 @@ ms.locfileid: "107817627"
 > Si vous utilisez des identités de service managées (MSI), lisez les instructions postérieures au déplacement à la fin de ce document. 
 
 [Azure Key Vault](overview.md) est automatiquement lié à l’ID de locataire [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) par défaut pour l’abonnement dans lequel il est créé. Vous pouvez trouver l’ID de locataire associé à votre abonnement en suivant ce [guide](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md). Toutes les entrées de stratégie d’accès les attributions de rôle sont également liées à cet ID de locataire.  Si vous déplacez votre abonnement Azure d’un locataire A vers un locataire B, vos coffres de clés existants ne sont pas accessibles par les principaux du service (utilisateurs et applications) dans le locataire B. Pour résoudre ce problème, vous devez :
+
+> [!NOTE]
+> Si Key Vault est créé par l’intermédiaire d’[Azure Lighthouse](../../lighthouse/overview.md), il est lié à la gestion de l’ID de locataire à la place. Azure Lighthouse est uniquement pris en charge par le modèle d’autorisation de stratégie d’accès de coffre.
+> Pour plus d’informations sur les locataires dans Azure Lighthouse, consultez [Locataires, utilisateurs et rôles dans Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md).
 
 * remplacer l’ID de locataire associé à tous les coffres de clés existants dans l’abonnement par le locataire B ;
 * supprimer toutes les entrées de stratégie d’accès existantes ;
@@ -87,7 +92,7 @@ Connect-AzAccount                                                          #Log 
 
 ```azurecli
 az account set -s <your-subscriptionId>                                    # Select your Azure Subscription
-tenantId=$(az account show --query tenantId)                               # Get your tenantId
+$tenantId=$(az account show --query tenantId)                               # Get your tenantId
 az keyvault update -n myvault --remove Properties.accessPolicies           # Remove the access policies
 az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Update the key vault tenantId
 ```

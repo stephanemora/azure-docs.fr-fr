@@ -2,14 +2,14 @@
 title: Secret Azure Key Vault avec modèle
 description: Montre comment passer une clé secrète à partir d’un coffre de clés en tant que paramètre lors du déploiement.
 ms.topic: conceptual
-ms.date: 04/23/2021
+ms.date: 05/17/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f91c45792843ab62361bf47628a45529758b4029
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 1cf3b1f3433b47d029876e9676b85c5de776d455
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754188"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110795700"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement
 
@@ -67,7 +67,7 @@ $secret = Set-AzKeyVaultSecret -VaultName ExampleVault -Name 'ExamplePassword' -
 
 ---
 
-En tant que propriétaire du coffre de clés, vous avez automatiquement accès à la création de secrets. Si l’utilisateur qui utilise les secrets n’est pas le propriétaire du coffre de clés, octroyez l’accès avec :
+En tant que propriétaire du coffre de clés, vous avez automatiquement accès à la création de secrets. S’il vous faut permettre à un autre utilisateur de créer des secrets, utilisez :
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -91,6 +91,8 @@ Set-AzKeyVaultAccessPolicy `
 
 ---
 
+Les stratégies d’accès ne sont pas nécessaires si l’utilisateur déploie un modèle qui récupère un secret. Ajoutez un utilisateur aux stratégies d’accès si et seulement si l’utilisateur doit directement utiliser les secrets. Les autorisations de déploiement sont définies dans la section suivante.
+
 Pour plus d’informations sur la création de coffres de clés et l’ajout des secrets, consultez :
 
 - [Définir et récupérer un secret à l'aide de l'interface de ligne de commande (CLI)](../../key-vault/secrets/quick-create-cli.md)
@@ -99,11 +101,13 @@ Pour plus d’informations sur la création de coffres de clés et l’ajout des
 - [Définir et récupérer un secret à l'aide de .NET](../../key-vault/secrets/quick-create-net.md)
 - [Définir et récupérer un secret à l'aide de Node.js](../../key-vault/secrets/quick-create-node.md)
 
-## <a name="grant-access-to-the-secrets"></a>Accorder l'accès aux secrets
+## <a name="grant-deployment-access-to-the-secrets"></a>Accorder au déploiement un accès aux secrets
 
-L’utilisateur qui déploie le modèle doit disposer de l’autorisation `Microsoft.KeyVault/vaults/deploy/action` pour l’étendue du groupe de ressources et du coffre de clés. Les rôles [propriétaire](../../role-based-access-control/built-in-roles.md#owner) et [contributeur](../../role-based-access-control/built-in-roles.md#contributor) accordent cet accès. Si vous avez créé le coffre de clés, vous êtes le propriétaire et vous avez donc l’autorisation.
+L’utilisateur qui déploie le modèle doit disposer de l’autorisation `Microsoft.KeyVault/vaults/deploy/action` pour l’étendue du groupe de ressources et du coffre de clés. En vérifiant cet accès, Azure Resource Manager empêche tout utilisateur non approuvé d’accéder au secret en transmettant l’ID de ressource pour le coffre de clés. Vous pouvez accorder au déploiement un accès aux utilisateurs sans accorder d’accès en écriture aux secrets.
 
-La procédure suivante montre comment créer un rôle avec les permissions minimales et comment affecter l’utilisateur.
+Les rôles [propriétaire](../../role-based-access-control/built-in-roles.md#owner) et [contributeur](../../role-based-access-control/built-in-roles.md#contributor) accordent cet accès. Si vous avez créé le coffre de clés, vous êtes le propriétaire et vous avez donc l’autorisation.
+
+Pour les autres utilisateurs, accordez l'autorisation `Microsoft.KeyVault/vaults/deploy/action`. La procédure suivante montre comment créer un rôle avec les permissions minimales et l’attribuer à un utilisateur.
 
 1. Créez un fichier JSON de définition de rôle personnalisé :
 
@@ -164,8 +168,6 @@ Avec cette approche, vous référencez le coffre de clés dans le fichier de par
 
 Le modèle suivant déploie un serveur SQL qui comprend un mot de passe administrateur. Le paramètre du mot de passe est défini sur une chaîne sécurisée. Toutefois, le modèle ne spécifie pas d’où vient cette valeur.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -199,29 +201,6 @@ Le modèle suivant déploie un serveur SQL qui comprend un mot de passe administ
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param adminLogin string
-
-@secure()
-param adminPassword string
-
-param sqlServerName string
-
-resource sqlServer 'Microsoft.Sql/servers@2020-11-01-preview' = {
-  name: sqlServerName
-  location: resourceGroup().location
-  properties: {
-    administratorLogin: adminLogin
-    administratorLoginPassword: adminPassword
-    version: '12.0'
-  }
-}
-```
-
----
 
 À présent, créez un fichier de paramètres pour le modèle précédent. Dans le fichier de paramètres, spécifiez un paramètre qui correspond au nom du paramètre dans le modèle. Pour la valeur du paramètre, référencez le secret du coffre de clés. Vous référencez le secret en transmettant l'identificateur de ressource du coffre de clés et le nom du secret :
 
@@ -400,9 +379,6 @@ Le modèle suivant crée de façon dynamique l’ID du coffre de clés et le pas
   }
 }
 ```
-
-> [!NOTE]
-> À compter de Bicep version 0.3.255, un fichier de paramètres est nécessaire pour récupérer un secret de coffre de clés, car le mot clé `reference` n’est pas pris en charge. Des travaux sont en cours pour ajouter cette prise en charge. Pour plus d’informations, consultez le [problème GitHub 1028](https://github.com/Azure/bicep/issues/1028).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

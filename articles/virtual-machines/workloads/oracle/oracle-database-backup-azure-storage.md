@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: a6ce5446bd6470ef7a829925646d486801b28ebc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44d1345a8c02c2cde5d0bc34d1b509af321c42c0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670016"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952273"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Sauvegarder et récupérer une base de données Oracle Database 19c sur une machine virtuelle Linux Azure à l'aide du service Stockage Azure
 
@@ -125,7 +125,7 @@ Cet article explique comment utiliser le service Stockage Azure comme support po
 10. Définissez les variables d'environnement de la base de données pour la zone de récupération rapide :
 
     ```bash
-    SQL>  system set db_recovery_file_dest_size=4096M scope=both;
+    SQL> alter system set db_recovery_file_dest_size=4096M scope=both;
     SQL> alter system set db_recovery_file_dest='/u02/fast_recovery_area' scope=both;
     ```
     
@@ -368,7 +368,7 @@ L'utilisation de l'outil RMAN et du stockage Azure Files pour la sauvegarde de b
     ORACLE instance shut down.
     ```
 
-2.  Supprimez les fichiers de données et les sauvegardes :
+2.  Supprimez les fichiers de données de la base de données :
 
     ```bash
     cd /u02/oradata/TEST

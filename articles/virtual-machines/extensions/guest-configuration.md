@@ -7,12 +7,13 @@ ms.subservice: extensions
 author: mgreenegit
 ms.author: migreene
 ms.date: 04/15/2021
-ms.openlocfilehash: 2fda3cc2cf9adc3a734780209a0c9cc06a04e7cf
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d189cf54edfaca13b801e786254eec9fc5aa96f6
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368446"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110662828"
 ---
 # <a name="overview-of-the-azure-policy-guest-configuration-extension"></a>Vue d’ensemble de l’extension Azure Policy Guest Configuration
 
@@ -45,12 +46,15 @@ Pour en savoir plus sur la mise en réseau privée, consultez les articles suiva
 
 ## <a name="how-can-i-install-the-extension"></a>Comment installer l’extension ?
 
-Pour déployer la dernière version de l’extension à l’échelle, y compris les exigences d’identité, affectez l’Azure Policy [Déployer les prérequis pour activer les stratégies Guest Configuration sur les machines virtuelles](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json).
-Pour les machines individuelles, l’extension peut être déployée à l’aide d’Azure CLI, de PowerShell, de modèles Resource Manager ou d’outils tiers.
-
 Le nom d’instance de l’extension doit être défini sur « AzurePolicyforWindows » ou « AzurePolicyforLinux », car les stratégies référencées ci-dessus nécessitent ces chaînes spécifiques.
 
 Par défaut, tous les déploiements sont mis à jour vers la version la plus récente. La valeur de la propriété _autoUpgradeMinorVersion_ est définie sur « true » par défaut, sauf spécification contraire. Vous n’avez pas à vous soucier de la mise à jour de votre code lorsque de nouvelles versions de l’extension sont publiées.
+
+### <a name="azure-policy"></a>Azure Policy
+
+Pour déployer à grande échelle la dernière version de l’extension, notamment les exigences en matière d’identité, [attribuez](../../governance/policy/assign-policy-portal.md) l’instance Azure Policy :
+
+[Déployer les prérequis pour activer les stratégies Guest Configuration sur les machines virtuelles](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_AzureBaseline.json).
 
 ### <a name="azure-cli"></a>Azure CLI
 

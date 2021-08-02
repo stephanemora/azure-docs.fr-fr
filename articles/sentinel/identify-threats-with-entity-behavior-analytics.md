@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2021
+ms.date: 05/11/2021
 ms.author: yelevin
-ms.openlocfilehash: 64c921f1ad401baaf12b1545bfc2bdda54ab3444
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: a706704365731d5f5ba157837269a90dbcb12e18
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109664381"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810297"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identifier les menaces avancées avec l’analyse du comportement des utilisateurs et des entités (User and Entity Behavior Analytics, UEBA) dans Azure Sentinel
 
 > [!IMPORTANT]
 >
 > - Les fonctionnalités UEBA et Entity Pages sont désormais en **disponibilité générale** dans **_toutes_** les régions et zones géographiques Azure Sentinel.
+>
+> - L’**entité Adresse IP** est actuellement en **préversion**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>Qu’est-ce que l’analyse du comportement des utilisateurs et des entités ?
 
@@ -70,14 +72,17 @@ Pour vois comment cela fonctionne, découvrez comment l’analyse du comportemen
 
 Apprenez en davantage sur les [entités dans Azure Sentinel](entities-in-azure-sentinel.md) et consultez la liste complète des [entités et identificateurs pris en charge](entities-reference.md).
 
-Lorsque vous rencontrez une entité (les entités sont actuellement limitées à des utilisateurs et des hôtes) dans une recherche, une alerte ou une investigation, vous pouvez sélectionner l’entité et être redirigé vers une **page d’entité**, à savoir une feuille de données remplie d’informations utiles sur cette entité. Les types d’informations que contient cette page incluent des faits de base sur l’entité, une chronologie d’événements notables liés à cette entité, ainsi que des insights sur le comportement de l’entité.
+Lorsque vous rencontrez un utilisateur ou une entité hôte (les entités Adresse IP sont en préversion) dans une recherche d’entité, une alerte ou une investigation, vous pouvez sélectionner l’entité et être redirigé vers une **page d’entité**, à savoir une feuille de données remplie d’informations utiles sur cette entité. Les types d’informations que contient cette page incluent des faits de base sur l’entité, une chronologie d’événements notables liés à cette entité, ainsi que des insights sur le comportement de l’entité.
  
 Les pages d’entité se composent de trois parties :
-- Le volet gauche contient les informations d’identification de l’entité, collectées à partir de sources de données telles qu’Azure Active Directory, Azure Monitor, Azure Security Center et Microsoft Defender.
+- Le volet gauche contient les informations d’identification de l’entité, collectées à partir de sources de données telles qu’Azure Active Directory, Azure Monitor, Azure Defender, CEF/Syslog et Microsoft 365 Defender.
 
-- Le panneau central affiche une chronologie graphique et textuelle des événements notables liés à l’entité, tels que des alertes, des signets et des activités. Les activités sont des agrégations d’événements notables de Log Analytics. Les requêtes qui détectent ces activités sont développées par des équipes de recherche en matière de sécurité de Microsoft.
+- Le panneau central affiche une chronologie graphique et textuelle des événements notables liés à l’entité, tels que des alertes, des signets et des activités. Les activités sont des agrégations d’événements notables de Log Analytics. Les requêtes qui détectent ces activités sont développées par des équipes de recherche en matière de sécurité de Microsoft, et vous pouvez désormais [ajouter vos propres requêtes personnalisées pour détecter les activités](customize-entity-activities.md) de votre choix. 
 
 - Le panneau de droite présente des insights comportementales sur l’entité. Ces insights permettent d’identifier rapidement des anomalies et autres menaces de sécurité. Les insights sont développés par des équipes de recherche en matière de sécurité Microsoft, et sont basées sur des modèles de détection d’anomalies.
+
+> [!NOTE]
+> La **page d’entité Adresse IP** (désormais en préversion) contient les **données de géolocalisation** fournies par le **service Microsoft Threat Intelligence**. Ce service combine les données de géolocalisation des solutions Microsoft et des fournisseurs et partenaires tiers. Les données sont ensuite disponibles à des fins d’analyse et d’investigation dans le contexte d’un incident de sécurité.
 
 ### <a name="the-timeline"></a>La chronologie
 
@@ -93,8 +98,8 @@ Les types d’éléments suivants sont inclus dans la chronologie :
 
 - Signets – signets incluant l’entité affichée sur la page.
 
-- Activités – agrégation d’événements notables liés à l’entité. 
- 
+- Activités – agrégation d’événements notables liés à l’entité. Un large éventail d’activités sont automatiquement collectées, et vous pouvez désormais [personnaliser cette section en ajoutant les activités](customize-entity-activities.md) de votre choix.
+
 ### <a name="entity-insights"></a>Insights sur l’entité
  
 Les insights d’entité sont des requêtes définie par les chercheurs en matière de sécurité de Microsoft pour aider vos analystes à investiguer plus efficacement. Les insights sont présentées dans la page de l’entité. Elles fournissent des informations de sécurité précieuses sur les hôtes et les utilisateurs, sous la forme de graphiques et de données tabulaires. Les informations étant disponibles ici, vous n’avez pas à passer par Log Analytics. Les insights contiennent des données relatives aux connexions, aux ajouts de groupes, aux événements anormaux, et ainsi de suite. Ils incluent également des algorithmes de Machine Learning avancés pour détecter les comportements anormaux. 
@@ -108,6 +113,7 @@ Les insights reposent sur les sources de données suivantes :
 - BehaviorAnalytics (Azure Sentinel UEBA)
 - Heartbeat (Azure Monitor Agent)
 - CommonSecurityLog (Azure Sentinel)
+- ThreatIntelligenceIndicators (Azure Sentinel)
 
 ### <a name="how-to-use-entity-pages"></a>Comment utiliser les pages d’entité
 
@@ -115,7 +121,7 @@ Les pages d’entité sont conçues pour faire partie de plusieurs scénarios d�
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Cas d’usage de page d’entité":::
 
-Pour plus d’informations sur les données affichées dans la table **Analytique du comportement des entités**, consultez les [Informations de référence sur les enrichissements UEBA Azure Sentinel](ueba-enrichments.md).
+Les informations de la page d’entité sont stockées dans le tableau **BehaviorAnalytics**, et décrites en détail dans la section [Informations de référence sur les enrichissements UEBA Azure Sentinel](ueba-enrichments.md).
 
 ## <a name="querying-behavior-analytics-data"></a>Interrogation des données d’analyse du comportement
 

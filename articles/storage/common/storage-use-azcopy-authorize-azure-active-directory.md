@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 9c5e7d1cf318e50e778c59b97b20b03d23fbfe5c
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: e6b2e331c274013ccad445c4e203388b8b7b8048
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903125"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903866"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autoriser l’accès aux objets blob avec AzCopy et Azure Active Directory (Azure AD)
 
@@ -42,7 +42,7 @@ Ces rôles peuvent être attribués à votre principal de service sur l’une de
 - Resource group
 - Abonnement
 
-Pour savoir comment vérifier et attribuer des rôles, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux objets blob et données de file d’attente](./storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Pour savoir comment vérifier et attribuer des rôles, consultez [Attribuer un rôle Azure pour l’accès aux données d’objet blob](../blobs/assign-azure-role-data-access.md).
 
 > [!NOTE]
 > Gardez à l’esprit que la propagation des affectations de rôles Azure peut prendre cinq minutes.

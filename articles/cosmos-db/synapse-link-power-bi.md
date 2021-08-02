@@ -7,17 +7,19 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: d84508a7629481a7138f1080c86f4a203d35894d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ae03907ce75d6df999949ebf418fb8135520008d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626246"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958897"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Utilisez Power BI et le pool Synapse SQL serverless pour analyser les données Azure Cosmos DB avec Synapse Link 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Dans cet article, vous allez apprendre à créer une base de données de pools SQL serverless et des affichages sur Synapse Link pour Azure Cosmos DB. Vous interrogerez les conteneurs Azure Cosmos DB, puis créerez un modèle avec Power BI sur ces affichages pour refléter cette requête.
+
+Avec Azure Synapse Link, vous pouvez créer des tableaux de bord en quasi-temps réel dans Power BI pour analyser vos données Azure Cosmos DB. Ils n’ont aucun impact sur le niveau de performance et les coûts de vos charges de travail transactionnelles. Ils ne présentent pas non plus la complexité liée à la gestion des pipelines ETL. Vous pouvez utiliser le mode [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) et le mode [Import](/power-bi/connect-data/service-dataset-modes-understand#import-mode). 
 
 Dans ce scénario, vous allez utiliser des données factices sur les ventes de produits superficiels dans un magasin de vente au détail des partenaires. Vous allez analyser le revenu par magasin en fonction de la proximité des ménages importants et de l’impact de la publicité pour une semaine spécifique. Dans cet article, vous allez créer deux affichages, nommés **RetailSales** et **StoreDemographics**, et une requête entre eux. Vous pouvez récupérer les exemples de données de produit à partir de ce référentiel [GitHub](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData).
 

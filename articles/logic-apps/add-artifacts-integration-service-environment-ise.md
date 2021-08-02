@@ -3,19 +3,19 @@ title: Ajouter des ressources à des environnements de service d’intégration
 description: Ajoutez des applications logiques, des comptes d’intégration, des connecteurs personnalisés et des connecteurs managés à votre environnement de service d’intégration.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: azla
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 147247c663311cfb3e05a986c6fb2bffbb41158b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 02/28/2021
+ms.openlocfilehash: 5cb857c7aec7246c3b6b763e39c6f36c4de24db1
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92675203"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111986062"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Ajouter des ressources à votre environnement de service d’intégration (ISE) dans Azure Logic Apps
 
-Après avoir créé un [environnement de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) (ISE, Integration Service Environment), ajoutez des ressources telles que des applications logiques, des comptes d’intégration et des connecteurs pour qu’ils puissent accéder aux ressources de votre réseau virtuel Azure. Par exemple, les connecteurs ISE managés qui deviennent disponibles une fois que vous avez créé votre ISE n’apparaissent pas automatiquement dans le concepteur d’applications logiques. Avant de pouvoir utiliser ces connecteurs ISE, vous devez manuellement [ajouter et déployer ces connecteurs dans votre ISE](#add-ise-connectors-environment) afin qu’ils apparaissent dans le concepteur d’applications logiques.
+Après avoir créé un [environnement de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) (ISE, Integration Service Environment), vous pouvez ajouter des ressources, telles que des applications logiques, des comptes d’intégration et des connecteurs de **Consommation**, pour qu’elles puissent accéder aux ressources de votre réseau virtuel Azure. Par exemple, les connecteurs ISE managés qui deviennent disponibles une fois que vous avez créé votre ISE n’apparaissent pas automatiquement dans le concepteur d’applications logiques. Avant de pouvoir utiliser ces connecteurs ISE, vous devez manuellement [ajouter et déployer ces connecteurs dans votre ISE](#add-ise-connectors-environment) afin qu’ils apparaissent dans le concepteur d’applications logiques.
 
 > [!IMPORTANT]
 > Pour que les applications logiques et les comptes d’intégration fonctionnent ensemble dans un environnement ISE, il faut que tous deux utilisent le *même ISE* que leur emplacement.
@@ -32,7 +32,7 @@ Après avoir créé un [environnement de service d’intégration](../logic-apps
 
 ## <a name="create-logic-apps"></a>Créer des applications logiques
 
-Pour créer des applications logiques qui s’exécutent dans votre environnement ISE, effectuez les étapes suivantes :
+Pour développer des applications logiques qui s’exécutent dans votre environnement ISE, effectuez les étapes suivantes :
 
 1. Recherchez et ouvrez votre environnement ISE, s’il n’est pas encore ouvert. Dans le menu de l’environnement ISE, sous **Paramètres**, sélectionnez **Applications logiques** > **Ajouter**.
 
@@ -40,14 +40,16 @@ Pour créer des applications logiques qui s’exécutent dans votre environnemen
 
 1. Fournissez des informations sur l’application logique que vous souhaitez créer, par exemple :
 
-   ![Capture d’écran montrant la fenêtre de création d’une application logique avec des exemples d’informations entrés](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
+   ![Capture d’écran montrant le volet « Créer une application logique » avec des exemples d’informations entrés.](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom** | Oui | Nom de l’application logique à créer |
+   | **Nom de l’application logique** | Oui | Nom de l’application logique à créer |
    | **Abonnement** | Oui | Nom de l’abonnement Azure à utiliser. |
-   | **Groupe de ressources** | Oui | Nom du groupe de ressources Azure (nouveau ou existant) à utiliser |
-   | **Lieu** | Oui | Sous **Environnements de service d’intégration**, sélectionnez l’ISE à utiliser, s’il n’est pas déjà sélectionné. <p><p> **Important !** Pour utiliser vos applications logiques avec un compte d’intégration, tous doivent utiliser le même ISE. |
+   | **Groupe de ressources** | Oui | Nom du groupe de ressources Azure nouveau ou existant à utiliser |
+   | **Région** | Oui | Région Azure pour votre application logique, correspondant à l’emplacement de l’environnement ISE que vous sélectionnerez plus tard |
+   | **Associer à l’environnement de service d’intégration*** | Oui | Sélectionnez cette option pour pouvoir choisir un environnement ISE à utiliser. |
+   | **Environnement de service d’intégration (ISE)** | Oui | Dans la liste, sélectionnez l’environnement ISE que vous souhaitez utiliser, s’il n’est pas déjà sélectionné. <p><p>**Important** : Pour utiliser un compte d’intégration avec votre application logique, les deux doivent utiliser le même ISE. |
    ||||
 
 1. Sélectionnez **Créer** lorsque vous avez terminé.
@@ -80,7 +82,7 @@ Pour créer un compte d’intégration qui utilise un environnement ISE, effectu
    | **Abonnement** | Oui | Nom de l’abonnement Azure que vous souhaitez utiliser |
    | **Groupe de ressources** | Oui | Nom du groupe de ressources Azure (nouveau ou existant) à utiliser |
    | **Niveau tarifaire** | Oui | Niveau tarifaire à utiliser pour le compte d’intégration |
-   | **Lieu** | Oui | Sous **Environnements de service d’intégration**, sélectionnez le même ISE que celui utilisé par vos applications logiques, s’il n’est pas déjà sélectionné. <p><p> **Important !** Pour utiliser votre compte d’intégration avec des applications logiques, tous doivent utiliser le même ISE. |
+   | **Lieu** | Oui | Dans la liste, sous **Environnements de service d’intégration**, sélectionnez le même ISE que celui utilisé par vos applications logiques, s’il n’est pas déjà sélectionné. <p><p>**Important** : Pour utiliser un compte d’intégration avec votre application logique, les deux doivent utiliser le même ISE. |
    ||||
 
 1. Sélectionnez **Créer** lorsque vous avez terminé.
@@ -115,7 +117,7 @@ Une fois que vous avez créé votre ISE, les connecteurs ISE managés n’appara
 
    ![Voir les connecteurs managés](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. Dans le volet **Ajouter un nouveau connecteur managé**, ouvrez la liste **Rechercher un connecteur**. Sélectionnez le connecteur ISE que vous souhaitez utiliser, mais qui n’est pas encore déployé dans votre ISE. Sélectionnez **Create** (Créer).
+1. Dans le volet **Ajouter un nouveau connecteur managé**, ouvrez la liste **Rechercher un connecteur**. Recherchez et sélectionnez le connecteur ISE que vous souhaitez utiliser, mais qui n’est pas encore déployé dans votre ISE. Sélectionnez **Créer** lorsque vous avez terminé.
 
    ![Sélectionnez le connecteur ISE que vous souhaitez déployer dans votre ISE.](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 

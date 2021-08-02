@@ -6,14 +6,14 @@ services: media-services
 author: Juliako
 manager: femila
 ms.topic: article
-ms.date: 05/06/2021
+ms.date: 05/25/2021
 ms.author: juliako
-ms.openlocfilehash: 620ebb81462f807b46c12aeee596e8873c99a1e4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1c4b96bf7874c5ade93601f7ff40238ef04cb7ee
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385576"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966664"
 ---
 # <a name="video-analyzer-for-media-frequently-asked-questions"></a>Forum aux questions sur Video Analyzer for Media
 
@@ -102,6 +102,12 @@ Si vous souhaitez obtenir des insights sur votre nouvelle vidéo, indexez-la ave
 
 S’il existe plusieurs flux audio, Video Analyzer for Media prend le premier qu’il rencontre et ne traite que celui-là. Dans n’importe quel flux audio qu’il traite, Video Analyzer for Media prend les différents canaux (s’il y en a) et les traite ensemble en mono. Pour la manipulation de flux/canaux, vous pouvez utiliser des commandes ffmpeg sur le fichier avant de l’indexer.
 
+### <a name="can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall"></a>Un compte de stockage connecté au compte Media Services peut-il se trouver derrière un pare-feu ?
+
+Votre compte Video Analyzer for Media payant utilise le compte Media Services spécifié qui est connecté à un compte de stockage. Actuellement, pour utiliser le compte de stockage connecté qui se trouve derrière le pare-feu, vous devez contacter le support Video Analyzer for Media afin d’obtenir les instructions exactes. 
+
+Pour ouvrir une nouvelle demande de support dans le portail Azure, accédez à [Demande de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 ### <a name="what-is-the-sla-for-video-analyzer-for-media"></a>Quel est le contrat SLA pour Video Analyzer for Media ?
 
 Le contrat SLA d’Azure Media Service couvre Video Analyzer for Media et est disponible dans la page [SLA](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/). Le contrat SLA ne s’applique qu’aux comptes payants Video Analyzer for Media et ne s’applique pas à l’essai gratuit.
@@ -136,7 +142,7 @@ Selon les [Conditions des Services en Ligne Azure](https://www.microsoftvolumeli
 
 Oui. Le contenu et les insights associés sont conservés dans la région Azure (à l’exception des régions Singapour et Brésil Sud), sauf s’il existe une configuration manuelle dans votre abonnement Azure qui utilise plusieurs régions Azure.
 
-Les données client d’une région sont répliquées pour des raisons de continuité d’activité et reprise d’activité dans la [région jumelée](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs).
+Les données client d’une région sont répliquées pour des raisons de continuité d’activité et reprise d’activité dans la [région jumelée](../../best-practices-availability-paired-regions.md#azure-regional-pairs).
 
 ### <a name="what-is-the-privacy-policy-for-video-analyzer-for-media"></a>Quelle est la politique de confidentialité pour Video Analyzer for Media ?
 

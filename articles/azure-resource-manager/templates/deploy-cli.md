@@ -1,20 +1,20 @@
 ---
 title: Déployer des ressources avec Azure CLI et un modèle
-description: Utilisez Azure Resource Manager et Azure CLI pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager ou un fichier Bicep.
+description: Utilisez Azure Resource Manager et Azure CLI pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager.
 ms.topic: conceptual
-ms.date: 03/25/2021
-ms.openlocfilehash: ddcb9adad545f27dfe29f3a9354520b0e141e933
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 05/07/2021
+ms.openlocfilehash: 4507fe743674ac8c7ee45b53adb1e4cc543289d5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737078"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951166"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure
 
-Cet article explique comment utiliser Azure CLI avec des modèles Resource Manager ou des fichiers Bicep pour déployer vos ressources dans Azure. Si vous n’avez pas une bonne connaissance des concepts de déploiement et de gestion des solutions Azure, consultez [Vue d’ensemble du déploiement de modèles](overview.md) ou [Vue d’ensemble de Bicep](bicep-overview.md).
+Cet article explique comment utiliser Azure CLI avec des modèles Resource Manager pour déployer vos ressources dans Azure. Si vous n’avez pas une bonne connaissance des concepts de déploiement et de gestion des solutions Azure, consultez [Vue d’ensemble du déploiement de modèles](overview.md).
 
-Les commandes de déploiement ont changé dans la version 2.2.0 d’Azure CLI. Les exemples de cet article nécessitent la version 2.2.0 ou ultérieure d’Azure CLI. Pour déployer des fichiers Bicep, vous devez disposer d’[Azure CLI version 2.20.0 ou ultérieure](/cli/azure/install-azure-cli).
+Les commandes de déploiement ont changé dans la version 2.2.0 d’Azure CLI. Les exemples de cet article nécessitent la [Azure CLI version 2.20.0 ou une version ultérieure](/cli/azure/install-azure-cli).
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -27,13 +27,13 @@ Vous pouvez cibler votre déploiement au niveau d’un groupe de ressources, d�
 * Pour un déploiement dans un **groupe de ressources**, utilisez [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) :
 
   ```azurecli-interactive
-  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template-or-bicep>
+  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
 * Pour un déploiement dans un **abonnement**, utilisez [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create) :
 
   ```azurecli-interactive
-  az deployment sub create --location <location> --template-file <path-to-template-or-bicep>
+  az deployment sub create --location <location> --template-file <path-to-template>
   ```
 
   Pour plus d’informations sur les déploiements au niveau de l’abonnement, consultez [Créer des groupes de ressources et des ressources au niveau de l’abonnement](deploy-to-subscription.md).
@@ -41,7 +41,7 @@ Vous pouvez cibler votre déploiement au niveau d’un groupe de ressources, d�
 * Pour un déploiement dans un **groupe de d’administration**, utilisez [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create) :
 
   ```azurecli-interactive
-  az deployment mg create --location <location> --template-file <path-to-template-or-bicep>
+  az deployment mg create --location <location> --template-file <path-to-template>
   ```
 
   Pour plus d’informations sur les déploiements au niveau du groupe d’administration, consultez [Créer des ressources au niveau du groupe d’administration](deploy-to-management-group.md).
@@ -49,14 +49,14 @@ Vous pouvez cibler votre déploiement au niveau d’un groupe de ressources, d�
 * Pour un déploiement dans un **locataire**, utilisez [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create) :
 
   ```azurecli-interactive
-  az deployment tenant create --location <location> --template-file <path-to-template-or-bicep>
+  az deployment tenant create --location <location> --template-file <path-to-template>
   ```
 
   Pour plus d’informations sur les déploiements au niveau du locataire, consultez [Créer des ressources au niveau du locataire](deploy-to-tenant.md).
 
-Pour chaque étendue, l’utilisateur qui déploie le modèle ou le fichier Bicep doit disposer des autorisations nécessaires afin de créer des ressources.
+Pour chaque étendue, l’utilisateur qui déploie le modèle doit disposer des autorisations nécessaires pour créer des ressources.
 
-## <a name="deploy-local-template-or-bicep-file"></a>Déployer un modèle local ou un fichier Bicep
+## <a name="deploy-local-template"></a>Déployer un modèle local
 
 Vous pouvez déployer un modèle à partir de votre ordinateur local ou d’un modèle stocké en externe. Cette section décrit le déploiement d’un modèle local.
 
@@ -66,13 +66,13 @@ Si vous effectuez un déploiement vers un groupe de ressources qui n’existe pa
 az group create --name ExampleGroup --location "Central US"
 ```
 
-Pour déployer un modèle local ou un fichier Bicep, utilisez le paramètre `--template-file` dans la commande de déploiement. L’exemple suivant montre également comment définir une valeur de paramètre.
+Pour déployer un modèle local, utilisez le paramètre `--template-file` dans la commande de déploiement. L’exemple suivant montre également comment définir une valeur de paramètre.
 
 ```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file <path-to-template-or-bicep> \
+  --template-file <path-to-template> \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -83,9 +83,6 @@ Le déploiement peut prendre plusieurs minutes. Au terme, vous voyez un message 
 ```
 
 ## <a name="deploy-remote-template"></a>Déployer un modèle distant
-
-> [!NOTE]
-> Actuellement, Azure CLI ne prend pas en charge le déploiement de fichiers bicep distants. Utilisez [bicep CLI](./bicep-install.md#development-environment) pour compiler le fichier Bicep dans un modèle JSON, puis chargez le fichier JSON dans l’emplacement distant.
 
 Au lieu de stocker les modèles Resource Manager sur votre ordinateur local, vous pouvez les stocker dans un emplacement externe. Vous pouvez stocker des modèles dans un dépôt de contrôle de code source (par exemple, GitHub). Vous pouvez aussi les stocker dans un compte de stockage Azure pour mettre en place un accès partagé dans votre organisation.
 
@@ -123,7 +120,7 @@ Pour plus d’informations, consultez [Utiliser le chemin d’accès relatif pou
 
 ## <a name="deployment-name"></a>Nom du déploiement
 
-Lors du déploiement d’un modèle ARM, vous pouvez attribuer un nom au déploiement. Ce nom peut vous aider à récupérer le déploiement à partir de l’historique de déploiement. Si vous n’attribuez pas de nom au déploiement, le nom du fichier de modèle est utilisé. Par exemple, si vous déployez un modèle nommé `azuredeploy.json` et que vous ne spécifiez pas de nom de déploiement, le déploiement est nommé `azuredeploy`.
+Lors du déploiement d’un modèle ARM, vous pouvez attribuer un nom au déploiement. Ce nom peut vous aider à récupérer le déploiement à partir de l’historique de déploiement. Si vous n’attribuez pas de nom au déploiement, le nom du fichier de modèle est utilisé. Par exemple, si vous déployez un modèle nommé _azuredeploy.json_ et que vous ne spécifiez pas de nom de déploiement, le déploiement est nommé `azuredeploy`.
 
 Chaque fois que vous exécutez un déploiement, une entrée est ajoutée à l’historique de déploiement du groupe de ressources avec le nom du déploiement. Si vous exécutez un autre déploiement et que vous lui attribuez le même nom, l’entrée précédente est remplacée par le déploiement actuel. Si vous souhaitez conserver des entrées uniques dans l’historique de déploiement, attribuez un nom unique à chaque déploiement.
 
@@ -148,9 +145,6 @@ Quand vous spécifiez un nom unique pour chaque déploiement, vous pouvez les ex
 Pour éviter les conflits lors de déploiements simultanés et faire en sorte que l’historique de déploiement présente des entrées uniques, attribuez un nom unique à chaque déploiement.
 
 ## <a name="deploy-template-spec"></a>Déployer une spec de modèle
-
-> [!NOTE]
-> Actuellement, Azure CLI ne prend pas en charge la création de spécifications de modèle en fournissant des fichiers Bicep. Toutefois, vous pouvez créer un fichier Bicep avec la ressource [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) pour déployer une spécification de modèle. Voici un [exemple](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
 
 Au lieu de déployer un modèle local ou distant, vous pouvez créer une [spécification de modèle](template-specs.md). La spécification de modèle est une ressource de votre abonnement Azure qui contient un modèle ARM. Elle facilite le partage sécurisé du modèle avec les utilisateurs de votre organisation. Vous utilisez le contrôle d’accès Azure en fonction du rôle (Azure RBAC) pour accorder l’accès à la spécification de modèle. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 
@@ -177,11 +171,11 @@ az deployment group create \
   --template-spec $id
 ```
 
-Pour plus d’informations, consultez [Spécification de modèle Azure Resource Manager (préversion)](template-specs.md).
+Pour plus d’informations, consultez [Spec de modèle Azure Resource Manager](template-specs.md).
 
 ## <a name="preview-changes"></a>Prévisualiser les modifications
 
-Avant de déployer votre modèle, vous pouvez afficher un aperçu des modifications que le modèle apportera à votre environnement. Utilisez l’[opération de simulation](template-deploy-what-if.md) pour vérifier que le modèle apporte les changements prévus. Cette opération vérifie aussi que le modèle est exempt d’erreurs.
+Avant de déployer votre modèle, vous pouvez afficher un aperçu des modifications que le modèle apportera à votre environnement. Utilisez l’[opération de simulation](./deploy-what-if.md) pour vérifier que le modèle apporte les changements prévus. Cette opération vérifie aussi que le modèle est exempt d’erreurs.
 
 ## <a name="parameters"></a>Paramètres
 
@@ -194,7 +188,7 @@ Pour passer des paramètres inline, indiquez les valeurs dans `parameters`. Par 
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file <path-to-template-or-bicep> \
+  --template-file <path-to-template> \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
@@ -205,7 +199,7 @@ Vous pouvez également récupérer le contenu d’un fichier et fournir ce conte
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file <path-to-template-or-bicep> \
+  --template-file <path-to-template> \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
@@ -244,7 +238,7 @@ Utilisez des guillemets doubles autour du JSON que vous voulez passer à l’obj
 
 ### <a name="parameter-files"></a>Fichiers de paramètres
 
-Au lieu de passer des paramètres en tant que valeurs inline dans votre script, il peut s’avérer plus facile d’utiliser un fichier JSON qui contient les valeurs des paramètres. Le fichier de paramètres doit être un fichier local. Les fichiers de paramètres externes ne sont pas pris en charge avec Azure CLI. Le modèle ARM et le fichier Bicep utilisent des fichiers de paramètres JSON.
+Au lieu de passer des paramètres en tant que valeurs inline dans votre script, il peut s’avérer plus facile d’utiliser un fichier JSON qui contient les valeurs des paramètres. Le fichier de paramètres doit être un fichier local. Les fichiers de paramètres externes ne sont pas pris en charge avec Azure CLI.
 
 Pour plus d’informations sur le fichier de paramètres, consultez [Créer un fichier de paramètres Resource Manager](parameter-files.md).
 
@@ -255,7 +249,7 @@ az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
-  --parameters @storage.parameters.json
+  --parameters '@storage.parameters.json'
 ```
 
 ## <a name="handle-extended-json-format"></a>Gérer le format JSON étendu
@@ -284,5 +278,5 @@ Pour déployer un modèle avec des commentaires ou à plusieurs chaînes de lign
 
 * Pour restaurer un déploiement réussi lorsque vous obtenez une erreur, consultez [Restaurer en cas d’erreur vers un déploiement réussi](rollback-on-error.md).
 * Pour spécifier comment gérer les ressources présentes dans le groupe de ressources, mais non définies dans le modèle, consultez [Modes de déploiement Azure Resource Manager](deployment-modes.md).
-* Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](template-syntax.md).
+* Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](./syntax.md).
 * Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](common-deployment-errors.md).

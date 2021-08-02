@@ -5,15 +5,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: StefArroyo
 ms.author: esarroyo
-ms.date: 05/25/2021
-ms.openlocfilehash: fe14c28d817d9c0a2e832d331af9130c935affb8
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/04/2021
+ms.openlocfilehash: 6e3fd0c2dafd9d174b79206cb5482450fee74f8e
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110384858"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984045"
 ---
-# <a name="run-the-emulator-on-docker-for-linux-preview"></a>Exécuter l’émulateur sur Docker pour Linux (préversion)
+# <a name="run-the-emulator-on-docker-for-linux-preview"></a>Exécuter l’émulateur sur Docker pour Linux (Préversion)
 
 L’émulateur Azure Cosmos DB pour Linux fournit un environnement local qui émule le service Azure Cosmos DB à des fins de développement. Actuellement, l’émulateur Linux prend uniquement en charge l’API SQL. L’émulateur Azure Cosmos DB vous permet de développer et de tester votre application localement, sans créer d’abonnement Azure et sans frais. Lorsque vous êtes satisfait du fonctionnement de votre application dans l’émulateur Azure Cosmos DB pour Linux, vous pouvez commencer à utiliser un compte Azure Cosmos DB dans le cloud. Cet article décrit l’installation et l’utilisation de l’émulateur sur les environnements macOS et Linux.
 
@@ -67,27 +67,13 @@ Pour commencer, accédez à Docker Hub et installez le [Docker Desktop pour macO
     ```bash
     curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
     ```
-    Sinon, le point de terminaison ci-dessus qui télécharge le certificat auto-signé de l’émulateur peut également être utilisé pour la signalisation lorsque le point de terminaison de l’émulateur est prêt à recevoir des requêtes d’une autre application.
 
-1. Copiez le fichier CRT dans le dossier qui contient les certificats personnalisés dans votre distribution Linux. Sur les distributions Debian, il se trouve en général sur `/usr/local/share/ca-certificates/`.
-
-   ```bash
-   cp YourCTR.crt /usr/local/share/ca-certificates/
-   ```
-
-1. Mettez à jour les certificats TLS/SSL, ce qui mettra à jour le dossier `/etc/ssl/certs/`.
-
-   ```bash
-   update-ca-certificates
-   ```
-
-Pour les applications basées sur Java, le certificat doit être importé dans le [magasin de confiance Java.](local-emulator-export-ssl-certificates.md)
 
 ## <a name="consume-the-endpoint-via-ui"></a><a id="consume-endpoint-ui"></a>Consommer le point de terminaison par le biais de l’interface utilisateur
 
 L’émulateur utilise un certificat auto-signé pour sécuriser la connectivité à son point de terminaison et doit être approuvé manuellement. Utilisez les étapes suivantes pour consommer le point de terminaison par le biais de l’interface utilisateur à l’aide du navigateur web de votre choix :
 
-1. Veillez à télécharger le certificat auto-signé de l’émulateur
+1. Assurez-vous d’avoir téléchargé le certificat auto-signé de l’émulateur
 
    ```bash
    curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
@@ -99,7 +85,9 @@ L’émulateur utilise un certificat auto-signé pour sécuriser la connectivit�
 
 1. Après avoir chargé *emulatorcert.crt* dans le trousseau, double-cliquez sur le nom **localhost** et modifiez les paramètres d’approbation en **Toujours faire confiance**.
 
-1. Vous pouvez maintenant accéder à `https://localhost:8081/_explorer/index.html` ou `https://{your_local_ip}:8081/_explorer/index.html` et récupérer la chaîne de connexion de l’émulateur.
+1. Vous pouvez désormais accéder à `https://localhost:8081/_explorer/index.html` ou `https://{your_local_ip}:8081/_explorer/index.html` et récupérer la chaîne de connexion de l’émulateur.
+
+Si vous le souhaitez, vous pouvez désactiver la validation SSL sur votre application. Ce n’est recommandé qu’à des fins de développement et ça ne doit pas être effectué lors de l’exécution dans un environnement de production.
 
 ## <a name="run-the-linux-emulator-on-linux-os"></a><a id="run-on-linux"></a>Exécuter l’émulateur Linux sur Linux OS
 
@@ -189,9 +177,35 @@ Cette section fournit des conseils pour résoudre les erreurs lors de l’utilis
 
 - Assurez-vous que le certificat auto-signé de l’émulateur a été correctement ajouté au [Trousseau](#consume-endpoint-ui).
 
-- Assurez-vous que le certificat auto-signé de l’émulateur a été correctement importé à l’emplacement attendu :
-  - .NET : Recherchez la [section Certificats](#run-on-linux)
-  - Java : Voir la [section Magasin de certificats Java](#run-on-linux)
+- Pour les applications Java, assurez-vous d’importer le certificat dans la [section du magasin de certificats Java](#run-on-linux).
+
+- Pour les applications .NET, vous pouvez désactiver la validation SSL :
+
+# <a name="net-standard-21"></a>[.NET Standard 2.1+](#tab/ssl-netstd21)
+
+Pour toute application s’exécutant dans une infrastructure compatible avec .NET Standard 2.1 ou une version ultérieure, nous pouvons tirer parti de `CosmosClientOptions.HttpClientFactory` :
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard21)]
+
+# <a name="net-standard-20"></a>[.NET Standard 2.0](#tab/ssl-netstd20)
+
+Pour toute application s’exécutant dans une infrastructure compatible avec .NET Standard 2.0, nous pouvons tirer parti de `CosmosClientOptions.HttpClientFactory` :
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
+
+---
+
+#### <a name="my-nodejs-app-is-reporting-a-self-signed-certificate-error"></a>Mon application Node.js signale une erreur de certificat auto-signé
+
+Si vous tentez de vous connecter à l’émulateur via une adresse autre que `localhost`, telle que l’adresse IP des conteneurs, Node.js génère une erreur signalant que le certificat est auto-signé et ce, même si le certificat a été installé.
+
+La vérification TLS peut être désactivée par la définition de la variable d’environnement `NODE_TLS_REJECT_UNAUTHORIZED` sur `0` :
+
+```bash
+NODE_TLS_REJECT_UNAUTHORIZED=0
+```
+
+Cet indicateur n’est recommandé que pour le développement local, puisqu’il désactive TLS pour Node.js. Pour plus d’informations, consultez la [documentation Node.js](https://nodejs.org/api/cli.html#cli_node_tls_reject_unauthorized_value) et la [documentation Certificats de l’émulateur Cosmos DB](local-emulator-export-ssl-certificates.md#how-to-use-the-certificate-in-nodejs).
 
 #### <a name="the-docker-container-failed-to-start"></a>Le conteneur Docker n’a pas pu démarrer
 

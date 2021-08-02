@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
-ms.custom: references_regions, synapse-cosmos-db
-ms.openlocfilehash: 5cfe932d4f9ea60a044ce0b594df800fa37af6f1
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
+ms.openlocfilehash: bba594a6b0482457acad8bead382099a1e8e3a5b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904925"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968045"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configurer et utiliser Azure Synapse Link pour Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -206,7 +206,7 @@ Si vous avez créé un conteneur de magasin analytique activé via le Portail Az
 1. Sélectionnez un conteneur existant pour lequel le magasin analytique est activé. Développez-le et modifiez les valeurs suivantes :
 
   * Ouvrez la fenêtre **Mise à l’échelle et paramètres**.
-  * Sous **Paramètre**, recherchez ** Analytical Storage Time to Live**.
+  * Sous **Paramètre**, recherchez **Durée de vie du magasin analytique**.
   * Sélectionnez **Activée (pas par défaut)** ou sélectionnez **Activée** et définissez une valeur de TTL.
   * Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
@@ -270,7 +270,8 @@ Le pool SQL serverless vous permet d’interroger et d’analyser les données d
 
 ## <a name="use-serverless-sql-pool-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Analyse et visualisation des données dans Power BI avec le pool SQL serverless
 
-Il est possible de créer une base de données de pool SQL serverless et des vues sur Synapse Link pour Azure Cosmos DB. Par la suite, vous pouvez interroger les conteneurs Azure Cosmos, puis créer un modèle avec Power BI sur ces vues pour refléter cette requête. Pour plus d’informations, consultez l’article [Guide pratique d’utilisation du pool SQL serverless pour analyser les données Azure Cosmos DB avec Synapse Link](synapse-link-power-bi.md).
+Il est possible de créer une base de données de pool SQL serverless et des vues sur Synapse Link pour Azure Cosmos DB. Par la suite, vous pouvez interroger les conteneurs Azure Cosmos, puis créer un modèle avec Power BI sur ces vues pour refléter cette requête. Il n’y a aucun impact sur les performances ou les coûts de vos charges de travail transactionnelles, ni de complexité liée à la gestion des pipelines ETL. Vous pouvez utiliser les modes [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) ou [Import](/power-bi/connect-data/service-dataset-modes-understand#import-mode). Pour plus d’informations, consultez l’article [Guide pratique d’utilisation du pool SQL serverless pour analyser les données Azure Cosmos DB avec Synapse Link](synapse-link-power-bi.md).
+
 
 ## <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
 

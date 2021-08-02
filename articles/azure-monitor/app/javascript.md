@@ -4,23 +4,23 @@ description: Obtenir les nombres de sessions et d’affichage de page, les donn�
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 04cda044b002e226c49f8647d4705d7c0f2a514e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 61b7aa455cf9b782ca10d749344c26f5d15caa40
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565263"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072511"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
 Apprenez-en plus sur les performances et l’utilisation de votre page web ou de votre application. Ajoutez [Application Insights](app-insights-overview.md) à votre script de page pour obtenir le minutage des chargements de page et des appels AJAX, le nombre d’exceptions du navigateur et d’échecs d’AJAX et leurs détails, ainsi que les nombres d’utilisateurs et de sessions. Toutes ces données peuvent être segmentées par page, par version de système d’exploitation ou de navigateur client, par emplacement géographique et en fonction d’autres aspects. Vous pouvez définir des alertes en cas de dépassement d’un certain nombre d’échecs ou de ralentissement du chargement des pages. Et en insérant des suivis d’appel dans votre code JavaScript, vous pouvez suivre l’utilisation des différentes fonctionnalités de votre application de page web.
 
-Vous pouvez utiliser Application Insights avec toutes les pages web ; il vous suffit pour cela d’ajouter un court extrait de code JavaScript. Si votre service web est [Java](java-get-started.md) ou [ASP.NET](asp-net.md), vous pouvez utiliser les kits SDK côté serveur conjointement au kit SDK JavaScript côté client pour acquérir une compréhension de bout en bout des performances de votre application.
+Vous pouvez utiliser Application Insights avec toutes les pages web ; il vous suffit pour cela d’ajouter un court extrait de code JavaScript. Si votre service web est [Java](java-in-process-agent.md) ou [ASP.NET](asp-net.md), vous pouvez utiliser les kits SDK côté serveur conjointement au kit SDK JavaScript côté client pour acquérir une compréhension de bout en bout des performances de votre application.
 
 ## <a name="adding-the-javascript-sdk"></a>Ajout du SDK JavaScript
 
 > [!IMPORTANT]
-> Les nouvelles régions Azure **exigent** l’utilisation de chaînes de connexion au lieu de clés d’instrumentation. Une [chaîne de connexion](./sdk-connection-string.md?tabs=js) identifie la ressource à laquelle vous souhaitez associer vos données de télémétrie. Elle vous permet également de modifier les points de terminaison que votre ressource utilisera comme destination pour votre télémétrie. Vous devrez copier la chaîne de connexion et l’ajouter au code de votre application ou à une variable d’environnement.
+> Les [chaînes de connexion](./sdk-connection-string.md?tabs=js) sont recommandées par rapport aux clés d’instrumentation. Les nouvelles régions Azure **exigent** l’utilisation de chaînes de connexion au lieu de clés d’instrumentation. Une chaîne de connexion identifie la ressource à laquelle vous souhaitez associer vos données de télémétrie. Elle vous permet également de modifier les points de terminaison que votre ressource utilisera comme destination pour votre télémétrie. Vous devrez copier la chaîne de connexion et l’ajouter au code de votre application ou à une variable d’environnement.
 
 1. Tout d’abord, vous avez besoin d’une ressource Application Insights. Si vous ne disposez pas encore d’une ressource ni d’une clé d’instrumentation, suivez les [instructions permettant de créer une ressource](create-new-resource.md).
 2. Copiez la _clé d’instrumentation_ (aussi connue sous « iKey ») ou la [chaîne de connexion](#connection-string-setup) de la ressource à laquelle vous souhaitez envoyer vos données de télémétrie JavaScript (de l’étape 1). Vous l’ajouterez au paramètre `instrumentationKey` ou `connectionString` du Kit de développement logiciel (SDK) JavaScript Application Insights.
@@ -237,7 +237,7 @@ La gestion des cookies basée sur une instance remplace également les fonctions
 
 Configuration de cookie pour la gestion des cookies basée sur une instance ajoutée dans la version 2.6.0.
 
-| Name | Description | Type et valeur par défaut |
+| Nom | Description | Type et valeur par défaut |
 |------|-------------|------------------|
 | enabled | Une valeur booléenne indique si l’utilisation de cookies par le kit de développement logiciel (SDK) est activée par l’instance actuelle. Si la valeur est false, l’instance du kit de développement logiciel (SDK) initialisée par cette configuration ne stocke pas ou ne lit pas les données des cookies | boolean<br/> true |
 | domaine | Domaine de cookie personnalisé. Cela est utile si vous souhaitez partager des cookies Application Insights entre les sous-domaines. S’il n’est pas fourni, utilise la valeur de la valeur racine `cookieDomain`. | string<br/>null |

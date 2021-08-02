@@ -14,12 +14,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 3/02/2021
-ms.openlocfilehash: e176c0399b191c7a511ea1d26388219b2cef1df8
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: cedd161a392af9df52ed94aa4ed60379cf28776a
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107144"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413519"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Comprendre et résoudre les problèmes de blocage d’Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -95,17 +95,17 @@ Le référencement des DMV pour résoudre les problèmes de blocage a pour objec
 
 N’oubliez pas d’exécuter chacun de ces scripts dans la base de données Azure SQL cible.
 
-* Les commandes sp_who et sp_who2 sont des commandes plus anciennes permettant d’afficher toutes les sessions en cours. La DMV sys.dm_exec_sessions renvoie plus de données dans un jeu de résultats plus facile à interroger et à filtrer. Vous trouverez sys.dm_exec_sessions au cœur d’autres requêtes. 
+* Les commandes sp_who et sp_who2 sont des commandes plus anciennes permettant d’afficher toutes les sessions en cours. La DMV `sys.dm_exec_sessions` renvoie plus de données dans un jeu de résultats plus facile à interroger et à filtrer. Vous trouverez la DMV `sys.dm_exec_sessions` au cœur d’autres requêtes. 
 
-* Si vous avez déjà identifié une session particulière, vous pouvez utiliser `DBCC INPUTBUFFER(<session_id>)` pour rechercher la dernière instruction qui a été soumise par une session. Des résultats similaires peuvent être retournés avec la fonction de gestion dynamique(DMF) sys.dm_exec_input_buffer, dans un jeu de résultats plus facile à interroger et à filtrer, en fournissant le session_id et le request_id. Par exemple, pour retourner la dernière requête soumise par session_id 66 et request_id 0 :
+* Si vous avez déjà identifié une session particulière, vous pouvez utiliser `DBCC INPUTBUFFER(<session_id>)` pour rechercher la dernière instruction qui a été soumise par une session. Des résultats similaires peuvent être retournés avec la fonction de gestion dynamique (DMF) `sys.dm_exec_input_buffer`, dans un jeu de résultats plus facile à interroger et à filtrer, en fournissant le session_id et le request_id. Par exemple, pour retourner la dernière requête soumise par session_id 66 et request_id 0 :
 
 ```sql
 SELECT * FROM sys.dm_exec_input_buffer (66,0);
 ```
 
-* Consultez la sys.dm_exec_requests et reportez-vous à la colonne blocking_session_id. Lorsque blocking_session_id = 0, aucune session n’est bloquée. Si sys.dm_exec_requests répertorie uniquement les requêtes en cours d’exécution, toutes les connexions (actives ou non) sont répertoriées dans sys.dm_exec_sessions. La requête suivante s’appuiera sur cette jointure commune entre sys.dm_exec_requests et sys.dm_exec_sessions.
+* Reportez-vous à la `blocking_session_id` colonne dans `sys.dm_exec_requests`. Lorsque `blocking_session_id` = 0, aucune session n’est bloquée. Si `sys.dm_exec_requests` répertorie uniquement les requêtes en cours d’exécution, toutes les connexions (actives ou non) sont répertoriées dans `sys.dm_exec_sessions`. Tirez parti de cette jointure commune entre `sys.dm_exec_requests` et `sys.dm_exec_sessions` dans la requête suivante.
 
-* Exécutez cet exemple de requête pour rechercher les requêtes en cours d’exécution et leur texte actuel de lot SQL ou de mémoire tampon d’entrée en utilisant les DMV [sys.dm_exec_sql_text](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql) ou [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql). Si les données retournées par le champ `text` de sys.dm_exec_sql_text ont la valeur NULL, la requête n’est pas en cours d’exécution. Dans ce cas, le champ `event_info` de sys.dm_exec_input_buffer contiendra la dernière chaîne de commande transmise au moteur SQL. Cette requête peut également être utilisée pour identifier les sessions bloquant d’autres sessions, par exemple avec une liste de session_ids bloqués par session_id. 
+* Exécutez cet exemple de requête pour rechercher les requêtes en cours d’exécution et leur texte actuel de lot SQL ou de mémoire tampon d’entrée en utilisant les DMV [sys.dm_exec_sql_text](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql) ou [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql). Si les données retournées par le champ `text` de `sys.dm_exec_sql_text` ont la valeur NULL, cela signifie que la requête n’est pas en cours d’exécution. Dans ce cas, le champ `event_info` de `sys.dm_exec_input_buffer` contiendra la dernière chaîne de commande transmise au moteur SQL. Cette requête peut également être utilisée pour identifier les sessions bloquant d’autres sessions, par exemple avec une liste de session_ids bloqués par session_id. 
 
 ```sql
 WITH cteBL (session_id, blocking_these) AS 
@@ -183,14 +183,14 @@ INNER JOIN sys.dm_exec_connections [s_ec] ON [s_ec].[session_id] = [s_tst].[sess
 CROSS APPLY sys.dm_exec_sql_text ([s_ec].[most_recent_sql_handle]) AS [s_est];
 ```
 
-* Référencez [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) qui se trouve au niveau de la couche de thread/tâche de SQL. Cela renvoie des informations sur le type d’attente SQL que la requête rencontre actuellement. Comme pour sys.dm_exec_requests, seules les requêtes actives sont retournées par sys.dm_os_waiting_tasks. 
+* Référencez [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) qui se trouve au niveau de la couche de thread/tâche de SQL. Cela renvoie des informations sur le type d’attente SQL que la requête rencontre actuellement. Comme pour `sys.dm_exec_requests`, `sys.dm_os_waiting_tasks` ne retourne que les requêtes actives. 
 
 > [!Note]
 > Pour plus d’informations sur les types d’attente, y compris les statistiques agrégées sur l’attente dans le temps, consultez la DMV [sys.dm_db_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database). Cette DMV renvoie des statistiques agrégées sur l’attente uniquement pour la base de données actuelle.
 
 * Utilisez la DMV [sys.dm_tran_locks](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql) pour obtenir des informations plus granulaires sur les verrous placés par les requêtes. Cette DMV peut renvoyer de grandes quantités de données sur un serveur SQL de production et est utile pour diagnostiquer quels verrous sont actuellement maintenus. 
 
-En raison de la jointure interne sur sys.dm_os_waiting_tasks, la requête suivante limite la sortie de sys.dm_tran_locks uniquement aux requêtes actuellement bloquées, à leur état d’attente et à leurs verrous :
+En raison de la JOINTURE INTERNE sur `sys.dm_os_waiting_tasks`, la requête suivante limite la sortie de `sys.dm_tran_locks` aux requêtes actuellement bloquées, à leur état d’attente et à leurs verrous :
 
 ```sql
 SELECT table_name = schema_name(o.schema_id) + '.' + o.name
@@ -242,9 +242,9 @@ En examinant les informations ci-dessus, vous pouvez déterminer la cause de la 
 
 ## <a name="analyze-blocking-data"></a>Analyser les données de blocage 
 
-* Examinez la sortie des DMV sys.dm_exec_requests et sys.dm_exec_sessions pour déterminer les têtes des chaînes de blocage, en utilisant blocking_these et session_id. Cela permet d’identifier plus clairement les requêtes qui sont bloquées et celles qui bloquent. Examinez plus en détail les sessions bloquées et bloquantes. Existe-t-il un point commun ou une racine à la chaîne de blocage ? Elles partagent probablement une table commune, et une ou plusieurs sessions impliquées dans une chaîne de blocage effectuent une opération d’écriture. 
+* Examinez la sortie des DMV `sys.dm_exec_requests` et `sys.dm_exec_sessions` pour déterminer les têtes des chaînes de blocage, en utilisant `blocking_these` et `session_id`. Cela permet d’identifier plus clairement les requêtes qui sont bloquées et celles qui bloquent. Examinez plus en détail les sessions bloquées et bloquantes. Existe-t-il un point commun ou une racine à la chaîne de blocage ? Elles partagent probablement une table commune, et une ou plusieurs sessions impliquées dans une chaîne de blocage effectuent une opération d’écriture. 
 
-* Examinez la sortie des DMV sys.dm_exec_requests et sys.dm_exec_sessions pour obtenir des informations sur les SPID en tête de la chaîne de blocage. Recherchez les champs suivants : 
+* Examinez la sortie des DMV `sys.dm_exec_requests` et `sys.dm_exec_sessions` pour obtenir des informations sur les SPID en tête de la chaîne de blocage. Recherchez les champs suivants : 
 
     -    `sys.dm_exec_requests.status`  
     Cette colonne indique l’état d’une requête particulière. En règle générale, un état de veille indique que l’exécution du SPID est terminée et qu’il attend que l’application envoie une autre requête ou un autre lot. Un état Exécutable ou Exécution en cours indique que le SPID est en train de traiter une requête. Le tableau suivant fournit une brève explication des différentes valeurs d’état.
@@ -264,7 +264,7 @@ En examinant les informations ci-dessus, vous pouvez déterminer la cause de la 
     De même, ce champ indique le nombre de transactions ouvertes dans cette requête. Si cette valeur est supérieure à 0, le SPID se trouve dans une transaction ouverte et peut contenir des verrous acquis par toute instruction dans la transaction.
 
     -   `sys.dm_exec_requests.wait_type`, `wait_time` et `last_wait_type`  
-    Si la  `sys.dm_exec_requests.wait_type` a la valeur NULL, la requête n’attend rien et la valeur  `last_wait_type` indique le dernier  `wait_type` que la requête a rencontrée. Pour plus d’informations sur  `sys.dm_os_wait_stats` et pour obtenir une description des types d’attente les plus courants, consultez [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql). La valeur de  `wait_time` peut être utilisée pour déterminer si la requête progresse. Lorsqu’une interrogation de la table sys.dm_exec_requests renvoie une valeur dans la colonne  `wait_time` inférieure à la valeur  `wait_time` d’une précédente interrogation de sys.dm_exec_requests, cela indique que le verrou précédent a été acquis et libéré et qu’il attend maintenant un nouveau verrou (en supposant une valeur `wait_time` différente de zéro). Cela peut être vérifié en comparant la valeur `wait_resource` de la sortie de sys.dm_exec_requests, qui affiche la ressource pour laquelle la requête est en attente.
+    Si la  `sys.dm_exec_requests.wait_type` a la valeur NULL, la requête n’attend rien et la valeur  `last_wait_type` indique le dernier  `wait_type` que la requête a rencontrée. Pour plus d’informations sur  `sys.dm_os_wait_stats` et pour obtenir une description des types d’attente les plus courants, consultez [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql). La valeur de  `wait_time` peut être utilisée pour déterminer si la requête progresse. Quand une requête sur la table  `sys.dm_exec_requests` retourne une valeur dans la colonne  `wait_time` inférieure à la valeur  `wait_time` d’une requête précédente de  `sys.dm_exec_requests`, cela indique que le verrou précédent a été acquis et libéré, et que la requête continue d’attendre un nouveau verrou (en supposant une valeur `wait_time` différente de zéro). Cela peut être vérifié en comparant la valeur `wait_resource` de la sortie de  `sys.dm_exec_requests`, qui affiche la ressource pour laquelle la demande est en attente.
 
     -   `sys.dm_exec_requests.wait_resource` Ce champ indique la ressource qu’une requête bloquée attend. Le tableau suivant énumère les formats courants de  `wait_resource` et leur signification :
 
@@ -272,7 +272,7 @@ En examinant les informations ci-dessus, vous pouvez déterminer la cause de la 
     |:-|:-|:-|:-|
     | Table de charge de travail | DatabaseID:ObjectID:IndexID | TAB: 5:261575970:1 | Dans ce cas, l’ID de base de données 5 est l’exemple de base de données « pubs », l’ID d’objet 261575970 est la table « titles » et 1 est l’index cluster. |
     | Page | DatabaseID:FileID:PageID | PAGE: 5:1:104 | Dans ce cas, l’ID de base de données 5 est « pubs », l’ID de fichier 1 est le fichier de données primaire et la page 104 est une page appartenant à la table « titles ». Pour identifier l’object_id auquel la page appartient, utilisez la fonction de gestion dynamique [sys.dm_db_page_info](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-page-info-transact-sql), en transmettant les DatabaseID, FileId et PageId de `wait_resource`. | 
-    | Clé | DatabaseID:Hobt_id (valeur de hachage pour la clé d’index) | KEY: 5:72057594044284928 (3300a4f361aa) | Dans ce cas, l’ID de base de données 5 est « pubs », Hobt_ID 72057594044284928 correspond à index_id 2 pour object_id 261575970 (table « titles »). Utilisez l’affichage catalogue sys.partitions pour associer le hobt_id à un index_id et à un object_id particuliers. Il n’existe aucun moyen de décomposer le hachage de la clé d’index en une valeur de clé spécifique. |
+    | Clé | DatabaseID:Hobt_id (valeur de hachage pour la clé d’index) | KEY: 5:72057594044284928 (3300a4f361aa) | Dans ce cas, l’ID de base de données 5 est « pubs », Hobt_ID 72057594044284928 correspond à index_id 2 pour object_id 261575970 (table « titles »). Utilisez l’affichage catalogue `sys.partitions` pour associer le hobt_id à un `index_id` et un `object_id` particuliers. Il n’existe aucun moyen de décomposer le hachage de la clé d’index en une valeur de clé spécifique. |
     | Ligne | DatabaseID:FileID:PageID:Slot(row) | RID: 5:1:104:3 | Dans ce cas, l’ID de base de données 5 est « pubs », l’ID de fichier 1 est le fichier de données primaire, la page 104 est une page appartenant à la table « titles » et l’emplacement 3 indique la position de la ligne sur la page. |
     | Compiler  | DatabaseID:FileID:PageID:Slot(row) | RID: 5:1:104:3 | Dans ce cas, l’ID de base de données 5 est « pubs », l’ID de fichier 1 est le fichier de données primaire, la page 104 est une page appartenant à la table « titles » et l’emplacement 3 indique la position de la ligne sur la page. |
 
@@ -309,30 +309,30 @@ En examinant les informations ci-dessus, vous pouvez déterminer la cause de la 
     , s.host_name, s.program_name, s.client_interface_name, s.login_name, s.is_user_process
     FROM sys.dm_tran_active_transactions tat 
     INNER JOIN sys.dm_tran_session_transactions tst  on tat.transaction_id = tst.transaction_id
-    INNER JOIN Sys.dm_exec_sessions s on s.session_id = tst.session_id 
+    INNER JOIN sys.dm_exec_sessions s on s.session_id = tst.session_id 
     LEFT OUTER JOIN sys.dm_exec_requests r on r.session_id = s.session_id
     CROSS APPLY sys.dm_exec_input_buffer(s.session_id, null) AS ib;
     ```
 
     -   D’autres colonnes
 
-        Les colonnes restantes dans [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) et [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) peuvent également fournir des indications sur la racine d’un problème. Leur utilité varie selon les circonstances du problème. Par exemple, vous pouvez déterminer si le problème se produit uniquement à partir de certains clients (hostname), sur certaines bibliothèques réseau (net_library), quand le dernier lot soumis par un SPID a été `last_request_start_time` dans sys.dm_exec_sessions, la durée d’exécution d’une requête à l’aide de `start_time` dans sys.dm_exec_requests, et ainsi de suite.
+        Les colonnes restantes dans [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) et [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) peuvent également fournir des indications sur la racine d’un problème. Leur utilité varie selon les circonstances du problème. Par exemple, vous pouvez déterminer si le problème se produit uniquement à partir de certains clients (hostname), sur certaines bibliothèques réseau (net_library), quand le dernier lot soumis par un SPID a été `last_request_start_time` dans `sys.dm_exec_sessions`, la durée d’exécution d’une requête à l’aide de `start_time` dans `sys.dm_exec_requests`, et ainsi de suite.
 
 
 ## <a name="common-blocking-scenarios"></a>Scénarios de blocage courants
 
 Le tableau ci-dessous établit une correspondance entre les symptômes courants et leurs causes probables.  
 
-Les colonnes `wait_type`, `open_transaction_count` et `status` font référence aux informations retournées par [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), et les autres colonnes peuvent être retournées par [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql). La colonne « Est résolu en ? » indique si le blocage se résoudra de lui-même ou si la session doit être supprimée à l’aide de la commande `KILL`. Pour plus d’informations, consultez [KILL (Transact-SQL)](/sql/t-sql/language-elements/kill-transact-sql).
+Les colonnes Waittype, Open_Tran et Status font référence aux informations retournées par [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), et les autres colonnes peuvent être retournées par [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql). La colonne « Est résolu en ? » indique si le blocage se résoudra de lui-même ou si la session doit être supprimée à l’aide de la commande `KILL`. Pour plus d’informations, consultez [KILL (Transact-SQL)](/sql/t-sql/language-elements/kill-transact-sql).
 
 | Scénario | Waittype | Open_Tran | Statut | Est résolu en ? | Autres symptômes |  
 |:-|:-|:-|:-|:-|:-|--|
-| 1 | NOT NULL | >= 0 | exécutable | Oui, à la fin de la requête. | Dans sys.dm_exec_sessions, les colonnes **reads**, **cpu_time** et/ou **memory_usage** augmenteront avec le temps. La durée de la requête sera élevée une fois l’opération terminée. |
+| 1 | NOT NULL | >= 0 | exécutable | Oui, à la fin de la requête. | Dans `sys.dm_exec_sessions`, `reads`, `cpu_time` et/ou `memory_usage`, les colonnes augmenteront au fil du temps. La durée de la requête sera élevée une fois l’opération terminée. |
 | 2 | NULL | \>0 | en veille | Non, mais le SPID peut être tué. | Un signal d’attention peut apparaître dans la session XEvent pour ce SPID, indiquant qu’un délai d’attente ou une annulation de requête a eu lieu. |
 | 3 | NULL | \>= 0 | exécutable | Non. Ne sera pas résolu tant que le client n’aura pas extrait toutes les lignes ou fermé la connexion. Le SPID peut être tué, mais cela peut prendre jusqu’à 30 secondes. | Si open_transaction_count = 0 et que le SPID maintient des verrous alors que le niveau d’isolation de la transaction est par défaut (READ COMMMITTED), c’est une cause probable. |  
-| 4 | Variable | \>= 0 | exécutable | Non. Ne sera pas résolu tant que le client n’a pas annulé les requêtes ou fermé les connexions. Les SPID peuvent être tués, mais cela peut prendre jusqu’à 30 secondes. | Le colonne **hostname** dans la sys.dm_exec_sessions du SPID à la tête d’une chaîne de blocage sera la même que celle du SPID qu’il bloque. |  
+| 4 | Variable | \>= 0 | exécutable | Non. Ne sera pas résolu tant que le client n’a pas annulé les requêtes ou fermé les connexions. Les SPID peuvent être tués, mais cela peut prendre jusqu’à 30 secondes. | La colonne `hostname` dans `sys.dm_exec_sessions` pour le SPID en tête d’une chaîne de blocage sera la même qu’une colonne du SPID qu’elle bloque. |  
 | 5 | NULL | \>0 | restaurer | Oui. | Un signal d’attention peut apparaître dans la session XEvent pour ce SPID, indiquant qu’un délai d’attente ou une annulation de requête a eu lieu ou simplement qu’une instruction de restauration a été émise. |  
-| 6 | NULL | \>0 | en veille | À terme. Lorsque Windows NT détermine que la session n’est plus active, la connexion Azure SQL Database est interrompue. | La valeur `last_request_start_time` dans sys.dm_exec_sessions est bien antérieure à l’heure actuelle. |
+| 6 | NULL | \>0 | en veille | À terme. Lorsque Windows NT détermine que la session n’est plus active, la connexion Azure SQL Database est interrompue. | La valeur `last_request_start_time` dans `sys.dm_exec_sessions` est bien antérieure à l’heure actuelle. |
 
 ## <a name="detailed-blocking-scenarios"></a>Scénarios de blocage détaillés
 
@@ -346,7 +346,7 @@ Les colonnes `wait_type`, `open_transaction_count` et `status` font référence 
 
 1.  Blocage causé par un SPID en veille dont une transaction n’est pas validée
 
-    Ce type de blocage peut souvent être identifié par un SPID en veille ou en attente d’une commande, mais dont le niveau d’imbrication des transactions (`@@TRANCOUNT`, `open_transaction_count` de sys.dm_exec_requests) est supérieur à zéro. Cela peut se produire si l’application rencontre un délai d’attente de requête ou émet une annulation sans émettre également le nombre requis d’instructions ROLLBACK et/ou COMMIT. Lorsqu’un SPID reçoit un délai d’attente de requête ou une annulation, il termine la requête et le traitement en cours, mais ne restaure pas ou ne valide pas automatiquement la transaction. L’application est responsable de cette opération, car Azure SQL Database ne peut pas supposer qu’une transaction entière doit être restaurée en raison de l’annulation d’une seule requête. Le délai d’attente ou l’annulation de la requête s’affiche sous la forme d’un événement de signal ATTENTION pour le SPID dans la session XEvent.
+    Ce type de blocage peut souvent être identifié par un SPID en veille ou en attente d’une commande, mais dont le niveau d’imbrication des transactions (`@@TRANCOUNT`, `open_transaction_count` à partir de `sys.dm_exec_requests`) est supérieur à zéro. Cela peut se produire si l’application rencontre un délai d’attente de requête ou émet une annulation sans émettre également le nombre requis d’instructions ROLLBACK et/ou COMMIT. Lorsqu’un SPID reçoit un délai d’attente de requête ou une annulation, il termine la requête et le traitement en cours, mais ne restaure pas ou ne valide pas automatiquement la transaction. L’application est responsable de cette opération, car Azure SQL Database ne peut pas supposer qu’une transaction entière doit être restaurée en raison de l’annulation d’une seule requête. Le délai d’attente ou l’annulation de la requête s’affiche sous la forme d’un événement de signal ATTENTION pour le SPID dans la session XEvent.
 
     Pour illustrer une transaction explicite non validée, émettez la requête suivante :
 
@@ -366,7 +366,7 @@ Les colonnes `wait_type`, `open_transaction_count` et `status` font référence 
 
     La sortie de la deuxième requête indique que le niveau d’imbrication de la transaction est 1. Tous les verrous acquis dans la transaction sont conservés jusqu’à ce que la transaction soit validée ou restaurée. Si les applications ouvrent et valident explicitement des transactions, une erreur de communication ou autre peut laisser la session et sa transaction dans un état ouvert. 
 
-    Utilisez le script plus haut dans cet article basé sur sys.dm_tran_active_transactions pour identifier les transactions non validées dans l’instance.
+    Utilisez le script plus haut dans cet article basé sur `sys.dm_tran_active_transactions` pour identifier les transactions actuellement non validées dans l’instance.
 
     **Résolutions** :
 
@@ -395,7 +395,7 @@ Les colonnes `wait_type`, `open_transaction_count` et `status` font référence 
 
 1.  Blocage causé par une session en état de restauration
 
-    Une requête de modification des données qui est tuée ou annulée en dehors d’une transaction définie par l’utilisateur est restaurée. Cela peut également être un effet secondaire de la déconnexion de la session réseau du client ou se produire lorsqu’une requête est sélectionnée comme victime d’un blocage. Cela peut souvent être identifié en observant la sortie de sys.dm_exec_requests, qui peut indiquer la **commande** ROLLBACK, et la **colonne percent_complete** peut afficher la progression. 
+    Une requête de modification des données qui est tuée ou annulée en dehors d’une transaction définie par l’utilisateur est restaurée. Cela peut également être un effet secondaire de la déconnexion de la session réseau du client ou se produire lorsqu’une requête est sélectionnée comme victime d’un blocage. Cela peut souvent être identifié en observant la sortie de `sys.dm_exec_requests`, qui peut indiquer la commande ROLLBACK, et la colonne `percent_complete` peut afficher la progression. 
 
     Grâce à la [fonctionnalité de récupération de base de données accélérée](../accelerated-database-recovery.md) introduite en 2019, les restaurations longues devraient être rares.
     

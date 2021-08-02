@@ -3,12 +3,12 @@ title: Prise en charge des opérations de déplacement par type de ressource
 description: Liste les types de ressources Azure qui peuvent être déplacés vers un nouveau groupe de ressources, un nouvel abonnement ou une nouvelle région.
 ms.topic: conceptual
 ms.date: 04/23/2021
-ms.openlocfilehash: 5a347a9041423c7e466499cdd65fe27e6623ab98
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3a43ea09dd4986d1f2d0e2679e81f5b25b590f7e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737402"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968320"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 
@@ -911,7 +911,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Resource group | Abonnement | Changement de région |
 > | ------------- | ----------- | ---------- | ----------- |
 > | controllers | Oui | Oui | Non |
-> | Cluster AKS | **En attente** | **En attente** | Non<br/><br/> [Apprenez-en davantage](../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region) sur le déplacement vers une autre région.
+> | Cluster AKS | **En attente** | **En attente** | Non<br/><br/> [Apprenez-en davantage](../../dev-spaces/index.yml) sur le déplacement vers une autre région.
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
@@ -1448,7 +1448,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | privateendpointredirectmaps | Non | Non | Non |
 > | privateendpoints | Non | Non | Non |
 > | privatelinkservices | Non | Non | Non |
-> | publicipaddresses | Oui - Référence SKU de base<br>Oui - Référence SKU Standard | Oui - Référence SKU de base<br>Non - Référence SKU Standard | Oui<br/><br/> Utilisez [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) pour déplacer des adresses IP publiques. |
+> | publicipaddresses | Oui - Référence SKU de base<br>Oui - Référence SKU Standard | Oui - Référence SKU de base<br>Non - Référence SKU Standard | Oui<br/><br/> Utilisez [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) pour déplacer des configurations d’adresses IP publiques (les adresses IP ne sont pas conservées). |
 > | publicipprefixes | Oui | Oui | Non |
 > | routefilters | Non | Non | Non |
 > | routetables | Oui | Oui | Non |

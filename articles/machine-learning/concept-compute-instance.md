@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 9cb46ef11ab7cc86efa0842fe5952b92170aa648
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 966b471efc7fcadbb4207fe94bb11e5333bfb0a0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737399"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095443"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
 Une instance de calcul Azure Machine Learning est une station de travail cloud managée pour les scientifiques des données.
 
-Les instances de calcul facilitent le démarrage du développement avec Azure Machine Learning. Elles fournissent aux administrateurs informatiques des fonctionnalités de gestion et de préparation de l’entreprise.  
+Les instances de calcul facilitent le démarrage du développement avec Azure Machine Learning. Elles fournissent aux administrateurs informatiques des fonctionnalités de gestion et de préparation de l’entreprise.
 
-Utilisez une instance de calcul comme environnement de développement complètement configuré et managé dans le cloud pour l’apprentissage automatique. Elle peut également être utilisée comme cible de calcul pour l’apprentissage et l’inférence à des fins de développement et de test.  
+Utilisez une instance de calcul comme environnement de développement complètement configuré et managé dans le cloud pour l’apprentissage automatique. Elle peut également être utilisée comme cible de calcul pour l’apprentissage et l’inférence à des fins de développement et de test.
 
 Pour un entraînement de modèle de niveau production, utilisez un [cluster de calcul Azure Machine Learning](how-to-create-attach-compute-cluster.md) avec des fonctionnalités de mise à l’échelle multinœud. Pour le déploiement d’un modèle de niveau production, utilisez un [cluster Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
@@ -47,15 +47,16 @@ Vous pouvez également **[utiliser un script de configuration (préversion)](how
 
 > [!IMPORTANT]
 > Les éléments marqués (préversion) dans cet article sont actuellement en préversion publique.
-> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 L’instance de calcul Azure Machine Learning vous permet de créer, d’effectuer l’apprentissage et de déployer des modèles dans une expérience de notebook entièrement intégrée dans votre espace de travail.
 
 Vous pouvez exécuter des blocs-notes Jupyter dans [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) à l’aide de l’instance de calcul en tant que serveur distant sans avoir besoin de SSH. Vous pouvez également activer l’intégration de VS Code via l’[extension SSH à distance](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
 
-Vous pouvez [installer des packages](how-to-access-terminal.md#install-packages) et [ajouter des noyaux](how-to-access-terminal.md#add-new-kernels) à votre instance de calcul.  
+Vous pouvez [installer des packages](how-to-access-terminal.md#install-packages) et [ajouter des noyaux](how-to-access-terminal.md#add-new-kernels) à votre instance de calcul.
 
-Les outils et environnements suivants sont déjà installés sur l’instance de calcul : 
+Les outils et environnements suivants sont déjà installés sur l’instance de calcul :
 
 |Outils et environnements généraux|Détails|
 |----|:----:|
@@ -66,7 +67,7 @@ Les outils et environnements suivants sont déjà installés sur l’instance de
 |Docker||
 |Nginx||
 |NCCL 2.0 ||
-|Protobuf|| 
+|Protobuf||
 
 |Outils et environnements **R**|Détails|
 |----|:----:|
@@ -98,9 +99,9 @@ Les fichiers qui se trouvent dans le partage de fichiers sont accessibles à par
 
 Vous pouvez également cloner les exemples les plus récents d’Azure Machine Learning dans votre dossier dans le répertoire des fichiers utilisateur du partage de fichiers de l’espace de travail.
 
-L’écriture de petits fichiers peut être plus lente sur des lecteurs réseau que sur le disque local de l’instance de calcul.  Si vous écrivez de nombreux petits fichiers, essayez d’utiliser un répertoire directement sur l’instance de calcul, par exemple un répertoire `/tmp`. Notez que ces fichiers ne seront pas accessibles à partir d’autres instances de calcul. 
+L’écriture de petits fichiers peut être plus lente sur des lecteurs réseau que sur le disque local de l’instance de calcul.  Si vous écrivez de nombreux petits fichiers, essayez d’utiliser un répertoire directement sur l’instance de calcul, par exemple un répertoire `/tmp`. Notez que ces fichiers ne seront pas accessibles à partir d’autres instances de calcul.
 
-Ne stockez pas de données de formation sur le partage de fichiers de notebook. Vous pouvez utiliser le répertoire `/tmp` sur l’instance de calcul pour vos données temporaires.  Toutefois, n’écrivez pas de fichiers de données très volumineux sur le disque du système d’exploitation de l’instance de calcul. Le disque du système d’exploitation sur l’instance de calcul a une capacité de 128 Go. Vous pouvez également stocker des données de formation temporaires sur un disque temporaire monté sur /mnt. La taille du disque temporaire peut être configurée en fonction de la taille de la machine virtuelle choisie, et peut stocker d’importantes quantités de données si une machine virtuelle de taille supérieure est sélectionnée. Vous pouvez également monter [des magasins de données et des jeux de données](concept-azure-machine-learning-architecture.md#datasets-and-datastores). 
+Ne stockez pas de données de formation sur le partage de fichiers de notebook. Vous pouvez utiliser le répertoire `/tmp` sur l’instance de calcul pour vos données temporaires.  Toutefois, n’écrivez pas de fichiers de données très volumineux sur le disque du système d’exploitation de l’instance de calcul. Le disque du système d’exploitation sur l’instance de calcul a une capacité de 128 Go. Vous pouvez également stocker des données de formation temporaires sur un disque temporaire monté sur /mnt. La taille du disque temporaire peut être configurée en fonction de la taille de la machine virtuelle choisie, et peut stocker d’importantes quantités de données si une machine virtuelle de taille supérieure est sélectionnée. Vous pouvez également monter [des magasins de données et des jeux de données](concept-azure-machine-learning-architecture.md#datasets-and-datastores).
 
 ## <a name="managing-a-compute-instance"></a>Gestion d’une instance de calcul
 
@@ -112,27 +113,27 @@ Pour plus d’informations sur la gestion de l’instance de calcul, consultez [
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>Créer une instance de calcul
 
-En tant qu’administrateur, vous pouvez **[créer une instance de calcul pour d’autres utilisateurs de l’espace de travail (préversion)](how-to-create-manage-compute-instance.md#on-behalf)** .  
+En tant qu’administrateur, vous pouvez **[créer une instance de calcul pour d’autres utilisateurs de l’espace de travail (préversion)](how-to-create-manage-compute-instance.md#on-behalf)** .
 
 Vous pouvez également **[utiliser un script de configuration (préversion)](how-to-create-manage-compute-instance.md#setup-script)** pour personnaliser et configurer automatiquement l’instance de calcul.
 
-Pour créer votre instance de calcul, utilisez votre espace de travail dans Azure Machine Learning Studio, [créez une instance de calcul](how-to-create-attach-compute-studio.md#compute-instance) à partir de la section **Calcul** ou de la section **Notebooks** lorsque vous êtes prêt à exécuter l’un de vos notebooks. 
+Pour créer votre instance de calcul, utilisez votre espace de travail dans Azure Machine Learning Studio, [créez une instance de calcul](how-to-create-attach-compute-studio.md#compute-instance) à partir de la section **Calcul** ou de la section **Notebooks** lorsque vous êtes prêt à exécuter l’un de vos notebooks.
 
 Vous pouvez également créer une instance
 * Directement à partir de l’[expérience de blocs-notes intégrés](tutorial-train-models-with-aml.md#azure)
 * Dans le portail Azure
-* À partir d’un modèle Azure Resource Manager. Pour un exemple de modèle, consultez [Créer un modèle d’instance de calcul Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
+* À partir d’un modèle Azure Resource Manager. Pour un exemple de modèle, consultez [Créer un modèle d’instance de calcul Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 * Avec le [Kit de développement logiciel (SDK) Azure Machine Learning](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md)
 * À partir de l’[extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
-Le quota de cœurs dédiés par région par famille de machine virtuelle et le quota régional total, qui s’appliquent à la création d’une instance de calcul, sont unifiés et partagés avec le quota de clusters de calcul d’entraînement Azure Machine Learning. L’arrêt de l’instance de calcul n’a pas pour effet de libérer le quota pour s’assurer que vous puissiez redémarrer l’instance de calcul.
+Le quota de cœurs dédiés par région par famille de machine virtuelle et le quota régional total, qui s’appliquent à la création d’une instance de calcul, sont unifiés et partagés avec le quota de clusters de calcul d’entraînement Azure Machine Learning. L’arrêt de l’instance de calcul n’a pas pour effet de libérer le quota pour s’assurer que vous puissiez redémarrer l’instance de calcul. N’arrêtez pas l’instance de calcul via le terminal du système d’exploitation en procédant à un arrêt sudo.
 
 L’instance de calcul est fournie avec le disque du système d’exploitation P10. Le type de disque temporaire dépend de la taille de machine virtuelle choisie. Actuellement, il n’est pas possible de modifier le type de disque du système d’exploitation.
 
 
 ## <a name="compute-target"></a>Cible de calcul
 
-Les instances de calcul peuvent être utilisées comme [cible de calcul d’entraînement](concept-compute-target.md#train), comme les clusters d’entraînement pour le calcul Azure Machine Learning. 
+Les instances de calcul peuvent être utilisées comme [cible de calcul d’entraînement](concept-compute-target.md#train), comme les clusters d’entraînement pour le calcul Azure Machine Learning.
 
 Une instance de calcul :
 * a une file d’attente de travaux ;

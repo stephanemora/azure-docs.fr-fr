@@ -1,33 +1,43 @@
 ---
-title: Accéder aux réseaux virtuels Azure
-description: Découvrez la manière dont les environnements de service d’intégration (ISE) aident les applications logiques à accéder aux réseaux virtuels Azure
+title: Vue d’ensemble – Accès à des réseaux virtuels Azure
+description: Découvrez comment accéder à des réseaux virtuels Azure à partir d’Azure Logic Apps en utilisant un environnement de service d’intégration.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 03/24/2021
-ms.openlocfilehash: 3070083040424b877159955dc2138f15319f05c8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/16/2021
+ms.openlocfilehash: ce3526f824d34e69cf33d41ba591a8ae6a634ea5
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766386"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985295"
 ---
-# <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accéder aux ressources Réseau virtuel Microsoft Azure à partir d’Azure Logic Apps à l’aide d’environnements de service d’intégration (ISE)
+# <a name="access-to-azure-virtual-networks-from-azure-logic-apps-using-an-integration-service-environment-ise"></a>Accéder à des réseaux virtuels Azure à partir d’Azure Logic Apps en utilisant un environnement de service d’intégration
 
-Vos applications logiques doivent dans certains cas accéder à des ressources sécurisées, comme des machines virtuelles et d’autres systèmes ou services, qui se trouvent à l’intérieur d’un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) ou y sont connectées. Pour configurer cet accès, vous pouvez [créer un *environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). Un environnement ISE est une instance du service Logic Apps qui utilise des ressources dédiées et s’exécute séparément du service Logic Apps multilocataire « mondial ». Dans un environnement ISE, les données restent dans la [région où vous créez et déployez cet environnement ISE](https://azure.microsoft.com/global-infrastructure/data-residency/).
+Vos flux de travail d’applications logiques doivent parfois accéder à des ressources sécurisées, comme des machines virtuelles et d’autres systèmes ou services, qui se trouvent à l’intérieur d’un réseau virtuel Azure ou y sont connectées. Pour accéder directement à ces ressources à partir de flux de travail qui s’exécutent généralement dans un service Azure Logic Apps mutualisé, vous pouvez créer et exécuter vos applications logiques dans un *environnement de service d’intégration* à la place. Un environnement de service d’intégration est en réalité une instance de service Azure Logic Apps qui s’exécute séparément sur des ressources dédiées, en dehors de l’environnement Azure mutualisé global.
 
-Par exemple, certains réseaux virtuels Azure utilisent des points de terminaison privés (configurables avec [Azure Private Link](../private-link/private-link-overview.md)) pour fournir un accès aux services PaaS Azure, comme le Stockage Azure, Azure Cosmos DB ou Azure SQL Database, aux services partenaires ou aux services clients hébergés sur Azure. Si vos applications logiques ont besoin d’accéder à des réseaux virtuels qui utilisent des points de terminaison privés, vous devez créer, déployer et exécuter ces applications logiques à l’intérieur d’un environnement ISE.
+Par exemple, certains réseaux virtuels Azure utilisent des points de terminaison privés ([Azure Private Link](../private-link/private-link-overview.md)) pour fournir un accès à des services Azure PaaS, tels que Stockage Azure, Azure Cosmos DB ou Azure SQL Database, à des services partenaires ou à des services clients hébergés sur Azure. Si vos flux de travail d’application logique requièrent un accès à des réseaux virtuels qui utilisent des points de terminaison privés, vous disposez des options suivantes :
 
-Quand vous créez un ISE, Azure l’*injecte* ou le déploie sur votre réseau virtuel Azure. Vous pouvez ensuite utiliser cet ISE comme emplacement pour les applications logiques et les comptes d’intégration qui ont besoin d’un accès.
+* Si vous souhaitez développer des flux de travail utilisant le type de ressource **Application logique (consommation)** , et que vos flux de travail doivent utiliser des points de terminaison privés, vous *devez* créer, déployer et exécuter vos applications logiques dans un environnement de service d’intégration. Pour plus d’informations, consultez [Se connecter aux réseaux virtuels Azure à partir d’Azure Logic Apps en utilisant un environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+
+* Si vous souhaitez développer des flux de travail utilisant le type de ressource **Application logique (standard)** , et que vos flux de travail doivent utiliser des points de terminaison privés, vous n’avez pas besoin d’un environnement de service d’intégration. Au lieu de cela, vos workflows peuvent communiquer en privé et en toute sécurité avec des réseaux virtuels à l’aide de points de terminaison privés pour le trafic entrant et l’intégration du réseau virtuel pour le trafic sortant. Pour plus d’informations, consultez [Sécuriser le trafic entre réseaux virtuels et monolocataires dans Azure Logic Apps à l’aide de points de terminaison privés](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+
+Pour plus d’informations, examinez les [différences entre des services Azure Logic Apps mutualisés et des environnements de service d’intégration](logic-apps-overview.md#resource-environment-differences).
+
+## <a name="how-an-ise-works-with-a-virtual-network"></a>Fonctionnement d’un environnement de service d’intégration avec un réseau virtuel
+
+Lorsque vous créez un environnement de service d’intégration, vous sélectionnez le réseau virtuel Azure dans lequel vous souhaitez qu’Azure *injecte* ou déploie votre environnement. Lorsque vous créez des applications logiques et des comptes d’intégration qui doivent accéder à ce réseau virtuel, vous pouvez sélectionner votre environnement de service d’intégration comme emplacement hôte pour ces applications logiques et comptes d’intégration. À l’intérieur de l’environnement de service d’intégration, les applications logiques s’exécutent sur des ressources dédiées séparément des autres dans l’environnement Azure Logic Apps mutualisé. Dans un environnement ISE, les données restent dans la [région où vous créez et déployez cet environnement ISE](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ![Sélection d’un environnement de service d’intégration](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
+
+Pour mieux contrôler les clés de chiffrement utilisées par le Stockage Azure, vous pouvez configurer, utiliser et gérer votre propre clé avec [Azure Key Vault](../key-vault/general/overview.md). Cette fonctionnalité est également appelée « Bring Your Own Key » (BYOK) et votre clé est appelée « clé gérée par le client ». Pour plus d’informations, consultez [Configuration de clés gérées par le client afin de chiffrer les données au repos pour les environnements de service d’intégration (ISE) dans Azure Logic Apps](../logic-apps/customer-managed-keys-integration-service-environment.md).
 
 Cette vue d’ensemble fournit des informations complémentaires sur les [bonnes raisons d’utiliser un environnement ISE](#benefits), les [différences entre le service dédié et le service Logic Apps multilocataire](#difference) et la procédure permettant d’accéder directement aux ressources qui se trouvent dans votre réseau virtuel Azure ou y sont connectées.
 
 <a name="benefits"></a>
 
-## <a name="why-use-an-ise"></a>Pourquoi utiliser un environnement ISE ?
+## <a name="why-use-an-ise"></a>Pourquoi utiliser un environnement de service d’intégration
 
 L’exécution d’applications logiques dans votre propre instance dédiée distincte aide à réduire l’impact que d’autres locataires Azure peuvent avoir sur le niveau de performance de vos applications. Cet impact est également appelé [effet « voisins bruyants »](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Un ISE offre également les avantages suivants :
 
@@ -122,13 +132,13 @@ Lorsque vous créez votre ISE, vous pouvez choisir d’utiliser des points de te
 * **Interne** : Les points de terminaison privés autorisent les appels aux applications logiques dans votre ISE, où vous pouvez voir les entrées et sorties dans l’historique des exécutions des applications logiques *uniquement depuis l’intérieur de votre réseau virtuel*.
 
   > [!IMPORTANT]
-  > Si vous devez utiliser ces déclencheurs basés sur un webhook, utilisez des points de terminaison externes, et *non* des points de terminaison internes, lorsque vous créez votre ISE :
+  > Si vous devez utiliser ces déclencheurs basés sur webhook et que le service se trouve en dehors de votre réseau virtuel et des réseaux virtuels appairés, utilisez des points de terminaison externes, *non* des points de terminaison internes, lorsque vous créez votre environnement de service d’intégration :
   > 
   > * Azure DevOps
   > * Azure Event Grid
   > * Common Data Service
   > * Office 365
-  > * SAP (version ISE)
+  > * SAP (version mutualisée)
   > 
   > Vérifiez également que vous disposez d’une connectivité réseau entre les points de terminaison privés et l’ordinateur à partir duquel vous souhaitez accéder à l’historique des exécutions. Dans le cas contraire, lorsque vous essayez d’afficher l’historique des exécutions de votre application logique, un message d’erreur indiquant « Erreur inattendue. Échec de récupération » s’affiche.
   >

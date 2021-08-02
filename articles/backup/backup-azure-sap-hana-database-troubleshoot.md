@@ -2,13 +2,13 @@
 title: Résoudre les erreurs de sauvegarde de bases de données SAP HANA
 description: Décrit comment résoudre les erreurs courantes qui peuvent survenir lorsque vous utilisez le service Sauvegarde Azure pour sauvegarder des bases de données SAP HANA.
 ms.topic: troubleshooting
-ms.date: 11/7/2019
-ms.openlocfilehash: cdf4c26aa32d65ec63ec84d85e454adaaf2ece8d
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 05/31/2021
+ms.openlocfilehash: d3dce152b428fc29c203236d8d61a88c96d5134d
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517230"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796686"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Résoudre les problèmes de sauvegarde des bases de données SAP HANA sur Azure
 
@@ -20,61 +20,160 @@ Reportez-vous aux sections [Conditions préalables](tutorial-backup-sap-hana-db.
 
 ## <a name="common-user-errors"></a>Erreurs utilisateur courantes
 
-### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
+###### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
 
-| **Message d’erreur**      | <span style="font-weight:normal">Sauvegarde Azure ne dispose pas des privilèges de rôle nécessaires pour effectuer la sauvegarde</span>    |
+| **Message d’erreur**      | <span style="font-weight:normal">Sauvegarde Azure ne dispose pas des privilèges de rôle nécessaires pour effectuer des opérations de sauvegarde et de restauration</span>    |
 | ---------------------- | ------------------------------------------------------------ |
-| **Causes possibles**    | Le rôle a peut-être été modifié.                          |
-| **Action recommandée** | Pour résoudre le problème, exécutez le script à partir du volet **Discover DB** ou téléchargez-le [ici](https://aka.ms/scriptforpermsonhana). Vous pouvez également ajouter le rôle « SAP_INTERNAL_HANA_SUPPORT » à l’utilisateur de sauvegarde de charge de travail (AZUREWLBACKUPHANAUSER). |
+| **Causes possibles**    | Toutes les opérations échouent avec cette erreur quand l’utilisateur de sauvegarde (AZUREWLBACKUPHANAUSER) n’a pas le rôle **SAP_INTERNAL_HANA_SUPPORT** affecté ou si le rôle a peut-être été remplacé.                          |
+| **Action recommandée** | Téléchargez et exécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana) sur l’instance SAP HANA, ou affectez manuellement le rôle **SAP_INTERNAL_HANA_SUPPORT** à l’utilisateur de sauvegarde (AZUREWLBACKUPHANAUSER).<br><br>**Remarque**<br><br>Si vous utilisez HANA 2.0 SPS04 Rev 46 et versions ultérieures, cette erreur ne se produit pas, car l’utilisation du rôle **SAP_INTERNAL_HANA_SUPPORT** est déconseillée dans ces versions de HANA. |
 
-### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
+###### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
 
-| Message d’erreur      | <span style="font-weight:normal">Échec de la connexion au système HANA</span>                        |
+| **Message d’erreur**      | <span style="font-weight:normal">Échec de la connexion au système HANA</span>                        |
 | ------------------ | ------------------------------------------------------------ |
-| **Causes possibles**    | L’instance SAP HANA est peut-être inactive.<br/>Les autorisations permettant à Sauvegarde Azure d’interagir avec la base de données HANA ne sont pas définies. |
-| **Action recommandée** | Vérifiez que la base de données SAP HANA est active. Si la base de données est opérationnelle, vérifiez que toutes les autorisations requises sont définies. Si une autorisation est absente, exécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana) pour l’ajouter. |
+| **Causes possibles**    | <ul><li>Échec de la connexion à l’instance HANA</li><li>La base de données système est hors connexion</li><li>La base de données du locataire est hors connexion</li><li>L’utilisateur de sauvegarde (AZUREWLBACKUPHANAUSER) n’a pas d’autorisations ou de privilèges suffisants.</li></ul> |
+| **Action recommandée** | Vérifiez que le système est opérationnel. Si la ou les bases de données sont opérationnelles, vérifiez que les autorisations nécessaires sont définies en téléchargeant et en exécutant le [script de préinscription](https://aka.ms/scriptforpermsonhana) sur l’instance SAP HANA. |
 
-### <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid
+###### <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid
 
-| Message d’erreur      | <span style="font-weight:normal">L’instance SAP HANA spécifiée n’est pas valide ou est introuvable</span>  |
+| **Message d’erreur**      | <span style="font-weight:normal">L’instance SAP HANA spécifiée n’est pas valide ou est introuvable</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| **Causes possibles**    | Il est impossible de sauvegarder plusieurs instances SAP HANA sur une seule machine virtuelle Azure. |
-| **Action recommandée** | Exécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana) sur l’instance SAP HANA que vous voulez sauvegarder. Si le problème persiste, contactez le support technique Microsoft. |
+| **Causes possibles**    | <ul><li>L’instance SAP HANA spécifiée n’est pas valide ou est introuvable.</li><li>Il est impossible de sauvegarder plusieurs instances SAP HANA sur une seule machine virtuelle Azure.</li></ul> |
+| **Action recommandée** | <ul><li>Assurez-vous qu’une seule instance HANA est en cours d’exécution sur la machine virtuelle Azure.</li><li>Exécutez le script à partir du volet Discover DB (que vous pouvez également trouver [ici](https://aka.ms/scriptforpermsonhana)) avec l’instance SAP HANA correcte pour résoudre le problème.</li></ul> |
 
-### <a name="usererrorhanaunsupportedoperation"></a>UserErrorHanaUnsupportedOperation
+###### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
 
-| Message d’erreur      | <span style="font-weight:normal">L’opération SAP HANA spécifiée n’est pas prise en charge</span>              |
+| **Message d’erreur**      | <span style="font-weight:normal">La séquence de journaux de transactions consécutifs de sauvegarde est rompue</span>                                    |
 | ------------------ | ------------------------------------------------------------ |
-| **Causes possibles**    | Sauvegarde Azure pour SAP HANA ne prend pas en charge la sauvegarde incrémentielle et les actions effectuées sur des clients natifs SAP HANA (Studio/ Cockpit/ DBA Cockpit) |
-| **Action recommandée** | Pour plus d’informations, consultez [cette page](./sap-hana-backup-support-matrix.md#scenario-support). |
+| **Causes possibles**    | Une interruption de la séquence de journaux de transactions consécutifs LSN HANA peut être déclenchée pour différentes raisons, notamment :<ul><li>Échec de l’appel à Stockage Azure pour valider la sauvegarde.</li><li>La base de données du locataire est hors connexion.</li><li>La mise à niveau de l’extension a mis fin à un travail de sauvegarde en cours.</li><li>Impossible de se connecter au Stockage Azure lors de la sauvegarde.</li><li>SAP HANA a annulé une transaction dans le processus de sauvegarde.</li><li>Une sauvegarde est terminée, mais le catalogue n’a pas encore été mis à jour avec succès dans le système HANA.</li><li>Échec de la sauvegarde du point de vue du service Sauvegarde Azure, mais réussite du point de vue de HANA : la sauvegarde de fichier journal/destination du catalogue a peut-être été mise à jour de backint vers le système de fichiers, ou l’exécutable backint a peut-être été modifié.</li></ul> |
+| **Action recommandée** | Pour résoudre ce problème, le service Sauvegarde Azure déclenche une sauvegarde complète de réparation automatique. Pendant que cette sauvegarde de réparation automatique est en cours, toutes les sauvegardes de journaux déclenchées par HANA échouent avec l’erreur **OperationCancelledBecauseConflictingAutohealOperationRunningUserError**. Une fois la sauvegarde complète de réparation automatique terminée, les journaux et toutes les autres sauvegardes commencent à fonctionner comme prévu.<br>Si vous ne voyez pas de sauvegarde complète de réparation automatique déclenchée ni aucune sauvegarde (complète/différentielle/incrémentielle) réussie dans les 24 heures, contactez le support technique Microsoft.</br> |
 
-### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
+###### <a name="usererrorsdctomdcupgradedetected"></a>UserErrorSDCtoMDCUpgradeDetected
 
-| Message d’erreur      | <span style="font-weight:normal">La séquence de journaux de transactions consécutifs de sauvegarde est rompue</span>                                    |
+| **Message d’erreur**      | <span style="font-weight:normal">Mise à niveau de SDC vers MDC détectée.</span>                                   |
 | ------------------ | ------------------------------------------------------------ |
-| **Causes possibles**    | La destination de sauvegarde des journaux a peut-être été modifiée depuis l’opération backint sur le système de fichiers ou le fichier exécutable backint a été modifié |
-| **Action recommandée** | Déclenchez une sauvegarde complète pour résoudre le problème                   |
+| **Causes possibles**    | Lorsqu’un système SDC est mis à niveau vers MDC, les sauvegardes échouent avec cette erreur. |
+| **Action recommandée** | Pour résoudre le problème, consultez [Mise à niveau de SDC vers MDC](#sdc-to-mdc-upgrade-with-a-change-in-sid). |
 
-### <a name="usererrorsdctomdcupgradedetected"></a>UserErrorSDCtoMDCUpgradeDetected
+###### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
 
-| Message d’erreur      | <span style="font-weight:normal">Mise à niveau de SDC vers MDC détectée</span>                                   |
+| **Message d’erreur**      | <span style="font-weight:normal">Les sauvegardes échouent avec cette erreur lorsque la configuration backint n’est pas correctement mise à jour.</span>                       |
 | ------------------ | ------------------------------------------------------------ |
-| **Causes possibles**    | L’instance SAP HANA a été mise à niveau de SDC vers MDC. Les sauvegardes échoueront après la mise à jour. |
-| **Action recommandée** | Pour résoudre le problème, procédez de la manière décrite dans [Mise à niveau de SDC vers MDC détectée](#sdc-to-mdc-upgrade-with-a-change-in-sid) |
+| **Causes possibles**    | La configuration backint mise à jour pendant le flux de configuration de la protection par Sauvegarde Azure est modifiée/mise à jour par le client. |
+| **Action recommandée** | Vérifiez que les paramètres suivants (backint) sont définis :<br><ul><li>[catalog_backup_using_backint:true]</li><li>[enable_accumulated_catalog_backup:false]</li><li>[parallel_data_backup_backint_channels:1]</li><li>[log_backup_timeout_s:900)]</li><li>[backint_response_timeout:7200]</li></ul>Si les paramètres backint sont présents au niveau HOST, supprimez-les. Toutefois, si les paramètres ne sont pas présents au niveau de l’hôte mais ont été modifiés manuellement au niveau de la base de données, assurez-vous que les valeurs de niveau base de données sont définies ci-dessus. Sinon, sur le portail Microsoft Azure, exécutez [Arrêter la protection et conserver les données de sauvegarde](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database), puis sélectionnez Reprendre la sauvegarde. |
 
-### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
+###### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatibleSrcTargetSystemsForRestore
 
-| Message d’erreur      | <span style="font-weight:normal">Configuration backint non valide détectée</span>                       |
-| ------------------ | ------------------------------------------------------------ |
-| **Causes possibles**    | Les paramètres de sauvegarde ne sont pas spécifiés correctement pour Sauvegarde Azure |
-| **Action recommandée** | Vérifiez que les paramètres suivants (backint) sont définis :<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>Si les paramètres basés sur backint sont présents au niveau de l’HÔTE, supprimez-les. Si les paramètres ne sont pas présents au niveau de l’HÔTE, mais ont été modifiés manuellement au niveau de la base de données, rétablissez les valeurs appropriées comme décrit précédemment. Sinon, sur le Portail Microsoft Azure, exécutez [Arrêter la protection et conserver les données de sauvegarde](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database), puis sélectionnez **Reprendre la sauvegarde**. |
-
-### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatibleSrcTargetSystemsForRestore
-
-|Message d’erreur  |Les systèmes source et cible pour la restauration ne sont pas compatibles  |
+|**Message d’erreur**  | <span style="font-weight:normal">Les systèmes source et cible pour la restauration ne sont pas compatibles</span>  |
 |---------|---------|
-|Causes possibles   | Les systèmes source et cible pour la restauration ne sont pas compatibles        |
-|Action recommandée   |   Assurez-vous que votre scénario de restauration ne figure pas dans la liste suivante des restaurations potentiellement incompatibles : <br><br>   **Cas 1 :** SYSTEMDB ne peut pas être renommé lors de la restauration.  <br><br> **Cas 2 :** Source – SDC et Cible – MDC : La base de données source ne peut pas être restaurée en tant que SYSTEMDB ou base de données de locataire sur la cible. <br><br> **Cas 3 :** Source – MDC et Cible – SDC : Impossible de restaurer la base de données source (SYSTEMDB ou base de données de locataire) sur la cible. <br><br>  Pour plus d’informations, consultez la note **1642148** dans [SAP ONE Support Launchpad](https://launchpad.support.sap.com). |
+|**Causes possibles**   | Le flux de restauration échoue avec cette erreur lorsque les bases de données HANA source et cible et les systèmes ne sont pas compatibles. |
+|Action recommandée   |   Assurez-vous que votre scénario de restauration ne figure pas dans la liste suivante des restaurations potentiellement incompatibles :<br> **Cas 1 :** SYSTEMDB ne peut pas être renommé lors de la restauration.<br>**Cas 2 :** Source – SDC et Cible – MDC : La base de données source ne peut pas être restaurée en tant que SYSTEMDB ou base de données de locataire sur la cible. <br> **Cas 3 :** Source – MDC et Cible – SDC : Impossible de restaurer la base de données source (SYSTEMDB ou base de données de locataire) sur la cible.<br>Pour plus d’informations, consultez la note **1642148** dans [SAP Support Launchpad](https://launchpad.support.sap.com). |
+
+###### <a name="usererrorhanapodoesnotexist"></a>UserErrorHANAPODoesNotExist
+
+**Message d’erreur** | <span style="font-weight:normal">La base de données configurée pour la sauvegarde n’existe pas.</span>
+--------- | --------------------------------
+**Causes possibles** | Si une base de données qui a été configurée pour la sauvegarde est supprimée, toutes les sauvegardes planifiées et ad hoc sur cette base de données échoueront.
+**Action recommandée** | Vérifiez si la base de données est supprimée. Recréez la base de données ou [arrêtez la protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) (avec ou sans conservation des données) pour la base de données.
+
+###### <a name="usererrorinsufficientprivilegeofdatabaseuser"></a>UserErrorInsufficientPrivilegeOfDatabaseUser
+
+**Message d’erreur** | <span style="font-weight:normal">Sauvegarde Azure ne dispose pas de privilèges suffisants pour effectuer des opérations de sauvegarde et de restauration.</span>
+---------- | ---------
+**Causes possibles** | L’utilisateur de sauvegarde (AZUREWLBACKUPHANAUSER) créé par le script de préinscription n’a pas un ou plusieurs des rôles suivants :<ul><li>Pour MDC, DATABASE ADMIN et BACKUP ADMIN (pour HANA 2.0 SPS05 et versions ultérieures) pour créer des bases de données lors de la restauration.</li><li>Pour SDC, BACKUP ADMIN pour créer des bases de données lors de la restauration.</li><li>CATALOG READ pour lire le catalogue de sauvegarde.</li><li>SAP_INTERNAL_HANA_SUPPORT pour accéder à certaines tables privées. Obligatoire uniquement pour les versions SDC et MDC antérieures à HANA 2.0 SPS04 rév. 46. Cela n’est pas obligatoire pour HANA 2.0 SPS04 rév. 46 et versions ultérieures, car nous obtenons maintenant les informations requises des tables publiques avec le correctif de l’équipe HANA.</li></ul>
+**Action recommandée** | Pour résoudre ce problème, ajoutez manuellement les rôles et les autorisations nécessaires pour l’utilisateur de sauvegarde (AZUREWLBACKUPHANAUSER), ou téléchargez et réexécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana) sur l’instance SAP HANA.
+
+###### <a name="usererrordatabaseuserpasswordexpired"></a>UserErrorDatabaseUserPasswordExpired
+
+**Message d’erreur** | <span style="font-weight:normal">La base de données/le mot de passe de l’utilisateur de sauvegarde a expiré.</span>
+----------- | -----------
+**Causes possibles** | La base de données/l’utilisateur de sauvegarde créé par le script de préinscription ne définit pas l’expiration du mot de passe. Toutefois, en cas de modification, vous pouvez voir cette erreur.
+**Action recommandée** | Téléchargez et exécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana) sur l’instance SAP HANA pour résoudre le problème.
+
+###### <a name="usererrorinconsistentssfs"></a>UserErrorInconsistentSSFS
+
+**Message d’erreur** | <span style="font-weight:normal">Erreur SAP HANA</span>
+------------ | ----------
+**Causes possibles** | Stockage sécurisé dans le système de fichiers (SSFS) incohérent reçu du moteur SAP HANA.
+**Action recommandée** | Collaborez avec l'équipe SAP HANA pour résoudre ce problème. Pour plus d’informations, consultez la note SAP **0002097613**.
+
+###### <a name="usererrorcannotconnecttoazureactivedirectoryservice"></a>UserErrorCannotConnectToAzureActiveDirectoryService
+
+**Message d’erreur** | <span style="font-weight:normal">Impossible de se connecter au service AAD à partir du système HANA.</span>
+--------- | --------
+**Causes possibles** | Les paramètres de pare-feu ou de proxy en tant que compte de service de plug-in d’extension de sauvegarde n’autorisent pas la connexion sortante vers AAD.
+**Action recommandée** | Corrigez les paramètres de pare-feu ou de proxy de la connexion sortante vers AAD, puis réessayez l’opération.
+
+###### <a name="usererrormisconfiguredsslcastore"></a>UserErrorMisConfiguredSslCaStore
+
+**Message d’erreur** | <span style="font-weight:normal">Magasin d’autorités de certification mal configuré</span>
+-------- | -------
+**Causes possibles** | Le processus hôte du plug-in de l’extension de sauvegarde ne peut pas accéder au magasin d’autorité de certification racine (sous _/var/lib/ca-certificates/ca-bundle.pem_ dans le cas de SLES).
+**Action recommandée** | Corrigez le problème du magasin de l’autorité de certification en utilisant `chmod o+r` pour restaurer l’autorisation d’origine.  Ensuite, redémarrez le service d’hôte de plug-in pour que les sauvegardes et les restaurations s’effectuent correctement.
+
+###### <a name="usererrorbackupfailedasremedialbackupinprogress"></a>UserErrorBackupFailedAsRemedialBackupInProgress
+
+**Message d’erreur** | <span style="font-weight:normal">Sauvegarde de réparation en cours.</span>
+---------- | -------
+**Causes possibles** | La Sauvegarde Azure déclenche une sauvegarde complète de réparation pour gérer l’interruption de la séquence de journaux de transactions consécutifs LSN. Bien que cette opération de réparation complète soit en cours, les sauvegardes (complètes/différentielles/incrémentielles) déclenchées via le portail/l’interface CLI échouent avec cette erreur.
+**Action recommandée** | Attendez la fin de la sauvegarde complète corrective avant de déclencher une autre sauvegarde.
+
+###### <a name="operationcancelledbecauseconflictingoperationrunningusererror"></a>OperationCancelledBecauseConflictingOperationRunningUserError
+
+**Message d’erreur** | <span style="font-weight:normal">Une opération en conflit est en cours</span>.
+----------- | -------------
+**Causes possibles** | Une sauvegarde complète/différentielle/incrémentielle est déclenchée avec le portail/l’interface CLI/des clients natifs HANA alors qu’une autre sauvegarde complète/différentielle/incrémentielle est déjà en cours.
+**Action recommandée** | Attendez la fin du travail de sauvegarde actif avant de déclencher une nouvelle sauvegarde complète ou différentielle.
+
+###### <a name="operationcancelledbecauseconflictingautohealoperationrunning-usererror"></a>OperationCancelledBecauseConflictingAutohealOperationRunning UserError
+
+**Message d’erreur** | <span style="font-weight:normal">Sauvegarde complète de réparation automatique en cours.</span>
+------- | -------
+**Causes possibles** | Sauvegarde Azure déclenche une sauvegarde complète de réparation automatique pour résoudre **UserErrorHANALSNValidationFailure**. Pendant que cette sauvegarde de réparation automatique est en cours, toutes les sauvegardes de journaux déclenchées par HANA échouent avec l’erreur **OperationCancelledBecauseConflictingAutohealOperationRunningUserError**.<br>Une fois la sauvegarde complète de réparation automatique terminée, les journaux et toutes les autres sauvegardes commencent à fonctionner comme prévu.</br>
+**Action recommandée** | Attendez la fin de la sauvegarde complète de réparation automatique avant de déclencher une nouvelle sauvegarde complète ou différentielle.
+
+###### <a name="usererrorhanaprescriptnotrun"></a>UserErrorHanaPreScriptNotRun
+
+**Message d’erreur** | <span style="font-weight:normal">Script de préinscription non exécuté.</span>
+--------- | --------
+**Causes possibles** | Le script de préinscription SAP HANA pour configurer l’environnement n’a pas été exécuté.
+**Action recommandée** | Téléchargez et réexécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana) sur l’instance SAP HANA.
+
+
+###### <a name="usererrortargetpoexistsoverwritenotspecified"></a>UserErrorTargetPOExistsOverwriteNotSpecified
+
+**Message d’erreur** | <span style="font-weight:normal">La base de données cible ne peut pas être remplacée pour la restauration.</span>
+------- | -------
+**Causes possibles** | La base de données cible existe, mais elle ne peut pas être remplacée. Le remplacement forcé n’est pas défini dans le flux de restauration sur le portail/l’interface CLI.
+**Action recommandée** | Restaurez la base de données en sélectionnant l'option Forcer le remplacement ou restaurez vers une autre base de données cible.
+
+###### <a name="usererrorrecoverysysscriptfailedtotriggerrestore"></a>UserErrorRecoverySysScriptFailedToTriggerRestore
+
+**Message d’erreur** | <span style="font-weight:normal">RecoverySys.py n’a pas pu être exécuté correctement pour restaurer la base de système.</span>
+-------- | ---------
+**Causes possibles** | Les causes possibles de l’échec de la restauration de la base de système sont les suivantes :<ul><li>Sauvegarde Azure ne peut pas trouver **Recoverysys.py** sur l’ordinateur HANA. Cela se produit lorsque l’environnement HANA n’est pas configuré correctement.</li><li>**Recoverysys.py** est présent, mais le déclenchement de ce script n’a pas réussi à appeler HANA pour effectuer la restauration.</li><li>Recoverysys.py a pu appeler HANA pour effectuer la restauration, mais HANA n’a pas pu la faire.</li></ul>
+**Action recommandée** | <ul><li>Pour le problème 1, collaborez avec l’équipe SAP HANA pour le résoudre.</li><li>Pour les problèmes 2 et 3, consultez le suivi des journaux en exécutant la commande HDSetting.sh dans l’invite sid-adm. Par exemple, _/usr/sap/SID/HDB00/HDBSetting.sh_.</li></ul>Partagez ces résultats avec l’équipe SAP HANA pour résoudre le problème.
+
+###### <a name="usererrordbnamenotincorrectformat"></a>UserErrorDBNameNotInCorrectFormat
+
+**Message d’erreur** | <span style="font-weight:normal">Le format du nom de la base de données restauré est incorrect.</span>
+--------- | --------
+**Causes possibles** | Le nom de base de données restaurée que vous avez fourni n’est pas au format acceptable/attendu.
+**Action recommandée** | Vérifiez que le nom de la base de données restaurée commence par une lettre et ne contient aucun symbole autre que des chiffres ou un trait de soulignement.<br>Il peut contenir jusqu’à 127 caractères uniquement et ne doit pas commencer par « \_SYS_\".
+
+###### <a name="usererrordefaultsidadmdirectorychanged"></a>UserErrorDefaultSidAdmDirectoryChanged
+
+**Message d’erreur** | <span style="font-weight:normal">Le répertoire sid-adm par défaut a changé.</span>
+------- | -------
+**Causes possibles** | Le répertoire **sid-adm** par défaut a été modifié et **HDBSetting.sh** n’est pas disponible dans ce répertoire par défaut.
+**Action recommandée** | Si HXE est le SID, vérifiez que la variable d’environnement HOME est définie sur _/usr/sap/HXE/home_ sous l’utilisateur **sid-adm**.
+
+###### <a name="usererrorhdbsettingsscriptnotfound"></a>UserErrorHDBsettingsScriptNotFound
+
+**Message d’erreur** | <span style="font-weight:normal">Fichier HDBSetting.sh introuvable.</span>
+--------- | -------
+**Causes possibles** | La restauration de la base de données système a échoué parce que l’environnement utilisateur **&lt;sid&gt;adm** n’a pas trouvé le fichier **HDBsettings.sh** pour déclencher la restauration.
+**Action recommandée** | Collaborez avec l'équipe SAP HANA pour résoudre ce problème.<br><br>Si HXE est le SID, vérifiez que la variable d’environnement HOME est définie sur _/usr/sap/HXE/home_ sous l’utilisateur **sid-adm**.
 
 ## <a name="restore-checks"></a>Restaurer les vérifications
 

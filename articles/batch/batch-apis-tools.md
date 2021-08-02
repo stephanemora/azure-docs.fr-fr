@@ -2,20 +2,20 @@
 title: API et outils pour développeurs
 description: Découvrez les API et les outils disponibles pour développer des solutions avec le service Azure Batch.
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 06/11/2021
 ms.custom: seodec18
-ms.openlocfilehash: b7c68ab16834bbd746cf52708db0cdb3f31c8d4d
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 0c378ae34ca74df7bb639464818f13f86a8f5ec2
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219924"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006632"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Vue d’ensemble des outils et API Batch
 
 Le traitement des charges de travail parallèles avec Azure Batch est généralement effectué par programmation avec l’une des API Batch. Votre application cliente ou le service peut utiliser les API Batch pour communiquer avec le service Batch. Avec les API Batch, vous pouvez créer et gérer les pools de nœuds de calcul, des machines virtuelles ou services de cloud. Vous pouvez ensuite planifier des tâches à exécuter sur ces nœuds.
 
-Vous pouvez efficacement traiter des charges de travail à grande échelle pour votre organisation, ou fournir un service frontal à vos clients afin qu’ils puissent exécuter des travaux et des tâches, à la demande ou selon un calendrier, sur un nœud, des centaines de nœuds, voire des milliers. Vous pouvez également utiliser Azure Batch dans le cadre d’un plus grand workflow géré par des outils comme [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json).
+Vous pouvez traiter efficacement des charges de travail à grande échelle pour votre organisation. Il vous est également possible de fournir à vos clients un service frontal leur permettant d’exécuter des travaux et des tâches (à la demande ou selon une planification) sur un seul ou des centaines de nœuds, voire des milliers. Vous pouvez également utiliser Azure Batch dans le cadre d’un plus grand workflow géré par des outils comme [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json).
 
 > [!TIP]
 > Pour en savoir plus sur les fonctionnalités et le workflow utilisés dans Azure Batch, consultez [Flux de travail et ressources du service Batch](batch-service-workflow-features.md).
@@ -24,8 +24,8 @@ Vous pouvez efficacement traiter des charges de travail à grande échelle pour 
 
 Lorsque vous développez des solutions Batch, vous devez utiliser les comptes suivants de votre abonnement Azure :
 
-- **Compte Batch** : les ressources Azure Batch, notamment les pools, les nœuds de calcul, les travaux et les tâches, sont associées à un [compte Batch](accounts.md) Azure. Lorsque votre application effectue une requête auprès du service Batch, il authentifie la requête en utilisant le nom du compte Azure Batch, l’URL du compte et une clé d’accès ou bien un jeton de Azure Active Directory. Vous pouvez [créer un compte Batch](batch-account-create-portal.md) dans le Portail Azure ou par programme.
-- **Compte de stockage** : Batch inclut la prise en charge intégrée de l’utilisation des fichiers dans [Stockage Azure](../storage/index.yml). Presque tous les scénarios du service Batch font appel au stockage Blob Azure pour la préparation des programmes exécutés par vos tâches et les données qu’ils traitent ainsi que pour le stockage des données de sortie qu’elles génèrent. Chaque compte Batch est généralement associé à un compte de stockage correspondant.
+- **Compte Batch** : les ressources Azure Batch, notamment les pools, les nœuds de calcul, les travaux et les tâches, sont associées à un [compte Azure Batch](accounts.md). Lorsque votre application effectue une requête auprès du service Batch, il authentifie la requête en utilisant le nom du compte Azure Batch, l’URL du compte et une clé d’accès ou bien un jeton de Azure Active Directory. Vous pouvez [créer un compte Batch](batch-account-create-portal.md) dans le Portail Azure ou par programme.
+- **Compte de stockage** : Batch inclut une prise en charge intégrée de l’utilisation de fichiers dans le [Stockage Azure](../storage/index.yml). Presque tous les scénarios du service Batch font appel au stockage Blob Azure pour la préparation des programmes exécutés par vos tâches et les données qu’ils traitent ainsi que pour le stockage des données de sortie qu’elles génèrent. Chaque compte Batch est généralement associé à un compte de stockage correspondant.
 
 ## <a name="service-level-and-management-level-apis"></a>API au niveau de service et au niveau de gestion
 
@@ -66,16 +66,16 @@ Les API Azure Resource Manager pour le service Batch fournissent un accès par p
 Ces outils en ligne de commande fournissent les mêmes fonctionnalités que les API des services Batch et Batch Management : 
 
 - [Applets de commande PowerShell pour Batch](/powershell/module/az.batch/) : les applets de commande Azure Batch contenues dans le module [Azure PowerShell](/powershell/azure/) vous permettent de gérer les ressources du service Batch avec PowerShell.
-- [Azure CLI](/cli/azure) : Azure CLI est un ensemble d’outils multiplateforme qui fournit des commandes shell permettant d’interagir avec de nombreux services Azure, notamment les services Batch et Batch Management. Consultez la page [Gérer les ressources Batch avec Azure CLI](batch-cli-get-started.md) pour plus d’informations sur l’utilisation d’Azure CLI avec Batch.
+- [Azure CLI](/cli/azure) : Azure CLI est un ensemble d’outils multiplateforme qui fournit des commandes shell permettant d’interagir avec de nombreux services Azure, notamment les services Batch et Batch Management. Pour plus d’informations, consultez [Gestion des ressources Batch avec Azure CLI](batch-cli-get-started.md).
 
 ## <a name="other-tools-for-application-development"></a>Autres outils pour le développement d’applications
 
 Ces outils supplémentaires peuvent être utiles pour générer et déboguer vos applications et services Batch.
 
 - [Portail Azure](https://portal.azure.com/): vous pouvez créer, superviser et supprimer des pools, des travaux et des tâches Batch dans le portail Azure. Vous pouvez consulter les informations d’état de ces éléments et d’autres ressources pendant que vous exécutez vos travaux, et même télécharger des fichiers depuis les nœuds de calcul de vos pools. Par exemple, vous pouvez télécharger une tâche ayant échoué `stderr.txt` lors de la résolution des problèmes. Vous pouvez également télécharger des fichiers du Bureau à distance (RDP), à utiliser pour vous connecter aux nœuds de calcul.
-- [Azure Batch Explorer](https://azure.github.io/BatchExplorer/) : Batch Explorer (anciennement BatchLabs) est un outil client autonome, gratuit et doté de nombreuses fonctionnalités, qui vous aide à créer, déboguer et analyser des applications Azure Batch. Téléchargez un [package d’installation](https://azure.github.io/BatchExplorer/) pour Mac, Linux ou Windows.
+- [Azure Batch Explorer](https://azure.github.io/BatchExplorer/) : Batch Explorer est un outil de client autonome gratuit et doté de nombreuses fonctionnalités qui permet de créer, de déboguer et de surveiller les applications Azure Batch. Téléchargez un [package d’installation](https://azure.github.io/BatchExplorer/) pour Mac, Linux ou Windows.
 - [Azure Batch Shipyard](https://github.com/Azure/batch-shipyard) : Batch Shipyard est un outil qui permet de provisionner, exécuter et superviser le traitement par lots basé sur des conteneurs et les charges de travail HPC sur Azure Batch.
-- [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) : bien qu’il ne s’agisse pas à proprement parler d’un outil Azure Batch, l’Explorateur Stockage est l’un de vos meilleurs alliés pendant le développement et le débogage de vos solutions Batch.
+- [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) : bien qu’il ne s’agisse pas à proprement parler d’un outil Azure Batch, l’Explorateur Stockage peut se révéler utile pour développer et déboguer des solutions Batch.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

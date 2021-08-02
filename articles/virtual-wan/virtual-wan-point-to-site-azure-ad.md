@@ -7,12 +7,13 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: alzam
-ms.openlocfilehash: f16a7675805fa2665c25b5d4a9c3847b710ec71b
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 59b93327aae8a400b4d1ab6c9ea3f67e5bd9dd03
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164198"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110703368"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configurer l’authentification Azure Active Directory pour une connexion VPN utilisateur
 
@@ -92,27 +93,28 @@ Une configuration VPN d’utilisateur définit les paramètres permettant de con
 
    ![Capture d’écran représentant le lient de configuration Create user VPN (Créer le VPN utilisateur).](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
 
-3. Entrez les informations et cliquez sur **Créer**.
-
+3. Sous **Informations de base**, spécifiez les paramètres suivants
    * **Nom de la configuration** : entrez le nom que vous souhaitez utiliser pour votre configuration VPN d’utilisateur.
-   * **Type de tunnel** : sélectionnez OpenVPN.
+    * **Type de tunnel** : sélectionnez OpenVPN dans le menu déroulant.
+4. Accédez à **Azure Active Directory**. Basculez **Azure Active Directory** sur « Oui » et fournissez les valeurs suivantes en fonction des détails de votre locataire. 
    * **Méthode d’authentification** : sélectionnez Azure Active Directory.
    * **Public ciblé** : saisissez l’ID de l’application d’entreprise [Azure VPN](openvpn-azure-ad-tenant.md) inscrite dans votre locataire Azure AD. 
    * **Émetteur** - `https://sts.windows.net/<your Directory ID>/`
    * **Locataire AAD** - `https://login.microsoftonline.com/<your Directory ID>`
   
-   ![Capture d’écran montrant le volet de configuration Create new User VPN (Créer un VPN d’utilisateur) dans lequel vous pouvez entrer les valeurs.](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
+   ![Capture d’écran montrant le volet de configuration Create new User VPN (Créer un VPN d’utilisateur) dans lequel vous pouvez entrer les valeurs.](media/virtual-wan-point-to-site-azure-ad/configure-aad-profile.png)
 
 ## <a name="edit-hub-assignment"></a><a name="hub"></a>Modifier l’affectation du hub
 
 1. Accédez au panneau **Hubs** situé sous le WAN virtuel.
 2. Sélectionnez le hub à associer à la configuration du serveur VPN, puis cliquez sur le bouton de sélection (...).
 
-   ![Capture d’écran montrant l’option Modifier le hub virtuel sélectionnée dans le menu.](media/virtual-wan-point-to-site-azure-ad/p2s4.jpg)
+   ![Capture d’écran montrant l’option Modifier le hub virtuel sélectionnée dans le menu.](media/virtual-wan-point-to-site-azure-ad/select-hub.png)
 3. Cliquez sur **Modifier le hub virtuel**.
 4. Cochez la case **Inclure la passerelle point à site** et sélectionnez l’**unité d’échelle de passerelle** souhaitée.
 
-   ![Capture d’écran montrant la boîte de dialogue Modifier le hub virtuel dans laquelle vous pouvez sélectionner l’unité d’échelle de la passerelle.](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
+   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/edit-virtual-hub.png" alt-text="Capture d’écran montrant la boîte de dialogue Modifier le hub virtuel dans laquelle vous pouvez sélectionner l’unité d’échelle de la passerelle."lightbox="./media/virtual-wan-point-to-site-azure-ad/edit-virtual-hub.png":::
+
 5. Entrez le **Pool d’adresses** à partir duquel les clients VPN se verront attribuer des adresses IP.
 6. Cliquez sur **Confirmer**.
 7. L’opération peut prendre jusqu’à 30 minutes.

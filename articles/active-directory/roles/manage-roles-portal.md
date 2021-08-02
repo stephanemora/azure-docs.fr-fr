@@ -8,25 +8,30 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ced586db1b4e417e623431c137c43dac8ba56f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1d62e723f42838343798603517ca430d727ff517
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466642"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787832"
 ---
 # <a name="assign-azure-ad-roles-to-users"></a>Attribuer des rôles Azure AD aux utilisateurs
 
 Vous pouvez maintenant consulter et gérer tous les membres des rôles Administrateur dans le centre d’administration Azure AD. Si vous gérez fréquemment des attributions de rôles, vous préférerez probablement cette expérience. Cet article explique comment attribuer des rôles Azure AD à l’aide du centre d’administration Azure AD.
 
+## <a name="prerequisites"></a>Prérequis
+
+- Administrateur de rôle privilégié ou Administrateur général
+- Licence Azure AD Premium P2 avec Privileged Identity Management (PIM)
+
 ## <a name="assign-a-role"></a>Attribuer un rôle
 
-1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) avec des autorisations Administrateur de rôle privilégié ou Administrateur général.
+1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com).
 
 1. Sélectionnez **Azure Active Directory**.
 
@@ -48,9 +53,9 @@ Vous pouvez maintenant consulter et gérer tous les membres des rôles Administr
 
 ## <a name="privileged-identity-management-pim"></a>Privileged Identity Management (PIM)
 
-Vous pouvez sélectionner **Gérer dans PIM** pour obtenir des capacités de gestion supplémentaires à l’aide d’[Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md). Les administrateurs de rôle privilégié peuvent modifier les affectations « permanentes » (toujours actives dans le rôle) en affectations « éligibles » (dans le rôle uniquement en cas d’élévation). Si vous n’avez pas Privileged Identity Management, vous pouvez toujours sélectionner **Gérer dans PIM** pour vous inscrire à un essai. Privileged Identity Management nécessite un [plan de licences Azure AD Premium P2](../privileged-identity-management/subscription-requirements.md).
+Vous pouvez sélectionner **Gérer dans PIM** pour obtenir des capacités de gestion supplémentaires à l’aide d’[Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md). Les administrateurs de rôle privilégié peuvent modifier les affectations « permanentes » (toujours actives dans le rôle) en affectations « éligibles » (dans le rôle uniquement en cas d’élévation). Si vous n’avez pas Privileged Identity Management, vous pouvez toujours sélectionner **Gérer dans PIM** pour vous inscrire à un essai. Privileged Identity Management nécessite une [licence Azure AD Premium P2](../privileged-identity-management/subscription-requirements.md).
 
-![Capture d’écran représentant la page « Administrateur d’utilisateurs – Attributions », sur laquelle l’action « Gérer dans PIM » est sélectionnée](./media/manage-roles-portal/member-list-pim.png)
+![Capture d’écran représentant la page « Administrateur d’utilisateurs – Attributions » sur laquelle l’action « Gérer dans PIM » est sélectionnée](./media/manage-roles-portal/member-list-pim.png)
 
 Si vous êtes un administrateur global ou un administrateur de rôle privilégié, vous pouvez facilement ajouter ou supprimer des membres, filtrer la liste ou sélectionner un membre pour voir ses rôles assignés actifs.
 

@@ -6,12 +6,12 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 4ebc363f29ed8956d10e91f41be1d257cbcc492f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8897e6da3b3d70f9b7d0434dade86e4f2ceb9c50
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98703884"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094421"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Tableau de prise en charge pour la migration de serveurs physiques
 
@@ -48,7 +48,7 @@ Le tableau résume la prise en charge de serveurs physiques que vous souhaitez m
 **Démarrage UEFI** | Pris en charge. Les machines UEFI seront migrées vers des machines virtuelles Azure de 2e génération.  <br/><br/> Le disque du système d’exploitation doit avoir jusqu’à quatre partitions et les volumes doivent être formatés avec NTFS.
 **UEFI – Démarrage sécurisé**         | Non pris en charge pour la migration.
 **Disque cible** | Les machines peuvent être migrées seulement vers des disques managés (disques HDD standard, disques SSD standard, disques SSD Premium) dans Azure.
-**Taille du disque** | Disque de système d’exploitation de 2 To ; 32 To pour des disques de données.
+**Taille du disque** | Jusqu’à 2 To pour le disque du système d’exploitation pour une machine virtuelle de génération 1 ; jusqu’à 4 To pour le disque du système d’exploitation pour une machine virtuelle de génération 2 ; 32 To pour les disques de données.
 **Limites du disque** |  Jusqu’à 63 disques par machine.
 **Disques/volumes chiffrés** |  Les machines avec des disques/volumes chiffrés ne sont pas prises en charge pour la migration.
 **Cluster de disque partagé** | Non pris en charge.

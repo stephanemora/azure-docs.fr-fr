@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 12/07/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: a865c1070150b31399b5b738a0a469a07e0b13de
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 55f34ec9416bdca81d025efb0910b10a7fa48736
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122355"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110585868"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurer une app App Service dans le portail Azure
 
@@ -59,7 +59,7 @@ Pour modifier un paramètre, cliquez sur le bouton **Modifier** sur le côté dr
 Lorsque vous avez terminé, cliquez sur **Mettre à jour**. N'oubliez pas de cliquer sur **Enregistrer** dans la page **Configuration**.
 
 > [!NOTE]
-> Dans un conteneur Linux par défaut ou un conteneur Linux personnalisé, une structure de clé JSON imbriquée dans le nom du paramètre de l'application, par exemple `ApplicationInsights:InstrumentationKey`, doit être configurée dans App Service en tant que `ApplicationInsights__InstrumentationKey` pour le nom de la clé. En d’autres termes, vous devez remplacer `:` par `__` (trait de soulignement double).
+> Dans un service d’application Linux par défaut ou un conteneur Linux personnalisé, une structure de clé JSON imbriquée dans le nom du paramètre de l’application, par exemple `ApplicationInsights:InstrumentationKey`, doit être configurée dans App Service en tant que `ApplicationInsights__InstrumentationKey` pour le nom de la clé. En d’autres termes, vous devez remplacer `:` par `__` (trait de soulignement double).
 >
 
 ### <a name="edit-in-bulk"></a>Modification par lots
@@ -200,7 +200,7 @@ Ici, vous pouvez configurer quelques paramètres communs pour l'application. Cer
     ![Paramètres généraux pour les conteneurs Linux](./media/configure-common/open-general-linux.png)
 
 - **Paramètres de la plateforme** : Vous permet de configurer les paramètres de la plateforme d'hébergement, notamment :
-    - **Nombre de bits** : 32 bits ou 64 bits.
+    - **Nombre de bits** : 32 bits ou 64 bits. (32 bits par défaut pour App Service créé dans le portail.)
     - **Protocole WebSocket** : Pour [ASP.NET SignalR] ou [socket.io](https://socket.io/), par exemple.
     - **Toujours actif** : Garde l'application chargée même s’il n'y a aucun trafic. Vous devez l'activer pour les WebJobs continus ou pour les WebJobs déclenchés à l’aide d’une expression CRON.
       > [!NOTE]

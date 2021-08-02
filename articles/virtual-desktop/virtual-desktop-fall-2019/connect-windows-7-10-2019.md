@@ -1,35 +1,35 @@
 ---
-title: Se connecter à Windows Virtual Desktop (classique) – Windows 10 ou 7 – Azure
-description: Comment se connecter à Windows Virtual Desktop (classique) à l’aide du client Windows Desktop.
+title: Se connecter à Azure Virtual Desktop (classique) – Windows 10 ou 7 - Azure
+description: Comment se connecter à Azure Virtual Desktop (classique) à l’aide du client Windows Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 62686589b03f7187ec473dab8fba602eaf7176f2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 6fcb8b3688ea5d2a8866093fd46efb8236db3558
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445242"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982049"
 ---
 # <a name="connect-with-the-windows-desktop-classic-client"></a>Se connecter avec le client Windows Desktop (classique)
 
 > S’applique à : Windows 7, Windows 10 et Windows 10 IoT Entreprise
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../connect-windows-7-10.md).
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer des objets Azure Virtual Desktop pour Azure Resource Manager, consultez [cet article](../connect-windows-7-10.md).
 
-Vous pouvez accéder aux ressources Windows Virtual Desktop sur des appareils Windows 7, Windows 10 ou Windows 10 IoT Entreprise à l’aide du client Bureau Windows. Le client ne prend pas en charge Windows 8 ni Windows 8.1.
+Vous pouvez accéder aux ressources Azure Virtual Desktop sur des appareils Windows 7, Windows 10 et Windows 10 IoT Entreprise à l’aide du client Bureau Windows. Le client ne prend pas en charge Windows 8 ni Windows 8.1.
 
 >[!NOTE]
->Le client Windows passe automatiquement par défaut à Windows Virtual Desktop (classique). Toutefois, si le client détecte que l’utilisateur a également des ressources Azure Resource Manager, il ajoute automatiquement les ressources ou avertit l’utilisateur qu’elles sont disponibles.
+>Le client Windows passe automatiquement par défaut à Azure Virtual Desktop (classique). Toutefois, si le client détecte que l’utilisateur a également des ressources Azure Resource Manager, il ajoute automatiquement les ressources ou avertit l’utilisateur qu’elles sont disponibles.
 
 > [!IMPORTANT]
-> Windows Virtual Desktop ne prend pas en charge le client RADC (Connexions RemoteApp et Bureau à distance) ni le client MSTSC (Connexion Bureau à distance).
+> Azure Virtual Desktop ne prend pas en charge le client RADC (Connexions RemoteApp et Bureau à distance) ni le client MSTSC (Connexion Bureau à distance).
 
 > [!IMPORTANT]
-> Windows Virtual Desktop ne prend pas actuellement en charge le client Bureau à distance à partir du Microsoft Store.
+> Azure Virtual Desktop ne prend pas actuellement en charge le client Bureau à distance à partir du Microsoft Store.
 
 ## <a name="install-the-windows-desktop-client"></a>Installer le client Windows Desktop
 
@@ -60,9 +60,9 @@ Vous avez deux façons de vous abonner à un espace de travail. Le client peut t
 
 1. Dans la page principale du client, sélectionnez **S’abonner avec une URL**.
 2. Entrez l’URL de l’espace de travail ou votre adresse e-mail :
-   - Si vous utilisez l’**URL de l’espace de travail**, utilisez celle que votre administrateur vous a donnée. Si vous accédez aux ressources à partir de Windows Virtual Desktop, vous pouvez utiliser l’une des URL suivantes :
-     - Windows Virtual Desktop (classique) : `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
-     - Windows Virtual Desktop : `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+   - Si vous utilisez l’**URL de l’espace de travail**, utilisez celle que votre administrateur vous a donnée. Si vous accédez à des ressources à partir d’Azure Virtual Desktop, vous pouvez utiliser l’une des URL suivantes :
+     - Azure Virtual Desktop (classique) : `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Azure Virtual Desktop : `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - Si vous utilisez le champ **E-mail** à la place, entrez votre adresse e-mail. Cela indique au client de rechercher une URL associée à votre adresse e-mail si votre administrateur a configuré la [détection d’e-mails](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Sélectionnez **Suivant**.
 4. Connectez-vous avec votre compte d’utilisateur quand vous y êtes invité.

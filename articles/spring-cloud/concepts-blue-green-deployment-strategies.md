@@ -5,14 +5,14 @@ author: yevster
 ms.author: yebronsh
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 05/12/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: ca385c2be61e359cc93e40cc42718096606583cf
-ms.sourcegitcommit: 14cd60fe58964acd4bccb6053f36e60d5848edc0
+ms.openlocfilehash: 3ed83d0bcc1998b63738eb586acaf83b3a281ee6
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/12/2021
-ms.locfileid: "109795474"
+ms.locfileid: "109838786"
 ---
 # <a name="blue-green-deployment-strategies-in-azure-spring-cloud"></a>Stratégies de déploiement bleu-vert dans Azure Spring Cloud
 
@@ -22,7 +22,7 @@ Azure Spring Cloud (niveau Standard et supérieur) autorise deux déploiements p
 
 ## <a name="alternating-deployments"></a>Déploiements alternés
 
-Le moyen le plus simple d’implémenter un déploiement bleu-vert avec Azure Spring Cloud consiste à créer deux déploiements fixes et à toujours déployer sur le déploiement qui ne reçoit pas de trafic de production. Avec la tâche Azure Spring Cloud pour Azure Pipelines, vous pouvez déployer de cette façon, juste en affectant à l’indicateur `UseStagingDeployment` la valeur `true`.
+Le moyen le plus simple d’implémenter un déploiement bleu-vert avec Azure Spring Cloud consiste à créer deux déploiements fixes et à toujours déployer sur le déploiement qui ne reçoit pas de trafic de production. Avec la tâche [Azure Spring Cloud pour Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud), vous pouvez déployer de cette façon, juste en affectant à l’indicateur `UseStagingDeployment` la valeur `true`.
 
 Voici comment fonctionne l’approche des déploiements alternés dans la pratique :
 
@@ -98,3 +98,7 @@ Toutefois, il existe également des inconvénients, comme décrit dans la sectio
 Entre le moment où un déploiement démarre et le moment où le déploiement de préproduction est supprimé, toutes les tentatives supplémentaires d’exécution du pipeline de déploiement échouent. Le pipeline tente de créer un nouveau déploiement, ce qui génère une erreur, car seuls deux déploiements sont autorisés par application Azure Spring Cloud.
 
 C’est pourquoi l’orchestration de déploiement doit avoir le moyen de réessayer ultérieurement un processus de déploiement qui a échoué, ou le moyen de s’assurer que les flux de déploiement pour chaque version restent en file d’attente jusqu’à ce que le flux soit terminé pour toutes les versions précédentes.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Automatiser les déploiements d’applications dans Azure Spring Cloud](./how-to-cicd.md)

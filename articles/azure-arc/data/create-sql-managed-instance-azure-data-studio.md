@@ -1,24 +1,24 @@
 ---
-title: Créer une instance gérée Azure SQL à l’aide d’Azure Data Studio
-description: Créer une instance gérée Azure SQL à l’aide d’Azure Data Studio
+title: Créer un service Azure SQL Managed Instance à l’aide d’Azure Data Studio
+description: Créer un service Azure SQL Managed Instance à l’aide d’Azure Data Studio
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: rothja
-ms.author: jroth
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 6bc644fc96ba30cb13603edf6a90f357db4fd2f3
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 3223ec1a9538228c1b3d9f2cdcb8ea1c051e0e10
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736373"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495961"
 ---
-# <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Créer une instance gérée SQL – Azure Arc utilisant Azure Data Studio
+# <a name="create-sql-managed-iinstance---azure-arc-using-azure-data-studio"></a>Créer un service SQL Managed Instance – Azure Arc en utilisant Azure Data Studio
 
-Ce document vous guide tout au long des étapes d’installation d’Azure SQL Managed Instance - Azure Arc en utilisant Azure Data Studio
+Ce document vous guide au fil des étapes d’installation d’un service Azure SQL Managed Instance – Azure Arc en utilisant Azure Data Studio
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
@@ -43,18 +43,18 @@ Namespace: arc
 Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
 ```
 
-## <a name="create-azure-sql-managed-instance-on-azure-arc"></a>Créer une instance gérée Azure SQL sur Azure Arc
+## <a name="create-azure-sql-managed-instance-on-azure-arc"></a>Créer un service Azure SQL Managed Instance sur Azure Arc
 
 - Lancer Azure Data Studio
 - Sous l’onglet Connexions, cliquez sur les trois points situés en haut à gauche, puis choisissez « Nouveau déploiement »
-- Dans les options de déploiement, sélectionnez **Azure SQL Managed Instance - Azure Arc** 
+- Dans les options de déploiement, sélectionnez **Azure SQL Managed Instance – Azure Arc**. 
   > [!NOTE]
   > Vous pouvez être invité à installer l’outil [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] ici s’il n’est pas encore installé.
 - Acceptez la déclaration de confidentialité et les termes du contrat de licence, puis cliquez dans le bas sur **Sélectionner**
 
 
 
-- Dans le panneau Déployer Azure SQL Managed Instance - Azure Arc, entrez les informations suivantes :
+- Dans le panneau Déployer Azure SQL Managed Instance – Azure Arc, entrez les informations suivantes :
   - Entrez un nom pour l’instance SQL Server.
   - Entrez et confirmer un mot de passe pour l’instance SQL Server.
   - Sélectionnez la classe de stockage appropriée pour les données.
@@ -62,18 +62,18 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 - Cliquez sur le bouton **Déployer**.
 
-- Cette action doit lancer la création de l’instance gérée Azure SQL – Azure Arc sur le contrôleur de données.
+- Cette action doit lancer la création du service Azure SQL Managed Instance – Azure Arc sur le contrôleur de données.
 
 - Votre création ne devrait prendre que quelques minutes.
 
-## <a name="connect-to-azure-sql-managed-instance---azure-arc-from-azure-data-studio"></a>Se connecter à Azure SQL Managed Instance - Azure Arc depuis Azure Data Studio
+## <a name="connect-to-azure-sql-managed-instance---azure-arc-from-azure-data-studio"></a>Connecter un service Azure SQL Managed Instance – Azure Arc à partir d’Azure Data Studio
 
 - Connectez-vous au contrôleur de données Azure Arc en spécifiant l’espace de noms, le nom d’utilisateur et le mot de passe pour le contrôleur de données : 
 ```console
 azdata login
 ```
 
-- Affichez toutes les instances Azure SQL Managed Instance provisionnées en utilisant les commandes suivantes :
+- Affichez tous les services Azure SQL Managed Instance approvisionnés en utilisant les commandes suivantes :
 
 ```console
 azdata arc sql mi list
@@ -95,7 +95,7 @@ sqlinstance1  1/1         25.51.65.109:1433  Ready
 - Entrez le mot de passe du compte `sa`.
 - Si vous le souhaitez, entrez le nom de la base de données spécifique à laquelle se connecter.
 - Si vous le souhaitez, sélectionnez Ajouter un nouveau groupe de serveurs, selon vos besoins.
-- Sélectionnez **Se connecter** pour vous connecter à Azure SQL Managed Instance - Azure Arc.
+- Sélectionnez **Se connecter** pour vous connecter au service Azure SQL Managed Instance – Azure Arc.
 
 
 

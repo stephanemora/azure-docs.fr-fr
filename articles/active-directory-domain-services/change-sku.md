@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 320bd87aa78d26cee44c48f27365febd1dd426ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2bdf660d57f4fa8cb3a804ff55028dc442f96b8b
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96620288"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786133"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Modifier la référence SKU d'un domaine managé Azure Active Directory Domain Servicess existant
 
@@ -42,7 +42,7 @@ Vous pouvez augmenter ou diminuer les références SKU une fois le domaine manag
 
 Par exemple :
 
-* Si vous avez créé deux approbations de forêt sur la référence SKU *Premium*, vous ne pouvez pas opter pour la référence SKU inférieure *Standard*. La référence SKU *Standard* ne prend pas en charge les approbations de forêts.
+* Vous ne pouvez pas passer à la référence (SKU) *Standard*. Une forêt de ressources Azure AD DS ne prend pas en charge la référence (SKU) *Standard*. 
 * De même, si vous avez créé sept approbations sur la référence SKU *Premium*, vous ne pouvez pas opter pour la référence SKU *Entreprise*. La référence SKU *Entreprise* prend en charge un maximum de cinq approbations.
 
 Pour plus d’informations sur ces limites, consultez [Fonctionnalités et limites des références SKU Azure AD DS][concepts-sku].

@@ -5,18 +5,18 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 06/08/2021
 ms.author: duau
-ms.openlocfilehash: 7831e7944321e074c312853e1534c47970ebdfdb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 75570beb243fca802ecebebf34edf02b3d8ca9a5
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89397948"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006488"
 ---
 # <a name="about-upgrading-expressroute-circuit-bandwidth"></a>À propos de la mise à niveau de la bande passante d’un circuit ExpressRoute
 
-ExpressRoute permet une connectivité dédiée et privée au réseau global de Microsoft. La connectivité est facilitée par le réseau d’un partenaire ExpressRoute, ou par une connexion directe aux appareils Microsoft Enterprise Edge (MSEE). Une fois la connectivité physique configurée et testée, vous pouvez activer la connectivité de couche 2 et de couche 3 en créant un circuit ExpressRoute et en configurant le peering.
+ExpressRoute permet une connectivité privée et dédiée au réseau global de Microsoft. La connectivité est facilitée par le réseau d’un partenaire ExpressRoute, ou par une connexion directe aux appareils Microsoft Enterprise Edge (MSEE). Une fois la connectivité physique configurée et testée, vous pouvez activer la connectivité de couche 2 et de couche 3 en créant un circuit ExpressRoute et en configurant le peering.
 
 ## <a name="upgrade-circuit-bandwidth"></a><a name="upgrade"></a>Mettre à niveau la bande passante d’un circuit
 
@@ -30,16 +30,22 @@ Si la capacité est disponible, vous pouvez mettre à niveau le circuit à l’a
 
 ## <a name="capacity-considerations"></a><a name="considerations"></a>Considérations relatives à la capacité
 
+### <a name="insufficient-capacity-for-physical-connection"></a>Capacité insuffisante pour la connexion physique
+
+Un circuit ExpressRoute est créé sur une connexion physique entre Microsoft et un partenaire ExpressRoute. La connexion physique dispose d’une capacité fixe. Si vous ne parvenez pas à augmenter la taille de votre circuit, cela signifie que la connexion physique sous-jacente de votre circuit existant n’a pas la capacité permettant la mise à niveau. Vous devez créer un nouveau circuit si vous souhaitez modifier la taille du circuit.
+
+Une fois que vous avez créé le circuit ExpressRoute, vous devez lier vos réseaux virtuels existants à ce circuit. Vous pouvez ensuite tester et valider la connectivité du nouveau circuit ExpressRoute avant d’annuler le provisionnement de l’ancien circuit. Il s’agit des étapes de migration recommandées pour réduire le temps d’interruption et les perturbations sur votre charge de travail de production.
+
 ### <a name="insufficient-expressroute-partner-bandwidth"></a><a name="bandwidth"></a>Bande passante du partenaire ExpressRoute insuffisante
 
-Si le partenaire ExpressRoute ne dispose pas d’une capacité suffisante, vous devez créer un autre circuit, configuré pour la bande passante souhaitée. Pour maintenir la connectivité, ne supprimez pas l’ancien circuit tant que le circuit nouvellement créé n’est pas provisionné, que le peering n’a pas été configuré et (en ce qui concerne le peering privé) que l’objet de connexion à la passerelle de réseau virtuel ExpressRoute n’a pas été provisionné.
+Si vous ne parvenez pas à créer un nouveau circuit ExpressRoute en raison d’une erreur de capacité. Cela signifie que ce partenaire ExpressRoute n’a pas la capacité de se connecter à Microsoft à cet emplacement de peering. Contactez votre partenaire ExpressRoute pour obtenir plus de capacité.
 
-Si votre partenaire ExpressRoute ne dispose pas de suffisamment d’une capacité disponible, vous devez demander une capacité supplémentaire à l’emplacement de peering souhaité. Une fois la nouvelle capacité approvisionnée, vous pouvez utiliser les étapes de la section [Mettre à niveau la bande passante d’un circuit](#upgrade) pour créer un circuit, configurer la connectivité et supprimer l’ancien circuit.
+Une fois la nouvelle capacité provisionnée, vous pouvez utiliser les étapes de la section [Mettre à niveau la bande passante d’un circuit](#upgrade) pour créer un circuit, configurer la connectivité et supprimer l’ancien circuit.
 
 
 ### <a name="insufficient-expressroute-direct-bandwidth"></a><a name="bandwidth"></a>Bande passante ExpressRoute Direct insuffisante
 
-Si ExpressRoute direct ne dispose pas d’une capacité suffisante, vous pouvez soit supprimer les circuits associés à la ressource ExpressRoute Direct qui ne sont plus nécessaires, soit créer une autre ressource ExpressRoute Direct. Pour obtenir des instructions sur la gestion de la ressource ExpressRoute Direct, consultez [Guide pratique pour configurer ExpressRoute Direct](how-to-expressroute-direct-portal.md).
+Si ExpressRoute Direct ne dispose pas d’une capacité suffisante, vous avez deux possibilités. Vous pouvez supprimer les circuits associés à la ressource ExpressRoute Direct dont vous n’avez plus besoin, ou créer une autre ressource ExpressRoute Direct. Pour obtenir des instructions sur la gestion de la ressource ExpressRoute Direct, consultez [Guide pratique pour configurer ExpressRoute Direct](how-to-expressroute-direct-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

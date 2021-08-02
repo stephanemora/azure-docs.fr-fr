@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 ms.custom: references_regions, devx-track-azurecli
 description: Utiliser des emplacements personnalisés pour déployer des services PaaS Azure sur des clusters Kubernetes avec Azure Arc
-ms.openlocfilehash: 15309599b12b10344b59d46c47c11dfa243726db
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 5f25260041fe7d5998d7f1716c9d20e288168e9d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367183"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951666"
 ---
 # <a name="create-and-manage-custom-locations-on-azure-arc-enabled-kubernetes"></a>Créer et gérer des emplacements personnalisés sur Kubernetes avec Azure Arc
 
@@ -77,16 +77,29 @@ Une vue d’ensemble conceptuelle de cette fonctionnalité est disponible dans l
 
 ## <a name="enable-custom-locations-on-cluster"></a>Activer les emplacements personnalisés sur le cluster
 
-Pour activer cette fonctionnalité sur votre cluster, exécutez la commande suivante :
+Si vous êtes connecté à Azure CLI en tant qu’utilisateur Azure AD, exécutez la commande suivante pour activer cette fonctionnalité sur votre cluster :
 
 ```console
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
 ```
 
+Si vous êtes connecté à Azure CLI à l’aide d’un principal de service, effectuez les étapes suivantes pour activer cette fonctionnalité sur votre cluster :
+
+1. Récupérez l’ID d’objet de l’application Azure AD utilisée par le service Azure Arc :
+
+    ```console
+    az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
+    ```
+
+1. Utilisez la valeur `<objectId>` de l’étape ci-dessus pour activer la fonctionnalité Emplacements personnalisés sur le cluster :
+
+    ```console
+    az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
+    ```
+
 > [!NOTE]
 > 1. La fonctionnalité Emplacements personnalisés dépend de la fonctionnalité Connexion au cluster. Les deux fonctionnalités doivent donc être activées pour que les emplacements personnalisés fonctionnent.
 > 2. La commande `az connectedk8s enable-features` doit être exécutée sur une machine sur laquelle le fichier `kubeconfig` pointe vers le cluster sur lequel les fonctionnalités doivent être activées.
-> 3. Si vous êtes connecté à Azure CLI avec un principal de service, des [autorisations supplémentaires](troubleshooting.md#enable-custom-locations-using-service-principal) doivent être accordées à celui-ci avant d'activer la fonctionnalité Emplacements personnalisés.
 
 ## <a name="create-custom-location"></a>Créer un emplacement personnalisé
 
@@ -107,7 +120,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
         az k8s-extension create --name <extensionInstanceName> --extension-type 'Microsoft.Web.Appservice' --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace appservice-ns --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" --configuration-settings "appsNamespace=appservice-ns" 
         ```
 
-    * [Event Grid sur Kubernetes](/azure/event-grid/kubernetes/overview)
+    * [Event Grid sur Kubernetes](../../event-grid/kubernetes/overview.md)
 
         ```azurecli
           az k8s-extension create --name <extensionInstanceName> --extension-type Microsoft.EventGrid --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace eventgrid-ext --configuration-protected-settings-file protected-settings-extension.json --configuration-settings-file settings-extension.json
@@ -135,6 +148,5 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 - Connectez-vous en toute sécurité au cluster à l’aide de [Connexion au cluster](cluster-connect.md).
 - Poursuivez avec [Azure App Service sur Azure Arc](../../app-service/overview-arc-integration.md) pour obtenir des instructions de bout en bout sur l’installation des extensions, la création d’emplacements personnalisés et la création de l’environnement Kubernetes App Service. 
-- Créez une rubrique Event Grid et un abonnement aux événements pour [Event Grid sur Kubernetes](/azure/event-grid/kubernetes/overview).
+- Créez une rubrique Event Grid et un abonnement aux événements pour [Event Grid sur Kubernetes](../../event-grid/kubernetes/overview.md).
 - En savoir plus sur les [extensions Kubernetes avec Azure Arc](extensions.md#currently-available-extensions) actuellement disponibles.
-

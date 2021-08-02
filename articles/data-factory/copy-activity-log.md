@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: f979ca04a276f52e5f76a8e4327f9ff8ef390fe6
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cbd2ef972753abfc9f18fed4a15c6ed0357daae0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143698"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095659"
 ---
 #  <a name="session-log-in-copy-activity"></a>Journal de session dans l’activité de copie
 
@@ -20,6 +20,11 @@ ms.locfileid: "108143698"
 Vous pouvez journaliser les noms de fichiers copiés lors de l’activité de copie, ce qui peut vous aider à mieux vous assurer que les données sont non seulement bien copiées du magasin source vers le magasin de destination, mais qu’elles sont également cohérentes entre les deux magasins en examinant les fichiers copiés dans les journaux de session de l’activité de copie.  
 
 Quand vous activez le paramètre de tolérance de panne dans l’activité de copie de façon à ignorer les données défectueuses, les fichiers ignorés et les lignes ignorées peuvent aussi être journalisés.  Pour obtenir plus de détails, consultez [Tolérance de panne de l’activité de copie](copy-activity-fault-tolerance.md). 
+
+Étant donné que vous avez la possibilité d’obtenir tous les noms de fichiers copiés par l’activité de copie ADF via l’activation du journal de session, cela vous sera utile dans les scénarios suivants :
+-   Après avoir utilisé les activités de copie ADF pour copier les fichiers d'un stockage à un autre, vous constatez que certains fichiers apparaissent par erreur dans le magasin de destination. Vous pouvez analyser les journaux de session de l’activité de copie pour déterminer l’activité de copie qui a réellement copié ces fichiers et à quel moment copier ces fichiers. Vous pouvez ainsi facilement identifier la cause racine et corriger vos configurations dans ADF.   
+-   Après avoir utilisé les activités de copie ADF pour copier les fichiers d’un stockage à un autre, vous avez l’impression que les fichiers copiés vers la destination ne sont pas les mêmes que ceux du magasin source. Vous pouvez analyser les journaux de session de l’activité de copie pour obtenir l’horodatage des travaux de copie ainsi que les métadonnées des fichiers lorsque les activités de copie ADF les lisent à partir du magasin source.  Vous pouvez ainsi savoir si ces fichiers ont été mis à jour par d’autres applications sur le magasin source après avoir été copiés par ADF.  
+
 
 ## <a name="configuration"></a>Configuration
 L’exemple suivant fournit une définition JSON pour activer le journal de session dans l’activité de copie : 

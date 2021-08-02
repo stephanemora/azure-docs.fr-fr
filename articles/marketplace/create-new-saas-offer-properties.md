@@ -1,6 +1,6 @@
 ---
-title: Comment configurer les propriétés de votre offre SaaS dans l’Espace partenaires Microsoft
-description: Découvrez comment configurer les propriétés de votre offre SaaS (Software as a Service) dans la place de marché commerciale de Microsoft de l’Espace partenaires.
+title: Configuration des propriétés d’une offre SaaS sur la Place de marché Azure
+description: Configurez les propriétés de votre offre SaaS (software as a service) sur la Place de marché Azure.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 7d90c9b9b2c9aa97083e17d5ab7d20fc6b471658
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac4461d01ea020886b83e0f643bbca5c0fba5ab0
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94492121"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614453"
 ---
-# <a name="how-to-configure-your-saas-offer-properties"></a>Comment configurer les propriétés de votre offre SaaS
+# <a name="configure-saas-offer-properties"></a>Configurer les propriétés de l’offre SaaS
 
 Cet article explique comment configurer les propriétés de votre offre SaaS dans la place de marché commerciale de Microsoft.
 
@@ -93,4 +93,4 @@ Vous pouvez également utiliser vos propres conditions générales au lieu du co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comment configurer les détails du référencement de votre offre SaaS](create-new-saas-offer-listing.md)
+- [Configuration des détails de description d’une offre SaaS](create-new-saas-offer-listing.md)

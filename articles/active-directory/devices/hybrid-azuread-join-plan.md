@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 05/28/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cadba181ea7d6a12ca64c78f3c7c58654d5f756f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30c0d0fa394c8b962206879a80d600987753f2f6
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500806"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953476"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -74,7 +74,6 @@ La première étape de la planification consiste à examiner l’environnement e
 ## <a name="review-things-you-should-know"></a>Connaître les points à savoir
 
 ### <a name="unsupported-scenarios"></a>Scénarios non pris en charge
-- La jonction Azure AD Hybride n'est pas prise en charge si votre environnement se compose d’une seule forêt AD synchronisant les données d’identité sur plusieurs locataires Azure AD.
 
 - La jonction Azure AD Hybride n'est pas prise en charge pour Windows Server avec le rôle de contrôleur de domaine.
 
@@ -85,6 +84,7 @@ La première étape de la planification consiste à examiner l’environnement e
 - L’outil de migration de l’état utilisateur (USMT) ne fonctionne pas avec l’inscription de l’appareil.  
 
 ### <a name="os-imaging-considerations"></a>Considérations relatives aux images de système d’exploitation
+
 - Si vous comptez sur l’outil de préparation système (Sysprep) et utilisez une image **pré-Windows 10 1809** pour l’installation, vérifiez que cette image ne provient pas d'un appareil déjà inscrit auprès d’Azure AD en tant que jonction Azure AD Hybride.
 
 - Si vous utilisez une capture instantanée de machine virtuelle pour créer des machines virtuelles supplémentaires, vérifiez qu’elle ne provient pas d'une machine virtuelle déjà inscrite auprès d'Azure AD en tant que jonction Azure AD Hybride.
@@ -92,6 +92,7 @@ La première étape de la planification consiste à examiner l’environnement e
 - Si vous utilisez [Filtre d’écriture unifié](/windows-hardware/customize/enterprise/unified-write-filter) et des technologies similaires qui effacent les modifications apportées au disque au redémarrage, vous devez les appliquer une fois que l’appareil joint à l’Azure AD Hybride. L’activation de ces technologies avant la jonction à l’Azure AD Hybride entraînera la disjonction de l’appareil à chaque redémarrage
 
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Gestion des appareils avec l’état inscrit auprès d’Azure AD
+
 Si vos appareils Windows 10 joints à un domaine sont [inscrits sur Azure AD](overview.md#getting-devices-in-azure-ad) auprès de votre locataire, cela peut entraîner un double état : appareil joint à Azure AD Hybride et appareil inscrit sur Azure AD. Nous vous recommandons de procéder à une mise à niveau vers Windows 10 1803 (avec KB4489894 appliqué) ou version ultérieure pour répondre automatiquement à ce scénario. Dans les versions antérieures à 1803, vous devrez supprimer manuellement l’état « appareil inscrit sur Azure AD » avant d’activer une jonction Azure AD Hybride. Dans les versions 1803 et ultérieures, les modifications suivantes ont été apportées pour éviter ce double état :
 
 - Tout état existant inscrit sur Azure AD pour un utilisateur est automatiquement supprimé <i>dès lors que l’appareil est joint à Azure AD Hybride et que le même utilisateur se connecte</i>. Par exemple, si l’utilisateur A a un état Azure AD inscrit sur l’appareil, le double état de l’utilisateur A est nettoyé uniquement lorsque l’utilisateur A se connecte à l’appareil. S’il y a plusieurs utilisateurs sur le même appareil, le double état est nettoyé individuellement quand ces utilisateurs se connectent. En plus de supprimer l’état inscrit auprès d’Azure AD, Windows 10 désinscrit également l’appareil d’Intune ou d’autres GPM, si l’inscription s’est produite dans le cadre de l’inscription d’Azure AD via l’inscription automatique.
@@ -102,7 +103,18 @@ Si vos appareils Windows 10 joints à un domaine sont [inscrits sur Azure AD](o
 > [!NOTE]
 > Bien que Windows 10 supprime automatiquement l’état inscrit auprès d’Azure AD localement, l’objet de l’appareil dans Azure AD n’est pas supprimé immédiatement s’il est géré par Intune. Vous pouvez valider la suppression de l’état inscrit auprès d’Azure AD en exécutant « dsregcmd /status » et considérer l’appareil comme n’étant plus inscrit auprès d’Azure AD.
 
+### <a name="hybrid-azure-ad-join-for-single-forest-multiple-azure-ad-tenants"></a>Jonction Azure AD Hybride pour une seule forêt avec plusieurs locataires Azure AD
+
+Pour inscrire des appareils en tant que jonction Azure AD Hybride auprès des locataires respectifs, les organisations doivent configurer le SCP sur les appareils et pas dans AD. Pour plus d’informations sur la procédure à suivre, consultez l’article [Validation contrôlée de la jonction Azure AD Hybride](hybrid-azuread-join-control.md). Il est également important que les organisations sachent que certaines fonctionnalités d’Azure AD ne sont pas disponibles dans les configurations à une seule forêt et plusieurs locataires Azure AD.
+- La [réécriture d'appareil](../hybrid/how-to-connect-device-writeback.md) n’est pas disponible. Cela impacte l’[accès conditionnel basé sur les appareils pour les applications locales fédérées à l’aide d’ADFS](/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises). Cela impacte aussi le [déploiement de Windows Hello Entreprise avec le modèle d’approbation de certificat hybride](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust).
+- La [réécriture de groupes](../hybrid/how-to-connect-group-writeback.md) n’est pas disponible. Cela impacte la réécriture des groupes Office 365 dans une forêt avec Exchange installé.
+- L’[authentification unique fluide](../hybrid/how-to-connect-sso.md) n’est pas disponible. Cela impacte les scénarios d’authentification unique que les organisations utilisent éventuellement dans des environnements multiplateformes système d’exploitation/navigateur, par exemple iOS/Linux avec Firefox, Safari, Chrome sans l’extension Windows 10.
+- La [jonction Azure AD Hybride pour les appareils Windows de bas niveau dans un environnement managé](./hybrid-azuread-join-managed-domains.md#enable-windows-down-level-devices) n’est pas disponible. Par exemple, la jonction Azure AD Hybride sur Windows Server 2012 R2 dans un environnement managé nécessite une authentification unique transparente, mais comme ce mode d’authentification n’est pas disponible, la jonction Azure AD Hybride ne l’est pas non plus dans cette configuration.
+- La [protection locale par mot de passe Azure AD](../authentication/concept-password-ban-bad-on-premises.md) n’est pas disponible. Cela empêche les changements et réinitialisations de mots de passe sur les contrôleurs de domaine AD DS (Active Directory Domain Services) locaux utilisant les mêmes listes de mots de passe interdits globaux et personnalisés qui sont stockées dans Azure AD.
+
+
 ### <a name="additional-considerations"></a>Considérations supplémentaires
+
 - Si votre environnement utilise l’infrastructure VDI (Virtual Desktop Infrastructure), consultez [Identité d’appareil et la virtualisation des services de Bureau](./howto-device-identity-virtual-desktop-infrastructure.md).
 
 - La jonction Azure AD Hybride est prise en charge pour les modules TPM 2.0 compatibles FIPS, mais pas pour les modules TPM 1.2. Si vos appareils sont dotés de modules TPM 1.2 compatibles FIPS, vous devez les désactiver avant de procéder à la jonction Azure AD Hybride. Microsoft ne propose aucun outil permettant de désactiver le mode FIPS pour les modules TPM car il dépend du fabricant de ces modules. Pour obtenir de l'aide, contactez votre fabricant OEM. 

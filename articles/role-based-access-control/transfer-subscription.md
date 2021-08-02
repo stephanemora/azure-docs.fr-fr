@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 366692113872856852fd933ca32ab51ca608de14
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: a12f3ca25df2d4473361e0a1ef596384813dc6a8
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291277"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854735"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transférer un abonnement Azure vers une autre instance Azure AD Directory
 
@@ -94,7 +94,7 @@ Pour effectuer cette procédure, vous avez besoin de :
 
 - [Bash Azure Cloud Shell](../cloud-shell/overview.md) ou [Azure CLI](/cli/azure)
 - Administrateur de compte de l’abonnement que vous souhaitez transférer dans l’annuaire source
-- Rôle de [Propriétaire](built-in-roles.md#owner) dans l’annuaire cible
+- Compte d’utilisateur figurant dans les annuaires source et cible pour l’utilisateur qui effectue le changement d’annuaire
 
 ## <a name="step-1-prepare-for-the-transfer"></a>Étape 1 : Préparer le transfert
 
@@ -252,7 +252,7 @@ Lorsque vous créez un coffre de clés, celui-ci est automatiquement lié à l�
 1. Utilisez [az account show](/cli/azure/account#az_account_show) pour obtenir votre ID d’abonnement.
 
     ```azurecli
-    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
+    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//')
     ```
 
 1. Utilisez l'extension [az graph](/cli/azure/graph) pour répertorier d’autres ressources Azure avec des dépendances connues au répertoire Azure AD.

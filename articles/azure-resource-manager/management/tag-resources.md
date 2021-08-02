@@ -4,12 +4,12 @@ description: Indique comment appliquer des étiquettes afin d'organiser des ress
 ms.topic: conceptual
 ms.date: 05/05/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0106ae6bda21544629616f2268ccc111c1946b47
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b5278408ac1adf1e12adf8f7facebd26e6d96d6d
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480303"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111813904"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Utiliser des étiquettes pour organiser vos ressources Azure et votre hiérarchie de gestion
 
@@ -850,7 +850,11 @@ Les limites suivantes s’appliquent aux balises :
    >
    > * Azure Front Door ne prend pas en charge l’utilisation de `#` dans le nom de la balise.
    >
-   > * Azure Automation et Azure CDN ne gèrent que 15 balises sur les ressources.
+   > * Les ressources Azure suivantes prennent uniquement en charge 15 balises :
+   >     * Azure Automation 
+   >     * Azure CDN
+   >     * Azure DNS (Zone et enregistrements A)
+   >     * DNS privé Azure (Zone, enregistrements A et liaison de réseau virtuel)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

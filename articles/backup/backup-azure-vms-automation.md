@@ -3,12 +3,13 @@ title: Sauvegarder et récupérer des machines virtuelles Azure avec PowerShell
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure à l’aide de Sauvegarde Azure avec PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: f59c18aecf577bc7f7d0b1360dd36504305af893
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 44dc53100e44d6d10179b65e0ccd221199661836
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100633170"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421721"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Sauvegarder et restaurer des machines virtuelles Azure avec PowerShell
 
@@ -398,12 +399,23 @@ $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -Workl
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID
 ````
 
+### <a name="resume-backup"></a>Reprendre la sauvegarde
+
+Si la protection est arrêtée et les données de sauvegarde conservées, vous pouvez reprendre la protection une fois de plus. Vous devez attribuer une stratégie pour la protection renouvelée. La cmdlet est la même que celle de la [stratégie de modification des éléments de sauvegarde](#change-policy-for-backup-items).
+
+````powershell
+$TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName> -VaultId $targetVault.ID
+$anotherBkpItem = Get-AzRecoveryServicesBackupItem -WorkloadType AzureVM -BackupManagementType AzureVM -Name "<BackupItemName>" -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $anotherBkpItem -Policy $TargetPol1 -VaultId $targetVault.ID
+````
+
 #### <a name="delete-backup-data"></a>Supprimer les données de sauvegarde
 
 Pour supprimer complètement les données de sauvegarde stockées dans le coffre, ajoutez l’indicateur/le commutateur '-RemoveRecoveryPoints' à la [commande de protection 'disable'](#retain-data).
 
 ````powershell
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID -RemoveRecoveryPoints
+
 ````
 
 ## <a name="restore-an-azure-vm"></a>Restauration d’une machine virtuelle Azure

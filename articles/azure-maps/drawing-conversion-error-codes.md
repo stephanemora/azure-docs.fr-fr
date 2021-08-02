@@ -3,21 +3,21 @@ title: Erreurs et avertissements liés à la conversion de dessin d’Azure Maps
 description: Découvrez les erreurs et avertissements liés à la conversion que vous pouvez rencontrer quand vous utilisez le service de conversion d’Azure Maps. Lisez les recommandations relatives à la résolution des erreurs et avertissements, avec quelques exemples.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 05/21/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: cecc19f0984ce1801d50e5cbda73e98a01e2825b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd6c20277098d0a2d1909cfb93243dd8e3bbcca0
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96906214"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793233"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Erreurs et avertissements liés à la conversion de dessin
 
-Le [service de conversion d’Azure Maps](/rest/api/maps/conversion) vous permet de convertir les packages de dessin chargés en données cartographiques. Les packages de dessin doivent respecter les [exigences du package de dessin](drawing-requirements.md). Si une ou plusieurs exigences ne sont pas satisfaites, le service de conversion renverra des erreurs ou avertissements. Cet article répertorie les codes d’erreur et d’avertissement liés à la conversion, ainsi que des recommandations sur la façon de les résoudre. Il fournit également des exemples de dessins qui peuvent provoquer le renvoi de ces codes par le service de conversion.
+Le [service de conversion d’Azure Maps](/rest/api/maps/v2/conversion) vous permet de convertir les packages de dessin chargés en données cartographiques. Les packages de dessin doivent respecter les [exigences du package de dessin](drawing-requirements.md). Si une ou plusieurs exigences ne sont pas satisfaites, le service de conversion renverra des erreurs ou avertissements. Cet article répertorie les codes d’erreur et d’avertissement liés à la conversion, ainsi que des recommandations sur la façon de les résoudre. Il fournit également des exemples de dessins qui peuvent provoquer le renvoi de ces codes par le service de conversion.
 
 Le service de conversion fonctionnera s’il y a des avertissements de conversion. Toutefois, il est recommandé d’examiner et de résoudre tous les avertissements. Un avertissement signifie qu’une partie de la conversion a été ignorée ou corrigée automatiquement. L’échec de la résolution des avertissements pourrait entraîner des erreurs dans les derniers processus.
 
@@ -330,7 +330,7 @@ Vous avez tenté de charger un package de dessin avec un paramètre `udid` incor
 Pour corriger une erreur **invalidUserData**, vérifiez les points suivants :
 
 * Vous avez fourni un `udid` correct pour le package chargé.
-* Azure Maps Creator (préversion) a été activé pour le compte Azure Maps que vous avez utilisé dans le but de charger le package de dessin.
+* Le Créateur Azure Maps a été activé pour le compte Azure Maps que vous avez utilisé pour charger le package de dessin.
 * La demande d’API adressée au service de conversion contient la clé d’abonnement au compte Azure Maps que vous avez utilisé pour charger le package de dessin.
 
 ### <a name="dwgerror"></a>**Erreur dwgError**
@@ -339,7 +339,7 @@ Pour corriger une erreur **invalidUserData**, vérifiez les points suivants :
 
 Une erreur **dwgError** se produit quand le package de dessin contient un problème avec un ou plusieurs fichiers DWG dans l’archive ZIP chargée.
 
-L’erreur **dwgError** se quand le package de dessin contient un fichier DWG qui ne peut pas être ouvert parce qu’il est non valide ou endommagé.
+L’erreur **dwgError** se produit quand le package de dessin contient un fichier DWG qui ne peut pas être ouvert parce qu’il est non valide ou endommagé.
 
 * Un fichier DWG n’est pas un dessin au format de fichier DWG AutoCAD valide.
 * Un fichier DWG est endommagé.
@@ -506,4 +506,7 @@ Pour corriger une erreur **verticalPenetrationError**, lisez l’article [Exigen
 > [Comment utiliser le visualiseur d’erreurs de dessin Azure Maps](drawing-error-visualizer.md)
 
 > [!div class="nextstepaction"]
-> [Creator (préversion) pour cartes d’intérieur](creator-indoor-maps.md)
+> [Guide sur les packages de dessins](drawing-package-guide.md)
+
+> [!div class="nextstepaction"]
+> [Créateur pour cartes d’intérieur](creator-indoor-maps.md)

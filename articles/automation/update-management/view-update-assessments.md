@@ -3,14 +3,14 @@ title: Afficher les évaluations de mise à jour d’Azure Automation
 description: Cet article explique comment voir les évaluations des déploiements d’Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 09/17/2020
+ms.date: 06/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 39df5888a330a92ae043e34c3043da5b1f566345
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 270a48181e8eceb7b5e851f9bc69bb5a41428573
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92221557"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964451"
 ---
 # <a name="view-update-assessments-in-update-management"></a>Afficher les évaluations de mise à jour dans Update Management
 
@@ -46,6 +46,9 @@ Sous **Lien d’information**, sélectionnez le lien d’une mise à jour pour o
 
 [ ![Afficher l’état des mises à jour](./media/view-update-assessments/missing-updates.png)](./media/view-update-assessments/missing-updates-expanded.png#lightbox)
 
+> [!NOTE]
+> Les informations qui s’affichent sur l’état de mise à jour des définitions de Windows Defender sont basées sur les dernières données synthétisées à partir de l’espace de travail Log Analytics et peuvent ne pas être à jour. Consultez [La mise à jour de Windows Defender apparaît toujours comme manquante](../troubleshoot/update-management.md#windows-defender-update-missing-status) pour en savoir plus sur ce comportement.
+ 
 Cliquez n’importe où ailleurs sur la mise à jour pour ouvrir le volet Recherche dans les journaux. La requête pour la recherche dans les journaux est prédéfinie pour cette mise à jour spécifique. Vous pouvez modifier cette requête ou créer votre propre requête pour afficher des informations détaillées.
 
 [ ![Afficher les résultats d’une requête de journal](./media/view-update-assessments/logsearch-results.png)](./media/view-update-assessments/logsearch-results-expanded.png#lightbox)

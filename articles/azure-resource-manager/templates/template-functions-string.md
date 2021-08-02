@@ -2,13 +2,13 @@
 title: Fonctions de modèle – Chaîne
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (modèle ARM) pour travailler avec des chaînes.
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: cff1424562b45bc722f87fa3ec896c1c641ee758
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/14/2021
+ms.openlocfilehash: e8b99fa59feeaa3e18916089c71f17fa48627627
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108840"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959487"
 ---
 # <a name="string-functions-for-arm-templates"></a>Fonctions de chaîne pour les modèles Resource Manager
 
@@ -48,8 +48,6 @@ Resource Manager fournit les fonctions ci-dessous pour vous permettre d'utiliser
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## <a name="base64"></a>base64
 
 `base64(inputString)`
@@ -69,8 +67,6 @@ Une chaîne contenant la représentation en base64.
 ### <a name="examples"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) suivant montre comment utiliser la fonction base64.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -108,22 +104,6 @@ Une chaîne contenant la représentation en base64.
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringData string = 'one, two, three'
-param jsonFormattedData string = '{\'one\': \'a\', \'two\': \'b\'}'
-
-var base64String = base64(stringData)
-var base64Object = base64(jsonFormattedData)
-
-output base64Output string = base64String
-output toStringOutput string = base64ToString(base64String)
-output toJsonOutput object = base64ToJson(base64Object)
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -153,8 +133,6 @@ Un objet JSON.
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) suivant utilise la fonction base64ToJson pour convertir une valeur base64 :
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -191,23 +169,6 @@ Un objet JSON.
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringData string = 'one, two, three'
-param jsonFormattedData string = '{\'one\': \'a\', \'two\': \'b\'}'
-
-var base64String = base64(stringData)
-var base64Object = base64(jsonFormattedData)
-
-output base64Output string = base64String
-output toStringOutput string = base64ToString(base64String)
-output toJsonOutput object = base64ToJson(base64Object)
-
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -237,8 +198,6 @@ Une chaîne de la valeur base64 convertie.
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) suivant utilise la fonction base64ToString pour convertir une valeur base64 :
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -276,22 +235,6 @@ Une chaîne de la valeur base64 convertie.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringData string = 'one, two, three'
-param jsonFormattedData string = '{\'one\': \'a\', \'two\': \'b\'}'
-
-var base64String = base64(stringData)
-var base64Object = base64(jsonFormattedData)
-
-output base64Output string = base64String
-output toStringOutput string = base64ToString(base64String)
-output toJsonOutput object = base64ToJson(base64Object)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -305,8 +248,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `concat (arg1, arg2, arg3, ...)`
 
 Combine plusieurs valeurs de chaîne et retourne la chaine concaténée, ou combine plusieurs tableaux et retourne le tableau concaténé.
-
-Pour simplifier la concaténation de chaînes, Bicep prend en charge une syntaxe d’[interpolation de chaîne](https://en.wikipedia.org/wiki/String_interpolation#).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -324,8 +265,6 @@ Chaîne ou tableau de valeurs concaténées.
 ### <a name="examples"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) suivant montre comment combiner deux valeurs de chaîne et retourner une chaîne concaténée.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -347,24 +286,6 @@ Chaîne ou tableau de valeurs concaténées.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param prefix string = 'prefix'
-
-output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id))
-```
-
-or
-
-```bicep
-param prefix string = 'prefix'
-
-output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -372,8 +293,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) suivant montre comment combiner deux tableaux.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -408,25 +327,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstArray array = [
-  '1-1'
-  '1-2'
-  '1-3'
-]
-param secondArray array = [
-  '2-1'
-  '2-2'
-  '2-3'
-]
-
-output return array = concat(firstArray, secondArray)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -453,8 +353,6 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 ### <a name="examples"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) suivant montre comment utiliser contains avec différents types :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -509,31 +407,6 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringToTest string = 'OneTwoThree'
-param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
-}
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output stringTrue bool = contains(stringToTest, 'e')
-output stringFalse bool = contains(stringToTest, 'z')
-output objectTrue bool = contains(objectToTest, 'one')
-output objectFalse bool = contains(objectToTest, 'a')
-output arrayTrue bool = contains(arrayToTest, 'three')
-output arrayFalse bool = contains(arrayToTest, 'four')
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -565,8 +438,6 @@ Une chaîne formatée en tant qu’URI de données.
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) suivant convertit une valeur en un URI de données et convertit un URI de données en chaîne :
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -594,18 +465,6 @@ Une chaîne formatée en tant qu’URI de données.
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringToTest string = 'Hello'
-param dataFormattedString string = 'data:;base64,SGVsbG8sIFdvcmxkIQ=='
-
-output dataUriOutput string = dataUri(stringToTest)
-output toStringOutput string = dataUriToString(dataFormattedString)
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -634,8 +493,6 @@ Chaîne contenant la valeur convertie.
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) suivant convertit une valeur en un URI de données et convertit un URI de données en chaîne :
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -664,18 +521,6 @@ Chaîne contenant la valeur convertie.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringToTest string = 'Hello'
-param dataFormattedString string = 'data:;base64,SGVsbG8sIFdvcmxkIQ=='
-
-output dataUriOutput string = dataUri(stringToTest)
-output toStringOutput string = dataUriToString(dataFormattedString)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -702,8 +547,6 @@ Retourne **True** si la valeur est vide ; sinon, **False**.
 ### <a name="examples"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) suivant vérifie si un tableau, un objet et une chaîne sont vides.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -742,20 +585,6 @@ Retourne **True** si la valeur est vide ; sinon, **False**.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testArray array = []
-param testObject object = {}
-param testString string = ''
-
-output arrayEmpty bool = empty(testArray)
-output objectEmpty bool = empty(testObject)
-output stringEmpty bool = empty(testString)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -784,8 +613,6 @@ Détermine si une chaîne se termine par une valeur. La comparaison respecte la 
 ### <a name="examples"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) suivant montre comment utiliser les fonctions startsWith et endsWith :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -821,19 +648,6 @@ Détermine si une chaîne se termine par une valeur. La comparaison respecte la 
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output startsTrue bool = startsWith('abcdef', 'ab')
-output startsCapTrue bool = startsWith('abcdef', 'A')
-output startsFalse bool = startsWith('abcdef', 'e')
-output endsTrue bool = endsWith('abcdef', 'ef')
-output endsCapTrue bool = endsWith('abcdef', 'F')
-output endsFalse bool = endsWith('abcdef', 'e')
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -865,8 +679,6 @@ Chaîne du premier caractère ou type (chaîne, entier, tableau ou objet) du pre
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) suivant montre comment utiliser la première fonction avec un tableau et une chaîne.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -891,21 +703,6 @@ Chaîne du premier caractère ou type (chaîne, entier, tableau ou objet) du pre
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output arrayOutput string = first(arrayToTest)
-output stringOutput string = first('One Two Three')
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -936,8 +733,6 @@ Utilisez cette fonction pour mettre en forme une chaîne dans votre modèle. Cet
 
 L’exemple de modèle suivant montre comment utiliser la fonction format.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -966,18 +761,6 @@ L’exemple de modèle suivant montre comment utiliser la fonction format.
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param greeting string = 'Hello'
-param name string = 'User'
-param numberToFormat int = 8175133
-
-output formatTest string = format('{0}, {1}. Formatted number: {2:N0}', greeting, name, numberToFormat)
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -1008,51 +791,21 @@ Les exemples suivants montrent comment utiliser guid pour créer une valeur uniq
 
 Unique limité à l’abonnement
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 "[guid(subscription().subscriptionId)]"
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-guid(subscription().subscriptionId)
-```
-
----
-
 Unique limité au groupe de ressources
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[guid(resourceGroup().id)]"
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-guid(resourceGroup().id)
-```
-
----
-
 Unique limité au déploiement pour un groupe de ressources
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[guid(resourceGroup().id, deployment().name)]"
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-guid(resourceGroup().id, deployment().name)
-```
-
----
 
 ### <a name="return-value"></a>Valeur retournée
 
@@ -1061,8 +814,6 @@ Chaîne contenant 36 caractères sous la forme d’un identificateur global uniq
 ### <a name="examples"></a>Exemples
 
 L’[exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json) suivant retourne les résultats à partir de guid :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1088,16 +839,6 @@ L’[exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/m
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output guidPerSubscription string = guid(subscription().subscriptionId)
-output guidPerResourceGroup string = guid(resourceGroup().id)
-output guidPerDeployment string = guid(resourceGroup().id, deployment().name)
-```
-
----
-
 ## <a name="indexof"></a>indexOf
 
 `indexOf(stringToSearch, stringToFind)`
@@ -1118,8 +859,6 @@ Entier qui représente la position de l’élément à rechercher. La valeur est
 ### <a name="examples"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) suivant montre comment utiliser les fonctions indexOf et lastIndexOf :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1150,18 +889,6 @@ Entier qui représente la position de l’élément à rechercher. La valeur est
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output firstT int = indexOf('test', 't')
-output lastT int = lastIndexOf('test', 't')
-output firstString int = indexOf('abcdef', 'CD')
-output lastString int = lastIndexOf('abcdef', 'AB')
-output notFound int = indexOf('abcdef', 'z')
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -1201,8 +928,6 @@ Chaîne du dernier caractère ou type (chaîne, entier, tableau ou objet) du der
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) suivant montre comment utiliser la dernière fonction avec un tableau et une chaîne.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1227,21 +952,6 @@ Chaîne du dernier caractère ou type (chaîne, entier, tableau ou objet) du der
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output arrayOutput string = last(arrayToTest)
-output stringOutput string = last('One Two Three')
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -1270,8 +980,6 @@ Entier qui représente la dernière position de l’élément à rechercher. La 
 ### <a name="examples"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) suivant montre comment utiliser les fonctions indexOf et lastIndexOf :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1303,18 +1011,6 @@ Entier qui représente la dernière position de l’élément à rechercher. La 
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output firstT int = indexOf('test', 't')
-output lastT int = lastIndexOf('test', 't')
-output firstString int = indexOf('abcdef', 'CD')
-output lastString int = lastIndexOf('abcdef', 'AB')
-output notFound int = indexOf('abcdef', 'z')
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -1344,8 +1040,6 @@ Un entier.
 ### <a name="examples"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) suivant montre comment utiliser length avec un tableau et une chaîne :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1395,32 +1089,6 @@ Un entier.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-param stringToTest string = 'One Two Three'
-param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
-    'propD-1': 'sub'
-    'propD-2': 'sub'
-  }
-}
-
-output arrayLength int = length(arrayToTest)
-output stringLength int = length(stringToTest)
-output objectLength int = length(objectToTest)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -1457,8 +1125,6 @@ Chaîne contenant 36 caractères sous la forme d’un identificateur global uniq
 
 L’exemple de modèle suivant montre un paramètre avec un nouvel identificateur.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1480,16 +1146,6 @@ L’exemple de modèle suivant montre un paramètre avec un nouvel identificateu
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param guidValue string = newGuid()
-
-output guidOutput string = guidValue
-```
-
----
-
 La sortie de l’exemple précédent varie pour chaque déploiement, mais elle sera semblable à celle-ci :
 
 | Nom | Type | Valeur |
@@ -1497,8 +1153,6 @@ La sortie de l’exemple précédent varie pour chaque déploiement, mais elle s
 | guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
 L’exemple suivant utilise la fonction newGuid pour créer un nom unique de compte de stockage. Ce modèle peut convenir dans un environnement de test où le compte de stockage est utilisé pendant une courte période et n’est pas redéployé.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1535,28 +1189,6 @@ L’exemple suivant utilise la fonction newGuid pour créer un nom unique de com
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param guidValue string = newGuid()
-
-var storageName = 'storage${uniqueString(guidValue)}'
-
-resource myStorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
-  name: storageName
-  location: 'West US'
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'StorageV2'
-  properties: {}
-}
-
-output nameOutput string = storageName
-```
-
----
-
 La sortie de l’exemple précédent varie pour chaque déploiement, mais elle sera semblable à celle-ci :
 
 | Nom | Type | Valeur |
@@ -1587,8 +1219,6 @@ Chaîne avec au moins le nombre de caractères spécifié.
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json) suivant montre comment remplir la valeur de paramètre fournie par l’utilisateur avec le caractère zéro jusqu’à atteindre le nombre total de caractères.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1608,16 +1238,6 @@ Chaîne avec au moins le nombre de caractères spécifié.
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testString string = '123'
-
-output stringOutput string = padLeft(testString, 10, '0')
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -1647,8 +1267,6 @@ Chaîne contenant les caractères remplacés.
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json) suivant montre comment supprimer tous les tirets de la chaîne fournie par l’utilisateur et comment remplacer une partie de la chaîne par une autre chaîne.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1672,17 +1290,6 @@ Chaîne contenant les caractères remplacés.
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testString string = '123-123-1234'
-
-output firstOutput string = replace(testString, '-', '')
-output secondOutput string = replace(testString, '1234', 'xxxx')
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -1711,8 +1318,6 @@ Tableau ou chaîne.
 ### <a name="examples"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) suivant ignore le nombre spécifié d’éléments dans le tableau et le nombre spécifié de caractères dans une chaîne.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1754,24 +1359,6 @@ Tableau ou chaîne.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testArray array = [
-  'one'
-  'two'
-  'three'
-]
-param elementsToSkip int = 2
-param testString string = 'one two three'
-param charactersToSkip int = 4
-
-output arrayOutput array = skip(testArray, elementsToSkip)
-output stringOutput string = skip(testString, charactersToSkip)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -1799,8 +1386,6 @@ Tableau de chaînes.
 ### <a name="examples"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json) suivant fractionne la chaîne d’entrée à l’aide d’une virgule et d’une virgule ou d’un point-virgule.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1833,23 +1418,6 @@ Tableau de chaînes.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstString string = 'one,two,three'
-param secondString string = 'one;two,three'
-
-var delimiters = [
-  ','
-  ';'
-]
-
-output firstOutput array = split(firstString, ',')
-output secondOutput array = split(secondString, delimiters)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -1877,8 +1445,6 @@ Détermine si une chaîne commence par une valeur. La comparaison respecte la ca
 ### <a name="examples"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) suivant montre comment utiliser les fonctions startsWith et endsWith :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1914,19 +1480,6 @@ Détermine si une chaîne commence par une valeur. La comparaison respecte la ca
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output startsTrue bool = startsWith('abcdef', 'ab')
-output startsCapTrue bool = startsWith('abcdef', 'A')
-output startsFalse bool = startsWith('abcdef', 'e')
-output endsTrue bool = endsWith('abcdef', 'ef')
-output endsCapTrue bool = endsWith('abcdef', 'F')
-output endsFalse bool = endsWith('abcdef', 'e')
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -1957,8 +1510,6 @@ Chaîne de la valeur convertie.
 ### <a name="examples"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json) suivant montre comment convertir différents types de valeurs en chaînes :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -2003,27 +1554,6 @@ Chaîne de la valeur convertie.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testObject object = {
-  'valueA': 10
-  'valueB': 'Example Text'
-}
-param testArray array = [
-  'a'
-  'b'
-  'c'
-]
-param testInt int = 5
-
-output objectOutput string = string(testObject)
-output arrayOutput string = string(testArray)
-output intOutput string = string(testInt)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -2054,8 +1584,6 @@ Sous-chaîne. Ou une chaîne vide si la longueur est égale à zéro.
 
 La fonction échoue lorsque la sous-chaîne s’étend au-delà de la fin de la chaîne ou lorsque la longueur est inférieure à zéro. L’exemple suivant échoue avec l’erreur « Les paramètres d’index et de longueur doivent correspondre à un emplacement au sein de la chaîne. Le paramètre d'index : '0', le paramètre de longueur : '11', le paramètre de longueur de la chaîne : '10' ».
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 "parameters": {
   "inputString": {
@@ -2067,21 +1595,9 @@ La fonction échoue lorsque la sous-chaîne s’étend au-delà de la fin de la 
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param inputString string = '1234567890'
-
-var prefix = substring(inputString, 0, 11)
-```
-
----
-
 ### <a name="examples"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json) suivant extrait une sous-chaîne à partir d’un paramètre.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -2102,15 +1618,6 @@ var prefix = substring(inputString, 0, 11)
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testString string = 'one two three'
-output substringOutput string = substring(testString, 4, 3)
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -2138,8 +1645,6 @@ Tableau ou chaîne.
 ### <a name="examples"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) suivant prend le nombre spécifié d’éléments du tableau, et les caractères d’une chaîne.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -2181,24 +1686,6 @@ Tableau ou chaîne.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testArray array = [
-  'one'
-  'two'
-  'three'
-]
-param elementsToTake int = 2
-param testString string = 'one two three'
-param charactersToTake int = 2
-
-output arrayOutput array = take(testArray, elementsToTake)
-output stringOutput string = take(testString, charactersToTake)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -2226,8 +1713,6 @@ Chaîne convertie en minuscules.
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) suivant convertit une valeur de paramètre en minuscules et en majuscules.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -2251,17 +1736,6 @@ Chaîne convertie en minuscules.
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testString string = 'One Two Three'
-
-output toLowerOutput string = toLower(testString)
-output toUpperOutput string = toUpper(testString)
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -2290,8 +1764,6 @@ Chaîne convertie en majuscules.
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) suivant convertit une valeur de paramètre en minuscules et en majuscules.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -2315,17 +1787,6 @@ Chaîne convertie en majuscules.
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testString string = 'One Two Three'
-
-output toLowerOutput string = toLower(testString)
-output toUpperOutput string = toUpper(testString)
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -2354,8 +1815,6 @@ Chaîne sans les premiers et derniers caractères d’espace.
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json) suivant supprime les espaces blancs du paramètre.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -2375,16 +1834,6 @@ Chaîne sans les premiers et derniers caractères d’espace.
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testString string = '    one two three   '
-
-output return string = trim(testString)
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -2413,59 +1862,27 @@ La valeur retournée n’est pas une chaîne aléatoire, mais le résultat d’u
 
 `tcvhiyu5h2o5o`
 
-Les exemples suivants montrent comment utiliser uniqueString afin de créer une valeur unique pour des niveaux couramment utilisés.
+Les exemples suivants montrent comment utiliser `uniqueString` pour créer une valeur unique pour des niveaux couramment utilisés.
 
 Unique limité à l’abonnement
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[uniqueString(subscription().subscriptionId)]"
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-uniqueString(subscription().subscriptionId)
-```
-
----
-
 Unique limité au groupe de ressources
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[uniqueString(resourceGroup().id)]"
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-uniqueString(resourceGroup().id)
-```
-
----
-
 Unique limité au déploiement pour un groupe de ressources
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-uniqueString(resourceGroup().id, deployment().name)
-```
-
----
-
 L'exemple suivant montre comment créer un nom unique pour un compte de stockage basé sur votre groupe de ressources. Dans le groupe de ressources, le nom n’est pas unique s’il est construit de la même façon.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "resources": [{
@@ -2474,18 +1891,7 @@ L'exemple suivant montre comment créer un nom unique pour un compte de stockage
   ...
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
-  name: 'storage${uniqueString(resourceGroup().id)}'
-  ...
-}
-```
-
----
-
-Si vous devez créer un nom unique chaque fois que vous déployez un modèle et que vous n’envisagez pas de mettre à jour la ressource, utilisez la fonction [utcNow](template-functions-date.md#utcnow) avec uniqueString. Vous pouvez utiliser cette approche dans un environnement de test. Pour obtenir un exemple, consultez [utcNow](template-functions-date.md#utcnow).
+Si vous devez créer un nom unique chaque fois que vous déployez un modèle et que vous n’envisagez pas de mettre à jour la ressource, utilisez la fonction [utcNow](template-functions-date.md#utcnow) avec `uniqueString`. Vous pouvez utiliser cette approche dans un environnement de test. Pour obtenir un exemple, consultez [utcNow](template-functions-date.md#utcnow).
 
 ### <a name="return-value"></a>Valeur retournée
 
@@ -2493,9 +1899,7 @@ Chaîne contenant 13 caractères.
 
 ### <a name="examples"></a>Exemples
 
-[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json) suivant retourne les résultats à partir d’uniquestring :
-
-# <a name="json"></a>[JSON](#tab/json)
+L’[exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json) suivant retourne les résultats à partir de `uniquestring` :
 
 ```json
 {
@@ -2515,15 +1919,6 @@ Chaîne contenant 13 caractères.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output uniqueRG string = uniqueString(resourceGroup().id)
-output uniqueDeploy string = uniqueString(resourceGroup().id, deployment().name)
-```
-
----
-
 ## <a name="uri"></a>URI
 
 `uri (baseUri, relativeUri)`
@@ -2534,14 +1929,14 @@ Crée un URI absolu en combinant le baseUri et la chaîne relativeUri.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |Oui |string |La chaîne d’URI de base. Veillez à observer le comportement relatif à la gestion de la barre oblique (« / ») finale, tel qu’il est décrit après ce tableau.  |
+| baseUri |Oui |string |La chaîne d’URI de base. Veillez à observer le comportement relatif à la gestion de la barre oblique (`/`) finale, tel qu’il est décrit après ce tableau.  |
 | relativeUri |Oui |string |La chaîne d’URI relatif à ajouter à la chaîne d’URI de base. |
 
 * Si **baseUri** se termine par une barre oblique finale, le résultat est simplement **baseUri** suivi de **relativeUri**.
 
 * Si **baseUri** ne se termine pas par une barre oblique finale, deux événements sont possibles.
 
-   * Si **baseUri** n’a aucune barre oblique (hormis « // » près du début), le résultat est simplement **baseUri** suivi de **relativeUri**.
+   * Si **baseUri** n’a aucune barre oblique (hormis `//` près du début), le résultat est simplement **baseUri** suivi de **relativeUri**.
 
    * Si **baseUri** comporte des barres obliques, mais ne se termine pas par une barre oblique, tout ce qui se trouve après la dernière barre oblique est supprimé de **baseUri** et le résultat est **baseUri** suivi de **relativeUri**.
 
@@ -2553,6 +1948,7 @@ uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstp
 uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
 uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
 ```
+
 Pour obtenir des détails complets, les paramètres **baseUri** et **relativeUri** sont résolus comme indiqué dans la [RFC 3986, section 5](https://tools.ietf.org/html/rfc3986#section-5).
 
 ### <a name="return-value"></a>Valeur retournée
@@ -2563,23 +1959,11 @@ Chaîne représentant l’URI absolu pour les valeurs de base et relative.
 
 L’exemple suivant montre comment créer un lien vers un modèle imbriqué en fonction de la valeur du modèle parent.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-templateLink: uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')
-```
-
----
-
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) suivant montre comment utiliser les paramètres uri, uriComponent et uriComponentToString :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -2607,19 +1991,6 @@ templateLink: uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-var uriFormat = uri('http://contoso.com/resources/', 'nested/azuredeploy.json')
-var uriEncoded = uriComponent(uriFormat)
-
-output uriOutput string = uriFormat
-output componentOutput string = uriEncoded
-output toStringOutput string = uriComponentToString(uriEncoded)
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -2649,8 +2020,6 @@ Chaîne de la valeur encodée de l’URI.
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) suivant montre comment utiliser les paramètres uri, uriComponent et uriComponentToString :
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -2677,19 +2046,6 @@ Chaîne de la valeur encodée de l’URI.
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-var uriFormat = uri('http://contoso.com/resources/', 'nested/azuredeploy.json')
-var uriEncoded = uriComponent(uriFormat)
-
-output uriOutput string = uriFormat
-output componentOutput string = uriEncoded
-output toStringOutput string = uriComponentToString(uriEncoded)
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -2719,8 +2075,6 @@ Chaîne décodée de la valeur encodée de l’URI.
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) suivant montre comment utiliser les paramètres uri, uriComponent et uriComponentToString :
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -2748,19 +2102,6 @@ Chaîne décodée de la valeur encodée de l’URI.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-var uriFormat = uri('http://contoso.com/resources/', 'nested/azuredeploy.json')
-var uriEncoded = uriComponent(uriFormat)
-
-output uriOutput string = uriFormat
-output componentOutput string = uriEncoded
-output toStringOutput string = uriComponentToString(uriEncoded)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -2771,7 +2112,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](./syntax.md).
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés et imbriqués lors du déploiement de ressources Azure](linked-templates.md).
 * Pour itérer un nombre spécifié lors de la création d’un type de ressource, consultez [Itération de ressource dans les modèles ARM](copy-resources.md).
 * Pour découvrir comment déployer le modèle que vous avez créé, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md).

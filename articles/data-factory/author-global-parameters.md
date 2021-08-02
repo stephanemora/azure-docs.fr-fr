@@ -5,13 +5,14 @@ ms.service: data-factory
 ms.topic: conceptual
 author: minhe-msft
 ms.author: hemin
-ms.date: 03/15/2021
-ms.openlocfilehash: 3598ede0cab3c001854d0ba46501692935397923
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 05/12/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b699b7929709fd9ae9e206d6a50291f02aca2a18
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905386"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110675240"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Paramètres globaux dans Azure Data Factory
 
@@ -46,17 +47,18 @@ Il existe deux façons d’intégrer des paramètres globaux dans votre solution
 * Inclure des paramètres globaux dans le modèle ARM
 * Déployer des paramètres globaux via un script PowerShell
 
-Pour la plupart des cas d’utilisation, il est recommandé d’inclure des paramètres globaux dans le modèle ARM. Celui-ci s’intègre en mode natif avec la solution décrite dans [la documentation CI/CD](continuous-integration-deployment.md). Les paramètres globaux seront ajoutés par défaut en tant que paramètres de modèle ARM, car ils changent souvent d’un environnement à l’autre. Vous pouvez activer l’inclusion de paramètres globaux dans le modèle ARM à partir du hub de **gestion**.
-
-> [!NOTE]
-> La configuration **Inclure le modèle ARM** est uniquement disponible en « mode Git ». Actuellement, elle est désactivée en mode « direct » ou en mode « Data Factory ». 
-
-> [!WARNING]
->Vous ne pouvez pas utiliser '-' dans le nom du paramètre. Vous recevrez un code d’erreur "{"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=The expression >'pipeline().globalParameters.myparam-dbtest-url' is not valid: .....}". Toutefois, vous pouvez utiliser le caractère « _ » dans le nom du paramètre.
+Pour les cas d’utilisation générale, il est recommandé d’inclure des paramètres globaux dans le modèle ARM. Cette intégration à la solution décrite dans [la documentation CI/CD](continuous-integration-deployment.md) se fait en mode natif. Dans le cas de la publication automatique et de la connexion Purview, une méthode de **script PowerShell** est nécessaire. Vous trouverez un complément d’informations sur la méthode de script PowerShell plus tard. Les paramètres globaux seront ajoutés par défaut en tant que paramètres de modèle ARM, car ils changent souvent d’un environnement à l’autre. Vous pouvez activer l’inclusion de paramètres globaux dans le modèle ARM à partir du hub de **gestion**.
 
 ![Inclure dans le modèle ARM](media/author-global-parameters/include-arm-template.png)
 
-L’ajout de paramètres globaux au modèle ARM a pour effet d’ajouter un paramètre de niveau fabrique qui peut remplacer d’autres paramètres de niveau fabrique tels qu’une clé gérée par le client ou une configuration Git dans d’autres environnements. Si ces paramètres sont activés dans un environnement avec privilèges élevés tel que UAT ou PROD, il est préférable de déployer des paramètres globaux via un script PowerShell dans les étapes décrites ci-dessous.
+> [!NOTE]
+> La configuration **Inclure le modèle ARM** est uniquement disponible en « mode Git ». Actuellement, elle est désactivée en mode « direct » ou en mode « Data Factory ». En cas de publication automatique ou de connexion Purview, n’utilisez pas la méthode d’inclusion des paramètres globaux, préférez la méthode de script PowerShell. 
+
+> [!WARNING]
+>Vous ne pouvez pas utiliser « - » dans le nom du paramètre. Vous recevrez un code d’erreur "{"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=The expression >'pipeline().globalParameters.myparam-dbtest-url' is not valid: .....}". Toutefois, vous pouvez utiliser le caractère « _ » dans le nom du paramètre. 
+
+L’ajout de paramètres globaux au modèle ARM a pour effet d’ajouter un paramètre de niveau fabrique qui peut remplacer d’autres paramètres de niveau fabrique tels qu’une clé gérée par le client ou une configuration Git dans d’autres environnements. Si ces paramètres sont activés dans un environnement avec privilèges élevés tel que UAT ou PROD, il est préférable de déployer des paramètres globaux via un script PowerShell dans les étapes décrites ci-dessous. 
+
 
 ### <a name="deploying-using-powershell"></a>Déploiement à l’aide de PowerShell
 

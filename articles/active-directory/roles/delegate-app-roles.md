@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9dcbb12f48a98a35013a80f986b67f75118d74c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2dd14da92eedc14a3da8e9eb0a29b08d96acd204
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060248"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790780"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Déléguer des autorisations d’inscription d’application dans Azure Active Directory
 
@@ -38,7 +38,7 @@ Par défaut, dans Azure AD, tous les utilisateurs peuvent inscrire des applicati
 
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>Pour désactiver la possibilité par défaut de créer des inscriptions d’applications ou de donner leur consentement aux applications
 
-1. Connectez-vous à votre organisation Azure AD avec un compte qui est éligible au rôle d’administrateur d’entreprise dans votre organisation Azure AD.
+1. Connectez-vous à votre organisation Azure AD avec un compte éligible au rôle d’administrateur d’entreprise dans votre organisation Azure AD.
 1. Définissez un ou plusieurs des paramètres suivants :
 
     - Sur la page [Paramètres utilisateur de votre organisation](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), définissez le paramètre **Les utilisateurs peuvent inscrire des applications** sur Non. Cela désactive la capacité par défaut pour les utilisateurs de créer des inscriptions d’applications.
@@ -46,7 +46,7 @@ Par défaut, dans Azure AD, tous les utilisateurs peuvent inscrire des applicati
 
 ### <a name="grant-individual-permissions-to-create-and-consent-to-applications-when-the-default-ability-is-disabled"></a>Accorder des autorisations individuelles pour créer des applications et donner leur consentement lorsque la capacité par défaut est désactivée
 
-Affectez le rôle Développeur d’applications pour accorder la possibilité de créer des inscriptions d'applications lorsque le paramètre **Les utilisateurs peuvent inscrire des applications** est défini sur Non. Ce rôle octroie aussi l’autorisation de donner son consentement en son propre nom lorsque le paramètre **Les utilisateurs peuvent autoriser les applications à accéder aux données de l’entreprise en leur nom** est défini sur Non. En guise de comportement du système, lorsqu’un utilisateur crée une nouvelle inscription d’application, il est automatiquement ajouté en tant que premier propriétaire. Les autorisations de propriété offrent à l’utilisateur la possibilité de gérer tous les aspects d’une inscription d’application ou d’une application d’entreprise qu’ils possèdent.
+Attribuez le rôle Développeur d’applications pour accorder la possibilité de créer des inscriptions d'applications lorsque le paramètre **Les utilisateurs peuvent inscrire des applications** est défini sur Non. Ce rôle octroie aussi l’autorisation de donner son consentement en son propre nom lorsque le paramètre **Les utilisateurs peuvent autoriser les applications à accéder aux données de l’entreprise en leur nom** est défini sur Non. En guise de comportement du système, lorsqu’un utilisateur crée une nouvelle inscription d’application, il est automatiquement ajouté en tant que premier propriétaire. Les autorisations de propriété offrent à l’utilisateur la possibilité de gérer tous les aspects d’une inscription d’application ou d’une application d’entreprise qu’ils possèdent.
 
 ## <a name="assign-application-owners"></a>Assigner les propriétaires de l’application
 
@@ -104,4 +104,4 @@ Pour plus d’informations sur les principes de base des rôles personnalisés, 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Autorisations et sous-types d’inscription d’application](custom-available-permissions.md)
-- [Informations de référence sur le rôle administrateur Azure AD](permissions-reference.md)
+- [Rôles intégrés Azure AD](permissions-reference.md)

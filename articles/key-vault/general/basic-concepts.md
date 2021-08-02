@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 863f98e643a7978856c03f5efe95736e6787f977
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: a8f0088077d5b7d0ec9fbc4336ee68a3459845b1
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814403"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411806"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Concepts de base d’Azure Key Vault
 
@@ -32,7 +32,7 @@ Voici d’autres termes importants :
 
 - **Responsable/Utilisateur du chiffrement du HSM managé** : rôles intégrés généralement attribués aux utilisateurs ou aux principaux de service effectuant des opérations de chiffrement à l’aide de clés dans le HSM managé. L’utilisateur du chiffrement peut créer des clés, mais il ne peut pas les supprimer.
 
-- **Chiffrement du service du HSM managé** : rôle intégré généralement attribué à une identité de service managé de comptes de service (compte de stockage, par exemple) pour le chiffrement des données au repos à l’aide d’une clé gérée par le client.
+- **Utilisateur du service de chiffrement du HSM managé** : rôle intégré généralement attribué à une identité de service managé de comptes de service (par exemple, compte de stockage) pour le chiffrement des données au repos à l’aide d’une clé gérée par le client.
 
 - **Ressource** : une ressource est un élément gérable disponible par le biais d’Azure. Il peut s’agir par exemple de machines virtuelles, de comptes de stockage, d’applications web, de bases de données et de réseaux virtuels. Mais il en existe bien d’autres encore.
 
@@ -53,6 +53,11 @@ Pour effectuer des opérations avec un coffre de clés, vous devez vous authenti
 - **Principal de service et certificat** : vous pouvez utiliser un principal de service et un certificat associé qui a accès à Key Vault. Nous ne recommandons pas cette approche, car le propriétaire de l’application ou son développeur doit régulièrement renouveler le certificat.
 - **Principal de service et secret** : bien que vous puissiez utiliser un principal de service et un secret pour vous authentifier auprès de Key Vault, cette option n’est pas recommandée. Il est difficile de renouveler automatiquement le secret de démarrage qui sert à l’authentification auprès de Key Vault.
 
+## <a name="encryption-of-data-in-transit"></a>Chiffrement des données en transit
+
+Azure Key Vault applique le protocole TLS ([Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security)) pour protéger les données en transit entre Azure Key Vault et des clients. Les clients négocient une connexion TLS avec Azure Key Vault. TLS fournit une authentification forte, la confidentialité et l’intégrité des messages (activation de la détection de falsification et d’interception des messages), l’interopérabilité, la flexibilité des algorithmes, ainsi que la facilité de déploiement et d’utilisation.
+
+[Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protège les connexions entre les systèmes clients des clients et les services cloud de Microsoft par des clés uniques. Les connexions utilisent également les longueurs de clés de chiffrement RSA de 2 048 bits. Cette combinaison rend difficile pour une personne l’interception et l’accès aux données en transit.
 
 ## <a name="key-vault-roles"></a>Rôles de Key Vault
 

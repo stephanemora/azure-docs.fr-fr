@@ -2,19 +2,19 @@
 title: 'Référence : Instance Ubuntu de Data Science Virtual Machine'
 titleSuffix: Azure Data Science Virtual Machine
 description: Détails sur les outils inclus dans Ubuntu Data Science Virtual Machine
-author: gvashishtha
+author: timoklimmer
 services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-python
-ms.author: gopalv
-ms.date: 09/11/2019
+ms.author: tklimmer
+ms.date: 05/12/2021
 ms.topic: reference
-ms.openlocfilehash: e9a55f72718d6ed5991f3d0f16323409bb0f699f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d2a960b2a924d06b7ecc2a2f613fdd5a5695071a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101661067"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076381"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Référence : Ubuntu (Linux) Data Science Virtual Machine
 
@@ -22,32 +22,9 @@ Consultez ci-dessous la liste des outils disponibles dans Ubuntu Data Science Vi
 
 ## <a name="deep-learning-libraries"></a>Bibliothèques d’apprentissage profond
 
-### <a name="cntk"></a>CNTK (Computational Network Toolkit de Microsoft Research)
+### <a name="pytorch"></a>PyTorch
 
-Microsoft Cognitive Toolkit est un kit de ressources d’apprentissage profond open source. Les liaisons Python sont disponibles dans les environnements Conda racine et py35. Il contient également un outil en ligne de commande (CNTK) qui se trouve déjà dans le chemin.
-
-Des exemples de bloc-notes Python sont disponibles dans JupyterHub. Pour lancer un exemple de base à partir de la ligne de commande, exécutez les commandes suivantes dans l’interpréteur de commandes :
-
-```bash
-cd /home/[USERNAME]/notebooks/CNTK/HelloWorld-LogisticRegression
-cntk configFile=lr_bs.cntk makeMode=false command=Train
-```
-
-Pour plus d’informations, consultez la section CNTK de [GitHub](https://github.com/Microsoft/CNTK) et du [wiki CNTK](https://github.com/Microsoft/CNTK/wiki).
-
-### <a name="caffe"></a>Caffe
-
-Caffe est une infrastructure d’apprentissage approfondi de Berkeley Vision et Learning Center. Il est disponible dans /opt/caffe. Vous trouverez des exemples sous /opt/caffe/examples.
-
-### <a name="caffe2"></a>Caffe2
-
-Caffe2 est un framework de formation approfondie de Facebook qui repose sur Caffe. Il est disponible en Python 2.7 dans l’environnement racine Conda. Pour l’activer, exécutez la commande suivante à partir de l’interpréteur de commandes :
-
-```bash
-source /anaconda/bin/activate root
-```
-
-Quelques exemples de bloc-notes sont disponibles dans JupyterHub.
+[PyTorch](https://pytorch.org/) est une infrastructure informatique scientifique populaire avec prise en charge étendue des algorithmes d’apprentissage automatique. Si votre ordinateur intègre un GPU, il peut utiliser ce GPU pour accélérer le deep learning. PyTorch est disponible dans l’environnement `py38_pytorch`.
 
 ### <a name="h2o"></a>H2O
 
@@ -55,148 +32,60 @@ H2O est une plateforme d’analyse prédictive et d’apprentissage automatique 
 
 Pour ouvrir H2O à partir de la ligne de commande, exécutez `java -jar /dsvm/tools/h2o/current/h2o.jar`. Vous pouvez configurer différentes [options de ligne de commande](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line). Pour commencer, vous pouvez accéder à l’interface utilisateur Flow Web, qui est accessible ici : `http://localhost:54321`. Des exemples de bloc-notes sont également disponibles dans JupyterHub.
 
-### <a name="keras"></a>Keras
-
-Keras est une API de réseau neuronal de haut niveau Python. Elle peut s’exécuter sur TensorFlow, Microsoft Cognitive Toolkit ou Theano. Elle est disponible dans les environnements Python racine et py35.
-
-### <a name="mxnet"></a>MXNet
-
-MXNet est une infrastructure d’apprentissage approfondi conçue pour offrir efficacité et flexibilité. Elle possède des liaisons R et Python incluses dans la machine virtuelle DSVM. Des exemples de bloc-notes sont inclus dans JupyterHub et un exemple de code est disponible dans /dsvm/samples/mxnet.
-
-### <a name="nvidia-digits"></a>NVIDIA DIGITS
-
-NVIDIA propose un système d’entraînement des GPU de type Deep Learning appelé DIGITS, qui permet de simplifier les tâches courantes d’apprentissage profond. Ces tâches incluent la gestion des données, la conception et l’entraînement des réseaux neuronaux sur des systèmes GPU et la supervision des performances en temps réel avec une visualisation avancée.
-
-DIGITS est disponible par le biais du service *digits*. Pour commencer, démarrez le service et accédez à `http://localhost:5000`.
-
-DIGITS est également installé en tant que module Python dans l’environnement Conda racine.
-
 ### <a name="tensorflow"></a>TensorFlow
 
-TensorFlow est la bibliothèque d’apprentissage approfondi de Google. C’est une bibliothèque de logiciels open source destinée aux calculs numériques à l’aide de graphes de flux de données. TensorFlow est disponible dans l’environnement Python py35, et certains exemples de bloc-notes sont inclus dans JupyterHub.
+[TensorFlow](https://tensorflow.org) est la bibliothèque d’apprentissage approfondi de Google. C’est une bibliothèque de logiciels open source destinée aux calculs numériques à l’aide de graphes de flux de données. Si votre ordinateur intègre un GPU, il peut utiliser ce GPU pour accélérer le deep learning. TensorFlow est disponible dans l’environnement conda `py38_tensorflow`.
 
-### <a name="theano"></a>Theano
-
-Theano est une bibliothèque Python destinée à des calculs numériques efficaces. Elle est disponible dans les environnements Python racine et py35. 
-
-### <a name="torch"></a>Torch
-
-Torch est une infrastructure informatique scientifique avec prise en charge étendue des algorithmes d’apprentissage automatique. Il est disponible dans /dsvm/tools/torch. La session interactive **th** et le gestionnaire de package LuaRocks sont disponibles sur la ligne de commande. Des exemples sont disponibles dans /dsvm/samples/torch.
-
-PyTorch est également disponible dans l’environnement Anaconda racine. Des exemples sont disponibles dans /dsvm/samples/pytorch.
-
-## <a name="microsoft-machine-learning-server"></a>Microsoft Machine Learning Server
-
-R est le langage le plus répandu pour l’analyse des données et l’apprentissage automatique. Si vous souhaitez utiliser R pour votre analytique, la machine virtuelle comprend Microsoft Machine Learning Server avec Microsoft R Open et Math Kernel Library. Math Kernel Library optimise les opérations mathématiques courantes dans des algorithmes d’analytique. Microsoft R Open est entièrement compatible avec CRAN-R et les bibliothèques R publiées dans CRAN peuvent être installées sur Microsoft R Open. 
-
-Machine Learning Server assure la mise à l’échelle et l’opérationnalisation des modèles R dans les services web. Vous pouvez modifier vos programmes R dans l’un des éditeurs par défaut, comme RStudio, vi ou Emacs. Si vous préférez utiliser l’éditeur Emacs, celui-ci a été préinstallé. Le package Emacs ESS (Emacs Speaks Statistics) simplifie l’utilisation des fichiers R dans l’éditeur Emacs.
-
-Pour ouvrir la console R, entrez **R** dans l’interpréteur de commandes. Cette commande vous permet d’accéder à un environnement interactif. Pour développer votre programme R, vous utilisez généralement un éditeur comme Emacs ou vi, puis exécutez les scripts dans R. Avec RStudio, vous disposez d’un environnement de développement graphique intégré et complet pour développer votre programme R.
-
-Il existe également un script R qui permet d’installer les [packages Top 20 R](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) si vous le souhaitez. Une fois dans l’interface interactive R, vous pouvez exécuter ce script. Comme mentionné précédemment, vous pouvez ouvrir cette interface en entrant **R** dans l’interpréteur de commandes.  
 
 ## <a name="python"></a>Python
 
-Anaconda Python est installé avec les environnements Python 2.7 et 3.5. L’environnement 2.7 est appelé _root_, et l’environnement 3.5 est appelé _py35_. Cette distribution contient le langage Python de base avec environ 300 packages de mathématiques, d’ingénierie et d’analyse de données figurant parmi les plus populaires.
+La DSVM comporte plusieurs environnements Python préinstallés, dans lesquels la version Python est Python 3.8 ou Python 3.6.
+Pour afficher la liste complète des environnements installés, exécutez `conda env list` dans une ligne de commande.
 
-L’environnement py35 est l’environnement par défaut. Pour activer l’environnement root (2.7), exécutez la commande suivante :
 
-```bash
-source activate root
-```
+## <a name="jupyter"></a>Jupyter
 
-Pour réactiver l’environnement racine py35, exécutez la commande suivante :
+La DSVM est également livrée avec Jupyter, un environnement permettant de partager du code et des analyses. Jupyter est installé dans da DSVM dans différentes versions :
+ - Jupyter Lab
+ - Jupyter Notebook
+ - Jupyter Hub
 
-```bash
-source activate py35
-```
+Pour ouvrir Jupyter Lab, ouvrez Jupyter à partir du menu de l’application, ou cliquez sur l’icône du bureau. Vous pouvez également ouvrir Jupyter Lab en exécutant `jupyter lab` dans une ligne de commande.
 
-Pour appeler la session interactive Python, entrez **python** dans l’interpréteur de commandes. 
+Pour ouvrir Jupyter Notebook, ouvrez une ligne de commande et exécutez `jupyter notebook`.
 
-Utilisez Conda ou pip pour installer des bibliothèques Python supplémentaires. Pour pip, activez d’abord l’environnement approprié si vous ne voulez pas utiliser l’environnement par défaut :
-
-```bash
-source activate root
-pip install <package>
-```
-
-Vous pouvez également spécifier le chemin complet de pip :
-
-```bash
-/anaconda/bin/pip install <package>
-```
-
-Pour Conda, vous devez toujours spécifier le nom de l’environnement (py35 ou root) :
-
-```bash
-conda install <package> -n py35
-```
-
-Si vous travaillez sur une interface graphique ou si le transfert X11 est configuré, vous pouvez entrer **pycharm** pour ouvrir l’IDE Python PyCharm. Vous pouvez utiliser les éditeurs de texte par défaut. En outre, vous pouvez utiliser Spyder, un IDE Python fourni avec les distributions Anaconda Python. Spyder requiert un bureau graphique ou le transfert X11. L’environnement de bureau graphique fournit un raccourci vers Spyder.
-
-## <a name="jupyter-notebook"></a>Jupyter Notebook
-
-La distribution Anaconda est également fournie avec un serveur Jupyter Notebook, un environnement conçu pour le partage de code et d’analyses. Le serveur Jupyter Notebook est accessible via JupyterHub. Vous vous connectez en utilisant votre nom d’utilisateur Linux local et votre mot de passe.
-
-Le serveur Jupyter Notebook a été préconfiguré avec Python 2, Python 3 et les noyaux R. Utilisez l’icône de bureau **Jupyter Notebook** pour ouvrir le navigateur et accéder au serveur de notebooks. Si vous vous trouvez sur la machine virtuelle par le biais du client SSH ou X2Go, vous pouvez également accéder au serveur Jupyter Notebook à l’adresse `https://localhost:8000/`.
+Pour ouvrir Jupyter Hub, accédez à **https://\<VM DNS name or IP address\>:8000/** . Vous êtes ensuite invité à entrer votre nom d’utilisateur Linux et votre mot de passe.
 
 > [!NOTE]
 > Si vous recevez des avertissements relatifs au certificat, vous pouvez les ignorer.
 
-Vous pouvez accéder au serveur Jupyter Notebook à partir de n’importe quel hôte. Entrez **https://\<VM DNS name or IP address\>: 8000/** .
-
 > [!NOTE]
-> Le port 8000 est ouvert par défaut dans le pare-feu lorsque la machine virtuelle est configurée. 
+> Pour les images Ubuntu, le port 8000 est ouvert par défaut dans le pare-feu lorsque la machine virtuelle est configurée.
 
-Nous avons inclus deux exemples de notebooks : l’un en Python et l’autre en R. Une fois que vous vous serez authentifié auprès du serveur Jupyter Notebook avec votre nom d’utilisateur Linux local et votre mot de passe, vous verrez le lien vers les exemples dans la page d’accueil du notebook. Vous pouvez créer un notebook en sélectionnant **Nouveau**, puis en sélectionnant le noyau avec le langage approprié. Si vous ne voyez pas le bouton **Nouveau**, sélectionnez l’icône **Jupyter** en haut à gauche pour accéder à la page d’accueil du serveur de notebook.
 
 ## <a name="apache-spark-standalone"></a>Instance autonome d’Apache Spark
 
 Une instance autonome d’Apache Spark est préinstallée sur la machine DSVM Linux pour vous aider à développer des applications Spark localement avant de procéder aux tests et aux déploiements sur des clusters de grande taille. 
 
-Vous pouvez exécuter des programmes PySpark via le noyau Jupyter. Lorsque vous ouvrez Jupyter, sélectionnez le bouton **Nouveau** pour afficher la liste des noyaux disponibles. **Spark – Python** est le noyau PySpark qui vous permet de créer des applications Spark à l’aide du langage Python. Vous pouvez également utiliser un IDE Python comme PyCharm ou Spyder pour créer votre programme Spark. 
+Vous pouvez exécuter des programmes PySpark via le noyau Jupyter. Lorsque vous ouvrez Jupyter, sélectionnez le bouton **Nouveau** pour afficher la liste des noyaux disponibles. **Spark – Python** est le noyau PySpark qui vous permet de créer des applications Spark à l’aide du langage Python. Vous pouvez également utiliser un IDE Python comme VS.Code ou PyCharm pour créer votre programme Spark. 
 
 Dans cette instance autonome, la pile Spark s’exécute dans le programme client appelant. Il est ainsi plus rapide et plus facile de résoudre les problèmes que dans le cadre d’un développement sur un cluster Spark.
 
-Jupyter fournit un exemple de notebook PySpark. Il se trouve dans le répertoire SparkML, sous le répertoire de base de Jupyter ($HOME/notebooks/SparkML/pySpark). 
-
-Si vous programmez en R pour Spark, vous pouvez utiliser Microsoft Machine Learning Server, SparkR ou sparklyr. 
-
-Avant toute exécution dans un contexte Spark dans Microsoft Machine Learning Server, vous devez effectuer une opération de configuration unique pour activer une instance Yarn et HDFS Hadoop à nœud unique locale. Par défaut, les services Hadoop sont installés mais désactivés sur la DSVM. Pour les activer, vous devez exécuter les commandes suivantes en tant que racine la première fois :
-
-```bash
-echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
-cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
-chmod 0600 ~hadoop/.ssh/authorized_keys
-chown hadoop:hadoop ~hadoop/.ssh/id_rsa
-chown hadoop:hadoop ~hadoop/.ssh/id_rsa.pub
-chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
-systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
-```
-
-Vous pouvez arrêter les services liés à Hadoop lorsque vous n’en avez pas besoin en exécutant ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```.
-
-Le répertoire/dsvm/samples/MRS fournit un exemple qui montre comment développer et tester Microsoft Machine Learning Server dans un contexte Spark distant (l’instance Spark autonome sur la machine DSVM).
 
 ## <a name="ides-and-editors"></a>IDE et éditeurs
 
-Vous avez le choix entre plusieurs éditeurs de code, notamment vi/Vim, Emacs, PyCharm, RStudio et IntelliJ. 
+Vous avez le choix entre plusieurs éditeurs de code, notamment VS.Code, PyCharm, RStudio, IntelliJ, vi/Vim, Emacs. 
 
-PyCharm, RStudio et IntelliJ sont des éditeurs graphiques. Pour les utiliser, vous devez être connecté à un environnement de bureau graphique. Utilisez les raccourcis du menu de l’application et du bureau pour les ouvrir.
+VS.Code, PyCharm, RStudio et IntelliJ sont des éditeurs graphiques. Pour les utiliser, vous devez être connecté à un environnement de bureau graphique. Utilisez les raccourcis du menu de l’application et du bureau pour les ouvrir.
 
 Vim et Emacs sont des éditeurs de texte. Sur Emacs, le package du module complémentaire ESS facilite l’utilisation du langage R dans l’éditeur Emacs. Pour plus d’informations, consultez le [site web d’ESS](https://ess.r-project.org/).
 
-LaTeX est installé via le package texlive, en même temps qu’un package de module complémentaire Emacs appelé [AUCTeX](https://www.gnu.org/software/auctex/manual/auctex/auctex.html). Ce package simplifie la création de vos documents LaTeX dans Emacs.  
 
 ## <a name="databases"></a>Bases de données
 
 ### <a name="graphical-sql-client"></a>Client SQL graphique
 
-Le client SQL graphique SQuirrel SQL peut se connecter à différentes bases de données (comme Microsoft SQL Server et MySQL) et exécuter des requêtes SQL. Vous pouvez exécuter SQuirrel SQL dans une session d’environnement de bureau graphique (dans un client X2Go, par exemple) à l’aide d’une icône de bureau. Vous pouvez également exécuter le client à l’aide de la commande suivante dans l’interpréteur de commandes :
-
-```bash
-/usr/local/squirrel-sql-3.7/squirrel-sql.sh
-```
+Le client SQL graphique SQuirrel SQL peut se connecter à différentes bases de données (comme Microsoft SQL Server et MySQL) et exécuter des requêtes SQL. La façon la plus rapide d’ouvrir SQuirrel SQL consiste à utiliser le menu de l’application à partir d’une session de bureau graphique (par exemple, via le client X2Go)
 
 Avant la première utilisation, configurez vos pilotes et alias de bases de données. Les pilotes JDBC se trouvent sous /usr/share/Java/jdbcdrivers.
 
@@ -208,7 +97,7 @@ Le package de pilotes ODBC pour SQL Server est également fourni avec deux outil
 
 - **bcp** : cet outil copie les données en bloc entre une instance de Microsoft SQL Server et un fichier de données dans un format spécifié par l’utilisateur. Vous pouvez utiliser l’utilitaire bcp pour importer un grand nombre de nouvelles lignes dans des tables SQL Server, ou pour exporter des données hors des tables sous forme de fichiers de données. Pour importer des données dans une table, vous devez utiliser un fichier de format créé pour cette table. Sinon, vous devez comprendre la structure de la table et les types de données qui sont valides pour ses colonnes.
 
-  Pour plus d’informations, consultez [Connexion avec bcp](/sql/connect/odbc/linux-mac/connecting-with-bcp).
+Pour plus d’informations, consultez [Connexion avec bcp](/sql/connect/odbc/linux-mac/connecting-with-bcp).
 
 - **sqlcmd** : Vous pouvez entrer des instructions Transact-SQL à l’aide de l’outil sqlcmd. Vous pouvez également entrer des procédures système et des fichiers de script à l’invite de commandes. Cet outil utilise ODBC pour exécuter des lots Transact-SQL.
 
@@ -235,8 +124,6 @@ Les outils Azure suivants sont installés sur la machine virtuelle :
   * **Python** : les bibliothèques Azure Python sont *azure*, *azureml*, *pydocumentdb* et *pyodbc*. Avec les trois premières bibliothèques, vous pouvez accéder aux services de stockage Azure, à Azure Machine Learning et à Azure Cosmos DB (base de données NoSQL sur Azure). La quatrième bibliothèque, pyodbc (avec le pilote Microsoft ODBC pour SQL Server), permet l’accès à SQL Server, Azure SQL Database et Azure Synapse Analytics à partir de Python à l’aide d’une interface ODBC. Entrez **pip list** pour voir la liste de toutes les bibliothèques. Veillez à exécuter cette commande dans les environnements Python 2.7 et 3.5.
   * **R** : les bibliothèques Azure R sont AzureML et RODBC.
   * **Java** : la liste des bibliothèques Java Azure est disponible dans le répertoire /dsvm/sdk/AzureSDKJava de la machine virtuelle. Les bibliothèques principales sont les API de gestion et de stockage Azure, Azure Cosmos DB et les pilotes JDBC pour SQL Server.  
-
-Vous pouvez accéder au [portail Azure](https://portal.azure.com) à partir du navigateur Firefox préinstallé. Sur le Portail Azure, vous pouvez créer, gérer et surveiller les ressources Azure.
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 

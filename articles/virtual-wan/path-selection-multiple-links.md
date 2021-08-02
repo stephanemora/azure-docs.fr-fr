@@ -1,19 +1,19 @@
 ---
 title: Sélection du chemin Azure entre plusieurs liens ISP
 titleSuffix: Azure Virtual WAN
-description: Dans cet article, découvrez comment Azure Virtual WAN peut inclure des informations sur les liens pour diriger le trafic entre différents liens à l’aide de la sélection du chemin Azure.
+description: Découvrez comment Azure Virtual WAN peut inclure des informations sur les liens afin de diriger le trafic entre différents liens à l’aide de la sélection de chemin d’accès Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: a2de840d07a99ed7c135b75ef24144da642654bb
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 9938f9da91f42c8f22b1abca5f85b332321dc486
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166196"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579084"
 ---
 # <a name="azure-path-selection-across-multiple-isp-links"></a>Sélection du chemin Azure entre plusieurs liens ISP
 

@@ -5,12 +5,12 @@ description: Découvrez comment installer et configurer un contrôleur d’entr�
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: e26d119f82482f4ff21c89240564b2dd1a7a014c
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.openlocfilehash: ed5d93f3667a08137e414681988d3871b6c01d9e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108007409"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452393"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée pour un réseau virtuel interne dans Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Vous pouvez également :
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article utilise [Helm 3][helm] pour installer le contrôleur d’entrée NGINX. Assurez-vous que vous utilisez la version la plus récente de Helm et que vous avez accès au référentiel Helm *ingress-nginx*. Pour plus d’informations sur la configuration et l’utilisation de Helm, consultez [Installer des applications avec Helm dans Azure Kubernetes Service (AKS)][use-helm].
+Cet article utilise [Helm 3][helm] pour installer le contrôleur d’entrée Nginx sur une [version prise en charge de Kubernetes][aks-supported versions]. Assurez-vous que vous utilisez la version la plus récente de Helm et que vous avez accès au référentiel Helm *ingress-nginx*. Les étapes décrites dans cet article peuvent ne pas être compatibles avec les versions précédentes du Helm Chart, NGINX Ingres Controller ou Kubernetes. Pour plus d’informations sur la configuration et l’utilisation de Helm, consultez [Installer des applications avec Helm dans Azure Kubernetes Service (AKS)][use-helm].
 
 Pour les besoins de cet article, vous devez également exécuter Azure CLI version 2.0.64 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
@@ -374,3 +374,4 @@ Vous pouvez également :
 [client-source-ip]: concepts-network.md#ingress-controllers
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [aks-configure-advanced-networking]: configure-azure-cni.md
+[aks-supported versions]: supported-kubernetes-versions.md

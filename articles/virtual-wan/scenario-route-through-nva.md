@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 90b1df8af4cf9f65cb04cc9418d7e8f97f9c3e49
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: c8c4e516b297bb5d4466910bff83859288e0ec89
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108162830"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110575388"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scénario : Router le trafic via une NVA
 
@@ -46,7 +46,7 @@ La matrice de connectivité suivante résume les flux pris en charge dans ce sc�
 | **Réseaux virtuels non-NVA**| &#8594; | Sur le réseau virtuel NVA | Direct | Direct | Direct |
 | **Branches**     | &#8594; | Sur le réseau virtuel NVA | Direct | Direct | Direct |
 
-Chacune des cellules de la matrice de connectivité indique comment un réseau virtuel ou une branche (côté « De » du flux, les en-têtes de lignes dans la table) communique avec u réseau virtuel ou une branche de destination (côté « À » du flux, en-têtes de colonne en italique dans la table). « Direct » signifie que la connectivité est fournie en mode natif par Virtual WAN, « Appairage » signifie que la connectivité est assurée par un itinéraire défini par l’utilisateur dans le réseau virtuel, « Sur le réseau virtuel NVA » signifie que la connectivité traverse les appliance virtuelle réseau (NVA) déployées dans le réseau virtuel NVA. Tenez compte des éléments suivants :
+Chacune des cellules de la matrice de connectivité indique comment un réseau virtuel ou une branche (côté « De » du flux, les en-têtes de lignes dans la table) communique avec u réseau virtuel ou une branche de destination (côté « À » du flux, en-têtes de colonne en italique dans la table). « Direct » signifie que la connectivité est fournie en mode natif par Virtual WAN, « Peering » qu’elle est assurée par un itinéraire défini par l’utilisateur dans le réseau virtuel et « Sur le réseau virtuel NVA » qu’elle traverse l’appliance virtuelle réseau déployée dans le réseau virtuel NVA. Tenez compte des éléments suivants :
 
 * Les spokes NVA ne sont pas gérés par Virtual WAN. Par conséquent, les mécanismes avec lesquels ils communiquent avec d’autres réseaux virtuels ou branches sont gérés par l’utilisateur. La connectivité au réseau virtuel NVA est assurée par un appairage de réseaux virtuels, et un itinéraire par défaut vers 0.0.0.0/0 pointant vers la NVA en tant que tronçon suivant doit couvrir la connectivité à Internet, à d’autres spokes et à des branches
 * Les réseaux virtuels NVA connaîtront leurs propres spokes NVA, mais pas les spokes NVA connectés à d’autres réseaux virtuels NVA. Par exemple, dans la Figure 2 plus loin dans cet article, VNet 2 connaît VNet 5 et VNet 6, mais pas les autres spokes comme VNet 7 et VNet 8. Un itinéraire statique est requis pour injecter les préfixes d’autres spokes dans des réseaux virtuels NVA

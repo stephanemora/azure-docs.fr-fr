@@ -4,12 +4,12 @@ description: Découvrez comment monter un système de fichiers virtuel sur un po
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 03/26/2021
-ms.openlocfilehash: dcd56a12d8728b83cdcb7cea4c16c4aedd4251a7
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 460501e30b5afd2eb7a1f67b1162b9820830454a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105746"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968149"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monter un système de fichiers virtuel sur un pool Batch
 
@@ -76,7 +76,7 @@ new PoolAddParameter
 }
 ```
 
-### <a name="azure-blob-file-system"></a>Système de fichiers blob Azure
+### <a name="azure-blob-container"></a>Conteneur de blobs Azure
 
 Une autre option consiste à utiliser le stockage d'objets blob Azure via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Le montage d’un système de fichiers blob nécessite une `AccountKey` ou `SasKey` pour votre compte de stockage. Pour plus d’informations sur l’obtention de ces clés, consultez [Gérer les clés d’accès du compte de stockage](../storage/common/storage-account-keys-manage.md) ou [Accorder un accès limité aux ressources de stockage Azure à l’aide de signatures d’accès partagé (SAP)](../storage/common/storage-sas-overview.md). Pour plus d’informations et des conseils sur l’utilisation de blobfuse, consultez le blobfuse .
 
@@ -97,7 +97,7 @@ new PoolAddParameter
                 AccountName = "StorageAccountName",
                 ContainerName = "containerName",
                 AccountKey = "StorageAccountKey",
-                SasKey = "",
+                SasKey = "SasKey",
                 RelativeMountPath = "RelativeMountPath",
                 BlobfuseOptions = "-o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 "
             },
@@ -108,7 +108,7 @@ new PoolAddParameter
 
 ### <a name="network-file-system"></a>Système de gestion de fichiers en réseau
 
-Les systèmes de fichiers réseau (NFS) peuvent être montés sur des nœuds de pool, ce qui permet à Azure Batch d’accéder facilement aux systèmes de fichiers traditionnels. Il peut s’agir d’un serveur NFS unique déployé dans le cloud ou d’un serveur NFS local accessible via un réseau virtuel. Vous pouvez également utiliser la solution de cache en mémoire distribuée [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) pour les tâches de calcul intensif de données (HPC)
+Les systèmes de fichiers réseau (NFS) peuvent être montés sur des nœuds de pool, ce qui permet à Azure Batch d’accéder facilement aux systèmes de fichiers traditionnels. Il peut s’agir d’un serveur NFS unique déployé dans le cloud ou d’un serveur NFS local accessible via un réseau virtuel. Les montages NFS prennent en charge la solution de cache distribuée en mémoire [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) pour les tâches de calcul haute performance (HPC) intensif des données, ainsi que d’autres interfaces standard compatibles NFS, telles que [NFS pour les objets Blob Azure](../storage/blobs/network-file-system-protocol-support.md) et [NFS pour Azure Files](../storage/files/storage-files-how-to-mount-nfs-shares.md).
 
 ```csharp
 new PoolAddParameter
@@ -122,7 +122,7 @@ new PoolAddParameter
             {
                 Source = "source",
                 RelativeMountPath = "RelativeMountPath",
-                MountOptions = "options ver=1.0"
+                MountOptions = "options ver=3.0"
             },
         }
     }
@@ -131,7 +131,7 @@ new PoolAddParameter
 
 ### <a name="common-internet-file-system"></a>Common Internet File System
 
-Le montage de [CIFS (Common Internet File System)](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) sur des nœuds de pool est un autre moyen de fournir l’accès aux systèmes de fichiers traditionnels. CIFS est un protocole de partage de fichiers qui fournit un mécanisme ouvert et multiplateforme pour la demande de fichiers et de services de serveur réseau. CIFS est basé sur la version améliorée du protocole [SMB (Server Message Block)](/windows-server/storage/file-server/file-server-smb-overview) pour le partage de fichiers intranet et Internet, et peut être utilisé pour monter des systèmes de fichiers externes sur des nœuds Windows.
+Le montage de [CIFS (Common Internet File System)](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) sur des nœuds de pool est un autre moyen de fournir l’accès aux systèmes de fichiers traditionnels. CIFS est un protocole de partage de fichiers qui fournit un mécanisme ouvert et multiplateforme pour la demande de fichiers et de services de serveur réseau. CIFS est basé sur la version améliorée du protocole [SMB (Server Message Block)](/windows-server/storage/file-server/file-server-smb-overview) pour le partage de fichiers intranet et Internet.
 
 ```csharp
 new PoolAddParameter
@@ -160,36 +160,28 @@ Si une configuration de montage échoue, le nœud de calcul dans le pool échoue
 
 Pour obtenir les fichiers journaux de débogage, utilisez [OutputFiles](batch-task-output-files.md) pour télécharger les fichiers `*.log`. Les fichiers `*.log` contiennent des informations sur le montage du système de fichiers à l’emplacement `AZ_BATCH_NODE_MOUNTS_DIR`. Les fichiers journaux de montage ont le format : `<type>-<mountDirOrDrive>.log` pour chaque montage. Par exemple, un montage `cifs` dans un répertoire de montage nommé `test` aura un fichier journal de montage nommé `cifs-test.log`.
 
-## <a name="supported-skus"></a>Références prises en charge
+## <a name="support-matrix"></a>Tableau de prise en charge
 
-| Serveur de publication | Offre | SKU | Partage Azure Files | Blobfuse | Montage NFS | Montage CIFS |
-|---|---|---|---|---|---|---|
-| lot | rendering-centos73 | rendu | :heavy_check_mark: <br>Remarque : Compatible avec CentOS 7.7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Canonical | UbuntuServer | 16.04-LTS, 18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Credativ | Debian | 8| :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| Credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Remarque : Compatible avec CentOS 7.4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | centos-container | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | centos-container-rdma | 7.4 | :heavy_check_mark: <br>Remarque : Prend en charge le stockage A_8 ou 9</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | ubuntu-server-container | 16.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| OpenLogic | CentOS | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| OpenLogic | CentOS-HPC | 7.4, 7.3, 7.1 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Oracle | Oracle-Linux | 7.6 | :x: | :x: | :x: | :x: |
-| Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | :x: | :x: | :x: |
+Azure Batch prend en charge les types de systèmes de fichiers virtuels suivants pour les agents de nœud produits pour leur éditeur et offre respectifs.
+
+| Type de système d'exploitation | Partage Azure Files | Conteneur de blobs Azure | Montage NFS | Montage CIFS |
+|---|---|---|---|---|
+| Linux | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Windows | :heavy_check_mark: | :x: | :x: | :x: |
 
 ## <a name="networking-requirements"></a>Configuration requise du réseau
 
 Lorsque vous utilisez des montages de fichiers virtuels avec des [pools Azure batch dans un réseau virtuel](batch-virtual-network.md), gardez à l’esprit les exigences suivantes et assurez-vous qu’aucun trafic requis n’est bloqué.
 
-- **Azure Files** :
+- **Partages de fichiers Azure** :
   - Requiert l’ouverture du port TCP 445 pour le trafic vers/à partir de l’étiquette de service « stockage ». Pour plus d’informations, consultez [Utiliser un partage de fichiers Azure avec Windows](../storage/files/storage-how-to-use-files-windows.md#prerequisites).
-- **BlobFuse** :
+- **Conteneurs d’objets Blob Azure** :
   - Requiert l’ouverture du port TCP 443 pour le trafic vers/à partir de l’étiquette de service « stockage ».
   - Les machines virtuelles doivent avoir accès à https://packages.microsoft.com pour télécharger les packages blobfuse et gpg. Selon votre configuration, vous pouvez également avoir besoin d’accéder à d’autres URL pour télécharger des packages supplémentaires.
 - **NFS (Network File System)**  :
   - Nécessite l’accès au port 2049 (par défaut, votre configuration peut avoir d’autres exigences).
   - Les machines virtuelles doivent avoir accès au gestionnaire de package approprié pour télécharger le package nfs-common (pour Debian ou Ubuntu) ou nfs-utils (pour CentOS). Cette URL peut varier en fonction de la version de votre système d’exploitation. Selon votre configuration, vous pouvez également avoir besoin d’accéder à d’autres URL pour télécharger des packages supplémentaires.
+  - Le montage d’objets Blob Azure ou d’Azure Files via NFS peut nécessiter des exigences de mise en réseau supplémentaires, telles que des nœuds de calcul partageant le même sous-réseau désigné d’un réseau virtuel que le compte de stockage.
 - **CIFS (Common Internet File System)**  :
   - Nécessite l’accès au port TCP 445.
   - Les machines virtuelles doivent avoir accès au ou aux gestionnaires de package appropriés pour télécharger le package cifs-utils. Cette URL peut varier en fonction de la version de votre système d’exploitation.

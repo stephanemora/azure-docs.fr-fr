@@ -3,16 +3,16 @@ title: Exempter une recommandation Azure Security Center d’une ressource, d’
 description: Découvrez comment créer des règles pour exempter les recommandations de sécurité des abonnements ou des groupes d’administration et les empêcher d’avoir un impact sur votre score sécurisé
 author: memildin
 ms.author: memildin
-ms.date: 04/21/2021
+ms.date: 05/12/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: f125b94725ba9d34aa0962ed38b16fb474dc5b2b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 01be1037b38e2991a2266c37dfd3ca026ca874ff
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140242"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846421"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Exempter une ressource des recommandations et du degré de sécurisation 
 
@@ -175,6 +175,9 @@ Pour en savoir plus, consultez les pages suivantes :
 
 ## <a name="faq---exemption-rules"></a>FAQ - Règles d’exemption
 
+- [Que se passe-t-il quand une recommandation figure dans plusieurs initiatives de stratégie ?](#what-happens-when-one-recommendation-is-in-multiple-policy-initiatives)
+- [Existe-t-il des recommandations qui ne prennent pas en charge l’exemption ?](#are-there-any-recommendations-that-dont-support-exemption)
+
 ### <a name="what-happens-when-one-recommendation-is-in-multiple-policy-initiatives"></a>Que se passe-t-il quand une recommandation figure dans plusieurs initiatives de stratégie ?
 
 Parfois, une recommandation de sécurité apparaît dans plusieurs initiatives de stratégie. Si vous disposez de plusieurs instances de la même recommandation affectées au même abonnement et que vous créez une exemption pour la recommandation, cela affecte toutes les initiatives que vous êtes autorisé à modifier. 
@@ -190,6 +193,24 @@ Si vous essayez de créer une exemption pour cette recommandation, vous verrez l
 - Si vous ne disposez pas des autorisations suffisantes pour les deux initiatives, vous verrez ce message à la place :
 
     *Vous avez des autorisations limitées pour appliquer l’exemption à toutes les initiatives de stratégie, les exemptions sont créées uniquement sur les initiatives avec des autorisations suffisantes.*
+
+### <a name="are-there-any-recommendations-that-dont-support-exemption"></a>Existe-t-il des recommandations qui ne prennent pas en charge l’exemption ?
+
+Ces recommandations ne prennent pas en charge l’exemption :
+
+- Les limites de mémoire et du processeur du conteneur doivent être appliquées
+- Les conteneurs privilégiés doivent être évités
+- Les images conteneur doivent être déployées à partir de registres approuvés uniquement
+- Les conteneurs doivent écouter uniquement sur les ports autorisés
+- Les services doivent écouter uniquement sur les ports autorisés
+- Les fonctionnalités Linux à privilèges minimum doivent être appliquées pour le conteneur
+- Le système de fichiers racine immuable (en lecture seule) doit être appliqué pour les conteneurs
+- Tout conteneur avec une élévation des privilèges doit être évité
+- L’exécution des conteneurs en tant qu’utilisateur racine doit être évitée
+- L’utilisation du réseau hôte et des ports doit être limitée
+- Éviter les conteneurs partageant des espaces de noms d’hôte sensibles
+- L’utilisation de montages de volume HostPath de pod doit être limitée à une liste connue pour restreindre l’accès aux nœuds à partir de conteneurs compromis
+- Le remplacement ou la désactivation du profil AppArmor des conteneurs doit être limité
 
 
 ## <a name="next-steps"></a>Étapes suivantes

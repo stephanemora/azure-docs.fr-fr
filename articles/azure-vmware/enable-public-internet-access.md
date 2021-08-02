@@ -3,21 +3,22 @@ title: Activer l’accès Internet public dans Azure VMware Solution
 description: Cet article explique comment utiliser la fonctionnalité d’adresse IP publique dans Azure Virtual WAN.
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.openlocfilehash: e5d4d73bf65842946e9c0f0c16869779e2e6f787
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c3900462862bea94bbad4f21cb2dcd7e439ba674
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776684"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954388"
 ---
-# <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Comment utiliser la fonctionnalité d’adresse IP publique dans Azure VMware Solution
+# <a name="enable-public-internet-access-in-azure-vmware-solution"></a>Activer l’accès Internet public dans Azure VMware Solution
 
-L’adresse IP publique est une nouvelle fonctionnalité de la connectivité Azure VMware Solution. Elle rend les ressources, notamment les serveurs web, les machines virtuelles et les hôtes, accessibles via un réseau public. 
+L’IP publique est une fonctionnalité de la connectivité d’Azure VMware Solution. Elle rend les ressources, notamment les serveurs web, les machines virtuelles et les hôtes, accessibles via un réseau public. 
 
 Vous activez l’accès Internet public de deux manières. 
 
-- Les applications peuvent être hébergées et publiées dans l’équilibreur de charge d’Application Gateway pour le trafic HTTP/HTTPS.
-- Elles peuvent être publiées par le biais des fonctionnalités d’adresse IP publique dans Azure Virtual WAN.
+- Héberger et publier des applications dans l’équilibreur de charge d’Application Gateway pour le trafic HTTP/HTTPS.
+
+- Publier via les fonctionnalités d’IP publiques dans Azure Virtual WAN.
 
 Dans le cadre du déploiement d’un cloud privé Azure VMware Solution, lors de l’activation de la fonctionnalité d’adresse IP publique, les composants requis avec l’automatisation sont créés et activés :
 
@@ -32,7 +33,9 @@ Cet article explique comment utiliser la fonctionnalité d’adresse IP publique
 ## <a name="prerequisites"></a>Prérequis
 
 - Environnement Azure VMware Solution
+
 - Un serveur web s’exécutant dans un environnement Azure VMware Solution.
+
 - Une nouvelle plage d’adresses IP non superposées pour le déploiement du hub Virtual WAN, en général `/24`.
 
 ## <a name="reference-architecture"></a>Architecture de référence
@@ -162,4 +165,4 @@ Vous pouvez avoir 100 IP publiques par cloud privé.
 Maintenant que vous avez couvert l’utilisation de la fonctionnalité d’IP publique dans Azure VMware Solution, vous pouvez en apprendre davantage sur les sujets suivants :
 
 - Utilisation d’IP publiques avec [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
-- [Création d’un tunnel IPSec dans Azure VMware Solution](create-ipsec-tunnel.md).
+- [Création d’un tunnel IPSec dans Azure VMware Solution](./configure-site-to-site-vpn-gateway.md).

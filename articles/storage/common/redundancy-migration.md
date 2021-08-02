@@ -6,17 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 06/09/2021
 ms.author: tamram
-ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 222518f21cb9940efd4fbf266b9248e4b0414f43
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d060a066c80f10fb9d887db90bde434cc89922a5
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316319"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901627"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modifier la manière dont un compte de stockage est répliqué
 
@@ -46,7 +45,6 @@ Le tableau suivant fournit une vue d’ensemble de la façon de passer de chaque
 
 <sup>1</sup> Implique des frais de sortie ponctuels.<br />
 <sup>2</sup> La migration de LRS vers GRS n’est pas prise en charge si le compte de stockage contient des objets blob dans le niveau archive.<br />
-<sup>3</sup> La conversion de ZRS en GZRS/RA-GZRS ou inversement n’est pas prise en charge dans les régions suivantes : USA Est 2, USA Est, Europe Ouest.
 
 > [!CAUTION]
 > Si vous avez opéré un [basculement de compte](storage-disaster-recovery-guidance.md) pour votre compte (RA-)GRS ou (RA-)GZRS, le compte est localement redondant (LRS) dans la nouvelle région primaire après le basculement. La migration en direct vers ZRS ou GZRS pour un compte LRS résultant d’un basculement n’est pas prise en charge. Cela est vrai même dans le cas d’opérations de restauration automatique. Par exemple, si vous effectuez un basculement de compte de RA-GZRS vers LRS dans la région secondaire, puis que vous le configurez de nouveau sur RA-GRS et effectuez un autre basculement de compte vers la région principale d’origine, vous ne pouvez pas contacter le support pour la migration dynamique d’origine vers RA-GZRS dans la région primaire. Vous devrez opérer une migration manuelle vers ZRS ou GZRS.
@@ -148,7 +146,7 @@ Pour demander une migration dynamique, procédez comme suit :
 1. Renseignez les informations supplémentaires requises sous l’onglet **Détails**, puis sélectionnez **Vérifier + créer** pour vérifier et envoyer votre ticket de support. Une personne du support vous contactera pour vous apporter l’aide dont vous aurez besoin.
 
 > [!NOTE]
-> Les partages de fichiers Premium (comptes FileStorage) sont disponibles uniquement pour LRS et ZRS.
+> Les partages de fichiers Premium sont disponibles uniquement pour les stockages LRS et ZRS.
 >
 > Les comptes de stockage GZRS ne prennent pas en charge le niveau archive pour le moment. Pour plus d’informations, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](../blobs/storage-blob-storage-tiers.md).
 >
@@ -197,7 +195,7 @@ az storage account update -g <resource_group> -n <storage_account> --set kind=St
 
 Les coûts associés à la modification du mode de réplication des données dépendent de votre chemin de conversion. De la plus économique à la plus chère, les offres de redondance de Stockage Azure comprennent : LRS, ZRS, GRS, RA-GRS, GZRS et RA-GZRS.
 
-Par exemple, une migration *à partir de* LRS vers un autre type de réplication implique des frais supplémentaires, car vous passez à un niveau de redondance plus sophistiqué. Une migration *vers* GRS ou RA-GRS entraîne des frais de sortie de la bande passante, car vos données (dans la région primaire) sont répliquées vers la région secondaire distante. Ces frais constituent des frais uniques dus lors de l’installation initiale. Une fois les données copiées, aucuns frais supplémentaires de migration ne sont générés. Pour plus d’informations sur les coûts de bande passante, consultez la [page de tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Par exemple, une migration *à partir de* LRS vers un autre type de réplication implique des frais supplémentaires, car vous passez à un niveau de redondance plus sophistiqué. La migration *vers* un stockage GRS ou RA-GRS entraînera des frais de bande passante en sortie au moment de la migration, car la totalité de votre compte de stockage est répliquée dans la région secondaire. Toutes les écritures ultérieures dans la région primaire entraînent également des frais de bande passante en sortie pour répliquer l’écriture dans la région secondaire. Pour plus d’informations sur les coûts de bande passante, consultez la [page de tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 Si vous migrez votre compte de stockage géoredondant en compte de stockage localement redondant, aucun coût supplémentaire ne vous est facturé, mais vos données répliquées sont supprimées de l’emplacement secondaire.
 

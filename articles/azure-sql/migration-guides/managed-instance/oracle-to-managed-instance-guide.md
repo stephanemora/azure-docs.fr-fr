@@ -8,14 +8,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: MashaMSFT
+ms.reviewer: cawrites
 ms.date: 11/06/2020
-ms.openlocfilehash: 5e3b84c0a4b4124a020c54f02393eb1319707c21
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 74060212d5cf140dcd7a3ee099954123e52b82ae
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136451"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961977"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-managed-instance"></a>Guide migration : Oracle vers Azure SQL Managed Instance
 
@@ -133,7 +133,7 @@ Pour publier votre schéma et migrer vos données :
 
    ![Capture d’écran montrant la validation dans SSMA pour Oracle.](./media/oracle-to-managed-instance-guide/validate-data.png)
 
-Vous pouvez également utiliser SQL Server Integration Services pour effectuer la migration. Pour plus d'informations, consultez les rubriques suivantes :
+Vous pouvez également utiliser SQL Server Integration Services pour effectuer la migration. Pour en savoir plus, consultez :
 
 - [Prise en main de SQL Server Integration Services](/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services pour le déplacement de données Azure et hybrides](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
@@ -175,6 +175,7 @@ Pour plus d’informations sur l’exécution de ce scénario de migration, cons
 | [Automatiser la collecte et la consolidation d’évaluation Oracle pour l’outil SSMA](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Automate%20SSMA%20Oracle%20Assessment%20Collection%20%26%20Consolidation)                                             | Cet ensemble de ressources utilise un fichier .csv en tant qu’entrée (sources.csv dans les dossiers de projet) pour produire les fichiers xml nécessaires à l’exécution d’une évaluation SSMA en mode console. Le fichier source.csv est fourni par le client sur la base d’un inventaire des instances Oracle existantes. Les fichiers de sortie sont AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml et VariableValueFile.xml.|
 | [Erreurs courantes et corrections pour SSMA pour Oracle](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | Oracle vous permet d’attribuer une condition non scalaire dans la clause WHERE. Toutefois, SQL Server ne prend pas en charge ce type de condition. Par conséquent, SSMA pour Oracle ne convertit pas les requêtes avec une condition non scalaire dans la clause WHERE. Au lieu de cela, il génère l’erreur O2SS0001. Ce livre blanc fournit des informations supplémentaires sur le problème et les manières de le résoudre.          |
 | [Guide de migration d’Oracle vers SQL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | Ce document se concentre sur les tâches associées à la migration d’un schéma Oracle vers la dernière version de Base de données SQL Server. Si la migration nécessite des modifications de fonctions ou de fonctionnalités, il convient de prendre soigneusement en considération l’impact possible de chacune d’elles sur les applications qui utilisent la base de données.                                                     |
+|[Oracle vers SQL MI – Utilitaire Comparaison de bases de données](https://www.microsoft.com/download/details.aspx?id=103016)|SSMA pour Oracle Tester est l’outil recommandé pour valider automatiquement la conversion des objets de base de données et la migration des données, et il s’agit d’un sur-ensemble de fonctionnalités de l’utilitaire Comparaison de bases de données.<br /><br />Si vous recherchez une autre option de validation des données, vous pouvez utiliser l’utilitaire Comparaison de bases de données pour comparer des données au niveau des lignes ou des colonnes dans l’ensemble des tables, des lignes et des colonnes sélectionnées.|
 
 L’équipe d’ingénierie SQL des données a développé ces ressources. La charte fondamentale de cette équipe a pour objet d’initier et d’accélérer une modernisation complexe et de faire face aux projets de migration de plateforme de données vers la plateforme Azure Data de Microsoft.
 

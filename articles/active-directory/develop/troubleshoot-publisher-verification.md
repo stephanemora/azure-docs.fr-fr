@@ -13,12 +13,12 @@ ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: acce282dcaac971716a97d7722543d78e28b7a34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 46f8df4b48dcd887bf5500ba5189374c2331047c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102517665"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408008"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Résoudre les problèmes de vérification de l’éditeur
 Si vous ne parvenez pas à finaliser le processus ou si vous êtes confronté à un comportement inattendu lors de la [vérification de l’éditeur](publisher-verification-overview.md), procédez comme suit si voyez s’afficher des erreurs ou constatez un comportement inattendu : 
@@ -237,7 +237,7 @@ Le message d’erreur affiché est le suivant : « Un éditeur vérifié ne pe
 
 Tout d’abord, vérifiez que vous respectez les [conditions requises de la vérification de l’éditeur](publisher-verification-overview.md#requirements).
 
-Lorsqu’une demande d’ajout d’un éditeur vérifié est effectuée, un certain nombre de signaux sont utilisés pour évaluer les risques de sécurité. Si la demande est jugée risquée, une erreur est retournée. Pour des raisons de sécurité, Microsoft ne divulgue pas les critères spécifiques utilisés pour déterminer si une demande est risquée ou non.
+Quand une demande d’ajout d’un éditeur vérifié est effectuée, un certain nombre de signaux sont utilisés pour évaluer les risques de sécurité. Si la demande est jugée risquée, une erreur est retournée. Pour des raisons de sécurité, Microsoft ne divulgue pas les critères spécifiques utilisés pour déterminer si une demande est risquée ou non.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,14 +7,14 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 06/01/2021
 ms.author: ambapat
-ms.openlocfilehash: 9ef3b19e5064c8a88bf80eebf57539be72747fe4
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: a7cccecc47973d372453ce86d0d5d12c8d773b3a
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482515"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413966"
 ---
 # <a name="best-practices-when-using-managed-hsm"></a>Meilleures pratiques d’utilisation du HSM managé
 
@@ -42,8 +42,8 @@ Le HSM managé est un service cloud qui protège les clés de chiffrement. Ces d
 
 ## <a name="turn-on-recovery-options"></a>Activer les options de récupération
 
-- Le [suppression réversible](../general/soft-delete-overview.md) est activée par défaut.
-- Activez la protection contre le vidage si vous souhaitez vous prémunir contre la suppression forcée du HSM, même après activation de la suppression réversible.
+- Le [suppression réversible](soft-delete-overview.md) est activée par défaut. Vous pouvez choisir une période de conservation comprise entre 7 et 90 jours.
+- Activez la protection contre le vidage pour empêcher la suppression immédiate permanente de module HSM ou de clés. Lorsque la protection contre le vidage est activée, un module HSM ou des clés demeurent dans l’état Supprimé tant que les jours de conservation ne sont pas écoulés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -51,3 +51,4 @@ Le HSM managé est un service cloud qui protège les clés de chiffrement. Ces d
 - Pour savoir comment utiliser Azure Monitor pour configurer la journalisation, consultez [Journalisation du HSM managé](logging.md).
 - Pour la gestion des clés, consultez [Gérer les clés du HSM managé](key-management.md).
 - Pour gérer les attributions de rôles, consultez [Gestion du rôle HSM managé](role-management.md).
+- Consultez [Vue d’ensemble de la suppression réversible d’un module HSM managé](soft-delete-overview.md) pour connaître les options de récupération.

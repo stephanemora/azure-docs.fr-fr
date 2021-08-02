@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6644f495f28fb76503948c18354a5af0fcf832e5
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: fcac9eee73f509de5903030b77d567cbe11ee043
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364751"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787557"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB pour API SQL : Notes de publication et ressources
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,13 +24,13 @@ ms.locfileid: "107364751"
 > * [SDK .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK .NET Change Feed v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.JS](sql-api-sdk-node.md)
-> * [SDK Java v4](sql-api-sdk-java-v4.md)
+> * [Kit SDK Java v4](sql-api-sdk-java-v4.md)
 > * [SDK Java Async v2](sql-api-sdk-async-java.md)
 > * [SDK Java Sync v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Connecteur Spark 3 OLTP](sql-api-sdk-java-spark-v3.md)
-> * [Connecteur Spark 2 OLTP](sql-api-sdk-java-spark.md)
+> * [Connecteur OLTP Spark 3](sql-api-sdk-java-spark-v3.md)
+> * [Connecteur OLTP Spark 2](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [API REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
@@ -54,6 +54,13 @@ Il s’agit du kit de développement logiciel (SDK) Java synchrone v2 d’origin
 |**Runtime minimal pris en charge**|[Kit de développement Java (JDK) 7+](/java/azure/jdk/)|
 
 ## <a name="release-notes"></a>Notes de publication
+### <a name="263"></a><a name="2.6.3"></a>2.6.3
+* Correction d’une stratégie de nouvelles tentatives quand `GoneException` est encapsulé dans `IllegalStateException` : cette modification est nécessaire de sorte que le cache de la passerelle soit actualisé sur 410 et que le connecteur Spark (pour Spark 2.4) puisse utiliser une stratégie personnalisée de nouvelles tentatives permettant aux requêtes de réussir pendant les fractionnements de partitions.
+
+### <a name="262"></a><a name="2.6.2"></a>2.6.2
+* Ajout d’une nouvelle stratégie de nouvelles tentatives en cas de dépassement du délai d’attente de lecture.
+* Mise à niveau de la dépendance `com.fasterxml.jackson.core/jackson-databind` vers la version 2.9.10.8.
+* Mise à niveau de la dépendance `org.apache.httpcomponents/httpclient` vers la version 4.5.13.
 
 ### <a name="261"></a><a name="2.6.1"></a>2.6.1
 * Correction d’un bogue dans la gestion d’une requête via l’interopérabilité du service.

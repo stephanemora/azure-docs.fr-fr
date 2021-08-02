@@ -3,12 +3,12 @@ title: Vue d’ensemble de Event Hubs Premium (préversion)
 description: Cet article fournit une vue d’ensemble d’Azure Event Hubs Premium, un service permettant le déploiement multi-locataire de Event Hubs pour des besoins de diffusion en continu haut de gamme.
 ms.topic: article
 ms.date: 5/25/2021
-ms.openlocfilehash: 5b55816d3e75fcbd8af070f07735b8d8ed081c4f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7ae58a46484f6f83fdd737ac32e559a5dd90c627
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386024"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409952"
 ---
 # <a name="overview-of-event-hubs-premium-preview"></a>Vue d’ensemble de Event Hubs Premium (préversion)
 
@@ -24,6 +24,8 @@ Outre ces fonctionnalités de stockage, ainsi que toutes les capacités et la pr
 L’offre Premium est facturée en fonction du nombre d’[unités de traitement (ou « PU », pour « Processing Units »)](event-hubs-scalability.md#processing-units) qui correspondent à une part de ressources isolées (UC, mémoire et stockage) dans l’infrastructure sous-jacente. 
 
 Dans la mesure où Event Hubs Premium offre une isolation dans un environnement multi-locataire de très grande taille qui peut déplacer rapidement les ressources, elle peut évoluer de manière beaucoup plus souple et plus rapide que l’offre Dedicated. De plus, sa quantité d’unités de traitement peut être ajustée dynamiquement. Par conséquent, Event Hubs Premium est souvent une option plus économique que Event Hubs Dedicated pour les besoins en débit moyen (< 120 Mo/s), en particulier grâce à la modification des charges tout au long de la journée ou de la semaine. 
+> [!NOTE]
+> Notez que Event Hubs Premium prend uniquement en charge TLS 1.2 ou une version supérieure. 
 
 Pour accroître la robustesse grâce à la prise en charge des zones de disponibilité, la mise à l’échelle de déploiement minimale pour Event Hubs Dedicated doit monter à 8 unités de capacité (ou « CU », pour « Capacity Units »). Cependant, avec Event Hubs Premium, vous bénéficiez d’une prise en charge des zones de disponibilité dès la première unité de capacité, dans toutes les régions de zone de disponibilité. 
 
@@ -69,5 +71,5 @@ Le niveau Premium offre toutes les fonctionnalités du plan Standard, améliore 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez commencer à utiliser Event Hubs Premium (préversion) via le [portail Azure](https://aka.ms/eventhubsclusterquickstart). Vous pouvez consulter la page [Tarification Event Hubs Premium](https://azure.microsoft.com/pricing/details/event-hubs/) pour en savoir plus sur la tarification, ou la page de [FAQ sur Event Hubs](event-hubs-faq.yml) pour connaître nos réponses aux questions les plus fréquemment posées sur Event Hubs. 
+Vous pouvez commencer à utiliser Event Hubs Premium (préversion) via le [portail Azure](https://portal.azure.com/#create/Microsoft.EventHub). Vous pouvez consulter la page [Tarification Event Hubs Premium](https://azure.microsoft.com/pricing/details/event-hubs/) pour en savoir plus sur la tarification, ou la page de [FAQ sur Event Hubs](event-hubs-faq.yml) pour connaître nos réponses aux questions les plus fréquemment posées sur Event Hubs. 
 

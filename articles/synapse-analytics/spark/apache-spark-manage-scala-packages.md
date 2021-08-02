@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: c70ecc4fc5469d728bc12d47024585ccf00ff98e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bed5c6b1b1cf21de0105e0eeb2096d359177c115
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098704"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814997"
 ---
 # <a name="manage-scala-and-java-packages-for-apache-spark-in-azure-synapse-analytics"></a>Gérer des packages Scala et Java pour Apache Spark dans Azure Synapse Analytics
 
@@ -45,7 +45,7 @@ Pour ajouter des packages d’espace de travail :
 ## <a name="pool-libraries"></a>Bibliothèques de pools
 Une fois que vous avez identifié les packages Scala et Java que vous souhaitez utiliser pour votre application Spark, vous pouvez les installer dans un pool Spark. Les bibliothèques de pools sont disponibles pour tous les notebooks et toutes les tâches qui s’exécutent sur le pool.
 
-Pour mettre à jour les bibliothèques du pool Spark, accédez à Azure Synapse Studio ou au Portail Azure. Ici, vous pouvez sélectionner les bibliothèques d’espace de travail à installer. 
+Pour mettre à jour les bibliothèques du pool Spark, accédez à Synapse Studio ou au Portail Azure. Ici, vous pouvez sélectionner les bibliothèques d’espace de travail à installer. 
 
 Une fois les modifications enregistrées, un travail Spark exécute l’installation et met en cache l’environnement obtenu pour une réutilisation ultérieure. Une fois le travail terminé, les nouveaux travaux Spark ou les nouvelles sessions de notebook utilisent les bibliothèques de pools mises à jour. 
 
@@ -53,8 +53,8 @@ Une fois les modifications enregistrées, un travail Spark exécute l’install
 > - Si le package que vous installez est volumineux ou si son installation prend beaucoup de temps, cela affecte le temps de démarrage de l’instance Spark.
 > - La modification de la version de PySpark, Python, Scala/Java, .NET ou Spark n’est pas prise en charge.
 
-#### <a name="manage-packages-from-azure-synapse-studio-or-azure-portal"></a>Gérer les packages à partir d’Azure Synapse Studio ou du Portail Azure
-Vous pouvez gérer les bibliothèques de pools Spark depuis Azure Synapse Studio ou le Portail Azure. 
+#### <a name="manage-packages-from-synapse-studio-or-azure-portal"></a>Gérer les packages à partir de Synapse Studio ou du Portail Azure
+Vous pouvez gérer les bibliothèques de pools Spark depuis Synapse Studio ou le Portail Azure. 
 
 Pour mettre à jour un pool Spark ou y ajouter des bibliothèques :
 1. Accédez à votre espace de travail Azure Synapse Analytics à partir du portail Azure.

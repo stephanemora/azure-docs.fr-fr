@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 7bcdbd4229bda56af80cc5068dc5421dc2e5b58d
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 73eb3a1028fa895101389bcc3a9b650316f59c16
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001571"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110585165"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configuration de la connectivité SSL dans votre application pour se connecter en toute sécurité à la base de données Azure pour MySQL
 
@@ -22,12 +22,6 @@ La base de données Azure pour MySQL prend en charge la connexion de votre serve
 
 Téléchargez le certificat nécessaire pour communiquer via le protocole SSL avec votre serveur Azure Database pour MySQL à partir de [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) et enregistrez le fichier de certificat sur votre disque local (ce didacticiel utilise c:\ssl à titre d’exemple).
 **Pour Microsoft Internet Explorer et Microsoft Edge :** Une fois le téléchargement terminé, renommez le certificat en BaltimoreCyberTrustRoot.crt.pem.
-
->[!NOTE]
-> Sur la base des commentaires des clients, nous avons étendu la dépréciation du certificat racine pour notre autorité de certification racine Baltimore existante jusqu’au 15 février 2021 (15/2/2021).
-
-> [!IMPORTANT] 
-> Le certificat racine SSL est configuré pour expirer à partir du 15 février 2021 (15/2/2021). Mettez à jour votre application pour utiliser le [nouveau certificat](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Pour plus d’informations, consultez [Mises à jour de certificat planifiées](concepts-certificate-rotation.md)
 
 Consultez les liens suivants afin d’obtenir des certificats pour des serveurs de clouds souverains : [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure Chine](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) et [Azure Allemagne](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
@@ -175,7 +169,7 @@ if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
 }
 mysql.RegisterTLSConfig("custom", &tls.Config{RootCAs: rootCertPool})
 var connectionString string
-connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mysql.database.azure.com', 'quickstartdb')
+connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom","myadmin@mydemoserver" , "yourpassword", "mydemoserver.mysql.database.azure.com", 'quickstartdb')
 db, _ := sql.Open("mysql", connectionString)
 ```
 
@@ -279,4 +273,5 @@ conn.connect(function(err) {
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez en revue les différentes options de connectivité d’application de la rubrique [Bibliothèques de connexions pour Azure Database pour MySQL](concepts-connection-libraries.md)
+* Pour en savoir plus sur l’expiration et la rotation des certificats, consultez la [documentation sur la rotation des certificats](concepts-certificate-rotation.md)
+* Passez en revue les différentes options de connectivité d’application de la rubrique [Bibliothèques de connexions pour Azure Database pour MySQL](concepts-connection-libraries.md)

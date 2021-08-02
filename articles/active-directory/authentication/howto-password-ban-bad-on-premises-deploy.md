@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c93d189dd4c11ff5c8c08ad75bd62085dc225a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9f344b0f4dd93b921abc0c1c95c18c54e4486716
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766094"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951891"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planifiez et déployez localement la protection par mot de passe Azure Active Directory
 
@@ -127,14 +127,14 @@ Les conditions suivantes s’appliquent au service proxy de protection par mot d
     * Si ce n’est pas le cas, téléchargez et exécutez le programme d’installation disponible sur la page [Programme d’installation hors connexion de .NET Framework 4.7.2 pour Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 * Toutes les machines qui hébergent le service proxy de protection par mot de passe Azure AD doivent être configurées pour autoriser les contrôleurs de domaine à ouvrir une session sur le service proxy. Cette capacité est contrôlée par le biais de l’affectation du privilège « Accéder à cet ordinateur à partir du réseau ».
 * Toutes les machines hébergeant le service proxy de protection par mot de passe Azure AD doivent être configurées de manière à autoriser le trafic HTTP TLS 1.2 sortant.
-* Un compte *Administrateur général* ou *Administrateur de la sécurité* pour inscrire la forêt et le service proxy de protection par mot de passe Azure AD auprès d’Azure AD.
-* L’accès réseau doit être activé pour l’ensemble des ports et des URL spécifiés dans les [procédures de configuration de l’environnement proxy d’application](../app-proxy/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
+* Un compte *Administrateur général* est requis lors de la première inscription du service proxy de protection par mot de passe Azure AD dans un locataire donné. Les inscriptions de proxy et de forêt suivantes auprès d’Azure AD peuvent utiliser un compte avec des informations d’identification *Administrateur général* ou *Administrateur de la sécurité*.
+* L’accès réseau doit être activé pour l’ensemble des ports et des URL spécifiés dans les [procédures de configuration de l’environnement proxy d’application](../app-proxy/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). Cela s’ajoute aux deux points de terminaison décrits ci-dessus.
 
 ### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Conditions préalables à l’utilisation du programme de mise à jour de l’agent Microsoft Azure AD Connect
 
 Le service du programme de mise à jour de l’agent Microsoft Azure AD Connect est installé parallèlement au service proxy de protection par mot de passe Azure AD. Une configuration supplémentaire est requise pour que le service du programme de mise à jour de l’agent Microsoft Azure AD Connect puisse fonctionner :
 
-* Si votre environnement utilise un serveur proxy HTTP, suivez les instructions spécifiées dans [Travailler avec des serveurs proxy locaux existants](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md).
+* Si votre environnement utilise un serveur proxy HTTP, suivez les instructions spécifiées dans [Travailler avec des serveurs proxy locaux existants](../app-proxy/application-proxy-configure-connectors-with-proxy-servers.md).
 * Le service du programme de mise à jour de l’agent Microsoft Azure AD Connect nécessite également les étapes 1.2 spécifiées dans [Exigences relatives à TLS](../app-proxy/application-proxy-add-on-premises-application.md#tls-requirements).
 
 > [!WARNING]
@@ -199,7 +199,7 @@ Pour installer le service proxy de protection par mot de passe Azure AD, procéd
 
 1. Le service proxy est en cours d’exécution sur la machine, mais ne dispose pas des informations d’identification nécessaires pour communiquer avec Azure AD. Inscrivez le serveur proxy de protection de mot de passe Azure AD auprès d’Azure AD en utilisant la cmdlet `Register-AzureADPasswordProtectionProxy`.
 
-    Cette cmdlet exige les informations d’identification de l’*administrateur général* ou de l’*Administrateur de la sécurité* pour votre locataire Azure. Cette cmdlet doit également être exécutée à l'aide d'un compte disposant de privilèges d'administrateur local.
+    Cette cmdlet requiert des informations d’identification *Administrateur général* lors de la première inscription d’un proxy pour un locataire donné. Les inscriptions de proxy suivantes dans ce locataire, qu’il s’agisse de proxys identiques ou différents, peuvent utiliser des informations d’identification *Administrateur général* ou *Administrateur de la sécurité*.
 
     Une fois que cette commande a réussi, des appels supplémentaires aboutissent également mais ne sont pas nécessaires.
 

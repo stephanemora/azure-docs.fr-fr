@@ -1,18 +1,18 @@
 ---
 title: Préparer un disque dur virtuel Linux Debian
 description: Découvrez comment créer des images de disque dur virtuel Debian pour un déploiement dans Azure.
-author: gbowerman
+author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 11/13/2018
-ms.author: guybo
-ms.openlocfilehash: 7dcb6dbc62513535c562a430f5958a62dae9d005
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 6/3/2021
+ms.author: srijangupta
+ms.openlocfilehash: 9e276c9051be711e41b68d0b2dbb17c6816645d5
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554511"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004958"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Préparer un disque dur virtuel Debian pour Azure
 ## <a name="prerequisites"></a>Conditions préalables requises
@@ -42,89 +42,117 @@ Il existe plusieurs outils permettant de créer des disques durs virtuels Debian
 ```
 
 
-## <a name="manually-prepare-a-debian-vhd"></a>Préparer manuellement un disque dur virtuel Debian
-1. Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
-2. Cliquez sur **Connecter** pour ouvrir une fenêtre de console de la machine virtuelle.
-3. Si vous avez installé le système d’exploitation à l’aide d’un fichier ISO, commentez toute ligne relative à « `deb cdrom` » dans `/etc/apt/source.list`.
+## <a name="prepare-a-debian-image-for-azure"></a>Préparer une image Debian pour Azure
 
-4. Modifiez le fichier `/etc/default/grub` et le paramètre **GRUB_CMDLINE_LINUX** comme suit pour y inclure des paramètres de noyau supplémentaires pour Azure.
+Vous pouvez créer l’image Azure Debian Cloud de base à l’aide du [générateur d’images de cloud FAI](https://salsa.debian.org/cloud-team/debian-cloud-images).
 
-    ```config-grub
-    GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200n8 earlyprintk=ttyS0,115200"
-    ```
+(Les commandes « git clone » et « apt install » suivantes ont été extraites du référentiel Debian Cloud Images) Commencez par cloner le référentiel et installer les dépendances :
 
-5. Régénérez le grub et exécutez-le :
+```
+$ git clone https://salsa.debian.org/cloud-team/debian-cloud-images.git
+$ sudo apt install --no-install-recommends ca-certificates debsums dosfstools \
+    fai-server fai-setup-storage make python3 python3-libcloud python3-marshmallow \
+    python3-pytest python3-yaml qemu-utils udev
+$ cd ./debian-cloud-images
+```
 
-    ```console
-    # sudo update-grub
-    ```
+(Facultatif) Personnalisez la build en ajoutant des scripts (par exemple, des scripts d’interpréteur de commandes) sous `./config_space/scripts/AZURE`.
 
-6. Ajoutez les référentiels Azure de Debian à /etc/apt/sources.list pour Debian 8, 9 ou 10 :
 
-    **Debian 8.x "Jessie"**
 
-    ```config-grub
-    deb http://debian-archive.trafficmanager.net/debian jessie main
-    deb-src http://debian-archive.trafficmanager.net/debian jessie main
-    deb http://debian-archive.trafficmanager.net/debian-security jessie/updates main
-    deb-src http://debian-archive.trafficmanager.net/debian-security jessie/updates
-    deb http://debian-archive.trafficmanager.net/debian jessie-updates main
-    deb-src http://debian-archive.trafficmanager.net/debian jessie-updates main
-    deb http://debian-archive.trafficmanager.net/debian jessie-backports main
-    deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
-    ```
+## <a name="an-example-of-a-script-to-customize-the-image-is"></a>Voici un exemple de script permettant de personnaliser l’image :
 
-    **Debian 9.x "Stretch"**
+```
+$ mkdir -p ./config_space/scripts/AZURE
+$ cat > ./config_space/scripts/AZURE/10-custom <<EOF
+#!/bin/bash
 
-    ```config-grub
-    deb http://debian-archive.trafficmanager.net/debian stretch main
-    deb-src http://debian-archive.trafficmanager.net/debian stretch main
-    deb http://debian-archive.trafficmanager.net/debian-security stretch/updates main
-    deb-src http://debian-archive.trafficmanager.net/debian-security stretch/updates main
-    deb http://debian-archive.trafficmanager.net/debian stretch-updates main
-    deb-src http://debian-archive.trafficmanager.net/debian stretch-updates main
-    deb http://debian-archive.trafficmanager.net/debian stretch-backports main
-    deb-src http://debian-archive.trafficmanager.net/debian stretch-backports main
-    ```
-    
-    **Debian 10.x « Buster »**
-    ```config-grub
-    deb http://debian-archive.trafficmanager.net/debian buster main
-    deb-src http://debian-archive.trafficmanager.net/debian buster main
-    deb http://debian-archive.trafficmanager.net/debian-security buster/updates main
-    deb-src http://debian-archive.trafficmanager.net/debian-security buster/updates main
-    deb http://debian-archive.trafficmanager.net/debian buster-updates main
-    deb-src http://debian-archive.trafficmanager.net/debian buster-updates main
-    deb http://debian-archive.trafficmanager.net/debian buster-backports main
-    deb-src http://debian-archive.trafficmanager.net/debian buster-backports main
-    ```
+\$ROOTCMD bash -c "echo test > /usr/local/share/testing"
+EOF
+$ sudo chmod 755 ./config_space/scripts/AZURE/10-custom
+```
 
-7. Installez l'agent Linux Azure :
+Notez qu’il est important de préfixer toutes les commandes que vous souhaitez avoir pour personnaliser l’image avec `$ROOTCMD`, car ce dernier a l’alias `chroot $target`.
 
-    ```console
-    # sudo apt-get update
-    # sudo apt-get install waagent
-    ```
 
-8. Pour Debian 9 +, il est recommandé d’utiliser le nouveau noyau Debian Cloud en cas d’utilisation avec les machines virtuelles dans Azure. Pour installer ce nouveau noyau, commencez par créer un fichier nommé /etc/apt/preferences.d/linux.pref avec le contenu suivant :
+## <a name="build-the-azure-debian-10-image"></a>Créez l’image Azure Debian 10 :
 
-    ```config-pref
-    Package: linux-* initramfs-tools
-    Pin: release n=stretch-backports
-    Pin-Priority: 500
-    ```
+```
+$ make image_buster_azure_amd64
+```
 
-    Exécutez ensuite "sudo apt-get install linux-image-amd64" pour installer le nouveau noyau Debian Cloud.
 
-9. Mettez hors service la machine virtuelle, préparez-la pour un approvisionnement sur Azure, puis exécutez :
+Cela produira une poignée de fichiers dans le répertoire actuel, notamment le fichier image `image_buster_azure_amd64.raw`.
 
-    ```console
-    # sudo waagent –force -deprovision
-    # export HISTSIZE=0
-    # logout
-    ```
+Pour convertir l’image brute en disque dur virtuel pour Azure, vous pouvez procéder comme suit :
 
-10. Cliquez sur **Action** -> Arrêter dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
+```
+rawdisk="image_buster_azure_amd64.raw"
+vhddisk="image_buster_azure_amd64.vhd"
 
-## <a name="next-steps"></a>Étapes suivantes
-Vous êtes maintenant prêt à utiliser votre disque dur virtuel Debian pour créer des machines virtuelles dans Azure. S’il s’agit de votre premier chargement du fichier .vhd sur Azure, consultez [Créer une machine virtuelle Linux à partir d’un disque personnalisé](upload-vhd.md#option-1-upload-a-vhd).
+MB=$((1024*1024))
+size=$(qemu-img info -f raw --output json "$rawdisk" | \
+gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+
+rounded_size=$(((($size+$MB-1)/$MB)*$MB))
+rounded_size_adjusted=$(($rounded_size + 512))
+
+echo "Rounded Size Adjusted = $rounded_size_adjusted"
+
+sudo qemu-img resize "$rawdisk" $rounded_size
+qemu-img convert -f raw -o subformat=fixed,force_size -O vpc "$rawdisk" "$vhddisk"
+```
+
+
+Cela crée un disque dur virtuel `image_buster_azure_amd64.vhd` avec une taille arrondie pour pouvoir le copier sur un disque Azure.
+
+Nous devons maintenant créer les ressources Azure pour cette image (cette opération utilise la variable `$rounded_size_adjusted`, donc elle doit être comprise dans le même processus d’interpréteur de commandes que ci-dessus).
+
+```
+az group create -l $LOCATION -n $RG
+
+az disk create \
+    -n $DISK \
+    -g $RG \
+    -l $LOCATION \
+    --for-upload --upload-size-bytes "$rounded_size_adjusted" \
+    --sku standard_lrs --hyper-v-generation V1
+
+ACCESS=$(az disk grant-access \
+    -n $DISK -g $RG \
+    --access-level write \
+    --duration-in-seconds 86400 \
+    --query accessSas -o tsv)
+
+azcopy copy "$vhddisk" "$ACCESS" --blob-type PageBlob
+
+az disk revoke-access -n $DISK -g $RG
+az image create \
+    -g $RG \
+    -n $IMAGE \
+    --os-type linux \
+    --source $(az disk show \
+        -g $RG \
+        -n $DISK \
+        --query id -o tsv)
+az vm create \
+    -g $RG \
+    -n $VM \
+    --ssh-key-value $SSH_KEY_VALUE \
+    --public-ip-address-dns-name $VM \
+    --image $(az image show \
+        -g $RG \
+        -n $IMAGE \
+        --query id -o tsv)
+```
+
+
+>[!Note]
+> Si la bande passante entre votre ordinateur local et le disque Azure est à l’origine d’un long délai de traitement du chargement avec azcopy, vous pouvez utiliser un serveur de rebond de machine virtuelle Azure pour accélérer le processus. Voici comment procéder :
+>
+>1. Créez un fichier d’archive tar du disque dur virtuel sur votre ordinateur local : `tar -czvf ./image_buster_azure_amd64.vhd.tar.gz ./image_buster_azure_amd64.vhd`.
+>2. Créez une machine virtuelle Linux Azure (distribution de votre choix). Assurez-vous de la créer avec un disque suffisamment grand pour contenir le disque dur virtuel extrait.
+>3. Téléchargez l’utilitaire azcopy sur la machine virtuelle Linux Azure. Il peut être récupéré [ici](../../storage/common/storage-use-azcopy-v10.md#download-azcopy).
+>4. Copiez le fichier d’archive tar sur la machine virtuelle : `scp ./image_buster_azure_amd64.vhd.tar.gz <vm>:~`.
+>5. Sur la machine virtuelle, extrayez le disque dur virtuel : `tar -xf ./image_buster_azure_amd64.vhd.tar.gz` (cela prendra un peu de temps en raison de la taille du fichier).
+>6. Enfin, sur la machine virtuelle, copiez le disque dur virtuel sur le disque Azure avec `azcopy` (la commande ci-dessus).

@@ -15,14 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: c4bcfb6c2814fb6b2e1260dad2a0546de21c5ae8
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.openlocfilehash: d6b132fbb3aed541cc602537df1d40fa0d47702a
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992093"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421847"
 ---
 # <a name="connect-data-sources"></a>Connecter des sources de données
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Une fois que vous avez activé Azure Sentinel, la première chose à faire est de connecter vos sources de données. Azure Sentinel est fourni avec plusieurs connecteurs pour les solutions Microsoft, disponibles, prêts à l’emploi et offrant une intégration en temps réel, notamment les solutions Microsoft 365 Defender (anciennement Protection Microsoft contre les menaces), les sources Microsoft 365 (dont Office 365), Azure AD, Microsoft Defender pour Identity (anciennement Azure ATP), Microsoft Cloud App Security, entre autres. En outre, il existe des connecteurs intégrés pour la connexion aux écosystèmes de sécurité élargis pour les solutions non Microsoft. Vous pouvez également utiliser le format CEF (Common Event Format), Syslog ou l’API REST pour connecter vos sources de données à Azure Sentinel.
 
@@ -46,23 +48,28 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
 - **Intégration de service à service** :<br> Certains services sont connectés en mode natif, tels que les services Microsoft et AWS. Ces services tirent parti de la base Azure pour une intégration prête à l’emploi ; les solutions suivantes peuvent être connectées en quelques clics :
     - [Amazon Web Services - CloudTrail](connect-aws.md)
     - [Azure Active Directory](connect-azure-active-directory.md) - journaux d’audit et journaux de connexion
+    - [Azure Active Directory Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Activité Azure](connect-azure-activity.md)
-    - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Azure DDoS Protection](connect-azure-ddos-protection.md)
+    - Alertes [Azure Defender](connect-azure-security-center.md) à partir d’Azure Security Center
     - [Azure Defender pour IoT](connect-asc-iot.md) (anciennement Azure Security Center pour IoT)
-    - [Azure Information Protection](connect-azure-information-protection.md)
     - [Pare-feu Azure](connect-azure-firewall.md)
-    - [Azure Security Center](connect-azure-security-center.md) : alertes provenant de solutions Azure Defender
+    - [Azure Information Protection](connect-azure-information-protection.md)
+    - [Azure Key Vault](connect-azure-key-vault.md)
+    - [Azure Kubernetes Service (AKS)](connect-azure-kubernetes-service.md)
+    - [Bases de données SQL Azure](connect-azure-sql-logs.md)
+    - [Compte Stockage Azure](connect-azure-storage-account.md)
     - [Pare-feu d’application web (WAF) Azure](connect-azure-waf.md) (anciennement Microsoft WAF)
-    - [Cloud App Security](connect-cloud-app-security.md)
     - [Serveur de noms de domaine](connect-dns.md)
+    - [Dynamics 365](connect-dynamics-365.md)
     - [Microsoft 365 Defender](connect-microsoft-365-defender.md) : inclut les incidents M365D et les données brutes Defender pour point de terminaison
+    - [Microsoft Cloud App Security](connect-cloud-app-security.md)
     - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (anciennement Microsoft Defender Advanced Threat Protection)
     - [Microsoft Defender pour Identity](connect-azure-atp.md) (anciennement Azure Advanced Threat Protection)
     - [Microsoft Defender pour Office 365](connect-office-365-advanced-threat-protection.md) (anciennement Office 365 - Protection avancée contre les menaces)
-    - [Office 365](connect-office-365.md) (maintenant avec Teams !)
+    - [Office 365](connect-office-365.md) (incluant Teams)
     - [Pare-feu Windows](connect-windows-firewall.md)
-    - [Événements de sécurité Windows](connect-windows-security-events.md)
+    - (Windows) [Événements de sécurité](connect-windows-security-events.md)
 
 - **Solutions externes via API** : Certaines sources de données sont connectées à l’aide d’API fournies par la source de données connectée. En général, la plupart des technologies de sécurité fournissent un ensemble d’API par le biais duquel les journaux des événements peuvent être récupérés. Les API se connectent à Azure Sentinel, collectent des types de données spécifiques et les envoient à Azure Log Analytics. Les appliances connectées via une API sont les suivantes :
     

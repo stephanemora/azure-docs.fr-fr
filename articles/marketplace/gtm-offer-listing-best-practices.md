@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 07/06/2020
-ms.openlocfilehash: 3ea6a0035a9f9354be5c14699936c6a07dea1150
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/03/2021
+ms.openlocfilehash: 856a72be8e1bb69f86c2a96b8e7b57e964d26dfa
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94492087"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410240"
 ---
 # <a name="offer-listing-best-practices"></a>Bonnes pratiques pour le référencement des offres
 
@@ -30,21 +30,23 @@ Cet article propose des suggestions pour la création et l’engagement d’offr
 
 ## <a name="online-store-listing-details"></a>Détails du listing du magasin en ligne
 
-Suivant le magasin en ligne, les catégories et les secteurs s’appliquent à différents types d’offres.
+Ce tableau indique les types d’offres dont les catégories et les secteurs d’activité sont applicables aux différents magasins en ligne : Place de marché Azure et Microsoft AppSource.
 
-| Magasin en ligne | Catégories <br>par magasin en ligne | Catégories <br>par magasin en ligne | Secteurs d’activité <br> pour AppSource |
+| Type d’offre | Catégories pour la Place de marché Azure | Catégories pour AppSource | Secteurs d’activité pour AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
-| **Type d’offre**   |  **Azure Marketplace**  | **AppSource**  |
-| Azure App | X | |
-| Conteneur | X | |
-| Services de conseil | | | X |
-| Dynamics 365 Customer Engagement & Power Platform | | X | X |
-| Dynamics 365 Finance & Supply Chain Management | | X | X | 
+| Azure Application     | X |   |   |
+| Conteneur Azure       | X |   |   |
+| Machine virtuelle Azure | X |   |   |
+| Service de conseil    | X<sup>*</sup> |   | X<sup>*</sup> |
+| Dynamics 365 Customer Engagement et Power Apps | | X | X |
+| Dynamics 365 for Operations | | X | X |
 | Dynamics 365 Business Central | | X | X |
-| Modules IoT Edge | X | |
-| Power BI | | X | X |
+| Module IoT Edge | X | |  |
+| Service géré | X | |  |
+| Application Power BI | | X | X |
 | SaaS | X | X | X |
-| Machine virtuelle Azure |  X |    |
+
+* L’offre est publiée dans le magasin en ligne approprié en fonction du produit principal. Si le produit principal est Azure, il accède à la Place de marché Azure. Dans le cas contraire, il est publié sur AppSource.
 
 ### <a name="categories"></a>Catégories
 
@@ -61,24 +63,26 @@ Sélectionnez les catégories et sous-catégories qui correspondent le mieux à 
 
 #### <a name="important-saas-offers-and-microsoft-365-add-ins"></a>IMPORTANT : Offres SaaS et compléments Microsoft 365
 
-Pour plus d’informations sur l’impact des fonctionnalités de transaction sur la visualisation et l’achat de votre offre par les clients de la place de marché, consultez [Transaction dans la Place de marché commerciale](marketplace-commercial-transaction-capabilities-and-considerations.md). Pour les offres SaaS, la fonctionnalité de transaction de l’offre ainsi que le choix de la catégorie déterminent le magasin en ligne dans laquelle votre offre est publiée.
+Pour plus d’informations concernant l’impact des fonctionnalités de transaction sur la visualisation et l’achat de votre offre par les clients de la Place de marché, consultez [Transaction dans la Place de marché commerciale](marketplace-commercial-transaction-capabilities-and-considerations.md). Pour les offres SaaS, la fonctionnalité de transaction de l’offre ainsi que le choix de la catégorie déterminent le magasin en ligne dans laquelle votre offre est publiée.
 
+Ce tableau présente les combinaisons d’options applicables aux différents magasins en ligne : Place de marché Azure et Microsoft AppSource.
 
-| Offre SaaS    | Offre SaaS   | Offre SaaS  | Offre SaaS   | Offre SaaS   | Offre SaaS   | Offre SaaS    | Magasin en ligne applicable| Magasin en ligne applicable |
-|:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
-| Facturation à l’usage | Compléments Microsoft 365 | Me contacter | Transaction (au moins 1 plan) | Plan privé uniquement | Plan public uniquement | Plans privés et publics | AppSource | Place de marché Azure |
-|  | X |  |  |  |  |  | X |  |
-| X |  |  | X | X |  |  |  | X |
-| X |  |  | X |  | X |  |  | X |
-| X |  |  | X |  |  | X |  | X<sup>2</sup> |
-|  |  |  | X | X |  |  |  | X |
-|  |  |  | X |  | X |  | X<sup>1</sup> | X<sup>1</sup> |
-|  |  |  | X |  |  | X | X<sup>1</sup> | X<sup>1,2</sup> |
-|  |  | X |  |  |  |  | x<sup>1</sup> | X<sup>1</sup> | 
+| Facturation à l’usage | Compléments Microsoft 365 | Plan privé uniquement | Plan public uniquement | Plans privés et publics | Magasin en ligne applicable |
+|:-------------:|:---:|:--------:|:---------:|:---------------------:|:-------------:|
+|  | X |  |  |  | AppSource |
+| X |  | X |  |  | Place de marché Azure |
+| X |  |  | X |  | Place de marché Azure |
+| X |  |  |  | X | Place de marché Azure<sup>2</sup> |
+|  |  | X |  |  | Place de marché Azure |
+|  |  |  | X |  | AppSource<sup>1</sup><br>Place de marché Azure<sup>1</sup> |
+|  |  |  |  | X | AppSource<sup>1</sup><br>Place de marché Azure<sup>1,2</sup> |
+|  |  |  |  | X | AppSource<sup>1</sup><br>Place de marché Azure<sup>1</sup> |
 
 1. En fonction de la catégorie/sous-catégorie et du choix du secteur
 2. Les offres avec des plans privés sont publiées sur le portail Azure
 
+> [!NOTE]
+> Vous ne pouvez pas cumuler des plans de liste et des plans pouvant faire l’objet d’une transaction dans la même offre.
 
 ### <a name="industries"></a>Secteurs d’activité
 

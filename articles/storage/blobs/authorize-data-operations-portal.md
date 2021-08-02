@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 06/08/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: a12936f8f9f84dacfab4850253df665ae7758be1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d654a84b6e0e5cfb00c7b5d5dd5742649ec7a81
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102613242"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900770"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Choisir comment autoriser l’accès à des données de blobs dans le portail Azure
 
@@ -30,11 +30,12 @@ Selon la façon dont vous souhaitez autoriser l’accès aux données blob dans 
 
 ### <a name="use-the-account-access-key"></a>Utiliser la clé d'accès au compte
 
-Pour accéder aux données de blob avec la clé d’accès au compte, vous devez disposer d’un rôle Azure qui vous est attribué et qui inclut l’action Azure RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Ce rôle Azure peut être intégré ou il peut s’agir d’un rôle personnalisé. Les rôles intégrés qui prennent en charge **Microsoft.Storage/storageAccounts/listkeys/action** incluent :
+Pour accéder aux données de blob avec la clé d’accès au compte, vous devez disposer d’un rôle Azure qui vous est attribué et qui inclut l’action Azure RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Ce rôle Azure peut être intégré ou il peut s’agir d’un rôle personnalisé. Les rôles intégrés qui prennent en charge **Microsoft.Storage/storageAccounts/listkeys/action** incluent les suivants, dans l’ordre croissant des autorisations :
 
-- Le rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager
-- Le rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) d’Azure Resource Manager
+- Le rôle [Lecteur et accès aux données](../../role-based-access-control/built-in-roles.md#reader-and-data-access)
 - Le rôle [Contributeur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+- Le rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) d’Azure Resource Manager
+- Le rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager
 
 Lorsque vous tentez d’accéder aux données d’objet blob dans le Portail Microsoft Azure, le portail commence par vérifier si un rôle RBAC vous a été attribué avec **Microsoft.Storage/storageAccounts/listkeys/action**. Si un rôle avec cette action vous a été attribué, le portail utilise la clé de compte pour l’accès aux données d’objet blob. Si un rôle avec cette action ne vous a pas été attribué, le portail tente d’accéder aux données à l’aide de votre compte Azure AD.
 
@@ -48,20 +49,16 @@ Lorsque vous tentez d’accéder aux données d’objet blob dans le Portail Mic
 
 Pour accéder aux données d’objet blob à partir du Portail Microsoft Azure à l’aide de votre compte Azure AD, vous devez remplir ces deux conditions :
 
-- Le rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader) Azure Resource Manager vous a été attribué, au moins, limité au niveau du compte de stockage ou à un niveau supérieur. Le rôle **Lecteur** octroie les autorisations les plus restreintes, mais l’utilisation d’un autre rôle Azure Resource Manager accordant l’accès aux ressources de gestion de compte de stockage est également acceptable.
 - Un rôle intégré ou personnalisé qui fournit l’accès aux données d’objet blob vous a été attribué.
+- Le rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader) Azure Resource Manager vous a été attribué, au moins, limité au niveau du compte de stockage ou à un niveau supérieur. Le rôle **Lecteur** octroie les autorisations les plus restreintes, mais l’utilisation d’un autre rôle Azure Resource Manager accordant l’accès aux ressources de gestion de compte de stockage est également acceptable.
 
-L’attribution de rôle **Lecteur** ou l’attribution d’un autre rôle Azure Resource Manager est nécessaire pour que l’utilisateur puisse afficher et parcourir les ressources de gestion du compte de stockage dans le Portail Microsoft Azure. Les rôles Azure qui accordent l’accès aux données d’objet blob n’accordent pas d’accès aux ressources de gestion du compte de stockage. Pour accéder aux données d’objet blob dans le portail, l’utilisateur a besoin d’autorisations pour parcourir les ressources de compte de stockage. Pour plus d’informations sur cette exigence, consultez [Attribuer le rôle Lecteur pour accéder au portail](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
+Le rôle **Lecteur** est un rôle d’Azure Resource Manager qui permet aux utilisateurs d’afficher les ressources de compte de stockage, mais pas de les modifier. Il ne fournit pas d’autorisations en lecture pour les données dans Stockage Azure, mais uniquement pour les ressources de gestion de compte. Le rôle **Lecteur** est nécessaire pour que les utilisateurs puissent accéder aux conteneurs d’objets blob du portail Azure.
 
-Les rôles intégrés qui prennent en charge les accès à vos données d’objet blob sont les suivants :
-
-- [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) : Pour le contrôle d’accès dans Azure Data Lake Storage Gen2.
-- [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) : Autorisations en lecture/écriture/suppression pour les objets blob.
-- [Lecteur des données blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) : Autorisations en lecture seule pour les objets blob.
+Pour plus d’informations sur les rôles intégrés qui prennent en charge l’accès aux données d’objet blob, consultez [Rôles Azure pour les objets blob](assign-azure-role-data-access.md#azure-roles-for-blobs).
 
 Les rôles personnalisés peuvent prendre en charge différentes combinaisons des mêmes autorisations fournies par les rôles intégrés. Pour plus d’informations sur la création de rôles Azure personnalisés, consultez [Rôles personnalisés Azure](../../role-based-access-control/custom-roles.md) et [Présentation des définitions de rôles pour les ressources Azure](../../role-based-access-control/role-definitions.md).
 
-> [!IMPORTANT]
+> [!NOTE]
 > La préversion d’Explorateur Stockage dans le portail Azure ne prend pas en charge l’utilisation d’informations d’identification Azure AD pour visualiser et modifier des données blob. Explorateur Stockage dans le portail Azure utilise toujours les clés de compte pour accéder aux données. Pour utiliser Explorateur Stockage dans le portail Azure, un rôle qui comprend **Microsoft.Storage/storageAccounts/listkeys/action** doit vous être attribué.
 
 ## <a name="navigate-to-blobs-in-the-azure-portal"></a>Accédez aux objets blob dans le Portail Azure
@@ -114,6 +111,4 @@ Pour spécifier comment autoriser une opération de chargement d'objets blob, pr
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Authentifier l’accès aux objets blob et aux files d’attente Azure à l’aide d’Azure Active Directory](../common/storage-auth-aad.md)
-- [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../common/storage-auth-aad-rbac-portal.md)
-- [Utiliser Azure CLI afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../common/storage-auth-aad-rbac-cli.md)
-- [Utiliser le module Azure PowerShell afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../common/storage-auth-aad-rbac-powershell.md)
+- [Attribuer un rôle Azure pour l’accès aux données d’objet blob](assign-azure-role-data-access.md)

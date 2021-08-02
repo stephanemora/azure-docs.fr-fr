@@ -2,13 +2,14 @@
 title: Prise en charge du niveau Archive (préversion)
 description: En savoir plus sur la prise en charge du niveau Archive pour le service Sauvegarde Azure
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 7a42b8702cfdda14a18aa3cdd4e084ed78767b0a
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.date: 06/03/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c817e5e0fbed7ebe6c659a91e180820de3fdc677
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012146"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410096"
 ---
 # <a name="archive-tier-support-preview"></a>Prise en charge du niveau Archive (préversion)
 
@@ -77,19 +78,29 @@ Clients pris en charge :
 
         `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<dbName>' -and $_.ContainerName -match '<vmName>'}`
 
+1. Ajoutez la plage de dates pour laquelle vous souhaitez afficher les points de récupération. Par exemple, si vous voulez afficher les points de récupération correspondant à la plage de dates allant du 124e au 95e derniers jours, utilisez la commande suivante :
+
+   ```azurepowershell
+    $startDate = (Get-Date).AddDays(-124)
+    $endDate = (Get-Date).AddDays(-95) 
+
+    ```
+    >[!NOTE]
+    >L’intervalle entre la date de début et la date de fin ne doit pas être supérieur à 30 jours.<br><br>Si vous voulez afficher les points de récupération pour un autre intervalle de temps, modifiez les dates de début et de fin en conséquence.
 ## <a name="use-powershell"></a>Utiliser PowerShell
 
 ### <a name="check-archivable-recovery-points"></a>Vérifier les points de récupération archivables
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm  -IsReadyForMove $true -TargetTier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $true -TargetTier VaultArchive
 ```
 
-Cette commande a pour effet de répertorier tous les points de récupération associés à un élément de sauvegarde spécifique, qui sont prêts à être déplacés vers une archive.
+Cela a pour effet de répertorier tous les points de récupération associés à un élément de sauvegarde spécifique, qui sont prêts à être déplacés vers une archive (de la date de début à la date de fin). Vous pouvez également modifier les dates de début et de fin.
 
 ### <a name="check-why-a-recovery-point-cannot-be-moved-to-archive"></a>Vérifier pourquoi un point de récupération ne peut pas être déplacé vers une archive
 
 ```azurepowershell
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $false -TargetTier VaultArchive
 $rp[0].RecoveryPointMoveReadinessInfo["ArchivedRP"]
 ```
 
@@ -119,8 +130,10 @@ $RecommendedRecoveryPointList = Get-AzRecoveryServicesBackupRecommendedArchivabl
 ### <a name="move-to-archive"></a>Déplacer une archive
 
 ```azurepowershell
-Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[2] -SourceTier VaultStandard -DestinationTier VaultArchive
+Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[0] -SourceTier VaultStandard -DestinationTier VaultArchive
 ```
+
+Où `$rp[0]` est le premier point de récupération dans la liste. Si vous souhaitez déplacer d’autres points de récupération, utilisez les commandes `$rp[1]`, `$rp[2]`, et ainsi de suite.
 
 Cette commande déplace un point de récupération archivable vers UNE archive. Elle retourne un travail utilisable pour effectuer le suivi de l’opération de déplacement tant à partir du portail qu’avec PowerShell.
 
@@ -129,7 +142,7 @@ Cette commande déplace un point de récupération archivable vers UNE archive. 
 Cette commande retourne tous les points de récupération archivés.
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
 ```
 
 ### <a name="restore-with-powershell"></a>Restaurer avec PowerShell
@@ -149,7 +162,7 @@ Pour plus d’informations sur les différentes méthodes de restauration pour l
 Restore-AzRecoveryServicesBackupItem -VaultLocation $vault.Location -RehydratePriority "Standard" -RehydrateDuration 15 -RecoveryPoint $rp -StorageAccountName "SampleSA" -StorageAccountResourceGroupName "SArgName" -TargetResourceGroupName $vault.ResourceGroupName -VaultId $vault.ID
 ```
 
-Pour restaurer SQL Server, procédez [comme suit](backup-azure-sql-automation.md#restore-sql-dbs). Les paramètres supplémentaires requis sont **RehydrationPriority** et **RehydrationDuration**.
+Pour restaurer SQL Server, procédez [comme suit](backup-azure-sql-automation.md#restore-sql-dbs). La `Restore-AzRecoveryServicesBackupItem` commande requiert deux paramètres supplémentaires, **RehydrationDuration** et **RehydrationPriority**.
 
 ### <a name="view-jobs-from-powershell"></a>Afficher les travaux à partir de PowerShell
 
@@ -291,6 +304,12 @@ Il existe plusieurs codes d’erreur qui apparaissent quand un point de récupé
 ### <a name="what-will-happen-to-archive-recovery-points-if-i-stop-protection-and-retain-data"></a>Que se passe-t-il pour les points de récupération d’archive si j’arrête la protection et conserve les données ?
 
 Le point de récupération reste dans l’archive définitivement. Pour plus d’informations, consultez [Impact de l’arrêt de la protection sur les points de récupération](manage-recovery-points.md#impact-of-stop-protection-on-recovery-points).
+
+### <a name="is-cross-region-restore-supported-from-archive-tier"></a>La restauration entre régions est-elle prise en charge à partir du niveau archive ?
+
+Lorsque vous déplacez vos données dans des coffres GRS du niveau standard au niveau archive, les données sont déplacées dans l’archive GRS. Cela est vrai même lorsque la restauration entre régions est activée. Une fois les données de sauvegarde déplacées dans le niveau archive, vous ne pouvez pas restaurer les données dans la région jumelée. Toutefois, en cas de défaillance régionale, les données de sauvegarde dans la région secondaire deviennent disponibles pour restauration. 
+
+Lors de la restauration d’un point de récupération de niveau archive dans la région primaire, le point de récupération est copié vers le niveau standard et conservé conformément à la durée de réhydratation, tant dans la région primaire que dans la région secondaire. Vous pouvez effectuer une restauration entre régions à partir de ces points de récupération réhydratés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

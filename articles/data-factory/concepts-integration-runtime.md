@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 455a9b2061dcf92297c99e9d8fa8cee677ca3891
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 27bd310b48be2c20c5014ba9e2f93a98751baae0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483134"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110086479"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory 
 
@@ -171,6 +171,8 @@ Le schéma suivant représente les paramètres d’emplacement de Data Factory e
 ![Emplacement du runtime d’intégration](media/concepts-integration-runtime/integration-runtime-location.png)
 
 ## <a name="determining-which-ir-to-use"></a>Choix du runtime d’intégration
+Si une activité Data Factory est associée à plusieurs types de runtime d’intégration, elle est résolue en l’une d’entre elles. Le runtime d’intégration auto-hébergé est prioritaire sur le runtime d’intégration Azure dans un réseau virtuel Azure Data Factory managé. Et ce dernier est prioritaire sur le runtime d’intégration Azure public.
+Par exemple, une activité de copie est utilisée pour copier des données de la source vers le récepteur. Le runtime d’intégration Azure public est associé au service lié à la source, et un runtime d’intégration Azure dans le réseau virtuel Azure Data Factory managé est associé au service lié au récepteur. Ainsi, la source et le service lié du récepteur utilisent le runtime d’intégration Azure dans le réseau virtuel Azure Data Factory managé. Mais si un runtime d’intégration auto-hébergé associe le service lié à la source, la source et le service lié du récepteur utilisent le runtime d’intégration auto-hébergé.
 
 ### <a name="copy-activity"></a>Activité de copie
 

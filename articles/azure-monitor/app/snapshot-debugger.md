@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: 57a417948d23d40801eb34cf10aab1e6f17037e6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c377f6b1ff84f04506badf581dc7c12d64e68e0d
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644074"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839380"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée d’[Azure Application Insights](./app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](./asp-net-exceptions.md) dans le portail Application Insights.
@@ -61,7 +61,7 @@ Les propriétaires d’abonnement doivent attribuer le rôle `Application Insigh
 
 
 > [!IMPORTANT]
-> Les captures instantanées des valeurs de variables et de paramètres peuvent contenir des informations personnelles ou sensibles.
+> Veuillez noter que les instantanés peuvent contenir des données personnelles ou d’autres informations sensibles dans les valeurs des variables et des paramètres. Les données des instantanés sont stockées dans la même région que votre ressource App Insights.
 
 ## <a name="view-snapshots-in-the-portal"></a>Afficher les instantanés dans le portail
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2cae673dd319e55670357ae468d21ff63e4f9c72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: fasttrack-edit, devx-track-azurepowershell
+ms.openlocfilehash: 6aab2d1d681cbfd55cc275b1f647562d54a08f0c
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104669438"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110791328"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurer des journaux de flux NSG avec un modèle Azure Resource Manager
 
@@ -77,7 +77,7 @@ Pour créer une ressource Microsoft.Network/networkWatchers/flowLogs, ajoutez le
 
 Si vous utilisez des modèles Azure Resource Manager pour la première fois, vous pouvez en savoir plus à leur sujet à l’aide des liens ci-dessous.
 
-* [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
+* [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
 * [Tutoriel : Créer et déployer votre premier modèle Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
 

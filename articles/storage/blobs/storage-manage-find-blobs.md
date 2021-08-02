@@ -1,20 +1,20 @@
 ---
 title: Gérer et rechercher des données Azure Blob à l’aide de balises d’index de blob (préversion)
 description: Découvrez comment utiliser des balises d’index de blobs pour catégoriser, gérer et interroger afin de découvrir des objets blob.
-author: twooley
-ms.author: twooley
-ms.date: 03/18/2021
+author: normesta
+ms.author: normesta
+ms.date: 05/17/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.custom: references_regions
-ms.openlocfilehash: 85aad5435add7ca32de4cf6fcb91944431ab5506
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: bd1738c0a5d63ad9eacaa1500a6ce10268a93b04
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685168"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110664876"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gérer et rechercher des données Azure Blob à l’aide de balises d’index de blob (préversion)
 
@@ -286,7 +286,7 @@ Les tarifs d’index de blob sont en préversion publique et sujets à modificat
 
 ## <a name="regional-availability-and-storage-account-support"></a>Disponibilité régionale et prise en charge des comptes de stockage
 
-Les balises d’index de blob sont disponibles uniquement sur les comptes Usage général v2 (GPv2) sur lesquels l’espace de noms hiérarchique est désactivé. Les comptes Usage général v1 (GPv1) ne sont pas pris en charge, mais vous pouvez mettre à niveau n’importe quel compte GPv1 pour le transformer en compte GPv2.
+Les balises d’index de blob sont disponibles uniquement sur des comptes v2 universels sur lesquels l’espace de noms hiérarchique est désactivé. Les comptes v1 universels ne sont pas pris en charge mais vous pouvez les mettre à niveau vers des comptes v2 universels.
 
 Les balises d’index ne sont pas prises en charge sur les comptes de stockage Premium. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
 
@@ -320,7 +320,7 @@ az provider register --namespace 'Microsoft.Storage'
 Cette section décrit les problèmes connus et les conditions de la préversion publique des balises d’index de blob. Cette fonctionnalité ne doit pas être utilisée pour les charges de travail de production avant d’avoir atteint la disponibilité générale (GA), car le comportement peut changer.
 
 - Pour la préversion, vous devez d’abord inscrire votre abonnement avant de pouvoir utiliser l’index d’objet blob pour votre compte de stockage dans les régions en préversion.
-- Seuls les comptes GPv2 sont pris en charge dans la préversion. Les comptes de blob, BlockBlobStorage et DataLake Gen2 avec HNS activé ne sont pas pris en charge. Les comptes GPv1 ne seront pas pris en charge.
+- Seuls les comptes v2 universels sont pris en charge dans la préversion. Les objets blob de blocs Premium, les objets blob hérités et les comptes avec un espace de noms hiérarchique activé ne sont pas pris en charge. Les comptes v1 universels ne sont pas pris en charge.
 - Le chargement d’objets blob de pages avec des balises d’index ne conserve pas les balises. Définissez les balises après le chargement d’un objet blob de pages.
 - Lorsque le filtrage est limité à un conteneur individuel, il est possible de passer `@container` seulement si toutes les étiquettes d’index dans l’expression de filtre sont des contrôles d’égalité (clé=valeur).
 - Lorsque vous utilisez l’opérateur de comparaison avec la condition `AND`, vous pouvez uniquement spécifier le même nom de clé de balise d’index (`"Age" > '013' AND "Age" < '100'`).

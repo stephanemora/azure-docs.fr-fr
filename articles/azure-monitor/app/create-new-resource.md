@@ -4,12 +4,12 @@ description: Configurez manuellement la surveillance d’Application Insights po
 ms.topic: conceptual
 ms.date: 02/10/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 7e4c4b0ba4dca9b51f120e6092c13195a061aa87
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 37f090f44099dc45d6c258e10b09d164277fcb47
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754530"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077173"
 ---
 # <a name="create-an-application-insights-resource"></a>Création d’une ressource Application Insights dans Azure
 
@@ -50,7 +50,7 @@ Une fois votre application créée, un nouveau volet s’ouvre. Dans ce volet, v
 La clé d’instrumentation identifie la ressource à laquelle vous souhaitez associer vos données de télémétrie. Vous devez copier la clé d’instrumentation et l’ajouter au code de votre application.
 
 > [!IMPORTANT]
-> Les nouvelles régions Azure **exigent** l’utilisation de chaînes de connexion au lieu de clés d’instrumentation. Une [chaîne de connexion](./sdk-connection-string.md?tabs=net) identifie la ressource à laquelle vous souhaitez associer vos données de télémétrie. Elle vous permet également de modifier les points de terminaison que votre ressource utilisera comme destination pour votre télémétrie. Vous devrez copier la chaîne de connexion et l’ajouter au code de votre application ou à une variable d’environnement.
+> Les [chaînes de connexion](./sdk-connection-string.md) sont recommandées par rapport aux clés d’instrumentation. Les nouvelles régions Azure **exigent** l’utilisation de chaînes de connexion au lieu de clés d’instrumentation. Une chaîne de connexion identifie la ressource à laquelle vous souhaitez associer vos données de télémétrie. Elle vous permet également de modifier les points de terminaison que votre ressource utilisera comme destination pour votre télémétrie. Vous devrez copier la chaîne de connexion et l’ajouter au code de votre application ou à une variable d’environnement.
 
 ## <a name="install-the-sdk-in-your-app"></a>Installation du Kit SDK dans votre application
 
